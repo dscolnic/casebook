@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd runner for the Casebook batch driver — survives terminal close and
+  laptop sleep (unlike nohup). It re-launches the driver every 30 min; the driver
+  is idempotent, so each run just resumes unfinished games and exits when done.
+
+  INSTALL
+    1) put your key where launchd can read it (edit the ANTHROPIC_API_KEY below,
+       or better: load it from a file your driver reads).
+    2) cp com.casebook.batch.plist ~/Library/LaunchAgents/
+    3) launchctl load ~/Library/LaunchAgents/com.casebook.batch.plist
+  WATCH
+    tail -f /Users/scolnic/code/Nuclear/casebook_build/batch/batch.log
+  STOP
+    launchctl unload ~/Library/LaunchAgents/com.casebook.batch.plist
+
+  Adjust the two /usr/bin paths if `which node` / `which python3` differ.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.casebook.batch</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/scolnic/code/Nuclear/casebook_build/batch/batch_driver.py</string>
+    <string>--once</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>ANTHROPIC_API_KEY</key>
+    <string>REPLACE_WITH_YOUR_KEY</string>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/scolnic/code/Nuclear/casebook_build/batch</string>
+
+  <key>StartInterval</key>
+  <integer>1800</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/scolnic/code/Nuclear/casebook_build/batch/launchd.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/scolnic/code/Nuclear/casebook_build/batch/launchd.err</string>
+</dict>
+</plist>

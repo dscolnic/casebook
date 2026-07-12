@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Casebook — design directions (rev. 3, modern minimalist)</title>
+<style>
+  *{box-sizing:border-box; margin:0}
+  body{background:#f4f4f0; color:#121212; font:16px/1.6 -apple-system,"Helvetica Neue",Arial,sans-serif}
+  button{font:inherit; cursor:pointer}
+  .intro{max-width:800px; margin:36px auto 8px; padding:0 22px}
+  .intro h1{font-size:26px; margin-bottom:8px; letter-spacing:-.3px}
+  .intro p{color:#3d3d38; margin-bottom:6px; max-width:640px}
+  .dir{padding:44px 22px 64px}
+  .dir-inner{max-width:880px; margin:0 auto}
+  .dir-note{max-width:880px; margin:0 auto 30px; padding:14px 18px; background:#fff; border:1px solid #dcdcd4; border-left:5px solid #121212; font-size:15px; line-height:1.55; color:#26261f}
+  .dir-note b{font-size:16px}
+
+  /* ============================================================
+     DIRECTION D — THE GAMES PAGE
+     NYT-Games-style: white space, slab-serif game titles (Rockwell
+     ≈ Karnak), one identity color per case, flat Connections-style
+     tiles, verdict banners, chip-based suspect tracker.
+     ============================================================ */
+  .D{background:#ffffff; border-top:1px solid #dcdcd4; border-bottom:1px solid #dcdcd4}
+  .D .head{text-align:center; margin-bottom:34px}
+  .D .head h2{font-family:Rockwell,"Avenir Next",Georgia,serif; font-weight:700; font-size:40px; letter-spacing:-.5px}
+  .D .head p{color:#5a5a52; font-size:16px; margin-top:4px}
+  .D .menu{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-bottom:40px}
+  .D .gcard{display:flex; align-items:flex-start; gap:14px; text-align:left; background:#fff; border:1px solid #dcdcd4; border-radius:10px; padding:18px; transition:border-color .12s}
+  .D .gcard:hover{border-color:#121212}
+  .D .gcard:focus-visible{outline:3px solid #121212; outline-offset:2px}
+  .D .icon{width:46px; height:46px; border-radius:10px; flex:none; display:grid; place-items:center}
+  .D .icon span{display:block; background:#fff}
+  .D .i-blue{background:#3B6FD4}   .D .i-blue span{width:22px; height:22px; clip-path:polygon(0 100%, 50% 0, 100% 100%)}
+  .D .i-plum{background:#8E4B9E}   .D .i-plum span{width:22px; height:22px; border-radius:50%}
+  .D .i-green{background:#4E8A43}  .D .i-green span{width:22px; height:10px; border-radius:5px}
+  .D .gcard h3{font-family:Rockwell,"Avenir Next",Georgia,serif; font-size:19px; font-weight:700; line-height:1.2; margin-bottom:3px}
+  .D .gcard .sub{font-size:13.5px; color:#5a5a52; line-height:1.45}
+  .D .gcard .meta{font-size:12.5px; color:#5a5a52; margin-top:8px}
+  .D .gcard .meta b{color:#121212; font-weight:600}
+
+  .D .playrow{display:grid; grid-template-columns:1fr 300px; gap:34px; align-items:start}
+  @media(max-width:800px){.D .playrow{grid-template-columns:1fr}}
+  .D .qhead{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px}
+  .D .qhead .steps{display:flex; gap:6px}
+  .D .qhead .dot{width:10px; height:10px; border-radius:50%; background:#dcdcd4}
+  .D .qhead .dot.done{background:#121212}
+  .D .daypill{background:#121212; color:#fff; border-radius:999px; font-size:13px; font-weight:600; padding:6px 14px}
+  .D .frame{font-size:15.5px; color:#26261f; background:#f7f7f2; border-radius:10px; padding:12px 16px; margin-bottom:18px}
+  .D .frame b{display:block; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#5a5a52; margin-bottom:3px}
+  .D .q{font-family:Rockwell,"Avenir Next",Georgia,serif; font-size:22px; font-weight:700; line-height:1.3; margin-bottom:16px; letter-spacing:-.2px}
+  .D .opt{display:block; width:100%; text-align:left; background:#efefe6; border:2px solid #efefe6; border-radius:10px; color:#121212; font-size:15.5px; line-height:1.45; padding:13px 16px; margin-bottom:10px; min-height:48px; transition:background .12s,border-color .12s}
+  .D .opt:hover{border-color:#121212}
+  .D .opt:focus-visible{outline:3px solid #121212; outline-offset:2px}
+  .D .opt.chosen{background:#2E2D28; border-color:#2E2D28; color:#fff}
+  .D .banner{border-radius:10px; padding:13px 16px; font-size:15px; margin-top:16px}
+  .D .banner b{display:block; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px}
+  .D .banner.expert{background:#D7ECD2; color:#14532D}
+  .D .banner.partial{background:#FAF0C8; color:#6B5209}
+  .D .banner.danger{background:#F6DCDC; color:#7F1D1D}
+  .D .next{display:inline-block; margin-top:16px; background:#121212; color:#fff; border:none; border-radius:999px; padding:12px 26px; font-size:15px; font-weight:600}
+  .D .next:hover{background:#3d3d38}
+  .D .next:focus-visible{outline:3px solid #121212; outline-offset:3px}
+
+  .D .tracker{border:1px solid #dcdcd4; border-radius:12px; padding:16px 16px 12px}
+  .D .tracker h4{font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#5a5a52; margin-bottom:10px; font-weight:600}
+  .D .chip{display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:#fff; border:1.5px solid #dcdcd4; border-radius:999px; padding:9px 16px; margin-bottom:8px; font-size:14.5px; min-height:44px}
+  .D .chip:hover{border-color:#121212}
+  .D .chip:focus-visible{outline:3px solid #121212; outline-offset:2px}
+  .D .chip .st{font-weight:700; color:#5a5a52}
+  .D .chip.x{color:#5a5a52; text-decoration:line-through; background:#f2f2ec}
+  .D .chip.x .st{color:#B3261E; text-decoration:none}
+  .D .chip.hot{border-color:#3B6FD4; border-width:2px}
+  .D .chip.hot .st{color:#3B6FD4}
+  .D .tracker .note{font-size:12.5px; color:#5a5a52; margin:6px 2px 4px; line-height:1.5}
+
+  /* ============================================================
+     DIRECTION E — THE EDITORIAL
+     NYT-article-style: serif headlines, hairline rules, small-caps
+     bylines, one link blue. The case reads as journalism; the quiz
+     reads like a news-quiz feature.
+     ============================================================ */
+  .E{background:#ffffff}
+  .E .sheet{max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:40px; align-items:start}
+  @media(max-width:840px){.E .sheet{grid-template-columns:1fr}}
+  .E .maincol{max-width:640px}
+
+  /* right rail — the investigator's notepad, editorial style */
+  .E .rail{border-left:1px solid #dcdcd4; padding-left:22px; position:sticky; top:16px}
+  @media(max-width:840px){.E .rail{border-left:none; padding-left:0; position:static}}
+  .E .rail .agent{border-bottom:1px solid #121212; padding-bottom:10px; margin-bottom:14px}
+  .E .rail .agent .nm{font-family:Georgia,serif; font-size:17px; font-weight:700}
+  .E .rail .agent .rl{font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#5a5a52; margin-top:2px}
+  .E .rail .clock{display:flex; align-items:baseline; gap:8px; margin-bottom:16px}
+  .E .rail .clock .n{font-family:Georgia,serif; font-size:30px; font-weight:700}
+  .E .rail .clock .l{font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#5a5a52}
+  .E .rail h5{font-size:11.5px; letter-spacing:2px; text-transform:uppercase; color:#5a5a52; font-weight:700; margin:16px 0 6px; display:flex; justify-content:space-between}
+  .E .rail h5 .cnt{color:#326891}
+  .E .trow{display:flex; align-items:center; gap:8px; width:100%; text-align:left; background:none; border:none; border-top:1px solid #ececdf; padding:9px 2px; font-size:14px; color:#121212; min-height:42px}
+  .E .trow:hover{background:#f7f7f2}
+  .E .trow:focus-visible{outline:3px solid #326891; outline-offset:-3px}
+  .E .trow .lbl{flex:1; line-height:1.3}
+  .E .trow.x .lbl{text-decoration:line-through; color:#5a5a52}
+  .E .trow .st{font-weight:700; width:14px; flex:none; color:#5a5a52}
+  .E .trow.x .st{color:#B3261E}
+  .E .trow.cue .st{color:#326891}
+  .E .trow.cue{box-shadow:inset 3px 0 0 #326891}
+  .E .marks{display:flex; gap:3px; flex:none}
+  .E .mk{width:17px; height:17px; border:1px solid #c9c9c0; font:700 10px/15px -apple-system,"Helvetica Neue",Arial,sans-serif; text-align:center; color:#5a5a52; background:#fff}
+  .E .mk.has{background:#D7ECD2; border-color:#4E8A43; color:#14532D}
+  .E .mk.uns{background:#FAF0C8; border-color:#a3821a; color:#6B5209}
+  .E .mk.lax{background:#F6DCDC; border-color:#B3261E; color:#7F1D1D}
+  .E .mk.off{opacity:.35}
+  .E .rail .btn{display:block; width:100%; text-align:center; border:1px solid #121212; background:#fff; color:#121212; font-size:14px; font-weight:600; padding:11px 10px; margin-top:10px; min-height:44px}
+  .E .rail .btn:hover{background:#f7f7f2}
+  .E .rail .btn:focus-visible{outline:3px solid #326891; outline-offset:2px}
+  .E .rail .btn.primary{background:#121212; color:#fff}
+  .E .rail .btn.primary:hover{background:#3d3d38}
+  .E .rail .legend{font-size:12px; color:#5a5a52; line-height:1.6; margin-top:12px}
+  .E .mast{text-align:center; border-bottom:1px solid #121212; padding-bottom:14px; margin-bottom:26px}
+  .E .mast .sect{font-size:12px; letter-spacing:3px; text-transform:uppercase; color:#5a5a52; margin-bottom:6px}
+  .E .mast h2{font-family:Georgia,"Times New Roman",serif; font-size:34px; font-weight:700; letter-spacing:-.3px}
+  .E .kicker{font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#326891; font-weight:700; margin-bottom:10px}
+  .E .hl{display:block; width:100%; text-align:left; background:none; border:none; font-family:Georgia,serif; font-size:31px; line-height:1.15; font-weight:700; color:#121212; padding:0; margin-bottom:10px; letter-spacing:-.3px}
+  .E .hl:hover{text-decoration:underline; text-decoration-thickness:2px}
+  .E .hl:focus-visible{outline:3px solid #326891; outline-offset:4px}
+  .E .deck{font-family:Georgia,serif; font-size:18px; line-height:1.5; color:#3d3d38; margin-bottom:10px}
+  .E .byline{font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#5a5a52; margin-bottom:18px}
+  .E .body{font-family:Georgia,serif; font-size:17px; line-height:1.7; color:#121212}
+  .E .body p{margin-bottom:14px}
+  .E .meta-strip{display:flex; gap:22px; border-top:1px solid #dcdcd4; border-bottom:1px solid #dcdcd4; padding:10px 0; margin:20px 0 26px; font-size:13px; color:#3d3d38}
+  .E .meta-strip b{color:#121212}
+  .E .quiz{border-top:4px solid #121212; padding-top:16px; margin-top:8px}
+  .E .quiz .qk{font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:#5a5a52; font-weight:700; margin-bottom:10px}
+  .E .quiz .frame{font-family:Georgia,serif; font-size:16px; color:#3d3d38; margin-bottom:14px}
+  .E .quiz .q{font-family:Georgia,serif; font-size:21px; font-weight:700; line-height:1.35; margin-bottom:16px}
+  .E .opt{display:flex; align-items:flex-start; gap:12px; width:100%; text-align:left; background:none; border:none; border-top:1px solid #dcdcd4; color:#121212; font-size:15.5px; line-height:1.5; padding:12px 4px; min-height:48px}
+  .E .opt:last-of-type{border-bottom:1px solid #dcdcd4}
+  .E .opt:hover{background:#f7f7f2}
+  .E .opt:focus-visible{outline:3px solid #326891; outline-offset:-3px}
+  .E .opt .radio{width:20px; height:20px; border-radius:50%; border:2px solid #5a5a52; flex:none; margin-top:2px; display:grid; place-items:center}
+  .E .opt.chosen .radio{border-color:#121212}
+  .E .opt.chosen .radio::after{content:""; width:10px; height:10px; border-radius:50%; background:#121212}
+  .E .result{margin-top:16px; padding:14px 16px; background:#f7f7f2; border-left:4px solid #4E8A43; font-size:15px}
+  .E .result b{display:block; color:#14532D; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px}
+  .E .evidence{margin-top:26px; font-size:14.5px; border:1px solid #dcdcd4; padding:12px 16px}
+  .E .evidence b{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#326891}
+  .E .evidence .item{margin-top:6px}
+  .E .evidence .item s{color:#5a5a52}
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>Casebook — design directions, rev. 3</h1>
+  <p>Modern and minimalist this time, in the NYT Games family: white space, flat color, strong type hierarchy, no skeuomorphism. Same accessibility bar as before — every color pair verified ≥ WCAG AA (most AAA), 44px+ targets, visible focus rings (tab through to test), no state conveyed by color alone.</p>
+  <p>Fonts are system-installed (Rockwell ≈ NYT's Karnak slab; Georgia for editorial serif) — still a single offline file.</p>
+</div>
+
+<!-- ================= DIRECTION D ================= -->
+<div class="dir D">
+  <div class="dir-note"><b>D — The Games Page.</b> Casebook as a modern puzzle brand: the shelf is a games menu where each case gets one identity color and a simple geometric mark; questions are Connections-style flat tiles; verdicts are quiet colored banners; your suspect list is a rail of chips you eliminate. Feels like Wordle/Connections — friendly, fast, zero clutter.</div>
+  <div class="dir-inner">
+    <div class="head">
+      <h2>Casebook</h2>
+      <p>Ten cases. Three answers each. Don’t take the bait.</p>
+    </div>
+
+    <div class="menu">
+      <button class="gcard">
+        <div class="icon i-blue"><span></span></div>
+        <div><h3>The Fall of Ardent 9</h3>
+          <div class="sub">A clean-sheet airliner falls out of a cloudless sky. The cameras want a bomb.</div>
+          <div class="meta"><b>Aerospace</b> · 8 days</div></div>
+      </button>
+      <button class="gcard">
+        <div class="icon i-plum"><span></span></div>
+        <div><h3>The Vasca Signal</h3>
+          <div class="sub">A repeating signal from deep space — or from somewhere much closer?</div>
+          <div class="meta"><b>Astronomy</b> · 8 days</div></div>
+      </button>
+      <button class="gcard">
+        <div class="icon i-green"><span></span></div>
+        <div><h3>The Meridian Fever</h3>
+          <div class="sub">A city insists nothing is spreading. The hospital ledger disagrees.</div>
+          <div class="meta"><b>Epidemiology</b> · 8 days</div></div>
+      </button>
+    </div>
+
+    <div class="playrow">
+      <div>
+        <div class="qhead">
+          <div class="steps" aria-label="question 1 of 3"><span class="dot done"></span><span class="dot"></span><span class="dot"></span></div>
+          <span class="daypill">Day 3 of 8</span>
+        </div>
+        <div class="frame"><b>Controller Diaz</b>“They’ll tell you a wing that stops flying is a mystery. It isn’t. Show me you know what actually holds a plane up.”</div>
+        <div class="q">What did Prandtl’s boundary-layer idea establish?</div>
+        <button class="opt chosen">Fluid friction acts mainly in a thin layer at the surface, with near-frictionless flow beyond.</button>
+        <button class="opt">Air is truly frictionless everywhere, so the drag on a wing is essentially an illusion.</button>
+        <button class="opt">Friction fills the whole airflow evenly, making any thin-layer analysis impossible to use.</button>
+        <button class="opt">Drag depends only on a body’s shape, with the surrounding air playing no real part.</button>
+        <div class="banner expert"><b>✓ Expert</b>That thin layer is exactly Prandtl’s insight, and it made drag calculable.</div>
+        <button class="next">Continue</button>
+      </div>
+      <div class="tracker">
+        <h4>Who is behind it · 2 left</h4>
+        <button class="chip x"><span class="st">✗</span>The flight crew</button>
+        <button class="chip hot"><span class="st">!</span>Vaughn — program manager</button>
+        <button class="chip"><span class="st">○</span>Airline maintenance chief</button>
+        <div class="note">A new clue marks a chip with <b>!</b> — tap to eliminate it yourself.</div>
+        <h4 style="margin-top:16px">What is happening · 3 left</h4>
+        <button class="chip"><span class="st">○</span>A bomb or sabotage</button>
+        <button class="chip"><span class="st">○</span>Simple pilot error</button>
+        <button class="chip"><span class="st">○</span>A concealed design flaw</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= DIRECTION E ================= -->
+<div class="dir E">
+  <div class="dir-note"><b>E — The Editorial.</b> The same minimalism, but with a journalistic voice instead of a puzzle-brand voice: serif headlines, hairline rules, small-caps bylines, one restrained blue. Cases read like investigative features; the quiz reads like a news-quiz column; dossier profiles become clean mini-articles (they already read like them). More gravitas, less playfulness than D.</div>
+  <div class="sheet">
+    <div class="maincol">
+    <div class="mast">
+      <div class="sect">The Bureau of Inquiry · Case 4 of 10</div>
+      <h2>Casebook</h2>
+    </div>
+    <div class="kicker">Aerospace · Unsolved</div>
+    <button class="hl">Airliner Falls From a Cloudless Sky</button>
+    <div class="deck">Bomb, blunder — or something the maker already knew? You have eight days to file the correct story.</div>
+    <div class="byline">By Investigator Sam Okoye</div>
+    <div class="body">
+      <p>The Ardent 9 was the newest thing in the sky — a clean-sheet airliner filling order books faster than the factory could build it. Then one fell out of level flight into a field, and the questions began before the smoke cleared.</p>
+      <p>Three people inside will talk, each carrying a piece and none the whole. The wire services have already chosen their word: bomb. The evidence, so far, declines to agree.</p>
+    </div>
+    <div class="meta-strip"><span><b>8</b> days</span><span><b>3</b> informants</span><span><b>1</b> accusation</span><span><b>2/6</b> clues found</span></div>
+
+    <div class="quiz">
+      <div class="qk">The Examination · Dossier № 3 — Ludwig Prandtl</div>
+      <div class="frame">Controller Diaz: “Show me you know what actually holds a plane up.”</div>
+      <div class="q">What did Prandtl’s boundary-layer idea establish?</div>
+      <button class="opt chosen"><span class="radio"></span><span>Fluid friction acts mainly in a thin layer at the surface, with near-frictionless flow beyond.</span></button>
+      <button class="opt"><span class="radio"></span><span>Air is truly frictionless everywhere, so the drag on a wing is essentially an illusion.</span></button>
+      <button class="opt"><span class="radio"></span><span>Friction fills the whole airflow evenly, making any thin-layer analysis impossible to use.</span></button>
+      <button class="opt"><span class="radio"></span><span>Drag depends only on a body’s shape, with the surrounding air playing no real part.</span></button>
+      <div class="result"><b>✓ Expert</b>That thin layer is exactly Prandtl’s insight, and it made drag calculable.</div>
+    </div>
+
+    <div class="evidence">
+      <b>Evidence register</b>
+      <div class="item"><s>The flight crew</s> — ruled out, per Controller Diaz</div>
+      <div class="item">Vaughn — program manager · <i>new clue, tap to eliminate</i></div>
+    </div>
+    </div><!-- /maincol -->
+
+    <aside class="rail" aria-label="Investigator's notepad">
+      <div class="agent">
+        <div class="nm">Sam Okoye</div>
+        <div class="rl">Investigator’s Notepad</div>
+      </div>
+      <div class="clock"><span class="n">5</span><span class="l">days remaining</span></div>
+
+      <h5>Who is behind it <span class="cnt">2 left</span></h5>
+      <button class="trow x"><span class="st">✗</span><span class="lbl">The flight crew</span>
+        <span class="marks"><span class="mk has">D</span><span class="mk off">R</span><span class="mk off">W</span></span></button>
+      <button class="trow cue"><span class="st">!</span><span class="lbl">Vaughn — program manager</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk uns">R</span><span class="mk off">W</span></span></button>
+      <button class="trow"><span class="st">○</span><span class="lbl">Maintenance chief</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk off">R</span><span class="mk lax">W</span></span></button>
+
+      <h5>Where it culminates <span class="cnt">3 left</span></h5>
+      <button class="trow"><span class="st">○</span><span class="lbl">Wreckage &amp; recorders</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk off">R</span><span class="mk off">W</span></span></button>
+      <button class="trow"><span class="st">○</span><span class="lbl">Maintenance hangar</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk off">R</span><span class="mk off">W</span></span></button>
+      <button class="trow"><span class="st">○</span><span class="lbl">Design bay</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk off">R</span><span class="mk off">W</span></span></button>
+
+      <h5>What is happening <span class="cnt">3 left</span></h5>
+      <button class="trow"><span class="st">○</span><span class="lbl">A bomb or sabotage</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk off">R</span><span class="mk off">W</span></span></button>
+      <button class="trow"><span class="st">○</span><span class="lbl">Simple pilot error</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk off">R</span><span class="mk off">W</span></span></button>
+      <button class="trow"><span class="st">○</span><span class="lbl">A concealed design flaw</span>
+        <span class="marks"><span class="mk off">D</span><span class="mk off">R</span><span class="mk off">W</span></span></button>
+
+      <div class="legend">A <b>!</b> row holds a fresh clue — tap it to cross it off. The small squares are your informants (<b>D</b>iaz, <b>R</b>ao, <b>W</b>histleblower): <span class="mk has" style="display:inline-block">✓</span> told you · <span class="mk uns" style="display:inline-block">?</span> unsure · <span class="mk lax" style="display:inline-block">✕</span> doesn’t hold it.</div>
+
+      <button class="btn">Clues log (2)</button>
+      <button class="btn">Pioneer dossiers (3/18)</button>
+      <button class="btn primary">Make an accusation</button>
+    </aside>
+  </div>
+</div>
+
+</body>
+</html>

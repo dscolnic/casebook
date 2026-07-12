@@ -1,0 +1,756 @@
+{
+  "_readme": [
+    "The batch driver's source of truth. status: pending|authoring|passed|failed.",
+    "Each game needs a matching stub pack_<id>.js (structure + 18-figure roster).",
+    "Create stubs by adding a game struct to ../generate_more.js (same shape as the",
+    "5 there) and running `node generate_more.js` ONCE. Then add a line here and run",
+    "batch_driver.py. To reach 50: extend generate_more.js to 50 structs, mirror the",
+    "ids here. The 5 STEM stubs already authored (marine/dam/rail/rocket/reactor) are",
+    "listed as 'passed' so the driver skips them; the 5 non-STEM below are examples",
+    "you must add structs+stubs for before running.",
+    "mystery fields drive the author prompt: overclaim(sensational wrong),",
+    "dismissal(do-nothing wrong), truth(concealed systemic), guilty_who + true_where",
+    "must be the truth ids in that pack's CATS."
+  ],
+  "games": [
+    {
+      "id": "marine",
+      "title": "The Kestrel's Roll",
+      "discipline": "Marine & Naval Architecture",
+      "status": "passed",
+      "note": "authored 20% parity"
+    },
+    {
+      "id": "dam",
+      "title": "The Marrow Valley Dam",
+      "discipline": "Hydraulics & Geotechnics",
+      "status": "passed",
+      "note": "authored 4% parity"
+    },
+    {
+      "id": "rail",
+      "title": "The 8:14 to Ardenmoor",
+      "discipline": "Railway Safety Engineering",
+      "status": "passed",
+      "note": "authored 30% parity"
+    },
+    {
+      "id": "rocket",
+      "title": "Meridian-1",
+      "discipline": "Rocketry & Spaceflight",
+      "status": "passed",
+      "note": "authored 33% parity"
+    },
+    {
+      "id": "reactor",
+      "title": "The Thornbury Reactor",
+      "discipline": "Nuclear Reactor Safety",
+      "status": "passed",
+      "note": "authored 26% parity"
+    },
+    {
+      "id": "m_heli",
+      "title": "The Ridgeline Rotor",
+      "discipline": "Rotorcraft & Aeromechanics",
+      "day": "mon",
+      "status": "failed",
+      "mystery": {
+        "overclaim": "A bird strike or deliberate sabotage",
+        "dismissal": "A freak mountain gust \u2014 an act of God",
+        "truth": "A deferred gearbox flaw flown past its warning",
+        "guilty_who": "hx_operator",
+        "true_where": "hx_office"
+      },
+      "note": "parity 30%; cross-game echoes: 217;   echo \"he is best known for the\" ~m_bridge;   echo \"and i ll show you where\" ~rail;   echo \"i ll show you where the\" ~tower;   echo \"his name is attached to the\" ~aircrash;   echo \"and i ll show you which\" ~m_bridge;   echo \"i ll show you which one\" ~m_bridge"
+    },
+    {
+      "id": "m_bridge",
+      "title": "The Halloway Span",
+      "discipline": "Structural & Fracture Mechanics",
+      "day": "mon",
+      "status": "failed",
+      "mystery": {
+        "overclaim": "A barge strike or an attack on the span",
+        "dismissal": "A freak flood scouring the pier \u2014 an act of God",
+        "truth": "A fatigue crack ridden past a skipped inspection",
+        "guilty_who": "br_authority",
+        "true_where": "br_office"
+      },
+      "note": "parity 33%; cross-game echoes: 239;   echo \"and i ll walk you through\" ~aircrash;   echo \"often called the palmgren miner rule\" ~m_heli;   echo \"called the palmgren miner rule the\" ~m_heli;   echo \"not a bolt from the blue\" ~dam;   echo \"show me you understand it and\" ~rail;   echo \"me you understand it and i\" ~rail"
+    },
+    {
+      "id": "m_stadium",
+      "title": "The Coronet Arena Roof",
+      "discipline": "Structures & Crowd Dynamics",
+      "day": "mon",
+      "status": "passed",
+      "mystery": {
+        "overclaim": "A bomb or explosion in the structure",
+        "dismissal": "A freak snow load from a storm \u2014 an act of God",
+        "truth": "A value-engineered connection under an ignored crowd-and-snow load",
+        "guilty_who": "st_developer",
+        "true_where": "st_office"
+      },
+      "note": "parity 33%, edited",
+      "edited": true
+    },
+    {
+      "id": "m_rig",
+      "title": "The Deepwater Meridian",
+      "discipline": "Drilling & Well Control",
+      "day": "mon",
+      "status": "authoring",
+      "mystery": {
+        "overclaim": "An attack or sabotage on the platform",
+        "dismissal": "A freak gas pocket \u2014 an act of God",
+        "truth": "A skipped cement test and a disabled blowout preventer",
+        "guilty_who": "rg_operator",
+        "true_where": "rg_office"
+      }
+    },
+    {
+      "id": "m_tunnel",
+      "title": "The Kingsgate Bore",
+      "discipline": "Tunnelling & Ground Engineering",
+      "day": "mon",
+      "status": "authoring",
+      "mystery": {
+        "overclaim": "A gas explosion in the bore",
+        "dismissal": "A freak natural sinkhole \u2014 an act of God",
+        "truth": "Cut grouting and ignored ground-settlement monitoring",
+        "guilty_who": "tn_contractor",
+        "true_where": "tn_office"
+      }
+    },
+    {
+      "id": "m_adas",
+      "title": "The Autopilot on Vane Street",
+      "discipline": "Vehicle Automation & Safety",
+      "day": "mon",
+      "status": "authoring",
+      "mystery": {
+        "overclaim": "A hack or remote hijack of the car",
+        "dismissal": "A freak one-off software glitch \u2014 bad luck",
+        "truth": "A sensor blind spot met by a disabled driver-monitoring safeguard",
+        "guilty_who": "ad_maker",
+        "true_where": "ad_office"
+      }
+    },
+    {
+      "id": "m_tailings",
+      "title": "The Serra Verde Tailings Dam",
+      "discipline": "Slope Stability & Soil Liquefaction",
+      "day": "mon",
+      "status": "authoring",
+      "mystery": {
+        "overclaim": "A blast or an earthquake shaking the dam",
+        "dismissal": "A freak downpour overtopping the dam \u2014 an act of God",
+        "truth": "Static liquefaction of a raised dam its piezometers foretold",
+        "guilty_who": "tl_miningco",
+        "true_where": "tl_office"
+      }
+    },
+    {
+      "id": "m_railx",
+      "title": "The Marsh Lane Crossing",
+      "discipline": "Railway Signalling & Interlocking",
+      "day": "mon",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Sabotage \u2014 something left on the line",
+        "dismissal": "Simple driver error \u2014 a signal run by",
+        "truth": "A bypassed interlock and deferred signalling maintenance",
+        "guilty_who": "rx_infra",
+        "true_where": "rx_office"
+      }
+    },
+    {
+      "id": "t_refinery",
+      "title": "The Halden Refinery Fire",
+      "discipline": "Process Safety & Combustion Engineering",
+      "day": "tue",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Sabotage or a deliberate blast",
+        "dismissal": "A freak ignition \u2014 an act of God",
+        "truth": "A disabled relief/flare system & ignored corrosion",
+        "guilty_who": "operator",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "t_dust",
+      "title": "The Corriston Mill Blast",
+      "discipline": "Combustion & Dust-Explosion Engineering",
+      "day": "tue",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Sabotage or a bomb",
+        "dismissal": "A freak spark \u2014 bad luck",
+        "truth": "Cut housekeeping & ventilation, with dust left to accumulate",
+        "guilty_who": "owner",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "t_battery",
+      "title": "The Kelso Grid-Battery Fire",
+      "discipline": "Electrochemistry & Battery Safety",
+      "day": "tue",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Arson or sabotage",
+        "dismissal": "A freak cell failure \u2014 one in a million",
+        "truth": "A cell defect with the battery-management & cooling safeguard disabled",
+        "guilty_who": "maker",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "t_pipeline",
+      "title": "The Brant Hollow Pipeline",
+      "discipline": "Pipeline Integrity & Fluid Mechanics",
+      "day": "tue",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Sabotage or a third-party strike",
+        "dismissal": "A freak ground shift \u2014 an act of God",
+        "truth": "Advanced corrosion with the inline inspection skipped",
+        "guilty_who": "operator",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "t_wind",
+      "title": "The Fenmark Turbine Collapse",
+      "discipline": "Wind Energy & Fatigue Engineering",
+      "day": "tue",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Sabotage or a strike on the tower",
+        "dismissal": "A freak gust \u2014 an act of God",
+        "truth": "Blade & bolt fatigue with maintenance skipped",
+        "guilty_who": "operator",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "t_transformer",
+      "title": "The Aldergate Substation Fire",
+      "discipline": "Power Engineering & Dielectrics",
+      "day": "tue",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Sabotage or an attack on the yard",
+        "dismissal": "A freak lightning strike \u2014 an act of God",
+        "truth": "Chronic overload with insulating-oil testing deferred",
+        "guilty_who": "operator",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "t_oncology",
+      "title": "The Meredith Clinic Overdose",
+      "discipline": "Radiation Physics & Medical Dosimetry",
+      "day": "tue",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A rogue software or computer glitch",
+        "dismissal": "A one-off patient reaction \u2014 sheer misfortune",
+        "truth": "A calibration & QA gap in the treatment chain",
+        "guilty_who": "clinic",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "w_anes",
+      "title": "The Silent Theatre",
+      "discipline": "Anesthesiology & Patient Safety",
+      "day": "wed",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A reckless anesthetist who overdosed the patient",
+        "dismissal": "A rare, fatal drug reaction \u2014 an act of God",
+        "truth": "A silenced alarm and a look-alike vial, normalized to save time",
+        "guilty_who": "director",
+        "true_where": "admin"
+      }
+    },
+    {
+      "id": "w_surg",
+      "title": "The Wrong Side",
+      "discipline": "Surgery & Patient Safety",
+      "day": "wed",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A careless surgeon operating on the wrong site",
+        "dismissal": "An unavoidable surgical complication \u2014 bad luck",
+        "truth": "A safety count and checklist quietly bypassed to save time",
+        "guilty_who": "chief",
+        "true_where": "records"
+      }
+    },
+    {
+      "id": "w_compound",
+      "title": "The Compounding Room",
+      "discipline": "Pharmacy & Sterile Compounding",
+      "day": "wed",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A deliberate poisoning of the medicine",
+        "dismissal": "A run of coincidental illnesses \u2014 bad luck",
+        "truth": "Sterility controls cut and contamination ignored to raise output",
+        "guilty_who": "owner",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "w_water",
+      "title": "The Tap",
+      "discipline": "Water Supply & Environmental Health",
+      "day": "wed",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A rogue operator poisoning the supply",
+        "dismissal": "Nothing wrong \u2014 the water meets the rules",
+        "truth": "Corrosion control skipped and the warnings suppressed",
+        "guilty_who": "official",
+        "true_where": "cityhall"
+      }
+    },
+    {
+      "id": "w_blood",
+      "title": "The Crossmatch",
+      "discipline": "Transfusion & Blood Banking",
+      "day": "wed",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A nurse who deliberately killed the patient",
+        "dismissal": "A rare, unforeseeable transfusion reaction",
+        "truth": "A typing and crossmatch safeguard defeated to save time",
+        "guilty_who": "manager",
+        "true_where": "records"
+      }
+    },
+    {
+      "id": "w_trial",
+      "title": "The Trial Data",
+      "discipline": "Clinical Trials & Biostatistics",
+      "day": "wed",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A rogue investigator who faked the results",
+        "dismissal": "The deaths are unrelated \u2014 statistical noise",
+        "truth": "Adverse-event data fabricated and suppressed behind the approval",
+        "guilty_who": "sponsor",
+        "true_where": "headoffice"
+      }
+    },
+    {
+      "id": "w_hai",
+      "title": "The Ward Cluster",
+      "discipline": "Hospital Epidemiology & Microbiology",
+      "day": "wed",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A staff member deliberately harming patients",
+        "dismissal": "A tragic run of unrelated infections \u2014 chance",
+        "truth": "A sterilization and isolation protocol defeated, traced through the records",
+        "guilty_who": "opsmanager",
+        "true_where": "records"
+      }
+    },
+    {
+      "id": "e_quake",
+      "title": "Nine Seconds to Cordera",
+      "discipline": "Seismology & Earthquake Science",
+      "day": "thu",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A secret underground blast or weapon",
+        "dismissal": "A freak quake beyond all odds \u2014 an act of God",
+        "truth": "A defunded sensor network & a buried risk map",
+        "guilty_who": "director",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "e_storm",
+      "title": "The Halloway Landfall",
+      "discipline": "Meteorology & Storm Forecasting",
+      "day": "thu",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Weather turned into a weapon",
+        "dismissal": "A freak storm no forecast could catch \u2014 an act of God",
+        "truth": "A warning downgraded to protect the season & the vote",
+        "guilty_who": "official",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "e_flood",
+      "title": "The Rossmere Flood",
+      "discipline": "Hydrology & Flood Science",
+      "day": "thu",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "The dam blown open by sabotage",
+        "dismissal": "A thousand-year rain no one could plan for \u2014 an act of God",
+        "truth": "A silenced gauge network & a buried floodplain study",
+        "guilty_who": "manager",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "e_tsunami",
+      "title": "The Sable Point Wave",
+      "discipline": "Tsunami Science & Oceanography",
+      "day": "thu",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A blast or weapon beneath the sea",
+        "dismissal": "A freak wave from nowhere \u2014 an act of God",
+        "truth": "A disabled buoy network & a downplayed hazard",
+        "guilty_who": "chief",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "e_wildfire",
+      "title": "The Pinehaven Fire",
+      "discipline": "Wildfire & Combustion Science",
+      "day": "thu",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A coordinated arson attack",
+        "dismissal": "A freak firestorm nothing could stop \u2014 an act of God",
+        "truth": "Deferred fuel clearing & a delayed evacuation order",
+        "guilty_who": "chief",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "e_asteroid",
+      "title": "The Hollow Vale Impact",
+      "discipline": "Planetary Defense & Impact Science",
+      "day": "thu",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A weapon dropped from orbit",
+        "dismissal": "A freak bolt from the blue \u2014 an act of God",
+        "truth": "A downplayed detection & a defunded sky survey",
+        "guilty_who": "director",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "e_avalanche",
+      "title": "The Whitewall Slide",
+      "discipline": "Snow, Avalanche & Glacier Science",
+      "day": "thu",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A charge set off deliberately",
+        "dismissal": "A freak slide beyond any warning \u2014 an act of God",
+        "truth": "Ignored snowpack monitoring & a slope kept open",
+        "guilty_who": "manager",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "f_breach",
+      "title": "The Halcyon Data Breach",
+      "discipline": "Computer Security & Information Systems",
+      "day": "fri",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A genius nation-state hacker breached us",
+        "dismissal": "An unavoidable zero-day \u2014 no one could have stopped it",
+        "truth": "A known-unpatched system and an alert switched off",
+        "guilty_who": "cto",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "f_ai",
+      "title": "The Aegis Model",
+      "discipline": "Artificial Intelligence & Machine Learning",
+      "day": "fri",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A runaway, self-teaching intelligence went rogue",
+        "dismissal": "A few rare edge cases \u2014 the model works as designed",
+        "truth": "Biased training data and a validation result buried before launch",
+        "guilty_who": "lead",
+        "true_where": "evalroom"
+      }
+    },
+    {
+      "id": "f_crypto",
+      "title": "The Cipher at Meridian Bank",
+      "discipline": "Cryptography & Information Security",
+      "day": "fri",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A genius broke unbreakable encryption",
+        "dismissal": "Unstoppable brute-force computing \u2014 bad luck of the draw",
+        "truth": "A home-rolled, deprecated cipher kept in use against advice",
+        "guilty_who": "architect",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "f_netout",
+      "title": "The Great Grey-Out",
+      "discipline": "Computer Networks & the Internet",
+      "day": "fri",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A coordinated attack knocked the network down",
+        "dismissal": "An unlucky traffic surge \u2014 the internet is just fragile",
+        "truth": "A routing misconfiguration and a removed safeguard cascaded",
+        "guilty_who": "netops",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "f_robot",
+      "title": "The Cell-9 Robot",
+      "discipline": "Robotics & Autonomous Systems",
+      "day": "fri",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "The robot was hacked and turned deadly",
+        "dismissal": "Simple operator error \u2014 the worker stepped in",
+        "truth": "A safety interlock bypassed and a known fault left unfixed",
+        "guilty_who": "automation",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "f_privacy",
+      "title": "The Beacon Consent Scandal",
+      "discipline": "Data Privacy & Information Systems",
+      "day": "fri",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "Criminals stole the data in a break-in",
+        "dismissal": "It was all anonymized and consented \u2014 nothing wrong",
+        "truth": "Consent and anonymization quietly defeated, the data sold",
+        "guilty_who": "dataexec",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "f_firmware",
+      "title": "The Halden Infusion Pump",
+      "discipline": "Embedded & Firmware Engineering",
+      "day": "fri",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "The device was tampered with",
+        "dismissal": "A one-in-a-million glitch \u2014 nothing preventable",
+        "truth": "A concealed firmware defect and a hardware safety check removed",
+        "guilty_who": "firmlead",
+        "true_where": "office"
+      }
+    },
+    {
+      "id": "j_convict",
+      "title": "The Vale Conviction",
+      "discipline": "Law: Criminal Evidence & Due Process",
+      "day": "sat",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A vast conspiracy framed an innocent man",
+        "dismissal": "Nothing amiss \u2014 the right man was convicted",
+        "truth": "A buried exculpatory file & a rigged lineup",
+        "guilty_who": "prosecutor",
+        "true_where": "dafiles"
+      }
+    },
+    {
+      "id": "j_fraud",
+      "title": "The Amberline Collapse",
+      "discipline": "Accounting & Corporate Finance",
+      "day": "sat",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A short-seller raid sank a sound company",
+        "dismissal": "Nothing wrong \u2014 just the market turning",
+        "truth": "Losses hidden in off-books entities",
+        "guilty_who": "cfo",
+        "true_where": "spes"
+      }
+    },
+    {
+      "id": "j_capture",
+      "title": "The Halcyon Grid",
+      "discipline": "Regulation & Public Choice",
+      "day": "sat",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A shadowy cabal secretly runs the grid",
+        "dismissal": "Nothing amiss \u2014 ordinary regulation at work",
+        "truth": "The firm staffed & steered its own regulator",
+        "guilty_who": "chair",
+        "true_where": "boardfiles"
+      }
+    },
+    {
+      "id": "j_bank",
+      "title": "The Sterling Trust Collapse",
+      "discipline": "Banking & Systemic Risk",
+      "day": "sat",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A foreign raid on the currency broke the bank",
+        "dismissal": "A once-a-century storm no one could foresee",
+        "truth": "Hidden leverage & risk models quietly gamed",
+        "guilty_who": "cro",
+        "true_where": "riskfiles"
+      }
+    },
+    {
+      "id": "j_vote",
+      "title": "The Kessler County Count",
+      "discipline": "Elections & Democratic Theory",
+      "day": "sat",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A foreign plot rigged the whole election",
+        "dismissal": "Nothing unusual \u2014 politics as it always is",
+        "truth": "A drawn map & a quiet purge of the rolls",
+        "guilty_who": "registrar",
+        "true_where": "electionoffice"
+      }
+    },
+    {
+      "id": "j_trust",
+      "title": "The Cygnet Standard",
+      "discipline": "Antitrust & Industrial Organization",
+      "day": "sat",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A sinister plot to control everything",
+        "dismissal": "Nothing wrong \u2014 just a better competitor winning",
+        "truth": "Below-cost pricing & a buried internal study",
+        "guilty_who": "ceo",
+        "true_where": "strategyfiles"
+      }
+    },
+    {
+      "id": "j_press",
+      "title": "The Ashford Dispatch",
+      "discipline": "Journalism Ethics & Verification",
+      "day": "sat",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "An outside plot planted lies to smear the paper",
+        "dismissal": "Nothing sinister \u2014 an honest reporting error",
+        "truth": "Invented sources waved past every check",
+        "guilty_who": "reporter",
+        "true_where": "sourcefiles"
+      }
+    },
+    {
+      "id": "c_fall",
+      "title": "The Last Council of Vellano",
+      "discipline": "History & Historical Method",
+      "day": "sun",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A single traitor sold the city from within",
+        "dismissal": "A dying republic \u2014 its fall was inevitable",
+        "truth": "A documented council vote that stood down the garrison and left the gate unbarred",
+        "guilty_who": "fa_provv",
+        "true_where": "fa_archive"
+      }
+    },
+    {
+      "id": "c_art",
+      "title": "The Halberstadt Panel",
+      "discipline": "Art History & Authentication",
+      "day": "sun",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A priceless rediscovered Old Master",
+        "dismissal": "An obvious, clumsy fake \u2014 beneath notice",
+        "truth": "A forgery moved on faked provenance, betrayed by an anachronistic pigment",
+        "guilty_who": "ar_restorer",
+        "true_where": "ar_lab"
+      }
+    },
+    {
+      "id": "c_arch",
+      "title": "The Cranmoor Skull",
+      "discipline": "Archaeology & Scientific Dating",
+      "day": "sun",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "The missing link \u2014 the earliest human ancestor",
+        "dismissal": "A muddle \u2014 an amateur's honest mistake",
+        "truth": "A planted composite: filed, stained, and caught by dating",
+        "guilty_who": "ah_amateur",
+        "true_where": "ah_lab"
+      }
+    },
+    {
+      "id": "c_psych",
+      "title": "The Mimicry Effect",
+      "discipline": "Psychology & Research Method",
+      "day": "sun",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A landmark, field-defining effect",
+        "dismissal": "A fragile fluke \u2014 just noise, best forgotten",
+        "truth": "Fabricated data behind the famous result",
+        "guilty_who": "ps_prof",
+        "true_where": "ps_dataroom"
+      }
+    },
+    {
+      "id": "c_script",
+      "title": "The Karnos Tablets",
+      "discipline": "Linguistics & Decipherment",
+      "day": "sun",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A lost royal epic naming a forgotten king",
+        "dismissal": "An unreadable script \u2014 meaningless marks",
+        "truth": "A fabricated decipherment; the grid reads a plain ledger",
+        "guilty_who": "sc_claimant",
+        "true_where": "sc_study"
+      }
+    },
+    {
+      "id": "c_doping",
+      "title": "The Verano Ascent",
+      "discipline": "Sports Science & Anti-Doping",
+      "day": "sun",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "A clean, once-in-a-century champion",
+        "dismissal": "A meaningless record \u2014 everyone dopes anyway",
+        "truth": "A systematic doping program built to beat the tests",
+        "guilty_who": "dp_doctor",
+        "true_where": "dp_lab"
+      }
+    },
+    {
+      "id": "c_fraud",
+      "title": "The Lindqvist Result",
+      "discipline": "Research Integrity & Scientific Method",
+      "day": "sun",
+      "status": "pending",
+      "mystery": {
+        "overclaim": "The breakthrough of the decade",
+        "dismissal": "An honest dead end \u2014 just science that failed",
+        "truth": "Fabricated figures & suppressed failed replications",
+        "guilty_who": "fr_pi",
+        "true_where": "fr_forensics"
+      }
+    }
+  ]
+}

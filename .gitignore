@@ -1,0 +1,18 @@
+# macOS / editor cruft
+.DS_Store
+**/.DS_Store
+.claude/
+
+# dependencies
+node_modules/
+
+# batch driver runtime output (regenerated)
+*.log
+batch/launchd.out
+batch/launchd.err
+
+# SECRETS — never commit your Anthropic key
+.env
+*.pem
+*.key
+apikey*

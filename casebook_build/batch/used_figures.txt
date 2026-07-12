@@ -1,0 +1,245 @@
+Ada Lovelace
+Adhemar Barre de Saint-Venant
+Alan G. Davenport
+Alan Turing
+Albert S. Osborn
+Alec Jeffreys
+Alec Skempton
+Alessandro Volta
+Alexander Langmuir
+Alfred Freudenthal
+Alfred Lacroix
+Alfred Wegener
+Allen Hazen
+Alphonse Bertillon
+Alvin Weinberg
+André-Marie Ampère
+Antoine Lavoisier
+Antoine de Chezy
+Archimedes
+Arno Penzias
+Arnold Hall
+Arthur Casagrande
+August Wohler
+August Wöhler
+Barbara Liskov
+Barry Voight
+Bernard Chouet
+Bernard Spilsbury
+Blaise Pascal
+Calvin Goddard
+Carl Bosch
+Carl Sagan
+Carl Woese
+Cecilia Payne-Gaposchkin
+Charles Concordia
+Charles Proteus Steinmetz
+Charles Richter
+Charles Stark Draper
+Charles V. Chapin
+Charles Vignoles
+Charles-Augustin de Coulomb
+Chauncey Starr
+Chien-Shiung Wu
+Christiaan Huygens
+Christian Doppler
+Christopher Newhall
+Chryssa Kouveliotou
+Claude Shannon
+Claude-Louis Navier
+Constance Tipper
+David Parnas
+David W. Taylor
+David Warren
+Donald Knuth
+Donald Norman
+Duncan Lorimer
+Earl Wiener
+Edith Clarke
+Edmond Locard
+Edsger Dijkstra
+Edward Jenner
+Edwin Hubble
+Elmer Sperry
+Emil von Behring
+Enrico Fermi
+Ernest Rutherford
+Eugene Wigner
+Fazlur Rahman Khan
+Florence Nightingale
+Frances Glessner Lee
+Frank Drake
+Frank Fenner
+Frank J. Sprague
+Frank Malina
+Frank Pasquill
+Frank Whittle
+François Hennebique
+Fred Brooks
+Fred Schweppe
+Frederick Lanchester
+Frederick Soddy
+Frederik H. af Chapman
+Friedrich Bessel
+Fritz Haber
+Fritz Zwicky
+Geoffrey de Havilland
+Georg Ohm
+George Boole
+George Cayley
+George E. Davis
+George Gabriel Stokes
+George Stephenson
+George Westinghouse
+Giuseppe Mercalli
+Glenford Myers
+Grace Hopper
+Grote Reber
+Gustaf de Laval
+Gustav Kirchhoff
+Hans Gross
+Hardy Cross
+Haroun Tazieff
+Harry Hess
+Harry Nyquist
+Heinrich Hertz
+Henri Pitot
+Henrietta Swan Leavitt
+Henry Bessemer
+Henry Darcy
+Henry Faulds
+Henry Le Chatelier
+Henry Petroski
+Herbert Heinrich
+Herbert MacDonell
+Hermann Oberth
+Hunter Rouse
+Hyman Rickover
+Ignaz Semmelweis
+Inge Lehmann
+Isambard Kingdom Brunel
+Itiel Dror
+J. Tuzo Wilson
+J. Willard Gibbs
+Jacques-Louis Lions
+James Chadwick
+James Clerk Maxwell
+James Marsh
+James Reason
+Jean Pierre Mégnin
+Jean-Victor Poncelet
+Jens Rasmussen
+Jerome Hunsaker
+Jerome Lederer
+Jocelyn Bell Burnell
+John A. Roebling
+John R. Freeman
+John Saxby
+John Scott Russell
+John Smeaton
+John Snow
+John Wheeler
+John von Neumann
+Joseph Boussinesq
+Julian Hinds
+Karl Culmann
+Karl Jansky
+Karl Landsteiner
+Karl Terzaghi
+Karl Z. Morgan
+Kary Mullis
+Katherine Johnson
+Katia & Maurice Krafft
+Konstantin Tsiolkovsky
+Leo Szilard
+Leonhard Euler
+Leslie Lamport
+Lewis Fry Richardson
+Lise Meitner
+Lord Kelvin — William Thomson
+Ludwig Prandtl
+Margaret Hamilton
+Marie Curie
+Mario Salvadori
+Martin Ryle
+Mathieu Orfila
+Matthew Fontaine Maury
+Max Munk
+Michael Faraday
+Mikhail Dolivo-Dobrovolsky
+Mikhail Tikhonravov
+Motonori Matuyama
+Nancy Leveson
+Nathan M. Newmark
+Nicolas Minorsky
+Niels Bohr
+Nikola Tesla
+Nikolay Semyonov
+Norbert Wiener
+Norman L. Bowen
+Norman Rasmussen
+Oliver Heaviside
+Osborne Reynolds
+Otto Hahn
+Otto Lilienthal
+Paracelsus
+Paul Fitts
+Paul L. Kirk
+Paul Sabatier
+Peter Panum
+Pierre Bouguer
+Qian Xuesen
+Ralph B. Peck
+Richard Dixon Oldham
+Richard Feynman
+Robert Christiansen
+Robert E. Horton
+Robert FitzRoy
+Robert H. Goddard
+Robert Hooke
+Robert Koch
+Robert Lusser
+Robert Maillart
+Robert Manning
+Robert Stephenson
+Robert W. Floyd
+Robert Webster
+Rogier Verbeek
+Ronald Ross
+Rudolf Virchow
+Samuel Insull
+Samuel Plimsoll
+Sergei Korolev
+Sir Nigel Gresley
+Sir William H. White
+Stephen Timoshenko
+Svante Arrhenius
+The Wright Brothers
+Theodore von Karman
+Theodore von Kármán
+Thomas Jaggar
+Timothy Hackworth
+Tony Hoare
+Trevor Kletz
+Ulick R. Evans
+Vagn Walfrid Ekman
+Valentin Glushko
+Ven Te Chow
+Vera Rubin
+Victoria Kaspi
+Wade Hampton Frost
+Walter Zinn
+Warren K. Lewis
+Werner von Siemens
+Wernher von Braun
+Wilhelm Nusselt
+William Farr
+William Foege
+William Froude
+William J. M. Rankine
+William LeMessurier
+William M. Bass
+William Mulholland
+William Stanley Jr.
+Wu Lien-teh
+Yvonne Brill
