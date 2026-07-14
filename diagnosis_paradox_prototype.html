@@ -1,0 +1,284 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diagnosis — The Breathing Paradox (3 patients)</title>
+<style>
+:root{--bg:#07121d;--panel:#10283b;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;
+  --blue:#70c9f2;--gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),
+  radial-gradient(circle at 90% 8%,rgba(239,173,103,.10),transparent 23%),
+  linear-gradient(180deg,#05101a,#0a1f30 52%,#05101a)}
+.wrap{max-width:900px;margin:auto;padding:24px 20px 90px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;
+  background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)}
+.dot.now{border-color:var(--gold)}
+h1{font-size:clamp(24px,3.6vw,36px);line-height:1.08;letter-spacing:-.02em;margin:6px 0 10px}
+.patient{color:#d8e7ef;font-size:16px;line-height:1.6;max-width:700px;margin:0 0 6px}
+.patient b{color:var(--text)}
+
+.paradox{margin:20px 0 6px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:32px;font-weight:900;margin:6px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:13px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:19px;line-height:1.5;margin:16px 0 4px;font-weight:700}
+.riddle .q{color:var(--gold)}
+
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:24px 0 10px;font-weight:900}
+.reads{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.read{border:1px solid var(--line);background:#112b3f;border-radius:11px;padding:12px}
+.read .lab{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-weight:900}
+.read .val{font-size:21px;font-weight:900;margin:5px 0}
+.read .range{font-size:11px;color:var(--muted);letter-spacing:.02em}
+.read .why{font-size:12px;color:var(--muted);line-height:1.4;display:none;border-top:1px solid #2c4a5e;margin-top:8px;padding-top:7px}
+.read .why.show{display:block}
+.read .ask{margin-top:6px;font-size:11px;color:var(--blue);background:none;border:0;cursor:pointer;padding:0}
+.morebtn{margin:12px 0 0;border:1px dashed var(--line);background:transparent;color:var(--muted);padding:9px 14px;border-radius:9px;cursor:pointer;font:inherit}
+.morebtn:hover{color:var(--text);border-color:var(--blue)}
+
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;
+  padding:14px 16px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt strong{display:block;font-size:16px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:14px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236}
+.opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px}
+.opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:24px 26px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:26px;margin:4px 0 12px;letter-spacing:-.02em}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 13px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)}
+.poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)}
+.poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:14px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:9px 12px}
+.node:last-child{border-color:var(--gold)}
+.arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:12px 15px;border-radius:9px;margin-top:14px;font-size:15px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:18px}
+.btn:hover{background:#224b68}
+.btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+
+.intro h1{font-size:clamp(30px,5vw,52px)}
+.intro p{font-size:17px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.recap{display:grid;gap:8px;margin:16px 0}
+.recap .rc{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:11px 14px;font-size:14px}
+.recap .rc .dx{color:var(--muted)} .recap .rc .mark.ok{color:var(--green)} .recap .rc .mark.no{color:var(--red)}
+.bigscore{font-size:56px;font-weight:900;letter-spacing:-.02em;margin:6px 0}
+@media(max-width:720px){.reads{grid-template-columns:1fr 1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div class="kicker">Diagnosis · The breathing paradox</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+// Reference ranges + plain-language descriptions are CONSTANT across patients (same panel).
+const META={
+  "Blood pH":{ref:"7.35 – 7.45",why:"How acidic the blood is. Lower = more acidic; higher = more alkaline."},
+  "Blood ketones":{ref:"< 0.6",why:"Acids the body makes when it burns fat instead of sugar for fuel."},
+  "Lactate":{ref:"0.5 – 2.2",why:"A different acid — it builds up when tissues are starved of blood flow, as in shock."},
+  "Blood glucose":{ref:"70 – 140",why:"How much sugar is in the blood."},
+  "Bicarbonate":{ref:"22 – 29",why:"A buffer that gets used up neutralizing acid."},
+  "Temperature":{ref:"≤ 100.4 °F",why:"Body temperature; a fever points toward infection."},
+  "Blood pressure":{ref:"~120 / 80",why:"The pressure in the arteries; it drops in shock."},
+  "Lung exam":{ref:"—",why:"Listening for a wheeze (narrowed airways) or crackles (fluid / infection)."}
+};
+const CORE=["Blood pH","Blood ketones","Lactate","Blood glucose"];
+const FULL=["Bicarbonate","Temperature","Blood pressure","Lung exam"];
+
+// The four candidate diagnoses are the SAME every round; only which is correct changes.
+const OPTS=[
+  {id:"dka",   title:"Diabetic ketoacidosis",  arg:"Out of insulin, the body burns fat and makes acid; the breathing is fighting it."},
+  {id:"sepsis",title:"Septic shock",           arg:"An infection floods the blood with acid; the breathing is compensating."},
+  {id:"anx",   title:"Hyperventilation / anxiety", arg:"Fast breathing, fine oxygen — the classic panic picture, nothing chemical behind it."},
+  {id:"asthma",title:"Airway emergency (asthma)",   arg:"The airways are closing — act before the oxygen drops."}
+];
+const LABEL={dka:"Diabetic ketoacidosis",sepsis:"Septic shock",anx:"Hyperventilation",asthma:"Asthma"};
+
+const CASES=[
+{ hook:"A <b>19-year-old</b>, fierce thirst and belly pain after a day of illness. Her insulin pump was found <b>disconnected</b> — and she's breathing like she just sprinted.",
+  rr:{v:"30 / min",note:"Normal 12–20. Deep, heaving breaths; no wheeze."},
+  o2:{v:"98%",note:"Normal 95–100%. Lungs moving oxygen fine."},
+  riddle:'Her breathing screams lung failure. Her oxygen says the lungs are perfect. <span class="q">So what is she breathing so hard <i>for</i>?</span>',
+  vals:{"Blood pH":"7.18","Blood ketones":"5.8 mmol/L","Lactate":"1.4 mmol/L","Blood glucose":"412 mg/dL",
+        "Bicarbonate":"11 mmol/L","Temperature":"98.9 °F","Blood pressure":"112 / 70","Lung exam":"Clear"},
+  answer:"dka",
+  reasons:{
+    sepsis:"Sepsis fits the acid and the breathing too — but its acid is <b>lactate</b>, and lactate is normal (1.4), with no fever and normal BP. Her acid is ketones (5.8). Same headline, different culprit.",
+    anx:"Fast breathing with fine oxygen looks like panic — until the chemistry: pH 7.18 and ketones 5.8. Nerves don't acidify the blood.",
+    asthma:"Closing airways would drop O₂ and add a wheeze; O₂ is 98% and the chest is clear. And asthma wouldn't touch ketones or pH."},
+  resolve:{title:"Diabetic ketoacidosis.",
+    paras:["Her disconnected pump cut off insulin, so her body burned fat and flooded the blood with <b>ketone acids</b>. The violent breathing was never a lung problem — it's her lungs blowing off CO₂ to drag her pH back toward normal. The perfect oxygen was the tell.",
+           "No single number solved it. The low pH only said <i>there's acid</i>, and two suspects fit — ketoacidosis and sepsis, both of which drive hard breathing. The tie broke on a <b>pair</b> read together: ketones high (5.8), lactate normal (1.4). Ketone acid, not lactic — so DKA."],
+    a:"<b>Why not the lungs</b> (alarming pole): the breathing is compensation, and 98% oxygen proves the lungs work.",
+    c:"<b>Why not 'just anxiety'</b> (calm pole): pH 7.18 with ketones 5.8 is a real chemical emergency.",
+    chain:["Insulin cut off","Fat burned → ketone acids","Acidosis + deep compensatory breathing"],
+    take:"The loud sign (breathing) and the loud number (low pH) were both shared by a rival. The answer lived in a pair — one high, one normal — that only mean something together."} },
+
+{ hook:"A <b>20-year-old</b>, two days of fever and burning <b>flank pain</b>, now breathing hard and looking gray.",
+  rr:{v:"28 / min",note:"Normal 12–20. Fast and labored."},
+  o2:{v:"96%",note:"Normal 95–100%. Holding, despite the effort."},
+  riddle:'He\'s fighting for every breath — yet the oxygen is holding. <span class="q">What\'s forcing the breaths?</span>',
+  vals:{"Blood pH":"7.24","Blood ketones":"0.4 mmol/L","Lactate":"5.6 mmol/L","Blood glucose":"132 mg/dL",
+        "Bicarbonate":"15 mmol/L","Temperature":"102.7 °F","Blood pressure":"86 / 52","Lung exam":"Clear"},
+  answer:"sepsis",
+  reasons:{
+    dka:"The acid and the hard breathing fit DKA too — but ketones are normal (0.4) and glucose is near-normal. This isn't fat-burning. The acid is <b>lactate</b> (5.6).",
+    anx:"Panic doesn't cause a fever of 102.7°F, a lactate of 5.6, or a blood pressure of 86/52. This is shock, not nerves.",
+    asthma:"No wheeze, O₂ is 96%, and airway narrowing wouldn't raise lactate or drop the blood pressure."},
+  resolve:{title:"Septic shock.",
+    paras:["The fever and flank pain point to a kidney infection that spilled into the blood. Starved, struggling tissues are pouring out <b>lactic acid</b>, and the hard breathing is his lungs trying to blow off CO₂ to buy back some pH.",
+           "Same paradox, same low pH — but this time ketones were normal (0.4) and lactate was high (5.6): lactic acid, not ketone acid. The fever (102.7°F) and crashing pressure (86/52) sealed it. The <i>pair</i> that mattered flipped from last time."],
+    a:"<b>Why not the lungs</b>: O₂ is 96% and the chest is clear — the breathing is compensation, not failure.",
+    c:"<b>Why not 'just anxiety'</b>: a fever of 102.7°F, lactate 5.6, and BP 86/52 are not nerves.",
+    chain:["Infection floods the blood","Starved tissues make lactic acid","Acidosis + compensatory breathing + shock"],
+    take:"Identical paradox, identical low pH — different acid. Ketones normal, lactate high. Read the values together, not one at a time."} },
+
+{ hook:"An <b>18-year-old</b>, no medical history, hit by sudden breathlessness and <b>tingling hands</b> midway through a final exam.",
+  rr:{v:"32 / min",note:"Normal 12–20. Frantic, shallow-fast."},
+  o2:{v:"100%",note:"Normal 95–100%. If anything, high."},
+  riddle:'Breathing frantically, oxygen a flawless 100%. <span class="q">Is the breathing a symptom of something — or is it the whole problem?</span>',
+  vals:{"Blood pH":"7.53","Blood ketones":"0.2 mmol/L","Lactate":"1.0 mmol/L","Blood glucose":"92 mg/dL",
+        "Bicarbonate":"23 mmol/L","Temperature":"98.4 °F","Blood pressure":"126 / 78","Lung exam":"Clear"},
+  answer:"anx",
+  reasons:{
+    dka:"DKA needs ketones and a <i>low</i> pH from acid. But ketones and glucose are normal, and the pH is 7.53 — <b>high</b>, not low. There's no acid to explain.",
+    sepsis:"Sepsis needs a source and its signs — fever, high lactate, low BP. Temperature, lactate, and pressure are all normal. Nothing points to infection.",
+    asthma:"No wheeze and O₂ is 100%. And asthma wouldn't push the pH <i>up</i> — but overbreathing from anxiety does exactly that."},
+  resolve:{title:"Hyperventilation.",
+    paras:["This time there is no acid to fight. The pH is 7.53 — <b>high</b>, not low — and ketones, lactate, glucose, temperature, and pressure are all normal. The fast breathing isn't compensating for anything; it <i>is</i> the problem: overbreathing blows off so much CO₂ that the blood turns alkaline. The tingling hands are the giveaway.",
+           "And here's the twist: the boring answer was the right one. In the first two patients, 'she's just anxious' was a trap. Here it's the diagnosis — because every acid marker is normal and the pH is high, which only overbreathing explains. You can't reflexively reject the calm answer; you have to earn it from the numbers."],
+    a:"<b>Why not an acid emergency</b>: DKA and sepsis both need a LOW pH and a raised acid. Ketones, lactate, and pH all say no.",
+    c:"<b>Why the calm answer wins</b>: a clean workup with a HIGH pH is the fingerprint of primary overbreathing.",
+    chain:["Acute anxiety","Rapid overbreathing","CO₂ blown off → blood turns alkaline (pH high)"],
+    take:"The paradox looked identical to patient 1 — but the chemistry was the opposite. Let the pattern decide, even when it points at the 'boring' cause."} }
+];
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score');
+let idx=0, score=0, results=[], firstCall=[], dead=new Set(), firstTry=true;
+
+function scorebar(active){
+  const dots=CASES.map((_,i)=>{
+    let cls='dot'; if(results[i]==='correct')cls+=' good'; else if(results[i]==='missed')cls+=' bad';
+    if(i===idx&&active)cls+=' now'; return `<span class="${cls}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${CASES.length}<span class="dots">${dots}</span></span>`;
+}
+
+function renderIntro(){
+  scoreEl.innerHTML='';
+  app.innerHTML=`<div class="intro">
+    <h1>The Breathing Paradox</h1>
+    <p>Three young patients arrive, each with the <b>same alarming paradox</b>: they're breathing furiously,
+    yet their oxygen is fine. Each has the <b>same panel</b> of blood tests — but the numbers tell three
+    different stories.</p>
+    <p>Read the pattern, not the loudest flag, and make the call for each. <b>You score one point per patient
+    you get right on the first call.</b></p>
+    <button class="btn primary" id="start">See the first patient →</button></div>`;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+
+function newRound(){ dead=new Set(); firstTry=true; renderRound(); }
+
+function renderRound(){
+  scorebar(true);
+  const c=CASES[idx];
+  app.innerHTML=`
+    <div class="kicker">Patient ${idx+1} of ${CASES.length}</div>
+    <h1>The Deep-Breathing Case</h1>
+    <p class="patient">${c.hook}</p>
+    <div class="paradox"><div class="vs">
+      <div class="pole alarm"><div class="lab">Respiratory rate</div><div class="val">${c.rr.v}</div><small>${c.rr.note}</small></div>
+      <div class="mid">vs</div>
+      <div class="pole calm"><div class="lab">Oxygen saturation</div><div class="val">${c.o2.v}</div><small>${c.o2.note}</small></div>
+    </div><p class="riddle">${c.riddle}</p></div>
+    <h2 class="sec">The workup</h2>
+    <div class="reads" id="reads"></div>
+    <button class="morebtn" id="more">＋ Run the full panel</button>
+    <h2 class="sec">The room disagrees. Make the call.</h2>
+    ${firstTry?'':'<p class="hintline">Point lost for this patient — but find the right call to see why and move on.</p>'}
+    <div class="call">${OPTS.map(o=>`<button class="opt ${dead.has(o.id)?'dead':''}" data-opt="${o.id}" ${dead.has(o.id)?'disabled':''}>
+      <strong>${o.title}</strong><span class="arg">${o.arg}</span>
+      ${c.reasons[o.id]?`<div class="reason">${c.reasons[o.id]}</div>`:''}</button>`).join('')}</div>`;
+  drawReads(false);
+  document.getElementById('more').onclick=()=>{drawReads(true);document.getElementById('more').style.display='none';};
+  app.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>call(b.dataset.opt));
+}
+
+function drawReads(full){
+  const c=CASES[idx], labels=full?CORE.concat(FULL):CORE;
+  document.getElementById('reads').innerHTML=labels.map((lab,i)=>`
+    <div class="read"><div class="lab">${lab}</div>
+      <div class="val">${c.vals[lab]}</div>
+      <div class="range">normal ${META[lab].ref}</div>
+      <button class="ask" data-why="${i}">what is this?</button>
+      <div class="why" id="why${i}">${META[lab].why}</div></div>`).join('');
+  document.querySelectorAll('[data-why]').forEach(b=>b.onclick=()=>document.getElementById('why'+b.dataset.why).classList.toggle('show'));
+}
+
+function call(id){
+  const c=CASES[idx];
+  if(firstCall[idx]===undefined) firstCall[idx]=id;
+  if(id===c.answer){
+    if(results[idx]!=='missed'){ results[idx]='correct'; if(firstTry) score++; }
+    renderResolve();
+  } else {
+    if(firstTry){ firstTry=false; results[idx]='missed'; }
+    dead.add(id); renderRound();
+  }
+}
+
+function renderResolve(){
+  scorebar(false);
+  const c=CASES[idx], r=c.resolve, got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+    <div class="verdict ${got?'good':'bad'}">${got?'Correct — first call':'Missed on the first call'}</div>
+    <h2>${r.title}</h2>
+    ${r.paras.map(p=>`<p>${p}</p>`).join('')}
+    <div class="poles2"><div class="a">${r.a}</div><div class="c">${r.c}</div></div>
+    <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+    <div class="take"><b>The move:</b> ${r.take}</div>
+    <button class="btn primary" id="next">${idx<CASES.length-1?'Next patient →':'See final score →'}</button>
+  </div>`;
+  document.getElementById('next').onclick=()=>{ if(idx<CASES.length-1){idx++;newRound();} else renderFinal(); };
+}
+
+function renderFinal(){
+  scorebar(false);
+  app.innerHTML=`<div class="intro">
+    <div class="kicker">Rounds complete</div>
+    <div class="bigscore">${score} / ${CASES.length}</div>
+    <p>${score===3?'A clean sweep — you read the pattern each time, even when it pointed at the boring answer.':
+        score===2?'Strong. The one that trips people is the patient whose numbers mimic a different disease.':
+        score===1?'You cracked one. The trick is that the same paradox hid three different causes.':
+        'Tough set — the whole point is that identical-looking breathing had three different explanations.'}</p>
+    <div class="recap">${CASES.map((c,i)=>{
+      const ok=firstCall[i]===c.answer;
+      return `<div class="rc"><span>Patient ${i+1} — you called <b>${LABEL[firstCall[i]]||'—'}</b></span>
+        <span class="dx">it was ${LABEL[c.answer]} <span class="mark ${ok?'ok':'no'}">${ok?'✓':'✗'}</span></span></div>`;}).join('')}</div>
+    <div class="take"><b>The skill:</b> same presentation, same panel — but a low pH had more than one suspect, and
+      only a <i>pair</i> of readings (one abnormal, one normal) told them apart. Chase the pattern, not the biggest flag.</div>
+    <button class="btn primary" id="again">Play again</button></div>`;
+  document.getElementById('again').onclick=renderIntro;
+}
+
+renderIntro();
+</script></body></html>

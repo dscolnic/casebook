@@ -1,0 +1,313 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fly the Airplane — Map edition</title>
+<style>
+:root{--bg:#07121d;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;--blue:#70c9f2;--steel:#2e77a4;
+  --gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),linear-gradient(180deg,#05101a,#0a1f30 55%,#05101a)}
+.wrap{max-width:1040px;margin:auto;padding:22px 20px 80px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)} .dot.now{border-color:var(--gold)}
+h1{font-size:clamp(22px,3.4vw,32px);line-height:1.08;margin:6px 0 4px;letter-spacing:-.02em}
+.levelnote{font-size:13px;color:var(--muted);margin:0 0 8px}.levelnote b{color:var(--gold)}
+.hook{color:#d8e7ef;font-size:15px;line-height:1.55;max-width:760px;margin:6px 0}
+.paradox{margin:16px 0 4px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:24px;font-weight:900;margin:5px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:12.5px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:18px;line-height:1.5;margin:14px 0 4px;font-weight:700}.riddle .q{color:var(--gold)}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:22px 0 10px;font-weight:900}
+.pickbar{font-size:14px;color:#d4e2e9;margin:0 0 10px}.pickbar b{color:var(--gold)}
+.panelgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+.mapwrap{border:1px solid var(--line);background:rgba(13,34,51,.9);border-radius:15px;padding:12px}
+svg{width:100%;height:auto;display:block}
+.mapcap{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center;min-height:16px}
+.legend{display:flex;flex-direction:column;gap:7px}
+.li{display:flex;gap:10px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:9px 11px;cursor:pointer;transition:border-color .12s}
+.li:hover,.li.sel{border-color:var(--blue)} .li.sel{background:#163953}
+.li.locked{border-style:dashed;background:#0d2233}
+.badge{flex:none;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:12px;color:#07121d;background:var(--steel)}
+.li.off .badge{background:var(--orange)} .li.alarm .badge{background:var(--red)} .li.locked .badge{background:#0d2233;color:var(--muted);border:1px dashed var(--line)}
+.li .body{min-width:0}
+.li .nm{font-size:13.5px;font-weight:800;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.li .val{font-size:12px;font-weight:800;color:var(--blue)} .li.off .val,.li.alarm .val{color:var(--orange)}
+.li .reveal{font-size:12px;font-weight:800;color:var(--gold)}
+.li .pp{font-size:12px;color:var(--muted);line-height:1.4;margin-top:3px}
+.hint{border-left:3px solid var(--blue);background:rgba(112,201,242,.08);padding:10px 12px;border-radius:9px;margin:12px 0 0;font-size:13.5px;color:#d4e2e9}
+.hintbtn{margin-top:12px;border:1px dashed var(--line);background:transparent;color:var(--muted);padding:8px 12px;border-radius:9px;cursor:pointer;font:inherit}
+.hintbtn:hover{color:var(--text);border-color:var(--blue)}
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;padding:13px 15px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)} .opt:disabled{opacity:.4;cursor:not-allowed}
+.opt strong{display:block;font-size:15px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:13.5px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236} .opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px} .opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:22px 24px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:24px;margin:4px 0 12px}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 12px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:11px 13px;font-size:13.5px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)} .poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)} .poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:13.5px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:8px 11px} .node:last-child{border-color:var(--gold)} .arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:11px 14px;border-radius:9px;margin-top:14px;font-size:14.5px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:16px}
+.btn:hover{background:#224b68} .btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+.intro h1{font-size:clamp(30px,5vw,50px)} .intro p{font-size:16px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.recap{display:grid;gap:8px;margin:16px 0}
+.recap .rc{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:11px 14px;font-size:14px}
+.recap .rc .lv{color:var(--gold);font-weight:800}.recap .rc .dx{color:var(--muted)} .mark.ok{color:var(--green)} .mark.no{color:var(--red)}
+.bigscore{font-size:54px;font-weight:900;margin:6px 0}
+.pin circle{stroke:#07121d;stroke-width:2;cursor:pointer}
+.pin.locked circle{stroke:var(--line)}
+.pin .num{fill:#07121d;font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin .lock{fill:var(--muted);font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin.sel circle{stroke:#fff;stroke-width:3}
+.lbl{fill:var(--muted);font-size:11px} .eqlbl{fill:#8fb0c2;font-size:11px;font-weight:700}
+@media(max-width:820px){.panelgrid{grid-template-columns:1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div class="kicker">Flight operations · the flight deck</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+const S=[
+ {id:'ias',n:1,name:'Indicated airspeed',x:452,y:170,purpose:"Airspeed from the pitot tubes (cruise ~280 kt). Reads wrong if a tube ices over or blocks."},
+ {id:'aoa',n:2,name:'Angle of attack',x:428,y:150,purpose:"How steeply the wing meets the air. Past ~15° the wing stalls, whatever the airspeed says."},
+ {id:'gs',n:3,name:'GPS groundspeed',x:255,y:126,purpose:"An independent speed reference. It should not wildly disagree with the indicated airspeed."},
+ {id:'alt',n:4,name:'Altitude',x:315,y:170,purpose:"Height from the static system — are you holding, climbing, or sinking?"},
+ {id:'vs',n:5,name:'Vertical speed',x:250,y:150,purpose:"Rate of climb or descent (level flight ≈ 0 fpm)."},
+ {id:'thr',n:6,name:'Engine thrust (N1)',x:250,y:200,purpose:"The power you have actually set on the engines."},
+ {id:'att',n:7,name:'Attitude (pitch/bank)',x:372,y:150,purpose:"Pitch and bank from the inertial system — independent of the pitot."},
+ {id:'warn',n:8,name:'Warning source',x:405,y:136,purpose:"What set off the aural alert — an AoA-based stall, or an airspeed/Mach overspeed. Contradictory warnings hint at a bad sensor."}
+];
+const byId=id=>S.find(s=>s.id===id);
+const OPTS=[
+ {id:"stall",title:"Aerodynamic stall — nose down, add power.",arg:"You are out of lift. Unload the wing and trade height for speed."},
+ {id:"pitot",title:"Unreliable airspeed — fly pitch & power.",arg:"The airspeed is lying. Set a known attitude and thrust; ignore the tape."},
+ {id:"overspeed",title:"Overspeed — reduce thrust, raise the nose.",arg:"You are past the limit. Bring it back before something lets go."},
+ {id:"spurious",title:"Spurious warning — no action needed.",arg:"The jet is flying fine. It is just a nuisance alert."}
+];
+const LABEL={stall:"Aerodynamic stall",pitot:"Unreliable airspeed",overspeed:"Overspeed",spurious:"Nuisance warning"};
+const POLEB={lab:"The aircraft",val:"Still flying",note:"Wings roughly level, controls responding — for now. A warning is blaring, but you have not lost control."};
+
+const CASES=[
+{ level:"easy", alarm:"aoa", off:["ias","aoa","vs","att"],
+  hint:"An airspeed number can lie, but a stall is really about angle. And an honest speed will agree with an independent reference.",
+  hook:"Cruise at FL350, night, light icing. The autopilot clicks off and the stick shaker starts hammering.",
+  poleA:{lab:"Cockpit alert",val:"STALL — shaker",note:"The stick shaker is firing and the stall warning is sounding."},
+  riddle:'The shaker is hammering — but you are still airborne and roughly level. <span class="q">Real stall, or a jumpy sensor?</span>',
+  vals:{ias:"140 kt",aoa:"18°",gs:"148 kt",alt:"FL350, sinking",vs:"−1,200 fpm",thr:"near idle",att:"nose-high +10°",warn:"stick shaker (AoA)"},
+  answer:"stall",
+  reasons:{
+    pitot:"If the pitot were lying, GPS groundspeed would disagree with the airspeed. It does not — 148 kt confirms you really are slow. The tape is honest.",
+    overspeed:"You are slow, not fast — 140 kt at an 18° AoA. That is the wrong edge of the envelope.",
+    spurious:"The shaker fires off AoA, and AoA is past the critical angle. This is a real stall, not a nuisance."},
+  resolve:{title:"Aerodynamic stall.",
+    paras:["AoA is past 18°, well beyond where the wing stops flying, and the shaker is triggered by that angle. Speed decayed to 140 knots and the jet is starting to sink. Unload the wing — nose down — and add power.",
+      "The reassuring 'still flying' was borrowed time. The <b>pair</b> that proved it real: a high AoA <b>and</b> a groundspeed that agrees you are genuinely slow (148 kt). If the airspeed were lying, groundspeed would disagree — it does not."],
+    a:"<b>Why the calm feel misled</b>: a high-altitude stall can feel mushy, not violent — until it isn't.",
+    c:"<b>Why not a bad sensor</b>: groundspeed corroborates the low airspeed — the instruments are honest.",
+    chain:["Speed allowed to decay","AoA exceeds the critical angle","Wing stalls — lift lost, descent begins"],
+    take:"Airspeed alone was ambiguous. AoA past critical AND an independent groundspeed confirming it — that pair said 'real stall,' not 'jumpy gauge.'"} },
+
+{ level:"medium", alarm:"ias", off:["ias","warn"],
+  hook:"High-altitude cruise through a storm top. The airspeed tape suddenly plunges, and the stall and overspeed warnings both start sounding.",
+  poleA:{lab:"Cockpit alert",val:"Airspeed berserk",note:"Speed tape plunging; STALL and OVERSPEED warnings sounding together."},
+  riddle:'The airspeed is going crazy and the warnings contradict each other — yet the jet feels fine. <span class="q">Slowing, speeding, or lying?</span>',
+  vals:{ias:"280→90 kt, erratic",aoa:"3°",gs:"286 kt",alt:"FL350, steady",vs:"~0 fpm",thr:"cruise, unchanged",att:"level",warn:"STALL + OVERSPEED together"},
+  answer:"pitot",
+  reasons:{
+    stall:"AoA is a calm 3° and GPS groundspeed is a healthy 286 kt. You are not slow — the airspeed tape is.",
+    overspeed:"Groundspeed is normal cruise, so you are not actually fast. Stall and overspeed warnings at once is the fingerprint of a bad pitot, not real speed.",
+    spurious:"This is not a nuisance — a frozen pitot is a real failure. Fly pitch and power and go to the backups; do not just ignore it."},
+  resolve:{title:"Unreliable airspeed — a blocked pitot.",
+    paras:["The airspeed tape fell from 280 to 90 knots in seconds — impossible for a jet in level cruise — and threw contradictory stall AND overspeed warnings. Meanwhile AoA is a calm 3°, attitude is level, and GPS groundspeed reads a healthy 286 knots. A pitot tube has iced over; the airspeed is fiction. Fly a known pitch and thrust and it keeps flying.",
+      "This is the AF447 / Birgenair trap. No single instrument revealed it — the <b>pair</b> did: an erratic airspeed <b>against</b> a normal, independent groundspeed. When your primary reading fights an independent reference, distrust the primary."],
+    a:"<b>Why not react to the warnings</b>: chasing a false stall or false overspeed is exactly how those accidents happened.",
+    c:"<b>Why not 'ignore it'</b>: a frozen pitot is a real failure — fly pitch+power and switch to backups, don't do nothing.",
+    chain:["Pitot tube ices over","Airspeed reads garbage (stall + overspeed at once)","AoA & groundspeed normal → the tape is lying"],
+    take:"When the airspeed fights an independent groundspeed and the AoA is calm, the instrument is the problem — fly attitude and power."} },
+
+{ level:"hard", alarm:"ias", free:["att","vs"], pool:["aoa","gs","alt","thr","warn"], pick:2,
+  hook:"Descent from cruise. The overspeed clacker erupts as the speed tape winds up past the barber pole. You will not get the whole panel; check the instruments that would tell the causes apart.",
+  poleA:{lab:"Cockpit alert",val:"OVERSPEED clacker",note:"The overspeed warning is sounding as the speed tape winds up past the limit."},
+  riddle:'The clacker will not stop — but the controls feel normal. <span class="q">Genuinely too fast, or a pitot feeding you a false high number?</span>',
+  vals:{ias:"Mach 0.89 (limit 0.82)",aoa:"2°",gs:"very high, agrees",alt:"descending thru FL330",vs:"−3,500 fpm",thr:"climb power",att:"nose-down −5°",warn:"overspeed clacker"},
+  answer:"overspeed",
+  reasons:{
+    pitot:"This looks like Birgenair — a false-high airspeed from a blocked pitot. But if you pull GPS groundspeed, it is high too, and you are diving with climb power set. The speed is real.",
+    stall:"A stall is slow and high-AoA. AoA is 2° and you are fast, not slow — the opposite corner.",
+    spurious:"A Mach past the limit is structural, not a nuisance. Groundspeed confirms you are genuinely overspeeding."},
+  resolve:{title:"Genuine overspeed.",
+    paras:["Mach 0.89 against a 0.82 limit, descending through the thirties at 3,500 feet a minute with climb power still set — and GPS groundspeed confirms you really are that fast. This is not a false reading; the airframe is past its limit. Reduce thrust, raise the nose gently, and slow down before something structural lets go.",
+      "The seductive wrong answer was Birgenair in reverse — a blocked pitot reading falsely <i>high</i>. The <b>pair</b> that ruled it out: a high airspeed <b>corroborated</b> by a high groundspeed, with AoA low. The independent reference agreed, so the speed is real."],
+    a:"<b>Why not a bad pitot</b>: groundspeed agrees you are fast — an independent reference, not a lying tube.",
+    c:"<b>Why not a stall or a nuisance</b>: AoA is 2° (nowhere near a stall), and a Mach past the limit is structural.",
+    chain:["Descent with power still set","Speed builds past the Mach limit","Groundspeed confirms it is real — overspeed"],
+    take:"Same cross-check as the lying-pitot case, opposite verdict: here the independent groundspeed AGREES, so the scary number is true. Trust it and slow down."} }
+];
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score');
+let idx=0,score=0,results=[],firstCall=[],dead=new Set(),firstTry=true,pulled=new Set(),sel=null,showHint=false;
+
+const STATIC_SVG=`
+ <path d="M110,132 L400,132 Q450,133 462,152 Q450,171 400,172 L110,172 Q92,172 92,152 Q92,132 110,132 Z" fill="#173e59" stroke="var(--blue)" stroke-width="2"/>
+ <path d="M104,132 L74,72 L120,74 L128,132 Z" fill="#173e59" stroke="var(--blue)" stroke-width="2"/>
+ <path d="M96,150 L52,140 L58,152 L96,160 Z" fill="#173e59" stroke="var(--blue)" stroke-width="1.5"/>
+ <path d="M205,170 L330,170 L305,184 L220,184 Z" fill="#173e59" stroke="var(--blue)" stroke-width="1.5"/>
+ <ellipse cx="252" cy="200" rx="36" ry="13" fill="#0d2233" stroke="var(--blue)" stroke-width="2"/>
+ <text x="252" y="203" class="lbl" text-anchor="middle" style="font-size:9px">engine</text>
+ <path d="M418,140 q14,-4 26,2 l-2,10 q-13,-3 -24,0 Z" fill="#0d2233" stroke="var(--gold)" stroke-width="1.3"/>
+ <text x="430" y="120" class="eqlbl" text-anchor="middle">flight deck</text>
+ <text x="150" y="120" class="lbl" text-anchor="middle">tail</text>
+ <text x="290" y="192" class="lbl" text-anchor="middle">wing</text>`;
+
+function scorebar(active){
+  const dots=CASES.map((_,i)=>{let c='dot';if(results[i]==='correct')c+=' good';else if(results[i]==='missed')c+=' bad';if(i===idx&&active)c+=' now';return `<span class="${c}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${CASES.length}<span class="dots">${dots}</span></span>`;
+}
+function sState(s){
+  const c=CASES[idx],lvl=c.level,isAlarm=s.id===c.alarm;
+  let revealed=true,locked=false;
+  if(lvl==='hard'){ revealed=isAlarm||c.free.includes(s.id)||pulled.has(s.id); locked=!revealed; }
+  let color;
+  if(isAlarm)color='var(--red)';
+  else if(locked)color='#12324a';
+  else if(lvl==='easy'&&c.off.includes(s.id))color='var(--orange)';
+  else color='var(--steel)';
+  return {revealed,locked,color,isAlarm};
+}
+function renderIntro(){
+  scoreEl.innerHTML='';
+  app.innerHTML=`<div class="intro">
+   <h1>Fly the Airplane</h1>
+   <p>You are in the left seat at cruise. Three times a warning erupts while the jet is <b>still flying straight
+   and level</b> — and they <b>get harder</b>.</p>
+   <p>Read the aircraft: <b>Easy</b> lights the abnormal instruments for you. <b>Medium</b> shows the raw numbers
+   with no lights — you judge. <b>Hard</b> hides most of the panel; you read <b>what each instrument would tell
+   you</b>, <b>check two</b>, then make <b>one call</b>.</p>
+   <p>Over-react to a false warning and you can dive a healthy jet into the sea; ignore a real one and you stall
+   or overspeed. One point per warning called right on the first move.</p>
+   <button class="btn primary" id="start">Take the controls →</button></div>`;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+function newRound(){dead=new Set();firstTry=true;pulled=new Set();sel=null;showHint=false;renderRound();}
+
+function renderRound(){
+  scorebar(true);
+  const c=CASES[idx],lvl=c.level;
+  const lname={easy:"Easy",medium:"Medium",hard:"Hard"}[lvl];
+  const lnote={easy:"abnormal instruments are lit for you · hint available · retries allowed",
+    medium:"raw numbers, no lights — you judge · one retry",
+    hard:`check 2 instruments, then one call, no do-over`}[lvl];
+  const picksLeft=lvl==='hard'?c.pick-pulled.size:0;
+  const callEnabled=lvl!=='hard'||pulled.size>=c.pick;
+
+  const pins=S.map(s=>{const st=sState(s);
+    return `<g class="pin ${sel===s.id?'sel':''} ${st.locked?'locked':''}" data-id="${s.id}">
+      <circle cx="${s.x}" cy="${s.y}" r="13" fill="${st.color}"/>
+      ${st.locked?`<text class="lock" x="${s.x}" y="${s.y}">?</text>`:`<text class="num" x="${s.x}" y="${s.y}">${s.n}</text>`}
+    </g>`;}).join('');
+
+  const legend=S.slice().sort((a,b)=>a.n-b.n).map(s=>{
+    const st=sState(s),off=(lvl==='easy'&&c.off.includes(s.id)),cls=[st.isAlarm?'alarm':(off?'off':''),st.locked?'locked':'',sel===s.id?'sel':''].join(' ');
+    const showPurpose = lvl==='easy' || st.locked || sel===s.id;
+    let valHTML = st.locked?`<span class="reveal">${picksLeft>0?'check →':'locked'}</span>`:`<span class="val">${c.vals[s.id]}</span>`;
+    return `<div class="li ${cls}" data-id="${s.id}">
+      <div class="badge">${st.locked?'?':s.n}</div>
+      <div class="body"><div class="nm">${s.name} ${valHTML}</div>
+        ${showPurpose?`<div class="pp">${s.purpose}</div>`:''}</div></div>`;
+  }).join('');
+
+  const selS=sel?byId(sel):null, ss=selS?sState(selS):null;
+  const mapcap=selS?(ss.locked?`<b style="color:var(--gold)">${selS.name}</b> — tap to check`:`<b style="color:var(--gold)">${selS.n}. ${selS.name}</b> — “${c.vals[selS.id]}”`)
+    :(lvl==='hard'?'Tap a locked instrument to check it · red pin is the blaring alert':'Tap any instrument to read what it watches');
+
+  app.innerHTML=`
+   <div class="kicker">Warning ${idx+1} of ${CASES.length} · <span style="color:var(--gold)">${lname}</span></div>
+   <h1>The Flight Deck</h1>
+   <div class="levelnote">${lname} — ${lnote}</div>
+   <p class="hook">${c.hook}</p>
+   <div class="paradox"><div class="vs">
+     <div class="pole alarm"><div class="lab">${c.poleA.lab}</div><div class="val">${c.poleA.val}</div><small>${c.poleA.note}</small></div>
+     <div class="mid">vs</div>
+     <div class="pole calm"><div class="lab">${POLEB.lab}</div><div class="val">${POLEB.val}</div><small>${POLEB.note}</small></div>
+   </div><p class="riddle">${c.riddle}</p></div>
+   <h2 class="sec">The aircraft</h2>
+   ${lvl==='hard'?`<p class="pickbar">Four possible calls, and you may check <b>${picksLeft}</b> more instrument${picksLeft===1?'':'s'}. Each one's <b>purpose</b> is shown — deduce which readings would separate the causes, then check them.</p>`:''}
+   <div class="panelgrid">
+     <div><div class="mapwrap"><svg viewBox="0 0 520 260" role="img" aria-label="Airliner schematic">${STATIC_SVG}<g id="pins">${pins}</g></svg></div>
+       <div class="mapcap">${mapcap}</div>
+       ${lvl==='easy'?(showHint?`<div class="hint"><b>Hint:</b> ${c.hint}</div>`:`<button class="hintbtn" id="hintbtn">💡 Show a hint</button>`):''}
+     </div>
+     <div class="legend">${legend}</div>
+   </div>
+   <h2 class="sec">${lvl==='hard'?'Commit your call.':'The crew is split. Make the call.'}</h2>
+   ${(firstTry||lvl==='hard')?'':'<p class="hintline">Point lost on this warning — but find the right call to see why and continue.</p>'}
+   ${(lvl==='hard'&&!callEnabled)?'<p class="hintline">Check your two instruments first.</p>':''}
+   <div class="call">${OPTS.map(o=>`<button class="opt ${dead.has(o.id)?'dead':''}" data-opt="${o.id}" ${(dead.has(o.id)||!callEnabled)?'disabled':''}>
+     <strong>${o.title}</strong><span class="arg">${o.arg}</span>
+     ${c.reasons[o.id]?`<div class="reason">${c.reasons[o.id]}</div>`:''}</button>`).join('')}</div>`;
+
+  const tap=id=>{const s=byId(id),st=sState(s),c2=CASES[idx];
+    if(c2.level==='hard'&&st.locked){ if(pulled.size<c2.pick){pulled.add(id);sel=id;renderRound();} return; }
+    sel=id;renderRound();};
+  app.querySelectorAll('.pin').forEach(p=>p.onclick=()=>tap(p.dataset.id));
+  app.querySelectorAll('.li').forEach(l=>l.onclick=()=>tap(l.dataset.id));
+  const hb=document.getElementById('hintbtn'); if(hb)hb.onclick=()=>{showHint=true;renderRound();};
+  app.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{if(!b.disabled)call(b.dataset.opt);});
+}
+function call(id){
+  const c=CASES[idx];
+  if(firstCall[idx]===undefined)firstCall[idx]=id;
+  const correct=(id===c.answer);
+  if(c.level==='hard'){ results[idx]=correct?'correct':'missed'; if(correct)score++; renderResolve(); return; }
+  if(correct){ if(results[idx]!=='missed'){results[idx]='correct';if(firstTry)score++;} renderResolve(); }
+  else { if(firstTry){firstTry=false;results[idx]='missed';} dead.add(id); renderRound(); }
+}
+function renderResolve(){
+  scorebar(false);
+  const c=CASES[idx],r=c.resolve,got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+   <div class="verdict ${got?'good':'bad'}">${got?'Correct — first call':'Missed on the first call'}</div>
+   <h2>${r.title}</h2>${r.paras.map(p=>`<p>${p}</p>`).join('')}
+   <div class="poles2"><div class="a">${r.a}</div><div class="c">${r.c}</div></div>
+   <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+   <div class="take"><b>The move:</b> ${r.take}</div>
+   <button class="btn primary" id="next">${idx<CASES.length-1?'Next warning →':'See the debrief →'}</button></div>`;
+  document.getElementById('next').onclick=()=>{if(idx<CASES.length-1){idx++;newRound();}else renderFinal();};
+}
+function renderFinal(){
+  scorebar(false);
+  const nm={easy:"Easy",medium:"Medium",hard:"Hard"};
+  const msg = score===3?'A clean debrief — you cross-checked every time, even when the honest number looked terrifying.'
+    : score===2?'Solid. The one that gets people is the warning that mimics a different failure.'
+    : score===1?'One good call. Each warning gave you less help than the last — that is the ramp.'
+    : 'Tough sortie — same paradox, escalating difficulty, and both over- and under-reacting can kill you.';
+  app.innerHTML=`<div class="intro"><div class="kicker">Debrief</div>
+   <div class="bigscore">${score} / ${CASES.length}</div>
+   <p>${msg}</p>
+   <div class="recap">${CASES.map((c,i)=>{const ok=firstCall[i]===c.answer;return `<div class="rc"><span><span class="lv">${nm[c.level]}</span> · you called <b>${LABEL[firstCall[i]]||'—'}</b></span><span class="dx">it was ${LABEL[c.answer]} <span class="mark ${ok?'ok':'no'}">${ok?'✓':'✗'}</span></span></div>`;}).join('')}</div>
+   <div class="take"><b>The skill:</b> same paradox each time — a warning blaring while the jet still flies. The screaming instrument never settled it. The answer came from checking it against an <i>independent</i> reference — AoA and GPS groundspeed. Agree → the danger is real; disagree → the instrument is lying.</div>
+   <button class="btn primary" id="again">Fly it again</button></div>`;
+  document.getElementById('again').onclick=renderIntro;
+}
+renderIntro();
+</script></body></html>

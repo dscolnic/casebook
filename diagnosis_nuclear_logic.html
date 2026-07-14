@@ -1,0 +1,312 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meltdown Watch — Logic-depth edition</title>
+<style>
+:root{--bg:#07121d;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;--blue:#70c9f2;--steel:#2e77a4;
+  --gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),linear-gradient(180deg,#05101a,#0a1f30 55%,#05101a)}
+.wrap{max-width:1040px;margin:auto;padding:22px 20px 80px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)} .dot.now{border-color:var(--gold)}
+h1{font-size:clamp(22px,3.4vw,32px);line-height:1.08;margin:6px 0 4px;letter-spacing:-.02em}
+.levelnote{font-size:13px;color:var(--muted);margin:0 0 8px}.levelnote b{color:var(--gold)}
+.hook{color:#d8e7ef;font-size:15px;line-height:1.55;max-width:760px;margin:6px 0}
+.paradox{margin:16px 0 4px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:24px;font-weight:900;margin:5px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:12.5px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:18px;line-height:1.5;margin:14px 0 4px;font-weight:700}.riddle .q{color:var(--gold)}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:22px 0 10px;font-weight:900}
+.panelgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+.mapwrap{border:1px solid var(--line);background:rgba(13,34,51,.9);border-radius:15px;padding:12px}
+svg{width:100%;height:auto;display:block}
+.mapcap{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center;min-height:16px}
+.legend{display:flex;flex-direction:column;gap:7px}
+.li{display:flex;gap:10px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:9px 11px;cursor:pointer;transition:border-color .12s}
+.li:hover,.li.sel{border-color:var(--blue)} .li.sel{background:#163953}
+.badge{flex:none;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:12px;color:#07121d;background:var(--steel)}
+.li.alarm .badge{background:var(--red)}
+.li .body{min-width:0}
+.li .nm{font-size:13.5px;font-weight:800;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.li .val{font-size:12px;font-weight:800;color:var(--blue)}
+.li .pp{font-size:12px;color:var(--muted);line-height:1.4;margin-top:3px}
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;padding:13px 15px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)} .opt:disabled{opacity:.4;cursor:not-allowed}
+.opt strong{display:block;font-size:15px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:13.5px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236} .opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px} .opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:22px 24px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:24px;margin:4px 0 12px}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 12px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:11px 13px;font-size:13.5px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)} .poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)} .poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:13.5px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:8px 11px} .node:last-child{border-color:var(--gold)} .arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:11px 14px;border-radius:9px;margin-top:14px;font-size:14.5px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:16px}
+.btn:hover{background:#224b68} .btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+.intro h1{font-size:clamp(30px,5vw,50px)} .intro p{font-size:16px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.sys{display:grid;grid-template-columns:minmax(0,290px) 1fr;gap:18px;align-items:center;margin:18px 0;border:1px solid var(--line);background:#0d2233;border-radius:14px;padding:16px 18px}
+.sysmap svg{width:100%;height:auto;display:block}
+.systext h3{margin:0 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.systext ul{margin:0;padding-left:18px}
+.systext li{margin:7px 0;line-height:1.5;font-size:14px;color:#d8e7ef}
+.systext li b{color:var(--gold)}
+.systext .soo{margin:12px 0 0;font-size:14px;line-height:1.55;color:#d8e7ef}.systext .soo b{color:var(--gold)}
+.methodlink{margin:14px 0;max-width:760px}
+.methodlink summary{cursor:pointer;color:var(--blue);font-size:14px;font-weight:700}
+.methodlink ol{margin:10px 0 0;padding-left:22px}
+.methodlink li{margin:8px 0;line-height:1.5;font-size:14px;color:#d8e7ef}.methodlink li b{color:var(--gold)}
+.methodlink .foot{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px}
+@media(max-width:720px){.sys{grid-template-columns:1fr}}
+.recap{display:grid;gap:8px;margin:16px 0}
+.recap .rc{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:11px 14px;font-size:14px}
+.recap .rc .lv{color:var(--gold);font-weight:800}.recap .rc .dx{color:var(--muted)} .mark.ok{color:var(--green)} .mark.no{color:var(--red)}
+.bigscore{font-size:54px;font-weight:900;margin:6px 0}
+.pin circle{stroke:#07121d;stroke-width:2;cursor:pointer}
+.pin .num{fill:#07121d;font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin.sel circle{stroke:#fff;stroke-width:3}
+.lbl{fill:var(--muted);font-size:11px} .eqlbl{fill:#8fb0c2;font-size:11px;font-weight:700}
+.zone{fill:none;stroke-dasharray:4 4;stroke-width:1.2}
+@media(max-width:820px){.panelgrid{grid-template-columns:1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div class="kicker">Reactor operations · main control room</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+const S=[
+ {id:'coretemp',n:3,name:'Core exit temperature',x:140,y:258,zone:'core',purpose:"Water temperature leaving the core. Should fall after a trip as decay heat is removed."},
+ {id:'rcs',n:1,name:'RCS pressure',x:205,y:270,zone:'core',purpose:"Pressure in the coolant loop (normal ~2,235 psia). Falls if coolant leaks out; rises if heat cannot escape."},
+ {id:'przr',n:2,name:'Pressurizer level',x:236,y:200,zone:'core',purpose:"How much water is left in the primary loop (normal ~55%). Falls when the loop loses inventory."},
+ {id:'crad',n:4,name:'Containment radiation',x:290,y:120,zone:'cont',purpose:"Radiation inside the containment building — rises if coolant leaks INTO containment."},
+ {id:'redun',n:8,name:'Redundant pressure channel',x:323,y:120,zone:'cont',purpose:"A second, independent pressure gauge — confirms the main readings are honest."},
+ {id:'sg',n:6,name:'Steam generator level',x:363,y:275,zone:'sec',purpose:"The boilers that carry heat away. Boil dry if cooling is lost; fill abnormally if primary water leaks into one."},
+ {id:'srad',n:7,name:'Secondary-side radiation',x:452,y:175,zone:'sec',purpose:"Radiation on the STEAM side — rises only if primary coolant leaks through a tube into a steam generator."},
+ {id:'sump',n:5,name:'Containment sump',x:200,y:442,zone:'cont',purpose:"Water pooling on the containment floor — pools if coolant leaks INTO the containment building."}
+];
+const byId=id=>S.find(s=>s.id===id);
+const OPTS=[
+ {id:"loca",title:"Loss-of-coolant accident — leak into containment.",arg:"Coolant is spilling into the containment building. Inject and isolate."},
+ {id:"sgtr",title:"Tube rupture — leak into the steam side.",arg:"Primary coolant is leaking through a tube into a steam generator. Isolate that SG."},
+ {id:"heatsink",title:"Lost heat sink — decay heat cannot escape.",arg:"No leak — the steam generators are dry and the core is heating. Restore feedwater."},
+ {id:"normal",title:"Normal post-trip transient — monitor.",arg:"Expected settling after a trip. Hold actions and keep watching."}
+];
+const LABEL={loca:"Loss-of-coolant accident",sgtr:"Tube rupture",heatsink:"Lost heat sink",normal:"Normal transient"};
+const POLEB={lab:"Reactor status",val:"SCRAMMED — rods in",note:"Fission is stopped. But a freshly-shut core still pours out decay heat that must be removed."};
+
+const CASES=[
+{ logic:"L1 · naked single", alarm:"coretemp",
+  hook:"Two minutes after a trip. Rods are in, but the board is trending the wrong way.",
+  poleA:{lab:"Core temperature",val:"Rising",note:"Climbing after the trip instead of easing off, and pressure is creeping up with it."},
+  riddle:'The core is shut down — <span class="q">so why is it heating up, not cooling?</span>',
+  vals:{rcs:"2,410 psia, RISING",przr:"58%, steady",coretemp:"climbing steadily",crad:"normal",redun:"channels agree",sg:"both boiling dry",srad:"normal",sump:"dry"},
+  answer:"heatsink",
+  reasons:{
+    loca:"A leak drops pressure and fills the containment sump. Here pressure is RISING and the sump is dry — nothing is leaving the loop.",
+    sgtr:"A tube rupture makes the secondary side radioactive. Secondary radiation is normal, and pressure is rising, not falling. This is not a leak.",
+    normal:"After a trip the core should cool. Rising temperature with the steam generators boiled dry is a lost heat sink, not settling."},
+  resolve:{title:"Lost heat sink — decay heat with nowhere to go.",
+    paras:["Pressure is rising, not falling, and the steam generators have boiled dry — so the core's decay heat has no way out and the temperature climbs. There is no leak: the sump is dry and nothing is radioactive. Restore feedwater.",
+      "This one was easy on purpose. The loud gauges settled it in a glance: <b>pressure rising</b> (not falling) rules out every kind of leak by itself — a leak loses inventory and pressure drops."],
+    a:"<b>Why not a leak</b>: a leak drops pressure and wets the sump; pressure is rising and the sump is dry.",
+    c:"<b>Why the loud reading was enough</b>: pressure direction alone separates 'heat trapped' from 'coolant lost.'",
+    chain:["Feedwater / heat sink lost","Decay heat cannot escape","Pressure and temperature climb"],
+    take:"A naked single: one loud gauge (pressure rising) eliminates every rival by itself. The easy cases are the ones a single reading decides."} },
+
+{ logic:"L2 · one clear line", alarm:"rcs",
+  hook:"A different trip. Pressure and pressurizer level are both sliding down together.",
+  poleA:{lab:"Coolant system",val:"Pressure falling",note:"RCS pressure sliding down, pressurizer level sagging with it."},
+  riddle:'Pressure and level are sliding away. <span class="q">Is the loop leaking — or just settling after the trip?</span>',
+  vals:{rcs:"1,650 psia, falling",przr:"22%, falling",coretemp:"rising toward saturation",crad:"slightly elevated",redun:"channels agree",sg:"normal",srad:"normal",sump:"rising"},
+  answer:"loca",
+  reasons:{
+    sgtr:"A tube rupture leaks into the steam side — you would see secondary radiation and a filling SG. Secondary radiation is normal and the water is pooling in the containment sump. The leak is into containment.",
+    heatsink:"A lost heat sink drives pressure UP with the SGs dry. Pressure is falling, level is falling, and the sump is filling — the loop is losing water.",
+    normal:"Normal shrink levels off with a steady level. Level is falling and the sump is filling — coolant is really leaving. This is the mistake that wrecked Three Mile Island."},
+  resolve:{title:"Loss-of-coolant accident — a leak into containment.",
+    paras:["Pressure and level are both falling and the containment sump is filling — coolant is escaping the loop into the containment building. Inject and isolate before the fuel uncovers.",
+      "Harder than the last: falling pressure alone could be ordinary post-trip shrink. One reading drew the line — the pressurizer <b>level</b> falling while the <b>sump</b> fills. Shrink does not drain the loop; a leak does."],
+    a:"<b>Why not settling</b>: a transient holds its level; here the level is dropping and water is pooling.",
+    c:"<b>Why into containment</b>: the sump is filling and the secondary side is clean — the spill is inside the building.",
+    chain:["Breach in the loop","Level falls, sump fills","A real leak into containment"],
+    take:"One clear line: level falling plus a filling sump separates a genuine leak from ordinary settling."} },
+
+{ logic:"L3 · the loud gauges tie", alarm:"rcs",
+  hook:"A third trip. Pressure and level are falling — the same picture as a leak into containment. But the containment floor is bone dry.",
+  poleA:{lab:"Coolant system",val:"Pressure falling",note:"Pressure and level sliding down together — the classic look of a leak."},
+  riddle:'Pressure and level are falling, just like a leak into containment. But the containment floor is dry. <span class="q">So where is the water going?</span>',
+  vals:{rcs:"1,700 psia, falling",przr:"28%, falling",coretemp:"rising",crad:"normal",redun:"channels agree",sg:"one SG filling",srad:"ELEVATED",sump:"dry"},
+  answer:"sgtr",
+  reasons:{
+    loca:"Both are leaks — pressure and level fall either way. But a LOCA fills the containment sump and lights the containment radiation. Those are normal; instead the SECONDARY side is radioactive and an SG is filling. The coolant crossed into the steam side.",
+    heatsink:"A lost heat sink shows pressure RISING with dry SGs. Pressure is falling and a steam generator is filling — this is a leak, not lost cooling.",
+    normal:"A steady transient does not make the secondary side radioactive. Primary water is crossing into a steam generator — a tube has ruptured."},
+  resolve:{title:"Tube rupture — the leak crossed into the steam side.",
+    paras:["Pressure and level are falling — the loop is losing water — but the containment sump is dry and containment radiation is normal, so it is not leaking into the building. Instead the SECONDARY side is radioactive and a steam generator is filling. A tube has ruptured; primary coolant is leaking through it into the steam generator. Isolate that SG.",
+      "This is the deep one. Both a LOCA and a tube rupture are leaks, so the loud readings — pressure and level — <b>tie</b>. Matching the headline gets you nowhere. You had to ask a second question the gauges do not ask for you: <i>where did the coolant go?</i> The radioactivity answers it — it is on the steam side, not in containment."],
+    a:"<b>Why the loud readings couldn't decide</b>: pressure↓ and level↓ mean 'a leak' — shared by both.",
+    c:"<b>Why SGTR over LOCA</b>: the sump is dry and containment is clean, but the secondary side is radioactive — the coolant crossed a tube.",
+    chain:["Pressure & level fall — a leak","Containment dry, but secondary side radioactive","Coolant leaked through a tube into the steam generator"],
+    take:"When the loud gauges tie, the answer lives one question deeper. Both were leaks; only 'where did it go' — the quiet radiation readings — told a tube rupture from a spill."} }
+];
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score');
+let idx=0,score=0,results=[],firstCall=[],dead=new Set(),firstTry=true,sel=null;
+
+const STATIC_SVG=`
+ <path class="zone" d="M46,436 L46,202 Q46,78 236,78 Q426,78 426,202 L426,436" stroke="#4a6f86"/>
+ <text x="120" y="98" class="eqlbl" text-anchor="middle" style="fill:#5a7f96">CONTAINMENT</text>
+ <text x="452" y="205" class="eqlbl" text-anchor="middle" style="fill:#7e6b3f">STEAM SIDE</text>
+ <line x1="40" y1="430" x2="430" y2="430" stroke="var(--line)" stroke-width="2"/>
+ <path d="M120,430 L150,452 L250,452 L280,430 Z" fill="rgba(112,201,242,.10)" stroke="var(--line)" stroke-width="1.5"/><text x="200" y="465" class="lbl" text-anchor="middle">sump</text>
+ <rect x="105" y="250" width="70" height="150" rx="30" fill="#173e59" stroke="var(--blue)" stroke-width="2"/>
+ <rect x="120" y="300" width="40" height="70" fill="none" stroke="var(--gold)" stroke-width="2"/>
+ <line x1="127" y1="305" x2="127" y2="365" stroke="var(--gold)" stroke-width="2"/><line x1="140" y1="305" x2="140" y2="365" stroke="var(--gold)" stroke-width="2"/><line x1="153" y1="305" x2="153" y2="365" stroke="var(--gold)" stroke-width="2"/>
+ <text x="140" y="416" class="lbl" text-anchor="middle">reactor core</text>
+ <rect x="215" y="150" width="42" height="120" rx="16" fill="#173e59" stroke="var(--blue)" stroke-width="2"/><text x="236" y="285" class="lbl" text-anchor="middle">pressurizer</text>
+ <rect x="330" y="140" width="66" height="270" rx="26" fill="#173e59" stroke="var(--blue)" stroke-width="2"/><text x="363" y="426" class="lbl" text-anchor="middle">steam generator</text>
+ <path d="M175,270 H236 V150 M236,175 H363 V140" fill="none" stroke="var(--blue)" stroke-width="4" opacity=".8"/>
+ <path d="M363,410 H300 Q270,410 270,388 H210 Q185,388 185,400" fill="none" stroke="var(--steel)" stroke-width="4" opacity=".8"/>
+ <text x="312" y="102" class="lbl" text-anchor="middle">rad monitors</text>
+ <path d="M396,175 H470 V150" fill="none" stroke="var(--gold)" stroke-width="3" stroke-dasharray="5 4"/>
+ <path d="M455,150 l35,-14 v28 z" fill="#173e59" stroke="var(--gold)" stroke-width="1.5"/><circle cx="500" cy="150" r="12" fill="#173e59" stroke="var(--gold)" stroke-width="1.5"/><text x="478" y="192" class="lbl" text-anchor="middle">turbine</text>`;
+
+function scorebar(active){
+  const dots=CASES.map((_,i)=>{let c='dot';if(results[i]==='correct')c+=' good';else if(results[i]==='missed')c+=' bad';if(i===idx&&active)c+=' now';return `<span class="${c}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${CASES.length}<span class="dots">${dots}</span></span>`;
+}
+function renderIntro(){
+  scoreEl.innerHTML='';
+  app.innerHTML=`<div class="intro">
+   <h1>Meltdown Watch</h1>
+   <p>You are the operator on watch. Three times the reactor trips and an alarm blares. Each time, your job is
+   to work out <b>what is actually wrong</b> — and call it — before you act. First, how the plant works:</p>
+
+   <div class="sys">
+     <div class="sysmap"><svg viewBox="0 0 520 470" role="img" aria-label="Reactor schematic">${STATIC_SVG}</svg></div>
+     <div class="systext">
+       <h3>How this reactor works</h3>
+       <ul>
+         <li><b>Core → primary loop.</b> Uranium fission heats water in a sealed, high-pressure loop that never leaves containment.</li>
+         <li><b>Pressurizer.</b> Holds that loop's pressure; its <i>level</i> shows how much water is in the loop.</li>
+         <li><b>Steam generators.</b> The hot primary water boils a <i>separate</i> supply of water into steam that spins the turbine — the two never mix, unless a tube leaks.</li>
+         <li><b>Containment &amp; sump.</b> A sealed building around the primary side; a leak pools on the floor (the sump) and shows up as radiation inside.</li>
+         <li><b>Trip (scram).</b> Rods drop and fission stops at once — but the fuel keeps pouring out <b>decay heat</b> for days, so heat must still be carried off through the steam generators, or the core overheats even while "shut down."</li>
+       </ul>
+       <p class="soo">So when an alarm sounds, only a few things can truly be wrong: the loop is <b>losing coolant</b> — into containment, or through a tube into the steam side — or the <b>heat has nowhere to go</b> (steam generators dry). The gauges on the map are how you tell which.</p>
+     </div>
+   </div>
+
+   <details class="methodlink"><summary>How to reason about it — the method (open me first if you like)</summary>
+     <ol>
+       <li><b>An alarm tells you something is wrong, not what.</b> The loud reading grabs you first, but rarely names the cause by itself.</li>
+       <li><b>Pick the one cause that fits the whole panel — including the calm readings.</b> A perfectly <i>normal</i> reading is often the clincher: the sign a wrong explanation would have disturbed, but didn't.</li>
+       <li><b>If two causes look identical up top, reason one step deeper.</b> When the loud gauges tie, the answer hides in the quiet readings — ask a sharper question (for a leak: <i>where</i> is the water going?).</li>
+     </ol>
+     <p class="foot">The same skill doctors, pilots, and engineers use — find the explanation the whole picture agrees on, not the loudest signal.</p>
+   </details>
+
+   <p>The <b>full panel is in front of you every time</b>; nothing is hidden. What gets harder is the reasoning:
+   the first alarm a single gauge decides, the last needs that deeper question. Miss a real leak and the core
+   melts; misread it and you fix the wrong thing. One point per alarm called right on the first order.</p>
+   <button class="btn primary" id="start">Take the desk →</button></div>`;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+function newRound(){dead=new Set();firstTry=true;sel=null;renderRound();}
+
+function renderRound(){
+  scorebar(true);
+  const c=CASES[idx];
+  const pins=S.map(s=>{const isAlarm=s.id===c.alarm;
+    return `<g class="pin ${sel===s.id?'sel':''}" data-id="${s.id}">
+      <circle cx="${s.x}" cy="${s.y}" r="13" fill="${isAlarm?'var(--red)':'var(--steel)'}"/>
+      <text class="num" x="${s.x}" y="${s.y}">${s.n}</text></g>`;}).join('');
+  const legend=S.slice().sort((a,b)=>a.n-b.n).map(s=>{const isAlarm=s.id===c.alarm;
+    return `<div class="li ${isAlarm?'alarm':''} ${sel===s.id?'sel':''}" data-id="${s.id}">
+      <div class="badge">${s.n}</div>
+      <div class="body"><div class="nm">${s.name} <span class="val">${c.vals[s.id]}</span></div>
+        <div class="pp">${s.purpose}</div></div></div>`;}).join('');
+  const selS=sel?byId(sel):null;
+  const mapcap=selS?`<b style="color:var(--gold)">${selS.n}. ${selS.name}</b> — “${c.vals[selS.id]}”`
+    :'Every reading is shown. The red pin is the presenting alarm — tap any pin to locate it.';
+
+  app.innerHTML=`
+   <div class="kicker">Alarm ${idx+1} of ${CASES.length} · <span style="color:var(--gold)">${c.logic}</span></div>
+   <h1>The Board</h1>
+   <div class="levelnote">${c.logic} — the whole panel is visible; the difficulty is in the reading.</div>
+   <p class="hook">${c.hook}</p>
+   <div class="paradox"><div class="vs">
+     <div class="pole alarm"><div class="lab">${c.poleA.lab}</div><div class="val">${c.poleA.val}</div><small>${c.poleA.note}</small></div>
+     <div class="mid">vs</div>
+     <div class="pole calm"><div class="lab">${POLEB.lab}</div><div class="val">${POLEB.val}</div><small>${POLEB.note}</small></div>
+   </div><p class="riddle">${c.riddle}</p></div>
+   <h2 class="sec">The reactor — full panel</h2>
+   <div class="panelgrid">
+     <div><div class="mapwrap"><svg viewBox="0 0 520 470" role="img" aria-label="Reactor schematic">${STATIC_SVG}<g id="pins">${pins}</g></svg></div>
+       <div class="mapcap">${mapcap}</div></div>
+     <div class="legend">${legend}</div>
+   </div>
+   <h2 class="sec">The control room is split. Make the call.</h2>
+   ${firstTry?'':'<p class="hintline">Point lost on this alarm — but find the right call to see why and continue.</p>'}
+   <div class="call">${OPTS.map(o=>`<button class="opt ${dead.has(o.id)?'dead':''}" data-opt="${o.id}" ${dead.has(o.id)?'disabled':''}>
+     <strong>${o.title}</strong><span class="arg">${o.arg}</span>
+     ${c.reasons[o.id]?`<div class="reason">${c.reasons[o.id]}</div>`:''}</button>`).join('')}</div>`;
+
+  const tap=id=>{sel=id;renderRound();};
+  app.querySelectorAll('.pin').forEach(p=>p.onclick=()=>tap(p.dataset.id));
+  app.querySelectorAll('.li').forEach(l=>l.onclick=()=>tap(l.dataset.id));
+  app.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{if(!b.disabled)call(b.dataset.opt);});
+}
+function call(id){
+  const c=CASES[idx];
+  if(firstCall[idx]===undefined)firstCall[idx]=id;
+  if(id===c.answer){ if(results[idx]!=='missed'){results[idx]='correct';if(firstTry)score++;} renderResolve(); }
+  else { if(firstTry){firstTry=false;results[idx]='missed';} dead.add(id); renderRound(); }
+}
+function renderResolve(){
+  scorebar(false);
+  const c=CASES[idx],r=c.resolve,got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+   <div class="verdict ${got?'good':'bad'}">${got?'Correct — first order':'Missed on the first order'}</div>
+   <h2>${r.title}</h2>${r.paras.map(p=>`<p>${p}</p>`).join('')}
+   <div class="poles2"><div class="a">${r.a}</div><div class="c">${r.c}</div></div>
+   <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+   <div class="take"><b>The move:</b> ${r.take}</div>
+   <button class="btn primary" id="next">${idx<CASES.length-1?'Next alarm →':'See the shift review →'}</button></div>`;
+  document.getElementById('next').onclick=()=>{if(idx<CASES.length-1){idx++;newRound();}else renderFinal();};
+}
+function renderFinal(){
+  scorebar(false);
+  const msg = score===3?'A clean shift — including the two leaks that looked identical up top.'
+    : score===2?'Solid. The step-up is the alarm where the loud gauges tie and you must reason deeper.'
+    : score===1?'One good call. Same panel each time, but the inference got harder.'
+    : 'Hard shift — the last alarm looks exactly like the middle one until you ask where the coolant went.';
+  app.innerHTML=`<div class="intro"><div class="kicker">Shift review</div>
+   <div class="bigscore">${score} / ${CASES.length}</div>
+   <p>${msg}</p>
+   <div class="recap">${CASES.map((c,i)=>{const ok=firstCall[i]===c.answer;return `<div class="rc"><span><span class="lv">${c.logic}</span> · you called <b>${LABEL[firstCall[i]]||'—'}</b></span><span class="dx">it was ${LABEL[c.answer]} <span class="mark ${ok?'ok':'no'}">${ok?'✓':'✗'}</span></span></div>`;}).join('')}</div>
+   <div class="take"><b>The skill:</b> the panel never changed — the reasoning did. Easy: one loud gauge decides. Medium: one specific reading. Hard: the loud gauges tie (both were leaks), so the answer lived one question deeper — <i>where did the coolant go</i> — in the quiet radiation readings.</div>
+   <button class="btn primary" id="again">Take the shift again</button></div>`;
+  document.getElementById('again').onclick=renderIntro;
+}
+renderIntro();
+</script></body></html>

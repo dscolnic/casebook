@@ -1,0 +1,224 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diagnosis</title>
+<style>
+:root{--bg:#07121d;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;--blue:#70c9f2;--steel:#2e77a4;
+  --gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),linear-gradient(180deg,#05101a,#0a1f30 55%,#05101a)}
+.wrap{max-width:1040px;margin:auto;padding:22px 20px 80px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.back{font-size:13px;color:var(--blue);cursor:pointer;background:none;border:0;font:inherit}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)} .dot.now{border-color:var(--gold)}
+h1{font-size:clamp(22px,3.4vw,32px);line-height:1.08;margin:6px 0 4px;letter-spacing:-.02em}
+.levelnote{font-size:13px;color:var(--muted);margin:0 0 8px}.levelnote b{color:var(--gold)}
+.hook{color:#d8e7ef;font-size:15px;line-height:1.55;max-width:760px;margin:6px 0}
+.paradox{margin:16px 0 4px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:24px;font-weight:900;margin:5px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:12.5px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:18px;line-height:1.5;margin:14px 0 4px;font-weight:700}.riddle .q{color:var(--gold)}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:22px 0 10px;font-weight:900}
+.panelgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+.mapwrap{border:1px solid var(--line);background:rgba(13,34,51,.9);border-radius:15px;padding:12px}
+svg{width:100%;height:auto;display:block}
+.mapcap{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center;min-height:16px}
+.legend{display:flex;flex-direction:column;gap:7px}
+.li{display:flex;gap:10px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:9px 11px;cursor:pointer;transition:border-color .12s}
+.li:hover,.li.sel{border-color:var(--blue)} .li.sel{background:#163953}
+.badge{flex:none;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:12px;color:#07121d;background:var(--steel)}
+.li.alarm .badge{background:var(--red)}
+.li .body{min-width:0}
+.li .nm{font-size:13.5px;font-weight:800;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.li .val{font-size:12px;font-weight:800;color:var(--blue)}
+.li .pp{font-size:12px;color:var(--muted);line-height:1.4;margin-top:3px}
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;padding:13px 15px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)} .opt:disabled{opacity:.4;cursor:not-allowed}
+.opt strong{display:block;font-size:15px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:13.5px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236} .opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px} .opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:22px 24px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:24px;margin:4px 0 12px}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 12px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:11px 13px;font-size:13.5px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)} .poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)} .poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:13.5px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:8px 11px} .node:last-child{border-color:var(--gold)} .arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:11px 14px;border-radius:9px;margin-top:14px;font-size:14.5px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:16px}
+.btn:hover{background:#224b68} .btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+.intro h1{font-size:clamp(30px,5vw,50px)} .intro p{font-size:16px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.sys{display:grid;grid-template-columns:minmax(0,290px) 1fr;gap:18px;align-items:center;margin:18px 0;border:1px solid var(--line);background:#0d2233;border-radius:14px;padding:16px 18px}
+.sysmap svg{width:100%;height:auto;display:block}
+.systext h3{margin:0 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.systext ul{margin:0;padding-left:18px}.systext li{margin:7px 0;line-height:1.5;font-size:14px;color:#d8e7ef}.systext li b{color:var(--gold)}
+.systext .soo{margin:12px 0 0;font-size:14px;line-height:1.55;color:#d8e7ef}.systext .soo b{color:var(--gold)}
+.methodlink{margin:14px 0;max-width:760px}
+.methodlink summary{cursor:pointer;color:var(--blue);font-size:14px;font-weight:700}
+.methodlink ol{margin:10px 0 0;padding-left:22px}.methodlink li{margin:8px 0;line-height:1.5;font-size:14px;color:#d8e7ef}.methodlink li b{color:var(--gold)}
+.methodlink .foot{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:18px}
+.card{border:1px solid var(--line);background:#10283b;border-radius:14px;padding:18px;cursor:pointer}
+.card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.card .dm{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--blue);font-weight:900}
+.card h3{font-size:20px;margin:6px 0 4px}.card p{color:var(--muted);font-size:13.5px;line-height:1.45;margin:0}
+.pin circle{stroke:#07121d;stroke-width:2;cursor:pointer}
+.pin .num{fill:#07121d;font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin.sel circle{stroke:#fff;stroke-width:3}
+.lbl{fill:var(--muted);font-size:11px} .eqlbl{fill:#8fb0c2;font-size:11px;font-weight:700}
+.zone{fill:none;stroke-dasharray:4 4;stroke-width:1.2}
+@media(max-width:820px){.panelgrid{grid-template-columns:1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}.sys{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div id="crumb" class="kicker">Diagnosis</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+const PACKS=[/*__PACKS_START__*/
+{"id":"reactor","title":"Meltdown Watch","domain":"Nuclear reactor operations","role":"You are the operator on watch.","system":{"parts":[["Core → primary loop","Uranium fission heats water in a sealed, high-pressure loop that never leaves containment."],["Pressurizer","Holds that loop's pressure; its level shows how much water is in the loop."],["Steam generators","The hot primary water boils a separate supply of water into steam for the turbine — the two never mix, unless a tube leaks."],["Containment & sump","A sealed building around the primary side; a leak pools on the floor (the sump) and shows up as radiation inside."],["Trip (scram)","Rods drop and fission stops at once — but the fuel keeps pouring out decay heat for days, so heat must still leave through the steam generators."]],"soWrong":"So when an alarm sounds, only a few things can truly be wrong: the loop is losing coolant, the loop is being over-cooled, or the heat has nowhere to go. The gauges are how you tell which."},"salient":["rcs","przr"],"readings":{"rcs":{"name":"RCS pressure","pin":{"x":205,"y":270},"zone":"primary","purpose":"Pressure in the coolant loop (~2,235 psia). Falls if coolant leaks OR the loop is over-cooled; rises if heat can't escape."},"przr":{"name":"Pressurizer level","pin":{"x":236,"y":200},"zone":"primary","purpose":"How much water is in the loop (~55%). Falls only when inventory is actually being lost."},"coretemp":{"name":"Core exit temperature","pin":{"x":140,"y":258},"zone":"primary","purpose":"Rises if heat is trapped; falls if the loop is over-cooled; should ease gently after a trip."},"crad":{"name":"Containment radiation","pin":{"x":290,"y":120},"zone":"containment","purpose":"Radiation inside the containment building — rises if coolant leaks INTO containment."},"sump":{"name":"Containment sump","pin":{"x":200,"y":442},"zone":"containment","purpose":"Water on the containment floor — pools if coolant leaks into the building; stays dry if the loop is merely contracting."},"sg":{"name":"Steam generator level","pin":{"x":363,"y":275},"zone":"secondary","purpose":"The boilers that carry heat away. Boil dry if cooling is lost; run high under heavy steam demand."},"srad":{"name":"Secondary-side radiation","pin":{"x":452,"y":175},"zone":"secondary","purpose":"Radiation on the STEAM side — rises only if primary water leaks through a tube into a steam generator."},"redun":{"name":"Redundant pressure channel","pin":{"x":323,"y":120},"zone":"containment","purpose":"A second, independent pressure gauge — confirms the main readings are honest."}},"hypotheses":{"heatsink":{"label":"Lost heat sink","call":{"title":"Lost heat sink — restore cooling.","arg":"No leak — the steam generators are dry and the core is heating. Restore feedwater."},"sig":{"rcs":"up","przr":"normal","coretemp":"up","crad":"normal","sump":"dry","sg":"dry","srad":"normal","redun":"agree"}},"overcool":{"label":"Overcooling","call":{"title":"Overcooling — cut the excess steam demand.","arg":"Something is pulling too much heat out. Rebalance before the loop over-cools."},"sig":{"rcs":"down","przr":"normal","coretemp":"down","crad":"normal","sump":"dry","sg":"high","srad":"normal","redun":"agree"}},"loca":{"label":"Loss-of-coolant accident","call":{"title":"Loss-of-coolant accident — inject and isolate.","arg":"Coolant is leaking into containment. Inject before the core uncovers."},"sig":{"rcs":"down","przr":"down","coretemp":"up","crad":"up","sump":"rise","sg":"normal","srad":"normal","redun":"agree"}},"shrink":{"label":"Normal transient","call":{"title":"Normal post-trip transient — monitor.","arg":"Expected contraction after a trip. Hold actions and keep watching."},"sig":{"rcs":"down","przr":"down","coretemp":"settling","crad":"normal","sump":"dry","sg":"normal","srad":"normal","redun":"agree"}}},"dismissal":"shrink","reassuring":{"lab":"Reactor status","val":"SCRAMMED — rods in","note":"Fission is stopped. But a freshly-shut core still pours out decay heat that must be removed."},"rounds":[{"answer":"heatsink","alarm":"coretemp","poleA":{"lab":"Core temperature","val":"Rising","note":"Climbing after the trip instead of easing off, and pressure is creeping up with it."},"hook":"Two minutes after an automatic trip. Rods are in, but the board is trending the wrong way.","riddle":"The core is shut down — <span class=\"q\">so why is it heating up, not cooling?</span>","vals":{"rcs":"2,410 psia, RISING","przr":"58%, steady","coretemp":"climbing steadily","crad":"normal","sump":"dry","sg":"both boiling dry","srad":"normal","redun":"channels agree"},"reasons":{"loca":"A leak drops pressure and fills the sump. Pressure is RISING and the sump is dry — nothing is leaving the loop.","overcool":"Over-cooling drives pressure and temperature DOWN. Both are rising — heat is trapped, not being over-removed.","shrink":"After a trip the core should cool. Rising temperature with the steam generators boiled dry is a lost heat sink, not settling."},"resolve":{"title":"Lost heat sink — decay heat with nowhere to go.","paras":["Pressure is rising, not falling, and the steam generators have boiled dry — so decay heat has no way out and the temperature climbs. There is no leak: the sump is dry and nothing is radioactive. Restore feedwater.","The easy one: the loud gauges gave it away. <b>Pressure rising</b> is unique to this failure — every other cause here drops the pressure. One reading names it."],"why":{"loud":"<b>Why the loud reading was enough</b>: only trapped heat raises pressure; every leak lowers it.","quiet":"<b>Why not a leak</b>: the sump is dry and nothing is radioactive."},"chain":["Feedwater / heat sink lost","Decay heat trapped","Pressure and temperature climb"],"take":"A naked single: one loud gauge (pressure rising) is unique to this cause and names it alone."}},{"answer":"overcool","alarm":"rcs","poleA":{"lab":"Coolant system","val":"Pressure falling fast","note":"RCS pressure dropping quickly — faster than an ordinary post-trip settle."},"hook":"A different trip. Pressure is sliding down quickly, and the crew is reaching for the leak procedures.","riddle":"Pressure is dropping fast. <span class=\"q\">Is the loop leaking — or is something pulling too much heat out?</span>","vals":{"rcs":"1,720 psia, falling fast","przr":"55%, holding","coretemp":"dropping","crad":"normal","sump":"dry","sg":"levels high, heavy steam demand","srad":"normal","redun":"channels agree"},"reasons":{"loca":"A leak drains the loop — the pressurizer level would fall and the sump fill. Level is HOLDING and the sump is dry. No inventory is leaving.","heatsink":"A lost heat sink drives pressure and temperature UP. Both are falling — the core is being over-cooled, not starved of cooling.","shrink":"Ordinary shrink is gentle and settles. Pressure is dropping fast with heavy steam demand — something is actively over-cooling the primary."},"resolve":{"title":"Overcooling — too much heat being removed.","paras":["Pressure and temperature are both falling fast, but the pressurizer level is holding and nothing is radioactive — no coolant is leaving the loop. Something on the steam side is removing heat too aggressively (a stuck-open steam valve or runaway feedwater). Isolate the excess steam demand.","One clear line settled it: the pressurizer <b>level</b>. Falling pressure alone could be a leak — but a leak drains the loop and the level sags. The level is steady, so the inventory is intact; this is heat loss, not coolant loss."],"why":{"loud":"<b>Why not a leak</b>: the level is holding — nothing is draining out of the loop.","quiet":"<b>Why not lost cooling</b>: pressure and temperature are falling, the opposite of heat with nowhere to go."},"chain":["Excess steam demand","Primary over-cooled","Pressure & temperature fall — inventory intact"],"take":"One clear reading — the level holding — separates losing heat from losing coolant."}},{"answer":"loca","alarm":"rcs","poleA":{"lab":"Coolant system","val":"Pressure & level falling","note":"Both sliding down together — exactly the look of the loop emptying. But a cooldown does that too."},"hook":"A third trip. Pressure and level are falling together — the picture of a loop losing water. A normal cooldown looks the same.","riddle":"Pressure and level are both falling. <span class=\"q\">A real leak — or just the loop contracting as it cools?</span>","vals":{"rcs":"1,650 psia, falling","przr":"22%, falling","coretemp":"rising toward saturation","crad":"elevated","sump":"rising","sg":"normal","srad":"normal","redun":"channels agree"},"reasons":{"shrink":"Post-trip shrink looks identical up top — pressure and level fall as the water cools and contracts. But shrink is DRY and settles. Here the sump is filling and containment radiation is up — coolant is physically leaving the loop.","overcool":"Over-cooling holds the level (no inventory lost). Level is falling and the sump is filling — the loop is actually losing water.","heatsink":"A lost heat sink drives pressure UP. Pressure is falling and water is pooling in containment — this is a leak."},"resolve":{"title":"Loss-of-coolant accident — a real leak into containment.","paras":["Pressure and level are falling and water is pooling in the containment sump, with containment radiation up — coolant is escaping the loop into the building. Inject and isolate before the fuel uncovers.","This is the deep one. On the loud gauges — pressure and level — a real leak and an ordinary post-trip contraction look <b>identical</b>; both fall. Matching the headline gets you nowhere. You had to look at the quiet readings and ask: is coolant actually <i>leaving</i>? The rising sump and the containment radiation answer yes. This is the reading Three Mile Island crews talked themselves out of."],"why":{"loud":"<b>Why the loud gauges couldn't decide</b>: a leak and normal shrink both drop pressure and level.","quiet":"<b>Why a leak, not shrink</b>: the sump is filling and containment is radioactive — contraction leaves both dry and clean."},"chain":["Pressure & level fall — inventory dropping","Sump fills, containment radioactive","Coolant is leaving the loop — a real leak"],"take":"When the loud gauges tie (leak vs shrink both fall), the answer lives in the quiet readings: is water actually leaving?"}}],"schematic":{"viewBox":"0 0 520 470","svg":"\n <path class=\"zone\" d=\"M46,436 L46,202 Q46,78 236,78 Q426,78 426,202 L426,436\" stroke=\"#4a6f86\"/>\n <text x=\"120\" y=\"98\" class=\"eqlbl\" text-anchor=\"middle\" style=\"fill:#5a7f96\">CONTAINMENT</text>\n <text x=\"452\" y=\"205\" class=\"eqlbl\" text-anchor=\"middle\" style=\"fill:#7e6b3f\">STEAM SIDE</text>\n <line x1=\"40\" y1=\"430\" x2=\"430\" y2=\"430\" stroke=\"#385b70\" stroke-width=\"2\"/>\n <path d=\"M120,430 L150,452 L250,452 L280,430 Z\" fill=\"rgba(112,201,242,.10)\" stroke=\"#385b70\" stroke-width=\"1.5\"/><text x=\"200\" y=\"465\" class=\"lbl\" text-anchor=\"middle\">sump</text>\n <rect x=\"105\" y=\"250\" width=\"70\" height=\"150\" rx=\"30\" fill=\"#173e59\" stroke=\"#70c9f2\" stroke-width=\"2\"/>\n <rect x=\"120\" y=\"300\" width=\"40\" height=\"70\" fill=\"none\" stroke=\"#efca72\" stroke-width=\"2\"/>\n <line x1=\"127\" y1=\"305\" x2=\"127\" y2=\"365\" stroke=\"#efca72\" stroke-width=\"2\"/><line x1=\"140\" y1=\"305\" x2=\"140\" y2=\"365\" stroke=\"#efca72\" stroke-width=\"2\"/><line x1=\"153\" y1=\"305\" x2=\"153\" y2=\"365\" stroke=\"#efca72\" stroke-width=\"2\"/>\n <text x=\"140\" y=\"416\" class=\"lbl\" text-anchor=\"middle\">reactor core</text>\n <rect x=\"215\" y=\"150\" width=\"42\" height=\"120\" rx=\"16\" fill=\"#173e59\" stroke=\"#70c9f2\" stroke-width=\"2\"/><text x=\"236\" y=\"285\" class=\"lbl\" text-anchor=\"middle\">pressurizer</text>\n <rect x=\"330\" y=\"140\" width=\"66\" height=\"270\" rx=\"26\" fill=\"#173e59\" stroke=\"#70c9f2\" stroke-width=\"2\"/><text x=\"363\" y=\"426\" class=\"lbl\" text-anchor=\"middle\">steam generator</text>\n <path d=\"M175,270 H236 V150 M236,175 H363 V140\" fill=\"none\" stroke=\"#70c9f2\" stroke-width=\"4\" opacity=\".8\"/>\n <path d=\"M363,410 H300 Q270,410 270,388 H210 Q185,388 185,400\" fill=\"none\" stroke=\"#2e77a4\" stroke-width=\"4\" opacity=\".8\"/>\n <text x=\"312\" y=\"102\" class=\"lbl\" text-anchor=\"middle\">rad monitors</text>\n <path d=\"M396,175 H470 V150\" fill=\"none\" stroke=\"#efca72\" stroke-width=\"3\" stroke-dasharray=\"5 4\"/>\n <path d=\"M455,150 l35,-14 v28 z\" fill=\"#173e59\" stroke=\"#efca72\" stroke-width=\"1.5\"/><circle cx=\"500\" cy=\"150\" r=\"12\" fill=\"#173e59\" stroke=\"#efca72\" stroke-width=\"1.5\"/><text x=\"478\" y=\"192\" class=\"lbl\" text-anchor=\"middle\">turbine</text>"}}
+/*__PACKS_END__*/];
+const LEVEL_NAME={L1:'naked single',L2:'one clear line',L3:'the loud gauges tie',L4:'two faults'};
+const METHOD=`<details class="methodlink"><summary>How to reason about it — the method</summary>
+ <ol>
+   <li><b>An alarm tells you something is wrong, not what.</b> The loud reading grabs you first, but rarely names the cause by itself.</li>
+   <li><b>Pick the one cause that fits the whole panel — including the calm readings.</b> A perfectly <i>normal</i> reading is often the clincher: the sign a wrong explanation would have disturbed, but didn't.</li>
+   <li><b>If two causes look identical up top, reason one step deeper.</b> When the loud gauges tie, the answer hides in the quiet readings — ask a sharper question.</li>
+ </ol>
+ <p class="foot">The same skill doctors, pilots, and engineers use — find the explanation the whole picture agrees on, not the loudest signal.</p></details>`;
+
+function difficulty(P,round){
+  const hyps=P.hypotheses, cands=Object.keys(hyps), ans=round.answer;
+  const obs=round.observed||hyps[ans].sig, keys=Object.keys(P.readings);
+  const perfect=cands.some(h=>keys.every(r=>hyps[h].sig[r]===obs[r]));
+  if(!perfect) return 'L4';
+  const solo=P.salient.some(r=>cands.every(h=>h===ans||hyps[h].sig[r]!==obs[r]));
+  const loudCons=cands.filter(h=>P.salient.every(r=>hyps[h].sig[r]===obs[r]));
+  return solo?'L1':loudCons.length===1?'L2':'L3';
+}
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score'), crumb=document.getElementById('crumb');
+let P=null, num={}, idx=0, score=0, results=[], firstCall=[], dead=new Set(), firstTry=true, sel=null, optOrder=[];
+
+function boot(){ if(PACKS.length===1){ pick(0); } else renderShelf(); }
+function renderShelf(){
+  P=null; scoreEl.innerHTML=''; crumb.textContent='Diagnosis · case library';
+  app.innerHTML=`<div class="intro"><h1>Diagnosis</h1>
+   <p>Read the instruments, reason from the whole picture, and call what is actually wrong. Pick a case.</p>
+   <div class="shelf">${PACKS.map((p,i)=>`<div class="card" data-i="${i}"><div class="dm">${p.domain}</div><h3>${p.title}</h3><p>${p.role}</p></div>`).join('')}</div></div>`;
+  app.querySelectorAll('.card').forEach(c=>c.onclick=()=>pick(+c.dataset.i));
+}
+function pick(i){ P=PACKS[i]; num={}; Object.keys(P.readings).forEach((r,k)=>num[r]=k+1); renderIntro(); }
+
+function renderIntro(){
+  scoreEl.innerHTML=''; crumb.textContent=P.domain;
+  app.innerHTML=`<div class="intro">
+   <h1>${P.title}</h1>
+   <p>${P.role} Three times an alarm sounds. Each time, work out <b>what is actually wrong</b> — and call it — before you act. First, how the system works:</p>
+   <div class="sys">
+     <div class="sysmap"><svg viewBox="${P.schematic.viewBox}" role="img" aria-label="System schematic">${P.schematic.svg}</svg></div>
+     <div class="systext"><h3>How this system works</h3>
+       <ul>${P.system.parts.map(x=>`<li><b>${x[0]}.</b> ${x[1]}</li>`).join('')}</ul>
+       <p class="soo">${P.system.soWrong}</p></div>
+   </div>
+   ${METHOD}
+   <p>The <b>full panel is in front of you every time</b>; nothing is hidden. What gets harder is the reasoning: the first alarm a single gauge decides, the last needs a deeper question. One point per alarm called right on the first order.</p>
+   ${PACKS.length>1?'<button class="back" id="toshelf">← all cases</button><br>':''}
+   <button class="btn primary" id="start">Begin →</button></div>`;
+  const b=document.getElementById('toshelf'); if(b)b.onclick=renderShelf;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+function newRound(){ dead=new Set(); firstTry=true; sel=null;
+  optOrder=Object.keys(P.hypotheses).slice(); for(let i=optOrder.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[optOrder[i],optOrder[j]]=[optOrder[j],optOrder[i]];}
+  renderRound(); }
+
+function scorebar(active){
+  crumb.textContent=P.title;
+  const dots=P.rounds.map((_,i)=>{let c='dot';if(results[i]==='correct')c+=' good';else if(results[i]==='missed')c+=' bad';if(i===idx&&active)c+=' now';return `<span class="${c}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${P.rounds.length}<span class="dots">${dots}</span></span>`;
+}
+function renderRound(){
+  scorebar(true);
+  const c=P.rounds[idx], R=P.readings, lvl=difficulty(P,c);
+  const pins=Object.keys(R).map(id=>{const isA=id===c.alarm,s=R[id];
+    return `<g class="pin ${sel===id?'sel':''}" data-id="${id}"><circle cx="${s.pin.x}" cy="${s.pin.y}" r="13" fill="${isA?'var(--red)':'var(--steel)'}"/><text class="num" x="${s.pin.x}" y="${s.pin.y}">${num[id]}</text></g>`;}).join('');
+  const legend=Object.keys(R).map(id=>{const isA=id===c.alarm,s=R[id];
+    return `<div class="li ${isA?'alarm':''} ${sel===id?'sel':''}" data-id="${id}"><div class="badge">${num[id]}</div>
+      <div class="body"><div class="nm">${s.name} <span class="val">${c.vals[id]}</span></div><div class="pp">${s.purpose}</div></div></div>`;}).join('');
+  const selS=sel?P.readings[sel]:null;
+  const mapcap=selS?`<b style="color:var(--gold)">${num[sel]}. ${selS.name}</b> — “${c.vals[sel]}”`:'Every reading is shown. The red pin is the presenting alarm — tap any pin to locate it.';
+  const B=P.reassuring;
+  app.innerHTML=`
+   <div class="kicker">Alarm ${idx+1} of ${P.rounds.length} · <span style="color:var(--gold)">${lvl} · ${LEVEL_NAME[lvl]}</span></div>
+   <h1>${P.title}</h1>
+   <div class="levelnote">${lvl} · ${LEVEL_NAME[lvl]} — the whole panel is visible; the difficulty is in the reading.</div>
+   <p class="hook">${c.hook}</p>
+   <div class="paradox"><div class="vs">
+     <div class="pole alarm"><div class="lab">${c.poleA.lab}</div><div class="val">${c.poleA.val}</div><small>${c.poleA.note}</small></div>
+     <div class="mid">vs</div>
+     <div class="pole calm"><div class="lab">${B.lab}</div><div class="val">${B.val}</div><small>${B.note}</small></div>
+   </div><p class="riddle">${c.riddle}</p></div>
+   <h2 class="sec">The system — full panel</h2>
+   <div class="panelgrid">
+     <div><div class="mapwrap"><svg viewBox="${P.schematic.viewBox}" role="img" aria-label="System schematic">${P.schematic.svg}<g id="pins">${pins}</g></svg></div><div class="mapcap">${mapcap}</div></div>
+     <div class="legend">${legend}</div>
+   </div>
+   <h2 class="sec">Make the call.</h2>
+   ${firstTry?'':'<p class="hintline">Point lost on this alarm — but find the right call to see why and continue.</p>'}
+   <div class="call">${optOrder.map(id=>{const o=P.hypotheses[id];
+     return `<button class="opt ${dead.has(id)?'dead':''}" data-opt="${id}" ${dead.has(id)?'disabled':''}>
+       <strong>${o.call.title}</strong><span class="arg">${o.call.arg}</span>
+       ${c.reasons[id]?`<div class="reason">${c.reasons[id]}</div>`:''}</button>`;}).join('')}</div>`;
+  const tap=id=>{sel=id;renderRound();};
+  app.querySelectorAll('.pin').forEach(p=>p.onclick=()=>tap(p.dataset.id));
+  app.querySelectorAll('.li').forEach(l=>l.onclick=()=>tap(l.dataset.id));
+  app.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{if(!b.disabled)call(b.dataset.opt);});
+}
+function call(id){
+  const c=P.rounds[idx];
+  if(firstCall[idx]===undefined)firstCall[idx]=id;
+  if(id===c.answer){ if(results[idx]!=='missed'){results[idx]='correct';if(firstTry)score++;} renderResolve(); }
+  else { if(firstTry){firstTry=false;results[idx]='missed';} dead.add(id); renderRound(); }
+}
+function renderResolve(){
+  scorebar(false);
+  const c=P.rounds[idx],r=c.resolve,got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+   <div class="verdict ${got?'good':'bad'}">${got?'Correct — first order':'Missed on the first order'}</div>
+   <h2>${r.title}</h2>${r.paras.map(p=>`<p>${p}</p>`).join('')}
+   <div class="poles2"><div class="a">${r.why.loud}</div><div class="c">${r.why.quiet}</div></div>
+   <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+   <div class="take"><b>The move:</b> ${r.take}</div>
+   <button class="btn primary" id="next">${idx<P.rounds.length-1?'Next alarm →':'See the review →'}</button></div>`;
+  document.getElementById('next').onclick=()=>{if(idx<P.rounds.length-1){idx++;newRound();}else renderFinal();};
+}
+function renderFinal(){
+  scorebar(false);
+  app.innerHTML=`<div class="intro"><div class="kicker">Review</div>
+   <div style="font-size:54px;font-weight:900;margin:6px 0">${score} / ${P.rounds.length}</div>
+   <p>The panel never changed — the reasoning did. Easy: one loud gauge decides. Then one specific reading. Then the loud gauges tie, and the answer lived one question deeper, in the quiet readings.</p>
+   <div class="recap" style="display:grid;gap:8px;margin:16px 0">${P.rounds.map((c,i)=>{const ok=firstCall[i]===c.answer;
+     return `<div class="li"><div class="body"><div class="nm"><span style="color:var(--gold)">${difficulty(P,c)}</span> · you called <b>${P.hypotheses[firstCall[i]]?P.hypotheses[firstCall[i]].label:'—'}</b> — it was ${P.hypotheses[c.answer].label} <span style="color:${ok?'var(--green)':'var(--red)'}">${ok?'✓':'✗'}</span></div></div></div>`;}).join('')}</div>
+   ${PACKS.length>1?'<button class="btn" id="toshelf">← all cases</button> ':''}
+   <button class="btn primary" id="again">Play again</button></div>`;
+  const b=document.getElementById('toshelf'); if(b)b.onclick=renderShelf;
+  document.getElementById('again').onclick=renderIntro;
+}
+boot();
+</script></body></html>

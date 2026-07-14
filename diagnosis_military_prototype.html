@@ -1,0 +1,266 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weapons Free? — The Contact Paradox (3 contacts)</title>
+<style>
+:root{--bg:#07121d;--panel:#10283b;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;
+  --blue:#70c9f2;--gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),
+  radial-gradient(circle at 90% 8%,rgba(239,173,103,.10),transparent 23%),
+  linear-gradient(180deg,#05101a,#0a1f30 52%,#05101a)}
+.wrap{max-width:900px;margin:auto;padding:24px 20px 90px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)} .dot.now{border-color:var(--gold)}
+h1{font-size:clamp(24px,3.6vw,36px);line-height:1.08;letter-spacing:-.02em;margin:6px 0 10px}
+.patient{color:#d8e7ef;font-size:16px;line-height:1.6;max-width:700px;margin:0 0 6px}
+.patient b{color:var(--text)}
+.paradox{margin:20px 0 6px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:28px;font-weight:900;margin:6px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:13px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:19px;line-height:1.5;margin:16px 0 4px;font-weight:700}
+.riddle .q{color:var(--gold)}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:24px 0 10px;font-weight:900}
+.reads{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.read{border:1px solid var(--line);background:#112b3f;border-radius:11px;padding:12px}
+.read .lab{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-weight:900}
+.read .val{font-size:18px;font-weight:900;margin:5px 0;line-height:1.15}
+.read .range{font-size:11px;color:var(--muted);letter-spacing:.02em}
+.read .why{font-size:12px;color:var(--muted);line-height:1.4;display:none;border-top:1px solid #2c4a5e;margin-top:8px;padding-top:7px}
+.read .why.show{display:block}
+.read .ask{margin-top:6px;font-size:11px;color:var(--blue);background:none;border:0;cursor:pointer;padding:0}
+.morebtn{margin:12px 0 0;border:1px dashed var(--line);background:transparent;color:var(--muted);padding:9px 14px;border-radius:9px;cursor:pointer;font:inherit}
+.morebtn:hover{color:var(--text);border-color:var(--blue)}
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;padding:14px 16px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt strong{display:block;font-size:16px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:14px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236}
+.opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px}
+.opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:24px 26px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:26px;margin:4px 0 12px;letter-spacing:-.02em}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 13px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)}
+.poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)}
+.poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:14px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:9px 12px}
+.node:last-child{border-color:var(--gold)}
+.arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:12px 15px;border-radius:9px;margin-top:14px;font-size:15px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:18px}
+.btn:hover{background:#224b68}
+.btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+.intro h1{font-size:clamp(30px,5vw,52px)}
+.intro p{font-size:17px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.recap{display:grid;gap:8px;margin:16px 0}
+.recap .rc{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:11px 14px;font-size:14px}
+.recap .rc .dx{color:var(--muted)} .recap .rc .mark.ok{color:var(--green)} .recap .rc .mark.no{color:var(--red)}
+.bigscore{font-size:56px;font-weight:900;letter-spacing:-.02em;margin:6px 0}
+@media(max-width:720px){.reads{grid-template-columns:1fr 1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div class="kicker">Air defense · Combat information center</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+// Panel is CONSTANT across contacts. "baseline" = what a routine civilian flight looks like — your anchor.
+const META={
+  "IFF response":{ref:"Civil aircraft squawk a Mode 3/A + C code",why:"A coded radio reply that identifies friend, civilian, or unknown."},
+  "Speed":{ref:"Airliner cruise ≈ 450–520 kt",why:"How fast the contact is traveling."},
+  "Altitude & profile":{ref:"Airliner cruise ≈ 30,000–38,000 ft, level",why:"How high it is and whether it's level, climbing, or diving at you."},
+  "Radar cross-section":{ref:"Airliner large & steady; a missile tiny",why:"How big the radar echo is — a rough proxy for physical size. It can be faked by jamming."},
+  "Track vs. airways":{ref:"Civil traffic follows published airways",why:"Whether its path follows the published civilian air corridors."},
+  "Infrared signature":{ref:"Real aircraft & missiles radiate engine/motor heat",why:"Heat seen by infrared sensors. Engines and rocket motors glow; chaff and spoofed returns don't."},
+  "ELINT / emissions":{ref:"Civil = transponder · military = fire-control · EW = jammer",why:"What the contact is transmitting — a transponder, a targeting radar, or jamming."},
+  "Second-sensor check":{ref:"Real tracks are held by other radars too",why:"Whether AWACS / escorts see the same track. Real objects are seen by many sensors at once."}
+};
+const CORE=["IFF response","Speed","Altitude & profile","Radar cross-section"];
+const FULL=["Track vs. airways","Infrared signature","ELINT / emissions","Second-sensor check"];
+
+const OPTS=[
+  {id:"hostile",title:"Hostile inbound — engage.",arg:"Attack geometry and no IFF. Put a bird on it before it's in the seeker basket."},
+  {id:"civil",  title:"Neutral traffic — hold fire.",arg:"That's a scheduled flight on its route. Do not engage."},
+  {id:"decoy",  title:"Electronic decoy — don't take the bait.",arg:"The picture's a fake — chaff and jamming. Hold missiles, counter the EW."},
+  {id:"clutter",title:"Sensor artifact — disregard.",arg:"Weather ducting or a glitch. There's nothing really out there."}
+];
+const LABEL={hostile:"Hostile missile",civil:"Neutral airliner",decoy:"Electronic decoy",clutter:"Sensor artifact"};
+
+// Constant reassuring pole — the red herring: "no lock" does NOT mean safe.
+const POLEB={lab:"Fire-control radar",val:"No lock on us",note:"Nothing is guiding a weapon onto the ship — yet."};
+
+const CASES=[
+{ hook:"The task force is at general quarters. A single contact appears low on the horizon, driving straight in.",
+  poleA:{lab:"Contact",val:"1 track — closing",note:"540 kt, range 42 nm, bearing steady. Constant bearing, decreasing range: an intercept."},
+  riddle:'It\'s boring straight in — but nothing is locking you up. <span class="q">Threat, mistake, or ghost?</span>',
+  vals:{"IFF response":"No response","Speed":"540 kt","Altitude & profile":"50 ft, sea-skimming","Radar cross-section":"Tiny, steady",
+        "Track vs. airways":"No airway; from hostile coast","Infrared signature":"Hot rocket-motor plume","ELINT / emissions":"No transponder; brief seeker sweep","Second-sensor check":"AWACS holds same track"},
+  answer:"hostile",
+  reasons:{
+    civil:"A civil airliner squawks IFF and cruises an airway near 470 kt at 30,000+ ft. This is silent, 50 ft over open water at 540 kt. Nothing civilian flies that profile.",
+    decoy:"A spoof shows <b>no</b> engine heat and isn't corroborated. This has a real rocket-motor plume <b>and</b> AWACS holds the same track — it's a physical object.",
+    clutter:"Clutter doesn't hold a steady closing track that a second sensor confirms. AWACS sees it too. It's real."},
+  resolve:{title:"Sea-skimming missile — engage.",
+    paras:["Fifty feet over the water at 540 knots, silent, small and steady on radar, with a rocket-motor heat plume — and AWACS holds the same track. That's an anti-ship missile in its terminal run.",
+           "The 'no fire-control lock' was the trap: a sea-skimmer guides on inertial and terminal seeker and may never 'lock' you until it's too late. No single reading proved it — 'closing' alone could be an airliner. The kill came from a <b>pair</b> no ghost and no airliner can both show: a physical IR plume <b>and</b> a second sensor seeing the same object, on a 50-ft / 540-kt profile."],
+    a:"<b>Why 'no lock' didn't mean safe</b>: sea-skimmers don't need to lock you to hit you.",
+    c:"<b>Why not clutter</b>: AWACS holds the identical track — a real object, not an artifact.",
+    chain:["Launch from the hostile coast","Sea-skimming terminal run (50 ft, 540 kt)","Real IR + corroborated track = inbound missile"],
+    take:"The reassuring signal — no lock — was the red herring. The answer was a pair no ghost and no airliner can both show: real heat + a second sensor seeing the same thing."} },
+
+{ hook:"Another contact rises on nearly the same bearing, closing on the force. The crew is primed after the last one.",
+  poleA:{lab:"Contact",val:"1 track — closing",note:"470 kt, range 55 nm, bearing steady. Pointed straight at the task force."},
+  riddle:'Same intercept geometry, same silence on the threat receiver. <span class="q">Is this one coming to fight?</span>',
+  vals:{"IFF response":"Mode 3/A + C (civil)","Speed":"470 kt","Altitude & profile":"31,000 ft, level","Radar cross-section":"Large, steady",
+        "Track vs. airways":"On civil airway A-59, on schedule","Infrared signature":"Steady turbofan heat","ELINT / emissions":"Civil transponder + weather radar","Second-sensor check":"Matches a filed flight plan"},
+  answer:"civil",
+  reasons:{
+    hostile:"The attack picture is silent, low, and small. This squawks a <b>civil IFF code</b> and cruises at 31,000 ft / 470 kt on a <b>published airway</b>. Engaging it kills a planeload of civilians.",
+    decoy:"Deception has no IR and no flight plan. This shows steady turbofan heat and matches a filed civilian route — a real, ordinary aircraft.",
+    clutter:"Clutter has no IFF and no correlation. This transmits a civil transponder and matches a filed flight plan. It's real, and it's benign."},
+  resolve:{title:"Scheduled airliner — hold fire.",
+    paras:["It squawks a civil IFF code, cruises a published airway at 31,000 feet and 470 knots, radiates steady turbofan heat, and matches a filed flight plan. The 'steady closing bearing' that set everyone on edge is just an airliner flying its route across your patch of ocean.",
+           "This is the identification a warship gets catastrophically wrong under pressure — and the cost is a plane full of civilians. The pair that clears it: a <b>civil transponder</b> <b>and</b> an on-schedule <b>airway profile</b>. Attack aircraft do neither."],
+    a:"<b>Why the alarming closure lied</b>: a route that happens to point at you looks like an intercept but isn't one.",
+    c:"<b>Why not a threat</b>: civil IFF + published airway + airliner speed and altitude is not an attack profile.",
+    chain:["Airliner departs on schedule","Route crosses toward the task force","Civil IFF + airway profile = neutral traffic"],
+    take:"The scariest-looking track was the most innocent. Only the calm confirmations — IFF and flight plan — separate 'inbound threat' from 'packed airliner.'"} },
+
+{ hook:"The scope suddenly floods: not one contact but many, fanning in across the threat axis. It looks like a mass raid.",
+  poleA:{lab:"Contacts",val:"Many — closing",note:"Multiple tracks fanning in, ranges decreasing. Reads like a coordinated attack."},
+  riddle:'Now a whole raid is bearing down — and still nothing locks you up. <span class="q">Overwhelming force, or an illusion?</span>',
+  vals:{"IFF response":"Garbled / none","Speed":"Jumps 90 → 1,200 kt","Altitude & profile":"Flickers 200 ft ↔ 40,000 ft","Radar cross-section":"Huge, pulsing",
+        "Track vs. airways":"Appears and vanishes","Infrared signature":"None on any contact","ELINT / emissions":"Strong barrage / DRFM jammer","Second-sensor check":"AWACS & escort hold nothing"},
+  answer:"decoy",
+  reasons:{
+    hostile:"A real inbound radiates heat and shows up on other sensors. These have <b>no IR</b>, move at impossible speeds, and <b>no one else holds them</b>. You'd be firing your magazine at ghosts.",
+    civil:"Civil traffic squawks IFF, flies physical profiles, and files a plan. These are garbled, non-physical, and jammer-laden. Not airliners.",
+    clutter:"Weather and glitches don't jam you. There's a strong DRFM/barrage jammer painting these — deliberate electronic attack, not nothing. 'Disregard' misses the real axis it's masking."},
+  resolve:{title:"Electronic deception — don't take the bait.",
+    paras:["A whole 'raid' with no engine heat, contacts leaping from 90 to 1,200 knots and flickering between wavetop and 40,000 feet, enormous pulsing returns — and nobody else holds them. That's chaff and a DRFM jammer painting ghosts on your air-search radar.",
+           "The tell was two <b>absences</b> married to a <b>presence</b>: no IR and no corroboration (AWACS and the escort see nothing), plus a strong jammer signature. Firing empties your magazine at nothing while the real attack comes in on another axis. The biggest, scariest picture on the screen was engineered to fool you."],
+    a:"<b>Why the huge return didn't mean a huge raid</b>: radar cross-section is trivially spoofed; heat and physics are not.",
+    c:"<b>Why not 'disregard as clutter'</b>: weather doesn't jam you — this is deliberate electronic attack, and it's hiding something.",
+    chain:["Enemy activates jammer + chaff","False mass-raid painted on radar","No IR / no corroboration / active jammer = spoof"],
+    take:"Ghosts have no heat and no witnesses. When the scariest picture has no physical signature and no second sensor behind it, chase the pattern, not the flag."} }
+];
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score');
+let idx=0, score=0, results=[], firstCall=[], dead=new Set(), firstTry=true;
+
+function scorebar(active){
+  const dots=CASES.map((_,i)=>{let cls='dot';if(results[i]==='correct')cls+=' good';else if(results[i]==='missed')cls+=' bad';if(i===idx&&active)cls+=' now';return `<span class="${cls}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${CASES.length}<span class="dots">${dots}</span></span>`;
+}
+function renderIntro(){
+  scoreEl.innerHTML='';
+  app.innerHTML=`<div class="intro">
+    <h1>Weapons Free?</h1>
+    <p>You are the <b>Tactical Action Officer</b>. Three times, an unknown contact bears down on the task force
+    with the <b>same paradox</b>: it's flying an intercept — yet nothing is locking you up. Each contact carries
+    the <b>same sensor panel</b>; the readings tell three different stories.</p>
+    <p>Read the pattern, not the loudest return, and make the call. <b>A wrong call is as deadly as a slow one</b> —
+    fire on an airliner and you kill hundreds; hold against a missile and you lose the ship. One point per contact
+    you call right on the first order.</p>
+    <button class="btn primary" id="start">Take the watch →</button></div>`;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+function newRound(){ dead=new Set(); firstTry=true; renderRound(); }
+function renderRound(){
+  scorebar(true);
+  const c=CASES[idx];
+  app.innerHTML=`
+    <div class="kicker">Contact ${idx+1} of ${CASES.length}</div>
+    <h1>The Contact</h1>
+    <p class="patient">${c.hook}</p>
+    <div class="paradox"><div class="vs">
+      <div class="pole alarm"><div class="lab">${c.poleA.lab}</div><div class="val">${c.poleA.val}</div><small>${c.poleA.note}</small></div>
+      <div class="mid">vs</div>
+      <div class="pole calm"><div class="lab">${POLEB.lab}</div><div class="val">${POLEB.val}</div><small>${POLEB.note}</small></div>
+    </div><p class="riddle">${c.riddle}</p></div>
+    <h2 class="sec">The sensor picture</h2>
+    <div class="reads" id="reads"></div>
+    <button class="morebtn" id="more">＋ Pull the full sensor picture</button>
+    <h2 class="sec">CIC is split. Make the call.</h2>
+    ${firstTry?'':'<p class="hintline">Point lost on this contact — but find the right call to see why and continue.</p>'}
+    <div class="call">${OPTS.map(o=>`<button class="opt ${dead.has(o.id)?'dead':''}" data-opt="${o.id}" ${dead.has(o.id)?'disabled':''}>
+      <strong>${o.title}</strong><span class="arg">${o.arg}</span>
+      ${c.reasons[o.id]?`<div class="reason">${c.reasons[o.id]}</div>`:''}</button>`).join('')}</div>`;
+  drawReads(false);
+  document.getElementById('more').onclick=()=>{drawReads(true);document.getElementById('more').style.display='none';};
+  app.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>call(b.dataset.opt));
+}
+function drawReads(full){
+  const c=CASES[idx], labels=full?CORE.concat(FULL):CORE;
+  document.getElementById('reads').innerHTML=labels.map((lab,i)=>`
+    <div class="read"><div class="lab">${lab}</div>
+      <div class="val">${c.vals[lab]}</div>
+      <div class="range">baseline: ${META[lab].ref}</div>
+      <button class="ask" data-why="${i}">what is this?</button>
+      <div class="why" id="why${i}">${META[lab].why}</div></div>`).join('');
+  document.querySelectorAll('[data-why]').forEach(b=>b.onclick=()=>document.getElementById('why'+b.dataset.why).classList.toggle('show'));
+}
+function call(id){
+  const c=CASES[idx];
+  if(firstCall[idx]===undefined) firstCall[idx]=id;
+  if(id===c.answer){
+    if(results[idx]!=='missed'){ results[idx]='correct'; if(firstTry) score++; }
+    renderResolve();
+  } else {
+    if(firstTry){ firstTry=false; results[idx]='missed'; }
+    dead.add(id); renderRound();
+  }
+}
+function renderResolve(){
+  scorebar(false);
+  const c=CASES[idx], r=c.resolve, got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+    <div class="verdict ${got?'good':'bad'}">${got?'Correct — first order':'Missed on the first order'}</div>
+    <h2>${r.title}</h2>
+    ${r.paras.map(p=>`<p>${p}</p>`).join('')}
+    <div class="poles2"><div class="a">${r.a}</div><div class="c">${r.c}</div></div>
+    <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+    <div class="take"><b>The move:</b> ${r.take}</div>
+    <button class="btn primary" id="next">${idx<CASES.length-1?'Next contact →':'See the after-action →'}</button>
+  </div>`;
+  document.getElementById('next').onclick=()=>{ if(idx<CASES.length-1){idx++;newRound();} else renderFinal(); };
+}
+function renderFinal(){
+  scorebar(false);
+  app.innerHTML=`<div class="intro">
+    <div class="kicker">After-action review</div>
+    <div class="bigscore">${score} / ${CASES.length}</div>
+    <p>${score===3?'A clean watch — you read the pattern each time, including the raid that was never there.':
+        score===2?'Solid watch. The one that gets people is the contact whose picture mimics a different threat.':
+        score===1?'One good call. The trick is that the same intercept geometry hid three different truths.':
+        'Hard watch — identical-looking contacts had three different explanations, and both firing and holding can be fatal.'}</p>
+    <div class="recap">${CASES.map((c,i)=>{const ok=firstCall[i]===c.answer;
+      return `<div class="rc"><span>Contact ${i+1} — you called <b>${LABEL[firstCall[i]]||'—'}</b></span>
+        <span class="dx">it was ${LABEL[c.answer]} <span class="mark ${ok?'ok':'no'}">${ok?'✓':'✗'}</span></span></div>`;}).join('')}</div>
+    <div class="take"><b>The skill:</b> same intercept geometry, same reassuring 'no lock' — but only a <i>pair</i> of
+      readings told a missile from an airliner from a ghost: a physical heat signature plus a second sensor, or civil
+      IFF plus a published airway, or absent IR plus an active jammer. Firing wrongly is as catastrophic as not firing.</div>
+    <button class="btn primary" id="again">Stand the watch again</button></div>`;
+  document.getElementById('again').onclick=renderIntro;
+}
+renderIntro();
+</script></body></html>

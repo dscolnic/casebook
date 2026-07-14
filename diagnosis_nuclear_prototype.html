@@ -1,0 +1,328 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meltdown Watch — Easy · Medium · Hard</title>
+<style>
+:root{--bg:#07121d;--panel:#10283b;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;
+  --blue:#70c9f2;--gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),
+  radial-gradient(circle at 90% 8%,rgba(239,173,103,.10),transparent 23%),
+  linear-gradient(180deg,#05101a,#0a1f30 52%,#05101a)}
+.wrap{max-width:900px;margin:auto;padding:24px 20px 90px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)} .dot.now{border-color:var(--gold)}
+h1{font-size:clamp(24px,3.6vw,36px);line-height:1.08;letter-spacing:-.02em;margin:6px 0 4px}
+.levelnote{font-size:13px;color:var(--muted);margin:0 0 8px}
+.levelnote b{color:var(--gold)}
+.patient{color:#d8e7ef;font-size:16px;line-height:1.6;max-width:700px;margin:8px 0 6px}
+.patient b{color:var(--text)}
+.paradox{margin:20px 0 6px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:28px;font-weight:900;margin:6px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:13px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:19px;line-height:1.5;margin:16px 0 4px;font-weight:700}
+.riddle .q{color:var(--gold)}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:24px 0 10px;font-weight:900}
+.reads{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.read{border:1px solid var(--line);background:#112b3f;border-radius:11px;padding:12px}
+.read .lab{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-weight:900}
+.read .val{font-size:18px;font-weight:900;margin:5px 0;line-height:1.15}
+.read .range{font-size:11px;color:var(--muted);letter-spacing:.02em}
+.read .flag{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.05em;color:#0a1f30;background:var(--orange);border-radius:5px;padding:1px 6px;margin-top:6px}
+.read .why{font-size:12px;color:var(--muted);line-height:1.4;display:none;border-top:1px solid #2c4a5e;margin-top:8px;padding-top:7px}
+.read .why.show{display:block}
+.read .ask{margin-top:6px;font-size:11px;color:var(--blue);background:none;border:0;cursor:pointer;padding:0}
+.morebtn{margin:12px 0 0;border:1px dashed var(--line);background:transparent;color:var(--muted);padding:9px 14px;border-radius:9px;cursor:pointer;font:inherit}
+.morebtn:hover{color:var(--text);border-color:var(--blue)}
+.readnote{font-size:14px;color:var(--text);margin:16px 0 9px}
+.readnote b{color:var(--gold)}
+.chooser{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.poolcard{display:block;text-align:left;border:1px dashed var(--line);background:#0d2233;color:var(--muted);border-radius:11px;padding:12px 14px;cursor:pointer;font:inherit;width:100%}
+.poolcard:hover{border-color:var(--blue)}
+.poolcard .pl-lab{display:block;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.poolcard .pl-why{display:block;font-size:13px;color:#c4d3db;line-height:1.45;margin:6px 0 7px}
+.poolcard .pl-cta{display:block;font-size:12px;font-weight:800;color:var(--gold)}
+.hint{border-left:3px solid var(--blue);background:rgba(112,201,242,.08);padding:10px 13px;border-radius:9px;margin:12px 0 0;font-size:14px;color:#d4e2e9}
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;padding:14px 16px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt:disabled{opacity:.4;cursor:not-allowed}
+.opt strong{display:block;font-size:16px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:14px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236}
+.opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px}
+.opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:24px 26px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:26px;margin:4px 0 12px;letter-spacing:-.02em}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 13px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)}
+.poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)}
+.poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:14px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:9px 12px}
+.node:last-child{border-color:var(--gold)}
+.arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:12px 15px;border-radius:9px;margin-top:14px;font-size:15px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:18px}
+.btn:hover{background:#224b68}
+.btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+.intro h1{font-size:clamp(30px,5vw,52px)}
+.intro p{font-size:17px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.recap{display:grid;gap:8px;margin:16px 0}
+.recap .rc{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:11px 14px;font-size:14px}
+.recap .rc .lv{color:var(--gold);font-weight:800}
+.recap .rc .dx{color:var(--muted)} .recap .rc .mark.ok{color:var(--green)} .recap .rc .mark.no{color:var(--red)}
+.bigscore{font-size:56px;font-weight:900;letter-spacing:-.02em;margin:6px 0}
+@media(max-width:720px){.reads,.chooser{grid-template-columns:1fr 1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div class="kicker">Reactor operations · Main control room</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+const META={
+  "RCS pressure":{ref:"Normal ≈ 2,235 psia; eases after a trip",why:"Pressure in the sealed loop of water that cools the core. A steady fall means coolant is escaping; a rise means heat with nowhere to go."},
+  "Pressurizer level":{ref:"Normal ≈ 50–60%",why:"How full the tank that sets coolant pressure is — a proxy for how much water is left in the primary loop."},
+  "Core exit temperature":{ref:"Should ease and settle after a trip",why:"How hot the water leaving the core is. After shutdown it should fall as decay heat is carried away."},
+  "Containment radiation":{ref:"Normal ≈ background",why:"Radiation inside the sealed containment building. Rises if radioactive coolant escapes — or if a detector fails."},
+  "Containment sump / pressure":{ref:"Sump dry; pressure normal",why:"Water pooling in the building sump, or a pressure rise, means coolant is leaking out of the pipes into containment."},
+  "Steam generator level":{ref:"Normal, with feedwater flowing",why:"The boilers that carry the core's heat away to the outside. If they run dry, the core loses its heat sink."},
+  "Secondary-side radiation":{ref:"Normal (clean)",why:"Radiation on the steam side. It rises only if a tube leaks radioactive primary water into the secondary loop."},
+  "Redundant channel check":{ref:"Independent sensors should agree",why:"Whether a second, independent instrument confirms the scary reading. Real conditions appear on several sensors; a fault appears on one."}
+};
+const CORE=["RCS pressure","Pressurizer level","Core exit temperature","Containment radiation"];
+const FULL=["Containment sump / pressure","Steam generator level","Secondary-side radiation","Redundant channel check"];
+const ALL=CORE.concat(FULL);
+
+const OPTS=[
+  {id:"loca",     title:"Loss-of-coolant accident — inject and isolate.",arg:"The primary's leaking. Start emergency injection before the core uncovers."},
+  {id:"heatsink", title:"Lost heat sink — restore cooling.",arg:"Decay heat has nowhere to go. Get feedwater back to the steam generators now."},
+  {id:"instrument",title:"Faulted instrument — the reading's lying.",arg:"One channel's gone bad. Trust the others, isolate it, don't chase a false alarm."},
+  {id:"transient",title:"Normal post-trip transient — monitor.",arg:"This is expected settling after a trip. Hold actions and keep watching."}
+];
+const LABEL={loca:"Loss-of-coolant accident",heatsink:"Lost heat sink",instrument:"Faulted instrument",transient:"Normal transient"};
+const POLEB={lab:"Reactor status",val:"SCRAMMED — rods in",note:"Fission is stopped. But a freshly-shut core still pours out decay heat that must be removed."};
+
+const CASES=[
+{ level:"easy",
+  flags:["RCS pressure","Pressurizer level","Core exit temperature","Containment sump / pressure"],
+  hint:"In a real leak, the escaping coolant has to go somewhere. Check whether water is showing up where it shouldn't be.",
+  hook:"Two minutes after an automatic trip. Rods are fully inserted, alarms are ringing, and the board doesn't add up.",
+  poleA:{lab:"Coolant system",val:"Pressure falling",note:"RCS pressure sliding down, pressurizer level sagging with it. Something is draining the primary loop."},
+  riddle:'The core is shut down — rods are in. <span class="q">So why is the coolant pressure bleeding away?</span>',
+  vals:{"RCS pressure":"1,650 psia, still falling","Pressurizer level":"22%, falling","Core exit temperature":"Rising toward saturation","Containment radiation":"Mildly elevated",
+        "Containment sump / pressure":"Sump rising; pressure up","Steam generator level":"Normal; feedwater available","Secondary-side radiation":"Normal","Redundant channel check":"Second pressure channel agrees"},
+  answer:"loca",
+  reasons:{
+    heatsink:"A lost heat sink drives pressure and temperature <b>up</b> with the steam generators dry. Here pressure is <b>falling</b> and the SGs have water. The core isn't starved of cooling — it's losing coolant.",
+    instrument:"A faulted instrument shows on one channel only. The second pressure channel agrees, and the containment sump is physically filling. The leak is real.",
+    transient:"Normal settling levels off. This pressure keeps falling and water is pooling in containment. Calling it 'normal' is the mistake that wrecked Three Mile Island."},
+  resolve:{title:"Loss-of-coolant accident.",
+    paras:["Pressure bleeding down, pressurizer level sagging, and the clincher — water pooling in the containment sump. Coolant is escaping the primary loop, and the fuel will start to uncover unless you replace it. Inject and isolate.",
+           "The reassuring 'reactor's tripped' was the trap: shutting down fission doesn't help if the water carrying the heat drains away. No single gauge proved it. The <b>pair</b> that nailed it: pressure falling <b>and</b> the containment sump rising, with a second channel confirming."],
+    a:"<b>Why 'it's tripped' didn't mean safe</b>: a shut-down core still needs its coolant; lose it and the fuel uncovers.",
+    c:"<b>Why not a bad sensor</b>: a second channel agrees and the sump is physically filling — the leak is real.",
+    chain:["Breach in the coolant loop","Coolant drains to containment (sump rising)","Pressure falls, fuel begins to uncover"],
+    take:"Falling pressure had three possible causes. Only a pair — pressure down AND water pooling in containment — told a real leak from a bad gauge. This is the reading TMI's crew talked themselves out of."} },
+
+{ level:"medium",
+  hook:"A different plant, a different trip. Rods are in and fission has stopped — but ten minutes on, the board is trending the wrong way.",
+  poleA:{lab:"Core temperature",val:"Rising",note:"Core exit temperature climbing after the trip instead of easing off, and pressure is creeping up with it."},
+  riddle:'Fission stopped minutes ago. <span class="q">So why is the core getting hotter, not cooler?</span>',
+  vals:{"RCS pressure":"Rising; relief valve cycling","Pressurizer level":"High / normal","Core exit temperature":"Rising steadily","Containment radiation":"Normal",
+        "Containment sump / pressure":"Dry; normal","Steam generator level":"Both low, boiling dry; feedwater lost","Secondary-side radiation":"Normal","Redundant channel check":"Second temp channel agrees"},
+  answer:"heatsink",
+  reasons:{
+    loca:"A leak drops pressure and floods the containment sump. Here pressure is <b>rising</b> and the sump is <b>dry</b> — nothing is leaking out. The trouble is heat with nowhere to go.",
+    instrument:"The temperature rise is confirmed on a second channel, and the steam generators have physically boiled dry. This isn't a bad sensor — the core really is heating.",
+    transient:"After a trip the core should cool, not heat. Rising temperature with dry steam generators is a lost heat sink, not benign settling."},
+  resolve:{title:"Lost heat sink — decay heat with nowhere to go.",
+    paras:["The reactor is shut down, but a just-tripped core still pours out decay heat. The steam generators — the path that carries that heat away — have boiled dry, so the primary heats up: pressure climbs and the relief valve cycles. Restore feedwater before the core boils.",
+           "Same reassuring 'tripped' status, the opposite signature from the last alarm. Here pressure is <b>rising</b> and the sump is <b>dry</b>. The <b>pair</b> that fixed it: core temperature rising <b>and</b> steam generators dry, confirmed on a second channel. This is the Fukushima lesson — the chain reaction stopped, but the heat didn't."],
+    a:"<b>Why 'it's tripped' didn't mean safe</b>: decay heat pours out for days and must be actively removed.",
+    c:"<b>Why not a leak</b>: pressure is rising and the containment sump is dry — nothing is escaping.",
+    chain:["Feedwater / heat sink lost","Decay heat can't escape","Core temperature and pressure climb"],
+    take:"Rising temperature after a trip is not 'settling.' A shut reactor that can't dump its decay heat cooks itself — the danger was the missing heat sink, not a leak."} },
+
+{ level:"hard",
+  free:["RCS pressure","Pressurizer level"],
+  pool:["Core exit temperature","Containment sump / pressure","Steam generator level","Secondary-side radiation","Redundant channel check"],
+  pick:2,
+  hook:"Third alarm of the shift. The reactor is tripped and quiet — then the most frightening light on the board comes alive. You won't get the whole panel; pull the sensors that will actually tell the causes apart.",
+  poleA:{lab:"Containment radiation",val:"Off-scale HIGH",note:"A containment radiation monitor has pegged at its maximum — reads like a major radioactive release in progress."},
+  riddle:'A radiation monitor just pegged off-scale — but the reactor\'s tripped and quiet. <span class="q">Is the core breaching, or is the meter lying?</span>',
+  vals:{"RCS pressure":"Normal, stable","Pressurizer level":"Normal","Core exit temperature":"Settling normally","Containment radiation":"Monitor A: OFF-SCALE HIGH",
+        "Containment sump / pressure":"Dry; normal","Steam generator level":"Normal","Secondary-side radiation":"Normal","Redundant channel check":"Monitors B & C read normal background"},
+  answer:"instrument",
+  reasons:{
+    loca:"A LOCA drops RCS pressure and fills the containment sump. If you pulled them, pressure is normal and the sump is dry — no coolant is leaving the primary loop.",
+    heatsink:"A lost heat sink shows rising core temperature and dry steam generators. Temperature is settling and the SGs are normal. The core is fine.",
+    transient:"There's nothing 'normal' about a monitor pegged off-scale. But two independent monitors read background and every physical parameter is stable — one detector has failed high. Identify and isolate it; don't just watch it."},
+  resolve:{title:"Faulted instrument — the meter is lying.",
+    paras:["A containment radiation monitor pegged off-scale — the single most alarming indication in the room. But two independent monitors read normal background, RCS pressure and level are steady, the sump is dry, and core temperature is settling. Nothing physical is happening. One detector has failed high.",
+           "Here's the twist: the terrifying reading was the wrong one to trust. In the first two alarms a scary trend was real. This time it's a single failed sensor — and if you'd declared a release and dumped in emergency systems, you'd have wrecked a healthy plant chasing a ghost. The highest-value sensors to pull were the <b>redundant channel check</b> (B & C normal — the pegged monitor is the outlier) and the <b>containment sump</b> (dry — no actual release)."],
+    a:"<b>Why not a release</b>: a real leak moves pressure, level, and the sump. All three are stone normal.",
+    c:"<b>Why the calm readings win</b>: two independent monitors and every physical gauge say background — one pegged detector against all of them is a fault.",
+    chain:["Radiation detector fails high","One channel pegs off-scale","Redundant monitors + physical params all normal → bad sensor"],
+    take:"The scariest number on the board came from a broken sensor. Real conditions show on several instruments; a fault shows on one. The skill under pressure was pulling the redundant channel before you acted."} }
+];
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score');
+let idx=0, score=0, results=[], firstCall=[], dead=new Set(), firstTry=true, pulled=new Set(), showHint=false;
+
+function scorebar(active){
+  const dots=CASES.map((_,i)=>{let cls='dot';if(results[i]==='correct')cls+=' good';else if(results[i]==='missed')cls+=' bad';if(i===idx&&active)cls+=' now';return `<span class="${cls}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${CASES.length}<span class="dots">${dots}</span></span>`;
+}
+function renderIntro(){
+  scoreEl.innerHTML='';
+  app.innerHTML=`<div class="intro">
+    <h1>Meltdown Watch</h1>
+    <p>You have the desk in the main control room. Three alarms, each the <b>same paradox</b> — the reactor is
+    <b>tripped and quiet</b>, yet a vital gauge is heading the wrong way — but they <b>get harder</b>:</p>
+    <p><b>Easy</b> hands you every reading, flags what's off-normal, and offers a hint. <b>Medium</b> makes you pull
+    the panel yourself with no flags. <b>Hard</b> shows you almost nothing — you read <b>what each sensor would tell
+    you</b>, deduce which <b>two</b> are worth pulling, then get <b>one call, no do-over</b>.</p>
+    <p>Read the pattern, not the loudest gauge. Miss a real leak and the core melts; over-react to a false alarm and
+    you wreck a healthy plant. One point per alarm called right on the first order.</p>
+    <button class="btn primary" id="start">Take the desk →</button></div>`;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+function newRound(){ dead=new Set(); firstTry=true; pulled=new Set(); showHint=false; renderRound(); }
+
+function readTile(lab,i,openMeaning,flagged){
+  const c=CASES[idx];
+  return `<div class="read"><div class="lab">${lab}</div>
+    <div class="val">${c.vals[lab]}</div>
+    <div class="range">baseline: ${META[lab].ref}</div>
+    ${flagged?'<span class="flag">off-normal</span>':''}
+    <button class="ask" data-why="${i}">what is this?</button>
+    <div class="why ${openMeaning?'show':''}" id="why${i}">${META[lab].why}</div></div>`;
+}
+
+function renderRound(){
+  scorebar(true);
+  const c=CASES[idx], lvl=c.level;
+  const lvlName={easy:"Easy",medium:"Medium",hard:"Hard"}[lvl];
+  const lvlNote={easy:"every reading shown · off-normal values flagged · hint available · retries allowed",
+                 medium:"core readings shown · pull the rest yourself · no flags · one retry",
+                 hard:`choose <b>${c.pick}</b> sensors to pull · one call, no do-over`}[lvl];
+
+  // reads area
+  let readsHTML='', chooserHTML='', moreBtn='', hintHTML='', callEnabled=true, callHead='The control room is split. Make the call.';
+  if(lvl==='easy'){
+    readsHTML=ALL.map((lab,i)=>readTile(lab,i,true,c.flags.includes(lab))).join('');
+    hintHTML=`<button class="morebtn" id="hintbtn">${showHint?'':'💡 '}${showHint?'':'Show a hint'}</button>`;
+    if(showHint) hintHTML=`<div class="hint"><b>Hint:</b> ${c.hint}</div>`;
+  } else if(lvl==='medium'){
+    readsHTML=CORE.map((lab,i)=>readTile(lab,i,false,false)).join('');
+    moreBtn=`<button class="morebtn" id="more">＋ Pull the full panel</button>`;
+  } else { // hard
+    const shown=c.free.concat([...pulled]);
+    readsHTML=shown.map((lab,i)=>readTile(lab,i,false,false)).join('');
+    const left=c.pick-pulled.size;
+    const rem=c.pool.filter(l=>!pulled.has(l));
+    chooserHTML = left>0
+      ? `<div class="readnote">Four possible calls, only <b>${left}</b> sensor pull${left>1?'s':''} left. You can read <b>what each sensor would tell you</b> — its value stays hidden until you pull it. Deduce which would actually separate the causes:</div>
+         <div class="chooser">${rem.map(l=>`<button class="poolcard" data-pool="${l}"><span class="pl-lab">🔒 ${l}</span><span class="pl-why">${META[l].why}</span><span class="pl-cta">Reveal this sensor →</span></button>`).join('')}</div>`
+      : `<div class="readnote">Sensors locked in. <b>One call — make it count.</b></div>`;
+    callEnabled = pulled.size>=c.pick;
+    callHead='Commit your call.';
+  }
+
+  app.innerHTML=`
+    <div class="kicker">Alarm ${idx+1} of ${CASES.length} · <span style="color:var(--gold)">${lvlName}</span></div>
+    <h1>The Board</h1>
+    <div class="levelnote">${lvlName} — ${lvlNote}</div>
+    <p class="patient">${c.hook}</p>
+    <div class="paradox"><div class="vs">
+      <div class="pole alarm"><div class="lab">${c.poleA.lab}</div><div class="val">${c.poleA.val}</div><small>${c.poleA.note}</small></div>
+      <div class="mid">vs</div>
+      <div class="pole calm"><div class="lab">${POLEB.lab}</div><div class="val">${POLEB.val}</div><small>${POLEB.note}</small></div>
+    </div><p class="riddle">${c.riddle}</p></div>
+    <h2 class="sec">${lvl==='hard'?'The sensors you have':'The instrument panel'}</h2>
+    <div class="reads" id="reads">${readsHTML}</div>
+    ${moreBtn}${chooserHTML}${hintHTML}
+    <h2 class="sec">${callHead}</h2>
+    ${(firstTry||lvl==='hard')?'':'<p class="hintline">Point lost on this alarm — but find the right call to see why and continue.</p>'}
+    ${(lvl==='hard'&&!callEnabled)?'<p class="hintline">Reveal your sensors first.</p>':''}
+    <div class="call">${OPTS.map(o=>`<button class="opt ${dead.has(o.id)?'dead':''}" data-opt="${o.id}" ${(dead.has(o.id)||!callEnabled)?'disabled':''}>
+      <strong>${o.title}</strong><span class="arg">${o.arg}</span>
+      ${c.reasons[o.id]?`<div class="reason">${c.reasons[o.id]}</div>`:''}</button>`).join('')}</div>`;
+
+  document.querySelectorAll('[data-why]').forEach(b=>b.onclick=()=>document.getElementById('why'+b.dataset.why).classList.toggle('show'));
+  const more=document.getElementById('more'); if(more) more.onclick=()=>{document.getElementById('reads').innerHTML=ALL.map((lab,i)=>readTile(lab,i,false,false)).join('');more.style.display='none';document.querySelectorAll('[data-why]').forEach(b=>b.onclick=()=>document.getElementById('why'+b.dataset.why).classList.toggle('show'));};
+  const hb=document.getElementById('hintbtn'); if(hb) hb.onclick=()=>{showHint=true;renderRound();};
+  document.querySelectorAll('[data-pool]').forEach(b=>b.onclick=()=>{pulled.add(b.dataset.pool);renderRound();});
+  document.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{ if(!b.disabled) call(b.dataset.opt); });
+}
+
+function call(id){
+  const c=CASES[idx];
+  if(firstCall[idx]===undefined) firstCall[idx]=id;
+  const correct=(id===c.answer);
+  if(c.level==='hard'){                 // one commit, no retry
+    results[idx]=correct?'correct':'missed'; if(correct) score++;
+    renderResolve(); return;
+  }
+  if(correct){
+    if(results[idx]!=='missed'){ results[idx]='correct'; if(firstTry) score++; }
+    renderResolve();
+  } else {
+    if(firstTry){ firstTry=false; results[idx]='missed'; }
+    dead.add(id); renderRound();
+  }
+}
+
+function renderResolve(){
+  scorebar(false);
+  const c=CASES[idx], r=c.resolve, got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+    <div class="verdict ${got?'good':'bad'}">${got?'Correct — first order':'Missed on the first order'}</div>
+    <h2>${r.title}</h2>
+    ${r.paras.map(p=>`<p>${p}</p>`).join('')}
+    <div class="poles2"><div class="a">${r.a}</div><div class="c">${r.c}</div></div>
+    <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+    <div class="take"><b>The move:</b> ${r.take}</div>
+    <button class="btn primary" id="next">${idx<CASES.length-1?'Next alarm →':'See the shift review →'}</button>
+  </div>`;
+  document.getElementById('next').onclick=()=>{ if(idx<CASES.length-1){idx++;newRound();} else renderFinal(); };
+}
+function renderFinal(){
+  scorebar(false);
+  const names={easy:"Easy",medium:"Medium",hard:"Hard"};
+  app.innerHTML=`<div class="intro">
+    <div class="kicker">Shift review</div>
+    <div class="bigscore">${score} / ${CASES.length}</div>
+    <p>${score===3?'A clean shift — full marks at all three difficulties, including the ghost release at Hard.':
+        score===2?'Solid shift. The step up in difficulty is where most calls slip.':
+        score===1?'One good call. Each alarm gave you less help than the last — that\'s the ramp.':
+        'Hard shift — identical-looking alarms, escalating difficulty, and both over- and under-reacting can lose a core.'}</p>
+    <div class="recap">${CASES.map((c,i)=>{const ok=firstCall[i]===c.answer;
+      return `<div class="rc"><span><span class="lv">${names[c.level]}</span> · you called <b>${LABEL[firstCall[i]]||'—'}</b></span>
+        <span class="dx">it was ${LABEL[c.answer]} <span class="mark ${ok?'ok':'no'}">${ok?'✓':'✗'}</span></span></div>`;}).join('')}</div>
+    <div class="take"><b>The skill:</b> same paradox each time, but less scaffolding at every step — from a flagged, fully-shown
+      panel to choosing your own two sensors under one-shot pressure. The reasoning never changed: no single gauge decides;
+      a <i>pair</i> does. What got harder was how much you had to supply yourself.</div>
+    <button class="btn primary" id="again">Take the shift again</button></div>`;
+  document.getElementById('again').onclick=renderIntro;
+}
+renderIntro();
+</script></body></html>

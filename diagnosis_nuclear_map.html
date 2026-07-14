@@ -1,0 +1,321 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meltdown Watch — Map edition</title>
+<style>
+:root{--bg:#07121d;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;--blue:#70c9f2;--steel:#2e77a4;
+  --gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),linear-gradient(180deg,#05101a,#0a1f30 55%,#05101a)}
+.wrap{max-width:1040px;margin:auto;padding:22px 20px 80px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)} .dot.now{border-color:var(--gold)}
+h1{font-size:clamp(22px,3.4vw,32px);line-height:1.08;margin:6px 0 4px;letter-spacing:-.02em}
+.levelnote{font-size:13px;color:var(--muted);margin:0 0 8px}.levelnote b{color:var(--gold)}
+.hook{color:#d8e7ef;font-size:15px;line-height:1.55;max-width:760px;margin:6px 0}
+.paradox{margin:16px 0 4px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:26px;font-weight:900;margin:5px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:12.5px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:18px;line-height:1.5;margin:14px 0 4px;font-weight:700}.riddle .q{color:var(--gold)}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:22px 0 10px;font-weight:900}
+.pickbar{font-size:14px;color:#d4e2e9;margin:0 0 10px}.pickbar b{color:var(--gold)}
+.panelgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+.mapwrap{border:1px solid var(--line);background:rgba(13,34,51,.9);border-radius:15px;padding:12px}
+svg{width:100%;height:auto;display:block}
+.mapcap{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center;min-height:16px}
+.legend{display:flex;flex-direction:column;gap:7px}
+.li{display:flex;gap:10px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:9px 11px;cursor:pointer;transition:border-color .12s}
+.li:hover,.li.sel{border-color:var(--blue)} .li.sel{background:#163953}
+.li.locked{border-style:dashed;background:#0d2233}
+.badge{flex:none;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:12px;color:#07121d;background:var(--steel)}
+.li.off .badge{background:var(--orange)} .li.alarm .badge{background:var(--red)} .li.locked .badge{background:#0d2233;color:var(--muted);border:1px dashed var(--line)}
+.li .body{min-width:0}
+.li .nm{font-size:13.5px;font-weight:800;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.li .val{font-size:12px;font-weight:800;color:var(--blue)} .li.off .val,.li.alarm .val{color:var(--orange)}
+.li .reveal{font-size:12px;font-weight:800;color:var(--gold)}
+.li .pp{font-size:12px;color:var(--muted);line-height:1.4;margin-top:3px}
+.hint{border-left:3px solid var(--blue);background:rgba(112,201,242,.08);padding:10px 12px;border-radius:9px;margin:12px 0 0;font-size:13.5px;color:#d4e2e9}
+.hintbtn{margin-top:12px;border:1px dashed var(--line);background:transparent;color:var(--muted);padding:8px 12px;border-radius:9px;cursor:pointer;font:inherit}
+.hintbtn:hover{color:var(--text);border-color:var(--blue)}
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;padding:13px 15px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)} .opt:disabled{opacity:.4;cursor:not-allowed}
+.opt strong{display:block;font-size:15px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:13.5px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236} .opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px} .opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:22px 24px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:24px;margin:4px 0 12px}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 12px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:11px 13px;font-size:13.5px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)} .poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)} .poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:13.5px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:8px 11px} .node:last-child{border-color:var(--gold)} .arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:11px 14px;border-radius:9px;margin-top:14px;font-size:14.5px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:16px}
+.btn:hover{background:#224b68} .btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+.intro h1{font-size:clamp(30px,5vw,50px)} .intro p{font-size:16px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.recap{display:grid;gap:8px;margin:16px 0}
+.recap .rc{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:11px 14px;font-size:14px}
+.recap .rc .lv{color:var(--gold);font-weight:800}.recap .rc .dx{color:var(--muted)} .mark.ok{color:var(--green)} .mark.no{color:var(--red)}
+.bigscore{font-size:54px;font-weight:900;margin:6px 0}
+.pin circle{stroke:#07121d;stroke-width:2;cursor:pointer}
+.pin.locked circle{stroke:var(--line)}
+.pin .num{fill:#07121d;font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin .lock{fill:var(--muted);font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin.sel circle{stroke:#fff;stroke-width:3}
+.lbl{fill:var(--muted);font-size:11px} .eqlbl{fill:#8fb0c2;font-size:11px;font-weight:700}
+@media(max-width:820px){.panelgrid{grid-template-columns:1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div class="kicker">Reactor operations · main control room</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+const S=[
+ {id:'coretemp',n:3,name:'Core exit temperature',x:140,y:258,purpose:"Water temperature leaving the core. Should fall after a trip as decay heat is carried away."},
+ {id:'rcs',n:1,name:'RCS pressure',x:205,y:270,purpose:"Pressure in the sealed coolant loop. Falling = coolant escaping; rising = heat with nowhere to go."},
+ {id:'przr',n:2,name:'Pressurizer level',x:236,y:200,purpose:"How full the pressure-control tank is — a proxy for how much water remains in the primary loop."},
+ {id:'crad',n:4,name:'Containment radiation (Monitor A)',x:290,y:120,purpose:"Radiation inside containment. Rises if radioactive coolant escapes — or if this one detector fails."},
+ {id:'redun',n:8,name:'Redundant monitors (B & C)',x:323,y:120,purpose:"Independent detectors. If A screams but B & C read normal, the problem is the sensor, not the plant."},
+ {id:'sg',n:6,name:'Steam generator level',x:363,y:275,purpose:"The boilers that carry the core's heat away. If they boil dry, the core loses its heat sink."},
+ {id:'srad',n:7,name:'Secondary-side radiation',x:452,y:175,purpose:"Radiation on the steam side. Rises only if a tube leaks primary water into the secondary loop."},
+ {id:'sump',n:5,name:'Containment sump',x:200,y:442,purpose:"Water pooling on the containment floor means coolant is leaking out of the pipes."}
+];
+const byId=id=>S.find(s=>s.id===id);
+const OPTS=[
+ {id:"loca",title:"Loss-of-coolant accident — inject & isolate.",arg:"The primary's leaking. Inject before the core uncovers."},
+ {id:"heatsink",title:"Lost heat sink — restore cooling.",arg:"Decay heat has nowhere to go. Get feedwater to the steam generators."},
+ {id:"instrument",title:"Faulted instrument — the reading's lying.",arg:"One channel's bad. Trust the others; don't chase a false alarm."},
+ {id:"transient",title:"Normal post-trip transient — monitor.",arg:"Expected settling after a trip. Hold actions and watch."}
+];
+const LABEL={loca:"Loss-of-coolant accident",heatsink:"Lost heat sink",instrument:"Faulted instrument",transient:"Normal transient"};
+const POLEB={lab:"Reactor status",val:"SCRAMMED — rods in",note:"Fission is stopped. But a freshly-shut core still pours out decay heat that must be removed."};
+
+const CASES=[
+{ level:"easy", alarm:"rcs", off:["rcs","przr","coretemp","sump"],
+  hint:"In a real leak the coolant has to go somewhere. Check whether water is showing up where it shouldn't be.",
+  hook:"Two minutes after an automatic trip. Rods are in, alarms ringing, and the board doesn't add up.",
+  poleA:{lab:"Coolant system",val:"Pressure falling",note:"RCS pressure sliding down, pressurizer level sagging with it."},
+  riddle:'The core is shut down — rods are in. <span class="q">So why is the coolant pressure bleeding away?</span>',
+  vals:{rcs:"1,650 psia ↓",przr:"22% ↓",coretemp:"Rising ↑",crad:"Mildly up",redun:"Agree",sg:"Normal",srad:"Normal",sump:"Rising ↑"},
+  answer:"loca",
+  reasons:{
+    heatsink:"A lost heat sink drives pressure and temperature <b>up</b> with the steam generators dry. Here pressure is <b>falling</b> and the SGs have water — it's losing coolant, not cooling.",
+    instrument:"A fault shows on one channel only. The second pressure channel agrees and the sump is physically filling. The leak is real.",
+    transient:"Normal settling levels off. Pressure keeps falling and water is pooling in containment — the mistake that wrecked Three Mile Island."},
+  resolve:{title:"Loss-of-coolant accident.",
+    paras:["Pressure bleeding down, pressurizer sagging, and the clincher — water pooling in the containment sump. Coolant is escaping the loop; inject and isolate before the fuel uncovers.",
+      "The reassuring 'reactor's tripped' was the trap. The <b>pair</b> that nailed it: pressure falling <b>and</b> the sump rising — notice how both lit pins sit right on the coolant path."],
+    a:"<b>Why 'tripped' wasn't safe</b>: a shut core still needs its coolant.",
+    c:"<b>Why not a bad sensor</b>: a second channel agrees and the sump is filling.",
+    chain:["Breach in the coolant loop","Coolant drains to the sump","Pressure falls, fuel begins to uncover"],
+    take:"Falling pressure alone had three causes. Pressure down AND a filling sump — clustered on the loop — told a real leak from a bad gauge."} },
+
+{ level:"medium", alarm:"coretemp", off:["rcs","coretemp","sg"],
+  hook:"A different trip. Rods are in and fission stopped — but ten minutes on, the board trends the wrong way.",
+  poleA:{lab:"Core temperature",val:"Rising",note:"Core exit temperature climbing after the trip instead of easing off."},
+  riddle:'Fission stopped minutes ago. <span class="q">So why is the core getting hotter, not cooler?</span>',
+  vals:{rcs:"Rising ↑",przr:"High/normal",coretemp:"Rising ↑",crad:"Normal",redun:"Agree",sg:"Boiling dry ↓",srad:"Normal",sump:"Dry"},
+  answer:"heatsink",
+  reasons:{
+    loca:"A leak drops pressure and fills the sump. Here pressure is <b>rising</b> and the sump is <b>dry</b> — nothing's leaking. It's heat with nowhere to go.",
+    instrument:"The temperature rise is confirmed on a second channel and the steam generators have boiled dry. Not a bad sensor — the core really is heating.",
+    transient:"After a trip the core should cool, not heat. Rising temperature with dry steam generators is a lost heat sink, not settling."},
+  resolve:{title:"Lost heat sink — decay heat with nowhere to go.",
+    paras:["A just-tripped core still pours out decay heat. The steam generators that carry it away have boiled dry, so the primary heats and pressure climbs. Restore feedwater.",
+      "Same reassuring 'tripped', opposite signature. The <b>pair</b>: core temperature rising <b>and</b> steam generators dry — the trouble clusters on the steam generator side, and the sump stays dark. This is the Fukushima lesson."],
+    a:"<b>Why 'tripped' wasn't safe</b>: decay heat pours out for days and must be removed.",
+    c:"<b>Why not a leak</b>: pressure is rising and the sump is dry.",
+    chain:["Feedwater / heat sink lost","Decay heat can't escape","Core temperature and pressure climb"],
+    take:"Rising temperature after a trip is not 'settling.' Dry steam generators, not a leak, were the danger."} },
+
+{ level:"hard", alarm:"crad", free:["rcs","przr"], pool:["coretemp","sump","sg","srad","redun"], pick:2,
+  hook:"Third alarm of the shift. The reactor is tripped and quiet — then the most frightening light on the board comes alive. You won't get the whole panel; pull the sensors that will tell the causes apart.",
+  poleA:{lab:"Containment radiation",val:"Off-scale HIGH",note:"A containment radiation monitor has pegged — reads like a major release in progress."},
+  riddle:'A radiation monitor pegged off-scale — but the reactor\'s tripped and quiet. <span class="q">Is the core breaching, or is the meter lying?</span>',
+  vals:{rcs:"Normal",przr:"Normal",coretemp:"Settling",crad:"OFF-SCALE ↑",redun:"B & C normal",sg:"Normal",srad:"Normal",sump:"Dry"},
+  answer:"instrument",
+  reasons:{
+    loca:"A LOCA drops RCS pressure and fills the sump. If you pulled them, pressure is normal and the sump is dry — no coolant is leaving the loop.",
+    heatsink:"A lost heat sink shows rising core temperature and dry steam generators. Temperature is settling and the SGs are normal.",
+    transient:"Nothing's 'normal' about an off-scale monitor. But two independent monitors read background and every physical gauge is stable — one detector failed high. Isolate it; don't just watch."},
+  resolve:{title:"Faulted instrument — the meter is lying.",
+    paras:["Monitor A pegged off-scale — the scariest light in the room. But its redundant partners B & C read background, and every physical sensor is stable. One detector failed high; nothing physical is happening.",
+      "The twist: the terrifying reading was the wrong one to trust. Declaring a release and dumping in emergency systems would have wrecked a healthy plant. The highest-value pulls were the <b>redundant channel</b> (B & C normal — A is the outlier) and the <b>sump</b> (dry — no real release)."],
+    a:"<b>Why not a release</b>: a real leak moves pressure, level, and the sump. All normal.",
+    c:"<b>Why the calm readings win</b>: two independent monitors say background — one pegged detector against all of them is a fault.",
+    chain:["Radiation detector fails high","One channel pegs off-scale","Redundant monitors + physical gauges all normal → bad sensor"],
+    take:"The scariest number came from a broken sensor. Real conditions show on several instruments; a fault shows on one. The skill under pressure was pulling the redundant channel before acting."} }
+];
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score');
+let idx=0,score=0,results=[],firstCall=[],dead=new Set(),firstTry=true,pulled=new Set(),sel=null,showHint=false;
+
+const STATIC_SVG=`
+ <path d="M40,430 L40,200 Q40,70 235,70 Q430,70 430,200 L430,430 Z" fill="rgba(112,201,242,.05)" stroke="var(--line)" stroke-width="2"/>
+ <text x="235" y="90" class="eqlbl" text-anchor="middle">CONTAINMENT</text>
+ <line x1="40" y1="430" x2="430" y2="430" stroke="var(--line)" stroke-width="2"/>
+ <path d="M120,430 L150,452 L250,452 L280,430 Z" fill="rgba(112,201,242,.10)" stroke="var(--line)" stroke-width="1.5"/>
+ <text x="200" y="465" class="lbl" text-anchor="middle">sump</text>
+ <rect x="105" y="250" width="70" height="150" rx="30" fill="#173e59" stroke="var(--blue)" stroke-width="2"/>
+ <rect x="120" y="300" width="40" height="70" fill="none" stroke="var(--gold)" stroke-width="2"/>
+ <line x1="127" y1="305" x2="127" y2="365" stroke="var(--gold)" stroke-width="2"/><line x1="140" y1="305" x2="140" y2="365" stroke="var(--gold)" stroke-width="2"/><line x1="153" y1="305" x2="153" y2="365" stroke="var(--gold)" stroke-width="2"/>
+ <text x="140" y="416" class="lbl" text-anchor="middle">reactor core</text>
+ <rect x="215" y="150" width="42" height="120" rx="16" fill="#173e59" stroke="var(--blue)" stroke-width="2"/><text x="236" y="285" class="lbl" text-anchor="middle">pressurizer</text>
+ <rect x="330" y="140" width="66" height="270" rx="26" fill="#173e59" stroke="var(--blue)" stroke-width="2"/><text x="363" y="426" class="lbl" text-anchor="middle">steam generator</text>
+ <path d="M175,270 H236 V150 M236,175 H363 V140" fill="none" stroke="var(--blue)" stroke-width="4" opacity=".8"/>
+ <path d="M363,410 H300 Q270,410 270,388 H210 Q185,388 185,400" fill="none" stroke="var(--steel)" stroke-width="4" opacity=".8"/>
+ <circle cx="240" cy="388" r="12" fill="#0d2233" stroke="var(--blue)" stroke-width="2"/><text x="240" y="391" class="lbl" text-anchor="middle" style="font-size:9px">pump</text>
+ <text x="312" y="102" class="lbl" text-anchor="middle">rad monitors</text>
+ <path d="M396,175 H470 V150" fill="none" stroke="var(--gold)" stroke-width="3" stroke-dasharray="5 4"/>
+ <path d="M455,150 l35,-14 v28 z" fill="#173e59" stroke="var(--gold)" stroke-width="1.5"/><circle cx="500" cy="150" r="12" fill="#173e59" stroke="var(--gold)" stroke-width="1.5"/>
+ <text x="478" y="192" class="lbl" text-anchor="middle">turbine</text>`;
+
+function scorebar(active){
+  const dots=CASES.map((_,i)=>{let c='dot';if(results[i]==='correct')c+=' good';else if(results[i]==='missed')c+=' bad';if(i===idx&&active)c+=' now';return `<span class="${c}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${CASES.length}<span class="dots">${dots}</span></span>`;
+}
+function sState(s){
+  const c=CASES[idx],lvl=c.level,isAlarm=s.id===c.alarm;
+  let revealed=true,locked=false;
+  if(lvl==='hard'){ revealed=isAlarm||c.free.includes(s.id)||pulled.has(s.id); locked=!revealed; }
+  let color;
+  if(isAlarm)color='var(--red)';
+  else if(locked)color='#12324a';
+  else if(lvl==='easy'&&c.off.includes(s.id))color='var(--orange)';
+  else color='var(--steel)';
+  return {revealed,locked,color,isAlarm};
+}
+function renderIntro(){
+  scoreEl.innerHTML='';
+  app.innerHTML=`<div class="intro">
+   <h1>Meltdown Watch</h1>
+   <p>You have the desk in the control room. Three alarms, each the <b>same paradox</b> — the reactor is
+   <b>tripped and quiet</b>, yet a gauge is heading the wrong way — and they <b>get harder</b>.</p>
+   <p>Read the reactor map: <b>Easy</b> lights the off-normal sensors for you. <b>Medium</b> shows the raw
+   numbers with no lights — you judge. <b>Hard</b> hides most of the panel; you read <b>what each sensor
+   would tell you</b>, <b>tap two</b> to reveal, then make <b>one call</b>.</p>
+   <p>Miss a real leak and the core melts; over-react to a false alarm and you wreck a healthy plant.
+   One point per alarm called right on the first order.</p>
+   <button class="btn primary" id="start">Take the desk →</button></div>`;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+function newRound(){dead=new Set();firstTry=true;pulled=new Set();sel=null;showHint=false;renderRound();}
+
+function renderRound(){
+  scorebar(true);
+  const c=CASES[idx],lvl=c.level;
+  const lname={easy:"Easy",medium:"Medium",hard:"Hard"}[lvl];
+  const lnote={easy:"off-normal sensors are lit for you · hint available · retries allowed",
+    medium:"raw numbers, no lights — you judge · one retry",
+    hard:`tap 2 sensors to reveal, then one call, no do-over`}[lvl];
+  const picksLeft=lvl==='hard'?c.pick-pulled.size:0;
+  const callEnabled=lvl!=='hard'||pulled.size>=c.pick;
+
+  // pins
+  const pins=S.map(s=>{const st=sState(s);
+    return `<g class="pin ${sel===s.id?'sel':''} ${st.locked?'locked':''}" data-id="${s.id}">
+      <circle cx="${s.x}" cy="${s.y}" r="13" fill="${st.color}"/>
+      ${st.locked?`<text class="lock" x="${s.x}" y="${s.y}">?</text>`:`<text class="num" x="${s.x}" y="${s.y}">${s.n}</text>`}
+    </g>`;}).join('');
+
+  // legend
+  const legend=S.slice().sort((a,b)=>a.n-b.n).map(s=>{
+    const st=sState(s),off=(lvl==='easy'&&c.off.includes(s.id)),cls=[st.isAlarm?'alarm':(off?'off':''),st.locked?'locked':'',sel===s.id?'sel':''].join(' ');
+    const showPurpose = lvl==='easy' || st.locked || sel===s.id;
+    let valHTML;
+    if(st.locked) valHTML=`<span class="reveal">${picksLeft>0?'reveal →':'locked'}</span>`;
+    else valHTML=`<span class="val">${c.vals[s.id]}</span>`;
+    return `<div class="li ${cls}" data-id="${s.id}">
+      <div class="badge">${st.locked?'?':s.n}</div>
+      <div class="body"><div class="nm">${s.name} ${valHTML}</div>
+        ${showPurpose?`<div class="pp">${s.purpose}</div>`:''}</div></div>`;
+  }).join('');
+
+  const selS=sel?byId(sel):null, ss=selS?sState(selS):null;
+  const mapcap=selS?(ss.locked?`<b style="color:var(--gold)">${selS.name}</b> — tap to reveal`:`<b style="color:var(--gold)">${selS.n}. ${selS.name}</b> — “${c.vals[selS.id]}”`)
+    :(lvl==='hard'?'Tap a locked pin to reveal it · red pin is the blaring alarm':'Tap any pin to read what it watches');
+
+  app.innerHTML=`
+   <div class="kicker">Alarm ${idx+1} of ${CASES.length} · <span style="color:var(--gold)">${lname}</span></div>
+   <h1>The Board</h1>
+   <div class="levelnote">${lname} — ${lnote}</div>
+   <p class="hook">${c.hook}</p>
+   <div class="paradox"><div class="vs">
+     <div class="pole alarm"><div class="lab">${c.poleA.lab}</div><div class="val">${c.poleA.val}</div><small>${c.poleA.note}</small></div>
+     <div class="mid">vs</div>
+     <div class="pole calm"><div class="lab">${POLEB.lab}</div><div class="val">${POLEB.val}</div><small>${POLEB.note}</small></div>
+   </div><p class="riddle">${c.riddle}</p></div>
+   <h2 class="sec">The reactor</h2>
+   ${lvl==='hard'?`<p class="pickbar">Four possible calls, and you may reveal <b>${picksLeft}</b> more sensor${picksLeft===1?'':'s'}. Each sensor's <b>purpose</b> is shown — deduce which readings would actually separate the causes, then reveal them.</p>`:''}
+   <div class="panelgrid">
+     <div><div class="mapwrap"><svg viewBox="0 0 520 470" role="img" aria-label="Reactor schematic">${STATIC_SVG}<g id="pins">${pins}</g></svg></div>
+       <div class="mapcap">${mapcap}</div>
+       ${lvl==='easy'?(showHint?`<div class="hint"><b>Hint:</b> ${c.hint}</div>`:`<button class="hintbtn" id="hintbtn">💡 Show a hint</button>`):''}
+     </div>
+     <div class="legend">${legend}</div>
+   </div>
+   <h2 class="sec">${lvl==='hard'?'Commit your call.':'The control room is split. Make the call.'}</h2>
+   ${(firstTry||lvl==='hard')?'':'<p class="hintline">Point lost on this alarm — but find the right call to see why and continue.</p>'}
+   ${(lvl==='hard'&&!callEnabled)?'<p class="hintline">Reveal your two sensors first.</p>':''}
+   <div class="call">${OPTS.map(o=>`<button class="opt ${dead.has(o.id)?'dead':''}" data-opt="${o.id}" ${(dead.has(o.id)||!callEnabled)?'disabled':''}>
+     <strong>${o.title}</strong><span class="arg">${o.arg}</span>
+     ${c.reasons[o.id]?`<div class="reason">${c.reasons[o.id]}</div>`:''}</button>`).join('')}</div>`;
+
+  const tap=id=>{const s=byId(id),st=sState(s),c2=CASES[idx];
+    if(c2.level==='hard'&&st.locked){ if(pulled.size<c2.pick){pulled.add(id);sel=id;renderRound();} return; }
+    sel=id;renderRound();};
+  app.querySelectorAll('.pin').forEach(p=>p.onclick=()=>tap(p.dataset.id));
+  app.querySelectorAll('.li').forEach(l=>l.onclick=()=>tap(l.dataset.id));
+  const hb=document.getElementById('hintbtn'); if(hb)hb.onclick=()=>{showHint=true;renderRound();};
+  app.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{if(!b.disabled)call(b.dataset.opt);});
+}
+function call(id){
+  const c=CASES[idx];
+  if(firstCall[idx]===undefined)firstCall[idx]=id;
+  const correct=(id===c.answer);
+  if(c.level==='hard'){ results[idx]=correct?'correct':'missed'; if(correct)score++; renderResolve(); return; }
+  if(correct){ if(results[idx]!=='missed'){results[idx]='correct';if(firstTry)score++;} renderResolve(); }
+  else { if(firstTry){firstTry=false;results[idx]='missed';} dead.add(id); renderRound(); }
+}
+function renderResolve(){
+  scorebar(false);
+  const c=CASES[idx],r=c.resolve,got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+   <div class="verdict ${got?'good':'bad'}">${got?'Correct — first order':'Missed on the first order'}</div>
+   <h2>${r.title}</h2>${r.paras.map(p=>`<p>${p}</p>`).join('')}
+   <div class="poles2"><div class="a">${r.a}</div><div class="c">${r.c}</div></div>
+   <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+   <div class="take"><b>The move:</b> ${r.take}</div>
+   <button class="btn primary" id="next">${idx<CASES.length-1?'Next alarm →':'See the shift review →'}</button></div>`;
+  document.getElementById('next').onclick=()=>{if(idx<CASES.length-1){idx++;newRound();}else renderFinal();};
+}
+function renderFinal(){
+  scorebar(false);
+  const nm={easy:"Easy",medium:"Medium",hard:"Hard"};
+  app.innerHTML=`<div class="intro"><div class="kicker">Shift review</div>
+   <div class="bigscore">${score} / ${CASES.length}</div>
+   <p>${score===3?'A clean shift — full marks across all three difficulties, including the ghost release at Hard.':score===2?'Solid shift. The step up in difficulty is where most calls slip.':score===1?'One good call. Each alarm gave you less help than the last — that is the ramp.':'Hard shift — same paradox, escalating difficulty, and both over- and under-reacting can lose a core.'}</p>
+   <div class="recap">${CASES.map((c,i)=>{const ok=firstCall[i]===c.answer;return `<div class="rc"><span><span class="lv">${nm[c.level]}</span> · you called <b>${LABEL[firstCall[i]]||'—'}</b></span><span class="dx">it was ${LABEL[c.answer]} <span class="mark ${ok?'ok':'no'}">${ok?'✓':'✗'}</span></span></div>`;}).join('')}</div>
+   <div class="take"><b>The skill:</b> same paradox each time, less scaffolding at every step. The reasoning never changed — no single gauge decides; a <i>pair</i> does, and on the map the lit sensors <i>cluster</i> around the real cause.</div>
+   <button class="btn primary" id="again">Take the shift again</button></div>`;
+  document.getElementById('again').onclick=renderIntro;
+}
+renderIntro();
+</script></body></html>

@@ -1,0 +1,323 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halt or Hold? — Market surveillance</title>
+<style>
+:root{--bg:#07121d;--line:#385b70;--text:#eef7fb;--muted:#afc2cd;--blue:#70c9f2;--steel:#2e77a4;
+  --gold:#efca72;--green:#78d69a;--red:#ff9292;--orange:#f0ad67}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 12% 0%,rgba(47,116,164,.28),transparent 31%),linear-gradient(180deg,#05101a,#0a1f30 55%,#05101a)}
+.wrap{max-width:1040px;margin:auto;padding:22px 20px 80px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:900}
+.scorepill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;background:#12304559;white-space:nowrap}
+.dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--line);display:inline-block}
+.dot.good{background:var(--green);border-color:var(--green)} .dot.bad{background:var(--red);border-color:var(--red)} .dot.now{border-color:var(--gold)}
+h1{font-size:clamp(22px,3.4vw,32px);line-height:1.08;margin:6px 0 4px;letter-spacing:-.02em}
+.levelnote{font-size:13px;color:var(--muted);margin:0 0 8px}.levelnote b{color:var(--gold)}
+.hook{color:#d8e7ef;font-size:15px;line-height:1.55;max-width:760px;margin:6px 0}
+.paradox{margin:16px 0 4px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pole{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:#0d2233}
+.pole.alarm{border-color:#7a3b40;background:linear-gradient(180deg,rgba(255,146,146,.10),transparent)}
+.pole.calm{border-color:#3a6a52;background:linear-gradient(180deg,rgba(120,214,154,.10),transparent)}
+.pole .lab{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:900}
+.pole .val{font-size:24px;font-weight:900;margin:5px 0 2px}
+.pole.alarm .val{color:var(--red)} .pole.calm .val{color:var(--green)}
+.pole small{color:var(--muted);font-size:12.5px;line-height:1.4}
+.mid{display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:14px}
+.riddle{font-size:18px;line-height:1.5;margin:14px 0 4px;font-weight:700}.riddle .q{color:var(--gold)}
+h2.sec{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:22px 0 10px;font-weight:900}
+.pickbar{font-size:14px;color:#d4e2e9;margin:0 0 10px}.pickbar b{color:var(--gold)}
+.panelgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+.mapwrap{border:1px solid var(--line);background:rgba(13,34,51,.9);border-radius:15px;padding:12px}
+svg{width:100%;height:auto;display:block}
+.mapcap{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center;min-height:16px}
+.legend{display:flex;flex-direction:column;gap:7px}
+.li{display:flex;gap:10px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:9px 11px;cursor:pointer;transition:border-color .12s}
+.li:hover,.li.sel{border-color:var(--blue)} .li.sel{background:#163953}
+.li.locked{border-style:dashed;background:#0d2233}
+.badge{flex:none;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:12px;color:#07121d;background:var(--steel)}
+.li.off .badge{background:var(--orange)} .li.locked .badge{background:#0d2233;color:var(--muted);border:1px dashed var(--line)}
+.li .body{min-width:0}
+.li .nm{font-size:13.5px;font-weight:800;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.li .val{font-size:12px;font-weight:800;color:var(--blue)} .li.off .val{color:var(--orange)}
+.li .reveal{font-size:12px;font-weight:800;color:var(--gold)}
+.li .pp{font-size:12px;color:var(--muted);line-height:1.4;margin-top:3px}
+.hint{border-left:3px solid var(--blue);background:rgba(112,201,242,.08);padding:10px 12px;border-radius:9px;margin:12px 0 0;font-size:13.5px;color:#d4e2e9}
+.hintbtn{margin-top:12px;border:1px dashed var(--line);background:transparent;color:var(--muted);padding:8px 12px;border-radius:9px;cursor:pointer;font:inherit}
+.hintbtn:hover{color:var(--text);border-color:var(--blue)}
+.call{display:grid;gap:10px;margin-top:6px}
+.opt{text-align:left;border:1px solid var(--line);background:#15334a;color:var(--text);border-radius:12px;padding:13px 15px;cursor:pointer;font:inherit;transition:border-color .12s,opacity .2s}
+.opt:hover:not(:disabled){border-color:var(--blue)} .opt:disabled{opacity:.4;cursor:not-allowed}
+.opt strong{display:block;font-size:15px;margin-bottom:3px}
+.opt .arg{color:var(--muted);font-size:13.5px;line-height:1.45}
+.opt.dead{opacity:.55;border-color:#5a3236} .opt.dead strong{text-decoration:line-through;text-decoration-color:var(--red)}
+.opt .reason{display:none;margin-top:9px;font-size:13px;color:var(--red);border-top:1px solid #5a3236;padding-top:8px} .opt.dead .reason{display:block}
+.hintline{font-size:13px;color:var(--muted);margin-top:4px}
+.resolve{border:1px solid var(--line);background:rgba(13,34,51,.98);border-radius:18px;padding:22px 24px}
+.resolve .verdict{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+.resolve .verdict.good{color:var(--green)} .resolve .verdict.bad{color:var(--orange)}
+.resolve h2{font-size:24px;margin:4px 0 12px}
+.resolve p{line-height:1.65;color:#d8e7ef;margin:0 0 12px}
+.poles2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.poles2 div{border-radius:10px;padding:11px 13px;font-size:13.5px;line-height:1.5}
+.poles2 .a{border-left:3px solid var(--red);background:rgba(255,146,146,.07)} .poles2 .c{border-left:3px solid var(--green);background:rgba(120,214,154,.07)} .poles2 b{color:var(--gold)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0;font-size:13.5px}
+.node{border:1px solid var(--line);background:#112b3f;border-radius:9px;padding:8px 11px} .node:last-child{border-color:var(--gold)} .arr{color:var(--gold);font-weight:900}
+.take{border-left:3px solid var(--gold);background:rgba(239,202,114,.08);padding:11px 14px;border-radius:9px;margin-top:14px;font-size:14.5px;line-height:1.55}
+.btn{border:1px solid var(--line);background:#17354d;color:var(--text);padding:11px 18px;border-radius:9px;cursor:pointer;font:inherit;margin-top:16px}
+.btn:hover{background:#224b68} .btn.primary{background:#2e77a4;border-color:#4d95bf;font-weight:800}
+.intro h1{font-size:clamp(30px,5vw,50px)} .intro p{font-size:16px;line-height:1.7;color:#d8e7ef;max-width:720px}
+.recap{display:grid;gap:8px;margin:16px 0}
+.recap .rc{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);background:#112b3f;border-radius:10px;padding:11px 14px;font-size:14px}
+.recap .rc .lv{color:var(--gold);font-weight:800}.recap .rc .dx{color:var(--muted)} .mark.ok{color:var(--green)} .mark.no{color:var(--red)}
+.bigscore{font-size:54px;font-weight:900;margin:6px 0}
+.pin circle{stroke:#07121d;stroke-width:2;cursor:pointer}
+.pin.locked circle{stroke:var(--line)}
+.pin .num{fill:#07121d;font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin .lock{fill:var(--muted);font-weight:900;font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin.sel circle{stroke:#fff;stroke-width:3}
+.nodebox{fill:#173e59;stroke:var(--blue);stroke-width:1.5}
+.nodetxt{fill:var(--text);font-size:11px;font-weight:800;text-anchor:middle}
+.nodesub{fill:var(--muted);font-size:9px;text-anchor:middle}
+.pricebox{fill:rgba(255,146,146,.14);stroke:var(--red);stroke-width:2}
+.pricetxt{fill:var(--red);font-size:13px;font-weight:900;text-anchor:middle}
+.flow{stroke:var(--line);stroke-width:1.5;fill:none}
+@media(max-width:820px){.panelgrid{grid-template-columns:1fr}.vs{grid-template-columns:1fr}.mid{transform:rotate(90deg)}.poles2{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+<div class="topline"><div class="kicker">Market surveillance · the tape</div><div id="score"></div></div>
+<div id="app"></div>
+</div>
+<script>
+const S=[
+ {id:'fund',n:1,name:'Company fundamentals',x:90,y:61,purpose:"Did the business actually change — a filing, earnings, a lawsuit? A real cause lives here."},
+ {id:'news',n:2,name:'News verification',x:90,y:130,purpose:"Is the driver a verified filing/press release, or an unsourced rumor or social post?"},
+ {id:'breadth',n:3,name:'Peers & sector',x:90,y:220,purpose:"Are peers and the sector moving too (a real, broad cause) — or is it just this one ticker?"},
+ {id:'conc',n:4,name:'Order concentration',x:238,y:140,purpose:"Are the trades spread across many participants, or funneled through a few accounts (a manipulation tell)?"},
+ {id:'spoof',n:5,name:'Spoofing / cancels',x:300,y:155,purpose:"Rate of large orders placed then instantly cancelled — a fingerprint of spoofing."},
+ {id:'short',n:6,name:'Short interest & borrow',x:300,y:47,purpose:"Surging short bets and borrow cost can mark a coordinated bear raid."},
+ {id:'social',n:7,name:'Crowd / social',x:300,y:225,purpose:"Volume and tone of retail chatter — organized pumps and mass panics both live here."},
+ {id:'xven',n:8,name:'Cross-venue price',x:435,y:120,purpose:"Does the price match across exchanges and the consolidated tape? One venue out of line = a bad print."}
+];
+const byId=id=>S.find(s=>s.id===id);
+const OPTS=[
+ {id:"news",title:"Real news — the price is justified. Let it trade.",arg:"A genuine event repriced the stock. The market is doing its job."},
+ {id:"manip",title:"Manipulation — flag it and halt.",arg:"Someone is rigging the tape. Freeze it and pull the trade records."},
+ {id:"glitch",title:"Bad data — a print error, not a market.",arg:"The price is a feed error. Do not act on it; the trades should bust."},
+ {id:"panic",title:"Just panic — no real cause. Sit tight.",arg:"An irrational overreaction. It will snap back."}
+];
+const LABEL={news:"Real news",manip:"Manipulation",glitch:"Bad-data glitch",panic:"Panic / noise"};
+const POLEB={lab:"Exchange status",val:"No halt",note:"Trading is not stopped; officially the market considers this orderly. But an unhalted tape can still be lying — or dead right."};
+
+const CASES=[
+{ level:"easy", off:["fund","news","breadth","social"],
+  hint:"A real cause leaves fingerprints in more than one place — a filing, and the peers moving with it. A fake one is narrow.",
+  hook:"A large-cap biotech drops like a stone at mid-morning. Your surveillance board lights up.",
+  poleA:{lab:"The tape",val:"Down 34%",note:"The stock lost a third of its value in minutes."},
+  riddle:'The tape says this company lost a third of its value — and no one hit the brakes. <span class="q">Justified, or engineered?</span>',
+  vals:{fund:"FDA rejected their lead drug (8-K filed)",news:"Verified filing + wire story",breadth:"Biotech peers down 6–10%",conc:"Broad — thousands of accounts selling",spoof:"Normal cancel rate",short:"Short interest flat",social:"Reacting to the real news",xven:"All venues agree"},
+  answer:"news",
+  reasons:{
+    manip:"Manipulation is narrow and unsourced. This selling is spread across thousands of accounts and driven by a verified FDA filing — a real, public event.",
+    glitch:"A bad print shows on one venue while others stay normal. Here every venue agrees on the price, on real volume. The move is real.",
+    panic:"This is not sourceless panic — a filed drug rejection is a genuine repricing, and the sector moved with it. The market is working."},
+  resolve:{title:"Real news — the price is justified.",
+    paras:["The company's lead drug was rejected by the FDA, filed in an 8-K and carried on the wire. Biotech peers slid in sympathy and the selling came from thousands of accounts. This is the market repricing a genuine event — let it trade.",
+      "The reassuring 'no halt' told you nothing. The <b>pair</b> that settled it: a verified filing <b>and</b> broad participation across peers and accounts. A real cause leaves fingerprints everywhere — not in one place."],
+    a:"<b>Why not manipulation</b>: manipulation is narrow and unsourced; this is broad and filed.",
+    c:"<b>Why not panic</b>: there is a real, public reason, and the whole sector moved with it.",
+    chain:["Drug rejected (8-K filed)","Sector reprices in sympathy","Broad, sourced selling — a justified move"],
+    take:"A real cause shows up in more than one place at once — the filing, the peers, the breadth of selling. Broad and sourced means the move is real."} },
+
+{ level:"medium",
+  hook:"A small-cap you have never heard of has doubled since the open. No earnings, no filing — just chatter.",
+  poleA:{lab:"The tape",val:"Up 140%",note:"The stock has more than doubled in an hour on no announced news."},
+  riddle:'The stock has doubled on no earnings and no filing — just noise. <span class="q">Real demand, or someone working the tape?</span>',
+  vals:{fund:"No change — no filing, business as usual",news:"Unsourced hype on social; no filing",breadth:"Peers flat — only this ticker",conc:"90% of volume through 3 accounts",spoof:"Huge orders placed then cancelled",short:"Normal",social:"Coordinated pump campaign",xven:"Venues agree (price real)"},
+  answer:"manip",
+  reasons:{
+    news:"A real repricing has a filing behind it and drags the sector. There is no filing, and peers are flat — only this ticker is flying.",
+    glitch:"A glitch is one venue out of line on tiny volume. Here the venues agree and volume is huge — the trades are real, just engineered.",
+    panic:"This is not organic crowd panic — 90% of the volume runs through three accounts, with orders placed and cancelled. Someone is working the book."},
+  resolve:{title:"Manipulation — flag it and halt.",
+    paras:["No filing, no earnings, peers flat — yet the stock doubled. Ninety percent of the volume ran through three accounts, huge orders were placed and yanked (spoofing), and a coordinated campaign lit up social media. Freeze it and pull the records.",
+      "The <b>pair</b> that exposed it: no real fundamentals <b>and</b> a concentrated, spoofed order book. Real demand is broad and sourced; this was narrow and engineered — a pump on an empty stage."],
+    a:"<b>Why not real news</b>: there is no filing and the sector did not move — only this ticker.",
+    c:"<b>Why not panic</b>: organic crowds are not three accounts spoofing the book.",
+    chain:["No fundamentals, just hype","Few accounts + spoofed orders","Engineered price move — manipulation"],
+    take:"When a big move has no source and funnels through a few hands working the book, it is manufactured — not the market discovering a price."} },
+
+{ level:"hard", free:["fund","news"], pool:["breadth","conc","spoof","short","social","xven"], pick:2,
+  hook:"An alert screams that a blue-chip just fell 92% — all but wiped out. You will not get the whole board; check the signals that would tell a real crash from a bad tick.",
+  poleA:{lab:"The tape",val:"−92%",note:"One print shows the stock down 92% — near zero."},
+  riddle:'One print shows the stock down 92% — all but wiped out. <span class="q">Total collapse, or a bad tick?</span>',
+  vals:{fund:"No change",news:"Nothing on the wire",breadth:"Peers unmoved",conc:"Almost no volume behind the print",spoof:"Normal",short:"Normal",social:"Quiet — nobody is reacting",xven:"One venue printed −92%; others & the tape show −1%"},
+  answer:"glitch",
+  reasons:{
+    news:"A real event shows a filing and moves the sector. There is no news, peers are unmoved — and one venue disagrees with all the others.",
+    manip:"Manipulation still trades real shares across venues. Here almost no volume is behind the print and only one feed shows it — nothing actually traded.",
+    panic:"Panic is real selling across every venue. This price shows on one feed only, with the consolidated tape at −1%. There is no market here to panic — it is a bad tick."},
+  resolve:{title:"Bad data — a print error, not a market.",
+    paras:["One venue printed the stock down 92% — but every other exchange and the consolidated tape show it down about 1%, on almost no volume, with peers unmoved and the wire silent. Nothing actually traded down there. It is a bad tick; do not act on it, and the erroneous trades should bust.",
+      "The twist: the most terrifying number on the screen was not a market at all. The <b>pair</b> that proved it: an alarming price on <b>one</b> feed <b>against</b> normal prices on every independent venue. Same move as a lying airspeed or a false radiation monitor — one instrument screaming while its peers stay calm."],
+    a:"<b>Why not a real collapse</b>: a real crash prints across all venues on real volume. This is one feed, near-zero volume.",
+    c:"<b>Why not panic</b>: there is no selling to panic about — the actual market is down 1%.",
+    chain:["A data feed glitches","One venue prints near zero","Other venues + the tape normal → a bad print"],
+    take:"The scariest price came from one broken feed. Cross-check an independent venue before you act — one tape screaming against all the others is an error, not a market."} }
+];
+
+const app=document.getElementById('app'), scoreEl=document.getElementById('score');
+let idx=0,score=0,results=[],firstCall=[],dead=new Set(),firstTry=true,pulled=new Set(),sel=null,showHint=false;
+
+const STATIC_SVG=`
+ <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--line)"/></marker></defs>
+ <path class="flow" d="M150,61 H185" marker-end="url(#ah)"/>
+ <path class="flow" d="M150,130 H185" marker-end="url(#ah)"/>
+ <path class="flow" d="M150,220 Q185,200 200,160" marker-end="url(#ah)"/>
+ <path class="flow" d="M300,66 V100" marker-end="url(#ah)"/>
+ <path class="flow" d="M300,205 V180" marker-end="url(#ah)"/>
+ <path class="flow" d="M335,140 H375" marker-end="url(#ah)"/>
+ <path class="flow" d="M435,158 V195" marker-end="url(#ah)"/>
+ <rect class="nodebox" x="30" y="42" width="120" height="40" rx="9"/><text class="nodetxt" x="90" y="60">THE COMPANY</text><text class="nodesub" x="90" y="73">fundamentals</text>
+ <rect class="nodebox" x="30" y="112" width="120" height="38" rx="9"/><text class="nodetxt" x="90" y="135">NEWS WIRE</text>
+ <rect class="nodebox" x="30" y="202" width="120" height="38" rx="9"/><text class="nodetxt" x="90" y="225">PEERS / SECTOR</text>
+ <rect class="nodebox" x="238" y="30" width="124" height="36" rx="9"/><text class="nodetxt" x="300" y="52">SHORT SELLERS</text>
+ <rect class="nodebox" x="200" y="104" width="135" height="72" rx="9"/><text class="nodetxt" x="267" y="128">ORDER BOOK</text>
+ <rect class="nodebox" x="238" y="204" width="124" height="38" rx="9"/><text class="nodetxt" x="300" y="227">CROWD / SOCIAL</text>
+ <rect class="nodebox" x="378" y="100" width="112" height="58" rx="9"/><text class="nodetxt" x="434" y="123">EXCHANGES</text><text class="nodesub" x="434" y="145">multiple venues</text>
+ <rect class="pricebox" x="388" y="196" width="102" height="46" rx="9"/><text class="pricetxt" x="439" y="216">PRICE ▼</text><text class="nodesub" x="439" y="232" style="fill:var(--red)">the alarm</text>`;
+
+function scorebar(active){
+  const dots=CASES.map((_,i)=>{let c='dot';if(results[i]==='correct')c+=' good';else if(results[i]==='missed')c+=' bad';if(i===idx&&active)c+=' now';return `<span class="${c}"></span>`;}).join('');
+  scoreEl.innerHTML=`<span class="scorepill">Score ${score} / ${CASES.length}<span class="dots">${dots}</span></span>`;
+}
+function sState(s){
+  const c=CASES[idx],lvl=c.level;
+  let revealed=true,locked=false;
+  if(lvl==='hard'){ revealed=c.free.includes(s.id)||pulled.has(s.id); locked=!revealed; }
+  let color;
+  if(locked)color='#12324a';
+  else if(lvl==='easy'&&c.off.includes(s.id))color='var(--orange)';
+  else color='var(--steel)';
+  return {revealed,locked,color};
+}
+function renderIntro(){
+  scoreEl.innerHTML='';
+  app.innerHTML=`<div class="intro">
+   <h1>Halt or Hold?</h1>
+   <p>You run the surveillance desk. Three times a stock does something violent while the broad market barely
+   blinks — and it <b>gets harder</b>.</p>
+   <p>Read the market map: <b>Easy</b> lights the abnormal signals for you. <b>Medium</b> shows the raw signals,
+   no lights — you judge. <b>Hard</b> hides most of the board; you read <b>what each signal would tell you</b>,
+   <b>check two</b>, then make <b>one call</b>.</p>
+   <p>Halt a legitimate move and you freeze a working market; wave through fraud or a bad print and the damage is
+   real. One point per call you get right on the first look.</p>
+   <button class="btn primary" id="start">Open the desk →</button></div>`;
+  document.getElementById('start').onclick=()=>{idx=0;score=0;results=[];firstCall=[];newRound();};
+}
+function newRound(){dead=new Set();firstTry=true;pulled=new Set();sel=null;showHint=false;renderRound();}
+
+function renderRound(){
+  scorebar(true);
+  const c=CASES[idx],lvl=c.level;
+  const lname={easy:"Easy",medium:"Medium",hard:"Hard"}[lvl];
+  const lnote={easy:"abnormal signals are lit for you · hint available · retries allowed",
+    medium:"raw signals, no lights — you judge · one retry",
+    hard:`check 2 signals, then one call, no do-over`}[lvl];
+  const picksLeft=lvl==='hard'?c.pick-pulled.size:0;
+  const callEnabled=lvl!=='hard'||pulled.size>=c.pick;
+
+  const pins=S.map(s=>{const st=sState(s);
+    return `<g class="pin ${sel===s.id?'sel':''} ${st.locked?'locked':''}" data-id="${s.id}">
+      <circle cx="${s.x}" cy="${s.y}" r="13" fill="${st.color}"/>
+      ${st.locked?`<text class="lock" x="${s.x}" y="${s.y}">?</text>`:`<text class="num" x="${s.x}" y="${s.y}">${s.n}</text>`}
+    </g>`;}).join('');
+
+  const legend=S.slice().sort((a,b)=>a.n-b.n).map(s=>{
+    const st=sState(s),off=(lvl==='easy'&&c.off.includes(s.id)),cls=[off?'off':'',st.locked?'locked':'',sel===s.id?'sel':''].join(' ');
+    const showPurpose = lvl==='easy' || st.locked || sel===s.id;
+    let valHTML = st.locked?`<span class="reveal">${picksLeft>0?'check →':'locked'}</span>`:`<span class="val">${c.vals[s.id]}</span>`;
+    return `<div class="li ${cls}" data-id="${s.id}">
+      <div class="badge">${st.locked?'?':s.n}</div>
+      <div class="body"><div class="nm">${s.name} ${valHTML}</div>
+        ${showPurpose?`<div class="pp">${s.purpose}</div>`:''}</div></div>`;
+  }).join('');
+
+  const selS=sel?byId(sel):null, ss=selS?sState(selS):null;
+  const mapcap=selS?(ss.locked?`<b style="color:var(--gold)">${selS.name}</b> — tap to check`:`<b style="color:var(--gold)">${selS.n}. ${selS.name}</b> — “${c.vals[selS.id]}”`)
+    :(lvl==='hard'?'Tap a locked signal to check it · the red PRICE box is the alarm':'Tap any signal to read what it watches');
+
+  app.innerHTML=`
+   <div class="kicker">Move ${idx+1} of ${CASES.length} · <span style="color:var(--gold)">${lname}</span></div>
+   <h1>The Tape</h1>
+   <div class="levelnote">${lname} — ${lnote}</div>
+   <p class="hook">${c.hook}</p>
+   <div class="paradox"><div class="vs">
+     <div class="pole alarm"><div class="lab">${c.poleA.lab}</div><div class="val">${c.poleA.val}</div><small>${c.poleA.note}</small></div>
+     <div class="mid">vs</div>
+     <div class="pole calm"><div class="lab">${POLEB.lab}</div><div class="val">${POLEB.val}</div><small>${POLEB.note}</small></div>
+   </div><p class="riddle">${c.riddle}</p></div>
+   <h2 class="sec">The market</h2>
+   ${lvl==='hard'?`<p class="pickbar">Four possible calls, and you may check <b>${picksLeft}</b> more signal${picksLeft===1?'':'s'}. Each one's <b>purpose</b> is shown — deduce which would separate a real move from a fake one, then check them.</p>`:''}
+   <div class="panelgrid">
+     <div><div class="mapwrap"><svg viewBox="0 0 520 260" role="img" aria-label="Market-ecosystem map">${STATIC_SVG}<g id="pins">${pins}</g></svg></div>
+       <div class="mapcap">${mapcap}</div>
+       ${lvl==='easy'?(showHint?`<div class="hint"><b>Hint:</b> ${c.hint}</div>`:`<button class="hintbtn" id="hintbtn">💡 Show a hint</button>`):''}
+     </div>
+     <div class="legend">${legend}</div>
+   </div>
+   <h2 class="sec">${lvl==='hard'?'Commit your call.':'The desk is split. Make the call.'}</h2>
+   ${(firstTry||lvl==='hard')?'':'<p class="hintline">Point lost on this move — but find the right call to see why and continue.</p>'}
+   ${(lvl==='hard'&&!callEnabled)?'<p class="hintline">Check your two signals first.</p>':''}
+   <div class="call">${OPTS.map(o=>`<button class="opt ${dead.has(o.id)?'dead':''}" data-opt="${o.id}" ${(dead.has(o.id)||!callEnabled)?'disabled':''}>
+     <strong>${o.title}</strong><span class="arg">${o.arg}</span>
+     ${c.reasons[o.id]?`<div class="reason">${c.reasons[o.id]}</div>`:''}</button>`).join('')}</div>`;
+
+  const tap=id=>{const s=byId(id),st=sState(s),c2=CASES[idx];
+    if(c2.level==='hard'&&st.locked){ if(pulled.size<c2.pick){pulled.add(id);sel=id;renderRound();} return; }
+    sel=id;renderRound();};
+  app.querySelectorAll('.pin').forEach(p=>p.onclick=()=>tap(p.dataset.id));
+  app.querySelectorAll('.li').forEach(l=>l.onclick=()=>tap(l.dataset.id));
+  const hb=document.getElementById('hintbtn'); if(hb)hb.onclick=()=>{showHint=true;renderRound();};
+  app.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{if(!b.disabled)call(b.dataset.opt);});
+}
+function call(id){
+  const c=CASES[idx];
+  if(firstCall[idx]===undefined)firstCall[idx]=id;
+  const correct=(id===c.answer);
+  if(c.level==='hard'){ results[idx]=correct?'correct':'missed'; if(correct)score++; renderResolve(); return; }
+  if(correct){ if(results[idx]!=='missed'){results[idx]='correct';if(firstTry)score++;} renderResolve(); }
+  else { if(firstTry){firstTry=false;results[idx]='missed';} dead.add(id); renderRound(); }
+}
+function renderResolve(){
+  scorebar(false);
+  const c=CASES[idx],r=c.resolve,got=(firstCall[idx]===c.answer);
+  app.innerHTML=`<div class="resolve">
+   <div class="verdict ${got?'good':'bad'}">${got?'Correct — first call':'Missed on the first call'}</div>
+   <h2>${r.title}</h2>${r.paras.map(p=>`<p>${p}</p>`).join('')}
+   <div class="poles2"><div class="a">${r.a}</div><div class="c">${r.c}</div></div>
+   <div class="chain">${r.chain.map((n,i)=>`${i?'<span class="arr">→</span>':''}<span class="node">${n}</span>`).join('')}</div>
+   <div class="take"><b>The move:</b> ${r.take}</div>
+   <button class="btn primary" id="next">${idx<CASES.length-1?'Next move →':'See the review →'}</button></div>`;
+  document.getElementById('next').onclick=()=>{if(idx<CASES.length-1){idx++;newRound();}else renderFinal();};
+}
+function renderFinal(){
+  scorebar(false);
+  const nm={easy:"Easy",medium:"Medium",hard:"Hard"};
+  const msg = score===3?'A clean desk — you cross-checked every move, even when the tape looked like the end of the world.'
+    : score===2?'Solid. The one that gets people is the move that mimics a different cause.'
+    : score===1?'One good call. Each move gave you less help than the last — that is the ramp.'
+    : 'Tough session — same paradox, escalating difficulty, and halting a real move is as costly as missing a fake one.';
+  app.innerHTML=`<div class="intro"><div class="kicker">Session review</div>
+   <div class="bigscore">${score} / ${CASES.length}</div>
+   <p>${msg}</p>
+   <div class="recap">${CASES.map((c,i)=>{const ok=firstCall[i]===c.answer;return `<div class="rc"><span><span class="lv">${nm[c.level]}</span> · you called <b>${LABEL[firstCall[i]]||'—'}</b></span><span class="dx">it was ${LABEL[c.answer]} <span class="mark ${ok?'ok':'no'}">${ok?'✓':'✗'}</span></span></div>`;}).join('')}</div>
+   <div class="take"><b>The skill:</b> same paradox each time — the tape screaming while the market shrugged. The headline price never settled it. The answer came from checking it against <i>independent</i> references: other venues, the sector, the wire, the order book. A real cause is broad and sourced; a fake one is narrow, or lives on a single feed.</div>
+   <button class="btn primary" id="again">Open the desk again</button></div>`;
+  document.getElementById('again').onclick=renderIntro;
+}
+renderIntro();
+</script></body></html>
