@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reasoning Games for Naval-Relevant Science</title>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#ffffff; --ink:#1a1a17; --muted:#565651;
+    --accent:#2f5d86; --hair:#e4e4e2; --chip:#f2f2f0; --hover:#f5f5f3;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14140f; --panel:#1c1c16; --ink:#ece9df; --muted:#a6a598;
+      --accent:#82b2d9; --hair:#2f2f26; --chip:#26261e; --hover:#22221a; }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);
+    line-height:1.55;font-size:17px;padding:0 20px}
+  .wrap{max-width:820px;margin:0 auto;padding:6vh 0 12vh}
+  a{color:var(--accent)}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--muted);font-weight:700;margin:0 0 14px}
+  h1{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.08;letter-spacing:-.5px;margin:0 0 16px}
+  .lede{font-size:19px;color:var(--ink);margin:0 0 28px;max-width:46ch}
+  /* what-each strip: the four games, described */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;
+    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:6px 0 8px}
+  .skill{padding:16px 18px 18px;border-left:1px solid var(--hair)}
+  .skill:first-child{border-left:0}
+  .skill .n{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .skill .d{font-size:15px;color:var(--muted);line-height:1.45}
+  /* game section */
+  section{margin:40px 0 0}
+  .ghead h2{font-family:var(--serif);font-size:27px;margin:0 0 2px;letter-spacing:-.3px;
+    border-bottom:2px solid var(--ink);padding-bottom:8px}
+  /* clickable topic rows — one line each, skimmable */
+  a.row{display:flex;align-items:baseline;gap:12px;padding:11px 8px 11px 2px;
+    border-bottom:1px solid var(--hair);text-decoration:none;color:inherit;border-radius:3px;transition:background .12s}
+  a.row:hover{background:var(--hover)}
+  a.row:hover .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px}
+  a.row .t{flex:1;font-weight:700;font-size:18px;letter-spacing:-.1px}
+  a.row .dom{font-family:var(--sans);font-size:11px;letter-spacing:1px;text-transform:uppercase;
+    color:var(--accent);font-weight:700;white-space:nowrap}
+  a.row .go{font-family:var(--sans);font-size:12px;color:var(--muted);white-space:nowrap;width:48px;text-align:right}
+  a.row:hover .go{color:var(--accent)}
+  /* thrusts */
+  .thrusts{background:var(--panel);border:1px solid var(--hair);border-radius:2px;padding:20px 22px;margin-top:40px}
+  .thrusts h3{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:var(--sans);font-size:13px;background:var(--chip);color:var(--ink);
+    padding:5px 11px;border-radius:20px;border:1px solid var(--hair)}
+  footer{color:var(--muted);font-size:14px;margin-top:44px;font-family:var(--sans);line-height:1.6}
+  @media (max-width:620px){ h1{font-size:32px} body{font-size:16px}
+    a.row .dom{display:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Educational games · Reasoning under uncertainty</p>
+  <h1>Reasoning Games for Naval-Relevant Science</h1>
+  <p class="lede">Four browser-based games, each teaching a habit of mind the Navy runs on — and each teaching it by making the player <em>use</em> real science. Every topic below is a link; click any one to play it.</p>
+
+  <div class="skills">
+    <div class="skill"><div class="n">Casebook</div><div class="d">A Clue-style deduction game: settle <em>who</em>, <em>where</em>, and <em>what really happened</em> from the readings.</div></div>
+    <div class="skill"><div class="n">Diagnosis</div><div class="d">Enter a real instrumented system and find the cause that fits the <em>entire</em> panel.</div></div>
+    <div class="skill"><div class="n">Sequence</div><div class="d">Reconstruct how a system, procedure, or event actually unfolds, step by step.</div></div>
+    <div class="skill"><div class="n">Ballpark</div><div class="d">Estimate a hard "how many / how much" quantity by placing real numbers into named factors.</div></div>
+  </div>
+
+  <!-- CASEBOOK -->
+  <section>
+    <div class="ghead"><h2>Casebook</h2></div>
+    <a class="row" href="casebook.html#e_quake"><span class="t">Explosion or Natural Earthquake?</span><span class="dom">Sensing · source discrimination</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#m_sub"><span class="t">Why the Deep-Sea Submersible Imploded</span><span class="dom">Undersea · pressure physics</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#marine"><span class="t">Why the Ferry Capsized</span><span class="dom">Naval architecture</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#reactor"><span class="t">Why the Reactor Ran Away</span><span class="dom">Reactor safety · propulsion</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#e_tsunami"><span class="t">What Caused the Deadly Tsunami</span><span class="dom">Oceanography</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#f_ai"><span class="t">Why the Hiring AI Discriminated</span><span class="dom">AI / ML assurance</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#m_adas"><span class="t">Why the Self-Driving Car Crashed</span><span class="dom">Autonomy</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#f_crypto"><span class="t">How the "Unbreakable" Cipher Was Broken</span><span class="dom">Cryptography / infosec</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#m_bridge"><span class="t">Why the Bridge Span Collapsed</span><span class="dom">Materials · fracture</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#t_battery"><span class="t">What Ignited the Grid Battery</span><span class="dom">Power & energy</span><span class="go">Play →</span></a>
+  </section>
+
+  <!-- DIAGNOSIS -->
+  <section>
+    <div class="ghead"><h2>Diagnosis</h2></div>
+    <a class="row" href="diagnosis/satpower_playable.html"><span class="t">Power Margin — spacecraft electrical power</span><span class="dom">Space power</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis/bridge_playable.html"><span class="t">Span Watch — bridge monitoring</span><span class="dom">Structures · SHM</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis/telescope_playable.html"><span class="t">Image Quality — astronomical observatory</span><span class="dom">Electro-optic sensing</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis/datacenter_playable.html"><span class="t">Thermal Margin — data-center cooling</span><span class="dom">Thermal · computing</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis/rail_playable.html"><span class="t">Signal Integrity — railway signaling</span><span class="dom">Control · signal integrity</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis/wildfire_playable.html"><span class="t">Fireline Signal — wildfire monitoring</span><span class="dom">Distributed sensing</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis/bioreactor_playable.html"><span class="t">Living Process — industrial fermentation</span><span class="dom">Biotechnology</span><span class="go">Play →</span></a>
+  </section>
+
+  <!-- SEQUENCE -->
+  <section>
+    <div class="ghead"><h2>Sequence</h2></div>
+    <a class="row" href="sequence.html#ins"><span class="t">Finding Position Without GPS</span><span class="dom">Precision navigation</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#ctd"><span class="t">Reading the Water Column</span><span class="dom">Oceanography · sensors</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#swarm"><span class="t">Many Robots, One Search</span><span class="dom">Autonomy · multi-agent</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#cyber"><span class="t">Detect, Isolate, Recover</span><span class="dom">Cyber resilience</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#corrosion"><span class="t">Stopping the Sea from Eating Steel</span><span class="dom">Materials · sustainment</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#assimilation"><span class="t">From Ocean Sensor to Better Forecast</span><span class="dom">Ocean prediction</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#power"><span class="t">Holding the Electrical Bus</span><span class="dom">Naval power & controls</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#spaceweather"><span class="t">When the Sun Disturbs the Link</span><span class="dom">Space weather · comms</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html#heat"><span class="t">Heat on the Flight Deck</span><span class="dom">Human performance</span><span class="go">Play →</span></a>
+  </section>
+
+  <!-- BALLPARK -->
+  <section>
+    <div class="ghead"><h2>Ballpark</h2></div>
+    <a class="row" href="ballpark.html#bp_m_sub"><span class="t">The Real Scale of the Deep Ocean</span><span class="dom">Deep ocean · sonar</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_e_quake"><span class="t">Earthquakes: Rupture, Energy, and Signals</span><span class="dom">Seismology · signals</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_e_tsunami"><span class="t">Tsunamis Across the Ocean</span><span class="dom">Oceanography</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_m_heli"><span class="t">UH-60 Black Hawk Flight Scale</span><span class="dom">Rotorcraft</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_rocket"><span class="t">Saturn V and Apollo 11</span><span class="dom">Propulsion · spaceflight</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_reactor"><span class="t">Nuclear Reactor Power and Decay Heat</span><span class="dom">Nuclear power</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_f_crypto"><span class="t">Cryptography: Keys, Blocks, and Brute Force</span><span class="dom">Cryptography</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_f_ai"><span class="t">Large Language Models by the Numbers</span><span class="dom">AI / ML</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html#bp_t_battery"><span class="t">Grid Batteries and Stored Energy</span><span class="dom">Power & energy</span><span class="go">Play →</span></a>
+  </section>
+
+  <div class="thrusts">
+    <h3>ONR technical areas represented across these topics</h3>
+    <div class="chips">
+      <span class="chip">Undersea & sonar</span>
+      <span class="chip">Ocean science & prediction (METOC)</span>
+      <span class="chip">Naval architecture & platforms</span>
+      <span class="chip">Naval power & energy</span>
+      <span class="chip">Nuclear propulsion</span>
+      <span class="chip">Autonomy & multi-agent systems</span>
+      <span class="chip">AI / ML assurance</span>
+      <span class="chip">Cyber & resilient computing</span>
+      <span class="chip">Cryptography & information security</span>
+      <span class="chip">Materials, structures & sustainment</span>
+      <span class="chip">Precision navigation (GPS-denied)</span>
+      <span class="chip">Electro-optic sensors</span>
+      <span class="chip">Space & space weather</span>
+      <span class="chip">Warfighter human performance</span>
+      <span class="chip">Decision-making under uncertainty</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

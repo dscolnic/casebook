@@ -264,7 +264,9 @@ function renderLost(){
  ${solutionMarkup()}
  <div class="controls"><button class="btn primary" onclick="resetGame();renderPlay()">Try a new shuffle</button><button class="btn" onclick="renderBrief()">Review principles</button><button class="btn" onclick="goHome()">Choose another game</button></div></section>`;
 }
-renderHome();
+function bootFromHash(){var id=decodeURIComponent((location.hash||"").replace(/^#/,""));if(id&&GAMES.some(function(g){return g.id===id})){chooseGame(id);}else{renderHome();}}
+bootFromHash();
+window.addEventListener("hashchange",bootFromHash);
 </script>
 </body>
 </html>
