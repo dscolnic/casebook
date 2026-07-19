@@ -1,0 +1,560 @@
+// Diagnosis data pack — clean non-overlapping schematic edition.
+module.exports = { PACK: {
+  "id": "bridge",
+  "title": "Span Watch",
+  "domain": "Bridge structural monitoring",
+  "role": "You are the structural-monitoring engineer for a long-span bridge.",
+  "intro": {
+    "title": "How this system works",
+    "lead": "A bridge carries traffic by moving loads through the deck, bearings, cables, towers, and foundations. It is designed to move: temperature lengthens the deck, vehicles make it vibrate, and wind bends it. The diagnostic challenge is separating expected motion from damage or restraint.",
+    "cards": [
+      {
+        "title": "How the bridge carries load",
+        "body": "Deck loads move into cables or girders, then into towers, piers, bearings, and foundations. Each component has a different mechanical job."
+      },
+      {
+        "title": "How defects change behavior",
+        "body": "Cable damage changes stiffness and local strain. A seized bearing prevents normal thermal movement and concentrates force near a support."
+      },
+      {
+        "title": "What the instruments measure",
+        "body": "GNSS and displacement transducers track movement, accelerometers measure modal frequencies, strain gauges measure load paths, and acoustic sensors detect wire breaks."
+      },
+      {
+        "title": "Why normal motion can mislead",
+        "body": "Temperature and heavy traffic can shift position and vibration. Engineers compare weather, traffic, redundant sensors, and spatial patterns before calling damage."
+      }
+    ],
+    "takeaway": "The loud reading gets your attention, but the right explanation is the one that fits the whole panel."
+  },
+  "system": {
+    "parts": [
+      [
+        "Deck",
+        "Carries vehicles and distributes load along the span."
+      ],
+      [
+        "Cables and girders",
+        "Provide stiffness and carry tension or bending forces."
+      ],
+      [
+        "Bearings",
+        "Allow controlled deck translation and rotation as temperature and load change."
+      ],
+      [
+        "Dynamic monitoring",
+        "Accelerometers estimate vibration frequencies and damping."
+      ],
+      [
+        "Local monitoring",
+        "Strain, acoustic emission, and displacement sensors locate which structural path changed."
+      ]
+    ],
+    "soWrong": "Large movement does not automatically mean damage, and a frequency shift does not identify its cause. Temperature, traffic, cables, bearings, and sensors must be compared."
+  },
+  "salient": [
+    "disp",
+    "freq"
+  ],
+  "readings": {
+    "disp": {
+      "name": "Midspan displacement",
+      "purpose": "Measures deck position relative to its expected temperature and load model. Large motion can be thermal, traffic-related, structural, or a bad position channel.",
+      "pin": {
+        "x": 220,
+        "y": 355
+      },
+      "zone": "deck"
+    },
+    "freq": {
+      "name": "First vertical modal frequency",
+      "purpose": "Tracks the bridge’s dynamic stiffness-to-mass behavior. Added traffic mass or reduced structural stiffness can lower it.",
+      "pin": {
+        "x": 245,
+        "y": 35
+      },
+      "zone": "dynamic"
+    },
+    "temp": {
+      "name": "Steel temperature",
+      "purpose": "Temperature predicts normal expansion and contraction. A movement that follows temperature is less suspicious than one that does not.",
+      "pin": {
+        "x": 30,
+        "y": 80
+      },
+      "zone": "environment"
+    },
+    "bearing": {
+      "name": "East-bearing rotation",
+      "purpose": "Bearings should translate and rotate as the deck moves. Little motion with rising local strain suggests seizure or restraint.",
+      "pin": {
+        "x": 490,
+        "y": 170
+      },
+      "zone": "support"
+    },
+    "acoustic": {
+      "name": "Cable acoustic events",
+      "purpose": "High-energy acoustic events can indicate wire breaks, especially when clustered on one cable and corroborated by strain.",
+      "pin": {
+        "x": 145,
+        "y": 35
+      },
+      "zone": "cable"
+    },
+    "strain": {
+      "name": "Cable and pier strain pattern",
+      "purpose": "Shows where force is being redistributed. Cable asymmetry supports cable damage; pier-end concentration supports a restrained bearing.",
+      "pin": {
+        "x": 345,
+        "y": 35
+      },
+      "zone": "structure"
+    },
+    "gps2": {
+      "name": "Redundant position channel",
+      "purpose": "Independent GNSS or laser displacement confirms whether deck movement is real or limited to one sensor.",
+      "pin": {
+        "x": 300,
+        "y": 355
+      },
+      "zone": "deck"
+    },
+    "traffic": {
+      "name": "Weigh-in-motion load",
+      "purpose": "Quantifies current vehicle loading. A heavy convoy can temporarily increase deflection and lower apparent modal frequency without damage.",
+      "pin": {
+        "x": 30,
+        "y": 300
+      },
+      "zone": "traffic"
+    },
+    "bearingtemp": {
+      "name": "East-bearing temperature rise",
+      "purpose": "Compares the bearing with nearby steel. Frictional heating supports seizure, while ambient heating can warm the bearing without preventing rotation.",
+      "pin": {
+        "x": 490,
+        "y": 235
+      },
+      "zone": "support"
+    }
+  },
+  "hypotheses": {
+    "trafficload": {
+      "label": "Heavy traffic loading",
+      "choice": "A dense convoy adds mass and produces temporary, symmetric deflection without persistent damage indicators.",
+      "call": {
+        "title": "Continue load monitoring.",
+        "arg": "The response follows measured traffic and should recover as the vehicles leave the span."
+      },
+      "sig": {
+        "disp": "transient",
+        "freq": "down",
+        "temp": "normal",
+        "bearing": "normal",
+        "acoustic": "high",
+        "strain": "symmetric",
+        "gps2": "agree",
+        "traffic": "high",
+        "bearingtemp": "normal"
+      }
+    },
+    "thermal": {
+      "label": "Normal thermal expansion",
+      "choice": "The deck moves with steel temperature while strains and bearings follow their seasonal model.",
+      "call": {
+        "title": "Continue thermal monitoring.",
+        "arg": "The displacement is expected for the measured temperature and remains structurally coherent."
+      },
+      "sig": {
+        "disp": "high",
+        "freq": "normal",
+        "temp": "high",
+        "bearing": "normal",
+        "acoustic": "normal",
+        "strain": "thermal",
+        "gps2": "agree",
+        "traffic": "normal",
+        "bearingtemp": "high"
+      }
+    },
+    "rotationbias": {
+      "label": "Deck-position / bearing-rotation sensing bias",
+      "choice": "One local movement channel reports restraint while independent displacement, temperature, and structural response remain coherent.",
+      "call": {
+        "title": "Bearing-channel bias",
+        "arg": "Verify the rotation sensor before restricting the structure."
+      },
+      "sig": {
+        "disp": "high",
+        "freq": "normal",
+        "temp": "high",
+        "bearing": "low",
+        "acoustic": "normal",
+        "strain": "thermal",
+        "gps2": "disagree",
+        "traffic": "normal",
+        "bearingtemp": "normal"
+      }
+    },
+    "cable": {
+      "label": "Cable strand damage",
+      "choice": "Loss of cable area reduces local stiffness and redistributes strain, producing persistent deflection, a frequency decrease, and acoustic wire-break evidence.",
+      "call": {
+        "title": "Restrict traffic and inspect the cable.",
+        "arg": "The structural response is consistent with cable damage; initiate the bridge’s engineering response plan."
+      },
+      "sig": {
+        "disp": "high",
+        "freq": "down",
+        "temp": "normal",
+        "bearing": "normal",
+        "acoustic": "high",
+        "strain": "cable-asym",
+        "gps2": "agree",
+        "traffic": "normal",
+        "bearingtemp": "normal"
+      }
+    },
+    "strainbias": {
+      "label": "Cable-strain channel bias",
+      "choice": "One cable appears asymmetrically loaded, but acoustic events, modal frequency, traffic, and redundant position measurements do not support real force redistribution.",
+      "call": {
+        "title": "Cable-strain channel bias",
+        "arg": "Verify the strain channel before declaring cable damage."
+      },
+      "sig": {
+        "disp": "high",
+        "freq": "normal",
+        "temp": "high",
+        "bearing": "normal",
+        "acoustic": "normal",
+        "strain": "cable-asym",
+        "gps2": "disagree",
+        "traffic": "normal",
+        "bearingtemp": "normal"
+      }
+    },
+    "bearingfault": {
+      "label": "Seized expansion bearing",
+      "choice": "A restrained bearing blocks normal deck motion and concentrates strain near one support.",
+      "call": {
+        "title": "Inspect the restrained bearing.",
+        "arg": "The deck is not moving through its intended support path; evaluate the bearing and nearby structure."
+      },
+      "sig": {
+        "disp": "high",
+        "freq": "normal",
+        "temp": "high",
+        "bearing": "low",
+        "acoustic": "normal",
+        "strain": "pier-high",
+        "gps2": "agree",
+        "traffic": "normal",
+        "bearingtemp": "high"
+      }
+    }
+  },
+  "dismissal": "trafficload",
+  "reassuring": {
+    "lab": "Traffic status",
+    "val": "BRIDGE OPEN — no impact alarm",
+    "note": "Normal traffic operation does not prove that a slowly developing structural problem is absent."
+  },
+  "rounds": [
+    {
+      "answer": "cable",
+      "alarm": "freq",
+      "poleA": {
+        "lab": "Structural response",
+        "val": "Midspan +42 mm; frequency −5.8%",
+        "note": "The deck position and dynamic stiffness change together."
+      },
+      "hook": "After a calm night, the bridge settles into a new displaced position and its first vertical mode shifts lower.",
+      "riddle": "The span has both moved and softened dynamically. <span class=\"q\">Is this load, temperature, or a change in the cable system?</span>",
+      "vals": {
+        "disp": {
+          "observed": "+42 mm vs model",
+          "reference": "Normal model residual ±12 mm"
+        },
+        "freq": {
+          "observed": "0.286 → 0.269 Hz",
+          "reference": "Environmental band 0.279–0.292 Hz"
+        },
+        "temp": {
+          "observed": "18–20°C",
+          "reference": "Reference model 15–22°C"
+        },
+        "bearing": {
+          "observed": "Rotation within model ±0.03°",
+          "reference": "Typical ±0.05°"
+        },
+        "acoustic": {
+          "observed": "17 high-energy events / Cable C14 / 6 h",
+          "reference": "Typical 0–2 / day"
+        },
+        "strain": {
+          "observed": "C14 +310 µε; paired cable −85 µε",
+          "reference": "Typical pair difference <90 µε"
+        },
+        "gps2": {
+          "observed": "+39 mm independent laser",
+          "reference": "Agreement target ±6 mm"
+        },
+        "traffic": {
+          "observed": "22% below weekday mean",
+          "reference": "Heavy-load trigger >140%"
+        },
+        "bearingtemp": {
+          "observed": "+1.2°C vs nearby steel",
+          "reference": "Typical difference <3°C"
+        }
+      },
+      "reasons": {
+        "trafficload": "Heavy traffic can lower frequency, but the measured load is below average and the displacement persists after the roadway clears.",
+        "thermal": "Thermal expansion can move the deck, but steel temperature is ordinary and does not explain a 5.8% frequency loss or cable-specific acoustic events.",
+        "bearingfault": "A seized bearing produces support-local strain and restricted rotation, not clustered wire-break acoustics on Cable C14.",
+        "rotationbias": "A rotation-channel problem cannot produce cable-local acoustic bursts, frequency loss, and asymmetric cable strain.",
+        "strainbias": "It explains one asymmetric strain pattern but not the frequency loss, cable acoustic events, and independently confirmed deck movement."
+      },
+      "resolve": {
+        "title": "Cable strand damage",
+        "paras": [
+          "The persistent displacement and lower modal frequency are accompanied by clustered high-energy acoustic events and asymmetric strain on Cable C14. The position change is confirmed by an independent laser channel.",
+          "Displacement alone is shared with thermal movement and sensor bias; a frequency decrease is shared with heavy traffic. Only the pair of persistent high displacement and lower frequency isolates a structural stiffness change before local cable evidence identifies it."
+        ],
+        "why": {
+          "loud": "<b>Why the headline pair matters:</b> the span has both changed position and changed dynamics.",
+          "quiet": "<b>Why the quiet evidence matters:</b> acoustic events and strain identify the damaged load path rather than merely showing that the bridge changed."
+        },
+        "chain": [
+          "Cable wires break",
+          "Tension redistributes and stiffness falls",
+          "Deck shifts and modal frequency decreases"
+        ],
+        "take": "Combine static position and dynamic response before localizing structural damage."
+      },
+      "logic": [
+        [
+          "Displacement high",
+          "Cable damage, thermal movement, or position error remain"
+        ],
+        [
+          "Frequency down",
+          "Cable damage or heavy traffic remain"
+        ],
+        [
+          "Cable acoustic events + ordinary traffic",
+          "Structural stiffness loss remains"
+        ],
+        [
+          "Asymmetric cable strain + redundant position agreement",
+          "Cable damage remains"
+        ]
+      ]
+    },
+    {
+      "answer": "thermal",
+      "alarm": "disp",
+      "poleA": {
+        "lab": "Deck position",
+        "val": "+58 mm eastward",
+        "note": "The movement is real, but dynamic stiffness remains stable."
+      },
+      "hook": "A clear summer afternoon produces the largest deck displacement of the month. One position channel initially looks alarming.",
+      "riddle": "The span has moved, but its stiffness is unchanged. <span class=\"q\">Does the displacement remain mechanically coherent with temperature and bearing motion?</span>",
+      "vals": {
+        "disp": {
+          "observed": "+58 mm eastward",
+          "reference": "Seasonal envelope −65 to +70 mm"
+        },
+        "freq": {
+          "observed": "0.285–0.287 Hz",
+          "reference": "Environmental band 0.279–0.292 Hz"
+        },
+        "temp": {
+          "observed": "11°C → 39°C / 8 h",
+          "reference": "Daily range usually <18°C"
+        },
+        "bearing": {
+          "observed": "East translation +54 mm; rotation +0.04°",
+          "reference": "Model +49 to +62 mm"
+        },
+        "acoustic": {
+          "observed": "1 low-energy event / 24 h",
+          "reference": "Typical 0–2 / day"
+        },
+        "strain": {
+          "observed": "Thermal gradient pattern; residual 34 µε",
+          "reference": "Model residual <75 µε"
+        },
+        "gps2": {
+          "observed": "+56 mm independent GNSS",
+          "reference": "Agreement target ±6 mm"
+        },
+        "traffic": {
+          "observed": "96% of weekday mean",
+          "reference": "Heavy-load trigger >140%"
+        },
+        "bearingtemp": {
+          "observed": "+8.5°C ambient rise",
+          "reference": "Tracks steel temperature normally"
+        }
+      },
+      "reasons": {
+        "cable": "Cable damage could create displacement, but frequency, acoustic activity, and cable-strain balance remain normal.",
+        "trafficload": "Traffic loading can lower modal frequency and follows vehicle counts; frequency is stable and traffic is ordinary.",
+        "bearingfault": "A seized bearing would show restricted rotation and support-local strain, whereas the bearing moves with the thermal model.",
+        "rotationbias": "It shares the hot-day displacement pattern and a low rotation indication, but the independent position channel disagrees only for an instrument problem; here both position systems agree.",
+        "strainbias": "A strain-channel bias does not explain the coherent temperature-driven displacement and GNSS agreement."
+      },
+      "resolve": {
+        "title": "Normal thermal expansion",
+        "paras": [
+          "The steel warms by 28°C, and the deck, bearing, strain pattern, and two position systems all follow the thermal model. Modal frequency remains within its environmental band.",
+          "Three candidates survive the loud readings. Normal bearing rotation alone cannot reject a bad displacement channel, and redundant GNSS agreement alone cannot reject a restrained bearing. Their intersection identifies ordinary thermal motion."
+        ],
+        "why": {
+          "loud": "<b>Why the loud readings tie:</b> one biased displacement sensor can imitate normal-frequency deck movement.",
+          "quiet": "<b>Why the tie breaks:</b> independent position, steel temperature, bearing motion, and strain all close the same thermal explanation."
+        },
+        "chain": [
+          "Steel warms",
+          "Deck length increases through free bearings",
+          "Position changes while structural dynamics remain stable"
+        ],
+        "take": "Expected motion becomes convincing when independent mechanical measurements follow one physical model."
+      },
+      "logic": [
+        [
+          "High displacement + unchanged frequency",
+          "Thermal movement, position-channel bias, or bearing restraint remain"
+        ],
+        [
+          "Normal bearing rotation",
+          "Thermal movement or position-channel bias remain"
+        ],
+        [
+          "Independent GNSS agreement",
+          "Thermal movement or bearing restraint remain"
+        ],
+        [
+          "Normal rotation + GNSS agreement",
+          "Ordinary thermal expansion remains"
+        ]
+      ]
+    },
+    {
+      "answer": "cable",
+      "alarm": "bearing",
+      "experimental": false,
+      "compound": [
+        "cable",
+        "bearingfault"
+      ],
+      "observed": {
+        "disp": "high",
+        "freq": "down",
+        "temp": "high",
+        "bearing": "low",
+        "acoustic": "high",
+        "strain": "cable-asym",
+        "gps2": "agree",
+        "traffic": "normal",
+        "bearingtemp": "high"
+      },
+      "poleA": {
+        "lab": "Two structural zones",
+        "val": "Bearing rotation near zero; Cable C14 acoustic burst",
+        "note": "A support restraint and a cable damage signature appear during the same interval."
+      },
+      "hook": "The east bearing stops rotating while a separate cable begins producing high-energy acoustic events. The deck’s dynamic response also shifts.",
+      "riddle": "No one fault explains both structural zones. <span class=\"q\">Which two failures are present?</span>",
+      "vals": {
+        "disp": {
+          "observed": "+31 mm at midspan",
+          "reference": "Model +8 to +14 mm"
+        },
+        "freq": {
+          "observed": "0.286 → 0.271 Hz",
+          "reference": "Environmental band 0.279–0.292 Hz"
+        },
+        "temp": {
+          "observed": "Steel 39–41°C",
+          "reference": "Daily model uses measured temperature"
+        },
+        "bearing": {
+          "observed": "0.004° rotation under load",
+          "reference": "Expected 0.035–0.055°"
+        },
+        "acoustic": {
+          "observed": "13 high-energy events / Cable C14 / 4 h",
+          "reference": "Typical 0–2 / day"
+        },
+        "strain": {
+          "observed": "C14 +280 µε; paired cable −72 µε",
+          "reference": "Typical pair difference <90 µε"
+        },
+        "gps2": {
+          "observed": "Laser and GNSS agree within 4 mm",
+          "reference": "Agreement target ±6 mm"
+        },
+        "traffic": {
+          "observed": "88% of weekday mean",
+          "reference": "Heavy-load trigger >140%"
+        },
+        "bearingtemp": {
+          "observed": "+17°C vs nearby steel",
+          "reference": "Typical difference <3°C"
+        }
+      },
+      "reasons": {
+        "cable": "Cable damage explains the acoustic events, strain redistribution, and lower frequency, but not the nearly fixed east bearing and support-side displacement asymmetry.",
+        "trafficload": "Traffic is below average and cannot create cable-specific acoustic events or near-zero bearing rotation.",
+        "thermal": "Temperature is stable, and thermal motion cannot explain lower frequency, wire-break acoustics, or a bearing that fails to rotate under load.",
+        "bearingfault": "A seized bearing explains the support restraint and asymmetric deck motion, but not Cable C14 acoustic events, cable-strain redistribution, or the frequency loss.",
+        "rotationbias": "It explains low indicated rotation but not frictional heating, cable acoustic events, frequency loss, or asymmetric cable strain.",
+        "strainbias": "It explains cable-strain asymmetry alone but not frequency loss, acoustic events, low bearing rotation, or local bearing heating."
+      },
+      "resolve": {
+        "title": "Cable strand damage + seized expansion bearing",
+        "paras": [
+          "Two faults are independently supported. Cable C14 is losing wires and redistributing tension, while the east bearing is failing to rotate and is restraining deck movement.",
+          "This round requires two separate intersections. Cable damage is not accepted from acoustic events alone because traffic can create bursts; the frequency and traffic context complete that chain. Bearing seizure is not accepted from low rotation alone because the sensor can lie; local heating and independent movement complete the second chain."
+        ],
+        "why": {
+          "loud": "<b>Why one cause fails:</b> the cable and bearing measurements come from separate structural load paths.",
+          "quiet": "<b>Why the pair is forced:</b> only cable damage explains the C14 evidence, and only bearing seizure explains near-zero support rotation."
+        },
+        "chain": [
+          "Cable damage reduces one load path",
+          "Bearing seizure restrains thermal and load movement",
+          "The bridge shows both dynamic softening and support-local force concentration"
+        ],
+        "take": "When independent structural zones each show corroborated failure, diagnose the pair rather than stretching one mechanism across the bridge."
+      },
+      "logic": [
+        [
+          "Frequency down + cable acoustic events",
+          "Requires cable damage; traffic can imitate both, but the cable-strain pattern and ordinary traffic complete the chain"
+        ],
+        [
+          "Bearing rotation low + local bearing heating",
+          "Requires seizure; sensor bias or ambient heat can imitate either reading separately"
+        ],
+        [
+          "GNSS agrees + cable strain is asymmetric",
+          "Both structural signals are physical"
+        ],
+        [
+          "Two two-clue chains in different zones",
+          "Cable damage and bearing seizure are simultaneous"
+        ]
+      ]
+    }
+  ],
+  "schematic": {
+    "viewBox": "0 0 520 390",
+    "svg": "<defs><linearGradient id=\"cleanBg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#102a38\"/><stop offset=\"1\" stop-color=\"#07141b\"/></linearGradient><marker id=\"cleanArrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#69c9ef\"/></marker><style>.clean-border{fill:url(#cleanBg);stroke:#426273;stroke-width:2}.component{fill:#1b3a4d;stroke:#90b3c4;stroke-width:1.7}.component2{fill:#244c61;stroke:#90b3c4;stroke-width:1.7}.flow{fill:none;stroke:#69c9ef;stroke-width:3;marker-end:url(#cleanArrow)}.flow2{fill:none;stroke:#e0b85f;stroke-width:3;marker-end:url(#cleanArrow)}.leader{fill:none;stroke:#7f9bab;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;opacity:.78}.anchor{fill:#9ab8c8}.slabel{fill:#eaf6fb;font:700 10.5px Inter,system-ui,sans-serif}.labelbg{fill:#081923;stroke:#355769;stroke-width:1;opacity:.94}</style></defs><rect x=\"12\" y=\"12\" width=\"496\" height=\"366\" rx=\"24\" class=\"clean-border\"/><path d=\"M 30 80 L 58 80 L 58 110 L 84 110\" class=\"leader\"/><circle cx=\"84\" cy=\"110\" r=\"2.4\" class=\"anchor\"/><path d=\"M 145 35 L 145 68 L 160 68 L 160 135\" class=\"leader\"/><circle cx=\"160\" cy=\"135\" r=\"2.4\" class=\"anchor\"/><path d=\"M 245 35 L 245 68 L 255 68 L 255 150\" class=\"leader\"/><circle cx=\"255\" cy=\"150\" r=\"2.4\" class=\"anchor\"/><path d=\"M 345 35 L 345 68 L 340 68 L 340 168\" class=\"leader\"/><circle cx=\"340\" cy=\"168\" r=\"2.4\" class=\"anchor\"/><path d=\"M 490 170 L 462 170 L 462 230 L 421 230\" class=\"leader\"/><circle cx=\"421\" cy=\"230\" r=\"2.4\" class=\"anchor\"/><path d=\"M 490 235 L 462 235 L 462 266 L 421 266\" class=\"leader\"/><circle cx=\"421\" cy=\"266\" r=\"2.4\" class=\"anchor\"/><path d=\"M 220 355 L 220 327 L 255 327 L 255 210\" class=\"leader\"/><circle cx=\"255\" cy=\"210\" r=\"2.4\" class=\"anchor\"/><path d=\"M 300 355 L 300 327 L 300 327 L 300 220\" class=\"leader\"/><circle cx=\"300\" cy=\"220\" r=\"2.4\" class=\"anchor\"/><path d=\"M 30 300 L 58 300 L 58 285 L 260 285\" class=\"leader\"/><circle cx=\"260\" cy=\"285\" r=\"2.4\" class=\"anchor\"/><path d=\"M52 246 H468\" stroke=\"#a9c2ce\" stroke-width=\"5\"/><rect x=\"110\" y=\"110\" width=\"18\" height=\"136\" class=\"component\"/><rect x=\"392\" y=\"110\" width=\"18\" height=\"136\" class=\"component\"/><path d=\"M119 118 C170 64 350 64 401 118\" fill=\"none\" stroke=\"#dfb75c\" stroke-width=\"5\"/><path d=\"M119 118 L178 246 M401 118 L342 246 M170 85 L220 246 M350 85 L300 246\" stroke=\"#dfb75c\" stroke-width=\"2.2\"/><path d=\"M62 246 H458\" stroke=\"#6cccef\" stroke-width=\"4\"/><rect x=\"67\" y=\"278\" width=\"386\" height=\"16\" rx=\"8\" class=\"component\"/><g fill=\"#90b3c4\"><rect x=\"100\" y=\"273\" width=\"10\" height=\"26\"/><rect x=\"160\" y=\"273\" width=\"10\" height=\"26\"/><rect x=\"220\" y=\"273\" width=\"10\" height=\"26\"/><rect x=\"280\" y=\"273\" width=\"10\" height=\"26\"/><rect x=\"340\" y=\"273\" width=\"10\" height=\"26\"/></g><circle cx=\"84\" cy=\"110\" r=\"18\" class=\"component2\"/><g><rect x=\"224.0\" y=\"218.5\" width=\"72\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"260\" y=\"233.7\" text-anchor=\"middle\" class=\"slabel\">deck</text></g><g><rect x=\"209.0\" y=\"74.5\" width=\"92\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"255\" y=\"89.7\" text-anchor=\"middle\" class=\"slabel\">main cable</text></g><g><rect x=\"378.0\" y=\"283.5\" width=\"86\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"421\" y=\"298.7\" text-anchor=\"middle\" class=\"slabel\">east bearing</text></g><g><rect x=\"48.0\" y=\"128.5\" width=\"72\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"84\" y=\"143.7\" text-anchor=\"middle\" class=\"slabel\">weather</text></g><g><rect x=\"225.0\" y=\"304.5\" width=\"70\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"260\" y=\"319.7\" text-anchor=\"middle\" class=\"slabel\">traffic</text></g>"
+  }
+} };

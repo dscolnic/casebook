@@ -1,0 +1,605 @@
+// Diagnosis data pack — clean non-overlapping schematic edition.
+module.exports = { PACK: {
+  "id": "rail",
+  "title": "Signal Integrity",
+  "domain": "Railway signaling",
+  "role": "You are the rail-control signal engineer.",
+  "intro": {
+    "title": "How this system works",
+    "lead": "Railway signaling keeps trains separated by dividing track into protected blocks. Track circuits or axle counters indicate occupancy, interlockings prevent conflicting routes, and signals authorize movement only when every required condition is safe.",
+    "cards": [
+      {
+        "title": "How block protection works",
+        "body": "A train shunts a track circuit or changes an axle count. The interlocking uses that occupancy state to hold protecting signals at stop."
+      },
+      {
+        "title": "How faults appear",
+        "body": "A broken rail can interrupt track-circuit current, a track-circuit component can fail occupied, and a relay or logic fault can produce an unsafe output."
+      },
+      {
+        "title": "What the instruments measure",
+        "body": "Track-circuit state, axle counts, rail continuity, approach detection, relay commands, and adjacent-block sequences provide independent views of occupancy."
+      },
+      {
+        "title": "Why benign states can look alarming",
+        "body": "Maintenance shunts deliberately make a block appear occupied. Safe design usually fails toward stop, so an occupied indication does not automatically mean a train or broken rail."
+      }
+    ],
+    "takeaway": "The loud reading gets your attention, but the right explanation is the one that fits the whole panel."
+  },
+  "system": {
+    "parts": [
+      [
+        "Track block",
+        "A defined section of rail protected as one occupancy zone."
+      ],
+      [
+        "Track circuit",
+        "Uses the rails as part of an electrical circuit; train axles normally shunt it to occupied."
+      ],
+      [
+        "Axle counter",
+        "Counts axles entering and leaving a section independently of rail-circuit current."
+      ],
+      [
+        "Interlocking",
+        "Combines occupancy, route, point, and command states to control signals."
+      ],
+      [
+        "Maintenance controls",
+        "Documented shunts and test modes intentionally create safe occupied indications."
+      ]
+    ],
+    "soWrong": "An occupied block can contain a train, a broken rail, a failed track circuit, or a maintenance shunt. The dangerous case is when real occupancy and signal logic disagree."
+  },
+  "salient": [
+    "track",
+    "axle"
+  ],
+  "readings": {
+    "track": {
+      "name": "Track-circuit state",
+      "purpose": "Reports the block as clear or occupied. Occupied is fail-safe but not specific: a train, broken rail, equipment fault, or maintenance shunt can all produce it.",
+      "pin": {
+        "x": 235,
+        "y": 35
+      },
+      "zone": "track"
+    },
+    "axle": {
+      "name": "Axle-counter balance",
+      "purpose": "Counts axles entering and leaving the block. A nonzero balance independently supports real train occupancy.",
+      "pin": {
+        "x": 330,
+        "y": 35
+      },
+      "zone": "detection"
+    },
+    "continuity": {
+      "name": "Rail-continuity test",
+      "purpose": "Checks electrical continuity through both rails. An open result supports a broken rail rather than ordinary occupancy or a receiver fault.",
+      "pin": {
+        "x": 30,
+        "y": 250
+      },
+      "zone": "track"
+    },
+    "approach": {
+      "name": "Approach-block sequence",
+      "purpose": "Shows whether a train moved through the neighboring blocks in the expected order.",
+      "pin": {
+        "x": 30,
+        "y": 150
+      },
+      "zone": "network"
+    },
+    "signal": {
+      "name": "Protecting signal aspect",
+      "purpose": "Displays the authority given to the train. Occupancy should hold the signal at stop.",
+      "pin": {
+        "x": 490,
+        "y": 95
+      },
+      "zone": "signal"
+    },
+    "command": {
+      "name": "Interlocking command",
+      "purpose": "Shows the logic command sent to the signal output. A mismatch between command and displayed aspect localizes a relay or output failure.",
+      "pin": {
+        "x": 490,
+        "y": 245
+      },
+      "zone": "interlocking"
+    },
+    "shunt": {
+      "name": "Maintenance-shunt log",
+      "purpose": "Records approved test shunts and possessions. An active entry can explain a safe occupied indication with no train.",
+      "pin": {
+        "x": 30,
+        "y": 80
+      },
+      "zone": "maintenance"
+    },
+    "adjacent": {
+      "name": "Adjacent-block occupancy",
+      "purpose": "A moving train creates a coherent sequence across neighboring blocks; an isolated equipment fault usually does not.",
+      "pin": {
+        "x": 250,
+        "y": 355
+      },
+      "zone": "network"
+    },
+    "fieldfb": {
+      "name": "Signal field-circuit feedback",
+      "purpose": "Compares the commanded aspect with current and contact feedback from the field signal. A clear aspect with stop command can arise from an output fault, while a feedback-channel bias can imitate only the return indication.",
+      "pin": {
+        "x": 490,
+        "y": 160
+      },
+      "zone": "signal"
+    }
+  },
+  "hypotheses": {
+    "relay": {
+      "label": "Signal-output misoperation",
+      "choice": "The interlocking commands stop, but an output relay or field circuit displays clear without a train being detected by this fault alone.",
+      "call": {
+        "title": "Remove the signal from service.",
+        "arg": "The displayed aspect does not follow the safe command; apply signal-failure protection."
+      },
+      "sig": {
+        "track": "clear",
+        "axle": "zero",
+        "continuity": "good",
+        "approach": "none",
+        "signal": "clear",
+        "command": "stop",
+        "shunt": "none",
+        "adjacent": "normal",
+        "fieldfb": "mismatch"
+      }
+    },
+    "broken": {
+      "label": "Broken rail",
+      "choice": "An electrical discontinuity makes the track circuit fail occupied even though no axles or train sequence are present.",
+      "call": {
+        "title": "Protect and inspect the rail.",
+        "arg": "Treat the block as unsafe until the rail discontinuity is located and repaired."
+      },
+      "sig": {
+        "track": "occupied",
+        "axle": "zero",
+        "continuity": "open",
+        "approach": "train",
+        "signal": "stop",
+        "command": "stop",
+        "shunt": "none",
+        "adjacent": "sequence",
+        "fieldfb": "stop-agree"
+      }
+    },
+    "worktrain": {
+      "label": "Authorized engineering vehicle",
+      "choice": "A maintenance vehicle creates axle counts and an approach sequence, but the block is held in a documented test state with an active work protection.",
+      "call": {
+        "title": "Authorized engineering movement",
+        "arg": "The occupancy is real and protected under maintenance rules."
+      },
+      "sig": {
+        "track": "test",
+        "axle": "count",
+        "continuity": "good",
+        "approach": "train",
+        "signal": "stop",
+        "command": "stop",
+        "shunt": "active",
+        "adjacent": "sequence",
+        "fieldfb": "stop-agree"
+      }
+    },
+    "trackfault": {
+      "label": "Track-circuit equipment failure",
+      "choice": "A transmitter, receiver, bond, or wiring fault makes one block fail occupied while rail continuity remains intact.",
+      "call": {
+        "title": "Maintain protection and test the circuit.",
+        "arg": "The block is safely failed occupied; troubleshoot the track-circuit equipment."
+      },
+      "sig": {
+        "track": "occupied",
+        "axle": "zero",
+        "continuity": "good",
+        "approach": "none",
+        "signal": "stop",
+        "command": "stop",
+        "shunt": "none",
+        "adjacent": "normal",
+        "fieldfb": "stop-agree"
+      }
+    },
+    "maintenance": {
+      "label": "Approved maintenance shunt",
+      "choice": "An approved possession with a maintenance vehicle and test shunt creates a documented protected state rather than an operational fault.",
+      "call": {
+        "title": "Continue the protected test.",
+        "arg": "The occupied indication is expected under the approved possession and must remain protected."
+      },
+      "sig": {
+        "track": "occupied",
+        "axle": "zero",
+        "continuity": "good",
+        "approach": "none",
+        "signal": "stop",
+        "command": "stop",
+        "shunt": "active",
+        "adjacent": "normal",
+        "fieldfb": "stop-agree"
+      }
+    },
+    "commandfault": {
+      "label": "Incorrect clear command",
+      "choice": "The interlocking logic itself issues clear; the field signal and feedback agree with that command rather than disagreeing downstream.",
+      "call": {
+        "title": "Interlocking command fault",
+        "arg": "The unsafe authority originates in the logic command, not the output relay."
+      },
+      "sig": {
+        "track": "clear",
+        "axle": "zero",
+        "continuity": "good",
+        "approach": "none",
+        "signal": "clear",
+        "command": "clear",
+        "shunt": "none",
+        "adjacent": "normal",
+        "fieldfb": "clear-agree"
+      }
+    },
+    "train": {
+      "label": "Train occupying the block",
+      "choice": "A real train produces track occupancy, a nonzero axle balance, and a coherent approach and adjacent-block sequence.",
+      "call": {
+        "title": "Maintain route protection.",
+        "arg": "The block is genuinely occupied; keep the protecting signal at stop until the train clears."
+      },
+      "sig": {
+        "track": "occupied",
+        "axle": "count",
+        "continuity": "good",
+        "approach": "train",
+        "signal": "stop",
+        "command": "stop",
+        "shunt": "none",
+        "adjacent": "sequence",
+        "fieldfb": "stop-agree"
+      }
+    },
+    "feedbackbias": {
+      "label": "Field-feedback channel bias",
+      "choice": "The return channel reports a clear-circuit state while the physical aspect remains stop and the interlocking command is correct.",
+      "call": {
+        "title": "Field-feedback channel bias",
+        "arg": "Verify the field indication against the physical signal."
+      },
+      "sig": {
+        "track": "clear",
+        "axle": "zero",
+        "continuity": "good",
+        "approach": "none",
+        "signal": "stop",
+        "command": "stop",
+        "shunt": "none",
+        "adjacent": "normal",
+        "fieldfb": "mismatch"
+      }
+    }
+  },
+  "dismissal": "maintenance",
+  "reassuring": {
+    "lab": "Route computer",
+    "val": "NO CONFLICTING ROUTE SET",
+    "note": "No conflicting route is commanded, but a detection or signal-output fault can still make the present route unsafe."
+  },
+  "rounds": [
+    {
+      "answer": "train",
+      "alarm": "axle",
+      "poleA": {
+        "lab": "Block state",
+        "val": "TC-44 occupied; axle balance +32",
+        "note": "Two independent detection systems indicate occupancy."
+      },
+      "hook": "Block TC-44 changes to occupied during the evening peak. The protecting signal returns to stop as designed.",
+      "riddle": "An occupied track circuit has several causes. <span class=\"q\">Does the independent movement record prove that a train is physically inside the block?</span>",
+      "vals": {
+        "track": {
+          "observed": "OCCUPIED for 74 s",
+          "reference": "Normal clear between trains"
+        },
+        "axle": {
+          "observed": "+32 axles in section",
+          "reference": "Normal balance 0"
+        },
+        "continuity": {
+          "observed": "Both rails continuous",
+          "reference": "Expected <0.3 Ω end-to-end"
+        },
+        "approach": {
+          "observed": "TC-43 occupied 41 s earlier",
+          "reference": "Expected sequential movement"
+        },
+        "signal": {
+          "observed": "RED / stop",
+          "reference": "Required for occupied block"
+        },
+        "command": {
+          "observed": "STOP output asserted",
+          "reference": "Command and aspect should agree"
+        },
+        "shunt": {
+          "observed": "No active work order",
+          "reference": "Expected none in service"
+        },
+        "adjacent": {
+          "observed": "TC-43 clear → TC-44 occupied → TC-45 clear",
+          "reference": "Expected train sequence"
+        },
+        "fieldfb": {
+          "observed": "STOP circuit energized",
+          "reference": "Must agree with red aspect"
+        }
+      },
+      "reasons": {
+        "broken": "A broken rail can make the track circuit occupied, but it cannot create a +32 axle balance and a coherent approach sequence while both rails test continuous.",
+        "trackfault": "A receiver or bond fault can fail occupied, but the axle counter and adjacent blocks independently track a train into the section.",
+        "relay": "A signal-output fault concerns command versus aspect and does not create track occupancy or a positive axle count.",
+        "maintenance": "There is no active maintenance shunt, and the axle and block sequence show a moving train.",
+        "worktrain": "It shares axle counts and a block sequence, but an engineering movement would be in test mode with an active protection record.",
+        "commandfault": "A clear-command fault does not create real axle counts and a coherent train sequence.",
+        "feedbackbias": "A feedback-channel problem does not create a train movement."
+      },
+      "resolve": {
+        "title": "Train occupying the block",
+        "paras": [
+          "The track circuit and axle counter agree, and the adjacent blocks show the expected movement sequence. Rail continuity is intact and no maintenance test is active.",
+          "Occupied track alone is shared by four explanations; a positive axle balance is also compatible with the relay-failure scenario only when a train is separately present. The pair—occupied track and counted axles—uniquely establishes real occupancy."
+        ],
+        "why": {
+          "loud": "<b>Why the two headline readings matter:</b> independent technologies both indicate a physical train.",
+          "quiet": "<b>Why the quiet readings confirm it:</b> approach and adjacent-block timing show how the train entered the section."
+        },
+        "chain": [
+          "Train enters from TC-43",
+          "Axles shunt the circuit and increment the counter",
+          "Interlocking holds the protecting signal at stop"
+        ],
+        "take": "Independent detection channels turn a safe but ambiguous occupied state into confirmed physical occupancy."
+      },
+      "logic": [
+        [
+          "Track occupied",
+          "Train, rail/equipment fault, or approved shunt remain"
+        ],
+        [
+          "Axle count nonzero",
+          "Train or engineering vehicle remain"
+        ],
+        [
+          "Normal service state",
+          "Engineering test movement falls away"
+        ],
+        [
+          "Approach and adjacent sequence",
+          "Ordinary train occupancy remains"
+        ]
+      ]
+    },
+    {
+      "answer": "trackfault",
+      "alarm": "track",
+      "poleA": {
+        "lab": "Block protection",
+        "val": "TC-18 occupied with zero axle count",
+        "note": "The fail-safe indication is real, but no train movement supports it."
+      },
+      "hook": "One block remains occupied with no axles and no approaching train. The rails test continuous and no work crew is signed in.",
+      "riddle": "The block is safely occupied with no axle balance. <span class=\"q\">Where does the occupancy story stop being coherent: in the rail, the movement sequence, or the maintenance record?</span>",
+      "vals": {
+        "track": {
+          "observed": "OCCUPIED for 11 min",
+          "reference": "Normal clear between trains"
+        },
+        "axle": {
+          "observed": "0 axles in section",
+          "reference": "Normal balance 0"
+        },
+        "continuity": {
+          "observed": "0.18 Ω end-to-end",
+          "reference": "Expected <0.3 Ω"
+        },
+        "approach": {
+          "observed": "No approach occupancy / 25 min",
+          "reference": "Expected before a train"
+        },
+        "signal": {
+          "observed": "RED / stop",
+          "reference": "Required for occupied block"
+        },
+        "command": {
+          "observed": "STOP output asserted",
+          "reference": "Command and aspect should agree"
+        },
+        "shunt": {
+          "observed": "No active work order",
+          "reference": "Expected none in service"
+        },
+        "adjacent": {
+          "observed": "TC-17 and TC-19 clear",
+          "reference": "Normal without a train"
+        },
+        "fieldfb": {
+          "observed": "STOP circuit energized",
+          "reference": "Must agree with red aspect"
+        }
+      },
+      "reasons": {
+        "train": "A train would create a nonzero axle balance and sequence.",
+        "relay": "A signal-output fault does not make the track circuit occupied.",
+        "maintenance": "An approved shunt also leaves zero axles with intact rail continuity, but the maintenance log is empty.",
+        "broken": "A broken rail shares the occupied indication and zero axle count, but rail continuity is intact.",
+        "worktrain": "An engineering vehicle produces axle counts and an active work record.",
+        "commandfault": "A command fault changes authority, not track occupancy.",
+        "feedbackbias": "A feedback bias changes return indication, not track occupancy."
+      },
+      "resolve": {
+        "title": "Track-circuit equipment failure — the rail is intact but the block remains fail-safe occupied.",
+        "paras": [
+          "The axle balance is zero, no train sequence exists, rail continuity is good, and no approved shunt is active. That leaves a transmitter, receiver, bond, or wiring failure in the track-circuit equipment. Keep the block protected and dispatch signal maintenance.",
+          "Continuity alone does not solve the case because an approved maintenance shunt also leaves intact rails. An empty maintenance log alone does not solve it because a broken rail also has no work order. Those two quiet checks together identify equipment failure."
+        ],
+        "why": {
+          "loud": "Occupied with zero axles leaves broken rail, equipment failure, and maintenance shunt alive.",
+          "quiet": "Intact continuity removes the rail break; no active shunt removes the approved maintenance explanation."
+        },
+        "chain": [
+          "Track-circuit equipment fails",
+          "Receiver drops to fail-safe occupied",
+          "Signal remains protecting despite no train"
+        ],
+        "take": "For a fail-safe indication, use independent physical continuity and authorization records together."
+      },
+      "logic": [
+        [
+          "Occupied + zero axles",
+          "Broken rail, equipment fault, or maintenance shunt remain"
+        ],
+        [
+          "Rail continuity good",
+          "Equipment fault or maintenance shunt remain"
+        ],
+        [
+          "No active work order",
+          "Equipment fault or broken rail remain"
+        ],
+        [
+          "Good continuity + no shunt",
+          "Track-circuit equipment failure remains"
+        ]
+      ]
+    },
+    {
+      "answer": "train",
+      "alarm": "signal",
+      "experimental": false,
+      "compound": [
+        "train",
+        "relay"
+      ],
+      "observed": {
+        "track": "occupied",
+        "axle": "count",
+        "continuity": "good",
+        "approach": "train",
+        "signal": "clear",
+        "command": "stop",
+        "shunt": "none",
+        "adjacent": "sequence",
+        "fieldfb": "mismatch"
+      },
+      "poleA": {
+        "lab": "Unsafe disagreement",
+        "val": "Signal clear while axle balance is +24",
+        "note": "A train is present and the displayed aspect does not follow the stop command."
+      },
+      "hook": "A train enters Block 62. The axle counter and neighboring blocks track it correctly, but the field signal remains green.",
+      "riddle": "One process explains the occupancy and another explains the authority. <span class=\"q\">Which two conditions are true?</span>",
+      "vals": {
+        "track": {
+          "observed": "OCCUPIED",
+          "reference": "Must protect a train in block"
+        },
+        "axle": {
+          "observed": "+24 axles in section",
+          "reference": "Normal balance 0"
+        },
+        "continuity": {
+          "observed": "Both rails continuous",
+          "reference": "Expected <0.3 Ω end-to-end"
+        },
+        "approach": {
+          "observed": "Block 61 occupied 36 s earlier",
+          "reference": "Expected sequential movement"
+        },
+        "signal": {
+          "observed": "GREEN / proceed",
+          "reference": "Expected RED for occupied block"
+        },
+        "command": {
+          "observed": "STOP output asserted",
+          "reference": "Aspect should follow command"
+        },
+        "shunt": {
+          "observed": "No active work order",
+          "reference": "Expected none in service"
+        },
+        "adjacent": {
+          "observed": "61 clear → 62 axle count +24 → 63 clear",
+          "reference": "Expected train sequence"
+        },
+        "fieldfb": {
+          "observed": "CLEAR circuit energized while STOP commanded",
+          "reference": "Command and feedback must agree"
+        }
+      },
+      "reasons": {
+        "train": "The train explains the axle count and movement sequence, but normal occupancy alone cannot explain a clear track indication and green aspect against a stop command.",
+        "broken": "A broken rail would normally make the track circuit occupied, not clear, and cannot create the moving axle sequence.",
+        "trackfault": "A single track-circuit failure could create a false clear, but it does not explain why the field signal is green while the interlocking output command is stop.",
+        "relay": "The output misoperation explains the command/aspect mismatch, but by itself does not create the +24 axle balance and moving-block sequence.",
+        "maintenance": "No maintenance mode is active, and an approved shunt would force occupied and stop rather than clear and proceed.",
+        "worktrain": "It explains axle counts and a sequence, but not an ordinary occupied service state with no work protection or the signal-output mismatch.",
+        "commandfault": "It explains a clear aspect but the command would also be clear; here the interlocking correctly commands stop.",
+        "feedbackbias": "It explains mismatched feedback but the physical signal would remain stop; here the field aspect is actually clear."
+      },
+      "resolve": {
+        "title": "Train occupancy + signal-output misoperation",
+        "paras": [
+          "A train is physically in the block, proven by axle count and adjacent-block movement. Separately, the field signal displays proceed despite a stop command, identifying an output relay or field-circuit misoperation.",
+          "The hard case contains two separate two-clue chains. Track state plus axle count identifies real occupancy rather than a work vehicle or false track indication. Clear aspect plus mismatched field feedback identifies an output failure rather than a bad command or return channel. Neither pair of clues alone explains the whole panel."
+        ],
+        "why": {
+          "loud": "<b>Why one cause fails:</b> occupancy detection and signal display are independent safety layers.",
+          "quiet": "<b>Why the pair is forced:</b> one evidence chain proves a train; the other proves that the stop command is not reaching the displayed aspect."
+        },
+        "chain": [
+          "Train enters the protected block",
+          "A signal-output fault ignores the stop command",
+          "A real train receives an unsafe proceed indication"
+        ],
+        "take": "When independent protection layers disagree, diagnose both the physical state and the failed layer rather than choosing between them."
+      },
+      "logic": [
+        [
+          "Occupied block + nonzero axle count",
+          "Requires a real train; faults or work vehicles can imitate only one without the service-state sequence"
+        ],
+        [
+          "Clear aspect + field mismatch",
+          "Requires output-circuit misoperation; clear-command or feedback faults imitate only one"
+        ],
+        [
+          "Approach sequence + no maintenance protection",
+          "Confirms an ordinary service train"
+        ],
+        [
+          "Four independent safety checks",
+          "Train occupancy and signal-output failure are simultaneous"
+        ]
+      ]
+    }
+  ],
+  "schematic": {
+    "viewBox": "0 0 520 390",
+    "svg": "<defs><linearGradient id=\"cleanBg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#102732\"/><stop offset=\"1\" stop-color=\"#071219\"/></linearGradient><marker id=\"cleanArrow\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#69c9ef\"/></marker><style>.clean-border{fill:url(#cleanBg);stroke:#426273;stroke-width:2}.component{fill:#1b3a4d;stroke:#90b3c4;stroke-width:1.7}.component2{fill:#244c61;stroke:#90b3c4;stroke-width:1.7}.flow{fill:none;stroke:#69c9ef;stroke-width:3;marker-end:url(#cleanArrow)}.flow2{fill:none;stroke:#e0b85f;stroke-width:3;marker-end:url(#cleanArrow)}.leader{fill:none;stroke:#7f9bab;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;opacity:.78}.anchor{fill:#9ab8c8}.slabel{fill:#eaf6fb;font:700 10.5px Inter,system-ui,sans-serif}.labelbg{fill:#081923;stroke:#355769;stroke-width:1;opacity:.94}</style></defs><rect x=\"12\" y=\"12\" width=\"496\" height=\"366\" rx=\"24\" class=\"clean-border\"/><path d=\"M 30 80 L 58 80 L 58 105 L 105 105\" class=\"leader\"/><circle cx=\"105\" cy=\"105\" r=\"2.4\" class=\"anchor\"/><path d=\"M 30 150 L 58 150 L 58 220 L 78 220\" class=\"leader\"/><circle cx=\"78\" cy=\"220\" r=\"2.4\" class=\"anchor\"/><path d=\"M 30 250 L 58 250 L 58 235 L 165 235\" class=\"leader\"/><circle cx=\"165\" cy=\"235\" r=\"2.4\" class=\"anchor\"/><path d=\"M 235 35 L 235 68 L 250 68 L 250 220\" class=\"leader\"/><circle cx=\"250\" cy=\"220\" r=\"2.4\" class=\"anchor\"/><path d=\"M 330 35 L 330 68 L 330 68 L 330 115\" class=\"leader\"/><circle cx=\"330\" cy=\"115\" r=\"2.4\" class=\"anchor\"/><path d=\"M 490 95 L 462 95 L 462 145 L 440 145\" class=\"leader\"/><circle cx=\"440\" cy=\"145\" r=\"2.4\" class=\"anchor\"/><path d=\"M 490 160 L 462 160 L 462 180 L 430 180\" class=\"leader\"/><circle cx=\"430\" cy=\"180\" r=\"2.4\" class=\"anchor\"/><path d=\"M 490 245 L 462 245 L 462 245 L 410 245\" class=\"leader\"/><circle cx=\"410\" cy=\"245\" r=\"2.4\" class=\"anchor\"/><path d=\"M 250 355 L 250 327 L 260 327 L 260 285\" class=\"leader\"/><circle cx=\"260\" cy=\"285\" r=\"2.4\" class=\"anchor\"/><path d=\"M48 215 H456 M48 243 H456\" stroke=\"#b5c8d1\" stroke-width=\"5\"/><g stroke=\"#718f9f\" stroke-width=\"3\"><path d=\"M60 215 V243\"/><path d=\"M88 215 V243\"/><path d=\"M116 215 V243\"/><path d=\"M144 215 V243\"/><path d=\"M172 215 V243\"/><path d=\"M200 215 V243\"/><path d=\"M228 215 V243\"/><path d=\"M256 215 V243\"/><path d=\"M284 215 V243\"/><path d=\"M312 215 V243\"/><path d=\"M340 215 V243\"/><path d=\"M368 215 V243\"/><path d=\"M396 215 V243\"/><path d=\"M424 215 V243\"/></g><rect x=\"222\" y=\"190\" width=\"58\" height=\"78\" rx=\"10\" class=\"component2\"/><rect x=\"294\" y=\"84\" width=\"74\" height=\"54\" rx=\"10\" class=\"component\"/><rect x=\"368\" y=\"218\" width=\"78\" height=\"58\" rx=\"10\" class=\"component\"/><path d=\"M446 164 V112\" stroke=\"#dfb75c\" stroke-width=\"6\"/><circle cx=\"446\" cy=\"104\" r=\"14\" fill=\"#8d2929\" stroke=\"#eac875\" stroke-width=\"2\"/><path d=\"M368 247 H345\" class=\"flow\"/><rect x=\"66\" y=\"86\" width=\"78\" height=\"38\" rx=\"9\" class=\"component\"/><g><rect x=\"215.0\" y=\"168.5\" width=\"72\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"251\" y=\"183.7\" text-anchor=\"middle\" class=\"slabel\">track block</text></g><g><rect x=\"287.0\" y=\"139.5\" width=\"88\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"331\" y=\"154.7\" text-anchor=\"middle\" class=\"slabel\">axle counter</text></g><g><rect x=\"364.0\" y=\"281.5\" width=\"86\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"407\" y=\"296.7\" text-anchor=\"middle\" class=\"slabel\">interlocking</text></g><g><rect x=\"415.0\" y=\"66.5\" width=\"62\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"446\" y=\"81.7\" text-anchor=\"middle\" class=\"slabel\">signal</text></g><g><rect x=\"58.0\" y=\"126.5\" width=\"94\" height=\"23\" rx=\"11.5\" class=\"labelbg\"/><text x=\"105\" y=\"141.7\" text-anchor=\"middle\" class=\"slabel\">maintenance</text></g>"
+  },
+  "scopeNote": "Educational signaling model only; it does not replace railway operating rules, interlocking design standards, or emergency procedures."
+} };
