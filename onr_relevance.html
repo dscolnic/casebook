@@ -7,13 +7,13 @@
 <style>
   :root{
     --bg:#f6f5f0; --panel:#fffefb; --ink:#1a1a17; --muted:#56564d;
-    --accent:#2f5d86; --hair:#d8d7cd; --chip:#ecebe3;
+    --accent:#2f5d86; --hair:#d8d7cd; --chip:#ecebe3; --hover:#efeee6;
     --serif:Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root{ --bg:#14140f; --panel:#1c1c16; --ink:#ece9df; --muted:#a6a598;
-      --accent:#82b2d9; --hair:#2f2f26; --chip:#26261e; }
+      --accent:#82b2d9; --hair:#2f2f26; --chip:#26261e; --hover:#22221a; }
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -26,7 +26,6 @@
   h1{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.08;letter-spacing:-.5px;margin:0 0 16px}
   .lede{font-size:19px;color:var(--ink);margin:0 0 10px;max-width:44ch}
   .sub{color:var(--muted);margin:0 0 30px;max-width:60ch}
-  .rule{border:0;border-top:1px solid var(--hair);margin:34px 0}
   /* what-each strip */
   .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;
     border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:6px 0 8px}
@@ -41,12 +40,20 @@
   .ghead h2{font-family:var(--serif);font-size:27px;margin:0;letter-spacing:-.3px}
   .ghead .count{font-family:var(--sans);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
   .gtag{font-family:var(--sans);font-size:14.5px;color:var(--muted);margin:10px 0 6px}
-  .row{padding:14px 2px;border-bottom:1px solid var(--hair);display:grid;
-    grid-template-columns:1fr;gap:3px}
-  .row .t{font-weight:700;font-size:18px;letter-spacing:-.1px}
-  .row .why{font-size:15.5px;color:var(--muted);line-height:1.5}
-  .row .dom{font-family:var(--sans);font-size:11px;letter-spacing:1px;text-transform:uppercase;
-    color:var(--accent);font-weight:700;margin-top:2px}
+  .gtag a{font-weight:700;text-decoration:none}
+  .gtag a:hover{text-decoration:underline}
+  /* clickable topic rows */
+  a.row{display:grid;grid-template-columns:1fr auto;gap:3px 14px;align-items:baseline;
+    padding:14px 10px 14px 2px;border-bottom:1px solid var(--hair);text-decoration:none;color:inherit;
+    border-radius:3px;transition:background .12s}
+  a.row:hover{background:var(--hover)}
+  a.row:hover .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px}
+  a.row .t{grid-column:1;font-weight:700;font-size:18px;letter-spacing:-.1px}
+  a.row .why{grid-column:1;font-size:15.5px;color:var(--muted);line-height:1.5}
+  a.row .dom{grid-column:2;grid-row:1;font-family:var(--sans);font-size:11px;letter-spacing:1px;text-transform:uppercase;
+    color:var(--accent);font-weight:700;text-align:right;white-space:nowrap}
+  a.row .go{grid-column:2;grid-row:2;align-self:end;font-family:var(--sans);font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+  a.row:hover .go{color:var(--accent)}
   /* thrusts */
   .thrusts{background:var(--panel);border:1px solid var(--hair);border-radius:2px;padding:20px 22px;margin-top:40px}
   .thrusts h3{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
@@ -54,7 +61,8 @@
   .chip{font-family:var(--sans);font-size:13px;background:var(--chip);color:var(--ink);
     padding:5px 11px;border-radius:20px;border:1px solid var(--hair)}
   footer{color:var(--muted);font-size:14px;margin-top:44px;font-family:var(--sans);line-height:1.6}
-  @media (max-width:620px){ h1{font-size:32px} body{font-size:16px} }
+  @media (max-width:620px){ h1{font-size:32px} body{font-size:16px}
+    a.row .dom,a.row .go{display:none} }
 </style>
 </head>
 <body>
@@ -63,7 +71,7 @@
   <p class="kicker">Educational games · Reasoning under uncertainty</p>
   <h1>Reasoning Games for Naval-Relevant Science</h1>
   <p class="lede">Four browser-based games, each teaching a habit of mind the Navy runs on — and each teaching it by making the player <em>use</em> real science.</p>
-  <p class="sub">Integrate incomplete evidence. Estimate what you cannot measure directly. Put cause before effect. And resist the loud-but-wrong answer. The topics below are drawn from the full catalogs and mapped to the technical areas the Office of Naval Research supports — from undersea and oceanography to autonomy, cyber, power, materials, and warfighter performance. All four are self-contained, offline, and built for STEM learning.</p>
+  <p class="sub">Integrate incomplete evidence. Estimate what you cannot measure directly. Put cause before effect. And resist the loud-but-wrong answer. The topics below are drawn from the full catalogs and mapped to the technical areas the Office of Naval Research supports. Every topic is a link — <strong>click any one to play it</strong>. All four games are self-contained and run offline.</p>
 
   <div class="skills">
     <div class="skill"><div class="n">Casebook</div><div class="d">Deduction. Reject both the sensational answer and the do-nothing answer; prove what the evidence supports.</div></div>
@@ -75,60 +83,60 @@
   <!-- CASEBOOK -->
   <section>
     <div class="ghead"><h2>Casebook</h2><span class="count">10 of 61 cases</span></div>
-    <p class="gtag">A Clue-style deduction game: settle <em>who</em>, <em>where</em>, and <em>what really happened</em> from the readings, rejecting the tabloid answer and the "nothing happened" answer alike.</p>
-    <div class="row"><div class="t">Nine Seconds to Cordera</div><div class="why">Telling an explosion from a natural fault rupture by its seismic radiation pattern — the reasoning behind nuclear-test monitoring and sonar/acoustic source classification.</div><div class="dom">Sensing · source discrimination</div></div>
-    <div class="row"><div class="t">The Carrow Deep Implosion</div><div class="why">Pressure-hull collapse at depth, reconstructed from hydrophone timing and cycle history — undersea engineering and forensic acoustics.</div><div class="dom">Undersea · pressure physics</div></div>
-    <div class="row"><div class="t">The Kestrel's Roll</div><div class="why">A concealed loss of stability versus a torpedo or a rogue wave — the core judgment of naval architecture.</div><div class="dom">Naval architecture</div></div>
-    <div class="row"><div class="t">The Thornbury Reactor</div><div class="why">A concealed design flaw run past its margin, distinguished from sabotage by the fission-product signature — relevant to naval nuclear propulsion.</div><div class="dom">Reactor safety · propulsion</div></div>
-    <div class="row"><div class="t">The Sable Point Wave</div><div class="why">Wave propagation and a downplayed warning-network failure — physical oceanography and ocean instrumentation (METOC).</div><div class="dom">Oceanography</div></div>
-    <div class="row"><div class="t">The Aegis Model</div><div class="why">Biased training data and a buried validation result, told apart from a "rogue AI" story — AI trust and assurance.</div><div class="dom">AI / ML assurance</div></div>
-    <div class="row"><div class="t">The Autopilot on Vane Street</div><div class="why">A sensor blind spot meeting a disabled driver-monitor — autonomous-system assurance and human-machine teaming.</div><div class="dom">Autonomy</div></div>
-    <div class="row"><div class="t">The Cipher at Meridian Bank</div><div class="why">A deprecated, home-rolled cipher kept in service against advice — cryptography and information security.</div><div class="dom">Cryptography / infosec</div></div>
-    <div class="row"><div class="t">The Halloway Span</div><div class="why">A fatigue crack ridden past a skipped inspection, read from the fracture surface — fracture mechanics and structural life.</div><div class="dom">Materials · fracture</div></div>
-    <div class="row"><div class="t">The Kelso Grid-Battery Fire</div><div class="why">Lithium-ion thermal runaway from a separator defect, separated from overcharge and dendrites — energy-storage safety.</div><div class="dom">Power & energy</div></div>
+    <p class="gtag">A Clue-style deduction game: settle <em>who</em>, <em>where</em>, and <em>what really happened</em> from the readings, rejecting the tabloid answer and the "nothing happened" answer alike. &nbsp;<a href="casebook.html">Open all cases →</a></p>
+    <a class="row" href="casebook.html#e_quake"><span class="t">Nine Seconds to Cordera</span><span class="dom">Sensing · source discrimination</span><span class="why">Telling an explosion from a natural fault rupture by its seismic radiation pattern — the reasoning behind nuclear-test monitoring and sonar/acoustic source classification.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#m_sub"><span class="t">The Carrow Deep Implosion</span><span class="dom">Undersea · pressure physics</span><span class="why">Pressure-hull collapse at depth, reconstructed from hydrophone timing and cycle history — undersea engineering and forensic acoustics.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#marine"><span class="t">The Kestrel's Roll</span><span class="dom">Naval architecture</span><span class="why">A concealed loss of stability versus a torpedo or a rogue wave — the core judgment of naval architecture.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#reactor"><span class="t">The Thornbury Reactor</span><span class="dom">Reactor safety · propulsion</span><span class="why">A concealed design flaw run past its margin, distinguished from sabotage by the fission-product signature — relevant to naval nuclear propulsion.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#e_tsunami"><span class="t">The Sable Point Wave</span><span class="dom">Oceanography</span><span class="why">Wave propagation and a downplayed warning-network failure — physical oceanography and ocean instrumentation (METOC).</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#f_ai"><span class="t">The Aegis Model</span><span class="dom">AI / ML assurance</span><span class="why">Biased training data and a buried validation result, told apart from a "rogue AI" story — AI trust and assurance.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#m_adas"><span class="t">The Autopilot on Vane Street</span><span class="dom">Autonomy</span><span class="why">A sensor blind spot meeting a disabled driver-monitor — autonomous-system assurance and human-machine teaming.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#f_crypto"><span class="t">The Cipher at Meridian Bank</span><span class="dom">Cryptography / infosec</span><span class="why">A deprecated, home-rolled cipher kept in service against advice — cryptography and information security.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#m_bridge"><span class="t">The Halloway Span</span><span class="dom">Materials · fracture</span><span class="why">A fatigue crack ridden past a skipped inspection, read from the fracture surface — fracture mechanics and structural life.</span><span class="go">Play →</span></a>
+    <a class="row" href="casebook.html#t_battery"><span class="t">The Kelso Grid-Battery Fire</span><span class="dom">Power & energy</span><span class="why">Lithium-ion thermal runaway from a separator defect, separated from overcharge and dendrites — energy-storage safety.</span><span class="go">Play →</span></a>
   </section>
 
   <!-- DIAGNOSIS -->
   <section>
     <div class="ghead"><h2>Diagnosis</h2><span class="count">7 systems</span></div>
-    <p class="gtag">Enter a real instrumented system and find the cause that fits the <em>entire</em> panel — the loud reading gets your attention, but the right explanation explains the quiet readings too.</p>
-    <div class="row"><div class="t">Pointing Anomaly — spacecraft attitude</div><div class="why">Isolating a star-tracker fault from genuine attitude drift across the telemetry — spacecraft sensing and autonomy.</div><div class="dom">Space · sensing</div></div>
-    <div class="row"><div class="t">Power Margin — spacecraft power</div><div class="why">Diagnosing an energy-balance fault across a power bus without over-trusting one biased meter — space power systems.</div><div class="dom">Space power</div></div>
-    <div class="row"><div class="t">Well-Control Watch — offshore drilling</div><div class="why">Telling a real formation influx (a kick) from a pit-gauge fault before it becomes a blowout — undersea pressure and early warning.</div><div class="dom">Undersea · well control</div></div>
-    <div class="row"><div class="t">Grid Disturbance — power grid</div><div class="why">Separating a local fault from a spreading instability across grid instruments — power-system resilience.</div><div class="dom">Power systems</div></div>
-    <div class="row"><div class="t">Egress Alert — security operations</div><div class="why">Distinguishing a genuine intrusion and data exfiltration from benign anomalies in the logs — cyber defense and detection.</div><div class="dom">Cyber defense</div></div>
-    <div class="row"><div class="t">Shock Room — intensive care</div><div class="why">Identifying the type of circulatory shock from the whole monitor under time pressure — decision under uncertainty and casualty care.</div><div class="dom">Human performance</div></div>
-    <div class="row"><div class="t">Span Watch — bridge</div><div class="why">Reading a structure's instruments to find the true cause of movement rather than the most alarming one — structural health monitoring.</div><div class="dom">Structures · SHM</div></div>
+    <p class="gtag">Enter a real instrumented system and find the cause that fits the <em>entire</em> panel — the loud reading gets your attention, but the right explanation explains the quiet readings too. &nbsp;<a href="diagnosis.html">Open Diagnosis →</a></p>
+    <a class="row" href="diagnosis.html"><span class="t">Pointing Anomaly — spacecraft attitude</span><span class="dom">Space · sensing</span><span class="why">Isolating a star-tracker fault from genuine attitude drift across the telemetry — spacecraft sensing and autonomy.</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis.html"><span class="t">Power Margin — spacecraft power</span><span class="dom">Space power</span><span class="why">Diagnosing an energy-balance fault across a power bus without over-trusting one biased meter — space power systems.</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis.html"><span class="t">Well-Control Watch — offshore drilling</span><span class="dom">Undersea · well control</span><span class="why">Telling a real formation influx (a kick) from a pit-gauge fault before it becomes a blowout — undersea pressure and early warning.</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis.html"><span class="t">Grid Disturbance — power grid</span><span class="dom">Power systems</span><span class="why">Separating a local fault from a spreading instability across grid instruments — power-system resilience.</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis.html"><span class="t">Egress Alert — security operations</span><span class="dom">Cyber defense</span><span class="why">Distinguishing a genuine intrusion and data exfiltration from benign anomalies in the logs — cyber defense and detection.</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis.html"><span class="t">Shock Room — intensive care</span><span class="dom">Human performance</span><span class="why">Identifying the type of circulatory shock from the whole monitor under time pressure — decision under uncertainty and casualty care.</span><span class="go">Play →</span></a>
+    <a class="row" href="diagnosis.html"><span class="t">Span Watch — bridge</span><span class="dom">Structures · SHM</span><span class="why">Reading a structure's instruments to find the true cause of movement rather than the most alarming one — structural health monitoring.</span><span class="go">Play →</span></a>
   </section>
 
   <!-- SEQUENCE -->
   <section>
     <div class="ghead"><h2>Sequence</h2><span class="count">9 of 20 topics</span></div>
-    <p class="gtag">Reconstruct how a system, procedure, or event actually unfolds — ordering the causal and procedural steps that a working operator must get right.</p>
-    <div class="row"><div class="t">Finding Position Without GPS</div><div class="why">How an inertial navigation system measures and integrates motion to hold position when GPS is denied.</div><div class="dom">Precision navigation & estimation</div></div>
-    <div class="row"><div class="t">Reading the Water Column</div><div class="why">How a CTD profiler measures the sea — the sound-speed structure that governs sonar performance.</div><div class="dom">Oceanography & instrumentation</div></div>
-    <div class="row"><div class="t">Many Robots, One Search</div><div class="why">How a team of autonomous vehicles divides work and covers an area — autonomy and multi-agent systems.</div><div class="dom">Autonomy & multi-agent systems</div></div>
-    <div class="row"><div class="t">Detect, Isolate, Recover</div><div class="why">How a shipboard computing system detects, contains, and recovers from a cyber attack — resilient computing and damage control.</div><div class="dom">Cybersecurity & resilient computing</div></div>
-    <div class="row"><div class="t">Stopping the Sea from Eating Steel</div><div class="why">How seawater corrosion begins, becomes structural, and is arrested — materials science and fleet sustainment.</div><div class="dom">Materials & sustainment</div></div>
-    <div class="row"><div class="t">From Ocean Sensor to Better Forecast</div><div class="why">How observations and a numerical model are fused into an improved forecast — ocean prediction and data assimilation.</div><div class="dom">Ocean prediction & applied math</div></div>
-    <div class="row"><div class="t">Holding the Electrical Bus</div><div class="why">How a ship responds when a major electrical fault threatens the bus — naval power and controls.</div><div class="dom">Naval power & controls</div></div>
-    <div class="row"><div class="t">When the Sun Disturbs the Link</div><div class="why">How a solar eruption changes the near-Earth environment and degrades communication and navigation — space weather.</div><div class="dom">Space weather & communications</div></div>
-    <div class="row"><div class="t">Heat on the Flight Deck</div><div class="why">How environmental heat and exertion become a physiological casualty risk — warfighter human performance.</div><div class="dom">Human performance & physiology</div></div>
+    <p class="gtag">Reconstruct how a system, procedure, or event actually unfolds — ordering the causal and procedural steps a working operator must get right. &nbsp;<a href="sequence.html">Open Sequence →</a></p>
+    <a class="row" href="sequence.html"><span class="t">Finding Position Without GPS</span><span class="dom">Precision navigation</span><span class="why">How an inertial navigation system measures and integrates motion to hold position when GPS is denied.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">Reading the Water Column</span><span class="dom">Oceanography · sensors</span><span class="why">How a CTD profiler measures the sea — the sound-speed structure that governs sonar performance.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">Many Robots, One Search</span><span class="dom">Autonomy · multi-agent</span><span class="why">How a team of autonomous vehicles divides work and covers an area — autonomy and multi-agent systems.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">Detect, Isolate, Recover</span><span class="dom">Cyber resilience</span><span class="why">How a shipboard computing system detects, contains, and recovers from a cyber attack — resilient computing and damage control.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">Stopping the Sea from Eating Steel</span><span class="dom">Materials · sustainment</span><span class="why">How seawater corrosion begins, becomes structural, and is arrested — materials science and fleet sustainment.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">From Ocean Sensor to Better Forecast</span><span class="dom">Ocean prediction</span><span class="why">How observations and a numerical model are fused into an improved forecast — ocean prediction and data assimilation.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">Holding the Electrical Bus</span><span class="dom">Naval power & controls</span><span class="why">How a ship responds when a major electrical fault threatens the bus — naval power and controls.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">When the Sun Disturbs the Link</span><span class="dom">Space weather · comms</span><span class="why">How a solar eruption changes the near-Earth environment and degrades communication and navigation.</span><span class="go">Play →</span></a>
+    <a class="row" href="sequence.html"><span class="t">Heat on the Flight Deck</span><span class="dom">Human performance</span><span class="why">How environmental heat and exertion become a physiological casualty risk — warfighter human performance.</span><span class="go">Play →</span></a>
   </section>
 
   <!-- BALLPARK -->
   <section>
     <div class="ghead"><h2>Ballpark</h2><span class="count">9 of 61 topics</span></div>
-    <p class="gtag">Estimate a hard "how many / how much" quantity by placing real numbers into named, unit-labeled factors — numeracy and Fermi reasoning on real facts.</p>
-    <div class="row"><div class="t">The Real Scale of the Deep Ocean</div><div class="why">Estimating pressure, depth, and sonar range in the undersea operating environment.</div><div class="dom">Deep ocean · pressure · sonar</div></div>
-    <div class="row"><div class="t">Earthquakes: Rupture, Energy, and Signals</div><div class="why">Estimating seismic energy and wave travel — source characterization and remote sensing.</div><div class="dom">Seismology · signals</div></div>
-    <div class="row"><div class="t">Tsunamis Across the Ocean</div><div class="why">Estimating deep-water wave speed, travel time, and runup — oceanography.</div><div class="dom">Oceanography</div></div>
-    <div class="row"><div class="t">UH-60 Black Hawk Flight Scale</div><div class="why">Estimating lift, power, and range of a military rotorcraft.</div><div class="dom">Rotorcraft</div></div>
-    <div class="row"><div class="t">Saturn V and Apollo 11</div><div class="why">Estimating thrust, propellant, and trajectory — propulsion and spaceflight.</div><div class="dom">Propulsion · spaceflight</div></div>
-    <div class="row"><div class="t">Nuclear Reactor Power and Decay Heat</div><div class="why">Estimating reactor thermal power and decay heat — nuclear power and propulsion.</div><div class="dom">Nuclear power</div></div>
-    <div class="row"><div class="t">Cryptography: Keys, Blocks, and Brute Force</div><div class="why">Estimating keyspace size and brute-force cost — information security.</div><div class="dom">Cryptography</div></div>
-    <div class="row"><div class="t">Large Language Models by the Numbers</div><div class="why">Estimating training compute, parameters, and data scale — artificial intelligence.</div><div class="dom">AI / ML</div></div>
-    <div class="row"><div class="t">Grid Batteries and Stored Energy</div><div class="why">Estimating stored energy, power, and runtime — energy storage for platforms.</div><div class="dom">Power & energy</div></div>
+    <p class="gtag">Estimate a hard "how many / how much" quantity by placing real numbers into named, unit-labeled factors — numeracy and Fermi reasoning on real facts. &nbsp;<a href="ballpark.html">Open Ballpark →</a></p>
+    <a class="row" href="ballpark.html"><span class="t">The Real Scale of the Deep Ocean</span><span class="dom">Deep ocean · sonar</span><span class="why">Estimating pressure, depth, and sonar range in the undersea operating environment.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">Earthquakes: Rupture, Energy, and Signals</span><span class="dom">Seismology · signals</span><span class="why">Estimating seismic energy and wave travel — source characterization and remote sensing.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">Tsunamis Across the Ocean</span><span class="dom">Oceanography</span><span class="why">Estimating deep-water wave speed, travel time, and runup — oceanography.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">UH-60 Black Hawk Flight Scale</span><span class="dom">Rotorcraft</span><span class="why">Estimating lift, power, and range of a military rotorcraft.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">Saturn V and Apollo 11</span><span class="dom">Propulsion · spaceflight</span><span class="why">Estimating thrust, propellant, and trajectory — propulsion and spaceflight.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">Nuclear Reactor Power and Decay Heat</span><span class="dom">Nuclear power</span><span class="why">Estimating reactor thermal power and decay heat — nuclear power and propulsion.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">Cryptography: Keys, Blocks, and Brute Force</span><span class="dom">Cryptography</span><span class="why">Estimating keyspace size and brute-force cost — information security.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">Large Language Models by the Numbers</span><span class="dom">AI / ML</span><span class="why">Estimating training compute, parameters, and data scale — artificial intelligence.</span><span class="go">Play →</span></a>
+    <a class="row" href="ballpark.html"><span class="t">Grid Batteries and Stored Energy</span><span class="dom">Power & energy</span><span class="why">Estimating stored energy, power, and runtime — energy storage for platforms.</span><span class="go">Play →</span></a>
   </section>
 
   <div class="thrusts">
