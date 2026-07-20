@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reasoning Games for Naval-Relevant Science</title>
+<title>RECKON — Reasoning Games for Naval-Relevant Science</title>
 <style>
   :root{
     --bg:#ffffff; --panel:#ffffff; --ink:#1a1a17; --muted:#565651;
@@ -32,6 +32,10 @@
   .skill:first-child{border-left:0}
   .skill .n{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
   .skill .d{font-size:15px;color:var(--muted);line-height:1.45}
+  .brand{letter-spacing:.5px}
+  .devhead{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:22px 0 0}
+  .skills.dev{margin-top:6px;opacity:.7}
+  .skills.dev .n{color:var(--muted)}
   /* game section */
   section{margin:40px 0 0}
   .ghead h2{font-family:var(--serif);font-size:27px;margin:0 0 2px;letter-spacing:-.3px;
@@ -60,15 +64,20 @@
 <body>
 <div class="wrap">
 
-  <p class="kicker">Educational games · Reasoning under uncertainty</p>
-  <h1>Reasoning Games for Naval-Relevant Science</h1>
-  <p class="lede">Four browser-based games, each teaching a habit of mind the Navy runs on — and each teaching it by making the player <em>use</em> real science. Every topic below is a link; click any one to play it.</p>
+  <h1><span class="brand">RECKON</span>: Reasoning Games for Naval-Relevant Science</h1>
 
   <div class="skills">
     <div class="skill"><div class="n">Casebook</div><div class="d">A Clue-style deduction game: settle <em>who</em>, <em>where</em>, and <em>what really happened</em> from the readings.</div></div>
     <div class="skill"><div class="n">Diagnosis</div><div class="d">Enter a real instrumented system and find the cause that fits the <em>entire</em> panel.</div></div>
     <div class="skill"><div class="n">Sequence</div><div class="d">Reconstruct how a system, procedure, or event actually unfolds, step by step.</div></div>
     <div class="skill"><div class="n">Ballpark</div><div class="d">Estimate a hard "how many / how much" quantity by placing real numbers into named factors.</div></div>
+  </div>
+
+  <div class="devhead">In development</div>
+  <div class="skills dev">
+    <div class="skill"><div class="n">Battleship Ed</div><div class="d">A Battleship-like game where you command a full array of sensors.</div></div>
+    <div class="skill"><div class="n">Science Tank</div><div class="d">Like Shark Tank, but you invest in historical ideas that had very different second lives.</div></div>
+    <div class="skill"><div class="n">Sonar Trail</div><div class="d">Like Oregon Trail, but every decision is based on understanding.</div></div>
   </div>
 
   <!-- CASEBOOK -->
