@@ -26,15 +26,15 @@
   h1{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.08;letter-spacing:-.5px;margin:0 0 16px}
   .lede{font-size:19px;color:var(--ink);margin:0 0 28px;max-width:46ch}
   /* what-each strip: the four games, described */
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;
-    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:6px 0 8px}
-  .skill{padding:16px 18px 18px;border-left:1px solid var(--hair)}
-  .skill:first-child{border-left:0}
+  .skills{display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--hair);border-left:1px solid var(--hair);margin:6px 0 8px}
+  .skill{padding:16px 18px 18px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .skill.wide{grid-column:1/-1}
   .skill .n{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
   .skill .d{font-size:15px;color:var(--muted);line-height:1.45}
   .brand{letter-spacing:.5px}
   .devhead{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:22px 0 0}
-  .skills.dev{margin-top:6px;opacity:.7}
+  .skills.dev{grid-template-columns:repeat(2,1fr);margin-top:6px;opacity:.7}
   .skills.dev .n{color:var(--muted)}
   /* game section */
   section{margin:40px 0 0}
@@ -58,7 +58,7 @@
     padding:5px 11px;border-radius:20px;border:1px solid var(--hair)}
   footer{color:var(--muted);font-size:14px;margin-top:44px;font-family:var(--sans);line-height:1.6}
   @media (max-width:620px){ h1{font-size:32px} body{font-size:16px}
-    a.row .dom{display:none} }
+    a.row .dom{display:none} .skills{grid-template-columns:1fr 1fr} }
 </style>
 </head>
 <body>
@@ -71,7 +71,7 @@
     <div class="skill"><div class="n">Diagnosis</div><div class="d">Enter a real instrumented system and find the cause that fits the <em>entire</em> panel.</div></div>
     <div class="skill"><div class="n">Sequence</div><div class="d">Reconstruct how a system, procedure, or event actually unfolds, step by step.</div></div>
     <div class="skill"><div class="n">Ballpark</div><div class="d">Estimate a hard "how many / how much" quantity by placing real numbers into named factors.</div></div>
-    <div class="skill"><div class="n">Science Tank</div><div class="d">Invest across three concealed historical innovations; the reveal separates what paid off from what changed the world without paying at all.</div></div>
+    <div class="skill wide"><div class="n">Science Tank</div><div class="d">Invest across three concealed historical innovations; the reveal separates what paid off from what changed the world without paying at all.</div></div>
   </div>
 
   <div class="devhead">In development</div>
@@ -139,7 +139,23 @@
   <!-- SCIENCE TANK -->
   <section>
     <div class="ghead"><h2>Science Tank</h2></div>
-    <a class="row" href="sciencetank.html"><span class="t">Invest in historical innovations across three rounds</span><span class="dom">Judgment under uncertainty</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#electric-futures"><span class="t">Electric Futures</span><span class="dom">Electricity & power</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#digital-office"><span class="t">Digital Office</span><span class="dom">Computing</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#internet-foundations"><span class="t">Internet Foundations</span><span class="dom">Networks</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#machine-media"><span class="t">Machine Media</span><span class="dom">Media & signals</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#synthetic-materials"><span class="t">Synthetic Materials</span><span class="dom">Polymers · materials</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#energy-materials"><span class="t">Energy Materials</span><span class="dom">Energy storage</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#early-medicine"><span class="t">Early Medicine</span><span class="dom">Medicine</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#drug-discovery"><span class="t">Drug Discovery</span><span class="dom">Pharmacology</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#dna-revolution"><span class="t">DNA Revolution</span><span class="dom">Molecular biology</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#biotech-origins"><span class="t">Biotech Origins</span><span class="dom">Biotechnology</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#feeding-billions"><span class="t">Feeding Billions</span><span class="dom">Agriculture</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#crop-protection"><span class="t">Crop Protection</span><span class="dom">Agriculture · chemistry</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#watching-earth"><span class="t">Watching Earth</span><span class="dom">Earth observation</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#earth-and-space"><span class="t">Earth and Space</span><span class="dom">Earth & space</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#flight-revolution"><span class="t">Flight Revolution</span><span class="dom">Aeronautics</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#scale-and-systems"><span class="t">Scale and Systems</span><span class="dom">Engineering scale</span><span class="go">Play →</span></a>
+    <a class="row" href="sciencetank.html#evidence-decisions"><span class="t">Evidence and Decisions</span><span class="dom">Decision science</span><span class="go">Play →</span></a>
   </section>
 
   <div class="thrusts">
