@@ -61,6 +61,11 @@ h1{font-size:clamp(28px,4.5vw,40px)}h2{font-size:clamp(22px,3vw,29px)}h3{font-si
 .teaser{font-size:clamp(16px,2vw,19px);line-height:1.6;color:var(--ink);max-width:640px}
 .story{margin:14px 0 0;max-width:640px}.story p{color:var(--muted);margin:0 0 10px}
 .section-h{margin:22px 0 4px}
+.howto{margin:14px 0 0;font-family:var(--sans)}
+.howto summary{cursor:pointer;color:var(--accent);font-size:13px;font-weight:650;list-style:none}
+.howto summary::-webkit-details-marker{display:none}
+.howto summary::before{content:"ⓘ  "}
+.howto p{font-size:13.5px;color:var(--muted);line-height:1.5;margin:8px 0 0;max-width:640px}
 
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0 4px}
 .card{border:1px solid var(--hair);background:var(--paper);padding:15px;text-align:left;display:flex;flex-direction:column;gap:8px;min-height:180px}
@@ -305,7 +310,7 @@ function renderHub(){
       <div class="cname">${esc(c.name)}</div>
       <div class="crole">${esc(c.role||'')}</div>
       <div class="chint">${esc(c.hint||'')}</div>
-      <div class="cstate">${done?'Re-read the passage →':'Read the passage →'}</div>
+      <div class="cstate">${done?'Meet again →':'Meet →'}</div>
     </button>`;
   }).join('');
   const allDone=S.completed.size>=(p.READING_ORDER||[]).length;
@@ -317,16 +322,9 @@ function renderHub(){
       <div class="incident">${p.story&&p.story[0]?p.story[0]:esc(p.teaser)}</div>
       <div class="qline">${esc(p.teaser||'')}</div>
     </div>
-    <div class="task">
-      <div class="th">Your job — settle three questions</div>
-      <ol>
-        ${CATORDER.map(cat=>`<li><b>${esc(p.CATS[cat].title)}?</b> — choose one of the ${p.CATS[cat].items.length} candidates in the notepad.</li>`).join('')}
-      </ol>
-      <p class="muted" style="font-size:13px;margin:10px 0 0">The right explanation lies between the sensational story and the do-nothing story. Read the three informants below to earn clues, then accuse.</p>
-    </div>
+    <details class="howto"><summary>How to play</summary><p>Meet each of the three informants and answer their questions — right answers file clues into your notepad (one Who, one Where, one What per informant). When you're ready, make an accusation: name the Who, the Where, and the What. The true answer lies between the sensational story and the do-nothing one.</p></details>
     ${p.story&&p.story.length>1?`<div class="story" style="margin-top:16px">${p.story.slice(1).map(s=>`<p>${s}</p>`).join('')}</div>`:''}
     <h3 class="section-h">The three informants</h3>
-    <p class="muted" style="font-size:12.5px;margin:2px 0 0">Each holds one scientist's passage. The candidates you're deciding among are in the notepad on the right.${allDone?'':' You may accuse anytime, but all three readings give the fullest chain.'}</p>
     <div class="cards">${cards}</div>`;
   renderSide();
 }
