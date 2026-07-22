@@ -23,7 +23,8 @@
   .masthead{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding:6vh 0 0}
   .mast-left{flex:1;min-width:240px}
   .masthead h1{font-family:var(--serif);font-weight:700;font-size:54px;line-height:1;letter-spacing:.5px;margin:0;text-transform:uppercase}
-  .loghero{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;flex:none}
+  .loghero{display:flex;flex-direction:column;gap:11px;flex:none}
+  .hrow{display:flex;gap:11px;justify-content:flex-end}
   .hlogo{width:64px;height:64px;border-radius:15px;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:transform .18s ease}
   .hlogo svg{width:40px;height:40px;display:block}
   .hlogo:hover{transform:scale(1.06)}
@@ -181,7 +182,8 @@ async function renderStats() {
 
 function renderHero(){
   const el=document.getElementById("loghero"); if(!el)return;
-  el.innerHTML=ORDER.map((name)=>`<span class="hlogo" title="${name}" style="background:${TINT[name]||'#f4f4f1'}">${ICON[name]||''}</span>`).join("");
+  const tile=(name)=>`<span class="hlogo" title="${name}" style="background:${TINT[name]||'#f4f4f1'}">${ICON[name]||''}</span>`;
+  el.innerHTML=`<div class="hrow">${ORDER.slice(0,2).map(tile).join("")}</div><div class="hrow">${ORDER.slice(2).map(tile).join("")}</div>`;
 }
 renderHero();
 renderDaily();
