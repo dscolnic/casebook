@@ -7,80 +7,98 @@
 <style>
   :root{
     --bg:#ffffff; --panel:#ffffff; --ink:#1a1a17; --muted:#565651;
-    --accent:#2f5d86; --hair:#e4e4e2; --chip:#f2f2f0; --hover:#f5f5f3;
+    --accent:#2f5d86; --hair:#e4e4e2; --chip:#f4f4f1; --hover:#eef0f2;
     --serif:Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root{ --bg:#14140f; --panel:#1c1c16; --ink:#ece9df; --muted:#a6a598;
-      --accent:#82b2d9; --hair:#2f2f26; --chip:#26261e; --hover:#22221a; }
+      --accent:#82b2d9; --hair:#2f2f26; --chip:#24241d; --hover:#22221a; }
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.55;font-size:17px;padding:0 20px}
-  .wrap{max-width:760px;margin:0 auto;padding:6vh 0 12vh}
+  .wrap{max-width:780px;margin:0 auto;padding:0 0 12vh}
   a{color:var(--accent)}
-  .brand{letter-spacing:.5px}
-  h1{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.08;letter-spacing:-.5px;margin:0 0 10px}
-  .lede{font-family:var(--sans);font-size:15px;color:var(--muted);margin:0 0 8px;max-width:52ch}
-  .ghead h2{font-family:var(--serif);font-size:26px;margin:0 0 2px;letter-spacing:-.3px;border-bottom:2px solid var(--ink);padding-bottom:8px}
-  section.game{margin:36px 0 0}
-  .today-line{font-size:18px;margin:10px 0 0}.today-line b{font-weight:700}
-  .controls{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 0}
-  .btn{font-family:var(--sans);font-size:14px;font-weight:650;border:1px solid var(--hair);background:var(--panel);color:var(--ink);padding:9px 14px;border-radius:5px;cursor:pointer;text-decoration:none;display:inline-block}
+  .masthead{border-bottom:3px double var(--ink);padding:6vh 0 16px;margin-bottom:8px}
+  .masthead h1{font-family:var(--serif);font-weight:700;font-size:52px;line-height:1;letter-spacing:1px;margin:0;text-transform:uppercase}
+  .masthead .tag{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-top:12px}
+  section.game{margin:40px 0 0}
+  .ghead{display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:9px}
+  .ghead h2{font-family:var(--serif);font-size:27px;margin:0;letter-spacing:-.3px}
+  .mono{flex:none;width:38px;height:38px;display:grid;place-items:center;background:var(--accent);color:#fff;border-radius:5px}
+  .mono svg{width:22px;height:22px;display:block}
+  .desc{font-size:16px;color:var(--ink);margin:13px 0 0;max-width:60ch}
+  .today{margin:15px 0 0;background:var(--chip);border-left:3px solid var(--accent);border-radius:0 7px 7px 0;padding:14px 16px}
+  .today .tk{font-family:var(--sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .today .tt{font-family:var(--serif);font-size:22px;font-weight:700;margin:4px 0 0;letter-spacing:-.2px}
+  .today .ts{font-family:var(--sans);font-size:13px;color:var(--muted);margin:3px 0 0}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin:13px 0 0}
+  .btn{font-family:var(--sans);font-size:14px;font-weight:650;border:1px solid var(--hair);background:var(--panel);color:var(--ink);padding:9px 15px;border-radius:5px;cursor:pointer;text-decoration:none;display:inline-block}
   .btn:hover{background:var(--hover)}
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
   .btn.primary:hover{opacity:.92}
   .btn.ghost{background:transparent}
-  .panel{margin:12px 0 0;padding:12px 15px;background:var(--chip);border-radius:6px}
-  .panel.info p{margin:0 0 7px;font-family:var(--sans);font-size:14.5px;color:var(--muted);line-height:1.5}
-  .panel.info .sci{color:var(--ink)}
-  .panel.arch{background:none;border-left:2px solid var(--hair);padding:2px 0 2px 12px}
-  a.row{display:flex;align-items:baseline;gap:12px;padding:10px 6px 10px 2px;border-bottom:1px solid var(--hair);text-decoration:none;color:inherit}
+  .panel.arch{margin:10px 0 0;border-left:2px solid var(--hair);padding:2px 0 2px 14px}
+  a.row{display:flex;align-items:baseline;gap:12px;padding:9px 6px 9px 2px;border-bottom:1px solid var(--hair);text-decoration:none;color:inherit}
   a.row:hover{background:var(--hover)}
   a.row .t{flex:1;font-size:15px}
   a.row .go{font-family:var(--sans);font-size:12px;color:var(--muted);white-space:nowrap}
   a.row:hover .go{color:var(--accent)}
-  .mystats{margin-top:48px}
-  .statsgrid{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 18px}
-  .statcard{border:1px solid var(--hair);padding:12px 18px;min-width:120px}
-  .statcard .n{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
-  .statcard .l{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .mystats{margin-top:52px}
+  .statsgrid{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0 20px}
+  .statcard{flex:1;min-width:120px;border:1px solid var(--hair);border-top:3px solid var(--accent);padding:13px 16px}
+  .statcard .n{font-family:var(--serif);font-size:32px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .statcard .l{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
   .stbl{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px}
-  .stbl th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--hair);padding:6px 10px 6px 0}
-  .stbl td{padding:8px 10px 8px 0;border-bottom:1px solid var(--hair)}
+  .stbl th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--hair);padding:7px 10px 7px 0}
+  .stbl td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hair);font-variant-numeric:tabular-nums}
   .muted{color:var(--muted)}
-  footer{color:var(--muted);font-size:13px;margin-top:48px;font-family:var(--sans)}
-  @media (max-width:620px){ h1{font-size:32px} body{font-size:16px} }
+  footer{color:var(--muted);font-size:13px;margin-top:52px;font-family:var(--sans);border-top:1px solid var(--hair);padding-top:16px}
+  @media (max-width:620px){ .masthead h1{font-size:40px} body{font-size:16px} .statcard{min-width:44%} }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1><span class="brand">RECKON</span></h1>
-  <p class="lede">Reasoning games for naval-relevant science — a fresh puzzle in each, every day.</p>
+  <div class="masthead">
+    <h1>Reckon</h1>
+    <div class="tag">Reasoning games · a fresh puzzle every day</div>
+  </div>
 
   <div id="daily" class="daily"></div>
 
   <section class="mystats">
-    <div class="ghead"><h2>My stats</h2></div>
-    <div id="statsBody" class="muted">Loading…</div>
+    <div class="ghead" style="border-bottom-color:var(--accent)"><span class="mono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h16"/><path d="M8 20v-5M13 20v-9M18 20v-3"/></svg></span><h2>My stats</h2></div>
+    <div id="statsBody" class="muted" style="margin-top:14px">Loading…</div>
   </section>
 
   <footer>RECKON · one sign-in, a daily puzzle in every game.</footer>
 </div>
 <script>
 const GAMES = {"Casebook":{"link":"casebook_static.html#","fileLink":false,"cases":[["m_bridge","The Halloway Span","Structural & Fracture Mechanics"],["m_stadium","The Coronet Arena Roof","Structures & Crowd Dynamics"],["m_tunnel","The Kingsgate Bore","Tunnelling & Ground Engineering"],["m_tailings","The Serra Verde Tailings Dam","Slope Stability & Soil Liquefaction"],["m_sub","The Carrow Deep Implosion","Deep Submergence & the Physics of Pressure"],["m_rig","The Deepwater Meridian","Drilling & Well Control"],["m_heli","The Ridgeline Rotor","Rotorcraft & Aeromechanics"],["t_wind","The Fenmark Turbine Collapse","Wind Energy & Fatigue Engineering"],["m_adas","The Autopilot on Vane Street","Vehicle Automation & Safety"],["m_railx","The Marsh Lane Crossing","Railway Signalling & Interlocking"],["t_pipeline","The Brant Hollow Pipeline","Pipeline Integrity & Fluid Mechanics"],["t_transformer","The Aldergate Substation Fire","Power Engineering & Dielectrics"],["t_refinery","The Halden Refinery Fire","Process Safety & Combustion Engineering"],["e_quake","Nine Seconds to Cordera","Seismology & Earthquake Science"],["e_tsunami","The Sable Point Wave","Tsunami Science & Oceanography"],["e_storm","The Halloway Landfall","Meteorology & Storm Forecasting"],["e_flood","The Rossmere Flood","Hydrology & Flood Science"],["e_asteroid","The Hollow Vale Impact","Planetary Defense & Impact Science"],["e_avalanche","The Whitewall Slide","Snow, Avalanche & Glacier Science"],["e_wildfire","The Pinehaven Fire","Wildfire & Combustion Science"],["w_water","The Tap","Water Supply & Environmental Health"],["w_compound","The Compounding Room","Pharmacy & Sterile Compounding"],["w_surg","The Wrong Side","Surgery & Patient Safety"],["w_blood","The Crossmatch","Transfusion & Blood Banking"],["f_crypto","The Cipher at Meridian Bank","Cryptography & Information Security"],["f_privacy","The Beacon Consent Scandal","Data Privacy & Information Systems"],["f_breach","The Halcyon Data Breach","Computer Security & Information Systems"],["f_netout","The Great Grey-Out","Computer Networks & the Internet"],["f_ai","The Aegis Model","Artificial Intelligence & Machine Learning"],["f_firmware","The Halden Infusion Pump","Embedded & Firmware Engineering"],["f_robot","The Cell-9 Robot","Robotics & Autonomous Systems"],["j_press","The Ashford Dispatch","Journalism Ethics & Verification"],["j_fraud","The Amberline Collapse","Accounting & Corporate Finance"],["j_capture","The Halcyon Grid","Regulation & Public Choice"],["c_arch","The Cranmoor Skull","Archaeology & Scientific Dating"],["c_art","The Halberstadt Panel","Art History & Authentication"],["c_fall","The Last Council of Vellano","History & Historical Method"]]},"Diagnosis":{"link":"diagnosis/","fileLink":true,"cases":[["bioreactor","Living Process","Industrial fermentation","bioreactor_playable.html"],["bridge","Span Watch","Bridge structural monitoring","bridge_playable.html"],["coldchain","Cold Chain","Temperature-controlled vaccine logistics","coldchain_playable.html"],["crop","Field Stress","Precision agriculture and crop health","crop_playable.html"],["datacenter","Thermal Margin","Data-center cooling","datacenter_playable.html"],["rail","Signal Integrity","Railway signaling","rail_playable.html"],["satpower","Power Margin","Spacecraft electrical power","satpower_playable.html"],["telescope","Image Quality","Astronomical observatory operations","telescope_playable.html"],["water","Clear Water","Drinking-water treatment","water_playable.html"],["wildfire","Fireline Signal","Wildfire behavior and mapping","wildfire_playable.html"]]},"Sequence":{"link":"sequence.html#","fileLink":false,"cases":[["wound","The Cut That Closes","Medicine & biology"],["star","A Star Like the Sun","Astronomy"],["web","The First Visit to a Secure Website","Computing"],["law","A Federal Civil Case","Law & civics"],["cuba","Thirteen Days in October","History & diplomacy"],["rocket","Two Stages to Orbit","Aerospace engineering"],["soap","How Soap Carries Grease Away","Chemistry"],["lake","From Fertilizer to a Dead Zone","Ecology"],["tsunami","From Locked Fault to Coastal Flood","Earth science"],["payment","What Happens After You Tap","Finance & payment systems"],["infrared","Seeing Heat","Electro-optics & sensors"],["ins","Finding Position Without GPS","Precision navigation & estimation"],["ctd","Reading the Water Column","Oceanography & instrumentation"],["power","Holding the Electrical Bus","Naval power & controls"],["corrosion","Stopping the Sea from Eating Steel","Materials science & sustainment"],["swarm","Many Robots, One Search","Autonomy & multi-agent systems"],["cyber","Detect, Isolate, Recover","Cybersecurity & resilient computing"],["heat","Heat on the Flight Deck","Human performance & physiology"],["assimilation","From Ocean Sensor to Better Forecast","Ocean prediction & applied mathematics"],["spaceweather","When the Sun Disturbs the Link","Space weather & communications"]]},"Ballpark":{"link":"ballpark.html#","fileLink":false,"cases":[["bp_e_asteroid","Asteroids and Planetary Defense","asteroids · impacts · planetary defense"],["bp_e_avalanche","Avalanches: Speed, Rescue, and Scale","snow · avalanches · rescue"],["bp_e_flood","Floods and Moving Water","rivers · rainfall · flood probability"],["bp_e_quake","Earthquakes: Rupture, Energy, and Signals","seismology · rupture · wave travel"],["bp_e_storm","Hurricanes: Wind, Rain, and Surge","hurricanes · rainfall · storm surge"],["bp_e_tsunami","Tsunamis Across the Ocean","oceanography · wave speed · runup"],["bp_e_wildfire","Wildfire Scale and Firefighting","wildfire · fuel energy · aviation"],["bp_dam","Hoover Dam and Lake Mead","dams · reservoirs · hydropower"],["bp_m_adas","Autonomous Vehicles and Sensors","autonomy · sensors · stopping distance"],["bp_m_bridge","Golden Gate Bridge by the Numbers","bridges · cables · traffic"],["bp_m_heli","UH-60 Black Hawk Flight Scale","rotorcraft · lift · range"],["bp_m_railx","High-Capacity Railway Signalling","rail signalling · headways · capacity"],["bp_m_rig","Deepwater Drilling and the Gulf Spill","offshore drilling · pressure · spill scale"],["bp_m_stadium","Wembley Stadium: Structure and Crowds","stadiums · crowds · long-span roofs"],["bp_m_sub","The Real Scale of the Deep Ocean","deep ocean · pressure · sonar"],["bp_m_tailings","The Brumadinho Tailings Disaster","tailings · liquefaction · runout"],["bp_m_tunnel","The Channel Tunnel by the Numbers","tunnels · excavation · rail"],["bp_marine","RMS Titanic: Ship Scale and Buoyancy","ships · displacement · capacity"],["bp_rail","Fast Trains and Rail Capacity","railways · speed · energy"],["bp_rocket","Saturn V and Apollo 11","rockets · thrust · lunar travel"],["bp_tower","Burj Khalifa by the Numbers","skyscrapers · elevators · concrete"],["bp_blackout","The 2003 Northeast Blackout","electric grid · cascading failure · restoration"],["bp_chemplant","Chemical Plants and Toxic Releases","process safety · toxic gases · industrial scale"],["bp_reactor","Nuclear Reactor Power and Decay Heat","nuclear power · fission · decay heat"],["bp_t_battery","Grid Batteries and Stored Energy","batteries · power · grid storage"],["bp_t_dust","Combustible Dust: Thin Layers, Large Hazards","dust explosions · combustion · standards"],["bp_t_pipeline","The Keystone Pipeline by the Numbers","pipelines · flow · pressure waves"],["bp_t_refinery","Oil Refineries and Daily Throughput","refining · fuels · process scale"],["bp_t_transformer","Large Power Transformers","transformers · voltage · efficiency"],["bp_t_wind","The Haliade-X Offshore Wind Turbine","wind power · rotor scale · fatigue"],["bp_t_oncology","Radiation Therapy and Dose","radiotherapy · dose · treatment scale"],["bp_w_anes","Anesthesia: Drugs, Oxygen, and Monitoring","anesthesia · physiology · monitoring"],["bp_w_blood","Blood Donation and Transfusion","blood banking · volume · supply"],["bp_w_compound","Sterile Compounding and Clean Rooms","pharmacy · sterile processing · clean rooms"],["bp_w_hai","Healthcare-Associated Infections","infection control · hospitals · rates"],["bp_w_surg","Surgery and Patient Safety","surgery · checklists · operating rooms"],["bp_w_trial","Clinical Trials by the Numbers","clinical trials · efficacy · follow-up"],["bp_w_water","Drinking Water: Supply and Lead","water systems · treatment · public health"],["bp_f_ai","Large Language Models by the Numbers","artificial intelligence · training · model scale"],["bp_f_breach","Major Data Breaches by the Numbers","cybersecurity · records · exposure"],["bp_f_crypto","Cryptography: Keys, Blocks, and Brute Force","cryptography · keyspace · standards"],["bp_f_firmware","Embedded Computers: Apollo to Arduino","firmware · memory · processors"],["bp_f_netout","Internet Scale, Addresses, and Latency","internet · fiber · addressing"],["bp_f_privacy","Privacy Lessons from Real Data Sets","privacy · re-identification · data scale"],["bp_f_robot","Mobile Robots at Work","robotics · payload · autonomy"],["bp_software","Software Failures and Computer Limits","software safety · overflow · timing"],["bp_j_bank","Silicon Valley Bank and Bank Runs","banking · deposits · liquidity"],["bp_j_capture","Regulated Electric Utilities","regulation · utility rates · public choice"],["bp_j_convict","Wrongful Convictions and Exoneration","criminal evidence · exoneration · due process"],["bp_j_fraud","Corporate Accounting Fraud by the Numbers","accounting · market value · fraud"],["bp_j_press","News Organizations and Verification Scale","journalism · verification · global news"],["bp_j_trust","Monopoly and Antitrust Scale","antitrust · market power · concentration"],["bp_j_vote","The Scale of a U.S. Presidential Election","elections · turnout · administration"],["bp_c_arch","Archaeology and Scientific Dating","archaeology · radiocarbon · excavation"],["bp_c_art","Artworks, Images, and Authentication","art history · imaging · conservation"],["bp_c_doping","Cycling and Anti-Doping by the Numbers","sports science · cycling · anti-doping"],["bp_c_fall","The Roman Empire by the Numbers","history · infrastructure · empire"],["bp_c_fraud","Scientific Fraud and Reproducibility","research integrity · replication · statistics"],["bp_c_psych","Classic Psychology Experiments by the Numbers","psychology · conformity · replication"],["bp_c_script","Deciphering Ancient Scripts","linguistics · inscriptions · decipherment"],["bp_gmtroy","Troy, Homer, and the Bronze Age","Troy · Homer · archaeology"]]},"Science Tank":{"link":"sciencetank.html#","fileLink":false,"cases":[["electric-futures","Electric Futures","Tesla, Edison, Bell"],["digital-office","Digital Office","Storage, PARC, Mouse"],["internet-foundations","Internet Foundations","Web, Crypto, Databases"],["machine-media","Machine Media","AI, Imaging, Audio"],["synthetic-materials","Synthetic Materials","Dyes, Plastics, Polymers"],["energy-materials","Energy Materials","Glass, Batteries, Solar"],["early-medicine","Early Medicine","Chemotherapy, Anesthesia, Antibiotics"],["drug-discovery","Drug Discovery","Statins, Cancer, Pharmacology"],["dna-revolution","DNA Revolution","CRISPR, Sequencing, PCR"],["biotech-origins","Biotech Origins","Fluorescence, Insulin, Microbes"],["feeding-billions","Feeding Billions","Nitrogen, Wheat, Irrigation"],["crop-protection","Crop Protection","Insects, Genomes, Preservation"],["watching-earth","Watching Earth","GPS, Satellites, Weather"],["earth-and-space","Earth and Space","Tectonics, Optics, Communications"],["flight-revolution","Flight Revolution","Wings, Jets, Engines"],["scale-and-systems","Scale and Systems","Nuclear, Cargo, Power"],["evidence-decisions","Evidence and Decisions","Cholera, Behavior, Forensics"],["undersea-systems","Undersea Systems","Detection, Propulsion, Navigation"],["seeing-inside","Seeing Inside","Tomography, Isotopes, Endoscopy"],["vaccine-strategies","Vaccine Strategies","Polio, Hepatitis, Pandemic"],["aviation-ambitions","Aviation Ambitions","Atlantic, Supersonic, Vertical"],["format-wars","Format Wars","Video, Audio, HD"],["handheld-computing","Handheld Computing","PDAs, Readers, Tablets"],["moon-and-rockets","Moon and Rockets","Apollo, Shuttle, Reuse"],["cleaning-the-atmosphere","Cleaning the Atmosphere","Emissions, Refrigerants, Sulfur"],["robots-at-work","Robots at Work","Factories, Warehouses, Driving"],["building-upward","Building Upward","Elevators, Bridges, Concrete"],["switching-and-signals","Switching and Signals","Switching, Cellular, Messaging"],["food-futures","Food Futures","Freezing, Sweeteners, Protein"],["advanced-materials","Advanced Materials","Turbines, Composites, Printing"],["precision-instruments","Precision Instruments","Microscopy, Time, Detectors"],["trust-and-screening","Trust and Screening","Biometrics, Airports, Currency"]]}};
-/* Minimalist daily hub: per game -> See today's info / Play now / Archive,
-   plus a My stats section. Client-side date math over each game's case list. */
+/* Daily hub: per game -> logo + description + today's puzzle (Play / Archive) +
+   My stats. Client-side date math over each game's case list. */
 const ORDER = ["Casebook", "Diagnosis", "Sequence", "Ballpark", "Science Tank"];
-const DESC = {
-  "Casebook": "A Clue-style deduction — from three scientists' readings, settle who, where, and what really happened.",
-  "Diagnosis": "Enter a real instrumented system and find the cause that fits the entire panel.",
-  "Sequence": "Reconstruct how a system, procedure, or event actually unfolds, step by step.",
-  "Ballpark": "Estimate a hard “how many / how much” quantity by placing real numbers into named factors.",
-  "Science Tank": "Invest across three concealed historical innovations; the reveal separates what paid off from what changed the world without paying at all.",
+const ICON = {
+  // magnifier — deduction
+  "Casebook": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l6 6"/></svg>`,
+  // gauge — instrument panel
+  "Diagnosis": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3.5 16a8.5 8.5 0 0 1 17 0"/><path d="M12 16l4.5-5.5"/><circle cx="12" cy="16" r="1.3" fill="currentColor" stroke="none"/></svg>`,
+  // connected steps — ordering
+  "Sequence": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="6" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="18" r="2"/><path d="M6.6 7.4 10.4 10.6M13.6 13.4 17.4 16.6"/></svg>`,
+  // bars — estimation
+  "Ballpark": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h16"/><path d="M7 20v-6M12 20v-10M17 20v-4"/></svg>`,
+  // lightbulb — innovation bets
+  "Science Tank": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 18h5M10.5 21h3"/><path d="M12 3a6 6 0 0 0-3.8 10.6c.7.6 1.3 1.3 1.3 2.4h5c0-1.1.6-1.8 1.3-2.4A6 6 0 0 0 12 3z"/></svg>`,
 };
-const START = Date.UTC(2026, 6, 1);   // Day 1 = 2026-07-01
+const DESC = {
+  "Casebook": "A Clue-style deduction game. Three scientists each give you a reading; from their combined evidence you settle who did it, where it happened, and what really occurred — rejecting both the sensational story and the do-nothing one.",
+  "Diagnosis": "Step into a real instrumented system — a spacecraft, a reactor, a data center — and read the whole panel of gauges to find the one fault that fits every reading, not just the loudest alarm.",
+  "Sequence": "Reconstruct how a real system, procedure, or event actually unfolds, step by step — putting the stages in the order that the physics, biology, or process truly demands.",
+  "Ballpark": "Estimate a hard “how many / how much” quantity by placing real, sourced numbers into named factors — Fermi-style reasoning with the actual figures.",
+  "Science Tank": "Invest across three concealed historical innovations. The reveal separates what paid off from what quietly changed the world without ever paying its backers.",
+};
+const START = Date.UTC(2026, 6, 1);
 const DAY = 86400000;
 function dayIndex() { return Math.floor((Date.now() - START) / DAY); }
 function mod(n, m) { return ((n % m) + m) % m; }
@@ -101,16 +119,19 @@ function renderDaily() {
       const c = g.cases[mod(di - k, N)];
       arch += `<a class="row arch-row" href="${caseLink(g, c)}"><span class="t">${esc(c[1])}</span><span class="go">${fmtDate(Date.now() - k * DAY)}</span></a>`;
     }
-    const science = today[2] ? `<p class="sci"><b>Science area:</b> ${esc(today[2])}</p>` : "";
+    const science = today[2] ? `<div class="ts">${esc(today[2])}</div>` : "";
     html += `<section class="game">
-      <div class="ghead"><h2>${name}</h2></div>
-      <div class="today-line">Today · <b>${esc(today[1])}</b></div>
-      <div class="controls">
-        <button class="btn ghost" data-t="info">See today's info</button>
-        <a class="btn primary" href="${caseLink(g, today)}">Play now →</a>
-        <button class="btn ghost" data-t="arch">Archive</button>
+      <div class="ghead"><span class="mono">${ICON[name] || ""}</span><h2>${name}</h2></div>
+      <p class="desc">${esc(DESC[name] || "")}</p>
+      <div class="today">
+        <div class="tk">Today's puzzle</div>
+        <div class="tt">${esc(today[1])}</div>
+        ${science}
+        <div class="controls">
+          <a class="btn primary" href="${caseLink(g, today)}">Play now →</a>
+          <button class="btn ghost" data-t="arch">Archive</button>
+        </div>
       </div>
-      <div class="panel info" hidden><p>${esc(DESC[name] || "")}</p>${science}</div>
       <div class="panel arch" hidden>${arch}</div>
     </section>`;
   }
@@ -119,12 +140,10 @@ function renderDaily() {
   root.addEventListener("click", (e) => {
     const b = e.target.closest("button[data-t]");
     if (!b) return;
-    const sec = b.closest("section");
-    const panel = sec.querySelector(".panel." + b.dataset.t);
+    const panel = b.closest(".today").parentElement.querySelector(".panel.arch");
     const opening = panel.hasAttribute("hidden");
     if (opening) panel.removeAttribute("hidden"); else panel.setAttribute("hidden", "");
-    if (b.dataset.t === "info") b.textContent = opening ? "Hide info" : "See today's info";
-    else b.textContent = opening ? "Hide archive" : "Archive";
+    b.textContent = opening ? "Hide archive" : "Archive";
   });
 }
 
