@@ -94,7 +94,7 @@ function goHome(){
  renderHome();
 }
 function chooseGame(id){
- current=GAMES.find(g=>g.id===id);resetGame();
+ current=GAMES.find(g=>g.id===id);try{if(current)reckonStart(current.id)}catch(e){};resetGame();
  document.getElementById('patch').textContent=current.icon;
  document.getElementById('brandTitle').textContent=current.title;
  document.getElementById('brandSub').textContent=current.discipline;
@@ -249,13 +249,13 @@ function checkAnswer(){
 function solutionMarkup(){
  return `<div class="chapter-stack"><div class="intro-panel"><div class="intro-icon">↓</div><div><strong>Starting situation</strong>${current.intro}</div></div>${current.chapterOrder.map((id,i)=>{const c=chapterById(id);return `<section class="solution-chapter"><h3>Chapter ${i+1}</h3><div class="solution-cards">${c.cards.map((card,j)=>`<div class="solution-card"><span>${j+1}</span>${card[1]}</div>`).join('')}</div></section>${i<2?`<div class="segue"><div class="segue-icon">↧</div><div><strong>Chapter transition</strong>${current.segues[i]}</div></div>`:''}`}).join('')}</div>`;
 }
-function renderSolved(){
+function renderSolved(){try{reckonReport({game:'Sequence',gameId:current&&current.id,gameTitle:current&&current.title,won:true});}catch(e){}
  app.innerHTML=`<section class="panel game"><div class="gamehead"><div><div class="kicker">All three chapters complete</div><h2>${current.title}</h2><p>You solved the four-event sequences and the order of the three larger chapters within the three-check limit.</p></div><div class="stage">${attempts} of 3 checks used</div></div>
  <div class="feedback show good"><strong>Correct.</strong> All twelve events and both chapter transitions are in place.</div>
  ${solutionMarkup()}
  <div class="controls"><button class="btn primary" onclick="resetGame();renderPlay()">Play again</button><button class="btn" onclick="goHome()">Choose another game</button></div></section>`;
 }
-function renderLost(){
+function renderLost(){try{reckonReport({game:'Sequence',gameId:current&&current.id,gameTitle:current&&current.title,won:false});}catch(e){}
  app.innerHTML=`<section class="panel game"><div class="gamehead"><div><div class="kicker">Three-check limit reached</div><h2>${current.title}</h2><p>The third check did not complete both levels of the puzzle. The correct chapter and card order is shown below.</p></div><div class="stage">3 of 3 checks used</div></div>
  <div class="feedback show lose"><strong>Not solved in three tries.</strong> Study how each four-event chain leads into the bridge passage beneath it.</div>
  ${solutionMarkup()}
@@ -265,5 +265,6 @@ function bootFromHash(){var id=decodeURIComponent((location.hash||"").replace(/^
 bootFromHash();
 window.addEventListener("hashchange",bootFromHash);
 </script>
+<script src="reckon-results.js"></script>
 </body>
 </html>
