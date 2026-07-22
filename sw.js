@@ -1,66 +1,26 @@
-/* RECKON service worker.
-   NETWORK-FIRST for pages/HTML so content updates always show; falls back to
-   cache only when offline. Static icons are cache-first. Bumping CACHE purges
-   every older cache on activate — do this whenever behavior must refresh. */
-const CACHE = 'reckon-v3';
-const ASSETS = [
-  './',
-  './casebook.html',
-  './manifest.webmanifest',
-  './icon-180.png',
-  './icon-192.png',
-  './icon-512.png'
-];
+/* RECKON — self-retiring service worker.
+   The old offline cache kept serving stale pages after updates. This version
+   installs, deletes every cache, and UNREGISTERS itself, so browsers that had
+   the old worker are cleaned up automatically and thereafter always load fresh
+   from the network. No page re-registers a worker, so it does not come back. */
+self.addEventListener('install', () => self.skipWaiting());
 
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE)
-      .then(c => Promise.allSettled(ASSETS.map(a => c.add(a))))
-      .then(() => self.skipWaiting())
-  );
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    try {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    } catch (_) {}
+    try { await self.registration.unregister(); } catch (_) {}
+    try {
+      const clients = await self.clients.matchAll({ type: 'window' });
+      clients.forEach(c => { try { c.navigate(c.url); } catch (_) {} });
+    } catch (_) {}
+  })());
 });
 
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
-});
-
-function isHTML(req) {
-  return req.mode === 'navigate' ||
-    (req.headers.get('accept') || '').includes('text/html');
-}
-
-self.addEventListener('fetch', e => {
-  const req = e.request;
-  if (req.method !== 'GET') return;
-
-  // Pages/HTML: network-first (fresh content), cache as fallback when offline.
-  if (isHTML(req)) {
-    e.respondWith(
-      fetch(req)
-        .then(res => {
-          const copy = res.clone();
-          caches.open(CACHE).then(c => { try { c.put(req, copy); } catch (_) {} });
-          return res;
-        })
-        .catch(() => caches.match(req, { ignoreSearch: true })
-          .then(hit => hit || caches.match('./casebook.html')))
-    );
-    return;
-  }
-
-  // Everything else (icons, manifest): cache-first, fill cache on first fetch.
-  e.respondWith(
-    caches.match(req, { ignoreSearch: true }).then(hit => {
-      if (hit) return hit;
-      return fetch(req).then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => { try { c.put(req, copy); } catch (_) {} });
-        return res;
-      });
-    })
-  );
+// While this worker is briefly active, never serve from cache — always network.
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+  event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
 });
