@@ -68,6 +68,15 @@
   a.row .t{flex:1;font-size:14px}
   a.row .go{font-family:var(--sans);font-size:11.5px;color:var(--muted);white-space:nowrap}
   a.row:hover .go{color:var(--accent)}
+  .levelbar{border:1px solid var(--hair);border-left:3px solid var(--accent);padding:14px 16px;margin:0 0 20px;background:#fff}
+  .levelhead{display:flex;align-items:center;gap:13px}
+  .lvlemoji{font-size:30px;line-height:1;flex:none}
+  .lvlname{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.05}
+  .lvlsub{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:3px}
+  .lvlscore{margin-left:auto;font-family:var(--serif);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+  .lvlscore span{font-family:var(--sans);font-size:11px;font-weight:400;color:var(--muted);margin-left:3px}
+  .lvltrack{height:7px;border-radius:999px;background:var(--chip,#f4f4f1);margin-top:12px;overflow:hidden}
+  .lvltrack span{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .5s ease}
   .statsgrid{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 20px}
   .statcard{flex:1;min-width:120px;border:1px solid var(--hair);border-top:3px solid var(--accent);padding:13px 16px}
   .statcard .n{font-family:var(--serif);font-size:32px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
@@ -179,17 +188,49 @@ async function renderStats() {
   if (!s) { el.innerHTML = avatarProfileHTML() + `<p class="muted"><a href="/api/login">Sign in</a> to track your streak and stats across every game.</p>`; return; }
   const st = s.streak || {};
   const total = (s.results || []).length;
+  const lvl = playerLevel(s);
+  const levelbar = `<div class="levelbar">
+    <div class="levelhead"><span class="lvlemoji">${lvl.emoji}</span><div><div class="lvlname">${lvl.name}</div><div class="lvlsub">${lvl.next ? `${lvl.toNext} to ${lvl.next}` : "Top rank reached"}</div></div><div class="lvlscore">${lvl.score}<span>pts</span></div></div>
+    <div class="lvltrack"><span style="width:${lvl.pct}%"></span></div>
+  </div>`;
   const grid = `<div class="statsgrid">
     <div class="statcard"><div class="n">${st.currentStreak || 0}</div><div class="l">Current streak</div></div>
     <div class="statcard"><div class="n">${st.longestStreak || 0}</div><div class="l">Longest streak</div></div>
     <div class="statcard"><div class="n">${total}</div><div class="l">Games finished</div></div>
     <div class="statcard"><div class="n">${s.wins || 0}</div><div class="l">Wins</div></div>
   </div>`;
-  const rows = (s.byGame || []).map(b => `<tr><td>${esc(b.game)}</td><td>${b.played}</td><td>${b.wins}</td><td>${b.avgScore == null ? "—" : b.avgScore}</td></tr>`).join("");
-  const table = rows
-    ? `<table class="stbl"><thead><tr><th>Game</th><th>Finished</th><th>Wins</th><th>Avg score</th></tr></thead><tbody>${rows}</tbody></table>`
-    : `<p class="muted">Finish a game and your stats will appear here.</p>`;
-  el.innerHTML = avatarProfileHTML() + grid + table;
+  // Per-game breakdown: always show all five games, filling zeros until played.
+  const byGame = {}; for (const b of (s.byGame || [])) byGame[b.game] = b;
+  const rows = ORDER.map(name => {
+    const b = byGame[name] || { played: 0, wins: 0, avgScore: null };
+    const wr = b.played ? Math.round((b.wins / b.played) * 100) + "%" : "—";
+    return `<tr><td>${esc(name)}</td><td>${b.played}</td><td>${b.wins}</td><td>${wr}</td><td>${b.avgScore == null ? "—" : b.avgScore}</td></tr>`;
+  }).join("");
+  const table = `<div class="sectionhead" style="font-size:15px;margin:26px 0 10px">Per-game breakdown</div>
+    <table class="stbl"><thead><tr><th>Game</th><th>Finished</th><th>Wins</th><th>Win rate</th><th>Avg score</th></tr></thead><tbody>${rows}</tbody></table>`;
+  el.innerHTML = avatarProfileHTML() + levelbar + grid + table;
+}
+
+// Player level from performance. Points reward wins, consistency, and volume;
+// tiers are named so progress feels tangible even early on.
+function playerLevel(s) {
+  const wins = s.wins || 0;
+  const played = (s.results || []).length;
+  const longest = (s.streak && s.streak.longestStreak) || 0;
+  const score = wins * 10 + played * 2 + longest * 5;
+  const TIERS = [
+    { name: "Rookie",       min: 0,   emoji: "🌱" },
+    { name: "Novice",       min: 15,  emoji: "🔎" },
+    { name: "Investigator", min: 40,  emoji: "🕵️" },
+    { name: "Analyst",      min: 90,  emoji: "📊" },
+    { name: "Expert",       min: 170, emoji: "⭐" },
+    { name: "Master",       min: 300, emoji: "🏅" },
+    { name: "Genius",       min: 500, emoji: "🧠" },
+  ];
+  let i = 0; for (let k = 0; k < TIERS.length; k++) if (score >= TIERS[k].min) i = k;
+  const cur = TIERS[i], next = TIERS[i + 1] || null;
+  const pct = next ? Math.round(((score - cur.min) / (next.min - cur.min)) * 100) : 100;
+  return { name: cur.name, emoji: cur.emoji, score, next: next ? next.name : null, toNext: next ? next.min - score : 0, pct };
 }
 
 /* ---------- Investigator portrait (character.html) ---------- */
