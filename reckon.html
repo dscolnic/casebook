@@ -59,6 +59,13 @@
   footer{color:var(--muted);font-size:14px;margin-top:44px;font-family:var(--sans);line-height:1.6}
   @media (max-width:620px){ h1{font-size:32px} body{font-size:16px}
     a.row .dom{display:none} .skills{grid-template-columns:1fr 1fr} }
+  .daily section{margin:32px 0 0}
+  .today .t b{color:var(--accent);font-family:var(--sans);font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-right:5px}
+  .arch-toggle{font-family:var(--sans);font-size:12px;letter-spacing:.5px;color:var(--muted);background:none;border:0;padding:9px 2px;cursor:pointer}
+  .arch-toggle:hover{color:var(--accent)}
+  .arch{border-left:2px solid var(--hair);margin:0 0 0 1px;padding-left:12px}
+  .arch-row .t{font-weight:400;font-size:15px}
+  .arch-row .go{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -80,89 +87,7 @@
     <div class="skill"><div class="n">Sonar Trail</div><div class="d">Like Oregon Trail, but every decision is based on understanding.</div></div>
   </div>
 
-  <!-- CASEBOOK -->
-  <section>
-    <div class="ghead"><h2>Casebook</h2></div>
-<a class="row" href="casebook.html"><span class="t">Casebook — today’s case + two-week archive</span><span class="dom">Daily deduction</span><span class="go">Play →</span></a>
-    
-  </section>
-
-  <!-- DIAGNOSIS -->
-  <section>
-    <div class="ghead"><h2>Diagnosis</h2></div>
-    <a class="row" href="diagnosis/satpower_playable.html"><span class="t">Power Margin — spacecraft electrical power</span><span class="dom">Space power</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/bridge_playable.html"><span class="t">Span Watch — bridge monitoring</span><span class="dom">Structures · SHM</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/telescope_playable.html"><span class="t">Image Quality — astronomical observatory</span><span class="dom">Electro-optic sensing</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/datacenter_playable.html"><span class="t">Thermal Margin — data-center cooling</span><span class="dom">Thermal · computing</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/rail_playable.html"><span class="t">Signal Integrity — railway signaling</span><span class="dom">Control · signal integrity</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/wildfire_playable.html"><span class="t">Fireline Signal — wildfire monitoring</span><span class="dom">Distributed sensing</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/bioreactor_playable.html"><span class="t">Living Process — industrial fermentation</span><span class="dom">Biotechnology</span><span class="go">Play →</span></a>
-  </section>
-
-  <!-- SEQUENCE -->
-  <section>
-    <div class="ghead"><h2>Sequence</h2></div>
-    <a class="row" href="sequence.html#ins"><span class="t">Finding Position Without GPS</span><span class="dom">Precision navigation</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#ctd"><span class="t">Reading the Water Column</span><span class="dom">Oceanography · sensors</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#swarm"><span class="t">Many Robots, One Search</span><span class="dom">Autonomy · multi-agent</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#cyber"><span class="t">Detect, Isolate, Recover</span><span class="dom">Cyber resilience</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#corrosion"><span class="t">Stopping the Sea from Eating Steel</span><span class="dom">Materials · sustainment</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#assimilation"><span class="t">From Ocean Sensor to Better Forecast</span><span class="dom">Ocean prediction</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#power"><span class="t">Holding the Electrical Bus</span><span class="dom">Naval power & controls</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#spaceweather"><span class="t">When the Sun Disturbs the Link</span><span class="dom">Space weather · comms</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#heat"><span class="t">Heat on the Flight Deck</span><span class="dom">Human performance</span><span class="go">Play →</span></a>
-  </section>
-
-  <!-- BALLPARK -->
-  <section>
-    <div class="ghead"><h2>Ballpark</h2></div>
-    <a class="row" href="ballpark.html#bp_m_sub"><span class="t">The Real Scale of the Deep Ocean</span><span class="dom">Deep ocean · sonar</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_e_quake"><span class="t">Earthquakes: Rupture, Energy, and Signals</span><span class="dom">Seismology · signals</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_e_tsunami"><span class="t">Tsunamis Across the Ocean</span><span class="dom">Oceanography</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_m_heli"><span class="t">UH-60 Black Hawk Flight Scale</span><span class="dom">Rotorcraft</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_rocket"><span class="t">Saturn V and Apollo 11</span><span class="dom">Propulsion · spaceflight</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_reactor"><span class="t">Nuclear Reactor Power and Decay Heat</span><span class="dom">Nuclear power</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_f_crypto"><span class="t">Cryptography: Keys, Blocks, and Brute Force</span><span class="dom">Cryptography</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_f_ai"><span class="t">Large Language Models by the Numbers</span><span class="dom">AI / ML</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_t_battery"><span class="t">Grid Batteries and Stored Energy</span><span class="dom">Power & energy</span><span class="go">Play →</span></a>
-  </section>
-
-  <!-- SCIENCE TANK -->
-  <section>
-    <div class="ghead"><h2>Science Tank</h2></div>
-    <a class="row" href="sciencetank.html#electric-futures"><span class="t">Electric Futures</span><span class="dom">Electricity & power</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#digital-office"><span class="t">Digital Office</span><span class="dom">Computing</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#internet-foundations"><span class="t">Internet Foundations</span><span class="dom">Networks</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#machine-media"><span class="t">Machine Media</span><span class="dom">Media & signals</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#synthetic-materials"><span class="t">Synthetic Materials</span><span class="dom">Polymers · materials</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#energy-materials"><span class="t">Energy Materials</span><span class="dom">Energy storage</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#early-medicine"><span class="t">Early Medicine</span><span class="dom">Medicine</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#drug-discovery"><span class="t">Drug Discovery</span><span class="dom">Pharmacology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#dna-revolution"><span class="t">DNA Revolution</span><span class="dom">Molecular biology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#biotech-origins"><span class="t">Biotech Origins</span><span class="dom">Biotechnology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#feeding-billions"><span class="t">Feeding Billions</span><span class="dom">Agriculture</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#crop-protection"><span class="t">Crop Protection</span><span class="dom">Agriculture · chemistry</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#watching-earth"><span class="t">Watching Earth</span><span class="dom">Earth observation</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#earth-and-space"><span class="t">Earth and Space</span><span class="dom">Earth & space</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#flight-revolution"><span class="t">Flight Revolution</span><span class="dom">Aeronautics</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#scale-and-systems"><span class="t">Scale and Systems</span><span class="dom">Engineering scale</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#evidence-decisions"><span class="t">Evidence and Decisions</span><span class="dom">Decision science</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#undersea-systems"><span class="t">Undersea Systems</span><span class="dom">Undersea systems</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#seeing-inside"><span class="t">Seeing Inside</span><span class="dom">Medical imaging</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#vaccine-strategies"><span class="t">Vaccine Strategies</span><span class="dom">Vaccines</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#aviation-ambitions"><span class="t">Aviation Ambitions</span><span class="dom">Aviation</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#format-wars"><span class="t">Format Wars</span><span class="dom">Consumer media</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#handheld-computing"><span class="t">Handheld Computing</span><span class="dom">Mobile computing</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#moon-and-rockets"><span class="t">Moon and Rockets</span><span class="dom">Spaceflight</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#cleaning-the-atmosphere"><span class="t">Cleaning the Atmosphere</span><span class="dom">Atmosphere · emissions</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#robots-at-work"><span class="t">Robots at Work</span><span class="dom">Robotics · automation</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#building-upward"><span class="t">Building Upward</span><span class="dom">Civil engineering</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#switching-and-signals"><span class="t">Switching and Signals</span><span class="dom">Telecom</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#food-futures"><span class="t">Food Futures</span><span class="dom">Food technology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#advanced-materials"><span class="t">Advanced Materials</span><span class="dom">Advanced materials</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#precision-instruments"><span class="t">Precision Instruments</span><span class="dom">Precision instruments</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#trust-and-screening"><span class="t">Trust and Screening</span><span class="dom">Security · screening</span><span class="go">Play →</span></a>
-  </section>
+  <div id="daily" class="daily"></div>
 
   <div class="thrusts">
     <h3>ONR technical areas represented across these topics</h3>
@@ -186,5 +111,40 @@
   </div>
 
 </div>
+<script>
+const GAMES = {"Ballpark":{"link":"ballpark.html#","fileLink":false,"cases":[["bp_e_asteroid","Asteroids and Planetary Defense"],["bp_e_avalanche","Avalanches: Speed, Rescue, and Scale"],["bp_e_flood","Floods and Moving Water"],["bp_e_quake","Earthquakes: Rupture, Energy, and Signals"],["bp_e_storm","Hurricanes: Wind, Rain, and Surge"],["bp_e_tsunami","Tsunamis Across the Ocean"],["bp_e_wildfire","Wildfire Scale and Firefighting"],["bp_dam","Hoover Dam and Lake Mead"],["bp_m_adas","Autonomous Vehicles and Sensors"],["bp_m_bridge","Golden Gate Bridge by the Numbers"],["bp_m_heli","UH-60 Black Hawk Flight Scale"],["bp_m_railx","High-Capacity Railway Signalling"],["bp_m_rig","Deepwater Drilling and the Gulf Spill"],["bp_m_stadium","Wembley Stadium: Structure and Crowds"],["bp_m_sub","The Real Scale of the Deep Ocean"],["bp_m_tailings","The Brumadinho Tailings Disaster"],["bp_m_tunnel","The Channel Tunnel by the Numbers"],["bp_marine","RMS Titanic: Ship Scale and Buoyancy"],["bp_rail","Fast Trains and Rail Capacity"],["bp_rocket","Saturn V and Apollo 11"],["bp_tower","Burj Khalifa by the Numbers"],["bp_blackout","The 2003 Northeast Blackout"],["bp_chemplant","Chemical Plants and Toxic Releases"],["bp_reactor","Nuclear Reactor Power and Decay Heat"],["bp_t_battery","Grid Batteries and Stored Energy"],["bp_t_dust","Combustible Dust: Thin Layers, Large Hazards"],["bp_t_pipeline","The Keystone Pipeline by the Numbers"],["bp_t_refinery","Oil Refineries and Daily Throughput"],["bp_t_transformer","Large Power Transformers"],["bp_t_wind","The Haliade-X Offshore Wind Turbine"],["bp_t_oncology","Radiation Therapy and Dose"],["bp_w_anes","Anesthesia: Drugs, Oxygen, and Monitoring"],["bp_w_blood","Blood Donation and Transfusion"],["bp_w_compound","Sterile Compounding and Clean Rooms"],["bp_w_hai","Healthcare-Associated Infections"],["bp_w_surg","Surgery and Patient Safety"],["bp_w_trial","Clinical Trials by the Numbers"],["bp_w_water","Drinking Water: Supply and Lead"],["bp_f_ai","Large Language Models by the Numbers"],["bp_f_breach","Major Data Breaches by the Numbers"],["bp_f_crypto","Cryptography: Keys, Blocks, and Brute Force"],["bp_f_firmware","Embedded Computers: Apollo to Arduino"],["bp_f_netout","Internet Scale, Addresses, and Latency"],["bp_f_privacy","Privacy Lessons from Real Data Sets"],["bp_f_robot","Mobile Robots at Work"],["bp_software","Software Failures and Computer Limits"],["bp_j_bank","Silicon Valley Bank and Bank Runs"],["bp_j_capture","Regulated Electric Utilities"],["bp_j_convict","Wrongful Convictions and Exoneration"],["bp_j_fraud","Corporate Accounting Fraud by the Numbers"],["bp_j_press","News Organizations and Verification Scale"],["bp_j_trust","Monopoly and Antitrust Scale"],["bp_j_vote","The Scale of a U.S. Presidential Election"],["bp_c_arch","Archaeology and Scientific Dating"],["bp_c_art","Artworks, Images, and Authentication"],["bp_c_doping","Cycling and Anti-Doping by the Numbers"],["bp_c_fall","The Roman Empire by the Numbers"],["bp_c_fraud","Scientific Fraud and Reproducibility"],["bp_c_psych","Classic Psychology Experiments by the Numbers"],["bp_c_script","Deciphering Ancient Scripts"],["bp_gmtroy","Troy, Homer, and the Bronze Age"]]},"Sequence":{"link":"sequence.html#","fileLink":false,"cases":[["wound","The Cut That Closes"],["star","A Star Like the Sun"],["web","The First Visit to a Secure Website"],["law","A Federal Civil Case"],["cuba","Thirteen Days in October"],["rocket","Two Stages to Orbit"],["soap","How Soap Carries Grease Away"],["lake","From Fertilizer to a Dead Zone"],["tsunami","From Locked Fault to Coastal Flood"],["payment","What Happens After You Tap"],["infrared","Seeing Heat"],["ins","Finding Position Without GPS"],["ctd","Reading the Water Column"],["power","Holding the Electrical Bus"],["corrosion","Stopping the Sea from Eating Steel"],["swarm","Many Robots, One Search"],["cyber","Detect, Isolate, Recover"],["heat","Heat on the Flight Deck"],["assimilation","From Ocean Sensor to Better Forecast"],["spaceweather","When the Sun Disturbs the Link"]]},"Science Tank":{"link":"sciencetank.html#","fileLink":false,"cases":[["electric-futures","Electric Futures"],["digital-office","Digital Office"],["internet-foundations","Internet Foundations"],["machine-media","Machine Media"],["synthetic-materials","Synthetic Materials"],["energy-materials","Energy Materials"],["early-medicine","Early Medicine"],["drug-discovery","Drug Discovery"],["dna-revolution","DNA Revolution"],["biotech-origins","Biotech Origins"],["feeding-billions","Feeding Billions"],["crop-protection","Crop Protection"],["watching-earth","Watching Earth"],["earth-and-space","Earth and Space"],["flight-revolution","Flight Revolution"],["scale-and-systems","Scale and Systems"],["evidence-decisions","Evidence and Decisions"],["undersea-systems","Undersea Systems"],["seeing-inside","Seeing Inside"],["vaccine-strategies","Vaccine Strategies"],["aviation-ambitions","Aviation Ambitions"],["format-wars","Format Wars"],["handheld-computing","Handheld Computing"],["moon-and-rockets","Moon and Rockets"],["cleaning-the-atmosphere","Cleaning the Atmosphere"],["robots-at-work","Robots at Work"],["building-upward","Building Upward"],["switching-and-signals","Switching and Signals"],["food-futures","Food Futures"],["advanced-materials","Advanced Materials"],["precision-instruments","Precision Instruments"],["trust-and-screening","Trust and Screening"]]},"Diagnosis":{"link":"diagnosis/","fileLink":true,"cases":[["bioreactor","Living Process","bioreactor_playable.html"],["bridge","Span Watch","bridge_playable.html"],["coldchain","Cold Chain","coldchain_playable.html"],["crop","Field Stress","crop_playable.html"],["datacenter","Thermal Margin","datacenter_playable.html"],["rail","Signal Integrity","rail_playable.html"],["satpower","Power Margin","satpower_playable.html"],["telescope","Image Quality","telescope_playable.html"],["water","Clear Water","water_playable.html"],["wildfire","Fireline Signal","wildfire_playable.html"]]},"Casebook":{"link":"casebook_static.html#","fileLink":false,"cases":[["m_bridge","The Halloway Span"],["m_stadium","The Coronet Arena Roof"],["m_tunnel","The Kingsgate Bore"],["m_tailings","The Serra Verde Tailings Dam"],["m_sub","The Carrow Deep Implosion"],["m_rig","The Deepwater Meridian"],["m_heli","The Ridgeline Rotor"],["t_wind","The Fenmark Turbine Collapse"],["m_adas","The Autopilot on Vane Street"],["m_railx","The Marsh Lane Crossing"],["t_pipeline","The Brant Hollow Pipeline"],["t_transformer","The Aldergate Substation Fire"],["t_refinery","The Halden Refinery Fire"],["e_quake","Nine Seconds to Cordera"],["e_tsunami","The Sable Point Wave"],["e_storm","The Halloway Landfall"],["e_flood","The Rossmere Flood"],["e_asteroid","The Hollow Vale Impact"],["e_avalanche","The Whitewall Slide"],["e_wildfire","The Pinehaven Fire"],["w_water","The Tap"],["w_compound","The Compounding Room"],["w_surg","The Wrong Side"],["w_blood","The Crossmatch"],["f_crypto","The Cipher at Meridian Bank"],["f_privacy","The Beacon Consent Scandal"],["f_breach","The Halcyon Data Breach"],["f_netout","The Great Grey-Out"],["f_ai","The Aegis Model"],["f_firmware","The Halden Infusion Pump"],["f_robot","The Cell-9 Robot"],["j_press","The Ashford Dispatch"],["j_fraud","The Amberline Collapse"],["j_capture","The Halcyon Grid"],["c_arch","The Cranmoor Skull"],["c_art","The Halberstadt Panel"],["c_fall","The Last Council of Vellano"]]}};
+/* Daily dashboard: one shared rule picks "today" for every game, plus a
+   two-week archive. Client-side date math over each game's ordered case list. */
+const ORDER = ["Casebook", "Diagnosis", "Sequence", "Ballpark", "Science Tank"];
+const START = Date.UTC(2026, 6, 1);   // Day 1 = 2026-07-01
+const DAY = 86400000;
+function dayIndex() { return Math.floor((Date.now() - START) / DAY); }
+function mod(n, m) { return ((n % m) + m) % m; }
+function caseLink(g, c) { return g.fileLink ? g.link + c[2] : g.link + encodeURIComponent(c[0]); }
+function fmtDate(ts) { return new Date(ts).toLocaleDateString(undefined, { month: "short", day: "numeric" }); }
+function renderDaily() {
+  const di = dayIndex();
+  let html = "";
+  for (const name of ORDER) {
+    const g = GAMES[name];
+    if (!g || !g.cases.length) continue;
+    const N = g.cases.length;
+    const today = g.cases[mod(di, N)];
+    let arch = "";
+    for (let k = 1; k <= 14; k++) {
+      const c = g.cases[mod(di - k, N)];
+      arch += `<a class="row arch-row" href="${caseLink(g, c)}"><span class="t">${c[1]}</span><span class="go">${fmtDate(Date.now() - k * DAY)}</span></a>`;
+    }
+    html += `<section class="game-daily">
+      <div class="ghead"><h2>${name}</h2></div>
+      <a class="row today" href="${caseLink(g, today)}"><span class="t"><b>Today</b> · ${today[1]}</span><span class="dom">${name}</span><span class="go">Play →</span></a>
+      <button class="arch-toggle" aria-expanded="false" onclick="const a=this.nextElementSibling;const open=a.hasAttribute('hidden');if(open){a.removeAttribute('hidden')}else{a.setAttribute('hidden','')}this.setAttribute('aria-expanded',open);this.firstChild.textContent=open?'▾ Hide archive':'▸ Archive · last two weeks'"><span>▸ Archive · last two weeks</span></button>
+      <div class="arch" hidden>${arch}</div>
+    </section>`;
+  }
+  document.getElementById("daily").innerHTML = html;
+}
+renderDaily();
+</script>
 </body>
 </html>
