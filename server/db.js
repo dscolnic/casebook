@@ -35,11 +35,15 @@ CREATE TABLE IF NOT EXISTS game_results (
   days_used INTEGER,
   clues_gathered INTEGER,
   solve_seconds INTEGER,
+  game VARCHAR,
+  score INTEGER,
   played_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS idx_game_results_user ON game_results(user_id, played_at DESC);
 -- Migration for databases created before solve-time tracking (idempotent).
 ALTER TABLE game_results ADD COLUMN IF NOT EXISTS solve_seconds INTEGER;
+ALTER TABLE game_results ADD COLUMN IF NOT EXISTS game VARCHAR;
+ALTER TABLE game_results ADD COLUMN IF NOT EXISTS score INTEGER;
 
 CREATE TABLE IF NOT EXISTS user_streaks (
   user_id VARCHAR PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,

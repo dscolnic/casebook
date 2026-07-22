@@ -30,7 +30,7 @@ function toDateOnlyUTC(d) {
   return d.toISOString().slice(0, 10); // YYYY-MM-DD in UTC
 }
 
-async function recordResult(userId, { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds }) {
+async function recordResult(userId, { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds, game, score }) {
   if (!gameId || !gameTitle || !rank) {
     throw new Error("gameId, gameTitle, and rank are required");
   }
@@ -39,10 +39,10 @@ async function recordResult(userId, { gameId, gameTitle, rank, won, daysUsed, cl
     await client.query("BEGIN");
 
     const { rows: resultRows } = await client.query(
-      `INSERT INTO game_results (user_id, game_id, game_title, rank, won, days_used, clues_gathered, solve_seconds)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      `INSERT INTO game_results (user_id, game_id, game_title, rank, won, days_used, clues_gathered, solve_seconds, game, score)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
        RETURNING *`,
-      [userId, gameId, gameTitle, rank, !!won, daysUsed ?? null, cluesGathered ?? null, solveSeconds ?? null]
+      [userId, gameId, gameTitle, rank, !!won, daysUsed ?? null, cluesGathered ?? null, solveSeconds ?? null, game ?? null, score ?? null]
     );
 
     const streak = await updateStreak(client, userId);
@@ -119,6 +119,17 @@ async function getStats(userId) {
 
   // derived stats
   const wins = results.filter(r => r.won).length;
+  // Per-game summary (from the recent window) for a future stats board. The
+  // game_results table stores every finish uncapped, so a fuller board can
+  // query it directly later.
+  const byGameMap = {};
+  for (const r of results) {
+    const key = r.game || "Casebook";
+    const b = byGameMap[key] || (byGameMap[key] = { game: key, played: 0, wins: 0, _s: 0, _n: 0 });
+    b.played++; if (r.won) b.wins++;
+    if (r.score != null) { b._s += r.score; b._n++; }
+  }
+  const byGame = Object.values(byGameMap).map(b => ({ game: b.game, played: b.played, wins: b.wins, avgScore: b._n ? Math.round((b._s / b._n) * 10) / 10 : null }));
   const winRate = results.length > 0 ? Math.round((wins / results.length) * 100) : null;
   const wonWithDays = results.filter(r => r.won && r.days_used != null);
   const avgDaysUsed = wonWithDays.length > 0
@@ -164,6 +175,7 @@ async function getStats(userId) {
     avgSolveSeconds,
     avgClues,
     badges: BADGES,
+    byGame,
   };
 }
 

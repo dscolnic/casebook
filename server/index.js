@@ -52,8 +52,8 @@ async function main() {
   app.post("/api/results", isAuthenticated, async (req, res, next) => {
     try {
       const userId = req.user.claims.sub;
-      const { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds } = req.body || {};
-      const out = await recordResult(userId, { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds });
+      const { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds, game, score } = req.body || {};
+      const out = await recordResult(userId, { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds, game, score });
       res.json(out);
     } catch (err) {
       next(err);

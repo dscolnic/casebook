@@ -243,6 +243,7 @@ function startCase(idx){
       filedReadings:new Set(),
       credibility:100,
       lastFiled:null };
+  try{reckonStart(pack.id);}catch(e){}
   document.getElementById('homeBtn').style.display='';
   document.getElementById('cheatBtn').style.display=CHEATS?'':'none';
   document.getElementById('brandsub').textContent=pack.title;
@@ -560,6 +561,7 @@ function resolve(){
   const correctAll = a.who===tWho && a.what===tWhat && a.where===tWhere;
   const n=clueCount();
   const nameOf=(cat)=>{const it=p.CATS[cat].items.find(x=>x.id===a[cat]);return it?it.label:'?';};
+  try{reckonReport({game:'Casebook',gameId:p.id,gameTitle:p.title,won:correctAll,rank:correctAll?(n>=8?'EXPERT WITNESS':(n>=5?'SOUND, THIN':'NAMED')):'NOT SOLVED',cluesGathered:n,score:n});}catch(e){}
   let title, paras, band;
   if(correctAll){
     const tier = n>=8?'expert':(n>=5?'sound':'named');
@@ -617,5 +619,6 @@ function boot(){
 }
 boot();
 </script>
+<script src="reckon-results.js"></script>
 </body>
 </html>

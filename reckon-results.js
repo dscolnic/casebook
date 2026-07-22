@@ -40,6 +40,8 @@
       won: !!p.won,
       cluesGathered: p.cluesGathered != null ? p.cluesGathered : null,
       solveSeconds: p.solveSeconds != null ? p.solveSeconds : null,
+      game: p.game || null,
+      score: p.score != null ? p.score : null,
     };
     if (payload.solveSeconds == null && started[p.gameId] != null) {
       payload.solveSeconds = Math.max(0, Math.round((Date.now() - started[p.gameId]) / 1000));
