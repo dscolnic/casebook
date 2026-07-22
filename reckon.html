@@ -35,6 +35,10 @@
   .avatarmeta span{color:var(--muted);font-size:12px}
   .statsprofile{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:inherit;margin-bottom:20px}
   .statsprofile:hover .avatarmeta b{text-decoration:underline}
+  .statshead{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .statshead .statsprofile{margin-bottom:0}
+  .signout{font-family:var(--sans);font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px}
+  .signout:hover{background:var(--hover);color:var(--ink)}
   .hrow{display:flex;gap:11px;justify-content:flex-end}
   .hlogo{width:64px;height:64px;border-radius:15px;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:transform .18s ease}
   .hlogo svg{width:40px;height:40px;display:block}
@@ -208,7 +212,8 @@ async function renderStats() {
   }).join("");
   const table = `<div class="sectionhead" style="font-size:15px;margin:26px 0 10px">Per-game breakdown</div>
     <table class="stbl"><thead><tr><th>Game</th><th>Finished</th><th>Wins</th><th>Win rate</th><th>Avg score</th></tr></thead><tbody>${rows}</tbody></table>`;
-  el.innerHTML = avatarProfileHTML() + levelbar + grid + table;
+  const header = `<div class="statshead">${avatarProfileHTML()}<a class="signout" href="/sign-out.html">Sign out</a></div>`;
+  el.innerHTML = header + levelbar + grid + table;
 }
 
 // Player level from performance. Points reward wins, consistency, and volume;
