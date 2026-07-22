@@ -26,6 +26,19 @@ async function getUser(id) {
   return rows[0] || null;
 }
 
+async function getAvatar(userId) {
+  const { rows } = await pool.query(`SELECT avatar FROM users WHERE id = $1`, [userId]);
+  return rows[0] ? rows[0].avatar : null;
+}
+
+async function setAvatar(userId, avatar) {
+  await pool.query(
+    `UPDATE users SET avatar = $2, updated_at = now() WHERE id = $1`,
+    [userId, avatar == null ? null : JSON.stringify(avatar)]
+  );
+  return getAvatar(userId);
+}
+
 function toDateOnlyUTC(d) {
   return d.toISOString().slice(0, 10); // YYYY-MM-DD in UTC
 }
@@ -179,4 +192,4 @@ async function getStats(userId) {
   };
 }
 
-module.exports = { upsertUser, getUser, recordResult, getStats };
+module.exports = { upsertUser, getUser, recordResult, getStats, getAvatar, setAvatar };

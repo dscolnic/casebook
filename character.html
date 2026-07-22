@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investigator Builder</title>
+  
+  
+  <style>
+    :root{
+      --paper:#f7f5ef;
+      --panel:#ffffff;
+      --ink:#121212;
+      --muted:#66645f;
+      --line:#121212;
+      --soft-line:#d7d4cc;
+      --accent:#f4d35e;
+      --accent-dark:#d8b63d;
+      --selected:#121212;
+      --stage:#e7e4dc;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    button,select,input{font:inherit}
+    button,select{cursor:pointer}
+
+    body::before{
+      content:"CASEBOOK GAMES";
+      display:block;
+      width:min(1120px,calc(100% - 32px));
+      margin:0 auto;
+      padding:18px 0 14px;
+      border-bottom:4px solid var(--ink);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:25px;
+      font-weight:800;
+      letter-spacing:-.03em;
+      text-align:center;
+    }
+
+    .app{
+      width:min(1120px,calc(100% - 32px));
+      margin:24px auto 48px;
+      display:grid;
+      grid-template-columns:minmax(390px,1fr) minmax(380px,.92fr);
+      gap:28px;
+      align-items:start;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1.5px solid var(--ink);
+      border-radius:0;
+      box-shadow:none;
+      overflow:hidden;
+    }
+
+    .portrait-card{
+      display:flex;
+      flex-direction:column;
+      min-height:710px;
+      position:sticky;
+      top:18px;
+    }
+
+    .portrait-head{
+      padding:22px 24px 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      border-bottom:1.5px solid var(--ink);
+      background:#fff;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(30px,3vw,43px);
+      line-height:1;
+      letter-spacing:-.035em;
+    }
+
+    .eyebrow{
+      color:var(--ink);
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      margin-bottom:8px;
+    }
+
+    .subtitle{
+      max-width:560px;
+      margin:0;
+      color:var(--muted);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .badge{
+      flex:0 0 auto;
+      min-width:88px;
+      border:1.5px solid var(--ink);
+      border-radius:999px;
+      background:var(--accent);
+      color:var(--ink);
+      text-align:center;
+      padding:9px 12px;
+      font-size:10px;
+      font-weight:800;
+      line-height:1.25;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .portrait-stage{
+      position:relative;
+      flex:1;
+      min-height:520px;
+      display:grid;
+      place-items:end center;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(18,18,18,.035) 1px,transparent 1px),
+        linear-gradient(rgba(18,18,18,.035) 1px,transparent 1px),
+        var(--stage);
+      background-size:28px 28px;
+    }
+
+    .portrait-stage::before{
+      content:"";
+      position:absolute;
+      width:76%;
+      height:46%;
+      top:7%;
+      left:12%;
+      border:1.5px solid var(--ink);
+      background:#fbfaf6;
+      box-shadow:8px 8px 0 rgba(18,18,18,.08);
+    }
+
+    .portrait-stage::after{
+      content:"DAILY INVESTIGATOR PROFILE";
+      position:absolute;
+      top:10%;
+      left:50%;
+      transform:translateX(-50%);
+      width:max-content;
+      max-width:86%;
+      color:var(--ink);
+      letter-spacing:.13em;
+      font-size:10px;
+      font-weight:800;
+    }
+
+    #avatar{
+      position:relative;
+      z-index:2;
+      width:min(470px,95%);
+      height:auto;
+      filter:drop-shadow(0 10px 0 rgba(18,18,18,.08));
+      user-select:none;
+    }
+
+    .name-strip{
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      z-index:3;
+      min-width:240px;
+      padding:11px 14px 10px;
+      color:var(--ink);
+      background:var(--accent);
+      border:1.5px solid var(--ink);
+      box-shadow:5px 5px 0 var(--ink);
+    }
+
+    .name-strip strong{
+      display:block;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:20px;
+      line-height:1.1;
+    }
+
+    .name-strip span{
+      display:block;
+      margin-top:3px;
+      color:var(--ink);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .controls-card{padding:0 22px 24px}
+
+    .controls-head{
+      margin:0 -22px 18px;
+      padding:21px 22px 18px;
+      border-bottom:1.5px solid var(--ink);
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      align-items:center;
+      background:#fff;
+    }
+
+    .controls-head h2{
+      margin:0;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:29px;
+      letter-spacing:-.02em;
+    }
+
+    .controls-head p{
+      margin:5px 0 0;
+      color:var(--muted);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:13px;
+    }
+
+    .section{
+      margin:0;
+      padding:19px 0 20px;
+      border-bottom:1px solid var(--soft-line);
+    }
+
+    .section:last-of-type{border-bottom:0}
+
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+      color:var(--ink);
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    label.field{display:block}
+
+    .field span{
+      display:block;
+      margin-bottom:6px;
+      color:var(--ink);
+      font-size:12px;
+      font-weight:700;
+    }
+
+    input[type="text"],select{
+      width:100%;
+      height:42px;
+      padding:0 10px;
+      color:var(--ink);
+      background:#fff;
+      border:1.5px solid var(--ink);
+      border-radius:0;
+      outline:none;
+    }
+
+    input[type="text"]:focus,select:focus{
+      outline:3px solid var(--accent);
+      outline-offset:1px;
+    }
+
+    .swatches{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .swatch{
+      position:relative;
+      width:34px;
+      height:34px;
+      padding:0;
+      border:1.5px solid var(--ink);
+      border-radius:50%;
+      box-shadow:none;
+      transition:transform .1s ease;
+    }
+
+    .swatch:hover{transform:scale(1.06)}
+
+    .swatch.active::after{
+      content:"";
+      position:absolute;
+      inset:5px;
+      border:2px solid white;
+      border-radius:50%;
+      box-shadow:0 0 0 1.5px var(--ink);
+    }
+
+    .choice-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:7px;
+    }
+
+    .choice{
+      min-height:41px;
+      padding:8px 7px;
+      color:var(--ink);
+      background:#fff;
+      border:1.5px solid var(--ink);
+      border-radius:0;
+      font-size:12px;
+      font-weight:700;
+      line-height:1.15;
+      text-align:center;
+      box-shadow:none;
+    }
+
+    .choice:hover{background:#f2f0ea}
+
+    .choice.active{
+      color:#fff;
+      background:var(--selected);
+      border-color:var(--selected);
+      box-shadow:inset 0 -4px 0 var(--accent);
+    }
+
+    .actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-top:22px;
+    }
+
+    .action{
+      min-height:45px;
+      color:var(--ink);
+      background:#fff;
+      border:1.5px solid var(--ink);
+      border-radius:0;
+      font-weight:800;
+      box-shadow:none;
+    }
+
+    .action:hover{background:#f1efe9}
+
+    .action.primary{
+      grid-column:1/-1;
+      color:var(--ink);
+      background:var(--accent);
+      border-color:var(--ink);
+      box-shadow:4px 4px 0 var(--ink);
+    }
+
+    .action.primary:active{
+      transform:translate(2px,2px);
+      box-shadow:2px 2px 0 var(--ink);
+    }
+
+    .save-note{
+      margin:16px 0 0;
+      color:var(--muted);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:11px;
+      line-height:1.4;
+      text-align:center;
+    }
+
+    .tiny{
+      color:var(--muted);
+      font-size:10px;
+      font-weight:400;
+      letter-spacing:0;
+      text-transform:none;
+    }
+
+    @media(max-width:850px){
+      body::before{width:min(100% - 20px,1120px)}
+      .app{
+        width:min(100% - 20px,1120px);
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+      .portrait-card{
+        min-height:auto;
+        position:relative;
+        top:auto;
+      }
+      .portrait-stage{min-height:510px}
+    }
+
+    @media(max-width:500px){
+      body::before{
+        padding:14px 0 11px;
+        font-size:21px;
+      }
+      .app{
+        width:100%;
+        margin:0 auto 24px;
+      }
+      .card{
+        border-left:0;
+        border-right:0;
+      }
+      .portrait-head{padding:18px 16px}
+      .controls-card{padding:0 14px 20px}
+      .controls-head{
+        margin:0 -14px 16px;
+        padding:18px 14px 16px;
+      }
+      .row{grid-template-columns:1fr}
+      .choice-grid{grid-template-columns:1fr 1fr}
+      .badge{display:none}
+      .name-strip{
+        left:12px;
+        bottom:12px;
+        min-width:215px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+<div class="sitebar"><div class="sitebar-inner"><a href="reckon.html" style="text-decoration:none;color:inherit;font-weight:800;font-size:12px;letter-spacing:.06em">← RECKON</a><div style="text-align:center"><div class="sitebar-small">Puzzle-style character creator</div><div class="sitebar-title">Investigator Builder</div></div><div id="saveState" style="font-size:11px;color:var(--muted);min-width:70px;text-align:right">Saved</div></div></div>
+<main class="app">
+  <section class="card portrait-card">
+    <header class="portrait-head">
+      <div>
+        <div class="eyebrow">Daily Investigator</div>
+        <h1>Build Your Investigator</h1>
+        <p class="subtitle">Make a clean portrait for dialogue scenes, case intros, and player profiles.</p>
+      </div>
+      <div class="badge">Portrait<br>Mode</div>
+    </header>
+
+    <div class="portrait-stage">
+      <svg id="avatar" viewBox="0 0 520 620" role="img" aria-label="Custom investigator portrait">
+        <defs>
+          <linearGradient id="coatShade" x1="0" x2="1">
+            <stop offset="0" stop-color="#000" stop-opacity=".17"/>
+            <stop offset=".38" stop-color="#fff" stop-opacity=".04"/>
+            <stop offset="1" stop-color="#000" stop-opacity=".23"/>
+          </linearGradient>
+          <linearGradient id="skinShade" x1="0" x2=".9" y1="0" y2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity=".12"/>
+            <stop offset=".55" stop-color="#000" stop-opacity=".02"/>
+            <stop offset="1" stop-color="#000" stop-opacity=".12"/>
+          </linearGradient>
+          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#17202a" flood-opacity=".22"/>
+          </filter>
+        </defs>
+
+        <!-- rear hair -->
+        <g id="rearHair"></g>
+
+        <!-- torso -->
+        <path id="shirtBase" d="M174 433 Q260 386 346 433 L380 620 H140 Z" fill="#d8e2ea"/>
+        <path id="neck" d="M218 360 L218 432 Q260 459 302 432 L302 360 Z" fill="#d39a75"/>
+        <path d="M218 360 L218 432 Q260 459 302 432 L302 360 Z" fill="url(#skinShade)" opacity=".55"/>
+
+        <!-- outfit -->
+        <g id="outfit"></g>
+
+        <!-- ears -->
+        <ellipse id="earL" cx="165" cy="265" rx="26" ry="39" fill="#d39a75"/>
+        <ellipse id="earR" cx="355" cy="265" rx="26" ry="39" fill="#d39a75"/>
+        <path d="M156 259 q18 -13 21 10 q-3 18 -15 19" fill="none" stroke="#8f5e4d" stroke-width="4" opacity=".55"/>
+        <path d="M364 259 q-18 -13 -21 10 q3 18 15 19" fill="none" stroke="#8f5e4d" stroke-width="4" opacity=".55"/>
+
+        <!-- face -->
+        <path id="face" d="M260 93 C193 93 168 146 171 227 C174 326 214 390 260 390 C306 390 346 326 349 227 C352 146 327 93 260 93 Z" fill="#d39a75" filter="url(#softShadow)"/>
+        <path id="faceShade" d="M260 93 C193 93 168 146 171 227 C174 326 214 390 260 390 C306 390 346 326 349 227 C352 146 327 93 260 93 Z" fill="url(#skinShade)" opacity=".65"/>
+
+        <!-- cheek warmth -->
+        <ellipse cx="203" cy="288" rx="25" ry="13" fill="#a95858" opacity=".08"/>
+        <ellipse cx="317" cy="288" rx="25" ry="13" fill="#a95858" opacity=".08"/>
+
+        <!-- eyebrows -->
+        <path id="browL" d="M194 214 Q220 200 243 214" fill="none" stroke="#3b2a23" stroke-width="8" stroke-linecap="round"/>
+        <path id="browR" d="M277 214 Q300 200 326 214" fill="none" stroke="#3b2a23" stroke-width="8" stroke-linecap="round"/>
+
+        <!-- eyes -->
+        <path d="M192 238 Q219 218 245 239 Q220 257 192 238 Z" fill="#fafafa"/>
+        <path d="M275 239 Q301 218 328 238 Q300 257 275 239 Z" fill="#fafafa"/>
+        <ellipse id="irisL" cx="220" cy="238" rx="9" ry="11" fill="#557784"/>
+        <ellipse id="irisR" cx="300" cy="238" rx="9" ry="11" fill="#557784"/>
+        <circle cx="220" cy="239" r="4" fill="#1e2429"/>
+        <circle cx="300" cy="239" r="4" fill="#1e2429"/>
+        <circle cx="217" cy="235" r="2" fill="#fff" opacity=".9"/>
+        <circle cx="297" cy="235" r="2" fill="#fff" opacity=".9"/>
+        <path d="M192 238 Q219 218 245 239" fill="none" stroke="#4b342e" stroke-width="4" stroke-linecap="round"/>
+        <path d="M275 239 Q301 218 328 238" fill="none" stroke="#4b342e" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- nose -->
+        <path d="M260 236 Q247 284 253 300 Q261 307 273 299" fill="none" stroke="#8e5f50" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+        <path d="M244 306 Q260 314 277 305" fill="none" stroke="#8e5f50" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+
+        <!-- mouth -->
+        <path id="mouthLine" d="M226 333 Q260 348 294 333" fill="none" stroke="#7f4145" stroke-width="5" stroke-linecap="round"/>
+        <path d="M236 338 Q260 349 284 338 Q260 367 236 338" fill="#a95f62" opacity=".48"/>
+
+        <!-- front hair -->
+        <g id="frontHair"></g>
+
+        <!-- hat -->
+        <g id="hat"></g>
+
+        <!-- facial hair -->
+        <g id="facialHair"></g>
+
+        <!-- glasses -->
+        <g id="glasses"></g>
+
+        <!-- accessory -->
+        <g id="accessory"></g>
+      </svg>
+
+      <div class="name-strip">
+        <strong id="portraitName">Dr. Avery Quinn</strong>
+        <span id="portraitRole">Scientific Investigator</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card controls-card">
+    <header class="controls-head">
+      <div>
+        <h2>Customize</h2>
+        <p>Your choices save automatically on this device.</p>
+      </div>
+    </header>
+
+    <div class="section">
+      <div class="section-title">Identity</div>
+      <div class="row">
+        <label class="field">
+          <span>Display name</span>
+          <input id="nameInput" type="text" maxlength="28" value="Dr. Avery Quinn"/>
+        </label>
+        <label class="field">
+          <span>Role</span>
+          <select id="roleSelect">
+            <option>Scientific Investigator</option>
+            <option>Field Detective</option>
+            <option>Forensic Analyst</option>
+            <option>Systems Specialist</option>
+            <option>Research Officer</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Face <span class="tiny">portrait silhouette</span></div>
+      <div class="choice-grid" data-choice="faceShape">
+        <button class="choice active" data-value="oval">Oval</button>
+        <button class="choice" data-value="round">Round</button>
+        <button class="choice" data-value="angular">Angular</button>
+      </div>
+      <div style="height:12px"></div>
+      <div class="section-title">Skin tone</div>
+      <div id="skinSwatches" class="swatches"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Hair</div>
+      <div class="row">
+        <label class="field">
+          <span>Style</span>
+          <select id="hairStyle">
+            <option value="sidepart">Side part</option>
+            <option value="short">Short crop</option>
+            <option value="waves">Shoulder waves</option>
+            <option value="curly">Curly volume</option>
+            <option value="bun">Tied bun</option>
+            <option value="bald">No hair</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Facial hair</span>
+          <select id="facialHairSelect">
+            <option value="none">None</option>
+            <option value="stubble">Stubble</option>
+            <option value="mustache">Mustache</option>
+            <option value="beard">Short beard</option>
+          </select>
+        </label>
+      </div>
+      <div style="height:12px"></div>
+      <div class="section-title">Hair color</div>
+      <div id="hairSwatches" class="swatches"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Eyes</div>
+      <div id="eyeSwatches" class="swatches"></div>
+      <div style="height:12px"></div>
+      <div class="section-title">Glasses</div>
+      <div class="choice-grid" data-choice="glasses">
+        <button class="choice active" data-value="none">None</button>
+        <button class="choice" data-value="round">Round</button>
+        <button class="choice" data-value="square">Square</button>
+      </div>
+    </div>
+
+    
+    <div class="section">
+      <div class="section-title">Outerwear</div>
+      <div class="choice-grid" data-choice="outfit">
+        <button class="choice active" data-value="detective">Detective Coat</button>
+        <button class="choice" data-value="scientist">Lab Coat</button>
+        <button class="choice" data-value="field">Field Jacket</button>
+        <button class="choice" data-value="trench">Trench Coat</button>
+        <button class="choice" data-value="blazer">Blazer</button>
+        <button class="choice" data-value="bomber">Bomber Jacket</button>
+      </div>
+      <div style="height:12px"></div>
+      <div class="section-title">Coat color</div>
+      <div id="coatSwatches" class="swatches"></div>
+      <div style="height:12px"></div>
+      <div class="section-title">Hat</div>
+      <div class="choice-grid" data-choice="hat">
+        <button class="choice active" data-value="none">None</button>
+        <button class="choice" data-value="fedora">Fedora</button>
+        <button class="choice" data-value="flatcap">Flat Cap</button>
+        <button class="choice" data-value="hardhat">Hard Hat</button>
+        <button class="choice" data-value="beanie">Beanie</button>
+        <button class="choice" data-value="deerstalker">Deerstalker</button>
+      </div>
+      <div style="height:12px"></div>
+      <div class="section-title">Accessory</div>
+      <div class="choice-grid" data-choice="accessory">
+        <button class="choice active" data-value="none">None</button>
+        <button class="choice" data-value="badge">Badge</button>
+        <button class="choice" data-value="goggles">Goggles</button>
+        <button class="choice" data-value="notebook">Notebook</button>
+        <button class="choice" data-value="magnifier">Magnifier</button>
+        <button class="choice" data-value="lanyard">ID Lanyard</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="randomize" class="action">Randomize</button>
+      <button id="reset" class="action">Reset</button>
+      <button id="exportSvg" class="action primary">Save Portrait as SVG</button>
+    </div>
+    <p class="save-note">This setup is stored in localStorage so the rest of your game can reuse the character.</p>
+  </section>
+</main>
+
+<script>
+(() => {
+  const palettes = {
+    skin: [
+      {name:"Porcelain", value:"#f3c9ad"},
+      {name:"Warm ivory", value:"#e9b994"},
+      {name:"Golden", value:"#d99b6c"},
+      {name:"Amber", value:"#bd794f"},
+      {name:"Deep brown", value:"#8b5137"},
+      {name:"Ebony", value:"#573426"}
+    ],
+    hair: [
+      {name:"Black", value:"#1f2024"},
+      {name:"Dark brown", value:"#3a2923"},
+      {name:"Chestnut", value:"#6a4030"},
+      {name:"Auburn", value:"#8b4c32"},
+      {name:"Blonde", value:"#c9a55c"},
+      {name:"Silver", value:"#aeb4bd"}
+    ],
+    eyes: [
+      {name:"Brown", value:"#66463a"},
+      {name:"Hazel", value:"#7b6b3b"},
+      {name:"Green", value:"#5e7866"},
+      {name:"Blue", value:"#557d9b"},
+      {name:"Gray", value:"#707985"}
+    ],
+    coat: [
+      {name:"Navy", value:"#253b50"},
+      {name:"Charcoal", value:"#3e4349"},
+      {name:"Camel", value:"#9b7751"},
+      {name:"Forest", value:"#43584b"},
+      {name:"Burgundy", value:"#70434b"},
+      {name:"Lab white", value:"#e8edf1"}
+    ]
+  };
+
+  const defaults = {
+    name:"Dr. Avery Quinn",
+    role:"Scientific Investigator",
+    faceShape:"oval",
+    skin:"#d99b6c",
+    hairStyle:"sidepart",
+    hair:"#3a2923",
+    facialHair:"none",
+    eyes:"#557d9b",
+    glasses:"none",
+    outfit:"detective",
+    hat:"none",
+    coat:"#253b50",
+    accessory:"none"
+  };
+
+  let state = {...defaults};
+  try {
+    const saved = JSON.parse(localStorage.getItem("casebookAvatarV1"));
+    if(saved && typeof saved === "object") state = {...state, ...saved};
+  } catch(e) {}
+
+  const $ = id => document.getElementById(id);
+  const svgNS = "http://www.w3.org/2000/svg";
+
+  function makeSwatches(containerId, items, key){
+    const box = $(containerId);
+    box.innerHTML = "";
+    items.forEach(item => {
+      const b = document.createElement("button");
+      b.className = "swatch";
+      b.type = "button";
+      b.title = item.name;
+      b.setAttribute("aria-label", item.name);
+      b.dataset.value = item.value;
+      b.style.background = item.value;
+      b.addEventListener("click", () => {
+        state[key] = item.value;
+        render();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  makeSwatches("skinSwatches", palettes.skin, "skin");
+  makeSwatches("hairSwatches", palettes.hair, "hair");
+  makeSwatches("eyeSwatches", palettes.eyes, "eyes");
+  makeSwatches("coatSwatches", palettes.coat, "coat");
+
+  document.querySelectorAll("[data-choice]").forEach(group => {
+    const key = group.dataset.choice;
+    group.querySelectorAll(".choice").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state[key] = btn.dataset.value;
+        render();
+      });
+    });
+  });
+
+  $("nameInput").addEventListener("input", e => { state.name = e.target.value || "Unnamed Investigator"; render(); });
+  $("roleSelect").addEventListener("change", e => { state.role = e.target.value; render(); });
+  $("hairStyle").addEventListener("change", e => { state.hairStyle = e.target.value; render(); });
+  $("facialHairSelect").addEventListener("change", e => { state.facialHair = e.target.value; render(); });
+
+  function el(tag, attrs={}){
+    const node = document.createElementNS(svgNS, tag);
+    Object.entries(attrs).forEach(([k,v]) => node.setAttribute(k,v));
+    return node;
+  }
+  function path(d, fill, extra={}){
+    return el("path",{d,fill,...extra});
+  }
+  function clear(node){ while(node.firstChild) node.removeChild(node.firstChild); }
+
+  function darker(hex, amount=.22){
+    const n = parseInt(hex.slice(1),16);
+    let r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+    r=Math.max(0,Math.round(r*(1-amount)));
+    g=Math.max(0,Math.round(g*(1-amount)));
+    b=Math.max(0,Math.round(b*(1-amount)));
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function renderFace(){
+    const face = $("face"), shade = $("faceShade");
+    const shapes = {
+      oval:"M260 93 C193 93 168 146 171 227 C174 326 214 390 260 390 C306 390 346 326 349 227 C352 146 327 93 260 93 Z",
+      round:"M260 96 C192 96 166 151 169 232 C172 319 207 378 260 383 C313 378 348 319 351 232 C354 151 328 96 260 96 Z",
+      angular:"M260 92 C198 92 174 137 170 217 L181 311 L224 381 L260 394 L296 381 L339 311 L350 217 C346 137 322 92 260 92 Z"
+    };
+    face.setAttribute("d", shapes[state.faceShape]);
+    shade.setAttribute("d", shapes[state.faceShape]);
+    [face,$("earL"),$("earR"),$("neck")].forEach(x=>x.setAttribute("fill",state.skin));
+  }
+
+  function renderHair(){
+    const rear = $("rearHair"), front = $("frontHair");
+    clear(rear); clear(front);
+    const c = state.hair, dark = darker(c,.18);
+
+    if(state.hairStyle==="bald") return;
+
+    if(state.hairStyle==="sidepart"){
+      rear.append(path("M166 221 C150 130 194 69 260 69 C338 69 371 135 350 229 L333 174 Q290 118 235 132 Q192 141 171 225 Z",c,{stroke:dark,"stroke-width":"4"}));
+      front.append(path("M168 192 Q176 90 267 74 Q328 73 353 133 Q305 113 274 128 Q235 151 173 175 Z",c));
+      front.append(path("M269 76 Q244 134 184 151", "none",{stroke:dark,"stroke-width":"5","stroke-linecap":"round",opacity:".55"}));
+    }
+    if(state.hairStyle==="short"){
+      rear.append(path("M170 213 Q153 111 244 77 Q329 56 351 158 L347 219 Q328 145 260 130 Q195 140 173 217 Z",c,{stroke:dark,"stroke-width":"4"}));
+      for(let i=0;i<8;i++){
+        front.append(path(`M${185+i*21} ${139-(i%2)*12} q8 -31 24 -48`, "none",{stroke:dark,"stroke-width":"8","stroke-linecap":"round",opacity:".45"}));
+      }
+    }
+    if(state.hairStyle==="waves"){
+      rear.append(path("M164 201 Q145 121 206 77 Q260 39 322 79 Q380 122 356 246 L378 387 Q345 415 321 374 Q307 331 338 201 Q325 123 260 111 Q190 123 178 206 Q208 329 194 390 Q166 417 140 385 Z",c,{stroke:dark,"stroke-width":"4"}));
+      front.append(path("M165 191 Q173 92 252 74 Q319 65 354 135 Q325 121 300 133 Q277 151 250 142 Q216 127 167 183 Z",c));
+      front.append(path("M175 198 Q142 275 169 347", "none",{stroke:dark,"stroke-width":"9","stroke-linecap":"round",opacity:".45"}));
+      front.append(path("M345 190 Q379 267 350 345", "none",{stroke:dark,"stroke-width":"9","stroke-linecap":"round",opacity:".45"}));
+    }
+    if(state.hairStyle==="curly"){
+      const circles = [
+        [178,143,34],[207,106,36],[246,91,38],[286,94,37],[326,115,36],[350,154,33],
+        [165,189,29],[355,199,28],[188,82,24],[333,78,24]
+      ];
+      circles.forEach(([cx,cy,r])=>rear.append(el("circle",{cx,cy,r,fill:c,stroke:dark,"stroke-width":"4"})));
+      front.append(path("M171 184 Q178 112 240 100 Q308 83 351 169 Q319 137 288 150 Q252 165 222 145 Q194 126 171 184 Z",c));
+    }
+    if(state.hairStyle==="bun"){
+      rear.append(el("circle",{cx:"329",cy:"94",r:"58",fill:c,stroke:dark,"stroke-width":"5"}));
+      rear.append(path("M168 220 Q156 111 238 75 Q321 55 352 161 L348 224 Q329 143 262 126 Q193 140 172 224 Z",c,{stroke:dark,"stroke-width":"4"}));
+      front.append(path("M170 185 Q184 94 267 73 Q322 70 351 132 Q312 116 278 134 Q235 159 170 185 Z",c));
+    }
+  }
+
+  function renderFacialHair(){
+    const g=$("facialHair"); clear(g);
+    const c=state.hair, dark=darker(c,.1);
+    if(state.facialHair==="none") return;
+    if(state.facialHair==="stubble"){
+      g.append(path("M195 293 Q199 377 260 390 Q321 377 325 293 Q304 351 260 357 Q216 351 195 293 Z",dark,{opacity:".22"}));
+    }
+    if(state.facialHair==="mustache"){
+      g.append(path("M258 318 Q239 309 220 323 Q239 342 260 330 Q281 342 300 323 Q281 309 262 318 Z",c,{stroke:dark,"stroke-width":"2"}));
+    }
+    if(state.facialHair==="beard"){
+      g.append(path("M191 284 Q196 372 244 397 Q260 411 276 397 Q324 372 329 284 Q311 340 292 362 Q260 392 228 362 Q209 340 191 284 Z",c,{stroke:dark,"stroke-width":"3",opacity:".92"}));
+      g.append(path("M258 315 Q238 307 218 323 Q239 341 260 330 Q281 341 302 323 Q281 307 262 315 Z",dark));
+      $("mouthLine").parentNode.appendChild($("mouthLine"));
+    }
+  }
+
+
+  function renderHat(){
+    const g=$("hat"); clear(g);
+    if(state.hat==="none") return;
+
+    const c=state.coat;
+    const d=darker(c,.22);
+    const band=darker(c,.38);
+
+    if(state.hat==="fedora"){
+      g.append(path("M166 160 Q260 124 354 160 Q258 185 166 160 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M198 160 Q199 96 260 82 Q321 95 322 160 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M208 136 L312 136", "none", {stroke:band,"stroke-width":"10","stroke-linecap":"round"}));
+    }
+
+    if(state.hat==="flatcap"){
+      g.append(path("M171 164 Q192 118 253 103 Q325 92 348 149 Q309 176 246 176 Q204 176 171 164 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M174 165 Q216 173 260 173 Q307 173 345 159", "none", {stroke:band,"stroke-width":"6","stroke-linecap":"round"}));
+    }
+
+    if(state.hat==="hardhat"){
+      g.append(path("M182 155 Q190 98 260 78 Q332 96 338 155 L338 171 L182 171 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M260 82 L260 155", "none", {stroke:band,"stroke-width":"6","stroke-linecap":"round", opacity:".55"}));
+      g.append(path("M194 144 Q260 128 326 144", "none", {stroke:band,"stroke-width":"6","stroke-linecap":"round", opacity:".55"}));
+    }
+
+    if(state.hat==="beanie"){
+      g.append(path("M184 172 Q188 102 260 84 Q333 102 336 172 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M186 166 Q260 179 334 166", "none", {stroke:band,"stroke-width":"11","stroke-linecap":"round"}));
+    }
+
+    if(state.hat==="deerstalker"){
+      g.append(path("M177 155 Q200 108 260 95 Q320 108 343 155 Q308 170 260 169 Q213 169 177 155 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M205 127 L165 95 Q177 137 205 143 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M315 127 L355 95 Q343 137 315 143 Z", c, {stroke:d,"stroke-width":"4"}));
+      g.append(path("M176 157 Q260 171 344 157", "none", {stroke:band,"stroke-width":"7","stroke-linecap":"round"}));
+    }
+  }
+
+  function renderGlasses(){
+    const g=$("glasses"); clear(g);
+    if(state.glasses==="none") return;
+    if(state.glasses==="round"){
+      g.append(el("circle",{cx:"218",cy:"240",r:"31",fill:"rgba(210,225,238,.12)",stroke:"#303840","stroke-width":"6"}));
+      g.append(el("circle",{cx:"302",cy:"240",r:"31",fill:"rgba(210,225,238,.12)",stroke:"#303840","stroke-width":"6"}));
+      g.append(path("M249 238 Q260 232 271 238","none",{stroke:"#303840","stroke-width":"6"}));
+      g.append(path("M187 235 L164 225","none",{stroke:"#303840","stroke-width":"6","stroke-linecap":"round"}));
+      g.append(path("M333 235 L356 225","none",{stroke:"#303840","stroke-width":"6","stroke-linecap":"round"}));
+    }
+    if(state.glasses==="square"){
+      g.append(el("rect",{x:"183",y:"212",width:"68",height:"55",rx:"10",fill:"rgba(210,225,238,.12)",stroke:"#303840","stroke-width":"6"}));
+      g.append(el("rect",{x:"269",y:"212",width:"68",height:"55",rx:"10",fill:"rgba(210,225,238,.12)",stroke:"#303840","stroke-width":"6"}));
+      g.append(path("M251 236 L269 236","none",{stroke:"#303840","stroke-width":"6"}));
+      g.append(path("M183 228 L163 222","none",{stroke:"#303840","stroke-width":"6","stroke-linecap":"round"}));
+      g.append(path("M337 228 L357 222","none",{stroke:"#303840","stroke-width":"6","stroke-linecap":"round"}));
+    }
+  }
+
+
+  function renderOutfit(){
+    const g=$("outfit"); clear(g);
+    const c=state.coat, d=darker(c,.22);
+    $("shirtBase").setAttribute("fill","#d8e2ea");
+
+    if(state.outfit==="detective"){
+      g.append(path("M132 620 L157 460 Q177 416 220 402 L260 448 L300 402 Q343 416 363 460 L388 620 Z",c,{stroke:d,"stroke-width":"5"}));
+      g.append(path("M218 405 L260 448 L211 509 L174 432 Z",d,{opacity:".65"}));
+      g.append(path("M302 405 L260 448 L309 509 L346 432 Z",d,{opacity:".65"}));
+      g.append(path("M260 448 L260 620","none",{stroke:d,"stroke-width":"4",opacity:".7"}));
+      g.append(el("circle",{cx:"282",cy:"510",r:"6",fill:"#b99555"}));
+      g.append(el("circle",{cx:"282",cy:"550",r:"6",fill:"#b99555"}));
+      g.append(el("circle",{cx:"282",cy:"590",r:"6",fill:"#b99555"}));
+    }
+
+    if(state.outfit==="scientist"){
+      $("shirtBase").setAttribute("fill","#a8bfd1");
+      g.append(path("M128 620 L151 455 Q174 414 221 404 L260 455 L299 404 Q346 414 369 455 L392 620 Z",c,{stroke:d,"stroke-width":"5"}));
+      g.append(path("M220 404 L260 455 L233 513 L190 425 Z","#f7f9fa",{stroke:"#bdc7d0","stroke-width":"3"}));
+      g.append(path("M300 404 L260 455 L287 513 L330 425 Z","#f7f9fa",{stroke:"#bdc7d0","stroke-width":"3"}));
+      g.append(path("M260 455 L260 620","none",{stroke:"#aab5c0","stroke-width":"4"}));
+      g.append(el("rect",{x:"294",y:"497",width:"58",height:"44",rx:"4",fill:"none",stroke:d,"stroke-width":"4"}));
+      g.append(path("M304 499 L342 499","none",{stroke:"#d3a44c","stroke-width":"7"}));
+    }
+
+    if(state.outfit==="field"){
+      g.append(path("M123 620 L145 456 Q170 413 221 400 L260 440 L299 400 Q350 413 375 456 L397 620 Z",c,{stroke:d,"stroke-width":"5"}));
+      g.append(path("M221 400 L260 440 L299 400 L314 445 L260 484 L206 445 Z",d,{opacity:".55"}));
+      g.append(path("M260 484 L260 620","none",{stroke:d,"stroke-width":"6"}));
+      g.append(el("rect",{x:"164",y:"492",width:"67",height:"78",rx:"8",fill:"none",stroke:d,"stroke-width":"5"}));
+      g.append(el("rect",{x:"289",y:"492",width:"67",height:"78",rx:"8",fill:"none",stroke:d,"stroke-width":"5"}));
+      g.append(path("M176 510 L219 510 M301 510 L344 510","none",{stroke:d,"stroke-width":"4"}));
+    }
+
+    if(state.outfit==="trench"){
+      g.append(path("M124 620 L149 455 Q171 415 222 398 L260 444 L298 398 Q349 415 371 455 L396 620 Z",c,{stroke:d,"stroke-width":"5"}));
+      g.append(path("M223 399 L260 444 L210 515 L173 430 Z",d,{opacity:".48"}));
+      g.append(path("M297 399 L260 444 L310 515 L347 430 Z",d,{opacity:".48"}));
+      g.append(path("M191 522 Q260 538 329 522", "none", {stroke:d,"stroke-width":"9","stroke-linecap":"round"}));
+      g.append(path("M260 444 L260 620","none",{stroke:d,"stroke-width":"4",opacity:".7"}));
+      g.append(path("M183 473 L214 489 M306 489 L337 473","none",{stroke:d,"stroke-width":"5","stroke-linecap":"round"}));
+    }
+
+    if(state.outfit==="blazer"){
+      $("shirtBase").setAttribute("fill","#e7edf3");
+      g.append(path("M136 620 L160 468 Q180 420 223 403 L260 452 L297 403 Q340 420 360 468 L384 620 Z",c,{stroke:d,"stroke-width":"5"}));
+      g.append(path("M222 405 L260 452 L228 505 L193 426 Z",d,{opacity:".62"}));
+      g.append(path("M298 405 L260 452 L292 505 L327 426 Z",d,{opacity:".62"}));
+      g.append(path("M260 445 L260 620","none",{stroke:d,"stroke-width":"4"}));
+      g.append(path("M242 405 L260 448 L278 405", "#6e3943", {stroke:"#57262f","stroke-width":"3"}));
+      g.append(el("circle",{cx:"281",cy:"514",r:"6",fill:"#c2ccd6"}));
+      g.append(el("circle",{cx:"281",cy:"555",r:"6",fill:"#c2ccd6"}));
+    }
+
+    if(state.outfit==="bomber"){
+      g.append(path("M132 620 L153 474 Q176 420 224 401 L260 434 L296 401 Q344 420 367 474 L388 620 Z",c,{stroke:d,"stroke-width":"5"}));
+      g.append(path("M206 445 Q260 470 314 445", "none", {stroke:d,"stroke-width":"10","stroke-linecap":"round", opacity:".55"}));
+      g.append(path("M260 438 L260 620","none",{stroke:d,"stroke-width":"6"}));
+      g.append(path("M152 606 Q260 618 368 606", "none", {stroke:d,"stroke-width":"12","stroke-linecap":"round"}));
+      g.append(path("M144 468 Q166 483 186 471 M334 471 Q354 483 376 468", "none", {stroke:d,"stroke-width":"10","stroke-linecap":"round"}));
+    }
+  }
+
+
+  function renderAccessory(){
+    const g=$("accessory"); clear(g);
+    if(state.accessory==="none") return;
+
+    if(state.accessory==="badge"){
+      g.append(path("M319 486 l18 8 18 -8 5 20 -23 34 -23 -34 Z", "#d1a64f",{stroke:"#735c2f","stroke-width":"4"}));
+      g.append(el("circle",{cx:"337",cy:"507",r:"7",fill:"#fff2b8",opacity:".75"}));
+    }
+
+    if(state.accessory==="goggles"){
+      g.append(el("rect",{x:"181",y:"188",width:"70",height:"28",rx:"12",fill:"#8ca8bc",stroke:"#2e3e49","stroke-width":"5"}));
+      g.append(el("rect",{x:"269",y:"188",width:"70",height:"28",rx:"12",fill:"#8ca8bc",stroke:"#2e3e49","stroke-width":"5"}));
+      g.append(path("M251 201 L269 201 M181 201 Q164 204 153 194 M339 201 Q356 204 367 194","none",{stroke:"#2e3e49","stroke-width":"5","stroke-linecap":"round"}));
+      g.append(path("M189 196 L239 196 M277 196 L327 196","none",{stroke:"#d9eef8","stroke-width":"4",opacity:".65"}));
+    }
+
+    if(state.accessory==="notebook"){
+      g.append(el("rect",{x:"306",y:"498",width:"52",height:"72",rx:"4",fill:"#8b6b47",stroke:"#5d452e","stroke-width":"4"}));
+      g.append(path("M317 510 L347 510 M317 524 L347 524 M317 538 L347 538","none",{stroke:"#f2e6c9","stroke-width":"3","stroke-linecap":"round"}));
+      g.append(path("M311 499 L311 568","none",{stroke:"#d8c79f","stroke-width":"3"}));
+    }
+
+    if(state.accessory==="magnifier"){
+      g.append(el("circle",{cx:"336",cy:"512",r:"23",fill:"rgba(220,236,246,.18)",stroke:"#394754","stroke-width":"6"}));
+      g.append(path("M352 529 L374 552","none",{stroke:"#6d5136","stroke-width":"9","stroke-linecap":"round"}));
+      g.append(path("M325 502 Q338 496 347 505","none",{stroke:"#d9eef8","stroke-width":"4","stroke-linecap":"round",opacity:".7"}));
+    }
+
+    if(state.accessory==="lanyard"){
+      g.append(path("M232 406 Q246 448 260 476 Q274 448 288 406", "none", {stroke:"#304b63","stroke-width":"7","stroke-linecap":"round"}));
+      g.append(el("rect",{x:"242",y:"474",width:"36",height:"52",rx:"4",fill:"#edf3f8",stroke:"#8090a0","stroke-width":"3"}));
+      g.append(path("M248 489 L272 489 M248 500 L269 500 M248 511 L266 511","none",{stroke:"#96a5b4","stroke-width":"3","stroke-linecap":"round"}));
+    }
+  }
+
+  function syncControls(){
+    $("nameInput").value=state.name;
+    $("roleSelect").value=state.role;
+    $("hairStyle").value=state.hairStyle;
+    $("facialHairSelect").value=state.facialHair;
+
+    document.querySelectorAll("[data-choice]").forEach(group=>{
+      const key=group.dataset.choice;
+      group.querySelectorAll(".choice").forEach(btn=>{
+        btn.classList.toggle("active",btn.dataset.value===state[key]);
+      });
+    });
+    [["skinSwatches","skin"],["hairSwatches","hair"],["eyeSwatches","eyes"],["coatSwatches","coat"]].forEach(([id,key])=>{
+      $(id).querySelectorAll(".swatch").forEach(btn=>btn.classList.toggle("active",btn.dataset.value===state[key]));
+    });
+  }
+
+  function render(save=true){
+    renderFace();
+    $("irisL").setAttribute("fill",state.eyes);
+    $("irisR").setAttribute("fill",state.eyes);
+    $("browL").setAttribute("stroke",darker(state.hair,.05));
+    $("browR").setAttribute("stroke",darker(state.hair,.05));
+    renderHair();
+    renderHat();
+    renderFacialHair();
+    renderGlasses();
+    renderOutfit();
+    renderAccessory();
+    $("portraitName").textContent=state.name || "Unnamed Investigator";
+    $("portraitRole").textContent=state.role;
+    syncControls();
+    if(save){
+      const svg=avatarSVGString();
+      try {
+        localStorage.setItem("casebookAvatarV1",JSON.stringify(state));
+        localStorage.setItem("casebookAvatarSVG",svg);
+      } catch(e) {}
+      syncAvatarToAccount({state:{...state}, svg});
+    }
+    window.casebookAvatar = {...state};
+  }
+
+  // Serialize the live portrait to a standalone SVG string (for the hub + account).
+  function avatarSVGString(){
+    const source=$("avatar").cloneNode(true);
+    source.setAttribute("xmlns",svgNS);
+    return new XMLSerializer().serializeToString(source);
+  }
+
+  // Debounced sync to the signed-in account. No-ops on the static site (no /api).
+  let _syncT=null;
+  function syncAvatarToAccount(payload){
+    const badge=$("saveState");
+    clearTimeout(_syncT);
+    _syncT=setTimeout(()=>{
+      if(badge) badge.textContent="Saving…";
+      fetch("/api/avatar",{method:"POST",headers:{"Content-Type":"application/json"},credentials:"same-origin",body:JSON.stringify({avatar:payload})})
+        .then(r=>{ if(badge) badge.textContent=r&&r.ok?"Saved to account":"Saved on device"; })
+        .catch(()=>{ if(badge) badge.textContent="Saved on device"; });
+    },600);
+  }
+
+  function randomItem(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  $("randomize").addEventListener("click",()=>{
+    const names=["Dr. Avery Quinn","Jordan Vale","Mara Chen","Elias North","Samira Holt","Theo Reyes","Nadia Brooks","Morgan Pike"];
+    state={
+      ...state,
+      name:randomItem(names),
+      faceShape:randomItem(["oval","round","angular"]),
+      skin:randomItem(palettes.skin).value,
+      hairStyle:randomItem(["sidepart","short","waves","curly","bun","bald"]),
+      hair:randomItem(palettes.hair).value,
+      facialHair:randomItem(["none","none","none","stubble","mustache","beard"]),
+      eyes:randomItem(palettes.eyes).value,
+      glasses:randomItem(["none","none","round","square"]),
+      outfit:randomItem(["detective","scientist","field","trench","blazer","bomber"]),
+      hat:randomItem(["none","none","fedora","flatcap","hardhat","beanie","deerstalker"]),
+      coat:randomItem(palettes.coat).value,
+      accessory:randomItem(["none","none","badge","goggles","notebook","magnifier","lanyard"])
+    };
+    render();
+  });
+
+  $("reset").addEventListener("click",()=>{
+    state={...defaults};
+    render();
+  });
+
+  $("exportSvg").addEventListener("click",()=>{
+    const source=$("avatar").cloneNode(true);
+    source.setAttribute("xmlns",svgNS);
+    const title=el("title"); title.textContent=`${state.name} — ${state.role}`;
+    source.insertBefore(title,source.firstChild);
+    const xml=new XMLSerializer().serializeToString(source);
+    const blob=new Blob([xml],{type:"image/svg+xml;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;
+    a.download=(state.name || "casebook-investigator").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")+".svg";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+
+  render();
+
+  // If signed in, the account is authoritative across devices: pull it and repaint.
+  (async function hydrateFromAccount(){
+    try{
+      const r=await fetch("/api/avatar",{credentials:"same-origin"});
+      if(!r.ok) return;
+      const d=await r.json();
+      if(d && d.avatar && d.avatar.state){
+        state={...defaults, ...d.avatar.state};
+        render(false);
+        try{
+          localStorage.setItem("casebookAvatarV1",JSON.stringify(state));
+          if(d.avatar.svg) localStorage.setItem("casebookAvatarSVG",d.avatar.svg);
+        }catch(e){}
+        const badge=$("saveState"); if(badge) badge.textContent="Saved to account";
+      }
+    }catch(e){}
+  })();
+})();
+</script>
+</body>
+</html>

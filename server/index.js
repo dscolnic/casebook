@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const { setupAuth, isAuthenticated } = require("./replitAuth");
-const { getUser, recordResult, getStats } = require("./storage");
+const { getUser, recordResult, getStats, getAvatar, setAvatar } = require("./storage");
 const casebook = require("./casebook");
 
 const PORT = process.env.PORT || 5000;
@@ -65,6 +65,25 @@ async function main() {
       const userId = req.user.claims.sub;
       const stats = await getStats(userId);
       res.json(stats);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // Investigator portrait (character.html): per-user saved character.
+  app.get("/api/avatar", isAuthenticated, async (req, res, next) => {
+    try {
+      res.json({ avatar: await getAvatar(req.user.claims.sub) });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.post("/api/avatar", isAuthenticated, async (req, res, next) => {
+    try {
+      const avatar = req.body && req.body.avatar != null ? req.body.avatar : null;
+      const saved = await setAvatar(req.user.claims.sub, avatar);
+      res.json({ avatar: saved });
     } catch (err) {
       next(err);
     }

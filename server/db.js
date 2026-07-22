@@ -24,6 +24,8 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP NOT NULL DEFAULT now(),
   updated_at TIMESTAMP NOT NULL DEFAULT now()
 );
+-- Per-user saved investigator portrait (from character.html). Idempotent.
+ALTER TABLE users ADD COLUMN IF NOT EXISTS avatar JSONB;
 
 CREATE TABLE IF NOT EXISTS game_results (
   id SERIAL PRIMARY KEY,

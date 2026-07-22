@@ -24,6 +24,17 @@
   .mast-left{flex:1;min-width:240px}
   .masthead h1{font-family:var(--serif);font-weight:700;font-size:54px;line-height:1;letter-spacing:.5px;margin:0;text-transform:uppercase}
   .loghero{display:flex;flex-direction:column;gap:11px;flex:none}
+  .avatarchip{display:inline-flex;align-items:center;gap:11px;margin-top:18px;text-decoration:none;color:inherit;border:1px solid var(--hair);border-radius:999px;padding:6px 16px 6px 6px;background:#fff}
+  .avatarchip:hover{background:var(--hover)}
+  .avatarpic{display:inline-block;border-radius:50%;overflow:hidden;border:1.5px solid var(--ink);background:#e7e4dc;flex:none}
+  .avatarpic svg{display:block;width:100%;height:auto}
+  .avatarpic.sm{width:46px;height:46px}
+  .avatarpic.md{width:66px;height:66px}
+  .avatarmeta{display:flex;flex-direction:column;line-height:1.25}
+  .avatarmeta b{font-size:14px}
+  .avatarmeta span{color:var(--muted);font-size:12px}
+  .statsprofile{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:inherit;margin-bottom:20px}
+  .statsprofile:hover .avatarmeta b{text-decoration:underline}
   .hrow{display:flex;gap:11px;justify-content:flex-end}
   .hlogo{width:64px;height:64px;border-radius:15px;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:transform .18s ease}
   .hlogo svg{width:40px;height:40px;display:block}
@@ -76,6 +87,7 @@
     <div class="mast-left">
       <h1>Reckon</h1>
       <p class="lede">Reasoning games where understanding is the only way to win.</p>
+      <div id="avatarChip"></div>
     </div>
     <div id="loghero" class="loghero" aria-hidden="true"></div>
   </div>
@@ -164,7 +176,7 @@ async function renderStats() {
   const el = document.getElementById("statsBody");
   let s = null;
   try { const r = await fetch("/api/stats", { credentials: "same-origin" }); s = r.ok ? await r.json() : null; } catch (e) { s = null; }
-  if (!s) { el.innerHTML = `<a href="/api/login">Sign in</a> to track your streak and stats across every game.`; return; }
+  if (!s) { el.innerHTML = avatarProfileHTML() + `<p class="muted"><a href="/api/login">Sign in</a> to track your streak and stats across every game.</p>`; return; }
   const st = s.streak || {};
   const total = (s.results || []).length;
   const grid = `<div class="statsgrid">
@@ -177,7 +189,45 @@ async function renderStats() {
   const table = rows
     ? `<table class="stbl"><thead><tr><th>Game</th><th>Finished</th><th>Wins</th><th>Avg score</th></tr></thead><tbody>${rows}</tbody></table>`
     : `<p class="muted">Finish a game and your stats will appear here.</p>`;
-  el.innerHTML = grid + table;
+  el.innerHTML = avatarProfileHTML() + grid + table;
+}
+
+/* ---------- Investigator portrait (character.html) ---------- */
+const SILHOUETTE = '<svg viewBox="0 0 520 620" xmlns="http://www.w3.org/2000/svg"><rect width="520" height="620" fill="#e7e4dc"/><g fill="#b7b3a9"><circle cx="260" cy="225" r="118"/><path d="M60 620c0-140 90-210 200-210s200 70 200 210z"/></g></svg>';
+function currentAvatar(){
+  let svg=null, st=null;
+  try{ svg=localStorage.getItem("casebookAvatarSVG"); st=JSON.parse(localStorage.getItem("casebookAvatarV1")||"null"); }catch(e){}
+  return { svg, st };
+}
+function avatarPicHTML(size){ return `<span class="avatarpic ${size}">${currentAvatar().svg || SILHOUETTE}</span>`; }
+function renderAvatarChip(){
+  const el=document.getElementById("avatarChip"); if(!el)return;
+  const st=currentAvatar().st;
+  const created=!!(st && st.name);
+  const name=created?st.name:"Create your investigator";
+  const role=created?(st.role||"Investigator"):"Tap to begin →";
+  el.innerHTML=`<a class="avatarchip" href="character.html" title="Edit your investigator">${avatarPicHTML("sm")}<span class="avatarmeta"><b>${esc(name)}</b><span>${esc(role)}</span></span></a>`;
+}
+function avatarProfileHTML(){
+  const st=currentAvatar().st;
+  const created=!!(st && st.name);
+  const name=created?st.name:"Your investigator";
+  const role=created?`${st.role||"Investigator"} · Edit`:"Not created yet · Create one →";
+  return `<a class="statsprofile" href="character.html" title="Edit your investigator">${avatarPicHTML("md")}<span class="avatarmeta"><b>${esc(name)}</b><span>${esc(role)}</span></span></a>`;
+}
+async function hydrateAvatarFromAccount(){
+  try{
+    const r=await fetch("/api/avatar",{credentials:"same-origin"});
+    if(!r.ok)return;
+    const d=await r.json();
+    if(d && d.avatar && d.avatar.svg){
+      try{
+        localStorage.setItem("casebookAvatarSVG",d.avatar.svg);
+        if(d.avatar.state) localStorage.setItem("casebookAvatarV1",JSON.stringify(d.avatar.state));
+      }catch(e){}
+      renderAvatarChip(); renderStats();
+    }
+  }catch(e){}
 }
 
 function renderHero(){
@@ -187,7 +237,9 @@ function renderHero(){
 }
 renderHero();
 renderDaily();
+renderAvatarChip();
 renderStats();
+hydrateAvatarFromAccount();
 
 </script>
 </body>
