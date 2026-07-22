@@ -213,8 +213,8 @@ function renderTop(){
   const el=document.getElementById('topActions');
   if(S){ el.innerHTML=`<a href="#" onclick="renderShelf();return false;">Cases</a>`+(AUTH?` · <a href="#" onclick="renderStats();return false;">My stats</a>`:''); return; }
   if(AUTH===undefined){el.innerHTML='';return;}
-  if(AUTH){ el.innerHTML=`<a href="#" onclick="renderStats();return false;">My stats</a> · <span class="who">${esc(authName(AUTH))}</span> · <a href="/api/logout">Sign out</a>`; }
-  else{ el.innerHTML=`<a href="/api/login">Sign in to save scores &amp; streaks</a>`; }
+  if(AUTH){ el.innerHTML=`<a href="#" onclick="renderStats();return false;">My stats</a> · <span class="who">${esc(authName(AUTH))}</span> · <a href="/sign-out.html">Sign out</a>`; }
+  else{ el.innerHTML=`<a href="/sign-in.html">Sign in to save scores &amp; streaks</a>`; }
 }
 
 /* ---------- shelf ---------- */
@@ -254,7 +254,7 @@ async function renderShelf(){
   stage.innerHTML=`
     <div class="eyebrow">Casebook</div>
     <h1>Today's Case</h1>
-    <p class="teaser muted">A Clue-style deduction — from three scientists' readings, settle who, where, and what really happened.${AUTH?'':' <a href="/api/login">Sign in</a> to save your streak.'}</p>
+    <p class="teaser muted">A Clue-style deduction — from three scientists' readings, settle who, where, and what really happened.${AUTH?'':' <a href="/sign-in.html">Sign in</a> to save your streak.'}</p>
     <div class="cards" style="margin-top:16px">${todayCard}</div>
     ${archiveBlock}
     ${futureNote}

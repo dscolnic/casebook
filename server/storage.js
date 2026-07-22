@@ -26,6 +26,23 @@ async function getUser(id) {
   return rows[0] || null;
 }
 
+// Insert-or-update a user from a normalized profile (used by the Clerk auth
+// layer, which supplies the fields directly rather than as OIDC claims).
+async function upsertUserProfile({ id, email, firstName, lastName, profileImageUrl }) {
+  await pool.query(
+    `INSERT INTO users (id, email, first_name, last_name, profile_image_url, updated_at)
+     VALUES ($1, $2, $3, $4, $5, now())
+     ON CONFLICT (id) DO UPDATE SET
+       email = EXCLUDED.email,
+       first_name = EXCLUDED.first_name,
+       last_name = EXCLUDED.last_name,
+       profile_image_url = EXCLUDED.profile_image_url,
+       updated_at = now()`,
+    [id, email || null, firstName || null, lastName || null, profileImageUrl || null]
+  );
+  return getUser(id);
+}
+
 async function getAvatar(userId) {
   const { rows } = await pool.query(`SELECT avatar FROM users WHERE id = $1`, [userId]);
   return rows[0] ? rows[0].avatar : null;
@@ -192,4 +209,4 @@ async function getStats(userId) {
   };
 }
 
-module.exports = { upsertUser, getUser, recordResult, getStats, getAvatar, setAvatar };
+module.exports = { upsertUser, upsertUserProfile, getUser, recordResult, getStats, getAvatar, setAvatar };

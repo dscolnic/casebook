@@ -185,7 +185,7 @@ async function renderStats() {
   const el = document.getElementById("statsBody");
   let s = null;
   try { const r = await fetch("/api/stats", { credentials: "same-origin" }); s = r.ok ? await r.json() : null; } catch (e) { s = null; }
-  if (!s) { el.innerHTML = avatarProfileHTML() + `<p class="muted"><a href="/api/login">Sign in</a> to track your streak and stats across every game.</p>`; return; }
+  if (!s) { el.innerHTML = avatarProfileHTML() + `<p class="muted"><a href="/sign-in.html">Sign in</a> to track your streak and stats across every game.</p>`; return; }
   const st = s.streak || {};
   const total = (s.results || []).length;
   const lvl = playerLevel(s);

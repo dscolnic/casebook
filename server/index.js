@@ -1,6 +1,6 @@
 const path = require("path");
 const express = require("express");
-const { setupAuth, isAuthenticated } = require("./replitAuth");
+const { setupAuth, requireUser, getUserId, clerkClient } = require("./clerkAuth");
 const { getUser, recordResult, getStats, getAvatar, setAvatar } = require("./storage");
 const casebook = require("./casebook");
 
@@ -15,7 +15,7 @@ async function main() {
   app.use(express.json());
   app.get("/", (_req, res) => res.redirect("/reckon.html"));
 
-  await setupAuth(app);
+  setupAuth(app);
 
   app.get("/api/shelf", async (req, res, next) => {
     try {
@@ -35,23 +35,26 @@ async function main() {
     }
   });
 
-  app.get("/api/auth/user", (req, res) => {
-    if (!req.isAuthenticated || !req.isAuthenticated()) {
-      return res.status(401).json({ message: "Unauthorized" });
+  app.get("/api/auth/user", async (req, res, next) => {
+    try {
+      const userId = getUserId(req);
+      if (!userId) return res.status(401).json({ message: "Unauthorized" });
+      const u = await clerkClient.users.getUser(userId);
+      res.json({
+        id: userId,
+        email: (u.emailAddresses && u.emailAddresses[0] && u.emailAddresses[0].emailAddress) || null,
+        firstName: u.firstName || null,
+        lastName: u.lastName || null,
+        profileImageUrl: u.imageUrl || null,
+      });
+    } catch (err) {
+      next(err);
     }
-    const claims = req.user.claims || {};
-    res.json({
-      id: claims.sub,
-      email: claims.email || null,
-      firstName: claims.first_name || null,
-      lastName: claims.last_name || null,
-      profileImageUrl: claims.profile_image_url || null,
-    });
   });
 
-  app.post("/api/results", isAuthenticated, async (req, res, next) => {
+  app.post("/api/results", requireUser, async (req, res, next) => {
     try {
-      const userId = req.user.claims.sub;
+      const userId = req.userId;
       const { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds, game, score } = req.body || {};
       const out = await recordResult(userId, { gameId, gameTitle, rank, won, daysUsed, cluesGathered, solveSeconds, game, score });
       res.json(out);
@@ -60,10 +63,9 @@ async function main() {
     }
   });
 
-  app.get("/api/stats", isAuthenticated, async (req, res, next) => {
+  app.get("/api/stats", requireUser, async (req, res, next) => {
     try {
-      const userId = req.user.claims.sub;
-      const stats = await getStats(userId);
+      const stats = await getStats(req.userId);
       res.json(stats);
     } catch (err) {
       next(err);
@@ -71,18 +73,18 @@ async function main() {
   });
 
   // Investigator portrait (character.html): per-user saved character.
-  app.get("/api/avatar", isAuthenticated, async (req, res, next) => {
+  app.get("/api/avatar", requireUser, async (req, res, next) => {
     try {
-      res.json({ avatar: await getAvatar(req.user.claims.sub) });
+      res.json({ avatar: await getAvatar(req.userId) });
     } catch (err) {
       next(err);
     }
   });
 
-  app.post("/api/avatar", isAuthenticated, async (req, res, next) => {
+  app.post("/api/avatar", requireUser, async (req, res, next) => {
     try {
       const avatar = req.body && req.body.avatar != null ? req.body.avatar : null;
-      const saved = await setAvatar(req.user.claims.sub, avatar);
+      const saved = await setAvatar(req.userId, avatar);
       res.json({ avatar: saved });
     } catch (err) {
       next(err);
@@ -90,12 +92,13 @@ async function main() {
   });
 
   // Site-wide sign-in gate: every page requires a signed-in user. /api/* is
-  // exempt (so the login + OIDC callback flow works); any other request from a
-  // signed-out visitor is sent to login.
+  // exempt, and the Clerk sign-in / sign-out pages must be reachable while
+  // signed out. Any other request from a signed-out visitor goes to sign-in.
   app.use((req, res, next) => {
     if (req.path.startsWith("/api/")) return next();
-    if (req.isAuthenticated && req.isAuthenticated()) return next();
-    return res.redirect("/api/login");
+    if (req.path === "/sign-in.html" || req.path === "/sign-out.html") return next();
+    if (getUserId(req)) return next();
+    return res.redirect("/sign-in.html");
   });
 
   // Static site (casebook.html, icons, manifest, service worker, etc.)
