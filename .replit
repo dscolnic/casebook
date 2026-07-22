@@ -1,11 +1,46 @@
-run = "npm install && node server.js"
-entrypoint = "reckon.html"
-modules = ["nodejs-20"]
+modules = ["web", "nodejs-20", "python-3.12", "swift-5.8", "postgresql-16"]
+[agent]
+expertMode = true
 
-[deployment]
-deploymentTarget = "cloudrun"
-run = ["sh", "-c", "npm install && node server.js"]
+[nix]
+channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server/index.js"
+waitForPort = 5000
 
 [[ports]]
-localPort = 3000
+localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 5902
+externalPort = 3000
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 120000
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["node", "server/index.js"]
