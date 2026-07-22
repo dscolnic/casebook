@@ -611,8 +611,8 @@ function resolve(){
 
 /* boot */
 function boot(){
-  toSelect();
   const h=(location.hash||"").replace(/^#/,"");
+  toSelect();
   if(h){ const i=PACKS.findIndex(p=>p.id===h); if(i>=0) startCase(i); }
 }
 boot();
