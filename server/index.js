@@ -70,6 +70,15 @@ async function main() {
     }
   });
 
+  // Site-wide sign-in gate: every page requires a signed-in user. /api/* is
+  // exempt (so the login + OIDC callback flow works); any other request from a
+  // signed-out visitor is sent to login.
+  app.use((req, res, next) => {
+    if (req.path.startsWith("/api/")) return next();
+    if (req.isAuthenticated && req.isAuthenticated()) return next();
+    return res.redirect("/api/login");
+  });
+
   // Static site (casebook.html, icons, manifest, service worker, etc.)
   app.use(
     express.static(ROOT, {
