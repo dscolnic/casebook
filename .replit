@@ -1,0 +1,11 @@
+run = "npm install && node server.js"
+entrypoint = "reckon.html"
+modules = ["nodejs-20"]
+
+[deployment]
+deploymentTarget = "cloudrun"
+run = ["sh", "-c", "npm install && node server.js"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
