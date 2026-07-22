@@ -191,7 +191,8 @@ const sideEl=document.getElementById('side');
 const CATORDER=['who','where','what'];
 const CHEATS=/cheat/.test(location.search);
 let AUTH;          // undefined=unknown, null=signed out, object=signed in
-let SHELF=null;    // {released:[], upcoming:[], upcomingCount}
+let SHELF=null;
+let archiveOpen=false;    // {released:[], upcoming:[], upcomingCount}
 let S=null;        // active case session
 
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1900);}
@@ -222,13 +223,13 @@ async function renderShelf(){
   try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
   renderTop();
   if(!SHELF){
-    stage.innerHTML=`<div class="eyebrow">Casebook</div><h1>Loading the shelf…</h1>`;
+    stage.innerHTML=`<div class="eyebrow">Casebook</div><h1>Loading…</h1>`;
     try{const r=await fetch('/api/shelf',{credentials:'same-origin'});SHELF=r.ok?await r.json():{released:[],upcoming:[]};}
     catch(e){stage.innerHTML=`<div class="eyebrow">Casebook</div><h1>Couldn't reach the server</h1><p class="muted">Try again shortly.</p>`;return;}
   }
   const rel=SHELF.released||[];
-  const today=rel.find(c=>c.isToday);
-  const archive=rel.filter(c=>!c.isToday);
+  const today=rel.find(c=>c.isToday)||rel[0];
+  const archive=rel.filter(c=>c!==today);
   const upcoming=SHELF.upcoming||[];
   const todayCard=today?`
     <button class="card today" onclick="startCase('${today.id}')">
@@ -237,31 +238,29 @@ async function renderShelf(){
       <div class="crole">${esc(today.discipline||'')}</div>
       <div class="chint">${esc(today.teaser||'')}</div>
       <div class="cstate">Open the inquiry →</div>
-    </button>`:'';
-  const archiveCards=archive.map(c=>`
-    <button class="card" onclick="startCase('${c.id}')">
-      <div class="cname">${esc(c.title)}</div>
-      <div class="crole">${esc(c.discipline||'')} · ${esc(c.date||'')}</div>
-      <div class="chint">${esc(c.teaser||'')}</div>
-      <div class="cstate">Play →</div>
-    </button>`).join('');
-  const lockedCards=upcoming.map(c=>`
-    <div class="card locked">
-      <div class="cname">🔒 Upcoming case</div>
-      <div class="crole">${esc(c.discipline||'')}</div>
-      <div class="chint">Not released yet — unlocks on its day, one per day.</div>
-      <div class="cstate">Locked</div>
-    </div>`).join('');
+    </button>`:`<p class="muted">No case is live yet today — check back shortly.</p>`;
+  const archiveBlock=archive.length?`
+    <div style="margin-top:26px">
+      <button class="btn" onclick="toggleArchive()">${archiveOpen?'▾ Hide archive':'▸ Archive — last two weeks ('+archive.length+')'}</button>
+      ${archiveOpen?`<div class="cards" style="margin-top:12px">`+archive.map(c=>`
+        <button class="card" onclick="startCase('${c.id}')">
+          <div class="cname">${esc(c.title)}</div>
+          <div class="crole">${esc(c.discipline||'')} · ${esc(c.date||'')}</div>
+          <div class="chint">${esc(c.teaser||'')}</div>
+          <div class="cstate">Play →</div>
+        </button>`).join('')+`</div>`:''}
+    </div>`:'';
+  const futureNote=upcoming.length?`<p class="muted" style="font-size:12.5px;margin-top:24px">✓ ${upcoming.length} more cases loaded and ready — a new one unlocks automatically each day.</p>`:'';
   stage.innerHTML=`
     <div class="eyebrow">Casebook</div>
-    <h1>Three informants. Three readings.</h1>
-    <p class="teaser muted">Each case has three informants, each holding one real scientist's passage. Answer well and their expertise files a clue — one WHO, one WHERE, one WHAT. Reject the sensational answer and the do-nothing answer alike.${AUTH?'':' <a href="/api/login">Sign in</a> to save your streak and stats.'}</p>
-    ${todayCard?`<h3 class="section-h">Today</h3><div class="cards">${todayCard}</div>`:''}
-    ${archive.length?`<h3 class="section-h">Recent cases <span class="muted" style="font-family:var(--sans);font-size:13px;font-weight:400">· last two weeks</span></h3><div class="cards">${archiveCards}</div>`:''}
-    ${upcoming.length?`<h3 class="section-h">Loaded &amp; coming <span class="muted" style="font-family:var(--sans);font-size:13px;font-weight:400">· ${upcoming.length} more, one unlocks per day</span></h3><div class="cards">${lockedCards}</div>`:''}
-    <p class="muted" style="font-size:12px;margin-top:22px">Other RECKON games (Science Tank, Ballpark, Sequence, Diagnosis) are on the <a href="/reckon.html">hub</a>.</p>`;
+    <h1>Today's Case</h1>
+    <p class="teaser muted">A Clue-style deduction — from three scientists' readings, settle who, where, and what really happened.${AUTH?'':' <a href="/api/login">Sign in</a> to save your streak.'}</p>
+    <div class="cards" style="margin-top:16px">${todayCard}</div>
+    ${archiveBlock}
+    ${futureNote}
+    <p class="muted" style="font-size:12px;margin-top:20px">Other RECKON games are on the <a href="/reckon.html">hub</a>.</p>`;
 }
-
+function toggleArchive(){ archiveOpen=!archiveOpen; renderShelf(); }
 /* ---------- start a case (fetch gated content) ---------- */
 async function startCase(id){
   stage.innerHTML=`<div class="eyebrow">Casebook</div><h1>Opening the case…</h1>`;
