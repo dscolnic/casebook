@@ -184,7 +184,6 @@ h1{font-size:clamp(28px,4.5vw,40px)}h2{font-size:clamp(22px,3vw,29px)}h3{font-si
   <div class="top-actions">
     <a class="btn small ghost" href="reckon.html" style="text-decoration:none">← RECKON</a>
     <button class="btn small ghost" id="cheatBtn" onclick="cheatSolveAll()" style="display:none">🔧 Cheat · solve all</button>
-    <button class="btn small ghost" id="homeBtn" onclick="toSelect()" style="display:none">Cases</button>
   </div>
 </div>
 
@@ -215,7 +214,6 @@ function clueCount(){return S.clues.who.length+S.clues.what.length+S.clues.where
 function toSelect(){
   S=null;
   try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
-  document.getElementById('homeBtn').style.display='none';
   document.getElementById('cheatBtn').style.display='none';
   document.getElementById('brandsub').textContent='A RECKON deduction game';
   document.getElementById('side').innerHTML=`<div class="agent"><div class="who">Casebook</div><div class="role">The Bureau's open files</div></div><p class="legend">Pick a case. Each has three informants; reject the sensational answer and the do-nothing answer alike — the truth is in between.</p>`;
@@ -250,7 +248,6 @@ function startCase(idx){
       credibility:100,
       lastFiled:null };
   try{reckonStart(pack.id);}catch(e){}
-  document.getElementById('homeBtn').style.display='';
   document.getElementById('cheatBtn').style.display=CHEATS?'':'none';
   document.getElementById('brandsub').textContent=pack.title;
   try{if(pack&&pack.id)location.hash=pack.id;}catch(e){}
