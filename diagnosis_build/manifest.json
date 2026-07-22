@@ -1,0 +1,42 @@
+[
+  {
+    "id": "bioreactor",
+    "file": "bioreactor_playable.html"
+  },
+  {
+    "id": "bridge",
+    "file": "bridge_playable.html"
+  },
+  {
+    "id": "coldchain",
+    "file": "coldchain_playable.html"
+  },
+  {
+    "id": "crop",
+    "file": "crop_playable.html"
+  },
+  {
+    "id": "datacenter",
+    "file": "datacenter_playable.html"
+  },
+  {
+    "id": "rail",
+    "file": "rail_playable.html"
+  },
+  {
+    "id": "satpower",
+    "file": "satpower_playable.html"
+  },
+  {
+    "id": "telescope",
+    "file": "telescope_playable.html"
+  },
+  {
+    "id": "water",
+    "file": "water_playable.html"
+  },
+  {
+    "id": "wildfire",
+    "file": "wildfire_playable.html"
+  }
+]
