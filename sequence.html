@@ -263,7 +263,7 @@ function renderLost(){try{reckonReport({game:'Sequence',gameId:current&&current.
  ${solutionMarkup()}
  <div class="controls"><button class="btn primary" onclick="resetGame();renderPlay()">Try a new shuffle</button><button class="btn" onclick="renderBrief()">Review principles</button><button class="btn" onclick="goHome()">Choose another game</button></div></section>`;
 }
-function bootFromHash(){var id=decodeURIComponent((location.hash||"").replace(/^#/,""));if(id&&GAMES.some(function(g){return g.id===id})){chooseGame(id);}else{renderHome();}}
+function bootFromHash(){var id=decodeURIComponent((location.hash||"").replace(/^#/,""));if(id&&(GAMES.some(function(g){return g.id===id})||NC_GAMES.some(function(g){return g.id===id}))){chooseGame(id);}else{renderHome();}}
 bootFromHash();
 window.addEventListener("hashchange",bootFromHash);
 </script>
