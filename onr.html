@@ -7,7 +7,7 @@
 <style>
   :root{
     --bg:#ffffff; --panel:#ffffff; --ink:#1a1a17; --muted:#565651;
-    --accent:#2f5d86; --hair:#e4e4e2; --chip:#f2f2f0; --hover:#f5f5f3;
+    --accent:#2f5d86; --hair:#e4e4e2; --chip:#f4f4f1; --hover:#eef0f2;
     --serif:Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
@@ -17,209 +17,279 @@
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);
-    line-height:1.55;font-size:17px;padding:0 20px}
-  .wrap{max-width:820px;margin:0 auto;padding:6vh 0 12vh}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.55;font-size:17px;padding:0 20px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 0 12vh}
   a{color:var(--accent)}
-  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
-    color:var(--muted);font-weight:700;margin:0 0 14px}
-  h1{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.08;letter-spacing:-.5px;margin:0 0 16px}
-  .lede{font-size:19px;color:var(--ink);margin:0 0 28px;max-width:46ch}
-  /* what-each strip: the four games, described */
-  .skills{display:grid;grid-template-columns:repeat(4,1fr);
-    border-top:1px solid var(--hair);border-left:1px solid var(--hair);margin:6px 0 8px}
-  .skill{padding:16px 18px 18px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-  .skill.wide{grid-column:1/-1}
-  .skill .n{font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-  .skill .d{font-size:15px;color:var(--muted);line-height:1.45}
-  .brand{letter-spacing:.5px}
-  .devhead{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:22px 0 0}
-  .skills.dev{grid-template-columns:repeat(2,1fr);margin-top:6px;opacity:.7}
-  .skills.dev .n{color:var(--muted)}
-  /* game section */
-  section{margin:40px 0 0}
-  .ghead h2{font-family:var(--serif);font-size:27px;margin:0 0 2px;letter-spacing:-.3px;
-    border-bottom:2px solid var(--ink);padding-bottom:8px}
-  /* clickable topic rows — one line each, skimmable */
-  a.row{display:flex;align-items:baseline;gap:12px;padding:11px 8px 11px 2px;
-    border-bottom:1px solid var(--hair);text-decoration:none;color:inherit;border-radius:3px;transition:background .12s}
+  .masthead{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding:6vh 0 0}
+  .mast-left{flex:1;min-width:240px}
+  .masthead h1{font-family:var(--serif);font-weight:700;font-size:54px;line-height:1;letter-spacing:.5px;margin:0;text-transform:uppercase}
+  .loghero{display:flex;flex-direction:column;gap:11px;flex:none}
+  .avatarchip{display:inline-flex;align-items:center;gap:11px;margin-top:18px;text-decoration:none;color:inherit;border:1px solid var(--hair);border-radius:999px;padding:6px 16px 6px 6px;background:#fff}
+  .avatarchip:hover{background:var(--hover)}
+  .avatarpic{display:inline-block;border-radius:50%;overflow:hidden;border:1.5px solid var(--ink);background:#e7e4dc;flex:none}
+  .avatarpic svg{display:block;width:100%;height:auto}
+  .avatarpic.sm{width:46px;height:46px}
+  .avatarpic.md{width:66px;height:66px}
+  .avatarmeta{display:flex;flex-direction:column;line-height:1.25}
+  .avatarmeta b{font-size:14px}
+  .avatarmeta span{color:var(--muted);font-size:12px}
+  .statsprofile{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:inherit;margin-bottom:20px}
+  .statsprofile:hover .avatarmeta b{text-decoration:underline}
+  .statshead{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .statshead .statsprofile{margin-bottom:0}
+  .signout{font-family:var(--sans);font-size:13px;color:var(--muted);text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px}
+  .signout:hover{background:var(--hover);color:var(--ink)}
+  .hrow{display:flex;gap:11px;justify-content:flex-end}
+  .hlogo{width:64px;height:64px;border-radius:15px;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:transform .18s ease}
+  .hlogo svg{width:40px;height:40px;display:block}
+  .hlogo:hover{transform:scale(1.06)}
+  .lede{font-family:var(--serif);font-size:23px;line-height:1.4;margin:20px 0 0;max-width:36ch}
+  .sub{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin:30px 0 8px}
+  .blurb{font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--muted);max-width:62ch;margin:0}
+  .blurb b{color:var(--ink)}
+  .sectionhead{font-family:var(--sans);font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--ink);padding-bottom:9px;margin:44px 0 20px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{border:1px solid var(--hair);border-radius:12px;padding:18px 18px 16px;background:var(--panel)}
+  .cardtop{display:flex;align-items:center;gap:14px}
+  .logo{flex:none;width:66px;height:66px;border-radius:14px;display:grid;place-items:center}
+  .logo svg{width:42px;height:42px;display:block}
+  .cardtop h2{font-family:var(--serif);font-size:25px;margin:0;letter-spacing:-.3px}
+  .desc{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--muted);margin:13px 0 0;min-height:42px}
+  .today{margin:14px 0 0;background:var(--chip);border-radius:8px;padding:11px 13px}
+  .today .tk{font-family:var(--sans);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .today .tt{font-family:var(--serif);font-size:19px;font-weight:700;margin:3px 0 0;letter-spacing:-.2px;line-height:1.15}
+  .today .ts{font-family:var(--sans);font-size:12px;color:var(--muted);margin:3px 0 0}
+  .controls{display:flex;gap:9px;flex-wrap:wrap;margin:13px 0 0}
+  .btn{font-family:var(--sans);font-size:13.5px;font-weight:650;border:1px solid var(--hair);background:var(--panel);color:var(--ink);padding:9px 14px;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn:hover{background:var(--hover)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{opacity:.92}
+  .btn.ghost{background:transparent}
+  .panel.arch{margin:11px 0 0;border-top:1px solid var(--hair);padding-top:4px}
+  a.row{display:flex;align-items:baseline;gap:10px;padding:8px 4px;border-bottom:1px solid var(--hair);text-decoration:none;color:inherit}
+  a.row:last-child{border-bottom:0}
   a.row:hover{background:var(--hover)}
-  a.row:hover .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px}
-  a.row .t{flex:1;font-weight:700;font-size:18px;letter-spacing:-.1px}
-  a.row .dom{font-family:var(--sans);font-size:11px;letter-spacing:1px;text-transform:uppercase;
-    color:var(--accent);font-weight:700;white-space:nowrap}
-  a.row .go{font-family:var(--sans);font-size:12px;color:var(--muted);white-space:nowrap;width:48px;text-align:right}
+  a.row .t{flex:1;font-size:14px}
+  a.row .go{font-family:var(--sans);font-size:11.5px;color:var(--muted);white-space:nowrap}
   a.row:hover .go{color:var(--accent)}
-  /* thrusts */
-  .thrusts{background:var(--panel);border:1px solid var(--hair);border-radius:2px;padding:20px 22px;margin-top:40px}
-  .thrusts h3{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px}
-  .chip{font-family:var(--sans);font-size:13px;background:var(--chip);color:var(--ink);
-    padding:5px 11px;border-radius:20px;border:1px solid var(--hair)}
-  footer{color:var(--muted);font-size:14px;margin-top:44px;font-family:var(--sans);line-height:1.6}
-  @media (max-width:620px){ h1{font-size:32px} body{font-size:16px}
-    a.row .dom{display:none} .skills{grid-template-columns:1fr 1fr} }
+  .levelbar{border:1px solid var(--hair);border-left:3px solid var(--accent);padding:14px 16px;margin:0 0 20px;background:#fff}
+  .levelhead{display:flex;align-items:center;gap:13px}
+  .lvlemoji{font-size:30px;line-height:1;flex:none}
+  .lvlname{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.05}
+  .lvlsub{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:3px}
+  .lvlscore{margin-left:auto;font-family:var(--serif);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+  .lvlscore span{font-family:var(--sans);font-size:11px;font-weight:400;color:var(--muted);margin-left:3px}
+  .lvltrack{height:7px;border-radius:999px;background:var(--chip,#f4f4f1);margin-top:12px;overflow:hidden}
+  .lvltrack span{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .5s ease}
+  .statsgrid{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 20px}
+  .statcard{flex:1;min-width:120px;border:1px solid var(--hair);border-top:3px solid var(--accent);padding:13px 16px}
+  .statcard .n{font-family:var(--serif);font-size:32px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+  .statcard .l{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .stbl{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14px}
+  .stbl th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--hair);padding:7px 10px 7px 0}
+  .stbl td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hair);font-variant-numeric:tabular-nums}
+  .stbl td:first-child{font-weight:650}
+  .muted{color:var(--muted)}
+  footer{color:var(--muted);font-size:13px;margin-top:52px;font-family:var(--sans);border-top:1px solid var(--hair);padding-top:16px}
+  @media (max-width:640px){ .masthead h1{font-size:40px} .lede{font-size:20px} body{font-size:16px} .grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 <div class="wrap">
-
-  <h1><span class="brand">RECKON</span>: Reasoning Games for Naval-Relevant Science</h1>
-
-  <div class="skills">
-    <div class="skill"><div class="n">Casebook</div><div class="d">A Clue-style deduction game: settle <em>who</em>, <em>where</em>, and <em>what really happened</em> from the readings.</div></div>
-    <div class="skill"><div class="n">Diagnosis</div><div class="d">Enter a real instrumented system and find the cause that fits the <em>entire</em> panel.</div></div>
-    <div class="skill"><div class="n">Sequence</div><div class="d">Reconstruct how a system, procedure, or event actually unfolds, step by step.</div></div>
-    <div class="skill"><div class="n">Ballpark</div><div class="d">Estimate a hard "how many / how much" quantity by placing real numbers into named factors.</div></div>
-    <div class="skill wide"><div class="n">Science Tank</div><div class="d">Invest across three concealed historical innovations; the reveal separates what paid off from what changed the world without paying at all.</div></div>
-  </div>
-
-  <div class="devhead">In development</div>
-  <div class="skills dev">
-    <div class="skill"><div class="n">Battleship Ed</div><div class="d">A Battleship-like game where you command a full array of sensors.</div></div>
-    <div class="skill"><div class="n">Sonar Trail</div><div class="d">Like Oregon Trail, but every decision is based on understanding.</div></div>
-  </div>
-
-  <!-- CASEBOOK -->
-  <section>
-    <div class="ghead"><h2>Casebook</h2></div>
-<a class="row" href="casebook_static.html#m_bridge"><span class="t">The Halloway Span</span><span class="dom">Materials · fracture</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_stadium"><span class="t">The Coronet Arena Roof</span><span class="dom">Structures · loads</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_tunnel"><span class="t">The Kingsgate Bore</span><span class="dom">Geotech · tunnelling</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_tailings"><span class="t">The Serra Verde Tailings Dam</span><span class="dom">Geotech · dams</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_sub"><span class="t">The Carrow Deep Implosion</span><span class="dom">Undersea · pressure</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_rig"><span class="t">The Deepwater Meridian</span><span class="dom">Drilling · well control</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_heli"><span class="t">The Ridgeline Rotor</span><span class="dom">Rotorcraft · fatigue</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#t_wind"><span class="t">The Fenmark Turbine Collapse</span><span class="dom">Wind · structures</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_adas"><span class="t">The Autopilot on Vane Street</span><span class="dom">Autonomy · sensing</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#m_railx"><span class="t">The Marsh Lane Crossing</span><span class="dom">Rail signalling</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#t_pipeline"><span class="t">The Brant Hollow Pipeline</span><span class="dom">Pipeline integrity</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#t_transformer"><span class="t">The Aldergate Substation Fire</span><span class="dom">Power · dielectrics</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#t_refinery"><span class="t">The Halden Refinery Fire</span><span class="dom">Process safety</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#e_quake"><span class="t">Nine Seconds to Cordera</span><span class="dom">Seismology</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#e_tsunami"><span class="t">The Sable Point Wave</span><span class="dom">Oceanography · tsunami</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#e_storm"><span class="t">The Halloway Landfall</span><span class="dom">Meteorology</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#e_flood"><span class="t">The Rossmere Flood</span><span class="dom">Hydrology · flood</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#e_asteroid"><span class="t">The Hollow Vale Impact</span><span class="dom">Planetary defense</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#e_avalanche"><span class="t">The Whitewall Slide</span><span class="dom">Snow science</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#e_wildfire"><span class="t">The Pinehaven Fire</span><span class="dom">Wildfire</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#w_water"><span class="t">The Tap</span><span class="dom">Water · public health</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#w_compound"><span class="t">The Compounding Room</span><span class="dom">Pharma · sterility</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#w_surg"><span class="t">The Wrong Side</span><span class="dom">Surgery · safety</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#w_blood"><span class="t">The Crossmatch</span><span class="dom">Transfusion safety</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#f_crypto"><span class="t">The Cipher at Meridian Bank</span><span class="dom">Cryptography</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#f_privacy"><span class="t">The Beacon Consent Scandal</span><span class="dom">Data privacy</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#f_breach"><span class="t">The Halcyon Data Breach</span><span class="dom">Cyber · intrusion</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#f_netout"><span class="t">The Great Grey-Out</span><span class="dom">Networks · routing</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#f_ai"><span class="t">The Aegis Model</span><span class="dom">AI / ML assurance</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#f_firmware"><span class="t">The Halden Infusion Pump</span><span class="dom">Embedded firmware</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#f_robot"><span class="t">The Cell-9 Robot</span><span class="dom">Robotics · safety</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#j_press"><span class="t">The Ashford Dispatch</span><span class="dom">Verification · ethics</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#j_fraud"><span class="t">The Amberline Collapse</span><span class="dom">Financial forensics</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#j_capture"><span class="t">The Halcyon Grid</span><span class="dom">Regulation · capture</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#c_arch"><span class="t">The Cranmoor Skull</span><span class="dom">Archaeology · forensics</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#c_art"><span class="t">The Halberstadt Panel</span><span class="dom">Art authentication</span><span class="go">Play →</span></a>
-    <a class="row" href="casebook_static.html#c_fall"><span class="t">The Last Council of Vellano</span><span class="dom">History · siege</span><span class="go">Play →</span></a>
-  </section>
-
-  <!-- DIAGNOSIS -->
-  <section>
-    <div class="ghead"><h2>Diagnosis</h2></div>
-    <a class="row" href="diagnosis/satpower_playable.html"><span class="t">Power Margin — spacecraft electrical power</span><span class="dom">Space power</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/bridge_playable.html"><span class="t">Span Watch — bridge monitoring</span><span class="dom">Structures · SHM</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/telescope_playable.html"><span class="t">Image Quality — astronomical observatory</span><span class="dom">Electro-optic sensing</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/datacenter_playable.html"><span class="t">Thermal Margin — data-center cooling</span><span class="dom">Thermal · computing</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/rail_playable.html"><span class="t">Signal Integrity — railway signaling</span><span class="dom">Control · signal integrity</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/wildfire_playable.html"><span class="t">Fireline Signal — wildfire monitoring</span><span class="dom">Distributed sensing</span><span class="go">Play →</span></a>
-    <a class="row" href="diagnosis/bioreactor_playable.html"><span class="t">Living Process — industrial fermentation</span><span class="dom">Biotechnology</span><span class="go">Play →</span></a>
-  </section>
-
-  <!-- SEQUENCE -->
-  <section>
-    <div class="ghead"><h2>Sequence</h2></div>
-    <a class="row" href="sequence.html#ins"><span class="t">Finding Position Without GPS</span><span class="dom">Precision navigation</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#ctd"><span class="t">Reading the Water Column</span><span class="dom">Oceanography · sensors</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#swarm"><span class="t">Many Robots, One Search</span><span class="dom">Autonomy · multi-agent</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#cyber"><span class="t">Detect, Isolate, Recover</span><span class="dom">Cyber resilience</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#corrosion"><span class="t">Stopping the Sea from Eating Steel</span><span class="dom">Materials · sustainment</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#assimilation"><span class="t">From Ocean Sensor to Better Forecast</span><span class="dom">Ocean prediction</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#power"><span class="t">Holding the Electrical Bus</span><span class="dom">Naval power & controls</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#spaceweather"><span class="t">When the Sun Disturbs the Link</span><span class="dom">Space weather · comms</span><span class="go">Play →</span></a>
-    <a class="row" href="sequence.html#heat"><span class="t">Heat on the Flight Deck</span><span class="dom">Human performance</span><span class="go">Play →</span></a>
-  </section>
-
-  <!-- BALLPARK -->
-  <section>
-    <div class="ghead"><h2>Ballpark</h2></div>
-    <a class="row" href="ballpark.html#bp_m_sub"><span class="t">The Real Scale of the Deep Ocean</span><span class="dom">Deep ocean · sonar</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_e_quake"><span class="t">Earthquakes: Rupture, Energy, and Signals</span><span class="dom">Seismology · signals</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_e_tsunami"><span class="t">Tsunamis Across the Ocean</span><span class="dom">Oceanography</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_m_heli"><span class="t">UH-60 Black Hawk Flight Scale</span><span class="dom">Rotorcraft</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_rocket"><span class="t">Saturn V and Apollo 11</span><span class="dom">Propulsion · spaceflight</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_reactor"><span class="t">Nuclear Reactor Power and Decay Heat</span><span class="dom">Nuclear power</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_f_crypto"><span class="t">Cryptography: Keys, Blocks, and Brute Force</span><span class="dom">Cryptography</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_f_ai"><span class="t">Large Language Models by the Numbers</span><span class="dom">AI / ML</span><span class="go">Play →</span></a>
-    <a class="row" href="ballpark.html#bp_t_battery"><span class="t">Grid Batteries and Stored Energy</span><span class="dom">Power & energy</span><span class="go">Play →</span></a>
-  </section>
-
-  <!-- SCIENCE TANK -->
-  <section>
-    <div class="ghead"><h2>Science Tank</h2></div>
-    <a class="row" href="sciencetank.html#electric-futures"><span class="t">Electric Futures</span><span class="dom">Electricity & power</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#digital-office"><span class="t">Digital Office</span><span class="dom">Computing</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#internet-foundations"><span class="t">Internet Foundations</span><span class="dom">Networks</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#machine-media"><span class="t">Machine Media</span><span class="dom">Media & signals</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#synthetic-materials"><span class="t">Synthetic Materials</span><span class="dom">Polymers · materials</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#energy-materials"><span class="t">Energy Materials</span><span class="dom">Energy storage</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#early-medicine"><span class="t">Early Medicine</span><span class="dom">Medicine</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#drug-discovery"><span class="t">Drug Discovery</span><span class="dom">Pharmacology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#dna-revolution"><span class="t">DNA Revolution</span><span class="dom">Molecular biology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#biotech-origins"><span class="t">Biotech Origins</span><span class="dom">Biotechnology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#feeding-billions"><span class="t">Feeding Billions</span><span class="dom">Agriculture</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#crop-protection"><span class="t">Crop Protection</span><span class="dom">Agriculture · chemistry</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#watching-earth"><span class="t">Watching Earth</span><span class="dom">Earth observation</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#earth-and-space"><span class="t">Earth and Space</span><span class="dom">Earth & space</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#flight-revolution"><span class="t">Flight Revolution</span><span class="dom">Aeronautics</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#scale-and-systems"><span class="t">Scale and Systems</span><span class="dom">Engineering scale</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#evidence-decisions"><span class="t">Evidence and Decisions</span><span class="dom">Decision science</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#undersea-systems"><span class="t">Undersea Systems</span><span class="dom">Undersea systems</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#seeing-inside"><span class="t">Seeing Inside</span><span class="dom">Medical imaging</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#vaccine-strategies"><span class="t">Vaccine Strategies</span><span class="dom">Vaccines</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#aviation-ambitions"><span class="t">Aviation Ambitions</span><span class="dom">Aviation</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#format-wars"><span class="t">Format Wars</span><span class="dom">Consumer media</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#handheld-computing"><span class="t">Handheld Computing</span><span class="dom">Mobile computing</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#moon-and-rockets"><span class="t">Moon and Rockets</span><span class="dom">Spaceflight</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#cleaning-the-atmosphere"><span class="t">Cleaning the Atmosphere</span><span class="dom">Atmosphere · emissions</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#robots-at-work"><span class="t">Robots at Work</span><span class="dom">Robotics · automation</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#building-upward"><span class="t">Building Upward</span><span class="dom">Civil engineering</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#switching-and-signals"><span class="t">Switching and Signals</span><span class="dom">Telecom</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#food-futures"><span class="t">Food Futures</span><span class="dom">Food technology</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#advanced-materials"><span class="t">Advanced Materials</span><span class="dom">Advanced materials</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#precision-instruments"><span class="t">Precision Instruments</span><span class="dom">Precision instruments</span><span class="go">Play →</span></a>
-    <a class="row" href="sciencetank.html#trust-and-screening"><span class="t">Trust and Screening</span><span class="dom">Security · screening</span><span class="go">Play →</span></a>
-  </section>
-
-  <div class="thrusts">
-    <h3>ONR technical areas represented across these topics</h3>
-    <div class="chips">
-      <span class="chip">Undersea & sonar</span>
-      <span class="chip">Ocean science & prediction (METOC)</span>
-      <span class="chip">Naval architecture & platforms</span>
-      <span class="chip">Naval power & energy</span>
-      <span class="chip">Nuclear propulsion</span>
-      <span class="chip">Autonomy & multi-agent systems</span>
-      <span class="chip">AI / ML assurance</span>
-      <span class="chip">Cyber & resilient computing</span>
-      <span class="chip">Cryptography & information security</span>
-      <span class="chip">Materials, structures & sustainment</span>
-      <span class="chip">Precision navigation (GPS-denied)</span>
-      <span class="chip">Electro-optic sensors</span>
-      <span class="chip">Space & space weather</span>
-      <span class="chip">Warfighter human performance</span>
-      <span class="chip">Decision-making under uncertainty</span>
+  <div class="masthead">
+    <div class="mast-left">
+      <h1>Reckon</h1>
+      <p class="lede">Reasoning games where understanding is the only way to win.</p>
+      <div id="avatarChip"></div>
     </div>
+    <div id="loghero" class="loghero" aria-hidden="true"></div>
   </div>
 
+  <div class="sub">Built for naval-relevant science</div>
+  <p class="blurb">RECKON is a suite of reasoning games where <b>understanding the science is the only way to win</b> — no trivia, no luck. This collection gathers the games closest to the problems the <b>Office of Naval Research</b> cares about: sensing and signals, undersea and ocean systems, autonomy, materials and structures, navigation, and operational decision-making under uncertainty. Each puzzle rewards the same instinct ONR-funded science depends on — reading real evidence, reasoning about physical systems, and choosing the right tool for the moment.</p>
+
+  <div class="sectionhead">Today's Games</div>
+  <div id="daily" class="grid"></div>
+
+  <div class="sectionhead" style="margin-top:48px">My Stats</div>
+  <div id="statsBody" class="muted">Loading…</div>
+
+  <footer>RECKON · one sign-in, a daily puzzle in every game — and learning that carries the weight.</footer>
 </div>
+<script>
+const GAMES = {"Casebook":{"link":"casebook_static.html#","fileLink":false,"cases":[["m_bridge","The Halloway Span","Structural & Fracture Mechanics"],["m_stadium","The Coronet Arena Roof","Structures & Crowd Dynamics"],["m_tunnel","The Kingsgate Bore","Tunnelling & Ground Engineering"],["m_tailings","The Serra Verde Tailings Dam","Slope Stability & Soil Liquefaction"],["m_sub","The Carrow Deep Implosion","Deep Submergence & the Physics of Pressure"],["m_rig","The Deepwater Meridian","Drilling & Well Control"],["m_heli","The Ridgeline Rotor","Rotorcraft & Aeromechanics"],["t_wind","The Fenmark Turbine Collapse","Wind Energy & Fatigue Engineering"],["m_adas","The Autopilot on Vane Street","Vehicle Automation & Safety"],["m_railx","The Marsh Lane Crossing","Railway Signalling & Interlocking"],["t_pipeline","The Brant Hollow Pipeline","Pipeline Integrity & Fluid Mechanics"],["t_transformer","The Aldergate Substation Fire","Power Engineering & Dielectrics"],["t_refinery","The Halden Refinery Fire","Process Safety & Combustion Engineering"],["e_quake","Nine Seconds to Cordera","Seismology & Earthquake Science"],["e_tsunami","The Sable Point Wave","Tsunami Science & Oceanography"],["e_storm","The Halloway Landfall","Meteorology & Storm Forecasting"],["e_flood","The Rossmere Flood","Hydrology & Flood Science"],["e_asteroid","The Hollow Vale Impact","Planetary Defense & Impact Science"],["e_avalanche","The Whitewall Slide","Snow, Avalanche & Glacier Science"],["e_wildfire","The Pinehaven Fire","Wildfire & Combustion Science"],["w_water","The Tap","Water Supply & Environmental Health"],["w_compound","The Compounding Room","Pharmacy & Sterile Compounding"],["w_surg","The Wrong Side","Surgery & Patient Safety"],["w_blood","The Crossmatch","Transfusion & Blood Banking"],["f_crypto","The Cipher at Meridian Bank","Cryptography & Information Security"],["f_privacy","The Beacon Consent Scandal","Data Privacy & Information Systems"],["f_breach","The Halcyon Data Breach","Computer Security & Information Systems"],["f_netout","The Great Grey-Out","Computer Networks & the Internet"],["f_ai","The Aegis Model","Artificial Intelligence & Machine Learning"],["f_firmware","The Halden Infusion Pump","Embedded & Firmware Engineering"],["f_robot","The Cell-9 Robot","Robotics & Autonomous Systems"],["j_press","The Ashford Dispatch","Journalism Ethics & Verification"],["j_fraud","The Amberline Collapse","Accounting & Corporate Finance"],["j_capture","The Halcyon Grid","Regulation & Public Choice"],["c_arch","The Cranmoor Skull","Archaeology & Scientific Dating"],["c_art","The Halberstadt Panel","Art History & Authentication"],["c_fall","The Last Council of Vellano","History & Historical Method"]]},"Diagnosis":{"link":"diagnosis/","fileLink":true,"cases":[["bioreactor","Living Process","Industrial fermentation","bioreactor_playable.html"],["bridge","Span Watch","Bridge structural monitoring","bridge_playable.html"],["coldchain","Cold Chain","Temperature-controlled vaccine logistics","coldchain_playable.html"],["crop","Field Stress","Precision agriculture and crop health","crop_playable.html"],["datacenter","Thermal Margin","Data-center cooling","datacenter_playable.html"],["rail","Signal Integrity","Railway signaling","rail_playable.html"],["satpower","Power Margin","Spacecraft electrical power","satpower_playable.html"],["telescope","Image Quality","Astronomical observatory operations","telescope_playable.html"],["water","Clear Water","Drinking-water treatment","water_playable.html"],["wildfire","Fireline Signal","Wildfire behavior and mapping","wildfire_playable.html"]]},"Sequence":{"link":"sequence.html#","fileLink":false,"cases":[["wound","The Cut That Closes","Medicine & biology"],["star","A Star Like the Sun","Astronomy"],["web","The First Visit to a Secure Website","Computing"],["law","A Federal Civil Case","Law & civics"],["cuba","Thirteen Days in October","History & diplomacy"],["rocket","Two Stages to Orbit","Aerospace engineering"],["soap","How Soap Carries Grease Away","Chemistry"],["lake","From Fertilizer to a Dead Zone","Ecology"],["tsunami","From Locked Fault to Coastal Flood","Earth science"],["payment","What Happens After You Tap","Finance & payment systems"],["infrared","Seeing Heat","Electro-optics & sensors"],["ins","Finding Position Without GPS","Precision navigation & estimation"],["ctd","Reading the Water Column","Oceanography & instrumentation"],["power","Holding the Electrical Bus","Naval power & controls"],["corrosion","Stopping the Sea from Eating Steel","Materials science & sustainment"],["swarm","Many Robots, One Search","Autonomy & multi-agent systems"],["cyber","Detect, Isolate, Recover","Cybersecurity & resilient computing"],["heat","Heat on the Flight Deck","Human performance & physiology"],["assimilation","From Ocean Sensor to Better Forecast","Ocean prediction & applied mathematics"],["spaceweather","When the Sun Disturbs the Link","Space weather & communications"]]},"Ballpark":{"link":"ballpark.html#","fileLink":false,"cases":[["bp_e_asteroid","Asteroids and Planetary Defense","asteroids · impacts · planetary defense"],["bp_e_avalanche","Avalanches: Speed, Rescue, and Scale","snow · avalanches · rescue"],["bp_e_flood","Floods and Moving Water","rivers · rainfall · flood probability"],["bp_e_quake","Earthquakes: Rupture, Energy, and Signals","seismology · rupture · wave travel"],["bp_e_storm","Hurricanes: Wind, Rain, and Surge","hurricanes · rainfall · storm surge"],["bp_e_tsunami","Tsunamis Across the Ocean","oceanography · wave speed · runup"],["bp_e_wildfire","Wildfire Scale and Firefighting","wildfire · fuel energy · aviation"],["bp_dam","Hoover Dam and Lake Mead","dams · reservoirs · hydropower"],["bp_m_adas","Autonomous Vehicles and Sensors","autonomy · sensors · stopping distance"],["bp_m_bridge","Golden Gate Bridge by the Numbers","bridges · cables · traffic"],["bp_m_heli","UH-60 Black Hawk Flight Scale","rotorcraft · lift · range"],["bp_m_railx","High-Capacity Railway Signalling","rail signalling · headways · capacity"],["bp_m_rig","Deepwater Drilling and the Gulf Spill","offshore drilling · pressure · spill scale"],["bp_m_stadium","Wembley Stadium: Structure and Crowds","stadiums · crowds · long-span roofs"],["bp_m_sub","The Real Scale of the Deep Ocean","deep ocean · pressure · sonar"],["bp_m_tailings","The Brumadinho Tailings Disaster","tailings · liquefaction · runout"],["bp_m_tunnel","The Channel Tunnel by the Numbers","tunnels · excavation · rail"],["bp_marine","RMS Titanic: Ship Scale and Buoyancy","ships · displacement · capacity"],["bp_rail","Fast Trains and Rail Capacity","railways · speed · energy"],["bp_rocket","Saturn V and Apollo 11","rockets · thrust · lunar travel"],["bp_tower","Burj Khalifa by the Numbers","skyscrapers · elevators · concrete"],["bp_blackout","The 2003 Northeast Blackout","electric grid · cascading failure · restoration"],["bp_chemplant","Chemical Plants and Toxic Releases","process safety · toxic gases · industrial scale"],["bp_reactor","Nuclear Reactor Power and Decay Heat","nuclear power · fission · decay heat"],["bp_t_battery","Grid Batteries and Stored Energy","batteries · power · grid storage"],["bp_t_dust","Combustible Dust: Thin Layers, Large Hazards","dust explosions · combustion · standards"],["bp_t_pipeline","The Keystone Pipeline by the Numbers","pipelines · flow · pressure waves"],["bp_t_refinery","Oil Refineries and Daily Throughput","refining · fuels · process scale"],["bp_t_transformer","Large Power Transformers","transformers · voltage · efficiency"],["bp_t_wind","The Haliade-X Offshore Wind Turbine","wind power · rotor scale · fatigue"],["bp_t_oncology","Radiation Therapy and Dose","radiotherapy · dose · treatment scale"],["bp_w_anes","Anesthesia: Drugs, Oxygen, and Monitoring","anesthesia · physiology · monitoring"],["bp_w_blood","Blood Donation and Transfusion","blood banking · volume · supply"],["bp_w_compound","Sterile Compounding and Clean Rooms","pharmacy · sterile processing · clean rooms"],["bp_w_hai","Healthcare-Associated Infections","infection control · hospitals · rates"],["bp_w_surg","Surgery and Patient Safety","surgery · checklists · operating rooms"],["bp_w_trial","Clinical Trials by the Numbers","clinical trials · efficacy · follow-up"],["bp_w_water","Drinking Water: Supply and Lead","water systems · treatment · public health"],["bp_f_ai","Large Language Models by the Numbers","artificial intelligence · training · model scale"],["bp_f_breach","Major Data Breaches by the Numbers","cybersecurity · records · exposure"],["bp_f_crypto","Cryptography: Keys, Blocks, and Brute Force","cryptography · keyspace · standards"],["bp_f_firmware","Embedded Computers: Apollo to Arduino","firmware · memory · processors"],["bp_f_netout","Internet Scale, Addresses, and Latency","internet · fiber · addressing"],["bp_f_privacy","Privacy Lessons from Real Data Sets","privacy · re-identification · data scale"],["bp_f_robot","Mobile Robots at Work","robotics · payload · autonomy"],["bp_software","Software Failures and Computer Limits","software safety · overflow · timing"],["bp_j_bank","Silicon Valley Bank and Bank Runs","banking · deposits · liquidity"],["bp_j_capture","Regulated Electric Utilities","regulation · utility rates · public choice"],["bp_j_convict","Wrongful Convictions and Exoneration","criminal evidence · exoneration · due process"],["bp_j_fraud","Corporate Accounting Fraud by the Numbers","accounting · market value · fraud"],["bp_j_press","News Organizations and Verification Scale","journalism · verification · global news"],["bp_j_trust","Monopoly and Antitrust Scale","antitrust · market power · concentration"],["bp_j_vote","The Scale of a U.S. Presidential Election","elections · turnout · administration"],["bp_c_arch","Archaeology and Scientific Dating","archaeology · radiocarbon · excavation"],["bp_c_art","Artworks, Images, and Authentication","art history · imaging · conservation"],["bp_c_doping","Cycling and Anti-Doping by the Numbers","sports science · cycling · anti-doping"],["bp_c_fall","The Roman Empire by the Numbers","history · infrastructure · empire"],["bp_c_fraud","Scientific Fraud and Reproducibility","research integrity · replication · statistics"],["bp_c_psych","Classic Psychology Experiments by the Numbers","psychology · conformity · replication"],["bp_c_script","Deciphering Ancient Scripts","linguistics · inscriptions · decipherment"],["bp_gmtroy","Troy, Homer, and the Bronze Age","Troy · Homer · archaeology"]]},"Protocol":{"link":"protocol.html#","fileLink":false,"cases":[["surgery","Repair Under Pressure","Laparoscopic surgery"],["naval","Contact in the Strait","Naval sensors & EW"],["mars","Cache at Red Basin","Planetary science"],["aviation","Smoke Over the Mountains","Aviation systems"],["cyber","The Silent Intruder","Cybersecurity"],["grid","Black Start","Power grid restoration"],["wildfire","Wind Shift at Pine Ridge","Wildfire response"],["chemistry","Purify the Enzyme","Biochemistry"],["bridge","After the Quake","Structural engineering"],["water","Clear Water After the Storm","Drinking-water treatment"],["telecom","The Dark Fiber","Fiber optics"],["forensics","The Altered Contract","Forensic document analysis"],["satellite","Service the Silent Satellite","Spaceflight & robotics"],["ecology","The Dying Estuary","Aquatic ecology"],["volcano","Unrest at Calder Peak","Volcanology"]]},"Science Tank":{"link":"sciencetank.html#","fileLink":false,"cases":[["electric-futures","Electric Futures","Tesla, Edison, Bell"],["digital-office","Digital Office","Storage, PARC, Mouse"],["internet-foundations","Internet Foundations","Web, Crypto, Databases"],["machine-media","Machine Media","AI, Imaging, Audio"],["synthetic-materials","Synthetic Materials","Dyes, Plastics, Polymers"],["energy-materials","Energy Materials","Glass, Batteries, Solar"],["early-medicine","Early Medicine","Chemotherapy, Anesthesia, Antibiotics"],["drug-discovery","Drug Discovery","Statins, Cancer, Pharmacology"],["dna-revolution","DNA Revolution","CRISPR, Sequencing, PCR"],["biotech-origins","Biotech Origins","Fluorescence, Insulin, Microbes"],["feeding-billions","Feeding Billions","Nitrogen, Wheat, Irrigation"],["crop-protection","Crop Protection","Insects, Genomes, Preservation"],["watching-earth","Watching Earth","GPS, Satellites, Weather"],["earth-and-space","Earth and Space","Tectonics, Optics, Communications"],["flight-revolution","Flight Revolution","Wings, Jets, Engines"],["scale-and-systems","Scale and Systems","Nuclear, Cargo, Power"],["evidence-decisions","Evidence and Decisions","Cholera, Behavior, Forensics"],["undersea-systems","Undersea Systems","Detection, Propulsion, Navigation"],["seeing-inside","Seeing Inside","Tomography, Isotopes, Endoscopy"],["vaccine-strategies","Vaccine Strategies","Polio, Hepatitis, Pandemic"],["aviation-ambitions","Aviation Ambitions","Atlantic, Supersonic, Vertical"],["format-wars","Format Wars","Video, Audio, HD"],["handheld-computing","Handheld Computing","PDAs, Readers, Tablets"],["moon-and-rockets","Moon and Rockets","Apollo, Shuttle, Reuse"],["cleaning-the-atmosphere","Cleaning the Atmosphere","Emissions, Refrigerants, Sulfur"],["robots-at-work","Robots at Work","Factories, Warehouses, Driving"],["building-upward","Building Upward","Elevators, Bridges, Concrete"],["switching-and-signals","Switching and Signals","Switching, Cellular, Messaging"],["food-futures","Food Futures","Freezing, Sweeteners, Protein"],["advanced-materials","Advanced Materials","Turbines, Composites, Printing"],["precision-instruments","Precision Instruments","Microscopy, Time, Detectors"],["trust-and-screening","Trust and Screening","Biometrics, Airports, Currency"]]}};
+/* NYT-Games-style hub: colorful logo tiles in a 2-up grid, short blurbs,
+   today's puzzle + archive per game, and My stats. */
+const ORDER = ["Ballpark", "Casebook", "Diagnosis", "Protocol", "Sequence"];
+const TINT = { "Casebook": "#fdecea", "Diagnosis": "#e7f4ec", "Sequence": "#e9f0f7", "Ballpark": "#fdf0e2", "Science Tank": "#efe9fb", "Protocol": "#e4f1ef" };
+const ICON = {
+  "Casebook": `<svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="9" fill="none" stroke="#c0392b" stroke-width="3"/><line x1="23.5" y1="23.5" x2="33" y2="33" stroke="#c0392b" stroke-width="3.6" stroke-linecap="round"/><circle cx="17" cy="17" r="3.2" fill="#e6a700"/></svg>`,
+  "Diagnosis": `<svg viewBox="0 0 40 40"><path d="M8 26a12 12 0 0 1 24 0" fill="none" stroke="#1e7a4d" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="26" x2="27" y2="16.5" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="26" r="2.6" fill="#1e7a4d"/></svg>`,
+  "Sequence": `<svg viewBox="0 0 40 40"><line x1="11" y1="12" x2="20" y2="20" stroke="#9aa5ad" stroke-width="2.5"/><line x1="20" y1="20" x2="29" y2="28" stroke="#9aa5ad" stroke-width="2.5"/><circle cx="11" cy="12" r="4.2" fill="#2f5d86"/><circle cx="20" cy="20" r="4.2" fill="#2f9e8f"/><circle cx="29" cy="28" r="4.2" fill="#e6a700"/></svg>`,
+  "Ballpark": `<svg viewBox="0 0 40 40"><line x1="8" y1="31" x2="32" y2="31" stroke="#9aa5ad" stroke-width="2.5" stroke-linecap="round"/><rect x="10" y="20" width="5.5" height="11" rx="1.2" fill="#2f5d86"/><rect x="17.5" y="11" width="5.5" height="20" rx="1.2" fill="#c9700f"/><rect x="25" y="24" width="5.5" height="7" rx="1.2" fill="#1e7a4d"/></svg>`,
+  "Science Tank": `<svg viewBox="0 0 40 40"><path d="M20 7a9 9 0 0 0-5.5 16.2c1 .8 1.7 1.8 1.9 3.3h7.2c.2-1.5.9-2.5 1.9-3.3A9 9 0 0 0 20 7z" fill="#f3ebff" stroke="#6a4fb0" stroke-width="2.5"/><path d="M16.5 29.5h7M18 32.5h4" stroke="#6a4fb0" stroke-width="2.5" stroke-linecap="round"/><path d="M16.8 17.5l2.6 2.2 3.8-4.4" fill="none" stroke="#e6a700" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  "Protocol": `<svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="26" rx="2.5" fill="none" stroke="#0e8a80" stroke-width="2.4"/><line x1="14" y1="14" x2="26" y2="14" stroke="#9aa5ad" stroke-width="2.2" stroke-linecap="round"/><line x1="14" y1="20" x2="26" y2="20" stroke="#9aa5ad" stroke-width="2.2" stroke-linecap="round"/><path d="M14 26.4l2.2 2.2 4.2-4.6" fill="none" stroke="#e6a700" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+};
+const DESC = {
+  "Casebook": "Clue-style deduction — settle who, where, and what from three scientists' readings.",
+  "Diagnosis": "Read a whole instrument panel to find the one fault that fits every gauge.",
+  "Sequence": "Put the steps of a real system or process in the order it truly follows.",
+  "Ballpark": "Estimate a hard “how much” from real, sourced numbers, factor by factor.",
+  "Science Tank": "Invest across concealed historical innovations; see which really paid off.",
+  "Protocol": "Match each step of a real operation to the one instrument or system built for it.",
+};
+const START = Date.UTC(2026, 6, 1);
+const DAY = 86400000;
+function dayIndex() { return Math.floor((Date.now() - START) / DAY); }
+function mod(n, m) { return ((n % m) + m) % m; }
+function caseLink(g, c) { return g.fileLink ? g.link + c[3] : g.link + encodeURIComponent(c[0]); }
+function fmtDate(ts) { return new Date(ts).toLocaleDateString(undefined, { month: "short", day: "numeric" }); }
+function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+function renderDaily() {
+  const di = dayIndex();
+  let html = "";
+  for (const name of ORDER) {
+    const g = GAMES[name];
+    if (!g || !g.cases.length) continue;
+    const N = g.cases.length;
+    const today = g.cases[mod(di, N)];
+    let arch = "";
+    for (let k = 1; k <= 14; k++) {
+      const c = g.cases[mod(di - k, N)];
+      arch += `<a class="row arch-row" href="${caseLink(g, c)}"><span class="t">${esc(c[1])}</span><span class="go">${fmtDate(Date.now() - k * DAY)}</span></a>`;
+    }
+    const science = today[2] ? ` · ${esc(today[2])}` : "";
+    html += `<section class="card">
+      <div class="cardtop"><span class="logo" style="background:${TINT[name] || "#f4f4f1"}">${ICON[name] || ""}</span><h2>${name}</h2></div>
+      <p class="desc">${esc(DESC[name] || "")}</p>
+      <div class="today">
+        <div class="tk">Today's puzzle</div>
+        <div class="tt">${esc(today[1])}</div>
+        <div class="ts">${science.replace(/^ · /, "")}</div>
+      </div>
+      <div class="controls">
+        <a class="btn primary" href="${caseLink(g, today)}">Play now →</a>
+        <button class="btn ghost" data-t="arch">Archive</button>
+      </div>
+      <div class="panel arch" hidden>${arch}</div>
+    </section>`;
+  }
+  const root = document.getElementById("daily");
+  root.innerHTML = html;
+  root.addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-t]");
+    if (!b) return;
+    const panel = b.closest(".card").querySelector(".panel.arch");
+    const opening = panel.hasAttribute("hidden");
+    if (opening) panel.removeAttribute("hidden"); else panel.setAttribute("hidden", "");
+    b.textContent = opening ? "Hide archive" : "Archive";
+  });
+}
+
+async function renderStats() {
+  const el = document.getElementById("statsBody");
+  let s = null;
+  try { const r = await fetch("/api/stats", { credentials: "same-origin" }); s = r.ok ? await r.json() : null; } catch (e) { s = null; }
+  if (!s) { el.innerHTML = avatarProfileHTML() + `<p class="muted"><a href="/sign-in.html">Sign in</a> to track your streak and stats across every game.</p>`; return; }
+  const st = s.streak || {};
+  const total = (s.results || []).length;
+  const lvl = playerLevel(s);
+  const levelbar = `<div class="levelbar">
+    <div class="levelhead"><span class="lvlemoji">${lvl.emoji}</span><div><div class="lvlname">${lvl.name}</div><div class="lvlsub">${lvl.next ? `${lvl.toNext} to ${lvl.next}` : "Top rank reached"}</div></div><div class="lvlscore">${lvl.score}<span>pts</span></div></div>
+    <div class="lvltrack"><span style="width:${lvl.pct}%"></span></div>
+  </div>`;
+  const grid = `<div class="statsgrid">
+    <div class="statcard"><div class="n">${st.currentStreak || 0}</div><div class="l">Current streak</div></div>
+    <div class="statcard"><div class="n">${st.longestStreak || 0}</div><div class="l">Longest streak</div></div>
+    <div class="statcard"><div class="n">${total}</div><div class="l">Games finished</div></div>
+    <div class="statcard"><div class="n">${s.wins || 0}</div><div class="l">Wins</div></div>
+  </div>`;
+  // Per-game breakdown: always show all five games, filling zeros until played.
+  const byGame = {}; for (const b of (s.byGame || [])) byGame[b.game] = b;
+  const rows = ORDER.map(name => {
+    const b = byGame[name] || { played: 0, wins: 0, avgScore: null };
+    const wr = b.played ? Math.round((b.wins / b.played) * 100) + "%" : "—";
+    return `<tr><td>${esc(name)}</td><td>${b.played}</td><td>${b.wins}</td><td>${wr}</td><td>${b.avgScore == null ? "—" : b.avgScore}</td></tr>`;
+  }).join("");
+  const table = `<div class="sectionhead" style="font-size:15px;margin:26px 0 10px">Per-game breakdown</div>
+    <table class="stbl"><thead><tr><th>Game</th><th>Finished</th><th>Wins</th><th>Win rate</th><th>Avg score</th></tr></thead><tbody>${rows}</tbody></table>`;
+  const header = `<div class="statshead">${avatarProfileHTML()}<a class="signout" href="/sign-out.html">Sign out</a></div>`;
+  el.innerHTML = header + levelbar + grid + table;
+}
+
+// Player level from performance. Points reward wins, consistency, and volume;
+// tiers are named so progress feels tangible even early on.
+function playerLevel(s) {
+  const wins = s.wins || 0;
+  const played = (s.results || []).length;
+  const longest = (s.streak && s.streak.longestStreak) || 0;
+  const score = wins * 10 + played * 2 + longest * 5;
+  const TIERS = [
+    { name: "Rookie",       min: 0,   emoji: "🌱" },
+    { name: "Novice",       min: 15,  emoji: "🔎" },
+    { name: "Investigator", min: 40,  emoji: "🕵️" },
+    { name: "Analyst",      min: 90,  emoji: "📊" },
+    { name: "Expert",       min: 170, emoji: "⭐" },
+    { name: "Master",       min: 300, emoji: "🏅" },
+    { name: "Genius",       min: 500, emoji: "🧠" },
+  ];
+  let i = 0; for (let k = 0; k < TIERS.length; k++) if (score >= TIERS[k].min) i = k;
+  const cur = TIERS[i], next = TIERS[i + 1] || null;
+  const pct = next ? Math.round(((score - cur.min) / (next.min - cur.min)) * 100) : 100;
+  return { name: cur.name, emoji: cur.emoji, score, next: next ? next.name : null, toNext: next ? next.min - score : 0, pct };
+}
+
+/* ---------- Investigator portrait (character.html) ---------- */
+const SILHOUETTE = '<svg viewBox="0 0 520 620" xmlns="http://www.w3.org/2000/svg"><rect width="520" height="620" fill="#e7e4dc"/><g fill="#b7b3a9"><circle cx="260" cy="225" r="118"/><path d="M60 620c0-140 90-210 200-210s200 70 200 210z"/></g></svg>';
+function currentAvatar(){
+  let svg=null, st=null;
+  try{ svg=localStorage.getItem("casebookAvatarSVG"); st=JSON.parse(localStorage.getItem("casebookAvatarV1")||"null"); }catch(e){}
+  return { svg, st };
+}
+function avatarPicHTML(size){ return `<span class="avatarpic ${size}">${currentAvatar().svg || SILHOUETTE}</span>`; }
+function renderAvatarChip(){
+  const el=document.getElementById("avatarChip"); if(!el)return;
+  const st=currentAvatar().st;
+  const created=!!(st && st.name);
+  const name=created?st.name:"Create your investigator";
+  const role=created?(st.role||"Investigator"):"Tap to begin →";
+  el.innerHTML=`<a class="avatarchip" href="character.html" title="Edit your investigator">${avatarPicHTML("sm")}<span class="avatarmeta"><b>${esc(name)}</b><span>${esc(role)}</span></span></a>`;
+}
+function avatarProfileHTML(){
+  const st=currentAvatar().st;
+  const created=!!(st && st.name);
+  const name=created?st.name:"Your investigator";
+  const role=created?`${st.role||"Investigator"} · Edit`:"Not created yet · Create one →";
+  return `<a class="statsprofile" href="character.html" title="Edit your investigator">${avatarPicHTML("md")}<span class="avatarmeta"><b>${esc(name)}</b><span>${esc(role)}</span></span></a>`;
+}
+async function hydrateAvatarFromAccount(){
+  try{
+    const r=await fetch("/api/avatar",{credentials:"same-origin"});
+    if(!r.ok)return;
+    const d=await r.json();
+    if(d && d.avatar && d.avatar.svg){
+      try{
+        localStorage.setItem("casebookAvatarSVG",d.avatar.svg);
+        if(d.avatar.state) localStorage.setItem("casebookAvatarV1",JSON.stringify(d.avatar.state));
+      }catch(e){}
+      renderAvatarChip(); renderStats();
+    }
+  }catch(e){}
+}
+
+function renderHero(){
+  const el=document.getElementById("loghero"); if(!el)return;
+  const tile=(name)=>`<span class="hlogo" title="${name}" style="background:${TINT[name]||'#f4f4f1'}">${ICON[name]||''}</span>`;
+  const top=Math.floor(ORDER.length/2);
+  el.innerHTML=`<div class="hrow">${ORDER.slice(0,top).map(tile).join("")}</div><div class="hrow">${ORDER.slice(top).map(tile).join("")}</div>`;
+}
+renderHero();
+renderDaily();
+renderAvatarChip();
+renderStats();
+hydrateAvatarFromAccount();
+
+</script>
 </body>
 </html>
