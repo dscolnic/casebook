@@ -7,120 +7,139 @@
 @media (prefers-color-scheme:dark){:root{--bg:#16150f;--ink:#f0eee6;--muted:#a8a69c;--hair:#33322b;--chip:#22211b;--hover:#26251e}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5}
-.wrap{max-width:680px;margin:0 auto;padding:24px 18px 60px}
+.wrap{max-width:700px;margin:0 auto;padding:24px 18px 60px}
 .back{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--muted);text-decoration:none;margin-bottom:18px}
 .back:hover{color:var(--accent)}
-h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.1;margin:0 0 6px}
-.intro{color:var(--muted);font-size:14px;margin:0 0 16px}
+h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;margin:0 0 8px}
+.intro{color:var(--muted);font-size:14.5px;margin:0 0 16px;max-width:620px}
 .summary{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:var(--muted);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:9px 2px;margin-bottom:6px}
 .summary strong{color:var(--ink)}
 .reset{background:none;border:1px solid var(--hair);border-radius:999px;padding:5px 12px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer}
 .reset:hover{background:var(--hover)}
 ol.weeks{list-style:none;margin:0;padding:0}
-li.wk{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--hair)}
-li.wk .no{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px;width:22px;flex:none;text-align:right}
-li.wk .tag{flex:none;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--c);border-radius:999px;padding:3px 9px;min-width:82px;text-align:center}
-li.wk .ttl{flex:1;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+li.wk{display:flex;align-items:center;gap:11px;padding:11px 4px;border-bottom:1px solid var(--hair)}
+li.wk .no{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px;width:20px;flex:none;text-align:right}
+li.wk .ico{flex:none;width:23px;height:23px;display:grid;place-items:center}
+li.wk .ico svg{width:23px;height:23px;display:block}
+li.wk .ttl{flex:1;min-width:0;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
 li.wk .ttl:hover{color:var(--accent);text-decoration:underline}
-li.wk .chk{flex:none;color:var(--accent);font-weight:800;opacity:0;transition:opacity .15s}
-li.wk.done .chk{opacity:1}
+li.wk .tag{flex:none;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:2px 8px}
+li.wk .circle{flex:none;width:23px;height:23px;border-radius:50%;border:2px solid var(--hair);background:none;display:grid;place-items:center;font-size:12px;font-weight:800;color:transparent;cursor:pointer;padding:0;line-height:1}
+li.wk .circle:hover{border-color:var(--accent)}
+li.wk.done .circle{background:var(--accent);border-color:var(--accent);color:#fff}
 li.wk.done .ttl{color:var(--muted)}
+@media(max-width:520px){li.wk .tag{display:none}}
 </style></head>
 <body><main class="wrap">
 <a class="back" href="reckon.html">← RECKON</a>
 <h1>Reasoning for Naval Science</h1>
-<p class="intro">A 15-week problem-solving path. Each week opens one puzzle in a RECKON game — tap a title to play.</p>
-<div class="summary"><span><strong id="count">0</strong> of 15 weeks played</span><button class="reset" id="reset">Reset</button></div>
+<p class="intro">A 15-week course that teaches naval science by <b>playing it</b>: each week turns one real concept — how sonar hears a contact, how a radar builds a track, how a ship fights flooding or fire — into a puzzle you can only solve by <b>understanding the system</b>, not memorizing facts. Work straight through or jump around; tap a week to play, and use the circle to track what you've finished.</p>
+<div class="summary"><span><strong id="count">0</strong> of 15 weeks complete</span><button class="reset" id="reset">Reset</button></div>
 <ol class="weeks">
     <li class="wk" data-week="1">
       <span class="no">01</span>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.8" fill="currentColor" stroke="none"/><path d="M9 8a6 6 0 0 1 0 8"/><path d="M12.5 5.5a11 11 0 0 1 0 13"/></svg></span>
       <a class="ttl" href="sequence.html#nc_sonar_path" data-week="1">Sound sources, ocean propagation, and passive sonar</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <button class="circle" data-week="1" title="Mark complete" aria-label="Mark week 1 complete">✓</button>
     </li>
     <li class="wk" data-week="2">
       <span class="no">02</span>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12q2.5-6 5 0t5 0 5 0"/></svg></span>
       <a class="ttl" href="ballpark.html#nc_bp_sonar" data-week="2">Underwater acoustics by the numbers</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <button class="circle" data-week="2" title="Mark complete" aria-label="Mark week 2 complete">✓</button>
     </li>
     <li class="wk" data-week="3">
       <span class="no">03</span>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="protocol.html#nc_contact_protocol" data-week="3">Multi-sensor contact identification</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <button class="circle" data-week="3" title="Mark complete" aria-label="Mark week 3 complete">✓</button>
     </li>
     <li class="wk" data-week="4">
       <span class="no">04</span>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-6-6 4z" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="ballpark.html#nc_bp_navigation" data-week="4">Dead reckoning, knots, set, and drift</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <button class="circle" data-week="4" title="Mark complete" aria-label="Mark week 4 complete">✓</button>
     </li>
     <li class="wk" data-week="5">
       <span class="no">05</span>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l7-2.5"/><circle cx="17" cy="8.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="sequence.html#nc_radar_echo" data-week="5">Pulse-echo radar and track formation</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <button class="circle" data-week="5" title="Mark complete" aria-label="Mark week 5 complete">✓</button>
     </li>
     <li class="wk" data-week="6">
       <span class="no">06</span>
-      <span class="tag" style="--c:#1e7a4d">Diagnosis</span>
+      <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 13q3-3 5.5 0t5.5 0 5.5 0"/><path d="M2.5 17.5q3-3 5.5 0t5.5 0 5.5 0"/></svg></span>
       <a class="ttl" href="diagnosis/nc_flooding_playable.html" data-week="6">Diagnosing shipboard flooding</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#1e7a4d">Diagnosis</span>
+      <button class="circle" data-week="6" title="Mark complete" aria-label="Mark week 6 complete">✓</button>
     </li>
     <li class="wk" data-week="7">
       <span class="no">07</span>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v11M8 15l-2.5-2.5M8 15l2.5-2.5"/><path d="M16 4v11M16 15l-2.5-2.5M16 15l2.5-2.5"/></svg></span>
       <a class="ttl" href="ballpark.html#nc_bp_depth" data-week="7">Hydrostatic pressure, buoyancy, and floodwater mass</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <button class="circle" data-week="7" title="Mark complete" aria-label="Mark week 7 complete">✓</button>
     </li>
     <li class="wk" data-week="8">
       <span class="no">08</span>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3.5 4.5 5.5 4.5 8.5a4.5 4.5 0 0 1-9 0c0-1.8 1-3 2-4 .2 1.8 1.2 2.6 2 2.6-1-2.8 .5-5 .5-7.1z"/></svg></span>
       <a class="ttl" href="protocol.html#nc_fire_protocol" data-week="8">Shipboard electrical-fire response</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <button class="circle" data-week="8" title="Mark complete" aria-label="Mark week 8 complete">✓</button>
     </li>
     <li class="wk" data-week="9">
       <span class="no">09</span>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg></span>
       <a class="ttl" href="sequence.html#nc_gas_turbine_drive" data-week="9">Marine gas-turbine propulsion</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <button class="circle" data-week="9" title="Mark complete" aria-label="Mark week 9 complete">✓</button>
     </li>
     <li class="wk" data-week="10">
       <span class="no">10</span>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5L5.5 13H11l-1.5 8.5L19 10.5h-6.5z" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="protocol.html#nc_power_restore" data-week="10">Electrical casualty isolation and restoration</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <button class="circle" data-week="10" title="Mark complete" aria-label="Mark week 10 complete">✓</button>
     </li>
     <li class="wk" data-week="11">
       <span class="no">11</span>
-      <span class="tag" style="--c:#c0392b">Casebook</span>
+      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/></svg></span>
       <a class="ttl" href="casebook_static.html#nc_greywake_case" data-week="11">Independent navigation evidence and common-mode error</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#c0392b">Casebook</span>
+      <button class="circle" data-week="11" title="Mark complete" aria-label="Mark week 11 complete">✓</button>
     </li>
     <li class="wk" data-week="12">
       <span class="no">12</span>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 15h6l-1 3.5h-4z"/><path d="M15.5 15h6l-1 3.5h-4z"/><path d="M8.5 12.5h7"/></svg></span>
       <a class="ttl" href="protocol.html#nc_unrep_protocol" data-week="12">Connected replenishment at sea</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#0e8a80">Protocol</span>
+      <button class="circle" data-week="12" title="Mark complete" aria-label="Mark week 12 complete">✓</button>
     </li>
     <li class="wk" data-week="13">
       <span class="no">13</span>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 7.6-7.5 9.5-4.3-1.9-7.5-5-7.5-9.5V6z"/><path d="M8.7 12l2.4 2.4 4.2-4.8"/></svg></span>
       <a class="ttl" href="sequence.html#nc_layered_defense" data-week="13">Layered defensive sensing and decision chains</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#2f5d86">Sequence</span>
+      <button class="circle" data-week="13" title="Mark complete" aria-label="Mark week 13 complete">✓</button>
     </li>
     <li class="wk" data-week="14">
       <span class="no">14</span>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 16.5h19"/><path d="M6 16.5a6 6 0 0 1 12 0"/><circle cx="12" cy="16.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="ballpark.html#nc_bp_radar" data-week="14">Radar horizon, pulse timing, and reaction time</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#c9700f">Ballpark</span>
+      <button class="circle" data-week="14" title="Mark complete" aria-label="Mark week 14 complete">✓</button>
     </li>
     <li class="wk" data-week="15">
       <span class="no">15</span>
-      <span class="tag" style="--c:#6a4fb0">Science Tank</span>
+      <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 19h5M10.5 21.5h3"/><path d="M12 3a6 6 0 0 0-3.5 10.8c.9.8 1.5 1.6 1.5 2.7h4c0-1.1.6-1.9 1.5-2.7A6 6 0 0 0 12 3z"/></svg></span>
       <a class="ttl" href="sciencetank.html#nc_naval_innovation" data-week="15">Historical naval innovation under uncertainty</a>
-      <span class="chk" aria-hidden="true">✓</span>
+      <span class="tag" style="--c:#6a4fb0">Science Tank</span>
+      <button class="circle" data-week="15" title="Mark complete" aria-label="Mark week 15 complete">✓</button>
     </li>
 </ol>
 </main>
@@ -140,6 +159,9 @@ li.wk.done .ttl{color:var(--muted)}
   }
   document.querySelectorAll("a.ttl").forEach(function(a){
     a.addEventListener("click",function(){ state[a.getAttribute("data-week")]=1; save(state); });
+  });
+  document.querySelectorAll("button.circle").forEach(function(b){
+    b.addEventListener("click",function(){ var w=b.getAttribute("data-week"); if(state[w])delete state[w]; else state[w]=1; save(state); paint(); });
   });
   var r=document.getElementById("reset");
   if(r)r.addEventListener("click",function(){state={};save(state);paint();});
