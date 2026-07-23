@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocol — RECKON</title>
+<style>
+:root{--paper:#f4f2ec;--panel:#fff;--ink:#151515;--muted:#67645f;--line:#d8d4cb;--blue:#315c91;--blueSoft:#e8eff8;--green:#2d704d;--greenSoft:#e5f1e9;--red:#a9443c;--redSoft:#f8e9e7;--shadow:0 10px 28px rgba(0,0,0,.07);--r:15px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 12% 0,rgba(49,92,145,.07),transparent 28%),var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,select{font:inherit}button,a{-webkit-tap-highlight-color:transparent}.app{width:min(1320px,calc(100% - 28px));margin:auto;padding:18px 0 44px}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px}.brandWrap{display:flex;align-items:center;gap:12px}.home{color:var(--ink);font-size:.82rem;font-weight:850;text-decoration:none;letter-spacing:.04em}.home:hover{text-decoration:underline}.mark{width:46px;height:46px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:#fff;font:800 23px Georgia,serif}.brand h1{font:800 1.68rem Georgia,serif;margin:0;letter-spacing:-.03em}.brand p{margin:2px 0 0;color:var(--muted);font-size:.88rem}.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.btn,select{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:9px 12px;min-height:40px}.btn{font-weight:780;cursor:pointer}.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}.btn:disabled{opacity:.42;cursor:not-allowed}.mission,.timelinePanel,.poolPanel,.actionBar{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}.mission{padding:21px;margin-bottom:15px}.missionHead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:var(--blue);font-size:.73rem;font-weight:900}.mission h2{font:800 clamp(1.6rem,3vw,2.28rem) Georgia,serif;letter-spacing:-.035em;margin:5px 0 7px}.missionText{max-width:920px;line-height:1.55;margin:0;color:#343434}.pill{background:var(--blueSoft);color:var(--blue);font-weight:800;border-radius:999px;padding:8px 11px;font-size:.83rem}.briefing{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:15px}.brief{border-top:3px solid var(--ink);background:#f5f3ee;padding:10px 11px;font-size:.87rem;line-height:1.38;min-height:72px}.status{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:15px}.stat{background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px;text-align:center}.stat strong{display:block;font-size:1.12rem}.stat span{font-size:.78rem;color:var(--muted)}.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(330px,.9fr);gap:15px;align-items:start}.head{padding:15px 17px 12px;border-bottom:1px solid var(--line)}.head h3{font:800 1.2rem Georgia,serif;margin:0}.head p{font-size:.82rem;color:var(--muted);margin:3px 0 0}.timeline{padding:13px 15px 17px}.event{display:grid;grid-template-columns:38px minmax(0,1fr) minmax(245px,.92fr);gap:10px;position:relative;padding:6px 0}.event:not(:last-child):after{content:"";position:absolute;left:18px;top:43px;bottom:-7px;width:2px;background:var(--line)}.num{width:38px;height:38px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;background:#fff;font-weight:900;z-index:1}.eventCopy{border:1px solid var(--line);border-radius:11px;padding:11px 12px;background:#faf9f6}.eventCopy h4{margin:0 0 5px;font-size:.96rem}.eventCopy p{margin:0;font-size:.86rem;line-height:1.42;color:#45433f}.slot{border:2px dashed #b8b3aa;border-radius:11px;min-height:91px;padding:7px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;transition:.12s}.slot.empty:before{content:"Place system";font-size:.8rem;color:#8a867e;font-weight:750}.slot.target{border-color:var(--blue);background:var(--blueSoft)}.slot.correct{border-style:solid;border-color:var(--green);background:var(--greenSoft)}.slot.wrong{border-style:solid;border-color:var(--red);background:var(--redSoft)}.placed{width:100%;border-left:4px solid var(--blue);padding:7px 8px;cursor:pointer}.placed.correct{border-left-color:var(--green);cursor:default}.placed.wrong{border-left-color:var(--red)}.toolName{font-weight:850;font-size:.88rem}.toolSpec{font-size:.78rem;line-height:1.36;color:#57534d;margin:4px 0 0}.hint{font-size:.7rem;color:var(--muted);display:block;margin-top:5px}.badge{position:absolute;top:5px;right:6px;background:#fff;border:1px solid var(--green);color:var(--green);border-radius:999px;padding:2px 6px;text-transform:uppercase;letter-spacing:.05em;font-size:.63rem;font-weight:900}.poolPanel{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:hidden}.pool{padding:12px;display:grid;grid-template-columns:1fr;gap:8px;overflow:auto;max-height:calc(100vh - 104px)}.card{border:1px solid var(--line);border-radius:11px;background:#fff;padding:10px 11px;cursor:pointer;touch-action:none;user-select:none;transition:.12s}.card:hover{transform:translateY(-1px);box-shadow:0 5px 13px rgba(0,0,0,.07)}.card.selected{outline:3px solid rgba(49,92,145,.22);border-color:var(--blue)}.dragGhost{position:fixed;z-index:1000;width:min(330px,80vw);pointer-events:none;opacity:.94;transform:translate(-50%,-50%) rotate(1deg);box-shadow:0 16px 36px rgba(0,0,0,.2);background:#fff;border:2px solid var(--blue);border-radius:11px;padding:10px 11px}.actionBar{margin-top:15px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px}.feedback{font-size:.87rem;line-height:1.42}.legend{margin-top:5px;color:var(--green);font-size:.76rem;font-weight:800}.buttons{display:flex;gap:8px}.overlay{position:fixed;inset:0;background:rgba(0,0,0,.46);display:none;align-items:center;justify-content:center;padding:18px;z-index:900}.overlay.show{display:flex}.modal{background:#fff;width:min(790px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:21px;box-shadow:0 24px 70px rgba(0,0,0,.24)}.modal h2{font:800 1.8rem Georgia,serif;margin:0 0 8px}.intro{color:#555;line-height:1.48}.solution{display:grid;gap:8px;margin-top:14px}.solRow{display:grid;grid-template-columns:31px 1fr;gap:9px;padding:9px 0;border-top:1px solid var(--line)}.solNum{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:850}.solRow h4{margin:0 0 3px}.solRow p{margin:0;color:#555;line-height:1.4;font-size:.86rem}.takeaway{margin-top:14px;padding:12px;background:var(--blueSoft);border-left:5px solid var(--blue);line-height:1.44}.modalActions{display:flex;justify-content:flex-end;gap:8px;margin-top:15px}.scoreBox{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.scoreCell{background:#f5f3ee;border-radius:10px;padding:10px;text-align:center}.scoreCell strong{display:block;font-size:1.2rem}.scoreCell span{font-size:.75rem;color:var(--muted)}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,15px);background:var(--ink);color:#fff;border-radius:999px;padding:9px 14px;opacity:0;transition:.15s;pointer-events:none;z-index:1200;font-size:.82rem;font-weight:750}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:980px){.grid{grid-template-columns:1fr}.poolPanel{position:static;max-height:none}.pool{grid-template-columns:repeat(2,minmax(0,1fr));max-height:none;overflow:visible}.briefing{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.app{width:min(100% - 14px,1320px);padding-top:10px}.top{align-items:flex-start;flex-wrap:wrap}.actions{width:100%;justify-content:stretch}.actions select{flex:1 1 100%}.actions .btn{flex:1}.brand p{display:none}.status{grid-template-columns:repeat(2,1fr)}.briefing{grid-template-columns:1fr}.event{grid-template-columns:34px 1fr}.num{width:34px;height:34px}.event:not(:last-child):after{left:16px;top:39px}.slot{grid-column:2;min-height:76px}.pool{grid-template-columns:1fr}.actionBar{align-items:stretch;flex-direction:column}.buttons{width:100%}.buttons .btn{flex:1}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="top"><div class="brandWrap"><a class="home" href="reckon.html">← RECKON</a><div class="mark">P</div><div class="brand"><h1>Protocol</h1><p>Match the right system to each operational moment.</p></div></div><div class="actions"><select id="picker" aria-label="Mission picker"></select><button class="btn" id="howBtn">How to play</button><button class="btn" id="resetBtn">Reset</button></div></header>
+<section class="mission"><div class="missionHead"><div><div class="eyebrow" id="dayLabel"></div><h2 id="title"></h2><p class="missionText" id="mission"></p></div><div class="pill" id="domain"></div></div><div class="briefing" id="briefing"></div></section>
+<section class="status"><div class="stat"><strong id="attempts">3</strong><span>attempts left</span></div><div class="stat"><strong id="placed">0 / 7</strong><span>steps filled</span></div><div class="stat"><strong id="locked">0</strong><span>steps locked</span></div><div class="stat"><strong id="score">0 / 21</strong><span>current score</span></div></section>
+<section class="grid"><div class="timelinePanel"><div class="head"><h3>Operation timeline</h3><p>Correct placements lock. Incorrect placements remain until replaced.</p></div><div class="timeline" id="timeline"></div></div><aside class="poolPanel"><div class="head"><h3>Available systems</h3><p>Tap then tap a slot, or drag with mouse, touch, or stylus.</p></div><div class="pool" id="pool"></div></aside></section>
+<section class="actionBar"><div class="feedback" id="feedback">Fill every open step, then submit.<div class="legend">Green means correct and locked. No other card information is revealed.</div></div><div class="buttons"><button class="btn" id="clearBtn">Clear wrong</button><button class="btn primary" id="submitBtn" disabled>Submit protocol</button></div></section>
+</main>
+<div class="overlay" id="result"><div class="modal"><h2 id="resultTitle"></h2><p class="intro" id="resultIntro"></p><div class="scoreBox"><div class="scoreCell"><strong id="finalScore"></strong><span>score</span></div><div class="scoreCell"><strong id="finalRank"></strong><span>rank</span></div><div class="scoreCell"><strong id="finalTime"></strong><span>solve time</span></div></div><div class="solution" id="solution"></div><div class="takeaway" id="takeaway"></div><div class="modalActions"><button class="btn" id="reviewBtn">Review board</button><button class="btn primary" id="nextBtn">Next mission</button></div></div></div>
+<div class="overlay" id="how"><div class="modal"><h2>How to play</h2><p class="intro" id="howIntro"></p><div class="solution"><div class="solRow"><div class="solNum">1</div><div><h4>Read both sides</h4><p>Each event contains operating constraints; each card describes capability and limits. Match the complete fit, not a keyword.</p></div></div><div class="solRow"><div class="solNum">2</div><div><h4>Fill the timeline</h4><p id="howCounts"></p></div></div><div class="solRow"><div class="solNum">3</div><div><h4>Submit three times</h4><p>Correct placements lock green and disappear from the pool. Incorrect placements turn red and remain on the board until you replace or remove them.</p></div></div></div><div class="takeaway"><strong>Scoring:</strong> A step is worth 3 points if first locked on attempt 1, 2 points on attempt 2, 1 point on attempt 3, and 0 if revealed.</div><div class="modalActions"><button class="btn primary" id="closeHow">Start</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="reckon-results.js"></script>
+<script>
+const puzzles = [
+  {
+    "id": "surgery",
+    "title": "Repair Under Pressure",
+    "domain": "Laparoscopic surgery · Instruments · Imaging",
+    "mission": "A surgical team is repairing a damaged section of small intestine after blunt trauma. Match each moment to the instrument that fits the access geometry, tissue type, and verification need. This fictionalized puzzle is educational, not clinical guidance.",
+    "briefing": [
+      "The operation uses 5–12 mm ports rather than a long open incision.",
+      "Healthy bowel must be handled without penetrating teeth, and vessel-sealing energy should stay between opposed jaws.",
+      "Blood flow must be assessed dynamically after intravenous fluorescent dye is given.",
+      "The new bowel connection must be challenged for leakage before closure."
+    ],
+    "takeaway": "Surgical tools are distinguished by access size, tissue contact, energy path, and whether they expose, alter, or verify tissue.",
+    "events": [
+      {
+        "title": "Create the workspace",
+        "text": "A port has entered the abdomen, but the abdominal wall still rests against the organs. The team needs a stable cavity with automatically regulated pressure and gas flow.",
+        "answer": "insufflator",
+        "why": "The carbon-dioxide insufflator creates and maintains the pressurized laparoscopic working space."
+      },
+      {
+        "title": "Survey the injury",
+        "text": "The field must be viewed through a 10 mm port with illumination, magnification, and an oblique viewing angle that can be changed by rotating the instrument.",
+        "answer": "laparoscope",
+        "why": "The 30-degree laparoscope supplies the illuminated magnified video view through the specified port."
+      },
+      {
+        "title": "Move healthy bowel",
+        "text": "A slippery loop of healthy intestine must be moved repeatedly. The contact surface must distribute force and contain no penetrating teeth.",
+        "answer": "atraumatic-grasper",
+        "why": "Broad fenestrated jaws let the atraumatic grasper hold bowel while limiting concentrated pressure and puncture risk."
+      },
+      {
+        "title": "Choose viable margins",
+        "text": "Surface color alone is uncertain. After dye enters the bloodstream, the surgeon needs to see its arrival through superficial vessels over tens of seconds.",
+        "answer": "perfusion-camera",
+        "why": "Near-infrared fluorescence imaging visualizes dynamic dye perfusion and helps define viable tissue."
+      },
+      {
+        "title": "Seal the vessel",
+        "text": "A 4 mm mesenteric vessel beside healthy bowel must be compressed, sealed, and divided. Electrical current should remain confined between two jaws.",
+        "answer": "bipolar-sealer",
+        "why": "The bipolar vessel sealer compresses the vessel and confines current between opposed electrodes."
+      },
+      {
+        "title": "Join the bowel ends",
+        "text": "Two open bowel ends need parallel staggered fastener rows and a reproducible internal opening, all delivered through a laparoscopic port.",
+        "answer": "linear-stapler",
+        "why": "The laparoscopic linear stapler creates aligned staple rows and a controlled joined opening."
+      },
+      {
+        "title": "Test the join",
+        "text": "The completed connection is submerged in sterile fluid. A measured amount of air or colored fluid must be introduced upstream while the outer surface is watched for leakage.",
+        "answer": "leak-test",
+        "why": "The leak-test syringe and catheter provide the controlled pressure challenge used to reveal a defect."
+      }
+    ],
+    "cards": [
+      {
+        "id": "monopolar-hook",
+        "name": "Monopolar cautery hook",
+        "spec": "A curved 5 mm electrode cuts or coagulates as current travels from an exposed tip through the patient to a return pad. The active region is not enclosed between jaws."
+      },
+      {
+        "id": "laparoscope",
+        "name": "30° laparoscope",
+        "spec": "A rigid 10 mm optical tube supplies illumination and a magnified video image. Rotating the tube changes the viewing direction without enlarging the port."
+      },
+      {
+        "id": "atraumatic-grasper",
+        "name": "Atraumatic bowel grasper",
+        "spec": "Broad fenestrated jaws hold soft tubular tissue over a distributed area. The contact surfaces have no penetrating teeth."
+      },
+      {
+        "id": "perfusion-camera",
+        "name": "Near-infrared perfusion camera",
+        "spec": "After intravenous fluorescent dye is given, the camera displays the dye's arrival and relative intensity in superficial vessels over tens of seconds."
+      },
+      {
+        "id": "insufflator",
+        "name": "Carbon-dioxide insufflator",
+        "spec": "Delivers filtered carbon dioxide through a port and automatically regulates intra-abdominal pressure and flow."
+      },
+      {
+        "id": "linear-stapler",
+        "name": "Laparoscopic linear stapler",
+        "spec": "A long-jawed device places parallel staggered staple rows and forms a controlled division or joined opening between them."
+      },
+      {
+        "id": "ultrasound-probe",
+        "name": "Laparoscopic Doppler ultrasound probe",
+        "spec": "A contact transducer displays tissue interfaces and blood-flow velocity several centimeters below an organ surface. It requires direct contact and examines a narrow local field."
+      },
+      {
+        "id": "leak-test",
+        "name": "Leak-test syringe and catheter",
+        "spec": "Introduces a measured volume of air or colored sterile fluid into a closed bowel segment while pressure and the outer surface are observed."
+      },
+      {
+        "id": "bipolar-sealer",
+        "name": "Bipolar vessel sealer",
+        "spec": "Opposed jaws compress tissue while current passes only between the two electrodes. The device is designed to seal vessels several millimeters in diameter."
+      },
+      {
+        "id": "skin-stapler",
+        "name": "External skin stapler",
+        "spec": "Places removable metal clips across superficial skin edges. Its short external legs do not form an internal bowel connection."
+      }
+    ]
+  },
+  {
+    "id": "naval",
+    "title": "Contact in the Strait",
+    "domain": "Naval sensors · Electronic warfare · Missile defense",
+    "mission": "A naval vessel transiting a contested strait must build a track picture and survive an attack while minimizing avoidable transmissions. Match each moment to the system that fits the signal type, range, and engagement phase.",
+    "briefing": [
+      "Before weapons are inbound, the commanding officer wants to avoid active emissions when a passive method can meet the need.",
+      "A suspected submarine is beneath a warm surface layer and radiates most strongly below 1 kHz.",
+      "The incoming missile uses an active radar seeker in terminal flight.",
+      "A terminal hard-kill system must respond autonomously inside 2 km."
+    ],
+    "takeaway": "Naval systems that all seem to 'detect' or 'defend' are separated by signal type, emission policy, range, and phase of engagement.",
+    "events": [
+      {
+        "title": "Detect the emitter",
+        "text": "A pulsed signal appears in the 8–12 GHz band from beyond visual range. The ship must measure bearing, frequency, and pulse timing without transmitting.",
+        "answer": "esm",
+        "why": "The electronic-support receiver passively measures the radar waveform and its arrival direction."
+      },
+      {
+        "title": "Classify the mode",
+        "text": "The pulse width and repetition pattern change every few seconds. The measurements must be compared with stored search, track, and fire-control signatures.",
+        "answer": "emitter-library",
+        "why": "The emitter library matches measured waveform parameters and mode transitions to known systems."
+      },
+      {
+        "title": "Listen below the layer",
+        "text": "A possible submarine is 25 km away beneath the thermocline. The ship needs low-frequency bearing information without sending an acoustic pulse.",
+        "answer": "towed-array",
+        "why": "The passive towed array places low-frequency hydrophones behind the ship and listens below the surface layer."
+      },
+      {
+        "title": "Share the track quietly",
+        "text": "A friendly aircraft 70 km away has a better angle. The ship must send a compact encrypted update through a narrow directed beam rather than broadcast in all directions.",
+        "answer": "directional-link",
+        "why": "The directional encrypted datalink transmits the track toward the intended platform with reduced intercept exposure."
+      },
+      {
+        "title": "Acquire the missile",
+        "text": "A sea-skimming object crosses the radar horizon at 18 km and closes rapidly. The system must build a high-update-rate, fire-control-quality track within seconds.",
+        "answer": "phased-array",
+        "why": "The multifunction phased-array radar rapidly schedules beams and maintains a weapon-quality track on a maneuvering missile."
+      },
+      {
+        "title": "Deceive the seeker",
+        "text": "At medium range the missile's active radar seeker is locked on the ship. The response must alter the range and Doppler information in the seeker’s received waveform.",
+        "answer": "rf-jammer",
+        "why": "A digital radio-frequency jammer sends coherent false returns with modified delay and Doppler."
+      },
+      {
+        "title": "Stop the terminal threat",
+        "text": "The missile remains inbound inside 2 km. The ship needs an autonomous mount that tracks the target and directs rapid gunfire continuously.",
+        "answer": "ciws",
+        "why": "The close-in weapon system combines local tracking and rapid fire for terminal hard-kill defense."
+      }
+    ],
+    "cards": [
+      {
+        "id": "navigation-radar",
+        "name": "X-band navigation radar",
+        "spec": "Produces high-resolution short-range surface maps for piloting, shoreline clearance, and collision avoidance. Its scan and processing emphasize surface contacts rather than terminal missile fire control."
+      },
+      {
+        "id": "directional-link",
+        "name": "Directional encrypted datalink",
+        "spec": "Sends compact digital messages through a steerable narrow beam with encryption and lower probability of interception than an omnidirectional broadcast."
+      },
+      {
+        "id": "towed-array",
+        "name": "Passive towed sonar array",
+        "spec": "A long line of hydrophones streams behind the ship, emphasizing low-frequency bearing information and operation beneath surface-layer noise."
+      },
+      {
+        "id": "emitter-library",
+        "name": "Emitter classification library",
+        "spec": "Compares frequency, pulse width, repetition pattern, scan timing, and mode transitions with stored signatures of known radar systems."
+      },
+      {
+        "id": "flare-launcher",
+        "name": "Infrared flare launcher",
+        "spec": "Ejects bright heat sources intended to attract seekers that track infrared intensity or motion. It does not reproduce a radar waveform."
+      },
+      {
+        "id": "irst",
+        "name": "Infrared search-and-track system",
+        "spec": "Passively scans for moving heat sources and produces bearing and elevation tracks. It does not identify radar pulse modes or generate a fire-control radar track."
+      },
+      {
+        "id": "phased-array",
+        "name": "Multifunction phased-array radar",
+        "spec": "Electronically schedules search and track beams with rapid updates for high-acceleration air targets and weapon-quality tracking."
+      },
+      {
+        "id": "esm",
+        "name": "Electronic-support receiver",
+        "spec": "Passively detects external radar emissions and measures arrival angle, frequency, pulse timing, and modulation without radiating."
+      },
+      {
+        "id": "ciws",
+        "name": "Close-in weapon system",
+        "spec": "An autonomous mount uses its own tracking sensor to direct a rapid-fire gun at terminal air targets at short range."
+      },
+      {
+        "id": "rf-jammer",
+        "name": "Digital radio-frequency jammer",
+        "spec": "Samples an incoming radar waveform and transmits timed coherent replicas with modified delay or Doppler information."
+      }
+    ]
+  },
+  {
+    "id": "mars",
+    "title": "Cache at Red Basin",
+    "domain": "Planetary science · Rover robotics · Spectroscopy",
+    "mission": "A Mars rover has one afternoon to select, document, and cache a rock core before a relay orbiter passes overhead. Match each step to the instrument or subsystem with the needed scale, data type, or mechanical function.",
+    "briefing": [
+      "The final 40 m approach contains rocks 20–40 cm tall whose distance must be estimated.",
+      "The target is a pale vein with possible hydrated minerals and organic carbon.",
+      "The outer 2 mm has been altered by dust and ultraviolet exposure.",
+      "Only 18 megabits can be sent during a nine-minute orbiter pass."
+    ],
+    "takeaway": "Planetary fieldwork moves from navigation and remote mapping to fresh-surface preparation, close analysis, sampling, and constrained communications.",
+    "events": [
+      {
+        "title": "Plan the approach",
+        "text": "The rover must choose a 40 m route through uneven ground. It needs both obstacle height in the 20–40 cm range and distance to each obstacle.",
+        "answer": "stereo-nav",
+        "why": "Stereo navigation cameras derive range from parallax while resolving nearby obstacle geometry."
+      },
+      {
+        "title": "Map the hydrated vein",
+        "text": "Several pale patches lie 15–30 m away. The team needs spatial maps of absorption bands near 1.4, 1.9, and 2.2 micrometers before driving to one.",
+        "answer": "swir",
+        "why": "Short-wave infrared imaging spectroscopy maps hydration-related absorption bands across a distant outcrop."
+      },
+      {
+        "title": "Expose fresh rock",
+        "text": "At the chosen patch, the upper 2 mm is dusty and radiation altered. A shallow circular layer must be ground away without collecting the core yet.",
+        "answer": "abrasion-tool",
+        "why": "The abrasion tool removes a controlled shallow layer and exposes fresh material for analysis."
+      },
+      {
+        "title": "Record the texture",
+        "text": "The exposed patch contains grains and laminations 40–200 micrometers across. The image must be registered to the exact coring location.",
+        "answer": "micro-imager",
+        "why": "The microscopic context imager resolves the specified grain scale at the sample site."
+      },
+      {
+        "title": "Test molecular structure",
+        "text": "The fresh patch needs a nondestructive spectrum that distinguishes mineral vibrational modes and several forms of carbon bonding, rather than only elemental abundance.",
+        "answer": "raman",
+        "why": "Raman spectroscopy measures molecular vibrational signatures and can identify mineral and carbon bonding."
+      },
+      {
+        "title": "Extract the core",
+        "text": "The sample must be a 13 mm-wide cylinder taken beneath the weathered surface while rotation, percussion, and axial force are applied.",
+        "answer": "coring-drill",
+        "why": "The rotary-percussive coring drill cuts and retains the required cylindrical subsurface sample."
+      },
+      {
+        "title": "Send the record",
+        "text": "The orbiter is above the horizon for nine minutes. Selected images and spectra totaling no more than 18 megabits must be transmitted through a compact rover-to-orbiter link.",
+        "answer": "uhf-relay",
+        "why": "The UHF relay radio sends the prioritized data package during the short orbiter pass."
+      }
+    ],
+    "cards": [
+      {
+        "id": "apxs",
+        "name": "Alpha-particle X-ray spectrometer",
+        "spec": "A contact instrument measures elemental composition over a spot several centimeters wide after an integration of tens of minutes or more. It does not directly identify molecular bonds."
+      },
+      {
+        "id": "micro-imager",
+        "name": "Microscopic context imager",
+        "spec": "Focuses at close range with pixel scales of tens of micrometers and records grain shapes, laminations, and contacts around a target."
+      },
+      {
+        "id": "stereo-nav",
+        "name": "Stereo navigation cameras",
+        "spec": "Two separated cameras provide overlapping images for range estimation, obstacle height, local slope, and traversability over tens of meters."
+      },
+      {
+        "id": "ground-radar",
+        "name": "Ground-penetrating radar",
+        "spec": "Transmits low-frequency pulses downward while the rover drives and produces profiles of subsurface layering several meters deep."
+      },
+      {
+        "id": "raman",
+        "name": "Raman spectrometer",
+        "spec": "A laser excites molecular vibrations in a small spot and records shifted wavelengths associated with minerals and carbon bonding."
+      },
+      {
+        "id": "swir",
+        "name": "Short-wave infrared imaging spectrometer",
+        "spec": "Maps reflected light from about 1.0–2.5 micrometers, including diagnostic absorption bands of hydrated minerals across a distant scene."
+      },
+      {
+        "id": "weather-station",
+        "name": "Mars environmental station",
+        "spec": "Records pressure, wind, air temperature, dust, and humidity at the rover throughout the day."
+      },
+      {
+        "id": "abrasion-tool",
+        "name": "Rock abrasion tool",
+        "spec": "A rotating bit grinds away a shallow circular layer of surface material and brushes the exposed patch for contact observations."
+      },
+      {
+        "id": "uhf-relay",
+        "name": "UHF orbiter-relay radio",
+        "spec": "Exchanges packetized data with a spacecraft above the local horizon during scheduled passes through a compact low-gain antenna."
+      },
+      {
+        "id": "coring-drill",
+        "name": "Rotary-percussive coring drill",
+        "spec": "Applies rotation, hammering, and controlled axial force to cut a cylindrical rock core and retain it in the sampling mechanism."
+      }
+    ]
+  },
+  {
+    "id": "aviation",
+    "title": "Smoke Over the Mountains",
+    "domain": "Aviation · Emergency systems · Instrument flight",
+    "mission": "A twin-engine research aircraft encounters electrical smoke in cloud over mountainous terrain. Match each stage to the cockpit system that provides the required protection, diagnosis, navigation, or landing function. The scenario is fictionalized and not a flight checklist.",
+    "briefing": [
+      "Visibility outside is near zero and the crew must remain on instruments.",
+      "The smoke source is suspected on one electrical bus; essential avionics are available on an isolated emergency bus.",
+      "The destination runway is served by an instrument landing system and has no functioning control tower.",
+      "The landing gear does not indicate down after normal hydraulic extension."
+    ],
+    "takeaway": "Aircraft emergency systems are separated by whether they protect the crew, isolate a fault, preserve attitude information, guide an approach, or verify a mechanical configuration.",
+    "events": [
+      {
+        "title": "Protect the crew",
+        "text": "Electrical smoke enters the cockpit while the aircraft remains pressurized. The pilots need breathable oxygen and eye protection before troubleshooting.",
+        "answer": "smoke-hood",
+        "why": "The full-face smoke hood supplies oxygen while protecting the eyes from smoke and irritants."
+      },
+      {
+        "title": "Locate the faulted bus",
+        "text": "The crew needs to compare current draw on the left and right distribution buses and identify the side with abnormal load before opening a contactor.",
+        "answer": "loadmeter",
+        "why": "The dual-bus loadmeter displays electrical demand separately for each bus."
+      },
+      {
+        "title": "Isolate the source",
+        "text": "The abnormal bus must be disconnected while keeping the battery-fed emergency bus energized for attitude, navigation, and radios.",
+        "answer": "bus-tie-panel",
+        "why": "The bus-tie and isolation panel opens the faulted bus contactor while preserving the independent essential bus."
+      },
+      {
+        "title": "Hold attitude in cloud",
+        "text": "The primary electronic displays briefly blank during reconfiguration. The crew needs an independently powered indication of pitch and bank.",
+        "answer": "standby-attitude",
+        "why": "The standby attitude indicator supplies independent pitch and bank information when the main displays are unavailable."
+      },
+      {
+        "title": "Navigate to the runway",
+        "text": "The aircraft must intercept a published localizer course and vertical glide path using radio signals from the runway environment.",
+        "answer": "ils-receiver",
+        "why": "The ILS receiver provides localizer lateral guidance and glideslope vertical guidance."
+      },
+      {
+        "title": "Announce the emergency",
+        "text": "The tower is unstaffed, but radar controllers must immediately recognize the emergency aircraft even if voice contact degrades.",
+        "answer": "transponder",
+        "why": "Selecting the emergency transponder code makes the aircraft conspicuous to secondary surveillance radar."
+      },
+      {
+        "title": "Verify gear position",
+        "text": "Normal extension has not produced a down indication. After alternate mechanical extension, the crew needs a direct visual check of the main-gear alignment through an inspection port.",
+        "answer": "gear-viewer",
+        "why": "The gear inspection viewer provides direct visual confirmation independent of the failed indication circuit."
+      }
+    ],
+    "cards": [
+      {
+        "id": "smoke-hood",
+        "name": "Full-face smoke hood",
+        "spec": "Supplies breathing oxygen and seals clear eye protection around the face. It protects the crew while troubleshooting but does not identify an electrical circuit."
+      },
+      {
+        "id": "loadmeter",
+        "name": "Dual-bus electrical loadmeter",
+        "spec": "Displays current or load separately for two electrical buses, allowing abnormal demand to be compared before isolation."
+      },
+      {
+        "id": "bus-tie-panel",
+        "name": "Bus-tie and isolation panel",
+        "spec": "Commands contactors that separate distribution buses and preserve selected essential loads on an independent source."
+      },
+      {
+        "id": "standby-attitude",
+        "name": "Independent standby attitude indicator",
+        "spec": "Uses a separate power source and sensor to show pitch and bank when primary electronic flight displays are unavailable."
+      },
+      {
+        "id": "ils-receiver",
+        "name": "Instrument landing system receiver",
+        "spec": "Decodes a runway localizer for lateral course and a glideslope for vertical approach guidance."
+      },
+      {
+        "id": "transponder",
+        "name": "Mode S transponder",
+        "spec": "Replies to secondary radar interrogations and can transmit a standardized emergency code visible to controllers."
+      },
+      {
+        "id": "gear-viewer",
+        "name": "Landing-gear inspection viewer",
+        "spec": "A lighted mirror or viewport permits direct confirmation of mechanical gear position independent of cockpit microswitch indications."
+      },
+      {
+        "id": "weather-radar",
+        "name": "Airborne weather radar",
+        "spec": "Maps precipitation intensity and storm structure ahead of the aircraft. It does not provide runway localizer or glide-path guidance."
+      },
+      {
+        "id": "elt",
+        "name": "Emergency locator transmitter",
+        "spec": "Broadcasts a distress beacon after a crash or manual activation for search-and-rescue location. It is not the normal means of declaring an airborne emergency to radar controllers."
+      },
+      {
+        "id": "pitot-heat",
+        "name": "Pitot-heater system",
+        "spec": "Electrically heats air-data probes to prevent ice blockage. It does not supply an independent attitude reference or isolate a distribution bus."
+      }
+    ]
+  },
+  {
+    "id": "cyber",
+    "title": "The Silent Intruder",
+    "domain": "Cybersecurity · Incident response · Digital forensics",
+    "mission": "A university research network shows signs of a targeted intrusion. Match each response stage to the tool that preserves the right evidence or performs the needed containment and recovery function.",
+    "briefing": [
+      "A compromised workstation is still powered on and may contain memory-only malware.",
+      "Central identity logs are retained immutably for 90 days.",
+      "The attacker may have created persistence in scheduled tasks and firmware-level startup components.",
+      "Research data must be restored without reintroducing altered executables."
+    ],
+    "takeaway": "Incident response depends on evidence volatility and phase: preserve live state first, reconstruct access, map scope, remove persistence, and restore from trusted sources.",
+    "events": [
+      {
+        "title": "Preserve volatile state",
+        "text": "The suspected workstation is still running. Investigators need active processes, injected code, network connections, and encryption keys that would disappear at power-off.",
+        "answer": "memory-capture",
+        "why": "A live memory capture preserves volatile processes, connections, and keys before shutdown."
+      },
+      {
+        "title": "Reconstruct initial access",
+        "text": "The team needs time-stamped sign-ins, token use, and privilege changes across cloud and local accounts for the previous 30 days.",
+        "answer": "identity-logs",
+        "why": "Immutable identity and access logs provide the retained authentication and privilege history."
+      },
+      {
+        "title": "Map lateral movement",
+        "text": "Investigators need to find other hosts contacted with the same administrative account and identify unusual east-west connections within the campus network.",
+        "answer": "network-flow",
+        "why": "Network flow records show communicating endpoints, ports, volumes, and timing across internal segments."
+      },
+      {
+        "title": "Preserve stored evidence",
+        "text": "Before remediation, the complete file system, deleted-file space, timestamps, and installed startup files must be captured without changing the original drive.",
+        "answer": "forensic-image",
+        "why": "A write-blocked forensic disk image preserves the stored evidence and unallocated space."
+      },
+      {
+        "title": "Find persistence",
+        "text": "The attacker may relaunch after reboot through scheduled tasks, services, boot configuration, or modified firmware startup settings.",
+        "answer": "persistence-hunt",
+        "why": "A persistence hunt inspects the specific autostart, service, boot, and firmware mechanisms that survive restart."
+      },
+      {
+        "title": "Revoke access",
+        "text": "Compromised passwords, refresh tokens, and active sessions must all be invalidated so stolen credentials cannot reconnect from another device.",
+        "answer": "identity-revocation",
+        "why": "Identity revocation resets credentials and invalidates tokens and sessions across the account system."
+      },
+      {
+        "title": "Restore trusted systems",
+        "text": "Affected computers must return to service with verified applications and research data, without preserving unknown altered binaries from the compromised installation.",
+        "answer": "gold-image",
+        "why": "Reimaging from a verified golden image and restoring separately validated data avoids carrying forward compromised executables."
+      }
+    ],
+    "cards": [
+      {
+        "id": "memory-capture",
+        "name": "Live memory-capture tool",
+        "spec": "Acquires physical memory from a powered-on host, preserving running processes, injected code, connections, and cryptographic material that vanish after shutdown."
+      },
+      {
+        "id": "identity-logs",
+        "name": "Immutable identity-log archive",
+        "spec": "Stores time-stamped authentication, token, and privilege-change events centrally with retention beyond the incident window."
+      },
+      {
+        "id": "network-flow",
+        "name": "Internal network-flow records",
+        "spec": "Summarize source, destination, port, volume, and timing for connections across internal network segments without recording every payload byte."
+      },
+      {
+        "id": "forensic-image",
+        "name": "Write-blocked forensic disk imager",
+        "spec": "Creates a bit-for-bit image of allocated and unallocated storage while preventing writes to the original device."
+      },
+      {
+        "id": "persistence-hunt",
+        "name": "Persistence-hunting toolkit",
+        "spec": "Enumerates scheduled tasks, services, autoruns, boot entries, startup scripts, and relevant firmware configuration for mechanisms that relaunch code."
+      },
+      {
+        "id": "identity-revocation",
+        "name": "Enterprise identity revocation console",
+        "spec": "Resets credentials and invalidates refresh tokens, API keys, and active sessions across managed accounts."
+      },
+      {
+        "id": "gold-image",
+        "name": "Verified golden-image deployment",
+        "spec": "Rebuilds a host from a cryptographically verified operating-system and application baseline, then restores separately scanned user data."
+      },
+      {
+        "id": "vulnerability-scan",
+        "name": "Network vulnerability scanner",
+        "spec": "Tests systems for known missing patches and exposed services. It identifies possible entry points but does not preserve volatile evidence or prove which path was used."
+      },
+      {
+        "id": "signature-antivirus",
+        "name": "Signature-based antivirus scan",
+        "spec": "Compares files with known malware signatures. Custom or memory-only code may not match the signature set."
+      },
+      {
+        "id": "packet-sniffer",
+        "name": "Live packet capture",
+        "spec": "Records packet contents from the moment capture begins on a selected link. It cannot reconstruct traffic that occurred before the sensor was started."
+      }
+    ]
+  },
+  {
+    "id": "grid",
+    "title": "Black Start",
+    "domain": "Power grid · System restoration · Protection",
+    "mission": "A regional grid has gone dark after a cascading outage. Match each restoration stage to the equipment or control function needed to build a stable island and return customer load in controlled increments.",
+    "briefing": [
+      "The first generating unit has no external station power and must start independently.",
+      "A 115 kV cranking path must be checked before energization.",
+      "Generators can be connected only when voltage magnitude, frequency, and phase angle are aligned.",
+      "Large load blocks can cause frequency collapse if picked up too quickly."
+    ],
+    "takeaway": "Grid restoration is a staged control problem: establish an independent source, energize a path, synchronize machines, and add load while protecting voltage and frequency.",
+    "events": [
+      {
+        "title": "Start without the grid",
+        "text": "The first plant has no incoming AC power. It needs a local source that can start pumps, controls, and the generator without external station service.",
+        "answer": "blackstart-diesel",
+        "why": "A black-start diesel supplies the station auxiliaries needed to start the first generator independently."
+      },
+      {
+        "title": "Verify the cranking path",
+        "text": "Before energizing the 115 kV line, operators need breaker status, relay targets, and confirmation that the intended line is isolated from faults and grounded work zones.",
+        "answer": "scada-one-line",
+        "why": "The SCADA one-line and switching status provide the system topology and device states needed to verify the path."
+      },
+      {
+        "title": "Energize the line",
+        "text": "The dead transmission line must receive controlled voltage from the island while limiting switching transients and confirming the remote end remains open.",
+        "answer": "line-breaker",
+        "why": "The transmission breaker and controlled switching function energize the verified line from the live island."
+      },
+      {
+        "title": "Control generator voltage",
+        "text": "As the island grows, the generator must regulate terminal voltage and reactive power while line charging raises voltage on lightly loaded buses.",
+        "answer": "excitation-system",
+        "why": "The automatic voltage regulator and excitation system control generator voltage and reactive output."
+      },
+      {
+        "title": "Match the second unit",
+        "text": "A second generator is ready to connect. Its voltage, frequency, and phase angle must be aligned with the energized island before the breaker closes.",
+        "answer": "synchroscope",
+        "why": "The synchronizing system compares the three required quantities and permits closure at the proper phase relation."
+      },
+      {
+        "title": "Add customer load",
+        "text": "Operators need to restore feeders in small blocks while watching real-time island frequency and rate of change after each pickup.",
+        "answer": "load-shedding-panel",
+        "why": "The staged feeder and underfrequency control panel permits controlled pickup and automatic shedding if frequency deteriorates."
+      },
+      {
+        "title": "Join the neighboring island",
+        "text": "Two restored islands now have independent generators. Operators need wide-area phase-angle and frequency measurements before closing the tie line.",
+        "answer": "phasor-system",
+        "why": "Synchronized phasor measurements show angle and frequency differences between islands before interconnection."
+      }
+    ],
+    "cards": [
+      {
+        "id": "blackstart-diesel",
+        "name": "Black-start diesel generator",
+        "spec": "Starts without external AC supply and powers station pumps, controls, lubrication, and excitation needed to bring the first grid generator online."
+      },
+      {
+        "id": "scada-one-line",
+        "name": "SCADA one-line and switching display",
+        "spec": "Shows breaker, disconnect, relay, and line status across the intended restoration path with remote-control capability."
+      },
+      {
+        "id": "line-breaker",
+        "name": "Controlled transmission-line breaker",
+        "spec": "Energizes or isolates a high-voltage line after topology checks, with controlled closing and protection supervision."
+      },
+      {
+        "id": "excitation-system",
+        "name": "Automatic voltage regulator and excitation system",
+        "spec": "Adjusts generator field current to regulate terminal voltage and reactive power as network conditions change."
+      },
+      {
+        "id": "synchroscope",
+        "name": "Automatic synchronizer and synchroscope",
+        "spec": "Compares voltage magnitude, frequency, and phase angle on two sides of a generator breaker and times closure near coincidence."
+      },
+      {
+        "id": "load-shedding-panel",
+        "name": "Staged feeder and underfrequency panel",
+        "spec": "Connects selected load blocks in sequence and can shed them automatically when frequency crosses defined thresholds."
+      },
+      {
+        "id": "phasor-system",
+        "name": "Wide-area phasor measurement system",
+        "spec": "Provides time-synchronized voltage phase angle and frequency measurements from separated buses for island-to-island synchronization."
+      },
+      {
+        "id": "capacitor-bank",
+        "name": "Shunt capacitor bank",
+        "spec": "Supplies reactive power locally and raises bus voltage. It cannot start a station or independently synchronize two islands."
+      },
+      {
+        "id": "distribution-recloser",
+        "name": "Distribution automatic recloser",
+        "spec": "Interrupts and automatically recloses a local feeder after transient faults. It does not energize a transmission cranking path."
+      },
+      {
+        "id": "smart-meter",
+        "name": "Advanced metering network",
+        "spec": "Reports customer energy use and outage status over minutes. It does not provide subsecond phase-angle or island-frequency control."
+      }
+    ]
+  },
+  {
+    "id": "wildfire",
+    "title": "Wind Shift at Pine Ridge",
+    "domain": "Wildfire response · Remote sensing · Suppression",
+    "mission": "A lightning-caused wildfire is spreading toward a rural community as winds are forecast to shift. Match each operational stage to the resource whose scale, mobility, and function fit the conditions.",
+    "briefing": [
+      "The fire perimeter is obscured by smoke and must be mapped before crews commit.",
+      "The west flank is accessible to heavy equipment; the east flank is steep and roadless.",
+      "A wind shift may send embers across the line toward structures two kilometers away.",
+      "Night operations require confirmation of remaining heat rather than visible flame alone."
+    ],
+    "takeaway": "Wildfire resources are chosen by terrain, scale, phase, and whether the need is mapping, line construction, aerial cooling, structure defense, or heat detection.",
+    "events": [
+      {
+        "title": "Map the hidden perimeter",
+        "text": "Dense smoke blocks visible-light mapping across a 15 km fire edge. The incident team needs airborne measurements of emitted heat that can locate active fronts through smoke.",
+        "answer": "ir-aircraft",
+        "why": "An airborne infrared line scanner maps thermal emission through smoke over the full perimeter."
+      },
+      {
+        "title": "Track the wind shift",
+        "text": "The forecast change is expected within hours. Crews need continuous local wind speed, direction, humidity, and temperature from an exposed ridge near the fire.",
+        "answer": "portable-weather",
+        "why": "A portable remote weather station provides the local continuous meteorological measurements driving fire behavior."
+      },
+      {
+        "title": "Cut the west control line",
+        "text": "The west flank crosses broad, accessible grassland with firm soil. A mineral-soil line several meters wide is needed quickly along a road-supported route.",
+        "answer": "bulldozer",
+        "why": "A bulldozer can rapidly clear a wide line to mineral soil on accessible terrain."
+      },
+      {
+        "title": "Build the east line",
+        "text": "The east flank is steep, rocky, and inaccessible to vehicles. A crew must construct and improve a narrow line by hand from a safe anchor point.",
+        "answer": "handcrew",
+        "why": "A handcrew with cutting and scraping tools can build line in steep roadless terrain."
+      },
+      {
+        "title": "Cool an inaccessible pocket",
+        "text": "Flames are active in a small drainage beyond the handline. The target is precise, there is a nearby water source, and repeated short drops are needed.",
+        "answer": "helicopter-bucket",
+        "why": "A helicopter bucket can make precise repeated water drops into an inaccessible drainage."
+      },
+      {
+        "title": "Protect the structures",
+        "text": "Wind-driven embers are reaching homes ahead of the main front. The assignment requires mobile hose, structure triage, and suppression of spot ignitions around buildings.",
+        "answer": "structure-engine",
+        "why": "A structure engine carries hose, pump, water, and personnel for mobile structure protection and spot-fire control."
+      },
+      {
+        "title": "Confirm cold line",
+        "text": "After dark, crews need to find residual heat beneath ash along several kilometers of control line, including areas with no visible flame.",
+        "answer": "handheld-thermal",
+        "why": "A handheld thermal imager reveals residual hot spots that are invisible at night or beneath light ash."
+      }
+    ],
+    "cards": [
+      {
+        "id": "ir-aircraft",
+        "name": "Airborne infrared line scanner",
+        "spec": "Maps emitted thermal radiation over long fire edges and can locate active heat through smoke when visible imagery is obscured."
+      },
+      {
+        "id": "portable-weather",
+        "name": "Portable remote weather station",
+        "spec": "Continuously records local wind speed and direction, humidity, temperature, and precipitation at an exposed incident location."
+      },
+      {
+        "id": "bulldozer",
+        "name": "Wildland bulldozer",
+        "spec": "Rapidly clears vegetation and surface material to create a broad mineral-soil line on accessible, load-bearing terrain."
+      },
+      {
+        "id": "handcrew",
+        "name": "Type 1 handcrew",
+        "spec": "Uses saws and hand tools to construct and improve fireline in steep, roadless, or environmentally restricted terrain."
+      },
+      {
+        "id": "helicopter-bucket",
+        "name": "Helicopter water bucket",
+        "spec": "Carries water from a nearby source and makes precise repeated drops on small targets inaccessible from the ground."
+      },
+      {
+        "id": "structure-engine",
+        "name": "Wildland structure-protection engine",
+        "spec": "Provides a mobile pump, hose, water, and crew for triage, ember patrol, and suppression around buildings."
+      },
+      {
+        "id": "handheld-thermal",
+        "name": "Handheld thermal imager",
+        "spec": "Displays surface-temperature contrasts at close range and reveals hot spots without requiring visible flame."
+      },
+      {
+        "id": "air-tanker",
+        "name": "Large air tanker",
+        "spec": "Delivers long retardant lines over broad terrain to slow fire spread. It is less suited to repeated precise water drops in a narrow drainage."
+      },
+      {
+        "id": "drip-torch",
+        "name": "Drip torch",
+        "spec": "Dispenses burning fuel to ignite planned burnout or backfire operations. It does not measure perimeter heat or extinguish an isolated pocket."
+      },
+      {
+        "id": "air-quality-monitor",
+        "name": "Particulate air-quality monitor",
+        "spec": "Measures smoke-particle concentration for health advisories. It does not map flame fronts or locate subsurface hot spots."
+      }
+    ]
+  },
+  {
+    "id": "chemistry",
+    "title": "Purify the Enzyme",
+    "domain": "Biochemistry · Protein purification · Analytical methods",
+    "mission": "A laboratory must isolate an active His-tagged enzyme from bacterial cells and verify that the final preparation is both pure and functional. Match each stage to the method with the required physical separation or measurement principle.",
+    "briefing": [
+      "The target protein is soluble and carries a six-histidine affinity tag.",
+      "Cell debris is much larger and denser than soluble proteins.",
+      "The enzyme is 70 kDa, while the main remaining contaminant is 25 kDa.",
+      "Activity must be measured across multiple reactions at 37 °C from the rate of absorbance change at 340 nm."
+    ],
+    "takeaway": "A purification workflow succeeds by applying different physical principles in sequence: size and density, selective binding, buffer exchange, molecular size, purity, concentration, and function.",
+    "events": [
+      {
+        "title": "Remove cell debris",
+        "text": "After the bacteria are lysed, membranes and intact fragments must be separated from soluble proteins. The mixture can be processed in tubes at tens of thousands of times gravity.",
+        "answer": "centrifuge",
+        "why": "High-speed centrifugation pellets dense debris while soluble protein remains in the supernatant."
+      },
+      {
+        "title": "Capture the tagged enzyme",
+        "text": "The clarified lysate contains thousands of soluble proteins. The target's histidine tag should bind selectively to immobilized nickel and then be released with imidazole.",
+        "answer": "nickel-column",
+        "why": "Nickel-affinity chromatography selectively captures the His-tagged protein and elutes it with imidazole."
+      },
+      {
+        "title": "Remove the elution chemical",
+        "text": "The collected enzyme is in high imidazole and the next column requires a different low-salt buffer. Small solutes must cross a membrane while the 70 kDa protein is retained.",
+        "answer": "dialysis",
+        "why": "Dialysis exchanges small solutes across a semipermeable membrane while retaining the protein."
+      },
+      {
+        "title": "Separate the remaining proteins",
+        "text": "The main contaminant is 25 kDa and the enzyme is 70 kDa. The method should separate native proteins by hydrodynamic size without binding them to a charged surface.",
+        "answer": "size-exclusion",
+        "why": "Size-exclusion chromatography separates native molecules by hydrodynamic size."
+      },
+      {
+        "title": "Check molecular purity",
+        "text": "A small aliquot must be denatured and separated so the number and apparent molecular masses of protein bands can be inspected.",
+        "answer": "sds-page",
+        "why": "SDS-PAGE separates denatured proteins mainly by molecular mass and reveals contaminating bands."
+      },
+      {
+        "title": "Measure concentration",
+        "text": "The final sample needs a rapid concentration estimate from a 2 µL aliquot using one static absorbance reading near 280 nm and a known extinction coefficient.",
+        "answer": "uv-vis",
+        "why": "UV-visible spectrophotometry measures absorbance at 280 nm for concentration calculation."
+      },
+      {
+        "title": "Confirm function",
+        "text": "Multiple enzyme–substrate reactions must be mixed at 37 °C and absorbance at 340 nm recorded every ten seconds so initial reaction rates can be compared.",
+        "answer": "activity-assay",
+        "why": "The kinetic activity assay measures substrate conversion through the time-dependent 340 nm signal."
+      }
+    ],
+    "cards": [
+      {
+        "id": "centrifuge",
+        "name": "High-speed refrigerated centrifuge",
+        "spec": "Applies tens of thousands of times gravity to pellet dense membranes, intact cells, and debris while soluble proteins remain in the supernatant."
+      },
+      {
+        "id": "nickel-column",
+        "name": "Nickel-affinity chromatography column",
+        "spec": "Immobilized nickel binds clusters of histidine residues and releases His-tagged protein when imidazole competes for binding."
+      },
+      {
+        "id": "dialysis",
+        "name": "Semipermeable dialysis cassette",
+        "spec": "Allows salts and other small solutes to diffuse across a membrane while retaining proteins larger than the membrane cutoff."
+      },
+      {
+        "id": "size-exclusion",
+        "name": "Size-exclusion chromatography column",
+        "spec": "Separates native molecules by hydrodynamic size as large proteins pass around porous beads faster than smaller proteins."
+      },
+      {
+        "id": "sds-page",
+        "name": "SDS-polyacrylamide gel electrophoresis",
+        "spec": "Denatures proteins, gives them similar charge-to-mass ratios, and separates them into bands mainly by molecular mass."
+      },
+      {
+        "id": "uv-vis",
+        "name": "UV-visible spectrophotometer",
+        "spec": "A microvolume spectrophotometer records a static absorbance spectrum from about 2 µL and calculates protein concentration near 280 nm. It has no temperature-controlled reaction plate or automated reagent mixing."
+      },
+      {
+        "id": "activity-assay",
+        "name": "Kinetic enzyme-assay plate",
+        "spec": "A temperature-controlled kinetic plate reader mixes or receives parallel reactions and records absorbance at 340 nm repeatedly to calculate initial rates."
+      },
+      {
+        "id": "gas-chromatograph",
+        "name": "Gas chromatograph",
+        "spec": "Separates volatile compounds carried in a gas stream. Intact 70 kDa proteins are nonvolatile and unsuitable for direct GC separation."
+      },
+      {
+        "id": "flame-photometer",
+        "name": "Flame photometer",
+        "spec": "Measures emission from alkali and alkaline-earth elements in a flame. It does not resolve protein molecular mass or enzymatic activity."
+      },
+      {
+        "id": "ph-paper",
+        "name": "Wide-range pH paper",
+        "spec": "Provides an approximate pH from a color change. It cannot remove imidazole, separate proteins, or quantify a kinetic rate."
+      }
+    ]
+  },
+  {
+    "id": "bridge",
+    "title": "After the Quake",
+    "domain": "Structural engineering · Nondestructive evaluation · Monitoring",
+    "mission": "An earthquake has damaged a highway bridge. Engineers must decide whether limited traffic can resume without extracting cores or closing the river channel. Match each inspection stage to the method whose coverage, depth, or measurement type fits the need.",
+    "briefing": [
+      "The entire 600 m deck and towers must be screened before close inspection begins.",
+      "Several steel welds are hidden behind paint but accessible from one side.",
+      "Foundation scour must be mapped beneath turbid water without divers.",
+      "The reopening decision requires measured structural response under a controlled low-speed truck."
+    ],
+    "takeaway": "Structural assessment moves from broad geometry to targeted internal inspection, underwater foundation mapping, and direct measurement of behavior under load.",
+    "events": [
+      {
+        "title": "Map global deformation",
+        "text": "The full 600 m bridge must be compared with pre-earthquake geometry. Engineers need centimeter-scale three-dimensional coordinates for the deck, towers, and cable anchor points from many surface returns.",
+        "answer": "laser-scan",
+        "why": "Terrestrial laser scanning creates a dense 3D point cloud for global deformation comparison."
+      },
+      {
+        "title": "Screen inaccessible surfaces",
+        "text": "High exterior faces and cable connections need close color imagery without putting inspectors on ropes. The method must cover many locations rapidly from the air.",
+        "answer": "drone-photo",
+        "why": "Drone photogrammetry provides rapid close imagery of inaccessible exterior surfaces."
+      },
+      {
+        "title": "Inspect hidden weld flaws",
+        "text": "A painted steel weld can be reached from one side only. The team needs to locate internal cracks and estimate their depth without removing the paint or cutting the member.",
+        "answer": "phased-ultrasound",
+        "why": "Phased-array ultrasonics steers sound through the weld from one side and sizes internal flaws."
+      },
+      {
+        "title": "Map foundation scour",
+        "text": "The river is turbid and remains open to navigation. Engineers need a bathymetric map around every pier to identify holes and sediment loss beneath the water surface.",
+        "answer": "multibeam-sonar",
+        "why": "Multibeam sonar maps underwater terrain and scour around piers despite poor visibility."
+      },
+      {
+        "title": "Measure bearing movement",
+        "text": "At one expansion bearing, engineers need submillimeter displacement while the deck warms through the afternoon, recorded continuously without loading the bridge.",
+        "answer": "displacement-sensor",
+        "why": "A linear displacement sensor records small continuous bearing movement over time."
+      },
+      {
+        "title": "Instrument the load path",
+        "text": "Before a test truck crosses, strain must be measured simultaneously at selected girders and cable anchors at hundreds of samples per second.",
+        "answer": "strain-gauges",
+        "why": "Bonded strain gauges provide high-rate local strain measurements at the chosen structural elements."
+      },
+      {
+        "title": "Run the controlled crossing",
+        "text": "A truck of known axle weights will cross one lane at low speed while deflection and strain are compared with the structural model.",
+        "answer": "load-test",
+        "why": "The instrumented load test supplies the known applied load needed to evaluate measured structural response."
+      }
+    ],
+    "cards": [
+      {
+        "id": "laser-scan",
+        "name": "Terrestrial laser scanner",
+        "spec": "Collects millions of surface ranges to create a dense three-dimensional point cloud with centimeter or better geometric precision over large structures."
+      },
+      {
+        "id": "drone-photo",
+        "name": "Drone photogrammetry survey",
+        "spec": "Captures overlapping high-resolution color images of inaccessible exterior surfaces and reconstructs localized surface geometry."
+      },
+      {
+        "id": "phased-ultrasound",
+        "name": "Phased-array ultrasonic weld scanner",
+        "spec": "Uses electronically steered sound beams from one accessible side to detect and size internal weld flaws beneath coatings."
+      },
+      {
+        "id": "multibeam-sonar",
+        "name": "Multibeam riverbed sonar",
+        "spec": "Measures many acoustic depths across a swath to map underwater terrain and scour around bridge foundations in turbid water."
+      },
+      {
+        "id": "displacement-sensor",
+        "name": "Linear displacement transducer",
+        "spec": "Records continuous submillimeter relative movement between two structural points over minutes to days."
+      },
+      {
+        "id": "strain-gauges",
+        "name": "High-rate bonded strain gauges",
+        "spec": "Measure local deformation at selected members at hundreds or thousands of samples per second during dynamic loading."
+      },
+      {
+        "id": "load-test",
+        "name": "Calibrated truck load test",
+        "spec": "Applies known axle loads along a controlled path while synchronized structural sensors record response."
+      },
+      {
+        "id": "rebound-hammer",
+        "name": "Concrete rebound hammer",
+        "spec": "Estimates near-surface concrete hardness at individual contact points. It does not map underwater scour or hidden steel-weld cracks."
+      },
+      {
+        "id": "core-drill",
+        "name": "Concrete core drill",
+        "spec": "Removes cylindrical samples for laboratory strength testing. The mission prohibits material extraction."
+      },
+      {
+        "id": "traffic-camera",
+        "name": "Roadway traffic-camera archive",
+        "spec": "Shows vehicle movement and visible events before closure. It does not provide precise current geometry or internal flaw measurements."
+      }
+    ]
+  },
+  {
+    "id": "water",
+    "title": "Clear Water After the Storm",
+    "domain": "Drinking water · Process control · Disinfection",
+    "mission": "A surface-water treatment plant receives highly turbid runoff after a storm. Match each process stage to the instrument or unit operation needed to restore particle removal and deliver disinfected water with a measurable distribution residual.",
+    "briefing": [
+      "Raw-water turbidity has risen from 3 to 180 NTU and changes hourly.",
+      "The optimal coagulant dose must be determined from the current water rather than yesterday's setting.",
+      "Particles must be removed before final chlorine disinfection.",
+      "Finished water must leave the contact basin with a verified free-chlorine residual."
+    ],
+    "takeaway": "Conventional treatment is sequential: measure raw water, test chemistry, dose and form floc, settle, filter, disinfect, and verify residual.",
+    "events": [
+      {
+        "title": "Measure the raw-water change",
+        "text": "Operators need continuous particle-scattering measurements as incoming turbidity swings from tens to hundreds of NTU. A grab sample once per shift is too slow.",
+        "answer": "online-turbidimeter",
+        "why": "The online turbidimeter continuously tracks rapidly changing raw-water turbidity."
+      },
+      {
+        "title": "Choose the coagulant dose",
+        "text": "Six beakers of current raw water must receive different alum doses, undergo identical mixing and settling, and be compared for residual turbidity.",
+        "answer": "jar-test",
+        "why": "A jar-test apparatus compares coagulation doses under controlled parallel conditions."
+      },
+      {
+        "title": "Apply the selected dose",
+        "text": "The chosen alum concentration must be added in proportion to a changing raw-water flow, with adjustable feed rate and chemical containment.",
+        "answer": "metering-pump",
+        "why": "A flow-paced chemical metering pump delivers the selected coagulant dose accurately."
+      },
+      {
+        "title": "Grow settleable floc",
+        "text": "After rapid mixing, small destabilized particles need gentle, decreasing-energy mixing so they collide and form larger aggregates without breaking apart.",
+        "answer": "flocculator",
+        "why": "A staged flocculator provides the gentle controlled mixing needed to grow settleable floc."
+      },
+      {
+        "title": "Remove the heavy floc",
+        "text": "Water must move slowly through a basin long enough for the large aggregates to settle while clarified water exits above the sludge zone.",
+        "answer": "sedimentation-basin",
+        "why": "The sedimentation basin removes dense floc by gravity before filtration."
+      },
+      {
+        "title": "Polish the remaining particles",
+        "text": "The clarified water still contains fine particles and must pass downward through granular layers while head loss and filtered-water turbidity are monitored.",
+        "answer": "granular-filter",
+        "why": "A granular-media filter removes remaining fine particles and provides monitored filtration performance."
+      },
+      {
+        "title": "Disinfect and verify",
+        "text": "Filtered water needs chlorine contact time, then an analyzer must confirm a free-chlorine residual before water enters distribution.",
+        "answer": "chlorine-system",
+        "why": "The chlorination and residual-analysis system provides both contact disinfection and verification of free chlorine."
+      }
+    ],
+    "cards": [
+      {
+        "id": "online-turbidimeter",
+        "name": "Online nephelometric turbidimeter",
+        "spec": "Continuously measures light scattering by suspended particles and reports turbidity in NTU as raw-water conditions change."
+      },
+      {
+        "id": "jar-test",
+        "name": "Six-position jar-test apparatus",
+        "spec": "Applies different chemical doses to parallel beakers with standardized rapid mix, slow mix, settling, and turbidity comparison."
+      },
+      {
+        "id": "metering-pump",
+        "name": "Flow-paced coagulant metering pump",
+        "spec": "Feeds a concentrated chemical solution at an adjustable rate tied to measured plant flow."
+      },
+      {
+        "id": "flocculator",
+        "name": "Staged paddle flocculator",
+        "spec": "Provides gentle controlled mixing in successive compartments so destabilized particles collide and grow without excessive shear."
+      },
+      {
+        "id": "sedimentation-basin",
+        "name": "Sedimentation basin",
+        "spec": "Reduces water velocity and provides detention time for dense floc to settle into a sludge zone below clarified-water collection."
+      },
+      {
+        "id": "granular-filter",
+        "name": "Granular-media filter",
+        "spec": "Passes water through layers of anthracite, sand, or similar media to remove remaining fine particles while monitoring head loss and effluent turbidity."
+      },
+      {
+        "id": "chlorine-system",
+        "name": "Chlorine contact and residual analyzer",
+        "spec": "Adds chlorine to filtered water, provides contact time, and continuously measures free-chlorine residual before distribution."
+      },
+      {
+        "id": "uv-reactor",
+        "name": "Ultraviolet disinfection reactor",
+        "spec": "Exposes flowing water to germicidal UV dose. It leaves no measurable disinfectant residual in the distribution system."
+      },
+      {
+        "id": "activated-carbon",
+        "name": "Granular activated-carbon contactor",
+        "spec": "Adsorbs many dissolved organic compounds, tastes, and odors. It is not the primary process for settling high-turbidity floc."
+      },
+      {
+        "id": "ph-adjuster",
+        "name": "Lime and carbon-dioxide pH system",
+        "spec": "Raises or lowers pH and alkalinity for corrosion or process control. It does not directly measure turbidity or verify chlorine residual."
+      }
+    ]
+  },
+  {
+    "id": "telecom",
+    "title": "The Dark Fiber",
+    "domain": "Fiber optics · Network repair · Optical testing",
+    "mission": "A 40 km fiber link between two data centers has failed after roadside construction. Match each repair stage to the optical tool that provides the needed location, inspection, joining, or end-to-end measurement.",
+    "briefing": [
+      "Both ends report loss of light on one single-mode fiber pair.",
+      "The suspected break lies somewhere along 40 km of buried route.",
+      "The replacement section must be fusion spliced with low loss.",
+      "Service acceptance requires calibrated end-to-end insertion loss at 1310 and 1550 nm after the repaired splice is protected."
+    ],
+    "takeaway": "Fiber repair separates fault location, physical route identification, end-face inspection, precision splicing, and two different acceptance measurements.",
+    "events": [
+      {
+        "title": "Confirm the optical failure",
+        "text": "At the receiving rack, technicians need the transceiver's reported transmit power, receive power, laser bias, and temperature to distinguish an optical-path failure from a disabled Ethernet port.",
+        "answer": "dom-monitor",
+        "why": "The transceiver's digital optical monitoring reports its optical and laser operating values directly."
+      },
+      {
+        "title": "Locate the break distance",
+        "text": "A test pulse must be launched from one end and reflections plotted against distance to estimate the break within tens of meters along the 40 km link.",
+        "answer": "otdr",
+        "why": "An OTDR converts backscatter and reflections into a distance-resolved event trace."
+      },
+      {
+        "title": "Find the buried route",
+        "text": "The trace gives distance but the construction crew needs the cable's path across a roadside junction before excavation. A conductive tracer wire is installed with the duct.",
+        "answer": "cable-locator",
+        "why": "The cable locator follows the energized tracer wire to mark the buried duct route."
+      },
+      {
+        "title": "Inspect the exposed ends",
+        "text": "Before joining, both cleaved fiber ends must be checked for chips, angles, and contamination at micrometer scale without touching the glass surface.",
+        "answer": "fiber-microscope",
+        "why": "The video fiber microscope reveals defects and contamination on the prepared fiber ends."
+      },
+      {
+        "title": "Join the replacement fiber",
+        "text": "The two aligned single-mode glass cores must be permanently joined with an electric arc and submicron alignment rather than a removable connector.",
+        "answer": "fusion-splicer",
+        "why": "The fusion splicer aligns the cores and arcs the glass into a permanent low-loss joint."
+      },
+      {
+        "title": "Protect the new splice",
+        "text": "The bare fused glass must be enclosed in a heat-shrink sleeve with a strength member and cured uniformly before it is placed in the splice tray.",
+        "answer": "splice-oven",
+        "why": "The splice-protection oven shrinks and cures the protective sleeve around the fragile fusion joint."
+      },
+      {
+        "title": "Measure final link loss",
+        "text": "Acceptance requires calibrated end-to-end insertion loss at both 1310 and 1550 nm using a known transmitted level, including the new splice and all connectors.",
+        "answer": "light-source-set",
+        "why": "A calibrated light source and power meter measure total insertion loss at the specified wavelengths."
+      }
+    ],
+    "cards": [
+      {
+        "id": "dom-monitor",
+        "name": "Transceiver digital optical monitoring",
+        "spec": "Reports laser transmit power, received optical power, bias current, temperature, and alarms from the installed optical transceiver."
+      },
+      {
+        "id": "otdr",
+        "name": "Optical time-domain reflectometer",
+        "spec": "Launches short optical pulses and plots backscatter and reflections against distance to locate a break or high-loss event along many kilometers."
+      },
+      {
+        "id": "cable-locator",
+        "name": "Underground tracer-wire locator",
+        "spec": "Applies and detects a low-frequency signal on a conductive tracer wire to mark the physical path of a buried nonmetallic duct."
+      },
+      {
+        "id": "fiber-microscope",
+        "name": "Video fiber inspection microscope",
+        "spec": "Images cleaved-fiber and connector end faces at micrometer scale for contamination, chips, scratches, and poor cleave angles."
+      },
+      {
+        "id": "fusion-splicer",
+        "name": "Core-alignment fusion splicer",
+        "spec": "Uses imaging and precision stages to align single-mode cores, then fuses the glass with an electric arc."
+      },
+      {
+        "id": "splice-oven",
+        "name": "Fusion-splice protection oven",
+        "spec": "Heats a reinforced shrink sleeve evenly around a bare fusion joint so the glass is mechanically protected before tray placement."
+      },
+      {
+        "id": "light-source-set",
+        "name": "Calibrated optical light source and meter set",
+        "spec": "Sends known power at 1310 and 1550 nm and compares received power to calculate total end-to-end insertion loss."
+      },
+      {
+        "id": "rf-spectrum",
+        "name": "Radio-frequency spectrum analyzer",
+        "spec": "Measures electrical radio-frequency power versus frequency. It does not launch or measure light in a single-mode fiber."
+      },
+      {
+        "id": "copper-tdr",
+        "name": "Copper time-domain reflectometer",
+        "spec": "Launches electrical pulses into metallic pairs and locates impedance changes. It cannot test the buried glass fiber itself."
+      },
+      {
+        "id": "packet-analyzer",
+        "name": "Ethernet packet analyzer",
+        "spec": "Decodes frames when a link is operating. It cannot locate a physical break when no optical signal reaches the receiver."
+      }
+    ]
+  },
+  {
+    "id": "forensics",
+    "title": "The Altered Contract",
+    "domain": "Forensic documents · Imaging · Chemical analysis",
+    "mission": "A disputed paper contract may contain substituted pages, indented notes, and a later-added signature. Match each examination stage to the method that preserves the document and tests the relevant physical feature.",
+    "briefing": [
+      "The original must be documented before any sampling or chemical treatment.",
+      "Several pages may come from different paper stocks despite similar appearance.",
+      "Indented writing may remain on sheets below an original note.",
+      "A 0.5 mm ink sample is permitted only after nondestructive imaging is complete."
+    ],
+    "takeaway": "Document examination combines preservation, optical imaging, paper comparison, indentation recovery, handwriting comparison, and carefully sequenced microanalysis.",
+    "events": [
+      {
+        "title": "Record the original condition",
+        "text": "Before handling changes the evidence, the entire contract needs calibrated high-resolution images under normal and raking light with a scale and color reference.",
+        "answer": "copy-stand",
+        "why": "Calibrated copy-stand photography records the original condition and surface relief before further examination."
+      },
+      {
+        "title": "Find page substitutions",
+        "text": "Pages that look alike must be compared for watermark position, sheet thickness, and individual fiber distribution under transmitted light and low-power microscopy, without removing material.",
+        "answer": "transmitted-light",
+        "why": "Transmitted, ultraviolet, and oblique document imaging reveal paper structure and fluorescence differences nondestructively."
+      },
+      {
+        "title": "Recover indented notes",
+        "text": "Blank-looking sheets beneath a handwritten note may contain pressure impressions in the paper fibers. The method must visualize those disturbances without rubbing graphite on the original.",
+        "answer": "esda",
+        "why": "ESDA electrostatically visualizes indented writing and other fiber disturbances without graphite rubbing."
+      },
+      {
+        "title": "Separate overlapping inks",
+        "text": "One numeral crosses an older printed line. Infrared and spectral responses are needed to determine which stroke continues uninterrupted beneath the crossing.",
+        "answer": "vsc",
+        "why": "A video spectral comparator uses visible, infrared, ultraviolet, and filtered imaging to distinguish inks and stroke sequence."
+      },
+      {
+        "title": "Compare the signature",
+        "text": "The questioned signature must be compared with known originals for letter construction, spacing, rhythm, pen lifts, and natural variation rather than simple visual resemblance.",
+        "answer": "handwriting-system",
+        "why": "A forensic handwriting comparison system supports side-by-side examination of individual and class writing features."
+      },
+      {
+        "title": "Compare ink chemistry",
+        "text": "After nondestructive work, a 0.5 mm plug from the questioned entry may be removed. Its dye components need separation beside samples from dated reference entries.",
+        "answer": "tlc",
+        "why": "Thin-layer chromatography separates ink dyes from micro-samples for chemical comparison."
+      },
+      {
+        "title": "Preserve the evidence trail",
+        "text": "Every transfer, image, sample location, and analytical result must be linked to the original document and examiner with tamper-evident records.",
+        "answer": "lims",
+        "why": "A laboratory information and chain-of-custody system records evidence identity, transfers, sampling, and results."
+      }
+    ],
+    "cards": [
+      {
+        "id": "copy-stand",
+        "name": "Calibrated copy-stand photography",
+        "spec": "Captures high-resolution overall and close-up images under controlled normal and raking illumination with scale and color references."
+      },
+      {
+        "id": "transmitted-light",
+        "name": "Transmitted-light table and fiber stereomicroscope",
+        "spec": "Shows watermark position, sheet thickness variation, and the size and distribution of visible paper fibers under transmitted light and low-power magnification."
+      },
+      {
+        "id": "esda",
+        "name": "Electrostatic detection apparatus",
+        "spec": "Applies an electrostatic process to visualize paper-fiber disturbances such as indented writing on sheets below an original entry."
+      },
+      {
+        "id": "vsc",
+        "name": "Video spectral comparator",
+        "spec": "Images documents under visible, infrared, ultraviolet, transmitted, and filtered light to distinguish inks, alterations, and crossing strokes."
+      },
+      {
+        "id": "handwriting-system",
+        "name": "Forensic handwriting comparison workstation",
+        "spec": "Supports measured side-by-side comparison of letter forms, proportions, spacing, rhythm, pen lifts, and natural variation in known and questioned writing."
+      },
+      {
+        "id": "tlc",
+        "name": "Thin-layer ink chromatography",
+        "spec": "Extracts dye from a micro-plug and separates its components along a coated plate for comparison with reference inks. The process is destructive at the sampled point."
+      },
+      {
+        "id": "lims",
+        "name": "Laboratory evidence and chain-of-custody system",
+        "spec": "Tracks evidence identity, transfers, images, sample locations, examiner actions, and analytical results in tamper-evident records."
+      },
+      {
+        "id": "fingerprint-powder",
+        "name": "Black fingerprint powder",
+        "spec": "Develops some latent ridge impressions on suitable surfaces. Brushing can contaminate or obscure document features and does not compare paper or ink chemistry."
+      },
+      {
+        "id": "radiocarbon",
+        "name": "Radiocarbon dating",
+        "spec": "Estimates the age of plant fibers using a destructive sample and a broad uncertainty interval. It cannot sequence two crossing ink strokes."
+      },
+      {
+        "id": "dna-swab",
+        "name": "Touch-DNA swab",
+        "spec": "Collects possible biological material from a surface. It does not recover indented writing or establish handwriting authorship."
+      }
+    ]
+  },
+  {
+    "id": "satellite",
+    "title": "Service the Silent Satellite",
+    "domain": "Spaceflight · Rendezvous · Robotic servicing",
+    "mission": "An uncrewed servicing spacecraft must approach a communications satellite, diagnose a failed power channel, replace a modular unit, and restore contact. Match each phase to the sensor or robotic subsystem with the needed range and function.",
+    "briefing": [
+      "The target does not transmit usable navigation data during approach.",
+      "Relative navigation must transition from kilometers to centimeters.",
+      "The failed unit is behind a standard mechanical panel with captive fasteners.",
+      "The repaired satellite must point a narrow high-gain antenna toward its ground station."
+    ],
+    "takeaway": "On-orbit servicing changes tools as range shrinks: passive acquisition, precise relative ranging, compliant capture, inspection, mechanical work, electrical verification, and attitude control.",
+    "events": [
+      {
+        "title": "Acquire the target",
+        "text": "At 20 km range the target is a moving sunlit point against stars and Earth limb. The servicer needs passive angular tracking without cooperation from the satellite.",
+        "answer": "long-camera",
+        "why": "A long-range optical navigation camera passively tracks the target's line of sight against background features."
+      },
+      {
+        "title": "Measure closing distance",
+        "text": "Inside 500 m, the guidance system needs direct range and relative shape updates at several hertz, including during orbital darkness.",
+        "answer": "rendezvous-lidar",
+        "why": "Rendezvous lidar provides active range and three-dimensional relative geometry independent of sunlight."
+      },
+      {
+        "title": "Capture the satellite",
+        "text": "At centimeters per second, the vehicle must grasp a designated fixture while limiting contact force and accommodating small alignment errors.",
+        "answer": "compliant-arm",
+        "why": "A force-torque-sensed compliant robotic arm captures the fixture while controlling contact loads."
+      },
+      {
+        "title": "Inspect the failed bay",
+        "text": "Before opening the panel, the team needs close color imagery and a temperature map to identify discoloration, loose insulation, and an unusually hot power module.",
+        "answer": "inspection-head",
+        "why": "The combined close camera and thermal imager provides both visual condition and surface-temperature information."
+      },
+      {
+        "title": "Open and replace the unit",
+        "text": "Captive bolts must be loosened to a specified torque, the modular box removed, and the replacement fastened with recorded torque values.",
+        "answer": "robotic-torque-tool",
+        "why": "The robotic torque tool controls fastener torque and records the values during removal and installation."
+      },
+      {
+        "title": "Verify the circuit",
+        "text": "Before the panel closes, technicians need voltage and current at the replacement connector under a commanded load, using contact probes on test points.",
+        "answer": "robotic-multimeter",
+        "why": "The robotic electrical probe directly measures connector voltage and current under load."
+      },
+      {
+        "title": "Restore the downlink",
+        "text": "The satellite must rotate so its narrow high-gain antenna points at the ground station and remains stable during the first telemetry pass.",
+        "answer": "attitude-control",
+        "why": "The attitude-control system uses sensors and actuators to point and stabilize the antenna toward Earth."
+      }
+    ],
+    "cards": [
+      {
+        "id": "long-camera",
+        "name": "Long-range optical navigation camera",
+        "spec": "Passively measures the target's angular position against stars and Earth background from tens of kilometers to closer approach."
+      },
+      {
+        "id": "rendezvous-lidar",
+        "name": "Flash rendezvous lidar",
+        "spec": "Actively measures range and three-dimensional surface geometry at several updates per second from hundreds of meters into close proximity, including darkness."
+      },
+      {
+        "id": "compliant-arm",
+        "name": "Force-torque-sensed robotic arm",
+        "spec": "Uses compliant control and a grasping end effector to capture a fixture while limiting contact loads and correcting small misalignments."
+      },
+      {
+        "id": "inspection-head",
+        "name": "Close visual and thermal inspection head",
+        "spec": "Combines high-resolution color imaging with infrared surface-temperature mapping at arm's length."
+      },
+      {
+        "id": "robotic-torque-tool",
+        "name": "Robotic torque-controlled driver",
+        "spec": "Engages captive fasteners, applies commanded torque for removal and installation, and records torque and angle."
+      },
+      {
+        "id": "robotic-multimeter",
+        "name": "Robotic electrical test probe",
+        "spec": "Places insulated probes on designated test points and measures voltage and current under commanded electrical loads."
+      },
+      {
+        "id": "attitude-control",
+        "name": "Star-tracker and reaction-wheel attitude control",
+        "spec": "Determines spacecraft orientation and applies controlled torque to point and stabilize a narrow antenna or instrument."
+      },
+      {
+        "id": "magnetometer",
+        "name": "Three-axis magnetometer",
+        "spec": "Measures the local magnetic field vector for attitude support or science. It does not provide direct relative range to a satellite."
+      },
+      {
+        "id": "sample-scoop",
+        "name": "Regolith sample scoop",
+        "spec": "Collects loose surface material on a planetary body. It has no interface for spacecraft fasteners or electrical test points."
+      },
+      {
+        "id": "omni-radio",
+        "name": "Omnidirectional low-gain radio",
+        "spec": "Maintains broad-coverage communications at low data rate. It does not mechanically point the serviced satellite's narrow high-gain antenna."
+      }
+    ]
+  },
+  {
+    "id": "ecology",
+    "title": "The Dying Estuary",
+    "domain": "Aquatic ecology · Water quality · Source tracing",
+    "mission": "Hundreds of fish have died in a tidal estuary after several hot, rainy days. Match each investigation stage to the instrument or method that distinguishes oxygen depletion, toxic algae, nutrient loading, and transport.",
+    "briefing": [
+      "Fish were found over 12 km of tidal channel, not at one discharge pipe.",
+      "Dissolved oxygen may change strongly between afternoon and predawn.",
+      "A harmful algal species can be sparse while its toxin persists in water and tissue.",
+      "Rainfall may have delivered nutrients from several tributaries."
+    ],
+    "takeaway": "Environmental investigations combine continuous conditions, spatial mapping, species identification, chemical confirmation, biological effects, and water movement.",
+    "events": [
+      {
+        "title": "Capture the daily oxygen cycle",
+        "text": "Oxygen may fall before sunrise and recover by afternoon. The team needs dissolved oxygen, temperature, and salinity every ten minutes at a fixed station for several days.",
+        "answer": "oxygen-sonde",
+        "why": "A multiparameter sonde records the high-frequency oxygen cycle together with temperature and salinity."
+      },
+      {
+        "title": "Map the affected reach",
+        "text": "Investigators need repeated surface measurements along 12 km to locate sharp changes in oxygen, chlorophyll fluorescence, and conductivity during one tidal phase.",
+        "answer": "towfish",
+        "why": "A boat-towed sensor package provides continuous spatial mapping along the channel."
+      },
+      {
+        "title": "Identify the algal species",
+        "text": "Microscopy cannot reliably separate two visually similar plankton species. Water samples need species-specific detection from DNA sequences.",
+        "answer": "edna-qpcr",
+        "why": "Species-specific eDNA qPCR distinguishes the target organism from look-alike species."
+      },
+      {
+        "title": "Measure the toxin",
+        "text": "The toxin must be quantified separately in filtered water and fish tissue at trace concentration, with chemical specificity rather than a general chlorophyll signal.",
+        "answer": "lc-ms",
+        "why": "Liquid chromatography–mass spectrometry separates and specifically quantifies the toxin in water and tissue extracts."
+      },
+      {
+        "title": "Trace nutrient inputs",
+        "text": "Samples from four tributaries and the estuary need nitrate, ammonium, and phosphate concentrations measured consistently over dozens of bottles.",
+        "answer": "nutrient-analyzer",
+        "why": "An automated colorimetric nutrient analyzer measures the specified dissolved nutrient species across many samples."
+      },
+      {
+        "title": "Measure transport",
+        "text": "To determine whether low-oxygen water moved upstream on the flood tide, the team needs water velocity and direction through the depth of the channel.",
+        "answer": "adcp",
+        "why": "An acoustic Doppler current profiler measures current velocity in depth cells through the water column."
+      },
+      {
+        "title": "Examine biological injury",
+        "text": "Fresh fish specimens need internal examination of gills, organs, and stomach contents to distinguish hypoxia, toxin exposure, and infectious lesions.",
+        "answer": "necropsy",
+        "why": "Standardized fish necropsy and histology document organ-specific lesions and exposure clues."
+      }
+    ],
+    "cards": [
+      {
+        "id": "oxygen-sonde",
+        "name": "Fixed multiparameter water-quality sonde",
+        "spec": "Logs dissolved oxygen, temperature, salinity, pH, and related variables at user-set intervals for days to weeks."
+      },
+      {
+        "id": "towfish",
+        "name": "Boat-towed water-quality profiler",
+        "spec": "Continuously maps surface or selected-depth oxygen, conductivity, temperature, and chlorophyll fluorescence along a vessel track."
+      },
+      {
+        "id": "edna-qpcr",
+        "name": "Species-specific eDNA qPCR assay",
+        "spec": "Amplifies a diagnostic DNA sequence from filtered water and distinguishes a target organism from morphologically similar species."
+      },
+      {
+        "id": "lc-ms",
+        "name": "Liquid chromatography–mass spectrometry",
+        "spec": "Separates compounds in an extract and identifies and quantifies a specific toxin by mass-to-charge and retention time."
+      },
+      {
+        "id": "nutrient-analyzer",
+        "name": "Automated colorimetric nutrient analyzer",
+        "spec": "Measures nitrate, ammonium, phosphate, and related dissolved nutrients reproducibly across many water samples."
+      },
+      {
+        "id": "adcp",
+        "name": "Acoustic Doppler current profiler",
+        "spec": "Uses Doppler shifts from acoustic scatterers to measure current speed and direction in depth cells through a channel."
+      },
+      {
+        "id": "necropsy",
+        "name": "Standardized fish necropsy and histology",
+        "spec": "Examines gills, organs, stomach contents, and tissue sections for lesions associated with hypoxia, toxins, trauma, or infection."
+      },
+      {
+        "id": "secchi-disk",
+        "name": "Secchi disk",
+        "spec": "Estimates water transparency from visual disappearance depth. It does not identify a species or quantify a trace toxin."
+      },
+      {
+        "id": "satellite-chlorophyll",
+        "name": "Satellite ocean-color image",
+        "spec": "Maps broad surface color and chlorophyll-related reflectance when cloud-free. It cannot resolve predawn oxygen minima or fish-tissue toxin."
+      },
+      {
+        "id": "camera-trap",
+        "name": "Shoreline wildlife camera",
+        "spec": "Records visible animals passing a fixed point. It does not measure water chemistry, current profiles, or microscopic plankton."
+      }
+    ]
+  },
+  {
+    "id": "volcano",
+    "title": "Unrest at Calder Peak",
+    "domain": "Volcanology · Geodesy · Hazard monitoring",
+    "mission": "A volcano that has been quiet for decades begins showing unrest. Match each monitoring stage to the instrument that provides the required physical signal and scale as the crisis evolves.",
+    "briefing": [
+      "Small earthquakes begin 5–10 km below the summit.",
+      "Ground motion of a few centimeters must be distinguished from local sensor tilt.",
+      "Sulfur dioxide output may rise before visible ash appears.",
+      "Heavy rain after eruption could mobilize ash into fast-moving lahars."
+    ],
+    "takeaway": "Volcano monitoring combines independent signals of rock fracture, deformation, gas, heat, explosions, ash, and post-eruption flow hazards.",
+    "events": [
+      {
+        "title": "Locate the earthquake swarm",
+        "text": "Hundreds of small events occur beneath the volcano. Arrival times from multiple stations must be used to determine hypocenter depth and migration.",
+        "answer": "seismic-network",
+        "why": "A multi-station seismic network locates earthquake hypocenters from relative wave-arrival times."
+      },
+      {
+        "title": "Measure broad deformation",
+        "text": "Scientists need three-dimensional summit displacement of centimeters over days, referenced to stable points many kilometers away.",
+        "answer": "gnss",
+        "why": "Continuous GNSS measures three-dimensional ground displacement relative to distant reference stations."
+      },
+      {
+        "title": "Detect rapid tilt",
+        "text": "Near the crater, microradian changes over minutes may signal shallow pressurization even when total translation is small.",
+        "answer": "tiltmeter",
+        "why": "A borehole tiltmeter resolves rapid tiny changes in ground slope near the vent."
+      },
+      {
+        "title": "Quantify sulfur dioxide",
+        "text": "The team needs the amount of SO2 crossing a plume transect each second, using ultraviolet absorption together with wind speed.",
+        "answer": "doas",
+        "why": "Scanning DOAS measures ultraviolet SO2 absorption across the plume for emission-rate calculation."
+      },
+      {
+        "title": "Map new heat",
+        "text": "Cloud breaks reveal the summit briefly at night. Investigators need surface-temperature contrasts to locate a growing hot vent and lava beneath thin crust.",
+        "answer": "thermal-camera",
+        "why": "Thermal infrared imaging maps surface-temperature anomalies during brief visibility windows."
+      },
+      {
+        "title": "Detect explosive pulses",
+        "text": "Low-frequency pressure waves from the crater must be distinguished from local seismic shaking and detected even when the summit is obscured.",
+        "answer": "infrasound",
+        "why": "Infrasound sensors record atmospheric pressure waves from explosions independently of ground vibration."
+      },
+      {
+        "title": "Warn of lahars",
+        "text": "After the eruption, heavy rain may send dense debris flows down two river valleys. The warning system needs ground-vibration detection along each channel and rapid telemetry downstream.",
+        "answer": "afm",
+        "why": "Acoustic flow monitors detect the characteristic ground vibration of lahars in instrumented channels."
+      }
+    ],
+    "cards": [
+      {
+        "id": "seismic-network",
+        "name": "Broadband seismic network",
+        "spec": "Records ground motion at multiple stations; relative P- and S-wave arrival times locate earthquake hypocenters and track migration."
+      },
+      {
+        "id": "gnss",
+        "name": "Continuous GNSS stations",
+        "spec": "Measure three-dimensional position changes of centimeters or less relative to stable distant reference stations over hours to years."
+      },
+      {
+        "id": "tiltmeter",
+        "name": "Borehole tiltmeter",
+        "spec": "Measures microradian changes in local ground slope at high time resolution near a deformation source."
+      },
+      {
+        "id": "doas",
+        "name": "Scanning ultraviolet DOAS spectrometer",
+        "spec": "Measures sulfur-dioxide absorption across a volcanic plume and combines the column amount with plume speed to estimate emission rate."
+      },
+      {
+        "id": "thermal-camera",
+        "name": "Thermal infrared camera",
+        "spec": "Maps emitted infrared radiation to reveal hot vents, lava, and temperature contrasts at the surface, including at night."
+      },
+      {
+        "id": "infrasound",
+        "name": "Infrasound array",
+        "spec": "Measures low-frequency atmospheric pressure waves from explosions and jetting, separate from seismic ground motion."
+      },
+      {
+        "id": "afm",
+        "name": "Acoustic flow monitor network",
+        "spec": "Detects strong ground vibration generated by debris flows moving through instrumented river channels and telemeters alarms."
+      },
+      {
+        "id": "weather-radar",
+        "name": "Weather radar",
+        "spec": "Maps precipitation and some ash reflectivity over broad areas. It does not directly measure sulfur-dioxide flux or centimeter ground deformation."
+      },
+      {
+        "id": "magnetometer",
+        "name": "Three-axis magnetometer",
+        "spec": "Measures changes in magnetic field that may accompany heating or rock alteration. It does not locate earthquake hypocenters from wave arrivals."
+      },
+      {
+        "id": "radiation-counter",
+        "name": "Gamma radiation counter",
+        "spec": "Measures ionizing radiation dose or count rate. It is not a primary sensor for volcanic gas, deformation, or lahar vibration."
+      }
+    ]
+  }
+];
+const HUB_CASES = [
+  [
+    "surgery",
+    "Repair Under Pressure",
+    "Laparoscopic surgery"
+  ],
+  [
+    "naval",
+    "Contact in the Strait",
+    "Naval sensors"
+  ],
+  [
+    "mars",
+    "Cache at Red Basin",
+    "Planetary science"
+  ],
+  [
+    "aviation",
+    "Smoke Over the Mountains",
+    "Aviation"
+  ],
+  [
+    "cyber",
+    "The Silent Intruder",
+    "Cybersecurity"
+  ],
+  [
+    "grid",
+    "Black Start",
+    "Power grid"
+  ],
+  [
+    "wildfire",
+    "Wind Shift at Pine Ridge",
+    "Wildfire response"
+  ],
+  [
+    "chemistry",
+    "Purify the Enzyme",
+    "Biochemistry"
+  ],
+  [
+    "bridge",
+    "After the Quake",
+    "Structural engineering"
+  ],
+  [
+    "water",
+    "Clear Water After the Storm",
+    "Drinking water"
+  ],
+  [
+    "telecom",
+    "The Dark Fiber",
+    "Fiber optics"
+  ],
+  [
+    "forensics",
+    "The Altered Contract",
+    "Forensic documents"
+  ],
+  [
+    "satellite",
+    "Service the Silent Satellite",
+    "Spaceflight"
+  ],
+  [
+    "ecology",
+    "The Dying Estuary",
+    "Aquatic ecology"
+  ],
+  [
+    "volcano",
+    "Unrest at Calder Peak",
+    "Volcanology"
+  ]
+];
+const START = Date.UTC(2026, 6, 1);
+const DAY = 86400000;
+const dayIndex = () => Math.floor((Date.now() - START) / DAY);
+const mod = (n,m) => ((n % m) + m) % m;
+const $ = id => document.getElementById(id);
+const els={picker:$("picker"),dayLabel:$("dayLabel"),title:$("title"),mission:$("mission"),domain:$("domain"),briefing:$("briefing"),attempts:$("attempts"),placed:$("placed"),locked:$("locked"),score:$("score"),timeline:$("timeline"),pool:$("pool"),feedback:$("feedback"),clearBtn:$("clearBtn"),submitBtn:$("submitBtn"),resetBtn:$("resetBtn"),howBtn:$("howBtn"),how:$("how"),howIntro:$("howIntro"),howCounts:$("howCounts"),closeHow:$("closeHow"),result:$("result"),resultTitle:$("resultTitle"),resultIntro:$("resultIntro"),finalScore:$("finalScore"),finalRank:$("finalRank"),finalTime:$("finalTime"),solution:$("solution"),takeaway:$("takeaway"),reviewBtn:$("reviewBtn"),nextBtn:$("nextBtn"),toast:$("toast")};
+let puzzleIndex=0;
+let state;
+let missionStarted=Date.now();
+let drag=null;
+function current(){return puzzles[puzzleIndex]}
+function storageKey(){return `reckon-protocol:${current().id}:v2`}
+function emptyState(){return{assignments:{},locked:[],wrong:[],attemptsLeft:3,lockAttempt:{},finished:false,won:false,reported:false,startedAt:Date.now()}}
+function save(){try{localStorage.setItem(storageKey(),JSON.stringify(state))}catch(e){}}
+function loadState(){let s=null;try{s=JSON.parse(localStorage.getItem(storageKey())||"null")}catch(e){};state=s&&typeof s==="object"?s:emptyState();state.assignments=state.assignments||{};state.locked=Array.isArray(state.locked)?state.locked:[];state.wrong=Array.isArray(state.wrong)?state.wrong:[];state.lockAttempt=state.lockAttempt||{};state.startedAt=Number(state.startedAt)||Date.now();missionStarted=state.startedAt;safeStart(current().id)}
+function safeStart(id){try{if(typeof window.reckonStart==="function")window.reckonStart(id)}catch(e){}}
+function scoreNow(){return Object.values(state.lockAttempt).reduce((sum,a)=>sum+(a?4-a:0),0)}
+function maxScore(){return current().events.length*3}
+function safeReport(won){if(state.reported)return;const score=scoreNow(),rank=score===maxScore()?"FLAWLESS":won?"COMPLETED":"REVIEWED",seconds=Math.max(0,Math.round((Date.now()-missionStarted)/1000));try{if(typeof window.reckonReport==="function")window.reckonReport({game:"Protocol",gameId:current().id,gameTitle:current().title,won,score,solveSeconds:seconds,rank})}catch(e){}state.reported=true;save()}
+function hashMission(){const id=decodeURIComponent(location.hash.replace(/^#/,""));return puzzles.findIndex(p=>p.id===id)}
+function initializeMission(index,{updateHash=false}={}){puzzleIndex=index>=0?index:mod(dayIndex(),puzzles.length);if(updateHash)history.replaceState(null,"",`#${current().id}`);loadState();render();}
+function initPicker(){els.picker.innerHTML=puzzles.map((p,i)=>`<option value="${i}">${i+1}. ${p.title}</option>`).join("");els.picker.value=String(puzzleIndex)}
+function lockedSet(){return new Set(state.locked)}
+function render(){const p=current(),locks=lockedSet();els.picker.value=String(puzzleIndex);els.dayLabel.textContent=`Mission ${puzzleIndex+1} of ${puzzles.length}`;els.title.textContent=p.title;els.mission.textContent=p.mission;els.domain.textContent=p.domain;els.briefing.innerHTML=p.briefing.map(x=>`<div class="brief">${x}</div>`).join("");renderTimeline();renderPool();const filled=Object.keys(state.assignments).length;els.attempts.textContent=state.attemptsLeft;els.placed.textContent=`${filled} / ${p.events.length}`;els.locked.textContent=locks.size;els.score.textContent=`${scoreNow()} / ${maxScore()}`;els.submitBtn.disabled=filled!==p.events.length||state.finished;els.clearBtn.disabled=state.finished||Object.keys(state.assignments).every(k=>locks.has(Number(k)));els.howIntro.textContent=`This mission has ${p.events.length} ordered steps and ${p.cards.length} cards.`;els.howCounts.textContent=`Use each card at most once. ${p.cards.length-p.events.length} of the ${p.cards.length} cards are decoys; the others each belong to exactly one step.`;if(state.finished)els.feedback.innerHTML=`Mission complete. Review the locked protocol and solution.`}
+function renderTimeline(){const p=current(),locks=lockedSet(),wrong=new Set(state.wrong);els.timeline.innerHTML="";p.events.forEach((ev,i)=>{const cardId=state.assignments[i],isLocked=locks.has(i),isWrong=wrong.has(i)&&!isLocked;const row=document.createElement("div");row.className="event";row.innerHTML=`<div class="num">${i+1}</div><div class="eventCopy"><h4>${ev.title}</h4><p>${ev.text}</p></div><div class="slot ${cardId?"":"empty"} ${isLocked?"correct":isWrong?"wrong":""}" data-slot="${i}"></div>`;const slot=row.querySelector(".slot");slot.addEventListener("click",()=>{if(state.finished||isLocked)return;if(selectedCard)assign(selectedCard,i)});if(cardId){const c=p.cards.find(x=>x.id===cardId);const placed=document.createElement("div");placed.className=`placed ${isLocked?"correct":isWrong?"wrong":""}`;placed.innerHTML=`<div class="toolName">${c.name}</div><p class="toolSpec">${c.spec}</p>${isLocked?"":"<span class='hint'>Tap to return to pool</span>"}`;placed.addEventListener("click",e=>{e.stopPropagation();if(!isLocked&&!state.finished)remove(i)});slot.appendChild(placed);if(isLocked){const b=document.createElement("span");b.className="badge";b.textContent="Correct";slot.appendChild(b)}}els.timeline.appendChild(row)})}
+let selectedCard=null;
+let suppressCardClickUntil=0;
+function renderPool(){const assigned=new Set(Object.values(state.assignments));els.pool.innerHTML="";current().cards.forEach(c=>{if(assigned.has(c.id))return;const card=document.createElement("div");card.className=`card ${selectedCard===c.id?"selected":""}`;card.dataset.card=c.id;card.innerHTML=`<div class="toolName">${c.name}</div><p class="toolSpec">${c.spec}</p>`;card.addEventListener("click",()=>{if(state.finished||Date.now()<suppressCardClickUntil)return;selectedCard=selectedCard===c.id?null:c.id;renderPool();document.querySelectorAll(".slot:not(.correct)").forEach(s=>s.classList.toggle("target",!!selectedCard))});card.addEventListener("pointerdown",e=>beginPointerDrag(e,c,card));els.pool.appendChild(card)})}
+function assign(cardId,slotIndex){if(state.finished||lockedSet().has(slotIndex))return;const oldSlot=Object.keys(state.assignments).find(k=>state.assignments[k]===cardId);if(oldSlot!==undefined&&!lockedSet().has(Number(oldSlot)))delete state.assignments[oldSlot];state.assignments[slotIndex]=cardId;state.wrong=state.wrong.filter(x=>x!==slotIndex);selectedCard=null;save();render()}
+function remove(i){delete state.assignments[i];state.wrong=state.wrong.filter(x=>x!==i);selectedCard=null;save();render()}
+function clearWrong(){const locks=lockedSet();Object.keys(state.assignments).forEach(k=>{if(!locks.has(Number(k)))delete state.assignments[k]});state.wrong=[];selectedCard=null;save();render()}
+function submit(){const p=current();if(Object.keys(state.assignments).length!==p.events.length||state.finished)return;const attempt=4-state.attemptsLeft;let newly=0;const wrong=[];p.events.forEach((ev,i)=>{if(state.assignments[i]===ev.answer){if(!state.locked.includes(i)){state.locked.push(i);state.lockAttempt[i]=attempt;newly++}}else if(!state.locked.includes(i))wrong.push(i)});state.wrong=wrong;state.attemptsLeft--;if(state.locked.length===p.events.length){state.finished=true;state.won=true;safeReport(true);save();render();showResult(true);return}if(state.attemptsLeft===0){state.finished=true;state.won=false;safeReport(false);reveal();save();render();showResult(false);return}els.feedback.innerHTML=`<strong>${newly} new placement${newly===1?"":"s"} locked.</strong> Incorrect placements remain red until replaced. No distinction is given between a misplaced answer card and a decoy.<div class="legend">Green means correct and locked.</div>`;save();render();toast(`${state.attemptsLeft} attempt${state.attemptsLeft===1?"":"s"} remaining.`)}
+function reveal(){current().events.forEach((ev,i)=>{state.assignments[i]=ev.answer;if(!state.locked.includes(i))state.locked.push(i)});state.wrong=[]}
+function showResult(won){const p=current(),score=scoreNow(),rank=score===maxScore()?"FLAWLESS":won?"COMPLETED":"REVIEWED",seconds=Math.max(0,Math.round((Date.now()-missionStarted)/1000));els.resultTitle.textContent=won?"Protocol complete":"Operation review";els.resultIntro.textContent=won?"Every step was locked within three attempts.":"Unresolved steps have been revealed. Review why each system belongs at that moment.";els.finalScore.textContent=`${score} / ${maxScore()}`;els.finalRank.textContent=rank;els.finalTime.textContent=`${seconds}s`;els.solution.innerHTML=p.events.map((ev,i)=>{const c=p.cards.find(x=>x.id===ev.answer);const a=state.lockAttempt[i];return`<div class="solRow"><div class="solNum">${i+1}</div><div><h4>${ev.title} — ${c.name}</h4><p>${ev.why}${a?` Locked on attempt ${a}.`:" Revealed after attempt 3."}</p></div></div>`}).join("");els.takeaway.innerHTML=`<strong>Operational takeaway:</strong> ${p.takeaway}`;els.nextBtn.textContent=puzzleIndex===puzzles.length-1?"First mission":"Next mission";els.result.classList.add("show")}
+function resetMission(){try{localStorage.removeItem(storageKey())}catch(e){}state=emptyState();missionStarted=state.startedAt;safeStart(current().id);selectedCard=null;els.feedback.innerHTML=`Fill every open step, then submit.<div class="legend">Green means correct and locked. No other card information is revealed.</div>`;save();render()}
+function beginPointerDrag(e,c,source){if(state.finished||e.button>0)return;const sx=e.clientX,sy=e.clientY,pid=e.pointerId;let active=false,ghost=null;source.setPointerCapture?.(pid);const move=ev=>{if(ev.pointerId!==pid)return;const dx=ev.clientX-sx,dy=ev.clientY-sy;if(!active&&Math.hypot(dx,dy)<7)return;if(!active){active=true;ghost=document.createElement("div");ghost.className="dragGhost";ghost.innerHTML=`<div class="toolName">${c.name}</div><p class="toolSpec">${c.spec}</p>`;document.body.appendChild(ghost)}ev.preventDefault();ghost.style.left=`${ev.clientX}px`;ghost.style.top=`${ev.clientY}px`;document.querySelectorAll(".slot.target").forEach(x=>x.classList.remove("target"));ghost.style.display="none";const under=document.elementFromPoint(ev.clientX,ev.clientY);ghost.style.display="";const slot=under?.closest?.(".slot:not(.correct)");if(slot)slot.classList.add("target")};const end=ev=>{if(ev.pointerId!==pid)return;source.removeEventListener("pointermove",move);source.removeEventListener("pointerup",end);source.removeEventListener("pointercancel",cancel);document.querySelectorAll(".slot.target").forEach(x=>x.classList.remove("target"));if(active&&ghost){suppressCardClickUntil=Date.now()+250;ghost.style.display="none";const under=document.elementFromPoint(ev.clientX,ev.clientY);const slot=under?.closest?.(".slot:not(.correct)");ghost.remove();if(slot)assign(c.id,Number(slot.dataset.slot))}};const cancel=ev=>{if(ev.pointerId!==pid)return;source.removeEventListener("pointermove",move);source.removeEventListener("pointerup",end);source.removeEventListener("pointercancel",cancel);ghost?.remove();document.querySelectorAll(".slot.target").forEach(x=>x.classList.remove("target"))};source.addEventListener("pointermove",move);source.addEventListener("pointerup",end);source.addEventListener("pointercancel",cancel)}
+let toastTimer;function toast(t){clearTimeout(toastTimer);els.toast.textContent=t;els.toast.classList.add("show");toastTimer=setTimeout(()=>els.toast.classList.remove("show"),1700)}
+els.picker.addEventListener("change",e=>{const i=Number(e.target.value);location.hash=puzzles[i].id});window.addEventListener("hashchange",()=>initializeMission(hashMission()>=0?hashMission():mod(dayIndex(),puzzles.length)));els.submitBtn.addEventListener("click",submit);els.clearBtn.addEventListener("click",clearWrong);els.resetBtn.addEventListener("click",()=>{if(confirm("Reset this mission and its score?"))resetMission()});els.howBtn.addEventListener("click",()=>els.how.classList.add("show"));els.closeHow.addEventListener("click",()=>els.how.classList.remove("show"));els.reviewBtn.addEventListener("click",()=>els.result.classList.remove("show"));els.nextBtn.addEventListener("click",()=>{els.result.classList.remove("show");const i=(puzzleIndex+1)%puzzles.length;location.hash=puzzles[i].id});els.how.addEventListener("click",e=>{if(e.target===els.how)els.how.classList.remove("show")});els.result.addEventListener("click",e=>{if(e.target===els.result)els.result.classList.remove("show")});document.addEventListener("keydown",e=>{if(e.key==="Escape"){els.how.classList.remove("show");els.result.classList.remove("show")}});
+puzzleIndex=hashMission();if(puzzleIndex<0)puzzleIndex=mod(dayIndex(),puzzles.length);initPicker();initializeMission(puzzleIndex);setTimeout(()=>{if(!localStorage.getItem("reckon-protocol-seen-how")){els.how.classList.add("show");try{localStorage.setItem("reckon-protocol-seen-how","1")}catch(e){}}},180);
+</script>
+</body>
+</html>
