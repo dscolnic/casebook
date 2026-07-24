@@ -29,12 +29,31 @@ li.wk .circle:hover{border-color:var(--accent)}
 li.wk.done .circle{background:var(--accent);border-color:var(--accent);color:#fff}
 li.wk.done .ttl{color:var(--muted)}
 @media(max-width:520px){li.wk .tag{display:none}}
+.signin{border:1px solid var(--hair);border-radius:14px;padding:12px 14px;margin:0 0 16px;background:var(--chip)}
+.si-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.si-row b{font-size:14.5px}
+.si-sub{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.si-form{display:flex;gap:8px;flex-wrap:wrap}
+.si-form input{font:inherit;font-size:13px;padding:8px 11px;border:1px solid var(--hair);border-radius:9px;background:var(--bg);color:var(--ink);min-width:130px}
+.si-btn{font:inherit;font-weight:800;font-size:13px;padding:8px 16px;border:0;border-radius:999px;background:var(--accent);color:#fff;cursor:pointer}
+.si-btn:hover{background:#274d70}
+.si-btn.ghost{background:none;border:1px solid var(--hair);color:var(--muted)}
+.fleetbar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);padding:2px 2px 12px;border-bottom:1px solid var(--hair);margin-bottom:6px}
+.fleetbar strong{color:var(--ink)}
+.fdot{width:13px;height:13px;border-radius:3px;display:inline-block}
+li.wk.bs{background:linear-gradient(90deg,rgba(192,57,43,.07),transparent)}
+li.wk.bs .ttl{font-family:var(--serif)}
+li.wk.bs .no{font-size:15px}
+li.wk .circle{cursor:default;pointer-events:none}
+li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
 </style></head>
 <body><main class="wrap">
 <a class="back" href="reckon.html">← RECKON</a>
 <h1>Reasoning for Naval Science</h1>
-<p class="intro">A 15-week course that teaches naval science by <b>playing it</b>: each week turns one real concept — how sonar hears a contact, how a radar builds a track, how a ship fights flooding or fire — into a puzzle you can only solve by <b>understanding the system</b>, not memorizing facts. Work straight through or jump around; tap a week to play, and use the circle to track what you've finished.</p>
+<p class="intro">A 15-week course that teaches naval science by <b>playing it</b>: each week turns one real concept — how sonar hears a contact, how a radar builds a track, how a ship fights flooding or fire — into a puzzle you can only solve by <b>understanding the system</b>, not memorizing facts. Work straight through or jump around; tap a week to play. A week's circle fills only when you <b>actually finish and win it</b> — there's no marking it done by hand. Every odd lesson you complete unlocks a new ship for the <b>Battleship</b> matches after weeks 5, 10, and 15.</p>
+<section class="signin" id="signin"></section>
 <div class="summary"><span><strong id="count">0</strong> of 15 weeks complete</span><button class="reset" id="reset">Reset</button></div>
+<div class="fleetbar" id="fleet"></div>
 <ol class="weeks">
     <li class="wk" data-week="1">
       <span class="no">01</span>
@@ -71,6 +90,13 @@ li.wk.done .ttl{color:var(--muted)}
       <span class="tag" style="--c:#2f5d86">Sequence</span>
       <button class="circle" data-week="5" title="Mark complete" aria-label="Mark week 5 complete">✓</button>
     </li>
+    <li class="wk bs" data-bs="easy">
+      <span class="no">⚓</span>
+      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
+      <a class="ttl bs-link" data-bs="easy" href="battleship.html">Battleship — Easy</a>
+      <span class="tag" style="--c:#c0392b">Battleship</span>
+      <span class="circle" aria-label="Battleship Easy status">✓</span>
+    </li>
     <li class="wk" data-week="6">
       <span class="no">06</span>
       <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 13q3-3 5.5 0t5.5 0 5.5 0"/><path d="M2.5 17.5q3-3 5.5 0t5.5 0 5.5 0"/></svg></span>
@@ -105,6 +131,13 @@ li.wk.done .ttl{color:var(--muted)}
       <a class="ttl" href="protocol.html#nc_power_restore" data-week="10">Electrical casualty isolation and restoration</a>
       <span class="tag" style="--c:#0e8a80">Protocol</span>
       <button class="circle" data-week="10" title="Mark complete" aria-label="Mark week 10 complete">✓</button>
+    </li>
+    <li class="wk bs" data-bs="normal">
+      <span class="no">⚓</span>
+      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
+      <a class="ttl bs-link" data-bs="normal" href="battleship.html">Battleship — Medium</a>
+      <span class="tag" style="--c:#c0392b">Battleship</span>
+      <span class="circle" aria-label="Battleship Medium status">✓</span>
     </li>
     <li class="wk" data-week="11">
       <span class="no">11</span>
@@ -141,31 +174,62 @@ li.wk.done .ttl{color:var(--muted)}
       <span class="tag" style="--c:#6a4fb0">Science Tank</span>
       <button class="circle" data-week="15" title="Mark complete" aria-label="Mark week 15 complete">✓</button>
     </li>
+    <li class="wk bs" data-bs="hard">
+      <span class="no">⚓</span>
+      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
+      <a class="ttl bs-link" data-bs="hard" href="battleship.html">Battleship — Hard</a>
+      <span class="tag" style="--c:#c0392b">Battleship</span>
+      <span class="circle" aria-label="Battleship Hard status">✓</span>
+    </li>
 </ol>
 </main>
+<script src="reckon_course.js"></script>
 <script>
 (function(){
-  var KEY="reckon-course-progress";
-  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
-  function save(s){try{localStorage.setItem(KEY,JSON.stringify(s))}catch(e){}}
-  var state=load();
+  var RC=window.ReckonCourse;
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function setBattleshipLinks(){
+    document.querySelectorAll("a.bs-link").forEach(function(a){ a.setAttribute("href", RC.battleshipURL(a.getAttribute("data-bs"))); });
+  }
+  function paintFleet(n){
+    var el=document.getElementById("fleet"); if(!el)return;
+    var u=RC.unlockedCount(n), ships=RC.unlockedShips(n);
+    el.innerHTML="<span><strong>"+u+"</strong> of "+RC.SHIP_ORDER.length+" ships unlocked</span>"+
+      ships.map(function(k){return "<span class='fdot' title='"+esc(RC.SHIPS[k].name)+"' style='background:"+RC.SHIPS[k].color+"'></span>";}).join("")+
+      (u<RC.SHIP_ORDER.length?"<span style='opacity:.6'>· next unlocks at "+(n+ (n%2===0?1:2))+" lessons</span>":"<span style='opacity:.6'>· full fleet</span>");
+  }
   function paint(){
-    var n=0;
+    var s=RC.load(), n=0;
     document.querySelectorAll("li.wk").forEach(function(li){
-      var w=li.getAttribute("data-week");
-      if(state[w]){li.classList.add("done");n++;}else{li.classList.remove("done");}
+      var bs=li.getAttribute("data-bs"), done;
+      if(bs){ done=!!(s.battleship&&s.battleship[bs]); }
+      else { var w=+li.getAttribute("data-week"); done=RC.isWeekDone(w,s); if(done)n++; }
+      li.classList.toggle("done",done);
     });
     var c=document.getElementById("count"); if(c)c.textContent=n;
+    paintFleet(n);
+    setBattleshipLinks();
   }
-  document.querySelectorAll("a.ttl").forEach(function(a){
-    a.addEventListener("click",function(){ state[a.getAttribute("data-week")]=1; save(state); });
-  });
-  document.querySelectorAll("button.circle").forEach(function(b){
-    b.addEventListener("click",function(){ var w=b.getAttribute("data-week"); if(state[w])delete state[w]; else state[w]=1; save(state); paint(); });
-  });
+  function renderSignin(){
+    var el=document.getElementById("signin"); if(!el)return;
+    var u=RC.getUser();
+    if(u){
+      el.innerHTML="<div class='si-row'><div><b>Signed in as "+esc(u.name)+"</b><span class='si-sub'>"+esc(u.email)+" · progress saved on this device</span></div><button class='si-btn ghost' id='siOut' type='button'>Sign out</button></div>";
+      document.getElementById("siOut").onclick=function(){ RC.signOut(); renderSignin(); paint(); };
+    } else {
+      el.innerHTML="<div class='si-row'><div><b>Track your progress</b><span class='si-sub'>Sign in to save completed weeks and unlocked ships on this device.</span></div><form class='si-form' id='siForm'><input id='siName' placeholder='Name' required><input id='siEmail' type='email' placeholder='Email' required><button class='si-btn' type='submit'>Sign in</button></form></div>";
+      document.getElementById("siForm").onsubmit=function(e){ e.preventDefault(); var nm=document.getElementById('siName').value.trim(), em=document.getElementById('siEmail').value.trim(); if(!nm||!em)return; RC.setUser({name:nm,email:em}); renderSignin(); paint(); RC.flushPendingUnlocks(); };
+    }
+  }
   var r=document.getElementById("reset");
-  if(r)r.addEventListener("click",function(){state={};save(state);paint();});
+  if(r)r.addEventListener("click",function(){ if(!confirm("Reset all course progress and ship unlocks on this device?"))return; var s=RC.load(); s.done={}; s.battleship={}; s.seenUnlockCount=RC.BASE_SHIPS; RC.save(s); paint(); });
+  // Titles just navigate — completion is earned by winning the game, never a manual click.
+  renderSignin();
   paint();
+  RC.flushPendingUnlocks();
+  // Re-check when returning to this tab after finishing a lesson elsewhere.
+  window.addEventListener("focus", paint);
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden){ paint(); RC.flushPendingUnlocks(); } });
 })();
 </script>
 </body></html>
