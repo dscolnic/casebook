@@ -39,7 +39,8 @@
     cutter: { name: "Fast Cutter", color: "#6b4a2f", size: 2, kind: "small", blurb: "Small starter hull; darts around the board." }
   };
   var BASE_SHIPS = 2; // you begin with the first two ships
-  var MAX_FLEET = 4;  // each side tops out at four ships; the enemy always fields four
+  var MAX_FLEET = 4;  // per-MATCH fielding cap: you field up to 4, the enemy always fields 4
+  // (you can UNLOCK all 10 ship types over the course; you just pick <=4 for any one match)
 
   /* ---- user + storage ---- */
   function getUser() { try { return JSON.parse(localStorage.getItem(USER_KEY)) || null; } catch (e) { return null; } }
@@ -58,7 +59,7 @@
 
   /* ---- progress math ---- */
   function completedCount(s) { s = s || load(); var n = 0; for (var k in s.done) if (WEEK_SET[k]) n++; return n; }
-  function unlockedCount(count) { return Math.min(MAX_FLEET, BASE_SHIPS + Math.ceil(count / 2)); }
+  function unlockedCount(count) { return Math.min(SHIP_ORDER.length, BASE_SHIPS + Math.ceil(count / 2)); }
   function unlockedShips(count) { return SHIP_ORDER.slice(0, unlockedCount(count)); }
   function isWeekDone(week, s) { s = s || load(); return !!s.done[WEEK_NC[week - 1]]; }
 
@@ -189,7 +190,7 @@
       "<button class='rc-btn' type='button'>Add to fleet</button></div>";
     document.body.appendChild(ov);
     // advance seen count as each is acknowledged so it isn't shown twice
-    var s = load(); s.seenUnlockCount = Math.min(MAX_FLEET, (s.seenUnlockCount || BASE_SHIPS) + 1); save(s);
+    var s = load(); s.seenUnlockCount = Math.min(SHIP_ORDER.length, (s.seenUnlockCount || BASE_SHIPS) + 1); save(s);
     function close() { ov.remove(); nextUnlock(); }
     ov.querySelector(".rc-btn").addEventListener("click", close);
     ov.addEventListener("click", function (e) { if (e.target === ov) close(); });
