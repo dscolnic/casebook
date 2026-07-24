@@ -213,6 +213,26 @@
     battleshipURL: battleshipURL
   };
 
+  /* When a lesson game was opened from the Naval Science course (its URL carries an
+     nc_* course puzzle, or it was navigated to from navy_course.html), repoint that
+     game's "← RECKON" back link to the course instead of the RECKON hub. Games opened
+     from the RECKON hub for normal play are left untouched. */
+  function relinkBackToCourse() {
+    try {
+      var fromCourse = !!currentNcId() || /navy_course\.html/i.test(document.referrer || "");
+      if (!fromCourse) return;
+      var inSub = /\/diagnosis\//i.test(location.pathname || "");
+      var href = (inSub ? "../" : "") + "navy_course.html";
+      var as = document.getElementsByTagName("a");
+      for (var i = 0; i < as.length; i++) {
+        var h = as[i].getAttribute("href") || "";
+        if (/(^|\/)reckon\.html(\?|#|$)/i.test(h)) { as[i].setAttribute("href", href); as[i].textContent = "← Course"; }
+      }
+    } catch (e) {}
+  }
+  if (document.readyState !== "loading") relinkBackToCourse();
+  else document.addEventListener("DOMContentLoaded", relinkBackToCourse);
+
   /* Wrap the games' existing completion reporter. Every lesson game already calls
      window.reckonReport({gameId, won, ...}) on a genuine finish (via reckon-results.js,
      which no-ops on the static site). We chain it: a won:true report for one of our
