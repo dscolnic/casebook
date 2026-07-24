@@ -96,7 +96,7 @@ function computerPlan(){const sonarChance=difficulty==='easy'?.3:.62;
  let ur=0,uc=0,un=0;for(let r=0;r<ROWS;r++)for(let c=0;c<HALF;c++){if(!computer.shots.has(`${r},${c}`)){ur+=r;uc+=c;un++}}
  const tr=un?ur/un:ROWS/2,tc=un?uc/un:HALF/2;
  for(const s of computer.ships){if(s.sunk)continue;
-  if(s.activeRange>0)s.activeOn=difficulty==='hard'?(!s.hits.size&&unlocated):(!s.hits.size&&Math.random()<sonarChance);
+  if(s.activeRange>0&&difficulty!=='hard')s.activeOn=!s.hits.size&&Math.random()<sonarChance;  // Hard's sonar is decided after moving (below)
   if(!(s.moveAfterHit||!s.hits.size))continue;
   let cand=[];for(let dr=-s.mobility;dr<=s.mobility;dr++)for(let dc=-s.mobility;dc<=s.mobility;dc++){let r=s.anchorRow+dr,c=s.anchorCol+dc;if(canPlace(computer,s,r,c,s.horizontal,s.mobility))cand.push([r,c])}
   if(!cand.length)continue;let chosen;
@@ -105,7 +105,16 @@ function computerPlan(){const sonarChance=difficulty==='easy'?.3:.62;
    else if(s.activeRange>0)chosen=cand.reduce((a,b)=>dist(b[0],b[1],tr,tc)<dist(a[0],a[1],tr,tc)?b:a);                                  // sonar hull -> advance toward the enemy
    else chosen=cand[Math.floor(Math.random()*cand.length)];                                                                           // passive hull -> maneuver/evade
   }else chosen=cand[Math.floor(Math.random()*cand.length)];
-  setPosition(computer,s,chosen[0],chosen[1],s.horizontal);s.movedThisRound=true}}
+  setPosition(computer,s,chosen[0],chosen[1],s.horizontal);s.movedThisRound=true}
+ if(difficulty==='hard'){
+  /* Sonar economy: don't light every sensor. While ships are still unlocated, greedily turn on
+     the FEWEST undamaged active hulls whose ranges cover the unsearched cells — a redundant
+     sensor (its area already covered by another) stays silent, cutting self-exposure for free. */
+  const act=computer.ships.filter(s=>!s.sunk&&s.activeRange>0);act.forEach(s=>s.activeOn=false);
+  if(unlocated){const cands=act.filter(s=>!s.hits.size),reach=new Map();
+   for(const s of cands){let set=new Set();for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){let k=`${r},${c}`;if(!computer.shots.has(k)&&s.cells.some(([a,b])=>dist(a,b,r,c)<=s.activeRange))set.add(k)}reach.set(s,set)}
+   let cov=new Set();while(true){let best=null,bg=0;for(const s of cands){if(s.activeOn)continue;let g=0;for(const k of reach.get(s))if(!cov.has(k))g++;if(g>bg){bg=g;best=s}}if(!best||bg===0)break;best.activeOn=true;for(const k of reach.get(best))cov.add(k)}}
+ }}
 function enterPlanning(first=false){phase='planning';currentTurn='none';playerDetected=new Set();enemyDetected=new Set();playerExposed=new Set();enemyExposed=new Set();moveShipId=null;previewCells=[];player.ships.forEach(s=>s.movedThisRound=false);computer.ships.forEach(s=>s.movedThisRound=false);roundSnapshot=snapshot();controlCard.classList.remove('hidden');statusCard.classList.add('hidden');shipLibrary.classList.remove('hidden');randomSelectBtn.classList.add('hidden');rotateBtn.classList.add('hidden');undoBtn.classList.add('hidden');randomPlaceBtn.classList.add('hidden');resetMovesBtn.classList.toggle('hidden',first);advanceBtn.textContent=`Start Round ${round}`;advanceBtn.disabled=false;planningNote.classList.remove('hidden');if(!first)computerPlan();updatePlanCopy();renderAll()}
 function updatePlanCopy(){controlTitle.textContent=`Plan Round ${round}`;controlText.textContent=round===1?'No movement in Round 1. Set each active sonar on or off, then begin.':moveShipId!==null?`Move ${player.ships[moveShipId].name} up to ${player.ships[moveShipId].mobility} cells. Diagonal movement counts as one.`:'Move any ship once, up to its movement value, and set active sonar.';planningNote.textContent='Sensors resolve when the round starts. Passive sonar only picks up enemies running active sonar (at any range) or enemies already hit (within its range). Active sonar sweeps everything in range but a successful ping exposes the emitter for all five turns.'}
 const dist=(ar,ac,br,bc)=>Math.max(Math.abs(ar-br),Math.abs(ac-bc));
