@@ -27,16 +27,16 @@
   var SHIP_ORDER = ["dreadnought", "cutter", "battleship", "destroyer", "carrier",
     "cruiser", "frigate", "submarine", "corvette", "patrol"];
   var SHIPS = {
-    dreadnought: { name: "Dreadnought", color: "#2f5c8f", size: 5, kind: "gunship", blurb: "Heavy long-range active sonar. Slow but commands the map." },
-    carrier: { name: "Fleet Carrier", color: "#1f7a6d", size: 5, kind: "carrier", blurb: "Flat-top flagship with the longest active-sonar reach." },
-    battleship: { name: "Battleship", color: "#6d4ca3", size: 4, kind: "gunship", blurb: "Big guns, strong active sonar, low mobility." },
-    cruiser: { name: "Guided Cruiser", color: "#3f8f43", size: 4, kind: "escort", blurb: "Active sonar with better mobility than the heavies." },
-    destroyer: { name: "Destroyer", color: "#b06a2c", size: 3, kind: "escort", blurb: "Fast, active sonar, nimble hunter." },
-    frigate: { name: "Frigate", color: "#a03f6b", size: 3, kind: "escort", blurb: "Quiet passive sonar; never gives itself away." },
-    submarine: { name: "Attack Submarine", color: "#2b8fa3", size: 3, kind: "sub", blurb: "Silent passive listener that hides beneath the surface." },
-    corvette: { name: "Corvette", color: "#8f7d2f", size: 2, kind: "small", blurb: "Small, quick, passive sonar picket." },
-    patrol: { name: "Patrol Boat", color: "#5a6b7a", size: 2, kind: "small", blurb: "Tiny and very fast; short passive range." },
-    cutter: { name: "Fast Cutter", color: "#6b4a2f", size: 2, kind: "small", blurb: "Small starter hull; darts around the board." }
+    dreadnought: { name: "Dreadnought", color: "#2f5c8f", size: 5, kind: "gunship", blurb: "Active sonar 5, passive 2. Commands the map — but can't move once it's hit." },
+    carrier: { name: "Fleet Carrier", color: "#1f7a6d", size: 5, kind: "carrier", blurb: "Active 4, passive 3. Slow flagship that can still crawl away after damage." },
+    battleship: { name: "Battleship", color: "#6d4ca3", size: 4, kind: "gunship", blurb: "Active 4, thin passive 1. Heavy hitter that stalls the moment it's hit." },
+    cruiser: { name: "Guided Cruiser", color: "#3f8f43", size: 4, kind: "escort", blurb: "Active 3, passive 2, decent mobility; keeps maneuvering after a hit." },
+    destroyer: { name: "Destroyer", color: "#b06a2c", size: 3, kind: "escort", blurb: "Active 3, fast (move 3); a nimble hunter that stays mobile when damaged." },
+    frigate: { name: "Frigate", color: "#a03f6b", size: 3, kind: "escort", blurb: "No active sonar, long passive ears (3); never gives its own position away." },
+    submarine: { name: "Attack Submarine", color: "#2b8fa3", size: 3, kind: "sub", blurb: "Short active 2, strong passive 3. Sneaky and evasive after damage." },
+    corvette: { name: "Corvette", color: "#8f7d2f", size: 2, kind: "small", blurb: "Fast passive picket (move 3, passive 2); no active sonar." },
+    patrol: { name: "Patrol Boat", color: "#5a6b7a", size: 2, kind: "small", blurb: "Tiny and very fast, but stalls the instant it takes a hit." },
+    cutter: { name: "Fast Cutter", color: "#6b4a2f", size: 2, kind: "small", blurb: "Fast starter hull; minimal sensors, always able to keep moving." }
   };
   var BASE_SHIPS = 2; // you begin with the first two ships
   var MAX_FLEET = 4;  // per-MATCH fielding cap: you field up to 4, the enemy always fields 4
