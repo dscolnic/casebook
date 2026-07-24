@@ -85,7 +85,27 @@ function clearPreview(){previewCells=[];previewValid=false;applyPreview()}
 function playerWaterClick(e){let r=Number(e.currentTarget.dataset.row),c=Number(e.currentTarget.dataset.col);if(phase==='place'){let s=player.ships[placingIndex];if(!canPlace(player,s,r,c,horizontal))return;setPosition(player,s,r,c,horizontal);placingIndex++;clearPreview();updatePlaceCopy();renderAll();return}if(phase==='planning'&&moveShipId!==null){let s=player.ships[moveShipId];if(!canPlace(player,s,r,c,s.horizontal,s.mobility))return;setPosition(player,s,r,c,s.horizontal);s.movedThisRound=true;moveShipId=null;clearPreview();updatePlanCopy();renderAll()}}
 function snapshot(){return player.ships.map(s=>({id:s.id,r:s.anchorRow,c:s.anchorCol,h:s.horizontal}))}
 function restoreMoves(){for(const x of roundSnapshot){let s=player.ships[x.id];setPosition(player,s,x.r,x.c,x.h);s.movedThisRound=false}moveShipId=null;renderAll()}
-function computerPlan(){const sonarChance=difficulty==='easy'?.3:.62;let anyWounded=player.ships.some(s=>!s.sunk&&s.hits.size>0);for(const s of computer.ships){if(s.sunk)continue;/* Hard sonar strategy: ping (exposing itself) only while still hunting; once a player ship is wounded there's a kill to finish, so go silent and stop giving away position. */if(s.activeRange>0)s.activeOn=difficulty==='hard'?(!s.hits.size&&!anyWounded):(!s.hits.size&&Math.random()<sonarChance);if(!(s.moveAfterHit||!s.hits.size))continue;let candidates=[];for(let dr=-s.mobility;dr<=s.mobility;dr++)for(let dc=-s.mobility;dc<=s.mobility;dc++){let r=s.anchorRow+dr,c=s.anchorCol+dc;if(canPlace(computer,s,r,c,s.horizontal,s.mobility))candidates.push([r,c])}if(!candidates.length)continue;let pick;if(difficulty==='hard'&&s.hits.size){/* evade: get a damaged, already-found ship as far as its mobility allows from where it was hit */pick=candidates.reduce((a,b)=>dist(b[0],b[1],s.anchorRow,s.anchorCol)>dist(a[0],a[1],s.anchorRow,s.anchorCol)?b:a)}else{pick=candidates[Math.floor(Math.random()*candidates.length)]}setPosition(computer,s,pick[0],pick[1],s.horizontal);s.movedThisRound=true}}
+function computerPlan(){const sonarChance=difficulty==='easy'?.3:.62;
+ /* A player ship is "unlocated" until the computer has hit or sunk it. Hard keeps active
+    sonar ON while any ship is still unlocated (it needs to find them), and only goes silent
+    once every survivor is already hit. */
+ const unlocated=player.ships.some(s=>!s.sunk&&s.hits.size===0);
+ /* Centroid of the player-half cells the computer hasn't fired at yet — where undetected
+    ships most likely hide. Hard drives its sonar ships toward it so their sonar actually
+    reaches the enemy instead of sweeping empty home water. */
+ let ur=0,uc=0,un=0;for(let r=0;r<ROWS;r++)for(let c=0;c<HALF;c++){if(!computer.shots.has(`${r},${c}`)){ur+=r;uc+=c;un++}}
+ const tr=un?ur/un:ROWS/2,tc=un?uc/un:HALF/2;
+ for(const s of computer.ships){if(s.sunk)continue;
+  if(s.activeRange>0)s.activeOn=difficulty==='hard'?(!s.hits.size&&unlocated):(!s.hits.size&&Math.random()<sonarChance);
+  if(!(s.moveAfterHit||!s.hits.size))continue;
+  let cand=[];for(let dr=-s.mobility;dr<=s.mobility;dr++)for(let dc=-s.mobility;dc<=s.mobility;dc++){let r=s.anchorRow+dr,c=s.anchorCol+dc;if(canPlace(computer,s,r,c,s.horizontal,s.mobility))cand.push([r,c])}
+  if(!cand.length)continue;let chosen;
+  if(difficulty==='hard'){
+   if(s.hits.size)chosen=cand.reduce((a,b)=>dist(b[0],b[1],s.anchorRow,s.anchorCol)>dist(a[0],a[1],s.anchorRow,s.anchorCol)?b:a);      // damaged & found -> evade far
+   else if(s.activeRange>0)chosen=cand.reduce((a,b)=>dist(b[0],b[1],tr,tc)<dist(a[0],a[1],tr,tc)?b:a);                                  // sonar hull -> advance toward the enemy
+   else chosen=cand[Math.floor(Math.random()*cand.length)];                                                                           // passive hull -> maneuver/evade
+  }else chosen=cand[Math.floor(Math.random()*cand.length)];
+  setPosition(computer,s,chosen[0],chosen[1],s.horizontal);s.movedThisRound=true}}
 function enterPlanning(first=false){phase='planning';currentTurn='none';playerDetected=new Set();enemyDetected=new Set();playerExposed=new Set();enemyExposed=new Set();moveShipId=null;previewCells=[];player.ships.forEach(s=>s.movedThisRound=false);computer.ships.forEach(s=>s.movedThisRound=false);roundSnapshot=snapshot();controlCard.classList.remove('hidden');statusCard.classList.add('hidden');shipLibrary.classList.remove('hidden');randomSelectBtn.classList.add('hidden');rotateBtn.classList.add('hidden');undoBtn.classList.add('hidden');randomPlaceBtn.classList.add('hidden');resetMovesBtn.classList.toggle('hidden',first);advanceBtn.textContent=`Start Round ${round}`;advanceBtn.disabled=false;planningNote.classList.remove('hidden');if(!first)computerPlan();updatePlanCopy();renderAll()}
 function updatePlanCopy(){controlTitle.textContent=`Plan Round ${round}`;controlText.textContent=round===1?'No movement in Round 1. Set each active sonar on or off, then begin.':moveShipId!==null?`Move ${player.ships[moveShipId].name} up to ${player.ships[moveShipId].mobility} cells. Diagonal movement counts as one.`:'Move any ship once, up to its movement value, and set active sonar.';planningNote.textContent='Sensors resolve when the round starts. Passive sonar only picks up enemies running active sonar (at any range) or enemies already hit (within its range). Active sonar sweeps everything in range but a successful ping exposes the emitter for all five turns.'}
 const dist=(ar,ac,br,bc)=>Math.max(Math.abs(ar-br),Math.abs(ac-bc));
