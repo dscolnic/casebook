@@ -194,9 +194,9 @@ li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
   function paintFleet(n){
     var el=document.getElementById("fleet"); if(!el)return;
     var u=RC.unlockedCount(n), ships=RC.unlockedShips(n);
-    el.innerHTML="<span><strong>"+u+"</strong> of "+RC.SHIP_ORDER.length+" ships unlocked</span>"+
+    el.innerHTML="<span><strong>"+u+"</strong> of "+RC.MAX_FLEET+" ships unlocked</span>"+
       ships.map(function(k){return "<span class='fdot' title='"+esc(RC.SHIPS[k].name)+"' style='background:"+RC.SHIPS[k].color+"'></span>";}).join("")+
-      (u<RC.SHIP_ORDER.length?"<span style='opacity:.6'>· next unlocks at "+(n+ (n%2===0?1:2))+" lessons</span>":"<span style='opacity:.6'>· full fleet</span>");
+      (u<RC.MAX_FLEET?"<span style='opacity:.6'>· next unlocks at "+(n+ (n%2===0?1:2))+" lessons</span>":"<span style='opacity:.6'>· full fleet (enemy always fields 4)</span>");
   }
   function paint(){
     var s=RC.load(), n=0;
