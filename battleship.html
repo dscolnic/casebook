@@ -36,7 +36,7 @@
     <div class="world-labels"><span>YOUR WATERS</span><span>ENEMY WATERS</span></div>
     <div class="board-wrap"><div></div><div class="col-labels" id="colLabels"></div><div class="row-labels" id="rowLabels"></div><div class="world-board" id="worldBoard"></div></div>
     <div class="fleet-columns"><section class="fleet-panel"><h3>Your Fleet</h3><div class="fleet-row" id="playerFleet"></div></section><section class="fleet-panel"><h3>Enemy Fleet</h3><div class="fleet-row" id="enemyFleet"></div></section></div>
-    <div class="planning-note">Distance uses grid steps: a diagonal counts as one. Active sonar sweeps any enemy inside its range. Passive sonar only hears an enemy running active sonar (at any range) or an enemy ship that has already been hit (within passive range). A successful active ping exposes the emitting ship for the entire round.</div>
+    <div class="planning-note">Distance uses grid steps: a diagonal counts as one. Active sonar sweeps any enemy inside its range — and any enemy it reaches sees your ship in return. Passive sonar only hears an enemy ship that has already been hit, within passive range. You see an enemy only when your sonar reaches it, or when its active sonar reaches one of your ships.</div>
   </section>
   <div class="legend"><span class="legend-item"><span class="swatch ship"></span>Your ship</span><span class="legend-item"><span class="swatch hit"></span>Hit</span><span class="legend-item"><span class="swatch miss"></span>Miss</span><span class="legend-item"><span class="swatch detected"></span>Sonar contact</span><span class="legend-item"><span class="swatch detected-hit"></span>Hit + live contact</span><span class="legend-item"><span class="swatch exposed"></span>Exposed active-sonar ship</span></div>
 </main>
@@ -65,7 +65,7 @@ const cap=s=>s.charAt(0).toUpperCase()+s.slice(1),coord=(r,c)=>String.fromCharCo
 function makeSide(defs,name){return{sideName:name,shots:new Set(),hitShots:new Set(),ships:defs.map((d,id)=>({...d,id,cells:[],anchorRow:null,anchorCol:null,horizontal:true,hits:new Set(),sunk:false,placed:false,activeOn:d.activeRange>0,movedThisRound:false}))}}
 function canShipMove(s){return !s.sunk&&!s.movedThisRound&&round>1&&(s.moveAfterHit||!s.hits.size)}
 function metaBadges(s){return `<span class="badge">Size ${s.length}</span>${s.activeRange>0?`<span class="badge active">Active ${s.activeRange}</span>`:`<span class="badge">No active</span>`}${s.passiveRange>0?`<span class="badge passive">Passive ${s.passiveRange}</span>`:`<span class="badge">No passive</span>`}<span class="badge">Move ${s.mobility}</span><span class="badge">${s.moveAfterHit?'Moves if hit':'Stalls if hit'}</span>`}
-function shipDesc(s){return `${s.activeRange>0?`Active sonar reaches ${s.activeRange}; a successful ping exposes it.`:'No active sonar.'} Passive ${s.passiveRange>0?`hears emitters at any range and wounded hulls within ${s.passiveRange}`:'is offline'}. ${s.moveAfterHit?'Still maneuvers after a hit.':'Immobilized once hit.'}`}
+function shipDesc(s){return `${s.activeRange>0?`Active sonar sweeps to ${s.activeRange} — any enemy it reaches sees your ship back.`:'No active sonar.'} Passive ${s.passiveRange>0?`hears only wounded hulls within ${s.passiveRange}`:'is offline'}. ${s.moveAfterHit?'Still maneuvers after a hit.':'Immobilized once hit.'}`}
 function bounds(name){return name==='player'?{min:0,max:HALF-1}:{min:HALF,max:COLS-1}}
 function cellsFor(r,c,len,h){return Array.from({length:len},(_,i)=>[r+(h?0:i),c+(h?i:0)])}
 function shipAt(side,r,c,exclude=null){if(!side)return null;return side.ships.find(s=>s.id!==exclude&&s.cells.some(([sr,sc])=>sr===r&&sc===c))||null}
@@ -86,39 +86,34 @@ function playerWaterClick(e){let r=Number(e.currentTarget.dataset.row),c=Number(
 function snapshot(){return player.ships.map(s=>({id:s.id,r:s.anchorRow,c:s.anchorCol,h:s.horizontal}))}
 function restoreMoves(){for(const x of roundSnapshot){let s=player.ships[x.id];setPosition(player,s,x.r,x.c,x.h);s.movedThisRound=false}moveShipId=null;renderAll()}
 function computerPlan(){const sonarChance=difficulty==='easy'?.3:.62;
- /* A player ship is "unlocated" until the computer has hit or sunk it. Hard keeps active
-    sonar ON while any ship is still unlocated (it needs to find them), and only goes silent
+ /* A player ship is "unlocated" until the computer has hit or sunk it. Under the strict reveal
+    rule the computer can't hear you at any range either — it must sweep to find you — so Hard
+    keeps active sonar ON (broad coverage) while any ship is still unlocated, and only goes quiet
     once every survivor is already hit. */
  const unlocated=player.ships.some(s=>!s.sunk&&s.hits.size===0);
- /* Centroid of the player-half cells the computer hasn't fired at yet — where undetected
-    ships most likely hide. Hard drives its sonar ships toward it so their sonar actually
-    reaches the enemy instead of sweeping empty home water. */
- let ur=0,uc=0,un=0;for(let r=0;r<ROWS;r++)for(let c=0;c<HALF;c++){if(!computer.shots.has(`${r},${c}`)){ur+=r;uc+=c;un++}}
- const tr=un?ur/un:ROWS/2,tc=un?uc/un:HALF/2;
+ /* Column of unsearched water to advance toward (the enemy side); Hard drives its sonar ships
+    forward so their sweeps actually reach the player. */
+ let uc=0,un=0;for(let r=0;r<ROWS;r++)for(let c=0;c<HALF;c++){if(!computer.shots.has(`${r},${c}`)){uc+=c;un++}}
+ const tc=un?uc/un:HALF/2;
+ /* Spread the sonar hulls across distinct row-bands so their sweeps cover more of the board
+    instead of piling onto one spot. */
+ const act=computer.ships.filter(s=>!s.sunk&&s.hits.size===0&&s.activeRange>0);
+ act.forEach((s,j)=>{s._band=(j+0.5)*ROWS/Math.max(1,act.length)});
  for(const s of computer.ships){if(s.sunk)continue;
-  if(s.activeRange>0&&difficulty!=='hard')s.activeOn=!s.hits.size&&Math.random()<sonarChance;  // Hard's sonar is decided after moving (below)
+  if(s.activeRange>0)s.activeOn=difficulty==='hard'?(!s.hits.size&&unlocated):(!s.hits.size&&Math.random()<sonarChance);
   if(!(s.moveAfterHit||!s.hits.size))continue;
   let cand=[];for(let dr=-s.mobility;dr<=s.mobility;dr++)for(let dc=-s.mobility;dc<=s.mobility;dc++){let r=s.anchorRow+dr,c=s.anchorCol+dc;if(canPlace(computer,s,r,c,s.horizontal,s.mobility))cand.push([r,c])}
   if(!cand.length)continue;let chosen;
   if(difficulty==='hard'){
-   if(s.hits.size)chosen=cand.reduce((a,b)=>dist(b[0],b[1],s.anchorRow,s.anchorCol)>dist(a[0],a[1],s.anchorRow,s.anchorCol)?b:a);      // damaged & found -> evade far
-   else if(s.activeRange>0)chosen=cand.reduce((a,b)=>dist(b[0],b[1],tr,tc)<dist(a[0],a[1],tr,tc)?b:a);                                  // sonar hull -> advance toward the enemy
-   else chosen=cand[Math.floor(Math.random()*cand.length)];                                                                           // passive hull -> maneuver/evade
+   if(s.hits.size)chosen=cand.reduce((a,b)=>dist(b[0],b[1],s.anchorRow,s.anchorCol)>dist(a[0],a[1],s.anchorRow,s.anchorCol)?b:a);          // damaged & found -> evade far
+   else if(s.activeRange>0)chosen=cand.reduce((a,b)=>dist(b[0],b[1],s._band,tc)<dist(a[0],a[1],s._band,tc)?b:a);                          // sonar hull -> advance to its coverage band
+   else chosen=cand[Math.floor(Math.random()*cand.length)];                                                                             // passive hull -> maneuver/evade
   }else chosen=cand[Math.floor(Math.random()*cand.length)];
-  setPosition(computer,s,chosen[0],chosen[1],s.horizontal);s.movedThisRound=true}
- if(difficulty==='hard'){
-  /* Sonar economy: don't light every sensor. While ships are still unlocated, greedily turn on
-     the FEWEST undamaged active hulls whose ranges cover the unsearched cells — a redundant
-     sensor (its area already covered by another) stays silent, cutting self-exposure for free. */
-  const act=computer.ships.filter(s=>!s.sunk&&s.activeRange>0);act.forEach(s=>s.activeOn=false);
-  if(unlocated){const cands=act.filter(s=>!s.hits.size),reach=new Map();
-   for(const s of cands){let set=new Set();for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){let k=`${r},${c}`;if(!computer.shots.has(k)&&s.cells.some(([a,b])=>dist(a,b,r,c)<=s.activeRange))set.add(k)}reach.set(s,set)}
-   let cov=new Set();while(true){let best=null,bg=0;for(const s of cands){if(s.activeOn)continue;let g=0;for(const k of reach.get(s))if(!cov.has(k))g++;if(g>bg){bg=g;best=s}}if(!best||bg===0)break;best.activeOn=true;for(const k of reach.get(best))cov.add(k)}}
- }}
+  setPosition(computer,s,chosen[0],chosen[1],s.horizontal);s.movedThisRound=true}}
 function enterPlanning(first=false){phase='planning';currentTurn='none';playerDetected=new Set();enemyDetected=new Set();playerExposed=new Set();enemyExposed=new Set();moveShipId=null;previewCells=[];player.ships.forEach(s=>s.movedThisRound=false);computer.ships.forEach(s=>s.movedThisRound=false);roundSnapshot=snapshot();controlCard.classList.remove('hidden');statusCard.classList.add('hidden');shipLibrary.classList.remove('hidden');randomSelectBtn.classList.add('hidden');rotateBtn.classList.add('hidden');undoBtn.classList.add('hidden');randomPlaceBtn.classList.add('hidden');resetMovesBtn.classList.toggle('hidden',first);advanceBtn.textContent=`Start Round ${round}`;advanceBtn.disabled=false;planningNote.classList.remove('hidden');if(!first)computerPlan();updatePlanCopy();renderAll()}
-function updatePlanCopy(){controlTitle.textContent=`Plan Round ${round}`;controlText.textContent=round===1?'No movement in Round 1. Set each active sonar on or off, then begin.':moveShipId!==null?`Move ${player.ships[moveShipId].name} up to ${player.ships[moveShipId].mobility} cells. Diagonal movement counts as one.`:'Move any ship once, up to its movement value, and set active sonar.';planningNote.textContent='Sensors resolve when the round starts. Passive sonar only picks up enemies running active sonar (at any range) or enemies already hit (within its range). Active sonar sweeps everything in range but a successful ping exposes the emitter for all five turns.'}
+function updatePlanCopy(){controlTitle.textContent=`Plan Round ${round}`;controlText.textContent=round===1?'No movement in Round 1. Set each active sonar on or off, then begin.':moveShipId!==null?`Move ${player.ships[moveShipId].name} up to ${player.ships[moveShipId].mobility} cells. Diagonal movement counts as one.`:'Move any ship once, up to its movement value, and set active sonar.';planningNote.textContent='Sensors resolve when the round starts. Passive sonar only picks up enemies already hit, within its range. Active sonar sweeps everything in range — but any enemy your ping reaches sees your ship in return. You see an enemy only when your sonar reaches it, or when its active sonar reaches one of your ships.'}
 const dist=(ar,ac,br,bc)=>Math.max(Math.abs(ar-br),Math.abs(ac-bc));
-function resolveSensors(observer,target,detected,targetExposed){for(const sensor of observer.ships){if(sensor.sunk||sensor.hits.size)continue;let doActive=sensor.activeRange>0&&sensor.activeOn,doPassive=sensor.passiveRange>0;if(!doActive&&!doPassive)continue;let activeFound=false;for(const t of target.ships){if(t.sunk)continue;let emitting=t.activeRange>0&&t.activeOn,wounded=t.hits.size>0;for(const [tr,tc] of t.cells){/* active sweep: anything within active range. passive: hears an active emitter at any range, or a wounded hull within passive range. */let inA=doActive&&sensor.cells.some(([sr,sc])=>dist(sr,sc,tr,tc)<=sensor.activeRange);let inP=doPassive&&(emitting||(wounded&&sensor.cells.some(([sr,sc])=>dist(sr,sc,tr,tc)<=sensor.passiveRange)));if(inA||inP)detected.add(`${tr},${tc}`);if(inA)activeFound=true}}if(activeFound)targetExposed.add(sensor.id)}}
+function resolveSensors(observer,target,detected,targetExposed){for(const sensor of observer.ships){if(sensor.sunk||sensor.hits.size)continue;let doActive=sensor.activeRange>0&&sensor.activeOn,doPassive=sensor.passiveRange>0;if(!doActive&&!doPassive)continue;let activeFound=false;for(const t of target.ships){if(t.sunk)continue;let wounded=t.hits.size>0;for(const [tr,tc] of t.cells){/* active sweep: detect anything within active range (and expose yourself to whatever you reach). passive: only a wounded hull within passive range — it no longer hears distant pingers. */let inA=doActive&&sensor.cells.some(([sr,sc])=>dist(sr,sc,tr,tc)<=sensor.activeRange);let inP=doPassive&&wounded&&sensor.cells.some(([sr,sc])=>dist(sr,sc,tr,tc)<=sensor.passiveRange);if(inA||inP)detected.add(`${tr},${tc}`);if(inA)activeFound=true}}if(activeFound)targetExposed.add(sensor.id)}}
 function startRound(){phase='battle';currentTurn='player';turn=1;computerTargets=[];playerDetected=new Set();enemyDetected=new Set();playerExposed=new Set();enemyExposed=new Set();resolveSensors(player,computer,playerDetected,playerExposed);resolveSensors(computer,player,enemyDetected,enemyExposed);computer.ships.forEach(s=>{if(!s.sunk&&(enemyExposed.has(s.id)||s.cells.some(([r,c])=>playerDetected.has(`${r},${c}`))))enemyIdentified.add(s.id)});controlCard.classList.add('hidden');statusCard.classList.remove('hidden');let report=playerDetected.size?`${playerDetected.size} enemy section${playerDetected.size===1?'':'s'} detected.`:'No enemy sections detected.';if(enemyExposed.size)report+=` ${enemyExposed.size} enemy active-sonar ship${enemyExposed.size===1?'':'s'} exposed itself.`;setStatus(`Round ${round} · Turn 1 of 5`,`${report} Choose any open square to fire.`,'YOUR TURN');renderAll()}
 function fire(e){if(phase!=='battle'||currentTurn!=='player'||gameOver)return;let r=Number(e.currentTarget.dataset.row),c=Number(e.currentTarget.dataset.col),key=`${r},${c}`;if(player.shots.has(key))return;player.shots.add(key);let t=shipAt(computer,r,c),text;if(t){let section=t.cells.findIndex(([rr,cc])=>rr===r&&cc===c);t.hits.add(section);player.hitShots.add(key);t.sunk=t.hits.size>=t.length;if(t.sunk)t.cells=[];text=t.sunk?`You sank the enemy ${t.name}.`:`Hit on ${coord(r,c)}.`}else text=`Miss at ${coord(r,c)}.`;if(computer.ships.every(s=>s.sunk)){renderAll();endGame(true);return}currentTurn='computer';setStatus(`Round ${round} · Turn ${turn} of 5`,`${text} The computer is firing.`,'COMPUTER TURN');renderAll();setTimeout(computerTurn,600)}
 // Blind hunting prefers YOUR half (where ships almost always are); only spills
