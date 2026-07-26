@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dead Reckoning — Three-Chapter Navy Course Edition</title>
+<style>
+:root{--bg:#f4f2ec;--ink:#1a1a17;--muted:#565651;--line:#e4e4e2;--panel:#fff;--panel2:#fff;--chip:#f4f2ec;--accent:#2f5d86;--accent-soft:#eef3f7;--gold:#8a6a12;--shadow:0 8px 24px rgba(24,32,39,.07);--blue:#76baff;--green:#7ed7aa;--amber:#e7b35e;--red:#ef7474;--scene:#06101a;--scene-ink:#eef5fb;--scene-muted:#98adc0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,select{font:inherit}.app{width:min(1180px,calc(100% - 24px));margin:18px auto 34px}.head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:12px}.headright{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.returnlink{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none}.returnlink:hover{color:var(--accent)}
+h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:-.01em;margin:0}.sub{color:var(--muted);margin:5px 0 0;max-width:760px}.tag{border:1px solid var(--accent);border-radius:999px;padding:7px 10px;color:var(--accent);white-space:nowrap;font-size:.75rem;font-weight:800;text-transform:uppercase}
+
+.chapterbar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.chapterbtn{border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:var(--panel);color:var(--ink);text-align:left;cursor:pointer}
+.chapterbtn:hover{border-color:var(--accent)}.chapterbtn.active{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.chapternum{display:block;color:var(--gold);font-size:.64rem;font-weight:850;text-transform:uppercase;letter-spacing:.05em}
+.chaptername{display:block;font-weight:820;margin-top:2px;font-size:.8rem}.chapterplace{display:block;color:var(--muted);font-size:.65rem;margin-top:2px}
+.coursebox{background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:9px;margin-bottom:8px}
+.courseplace{color:var(--gold);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}.coursetitle{font-weight:820;margin-top:3px}.coursehelp{color:var(--muted);font-size:.68rem;line-height:1.35;margin-top:3px}
+.chaptercards{display:grid;gap:8px;margin:14px 0}.chaptercard{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);padding:11px;text-align:left;cursor:pointer}
+.chaptercard:hover{border-color:var(--accent);background:var(--accent-soft)}.chaptercard strong{display:block;margin:2px 0}.chaptercard span{display:block;color:var(--muted);font-size:.74rem;line-height:1.35}.chaptercard em{display:block;color:var(--gold);font-size:.67rem;font-style:normal;text-transform:uppercase;font-weight:800}
+
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px}.metric{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:9px 11px}.ml{color:var(--muted);font-size:.68rem;text-transform:uppercase}.mv{font-weight:800;margin-top:3px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:12px}.scene{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--scene);box-shadow:var(--shadow)}
+#sea{display:block;width:100%;aspect-ratio:16/9}.msg{position:absolute;top:12px;left:50%;transform:translateX(-50%);max-width:72%;background:#05101bcc;border:1px solid #61799066;border-radius:999px;padding:7px 11px;text-align:center;pointer-events:none;color:var(--scene-ink)}
+.chartbox{position:absolute;left:12px;bottom:12px;width:min(31%,225px);min-width:165px;background:#050d17dc;border:1px solid #65809b66;border-radius:12px;padding:8px;backdrop-filter:blur(5px);color:var(--scene-ink)}
+.charthead{display:flex;justify-content:space-between;color:var(--scene-muted);font-size:.65rem;text-transform:uppercase;margin-bottom:5px}#chart{display:block;width:100%;aspect-ratio:1;border-radius:8px;border:1px solid #65809b44}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:6px;color:var(--scene-muted);font-size:.62rem}.li{display:flex;align-items:center;gap:5px}.dot{width:8px;height:8px;border-radius:50%}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:13px;max-height:calc(100vh - 150px);overflow:auto;box-shadow:var(--shadow)}.section+.section{border-top:1px solid var(--line);padding-top:13px;margin-top:13px}.st{margin:0 0 3px;font-size:.95rem;font-family:Georgia,'Times New Roman',serif;font-weight:700}.help{margin:0 0 8px;color:var(--muted);font-size:.72rem;line-height:1.35}
+.tools{display:grid;gap:7px}.tool,.move,.small,.obtn,select{border:1px solid var(--line);background:var(--panel2);color:var(--ink);border-radius:10px}.tool,.move,.small,.obtn{cursor:pointer}.tool{padding:8px;text-align:left;min-height:50px}.tool:hover:not(:disabled),.move:hover:not(:disabled),.small:hover,.obtn:hover{border-color:var(--accent)}button:disabled{opacity:.4;cursor:default}
+.tname{display:flex;justify-content:space-between;font-weight:800;font-size:.8rem}.cost{color:var(--gold);font-size:.68rem}.tdesc{color:var(--muted);font-size:.68rem;margin-top:3px;line-height:1.28}
+.moves{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.move{padding:8px 4px;min-height:54px}.sym{font-size:1.2rem;display:block}.lab{font-size:.65rem;color:var(--muted)}
+.read{min-height:122px;background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:9px;font:12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;color:var(--ink)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}.small{padding:8px}select{width:100%;padding:8px;margin-top:8px}.foot{text-align:center;color:var(--muted);font-size:.65rem;margin-top:9px}
+.overlay{position:absolute;z-index:8;inset:0;display:grid;place-items:center;padding:18px;background:rgba(6,16,26,.72);backdrop-filter:blur(6px)}.hidden{display:none}.obox{width:min(550px,100%);background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:0 25px 60px rgba(20,30,45,.28)}.ey{color:var(--gold);font-size:.7rem;font-weight:800;text-transform:uppercase}.ot{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:1.5rem;margin:5px 0 7px}.op{color:var(--muted);line-height:1.45;margin:0}.olist{line-height:1.55;font-size:.8rem;padding-left:20px}.obtn{width:100%;padding:11px;background:var(--accent);border-color:var(--accent);color:#fff;font-weight:850}.obtn:hover{background:#274d70;border-color:#274d70}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0}.stat{background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:9px;text-align:center}.sl{font-size:.63rem;color:var(--muted);text-transform:uppercase}.sv{font-weight:850;margin-top:3px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.panel{max-height:none;display:grid;grid-template-columns:1fr 1fr;gap:14px}.section+.section{border-top:0;padding-top:0;margin-top:0}}
+@media(max-width:620px){.head{align-items:flex-start;flex-direction:column}.chapterbar{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.metric:last-child{grid-column:span 2}.panel{grid-template-columns:1fr}.chartbox{width:42%;min-width:140px}.msg{max-width:calc(100% - 22px);font-size:.72rem}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="head"><div><h1>Dead Reckoning</h1><p class="sub" id="subtitle"></p></div><div class="headright"><a class="returnlink" id="courseReturn" href="#" hidden>&larr; Return to course</a><div class="tag" id="tag"></div></div></header>
+<nav class="chapterbar" id="chapterBar" aria-label="Dead Reckoning course chapters">
+<button class="chapterbtn" data-chapter="0"><span class="chapternum">Chapter 1</span><span class="chaptername">Navigation Fundamentals</span><span class="chapterplace">After Topic 05</span></button>
+<button class="chapterbtn" data-chapter="1"><span class="chapternum">Chapter 2</span><span class="chaptername">Navigation Without a Trusted Fix</span><span class="chapterplace">After Topic 11</span></button>
+<button class="chapterbtn" data-chapter="2"><span class="chapternum">Chapter 3</span><span class="chaptername">Navigation in a Naval Mission</span><span class="chapterplace">After Topic 14</span></button>
+</nav>
+<section class="metrics">
+<div class="metric"><div class="ml">Steps remaining</div><div class="mv" id="steps">—</div></div>
+<div class="metric"><div class="ml">Nav points</div><div class="mv" id="nav">—</div></div>
+<div class="metric"><div class="ml">Heading</div><div class="mv" id="heading">—</div></div>
+<div class="metric"><div class="ml">Confidence</div><div class="mv" id="conf">—</div></div>
+<div class="metric"><div class="ml">Emission</div><div class="mv" id="emit">Silent</div></div>
+</section>
+<section class="layout">
+<div class="scene">
+<canvas id="sea" width="960" height="540"></canvas>
+<div class="msg" id="msg">The chart shows an estimate, not necessarily the true ship position.</div>
+<div class="chartbox">
+<div class="charthead"><span>Navigation chart</span><span id="cmode">Estimate</span></div>
+<canvas id="chart" width="350" height="350"></canvas>
+<div class="legend">
+<div class="li"><span class="dot" style="background:var(--blue)"></span>Estimate</div>
+<div class="li"><span class="dot" style="background:var(--green)"></span>Destination</div>
+<div class="li"><span class="dot" style="background:var(--red)"></span>Hazard</div>
+<div class="li"><span class="dot" style="background:var(--amber)"></span>Clue match</div>
+</div></div>
+<div class="overlay" id="overlay"><div class="obox">
+<div class="ey" id="ey"></div><h2 class="ot" id="ot"></h2><p class="op" id="op"></p><div id="oc"></div><button class="obtn" id="ob"></button>
+</div></div>
+</div>
+<aside class="panel">
+<section class="section"><h2 class="st">Navigation tools</h2><p class="help">Measurements come from the true position, even when the chart estimate is wrong.</p><div class="tools" id="tools"></div></section>
+<section class="section"><h2 class="st">Helm</h2><p class="help">Keyboard: ← port, ↑ ahead, → starboard.</p>
+<div class="moves"><button class="move" id="port"><span class="sym">↶</span><span class="lab">Port</span></button><button class="move" id="ahead"><span class="sym">↑</span><span class="lab">Ahead</span></button><button class="move" id="starboard"><span class="sym">↷</span><span class="lab">Starboard</span></button></div></section>
+<section class="section"><h2 class="st">Bridge readout</h2><div class="read" id="read"></div>
+<div class="actions"><button class="small" id="restart">Restart</button><button class="small" id="intro">Mission briefing</button></div>
+</section>
+<section class="section" id="courseNavigation"><h2 class="st">Course navigation</h2>
+<div class="coursebox"><div class="courseplace" id="coursePlacement"></div><div class="coursetitle" id="courseChapterTitle"></div><div class="coursehelp" id="courseChapterHelp"></div></div>
+<select id="missionSelect" aria-label="Select mission within this chapter"></select>
+<div class="actions"><button class="small" id="chapterBrief">Chapter briefing</button><button class="small" id="chapterMenu">All chapters</button></div>
+</section>
+</aside></section>
+<div class="foot">Independent educational prototype. Not affiliated with or endorsed by the Office of Naval Research or the U.S. Navy.</div>
+</main>
+<script>
+(()=>{
+const missions=[{"title":"Harbor Lights","subtitle":"Use a lighthouse, depth soundings, and radar to reach a harbor while a hidden current distorts dead reckoning.","scene":"clear","start":{"x":1,"y":5},"dest":{"x":5,"y":1},"heading":0,"steps":10,"nav":3,"hazards":[{"x":3,"y":4,"name":"rock shoal"},{"x":4,"y":3,"name":"shallow reef"}],"currents":{"1,4":{"dx":1,"dy":0},"2,3":{"dx":1,"dy":0},"3,2":{"dx":0,"dy":-1}},"tools":["compass","depth","landmark","radar"],"landmark":{"x":6,"y":0,"label":"lighthouse"},"intro":["Turn port or starboard for free.","Moving ahead costs one step.","The chart shows an estimate; currents affect only the true ship.","Radar gives an exact fix but creates an active emission."],"id":1,"depths":[[18,27,33,39,48,54,18],[30,39,51,18,27,36,48],[42,54,24,36,51,21,33],[51,24,42,15,30,45,18],[21,39,15,33,54,30,48],[30,54,33,54,33,54,33],[42,24,48,30,57,39,21]]},{"title":"Cross Current","subtitle":"A persistent east-setting current repeatedly pushes the vessel away from its plotted route.","scene":"clear","start":{"x":0,"y":6},"dest":{"x":6,"y":1},"heading":0,"steps":12,"nav":4,"hazards":[{"x":2,"y":5,"name":"sand bar"},{"x":4,"y":3,"name":"reef"},{"x":5,"y":2,"name":"rock outcrop"}],"currents":{"0,5":{"dx":1,"dy":0},"1,4":{"dx":1,"dy":0},"2,3":{"dx":1,"dy":0},"3,2":{"dx":1,"dy":0}},"tools":["compass","depth","landmark","radar"],"landmark":{"x":6,"y":0,"label":"harbor light"},"intro":["The current can push the true ship one cell east after a move.","Your dead-reckoned position will not include that drift.","Use observations selectively; the shortest safe route is not the obvious diagonal."],"id":2,"depths":[[32,32,30,24,22,20,14],[40,40,32,32,30,24,22],[48,40,40,40,32,32,30],[50,48,48,40,40,40,32],[58,56,50,48,48,40,40],[66,60,58,56,50,48,48],[68,68,66,60,58,56,50]]},{"title":"Soundings","subtitle":"Dense fog removes visual landmarks. Navigate through depth contours with radar held in reserve.","scene":"fog","start":{"x":1,"y":6},"dest":{"x":5,"y":0},"heading":0,"steps":12,"nav":4,"hazards":[{"x":3,"y":5,"name":"shoal"},{"x":3,"y":4,"name":"shoal"},{"x":4,"y":2,"name":"reef"}],"currents":{"1,5":{"dx":1,"dy":0},"2,4":{"dx":0,"dy":-1}},"tools":["compass","depth","radar"],"intro":["Fog hides the lighthouse and horizon.","Depth soundings highlight every compatible chart cell.","Repeated soundings can be more useful than one expensive exact fix."],"id":3,"depths":[[24,24,20,20,20,24,24],[28,24,24,20,24,24,28],[36,32,30,26,30,32,36],[36,36,32,32,32,36,36],[42,42,36,36,36,42,42],[48,44,42,38,42,44,48],[52,48,48,44,48,48,52]]},{"title":"Fog Bank","subtitle":"Use radar and an acoustic beacon to navigate when the coast is invisible.","scene":"fog","start":{"x":0,"y":5},"dest":{"x":6,"y":2},"heading":1,"steps":12,"nav":4,"hazards":[{"x":2,"y":4,"name":"reef"},{"x":4,"y":4,"name":"shoal"},{"x":5,"y":3,"name":"rock"}],"currents":{"1,5":{"dx":0,"dy":-1},"3,3":{"dx":1,"dy":0}},"tools":["compass","depth","acoustic","radar"],"beacon":{"x":6,"y":6,"label":"acoustic beacon"},"intro":["The acoustic beacon provides range, not direction.","A range ring may match several possible positions.","Radar is precise but announces that the ship is transmitting."],"id":4,"depths":[[48,57,21,27,33,42,48],[18,27,36,48,15,24,33],[27,42,54,24,36,51,21],[39,54,27,45,18,33,48],[51,27,45,21,39,15,36],[18,39,18,42,21,42,21],[30,54,36,18,42,24,51]]},{"title":"Star Fix","subtitle":"Use the clear sky for a silent celestial correction while currents build positional error.","scene":"clear","start":{"x":1,"y":6},"dest":{"x":6,"y":1},"heading":0,"steps":12,"nav":4,"hazards":[{"x":3,"y":4,"name":"reef"},{"x":4,"y":4,"name":"shoal"},{"x":5,"y":2,"name":"rock"}],"currents":{"1,5":{"dx":1,"dy":0},"2,3":{"dx":1,"dy":0},"4,2":{"dx":0,"dy":-1}},"tools":["compass","depth","celestial","radar"],"landmark":{"x":6,"y":0,"label":"harbor light"},"intro":["A celestial fix costs two navigation points but is silent and precise.","The sky is currently clear.","Choose whether to spend heavily on certainty or use cheaper soundings."],"id":5,"depths":[[32,32,30,24,22,20,14],[40,40,32,32,30,24,22],[48,40,40,40,32,32,30],[50,48,48,40,40,40,32],[58,56,50,48,48,40,40],[66,60,58,56,50,48,48],[68,68,66,60,58,56,50]]},{"title":"GPS Denied","subtitle":"Satellite navigation works briefly, then disappears. Finish using onboard and environmental references.","scene":"overcast","start":{"x":0,"y":6},"dest":{"x":6,"y":0},"heading":0,"steps":13,"nav":5,"hazards":[{"x":2,"y":5,"name":"shoal"},{"x":3,"y":3,"name":"reef"},{"x":5,"y":1,"name":"rock"}],"currents":{"1,5":{"dx":1,"dy":0},"3,4":{"dx":0,"dy":-1},"4,2":{"dx":1,"dy":0}},"tools":["compass","depth","gps","radar"],"gps":{"mode":"deniedAfter","afterMoves":2},"intro":["GPS is available only during the first two moves.","After denial, the system must rely on inertial dead reckoning, depth, or radar.","A resilient navigator plans before the preferred source disappears."],"id":6,"depths":[[26,22,20,16,20,22,26],[28,28,22,22,22,28,28],[32,32,28,28,28,32,32],[38,34,32,28,32,34,38],[44,40,40,36,40,40,44],[44,44,40,40,40,44,44],[52,52,46,46,46,52,52]]},{"title":"False Confidence","subtitle":"GPS provides a precise but spoofed location. Cross-check it before steering toward danger.","scene":"clear","start":{"x":1,"y":5},"dest":{"x":6,"y":1},"heading":0,"steps":12,"nav":5,"hazards":[{"x":3,"y":4,"name":"reef"},{"x":5,"y":3,"name":"shoal"},{"x":4,"y":1,"name":"rock"}],"currents":{"2,5":{"dx":0,"dy":-1},"3,3":{"dx":1,"dy":0},"5,2":{"dx":0,"dy":-1}},"tools":["compass","depth","landmark","gps","radar"],"landmark":{"x":6,"y":0,"label":"lighthouse"},"gps":{"mode":"spoofed","offset":{"x":1,"y":-1}},"intro":["The GPS display will look highly confident even when it is wrong.","Depth and landmark evidence can contradict the claimed position.","Precision is not the same as accuracy."],"id":7,"depths":[[36,42,51,15,21,27,36],[48,15,24,33,45,54,21],[15,27,42,54,24,36,51],[27,42,15,30,48,21,36],[36,57,33,51,27,45,21],[48,27,48,27,51,30,51],[15,42,24,48,30,54,36]]},{"title":"Under the Ice","subtitle":"No stars, shoreline, or GPS are available. Combine acoustic range, bathymetry, and low-drift quantum sensing.","scene":"underice","start":{"x":0,"y":6},"dest":{"x":6,"y":1},"heading":0,"steps":13,"nav":6,"hazards":[{"x":2,"y":4,"name":"ice keel"},{"x":4,"y":3,"name":"seafloor ridge"},{"x":5,"y":2,"name":"ice obstruction"}],"currents":{"1,5":{"dx":1,"dy":0},"3,4":{"dx":0,"dy":-1},"4,2":{"dx":1,"dy":0}},"tools":["compass","depth","acoustic","bathymetric","quantum"],"beacon":{"x":0,"y":0,"label":"under-ice beacon"},"intro":["There is no view of the sky or coast.","Acoustic range produces a ring of possible positions.","Bathymetric matching is strongest over distinctive terrain.","Quantum correction is silent and precise but can be used only once."],"id":8,"depths":[[18,26,34,40,48,56,60],[28,20,28,34,42,50,56],[36,30,24,28,36,44,50],[44,40,32,24,32,40,44],[54,48,42,32,28,36,40],[64,56,52,42,36,30,36],[72,66,60,52,44,40,30]]},{"title":"Silent Passage","subtitle":"Reach the exit while minimizing active emissions in a monitored channel.","scene":"fog","start":{"x":1,"y":6},"dest":{"x":6,"y":0},"heading":0,"steps":13,"nav":5,"hazards":[{"x":2,"y":5,"name":"shoal"},{"x":3,"y":4,"name":"reef"},{"x":5,"y":2,"name":"rock"}],"currents":{"1,5":{"dx":1,"dy":0},"3,3":{"dx":0,"dy":-1},"4,1":{"dx":1,"dy":0}},"tools":["compass","depth","passive","radar"],"beacon":{"x":6,"y":6,"label":"radio beacon"},"maxEmissions":1,"intro":["Passive bearing and depth observations do not reveal the ship.","One radar sweep is survivable; a second active sweep ends the mission.","The best score requires completing the passage silently."],"id":9,"depths":[[36,28,24,38,40,28,36],[36,32,28,40,44,32,36],[40,36,28,44,48,34,40],[44,36,32,48,50,38,44],[44,40,36,48,54,42,44],[48,44,38,52,58,44,48],[52,46,42,56,60,48,52]]},{"title":"Integrated Navigation","subtitle":"A storm, complex currents, and a spoofed satellite signal require deliberate sensor fusion.","scene":"storm","start":{"x":0,"y":6},"dest":{"x":6,"y":0},"heading":1,"steps":14,"nav":7,"hazards":[{"x":2,"y":5,"name":"shoal"},{"x":3,"y":3,"name":"reef"},{"x":4,"y":2,"name":"rock"},{"x":5,"y":1,"name":"restricted shallows"}],"currents":{"0,5":{"dx":1,"dy":0},"2,4":{"dx":0,"dy":-1},"3,2":{"dx":1,"dy":0},"5,2":{"dx":0,"dy":-1}},"tools":["compass","depth","gps","acoustic","bathymetric","quantum","radar"],"beacon":{"x":6,"y":6,"label":"acoustic beacon"},"gps":{"mode":"spoofed","offset":{"x":-1,"y":1}},"intro":["The storm blocks celestial navigation and increases uncertainty growth.","GPS is present but spoofed.","No single measurement should be trusted without cross-checking.","Use the limited quantum correction strategically."],"id":10,"depths":[[34,30,24,36,44,28,34],[38,32,28,40,44,32,38],[40,36,32,42,48,36,40],[44,40,32,46,52,36,44],[48,40,36,50,52,40,48],[48,44,40,52,56,44,48],[52,48,40,56,60,46,52]]}];
+const chapters=[
+ {title:'Navigation Fundamentals',placement:'Insert after Topic 05 — Pulse-echo radar and track formation',shortPlacement:'After Topic 05',start:0,end:3,summary:'Apply sonar, radar, dead reckoning, set, drift, soundings, and landmarks in practical navigation puzzles.',goals:['Distinguish estimated position from true position.','Recognize how set and drift corrupt dead reckoning.','Choose among depth, landmark, acoustic, and radar evidence.']},
+ {title:'Navigation Without a Trusted Fix',placement:'Insert after Topic 11 — Independent navigation evidence and common-mode error',shortPlacement:'After Topic 11',start:4,end:7,summary:'Operate when preferred navigation sources disappear, disagree, or provide precise but false information.',goals:['Cross-check position evidence using independent sources.','Experience GPS denial, spoofing, and inertial drift.','Use celestial, acoustic, bathymetric, and quantum corrections appropriately.']},
+ {title:'Navigation in a Naval Mission',placement:'Insert after Topic 14 — Radar horizon, pulse timing, and reaction time',shortPlacement:'After Topic 14',start:8,end:9,summary:'Navigate while balancing emissions, survivability, uncertainty, and the wider naval mission.',goals:['Manage active emissions during a contested passage.','Combine degraded sensors under operational pressure.','Treat navigation as part of a larger sensing and decision chain.']}
+];
+const defs={
+ compass:{name:'Compass',cost:0,desc:'Confirms heading, not position.'},
+ depth:{name:'Depth sounder',cost:1,desc:'Highlights chart cells with matching depth.'},
+ landmark:{name:'Landmark bearing',cost:1,desc:'Shows the broad direction to a visible landmark.'},
+ radar:{name:'Radar sweep',cost:1,desc:'Provides a precise fix but creates an active emission.'},
+ celestial:{name:'Celestial fix',cost:2,desc:'Uses the clear sky for a precise, silent correction.'},
+ gps:{name:'GPS position',cost:1,desc:'Returns a precise claimed satellite position.'},
+ acoustic:{name:'Acoustic range',cost:1,desc:'Gives range to a known beacon, producing a ring of candidates.'},
+ bathymetric:{name:'Bathymetric match',cost:2,desc:'Matches local seafloor shape to the chart.'},
+ quantum:{name:'Quantum correction',cost:2,desc:'One silent, precise low-drift position correction.'},
+ passive:{name:'Passive beacon bearing',cost:1,desc:'Receives a broad bearing without transmitting.'}
+};
+const seaC=document.querySelector('#sea'),S=seaC.getContext('2d'),chartC=document.querySelector('#chart'),C=chartC.getContext('2d');
+const H=[{n:'North',d:0,dx:0,dy:-1},{n:'East',d:90,dx:1,dy:0},{n:'South',d:180,dx:0,dy:1},{n:'West',d:270,dx:-1,dy:0}];
+const params=new URLSearchParams(location.search);
+const hashMatch=location.hash.match(/chapter-?([123])/i);
+const requestedChapter=params.has('chapter')?Number(params.get('chapter'))-1:(hashMatch?Number(hashMatch[1])-1:null);
+const courseLocked=params.get('locked')==='1'||params.get('course')==='1';
+let ci=requestedChapter!==null&&requestedChapter>=0&&requestedChapter<chapters.length?requestedChapter:0;
+let requestedMission=params.has('mission')?Number(params.get('mission'))-1:null;
+let mi=requestedMission!==null&&requestedMission>=chapters[ci].start&&requestedMission<=chapters[ci].end?requestedMission:chapters[ci].start;
+let m,st,phase=0,last=0,overlayAction=null,timer=null;
+const $=s=>document.querySelector(s),inside=p=>p.x>=0&&p.x<7&&p.y>=0&&p.y<7,cell=p=>String.fromCharCode(65+p.x)+(p.y+1);
+function hazardAt(p){return m.hazards.find(h=>h.x===p.x&&h.y===p.y)}
+function conf(){return st.u<=.5?'High':st.u<=1.25?'Moderate':st.u<=2.1?'Low':'Very low'}
+function clamp(p){return{x:Math.max(0,Math.min(6,p.x)),y:Math.max(0,Math.min(6,p.y))}}
+function bcat(a,b){let x=Math.sign(b.x-a.x),y=Math.sign(b.y-a.y);return{'0,-1':'North','1,-1':'Northeast','1,0':'East','1,1':'Southeast','0,1':'South','-1,1':'Southwest','-1,0':'West','-1,-1':'Northwest','0,0':'Here'}[`${x},${y}`]}
+function bdeg(a,b){let d=Math.atan2(b.x-a.x,-(b.y-a.y))*180/Math.PI;return d<0?d+360:d}
+
+function chapterMissionNumber(index=mi){return index-chapters[ci].start+1}
+function chapterMissionCount(){return chapters[ci].end-chapters[ci].start+1}
+function syncUrl(){
+ try{
+  const url=new URL(location.href);
+  url.searchParams.set('chapter',ci+1);
+  url.searchParams.set('mission',mi+1);
+  if(courseLocked)url.searchParams.set('locked','1');
+  history.replaceState(null,'',url);
+ }catch(e){}
+}
+function updateChapterUI(){
+ const ch=chapters[ci];
+ document.querySelectorAll('.chapterbtn').forEach(b=>{
+  b.classList.toggle('active',Number(b.dataset.chapter)===ci);
+  b.hidden=courseLocked&&Number(b.dataset.chapter)!==ci;
+ });
+ $('#coursePlacement').textContent=ch.placement;
+ $('#courseChapterTitle').textContent=`Chapter ${ci+1}: ${ch.title}`;
+ $('#courseChapterHelp').textContent=ch.summary;
+ $('#chapterMenu').hidden=courseLocked;
+}
+function setChapter(index,showBrief=true){
+ ci=Math.max(0,Math.min(chapters.length-1,index));
+ mi=chapters[ci].start;
+ fillSelect();
+ reset();
+ syncUrl();
+ if(showBrief)chapterBriefing();
+}
+function chapterMenu(){
+ if(courseLocked){chapterBriefing();return}
+ overlay({
+  ey:'Dead Reckoning course edition',
+  title:'Choose the course chapter',
+  text:'Each chapter is designed to open at a specific point in the Basic Sailor course.',
+  content:`<div class="chaptercards">${chapters.map((ch,i)=>`<button class="chaptercard" data-open-chapter="${i}"><em>Chapter ${i+1} · ${ch.shortPlacement}</em><strong>${ch.title}</strong><span>${ch.summary}</span></button>`).join('')}</div>`,
+  button:'Open current chapter',
+  action:chapterBriefing
+ });
+}
+function chapterBriefing(){
+ const ch=chapters[ci];
+ const chapterMissions=missions.slice(ch.start,ch.end+1);
+ overlay({
+  ey:`Chapter ${ci+1} of ${chapters.length} · ${ch.shortPlacement}`,
+  title:ch.title,
+  text:ch.summary,
+  content:`<div class="coursebox"><div class="courseplace">${ch.placement}</div></div><ul class="olist">${ch.goals.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chaptercards">${chapterMissions.map((mission,i)=>`<button class="chaptercard" data-open-mission="${ch.start+i}"><em>Mission ${i+1} of ${chapterMissions.length}</em><strong>${mission.title}</strong><span>${mission.subtitle}</span></button>`).join('')}</div>`,
+  button:`Begin Chapter ${ci+1}`,
+  action:()=>{mi=ch.start;fillSelect();reset();briefing()}
+ });
+}
+function reset(){
+ m=missions[mi];
+ st={run:false,end:false,steps:m.steps,nav:m.nav,h:m.heading,t:{...m.start},e:{...m.start},u:.35,tr:[{...m.start}],er:[{...m.start}],cand:[],ctype:null,emit:0,moves:0,drifts:0,reveal:false,pulse:0,used:{},depthHistory:[]};
+ $('#tag').textContent=`Chapter ${ci+1} · Mission ${chapterMissionNumber()} of ${chapterMissionCount()} · ${m.title}`;$('#subtitle').textContent=m.subtitle;if($('#missionSelect'))$('#missionSelect').value=mi;updateChapterUI();syncUrl();
+ $('#read').textContent=`MISSION READY\nEstimated position: ${cell(st.e)}\nDestination: ${cell(m.dest)}\nWeather: ${m.scene}\nCurrent: unmeasured`;
+ renderTools();ui();drawChart();drawSea();
+}
+function renderTools(){
+ const box=$('#tools');box.innerHTML='';
+ m.tools.forEach(id=>{let d=defs[id],b=document.createElement('button');b.className='tool';b.dataset.tool=id;b.innerHTML=`<div class="tname"><span>${d.name}</span><span class="cost">${d.cost?d.cost+' point'+(d.cost>1?'s':''):'Free'}</span></div><div class="tdesc">${d.desc}</div>`;b.addEventListener('click',()=>useTool(id));box.appendChild(b)});
+}
+function toolUnavailable(id){
+ if(!st.run||st.end)return true;
+ if(defs[id].cost>st.nav)return true;
+ if(id==='quantum'&&st.used.quantum)return true;
+ if(id==='gps'&&m.gps&&m.gps.mode==='deniedAfter'&&st.moves>=m.gps.afterMoves)return true;
+ return false;
+}
+function ui(){
+ let h=H[st.h];$('#steps').textContent=st.steps;$('#nav').textContent=st.nav;$('#heading').textContent=`${h.n} · ${String(h.d).padStart(3,'0')}°`;$('#conf').textContent=conf();$('#emit').textContent=st.emit?`${st.emit} active emission${st.emit===1?'':'s'}`:'Silent';
+ let dis=!st.run||st.end;['#port','#ahead','#starboard'].forEach(x=>$(x).disabled=dis);$('#ahead').disabled=dis||st.steps<=0;
+ document.querySelectorAll('.tool').forEach(b=>{b.disabled=toolUnavailable(b.dataset.tool);if(b.dataset.tool==='gps'&&m.gps&&m.gps.mode==='deniedAfter'&&st.moves>=m.gps.afterMoves)b.querySelector('.tname span:first-child').textContent='GPS denied'});
+ $('#cmode').textContent=st.reveal?'True + estimate':st.ctype||'Estimate';
+}
+function msg(t,type=''){let e=$('#msg');e.textContent=t;e.style.color=type==='danger'?'#ffc2c2':type==='warn'?'#ffe0a5':'';clearTimeout(timer);timer=setTimeout(()=>{if(!st.end){e.textContent='The chart shows an estimate, not necessarily the true ship position.';e.style.color=''}},4300)}
+function overlay(o){$('#ey').textContent=o.ey;$('#ot').textContent=o.title;$('#op').textContent=o.text;$('#oc').innerHTML=o.content||'';$('#ob').textContent=o.button;overlayAction=o.action;$('#overlay').classList.remove('hidden')}
+function briefing(){
+ overlay({ey:`Chapter ${ci+1} · Mission ${chapterMissionNumber()} of ${chapterMissionCount()}`,title:m.title,text:m.subtitle,content:`<div class="coursebox"><div class="courseplace">${chapters[ci].shortPlacement}</div><div class="coursehelp">${chapters[ci].title}</div></div><ul class="olist">${m.intro.map(x=>`<li>${x}</li>`).join('')}</ul>`,button:'Begin mission',action:begin});
+}
+function begin(){reset();$('#overlay').classList.add('hidden');st.run=true;ui();msg(`Destination ${cell(m.dest)}. Navigate with limited steps and observations.`)}
+function turn(k){if(!st.run||st.end)return;st.h=(st.h+k+4)%4;let h=H[st.h];$('#read').textContent=`HELM TURN\nHeading: ${h.n} ${String(h.d).padStart(3,'0')}°\nEstimated position: ${cell(st.e)}\nConfidence: ${conf()}`;ui()}
+function ahead(){
+ if(!st.run||st.end||!st.steps)return;
+ let h=H[st.h],nt={x:st.t.x+h.dx,y:st.t.y+h.dy},ne={x:st.e.x+h.dx,y:st.e.y+h.dy};
+ st.steps--;st.moves++;st.cand=[];st.ctype=null;
+ if(!inside(nt)){st.t=nt;st.tr.push({...st.t});st.e=clamp(ne);st.er.push({...st.e});finish(false,'You left the charted operating area.');return}
+ st.t=nt;st.e=clamp(ne);
+ let cur=m.currents[`${st.t.x},${st.t.y}`];
+ if(cur){let d={x:st.t.x+cur.dx,y:st.t.y+cur.dy};if(inside(d)){st.t=d;st.drifts++;st.u+=m.scene==='storm'?1.05:.85;msg('The ship feels steady, but the environment may have carried it off the plotted track.','warn')}} else st.u+=m.scene==='storm'?.42:.28;
+ st.depthHistory.push(m.depths[st.t.y][st.t.x]);if(st.depthHistory.length>3)st.depthHistory.shift();
+ st.tr.push({...st.t});st.er.push({...st.e});
+ let z=hazardAt(st.t);if(z){finish(false,`The ship struck the ${z.name} at ${cell(st.t)}.`);return}
+ if(st.t.x===m.dest.x&&st.t.y===m.dest.y){finish(true,'You reached the mission destination.');return}
+ $('#read').textContent=`AHEAD ONE STEP\nEstimated position: ${cell(st.e)}\nHeading: ${h.n}\nSteps remaining: ${st.steps}\nConfidence: ${conf()}`;
+ if(!st.steps){finish(false,'You ran out of movement steps before reaching the destination.');return}ui();drawChart();
+}
+function spend(id){let c=defs[id].cost;if(c>st.nav)return false;st.nav-=c;return true}
+function candidatesByDepth(d){let c=[];for(let y=0;y<7;y++)for(let x=0;x<7;x++)if(m.depths[y][x]===d)c.push({x,y});return c}
+function fuse(cut,red){let p=cut.filter(q=>Math.hypot(q.x-st.e.x,q.y-st.e.y)<=Math.max(1.4,st.u+.9));if(p.length===1){st.e={...p[0]};st.er[st.er.length-1]={...st.e};st.u=.35}else st.u=Math.max(.55,st.u-red)}
+function exactFix(label,emission=false){st.e={...st.t};st.er[st.er.length-1]={...st.e};st.u=.25;st.cand=[{...st.t}];st.ctype=label;if(emission){st.emit++;st.pulse=1;if(m.maxEmissions!=null&&st.emit>m.maxEmissions){finish(false,'Repeated active emissions revealed the ship in the monitored passage.');return false}}return true}
+function localSig(p){let d=m.depths[p.y][p.x],n=m.depths[Math.max(0,p.y-1)][p.x],s=m.depths[Math.min(6,p.y+1)][p.x],w=m.depths[p.y][Math.max(0,p.x-1)],e=m.depths[p.y][Math.min(6,p.x+1)];return `${d}:${Math.sign(s-n)}:${Math.sign(e-w)}`}
+function useTool(id){
+ if(toolUnavailable(id))return;if(!spend(id))return;
+ st.used[id]=(st.used[id]||0)+1;
+ if(id==='compass'){let h=H[st.h];st.cand=[];st.ctype='Compass';$('#read').textContent=`COMPASS CHECK\nHeading: ${h.n} ${String(h.d).padStart(3,'0')}°\nOrientation confirmed.\nPosition remains uncertain.`;msg(`Compass confirms ${h.n}.`)}
+ if(id==='depth'){let d=m.depths[st.t.y][st.t.x],c=candidatesByDepth(d);st.cand=c;st.ctype='Depth';fuse(c,.55);$('#read').textContent=`DEPTH SOUNDER\nMeasured depth: ${d} m\n${c.length} chart cell${c.length===1?'':'s'} match.\n${cell(st.e)===cell(st.t)?'Estimate corrected.':'Depth narrows the possibilities.'}`;msg(`Depth: ${d} meters. Matching cells highlighted.`)}
+ if(id==='landmark'||id==='passive'){let target=id==='landmark'?m.landmark:m.beacon,b=bcat(st.t,target),c=[];for(let y=0;y<7;y++)for(let x=0;x<7;x++)if(bcat({x,y},target)===b)c.push({x,y});st.cand=c;st.ctype=id==='landmark'?'Landmark':'Passive bearing';fuse(c,.65);$('#read').textContent=`${id==='landmark'?'LANDMARK':'PASSIVE BEACON'} BEARING\n${target.label} lies ${b.toLowerCase()}.\n${c.length} cells share that broad bearing.`;msg(`${target.label} bears ${b.toLowerCase()}.`)}
+ if(id==='radar'){if(exactFix('Radar fix',true)===false)return;$('#read').textContent=`ACTIVE RADAR SWEEP\nPosition fix: ${cell(st.e)}\nAccuracy restored.\nActive emission recorded.`;msg(`Radar fix at ${cell(st.e)}. The sweep was detectable.`,'warn')}
+ if(id==='celestial'){exactFix('Celestial fix');$('#read').textContent=`CELESTIAL FIX\nStars and horizon matched.\nPosition: ${cell(st.e)}\nSilent precise correction.`;msg(`Celestial fix obtained at ${cell(st.e)}.`)}
+ if(id==='gps'){if(m.gps&&m.gps.mode==='spoofed'){let q=clamp({x:st.t.x+m.gps.offset.x,y:st.t.y+m.gps.offset.y});st.e=q;st.er[st.er.length-1]={...q};st.u=.18;st.cand=[{...q}];st.ctype='GPS claim';$('#read').textContent=`GPS POSITION\nClaimed position: ${cell(q)}\nReported confidence: very high\nCross-check recommended.`;msg(`GPS reports ${cell(q)} with high confidence.`,'warn')}else{exactFix('GPS fix');$('#read').textContent=`GPS POSITION\nPosition fix: ${cell(st.e)}\nSatellite solution accepted.`;msg(`GPS fix obtained at ${cell(st.e)}.`)}}
+ if(id==='acoustic'){let b=m.beacon,dist=Math.round(Math.hypot(st.t.x-b.x,st.t.y-b.y)*10)/10,c=[];for(let y=0;y<7;y++)for(let x=0;x<7;x++)if(Math.round(Math.hypot(x-b.x,y-b.y)*10)/10===dist)c.push({x,y});st.cand=c;st.ctype='Acoustic range';fuse(c,.65);$('#read').textContent=`ACOUSTIC RANGE\nRange to ${b.label}: ${dist.toFixed(1)} grid units\n${c.length} cells match the range ring.`;msg(`Acoustic range: ${dist.toFixed(1)} grid units.`)}
+ if(id==='bathymetric'){let sig=localSig(st.t),c=[];for(let y=0;y<7;y++)for(let x=0;x<7;x++)if(localSig({x,y})===sig)c.push({x,y});st.cand=c;st.ctype='Bathymetric match';if(c.length===1){st.e={...c[0]};st.er[st.er.length-1]={...st.e};st.u=.3}else fuse(c,.9);$('#read').textContent=`BATHYMETRIC MATCH\nLocal depth shape compared with chart.\n${c.length} candidate location${c.length===1?'':'s'} remain.\n${c.length===1?'Position corrected.':'Terrain is not fully distinctive here.'}`;msg(`${c.length} bathymetric match${c.length===1?'':'es'} found.`)}
+ if(id==='quantum'){st.used.quantum=true;exactFix('Quantum fix');$('#read').textContent=`QUANTUM INERTIAL CORRECTION\nLow-drift position restored.\nPosition: ${cell(st.e)}\nThis mission's quantum correction is now spent.`;msg(`Quantum correction restored position at ${cell(st.e)}.`)}
+ ui();drawChart();
+}
+function finish(ok,why){
+ st.run=false;st.end=true;st.reveal=true;ui();drawChart();
+ let err=Math.hypot(st.t.x-st.e.x,st.t.y-st.e.y),silent=st.emit===0,stars=ok&&st.steps>=2&&silent?3:ok&&st.steps>=1?2:ok?1:0;
+ const ch=chapters[ci],lastInChapter=mi===ch.end;
+ const chapterDone=ok&&lastInChapter;
+ overlay({
+  ey:ok?(chapterDone?`Chapter ${ci+1} complete`:'Mission complete'):'Mission ended',
+  title:ok?(chapterDone?ch.title:m.title+' complete'):'Navigation failure',
+  text:chapterDone?`You completed all ${chapterMissionCount()} missions assigned at ${ch.shortPlacement}.`:why,
+  content:`<div class="stats"><div class="stat"><div class="sl">Rating</div><div class="sv">${ok?'★'.repeat(stars)+'☆'.repeat(3-stars):'—'}</div></div><div class="stat"><div class="sl">Steps used</div><div class="sv">${st.moves}/${m.steps}</div></div><div class="stat"><div class="sl">Final error</div><div class="sv">${err.toFixed(1)} cells</div></div></div><ul class="olist"><li>Blue route: estimated path.</li><li>White route: true path after environmental drift.</li><li>Amber dashed lines: hidden displacement.</li></ul>`,
+  button:!ok?'Retry mission':chapterDone?(courseLocked?'Replay chapter':'Return to chapter menu'):'Next mission',
+  action:()=>{
+   if(!ok){reset();briefing();return}
+   if(!lastInChapter){mi++;fillSelect();reset();briefing();return}
+   if(courseLocked){mi=ch.start;fillSelect();reset();chapterBriefing()}
+   else{mi=ch.start;fillSelect();reset();chapterMenu()}
+  }
+ });
+}
+function drawChart(){
+ let w=350,p=22,c=(w-2*p)/7;C.clearRect(0,0,w,w);C.fillStyle='#06101a';C.fillRect(0,0,w,w);
+ let flat=m.depths.flat(),mn=Math.min(...flat),mx=Math.max(...flat);
+ for(let y=0;y<7;y++)for(let x=0;x<7;x++){let t=(m.depths[y][x]-mn)/(mx-mn||1);C.fillStyle=`rgba(16,${38+Math.round(t*22)},${72+Math.round(t*30)},.75)`;C.fillRect(p+x*c,p+y*c,c,c)}
+ st.cand.forEach(q=>{C.fillStyle='#e7b35e55';C.fillRect(p+q.x*c+2,p+q.y*c+2,c-4,c-4)});
+ C.strokeStyle='#87a7c044';for(let i=0;i<=7;i++){C.beginPath();C.moveTo(p+i*c,p);C.lineTo(p+i*c,p+7*c);C.stroke();C.beginPath();C.moveTo(p,p+i*c);C.lineTo(p+7*c,p+i*c);C.stroke()}
+ C.fillStyle='#8fa6ba';C.font='12px system-ui';C.textAlign='center';C.textBaseline='middle';for(let i=0;i<7;i++){C.fillText(String.fromCharCode(65+i),p+(i+.5)*c,10);C.fillText(String(i+1),10,p+(i+.5)*c)}
+ function mark(q,col,r,label=''){let x=p+(q.x+.5)*c,y=p+(q.y+.5)*c;C.fillStyle=col;C.beginPath();C.arc(x,y,c*r,0,7);C.fill();if(label){C.fillStyle='#05101b';C.font='bold 11px system-ui';C.fillText(label,x,y)}}
+ function diamond(q,col){let x=p+(q.x+.5)*c,y=p+(q.y+.5)*c;C.fillStyle=col;C.beginPath();C.moveTo(x,y-c*.2);C.lineTo(x+c*.2,y);C.lineTo(x,y+c*.2);C.lineTo(x-c*.2,y);C.closePath();C.fill()}
+ function route(a,col,l,d=[]){if(a.length<2)return;C.save();C.strokeStyle=col;C.lineWidth=l;C.lineJoin='round';C.lineCap='round';C.setLineDash(d);C.beginPath();a.forEach((q,i)=>{let x=p+(q.x+.5)*c,y=p+(q.y+.5)*c;i?C.lineTo(x,y):C.moveTo(x,y)});C.stroke();C.restore()}
+ mark(m.dest,'#7ed7aa',.28,'D');if(m.landmark)diamond(m.landmark,'#e7b35e');if(m.beacon)diamond(m.beacon,'#bc8cff');
+ m.hazards.forEach(q=>{let x=p+(q.x+.5)*c,y=p+(q.y+.5)*c;C.strokeStyle='#ef7474';C.lineWidth=2;C.beginPath();C.moveTo(x-c*.16,y-c*.16);C.lineTo(x+c*.16,y+c*.16);C.moveTo(x+c*.16,y-c*.16);C.lineTo(x-c*.16,y+c*.16);C.stroke()});
+ route(st.er,'#76baff',2.8);let ex=p+(st.e.x+.5)*c,ey=p+(st.e.y+.5)*c;C.fillStyle='#76baff18';C.strokeStyle='#76baffaa';C.lineWidth=2;C.beginPath();C.arc(ex,ey,Math.max(c*.27,st.u*c),0,7);C.fill();C.stroke();mark(st.e,'#76baff',.18);
+ if(st.reveal){route(st.tr,'#fff',2.2,[7,5]);mark(st.t,'#fff',.13);for(let i=1;i<Math.min(st.tr.length,st.er.length);i++){let a=st.er[i],b=st.tr[i];if(a.x!==b.x||a.y!==b.y){let x1=p+(a.x+.5)*c,y1=p+(a.y+.5)*c,x2=p+(b.x+.5)*c,y2=p+(b.y+.5)*c;C.save();C.strokeStyle='#e7b35e';C.setLineDash([4,4]);C.beginPath();C.moveTo(x1,y1);C.lineTo(x2,y2);C.stroke();C.restore()}}}
+}
+function drawSea(){
+ let w=960,h=540,hor=m.scene==='underice'?185:238,bob=Math.sin(phase*1.8)*(m.scene==='storm'?8:3);S.clearRect(0,0,w,h);
+ let sky=S.createLinearGradient(0,0,0,hor);sky.addColorStop(0,m.scene==='storm'?'#010305':'#02060c');sky.addColorStop(1,m.scene==='underice'?'#10273a':'#17304a');S.fillStyle=sky;S.fillRect(0,0,w,hor);
+ if(m.scene==='clear'){let stars=[[52,44],[105,79],[162,38],[228,98],[291,54],[355,83],[420,31],[487,76],[548,49],[614,101],[683,40],[746,72],[815,36],[885,92],[936,58],[77,132],[198,151],[330,126],[525,142],[704,129],[850,153]];S.fillStyle='#dcecff';stars.forEach((q,i)=>{S.globalAlpha=.35+.6*Math.abs(Math.sin(phase*.7+i));S.fillRect(q[0],q[1],i%5===0?2:1,i%5===0?2:1)});S.globalAlpha=1;S.fillStyle='#d9e5ef';S.beginPath();S.arc(740,76,22,0,7);S.fill()}
+ if(m.scene==='underice'){S.fillStyle='#b6d9e922';S.beginPath();S.moveTo(0,0);for(let x=0;x<=960;x+=55)S.lineTo(x,70+Math.sin(x*.025+phase*.15)*18);S.lineTo(960,0);S.closePath();S.fill();S.strokeStyle='#b6d9e944';S.stroke()}
+ if(m.scene!=='underice'){S.fillStyle='#050b11';S.beginPath();S.moveTo(0,hor+8);[[0,-3],[90,-6],[160,-15],[245,-7],[340,-22],[430,-9],[510,-4],[600,-18],[690,-8],[770,-12],[860,-4],[960,-8]].forEach(q=>S.lineTo(q[0],hor+q[1]));S.lineTo(960,hor+20);S.closePath();S.fill()}
+ let o=S.createLinearGradient(0,hor,0,h);o.addColorStop(0,m.scene==='underice'?'#0b3045':'#10283c');o.addColorStop(1,'#03101a');S.fillStyle=o;S.fillRect(0,hor,w,h-hor);
+ for(let i=0;i<30;i++){let t=i/29,y=hor+Math.pow(t,1.6)*(h-hor),amp=(m.scene==='storm'?9:4)+t*(m.scene==='storm'?28:18);S.strokeStyle=`rgba(116,170,208,${.06+t*.13})`;S.lineWidth=.7+t*1.5;S.beginPath();for(let x=-30;x<=990;x+=20){let yy=y+Math.sin(x*.015+phase*(1+t)+i*.62)*amp*.18;x===-30?S.moveTo(x,yy):S.lineTo(x,yy)}S.stroke()}
+ if(m.scene==='fog'){let fg=S.createLinearGradient(0,60,0,420);fg.addColorStop(0,'rgba(190,205,215,.28)');fg.addColorStop(1,'rgba(190,205,215,.06)');S.fillStyle=fg;S.fillRect(0,40,w,380)}
+ if(m.scene==='overcast'||m.scene==='storm'){S.fillStyle='rgba(25,35,45,.68)';for(let i=0;i<7;i++){S.beginPath();S.ellipse(90+i*150,65+(i%2)*32,125,34,0,0,7);S.fill()}}
+ if(m.scene==='storm'){S.strokeStyle='rgba(210,225,235,.28)';S.lineWidth=1;for(let i=0;i<90;i++){let x=(i*83+phase*180)%1000,y=(i*47+phase*260)%560;S.beginPath();S.moveTo(x,y);S.lineTo(x-8,y+22);S.stroke()}}
+ let target=m.landmark;if(target&&m.scene==='clear'){let bd=bdeg(st.t,target),rel=bd-H[st.h].d;while(rel>180)rel-=360;while(rel<-180)rel+=360;if(Math.abs(rel)<70){let x=w*.5+rel/70*w*.38,d=Math.hypot(target.x-st.t.x,target.y-st.t.y),sc=Math.max(.45,1.25-d*.1),by=hor-4;S.fillStyle='#11161b';S.fillRect(x-5*sc,by-43*sc,10*sc,43*sc);S.fillStyle='#293746';S.fillRect(x-8*sc,by-48*sc,16*sc,7*sc);let f=.35+.65*Math.max(0,Math.sin(phase*2.3));S.globalAlpha=f;S.fillStyle='#ffe4a8';S.beginPath();S.arc(x,by-45*sc,5*sc,0,7);S.fill();S.globalAlpha=1}}
+ if(st.pulse>0){S.strokeStyle=`rgba(118,186,255,${st.pulse*.6})`;S.lineWidth=3;S.beginPath();S.arc(w/2,h*.83,(1-st.pulse)*w*.72,Math.PI,Math.PI*2);S.stroke();st.pulse=Math.max(0,st.pulse-.018)}
+ S.strokeStyle='#c2e0ef44';S.lineWidth=3;S.beginPath();S.moveTo(w*.47,h*.84+bob);S.quadraticCurveTo(w*.39,h*.7,w*.31,hor+35);S.stroke();S.beginPath();S.moveTo(w*.53,h*.84+bob);S.quadraticCurveTo(w*.61,h*.7,w*.69,hor+35);S.stroke();
+ S.save();S.translate(0,bob);S.fillStyle='#0b1118';S.strokeStyle='#30465a';S.lineWidth=2;S.beginPath();S.moveTo(w*.36,h);S.lineTo(w*.41,h*.78);S.lineTo(w*.47,h*.7);S.lineTo(w*.53,h*.7);S.lineTo(w*.59,h*.78);S.lineTo(w*.64,h);S.closePath();S.fill();S.stroke();S.fillStyle='#101923';S.fillRect(w*.455,h*.685,w*.09,h*.065);S.fillStyle='#e7b35e66';for(let i=0;i<4;i++)S.fillRect(w*(.463+i*.019),h*.7,w*.012,h*.014);S.strokeStyle='#455d70';S.lineWidth=3;S.beginPath();S.moveTo(w*.5,h*.685);S.lineTo(w*.5,h*.61);S.stroke();S.fillStyle='#ef7474';S.beginPath();S.arc(w*.47,h*.72,3.5,0,7);S.fill();S.fillStyle='#7ed7aa';S.beginPath();S.arc(w*.53,h*.72,3.5,0,7);S.fill();S.restore();
+ let hd=H[st.h];S.fillStyle='#04101baa';S.fillRect(w*.39,14,w*.22,37);S.strokeStyle='#89a8c655';S.strokeRect(w*.39,14,w*.22,37);S.fillStyle='#dceaf5';S.textAlign='center';S.font='700 16px system-ui';S.fillText(`${hd.n.toUpperCase()} · ${String(hd.d).padStart(3,'0')}°`,w*.5,38);
+}
+function loop(t){phase+=(t-last||16)/1000;last=t;drawSea();requestAnimationFrame(loop)}
+function fillSelect(){
+ const ch=chapters[ci];
+ $('#missionSelect').innerHTML=missions.slice(ch.start,ch.end+1).map((x,i)=>`<option value="${ch.start+i}">Mission ${i+1}: ${x.title}</option>`).join('');
+ $('#missionSelect').value=mi;
+}
+$('#port').onclick=()=>turn(-1);
+$('#starboard').onclick=()=>turn(1);
+$('#ahead').onclick=ahead;
+$('#restart').onclick=begin;
+$('#intro').onclick=briefing;
+$('#chapterBrief').onclick=chapterBriefing;
+$('#chapterMenu').onclick=chapterMenu;
+$('#ob').onclick=()=>overlayAction&&overlayAction();
+$('#oc').addEventListener('click',e=>{
+ const chapterButton=e.target.closest('[data-open-chapter]');
+ if(chapterButton){setChapter(Number(chapterButton.dataset.openChapter),true);return}
+ const missionButton=e.target.closest('[data-open-mission]');
+ if(missionButton){
+  mi=Number(missionButton.dataset.openMission);
+  fillSelect();reset();briefing();
+ }
+});
+document.querySelectorAll('.chapterbtn').forEach(b=>b.addEventListener('click',()=>setChapter(Number(b.dataset.chapter),true)));
+$('#missionSelect').onchange=e=>{mi=Number(e.target.value);reset();briefing()};
+window.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowUp','ArrowRight'].includes(e.key))e.preventDefault();if(e.key==='ArrowLeft')turn(-1);if(e.key==='ArrowRight')turn(1);if(e.key==='ArrowUp')ahead()},{passive:false});
+fillSelect();reset();
+(function(){var t=params.get('return');if(t){var a=document.getElementById('courseReturn');if(a){a.hidden=false;a.setAttribute('href',t);}}})();
+if(requestedChapter===null&&!courseLocked)chapterMenu();else chapterBriefing();
+requestAnimationFrame(loop);
+})();
+</script>
+</body></html>

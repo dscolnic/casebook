@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Strait Support — Relationship Edition</title>
+<style>
+:root{
+  --ink:#1a1a17;--paper:#f4f2ec;--panel:#fffdf8;--sea:#dceaf0;--route:#f1ce66;
+  --land:#879076;--threat:#d98c80;--mine:#b58bb8;--good:#2f6d4f;--bad:#a33d32;
+  --blue:#2f5d86;--muted:#565651;--gold:#8a6a12;--line:#252525;
+  --shadow:0 8px 24px rgba(0,0,0,.08);--cell:56px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper)}
+button{font:inherit}button:focus-visible,.piece:focus-visible,.cell:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.topbar{border-bottom:2px solid var(--ink);background:rgba(255,253,248,.97);position:sticky;top:0;z-index:20}
+.topbar-inner{max-width:1260px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.brand{display:flex;align-items:baseline;gap:11px}.brand h1{font-family:Georgia,serif;font-size:27px;margin:0;letter-spacing:-.5px}.brand span{font-size:10px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.top-actions{display:flex;gap:8px;align-items:center}.top-btn{border:1.5px solid var(--ink);border-radius:999px;background:#fff;padding:7px 11px;font-size:11px;font-weight:900;cursor:pointer}
+.chapter-label{font-size:10px;font-weight:950;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.progress{display:flex;gap:5px}.progress i{width:9px;height:9px;border-radius:50%;border:1.3px solid var(--ink);display:block}.progress i.active{background:var(--ink)}.progress i.done{background:var(--good);border-color:var(--good)}.progress i.locked{border-color:#aaa;background:#ddd}
+.layout{max-width:1260px;margin:0 auto;padding:22px 20px 38px;display:grid;grid-template-columns:280px minmax(470px,1fr) 300px;gap:20px;align-items:start}
+.card{background:var(--panel);border:1.5px solid var(--ink);box-shadow:var(--shadow);border-radius:10px;overflow:hidden}
+.card-head{padding:13px 15px;border-bottom:1.5px solid var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px}.card-head h2,.card-head h3{font-family:Georgia,serif;margin:0}.card-head h2{font-size:21px}.card-head h3{font-size:18px}
+.card-body{padding:15px}.eyebrow{font-size:10px;font-weight:950;letter-spacing:1.15px;text-transform:uppercase;color:var(--muted)}
+#missionTitle{font-family:Georgia,serif;font-size:29px;margin:6px 0 7px;line-height:1.06}#missionBrief{font-size:13px;line-height:1.48;margin:0;color:#34322e}
+.concept-box{margin:13px 0 0;border:1.5px solid var(--blue);background:#eef5f8;border-radius:8px;padding:10px}.concept-box strong{font-family:Georgia,serif;font-size:16px;display:block;margin:2px 0 4px}.concept-box p{font-size:11px;line-height:1.4;margin:0;color:#35515e}
+.requirements{margin:13px 0 0;padding:0;list-style:none;display:grid;gap:6px}.requirements li{font-size:12px;line-height:1.35;padding:7px 8px 7px 30px;position:relative;border:1px solid transparent;border-radius:7px;transition:.2s}.requirements li:before{content:"";position:absolute;left:8px;top:9px;width:13px;height:13px;border:1.5px solid var(--ink);border-radius:3px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:1000}.requirements li.satisfied-new{background:#e5f3eb;border-color:var(--good);box-shadow:0 0 0 2px rgba(47,114,89,.10)}.requirements li.satisfied-new:before,.requirements li.satisfied-prior:before{content:"✓";color:#fff;background:var(--good);border-color:var(--good)}.requirements li.satisfied-prior{background:#f0f6f2;color:#3e5148}.requirements li.unsatisfied{background:#faf5f1;border-color:#e3d4ce}.requirements li.revealed-objective{background:#f7eee1;border-color:#b48a5e}.requirements li.revealed-objective:before{content:"•";background:#b48a5e;border-color:#8d6539;color:#fff}.objective-status{display:block;margin-top:3px;font-size:8px;font-weight:950;letter-spacing:.65px;text-transform:uppercase;color:var(--muted)}.satisfied-new .objective-status{color:var(--good)}.satisfied-prior .objective-status{color:#527664}.revealed-objective .objective-status{color:#8d6539}
+.attempt-box{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;border-top:1px solid #c8c1b6;background:#faf6ec}.attempt-meta{display:flex;align-items:center;gap:12px}.attempts{display:flex;gap:5px}.attempts b{width:16px;height:16px;border-radius:50%;background:var(--ink);display:block}.attempts b.used{background:#d6d0c6;border:1px solid #8d877f}.small-actions{display:flex;gap:6px}.mini-btn{border:1.3px solid var(--ink);background:#fff;border-radius:7px;padding:7px 9px;font-size:10px;font-weight:900;cursor:pointer}.mini-btn:disabled{opacity:.4;cursor:default}
+.board-card .card-body{padding:13px}.board-wrap{overflow:auto;padding-bottom:4px}#board{width:calc(var(--cell)*8);height:calc(var(--cell)*8);display:grid;grid-template-columns:repeat(8,var(--cell));grid-template-rows:repeat(8,var(--cell));position:relative;border:2px solid var(--ink);margin:0 auto;background:var(--sea)}
+.cell{width:var(--cell);height:var(--cell);position:relative;border-right:1px solid rgba(20,30,34,.28);border-bottom:1px solid rgba(20,30,34,.28);background:var(--sea);display:flex;align-items:center;justify-content:center;user-select:none}.cell:nth-child(8n){border-right:0}.cell.route{background:linear-gradient(135deg,var(--route),#f7dc8f)}.cell.land{background:repeating-linear-gradient(45deg,#8f987d,#8f987d 8px,#7e876f 8px,#7e876f 16px)}.cell.base{background:linear-gradient(135deg,#a8c8a7,#dbe8cd)}.cell.target{background:linear-gradient(135deg,#e9b77a,#f4d6a8)}.cell.mine{background:radial-gradient(circle at 30% 30%,#d8b8dd 0 13%,#b58bb8 14% 28%,#d8b8dd 29% 42%,#b58bb8 43%)}.cell.threat{background:repeating-linear-gradient(-45deg,#e5a398,#e5a398 8px,#d78b7f 8px,#d78b7f 16px)}.cell.civilian{background:linear-gradient(135deg,#d7d7d7,#f1f1f1)}.cell.weather{background:repeating-linear-gradient(135deg,#a8c6d3,#a8c6d3 7px,#c2d8e1 7px,#c2d8e1 14px)}.cell.contact{background:repeating-radial-gradient(circle at center,#b7c8d7 0 5px,#d4e0e8 6px 11px)}.cell.legal:after{content:"";width:12px;height:12px;border-radius:50%;background:rgba(23,23,23,.30);position:absolute;z-index:2}.cell.covered:before{content:"";position:absolute;inset:3px;border:3px solid rgba(32,93,121,.58);border-radius:7px;z-index:1}.terrain-icon{font-size:20px;filter:grayscale(.12);z-index:2}.route-number{position:absolute;top:3px;left:5px;font-size:9px;font-weight:950;color:#5f4a0f;z-index:3}.cell-label{position:absolute;bottom:3px;left:3px;right:3px;text-align:center;font-size:7px;font-weight:950;line-height:1;text-transform:uppercase;z-index:3}
+.placed{width:42px;height:42px;border-radius:50%;border:2px solid var(--ink);background:#fffdf8;display:flex;align-items:center;justify-content:center;font-size:22px;position:absolute;z-index:5;cursor:grab;box-shadow:0 3px 7px rgba(0,0,0,.18)}.placed.locked{border-color:var(--good);background:#edf8f1;box-shadow:0 0 0 4px rgba(47,114,89,.28),0 4px 9px rgba(0,0,0,.18);cursor:default}.placed.locked:after{content:"✓";position:absolute;right:-7px;top:-8px;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--good);color:#fff;border:2px solid #fff;font-size:12px;font-weight:1000}.placed.just-correct{animation:correctPop .55s ease}@keyframes correctPop{0%{transform:scale(.75)}55%{transform:scale(1.18)}100%{transform:scale(1)}}
+.tray{display:grid;gap:9px}.piece{border:1.5px solid var(--ink);border-radius:8px;background:#fff;padding:9px;display:grid;grid-template-columns:40px 1fr;gap:9px;cursor:grab;transition:.15s}.piece:hover,.piece.selected{transform:translateY(-1px);box-shadow:0 5px 12px rgba(0,0,0,.10)}.piece.selected{outline:3px solid var(--blue)}.piece.used{opacity:.48}.piece.locked{opacity:1;border-color:var(--good);background:#edf6f1;cursor:default}.piece.reserve-correct{border-style:dashed}.piece-result{display:inline-block;margin-top:5px;padding:3px 6px;border-radius:999px;background:var(--good);color:#fff;font-size:8px;font-weight:950;letter-spacing:.5px;text-transform:uppercase}.piece-result.new{animation:correctPop .55s ease}.piece-icon{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:21px;background:#f8f5ee}.piece strong{display:block;font-size:12px;margin-bottom:2px}.piece small{display:block;font-size:10px;line-height:1.32;color:var(--muted)}.domain-tag{font-style:normal;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:var(--blue)}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}.legend-item{font-size:9px;display:flex;gap:5px;align-items:center}.swatch{width:14px;height:14px;border:1px solid var(--ink)}.controls{display:flex;gap:8px;padding:13px;border-top:1.5px solid var(--ink);background:#faf6ec}.btn{border:1.5px solid var(--ink);background:#fff;border-radius:7px;padding:9px 12px;font-weight:900;cursor:pointer;flex:1}.btn.primary{background:var(--ink);color:#fff}.btn.good{background:var(--good);color:#fff;border-color:var(--good)}.btn:disabled{opacity:.45;cursor:default}
+.feedback{display:grid;gap:8px;max-height:240px;overflow:auto}.feedback-item{padding:9px;border-left:4px solid #9a948a;background:#f5f1e9;font-size:11px;line-height:1.4}.feedback-item.good{border-color:var(--good);background:#edf6f1}.feedback-item.bad{border-color:var(--bad);background:#faefed}.feedback-item.hint{border-color:var(--gold);background:#fbf4df}.status-grid{display:grid;gap:6px;margin-top:11px}.status-row{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10px;border-bottom:1px solid #ddd4c7;padding-bottom:5px}.status-row span:last-child{font-weight:950}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.68);z-index:50;display:flex;align-items:center;justify-content:center;padding:22px}.modal.hidden{display:none}.modal-panel{width:min(620px,100%);max-height:92vh;overflow:auto;background:var(--panel);border:2px solid var(--ink);border-radius:12px;box-shadow:0 20px 70px rgba(0,0,0,.35)}.modal-panel.wide{width:min(940px,100%)}.modal-panel header{padding:19px 21px;border-bottom:1.5px solid var(--ink)}.modal-panel h2{font-family:Georgia,serif;font-size:30px;margin:0 0 6px}.modal-panel p{margin:0;line-height:1.48}.modal-panel main{padding:18px 21px}.modal-panel footer{padding:14px 21px;border-top:1.5px solid var(--ink);display:flex;gap:8px;justify-content:flex-end}.modal-panel footer .btn{flex:0 0 auto;min-width:130px}
+.lesson-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.lesson-card{border:1.3px solid #bdb6aa;border-radius:9px;padding:13px;background:#faf7f0}.lesson-card h3{font-family:Georgia,serif;margin:0 0 7px;font-size:18px}.lesson-card ul{margin:0;padding-left:18px}.lesson-card li{font-size:12px;line-height:1.45;margin:5px 0}.asset-unlocks{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.unlock-chip{border:1.2px solid var(--blue);background:#edf5f8;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900}
+.campaign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.mission-tile{border:1.5px solid var(--ink);border-radius:9px;background:#fff;padding:12px;min-height:205px;text-align:left;cursor:pointer;position:relative}.mission-tile:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 15px rgba(0,0,0,.10)}.mission-tile:disabled{cursor:default;background:#ebe7df;color:#8a857d;border-color:#aaa}.mission-tile .num{font-size:9px;font-weight:950;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}.mission-tile h3{font-family:Georgia,serif;font-size:17px;margin:7px 0 5px}.mission-tile p{font-size:10px;line-height:1.4;color:var(--muted)}.course-placement{margin:9px 0 7px;padding:7px;border-left:4px solid var(--blue);background:#eef5f8;font-size:10px;font-weight:900;line-height:1.35}.course-topics{font-size:9px;line-height:1.35;color:var(--muted)}.stars{font-size:15px;letter-spacing:1px;color:var(--gold);position:absolute;bottom:9px;left:12px}.lock-mark{position:absolute;right:10px;top:9px;font-size:16px}.chapter-strip{grid-column:1/-1;border-bottom:1.5px solid var(--ink);padding:8px 0 5px;font-family:Georgia,serif;font-size:20px;margin-top:5px}.campaign-summary{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}.summary-pill{border:1.2px solid var(--ink);border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;background:#fff}
+.debrief-score{display:flex;align-items:center;gap:14px;border:1.5px solid var(--good);background:#edf6f1;border-radius:9px;padding:13px;margin-bottom:14px}.debrief-score .big-stars{font-size:28px;color:var(--gold);letter-spacing:2px}.debrief-score strong{font-family:Georgia,serif;font-size:20px}.why-list{display:grid;gap:8px}.why-row{display:grid;grid-template-columns:38px 1fr;gap:10px;border-bottom:1px solid #ddd4c7;padding-bottom:8px}.why-row .icon{width:36px;height:36px;border-radius:50%;border:1.4px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:19px;background:#fff}.why-row strong{font-size:12px}.why-row p{font-size:11px;color:var(--muted);margin:3px 0 0;line-height:1.38}
+.disclaimer{font-size:9px;color:var(--muted);margin-top:10px;line-height:1.35}
+@media(max-width:1050px){.layout{grid-template-columns:1fr 300px}.mission-card{grid-column:1/-1}.campaign-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){:root{--cell:44px}.layout{grid-template-columns:1fr;padding:13px}.mission-card{grid-column:auto}.topbar-inner{padding:10px 12px}.brand span,.chapter-label,.progress{display:none}.top-actions{gap:5px}.top-btn{padding:6px 8px}.campaign-grid{grid-template-columns:1fr 1fr}.lesson-grid{grid-template-columns:1fr}.legend{grid-template-columns:1fr 1fr}#missionTitle{font-size:25px}}
+
+#sidePanel{max-height:calc(100vh - 92px);overflow:auto}
+#playSidebar{display:block}
+#studySidebar{border-top:2px solid var(--ink)}
+#studySidebar .study-scroll{max-height:none;overflow:visible}
+#studySidebar .why-row p{font-size:11px}
+#studySidebar .debrief-score{margin-bottom:14px}
+#studySidebar .card-head{background:#f4efe5}
+@media(max-width:1020px){#sidePanel{max-height:none;overflow:visible}}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <div class="brand"><h1>Strait Support</h1><span>Relationship edition</span></div>
+  <div class="chapter-label" id="chapterLabel">Course Chapter 1</div>
+  <div id="progress" class="progress" aria-label="Campaign progress"></div>
+  <div class="top-actions"><button class="top-btn" id="returnBtn" style="display:none">Return to course</button><button class="top-btn" id="conceptBtn">Brief</button><button class="top-btn" id="campaignBtn">Chapters</button></div>
+</div></div>
+
+<div class="layout">
+<section class="card mission-card">
+  <div class="card-body">
+    <div class="eyebrow" id="missionNo"></div><div id="missionTitle"></div><p id="missionBrief"></p>
+    <div class="concept-box"><div class="eyebrow">Concept in this mission</div><strong id="conceptName"></strong><p id="conceptSummary"></p></div>
+    <ul class="requirements" id="requirements"></ul>
+    <div class="disclaimer">Fictionalized educational puzzle. Ranges and relationships are deliberately simplified to teach systems thinking, not operational procedures.</div>
+  </div>
+  <div class="attempt-box">
+    <div class="attempt-meta"><div><div class="eyebrow">Checks remaining</div><div class="attempts" id="attempts"></div></div><div><div class="eyebrow">Hints</div><strong id="hintCount" style="font-size:12px">2 remaining</strong></div></div>
+    <div class="small-actions"><button class="mini-btn" id="hintBtn">Use hint</button><button class="mini-btn" id="resetBtn">Reset</button></div>
+  </div>
+</section>
+
+<section class="card board-card">
+  <div class="card-head"><h2>Operations map</h2><div class="eyebrow">Select an asset to view coverage</div></div>
+  <div class="card-body"><div class="board-wrap"><div id="board" aria-label="Operations grid"></div></div>
+    <div class="legend">
+      <div class="legend-item"><span class="swatch" style="background:var(--route)"></span>Ship route</div><div class="legend-item"><span class="swatch" style="background:var(--mine)"></span>Mine danger</div><div class="legend-item"><span class="swatch" style="background:var(--threat)"></span>Enemy threat</div><div class="legend-item"><span class="swatch" style="background:var(--land)"></span>Land / obstruction</div><div class="legend-item"><span class="swatch" style="background:#ddd"></span>Civilian lane</div><div class="legend-item"><span class="swatch" style="background:#b7d0dc"></span>Poor weather</div><div class="legend-item"><span class="swatch" style="background:#c5d4df"></span>Suspected contact</div>
+    </div>
+  </div>
+  <div class="controls"><button class="btn" id="clearBtn">Clear unlocked</button><button class="btn primary" id="checkBtn">Check plan</button><button class="btn good" id="nextBtn" style="display:none">Continue</button></div>
+</section>
+
+<aside class="card" id="sidePanel">
+  <div id="playSidebar">
+    <div class="card-head"><div><div class="eyebrow">Directions used during play</div><h3>Support assets</h3></div><div class="eyebrow" id="assetCount"></div></div>
+    <div class="card-body"><div class="tray" id="tray"></div></div>
+    <div class="card-head" style="border-top:1.5px solid var(--ink)"><h3>Plan report</h3></div>
+    <div class="card-body"><div class="feedback" id="feedback"></div><div class="status-grid" id="statusGrid"></div></div>
+  </div>
+  <div id="studySidebar" style="display:none">
+    <div class="card-head"><div><div class="eyebrow">After-action lesson</div><h3 id="studyTitle" style="margin-top:3px"></h3></div></div>
+    <div class="card-body study-scroll">
+      <p id="studyTakeaway" style="font-size:12px;line-height:1.45;margin:0 0 12px"></p>
+      <div class="debrief-score">
+        <div class="big-stars" id="studyStars"></div>
+        <div><strong id="studyResult"></strong><div id="studyMeta" style="font-size:11px;color:var(--muted);margin-top:3px"></div></div>
+      </div>
+      <div class="why-list" id="studyWhyList"></div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="hideStudyBtn">Hide after-action explanation</button>
+      <button class="btn primary" id="studyChapterBtn">Chapter map</button>
+    </div>
+  </div>
+</aside>
+</div>
+
+<div class="modal hidden" id="lessonModal"><div class="modal-panel">
+  <header><div class="eyebrow" id="lessonChapter"></div><h2 id="lessonTitle"></h2><p id="lessonIntro"></p></header>
+  <main><div class="lesson-grid"><div class="lesson-card"><h3>What to learn</h3><ul id="lessonPoints"></ul></div><div class="lesson-card"><h3>New puzzle language</h3><ul id="lessonRules"></ul><div class="asset-unlocks" id="assetUnlocks"></div></div></div></main>
+  <footer><button class="btn" id="lessonCampaignBtn">Chapters</button><button class="btn primary" id="beginBtn">Begin mission</button></footer>
+</div></div>
+
+<div class="modal" id="campaignModal"><div class="modal-panel wide">
+  <header><div class="eyebrow">Three course appearances</div><h2>Choose the Course Chapter</h2><p>Each chapter is a self-contained integrative puzzle placed after the relevant block of the Basic Sailor course. Chapters can be launched directly in any order.</p><div class="campaign-summary" id="campaignSummary"></div></header>
+  <main><div class="campaign-grid" id="campaignGrid"></div></main>
+  <footer><button class="btn" id="resetCampaignBtn">Reset progress</button><button class="btn primary" id="resumeBtn">Open last chapter</button></footer>
+</div></div>
+
+<div class="modal hidden" id="debriefModal"><div class="modal-panel">
+  <header><div class="eyebrow">After-action lesson</div><h2 id="debriefTitle"></h2><p id="debriefTakeaway"></p></header>
+  <main><div class="debrief-score"><div class="big-stars" id="debriefStars"></div><div><strong id="debriefResult"></strong><div id="debriefMeta" style="font-size:11px;color:var(--muted);margin-top:3px"></div></div></div><div class="why-list" id="whyList"></div></main>
+  <footer><button class="btn" id="studyBtn">Study solved board</button><button class="btn primary" id="debriefNextBtn">Next mission</button></footer>
+</div></div>
+
+<script>
+const DEFAULT_CHAPTER=null;
+const CHAPTERS=[
+  "Build the Operational Picture",
+  "Sustain and Recover the Force",
+  "Operation Narrow Gate"
+];
+const levels=[
+{
+chapter:0,
+coursePlacement:"After Topic 05 and SensorShip — Easy",
+courseTopics:"Topics 01–05: acoustics, contact identification, navigation, and radar",
+title:"Build the Operational Picture",
+concept:"Overlap different sources of information",
+summary:"Four assets must form one trustworthy picture: broad search, local sonar, independent radar confirmation, and a link back to command.",
+brief:"A destroyer must cross the strait. Build an information network that detects both marked contacts, maintains underwater awareness along the route, confirms the surface contact independently, and carries the combined picture back to the western base.",
+lessonIntro:"This chapter is about relationships between sensors. A good plan does not put each asset on a named square; it makes their useful areas overlap over the places that matter.",
+lessonPoints:[
+  "Broad-area search finds where to look; local sensing maintains contact near the ship.",
+  "A contact is more trustworthy when two different sensing methods cover it.",
+  "A report is useful only if the sensing network overlaps a path back to command.",
+  "Several different layouts can satisfy the same operational relationships."
+],
+lessonRules:[
+  "Select a card to preview its coverage.",
+  "A piece is judged by what its range covers and overlaps—not by one hidden coordinate.",
+  "Land blocks line-of-sight coverage.",
+  "Correct pieces lock after a plan check."
+],
+hints:[
+  "Start with the two marked contacts. Which asset can cover both, and which different sensor can confirm the surface contact?",
+  "For the command link, look for overlap with the radar over the route rather than trying to place the two pieces next to each other."
+],
+requirements:[
+  "Cover both marked contact areas with broad airborne search.",
+  "Overlap the local sonar screen with airborne search over the middle of the route.",
+  "Confirm the surface contact with both airborne search and radar.",
+  "Connect the radar picture to the base through overlapping route coverage."
+],
+objectivePieces:[
+  ["mpa"],
+  ["mpa","sonar"],
+  ["mpa","radar"],
+  ["radar","command"]
+],
+terrain:[
+  {r:0,c:2,t:"land",icon:"⛰"},{r:0,c:3,t:"land",icon:"⛰"},{r:0,c:4,t:"land",icon:"⛰"},
+  {r:1,c:6,t:"contact",icon:"?",label:"Surface contact"},
+  {r:2,c:3,t:"land",icon:"🏝️",label:"Island"},
+  {r:3,c:0,t:"base",icon:"⚓",label:"Base"},
+  {r:3,c:1,t:"route",icon:"🚢",n:1},{r:3,c:2,t:"route",n:2},{r:3,c:3,t:"route",n:3},
+  {r:3,c:4,t:"route",n:4},{r:3,c:5,t:"route",n:5},{r:3,c:6,t:"target",icon:"◎",label:"Exit",n:6},
+  {r:5,c:5,t:"contact",icon:"♒",label:"Sub approach"},
+  {r:6,c:1,t:"weather",icon:"↝",label:"Set & drift"},{r:6,c:2,t:"weather",icon:"↝"}
+],
+pieces:[
+  {
+    id:"mpa",name:"Maritime patrol aircraft",icon:"✈️",domain:"Air",
+    desc:"Searches a broad square area.",
+    solution:[4,5],coverage:{type:"square",range:3},
+    legal:"Its patrol box must include both marked contact areas.",
+    hint:"Find an open square no more than three rows or columns from either contact.",
+    why:"Any patrol center covering both markers is valid. The aircraft supplies the broad search picture used by the more local sensors."
+  },
+  {
+    id:"sonar",name:"Passive-sonar screen",icon:"◒",domain:"Undersea",
+    desc:"Maintains local underwater awareness near the ship.",
+    solution:[4,3],coverage:{type:"diamond",range:2},
+    legal:"Its range must cover route sectors 3 and 4 and overlap the aircraft over at least one of them.",
+    hint:"Focus on the two middle route sectors and compare the sonar diamond with the aircraft patrol box.",
+    why:"The sonar screen is useful where its local coverage overlaps the broad airborne search along the ship’s route."
+  },
+  {
+    id:"radar",name:"Radar picket",icon:"⌁",domain:"Surface",
+    desc:"Creates an independent surface track.",
+    solution:[2,5],coverage:{type:"diamond",range:2},
+    legal:"Its range must include the surface contact and at least one eastern route sector.",
+    hint:"The radar must relate the contact to the ship’s route, not merely touch the contact marker.",
+    why:"Radar independently confirms the surface contact while maintaining track continuity near the eastern passage."
+  },
+  {
+    id:"command",name:"Navigation and command buoy",icon:"✥",domain:"Network",
+    desc:"Anchors the route picture to the western base.",
+    solution:[2,2],coverage:{type:"diamond",range:4},
+    legal:"It must cover the base and share coverage of at least one route sector with the radar.",
+    hint:"Look for a position whose range reaches the base while overlapping the radar somewhere on the route.",
+    why:"The buoy does not need to sit beside the radar. Their coverage must overlap over the route so the confirmed picture can flow back to the base."
+  }
+]
+},
+{
+chapter:1,
+coursePlacement:"After Topic 12",
+courseTopics:"Topics 06–12: damage control, propulsion, electrical restoration, independent evidence, and replenishment",
+title:"Sustain and Recover the Force",
+concept:"Build a protected recovery chain",
+summary:"Four assets must create a connected chain from the casualty to repair, protection, and replenishment.",
+brief:"A damaged ship cannot complete the withdrawal alone. Arrange a tug, repair tender, replenishment ship, and escort so each stage of recovery connects to the next and the vulnerable logistics ships share protection.",
+lessonIntro:"This chapter is harder because pieces depend on one another. The question is not where each asset usually belongs, but whether the whole recovery chain works as a system.",
+lessonPoints:[
+  "The tug must connect the casualty to the withdrawal route.",
+  "The repair tender must remain connected to the tug and central corridor.",
+  "The replenishment ship can remain farther away if its support range reaches the recovery point.",
+  "One escort can protect a cluster only when its defensive range covers both logistics ships."
+],
+lessonRules:[
+  "Short-range assets create the inner recovery chain.",
+  "Longer-range sustainment may remain at standoff distance.",
+  "The escort is judged relative to the positions of the logistics ships.",
+  "Multiple connected layouts may be correct."
+],
+hints:[
+  "Build the chain in functional order: casualty → tug → repair support → recovery point.",
+  "Place the two logistics ships before solving the escort; its job is defined by their positions."
+],
+requirements:[
+  "Connect the damaged ship to the first withdrawal sector with the tug.",
+  "Connect repair support to both the tug and the central withdrawal corridor.",
+  "Support the marked recovery point from outside the immediate threat area.",
+  "Cover both logistics ships with one threat-facing escort."
+],
+objectivePieces:[
+  ["tug"],
+  ["tug","repair"],
+  ["replen"],
+  ["repair","replen","escort"]
+],
+terrain:[
+  {r:0,c:3,t:"land",icon:"⛰"},{r:0,c:4,t:"land",icon:"⛰"},
+  {r:1,c:6,t:"threat",icon:"🚀",label:"Coastal threat"},
+  {r:2,c:3,t:"land",icon:"🏝️",label:"Island"},
+  {r:3,c:0,t:"base",icon:"⚓",label:"Support base"},
+  {r:3,c:1,t:"route",icon:"🚢",label:"Damaged",n:1},{r:3,c:2,t:"route",n:2},{r:3,c:3,t:"route",n:3},
+  {r:3,c:4,t:"route",n:4},{r:3,c:5,t:"route",n:5},{r:3,c:6,t:"target",icon:"⚑",label:"Recovery",n:6},
+  {r:4,c:6,t:"threat",icon:"☄",label:"Threat"},
+  {r:6,c:0,t:"civilian",icon:"▰",label:"Shipping"},{r:6,c:1,t:"civilian",icon:"▰"}
+],
+pieces:[
+  {
+    id:"tug",name:"Fleet tug",icon:"⚓",domain:"Recovery",
+    desc:"Works only in neighboring squares.",
+    solution:[4,2],coverage:{type:"adjacent8",range:1},
+    legal:"Its reach must include both the damaged ship and route sector 2.",
+    hint:"Look for a square neighboring both markers; diagonal reach counts.",
+    why:"Any position adjacent to both the casualty and the first withdrawal sector creates the required towing connection."
+  },
+  {
+    id:"repair",name:"Repair and power tender",icon:"🔧",domain:"Logistics",
+    desc:"Provides repair support within a short radius.",
+    solution:[5,3],coverage:{type:"diamond",range:2},
+    legal:"Its support range must include the tug and at least one central route sector.",
+    hint:"After placing the tug, look for a repair position that connects it to route sector 3 or 4.",
+    why:"The tender forms the middle link of the recovery chain by touching both the tug and the central corridor."
+  },
+  {
+    id:"replen",name:"Replenishment ship",icon:"⛽",domain:"Logistics",
+    desc:"Supports the force from a longer standoff range.",
+    solution:[7,6],coverage:{type:"diamond",range:4},
+    legal:"Its range must reach the recovery point while it remains at least three grid steps from every threat marker.",
+    hint:"Use the range preview to find a position that reaches the recovery flag without approaching either threat.",
+    why:"The replenishment ship may occupy any sufficiently distant position whose longer support range still reaches the recovery point."
+  },
+  {
+    id:"escort",name:"Recovery escort",icon:"🛡️",domain:"Surface",
+    desc:"Projects one defensive umbrella over the support cluster.",
+    solution:[4,5],coverage:{type:"diamond",range:4},
+    legal:"Its range must cover both logistics ships, and it must be closer to the threats than either of them.",
+    hint:"First make a workable repair-and-replenishment cluster; then place the escort on its threat-facing side.",
+    why:"The escort’s correct location is determined by the two logistics ships. Any position covering both from the threat-facing side is valid."
+  }
+]
+},
+{
+chapter:2,
+coursePlacement:"After Topic 15 — final course capstone",
+courseTopics:"Topics 01–15: sensing, navigation, engineering, sustainment, layered defense, reaction time, and innovation",
+title:"Operation Narrow Gate",
+concept:"Integrate six mutually supporting capabilities",
+summary:"Six assets must clear the route, protect the enabling ships, search the withdrawal area, suppress enemy radar, preserve communications, and sustain the return.",
+brief:"A ship must cross the contested strait and return. Build one integrated support network. Each asset has a clear operational job, but several jobs depend on the placement of another piece.",
+lessonIntro:"The capstone is harder because the relationships cross domains. Mine clearance needs protection, electronic attack must avoid friendly communications, and the logistics ship must be both useful and defensible.",
+lessonPoints:[
+  "Mine clearance is not complete until the mine hunter is protected.",
+  "Airborne search should cover both the likely submarine approach and the withdrawal point.",
+  "Jamming succeeds only when it reaches the enemy radar without including the friendly relay.",
+  "The replenishment ship must support the exit while remaining inside the frigate’s protection."
+],
+lessonRules:[
+  "There are six assets, but only four combined objectives.",
+  "Several pieces are checked as pairs or clusters.",
+  "The clues describe required relationships, not compass directions.",
+  "A revealed board shows one valid plan, not the only valid plan."
+],
+hints:[
+  "Solve the two coupled pairs first: mine hunter with frigate, and jammer with relay.",
+  "The frigate has three jobs: protect the mine hunter, cover the exit, and include the replenishment ship in its umbrella."
+],
+requirements:[
+  "Clear both mine sectors and protect the mine hunter.",
+  "Search both the submarine approach and the eastern exit.",
+  "Jam the coastal radar while keeping the command relay outside the jamming cone.",
+  "Support the exit from standoff range with the replenishment ship inside the frigate’s umbrella."
+],
+objectivePieces:[
+  ["mcm","frigate"],
+  ["mpa"],
+  ["relay","jammer"],
+  ["frigate","replen"]
+],
+terrain:[
+  {r:0,c:2,t:"land",icon:"⛰"},{r:0,c:3,t:"land",icon:"⛰"},{r:0,c:4,t:"land",icon:"⛰"},{r:0,c:5,t:"land",icon:"⛰"},
+  {r:1,c:5,t:"threat",icon:"📡",label:"Radar"},{r:1,c:7,t:"threat",icon:"🚀",label:"Missiles"},
+  {r:2,c:3,t:"land",icon:"🏝️",label:"Island"},
+  {r:3,c:0,t:"base",icon:"⚓",label:"Base"},
+  {r:3,c:1,t:"route",icon:"🚢",n:1},{r:3,c:2,t:"route",n:2},{r:3,c:3,t:"mine",n:3,label:"Mines"},
+  {r:3,c:4,t:"mine",n:4,label:"Mines"},{r:3,c:5,t:"route",n:5},{r:3,c:6,t:"target",icon:"🎯",label:"Exit",n:6},
+  {r:5,c:5,t:"contact",icon:"♒",label:"Sub zone"},
+  {r:6,c:1,t:"civilian",icon:"▰",label:"Shipping"},{r:6,c:2,t:"civilian",icon:"▰"},
+  {r:7,c:6,t:"land",icon:"⛰"},{r:7,c:7,t:"land",icon:"⛰"}
+],
+pieces:[
+  {
+    id:"mcm",name:"Mine hunter",icon:"🛥️",domain:"Surface",
+    desc:"Clears mines in any neighboring square.",
+    solution:[4,3],coverage:{type:"adjacent8",range:1},
+    legal:"Its clearance area must include both mine sectors without placing it on the route.",
+    hint:"Look for an open square neighboring both mine markers; diagonals count.",
+    why:"Any off-route position adjacent to both mines is a valid clearance station."
+  },
+  {
+    id:"frigate",name:"Protective frigate",icon:"🛡️",domain:"Surface",
+    desc:"Projects a defensive umbrella over enabling and logistics ships.",
+    solution:[4,5],coverage:{type:"diamond",range:3},
+    legal:"Its range must include the mine hunter, the eastern exit, and the replenishment ship.",
+    hint:"The frigate’s final position depends on both the mine hunter and replenishment ship.",
+    why:"The frigate ties the plan together by protecting the vulnerable mine hunter, the route exit, and the logistics ship."
+  },
+  {
+    id:"mpa",name:"Maritime patrol aircraft",icon:"✈️",domain:"Air",
+    desc:"Searches a broad square area.",
+    solution:[5,6],coverage:{type:"square",range:2},
+    legal:"Its patrol box must include both the submarine approach and the eastern exit.",
+    hint:"Find a patrol center within two rows or columns of both markers.",
+    why:"Any patrol box covering both the likely submarine approach and the withdrawal point is valid."
+  },
+  {
+    id:"relay",name:"Communications relay",icon:"📡",domain:"Network",
+    desc:"Links the base to the western passage.",
+    solution:[2,1],coverage:{type:"los",range:4},
+    legal:"It must see the base and route sector 2 and remain outside the jammer’s cone.",
+    hint:"Place the relay for its communication job first, then test whether a jammer can avoid it.",
+    why:"The relay provides the friendly command path. Its exact location matters only through coverage and separation from electronic attack."
+  },
+  {
+    id:"jammer",name:"Jamming aircraft",icon:"〰️",domain:"Air",
+    desc:"Projects a north-facing electronic-attack cone.",
+    solution:[2,5],coverage:{type:"cone",range:3,dir:"up"},
+    legal:"Its cone must include the coastal radar but exclude the communications relay.",
+    hint:"Select the jammer and compare its cone with both the radar marker and relay.",
+    why:"Any orbit that reaches the enemy radar without covering the friendly relay is valid."
+  },
+  {
+    id:"replen",name:"Replenishment ship",icon:"⛽",domain:"Logistics",
+    desc:"Supports the force from standoff range.",
+    solution:[6,6],coverage:{type:"diamond",range:3},
+    legal:"Its range must reach the exit, it must remain at least three grid steps from threats, and the frigate must cover it.",
+    hint:"Find a standoff position that can still fit inside the frigate’s defensive umbrella.",
+    why:"The replenishment ship must remain useful, survivable, and protected; those relationships determine its valid positions."
+  }
+]
+}
+];
+
+const STORAGE_KEY="straitSupportRelationshipV8";
+let saved=loadSaved();
+let levelIndex=Math.min(saved.last||0,levels.length-1),attemptsUsed=0,hintsUsed=0,placements={},locked=new Set(),selectedPiece=null,solved=false,revealed=false,hasChecked=false,satisfiedObjectives=new Set(),newlySatisfiedObjectives=new Set(),lastNewlyLocked=new Set();
+const $=id=>document.getElementById(id),board=$("board"),tray=$("tray"),feedback=$("feedback"),statusGrid=$("statusGrid");
+function loadSaved(){try{return Object.assign({unlocked:levels.length,best:{},last:0},JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}"),{unlocked:levels.length})}catch(e){return{unlocked:levels.length,best:{},last:0}}}
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(saved))}
+function current(){return levels[levelIndex]}function key(r,c){return `${r},${c}`}function terrainAt(r,c){return current().terrain.find(x=>x.r===r&&x.c===c)}function pieceById(id){return current().pieces.find(p=>p.id===id)}
+function occupiedAt(r,c){return Object.entries(placements).find(([id,pos])=>pos&&pos[0]===r&&pos[1]===c)}
+function isBlocked(r,c){const t=terrainAt(r,c);return t&&["land","threat","civilian"].includes(t.t)}
+function lineClear(r0,c0,r1,c1){let x0=c0,y0=r0,x1=c1,y1=r1,dx=Math.abs(x1-x0),sx=x0<x1?1:-1,dy=-Math.abs(y1-y0),sy=y0<y1?1:-1,err=dx+dy;while(true){if(!(x0===c0&&y0===r0)&&!(x0===c1&&y0===r1)){const t=terrainAt(y0,x0);if(t&&t.t==="land")return false}if(x0===x1&&y0===y1)break;const e2=2*err;if(e2>=dy){err+=dy;x0+=sx}if(e2<=dx){err+=dx;y0+=sy}}return true}
+function coverageCells(piece,pos){if(!pos)return[];const[r0,c0]=pos,out=[];for(let r=0;r<8;r++)for(let c=0;c<8;c++){const dr=r-r0,dc=c-c0,range=piece.coverage.range;if(piece.coverage.type==="diamond"&&Math.abs(dr)+Math.abs(dc)<=range)out.push([r,c]);if(piece.coverage.type==="adjacent8"&&Math.max(Math.abs(dr),Math.abs(dc))<=range)out.push([r,c]);if(piece.coverage.type==="square"&&Math.max(Math.abs(dr),Math.abs(dc))<=range)out.push([r,c]);if(piece.coverage.type==="los"&&Math.abs(dr)+Math.abs(dc)<=range&&lineClear(r0,c0,r,c))out.push([r,c]);if(piece.coverage.type==="cone"){const d=piece.coverage.dir;if(d==="up"&&dr<=0&&Math.abs(dc)<=-dr&&-dr<=range)out.push([r,c]);if(d==="down"&&dr>=0&&Math.abs(dc)<=dr&&dr<=range)out.push([r,c]);if(d==="left"&&dc<=0&&Math.abs(dr)<=-dc&&-dc<=range)out.push([r,c]);if(d==="right"&&dc>=0&&Math.abs(dr)<=dc&&dc<=range)out.push([r,c])}}return out}
+function coverageHas(pieceId,r,c){
+  const p=pieceById(pieceId),pos=placements[pieceId];
+  return !!(p&&pos&&coverageCells(p,pos).some(cell=>cell[0]===r&&cell[1]===c));
+}
+function coverageHasPosition(pieceId,pos){
+  return !!(pos&&coverageHas(pieceId,pos[0],pos[1]));
+}
+function isRoutePosition(pos){
+  if(!pos)return false;
+  const t=terrainAt(pos[0],pos[1]);
+  return !!(t&&["route","mine","target"].includes(t.t));
+}
+function ruleResult(ok,msg=""){
+  return {ok,msg};
+}
+function evaluatePieceRule(p){
+  const pos=placements[p.id];
+  if(!pos)return ruleResult(false,"has not been placed.");
+
+  const [r,c]=pos;
+  const other=id=>placements[id];
+  const routeCells=[[3,1],[3,2],[3,3],[3,4],[3,5],[3,6]];
+  const overlapOnRoute=(a,b,cells=routeCells)=>cells.some(([rr,cc])=>coverageHas(a,rr,cc)&&coverageHas(b,rr,cc));
+  const manhattan=(a,b)=>Math.abs(a[0]-b[0])+Math.abs(a[1]-b[1]);
+  const threatCells=current().terrain.filter(t=>t.t==="threat").map(t=>[t.r,t.c]);
+  const threatDistance=x=>Math.min(...threatCells.map(t=>manhattan(x,t)));
+
+  if(levelIndex===0){
+    if(p.id==="mpa"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the aircraft marker off the ship’s route.");
+      if(!coverageHas("mpa",5,5)||!coverageHas("mpa",1,6))return ruleResult(false,"Its patrol box must include both marked contact areas.");
+      return ruleResult(true,"Its broad search covers both marked contacts.");
+    }
+    if(p.id==="sonar"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the sonar screen outside the ship’s route.");
+      if(!other("mpa"))return ruleResult(false,"Place the patrol aircraft so the two search areas can be compared.");
+      if(!coverageHas("sonar",3,3)||!coverageHas("sonar",3,4))return ruleResult(false,"Its local range must cover route sectors 3 and 4.");
+      if(![[3,3],[3,4]].some(([rr,cc])=>coverageHas("sonar",rr,cc)&&coverageHas("mpa",rr,cc)))return ruleResult(false,"The sonar and aircraft coverage must overlap over the middle route.");
+      return ruleResult(true,"Its local screen overlaps the airborne search over the middle route.");
+    }
+    if(p.id==="radar"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the radar picket outside the ship’s route.");
+      if(!coverageHas("radar",1,6))return ruleResult(false,"Its range must include the marked surface contact.");
+      if(!coverageHas("radar",3,5)&&!coverageHas("radar",3,6))return ruleResult(false,"It must also cover an eastern route sector.");
+      return ruleResult(true,"It independently confirms the contact near the eastern route.");
+    }
+    if(p.id==="command"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the command buoy outside the ship’s route.");
+      if(!other("radar"))return ruleResult(false,"Place the radar picket before checking the command link.");
+      if(!coverageHas("command",3,0))return ruleResult(false,"Its range must reach the western base.");
+      if(!overlapOnRoute("command","radar"))return ruleResult(false,"The command buoy and radar must share coverage of at least one route sector.");
+      return ruleResult(true,"It overlaps the radar picture over the route and carries it to the base.");
+    }
+  }
+
+  if(levelIndex===1){
+    if(p.id==="tug"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the tug outside the constrained route.");
+      if(!coverageHas("tug",3,1)||!coverageHas("tug",3,2))return ruleResult(false,"Its neighboring-square reach must include the casualty and route sector 2.");
+      return ruleResult(true,"It connects the casualty to the first withdrawal sector.");
+    }
+    if(p.id==="repair"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the repair tender outside the route.");
+      if(!other("tug"))return ruleResult(false,"Place the tug before checking the repair link.");
+      if(!coverageHasPosition("repair",other("tug")))return ruleResult(false,"Its support radius must include the tug.");
+      if(!coverageHas("repair",3,3)&&!coverageHas("repair",3,4))return ruleResult(false,"It must also reach a central withdrawal sector.");
+      return ruleResult(true,"It links the tug to the central withdrawal corridor.");
+    }
+    if(p.id==="replen"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the replenishment ship outside the route.");
+      if(!coverageHas("replen",3,6))return ruleResult(false,"Its support range must reach the recovery point.");
+      if(threatDistance(pos)<3)return ruleResult(false,"It must remain at least three grid steps from every threat marker.");
+      return ruleResult(true,"It supports the recovery point from standoff range.");
+    }
+    if(p.id==="escort"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the escort outside the route.");
+      if(!other("repair")||!other("replen"))return ruleResult(false,"Place both logistics ships before checking their escort.");
+      if(!evaluatePieceRule(pieceById("repair")).ok||!evaluatePieceRule(pieceById("replen")).ok)return ruleResult(false,"Both logistics ships must first satisfy their own support rules.");
+      if(!coverageHasPosition("escort",other("repair"))||!coverageHasPosition("escort",other("replen")))return ruleResult(false,"Its defensive umbrella must include both logistics ships.");
+      if(!(threatDistance(pos)<threatDistance(other("repair"))&&threatDistance(pos)<threatDistance(other("replen"))))return ruleResult(false,"The escort must be closer to the threats than both logistics ships.");
+      return ruleResult(true,"It protects both logistics ships from the threat-facing side.");
+    }
+  }
+
+  if(levelIndex===2){
+    if(p.id==="mcm"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the mine hunter outside the mined route.");
+      if(!coverageHas("mcm",3,3)||!coverageHas("mcm",3,4))return ruleResult(false,"Its neighboring clearance must include both mine sectors.");
+      return ruleResult(true,"It can clear both mine sectors.");
+    }
+    if(p.id==="mpa"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the aircraft marker outside the route.");
+      if(!coverageHas("mpa",5,5)||!coverageHas("mpa",3,6))return ruleResult(false,"Its patrol box must include both the submarine approach and eastern exit.");
+      return ruleResult(true,"It searches the submarine approach and withdrawal point.");
+    }
+    if(p.id==="relay"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the relay outside the route.");
+      if(!other("jammer"))return ruleResult(false,"Place the jammer so electronic-warfare separation can be checked.");
+      if(!coverageHas("relay",3,0)||!coverageHas("relay",3,2))return ruleResult(false,"It must see the base and route sector 2.");
+      if(coverageHasPosition("jammer",pos))return ruleResult(false,"The relay is inside the jammer’s cone.");
+      return ruleResult(true,"It links the base and western route outside the jamming sector.");
+    }
+    if(p.id==="jammer"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the jammer marker outside the route.");
+      if(!other("relay"))return ruleResult(false,"Place the relay so friendly separation can be checked.");
+      if(!coverageHas("jammer",1,5))return ruleResult(false,"Its electronic-attack cone must include the coastal radar.");
+      if(coverageHasPosition("jammer",other("relay")))return ruleResult(false,"Its cone also includes the friendly communications relay.");
+      return ruleResult(true,"It reaches the radar without jamming the relay.");
+    }
+    if(p.id==="replen"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the replenishment ship outside the route.");
+      if(!coverageHas("replen",3,6))return ruleResult(false,"Its support range must reach the eastern exit.");
+      if(threatDistance(pos)<3)return ruleResult(false,"It must remain at least three grid steps from the threat markers.");
+      return ruleResult(true,"It supports the exit from standoff range.");
+    }
+    if(p.id==="frigate"){
+      if(isRoutePosition(pos))return ruleResult(false,"Keep the frigate outside the route.");
+      if(!other("mcm")||!other("replen"))return ruleResult(false,"Place the mine hunter and replenishment ship before checking the frigate’s umbrella.");
+      if(!evaluatePieceRule(pieceById("mcm")).ok||!evaluatePieceRule(pieceById("replen")).ok)return ruleResult(false,"The mine hunter and replenishment ship must first satisfy their own jobs.");
+      if(!coverageHasPosition("frigate",other("mcm")))return ruleResult(false,"Its defensive umbrella must include the mine hunter.");
+      if(!coverageHas("frigate",3,6))return ruleResult(false,"Its umbrella must include the eastern exit.");
+      if(!coverageHasPosition("frigate",other("replen")))return ruleResult(false,"Its umbrella must also include the replenishment ship.");
+      return ruleResult(true,"It protects the mine hunter, exit, and replenishment ship.");
+    }
+  }
+
+  return ruleResult(false,`${p.name} does not yet satisfy its operational relationships.`);
+}
+function isPieceCorrect(p){return evaluatePieceRule(p).ok}
+function solutionPos(p){if(p.solution===null)return null;return Array.isArray(p.solution[0])?p.solution[0]:p.solution}
+function starsForRun(){if(revealed)return 0;let stars=attemptsUsed===1?3:attemptsUsed===2?2:1;if(hintsUsed>=2)stars=Math.min(stars,1);else if(hintsUsed===1)stars=Math.min(stars,2);return stars}
+function renderProgress(){const el=$("progress");el.innerHTML="";levels.forEach((_,i)=>{const dot=document.createElement("i");if(Number(saved.best[i]||0)>0)dot.className="done";if(i===levelIndex)dot.className="active";el.appendChild(dot)})}
+function renderMission(){const L=current();$("missionNo").textContent=`Course chapter ${levelIndex+1} of ${levels.length} · ${L.coursePlacement}`;$("missionTitle").textContent=L.title;$("missionBrief").textContent=L.brief;$("conceptName").textContent=L.concept;$("conceptSummary").textContent=L.summary;$("chapterLabel").textContent=`Course Chapter ${L.chapter+1} · ${CHAPTERS[L.chapter]}`;const ul=$("requirements");ul.innerHTML="";L.requirements.forEach((x,i)=>{const li=document.createElement("li");li.appendChild(document.createTextNode(x));if(revealed&&satisfiedObjectives.has(i)){li.classList.add("revealed-objective");li.innerHTML+=`<span class="objective-status">Shown in one valid solution</span>`}else if(newlySatisfiedObjectives.has(i)){li.classList.add("satisfied-new");li.innerHTML+=`<span class="objective-status">✓ Satisfied this check</span>`}else if(satisfiedObjectives.has(i)){li.classList.add("satisfied-prior");li.innerHTML+=`<span class="objective-status">✓ Satisfied earlier</span>`}else if(hasChecked){li.classList.add("unsatisfied");li.innerHTML+=`<span class="objective-status">Not yet satisfied</span>`}ul.appendChild(li)});renderAttempts();$("assetCount").textContent=`${L.pieces.length} cards`}
+function renderAttempts(){const el=$("attempts");el.innerHTML="";for(let i=0;i<3;i++){const b=document.createElement("b");if(i<attemptsUsed)b.className="used";el.appendChild(b)}$("hintCount").textContent=`${Math.max(0,2-hintsUsed)} remaining`;$("hintBtn").disabled=hintsUsed>=2||solved||revealed}
+function renderTray(){tray.innerHTML="";current().pieces.forEach(p=>{const div=document.createElement("div");div.className="piece";div.tabIndex=0;if(selectedPiece===p.id)div.classList.add("selected");if(placements[p.id])div.classList.add("used");if(locked.has(p.id)){div.classList.add("locked");if(p.solution===null)div.classList.add("reserve-correct")}div.draggable=!locked.has(p.id);const label=locked.has(p.id)?`<span class="piece-result ${lastNewlyLocked.has(p.id)?"new":""}">✓ ${p.solution===null?"Correctly reserved":lastNewlyLocked.has(p.id)?"Correct this check":"Correct"}</span>`:"";div.innerHTML=`<div class="piece-icon">${p.icon}</div><div><strong>${p.name}</strong><small><span class="domain-tag">${p.domain}</span> · ${p.desc}<br><em>${p.legal}</em></small>${label}</div>`;const select=()=>{if(locked.has(p.id)||p.solution===null)return;selectedPiece=selectedPiece===p.id?null:p.id;renderAll()};div.addEventListener("click",select);div.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();select()}});div.addEventListener("dragstart",e=>{if(locked.has(p.id)||p.solution===null){e.preventDefault();return}selectedPiece=p.id;e.dataTransfer.setData("text/plain",p.id);setTimeout(renderAll,0)});tray.appendChild(div)})}
+function renderBoard(){board.innerHTML="";const selected=selectedPiece?pieceById(selectedPiece):null,previewPos=selectedPiece?placements[selectedPiece]:null,covered=selected&&previewPos?new Set(coverageCells(selected,previewPos).map(x=>key(...x))):new Set();for(let r=0;r<8;r++)for(let c=0;c<8;c++){const cell=document.createElement("div");cell.className="cell";cell.tabIndex=0;cell.dataset.r=r;cell.dataset.c=c;const terr=terrainAt(r,c);if(terr){cell.classList.add(terr.t);if(terr.n)cell.innerHTML+=`<span class="route-number">${terr.n}</span>`;if(terr.icon)cell.innerHTML+=`<span class="terrain-icon">${terr.icon}</span>`;if(terr.label)cell.innerHTML+=`<span class="cell-label">${terr.label}</span>`}if(covered.has(key(r,c)))cell.classList.add("covered");if(selected&&!isBlocked(r,c)&&(!occupiedAt(r,c)||(placements[selected.id]&&placements[selected.id][0]===r&&placements[selected.id][1]===c)))cell.classList.add("legal");const occ=occupiedAt(r,c);if(occ){const[id]=occ,p=pieceById(id),token=document.createElement("div");token.className="placed";if(locked.has(id))token.classList.add("locked");if(lastNewlyLocked.has(id))token.classList.add("just-correct");token.textContent=p.icon;token.title=p.name;token.draggable=!locked.has(id);token.addEventListener("click",e=>{e.stopPropagation();if(!locked.has(id)){selectedPiece=id;renderAll()}});token.addEventListener("dragstart",e=>{if(locked.has(id)){e.preventDefault();return}selectedPiece=id;e.dataTransfer.setData("text/plain",id)});cell.appendChild(token)}const place=()=>{if(selectedPiece&&!locked.has(selectedPiece))placePiece(selectedPiece,r,c)};cell.addEventListener("click",place);cell.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&selectedPiece){e.preventDefault();place()}});cell.addEventListener("dragover",e=>e.preventDefault());cell.addEventListener("drop",e=>{e.preventDefault();const id=e.dataTransfer.getData("text/plain")||selectedPiece;if(id&&!locked.has(id))placePiece(id,r,c)});board.appendChild(cell)}}
+function placePiece(id,r,c){if(isBlocked(r,c)){setFeedback([["bad","That square is unavailable: land, marked threats, and civilian lanes cannot hold support assets."]]);return}const occ=occupiedAt(r,c);if(occ&&occ[0]!==id){setFeedback([["bad","That square is already occupied."]]);return}placements[id]=[r,c];selectedPiece=id;setFeedback([["","Coverage preview shown. Continue building the network or check the plan."]]);renderAll()}
+function clearUnlocked(){Object.keys(placements).forEach(id=>{if(!locked.has(id))delete placements[id]});selectedPiece=null;setFeedback([["","Unlocked assets returned to the tray."]]);renderAll()}
+function validatePiece(p){const result=evaluatePieceRule(p);if(result.ok)return{ok:true,msg:result.msg||`${p.name} satisfies its operational constraints.`};return{ok:false,msg:`${p.name}: ${result.msg||p.hint}`}}
+function updateObjectiveResults(){const now=new Set();current().objectivePieces.forEach((ids,i)=>{if(ids.every(id=>locked.has(id)))now.add(i)});newlySatisfiedObjectives=new Set([...now].filter(i=>!satisfiedObjectives.has(i)));satisfiedObjectives=now}
+function checkPlan(){if(solved||revealed)return;attemptsUsed++;hasChecked=true;const before=new Set(locked),results=current().pieces.map(validatePiece);results.forEach((res,i)=>{if(res.ok)locked.add(current().pieces[i].id)});lastNewlyLocked=new Set([...locked].filter(id=>!before.has(id)));updateObjectiveResults();const all=results.every(x=>x.ok),correctMsgs=[...lastNewlyLocked].map(id=>["good",`✓ ${pieceById(id).name} is correct${pieceById(id).solution===null?" in reserve":" and locked"}.`]),objectiveMsgs=[...newlySatisfiedObjectives].map(i=>["good",`Objective satisfied this check: ${current().requirements[i]}`]);if(all){solved=true;selectedPiece=null;setFeedback([["good","Mission ready. The support network satisfies every objective."],...correctMsgs,...objectiveMsgs]);finishMission(false)}else if(attemptsUsed>=3){revealSolution(correctMsgs,objectiveMsgs);return}else{setFeedback([["",`${lastNewlyLocked.size} new piece${lastNewlyLocked.size===1?" is":"s are"} correct this check. ${locked.size} of ${current().pieces.length} total cards are locked. ${3-attemptsUsed} check${3-attemptsUsed===1?"":"s"} remaining.`],...correctMsgs,...objectiveMsgs,...results.filter(x=>!x.ok).slice(0,4).map(x=>["bad",x.msg])])}selectedPiece=null;renderAll()}
+function revealSolution(correctMsgs=[],objectiveMsgs=[]){revealed=true;selectedPiece=null;current().pieces.forEach(p=>{const pos=solutionPos(p);if(pos)placements[p.id]=[...pos];else delete placements[p.id];locked.add(p.id)});satisfiedObjectives=new Set(current().requirements.map((_,i)=>i));newlySatisfiedObjectives=new Set();lastNewlyLocked=new Set();setFeedback([...correctMsgs,...objectiveMsgs,["bad","Three checks used. One valid support plan is now shown."],["","Objectives are marked as part of this revealed example rather than as player-satisfied objectives. Other placements may also be valid when they satisfy the same rules."]]);finishMission(true);renderAll()}
+function finishMission(wasReveal){const stars=wasReveal?0:starsForRun(),old=Number(saved.best[levelIndex]||0);saved.best[levelIndex]=Math.max(old,stars);saved.unlocked=levels.length;saved.last=Math.min(levels.length-1,levelIndex+1);save();$("checkBtn").style.display="none";$("clearBtn").style.display="none";$("nextBtn").textContent="Review explanation";$("nextBtn").style.display="block";setTimeout(()=>showDebrief(wasReveal,stars),350)}
+function useHint(){if(hintsUsed>=2||solved||revealed)return;const hint=current().hints[hintsUsed];hintsUsed++;setFeedback([["hint",`Hint ${hintsUsed}: ${hint}`]]);renderAll()}
+function setFeedback(items){feedback.innerHTML="";items.forEach(([type,text])=>{const d=document.createElement("div");d.className=`feedback-item ${type||""}`;d.textContent=text;feedback.appendChild(d)})}
+function renderStatus(){statusGrid.innerHTML="";current().pieces.forEach(p=>{const row=document.createElement("div");row.className="status-row";let state=locked.has(p.id)?(p.solution===null?"✓ RESERVE":"✓ CORRECT"):placements[p.id]?"PLACED":p.solution===null?"OPTIONAL":"IN TRAY";row.innerHTML=`<span>${p.name}</span><span>${state}</span>`;statusGrid.appendChild(row)})}
+function renderAll(){renderProgress();renderMission();renderTray();renderBoard();renderStatus()}
+function resetLevel(){attemptsUsed=0;hintsUsed=0;placements={};locked=new Set();selectedPiece=null;solved=false;revealed=false;hasChecked=false;$("playSidebar").style.display="block";$("studySidebar").style.display="none";satisfiedObjectives=new Set();newlySatisfiedObjectives=new Set();lastNewlyLocked=new Set();$("checkBtn").style.display="block";$("clearBtn").style.display="block";$("nextBtn").style.display="none";setFeedback([["","Build the required relationships and check the plan. Several different layouts may be valid."]]);renderAll()}
+function loadLevel(i,showLesson=true){if(i<0||i>=levels.length)return;levelIndex=i;saved.last=i;save();resetLevel();closeModal("campaignModal");closeModal("debriefModal");if(showLesson)openLesson()}
+function openLesson(){const L=current();$("lessonChapter").textContent=`Course Chapter ${L.chapter+1} · ${L.coursePlacement} · ${L.courseTopics}`;$("lessonTitle").textContent=L.concept;$("lessonIntro").textContent=L.lessonIntro;$("lessonPoints").innerHTML=L.lessonPoints.map(x=>`<li>${x}</li>`).join("");$("lessonRules").innerHTML=L.lessonRules.map(x=>`<li>${x}</li>`).join("");$("assetUnlocks").innerHTML=L.pieces.map(p=>`<span class="unlock-chip">${p.icon} ${p.name}</span>`).join("");openModal("lessonModal")}
+function renderCampaign(){
+  const grid=$("campaignGrid");grid.innerHTML="";
+  levels.forEach((L,i)=>{
+    const tile=document.createElement("button");
+    tile.className="mission-tile";
+    const best=Number(saved.best[i]||0);
+    tile.innerHTML=`<div class="num">Course Chapter ${i+1}</div><h3>${L.title}</h3><div class="course-placement">${L.coursePlacement}</div><div class="course-topics">${L.courseTopics}</div><p><strong>${L.concept}</strong><br>${L.summary}</p><div class="stars">${best?"★".repeat(best)+"☆".repeat(3-best):"☆☆☆"}</div>`;
+    tile.addEventListener("click",()=>loadLevel(i,true));
+    grid.appendChild(tile);
+  });
+  const complete=Object.keys(saved.best).filter(k=>Number(saved.best[k])>=0).length;
+  const totalStars=Object.values(saved.best).reduce((a,b)=>a+Number(b),0);
+  $("campaignSummary").innerHTML=`<span class="summary-pill">${complete}/${levels.length} chapters attempted</span><span class="summary-pill">${totalStars}/9 stars</span><span class="summary-pill">All chapters directly available</span>`;
+  $("resumeBtn").textContent=`Open Course Chapter ${Math.min(saved.last+1,levels.length)}`;
+}
+function showCampaign(){renderCampaign();openModal("campaignModal")}
+function showDebrief(wasReveal,stars){
+  const L=current();
+  $("studyTitle").textContent=wasReveal?`${L.title}: Solution Revealed`:`${L.title}: Mission Ready`;
+  $("studyTakeaway").textContent=L.summary;
+  $("studyStars").textContent=stars?"★".repeat(stars)+"☆".repeat(3-stars):"☆☆☆";
+  $("studyResult").textContent=wasReveal?"Study completion":"Puzzle completed";
+  $("studyMeta").textContent=wasReveal
+    ?"The solution was revealed, so this attempt earns no stars."
+    :`${attemptsUsed} plan check${attemptsUsed===1?"":"s"} · ${hintsUsed} hint${hintsUsed===1?"":"s"} used`;
+  $("studyWhyList").innerHTML=L.pieces.map(p=>`<div class="why-row"><div class="icon">${p.icon}</div><div><strong>${p.name}${p.solution===null?" — held in reserve":""}</strong><p>${p.why}</p></div></div>`).join("");
+  $("playSidebar").style.display="block";
+  $("studySidebar").style.display="block";
+  $("nextBtn").style.display="none";
+  closeModal("debriefModal");
+  setTimeout(()=>document.querySelector(".board-card").scrollIntoView({behavior:"smooth",block:"start"}),40);
+}
+function nextMission(){closeModal("debriefModal");showCampaign()}
+function openModal(id){$(id).classList.remove("hidden")}function closeModal(id){$(id).classList.add("hidden")}
+$("checkBtn").addEventListener("click",checkPlan);$("clearBtn").addEventListener("click",clearUnlocked);$("resetBtn").addEventListener("click",resetLevel);$("hintBtn").addEventListener("click",useHint);$("nextBtn").addEventListener("click",()=>showDebrief(revealed,starsForRun()));$("campaignBtn").addEventListener("click",showCampaign);$("conceptBtn").addEventListener("click",openLesson);$("beginBtn").addEventListener("click",()=>closeModal("lessonModal"));$("lessonCampaignBtn").addEventListener("click",()=>{closeModal("lessonModal");showCampaign()});$("studyBtn").addEventListener("click",()=>showDebrief(revealed,starsForRun()));
+$("hideStudyBtn").addEventListener("click",()=>{
+  $("studySidebar").style.display="none";
+  $("playSidebar").style.display="block";
+  $("nextBtn").textContent="Show explanation";
+  $("nextBtn").style.display="block";
+});
+$("studyChapterBtn").addEventListener("click",showCampaign);
+$("debriefNextBtn").addEventListener("click",nextMission);$("resumeBtn").addEventListener("click",()=>{closeModal("campaignModal");loadLevel(Math.min(saved.last,saved.unlocked-1),true)});$("resetCampaignBtn").addEventListener("click",()=>{if(confirm("Reset all chapter scores and progress?")){saved={unlocked:levels.length,best:{},last:0};save();levelIndex=0;renderCampaign();resetLevel()}});
+function resolveRequestedChapter(){
+  const params=new URLSearchParams(window.location.search);
+  const raw=(params.get("chapter")||"").toLowerCase().trim();
+  const aliases={
+    "1":0,"chapter-1":0,"operational-picture":0,"picture":0,
+    "2":1,"chapter-2":1,"sustain-recover":1,"sustain":1,"recovery":1,
+    "3":2,"chapter-3":2,"narrow-gate":2,"capstone":2
+  };
+  if(raw in aliases)return aliases[raw];
+  const hash=(window.location.hash||"").replace(/^#/,"").toLowerCase();
+  if(hash in aliases)return aliases[hash];
+  return Number.isInteger(DEFAULT_CHAPTER)?DEFAULT_CHAPTER:null;
+}
+function setupReturnLink(){
+  const target=new URLSearchParams(window.location.search).get("return");
+  if(!target)return;
+  $("returnBtn").style.display="inline-block";
+  $("returnBtn").addEventListener("click",()=>{window.location.href=target});
+}
+const requestedChapter=resolveRequestedChapter();
+if(requestedChapter!==null){
+  levelIndex=requestedChapter;
+  saved.last=levelIndex;
+  save();
+  resetLevel();
+  renderCampaign();
+  closeModal("campaignModal");
+  openLesson();
+}else{
+  resetLevel();
+  renderCampaign();
+}
+setupReturnLink();
+</script>
+</body>
+</html>

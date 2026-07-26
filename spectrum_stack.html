@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spectrum Stack: Navy Course Chapters</title>
+  <style>
+    :root {
+      --bg: #f4f2ec;
+      --panel: #ffffff;
+      --text: #1a1a17;
+      --muted: #565651;
+      --border: #e4e4e2;
+      --accent: #2f5d86;
+      --accent-soft: #eef3f7;
+      --good: #2f6d4f;
+      --good-soft: #e7f4ec;
+      --bad: #b3261e;
+      --bad-soft: #f8e9e7;
+      --shadow: 0 8px 24px rgba(24, 32, 39, 0.07);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button { font: inherit; }
+
+    .app {
+      width: min(820px, calc(100% - 24px));
+      margin: 22px auto 42px;
+    }
+
+    .title-row {
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: clamp(1.55rem, 4vw, 2.3rem);
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .return-link {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .return-link:hover { color: var(--accent); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 13px;
+    }
+
+    .metric {
+      min-width: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 10px 11px;
+    }
+
+    .metric-label {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 760;
+      font-size: 1rem;
+    }
+
+    .game-shell {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 15px;
+    }
+
+    .round-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      width: min(100%, 430px);
+      margin: 0 auto 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .round-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .penalty-chip {
+      padding: 4px 7px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .next-piece-panel {
+      position: absolute;
+      z-index: 4;
+      top: 196px;
+      right: 9px;
+      width: 82px;
+      padding: 6px;
+      border: 1px solid rgba(207, 215, 226, 0.94);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 7px 18px rgba(15, 23, 42, 0.07);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      text-align: center;
+    }
+
+    .next-piece-label {
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    #nextPiece {
+      display: block;
+      width: 68px;
+      height: 54px;
+      margin: 0 auto;
+      border: 0;
+      border-radius: 7px;
+      background: rgba(248, 250, 252, 0.7);
+    }
+
+    .round-strip strong {
+      color: var(--text);
+    }
+
+    .progress-track {
+      width: 112px;
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e7ebf1;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+      transition: width .2s ease;
+    }
+
+    .board-wrap {
+      width: min(100%, 430px);
+      margin: 0 auto;
+    }
+
+    .canvas-wrap {
+      position: relative;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      aspect-ratio: 10 / 18;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #f8fafc;
+    }
+
+    .hud-top {
+      position: absolute;
+      z-index: 3;
+      top: 9px;
+      left: 9px;
+      right: 9px;
+      pointer-events: none;
+    }
+
+    .hud-card {
+      border: 1px solid rgba(207, 215, 226, 0.94);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 7px 18px rgba(15, 23, 42, 0.07);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      pointer-events: auto;
+    }
+
+    .question-box {
+      padding: 8px 10px;
+      text-align: center;
+    }
+
+    .question-kicker {
+      color: var(--muted);
+      font-size: 0.7rem;
+      margin-bottom: 3px;
+    }
+
+    .question {
+      min-height: 39px;
+      display: grid;
+      place-items: center;
+      padding: 0 5px;
+      font-size: 0.96rem;
+      font-weight: 760;
+      line-height: 1.25;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 6px;
+      padding: 7px;
+    }
+
+    .answer,
+    .control,
+    .action,
+    .overlay-button {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.91);
+      color: var(--text);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform .05s, border-color .14s, background .14s;
+    }
+
+    .answer {
+      min-height: 43px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 7px;
+      text-align: left;
+    }
+
+    .answer:hover:not(:disabled),
+    .control:hover,
+    .action:hover:not(:disabled),
+    .overlay-button:hover {
+      border-color: var(--accent);
+    }
+
+    .answer:active:not(:disabled),
+    .control:active,
+    .action:active:not(:disabled),
+    .overlay-button:active {
+      transform: translateY(1px);
+    }
+
+    .answer:disabled {
+      cursor: default;
+      opacity: .54;
+    }
+
+    .answer.good {
+      border-color: var(--good);
+      background: rgba(229, 245, 238, 0.96);
+      opacity: 1;
+    }
+
+    .answer.bad {
+      border-color: var(--bad);
+      background: rgba(255, 240, 238, 0.96);
+      text-decoration: line-through;
+    }
+
+    .answer.rotate-key {
+      box-shadow: inset 0 0 0 2px var(--accent);
+    }
+
+    .key {
+      display: inline-grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      border-radius: 7px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 820;
+    }
+
+    .answer-label {
+      display: block;
+      font-size: .76rem;
+      line-height: 1.12;
+    }
+
+    .feedback {
+      min-height: 39px;
+      display: grid;
+      place-items: center;
+      margin-top: 6px;
+      padding: 7px 9px;
+      border: 1px solid rgba(207, 215, 226, 0.94);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
+      text-align: center;
+      font-size: .78rem;
+      line-height: 1.25;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+
+    .movement {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 9px;
+    }
+
+    .control {
+      padding: 10px 8px;
+      background: #fff;
+      font-size: 1.1rem;
+    }
+
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .action {
+      padding: 9px 15px;
+      background: #fff;
+      font-weight: 700;
+    }
+
+    .action.primary,
+    .overlay-button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: white;
+    }
+
+    .action:disabled {
+      cursor: default;
+      opacity: .48;
+    }
+
+    .overlay {
+      position: absolute;
+      z-index: 8;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(248, 250, 252, 0.88);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .overlay.hidden { display: none; }
+
+    .overlay-panel {
+      width: min(100%, 360px);
+      max-height: calc(100% - 12px);
+      overflow: auto;
+      padding: 17px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .overlay-eyebrow {
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .overlay-title {
+      margin: 5px 0 6px;
+      font-size: 1.35rem;
+      line-height: 1.15;
+    }
+
+    .overlay-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.4;
+    }
+
+    .choice-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin: 13px 0;
+      text-align: left;
+    }
+
+    .choice-preview-item {
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f8fafc;
+      font-size: .78rem;
+      line-height: 1.22;
+    }
+
+    .choice-preview-item strong {
+      color: var(--accent);
+    }
+
+    .overlay-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin: 13px 0;
+    }
+
+    .overlay-stat {
+      padding: 8px 5px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    .overlay-stat-label {
+      color: var(--muted);
+      font-size: .68rem;
+    }
+
+    .overlay-stat-value {
+      margin-top: 2px;
+      font-weight: 800;
+    }
+
+    .overlay-button {
+      padding: 10px 16px;
+      font-weight: 750;
+    }
+
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin: 12px 0;
+      text-align: left;
+    }
+
+    .campaign-item {
+      padding: 7px 8px;
+      border-radius: 9px;
+      background: #f3f6fa;
+      font-size: .74rem;
+      line-height: 1.2;
+    }
+
+    .chapter-grid {
+      display: grid;
+      gap: 8px;
+      margin: 13px 0;
+      text-align: left;
+    }
+
+    .chapter-card {
+      width: 100%;
+      padding: 10px 11px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: #f8fafc;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .chapter-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .chapter-card-title {
+      display: block;
+      font-weight: 800;
+      font-size: .82rem;
+      line-height: 1.2;
+    }
+
+    .chapter-card-rounds,
+    .chapter-card-placement {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .71rem;
+      line-height: 1.25;
+    }
+
+    .chapter-card-placement {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .briefing {
+      margin: 12px 0 9px;
+      padding: 10px 11px;
+      border: 1px solid #cbd8ed;
+      border-radius: 11px;
+      background: #f3f7fe;
+      text-align: left;
+    }
+
+    .briefing-title {
+      margin-bottom: 5px;
+      color: var(--accent);
+      font-size: .74rem;
+      font-weight: 850;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+    }
+
+    .briefing ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+      font-size: .75rem;
+      line-height: 1.32;
+    }
+
+    .briefing li + li {
+      margin-top: 4px;
+    }
+
+    .placement-note {
+      margin: 0 0 8px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: var(--good-soft);
+      color: var(--good);
+      font-size: .71rem;
+      font-weight: 750;
+      line-height: 1.25;
+      text-align: left;
+    }
+
+    .footer-note {
+      margin-top: 11px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .72rem;
+    }
+
+    @media (max-width: 640px) {
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metric:last-child {
+        grid-column: span 2;
+      }
+
+      .answer-label {
+        font-size: .72rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="game">
+    <header class="title-row">
+      <a id="returnLink" class="return-link" href="#" hidden>&larr; Return to course</a>
+      <h1>Spectrum Stack: Navy Course Chapters</h1>
+      <p class="subtitle">Four course-ready chapters. Each chapter contains two 20-piece naval-science rounds with a pre-round briefing.</p>
+    </header>
+
+    <section class="metrics">
+      <div class="metric">
+        <div class="metric-label">Score</div>
+        <div id="score" class="metric-value">0</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Lines</div>
+        <div id="lines" class="metric-value">0</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Round</div>
+        <div id="roundMetric" class="metric-value">—</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Accuracy</div>
+        <div id="accuracy" class="metric-value">—</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Rotation key</div>
+        <div id="rotationKey" class="metric-value">🔒 Unknown</div>
+      </div>
+    </section>
+
+    <section class="game-shell">
+      <div class="round-strip">
+        <div><strong id="roundName">Choose a course chapter</strong></div>
+        <div class="round-status">
+          <span id="penaltyDisplay" class="penalty-chip">Miss pressure: 0 ms · 0 rows</span>
+          <span id="pieceCount">0 / 20</span>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-wrap">
+        <div class="canvas-wrap">
+          <canvas id="board" width="300" height="540" aria-label="Spectrum Stack falling-block board"></canvas>
+
+          <div class="next-piece-panel" aria-label="Next falling piece">
+            <div class="next-piece-label">Next</div>
+            <canvas id="nextPiece" width="68" height="54"></canvas>
+          </div>
+
+          <div class="hud-top">
+            <div class="hud-card question-box">
+              <div id="questionKicker" class="question-kicker">Choose the best technology</div>
+              <div id="question" class="question">Choose a chapter to begin.</div>
+            </div>
+
+            <div class="hud-card answers">
+              <button class="answer" data-index="0">
+                <span class="key">A</span>
+                <span class="answer-label">Choice A</span>
+              </button>
+              <button class="answer" data-index="1">
+                <span class="key">S</span>
+                <span class="answer-label">Choice S</span>
+              </button>
+              <button class="answer" data-index="2">
+                <span class="key">D</span>
+                <span class="answer-label">Choice D</span>
+              </button>
+              <button class="answer" data-index="3">
+                <span class="key">F</span>
+                <span class="answer-label">Choice F</span>
+              </button>
+            </div>
+
+            <div id="feedback" class="feedback" aria-live="polite">
+              The correct answer key rotates the piece.
+            </div>
+          </div>
+
+          <div id="overlay" class="overlay">
+            <div class="overlay-panel">
+              <div id="overlayEyebrow" class="overlay-eyebrow">ONR-inspired campaign</div>
+              <h2 id="overlayTitle" class="overlay-title">Eight rounds of naval science</h2>
+              <p id="overlayText" class="overlay-text">
+                Each round changes the four technologies mapped to A, S, D, and F. Clear twenty falling pieces to advance.
+              </p>
+              <div id="overlayContent"></div>
+              <button id="overlayButton" class="overlay-button primary">Start campaign</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="movement">
+          <button class="control" data-control="left" aria-label="Move left">←</button>
+          <button class="control" data-control="down" aria-label="Move down">↓</button>
+          <button class="control" data-control="right" aria-label="Move right">→</button>
+          <button class="control" data-control="drop" aria-label="Hard drop">⤓</button>
+        </div>
+      </div>
+
+      <div class="bottom-row">
+        <button id="pauseButton" class="action" disabled>Pause</button>
+        <button id="restartButton" class="action">Chapter menu</button>
+      </div>
+
+      <div class="footer-note">
+        Independent educational prototype organized for a basic-sailor course. Not affiliated with or endorsed by the Office of Naval Research or the U.S. Navy.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const rounds = [
+        {
+          title: 'Electromagnetic Sensing',
+          connection: 'Radar, communications, electro-optical imaging, infrared sensing, and maritime surveillance.',
+          choices: [
+            { id: 'radio', label: 'Radio communications' },
+            { id: 'microwave', label: 'Microwave radar' },
+            { id: 'visible', label: 'Visible imaging' },
+            { id: 'infrared', label: 'Infrared sensing' }
+          ],
+          questions: [
+            ['Send a low-data-rate beacon across a very long distance.', 'radio', 'Radio is well suited to long-range communications and beacon signals.'],
+            ['Communicate with a distant spacecraft using a large dish antenna.', 'radio', 'Deep-space links use radio-frequency signals.'],
+            ['Transmit voice and data to another platform beyond visual range.', 'radio', 'Radio communications carry information without requiring a visible line of sight.'],
+            ['Measure an aircraft’s range and radial speed.', 'microwave', 'Microwave radar measures distance from return time and speed from Doppler shift.'],
+            ['Map rainfall inside a cloud system.', 'microwave', 'Weather radar uses microwaves that interact with rain and ice.'],
+            ['Image the ocean surface through clouds and at night.', 'microwave', 'Microwave synthetic-aperture radar can operate through clouds and darkness.'],
+            ['Read painted hull markings during daylight.', 'visible', 'Visible imaging provides reflected-light color and fine spatial detail.'],
+            ['Distinguish a red navigation marker from a blue one.', 'visible', 'Color discrimination is a visible-light measurement.'],
+            ['Produce a high-resolution daylight photograph of a nearby vessel.', 'visible', 'Visible cameras capture detailed reflected-light imagery.'],
+            ['Find a warm engine operating in darkness.', 'infrared', 'Warm machinery emits thermal infrared radiation.'],
+            ['Detect a wildfire hotspot at night.', 'infrared', 'Hot fires produce strong infrared emission.'],
+            ['Locate a person by body heat in a dark environment.', 'infrared', 'Human bodies are detectable through their thermal infrared emission.'],
+            ['Maintain a voice link with a ship far beyond visual range.', 'radio', 'Long-range radio communications can carry voice and data without optical visibility.'],
+            ['Receive a distress beacon from a remote platform.', 'radio', 'Radio beacons are designed to transmit detectable signals across large distances.'],
+            ['Send command updates to an unmanned surface vehicle over the horizon.', 'radio', 'Radio communications are the appropriate choice for remote command links.'],
+            ['Detect the distance to a low-flying aircraft in fog.', 'microwave', 'Microwave radar can measure range despite fog and darkness.'],
+            ['Measure the speed of a moving storm system using Doppler returns.', 'microwave', 'Doppler microwave radar measures motion from frequency shifts.'],
+            ['Survey a wide ocean region at night from an aircraft.', 'microwave', 'Radar can provide wide-area sensing without sunlight.'],
+            ['Identify the shape of a nearby antenna in daylight.', 'visible', 'Visible imaging provides detailed reflected-light information about shape.'],
+            ['Inspect whether a navigation light is red, green, or white.', 'visible', 'Visible sensors distinguish the colors used by navigation lights.'],
+            ['Read a serial number on equipment under normal lighting.', 'visible', 'Fine printed detail is best resolved with visible imaging.'],
+            ['Find overheating power electronics before they fail.', 'infrared', 'Infrared sensing reveals abnormal thermal hotspots.'],
+            ['Detect a recently operated engine after the platform has stopped.', 'infrared', 'Residual heat remains visible in the infrared after operation.'],
+            ['Compare heat loss from different sections of a vessel.', 'infrared', 'Infrared imagery maps variations in surface temperature.'],
+          ]
+        },
+        {
+          title: 'Undersea Detection',
+          connection: 'Ocean acoustics, anti-submarine sensing, mine detection, and underwater imaging.',
+          choices: [
+            { id: 'active', label: 'Active sonar' },
+            { id: 'passive', label: 'Passive sonar' },
+            { id: 'magnetic', label: 'Magnetic sensing' },
+            { id: 'optical', label: 'Optical imaging' }
+          ],
+          questions: [
+            ['Transmit a ping and use the returning echo to estimate target range.', 'active', 'Active sonar sends sound and measures its echo.'],
+            ['Map seafloor depth by timing reflected sound pulses.', 'active', 'Active acoustic pulses can measure water depth and seafloor structure.'],
+            ['Search a defined area for an object that is not making noise.', 'active', 'Active sonar can detect quiet objects by illuminating them acoustically.'],
+            ['Listen for machinery noise without revealing your own position.', 'passive', 'Passive sonar listens without transmitting.'],
+            ['Classify a vessel from its propeller and machinery signature.', 'passive', 'Passive acoustic signatures can help identify a platform.'],
+            ['Monitor a region for underwater sound while remaining electromagnetically silent.', 'passive', 'Passive sonar receives sound without emitting a ping.'],
+            ['Detect a large steel hull from a disturbance in Earth’s magnetic field.', 'magnetic', 'Ferromagnetic structures can create measurable magnetic anomalies.'],
+            ['Search murky water for a metal object when cameras cannot see it.', 'magnetic', 'Magnetic sensing is useful for detecting metallic objects in poor visibility.'],
+            ['Confirm that a buried object contains substantial ferrous metal.', 'magnetic', 'A magnetic anomaly can indicate ferrous material.'],
+            ['Inspect a nearby object in clear, shallow water.', 'optical', 'Optical cameras are effective at short range in clear water.'],
+            ['Read markings on a recovered underwater instrument.', 'optical', 'Visible imagery can resolve labels and physical details at close range.'],
+            ['Create a detailed image of a coral structure in well-lit clear water.', 'optical', 'Optical imaging provides fine detail when water clarity and lighting are adequate.'],
+            ['Estimate the range to a stationary underwater obstacle by measuring an echo.', 'active', 'Active sonar determines range from the travel time of a transmitted sound pulse.'],
+            ['Create a detailed acoustic map of a harbor floor.', 'active', 'Active sonar can illuminate and map underwater terrain.'],
+            ['Search for a quiet mine-like object resting on the seafloor.', 'active', 'A quiet object can still reflect an active sonar pulse.'],
+            ['Track a noisy vessel while avoiding any transmitted ping.', 'passive', 'Passive sonar listens for target-generated sound without revealing the receiver.'],
+            ['Compare propeller blade-rate patterns from two contacts.', 'passive', 'Passive acoustic analysis can distinguish machinery and propeller signatures.'],
+            ['Monitor whale calls and ship noise over a broad region.', 'passive', 'Passive hydrophones record naturally occurring and platform-generated sounds.'],
+            ['Locate a steel object buried in sediment near the seabed.', 'magnetic', 'A ferrous object may create a magnetic anomaly even when visually buried.'],
+            ['Confirm whether an underwater contact is likely made of ferromagnetic metal.', 'magnetic', 'Magnetic sensing responds strongly to ferromagnetic material.'],
+            ['Sweep a shallow area for metallic debris without relying on light.', 'magnetic', 'Magnetic sensors can detect metal regardless of water clarity.'],
+            ['Inspect damage on a hull at close range in clear water.', 'optical', 'Optical imaging gives fine surface detail when visibility is good.'],
+            ['Identify marine growth on an underwater structure.', 'optical', 'A close-range camera can distinguish visual surface features.'],
+            ['Guide a robot arm toward a connector in a well-lit tank.', 'optical', 'Optical imaging supports precise close-range manipulation.'],
+          ]
+        },
+        {
+          title: 'Navigation Without GPS',
+          connection: 'Assured positioning, navigation and timing for ships, aircraft, and autonomous systems.',
+          choices: [
+            { id: 'inertial', label: 'Inertial navigation' },
+            { id: 'celestial', label: 'Celestial navigation' },
+            { id: 'matching', label: 'Terrain / bathymetric matching' },
+            { id: 'quantum', label: 'Quantum sensing' }
+          ],
+          questions: [
+            ['Track short-term motion underwater using accelerometers and gyroscopes.', 'inertial', 'Inertial systems estimate motion without external transmissions.'],
+            ['Continue navigating through a temporary GPS outage with onboard motion sensors.', 'inertial', 'Inertial navigation provides an independent short-term position estimate.'],
+            ['Estimate rapid changes in vehicle attitude and acceleration.', 'inertial', 'Inertial measurement units provide high-rate motion information.'],
+            ['Determine position from known stars on a clear night.', 'celestial', 'Celestial navigation uses measured directions to astronomical objects.'],
+            ['Correct a surface ship’s position using a star sight.', 'celestial', 'A star observation can provide an external position reference.'],
+            ['Use the Sun and an accurate clock to obtain an independent navigation fix.', 'celestial', 'Celestial observations can constrain position and time.'],
+            ['Match measured seafloor depth patterns to a stored chart.', 'matching', 'Bathymetric matching compares sensed depth structure with a map.'],
+            ['Navigate near a coast by comparing observed terrain with a reference database.', 'matching', 'Terrain matching uses recognizable geographic structure.'],
+            ['Correct accumulated drift using a distinctive underwater ridge profile.', 'matching', 'Mapped bathymetric features can provide a position update.'],
+            ['Measure extremely small acceleration changes using atom interferometry.', 'quantum', 'Quantum sensors can provide highly sensitive inertial measurements.'],
+            ['Detect subtle gravity variations that may help constrain location.', 'quantum', 'Quantum gravimetry measures tiny changes in gravitational acceleration.'],
+            ['Improve magnetic-field measurements using quantum states in atoms or defects.', 'quantum', 'Quantum magnetometers can detect very small magnetic changes.'],
+            ['Maintain attitude information during a rapid turn using onboard sensors.', 'inertial', 'Gyroscopes and accelerometers provide high-rate inertial motion estimates.'],
+            ['Bridge several minutes without external navigation updates.', 'inertial', 'Inertial navigation continues independently, although its error grows over time.'],
+            ['Estimate a vehicle’s change in velocity while submerged.', 'inertial', 'Accelerometers measure motion without requiring external signals.'],
+            ['Determine heading from a known star pattern on a clear night.', 'celestial', 'Celestial navigation compares observed stars with known positions.'],
+            ['Use the horizon and Sun to obtain a position check at sea.', 'celestial', 'A celestial sight can provide an independent navigation reference.'],
+            ['Verify a ship’s clock and longitude using an astronomical observation.', 'celestial', 'Accurate time and celestial measurements can constrain longitude.'],
+            ['Recognize a coastline from its measured elevation profile.', 'matching', 'Terrain matching compares observed geography with stored maps.'],
+            ['Correct position drift by matching sonar depth measurements to a chart.', 'matching', 'Bathymetric matching uses seafloor patterns as navigation landmarks.'],
+            ['Navigate through a canyon by comparing sensor measurements with a 3-D map.', 'matching', 'Mapped terrain features can provide position updates when GPS is unavailable.'],
+            ['Build an ultra-sensitive gyroscope using quantum interference.', 'quantum', 'Quantum interference can enable highly precise rotation measurements.'],
+            ['Measure local gravity changes to help distinguish geographic regions.', 'quantum', 'Quantum gravimeters detect very small variations in gravitational acceleration.'],
+            ['Maintain precision timing with an atomic transition.', 'quantum', 'Atomic clocks use quantum energy levels as stable frequency references.'],
+          ]
+        },
+        {
+          title: 'Electronic Warfare',
+          connection: 'Electromagnetic awareness, protection, deception, and resilient communications.',
+          choices: [
+            { id: 'detect', label: 'Detect' },
+            { id: 'jam', label: 'Jam' },
+            { id: 'deceive', label: 'Deceive' },
+            { id: 'covert', label: 'Communicate covertly' }
+          ],
+          questions: [
+            ['Locate an unknown transmitter without interfering with it.', 'detect', 'Detection and direction finding reveal electromagnetic activity.'],
+            ['Characterize the frequency and pulse pattern of an incoming radar signal.', 'detect', 'Signal detection and analysis identify emitter behavior.'],
+            ['Warn a platform that it is being illuminated by radar.', 'detect', 'Electronic support sensors can detect and classify radar emissions.'],
+            ['Prevent a hostile receiver from extracting a usable signal.', 'jam', 'Jamming raises interference or denies use of a channel.'],
+            ['Overwhelm a radar receiver with strong unwanted energy.', 'jam', 'Jamming can reduce a radar’s ability to detect real returns.'],
+            ['Temporarily disrupt an adversary communication link with interference.', 'jam', 'Communications jamming interferes with reception.'],
+            ['Create a false radar target at an incorrect location.', 'deceive', 'Electronic deception presents plausible but false information.'],
+            ['Make a sensor report an incorrect apparent range.', 'deceive', 'Deception can manipulate the characteristics of a received signal.'],
+            ['Cause a tracking system to follow a decoy instead of the real platform.', 'deceive', 'A deceptive signature can redirect attention to the wrong object.'],
+            ['Send a message while minimizing the chance that others notice the transmission.', 'covert', 'Low-probability-of-intercept techniques reduce detectability.'],
+            ['Use a narrow directional link to reduce unintended signal exposure.', 'covert', 'Directional communications limit who can receive the signal.'],
+            ['Transmit only brief low-power bursts to reduce observable emissions.', 'covert', 'Short, controlled transmissions can lower the chance of detection.'],
+            ['Determine which frequency bands are active before selecting a communication channel.', 'detect', 'Spectrum sensing identifies occupied and potentially contested frequencies.'],
+            ['Estimate the direction from which an unknown signal is arriving.', 'detect', 'Direction finding is a detection and localization function.'],
+            ['Recognize that a radar has changed its operating mode.', 'detect', 'Electronic support analysis can identify changes in waveform behavior.'],
+            ['Reduce the usefulness of an adversary data link by adding interference.', 'jam', 'Jamming disrupts the receiver’s ability to recover the intended signal.'],
+            ['Deny use of a narrow frequency channel for a short period.', 'jam', 'Focused jamming can interfere with a selected channel.'],
+            ['Make a receiver experience a very poor signal-to-interference ratio.', 'jam', 'Jamming raises unwanted energy relative to the desired signal.'],
+            ['Alter a returned signal so a sensor infers the wrong motion.', 'deceive', 'Electronic deception can manipulate apparent target characteristics.'],
+            ['Present several plausible false contacts instead of one real contact.', 'deceive', 'Deception can generate misleading alternatives for a tracking system.'],
+            ['Replay a modified signal so the receiver forms an incorrect estimate.', 'deceive', 'A deceptive waveform can create a false interpretation.'],
+            ['Use frequency hopping to make a link harder to intercept and disrupt.', 'covert', 'Rapid frequency changes can improve resilience and reduce observability.'],
+            ['Send information through a tightly pointed beam between two platforms.', 'covert', 'A directional link limits signal exposure outside the intended path.'],
+            ['Operate with brief, infrequent transmissions instead of a continuous broadcast.', 'covert', 'Emission control reduces the opportunity for detection.'],
+          ]
+        },
+        {
+          title: 'Autonomous Swarms',
+          connection: 'Cooperative autonomy, distributed sensing, resilient networks, and unmanned systems.',
+          choices: [
+            { id: 'scout', label: 'Scout' },
+            { id: 'relay', label: 'Relay' },
+            { id: 'decoy', label: 'Decoy' },
+            { id: 'collaborate', label: 'Collaborate' }
+          ],
+          questions: [
+            ['Send one vehicle ahead to inspect an unknown route.', 'scout', 'A scout gathers information before the main group proceeds.'],
+            ['Map obstacles in an unexplored region before other vehicles enter.', 'scout', 'Scouting reduces uncertainty about the environment.'],
+            ['Quickly inspect several candidate landing areas.', 'scout', 'A scout role prioritizes reconnaissance and reporting.'],
+            ['Bridge a communication gap between two groups that cannot reach each other.', 'relay', 'A relay forwards information across a broken or distant link.'],
+            ['Hold position above the fleet to extend network range.', 'relay', 'A relay node increases communication coverage.'],
+            ['Carry sensor data from underwater vehicles to a surface command link.', 'relay', 'A relay connects systems that use different locations or communication paths.'],
+            ['Imitate a valuable platform’s signature to draw attention away from it.', 'decoy', 'A decoy presents a misleading target.'],
+            ['Move into a visible area so another vehicle can remain hidden.', 'decoy', 'A decoy deliberately attracts detection.'],
+            ['Generate a false contact that causes a sensor to search the wrong region.', 'decoy', 'Decoys redirect sensing and tracking resources.'],
+            ['Divide a large search area among several vehicles and combine their findings.', 'collaborate', 'Collaborative autonomy coordinates tasks and fuses results.'],
+            ['Use measurements from several drones to improve the location of one contact.', 'collaborate', 'Multiple viewpoints can produce a better joint estimate.'],
+            ['Reassign tasks automatically when one vehicle leaves the network.', 'collaborate', 'A collaborative swarm can adapt roles to maintain the mission.'],
+            ['Send a fast drone ahead to report whether a passage is blocked.', 'scout', 'A scout reduces uncertainty before the rest of the group commits.'],
+            ['Use one vehicle to sample conditions beyond the swarm’s current sensor range.', 'scout', 'A scouting platform extends awareness into an unknown region.'],
+            ['Inspect a suspicious object before larger vehicles approach.', 'scout', 'A scout can gather close information while limiting risk to the group.'],
+            ['Position a vehicle between underwater and airborne nodes to pass messages.', 'relay', 'A relay bridges systems that cannot communicate directly.'],
+            ['Move a drone to preserve network connectivity as the formation spreads out.', 'relay', 'A mobile relay maintains communication paths within the swarm.'],
+            ['Forward low-bandwidth status messages from distant vehicles.', 'relay', 'Relay nodes extend communication range by retransmitting data.'],
+            ['Produce an intentionally prominent signature while the main group changes direction.', 'decoy', 'A decoy attracts attention away from the real maneuver.'],
+            ['Deploy a low-cost vehicle to imitate the motion of a more valuable platform.', 'decoy', 'A decoy can mimic observable behavior to confuse classification.'],
+            ['Create several false tracks so a sensor must divide its attention.', 'decoy', 'Decoys increase ambiguity by presenting extra apparent targets.'],
+            ['Combine temperature measurements from many vehicles into one environmental map.', 'collaborate', 'Collaborative sensing fuses distributed observations.'],
+            ['Have neighboring vehicles negotiate who should inspect each sector.', 'collaborate', 'Task allocation is a core function of cooperative autonomy.'],
+            ['Use multiple viewpoints to reduce uncertainty in a target location.', 'collaborate', 'Shared measurements improve localization through data fusion.'],
+          ]
+        },
+        {
+          title: 'Materials and Ship Health',
+          connection: 'Nondestructive evaluation, corrosion control, structural reliability, and condition monitoring.',
+          choices: [
+            { id: 'ultrasound', label: 'Ultrasound' },
+            { id: 'xray', label: 'X-ray imaging' },
+            { id: 'thermal', label: 'Infrared thermography' },
+            { id: 'eddy', label: 'Eddy-current sensing' }
+          ],
+          questions: [
+            ['Find an internal crack by sending mechanical waves through a metal plate.', 'ultrasound', 'Ultrasound detects boundaries and flaws through reflected sound waves.'],
+            ['Measure the remaining thickness of a pipe wall from one accessible side.', 'ultrasound', 'Ultrasonic travel time can estimate material thickness.'],
+            ['Detect delamination inside a layered structure using reflected acoustic pulses.', 'ultrasound', 'Layer separations can create detectable ultrasonic echoes.'],
+            ['Inspect the interior of a dense sealed component using penetrating radiation.', 'xray', 'X-rays can reveal internal structure without opening the part.'],
+            ['Examine a weld for hidden voids or inclusions.', 'xray', 'Radiographic inspection can reveal internal density differences.'],
+            ['Image a concealed component inside a nontransparent housing.', 'xray', 'X-ray transmission reveals hidden internal features.'],
+            ['Locate an overheating electrical connection while equipment is operating.', 'thermal', 'Infrared thermography maps surface temperature.'],
+            ['Find an abnormal hot bearing without touching the machine.', 'thermal', 'Friction or damage can create a thermal hotspot.'],
+            ['Identify uneven cooling across an electronics panel.', 'thermal', 'Thermal imaging reveals temperature patterns across a surface.'],
+            ['Find a small surface crack in a conductive metal near a fastener hole.', 'eddy', 'Eddy currents are disturbed by near-surface defects in conductors.'],
+            ['Inspect conductive aircraft skin for shallow fatigue cracks.', 'eddy', 'Eddy-current sensing is effective for near-surface flaws in metal.'],
+            ['Detect changes in conductivity that may indicate corrosion beneath a thin coating.', 'eddy', 'Corrosion can alter the induced-current response of a conductive structure.'],
+            ['Inspect a composite panel for hidden separation between layers.', 'ultrasound', 'Ultrasonic echoes can reveal internal delamination.'],
+            ['Check a metal shaft for an internal flaw without cutting it open.', 'ultrasound', 'Mechanical waves can reveal internal discontinuities.'],
+            ['Measure whether corrosion has reduced the thickness of an accessible plate.', 'ultrasound', 'Ultrasonic travel time can estimate remaining material thickness.'],
+            ['Look for hidden porosity inside a cast metal component.', 'xray', 'X-ray imaging reveals internal density differences such as voids.'],
+            ['Inspect an assembled part for a misplaced internal element.', 'xray', 'Radiography can show concealed components through an outer housing.'],
+            ['Check whether a sealed connector contains an internal fracture.', 'xray', 'Penetrating radiation can reveal internal damage without disassembly.'],
+            ['Find a section of insulation allowing abnormal heat leakage.', 'thermal', 'Infrared thermography reveals unusual surface-temperature patterns.'],
+            ['Identify a motor that is running hotter than identical neighboring motors.', 'thermal', 'Thermal comparison can reveal abnormal friction or electrical loading.'],
+            ['Detect poor heat spreading across a power-electronics module.', 'thermal', 'Infrared imaging maps how heat is distributed over the surface.'],
+            ['Inspect a conductive tube for shallow cracking near its surface.', 'eddy', 'Eddy-current sensing is sensitive to near-surface flaws in conductors.'],
+            ['Measure changes in a metal’s conductivity after heat treatment.', 'eddy', 'The induced-current response depends on electrical conductivity.'],
+            ['Search beneath a thin nonconductive coating for corrosion in metal.', 'eddy', 'Eddy currents can probe conductive material through thin coatings.'],
+          ]
+        },
+        {
+          title: 'Naval Power and Energy',
+          connection: 'Energy storage, resilient generation, long-endurance vehicles, and expeditionary power.',
+          choices: [
+            { id: 'battery', label: 'Battery' },
+            { id: 'fuelcell', label: 'Fuel cell' },
+            { id: 'turbine', label: 'Turbine generator' },
+            { id: 'solar', label: 'Solar power' }
+          ],
+          questions: [
+            ['Provide silent stored power for a short underwater mission.', 'battery', 'A battery supplies stored electrical energy without combustion during use.'],
+            ['Deliver a brief burst of high electrical power to onboard equipment.', 'battery', 'Batteries can provide rapid power from stored energy.'],
+            ['Keep critical electronics operating during a short generator interruption.', 'battery', 'A battery provides immediate backup power.'],
+            ['Generate quiet sustained electricity from stored chemical reactants with few moving parts.', 'fuelcell', 'Fuel cells convert reactants directly into electricity.'],
+            ['Power a long-endurance unmanned vehicle that can carry dedicated fuel and oxidizer.', 'fuelcell', 'Fuel cells can support efficient, quiet endurance missions.'],
+            ['Produce continuous electrical power from hydrogen and oxygen without a combustion turbine.', 'fuelcell', 'A fuel cell uses electrochemical conversion rather than combustion.'],
+            ['Supply large continuous power aboard a ship using rotating machinery and fuel.', 'turbine', 'Turbine generators are suited to high-output continuous generation.'],
+            ['Generate substantial propulsion and electrical power from a compact high-speed machine.', 'turbine', 'Gas turbines provide high power density.'],
+            ['Rapidly produce high electrical output from liquid fuel for a large platform.', 'turbine', 'A fueled turbine generator can deliver substantial power.'],
+            ['Recharge a low-power ocean sensor during long periods in sunlight.', 'solar', 'Solar panels convert sunlight into electricity for persistent low-power systems.'],
+            ['Extend the endurance of an unmanned surface vehicle operating mostly in daylight.', 'solar', 'Solar energy can replenish onboard storage during daylight.'],
+            ['Power a remote buoy where fuel delivery is difficult and average demand is low.', 'solar', 'Solar generation is useful for remote low-power installations.'],
+            ['Store energy produced now for use during a later high-demand period.', 'battery', 'A battery stores electrical energy for later use.'],
+            ['Provide instant emergency power while another generator starts.', 'battery', 'Batteries respond immediately and are effective for short backup intervals.'],
+            ['Capture regenerative energy from an electric drive system.', 'battery', 'Rechargeable batteries can accept and later return recovered electrical energy.'],
+            ['Power a quiet long-duration sensor from continuously supplied reactants.', 'fuelcell', 'Fuel cells generate electricity electrochemically with few moving parts.'],
+            ['Convert hydrogen-rich fuel directly into electrical energy.', 'fuelcell', 'A fuel cell converts chemical energy to electricity without a turbine cycle.'],
+            ['Support persistent low-vibration electrical generation in a remote system.', 'fuelcell', 'Fuel cells can provide quiet continuous power.'],
+            ['Drive a high-output generator where compact power density is important.', 'turbine', 'Turbines are useful when substantial continuous power is required.'],
+            ['Produce large-scale shipboard electrical power from combustible fuel.', 'turbine', 'A turbine generator converts fuel energy into high electrical output.'],
+            ['Meet a sustained propulsion demand too large for a small renewable source.', 'turbine', 'Fuel-powered turbines can support substantial continuous loads.'],
+            ['Maintain a low-power buoy for months in a sunny region.', 'solar', 'Solar panels can repeatedly recharge storage for low-power remote systems.'],
+            ['Supplement daytime power on a long-endurance surface drone.', 'solar', 'Solar generation can extend endurance while sunlight is available.'],
+            ['Operate a remote weather instrument where regular refueling is impractical.', 'solar', 'Solar power is useful for persistent low-demand remote installations.'],
+          ]
+        },
+        {
+          title: 'Quantum Naval Science',
+          connection: 'Quantum sensing, communications, computation, and simulation for future naval capabilities.',
+          choices: [
+            { id: 'qsense', label: 'Quantum sensing' },
+            { id: 'qcomm', label: 'Quantum communication' },
+            { id: 'qcompute', label: 'Quantum computing' },
+            { id: 'qsim', label: 'Quantum simulation' }
+          ],
+          questions: [
+            ['Measure extremely small changes in gravity or acceleration.', 'qsense', 'Quantum sensors exploit well-controlled quantum states for precision measurement.'],
+            ['Detect tiny magnetic-field variations using atomic or solid-state quantum systems.', 'qsense', 'Quantum magnetometers can be exceptionally sensitive to magnetic fields.'],
+            ['Improve precision timing using transitions between quantum energy levels.', 'qsense', 'Atomic clocks are quantum sensors for time and frequency.'],
+            ['Distribute quantum states between separated network nodes.', 'qcomm', 'Quantum communication transfers quantum information between locations.'],
+            ['Create a link designed to reveal certain forms of interception through measurement disturbance.', 'qcomm', 'Quantum communication protocols can expose some eavesdropping attempts.'],
+            ['Connect distant quantum processors so they can share entanglement.', 'qcomm', 'A quantum network distributes entanglement and quantum states.'],
+            ['Run a quantum algorithm aimed at a difficult optimization subproblem.', 'qcompute', 'Quantum computing processes information with qubits and quantum operations.'],
+            ['Explore whether a quantum processor can accelerate a specialized computational task.', 'qcompute', 'Quantum computing is intended for algorithmic information processing.'],
+            ['Manipulate qubits through gates to obtain a computational result.', 'qcompute', 'Gate operations are the core actions of a quantum computer.'],
+            ['Reproduce the behavior of a complicated quantum material in a controllable system.', 'qsim', 'Quantum simulation emulates one quantum system with another.'],
+            ['Study molecular quantum behavior using a purpose-built quantum model.', 'qsim', 'Quantum simulators can represent difficult many-body or molecular dynamics.'],
+            ['Test how interacting quantum particles behave under tunable conditions.', 'qsim', 'Quantum simulation focuses on modeling quantum physical systems.'],
+            ['Use atomic interference to improve inertial measurements.', 'qsense', 'Quantum sensing can exploit matter-wave interference for precise acceleration and rotation measurements.'],
+            ['Detect extremely weak magnetic signals with controlled quantum states.', 'qsense', 'Quantum magnetometers use sensitive quantum transitions or spin states.'],
+            ['Keep exceptionally stable time for navigation and synchronization.', 'qsense', 'Atomic clocks are precision quantum sensors for time.'],
+            ['Share entanglement between two separated laboratories.', 'qcomm', 'Quantum communication distributes entangled quantum states.'],
+            ['Transmit quantum information from one node to another.', 'qcomm', 'Quantum communication moves qubits or quantum states across a network.'],
+            ['Create a network link for coordinating distant quantum devices.', 'qcomm', 'Quantum networking connects separated quantum systems.'],
+            ['Apply gates to qubits to evaluate a specialized algorithm.', 'qcompute', 'Quantum computing performs algorithmic operations on quantum information.'],
+            ['Test whether a quantum processor helps with a difficult scheduling problem.', 'qcompute', 'Optimization is one area investigated for quantum computational advantage.'],
+            ['Use measured qubit outcomes to produce the result of a computation.', 'qcompute', 'Quantum computers obtain results by preparing, manipulating, and measuring qubits.'],
+            ['Emulate the interactions inside a strongly correlated material.', 'qsim', 'Quantum simulation reproduces the behavior of a target quantum system.'],
+            ['Build a controllable quantum system that behaves like a difficult molecule.', 'qsim', 'A quantum simulator can model molecular quantum dynamics.'],
+            ['Study many interacting particles under adjustable quantum conditions.', 'qsim', 'Quantum simulation is designed for controlled investigation of many-body physics.'],
+          ]
+        }
+      ];
+
+      const chapters = [
+        {
+          title: 'Chapter I: Sensing the Maritime Environment',
+          placement: 'After Lesson 05, before SensorShip — Easy',
+          description: 'Choose the right undersea or electromagnetic sensing method for the mission.',
+          rounds: [1, 0]
+        },
+        {
+          title: 'Chapter II: Platform Health and Power',
+          placement: 'After Lesson 10, before SensorShip — Medium',
+          description: 'Match inspection methods and power sources to shipboard needs.',
+          rounds: [5, 6]
+        },
+        {
+          title: 'Chapter III: Assured Operations in a Contested Environment',
+          placement: 'After Lesson 14, before Lesson 15',
+          description: 'Navigate without GPS and distinguish electronic-warfare actions.',
+          rounds: [2, 3]
+        },
+        {
+          title: 'Chapter IV: Distributed and Future Naval Systems',
+          placement: 'After Lesson 15 as the course capstone',
+          description: 'Assign swarm roles and separate the major quantum capability areas.',
+          rounds: [4, 7]
+        }
+      ];
+
+      const roundBriefings = {
+        'Undersea Detection': [
+          '<strong>Active sonar</strong> transmits sound and measures echoes. It can range quiet objects, but the transmission may reveal the sensor.',
+          '<strong>Passive sonar</strong> only listens. It is covert and useful for machinery signatures, but a single sensor usually does not obtain direct range.',
+          '<strong>Magnetic sensing</strong> detects disturbances caused by ferromagnetic metal, including objects hidden in sediment or poor visibility.',
+          '<strong>Optical imaging</strong> provides the finest visual detail, but generally requires clear water, light, and short range.'
+        ],
+        'Electromagnetic Sensing': [
+          '<strong>Radio communications</strong> carry information over distance and do not require visual contact between platforms.',
+          '<strong>Microwave radar</strong> uses transmitted energy and echoes to measure range, motion, and wide-area structure in darkness or clouds.',
+          '<strong>Visible imaging</strong> uses reflected light and is best for color, markings, shape, and fine daylight detail.',
+          '<strong>Infrared sensing</strong> detects emitted heat, making warm equipment, fires, and people visible even without daylight.'
+        ],
+        'Materials and Ship Health': [
+          '<strong>Ultrasound</strong> sends mechanical waves through material to find internal flaws, delamination, or remaining wall thickness.',
+          '<strong>X-ray imaging</strong> uses penetrating radiation to reveal hidden density differences, voids, weld defects, and concealed parts.',
+          '<strong>Infrared thermography</strong> maps surface temperature and is especially useful for operating equipment, hot connections, and poor cooling.',
+          '<strong>Eddy-current sensing</strong> works on conductive materials and is strongest for near-surface cracks, conductivity changes, and corrosion.'
+        ],
+        'Naval Power and Energy': [
+          '<strong>Batteries</strong> store energy, respond immediately, and operate silently, but their endurance is limited by stored charge.',
+          '<strong>Fuel cells</strong> convert supplied reactants directly into electricity with few moving parts and can provide quiet sustained power.',
+          '<strong>Turbine generators</strong> burn fuel to provide large, continuous, high-power output, with accompanying heat, noise, and moving machinery.',
+          '<strong>Solar power</strong> can replenish persistent low-power systems, but output depends on sunlight and usually requires energy storage.'
+        ],
+        'Navigation Without GPS': [
+          '<strong>Inertial navigation</strong> uses accelerometers and gyroscopes, works without external signals, and provides rapid updates, but its error drifts over time.',
+          '<strong>Celestial navigation</strong> uses the Sun, stars, horizon, and accurate time to obtain an independent external fix.',
+          '<strong>Terrain or bathymetric matching</strong> compares measured features with a stored map and works best where the environment is distinctive and well charted.',
+          '<strong>Quantum sensing</strong> may improve measurements of acceleration, rotation, gravity, magnetic fields, and time for future assured navigation.'
+        ],
+        'Electronic Warfare': [
+          '<strong>Detect</strong> means observing, classifying, warning on, or locating electromagnetic emissions without intentionally interfering.',
+          '<strong>Jam</strong> means adding interference so an adversary receiver cannot recover or use its desired signal.',
+          '<strong>Deceive</strong> means presenting plausible false information, such as an incorrect range, motion, or target location.',
+          '<strong>Communicate covertly</strong> means reducing detectability through directionality, low power, short transmissions, or agile waveforms.'
+        ],
+        'Autonomous Swarms': [
+          '<strong>Scout</strong> vehicles move ahead or into riskier areas to reduce uncertainty for the rest of the group.',
+          '<strong>Relay</strong> vehicles preserve communication paths and bridge platforms that cannot connect directly.',
+          '<strong>Decoy</strong> vehicles deliberately attract attention or imitate a more valuable platform.',
+          '<strong>Collaborative</strong> vehicles divide tasks, share measurements, fuse data, and adapt when members leave the network.'
+        ],
+        'Quantum Naval Science': [
+          '<strong>Quantum sensing</strong> uses controlled quantum states to measure time, motion, gravity, or magnetic fields with high precision.',
+          '<strong>Quantum communication</strong> distributes quantum states or entanglement between separated nodes.',
+          '<strong>Quantum computing</strong> manipulates qubits with gates to carry out algorithms and produce computational results.',
+          '<strong>Quantum simulation</strong> uses one controllable quantum system to reproduce and study the behavior of another.'
+        ]
+      };
+
+      const pieces = {
+        I: [[1,1,1,1]],
+        O: [[1,1],[1,1]],
+        T: [[0,1,0],[1,1,1]],
+        S: [[0,1,1],[1,1,0]],
+        Z: [[1,1,0],[0,1,1]],
+        J: [[1,0,0],[1,1,1]],
+        L: [[0,0,1],[1,1,1]]
+      };
+
+      const pieceColors = ['#4575d4', '#e4ad3b', '#8e64cc', '#3e9d71', '#d96666', '#3f95b8', '#dd7b3f'];
+      const keyLetters = ['A', 'S', 'D', 'F'];
+      const keyNames = ['a', 's', 'd', 'f'];
+
+      const root = document.getElementById('game');
+      const canvas = document.getElementById('board');
+      const ctx = canvas.getContext('2d');
+      const nextCanvas = document.getElementById('nextPiece');
+      const nextCtx = nextCanvas.getContext('2d');
+      const answerButtons = [...root.querySelectorAll('.answer')];
+
+      const width = 10;
+      const height = 18;
+      const cellSize = 30;
+      const piecesPerRound = 20;
+      const wrongPenaltyPerAnswerMs = 30;
+      const pressureRowInterval = 3;
+      const minimumFallDelayMs = 110;
+      const pressureRowColor = '#9aa4b2';
+
+      let grid = [];
+      let activePiece = null;
+      let bag = [];
+      let nextPieceTypeQueued = null;
+      let wrongAnswerPenaltyMs = 0;
+      let wrongAnswersThisRound = 0;
+      let pressureRowsAdded = 0;
+      let currentRound = 0;
+      let activeRoundIndexes = [];
+      let activeSequencePosition = 0;
+      let selectedChapterIndex = null;
+      let playingFullCourse = false;
+      let roundQuestions = [];
+      let currentQuestion = null;
+      let piecesLockedThisRound = 0;
+      let roundCorrect = 0;
+      let roundAnswered = 0;
+      let totalCorrect = 0;
+      let totalAnswered = 0;
+      let totalLines = 0;
+      let roundLines = 0;
+      let score = 0;
+      let answered = false;
+      let rotationUnlocked = false;
+      let running = false;
+      let paused = false;
+      let animationFrame = 0;
+      let lastTime = 0;
+      let fallAccumulator = 0;
+      let overlayAction = null;
+
+      const $ = id => document.getElementById(id);
+
+      function shuffled(array) {
+        const result = [...array];
+        for (let i = result.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [result[i], result[j]] = [result[j], result[i]];
+        }
+        return result;
+      }
+
+      function resetGrid() {
+        grid = Array.from({ length: height }, () => Array(width).fill(null));
+      }
+
+      function nextPieceType() {
+        if (!bag.length) bag = shuffled(Object.keys(pieces));
+        return bag.pop();
+      }
+
+      function updateMetrics() {
+        const hasSequence = activeRoundIndexes.length > 0;
+        $('score').textContent = score.toLocaleString();
+        $('lines').textContent = totalLines;
+        $('roundMetric').textContent = hasSequence
+          ? `${activeSequencePosition + 1} / ${activeRoundIndexes.length}`
+          : '—';
+        $('accuracy').textContent = totalAnswered ? `${Math.round(totalCorrect / totalAnswered * 100)}%` : '—';
+        $('rotationKey').textContent = rotationUnlocked && currentQuestion
+          ? `🔓 ${keyLetters[currentQuestion.correctIndex]} ↻`
+          : '🔒 Unknown';
+
+        $('roundName').textContent = hasSequence
+          ? rounds[currentRound].title
+          : 'Choose a course chapter';
+        $('pieceCount').textContent = `${piecesLockedThisRound} / ${piecesPerRound}`;
+        $('progressFill').style.width = `${piecesLockedThisRound / piecesPerRound * 100}%`;
+        $('penaltyDisplay').textContent = `Miss pressure: ${wrongAnswerPenaltyMs} ms · ${pressureRowsAdded} row${pressureRowsAdded === 1 ? '' : 's'}`;
+      }
+
+      function configureRoundChoices() {
+        const round = rounds[currentRound];
+        answerButtons.forEach((button, index) => {
+          button.disabled = false;
+          button.classList.remove('good', 'bad', 'rotate-key');
+          button.querySelector('.answer-label').textContent = round.choices[index].label;
+          button.setAttribute('aria-label', `${keyLetters[index]}: ${round.choices[index].label}`);
+        });
+        $('questionKicker').textContent = round.title;
+      }
+
+      function prepareRound() {
+        resetGrid();
+        bag = [];
+        nextPieceTypeQueued = nextPieceType();
+        wrongAnswerPenaltyMs = 0;
+        wrongAnswersThisRound = 0;
+        pressureRowsAdded = 0;
+        piecesLockedThisRound = 0;
+        roundCorrect = 0;
+        roundAnswered = 0;
+        roundLines = 0;
+        roundQuestions = shuffled(rounds[currentRound].questions).slice(0, piecesPerRound);
+        activePiece = null;
+        answered = false;
+        rotationUnlocked = false;
+        configureRoundChoices();
+        updateMetrics();
+        draw();
+        drawNextPiece();
+      }
+
+      function showOverlay({ eyebrow, title, text, content = '', buttonText, action }) {
+        running = false;
+        cancelAnimationFrame(animationFrame);
+        $('overlayEyebrow').textContent = eyebrow;
+        $('overlayTitle').textContent = title;
+        $('overlayText').textContent = text;
+        $('overlayContent').innerHTML = content;
+        $('overlayButton').textContent = buttonText;
+        overlayAction = action;
+        $('overlay').classList.remove('hidden');
+        $('pauseButton').disabled = true;
+      }
+
+      function hideOverlay() {
+        $('overlay').classList.add('hidden');
+      }
+
+      function chapterMenuHtml() {
+        return `<div class="chapter-grid">${
+          chapters.map((chapter, index) => {
+            const roundNames = chapter.rounds.map(roundIndex => rounds[roundIndex].title).join(' + ');
+            return `
+              <button class="chapter-card" data-chapter-index="${index}">
+                <span class="chapter-card-title">${chapter.title}</span>
+                <span class="chapter-card-rounds">${roundNames}</span>
+                <span class="chapter-card-placement">${chapter.placement}</span>
+              </button>`;
+          }).join('')
+        }</div>`;
+      }
+
+      function roundChoiceHtml(round) {
+        return `<div class="choice-preview">${
+          round.choices.map((choice, index) =>
+            `<div class="choice-preview-item"><strong>${keyLetters[index]}</strong> — ${choice.label}</div>`
+          ).join('')
+        }</div>`;
+      }
+
+      function roundBriefingHtml(round, chapter) {
+        const facts = roundBriefings[round.title] || [];
+        return `
+          <div class="placement-note">${chapter.placement}</div>
+          <div class="briefing">
+            <div class="briefing-title">Key information</div>
+            <ul>${facts.map(fact => `<li>${fact}</li>`).join('')}</ul>
+          </div>
+          <div class="placement-note"><strong>Round pressure:</strong> 20 pieces. Each wrong or unanswered piece adds ${wrongPenaltyPerAnswerMs} ms of falling speed. Every ${pressureRowInterval} misses raises a nearly full row from below.</div>
+          ${roundChoiceHtml(round)}`;
+      }
+
+      function resetExperienceStats() {
+        totalCorrect = 0;
+        totalAnswered = 0;
+        totalLines = 0;
+        score = 0;
+        paused = false;
+        piecesLockedThisRound = 0;
+        wrongAnswerPenaltyMs = 0;
+        wrongAnswersThisRound = 0;
+        pressureRowsAdded = 0;
+      }
+
+      function startChapter(index) {
+        selectedChapterIndex = index;
+        playingFullCourse = false;
+        activeRoundIndexes = [...chapters[index].rounds];
+        activeSequencePosition = 0;
+        currentRound = activeRoundIndexes[0];
+        resetExperienceStats();
+        updateMetrics();
+        showRoundIntro();
+      }
+
+      function startFullCourse() {
+        selectedChapterIndex = null;
+        playingFullCourse = true;
+        activeRoundIndexes = chapters.flatMap(chapter => chapter.rounds);
+        activeSequencePosition = 0;
+        currentRound = activeRoundIndexes[0];
+        resetExperienceStats();
+        updateMetrics();
+        showRoundIntro();
+      }
+
+      function chapterForRound(roundIndex) {
+        return chapters.find(chapter => chapter.rounds.includes(roundIndex));
+      }
+
+      function showChapterMenu() {
+        running = false;
+        paused = false;
+        cancelAnimationFrame(animationFrame);
+        activeRoundIndexes = [];
+        activeSequencePosition = 0;
+        selectedChapterIndex = null;
+        playingFullCourse = false;
+        resetExperienceStats();
+        activePiece = null;
+        bag = [];
+        nextPieceTypeQueued = null;
+        piecesLockedThisRound = 0;
+        currentQuestion = null;
+        answered = false;
+        rotationUnlocked = false;
+        resetGrid();
+        $('questionKicker').textContent = 'Choose the best technology';
+        $('question').textContent = 'Choose a chapter to begin.';
+        $('feedback').textContent = 'The correct answer key rotates the piece.';
+        updateMetrics();
+        draw();
+        drawNextPiece();
+
+        showOverlay({
+          eyebrow: 'Navy basic-sailor course',
+          title: 'Choose a Spectrum Stack chapter',
+          text: 'Each chapter has two 20-piece rounds. Every round begins with a concise key-information briefing. Wrong or unanswered pieces accelerate the fall, and every third miss raises a pressure row.',
+          content: chapterMenuHtml(),
+          buttonText: 'Play all four chapters',
+          action: startFullCourse
+        });
+      }
+
+      function showRoundIntro() {
+        prepareRound();
+        const round = rounds[currentRound];
+        const chapter = chapterForRound(currentRound);
+        const roundInChapter = chapter.rounds.indexOf(currentRound) + 1;
+        const sequenceLabel = playingFullCourse
+          ? `Full course • Round ${activeSequencePosition + 1} of ${activeRoundIndexes.length}`
+          : `${chapter.title} • Round ${roundInChapter} of ${chapter.rounds.length}`;
+
+        showOverlay({
+          eyebrow: sequenceLabel,
+          title: round.title,
+          text: round.connection,
+          content: roundBriefingHtml(round, chapter),
+          buttonText: 'Start round',
+          action: beginRound
+        });
+      }
+
+      function beginRound() {
+        hideOverlay();
+        running = true;
+        paused = false;
+        $('pauseButton').disabled = false;
+        $('pauseButton').textContent = 'Pause';
+        spawnPiece();
+        lastTime = performance.now();
+        fallAccumulator = 0;
+        animationFrame = requestAnimationFrame(gameLoop);
+      }
+
+      function spawnPiece() {
+        if (!roundQuestions.length) {
+          completeRound();
+          return;
+        }
+
+        const type = nextPieceTypeQueued || nextPieceType();
+        nextPieceTypeQueued = nextPieceType();
+        activePiece = {
+          matrix: pieces[type].map(row => [...row]),
+          x: Math.floor((width - pieces[type][0].length) / 2),
+          y: 0,
+          color: pieceColors[Object.keys(pieces).indexOf(type)]
+        };
+
+        const question = roundQuestions.shift();
+        const correctIndex = rounds[currentRound].choices.findIndex(choice => choice.id === question[1]);
+
+        currentQuestion = {
+          prompt: question[0],
+          correctId: question[1],
+          explanation: question[2],
+          correctIndex
+        };
+
+        answered = false;
+        rotationUnlocked = false;
+        $('question').textContent = currentQuestion.prompt;
+        $('feedback').textContent = 'The correct answer key will rotate the piece.';
+
+        answerButtons.forEach((button, index) => {
+          button.disabled = false;
+          button.classList.remove('good', 'bad', 'rotate-key');
+          button.querySelector('.answer-label').textContent = rounds[currentRound].choices[index].label;
+        });
+
+        updateMetrics();
+        drawNextPiece();
+
+        if (collision(activePiece.matrix, activePiece.x, activePiece.y)) {
+          gameOver();
+        }
+      }
+
+      function collision(matrix, offsetX, offsetY) {
+        for (let y = 0; y < matrix.length; y++) {
+          for (let x = 0; x < matrix[y].length; x++) {
+            if (!matrix[y][x]) continue;
+            const boardX = offsetX + x;
+            const boardY = offsetY + y;
+            if (
+              boardX < 0 ||
+              boardX >= width ||
+              boardY >= height ||
+              (boardY >= 0 && grid[boardY][boardX])
+            ) return true;
+          }
+        }
+        return false;
+      }
+
+      function moveHorizontal(direction) {
+        if (!running || paused || !activePiece) return;
+        if (!collision(activePiece.matrix, activePiece.x + direction, activePiece.y)) {
+          activePiece.x += direction;
+        }
+      }
+
+      function softDrop() {
+        if (!running || paused || !activePiece) return;
+        activePiece.y++;
+        if (collision(activePiece.matrix, activePiece.x, activePiece.y)) {
+          activePiece.y--;
+          lockPiece();
+        } else {
+          score += 1;
+          updateMetrics();
+        }
+      }
+
+      function hardDrop() {
+        if (!running || paused || !activePiece) return;
+        if (!answered) {
+          $('feedback').textContent = 'Choose an answer before using hard drop. If the piece locks unanswered, it counts as a miss.';
+          return;
+        }
+        let distance = 0;
+        while (!collision(activePiece.matrix, activePiece.x, activePiece.y + 1)) {
+          activePiece.y++;
+          distance++;
+        }
+        score += distance * 2;
+        updateMetrics();
+        lockPiece();
+      }
+
+      function rotatePiece() {
+        if (!running || paused || !activePiece || !rotationUnlocked) return;
+        const rotated = activePiece.matrix[0].map((_, index) =>
+          activePiece.matrix.map(row => row[index]).reverse()
+        );
+
+        for (const kick of [0, -1, 1, -2, 2]) {
+          if (!collision(rotated, activePiece.x + kick, activePiece.y)) {
+            activePiece.matrix = rotated;
+            activePiece.x += kick;
+            break;
+          }
+        }
+      }
+
+      function answerOrRotate(index) {
+        if (!running || paused || !currentQuestion) return;
+
+        if (answered) {
+          if (rotationUnlocked && index === currentQuestion.correctIndex) rotatePiece();
+          return;
+        }
+
+        answered = true;
+        totalAnswered++;
+        roundAnswered++;
+
+        const correct = index === currentQuestion.correctIndex;
+
+        answerButtons.forEach((button, buttonIndex) => {
+          if (buttonIndex === currentQuestion.correctIndex) button.classList.add('good');
+          if (buttonIndex === index && !correct) button.classList.add('bad');
+        });
+
+        if (correct) {
+          totalCorrect++;
+          roundCorrect++;
+          rotationUnlocked = true;
+          score += 100;
+
+          const correctButton = answerButtons[currentQuestion.correctIndex];
+          correctButton.classList.add('rotate-key');
+          correctButton.querySelector('.answer-label').textContent =
+            `${rounds[currentRound].choices[currentQuestion.correctIndex].label} · Rotate ↻`;
+
+          answerButtons.forEach((button, buttonIndex) => {
+            if (buttonIndex !== currentQuestion.correctIndex) button.disabled = true;
+          });
+
+          $('feedback').textContent =
+            `Correct — ${keyLetters[currentQuestion.correctIndex]} now rotates. ${currentQuestion.explanation}`;
+
+          rotatePiece();
+        } else {
+          answerButtons.forEach(button => button.disabled = true);
+          const pressureRaised = applyMistakePenalty();
+          if (!running) return;
+          $('feedback').textContent =
+            `Not quite. Rotation stays locked. Fall speed penalty is now ${wrongAnswerPenaltyMs} ms.${pressureRaised ? ' A pressure row rose from below.' : ''} ${currentQuestion.explanation}`;
+        }
+
+        updateMetrics();
+      }
+
+      function addPressureRow() {
+        const topWasOccupied = grid[0].some(Boolean);
+        grid.shift();
+        const hole = Math.floor(Math.random() * width);
+        grid.push(Array.from({ length: width }, (_, index) =>
+          index === hole ? null : pressureRowColor
+        ));
+        pressureRowsAdded++;
+        updateMetrics();
+        draw();
+
+        if (topWasOccupied || (activePiece && collision(activePiece.matrix, activePiece.x, activePiece.y))) {
+          gameOver();
+          return false;
+        }
+        return true;
+      }
+
+      function applyMistakePenalty() {
+        wrongAnswersThisRound++;
+        wrongAnswerPenaltyMs += wrongPenaltyPerAnswerMs;
+        score = Math.max(0, score - 50);
+        const shouldRaisePressure = wrongAnswersThisRound % pressureRowInterval === 0;
+        updateMetrics();
+        if (shouldRaisePressure) return addPressureRow();
+        return false;
+      }
+
+      function lockPiece() {
+        if (!activePiece) return;
+
+        const lockedPiece = activePiece;
+        const lockedWithoutAnswer = !answered;
+
+        lockedPiece.matrix.forEach((row, y) => {
+          row.forEach((value, x) => {
+            if (value && lockedPiece.y + y >= 0) {
+              grid[lockedPiece.y + y][lockedPiece.x + x] = lockedPiece.color;
+            }
+          });
+        });
+
+        activePiece = null;
+        clearLines();
+
+        if (lockedWithoutAnswer) {
+          answered = true;
+          totalAnswered++;
+          roundAnswered++;
+          const pressureRaised = applyMistakePenalty();
+          if (!running) return;
+          $('feedback').textContent =
+            `No answer before the piece locked, so it counted as a miss. Penalty: ${wrongAnswerPenaltyMs} ms.${pressureRaised ? ' A pressure row rose from below.' : ''}`;
+        }
+
+        piecesLockedThisRound++;
+        updateMetrics();
+
+        if (piecesLockedThisRound >= piecesPerRound) {
+          completeRound();
+        } else {
+          spawnPiece();
+        }
+      }
+
+      function clearLines() {
+        let cleared = 0;
+
+        for (let y = height - 1; y >= 0; y--) {
+          if (grid[y].every(Boolean)) {
+            grid.splice(y, 1);
+            grid.unshift(Array(width).fill(null));
+            cleared++;
+            y++;
+          }
+        }
+
+        if (cleared) {
+          totalLines += cleared;
+          roundLines += cleared;
+          score += [0, 100, 300, 500, 800][cleared];
+        }
+      }
+
+      function completeRound() {
+        running = false;
+        cancelAnimationFrame(animationFrame);
+
+        const roundAccuracy = roundAnswered ? Math.round(roundCorrect / roundAnswered * 100) : 0;
+        const stats = `
+          <div class="overlay-stats">
+            <div class="overlay-stat">
+              <div class="overlay-stat-label">Accuracy</div>
+              <div class="overlay-stat-value">${roundAccuracy}%</div>
+            </div>
+            <div class="overlay-stat">
+              <div class="overlay-stat-label">Lines</div>
+              <div class="overlay-stat-value">${roundLines}</div>
+            </div>
+            <div class="overlay-stat">
+              <div class="overlay-stat-label">Score</div>
+              <div class="overlay-stat-value">${score.toLocaleString()}</div>
+            </div>
+          </div>`;
+
+        const isFinalRound = activeSequencePosition === activeRoundIndexes.length - 1;
+
+        if (isFinalRound) {
+          const overallAccuracy = totalAnswered ? Math.round(totalCorrect / totalAnswered * 100) : 0;
+          const completedTitle = playingFullCourse
+            ? 'Full Spectrum Stack course completed'
+            : `${chapters[selectedChapterIndex].title} completed`;
+          const completedText = playingFullCourse
+            ? 'You finished all four course chapters and all eight naval-science rounds.'
+            : 'You finished both rounds in this course chapter.';
+
+          showOverlay({
+            eyebrow: playingFullCourse ? 'Full course complete' : 'Chapter complete',
+            title: completedTitle,
+            text: completedText,
+            content: `
+              <div class="overlay-stats">
+                <div class="overlay-stat">
+                  <div class="overlay-stat-label">Overall accuracy</div>
+                  <div class="overlay-stat-value">${overallAccuracy}%</div>
+                </div>
+                <div class="overlay-stat">
+                  <div class="overlay-stat-label">Total lines</div>
+                  <div class="overlay-stat-value">${totalLines}</div>
+                </div>
+                <div class="overlay-stat">
+                  <div class="overlay-stat-label">Final score</div>
+                  <div class="overlay-stat-value">${score.toLocaleString()}</div>
+                </div>
+              </div>`,
+            buttonText: 'Return to chapter menu',
+            action: showChapterMenu
+          });
+        } else {
+          const nextRoundIndex = activeRoundIndexes[activeSequencePosition + 1];
+          const nextChapter = chapterForRound(nextRoundIndex);
+          const currentChapter = chapterForRound(currentRound);
+          const movingToNewChapter = nextChapter !== currentChapter;
+
+          showOverlay({
+            eyebrow: `Round ${activeSequencePosition + 1} complete`,
+            title: rounds[currentRound].title,
+            text: movingToNewChapter
+              ? `Next: ${nextChapter.title}. The board and technology choices will reset.`
+              : 'The board will reset and the four technology choices will change for the second round.',
+            content: stats,
+            buttonText: movingToNewChapter ? 'Start next chapter' : 'Next round',
+            action: () => {
+              activeSequencePosition++;
+              currentRound = activeRoundIndexes[activeSequencePosition];
+              showRoundIntro();
+            }
+          });
+        }
+      }
+
+      function gameOver() {
+        running = false;
+        cancelAnimationFrame(animationFrame);
+        const overallAccuracy = totalAnswered ? Math.round(totalCorrect / totalAnswered * 100) : 0;
+
+        showOverlay({
+          eyebrow: 'Stack reached the top',
+          title: 'Mission ended',
+          text: 'Retry this course experience, or use the Chapter menu button to choose another chapter.',
+          content: `
+            <div class="overlay-stats">
+              <div class="overlay-stat">
+                <div class="overlay-stat-label">Accuracy</div>
+                <div class="overlay-stat-value">${overallAccuracy}%</div>
+              </div>
+              <div class="overlay-stat">
+                <div class="overlay-stat-label">Lines</div>
+                <div class="overlay-stat-value">${totalLines}</div>
+              </div>
+              <div class="overlay-stat">
+                <div class="overlay-stat-label">Score</div>
+                <div class="overlay-stat-value">${score.toLocaleString()}</div>
+              </div>
+            </div>`,
+          buttonText: playingFullCourse ? 'Retry full course' : 'Retry chapter',
+          action: playingFullCourse ? startFullCourse : () => startChapter(selectedChapterIndex)
+        });
+      }
+
+      function pauseGame() {
+        if (!running) return;
+        paused = !paused;
+        $('pauseButton').textContent = paused ? 'Resume' : 'Pause';
+
+        if (paused) {
+          cancelAnimationFrame(animationFrame);
+          draw();
+          drawPauseScreen();
+        } else {
+          lastTime = performance.now();
+          fallAccumulator = 0;
+          animationFrame = requestAnimationFrame(gameLoop);
+        }
+      }
+
+      function drawPauseScreen() {
+        ctx.save();
+        ctx.globalAlpha = .82;
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = '#172033';
+        ctx.textAlign = 'center';
+        ctx.font = '700 24px system-ui';
+        ctx.fillText('Paused', canvas.width / 2, canvas.height / 2);
+        ctx.restore();
+      }
+
+      function drawCell(x, y, color, alpha = 1) {
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = color;
+        ctx.fillRect(x * cellSize + 1, y * cellSize + 1, cellSize - 2, cellSize - 2);
+        ctx.globalAlpha = 1;
+      }
+
+      function drawNextPiece() {
+        nextCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
+        nextCtx.fillStyle = 'rgba(248, 250, 252, 0.72)';
+        nextCtx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+
+        if (!nextPieceTypeQueued) return;
+
+        const matrix = pieces[nextPieceTypeQueued];
+        const color = pieceColors[Object.keys(pieces).indexOf(nextPieceTypeQueued)];
+        const previewCell = 14;
+        const matrixWidth = matrix[0].length * previewCell;
+        const matrixHeight = matrix.length * previewCell;
+        const offsetX = Math.floor((nextCanvas.width - matrixWidth) / 2);
+        const offsetY = Math.floor((nextCanvas.height - matrixHeight) / 2);
+
+        matrix.forEach((row, y) => {
+          row.forEach((value, x) => {
+            if (!value) return;
+            nextCtx.fillStyle = color;
+            nextCtx.fillRect(
+              offsetX + x * previewCell + 1,
+              offsetY + y * previewCell + 1,
+              previewCell - 2,
+              previewCell - 2
+            );
+          });
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.strokeStyle = '#d8dee8';
+        ctx.globalAlpha = .58;
+
+        for (let x = 0; x <= width; x++) {
+          ctx.beginPath();
+          ctx.moveTo(x * cellSize, 0);
+          ctx.lineTo(x * cellSize, height * cellSize);
+          ctx.stroke();
+        }
+
+        for (let y = 0; y <= height; y++) {
+          ctx.beginPath();
+          ctx.moveTo(0, y * cellSize);
+          ctx.lineTo(width * cellSize, y * cellSize);
+          ctx.stroke();
+        }
+
+        ctx.globalAlpha = 1;
+
+        grid.forEach((row, y) => {
+          row.forEach((color, x) => {
+            if (color) drawCell(x, y, color);
+          });
+        });
+
+        if (activePiece && running) {
+          let ghostY = activePiece.y;
+          while (!collision(activePiece.matrix, activePiece.x, ghostY + 1)) ghostY++;
+
+          activePiece.matrix.forEach((row, y) => {
+            row.forEach((value, x) => {
+              if (value) drawCell(activePiece.x + x, ghostY + y, activePiece.color, .18);
+            });
+          });
+
+          activePiece.matrix.forEach((row, y) => {
+            row.forEach((value, x) => {
+              if (value) drawCell(activePiece.x + x, activePiece.y + y, activePiece.color);
+            });
+          });
+        }
+      }
+
+      function gameLoop(time) {
+        if (!running || paused) return;
+
+        fallAccumulator += time - lastTime;
+        lastTime = time;
+
+        const phase = Math.floor(piecesLockedThisRound / 5);
+        const fallDelay = Math.max(
+          minimumFallDelayMs,
+          620 - currentRound * 35 - phase * 30 - wrongAnswerPenaltyMs
+        );
+
+        if (fallAccumulator >= fallDelay) {
+          activePiece.y++;
+          if (collision(activePiece.matrix, activePiece.x, activePiece.y)) {
+            activePiece.y--;
+            lockPiece();
+          }
+          fallAccumulator = 0;
+        }
+
+        draw();
+        animationFrame = requestAnimationFrame(gameLoop);
+      }
+
+      $('overlayButton').addEventListener('click', () => {
+        if (overlayAction) overlayAction();
+      });
+
+      $('pauseButton').addEventListener('click', pauseGame);
+      $('restartButton').addEventListener('click', showChapterMenu);
+
+      answerButtons.forEach((button, index) => {
+        button.addEventListener('click', () => answerOrRotate(index));
+      });
+
+      root.querySelectorAll('.control').forEach(button => {
+        button.addEventListener('click', () => {
+          const action = button.dataset.control;
+          if (action === 'left') moveHorizontal(-1);
+          if (action === 'right') moveHorizontal(1);
+          if (action === 'down') softDrop();
+          if (action === 'drop') hardDrop();
+          draw();
+        });
+      });
+
+      window.addEventListener('keydown', event => {
+        const key = event.key.toLowerCase();
+        const handled = ['a', 's', 'd', 'f', 'arrowleft', 'arrowright', 'arrowdown', ' ', 'p'];
+
+        if (handled.includes(key)) event.preventDefault();
+
+        const answerIndex = keyNames.indexOf(key);
+        if (answerIndex >= 0) answerOrRotate(answerIndex);
+        else if (key === 'arrowleft') moveHorizontal(-1);
+        else if (key === 'arrowright') moveHorizontal(1);
+        else if (key === 'arrowdown') softDrop();
+        else if (key === ' ') hardDrop();
+        else if (key === 'p') pauseGame();
+
+        draw();
+      }, { passive: false });
+
+      $('overlayContent').addEventListener('click', event => {
+        const chapterButton = event.target.closest('[data-chapter-index]');
+        if (!chapterButton) return;
+        startChapter(Number(chapterButton.dataset.chapterIndex));
+      });
+
+      resetGrid();
+      updateMetrics();
+      configureRoundChoices();
+      draw();
+      drawNextPiece();
+
+      // Course integration: ?chapter=1..4 opens that chapter directly; ?return= shows a link back.
+      (function initCourseLink() {
+        const params = new URLSearchParams(window.location.search);
+        const returnTarget = params.get('return');
+        if (returnTarget) {
+          const link = $('returnLink');
+          link.hidden = false;
+          link.setAttribute('href', returnTarget);
+        }
+        const raw = (params.get('chapter') || window.location.hash.replace(/^#(chapter-?)?/i, '')).trim();
+        const requested = Number(raw);
+        if (Number.isInteger(requested) && requested >= 1 && requested <= chapters.length) {
+          startChapter(requested - 1);
+        } else {
+          showChapterMenu();
+        }
+      })();
+    })();
+  </script>
+</body>
+</html>
