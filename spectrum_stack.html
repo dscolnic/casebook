@@ -721,6 +721,7 @@
     </section>
   </main>
 
+  <script src="reckon_course.js"></script>
   <script>
     (() => {
       const rounds = [
@@ -1626,6 +1627,13 @@
       function completeRound() {
         running = false;
         cancelAnimationFrame(animationFrame);
+
+        // Course progress: a genuine round completion (all 20 pieces locked) counts the chapter as solved.
+        const completedChapterIndex = chapters.findIndex(chapter => chapter.rounds.includes(currentRound));
+        const reckonId = completedChapterIndex === 0 ? 'nc_spectrum_1'
+          : completedChapterIndex === 1 ? 'nc_spectrum_2'
+          : 'nc_spectrum_3';
+        if (window.ReckonCourse) window.ReckonCourse.markSolved(reckonId);
 
         const roundAccuracy = roundAnswered ? Math.round(roundCorrect / roundAnswered * 100) : 0;
         const stats = `

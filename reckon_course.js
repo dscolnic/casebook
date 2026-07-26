@@ -21,9 +21,22 @@
   ];
   var WEEK_SET = {}; WEEK_NC.forEach(function (id) { WEEK_SET[id] = true; });
 
+  /* ---- module game chapters -> lesson id ----
+     The multi-chapter modules are graded lessons too. Each course chapter has a
+     stable id below (Spectrum Ch III + IV share the merged lesson nc_spectrum_3). */
+  var MODULE_NC = [
+    "nc_spectrum_1", "nc_spectrum_2", "nc_spectrum_3",
+    "nc_dr_1", "nc_dr_2", "nc_dr_3",
+    "nc_strait_1", "nc_strait_2", "nc_strait_3"
+  ];
+  /* Every graded, non-SensorShip lesson: 15 topic lessons + 9 module chapters. */
+  var LESSON_NC = WEEK_NC.concat(MODULE_NC);
+  var LESSON_SET = {}; LESSON_NC.forEach(function (id) { LESSON_SET[id] = true; });
+
   /* ---- ships: unlock order + metadata (mirrors battleship.html LIB) ----
      You START with the first two (one big Dreadnought, one small Fast Cutter);
-     each odd-numbered lesson completed unlocks the next in this order.        */
+     every third graded lesson completed (SensorShip matches excluded) unlocks
+     the next ship in this order.        */
   var SHIP_ORDER = ["dreadnought", "cutter", "battleship", "destroyer", "carrier",
     "cruiser", "frigate", "submarine", "corvette", "patrol"];
   var SHIPS = {
@@ -58,23 +71,24 @@
   function save(s) { try { localStorage.setItem(progKey(), JSON.stringify(s)); } catch (e) {} }
 
   /* ---- progress math ---- */
-  function completedCount(s) { s = s || load(); var n = 0; for (var k in s.done) if (WEEK_SET[k]) n++; return n; }
-  function unlockedCount(count) { return Math.min(SHIP_ORDER.length, BASE_SHIPS + Math.ceil(count / 2)); }
+  function completedCount(s) { s = s || load(); var n = 0; for (var k in s.done) if (LESSON_SET[k]) n++; return n; }
+  function unlockedCount(count) { return Math.min(SHIP_ORDER.length, BASE_SHIPS + Math.floor(count / 3)); }
   function unlockedShips(count) { return SHIP_ORDER.slice(0, unlockedCount(count)); }
   function isWeekDone(week, s) { s = s || load(); return !!s.done[WEEK_NC[week - 1]]; }
+  function isDone(id, s) { s = s || load(); return !!(id && s.done[id]); }
 
   /* ---- current puzzle id (from hash, or window.NC_ID set by a page) ---- */
   function currentNcId() {
     var h = (location.hash || "").replace(/^#/, "");
-    if (h && /^nc_/.test(h) && WEEK_SET[h]) return h;
-    if (window.NC_ID && WEEK_SET[window.NC_ID]) return window.NC_ID;
+    if (h && /^nc_/.test(h) && LESSON_SET[h]) return h;
+    if (window.NC_ID && LESSON_SET[window.NC_ID]) return window.NC_ID;
     return null;
   }
 
   /* Record a genuine solve of a course puzzle. Fires the in-game unlock popup
      if this solve pushed the player past a new odd-numbered milestone.         */
   function markSolved(id) {
-    if (!id || !WEEK_SET[id]) return false;
+    if (!id || !LESSON_SET[id]) return false;
     var s = load();
     if (s.done[id]) return false;                 // already recorded — no double count
     var before = unlockedCount(completedCount(s));
@@ -203,11 +217,11 @@
   }
 
   window.ReckonCourse = {
-    WEEK_NC: WEEK_NC, SHIP_ORDER: SHIP_ORDER, SHIPS: SHIPS, BASE_SHIPS: BASE_SHIPS, MAX_FLEET: MAX_FLEET,
+    WEEK_NC: WEEK_NC, MODULE_NC: MODULE_NC, LESSON_NC: LESSON_NC, SHIP_ORDER: SHIP_ORDER, SHIPS: SHIPS, BASE_SHIPS: BASE_SHIPS, MAX_FLEET: MAX_FLEET,
     getUser: getUser, setUser: setUser, signOut: signOut,
     load: load, save: save,
     completedCount: completedCount, unlockedCount: unlockedCount, unlockedShips: unlockedShips,
-    isWeekDone: isWeekDone, currentNcId: currentNcId,
+    isWeekDone: isWeekDone, isDone: isDone, currentNcId: currentNcId,
     markSolved: markSolved, markSolvedCurrent: markSolvedCurrent, markBattleship: markBattleship,
     shipSVG: shipSVG, flushPendingUnlocks: flushPendingUnlocks, showUnlockSequence: showUnlockSequence,
     battleshipURL: battleshipURL

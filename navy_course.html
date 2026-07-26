@@ -17,6 +17,12 @@ h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;marg
 .summary strong{color:var(--ink)}
 .reset{background:none;border:1px solid var(--hair);border-radius:999px;padding:5px 12px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer}
 .reset:hover{background:var(--hover)}
+.pager{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0 4px}
+.pager .pglabel{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.pager button{font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border:1px solid var(--hair);border-radius:999px;background:var(--bg);color:var(--muted);cursor:pointer}
+.pager button:hover{background:var(--hover);color:var(--ink)}
+.pager button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.pager.pager-bottom{margin:18px 0 0;justify-content:center}
 ol.weeks{list-style:none;margin:0;padding:0}
 li.wk{display:flex;align-items:center;gap:14px;padding:15px 4px;border-bottom:1px solid var(--hair)}
 li.wk .no{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;width:24px;flex:none;text-align:right}
@@ -67,9 +73,10 @@ li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
 </style></head>
 <body><main class="wrap">
 <h1>Reasoning for Naval Science</h1>
-<p class="intro">A 15-week course that teaches naval science by <b>playing it</b>: each week turns one real concept — how sonar hears a contact, how a radar builds a track, how a ship fights flooding or fire — into a puzzle you can only solve by <b>understanding the system</b>, not memorizing facts. Work straight through or jump around; tap a week to play. A week's circle fills only when you <b>actually finish and win it</b> — there's no marking it done by hand. Every odd lesson you complete unlocks a new ship for the <b>SensorShip</b> matches after weeks 5, 10, and 15. Three multi-chapter game modules — <b>Dead Reckoning</b>, <b>Spectrum Stack</b>, and <b>Strait Support</b> — are woven in at the points where their ideas come due.</p>
+<p class="intro">A course that teaches naval science by <b>playing it</b>: each lesson turns one real concept — how sonar hears a contact, how a radar builds a track, how a ship fights flooding or fire — into a puzzle you can only solve by <b>understanding the system</b>, not memorizing facts. The lessons run in three parts of nine; work straight through or jump around, and tap a lesson to play. A lesson's circle fills only when you <b>actually finish and win it</b> — there's no marking it done by hand. Every third lesson you complete unlocks a new ship for the <b>SensorShip</b> matches, which close out each part as lessons 9, 18, and 27. The multi-chapter game modules — <b>Dead Reckoning</b>, <b>Spectrum Stack</b>, and <b>Strait Support</b> — are woven in at the points where their ideas come due.</p>
 <section class="signin" id="signin"></section>
-<div class="summary"><span><strong id="count">0</strong> of 15 weeks complete</span><button class="reset" id="reset">Reset</button></div>
+<div class="summary"><span><strong id="count">0</strong> of <span id="total">27</span> lessons complete</span><button class="reset" id="reset">Reset</button></div>
+<nav class="pager" id="pagerTop" aria-label="Lesson pages"></nav>
 <div class="coursegrid">
 <ol class="weeks">
     <li class="wk" data-week="1">
@@ -77,209 +84,204 @@ li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
       <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.8" fill="currentColor" stroke="none"/><path d="M9 8a6 6 0 0 1 0 8"/><path d="M12.5 5.5a11 11 0 0 1 0 13"/></svg></span>
       <a class="ttl" href="sequence.html#nc_sonar_path" data-week="1">Sound sources, ocean propagation, and passive sonar</a>
       <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="1" title="Mark complete" aria-label="Mark week 1 complete">✓</button>
+      <button class="circle" data-week="1" aria-label="Lesson 1 status">✓</button>
     </li>
     <li class="wk" data-week="2">
       <span class="no">02</span>
       <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12q2.5-6 5 0t5 0 5 0"/></svg></span>
       <a class="ttl" href="ballpark.html#nc_bp_sonar" data-week="2">Underwater acoustics by the numbers</a>
       <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="2" title="Mark complete" aria-label="Mark week 2 complete">✓</button>
+      <button class="circle" data-week="2" aria-label="Lesson 2 status">✓</button>
     </li>
     <li class="wk" data-week="3">
       <span class="no">03</span>
       <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="protocol.html#nc_contact_protocol" data-week="3">Multi-sensor contact identification</a>
       <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="3" title="Mark complete" aria-label="Mark week 3 complete">✓</button>
+      <button class="circle" data-week="3" aria-label="Lesson 3 status">✓</button>
     </li>
     <li class="wk" data-week="4">
       <span class="no">04</span>
       <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-6-6 4z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="ballpark.html#nc_bp_navigation" data-week="4">Dead reckoning, knots, set, and drift</a>
+      <a class="ttl" href="ballpark.html#nc_bp_navigation" data-week="4">Knots, set and drift</a>
       <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="4" title="Mark complete" aria-label="Mark week 4 complete">✓</button>
+      <button class="circle" data-week="4" aria-label="Lesson 4 status">✓</button>
     </li>
     <li class="wk" data-week="5">
       <span class="no">05</span>
       <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l7-2.5"/><circle cx="17" cy="8.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="sequence.html#nc_radar_echo" data-week="5">Pulse-echo radar and track formation</a>
       <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="5" title="Mark complete" aria-label="Mark week 5 complete">✓</button>
+      <button class="circle" data-week="5" aria-label="Lesson 5 status">✓</button>
     </li>
     <li class="wk gm" style="--c:#6a4fb0">
-      <span class="no">▸</span>
+      <span class="no">06</span>
       <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/></svg></span>
-      <a class="ttl" href="spectrum_stack.html?chapter=1&return=navy_course.html">Spectrum Stack — Ch. I: Sensing the Maritime Environment</a>
+      <a class="ttl" href="spectrum_stack.html?chapter=1&return=navy_course.html">Sensing the Maritime Environment</a>
       <span class="tag" style="--c:#6a4fb0">Spectrum Stack</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
     <li class="wk gm" style="--c:#2f5d86">
-      <span class="no">▸</span>
+      <span class="no">07</span>
       <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=1&locked=1&return=navy_course.html">Dead Reckoning — Ch. 1: Navigation Fundamentals</a>
+      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=1&locked=1&return=navy_course.html">Navigation Fundamentals</a>
       <span class="tag" style="--c:#2f5d86">Dead Reckoning</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
-    <li class="wk bs" data-bs="easy">
-      <span class="no">⚓</span>
-      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
-      <a class="ttl bs-link" data-bs="easy" href="battleship.html">SensorShip — Easy</a>
-      <span class="tag" style="--c:#c0392b">SensorShip</span>
-      <span class="circle" aria-label="SensorShip Easy status">✓</span>
-    </li>
     <li class="wk gm" style="--c:#1e7a4d">
-      <span class="no">▸</span>
+      <span class="no">08</span>
       <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3 7.6M16.4 8.6l-3 7.6M8.2 7h7.6"/></svg></span>
-      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=1&return=navy_course.html">Strait Support — Ch. 1: Build the Operational Picture</a>
+      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=1&return=navy_course.html">Build the Operational Picture</a>
       <span class="tag" style="--c:#1e7a4d">Strait Support</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
+    <li class="wk bs" data-bs="easy">
+      <span class="no">09</span>
+      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
+      <a class="ttl bs-link" data-bs="easy" href="battleship.html">Easy</a>
+      <span class="tag" style="--c:#c0392b">SensorShip</span>
+      <span class="circle" aria-label="SensorShip Easy status">✓</span>
+    </li>
     <li class="wk" data-week="6">
-      <span class="no">06</span>
+      <span class="no">10</span>
       <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 13q3-3 5.5 0t5.5 0 5.5 0"/><path d="M2.5 17.5q3-3 5.5 0t5.5 0 5.5 0"/></svg></span>
       <a class="ttl" href="diagnosis/nc_flooding_playable.html" data-week="6">Diagnosing shipboard flooding</a>
       <span class="tag" style="--c:#1e7a4d">Diagnosis</span>
-      <button class="circle" data-week="6" title="Mark complete" aria-label="Mark week 6 complete">✓</button>
+      <button class="circle" data-week="6" aria-label="Lesson 10 status">✓</button>
     </li>
     <li class="wk" data-week="7">
-      <span class="no">07</span>
+      <span class="no">11</span>
       <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v11M8 15l-2.5-2.5M8 15l2.5-2.5"/><path d="M16 4v11M16 15l-2.5-2.5M16 15l2.5-2.5"/></svg></span>
       <a class="ttl" href="ballpark.html#nc_bp_depth" data-week="7">Hydrostatic pressure, buoyancy, and floodwater mass</a>
       <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="7" title="Mark complete" aria-label="Mark week 7 complete">✓</button>
+      <button class="circle" data-week="7" aria-label="Lesson 11 status">✓</button>
     </li>
     <li class="wk" data-week="8">
-      <span class="no">08</span>
+      <span class="no">12</span>
       <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3.5 4.5 5.5 4.5 8.5a4.5 4.5 0 0 1-9 0c0-1.8 1-3 2-4 .2 1.8 1.2 2.6 2 2.6-1-2.8 .5-5 .5-7.1z"/></svg></span>
       <a class="ttl" href="protocol.html#nc_fire_protocol" data-week="8">Shipboard electrical-fire response</a>
       <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="8" title="Mark complete" aria-label="Mark week 8 complete">✓</button>
+      <button class="circle" data-week="8" aria-label="Lesson 12 status">✓</button>
     </li>
     <li class="wk" data-week="9">
-      <span class="no">09</span>
+      <span class="no">13</span>
       <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg></span>
       <a class="ttl" href="sequence.html#nc_gas_turbine_drive" data-week="9">Marine gas-turbine propulsion</a>
       <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="9" title="Mark complete" aria-label="Mark week 9 complete">✓</button>
+      <button class="circle" data-week="9" aria-label="Lesson 13 status">✓</button>
     </li>
     <li class="wk" data-week="10">
-      <span class="no">10</span>
+      <span class="no">14</span>
       <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5L5.5 13H11l-1.5 8.5L19 10.5h-6.5z" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="protocol.html#nc_power_restore" data-week="10">Electrical casualty isolation and restoration</a>
       <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="10" title="Mark complete" aria-label="Mark week 10 complete">✓</button>
+      <button class="circle" data-week="10" aria-label="Lesson 14 status">✓</button>
     </li>
     <li class="wk gm" style="--c:#6a4fb0">
-      <span class="no">▸</span>
+      <span class="no">15</span>
       <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/></svg></span>
-      <a class="ttl" href="spectrum_stack.html?chapter=2&return=navy_course.html">Spectrum Stack — Ch. II: Platform Health and Power</a>
+      <a class="ttl" href="spectrum_stack.html?chapter=2&return=navy_course.html">Platform Health and Power</a>
       <span class="tag" style="--c:#6a4fb0">Spectrum Stack</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
-    <li class="wk bs" data-bs="normal">
-      <span class="no">⚓</span>
-      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
-      <a class="ttl bs-link" data-bs="normal" href="battleship.html">SensorShip — Medium</a>
-      <span class="tag" style="--c:#c0392b">SensorShip</span>
-      <span class="circle" aria-label="SensorShip Medium status">✓</span>
-    </li>
     <li class="wk" data-week="11">
-      <span class="no">11</span>
+      <span class="no">16</span>
       <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/></svg></span>
       <a class="ttl" href="casebook_static.html#nc_greywake_case" data-week="11">Independent navigation evidence and common-mode error</a>
       <span class="tag" style="--c:#c0392b">Casebook</span>
-      <button class="circle" data-week="11" title="Mark complete" aria-label="Mark week 11 complete">✓</button>
+      <button class="circle" data-week="11" aria-label="Lesson 16 status">✓</button>
     </li>
     <li class="wk gm" style="--c:#2f5d86">
-      <span class="no">▸</span>
+      <span class="no">17</span>
       <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=2&locked=1&return=navy_course.html">Dead Reckoning — Ch. 2: Navigation Without a Trusted Fix</a>
+      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=2&locked=1&return=navy_course.html">Navigation Without a Trusted Fix</a>
       <span class="tag" style="--c:#2f5d86">Dead Reckoning</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
+    <li class="wk bs" data-bs="normal">
+      <span class="no">18</span>
+      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
+      <a class="ttl bs-link" data-bs="normal" href="battleship.html">Medium</a>
+      <span class="tag" style="--c:#c0392b">SensorShip</span>
+      <span class="circle" aria-label="SensorShip Medium status">✓</span>
+    </li>
     <li class="wk" data-week="12">
-      <span class="no">12</span>
+      <span class="no">19</span>
       <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 15h6l-1 3.5h-4z"/><path d="M15.5 15h6l-1 3.5h-4z"/><path d="M8.5 12.5h7"/></svg></span>
       <a class="ttl" href="protocol.html#nc_unrep_protocol" data-week="12">Connected replenishment at sea</a>
       <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="12" title="Mark complete" aria-label="Mark week 12 complete">✓</button>
+      <button class="circle" data-week="12" aria-label="Lesson 19 status">✓</button>
     </li>
     <li class="wk gm" style="--c:#1e7a4d">
-      <span class="no">▸</span>
+      <span class="no">20</span>
       <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3 7.6M16.4 8.6l-3 7.6M8.2 7h7.6"/></svg></span>
-      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=2&return=navy_course.html">Strait Support — Ch. 2: Sustain and Recover the Force</a>
+      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=2&return=navy_course.html">Sustain and Recover the Force</a>
       <span class="tag" style="--c:#1e7a4d">Strait Support</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
     <li class="wk" data-week="13">
-      <span class="no">13</span>
+      <span class="no">21</span>
       <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 7.6-7.5 9.5-4.3-1.9-7.5-5-7.5-9.5V6z"/><path d="M8.7 12l2.4 2.4 4.2-4.8"/></svg></span>
       <a class="ttl" href="sequence.html#nc_layered_defense" data-week="13">Layered defensive sensing and decision chains</a>
       <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="13" title="Mark complete" aria-label="Mark week 13 complete">✓</button>
+      <button class="circle" data-week="13" aria-label="Lesson 21 status">✓</button>
     </li>
     <li class="wk" data-week="14">
-      <span class="no">14</span>
+      <span class="no">22</span>
       <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 16.5h19"/><path d="M6 16.5a6 6 0 0 1 12 0"/><circle cx="12" cy="16.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
       <a class="ttl" href="ballpark.html#nc_bp_radar" data-week="14">Radar horizon, pulse timing, and reaction time</a>
       <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="14" title="Mark complete" aria-label="Mark week 14 complete">✓</button>
+      <button class="circle" data-week="14" aria-label="Lesson 22 status">✓</button>
     </li>
     <li class="wk gm" style="--c:#2f5d86">
-      <span class="no">▸</span>
+      <span class="no">23</span>
       <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=3&locked=1&return=navy_course.html">Dead Reckoning — Ch. 3: Navigation in a Naval Mission</a>
+      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=3&locked=1&return=navy_course.html">Navigation in a Naval Mission</a>
       <span class="tag" style="--c:#2f5d86">Dead Reckoning</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
     <li class="wk gm" style="--c:#6a4fb0">
-      <span class="no">▸</span>
+      <span class="no">24</span>
       <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/></svg></span>
-      <a class="ttl" href="spectrum_stack.html?chapter=3&return=navy_course.html">Spectrum Stack — Ch. III: Assured Operations in a Contested Environment</a>
+      <a class="ttl" href="spectrum_stack.html?chapter=3&return=navy_course.html">Assured Operations &amp; Future Naval Systems</a>
       <span class="tag" style="--c:#6a4fb0">Spectrum Stack</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
     <li class="wk" data-week="15">
-      <span class="no">15</span>
+      <span class="no">25</span>
       <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 19h5M10.5 21.5h3"/><path d="M12 3a6 6 0 0 0-3.5 10.8c.9.8 1.5 1.6 1.5 2.7h4c0-1.1.6-1.9 1.5-2.7A6 6 0 0 0 12 3z"/></svg></span>
       <a class="ttl" href="sciencetank.html#nc_naval_innovation" data-week="15">Historical naval innovation under uncertainty</a>
       <span class="tag" style="--c:#6a4fb0">Science Tank</span>
-      <button class="circle" data-week="15" title="Mark complete" aria-label="Mark week 15 complete">✓</button>
+      <button class="circle" data-week="15" aria-label="Lesson 25 status">✓</button>
     </li>
     <li class="wk gm" style="--c:#1e7a4d">
-      <span class="no">▸</span>
+      <span class="no">26</span>
       <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3 7.6M16.4 8.6l-3 7.6M8.2 7h7.6"/></svg></span>
-      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=3&return=navy_course.html">Strait Support — Ch. 3: Operation Narrow Gate</a>
+      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=3&return=navy_course.html">Operation Narrow Gate</a>
       <span class="tag" style="--c:#1e7a4d">Strait Support</span>
       <span class="gmk" aria-hidden="true">▶</span>
     </li>
-    <li class="wk gm" style="--c:#6a4fb0">
-      <span class="no">▸</span>
-      <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/></svg></span>
-      <a class="ttl" href="spectrum_stack.html?chapter=4&return=navy_course.html">Spectrum Stack — Ch. IV: Distributed and Future Naval Systems</a>
-      <span class="tag" style="--c:#6a4fb0">Spectrum Stack</span>
-      <span class="gmk" aria-hidden="true">▶</span>
-    </li>
     <li class="wk bs" data-bs="hard">
-      <span class="no">⚓</span>
+      <span class="no">27</span>
       <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
-      <a class="ttl bs-link" data-bs="hard" href="battleship.html">SensorShip — Hard</a>
+      <a class="ttl bs-link" data-bs="hard" href="battleship.html">Hard</a>
       <span class="tag" style="--c:#c0392b">SensorShip</span>
       <span class="circle" aria-label="SensorShip Hard status">✓</span>
     </li>
 </ol>
 <aside class="shipbox">
-  <div class="shipbox-title">⚓ SensorShip Ships Unlocked</div>
+  <div class="shipbox-title">⚓ SensorShips Unlocked</div>
   <div class="shipbox-sub" id="shipsub"></div>
   <div class="shipgrid" id="shipgrid"></div>
 </aside>
 </div>
+<nav class="pager pager-bottom" id="pagerBottom" aria-label="Lesson pages"></nav>
 </main>
 <script src="reckon_course.js"></script>
 <script>
 (function(){
   var RC=window.ReckonCourse;
+  var PAGE_SIZE=9;
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function setBattleshipLinks(){
     document.querySelectorAll("a.bs-link").forEach(function(a){ a.setAttribute("href", RC.battleshipURL(a.getAttribute("data-bs"))); });
@@ -295,18 +297,58 @@ li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
     var sub=document.getElementById("shipsub");
     if(sub)sub.textContent=u+" of "+RC.SHIP_ORDER.length+" unlocked · field up to "+RC.MAX_FLEET+" per match";
   }
+  // Map a module chapter's launch link to its graded lesson id (Spectrum Ch III+IV share nc_spectrum_3).
+  function moduleIdFromHref(href){
+    if(!href)return null;
+    var m=href.match(/chapter=(\d+)/); var ch=m?m[1]:null; if(!ch)return null;
+    if(/spectrum_stack/.test(href)) return "nc_spectrum_"+(ch==="4"?"3":ch);
+    if(/dead_reckoning/.test(href)) return "nc_dr_"+ch;
+    if(/strait_support/.test(href)) return "nc_strait_"+ch;
+    return null;
+  }
   function paint(){
-    var s=RC.load(), n=0;
+    var s=RC.load(), lessonsDone=0, total=0;
     document.querySelectorAll("li.wk").forEach(function(li){
-      if(li.classList.contains("gm"))return;
-      var bs=li.getAttribute("data-bs"), done;
+      total++;
+      var bs=li.getAttribute("data-bs"), done=false;
       if(bs){ done=!!(s.battleship&&s.battleship[bs]); }
-      else { var w=+li.getAttribute("data-week"); done=RC.isWeekDone(w,s); if(done)n++; }
+      else if(li.classList.contains("gm")){
+        var a=li.querySelector("a.ttl"), id=a?moduleIdFromHref(a.getAttribute("href")):null;
+        done=RC.isDone(id,s);
+      }
+      else { var w=+li.getAttribute("data-week"); done=RC.isWeekDone(w,s); }
+      if(done)lessonsDone++;
       li.classList.toggle("done",done);
     });
-    var c=document.getElementById("count"); if(c)c.textContent=n;
-    paintFleet(n);
+    var c=document.getElementById("count"); if(c)c.textContent=lessonsDone;
+    var t=document.getElementById("total"); if(t)t.textContent=total;
+    // Ships unlock from all graded non-SensorShip lessons (weeks + module chapters), 1 per 3 completed.
+    paintFleet(RC.completedCount(s));
     setBattleshipLinks();
+  }
+  function buildPagers(){
+    var items=[].slice.call(document.querySelectorAll("ol.weeks > li.wk"));
+    if(!items.length)return;
+    var pages=Math.ceil(items.length/PAGE_SIZE);
+    function rangeLabel(p){ var a=p*PAGE_SIZE+1, b=Math.min(items.length,(p+1)*PAGE_SIZE); return a+"–"+b; }
+    function show(cur){
+      items.forEach(function(li,i){ li.style.display=(Math.floor(i/PAGE_SIZE)===cur)?"":"none"; });
+      document.querySelectorAll(".pager button").forEach(function(btn){
+        btn.classList.toggle("active",+btn.getAttribute("data-p")===cur);
+      });
+    }
+    document.querySelectorAll(".pager").forEach(function(nav){
+      var html="<span class='pglabel'>Lessons</span>";
+      for(var p=0;p<pages;p++) html+="<button type='button' data-p='"+p+"'>"+rangeLabel(p)+"</button>";
+      nav.innerHTML=html;
+      nav.querySelectorAll("button").forEach(function(btn){
+        btn.addEventListener("click",function(){
+          show(+btn.getAttribute("data-p"));
+          window.scrollTo({top:0,behavior:"smooth"});
+        });
+      });
+    });
+    show(0);
   }
   function renderSignin(){
     var el=document.getElementById("signin"); if(!el)return;
@@ -315,7 +357,7 @@ li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
       el.innerHTML="<div class='si-row'><div><b>Signed in as "+esc(u.name)+"</b><span class='si-sub'>"+esc(u.email)+" · progress saved on this device</span></div><button class='si-btn ghost' id='siOut' type='button'>Sign out</button></div>";
       document.getElementById("siOut").onclick=function(){ RC.signOut(); renderSignin(); paint(); };
     } else {
-      el.innerHTML="<div class='si-row'><div><b>Track your progress</b><span class='si-sub'>Sign in to save completed weeks and unlocked ships on this device.</span></div><form class='si-form' id='siForm'><input id='siName' placeholder='Name' required><input id='siEmail' type='email' placeholder='Email' required><button class='si-btn' type='submit'>Sign in</button></form></div>";
+      el.innerHTML="<div class='si-row'><div><b>Track your progress</b><span class='si-sub'>Sign in to save completed lessons and unlocked ships on this device.</span></div><form class='si-form' id='siForm'><input id='siName' placeholder='Name' required><input id='siEmail' type='email' placeholder='Email' required><button class='si-btn' type='submit'>Sign in</button></form></div>";
       document.getElementById("siForm").onsubmit=function(e){ e.preventDefault(); var nm=document.getElementById('siName').value.trim(), em=document.getElementById('siEmail').value.trim(); if(!nm||!em)return; RC.setUser({name:nm,email:em}); renderSignin(); paint(); RC.flushPendingUnlocks(); };
     }
   }
@@ -324,6 +366,7 @@ li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
   // Titles just navigate — completion is earned by winning the game, never a manual click.
   renderSignin();
   paint();
+  buildPagers();
   RC.flushPendingUnlocks();
   // Re-check when returning to this tab after finishing a lesson elsewhere.
   window.addEventListener("focus", paint);
