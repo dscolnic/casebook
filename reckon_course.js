@@ -27,9 +27,11 @@
   var MODULE_NC = [
     "nc_spectrum_1", "nc_spectrum_2", "nc_spectrum_3",
     "nc_dr_1", "nc_dr_2", "nc_dr_3",
-    "nc_strait_1", "nc_strait_2", "nc_strait_3"
+    "nc_strait_1", "nc_strait_2", "nc_strait_3",
+    "nc_sonar_spy_1", "nc_sonar_spy_2", "nc_sonar_spy_3"
   ];
-  /* Every graded, non-SensorShip lesson: 15 topic lessons + 9 module chapters. */
+  /* Every graded, non-SensorShip lesson: 15 topic lessons + 12 module chapters
+     (three of which are the Sonar Spy levels, one per set of 9 on the course). */
   var LESSON_NC = WEEK_NC.concat(MODULE_NC);
   var LESSON_SET = {}; LESSON_NC.forEach(function (id) { LESSON_SET[id] = true; });
 

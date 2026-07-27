@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonar Spy</title>
+<style>
+  :root {
+    --bg: #07131a;
+    --panel: #0c1d25;
+    --panel2: #102631;
+    --line: #183846;
+    --text: #dff1f7;
+    --muted: #90b8c7;
+    --accent: #61e2ff;
+    --good: #52f2a4;
+    --warn: #ffd166;
+    --danger: #ff6b6b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--text);
+    background: radial-gradient(circle at top, #102734 0%, #08151d 45%, #03070b 100%);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  .app { max-width: 1520px; margin: 0 auto; padding: 14px; }
+  .titlebar {
+    display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 12px;
+  }
+  h1 { margin: 0; font-size: 28px; }
+  .subtitle { margin-top: 4px; color: var(--muted); font-size: 14px; max-width: 820px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+  button {
+    border: 1px solid #245366; border-radius: 10px; padding: 10px 12px; cursor: pointer;
+    background: linear-gradient(180deg, #153645, #0d232d); color: var(--text); font-size: 14px;
+  }
+  button:hover { filter: brightness(1.08); }
+  button:disabled { opacity: .4; cursor: not-allowed; }
+  .grid {
+    display: grid; grid-template-columns: 1.08fr 1.12fr 1fr; gap: 12px;
+  }
+  .panel {
+    background: linear-gradient(180deg, rgba(12,29,37,.98), rgba(7,19,26,.99));
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.02);
+  }
+  .panel-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 14px; background: rgba(255,255,255,.025); border-bottom: 1px solid var(--line); font-weight: 700;
+  }
+  .panel-header small { color: var(--muted); font-weight: 500; }
+  .panel-body { padding: 12px; }
+  .canvas-wrap { border: 1px solid #174050; border-radius: 12px; overflow: hidden; background: #031016; }
+  .stack { position: relative; width: 100%; }
+  canvas { display: block; width: 100%; height: auto; background: #031016; }
+  .stack .overlay { position: absolute; inset: 0; pointer-events: none; background: transparent; }
+  .stats { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-top: 12px; }
+  .card {
+    background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px;
+  }
+  .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .7px; }
+  .value { margin-top: 5px; font-size: 18px; font-weight: 800; }
+  .legend, .help, .summary {
+    margin-top: 12px; background: var(--panel2); border: 1px solid var(--line);
+    border-radius: 12px; padding: 10px 12px; color: var(--muted); font-size: 13px; line-height: 1.45;
+  }
+  .legend b, .help b, .summary b { color: var(--text); }
+  .action-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin-top: 12px;
+  }
+  .track-list { display: grid; gap: 8px; margin-top: 12px; }
+  .track {
+    background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px;
+    cursor: pointer;
+  }
+  .track.selected { outline: 2px solid var(--accent); }
+  .track strong { display: block; margin-bottom: 4px; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .log {
+    margin-top: 12px; min-height: 170px; max-height: 240px; overflow: auto; background: #051118;
+    border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px;
+    font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.4;
+  }
+
+  .lofar-axis-note {
+    display: flex; justify-content: space-between; gap: 10px; margin-top: 7px;
+    color: var(--muted); font-size: 12px;
+  }
+  .signature-guide {
+    margin-top: 12px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px;
+  }
+  .signature-item {
+    background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 9px 10px;
+  }
+  .signature-item strong { display: block; margin-bottom: 5px; }
+  .signature-lines {
+    height: 24px; border-radius: 6px; border: 1px solid rgba(255,255,255,.08);
+    background-color: #06151c; margin-bottom: 6px; position: relative; overflow: hidden;
+  }
+  .signature-lines::after {
+    content: ''; position: absolute; inset: 0; opacity: .9;
+    background-repeat: no-repeat;
+  }
+  .signature-lines.sub::after { background-image: linear-gradient(90deg, transparent 10%, var(--accent) 10%, var(--accent) 11%, transparent 11%, transparent 31%, var(--accent) 31%, var(--accent) 32%, transparent 32%, transparent 52%, var(--accent) 52%, var(--accent) 53%, transparent 53%, transparent 74%, var(--accent) 74%, var(--accent) 75%, transparent 75%); }
+  .signature-lines.merchant::after { background-image: linear-gradient(90deg, transparent 7%, var(--warn) 7%, var(--warn) 9%, transparent 9%, transparent 18%, var(--warn) 18%, var(--warn) 20%, transparent 20%, transparent 37%, var(--warn) 37%, var(--warn) 39%, transparent 39%, transparent 56%, var(--warn) 56%, var(--warn) 58%, transparent 58%, transparent 75%, var(--warn) 75%, var(--warn) 77%, transparent 77%); }
+  .signature-lines.fishing::after { background-image: linear-gradient(90deg, transparent 12%, var(--good) 12%, var(--good) 14%, transparent 14%, transparent 25%, var(--good) 25%, var(--good) 27%, transparent 27%, transparent 35%, var(--good) 35%, var(--good) 36%, transparent 36%, transparent 49%, var(--good) 49%, var(--good) 52%, transparent 52%, transparent 68%, var(--good) 68%, var(--good) 69%, transparent 69%); }
+  .signature-lines.bio::after { background-image: linear-gradient(90deg, transparent 6%, #f6a7ff 6%, #f6a7ff 7%, transparent 7%, transparent 14%, #f6a7ff 14%, #f6a7ff 15%, transparent 15%, transparent 24%, #f6a7ff 24%, #f6a7ff 25%, transparent 25%); filter: blur(.5px); }
+
+  .statusbar { margin-top: 12px; display: grid; grid-template-columns: repeat(8, minmax(0,1fr)); gap: 10px; }
+  .chip { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+  .chip .value { font-size: 16px; }
+  .good { color: var(--good); }
+  .warn { color: var(--warn); }
+  .danger { color: var(--danger); }
+  .accent { color: var(--accent); }
+  .banner {
+    position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.64); z-index: 100;
+  }
+  .banner.show { display: flex; }
+  .banner-card {
+    width: min(620px, 92vw); background: linear-gradient(180deg, #102733, #08151d); border: 1px solid #245366;
+    border-radius: 18px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+  .banner-card h2 { margin: 0 0 8px; font-size: 30px; }
+  .banner-card p { margin: 0 0 14px; color: var(--muted); }
+  .banner-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .next-step {
+    margin-bottom: 12px; padding: 12px 14px; border-radius: 14px;
+    border: 1px solid #245366; background: linear-gradient(90deg, rgba(97,226,255,.12), rgba(82,242,164,.06));
+    display: flex; align-items: center; gap: 10px; color: var(--text); font-size: 14px;
+  }
+  .next-step .step-badge {
+    flex: 0 0 auto; min-width: 76px; text-align: center; padding: 6px 9px; border-radius: 999px;
+    background: rgba(97,226,255,.15); border: 1px solid rgba(97,226,255,.35); color: var(--accent); font-weight: 800;
+  }
+  button.primary-action {
+    border-color: rgba(97,226,255,.7); box-shadow: 0 0 0 2px rgba(97,226,255,.09), 0 0 22px rgba(97,226,255,.16);
+  }
+  button.attention { animation: pulseAction 1.25s ease-in-out infinite; }
+  @keyframes pulseAction {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(97,226,255,.08), 0 0 12px rgba(97,226,255,.12); }
+    50% { box-shadow: 0 0 0 4px rgba(97,226,255,.15), 0 0 24px rgba(97,226,255,.28); }
+  }
+
+  .level-strip {
+    display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-bottom: 12px;
+  }
+  .level-btn {
+    text-align: left; padding: 12px 14px; background: var(--panel); border: 1px solid var(--line);
+  }
+  .level-btn strong { display: block; margin-bottom: 3px; }
+  .level-btn span { color: var(--muted); font-size: 12px; }
+  .level-btn.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px rgba(97,226,255,.35); }
+  .level-btn.complete strong::after { content: '  ✓'; color: var(--good); }
+  body.single-level .level-strip { display: none; }
+  body.single-level .mission-briefing { margin-top: 0; }
+  .mission-briefing {
+    display: grid; grid-template-columns: 1.3fr .9fr; gap: 12px; margin-bottom: 12px;
+  }
+  .brief-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+  }
+  .brief-card h2 { margin: 0 0 5px; font-size: 18px; }
+  .brief-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+  .objective-list { display: grid; gap: 6px; margin-top: 9px; }
+  .objective {
+    display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px;
+  }
+  .objective::before {
+    content: '○'; color: var(--muted); font-size: 17px; line-height: 1;
+  }
+  .objective.complete { color: var(--text); }
+  .objective.complete::before { content: '✓'; color: var(--good); font-weight: 900; }
+  .maneuver-coach {
+    margin-top: 12px; background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px;
+  }
+  .coach-title { font-weight: 800; margin-bottom: 8px; }
+  .coach-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+  .coach-stat { background: rgba(0,0,0,.12); border: 1px solid rgba(255,255,255,.05); border-radius: 9px; padding: 8px; }
+  .coach-stat .label { font-size: 10px; }
+  .coach-stat .value { font-size: 15px; }
+  .progress-track { height: 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; margin-top: 6px; }
+  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width .2s ease; }
+  .fire-status { margin-top: 10px; }
+  .fire-status.ready { border-color: rgba(82,242,164,.55); color: var(--good); }
+  .fire-status.blocked { border-color: rgba(255,209,102,.45); }
+  @media (max-width: 800px) {
+    .level-strip, .mission-briefing { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1240px) {
+    .grid { grid-template-columns: 1fr; }
+    .statusbar { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .controls { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="titlebar">
+    <div>
+      <h1 id="gameTitle">Sonar Spy</h1>
+      <div class="subtitle" id="missionSubtitle">Learn the sonar workflow across three increasingly demanding missions.</div>
+    </div>
+    <div class="controls">
+      <button id="pauseBtn">Pause</button>
+      <button id="markBtn" class="primary-action">Select a Line First</button>
+      <button id="pingBtn">Active Ping</button>
+      <button id="fireBtn">Fire Torpedo</button>
+      <button id="resetBtn">Restart Level</button>
+    </div>
+  </div>
+
+  <div class="level-strip">
+    <button class="level-btn active" id="level1Btn"><strong>Level 1 · Listen</strong><span>Detect, create tracks, and classify.</span></button>
+    <button class="level-btn" id="level2Btn"><strong>Level 2 · Maneuver</strong><span>Move sideways to improve bearing geometry.</span></button>
+    <button class="level-btn" id="level3Btn"><strong>Level 3 · Hunt</strong><span>Chase, range, and engage the submarine.</span></button>
+  </div>
+
+  <div class="mission-briefing">
+    <div class="brief-card">
+      <h2 id="missionTitle">Level 1: Listen and Classify</h2>
+      <p id="missionDescription">Build tracks from the waterfall and use LOFAR patterns to identify the submarine.</p>
+      <div class="objective-list" id="objectiveList"></div>
+    </div>
+    <div class="brief-card">
+      <h2>Why this level matters</h2>
+      <p id="lessonText">A bearing tells you where sound comes from. Classification tells you what may be producing it.</p>
+    </div>
+  </div>
+
+  <div class="next-step" id="nextStep"><span class="step-badge">STEP 1</span><span>Click a bright line near the top of the left sonar waterfall.</span></div>
+
+  <div class="grid">
+    <section class="panel">
+      <div class="panel-header"><span>Passive Bearing-Time Waterfall</span><small>Click a line to tune that bearing</small></div>
+      <div class="panel-body">
+        <div class="canvas-wrap"><div class="stack"><canvas id="waterfall" width="430" height="520"></canvas><canvas class="overlay" id="waterfallOverlay" width="430" height="520"></canvas></div></div>
+        <div class="stats">
+          <div class="card"><div class="label">Selected bearing</div><div class="value" id="selectedBearing">---</div></div>
+          <div class="card"><div class="label">Signal assessment</div><div class="value" id="signalAssessment">Ambient</div></div>
+          <div class="card"><div class="label">Hydrophone noise</div><div class="value" id="noiseReadout">Low</div></div>
+          <div class="card"><div class="label">Confidence</div><div class="value" id="confidenceReadout">--</div></div>
+        </div>
+        <div class="action-grid">
+          <button id="localMarkBtn" class="primary-action">Select a Line First</button>
+          <button id="clearBearingBtn">Clear Selection</button>
+        </div>
+        <div class="legend"><b>Meaning:</b> each bright vertical streak means persistent acoustic energy from a particular <b>bearing</b>. After clicking one, use the highlighted button directly above to create a track.</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><span>Tactical Sonar / Convoy Plot</span><small>Passive bearings, marked tracks, convoy, torpedoes</small></div>
+      <div class="panel-body">
+        <div class="canvas-wrap"><canvas id="ppi" width="520" height="520"></canvas></div>
+        <div class="action-grid">
+          <button id="turnLeftBtn">Turn Left</button>
+          <button id="turnRightBtn">Turn Right</button>
+          <button id="speedDownBtn">Speed -</button>
+          <button id="speedUpBtn">Speed +</button>
+        </div>
+        <div class="help" id="tacticalHelp"><b>Goal:</b> use passive bearings to build a contact picture.</div>
+        <div class="maneuver-coach" id="maneuverCoach"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><span>Classification & Fire Control</span><small>Select a track and classify it</small></div>
+      <div class="panel-body">
+        <div class="canvas-wrap"><div class="stack"><canvas id="lofar" width="430" height="240"></canvas><canvas class="overlay" id="lofarOverlay" width="430" height="240"></canvas></div></div>
+        <div class="lofar-axis-note"><span><b>Horizontal:</b> sound frequency, 0–220 Hz</span><span><b>Vertical:</b> time — newest at top</span></div>
+        <div class="signature-guide">
+          <div class="signature-item"><strong>Submarine</strong><div class="signature-lines sub"></div><div class="muted">Quieter, steady low-frequency tonal lines.</div></div>
+          <div class="signature-item"><strong>Merchant</strong><div class="signature-lines merchant"></div><div class="muted">Loud, regular harmonics spread across the band.</div></div>
+          <div class="signature-item"><strong>Fishing</strong><div class="signature-lines fishing"></div><div class="muted">Rougher, less evenly spaced machinery lines.</div></div>
+          <div class="signature-item"><strong>Biologics</strong><div class="signature-lines bio"></div><div class="muted">Weak, wandering or pulsed non-mechanical energy.</div></div>
+        </div>
+        <div class="stats">
+          <div class="card"><div class="label">Selected track</div><div class="value" id="trackName">None</div></div>
+          <div class="card"><div class="label">Track quality</div><div class="value" id="trackQuality">Low</div></div>
+          <div class="card"><div class="label">Classified as</div><div class="value" id="classReadout">Unknown</div></div>
+          <div class="card"><div class="label">Firing solution</div><div class="value" id="solutionReadout">No</div></div>
+        </div>
+        <div class="action-grid">
+          <button data-class="Submarine" class="classBtn" disabled>Classify: Submarine</button>
+          <button data-class="Merchant" class="classBtn" disabled>Classify: Merchant</button>
+          <button data-class="Fishing" class="classBtn" disabled>Classify: Fishing</button>
+          <button data-class="Biologics" class="classBtn" disabled>Classify: Biologics</button>
+        </div>
+        <div class="track-list" id="trackList"></div>
+        <div class="summary" id="summaryBox"><b>How to win:</b> follow the mission objectives above.</div>
+        <div class="summary fire-status blocked" id="fireStatus"><b>Weapons:</b> unavailable during this training level.</div>
+        <div class="log" id="log"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="statusbar">
+    <div class="chip"><div class="label">Own heading</div><div class="value" id="headingReadout">090°</div></div>
+    <div class="chip"><div class="label">Own speed</div><div class="value" id="speedReadout">8 kts</div></div>
+    <div class="chip"><div class="label">Ping cooldown</div><div class="value" id="pingReadout">Ready</div></div>
+    <div class="chip"><div class="label">Torpedoes</div><div class="value" id="torpReadout">2</div></div>
+    <div class="chip"><div class="label">Convoy danger</div><div class="value" id="dangerReadout">Low</div></div>
+    <div class="chip"><div class="label">Convoy health</div><div class="value" id="convoyReadout">3/3</div></div>
+    <div class="chip"><div class="label">Mission time</div><div class="value" id="timeReadout">00:00</div></div>
+    <div class="chip"><div class="label">Mode</div><div class="value accent" id="modeReadout">Passive</div></div>
+  </div>
+</div>
+
+<div class="banner" id="banner">
+  <div class="banner-card">
+    <h2 id="bannerTitle">Mission Result</h2>
+    <p id="bannerText"></p>
+    <div class="banner-actions">
+      <button id="nextLevelBtn">Next Level</button>
+      <button id="playAgainBtn">Replay Level</button>
+      <button id="closeBannerBtn">Review Board</button>
+    </div>
+  </div>
+</div>
+
+<script src="reckon_course.js"></script>
+<script>
+(() => {
+  const waterfall = document.getElementById('waterfall');
+  const waterfallOverlay = document.getElementById('waterfallOverlay');
+  const ppi = document.getElementById('ppi');
+  const lofar = document.getElementById('lofar');
+  const lofarOverlay = document.getElementById('lofarOverlay');
+  const wCtx = waterfall.getContext('2d');
+  const woCtx = waterfallOverlay.getContext('2d');
+  const pCtx = ppi.getContext('2d');
+  const lCtx = lofar.getContext('2d');
+  const loCtx = lofarOverlay.getContext('2d');
+
+  const ui = {
+    pauseBtn: document.getElementById('pauseBtn'),
+    markBtn: document.getElementById('markBtn'),
+    localMarkBtn: document.getElementById('localMarkBtn'),
+    clearBearingBtn: document.getElementById('clearBearingBtn'),
+    nextStep: document.getElementById('nextStep'),
+    pingBtn: document.getElementById('pingBtn'),
+    fireBtn: document.getElementById('fireBtn'),
+    resetBtn: document.getElementById('resetBtn'),
+    turnLeftBtn: document.getElementById('turnLeftBtn'),
+    turnRightBtn: document.getElementById('turnRightBtn'),
+    speedDownBtn: document.getElementById('speedDownBtn'),
+    speedUpBtn: document.getElementById('speedUpBtn'),
+    classBtns: [...document.querySelectorAll('.classBtn')],
+    trackList: document.getElementById('trackList'),
+    log: document.getElementById('log'),
+    summaryBox: document.getElementById('summaryBox'),
+    selectedBearing: document.getElementById('selectedBearing'),
+    signalAssessment: document.getElementById('signalAssessment'),
+    noiseReadout: document.getElementById('noiseReadout'),
+    confidenceReadout: document.getElementById('confidenceReadout'),
+    trackName: document.getElementById('trackName'),
+    trackQuality: document.getElementById('trackQuality'),
+    classReadout: document.getElementById('classReadout'),
+    solutionReadout: document.getElementById('solutionReadout'),
+    headingReadout: document.getElementById('headingReadout'),
+    speedReadout: document.getElementById('speedReadout'),
+    pingReadout: document.getElementById('pingReadout'),
+    torpReadout: document.getElementById('torpReadout'),
+    dangerReadout: document.getElementById('dangerReadout'),
+    convoyReadout: document.getElementById('convoyReadout'),
+    timeReadout: document.getElementById('timeReadout'),
+    modeReadout: document.getElementById('modeReadout'),
+    banner: document.getElementById('banner'),
+    bannerTitle: document.getElementById('bannerTitle'),
+    bannerText: document.getElementById('bannerText'),
+    playAgainBtn: document.getElementById('playAgainBtn'),
+    closeBannerBtn: document.getElementById('closeBannerBtn'),
+    nextLevelBtn: document.getElementById('nextLevelBtn'),
+    levelBtns: [document.getElementById('level1Btn'), document.getElementById('level2Btn'), document.getElementById('level3Btn')],
+    gameTitle: document.getElementById('gameTitle'),
+    missionSubtitle: document.getElementById('missionSubtitle'),
+    missionTitle: document.getElementById('missionTitle'),
+    missionDescription: document.getElementById('missionDescription'),
+    lessonText: document.getElementById('lessonText'),
+    objectiveList: document.getElementById('objectiveList'),
+    tacticalHelp: document.getElementById('tacticalHelp'),
+    maneuverCoach: document.getElementById('maneuverCoach'),
+    fireStatus: document.getElementById('fireStatus'),
+  };
+
+  const routeParams = new URLSearchParams(window.location.search);
+  const fileLevelMatch = window.location.pathname.match(/silent_watch_level([123])\.html$/i);
+  const requestedLevel = Number(routeParams.get('level') || (fileLevelMatch ? fileLevelMatch[1] : 0));
+  const lockedLevel = [1, 2, 3].includes(requestedLevel) ? requestedLevel : null;
+  const singleLevelMode = Boolean(lockedLevel) || routeParams.get('course') === '1';
+  if (singleLevelMode) document.body.classList.add('single-level');
+
+  let state;
+  let lastFrame = performance.now();
+  let gameLoopHandle;
+  let waterfallTimer;
+  let lofarTimer;
+  let currentLevel = lockedLevel || 1;
+  const completedLevels = new Set();
+  const WEAPON_RANGE = 360;
+
+  const levelConfigs = {
+    1: {
+      title: 'Level 1: Listen and Classify',
+      subtitle: 'Learn the sonar workflow: detect a line, create a track, and interpret its LOFAR signature.',
+      description: 'Three contacts are in the area. Build tracks and correctly identify the submarine. There is no time pressure and weapons are disabled.',
+      lesson: 'The waterfall gives bearing. LOFAR gives frequency clues. Neither one alone gives a complete firing solution.',
+      objectives: [
+        ['track', 'Create at least one contact track'],
+        ['classify', 'Correctly classify the submarine']
+      ],
+      movement: false, ping: false, weapons: false, threat: false
+    },
+    2: {
+      title: 'Level 2: Maneuver for a Fix',
+      subtitle: 'Turn across the contact bearing, slow down, and use bearing change to improve the track.',
+      description: 'Identify the submarine, then maneuver roughly 90° across its bearing. Travel far enough to create parallax and reacquire the moving line.',
+      lesson: 'Moving directly toward a contact produces little bearing change. Moving sideways creates stronger geometry and helps constrain its position.',
+      objectives: [
+        ['track', 'Create and select the submarine track'],
+        ['classify', 'Classify it as Submarine'],
+        ['slow', 'Reduce speed to 6 knots or less'],
+        ['broadside', 'Hold a good sideways course'],
+        ['travel', 'Travel sideways far enough for new geometry'],
+        ['fix', 'Reacquire the line and update the track']
+      ],
+      movement: true, ping: false, weapons: false, threat: false
+    },
+    3: {
+      title: 'Level 3: Chase and Engage',
+      subtitle: 'Protect the convoy by identifying, ranging, pursuing, and engaging the hostile submarine.',
+      description: 'One submarine is mixed among neutral contacts and is closing on the convoy. Establish a track, obtain range, chase into weapon range, and fire.',
+      lesson: 'A good attack needs identity, bearing, range, track quality, and sufficient weapon reach. Active sonar helps, but it alerts the target.',
+      objectives: [
+        ['classify', 'Identify and classify the submarine'],
+        ['range', 'Obtain an active-sonar range'],
+        ['close', `Close to within ${WEAPON_RANGE} range units`],
+        ['destroy', 'Destroy the submarine before it attacks the convoy']
+      ],
+      movement: true, ping: true, weapons: true, threat: true
+    }
+  };
+
+  const classificationHints = {
+    Submarine: 'Lower-frequency, steadier machinery tonals and quieter broadband noise.',
+    Merchant: 'Stronger regular harmonics and louder broadband machinery.',
+    Fishing: 'Noisier, rougher engine signature with mid-band irregulars.',
+    Biologics: 'Weak, wandering or pulsed energy with no clean machinery harmonics.'
+  };
+
+  function init() {
+    resetGame(lockedLevel || currentLevel);
+    if (waterfallTimer) clearInterval(waterfallTimer);
+    if (lofarTimer) clearInterval(lofarTimer);
+    waterfallTimer = setInterval(() => { if (state.running && !state.finished) drawWaterfallRow(); }, 95);
+    lofarTimer = setInterval(() => { if (state.running && !state.finished) drawLofarRow(); }, 95);
+    cancelAnimationFrame(gameLoopHandle);
+    requestAnimationFrame(frame);
+  }
+
+  function createScenario(level) {
+    if (level === 1) {
+      return {
+        ownship: {x: 510, y: 500, heading: 90, speed: 0},
+        convoy: [],
+        contacts: [
+          createContact('C1', 'Merchant', 190, 170, 18, 2.1, '#ffd166'),
+          createContact('C2', 'Fishing', 830, 260, 202, 1.8, '#52f2a4'),
+          createContact('H1', 'Submarine', 770, 825, 320, 1.65, '#61e2ff', true),
+        ]
+      };
+    }
+    if (level === 2) {
+      return {
+        ownship: {x: 455, y: 500, heading: 40, speed: 8},
+        convoy: [],
+        contacts: [
+          createContact('H1', 'Submarine', 780, 255, 205, 1.25, '#61e2ff', true),
+          createContact('C1', 'Merchant', 195, 795, 35, 1.6, '#ffd166'),
+        ]
+      };
+    }
+    return {
+      ownship: {x: 510, y: 330, heading: 90, speed: 8},
+      convoy: [{x: 510, y: 670}, {x: 548, y: 695}, {x: 472, y: 695}],
+      contacts: [
+        createContact('C1', 'Merchant', 195, 165, 12, 2.4, '#ffd166'),
+        createContact('C2', 'Fishing', 785, 165, 196, 1.9, '#52f2a4'),
+        createContact('C3', 'Biologics', 210, 795, 30, 1.7, '#f6a7ff'),
+        createContact('H1', 'Submarine', 870, 850, 221, 2.2, '#61e2ff', true),
+      ]
+    };
+  }
+
+  function resetGame(level=currentLevel) {
+    currentLevel = lockedLevel || Number(level) || 1;
+    const config = levelConfigs[currentLevel];
+    const scenario = createScenario(currentLevel);
+    state = {
+      level: currentLevel,
+      config,
+      running: true,
+      finished: false,
+      outcome: null,
+      ownship: scenario.ownship,
+      convoy: scenario.convoy,
+      contacts: scenario.contacts,
+      selectedBearing: null,
+      selectedTrackId: null,
+      tracks: [],
+      logs: [],
+      pingCooldown: 0,
+      pingFlash: 0,
+      pingReveals: [],
+      mode: 'Passive',
+      torpedoes: config.weapons ? 2 : 0,
+      missionSec: 0,
+      convoyHealth: scenario.convoy.length,
+      detectedHostile: false,
+      hydroNoise: .16,
+      alertLevel: 0,
+      hostileAlerted: false,
+      torpedoesInWater: [],
+      objectives: Object.fromEntries(config.objectives.map(([id]) => [id, false])),
+      maneuver: {
+        started: false,
+        startPos: null,
+        startBearing: null,
+        sideTravel: 0,
+        goodGeometryTime: 0,
+        bearingChange: 0,
+        fixAchieved: false
+      }
+    };
+    clearCanvas(wCtx, waterfall);
+    clearCanvas(lCtx, lofar);
+    ui.banner.classList.remove('show');
+    ui.pauseBtn.textContent = 'Pause';
+    renderMissionBriefing();
+    logEvent(`${config.title} started.`);
+    renderTracks();
+    setNextStep(1, 'Click a bright line near the top of the left sonar waterfall.');
+    updateUI();
+    drawWaterfallOverlays();
+  }
+
+  function startLevel(level) {
+    resetGame(level);
+  }
+
+  function renderMissionBriefing() {
+    const config = state.config;
+    ui.missionTitle.textContent = config.title;
+    ui.gameTitle.textContent = singleLevelMode ? `Sonar Spy — ${config.title}` : 'Sonar Spy';
+    ui.missionSubtitle.textContent = config.subtitle;
+    ui.missionDescription.textContent = config.description;
+    ui.lessonText.textContent = config.lesson;
+    ui.levelBtns.forEach((btn, index) => {
+      const level = index + 1;
+      btn.classList.toggle('active', level === currentLevel);
+      btn.classList.toggle('complete', completedLevels.has(level));
+      btn.disabled = singleLevelMode;
+    });
+    renderObjectives();
+  }
+
+  function renderObjectives() {
+    ui.objectiveList.innerHTML = state.config.objectives.map(([id, label]) =>
+      `<div class="objective ${state.objectives[id] ? 'complete' : ''}">${label}</div>`
+    ).join('');
+  }
+
+  function setObjective(id, value=true) {
+    if (!(id in state.objectives) || state.objectives[id] === value) return;
+    state.objectives[id] = value;
+    renderObjectives();
+  }
+
+  function createContact(id, type, x, y, heading, speed, color, hostile=false) {
+    const freqMap = {
+      Submarine: [46, 92, 138, 185],
+      Merchant: [20, 41, 82, 123, 164],
+      Fishing: [28, 57, 79, 109, 149],
+      Biologics: [12, 31, 52]
+    };
+    return {
+      id, type, hostile, x, y, heading, speed, color,
+      freqs: freqMap[type].slice(),
+      alive: true,
+      revealedByPingUntil: 0,
+      recentBearing: 0,
+      attackTimer: 0,
+      escapeVector: null,
+    };
+  }
+
+  function clearCanvas(ctx, canvas) {
+    ctx.fillStyle = '#031016';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function logEvent(text) {
+    const m = formatTime(state?.missionSec || 0);
+    state.logs.unshift(`[${m}] ${text}`);
+    state.logs = state.logs.slice(0, 100);
+    ui.log.innerHTML = state.logs.map(x => `<div>${x}</div>`).join('');
+  }
+
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60).toString().padStart(2, '0');
+    const s = Math.floor(sec % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  }
+
+  function wrapDeg(d) {
+    d %= 360; if (d < 0) d += 360; return d;
+  }
+  function degToRad(d) { return d * Math.PI / 180; }
+  function radToDeg(r) { return r * 180 / Math.PI; }
+  function angleDiff(a,b) { let d=Math.abs(a-b)%360; return d>180?360-d:d; }
+  function distance(a,b) { return Math.hypot(a.x-b.x, a.y-b.y); }
+  function bearingTo(a,b) { return wrapDeg(radToDeg(Math.atan2(b.x-a.x, -(b.y-a.y)))); }
+  function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
+
+  function updateSimulation(dt) {
+    if (!state.running || state.finished) return;
+    state.missionSec += dt;
+    state.hydroNoise = 0.13 + 0.06*(1+Math.sin(performance.now()/3200))/2 + (state.ownship.speed-6)*0.006;
+    if (state.pingCooldown > 0) state.pingCooldown = Math.max(0, state.pingCooldown - dt);
+    if (state.pingFlash > 0) state.pingFlash = Math.max(0, state.pingFlash - dt*0.35);
+
+    updateOwnship(dt);
+    updateContacts(dt);
+    updateTracks(dt);
+    updateTorpedoes(dt);
+    checkHostileThreat(dt);
+    updateTrainingProgress(dt);
+    updateUI();
+  }
+
+  function updateOwnship(dt) {
+    const v = state.ownship.speed * 2.0;
+    state.ownship.x += Math.sin(degToRad(state.ownship.heading)) * v * dt;
+    state.ownship.y += -Math.cos(degToRad(state.ownship.heading)) * v * dt;
+    state.ownship.x = clamp(state.ownship.x, 80, 920);
+    state.ownship.y = clamp(state.ownship.y, 80, 920);
+  }
+
+  function updateContacts(dt) {
+    state.contacts.forEach(c => {
+      if (!c.alive) return;
+      if (c.hostile && state.config.threat) {
+        const convoyCenter = state.convoy.length ? {
+          x: state.convoy.reduce((sum, ship) => sum + ship.x, 0) / state.convoy.length,
+          y: state.convoy.reduce((sum, ship) => sum + ship.y, 0) / state.convoy.length
+        } : {x: 510, y: 687};
+        const toConvoy = bearingTo(c, convoyCenter);
+        const toOwn = bearingTo(c, state.ownship);
+        if (state.hostileAlerted) {
+          const mode = distance(c, state.ownship) < 190 ? toOwn + 180 : toConvoy;
+          c.heading = turnToward(c.heading, wrapDeg(mode + 10*Math.sin(performance.now()/1500)), 28*dt);
+          c.speed = 2.8;
+        } else {
+          c.heading = turnToward(c.heading, toConvoy, 18*dt);
+          c.speed = 2.25;
+        }
+      } else {
+        // Training contacts hold a readable course with only gentle wandering.
+        c.heading = wrapDeg(c.heading + Math.sin((performance.now()/1800) + c.x*.01 + c.y*.01) * 0.22);
+      }
+      const v = c.speed * 2.1;
+      c.x += Math.sin(degToRad(c.heading)) * v * dt;
+      c.y += -Math.cos(degToRad(c.heading)) * v * dt;
+      if (c.x < 60 || c.x > 940) c.heading = wrapDeg(360 - c.heading);
+      if (c.y < 60 || c.y > 940) c.heading = wrapDeg(180 - c.heading);
+      c.x = clamp(c.x, 60, 940);
+      c.y = clamp(c.y, 60, 940);
+      c.recentBearing = bearingTo(state.ownship, c);
+    });
+
+    if (state.config.threat && state.missionSec > 360 && !state.finished) {
+      endGame(false, 'Time expired. The convoy left the area without a confirmed hostile kill.');
+    }
+  }
+
+  function turnToward(current, target, maxDelta) {
+    current = wrapDeg(current); target = wrapDeg(target);
+    let diff = ((target - current + 540) % 360) - 180;
+    diff = clamp(diff, -maxDelta, maxDelta);
+    return wrapDeg(current + diff);
+  }
+
+  function updateTracks(dt) {
+    state.tracks.forEach(t => {
+      t.age += dt;
+      const decay = state.level === 3 ? .65 : 0.15;
+      t.solution = Math.max(0, t.solution - dt*decay);
+      if (t.boundContactId) {
+        const c = state.contacts.find(x => x.id === t.boundContactId && x.alive);
+        if (c) {
+          const trueBearing = bearingTo(state.ownship, c);
+          t.lastObservedBearing = trueBearing;
+          if (t.rangeKnown && Number.isFinite(t.rangeEstimate)) {
+            const trueRange = distance(state.ownship, c);
+            t.rangeEstimate += (trueRange - t.rangeEstimate) * Math.min(1, dt * .45);
+          }
+          const drift = angleDiff(t.bearing, trueBearing);
+          if (drift < 5) t.solution = Math.min(100, t.solution + dt*(state.level === 3 ? .8 : 1.2));
+        }
+      }
+    });
+  }
+
+  function updateTorpedoes(dt) {
+    const next = [];
+    for (const torp of state.torpedoesInWater) {
+      torp.life -= dt;
+      const target = torp.targetId
+        ? state.contacts.find(c => c.id === torp.targetId && c.alive)
+        : null;
+
+      // MVP torpedoes home on the selected fire-control track. This prevents a
+      // valid shot from silently missing just because the contact moved after launch.
+      if (target) {
+        const desiredHeading = bearingTo(torp, target);
+        torp.heading = turnToward(torp.heading, desiredHeading, torp.turnRate * dt);
+      }
+
+      torp.x += Math.sin(degToRad(torp.heading)) * torp.speed * dt;
+      torp.y += -Math.cos(degToRad(torp.heading)) * torp.speed * dt;
+
+      if (target && distance(torp, target) < 34) {
+        target.alive = false;
+        torp.life = 0;
+        if (target.hostile) {
+          setObjective('destroy');
+          completeLevel(`Enemy submarine destroyed. You protected the convoy with ${state.convoyHealth} ships remaining.`);
+        } else {
+          endGame(false, `You torpedoed a neutral ${target.type.toLowerCase()} contact. Mission failed.`);
+        }
+        continue;
+      }
+
+      if (torp.life <= 0) {
+        const track = state.tracks.find(t => t.id === torp.trackId);
+        if (track) track.solution = Math.max(20, track.solution - 35);
+        logEvent(`Torpedo on ${torp.trackId || 'the selected track'} missed or lost contact.`);
+        continue;
+      }
+
+      next.push(torp);
+    }
+    state.torpedoesInWater = next;
+  }
+
+  function checkHostileThreat(dt) {
+    if (!state.config.threat) {
+      state.alertLevel = 0;
+      return;
+    }
+    const hostile = state.contacts.find(c => c.hostile && c.alive);
+    if (!hostile || state.finished) return;
+    const convoyCenter = {x: 510, y: 687};
+    const d = distance(hostile, convoyCenter);
+    let danger = 'Low';
+    if (d < 330) danger = 'Medium';
+    if (d < 220) danger = 'High';
+    if (d < 150) danger = 'Critical';
+    state.alertLevel = ({Low:0, Medium:1, High:2, Critical:3})[danger];
+
+    if (d < 140) hostile.attackTimer += dt;
+    else hostile.attackTimer = Math.max(0, hostile.attackTimer - dt*0.5);
+
+    if (hostile.attackTimer > 7.5) {
+      state.convoyHealth -= 1;
+      hostile.attackTimer = 0;
+      logEvent('Enemy submarine attacked the convoy! One escort/merchant was lost.');
+      if (state.convoyHealth <= 0) endGame(false, 'The submarine destroyed the convoy.');
+    }
+  }
+
+  function selectedTrackContact() {
+    const t = getSelectedTrack();
+    return t?.boundContactId ? state.contacts.find(c => c.id === t.boundContactId && c.alive) || null : null;
+  }
+
+  function getGeometryInfo(track=getSelectedTrack()) {
+    if (!track) return null;
+    const liveContact = track.boundContactId ? state.contacts.find(c => c.id === track.boundContactId && c.alive) : null;
+    const bearing = liveContact ? bearingTo(state.ownship, liveContact) : track.bearing;
+    const courseA = wrapDeg(bearing + 90);
+    const courseB = wrapDeg(bearing - 90);
+    const recommended = angleDiff(state.ownship.heading, courseA) <= angleDiff(state.ownship.heading, courseB) ? courseA : courseB;
+    const relative = angleDiff(state.ownship.heading, bearing);
+    const score = Math.abs(Math.sin(degToRad(relative)));
+    const rating = score >= .85 ? 'Excellent' : score >= .62 ? 'Good' : score >= .36 ? 'Fair' : 'Poor';
+    return {bearing, recommended, score, rating, relative};
+  }
+
+  function updateTrainingProgress(dt) {
+    if (state.level === 1) return;
+    const t = getSelectedTrack();
+    if (state.level === 2 && state.objectives.classify && t && t.classification === 'Submarine') {
+      if (!state.maneuver.started) {
+        state.maneuver.started = true;
+        state.maneuver.startPos = {x: state.ownship.x, y: state.ownship.y};
+        state.maneuver.startBearing = t.bearing;
+      }
+      const geometry = getGeometryInfo(t);
+      if (state.ownship.speed <= 6) setObjective('slow');
+      if (geometry && geometry.score >= .62) {
+        state.maneuver.goodGeometryTime += dt;
+        if (state.maneuver.goodGeometryTime >= 2.5) setObjective('broadside');
+      } else {
+        state.maneuver.goodGeometryTime = Math.max(0, state.maneuver.goodGeometryTime - dt*.5);
+      }
+      if (geometry && geometry.score >= .62 && state.ownship.speed <= 8) {
+        state.maneuver.sideTravel += state.ownship.speed * 2.0 * dt;
+      }
+      if (state.maneuver.sideTravel >= 55) setObjective('travel');
+      const c = t.boundContactId ? state.contacts.find(c => c.id === t.boundContactId && c.alive) : null;
+      if (c && state.maneuver.startBearing !== null) {
+        state.maneuver.bearingChange = angleDiff(state.maneuver.startBearing, bearingTo(state.ownship, c));
+      }
+    }
+
+    if (state.level === 3) {
+      const t = getSelectedTrack();
+      const cSelected = selectedTrackContact();
+      if (t && cSelected?.hostile && t.classification === 'Submarine') setObjective('classify');
+      if (t && cSelected?.hostile && t.rangeKnown) setObjective('range');
+      const c = selectedTrackContact();
+      const r = c ? distance(state.ownship, c) : (t?.rangeEstimate ?? Infinity);
+      if (t && t.classification === 'Submarine' && r <= WEAPON_RANGE) setObjective('close');
+    }
+  }
+
+  function completeLevel(text) {
+    if (state.finished) return;
+    completedLevels.add(state.level);
+    renderMissionBriefing();
+    endGame(true, text);
+  }
+
+  function currentTargetRange() {
+    const t = getSelectedTrack();
+    const c = selectedTrackContact();
+    if (c) return distance(state.ownship, c);
+    return t?.rangeKnown ? t.rangeEstimate : Infinity;
+  }
+
+  function getFireBlocker() {
+    if (!state.config.weapons) return 'Weapons are disabled in this training level.';
+    const t = getSelectedTrack();
+    if (!t) return 'Select a track.';
+    if (t.classification !== 'Submarine') return 'Classify the selected track as Submarine.';
+    if (!t.rangeKnown) return 'Range unknown — select its current bearing and use Active Ping.';
+    const r = currentTargetRange();
+    if (r > WEAPON_RANGE) return `Target is outside weapon range (${Math.round(r)} / ${WEAPON_RANGE}). Chase it first.`;
+    if (t.solution < 70) return `Track quality is ${Math.round(t.solution)}%. Update the track until it reaches 70%.`;
+    if (state.torpedoes <= 0) return 'No torpedoes remaining.';
+    return '';
+  }
+
+  function intensityAtBearing(bearing) {
+    let intensity = .04 + Math.random()*.03 + state.hydroNoise*.18;
+    state.contacts.forEach(c => {
+      if (!c.alive) return;
+      const b = bearingTo(state.ownship, c);
+      const diff = angleDiff(bearing, b);
+      const r = distance(state.ownship, c);
+      let spread = c.type === 'Biologics' ? 4.2 : (c.type === 'Fishing' ? 3.2 : 2.6);
+      let loudness = c.type === 'Merchant' ? .95 : c.type === 'Fishing' ? .75 : c.type === 'Biologics' ? .42 : .66;
+      if (c.hostile && state.hostileAlerted) loudness += .16;
+      const beam = Math.exp(-(diff*diff)/(2*spread*spread));
+      const rangeFactor = Math.max(.18, 1 - r/960);
+      intensity += loudness * beam * rangeFactor;
+    });
+    return clamp(intensity, 0, 1);
+  }
+
+  function drawWaterfallRow() {
+    scrollDown(wCtx, waterfall, 1);
+    for (let x=0; x<waterfall.width; x++) {
+      const bearing = x / waterfall.width * 360;
+      const v = intensityAtBearing(bearing);
+      wCtx.fillStyle = heatColor(v);
+      wCtx.fillRect(x, 0, 1, 1);
+    }
+    drawWaterfallOverlays();
+  }
+
+  function scrollDown(ctx, canvas, pixels) {
+    const data = ctx.getImageData(0, 0, canvas.width, canvas.height-pixels);
+    ctx.putImageData(data, 0, pixels);
+    ctx.fillStyle = '#031016';
+    ctx.fillRect(0, 0, canvas.width, pixels);
+  }
+
+  function heatColor(v) {
+    const a = clamp(v,0,1);
+    const r = Math.round(10 + 28*a + 195*a*a);
+    const g = Math.round(30 + 185*a);
+    const b = Math.round(40 + 235*Math.pow(a, .9));
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function drawWaterfallOverlays() {
+    woCtx.clearRect(0,0,waterfallOverlay.width, waterfallOverlay.height);
+    woCtx.save();
+    woCtx.strokeStyle = 'rgba(255,255,255,.1)';
+    for (let i=0;i<=6;i++) {
+      const x = i/6*waterfallOverlay.width;
+      woCtx.beginPath(); woCtx.moveTo(x,0); woCtx.lineTo(x,waterfallOverlay.height); woCtx.stroke();
+      const b = Math.round(i/6*360)%360;
+      woCtx.fillStyle = 'rgba(220,242,247,.75)';
+      woCtx.font = '12px sans-serif';
+      woCtx.fillText(String(b).padStart(3,'0')+'°', Math.min(waterfallOverlay.width-34, x+2), waterfallOverlay.height-6);
+    }
+    if (state.selectedBearing !== null) {
+      const sx = state.selectedBearing/360*waterfallOverlay.width;
+      woCtx.strokeStyle = 'rgba(255,209,102,.95)'; woCtx.lineWidth = 2;
+      woCtx.beginPath(); woCtx.moveTo(sx,0); woCtx.lineTo(sx,waterfallOverlay.height); woCtx.stroke();
+    }
+    woCtx.restore();
+  }
+
+  function drawPPI() {
+    const ctx = pCtx; const w = ppi.width, h = ppi.height;
+    ctx.clearRect(0,0,w,h);
+    const cx = w/2, cy = h/2, R = Math.min(w,h)*.43;
+    const bg = ctx.createRadialGradient(cx,cy,16,cx,cy,R);
+    bg.addColorStop(0,'#06212b'); bg.addColorStop(1,'#021017');
+    ctx.fillStyle = bg; ctx.fillRect(0,0,w,h);
+
+    ctx.save(); ctx.translate(cx,cy);
+    for (let r=R/4; r<=R; r+=R/4) {
+      ctx.strokeStyle = 'rgba(97,226,255,.2)'; ctx.beginPath(); ctx.arc(0,0,r,0,Math.PI*2); ctx.stroke();
+    }
+    for (let d=0; d<360; d+=30) {
+      const a=degToRad(d), x1=Math.sin(a)*(R-8), y1=-Math.cos(a)*(R-8), x2=Math.sin(a)*(R+4), y2=-Math.cos(a)*(R+4);
+      ctx.strokeStyle = 'rgba(97,226,255,.25)'; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    }
+
+    // convoy diamonds
+    ctx.fillStyle = '#ffffff';
+    state.convoy.forEach((ship,i) => {
+      const p = worldToPpi(ship, R);
+      diamond(ctx, p.x, p.y, 8);
+    });
+
+    // ownship triangle
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath(); ctx.moveTo(0,-13); ctx.lineTo(8,9); ctx.lineTo(-8,9); ctx.closePath(); ctx.fill();
+
+    // Training guidance vector: perpendicular in Level 2, pursuit course in Level 3.
+    const guideTrack = getSelectedTrack();
+    if (guideTrack && state.level >= 2) {
+      const geometry = getGeometryInfo(guideTrack);
+      let guideCourse = geometry?.recommended;
+      let guideLabel = 'CROSS-BEARING COURSE';
+      if (state.level === 3 && guideTrack.rangeKnown) {
+        guideCourse = geometry?.bearing;
+        guideLabel = 'CHASE COURSE';
+      }
+      if (Number.isFinite(guideCourse)) {
+        const ga = degToRad(guideCourse);
+        ctx.strokeStyle = 'rgba(82,242,164,.88)';
+        ctx.lineWidth = 3;
+        ctx.setLineDash([5,5]);
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.sin(ga)*R*.55,-Math.cos(ga)*R*.55); ctx.stroke();
+        ctx.setLineDash([]);
+        const gx = Math.sin(ga)*R*.58, gy = -Math.cos(ga)*R*.58;
+        ctx.fillStyle = 'rgba(82,242,164,.95)';
+        ctx.font = 'bold 10px sans-serif';
+        ctx.fillText(guideLabel, gx+5, gy-5);
+      }
+    }
+
+    // selected bearing line
+    if (state.selectedBearing !== null) {
+      const a = degToRad(state.selectedBearing);
+      ctx.strokeStyle = 'rgba(255,209,102,.95)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.sin(a)*R, -Math.cos(a)*R); ctx.stroke();
+    }
+
+    // Track bearing lines, uncertainty wedges, and persistent estimated markers.
+    // Passive-only tracks remain on the outer ring because their range is unknown.
+    // Active-ranging tracks move to an estimated position on the plot.
+    state.tracks.forEach(t => {
+      const a = degToRad(t.bearing);
+      const selected = t.id === state.selectedTrackId;
+      ctx.strokeStyle = t.color; ctx.lineWidth = selected ? 2.8 : 1.8;
+      ctx.setLineDash([8,6]); ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.sin(a)*R, -Math.cos(a)*R); ctx.stroke(); ctx.setLineDash([]);
+      const arcR = R * .83;
+      ctx.strokeStyle = rgba(t.color, selected ? .38 : .22); ctx.lineWidth = selected ? 9 : 6;
+      ctx.beginPath(); ctx.arc(0,0,arcR,degToRad(t.bearing-t.uncertainty), degToRad(t.bearing+t.uncertainty)); ctx.stroke();
+      drawTrackEstimateMarker(ctx, t, R, selected);
+    });
+
+    // ping reveals
+    if (state.pingFlash > 0) {
+      state.pingReveals.forEach(pr => {
+        const a=degToRad(pr.bearing); const r=R*Math.min(1,pr.range/650); const x=Math.sin(a)*r, y=-Math.cos(a)*r;
+        ctx.fillStyle = `rgba(82,242,164,${.38 + .42*state.pingFlash})`; ctx.beginPath(); ctx.arc(x,y,8+6*state.pingFlash,0,Math.PI*2); ctx.fill();
+        ctx.strokeStyle = 'rgba(82,242,164,.95)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x,y,16+6*state.pingFlash,0,Math.PI*2); ctx.stroke();
+      });
+    }
+
+    // torpedoes in water
+    state.torpedoesInWater.forEach(t => {
+      const p = worldToPpi(t, R);
+      ctx.fillStyle = '#ff9f1c'; ctx.beginPath(); ctx.arc(p.x,p.y,4,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,159,28,.4)'; ctx.beginPath(); ctx.arc(p.x,p.y,10,0,Math.PI*2); ctx.stroke();
+    });
+
+    // sweep line
+    const sweep = (performance.now()/42)%360, sa = degToRad(sweep);
+    const grad = ctx.createLinearGradient(0,0,Math.sin(sa)*R,-Math.cos(sa)*R); grad.addColorStop(0,'rgba(97,226,255,0)'); grad.addColorStop(1,'rgba(97,226,255,.18)');
+    ctx.strokeStyle = grad; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(Math.sin(sa)*R,-Math.cos(sa)*R); ctx.stroke();
+    ctx.restore();
+
+    ctx.fillStyle = 'rgba(220,242,247,.82)'; ctx.font = '12px sans-serif';
+    ctx.fillText('000°', cx-12, cy-R-12); ctx.fillText('090°', cx+R+8, cy+4); ctx.fillText('180°', cx-12, cy+R+16); ctx.fillText('270°', cx-R-36, cy+4);
+  }
+
+  function diamond(ctx,x,y,r){ctx.beginPath();ctx.moveTo(x,y-r);ctx.lineTo(x+r,y);ctx.lineTo(x,y+r);ctx.lineTo(x-r,y);ctx.closePath();ctx.fill();}
+
+  function drawTrackEstimateMarker(ctx, t, R, selected) {
+    const a = degToRad(t.bearing);
+    const plottedRange = t.rangeKnown && Number.isFinite(t.rangeEstimate)
+      ? clamp(t.rangeEstimate, 70, 650)
+      : 540;
+    const r = R * (plottedRange / 650);
+    const x = Math.sin(a) * r;
+    const y = -Math.cos(a) * r;
+    const staleGrowth = Math.min(18, (t.age || 0) * 0.55);
+    const uncertaintyRadius = t.rangeKnown
+      ? 12 + t.uncertainty * 1.25 + staleGrowth
+      : 18 + t.uncertainty * 0.7;
+
+    ctx.save();
+    ctx.translate(x, y);
+
+    // Estimated-position uncertainty. A dashed ring means bearing-only/range unknown.
+    ctx.strokeStyle = rgba(t.color, selected ? .78 : .48);
+    ctx.lineWidth = selected ? 2.5 : 1.6;
+    if (!t.rangeKnown) ctx.setLineDash([5,4]);
+    ctx.beginPath();
+    ctx.arc(0, 0, uncertaintyRadius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    if (selected) {
+      ctx.strokeStyle = rgba(t.color, .20);
+      ctx.lineWidth = 7;
+      ctx.beginPath(); ctx.arc(0, 0, uncertaintyRadius + 4, 0, Math.PI * 2); ctx.stroke();
+    }
+
+    drawClassificationSymbol(ctx, t.classification, t.color, t.rangeKnown);
+    ctx.restore();
+
+    const classLabel = t.classification === 'Submarine' ? 'SUB?'
+      : t.classification === 'Merchant' ? 'MERCHANT?'
+      : t.classification === 'Fishing' ? 'FISHING?'
+      : t.classification === 'Biologics' ? 'BIO?'
+      : 'UNKNOWN';
+    const rangeLabel = t.rangeKnown ? `EST ${Math.round(t.rangeEstimate)}` : 'RANGE ?';
+    const line1 = `${t.id} ${classLabel}`;
+    const line2 = `${Math.round(t.solution)}% TRACK · ${rangeLabel}`;
+    ctx.font = 'bold 12px sans-serif';
+    const width = Math.max(ctx.measureText(line1).width, ctx.measureText(line2).width) + 12;
+    const lx = clamp(x + 14, -R + 5, R - width - 5);
+    const ly = clamp(y - 30, -R + 7, R - 37);
+    ctx.fillStyle = 'rgba(2,16,23,.88)';
+    ctx.fillRect(lx, ly, width, 34);
+    ctx.strokeStyle = rgba(t.color, selected ? .95 : .55);
+    ctx.lineWidth = selected ? 2 : 1;
+    ctx.strokeRect(lx, ly, width, 34);
+    ctx.fillStyle = t.color;
+    ctx.font = 'bold 12px sans-serif';
+    ctx.fillText(line1, lx + 6, ly + 13);
+    ctx.fillStyle = 'rgba(220,242,247,.82)';
+    ctx.font = '10px sans-serif';
+    ctx.fillText(line2, lx + 6, ly + 27);
+  }
+
+  function drawClassificationSymbol(ctx, classification, color, rangeKnown) {
+    ctx.strokeStyle = color;
+    ctx.fillStyle = rgba(color, rangeKnown ? .32 : .12);
+    ctx.lineWidth = 2;
+
+    if (classification === 'Submarine') {
+      // A suspected-submarine silhouette; it reflects the player's classification,
+      // not confirmed truth.
+      ctx.beginPath();
+      ctx.ellipse(0, 1, 12, 5, 0, 0, Math.PI * 2);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-2, -7, 5, 4); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-12, 1); ctx.lineTo(-17, -4); ctx.lineTo(-17, 6); ctx.closePath(); ctx.fill(); ctx.stroke();
+    } else if (classification === 'Merchant') {
+      ctx.beginPath(); ctx.rect(-10, -6, 20, 12); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-13, 6); ctx.lineTo(13, 6); ctx.lineTo(8, 10); ctx.lineTo(-8, 10); ctx.closePath(); ctx.fill(); ctx.stroke();
+    } else if (classification === 'Fishing') {
+      ctx.beginPath(); ctx.moveTo(0, -10); ctx.lineTo(10, 8); ctx.lineTo(-10, 8); ctx.closePath(); ctx.fill(); ctx.stroke();
+    } else if (classification === 'Biologics') {
+      [-6,0,6].forEach((dx,i) => { ctx.beginPath(); ctx.arc(dx, i===1?-3:3, 4, 0, Math.PI*2); ctx.fill(); ctx.stroke(); });
+    } else {
+      ctx.beginPath(); ctx.arc(0, 0, 8, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = color; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('?', 0, 0);
+      ctx.textAlign = 'start'; ctx.textBaseline = 'alphabetic';
+    }
+  }
+  function worldToPpi(obj, R) {
+    const dx = obj.x - state.ownship.x, dy = obj.y - state.ownship.y;
+    return {x: dx/650*R, y: dy/650*R};
+  }
+  function rgba(hex, a) {
+    const h = hex.replace('#',''); const n=parseInt(h,16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;
+  }
+
+  function drawLofarRow() {
+    scrollDown(lCtx, lofar, 1);
+    lCtx.fillStyle = '#031016'; lCtx.fillRect(0,0,lofar.width,1);
+    const track = getSelectedTrack();
+    const contact = track?.boundContactId ? state.contacts.find(c=>c.id===track.boundContactId && c.alive) : null;
+    let freqs = [];
+    if (contact) freqs = contact.freqs;
+    else if (state.selectedBearing !== null) {
+      const c = nearestContactToBearing(state.selectedBearing, 8);
+      if (c) freqs = c.freqs;
+    }
+    for (let i=0;i<20;i++) {
+      const x = Math.floor(Math.random()*lofar.width);
+      lCtx.fillStyle = `rgba(120,180,210,${.02 + Math.random()*.06})`;
+      lCtx.fillRect(x,0,1,1);
+    }
+    freqs.forEach((f, idx) => {
+      const x = Math.floor((f/220)*lofar.width);
+      lCtx.fillStyle = idx === 0 ? 'rgba(255,209,102,.95)' : 'rgba(97,226,255,.94)';
+      lCtx.fillRect(x,0,2,1);
+      if (Math.random()>.5) lCtx.fillRect(Math.min(lofar.width-1,x+1),0,1,1);
+    });
+    drawLofarOverlay(freqs);
+  }
+
+  function drawLofarOverlay(freqs) {
+    loCtx.clearRect(0,0,lofarOverlay.width, lofarOverlay.height);
+    loCtx.save();
+    loCtx.strokeStyle = 'rgba(255,255,255,.08)';
+    for (let i=0;i<=5;i++) {
+      const x = i/5*lofarOverlay.width;
+      loCtx.beginPath(); loCtx.moveTo(x,0); loCtx.lineTo(x,lofarOverlay.height); loCtx.stroke();
+      const hz = Math.round(i/5*220);
+      loCtx.fillStyle = 'rgba(220,242,247,.75)'; loCtx.font = '12px sans-serif'; loCtx.fillText(String(hz), Math.min(lofarOverlay.width-26,x+2), lofarOverlay.height-6);
+    }
+    loCtx.fillStyle = 'rgba(220,242,247,.82)';
+    loCtx.font = 'bold 12px sans-serif';
+    loCtx.fillText('Frequency (Hz) →', 10, 18);
+    loCtx.fillStyle = 'rgba(220,242,247,.62)';
+    loCtx.font = '11px sans-serif';
+    loCtx.fillText('newest', lofarOverlay.width - 48, 18);
+    freqs.forEach(f => {
+      const x = (f/220)*lofarOverlay.width;
+      loCtx.strokeStyle = 'rgba(255,209,102,.22)'; loCtx.beginPath(); loCtx.moveTo(x,0); loCtx.lineTo(x,lofarOverlay.height); loCtx.stroke();
+    });
+    loCtx.restore();
+  }
+
+  function nearestContactToBearing(bearing, tol=8) {
+    const arr = state.contacts.filter(c=>c.alive).map(c => ({c, bearing: bearingTo(state.ownship,c), diff: angleDiff(bearingTo(state.ownship,c), bearing), range: distance(state.ownship,c)}))
+      .filter(x => x.diff <= tol).sort((a,b)=>a.diff-b.diff || a.range-b.range);
+    return arr[0]?.c || null;
+  }
+
+  function markTrack() {
+    if (state.selectedBearing === null) {
+      logEvent('First click a bright line on the waterfall.');
+      setNextStep(1, 'Click a bright vertical line on the left sonar waterfall.');
+      return;
+    }
+    const candidate = nearestContactToBearing(state.selectedBearing, 8);
+    const existing = state.tracks.find(t => candidate && t.boundContactId === candidate.id);
+    if (existing) {
+      existing.bearing = state.selectedBearing;
+      existing.uncertainty = Math.max(2.5, existing.uncertainty - 1.2);
+      const geometry = getGeometryInfo(existing);
+      const observationBonus = state.level === 2
+        ? (geometry && geometry.score >= .62 ? 24 : 6)
+        : 16;
+      existing.solution = Math.min(100, existing.solution + observationBonus + (existing.rangeKnown ? 8 : 0));
+      existing.age = 0;
+      if (candidate) existing.lastObservedBearing = bearingTo(state.ownship, candidate);
+      state.selectedTrackId = existing.id;
+      logEvent(`Updated ${existing.id}. Bearing refined.`);
+      if (state.level === 2 && state.objectives.classify && existing.classification === 'Submarine') {
+        const c = existing.boundContactId ? state.contacts.find(c => c.id === existing.boundContactId && c.alive) : null;
+        if (c && state.maneuver.startBearing !== null) {
+          state.maneuver.bearingChange = angleDiff(state.maneuver.startBearing, bearingTo(state.ownship, c));
+        }
+        if (state.objectives.broadside && state.objectives.travel && state.maneuver.bearingChange >= 3) {
+          state.maneuver.fixAchieved = true;
+          setObjective('fix');
+          completeLevel(`Maneuvering fix established. Your sideways run changed the bearing by ${state.maneuver.bearingChange.toFixed(1)}° and produced a much stronger track.`);
+        }
+      }
+      ui.summaryBox.innerHTML = `<b>${existing.id} updated.</b> ${existing.classification === 'Unknown' ? 'Now choose a classification above.' : 'Continue observing its moving line, or use active sonar when you need range.'}`;
+      setNextStep(existing.classification === 'Unknown' ? 3 : 4, existing.classification === 'Unknown' ? `Track ${existing.id} is selected. Choose its classification on the right.` : `Track ${existing.id} improved. Re-observe it later or use Active Ping for range.`);
+    } else {
+      const trackId = `T${state.tracks.length+1}`;
+      const colors = ['#61e2ff','#ffd166','#52f2a4','#f6a7ff','#ff8fab'];
+      const t = {
+        id: trackId,
+        color: colors[state.tracks.length % colors.length],
+        bearing: state.selectedBearing,
+        uncertainty: candidate ? 8 : 12,
+        classification: 'Unknown',
+        boundContactId: candidate?.id || null,
+        solution: candidate ? 24 : 10,
+        age: 0,
+        rangeEstimate: null,
+        rangeKnown: false,
+        lastObservedBearing: candidate ? bearingTo(state.ownship, candidate) : state.selectedBearing,
+      };
+      state.tracks.unshift(t);
+      state.tracks = state.tracks.slice(0,6);
+      state.selectedTrackId = t.id;
+      if (state.level === 1) setObjective('track');
+      logEvent(`Created and selected ${trackId} at bearing ${String(Math.round(t.bearing)).padStart(3,'0')}°.`);
+      ui.summaryBox.innerHTML = `<b>${trackId} created and selected.</b> The upper-right plot now shows this sound by <b>frequency</b>: left is low pitch, right is higher pitch, and persistent vertical lines are machinery tones. Compare it with the four examples, then choose a classification.`;
+      setNextStep(3, `Track ${trackId} is ready. Choose Submarine, Merchant, Fishing, or Biologics on the right.`);
+    }
+    renderTracks();
+    updateUI();
+  }
+
+  function classifySelectedTrack(label) {
+    const t = getSelectedTrack();
+    if (!t) { logEvent('Select or create a track first.'); return; }
+    t.classification = label;
+    const contact = t.boundContactId ? state.contacts.find(c=>c.id===t.boundContactId) : null;
+    const correct = contact ? (contact.type === label) : false;
+    t.solution = Math.min(100, t.solution + (correct ? 8 : 2));
+    logEvent(`${t.id} classified as ${label}.`);
+    ui.summaryBox.innerHTML = `<b>${t.id} classified as ${label}.</b> ${classificationHints[label]}`;
+
+    if (state.level === 1) {
+      if (contact?.hostile && label === 'Submarine') {
+        setObjective('classify');
+        completeLevel('Correct classification. You used the waterfall bearing and four-tone LOFAR pattern to identify the submarine.');
+      } else {
+        setNextStep(1, 'Classification recorded. Inspect another waterfall line and find the submarine signature.');
+      }
+    } else if (state.level === 2) {
+      if (contact?.hostile && label === 'Submarine') {
+        setObjective('track');
+        setObjective('classify');
+        state.maneuver.started = true;
+        state.maneuver.startPos = {x: state.ownship.x, y: state.ownship.y};
+        state.maneuver.startBearing = bearingTo(state.ownship, contact);
+        state.maneuver.sideTravel = 0;
+        state.maneuver.goodGeometryTime = 0;
+        state.maneuver.bearingChange = 0;
+        const geometry = getGeometryInfo(t);
+        setNextStep(3, `Turn toward about ${String(Math.round(geometry.recommended)).padStart(3,'0')}°, slow to 6 knots, and travel sideways.`);
+        ui.summaryBox.innerHTML = `<b>Submarine track identified.</b> Do not head directly toward it. Follow the maneuver coach and cross its bearing to create parallax.`;
+      } else {
+        setNextStep(2, 'That classification does not complete the maneuver lesson. Inspect the other line.');
+      }
+    } else {
+      if (contact?.hostile && label === 'Submarine') {
+        setObjective('classify');
+        setNextStep(3, 'Submarine identified. Put the yellow cursor on its newest bearing and use Active Ping for range.');
+      } else {
+        setNextStep(2, 'Classification recorded. Continue comparing tracks before committing weapons.');
+      }
+    }
+    renderTracks(); updateUI();
+  }
+
+  function doActivePing() {
+    if (!state.config.ping) {
+      logEvent('Active sonar is introduced in Level 3. Complete this lesson with passive bearings.');
+      return;
+    }
+    if (state.pingCooldown > 0 || state.finished) return;
+    state.mode = 'Active';
+    state.pingCooldown = 11;
+    state.pingFlash = 1;
+    state.pingReveals = [];
+    state.hostileAlerted = true;
+    const chosen = state.selectedBearing;
+    const reveals = state.contacts.filter(c=>c.alive).map(c=>({c,bearing:bearingTo(state.ownship,c),range:distance(state.ownship,c),diff: chosen===null?999:angleDiff(chosen,bearingTo(state.ownship,c))}));
+    const list = chosen !== null ? reveals.filter(x=>x.diff <= 12).sort((a,b)=>a.diff-b.diff) : reveals.filter(x=>x.range < 520).slice(0,2);
+    state.pingReveals = list.map(x => ({bearing:x.bearing+(Math.random()-.5)*1.6, range:x.range*(.96+Math.random()*.08), id:x.c.id}));
+
+    // update matching track with range info
+    state.pingReveals.forEach(pr => {
+      const t = state.tracks.find(tr => tr.boundContactId === pr.id)
+        || state.tracks.find(tr => angleDiff(tr.bearing, pr.bearing) < 8);
+      if (t) {
+        // A matching active return establishes which simulated contact this
+        // fire-control track belongs to, even if the original passive mark was weak.
+        if (!t.boundContactId) t.boundContactId = pr.id;
+        t.bearing = pr.bearing;
+        t.rangeEstimate = pr.range;
+        t.rangeKnown = true;
+        t.solution = Math.min(100, t.solution + 28);
+        t.age = 0;
+      }
+    });
+    const selectedAfterPing = getSelectedTrack();
+    if (selectedAfterPing?.rangeKnown) {
+      setObjective('range');
+      const r = currentTargetRange();
+      setNextStep(4, r > WEAPON_RANGE ? `Range ${Math.round(r)}. Chase toward the estimated marker until within ${WEAPON_RANGE}.` : 'Target is in weapon range. Improve track quality if needed, then fire.');
+    }
+    logEvent(`Active ping transmitted. ${state.pingReveals.length ? 'Range returns received; estimated-position markers now persist on the center plot.' : 'No reliable return.'} The hostile contact is now alerted.`);
+    setTimeout(() => { state.mode = 'Passive'; updateUI(); }, 2300);
+    renderTracks(); updateUI();
+  }
+
+  function fireTorpedo() {
+    const blocker = getFireBlocker();
+    if (blocker) {
+      logEvent(`Fire control blocked: ${blocker}`);
+      ui.fireStatus.innerHTML = `<b>Fire control blocked:</b> ${blocker}`;
+      return;
+    }
+    const t = getSelectedTrack();
+
+    let target = t.boundContactId
+      ? state.contacts.find(c => c.id === t.boundContactId && c.alive)
+      : null;
+
+    // Recover a target from the most recent active return when an older weak
+    // passive mark was not yet bound to a contact.
+    if (!target) {
+      const returnMatch = state.pingReveals
+        .map(pr => ({ pr, score: angleDiff(pr.bearing, t.bearing) + Math.abs(pr.range - t.rangeEstimate) / 75 }))
+        .sort((a, b) => a.score - b.score)[0];
+      if (returnMatch && returnMatch.score < 10) {
+        target = state.contacts.find(c => c.id === returnMatch.pr.id && c.alive) || null;
+        if (target) t.boundContactId = target.id;
+      }
+    }
+
+    if (!target) {
+      logEvent(`No firm target is attached to ${t.id}. Ping this bearing again before firing.`);
+      return;
+    }
+
+    state.torpedoes -= 1;
+    const torp = {
+      x: state.ownship.x,
+      y: state.ownship.y,
+      heading: bearingTo(state.ownship, target),
+      speed: 145,
+      turnRate: 105,
+      life: 11,
+      targetId: target.id,
+      trackId: t.id,
+    };
+    state.torpedoesInWater.push(torp);
+    logEvent(`Torpedo launched on ${t.id}. Weapon is homing on the tracked contact.`);
+    setNextStep(6, `Torpedo in the water on ${t.id}. Watch the tactical display for the result.`);
+    ui.summaryBox.innerHTML = `<b>Torpedo in the water:</b> the orange marker is homing on ${t.id}.`;
+    renderTracks(); updateUI();
+  }
+
+  function getSelectedTrack() {
+    return state.tracks.find(t => t.id === state.selectedTrackId) || null;
+  }
+
+  function renderTracks() {
+    if (!state.tracks.length) {
+      ui.trackList.innerHTML = `<div class="track"><strong>No tracks yet</strong><div class="muted">Click a line, then use <b>Mark / Update Track</b>.</div></div>`;
+      return;
+    }
+    ui.trackList.innerHTML = state.tracks.map(t => {
+      const selected = t.id === state.selectedTrackId ? 'selected' : '';
+      const kind = t.classification;
+      const solution = Math.round(t.solution);
+      return `<div class="track ${selected}" data-trackid="${t.id}">
+        <strong style="color:${t.color}">${t.id} — Bearing ${String(Math.round(t.bearing)).padStart(3,'0')}°</strong>
+        <div class="muted">${kind} · Solution ${solution}% · ${t.rangeKnown ? ('Estimated position · range '+Math.round(t.rangeEstimate)) : 'Bearing-only marker · range unknown'} · ±${t.uncertainty.toFixed(0)}°</div>
+      </div>`;
+    }).join('');
+    [...ui.trackList.querySelectorAll('[data-trackid]')].forEach(el => {
+      el.addEventListener('click', () => {
+        state.selectedTrackId = el.dataset.trackid;
+        const selected = getSelectedTrack();
+        if (selected) {
+          state.selectedBearing = selected.bearing;
+          drawWaterfallOverlays();
+          setNextStep(selected.classification === 'Unknown' ? 3 : 4, selected.classification === 'Unknown' ? `Track ${selected.id} selected. Choose a classification.` : `Track ${selected.id} selected. Update its bearing or obtain range.`);
+        }
+        updateUI(); renderTracks();
+      });
+    });
+  }
+
+  function setNextStep(step, text) {
+    ui.nextStep.innerHTML = `<span class="step-badge">STEP ${step}</span><span>${text}</span>`;
+  }
+
+  function updateManeuverCoach() {
+    const t = getSelectedTrack();
+    if (state.level === 1) {
+      ui.maneuverCoach.innerHTML = `<div class="coach-title">Movement comes in Level 2</div><div class="muted">For now, focus on detecting lines and matching LOFAR patterns.</div>`;
+      return;
+    }
+    if (!t || t.classification !== 'Submarine') {
+      ui.maneuverCoach.innerHTML = `<div class="coach-title">Maneuver coach</div><div class="muted">Select and classify the suspected submarine track to receive a course recommendation.</div>`;
+      return;
+    }
+    const g = getGeometryInfo(t);
+    if (state.level === 2) {
+      const sidePct = clamp(state.maneuver.sideTravel / 55 * 100, 0, 100);
+      const geometryClass = g.rating === 'Excellent' || g.rating === 'Good' ? 'good' : g.rating === 'Fair' ? 'warn' : 'danger';
+      ui.maneuverCoach.innerHTML = `
+        <div class="coach-title">Cross-bearing maneuver</div>
+        <div class="coach-grid">
+          <div class="coach-stat"><div class="label">Contact bearing</div><div class="value">${String(Math.round(g.bearing)).padStart(3,'0')}°</div></div>
+          <div class="coach-stat"><div class="label">Recommended course</div><div class="value good">${String(Math.round(g.recommended)).padStart(3,'0')}°</div></div>
+          <div class="coach-stat"><div class="label">Current geometry</div><div class="value ${geometryClass}">${g.rating}</div></div>
+          <div class="coach-stat"><div class="label">Bearing change</div><div class="value">${state.maneuver.bearingChange.toFixed(1)}° / 3°</div></div>
+        </div>
+        <div class="muted" style="margin-top:8px">Turn toward the green dashed course, slow to 6 knots, then keep moving until the bar fills.</div>
+        <div class="progress-track"><div class="progress-fill" style="width:${sidePct}%"></div></div>
+        <div class="muted" style="margin-top:5px">Sideways travel: ${Math.round(state.maneuver.sideTravel)} / 55</div>`;
+      return;
+    }
+    const range = currentTargetRange();
+    const rangeText = Number.isFinite(range) ? Math.round(range) : '?';
+    const inRange = Number.isFinite(range) && range <= WEAPON_RANGE;
+    const course = g?.bearing ?? t.bearing;
+    ui.maneuverCoach.innerHTML = `
+      <div class="coach-title">Pursuit and intercept</div>
+      <div class="coach-grid">
+        <div class="coach-stat"><div class="label">Estimated target range</div><div class="value ${inRange ? 'good' : 'warn'}">${rangeText}</div></div>
+        <div class="coach-stat"><div class="label">Weapon range</div><div class="value">${WEAPON_RANGE}</div></div>
+        <div class="coach-stat"><div class="label">Recommended chase course</div><div class="value good">${String(Math.round(course)).padStart(3,'0')}°</div></div>
+        <div class="coach-stat"><div class="label">Firing solution</div><div class="value">${Math.round(t.solution)}%</div></div>
+      </div>
+      <div class="muted" style="margin-top:8px">${!t.rangeKnown ? 'Use Active Ping to obtain range.' : inRange ? 'Inside weapon range. Update the track if needed, then fire.' : 'Turn toward the green chase course and increase speed to close the range.'}</div>`;
+  }
+
+  function updateUI() {
+    ui.selectedBearing.textContent = state.selectedBearing === null ? '---' : `${String(Math.round(state.selectedBearing)).padStart(3,'0')}°`;
+    const candidate = state.selectedBearing === null ? null : nearestContactToBearing(state.selectedBearing, 10);
+    if (candidate) {
+      ui.signalAssessment.textContent = 'Persistent line';
+      ui.confidenceReadout.textContent = `${Math.round(55 + Math.max(0, 35 - angleDiff(state.selectedBearing, bearingTo(state.ownship,candidate))*4))}%`;
+    } else {
+      ui.signalAssessment.textContent = state.selectedBearing === null ? 'Ambient' : 'Weak / uncertain';
+      ui.confidenceReadout.textContent = state.selectedBearing === null ? '--' : '18%';
+    }
+    ui.noiseReadout.textContent = state.hydroNoise < .18 ? 'Low' : state.hydroNoise < .23 ? 'Moderate' : 'High';
+
+    const t = getSelectedTrack();
+    ui.trackName.textContent = t ? t.id : 'None';
+    ui.trackQuality.textContent = t ? (t.solution >= 70 ? 'High' : t.solution >= 40 ? 'Medium' : 'Low') : 'Low';
+    ui.classReadout.textContent = t ? t.classification : 'Unknown';
+    const fireBlocker = getFireBlocker();
+    ui.solutionReadout.textContent = !fireBlocker ? 'Yes' : 'No';
+
+    ui.headingReadout.textContent = `${String(Math.round(state.ownship.heading)).padStart(3,'0')}°`;
+    ui.speedReadout.textContent = `${state.ownship.speed} kts`;
+    ui.pingReadout.textContent = !state.config.ping ? 'Unavailable' : state.pingCooldown > 0 ? `${state.pingCooldown.toFixed(1)} s` : 'Ready';
+    ui.torpReadout.textContent = state.config.weapons ? `${state.torpedoes}` : '—';
+    ui.convoyReadout.textContent = state.config.threat ? `${state.convoyHealth}/3` : 'Training';
+    ui.timeReadout.textContent = formatTime(state.missionSec);
+    ui.modeReadout.textContent = state.mode;
+    ui.modeReadout.className = 'value ' + (state.mode === 'Passive' ? 'accent' : 'warn');
+    const dangerLabels = ['Low','Medium','High','Critical'];
+    ui.dangerReadout.textContent = state.config.threat ? dangerLabels[state.alertLevel] : 'Training';
+    ui.dangerReadout.className = 'value ' + (!state.config.threat ? 'accent' : state.alertLevel < 2 ? (state.alertLevel===0?'good':'warn') : 'danger');
+
+    const matchingTrack = candidate ? state.tracks.find(track => track.boundContactId === candidate.id) : null;
+    const markLabel = state.selectedBearing === null
+      ? 'Select a Line First'
+      : matchingTrack
+        ? `Update ${matchingTrack.id} from This Bearing`
+        : 'Create Track from Selected Bearing';
+    [ui.markBtn, ui.localMarkBtn].forEach(btn => {
+      btn.textContent = markLabel;
+      btn.disabled = state.selectedBearing === null || state.finished;
+      btn.classList.toggle('attention', state.selectedBearing !== null && !state.finished);
+    });
+    ui.clearBearingBtn.disabled = state.selectedBearing === null || state.finished;
+    ui.classBtns.forEach(btn => { btn.disabled = !t || state.finished; });
+    ui.pingBtn.disabled = !state.config.ping || state.pingCooldown > 0 || state.finished;
+    ui.fireBtn.disabled = Boolean(fireBlocker) || state.finished;
+    ui.turnLeftBtn.disabled = !state.config.movement || state.finished;
+    ui.turnRightBtn.disabled = !state.config.movement || state.finished;
+    ui.speedDownBtn.disabled = !state.config.movement || state.finished;
+    ui.speedUpBtn.disabled = !state.config.movement || state.finished;
+
+    ui.fireStatus.classList.toggle('ready', !fireBlocker);
+    ui.fireStatus.classList.toggle('blocked', Boolean(fireBlocker));
+    ui.fireStatus.innerHTML = !fireBlocker
+      ? `<b>Fire control ready:</b> ${t.id} is classified, ranged, tracked, and inside weapon range.`
+      : `<b>Fire control blocked:</b> ${fireBlocker}`;
+
+    if (state.level === 1) {
+      ui.tacticalHelp.innerHTML = '<b>Level 1:</b> movement and weapons are locked. Learn to turn waterfall lines into classified tracks.';
+    } else if (state.level === 2) {
+      ui.tacticalHelp.innerHTML = '<b>Level 2:</b> follow the green dashed cross-bearing course. Good sideways geometry creates a larger bearing change.';
+    } else {
+      ui.tacticalHelp.innerHTML = `<b>Level 3:</b> after active ranging, follow the green chase course until the target is inside ${WEAPON_RANGE} range units.`;
+    }
+    updateManeuverCoach();
+  }
+
+  function endGame(win, text) {
+    if (state.finished) return;
+    state.finished = true; state.running = false; state.outcome = win ? 'win' : 'loss';
+    // Report a genuine win to the Naval Science course so the matching lesson is
+    // earned (each Sonar Spy level maps to its own graded course lesson).
+    if (win && typeof window.reckonReport === 'function') {
+      try { window.reckonReport({ gameId: 'nc_sonar_spy_' + state.level, won: true }); } catch (e) {}
+    }
+    ui.bannerTitle.textContent = win ? (state.level < 3 ? 'Level Complete' : 'Mission Success') : 'Mission Failed';
+    ui.bannerText.textContent = text;
+    ui.nextLevelBtn.style.display = !singleLevelMode && win && state.level < 3 ? '' : 'none';
+    ui.nextLevelBtn.textContent = state.level === 1 ? 'Start Level 2' : 'Start Level 3';
+    ui.banner.classList.add('show');
+    logEvent(text);
+    renderMissionBriefing();
+    updateUI();
+  }
+
+  function frame(now) {
+    const dt = Math.min(.05, (now-lastFrame)/1000);
+    lastFrame = now;
+    updateSimulation(dt);
+    drawPPI();
+    gameLoopHandle = requestAnimationFrame(frame);
+  }
+
+  waterfall.addEventListener('click', e => {
+    const rect = waterfall.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (waterfall.width / rect.width);
+    state.selectedBearing = wrapDeg(x / waterfall.width * 360);
+    drawWaterfallOverlays();
+    const c = nearestContactToBearing(state.selectedBearing, 8);
+    logEvent(`Bearing selected: ${String(Math.round(state.selectedBearing)).padStart(3,'0')}°${c ? ' — persistent energy present.' : ' — weak or ambiguous.'}`);
+    const matching = c ? state.tracks.find(t => t.boundContactId === c.id) : null;
+    setNextStep(2, matching ? `Bearing selected. Click “Update ${matching.id} from This Bearing.”` : 'Bearing selected. Click “Create Track from Selected Bearing.”');
+    ui.summaryBox.innerHTML = matching ? `<b>${matching.id} found again.</b> Update it to improve the track.` : '<b>Bearing selected.</b> Create a track before trying to classify the sound.';
+    updateUI();
+  });
+
+  ppi.addEventListener('click', e => {
+    const rect = ppi.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (ppi.width / rect.width) - ppi.width/2;
+    const y = (e.clientY - rect.top) * (ppi.height / rect.height) - ppi.height/2;
+    state.selectedBearing = wrapDeg(radToDeg(Math.atan2(x, -y)));
+    drawWaterfallOverlays();
+    setNextStep(2, 'Bearing selected on the PPI. Create or update a track from this bearing.');
+    updateUI();
+    logEvent(`PPI cursor set to ${String(Math.round(state.selectedBearing)).padStart(3,'0')}°.`);
+  });
+
+  ui.pauseBtn.addEventListener('click', () => {
+    if (state.finished) return;
+    state.running = !state.running;
+    ui.pauseBtn.textContent = state.running ? 'Pause' : 'Resume';
+    logEvent(state.running ? 'Simulation resumed.' : 'Simulation paused.');
+  });
+  ui.markBtn.addEventListener('click', markTrack);
+  ui.localMarkBtn.addEventListener('click', markTrack);
+  ui.clearBearingBtn.addEventListener('click', () => {
+    state.selectedBearing = null;
+    drawWaterfallOverlays();
+    setNextStep(1, 'Click a bright vertical line on the left sonar waterfall.');
+    ui.summaryBox.innerHTML = '<b>Start here:</b> click a bright vertical line, then create a track from that bearing.';
+    updateUI();
+  });
+  ui.pingBtn.addEventListener('click', doActivePing);
+  ui.fireBtn.addEventListener('click', fireTorpedo);
+  ui.resetBtn.addEventListener('click', () => resetGame(currentLevel));
+  ui.turnLeftBtn.addEventListener('click', () => { state.ownship.heading = wrapDeg(state.ownship.heading - 20); logEvent('Ownship turned left.'); updateUI(); });
+  ui.turnRightBtn.addEventListener('click', () => { state.ownship.heading = wrapDeg(state.ownship.heading + 20); logEvent('Ownship turned right.'); updateUI(); });
+  ui.speedDownBtn.addEventListener('click', () => { state.ownship.speed = clamp(state.ownship.speed - 2, 4, 14); logEvent(`Ownship speed reduced to ${state.ownship.speed} kts.`); updateUI(); });
+  ui.speedUpBtn.addEventListener('click', () => { state.ownship.speed = clamp(state.ownship.speed + 2, 4, 14); logEvent(`Ownship speed increased to ${state.ownship.speed} kts.`); updateUI(); });
+  ui.classBtns.forEach(btn => btn.addEventListener('click', () => classifySelectedTrack(btn.dataset.class)));
+  ui.playAgainBtn.addEventListener('click', () => resetGame(currentLevel));
+  ui.nextLevelBtn.addEventListener('click', () => { if (!singleLevelMode) startLevel(Math.min(3, currentLevel + 1)); });
+  ui.levelBtns.forEach((btn, index) => btn.addEventListener('click', () => { if (!singleLevelMode) startLevel(index + 1); }));
+  ui.closeBannerBtn.addEventListener('click', () => ui.banner.classList.remove('show'));
+
+  // Course routing: ?level=1&course=1, ?level=2&course=1, or ?level=3&course=1.
+  // Copies named silent_watch_level1.html, level2.html, and level3.html auto-lock by filename.
+  init();
+})();
+</script>
+</body>
+</html>
