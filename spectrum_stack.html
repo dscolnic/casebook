@@ -206,6 +206,11 @@
       background: #f8fafc;
     }
 
+    /* Let the board own touch gestures instead of scrolling the page. */
+    #board {
+      touch-action: none;
+    }
+
     .hud-top {
       position: absolute;
       z-index: 3;
@@ -612,7 +617,6 @@
     <header class="title-row">
       <a id="returnLink" class="return-link" href="#" hidden>&larr; Return to course</a>
       <h1>Spectrum Stack: Navy Course Chapters</h1>
-      <p class="subtitle">Four course-ready chapters. Each chapter contains two 15-piece naval-science rounds with a pre-round briefing.</p>
     </header>
 
     <section class="metrics">
@@ -1882,13 +1886,30 @@
       $('pauseButton').addEventListener('click', pauseGame);
       $('restartButton').addEventListener('click', showChapterMenu);
 
+      // Fast tap: on touch, fire on pointerdown so taps register instantly, then swallow
+      // the trailing ghost click. Mouse and keyboard activation still route through click,
+      // so the desktop/keyboard path is unchanged.
+      function fastTap(el, handler) {
+        let touched = false;
+        el.addEventListener('pointerdown', event => {
+          if (event.pointerType === 'mouse') return;
+          touched = true;
+          handler();
+          event.preventDefault();
+        });
+        el.addEventListener('click', () => {
+          if (touched) { touched = false; return; }
+          handler();
+        });
+      }
+
       answerButtons.forEach((button, index) => {
-        button.addEventListener('click', () => answerOrRotate(index));
+        fastTap(button, () => { answerOrRotate(index); draw(); });
       });
 
       root.querySelectorAll('.control').forEach(button => {
-        button.addEventListener('click', () => {
-          const action = button.dataset.control;
+        const action = button.dataset.control;
+        fastTap(button, () => {
           if (action === 'left') moveHorizontal(-1);
           if (action === 'right') moveHorizontal(1);
           if (action === 'down') softDrop();
@@ -1896,6 +1917,68 @@
           draw();
         });
       });
+
+      // Touch swipes on the board: horizontal drag shifts the piece column by column,
+      // downward drag soft-drops it. Rotation stays on the answer keys/buttons and hard
+      // drop stays on the ⤓ button and spacebar, so touch players get the same actions as
+      // keyboard players without any extra targets to hunt for.
+      (function enableBoardSwipes() {
+        let tracking = false;
+        let gesturePiece = null;
+        let anchorX = 0;
+        let anchorY = 0;
+
+        const cellPx = () => canvas.getBoundingClientRect().width / width;
+
+        canvas.addEventListener('pointerdown', event => {
+          if (event.pointerType === 'mouse') return;
+          if (!running || paused || !activePiece) return;
+          tracking = true;
+          gesturePiece = activePiece;
+          anchorX = event.clientX;
+          anchorY = event.clientY;
+          canvas.setPointerCapture(event.pointerId);
+          event.preventDefault();
+        });
+
+        canvas.addEventListener('pointermove', event => {
+          if (!tracking) return;
+          // If the tracked piece locked mid-gesture, stop so we never nudge the next one.
+          if (activePiece !== gesturePiece) { tracking = false; return; }
+          const step = cellPx();
+          if (step <= 0) return;
+
+          let dx = event.clientX - anchorX;
+          while (Math.abs(dx) >= step && activePiece === gesturePiece) {
+            const direction = dx > 0 ? 1 : -1;
+            moveHorizontal(direction);
+            anchorX += direction * step;
+            dx = event.clientX - anchorX;
+          }
+
+          let dy = event.clientY - anchorY;
+          while (dy >= step && activePiece === gesturePiece) {
+            softDrop();
+            anchorY += step;
+            dy = event.clientY - anchorY;
+          }
+
+          draw();
+          event.preventDefault();
+        });
+
+        function endGesture(event) {
+          if (!tracking) return;
+          tracking = false;
+          gesturePiece = null;
+          if (event.pointerId != null && canvas.hasPointerCapture?.(event.pointerId)) {
+            canvas.releasePointerCapture(event.pointerId);
+          }
+        }
+
+        canvas.addEventListener('pointerup', endGesture);
+        canvas.addEventListener('pointercancel', endGesture);
+      })();
 
       window.addEventListener('keydown', event => {
         const key = event.key.toLowerCase();
