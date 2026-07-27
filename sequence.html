@@ -58,9 +58,11 @@ button{font:inherit}.wrap{max-width:1280px;margin:auto;padding:22px}
 .solution-chapter{border:1px solid var(--line);background:#f7f7f5;border-radius:15px;padding:15px}.solution-chapter h3{margin:0 0 10px;color:var(--blue)}.solution-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.solution-card{border:1px solid #e4e4e2;background:#f2f2f0;border-radius:10px;padding:11px;line-height:1.4}.solution-card span{display:block;color:var(--gold);font-size:11px;font-weight:900;margin-bottom:5px}
 @media(max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.solution-cards{grid-template-columns:1fr 1fr}.termgrid,.homegrid{grid-template-columns:1fr}}
 @media(max-width:600px){.hinthead{align-items:flex-start}.wrap{padding:11px}.hero,.game{padding:20px}.gamehead{flex-direction:column}.chapter-head{grid-template-columns:34px 22px 1fr}.chapter-moves{grid-column:3;justify-content:flex-end}.cards{grid-template-columns:1fr}.card{grid-template-columns:24px 18px minmax(0,1fr)}.solution-cards{grid-template-columns:1fr}.segue{margin:10px 4px}}
-.homecard .icon{color:var(--blue)}.homecard .icon svg{width:26px;height:26px}
-.kicker svg{width:14px;height:14px;vertical-align:-2px;margin-right:6px}
+.homecard .icon{width:60px;height:60px;border-color:var(--blue);background:var(--blue);color:#fff;box-shadow:0 3px 8px rgba(47,93,134,.3)}.homecard .icon svg{width:33px;height:33px}
+.homecard:hover .icon{transform:scale(1.04)}
+.kicker svg{width:15px;height:15px;vertical-align:-3px;margin-right:6px}
 .intro-icon svg,.segue-icon svg{width:19px;height:19px}
+.chapter-title svg{width:17px;height:17px;vertical-align:-3px;margin-right:7px;color:var(--gold)}
 </style>
 </head>
 <body>
@@ -220,7 +222,7 @@ function renderChapter(chapterId,index){
   <div class="chapter-head">
    <div class="chapter-number">${index+1}</div>
    <div class="draghandle" draggable="${!chapterLocked}" ondragstart="dragChapterStart(event,'${chapterId}')" ondragend="dragEnd()" title="${chapterLocked?'Chapter position confirmed':'Drag chapter'}">⋮⋮</div>
-   <div><div class="chapter-title">Sequence ${String.fromCharCode(65+index)}</div><div class="chapter-sub">${chapterLocked?'Chapter position confirmed':`${lockedCount} of 4 card positions confirmed`}</div></div>
+   <div><div class="chapter-title">${discIcon(current.discipline)}Sequence ${String.fromCharCode(65+index)}</div><div class="chapter-sub">${chapterLocked?'Chapter position confirmed':`${lockedCount} of 4 card positions confirmed`}</div></div>
    <div class="chapter-moves"><button class="movebtn" onclick="moveChapter(${index},-1)" ${index===0||chapterLocked||chapterLockedAt(index-1)?'disabled':''}>▲</button><button class="movebtn" onclick="moveChapter(${index},1)" ${index===chapterOrder.length-1||chapterLocked||chapterLockedAt(index+1)?'disabled':''}>▼</button></div>
   </div>
   <div class="cards">${cardOrders[chapterId].map((cardId,i)=>{const locked=isCardLocked(chapterId,i),up=nextUnlockedIndex(chapterId,i,-1),down=nextUnlockedIndex(chapterId,i,1);return `<div class="card ${locked?'locked':''}" draggable="${!locked}" ondragstart="dragCardStart(event,'${chapterId}',${i})" ondragend="dragEnd()" ondragover="cardDragOver(event,'${chapterId}',${i})" ondrop="cardDrop(event,'${chapterId}',${i})">
