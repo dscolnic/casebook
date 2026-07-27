@@ -1,57 +1,96 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reasoning for Naval Science — RECKON</title>
+<title>Reasoning for Naval Science — Voyage Chart — RECKON</title>
 <style>
-:root{--bg:#fff;--ink:#1a1a17;--muted:#565651;--accent:#2f5d86;--hair:#e4e4e2;--chip:#f4f4f1;--hover:#eef0f2;--serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#16150f;--ink:#f0eee6;--muted:#a8a69c;--hair:#33322b;--chip:#22211b;--hover:#26251e}}
+:root{--bg:#fff;--ink:#1a1a17;--muted:#565651;--accent:#2f5d86;--hair:#e4e4e2;--chip:#f4f4f1;--hover:#eef0f2;
+  --sea-a:#eaf3f8;--sea-b:#dceaf2;--contour:#cbdeea;--route-ahead:#b3cad8;--card:#ffffff;
+  --serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#16150f;--ink:#f0eee6;--muted:#a8a69c;--accent:#6fb0e0;--hair:#33322b;--chip:#22211b;--hover:#26251e;
+  --sea-a:#0f1d28;--sea-b:#0a1620;--contour:#183141;--route-ahead:#2c4658;--card:#1b1a14}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5}
-.wrap{max-width:1000px;margin:0 auto;padding:24px 18px 60px}
-.wrap>h1,.wrap>.intro,.wrap>.signin,.wrap>.summary{max-width:680px}
-.back{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--muted);text-decoration:none;margin-bottom:18px}
-.back:hover{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:24px 18px 70px}
+.head{max-width:680px}
 h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;margin:0 0 8px}
-.intro{color:var(--muted);font-size:14.5px;margin:0 0 16px;max-width:620px}
-.summary{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:var(--muted);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:9px 2px;margin-bottom:6px}
-.summary strong{color:var(--ink)}
-.reset{background:none;border:1px solid var(--hair);border-radius:999px;padding:5px 12px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer}
-.reset:hover{background:var(--hover)}
-.pager{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:16px 0 4px}
-.pager .pglabel{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
-.pager button{font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border:1px solid var(--hair);border-radius:999px;background:var(--bg);color:var(--muted);cursor:pointer}
-.pager button:hover{background:var(--hover);color:var(--ink)}
-.pager button.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.pager.pager-bottom{margin:18px 0 0;justify-content:center}
-ol.weeks{list-style:none;margin:0;padding:0}
-li.wk{display:flex;align-items:center;gap:14px;padding:15px 4px;border-bottom:1px solid var(--hair)}
-li.wk .no{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;width:24px;flex:none;text-align:right}
-li.wk .ico{flex:none;width:34px;height:34px;display:grid;place-items:center}
-li.wk .ico svg{width:34px;height:34px;display:block}
-li.wk .ttl{flex:1;min-width:0;color:var(--ink);text-decoration:none;font-weight:700;font-size:18.5px;line-height:1.25}
-li.wk .ttl:hover{color:var(--accent);text-decoration:underline}
-li.wk .tag{flex:none;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:3px 10px}
-li.wk .circle{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--hair);background:none;display:grid;place-items:center;font-size:14px;font-weight:800;color:transparent;cursor:pointer;padding:0;line-height:1}
-li.wk .circle:hover{border-color:var(--accent)}
-li.wk.done .circle{background:var(--accent);border-color:var(--accent);color:#fff}
-li.wk.done .ttl{color:var(--muted)}
-@media(max-width:520px){li.wk .tag{display:none}}
-.signin{border:1px solid var(--hair);border-radius:14px;padding:12px 14px;margin:0 0 16px;background:var(--chip)}
+.intro{color:var(--muted);font-size:14.5px;margin:0 0 16px;max-width:640px}
+.signin{border:1px solid var(--hair);border-radius:14px;padding:12px 14px;margin:0 0 14px;background:var(--chip);max-width:680px}
 .si-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .si-row b{font-size:14.5px}
 .si-sub{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
 .si-form{display:flex;gap:8px;flex-wrap:wrap}
 .si-form input{font:inherit;font-size:13px;padding:8px 11px;border:1px solid var(--hair);border-radius:9px;background:var(--bg);color:var(--ink);min-width:130px}
 .si-btn{font:inherit;font-weight:800;font-size:13px;padding:8px 16px;border:0;border-radius:999px;background:var(--accent);color:#fff;cursor:pointer}
-.si-btn:hover{background:#274d70}
+.si-btn:hover{filter:brightness(.94)}
 .si-btn.ghost{background:none;border:1px solid var(--hair);color:var(--muted)}
-.coursegrid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:26px;align-items:start;margin-top:6px}
-.coursegrid>ol.weeks{min-width:0}
-.shipbox{position:sticky;top:16px;border:1px solid var(--hair);border-radius:16px;background:linear-gradient(180deg,var(--chip),var(--bg));padding:15px 15px 16px;box-shadow:0 10px 30px rgba(20,30,45,.06)}
-.shipbox-title{font-family:var(--serif);font-weight:700;font-size:16.5px;color:var(--ink);margin:0}
-.shipbox-sub{font-size:11px;color:var(--muted);margin:3px 0 13px;letter-spacing:.01em}
-.shipgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.shipcell{position:relative;border:1px solid var(--hair);border-radius:12px;background:var(--bg);padding:8px 8px 6px;text-align:center;transition:.18s}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:10px 2px;margin-bottom:12px;max-width:680px}
+.bar-bottom{margin:22px 0 0}
+.bar strong{color:var(--ink)}
+.bar .right{display:flex;gap:8px;align-items:center}
+.progline{flex:1;min-width:120px;height:6px;border-radius:999px;background:var(--hair);overflow:hidden;max-width:200px}
+.progline i{display:block;height:100%;width:0;background:var(--accent);border-radius:999px;transition:width .5s ease}
+.pill{background:none;border:1px solid var(--hair);border-radius:999px;padding:5px 12px;font:inherit;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;text-decoration:none}
+.pill:hover{background:var(--hover);color:var(--ink)}
+
+/* pager */
+.pager{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:2px 0 6px}
+.pager .lbl{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.pager button{font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border:1px solid var(--hair);border-radius:999px;background:var(--bg);color:var(--muted);cursor:pointer}
+.pager button:hover{background:var(--hover);color:var(--ink)}
+.pager button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Voyage chart */
+.chart{position:relative;margin:4px 0 8px;border:1px solid var(--hair);border-radius:20px;overflow-x:auto;overflow-y:hidden;
+  background:radial-gradient(120% 130% at 50% -20%,var(--sea-a),var(--sea-b));box-shadow:0 18px 50px rgba(20,35,55,.10)}
+@media (prefers-color-scheme:dark){.chart{box-shadow:0 18px 50px rgba(0,0,0,.4)}}
+.track{position:relative}
+.track svg.route{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+
+.stop{position:absolute;transform:translate(-50%,-50%);z-index:2;cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.medal{position:relative;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:var(--card);border:2.5px solid var(--c);box-shadow:0 4px 12px rgba(20,35,55,.14);transition:transform .16s}
+.medal svg{width:28px;height:28px;color:var(--c)}
+.medal .num{position:absolute;top:-7px;left:-7px;min-width:19px;height:19px;padding:0 4px;border-radius:999px;background:var(--ink);color:var(--bg);
+  font-size:11px;font-weight:800;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.stop:hover .medal{transform:scale(1.08)}
+.label{position:absolute;left:50%;transform:translateX(-50%);width:128px;text-align:center}
+.stop.up .label{bottom:60px}
+.stop.down .label{top:60px}
+.label .g{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--c)}
+.label .t{font-family:var(--serif);font-size:13px;line-height:1.2;color:var(--ink);margin-top:1px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.stop:hover .label .t{text-decoration:underline}
+
+.stop.done .medal{background:var(--c);border-color:var(--c)}
+.stop.done .medal svg{display:none}
+.stop.done .medal::before{content:"";width:15px;height:9px;border-left:3px solid #fff;border-bottom:3px solid #fff;transform:translateY(-2px) rotate(-45deg)}
+.stop.done .label .t{color:var(--muted)}
+
+.stop.battle .medal{width:58px;height:58px;border-width:3px;box-shadow:0 6px 16px rgba(192,57,43,.28)}
+.stop.battle .medal svg{width:30px;height:30px}
+
+.stop.current .medal{border-color:var(--accent);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 22%,transparent),0 6px 16px rgba(20,35,55,.18)}
+.stop.current .label .g{color:var(--accent)}
+
+.ship{position:absolute;transform:translate(-138%,-52%);z-index:3;pointer-events:none;filter:drop-shadow(0 4px 5px rgba(20,35,55,.3))}
+.ship svg{width:42px;height:42px;color:var(--ink)}
+@keyframes sway{0%,100%{transform:translate(-138%,-52%) rotate(-4deg)}50%{transform:translate(-138%,-58%) rotate(3deg)}}
+.ship{animation:sway 3.2s ease-in-out infinite}
+
+.cap{position:absolute;transform:translateY(-50%);z-index:2;pointer-events:none;width:56px}
+.cap.l{text-align:left}
+.cap.r{text-align:right;right:0}
+.cap .k{font-family:var(--serif);font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.1}
+.cap .s{font-size:9.5px;color:var(--muted);letter-spacing:.03em}
+.cap.fin .k{color:var(--accent)}
+
+/* fleet */
+.fleet{margin:22px 0 0;border:1px solid var(--hair);border-radius:16px;background:linear-gradient(180deg,var(--chip),var(--bg));padding:14px 16px 16px;max-width:680px}
+.fleet h2{font-family:var(--serif);font-weight:700;font-size:16.5px;margin:0}
+.fleet .sub{font-size:11.5px;color:var(--muted);margin:3px 0 12px}
+.shipgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+@media(max-width:560px){.shipgrid{grid-template-columns:repeat(3,1fr)}}
+.shipcell{position:relative;border:1px solid var(--hair);border-radius:12px;background:var(--bg);padding:8px 8px 6px;text-align:center}
 .shipcell .pic{background:linear-gradient(#eef4f8,#e2ecf2);border-radius:8px;overflow:hidden;display:block}
 @media(prefers-color-scheme:dark){.shipcell .pic{background:linear-gradient(#22303a,#1a2731)}}
 .shipcell .pic svg{display:block;width:100%;height:auto}
@@ -59,254 +98,218 @@ li.wk.done .ttl{color:var(--muted)}
 .shipcell.unlocked{border-color:var(--accent);box-shadow:0 2px 10px rgba(47,93,134,.14)}
 .shipcell.locked{opacity:.34;filter:grayscale(.85)}
 .shipcell.locked::after{content:"🔒";position:absolute;top:5px;right:6px;font-size:10px;filter:grayscale(1)}
-@media(max-width:820px){.coursegrid{grid-template-columns:1fr}.shipbox{position:static}.shipgrid{grid-template-columns:repeat(5,1fr)}}
-@media(max-width:520px){.shipgrid{grid-template-columns:repeat(2,1fr)}}
-li.wk.bs{background:linear-gradient(90deg,rgba(192,57,43,.07),transparent)}
-li.wk.bs .ttl{font-family:var(--serif)}
-li.wk.bs .no{font-size:15px}
-li.wk.gm{background:linear-gradient(90deg,color-mix(in srgb,var(--c) 9%,transparent),transparent)}
-li.wk.gm .no{font-size:16px;color:var(--c);font-weight:800}
-li.wk.gm .ttl{font-family:var(--serif);font-size:17px}
-li.wk.gm .gmk{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--c);color:var(--c);display:grid;place-items:center;font-size:10px}
-li.wk .circle{cursor:default;pointer-events:none}
-li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
 </style></head>
 <body><main class="wrap">
-<h1>Reasoning for Naval Science</h1>
-<p class="intro">A course that teaches naval science by <b>playing it</b>: each lesson turns one real concept — how sonar hears a contact, how a radar builds a track, how a ship fights flooding or fire — into a puzzle you can only solve by <b>understanding the system</b>, not memorizing facts.</p>
-<section class="signin" id="signin"></section>
-<div class="summary"><span><strong id="count">0</strong> of <span id="total">30</span> lessons complete</span><button class="reset" id="reset">Reset</button></div>
-<nav class="pager" id="pagerTop" aria-label="Lesson pages"></nav>
-<div class="coursegrid">
-<ol class="weeks">
-    <li class="wk gm" style="--c:#6a4fb0">
-      <span class="no">01</span>
-      <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/></svg></span>
-      <a class="ttl" href="spectrum_stack.html?chapter=1&return=navy_course.html">Sensing the Maritime Environment</a>
-      <span class="tag" style="--c:#6a4fb0">Spectrum Stack</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk" data-week="1">
-      <span class="no">02</span>
-      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.8" fill="currentColor" stroke="none"/><path d="M9 8a6 6 0 0 1 0 8"/><path d="M12.5 5.5a11 11 0 0 1 0 13"/></svg></span>
-      <a class="ttl" href="sequence.html#nc_sonar_path" data-week="1">Sound sources, ocean propagation, and passive sonar</a>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="1" aria-label="Lesson 2 status">✓</button>
-    </li>
-    <li class="wk" data-week="2">
-      <span class="no">03</span>
-      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12q2.5-6 5 0t5 0 5 0"/></svg></span>
-      <a class="ttl" href="ballpark.html#nc_bp_sonar" data-week="2">Underwater acoustics by the numbers</a>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="2" aria-label="Lesson 3 status">✓</button>
-    </li>
-    <li class="wk" data-week="3">
-      <span class="no">04</span>
-      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="protocol.html#nc_contact_protocol" data-week="3">Multi-sensor contact identification</a>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="3" aria-label="Lesson 4 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#0e7490">
-      <span class="no">05</span>
-      <span class="ico" style="color:#0e7490"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5a4 4 0 0 0 4 4h7.5a4.5 4.5 0 1 0 0-9H7a4 4 0 0 0-4 4z"/><path d="M13.6 7.5V4.6h2.2v3"/><circle cx="8" cy="12" r="1.1" fill="currentColor" stroke="none"/><path d="M18.5 12h2.5"/></svg></span>
-      <a class="ttl" href="silent_watch_hunt_mvp.html?level=1&return=navy_course.html">Passive-sonar detection and contact classification</a>
-      <span class="tag" style="--c:#0e7490">Sonar Spy</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk" data-week="4">
-      <span class="no">06</span>
-      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-6-6 4z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="ballpark.html#nc_bp_navigation" data-week="4">Knots, set and drift</a>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="4" aria-label="Lesson 6 status">✓</button>
-    </li>
-    <li class="wk" data-week="5">
-      <span class="no">07</span>
-      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l7-2.5"/><circle cx="17" cy="8.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="sequence.html#nc_radar_echo" data-week="5">Pulse-echo radar and track formation</a>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="5" aria-label="Lesson 7 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#2f5d86">
-      <span class="no">08</span>
-      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=1&locked=1&return=navy_course.html">Navigation Fundamentals</a>
-      <span class="tag" style="--c:#2f5d86">Dead Reckoning</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk gm" style="--c:#1e7a4d">
-      <span class="no">09</span>
-      <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3 7.6M16.4 8.6l-3 7.6M8.2 7h7.6"/></svg></span>
-      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=1&return=navy_course.html">Build the Operational Picture</a>
-      <span class="tag" style="--c:#1e7a4d">Strait Support</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk bs" data-bs="easy">
-      <span class="no">10</span>
-      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
-      <a class="ttl bs-link" data-bs="easy" href="battleship.html">First Battle</a>
-      <span class="tag" style="--c:#c0392b">SensorShip</span>
-      <span class="circle" aria-label="SensorShip First Battle status">✓</span>
-    </li>
-    <li class="wk" data-week="6">
-      <span class="no">11</span>
-      <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 13q3-3 5.5 0t5.5 0 5.5 0"/><path d="M2.5 17.5q3-3 5.5 0t5.5 0 5.5 0"/></svg></span>
-      <a class="ttl" href="diagnosis/nc_flooding_playable.html" data-week="6">Diagnosing shipboard flooding</a>
-      <span class="tag" style="--c:#1e7a4d">Diagnosis</span>
-      <button class="circle" data-week="6" aria-label="Lesson 11 status">✓</button>
-    </li>
-    <li class="wk" data-week="7">
-      <span class="no">12</span>
-      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v11M8 15l-2.5-2.5M8 15l2.5-2.5"/><path d="M16 4v11M16 15l-2.5-2.5M16 15l2.5-2.5"/></svg></span>
-      <a class="ttl" href="ballpark.html#nc_bp_depth" data-week="7">Hydrostatic pressure, buoyancy, and floodwater mass</a>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="7" aria-label="Lesson 12 status">✓</button>
-    </li>
-    <li class="wk" data-week="8">
-      <span class="no">13</span>
-      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3.5 4.5 5.5 4.5 8.5a4.5 4.5 0 0 1-9 0c0-1.8 1-3 2-4 .2 1.8 1.2 2.6 2 2.6-1-2.8 .5-5 .5-7.1z"/></svg></span>
-      <a class="ttl" href="protocol.html#nc_fire_protocol" data-week="8">Shipboard electrical-fire response</a>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="8" aria-label="Lesson 13 status">✓</button>
-    </li>
-    <li class="wk" data-week="9">
-      <span class="no">14</span>
-      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg></span>
-      <a class="ttl" href="sequence.html#nc_gas_turbine_drive" data-week="9">Marine gas-turbine propulsion</a>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="9" aria-label="Lesson 14 status">✓</button>
-    </li>
-    <li class="wk" data-week="10">
-      <span class="no">15</span>
-      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5L5.5 13H11l-1.5 8.5L19 10.5h-6.5z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="protocol.html#nc_power_restore" data-week="10">Electrical casualty isolation and restoration</a>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="10" aria-label="Lesson 15 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#0e7490">
-      <span class="no">16</span>
-      <span class="ico" style="color:#0e7490"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5a4 4 0 0 0 4 4h7.5a4.5 4.5 0 1 0 0-9H7a4 4 0 0 0-4 4z"/><path d="M13.6 7.5V4.6h2.2v3"/><circle cx="8" cy="12" r="1.1" fill="currentColor" stroke="none"/><path d="M18.5 12h2.5"/></svg></span>
-      <a class="ttl" href="silent_watch_hunt_mvp.html?level=2&return=navy_course.html">Bearing geometry and maneuvering for a fix</a>
-      <span class="tag" style="--c:#0e7490">Sonar Spy</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk gm" style="--c:#6a4fb0">
-      <span class="no">17</span>
-      <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/></svg></span>
-      <a class="ttl" href="spectrum_stack.html?chapter=2&return=navy_course.html">Platform Health and Power</a>
-      <span class="tag" style="--c:#6a4fb0">Spectrum Stack</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk" data-week="11">
-      <span class="no">18</span>
-      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/></svg></span>
-      <a class="ttl" href="casebook_static.html#nc_greywake_case" data-week="11">Independent navigation evidence and common-mode error</a>
-      <span class="tag" style="--c:#c0392b">Casebook</span>
-      <button class="circle" data-week="11" aria-label="Lesson 18 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#2f5d86">
-      <span class="no">19</span>
-      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=2&locked=1&return=navy_course.html">Navigation Without a Trusted Fix</a>
-      <span class="tag" style="--c:#2f5d86">Dead Reckoning</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk bs" data-bs="normal">
-      <span class="no">20</span>
-      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
-      <a class="ttl bs-link" data-bs="normal" href="battleship.html">Second Battle</a>
-      <span class="tag" style="--c:#c0392b">SensorShip</span>
-      <span class="circle" aria-label="SensorShip Second Battle status">✓</span>
-    </li>
-    <li class="wk" data-week="12">
-      <span class="no">21</span>
-      <span class="ico" style="color:#0e8a80"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 15h6l-1 3.5h-4z"/><path d="M15.5 15h6l-1 3.5h-4z"/><path d="M8.5 12.5h7"/></svg></span>
-      <a class="ttl" href="protocol.html#nc_unrep_protocol" data-week="12">Connected replenishment at sea</a>
-      <span class="tag" style="--c:#0e8a80">Protocol</span>
-      <button class="circle" data-week="12" aria-label="Lesson 21 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#1e7a4d">
-      <span class="no">22</span>
-      <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3 7.6M16.4 8.6l-3 7.6M8.2 7h7.6"/></svg></span>
-      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=2&return=navy_course.html">Sustain and Recover the Force</a>
-      <span class="tag" style="--c:#1e7a4d">Strait Support</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk" data-week="13">
-      <span class="no">23</span>
-      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 7.6-7.5 9.5-4.3-1.9-7.5-5-7.5-9.5V6z"/><path d="M8.7 12l2.4 2.4 4.2-4.8"/></svg></span>
-      <a class="ttl" href="sequence.html#nc_layered_defense" data-week="13">Layered defensive sensing and decision chains</a>
-      <span class="tag" style="--c:#2f5d86">Sequence</span>
-      <button class="circle" data-week="13" aria-label="Lesson 23 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#0e7490">
-      <span class="no">24</span>
-      <span class="ico" style="color:#0e7490"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5a4 4 0 0 0 4 4h7.5a4.5 4.5 0 1 0 0-9H7a4 4 0 0 0-4 4z"/><path d="M13.6 7.5V4.6h2.2v3"/><circle cx="8" cy="12" r="1.1" fill="currentColor" stroke="none"/><path d="M18.5 12h2.5"/></svg></span>
-      <a class="ttl" href="silent_watch_hunt_mvp.html?level=3&return=navy_course.html">Localizing, ranging, and prosecuting a submarine</a>
-      <span class="tag" style="--c:#0e7490">Sonar Spy</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk" data-week="14">
-      <span class="no">25</span>
-      <span class="ico" style="color:#c9700f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 16.5h19"/><path d="M6 16.5a6 6 0 0 1 12 0"/><circle cx="12" cy="16.5" r="1.2" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="ballpark.html#nc_bp_radar" data-week="14">Radar horizon, pulse timing, and reaction time</a>
-      <span class="tag" style="--c:#c9700f">Ballpark</span>
-      <button class="circle" data-week="14" aria-label="Lesson 25 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#2f5d86">
-      <span class="no">26</span>
-      <span class="ico" style="color:#2f5d86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" fill="currentColor" stroke="none"/></svg></span>
-      <a class="ttl" href="dead_reckoning_three_chapter_course_edition.html?chapter=3&locked=1&return=navy_course.html">Navigation in a Naval Mission</a>
-      <span class="tag" style="--c:#2f5d86">Dead Reckoning</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk gm" style="--c:#6a4fb0">
-      <span class="no">27</span>
-      <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/></svg></span>
-      <a class="ttl" href="spectrum_stack.html?chapter=3&return=navy_course.html">Assured Operations &amp; Future Naval Systems</a>
-      <span class="tag" style="--c:#6a4fb0">Spectrum Stack</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk" data-week="15">
-      <span class="no">28</span>
-      <span class="ico" style="color:#6a4fb0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 19h5M10.5 21.5h3"/><path d="M12 3a6 6 0 0 0-3.5 10.8c.9.8 1.5 1.6 1.5 2.7h4c0-1.1.6-1.9 1.5-2.7A6 6 0 0 0 12 3z"/></svg></span>
-      <a class="ttl" href="sciencetank.html#nc_naval_innovation" data-week="15">Historical naval innovation under uncertainty</a>
-      <span class="tag" style="--c:#6a4fb0">Science Tank</span>
-      <button class="circle" data-week="15" aria-label="Lesson 28 status">✓</button>
-    </li>
-    <li class="wk gm" style="--c:#1e7a4d">
-      <span class="no">29</span>
-      <span class="ico" style="color:#1e7a4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3 7.6M16.4 8.6l-3 7.6M8.2 7h7.6"/></svg></span>
-      <a class="ttl" href="strait_support_navy_course_relationship_v8.html?chapter=3&return=navy_course.html">Operation Narrow Gate</a>
-      <span class="tag" style="--c:#1e7a4d">Strait Support</span>
-      <span class="circle" aria-label="Lesson status">✓</span>
-    </li>
-    <li class="wk bs" data-bs="hard">
-      <span class="no">30</span>
-      <span class="ico" style="color:#c0392b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/></svg></span>
-      <a class="ttl bs-link" data-bs="hard" href="battleship.html">Third Battle</a>
-      <span class="tag" style="--c:#c0392b">SensorShip</span>
-      <span class="circle" aria-label="SensorShip Third Battle status">✓</span>
-    </li>
-</ol>
-<aside class="shipbox">
-  <div class="shipbox-title">⚓ SensorShips Unlocked</div>
-  <div class="shipbox-sub" id="shipsub"></div>
-  <div class="shipgrid" id="shipgrid"></div>
-</aside>
+<div class="head">
+  <h1>Reasoning for Naval Science</h1>
+  <p class="intro">The voyage begins. Each island is one real concept — how sonar hears a contact, how a radar builds a track, how a ship fights flooding or fire — turned into a game you can only win by <b>understanding the system</b>.</p>
 </div>
-<nav class="pager pager-bottom" id="pagerBottom" aria-label="Lesson pages"></nav>
+<section class="signin" id="signin"></section>
+
+<nav class="pager" id="pager" aria-label="Voyage legs"></nav>
+
+<div class="chart" id="chart">
+  <div class="track" id="track">
+    <svg class="route" id="route" preserveAspectRatio="none" aria-hidden="true"></svg>
+  </div>
+</div>
+
+<section class="fleet">
+  <h2>⚓ SensorShips Unlocked</h2>
+  <div class="sub" id="shipsub"></div>
+  <div class="shipgrid" id="shipgrid"></div>
+</section>
+
+<div class="bar bar-bottom">
+  <span><strong id="count">0</strong> of <span id="total">30</span> stops charted</span>
+  <span class="progline"><i id="progfill"></i></span>
+  <span class="right">
+    <a class="pill" href="navy_course_list.html">List view</a>
+    <button class="pill" id="reset" type="button">Reset</button>
+  </span>
+</div>
 </main>
+
 <script src="reckon_course.js"></script>
 <script>
 (function(){
   var RC=window.ReckonCourse;
   var PAGE_SIZE=10;
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  function setBattleshipLinks(){
-    document.querySelectorAll("a.bs-link").forEach(function(a){ a.setAttribute("href", RC.battleshipURL(a.getAttribute("data-bs"))); });
+
+  var ICONS={
+    spectrum:'<rect x="3.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="7" height="6.5" rx="1"/><rect x="8.5" y="4" width="7" height="6.5" rx="1"/>',
+    sonarwave:'<circle cx="5" cy="12" r="1.8" fill="currentColor" stroke="none"/><path d="M9 8a6 6 0 0 1 0 8"/><path d="M12.5 5.5a11 11 0 0 1 0 13"/>',
+    wave:'<path d="M3 12q2.5-6 5 0t5 0 5 0"/>',
+    target:'<circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>',
+    sub:'<path d="M3 12.5a4 4 0 0 0 4 4h7.5a4.5 4.5 0 1 0 0-9H7a4 4 0 0 0-4 4z"/><path d="M13.6 7.5V4.6h2.2v3"/><circle cx="8" cy="12" r="1.1" fill="currentColor" stroke="none"/><path d="M18.5 12h2.5"/>',
+    compass:'<circle cx="12" cy="12" r="9"/><path d="M12 12l4-6-6 4z" fill="currentColor" stroke="none"/>',
+    radar:'<circle cx="12" cy="12" r="9"/><path d="M12 12l7-2.5"/><circle cx="17" cy="8.5" r="1.1" fill="currentColor" stroke="none"/>',
+    star:'<circle cx="12" cy="12" r="9"/><path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" fill="currentColor" stroke="none"/>',
+    network:'<circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3 7.6M16.4 8.6l-3 7.6M8.2 7h7.6"/>',
+    anchor:'<path d="M12 4v8"/><path d="M8.5 6.5h7"/><circle cx="12" cy="3.4" r="1.3" fill="currentColor" stroke="none"/><path d="M4.5 12a7.5 7.5 0 0 0 15 0"/><path d="M12 12v9"/>',
+    flood:'<path d="M2.5 13q3-3 5.5 0t5.5 0 5.5 0"/><path d="M2.5 17.5q3-3 5.5 0t5.5 0 5.5 0"/>',
+    depth:'<path d="M8 4v11M8 15l-2.5-2.5M8 15l2.5-2.5"/><path d="M16 4v11M16 15l-2.5-2.5M16 15l2.5-2.5"/>',
+    fire:'<path d="M12 3c2.5 3.5 4.5 5.5 4.5 8.5a4.5 4.5 0 0 1-9 0c0-1.8 1-3 2-4 .2 1.8 1.2 2.6 2 2.6-1-2.8 .5-5 .5-7.1z"/>',
+    turbine:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/>',
+    bolt:'<path d="M13 2.5L5.5 13H11l-1.5 8.5L19 10.5h-6.5z" fill="currentColor" stroke="none"/>',
+    search:'<circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/>',
+    unrep:'<path d="M2.5 15h6l-1 3.5h-4z"/><path d="M15.5 15h6l-1 3.5h-4z"/><path d="M8.5 12.5h7"/>',
+    shield:'<path d="M12 3l7.5 3v5.5c0 4.5-3.2 7.6-7.5 9.5-4.3-1.9-7.5-5-7.5-9.5V6z"/><path d="M8.7 12l2.4 2.4 4.2-4.8"/>',
+    radarhorizon:'<path d="M2.5 16.5h19"/><path d="M6 16.5a6 6 0 0 1 12 0"/><circle cx="12" cy="16.5" r="1.2" fill="currentColor" stroke="none"/>',
+    bulb:'<path d="M9.5 19h5M10.5 21.5h3"/><path d="M12 3a6 6 0 0 0-3.5 10.8c.9.8 1.5 1.6 1.5 2.7h4c0-1.1.6-1.9 1.5-2.7A6 6 0 0 0 12 3z"/>'
+  };
+  function icon(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+(ICONS[k]||'')+'</svg>';}
+
+  var R='&return=navy_course.html';
+  var LESSONS=[
+    {n:1, t:"Sensing the Maritime Environment", g:"Spectrum Stack", c:"#6a4fb0", ic:"spectrum", href:"spectrum_stack.html?chapter=1"+R, mod:"nc_spectrum_1"},
+    {n:2, t:"Sound sources, ocean propagation, and passive sonar", g:"Sequence", c:"#2f5d86", ic:"sonarwave", href:"sequence.html#nc_sonar_path", wk:1},
+    {n:3, t:"Underwater acoustics by the numbers", g:"Ballpark", c:"#c9700f", ic:"wave", href:"ballpark.html#nc_bp_sonar", wk:2},
+    {n:4, t:"Multi-sensor contact identification", g:"Protocol", c:"#0e8a80", ic:"target", href:"protocol.html#nc_contact_protocol", wk:3},
+    {n:5, t:"Passive-sonar detection and contact classification", g:"Sonar Spy", c:"#0e7490", ic:"sub", href:"silent_watch_hunt_mvp.html?level=1"+R, mod:"nc_sonar_spy_1"},
+    {n:6, t:"Knots, set and drift", g:"Ballpark", c:"#c9700f", ic:"compass", href:"ballpark.html#nc_bp_navigation", wk:4},
+    {n:7, t:"Pulse-echo radar and track formation", g:"Sequence", c:"#2f5d86", ic:"radar", href:"sequence.html#nc_radar_echo", wk:5},
+    {n:8, t:"Navigation Fundamentals", g:"Dead Reckoning", c:"#2f5d86", ic:"star", href:"dead_reckoning_three_chapter_course_edition.html?chapter=1&locked=1"+R, mod:"nc_dr_1"},
+    {n:9, t:"Build the Operational Picture", g:"Strait Support", c:"#1e7a4d", ic:"network", href:"strait_support_navy_course_relationship_v8.html?chapter=1"+R, mod:"nc_strait_1"},
+    {n:10, t:"First Battle", g:"SensorShip", c:"#c0392b", ic:"anchor", bs:"easy", battle:true},
+    {n:11, t:"Diagnosing shipboard flooding", g:"Diagnosis", c:"#1e7a4d", ic:"flood", href:"diagnosis/nc_flooding_playable.html", wk:6},
+    {n:12, t:"Hydrostatic pressure, buoyancy, and floodwater mass", g:"Ballpark", c:"#c9700f", ic:"depth", href:"ballpark.html#nc_bp_depth", wk:7},
+    {n:13, t:"Shipboard electrical-fire response", g:"Protocol", c:"#0e8a80", ic:"fire", href:"protocol.html#nc_fire_protocol", wk:8},
+    {n:14, t:"Marine gas-turbine propulsion", g:"Sequence", c:"#2f5d86", ic:"turbine", href:"sequence.html#nc_gas_turbine_drive", wk:9},
+    {n:15, t:"Electrical casualty isolation and restoration", g:"Protocol", c:"#0e8a80", ic:"bolt", href:"protocol.html#nc_power_restore", wk:10},
+    {n:16, t:"Bearing geometry and maneuvering for a fix", g:"Sonar Spy", c:"#0e7490", ic:"sub", href:"silent_watch_hunt_mvp.html?level=2"+R, mod:"nc_sonar_spy_2"},
+    {n:17, t:"Platform Health and Power", g:"Spectrum Stack", c:"#6a4fb0", ic:"spectrum", href:"spectrum_stack.html?chapter=2"+R, mod:"nc_spectrum_2"},
+    {n:18, t:"Independent navigation evidence and common-mode error", g:"Casebook", c:"#c0392b", ic:"search", href:"casebook_static.html#nc_greywake_case", wk:11},
+    {n:19, t:"Navigation Without a Trusted Fix", g:"Dead Reckoning", c:"#2f5d86", ic:"star", href:"dead_reckoning_three_chapter_course_edition.html?chapter=2&locked=1"+R, mod:"nc_dr_2"},
+    {n:20, t:"Second Battle", g:"SensorShip", c:"#c0392b", ic:"anchor", bs:"normal", battle:true},
+    {n:21, t:"Connected replenishment at sea", g:"Protocol", c:"#0e8a80", ic:"unrep", href:"protocol.html#nc_unrep_protocol", wk:12},
+    {n:22, t:"Sustain and Recover the Force", g:"Strait Support", c:"#1e7a4d", ic:"network", href:"strait_support_navy_course_relationship_v8.html?chapter=2"+R, mod:"nc_strait_2"},
+    {n:23, t:"Layered defensive sensing and decision chains", g:"Sequence", c:"#2f5d86", ic:"shield", href:"sequence.html#nc_layered_defense", wk:13},
+    {n:24, t:"Localizing, ranging, and prosecuting a submarine", g:"Sonar Spy", c:"#0e7490", ic:"sub", href:"silent_watch_hunt_mvp.html?level=3"+R, mod:"nc_sonar_spy_3"},
+    {n:25, t:"Radar horizon, pulse timing, and reaction time", g:"Ballpark", c:"#c9700f", ic:"radarhorizon", href:"ballpark.html#nc_bp_radar", wk:14},
+    {n:26, t:"Navigation in a Naval Mission", g:"Dead Reckoning", c:"#2f5d86", ic:"star", href:"dead_reckoning_three_chapter_course_edition.html?chapter=3&locked=1"+R, mod:"nc_dr_3"},
+    {n:27, t:"Assured Operations & Future Naval Systems", g:"Spectrum Stack", c:"#6a4fb0", ic:"spectrum", href:"spectrum_stack.html?chapter=3"+R, mod:"nc_spectrum_3"},
+    {n:28, t:"Historical naval innovation under uncertainty", g:"Science Tank", c:"#6a4fb0", ic:"bulb", href:"sciencetank.html#nc_naval_innovation", wk:15},
+    {n:29, t:"Operation Narrow Gate", g:"Strait Support", c:"#1e7a4d", ic:"network", href:"strait_support_navy_course_relationship_v8.html?chapter=3"+R, mod:"nc_strait_3"},
+    {n:30, t:"Third Battle", g:"SensorShip", c:"#c0392b", ic:"anchor", bs:"hard", battle:true}
+  ];
+  var PAGES=Math.ceil(LESSONS.length/PAGE_SIZE);
+
+  var shipSVG='<svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+
+    '<path d="M9 27h26l-2.7 6.4a3 3 0 0 1-2.8 1.9H14.5a3 3 0 0 1-2.8-1.9z" fill="currentColor" stroke="none"/>'+
+    '<path d="M22 7v18"/><path d="M22 9l10 9-10 2.2z" fill="currentColor" stroke="none"/><path d="M22 11l-6.5 6.5 6.5 1.1z"/></svg>';
+
+  function isDone(L,s){
+    if(L.bs) return !!(s.battleship && s.battleship[L.bs]);
+    if(L.mod) return RC.isDone(L.mod, s);
+    if(L.wk!=null) return RC.isWeekDone(L.wk, s);
+    return false;
   }
+  function hrefFor(L){ return L.bs ? RC.battleshipURL(L.bs) : L.href; }
+
+  function seg(pts,i){
+    var p0=pts[i-1]||pts[i], p1=pts[i], p2=pts[i+1], p3=pts[i+2]||p2;
+    return {c1x:p1.x+(p2.x-p0.x)/6, c1y:p1.y+(p2.y-p0.y)/6, c2x:p2.x-(p3.x-p1.x)/6, c2y:p2.y-(p3.y-p1.y)/6, p1:p1, p2:p2};
+  }
+
+  var chart=document.getElementById("chart"),
+      track=document.getElementById("track"),
+      routeEl=document.getElementById("route");
+  var page=0;
+
+  function render(){
+    var s=RC.load();
+    var doneFlags=LESSONS.map(function(L){return isDone(L,s);});
+    var current=doneFlags.indexOf(false);
+
+    var start=page*PAGE_SIZE, end=Math.min(LESSONS.length, start+PAGE_SIZE);
+    var items=LESSONS.slice(start,end);
+
+    var vw=chart.clientWidth||900;
+    var W=Math.max(vw, 640);                 // scroll horizontally on small screens
+    var H=320, midY=156, amp=54, pad=66;
+    var span=(W-2*pad), colW=span/items.length;
+
+    var pts=items.map(function(L,i){
+      var sign=(i%2===0)?-1:1;               // even up, odd down
+      return {x:pad+colW*(i+0.5), y:midY+sign*amp, up:sign<0};
+    });
+
+    track.style.width=W+"px";
+    track.style.height=H+"px";
+    routeEl.setAttribute("viewBox","0 0 "+W+" "+H);
+
+    // ----- route svg -----
+    var svg="";
+    for(var y=40;y<H;y+=64){
+      svg+='<path d="M0 '+y+' Q '+(W*0.25)+' '+(y-14)+' '+(W*0.5)+' '+y+' T '+W+' '+y+'" fill="none" stroke="var(--contour)" stroke-width="1" opacity=".65"/>';
+    }
+    // left / right stubs off the page edges (course continues)
+    var firstDone=doneFlags[start], lastDone=doneFlags[end-1];
+    svg+='<path d="M0,'+pts[0].y+' L'+pts[0].x+','+pts[0].y+'" fill="none" stroke="'+(firstDone?'var(--accent)':'var(--route-ahead)')+'" stroke-width="4.5" stroke-linecap="round"'+(firstDone?'':' stroke-dasharray="2 9"')+'/>';
+    svg+='<path d="M'+pts[pts.length-1].x+','+pts[pts.length-1].y+' L'+W+','+pts[pts.length-1].y+'" fill="none" stroke="'+(lastDone?'var(--accent)':'var(--route-ahead)')+'" stroke-width="4.5" stroke-linecap="round"'+(lastDone?'':' stroke-dasharray="2 9"')+'/>';
+    // full route dashed (ahead)
+    var full="M"+pts[0].x+","+pts[0].y;
+    for(var i=0;i<pts.length-1;i++){var g=seg(pts,i);full+="C"+g.c1x+","+g.c1y+" "+g.c2x+","+g.c2y+" "+g.p2.x+","+g.p2.y;}
+    svg+='<path d="'+full+'" fill="none" stroke="var(--route-ahead)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="2 9"/>';
+    // sailed segments (solid) where destination stop done
+    for(var i=0;i<pts.length-1;i++){
+      var gi=start+i;
+      if(doneFlags[gi+1] || (doneFlags[gi] && gi+1===current)){
+        var g=seg(pts,i), solid=doneFlags[gi+1];
+        svg+='<path d="M'+g.p1.x+','+g.p1.y+'C'+g.c1x+','+g.c1y+' '+g.c2x+','+g.c2y+' '+g.p2.x+','+g.p2.y+'" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"'+(solid?'':' stroke-dasharray="2 9" opacity=".6"')+'/>';
+      }
+    }
+    routeEl.innerHTML=svg;
+
+    // ----- stops + overlays -----
+    var html="";
+    items.forEach(function(L,i){
+      var gi=start+i, p=pts[i], done=doneFlags[gi], cur=(gi===current);
+      var cls="stop "+(p.up?"up":"down")+(L.battle?" battle":"")+(done?" done":"")+(cur?" current":"");
+      html+='<a class="'+cls+'" href="'+esc(hrefFor(L))+'" style="--c:'+L.c+';left:'+p.x+'px;top:'+p.y+'px">'+
+        '<span class="medal"><span class="num">'+L.n+'</span>'+icon(L.ic)+'</span>'+
+        '<span class="label"><span class="g">'+esc(L.g)+'</span><span class="t">'+esc(L.t)+'</span></span>'+
+        '</a>';
+    });
+    if(current>=start && current<end){
+      var p=pts[current-start];
+      html+='<div class="ship" style="left:'+p.x+'px;top:'+p.y+'px">'+shipSVG+'</div>';
+    }
+    // end caps
+    var allDone=current<0;
+    var leftCap = page===0
+      ? '<div class="cap l" style="top:'+pts[0].y+'px"><div class="k">⚓</div><div class="s">Depart</div></div>'
+      : '<div class="cap l" style="top:'+pts[0].y+'px"><div class="s">◀ Leg '+page+'</div></div>';
+    var rightCap = page===PAGES-1
+      ? '<div class="cap r fin" style="top:'+pts[pts.length-1].y+'px"><div class="k">'+(allDone?'★':'⚓')+'</div><div class="s">'+(allDone?'Done':'Open sea')+'</div></div>'
+      : '<div class="cap r" style="top:'+pts[pts.length-1].y+'px"><div class="s">Leg '+(page+2)+' ▶</div></div>';
+    html+=leftCap+rightCap;
+
+    // clear old overlays (keep the svg), then append
+    [].slice.call(track.querySelectorAll(".stop,.ship,.cap")).forEach(function(n){n.remove();});
+    track.insertAdjacentHTML("beforeend", html);
+
+    // counters + fleet + pager active
+    var doneCount=doneFlags.filter(Boolean).length;
+    document.getElementById("count").textContent=doneCount;
+    document.getElementById("total").textContent=LESSONS.length;
+    document.getElementById("progfill").style.width=(100*doneCount/LESSONS.length)+"%";
+    document.querySelectorAll("#pager button").forEach(function(b){b.classList.toggle("active",+b.getAttribute("data-p")===page);});
+    paintFleet(RC.completedCount(s));
+  }
+
+  function buildPager(){
+    var nav=document.getElementById("pager"); if(!nav)return;
+    var html="<span class='lbl'>Legs</span>";
+    for(var p=0;p<PAGES;p++){ var a=p*PAGE_SIZE+1, b=Math.min(LESSONS.length,(p+1)*PAGE_SIZE); html+="<button type='button' data-p='"+p+"'>"+a+"–"+b+"</button>"; }
+    nav.innerHTML=html;
+    nav.querySelectorAll("button").forEach(function(btn){
+      btn.addEventListener("click",function(){ page=+btn.getAttribute("data-p"); chart.scrollLeft=0; render(); });
+    });
+  }
+
   function paintFleet(n){
     var grid=document.getElementById("shipgrid"); if(!grid)return;
     var u=RC.unlockedCount(n);
@@ -318,82 +321,32 @@ li.wk .lock{flex:none;font-size:11px;color:var(--muted)}
     var sub=document.getElementById("shipsub");
     if(sub)sub.textContent=u+" of "+RC.SHIP_ORDER.length+" unlocked · field up to "+RC.MAX_FLEET+" per match";
   }
-  // Map a module chapter's launch link to its graded lesson id (Spectrum Ch III+IV share nc_spectrum_3).
-  function moduleIdFromHref(href){
-    if(!href)return null;
-    // Sonar Spy carries its level in a ?level=N query param rather than ?chapter=.
-    var sp=href.match(/silent_watch[^?]*\?[^#]*\blevel=(\d)/); if(sp) return "nc_sonar_spy_"+sp[1];
-    var m=href.match(/chapter=(\d+)/); var ch=m?m[1]:null; if(!ch)return null;
-    if(/spectrum_stack/.test(href)) return "nc_spectrum_"+(ch==="4"?"3":ch);
-    if(/dead_reckoning/.test(href)) return "nc_dr_"+ch;
-    if(/strait_support/.test(href)) return "nc_strait_"+ch;
-    return null;
-  }
-  function paint(){
-    var s=RC.load(), lessonsDone=0, total=0;
-    document.querySelectorAll("li.wk").forEach(function(li){
-      total++;
-      var bs=li.getAttribute("data-bs"), done=false;
-      if(bs){ done=!!(s.battleship&&s.battleship[bs]); }
-      else if(li.classList.contains("gm")){
-        var a=li.querySelector("a.ttl"), id=a?moduleIdFromHref(a.getAttribute("href")):null;
-        done=RC.isDone(id,s);
-      }
-      else { var w=+li.getAttribute("data-week"); done=RC.isWeekDone(w,s); }
-      if(done)lessonsDone++;
-      li.classList.toggle("done",done);
-    });
-    var c=document.getElementById("count"); if(c)c.textContent=lessonsDone;
-    var t=document.getElementById("total"); if(t)t.textContent=total;
-    // Ships unlock from all graded non-SensorShip lessons (weeks + module chapters), 1 per 3 completed.
-    paintFleet(RC.completedCount(s));
-    setBattleshipLinks();
-  }
-  function buildPagers(){
-    var items=[].slice.call(document.querySelectorAll("ol.weeks > li.wk"));
-    if(!items.length)return;
-    var pages=Math.ceil(items.length/PAGE_SIZE);
-    function rangeLabel(p){ var a=p*PAGE_SIZE+1, b=Math.min(items.length,(p+1)*PAGE_SIZE); return a+"–"+b; }
-    function show(cur){
-      items.forEach(function(li,i){ li.style.display=(Math.floor(i/PAGE_SIZE)===cur)?"":"none"; });
-      document.querySelectorAll(".pager button").forEach(function(btn){
-        btn.classList.toggle("active",+btn.getAttribute("data-p")===cur);
-      });
-    }
-    document.querySelectorAll(".pager").forEach(function(nav){
-      var html="<span class='pglabel'>Lessons</span>";
-      for(var p=0;p<pages;p++) html+="<button type='button' data-p='"+p+"'>"+rangeLabel(p)+"</button>";
-      nav.innerHTML=html;
-      nav.querySelectorAll("button").forEach(function(btn){
-        btn.addEventListener("click",function(){
-          show(+btn.getAttribute("data-p"));
-          window.scrollTo({top:0,behavior:"smooth"});
-        });
-      });
-    });
-    show(0);
-  }
+
   function renderSignin(){
     var el=document.getElementById("signin"); if(!el)return;
     var u=RC.getUser();
     if(u){
       el.innerHTML="<div class='si-row'><div><b>Signed in as "+esc(u.name)+"</b><span class='si-sub'>"+esc(u.email)+" · progress saved on this device</span></div><button class='si-btn ghost' id='siOut' type='button'>Sign out</button></div>";
-      document.getElementById("siOut").onclick=function(){ RC.signOut(); renderSignin(); paint(); };
+      document.getElementById("siOut").onclick=function(){ RC.signOut(); renderSignin(); render(); };
     } else {
-      el.innerHTML="<div class='si-row'><div><b>Track your progress</b><span class='si-sub'>Sign in to save completed lessons and unlocked ships on this device.</span></div><form class='si-form' id='siForm'><input id='siName' placeholder='Name' required><input id='siEmail' type='email' placeholder='Email' required><button class='si-btn' type='submit'>Sign in</button></form></div>";
-      document.getElementById("siForm").onsubmit=function(e){ e.preventDefault(); var nm=document.getElementById('siName').value.trim(), em=document.getElementById('siEmail').value.trim(); if(!nm||!em)return; RC.setUser({name:nm,email:em}); renderSignin(); paint(); RC.flushPendingUnlocks(); };
+      el.innerHTML="<div class='si-row'><div><b>Track your voyage</b><span class='si-sub'>Sign in to save charted stops and unlocked ships on this device.</span></div><form class='si-form' id='siForm'><input id='siName' placeholder='Name' required><input id='siEmail' type='email' placeholder='Email' required><button class='si-btn' type='submit'>Sign in</button></form></div>";
+      document.getElementById("siForm").onsubmit=function(e){ e.preventDefault(); var nm=document.getElementById('siName').value.trim(), em=document.getElementById('siEmail').value.trim(); if(!nm||!em)return; RC.setUser({name:nm,email:em}); renderSignin(); render(); RC.flushPendingUnlocks(); };
     }
   }
+
   var r=document.getElementById("reset");
-  if(r)r.addEventListener("click",function(){ if(!confirm("Reset all course progress and ship unlocks on this device?"))return; var s=RC.load(); s.done={}; s.battleship={}; s.seenUnlockCount=RC.BASE_SHIPS; RC.save(s); paint(); });
-  // Titles just navigate — completion is earned by winning the game, never a manual click.
+  if(r)r.addEventListener("click",function(){ if(!confirm("Reset all course progress and ship unlocks on this device?"))return; var s=RC.load(); s.done={}; s.battleship={}; s.seenUnlockCount=RC.BASE_SHIPS; RC.save(s); render(); });
+
+  // open on the leg that contains your current stop
+  (function(){ var s=RC.load(); var cur=LESSONS.map(function(L){return isDone(L,s);}).indexOf(false); page = cur<0 ? PAGES-1 : Math.floor(cur/PAGE_SIZE); })();
+
+  buildPager();
   renderSignin();
-  paint();
-  buildPagers();
+  render();
   RC.flushPendingUnlocks();
-  // Re-check when returning to this tab after finishing a lesson elsewhere.
-  window.addEventListener("focus", paint);
-  document.addEventListener("visibilitychange", function(){ if(!document.hidden){ paint(); RC.flushPendingUnlocks(); } });
+  var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(render,150); });
+  window.addEventListener("focus", render);
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden){ render(); RC.flushPendingUnlocks(); } });
 })();
 </script>
 </body></html>
