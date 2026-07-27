@@ -72,6 +72,10 @@ h1{font-size:34px;line-height:1.05;margin:5px 0 7px}.sub{color:var(--muted);font
 .inforow .learn summary{padding:8px 13px;font:700 12.5px/1.1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .inforow .learn summary:after{content:" ▾";float:none;margin-left:6px}
 .inforow .learn[open] summary:after{content:" ▴"}
+.bphero{margin:14px 0 15px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#f6f8fa;box-shadow:var(--shadow)}
+.bphero svg{display:block;width:100%;height:auto}
+.bphero figcaption{padding:12px 16px;font:13px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--muted);border-top:1px solid var(--line);background:#fff}
+.bphero figcaption b{color:var(--accent);text-transform:uppercase;letter-spacing:.1em;font-size:11px;display:block;margin-bottom:4px}
 </style>
 </head>
 <body><div class="wrap"><a class="btn ghost" href="reckon.html" style="text-decoration:none;display:inline-block;margin-bottom:12px">← RECKON</a><h1>Ballpark</h1><div id="app"></div></div>
@@ -130,6 +134,151 @@ function allFilled(){return allFactors().every(f=>assignments[f.slot])}
 function resetGame(){try{reckonStart(G&&G.id);}catch(e){}assignments={};selected=null;locked=new Set();correctSlots=new Set();feedback={};solvedRound={};round=1;phase='play';tileOrder=shuffle(allFactors().map(f=>f.id));renderGame()}
 function home(){G=null;app.innerHTML=`<div class="homehead"><div class="sub">Choose a Casebook-linked domain. Each topic is now a short quantitative mission: four connected questions built from real facts, with two or three factors only when the calculation genuinely needs them. The number bank varies with the topic rather than forcing filler conversions.</div><div class="round">${GAMES.length} topic games</div></div><div class="cards">${GAMES.map((g,i)=>`<button class="card" data-i="${i}"><div class="cardtop"><div class="cardicon">${topicIcon(g)}</div><div><div class="n">Topic ${i+1} · ${g.eqs.length} equations</div><div class="t">${g.title}</div></div></div><div class="d">${g.tag}</div><div class="casebookmap">Casebook companion: ${g.casebookTitle}</div></button>`).join('')}</div>`;app.querySelectorAll('.card').forEach(c=>c.onclick=()=>{G=GAMES[+c.dataset.i];resetGame()})}
 
+var BP_SCENES={
+'nc_bp_sonar':{cap:`Four quick underwater-acoustics benchmarks: the wavelength of a training tone, the travel time across a tactical range, the depth read from a bottom-echo delay, and the spreading loss as range grows.`,svg:`<svg viewBox="0 0 1200 480" role="img" font-family="Inter,system-ui,-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="s_oc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3f7"/><stop offset="1" stop-color="#cfdde8"/></linearGradient>
+    <marker id="s_ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f5d86"/></marker>
+    <marker id="s_ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a6a12"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="118" fill="#f6f8fa"/>
+  <rect x="0" y="118" width="1200" height="362" fill="url(#s_oc)"/>
+  <path d="M0 118 q30 -6 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#2f5d86" stroke-width="1.3" opacity=".4"/>
+  <!-- seabed -->
+  <path d="M0 424 q40 -14 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 L1200 480 L0 480 Z" fill="#d8cdbb" opacity=".8"/>
+  <!-- ship -->
+  <line x1="212" y1="96" x2="212" y2="70" stroke="#2f5d86" stroke-width="2"/>
+  <rect x="188" y="96" width="40" height="22" fill="#2f5d86"/>
+  <path d="M150 118 L272 118 L252 138 L168 138 Z" fill="#2f5d86"/>
+  <!-- wavelength inset (top) -->
+  <path d="M300 74 q20 -20 40 0 t40 0" fill="none" stroke="#2f5d86" stroke-width="2"/>
+  <line x1="300" y1="90" x2="380" y2="90" stroke="#565651" stroke-width="1"/>
+  <line x1="300" y1="86" x2="300" y2="94" stroke="#565651" stroke-width="1"/><line x1="380" y1="86" x2="380" y2="94" stroke="#565651" stroke-width="1"/>
+  <text x="340" y="108" text-anchor="middle" fill="#565651" font-size="12"><tspan font-style="italic" fill="#2f5d86" font-weight="700">&#955;</tspan> one wavelength</text>
+  <!-- vertical sounding: depth -->
+  <path d="M232 142 L232 418" fill="none" stroke="#2f5d86" stroke-width="1.8" marker-end="url(#s_ab)"/>
+  <path d="M248 418 L248 150" fill="none" stroke="#8a6a12" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#s_ag)"/>
+  <line x1="150" y1="120" x2="150" y2="420" stroke="#565651" stroke-width="1" opacity=".7"/>
+  <line x1="144" y1="120" x2="156" y2="120" stroke="#565651" stroke-width="1"/><line x1="144" y1="420" x2="156" y2="420" stroke="#565651" stroke-width="1"/>
+  <text x="138" y="274" text-anchor="middle" fill="#565651" font-size="12.5" transform="rotate(-90 138 274)"><tspan font-style="italic" fill="#2f5d86" font-weight="700">d</tspan>  depth = c&#183;t / 2</text>
+  <!-- horizontal travel to submarine -->
+  <path d="M280 158 L 930 250" fill="none" stroke="#8a6a12" stroke-width="1.8" stroke-dasharray="7 5" opacity=".8" marker-end="url(#s_ag)"/>
+  <g transform="translate(946,244)" fill="#2f5d86"><ellipse cx="26" cy="12" rx="46" ry="13"/><path d="M72 12 L92 4 L92 20 Z"/><rect x="20" y="-6" width="20" height="8" rx="3"/><line x1="30" y1="-6" x2="30" y2="-16" stroke="#2f5d86" stroke-width="2"/></g>
+  <text x="600" y="196" text-anchor="middle" fill="#565651" font-size="12.5"><tspan font-style="italic" fill="#8a6a12" font-weight="700">t</tspan>  travel time = range / 1500 m&#183;s&#8315;&#185;</text>
+  <!-- spreading rings at source -->
+  <path d="M300 130 A26 26 0 0 1 300 186" fill="none" stroke="#2f5d86" stroke-width="1.6" opacity=".5"/>
+  <path d="M318 122 A42 42 0 0 1 318 194" fill="none" stroke="#2f5d86" stroke-width="1.6" opacity=".3"/>
+  <text x="330" y="360" fill="#565651" font-size="12.5"><tspan font-style="italic" fill="#2f5d86" font-weight="700">L</tspan>  spreading loss: &#215;10 range &#8594; &#8722;20 dB</text>
+</svg>`},
+'nc_bp_navigation':{cap:`Four dead-reckoning estimates between fixes: how far the ship advances in a watch, the cross-track set from a current, the small heading correction that opposes it, and the time to the next waypoint.`,svg:`<svg viewBox="0 0 1200 480" role="img" font-family="Inter,system-ui,-apple-system,sans-serif">
+  <defs>
+    <marker id="n_ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f5d86"/></marker>
+    <marker id="n_ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a6a12"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="480" fill="#fbfaf6"/>
+  <g stroke="#e4e4e2" stroke-width="1">
+    <line x1="80" y1="0" x2="80" y2="480"/><line x1="240" y1="0" x2="240" y2="480"/><line x1="400" y1="0" x2="400" y2="480"/><line x1="560" y1="0" x2="560" y2="480"/><line x1="720" y1="0" x2="720" y2="480"/><line x1="880" y1="0" x2="880" y2="480"/><line x1="1040" y1="0" x2="1040" y2="480"/>
+    <line x1="0" y1="90" x2="1200" y2="90"/><line x1="0" y1="210" x2="1200" y2="210"/><line x1="0" y1="330" x2="1200" y2="330"/>
+  </g>
+  <!-- compass rose -->
+  <g transform="translate(1090,86)"><circle r="34" fill="none" stroke="#2f5d86" stroke-width="1.4"/><path d="M0 -30 L7 0 L0 8 L-7 0 Z" fill="#2f5d86"/><path d="M0 30 L5 0 L-5 0 Z" fill="#8a6a12"/><text x="0" y="-38" text-anchor="middle" fill="#2f5d86" font-size="11" font-weight="700">N</text></g>
+  <!-- current band (set & drift) -->
+  <g stroke="#8a6a12" stroke-width="2" opacity=".65">
+    <path d="M330 150 L330 200" marker-end="url(#n_ag)"/><path d="M520 150 L520 200" marker-end="url(#n_ag)"/><path d="M710 150 L710 200" marker-end="url(#n_ag)"/>
+  </g>
+  <text x="520" y="132" text-anchor="middle" fill="#8a6a12" font-size="12.5" font-weight="700">current — set &amp; drift</text>
+  <!-- ship at start (points along course) -->
+  <g transform="translate(150,320) rotate(-11.5)" fill="#2f5d86"><path d="M26 0 L-6 -9 L-6 9 Z"/></g>
+  <!-- intended course -->
+  <path d="M162 316 L 852 176" fill="none" stroke="#2f5d86" stroke-width="2.4" marker-end="url(#n_ab)"/>
+  <text x="470" y="228" text-anchor="middle" fill="#565651" font-size="12.5" transform="rotate(-11.5 470 228)">advance = speed &#215; watch time</text>
+  <!-- track made good (set down) -->
+  <path d="M162 322 L 852 250" fill="none" stroke="#2f5d86" stroke-width="1.6" stroke-dasharray="7 5" opacity=".6" marker-end="url(#n_ab)"/>
+  <!-- set bracket at waypoint -->
+  <line x1="872" y1="170" x2="872" y2="250" stroke="#8a6a12" stroke-width="1.4"/>
+  <line x1="866" y1="170" x2="878" y2="170" stroke="#8a6a12" stroke-width="1.4"/><line x1="866" y1="250" x2="878" y2="250" stroke="#8a6a12" stroke-width="1.4"/>
+  <text x="882" y="214" fill="#8a6a12" font-size="12.5" font-weight="700">set</text>
+  <!-- waypoint -->
+  <path d="M852 158 L864 170 L852 182 L840 170 Z" fill="#fbfaf6" stroke="#2f5d86" stroke-width="2"/>
+  <text x="852" y="146" text-anchor="middle" fill="#2f5d86" font-size="11.5" font-weight="700">waypoint</text>
+  <text x="770" y="300" text-anchor="middle" fill="#565651" font-size="12">arrival = distance / speed made good</text>
+  <!-- correction angle at ship -->
+  <path d="M162 316 L 300 286" fill="none" stroke="#8a6a12" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <path d="M212 305 A54 54 0 0 1 226 313" fill="none" stroke="#8a6a12" stroke-width="1.4"/>
+  <text x="250" y="356" text-anchor="middle" fill="#8a6a12" font-size="12.5" font-weight="700">correction angle</text>
+</svg>`},
+'nc_bp_depth':{cap:`Four load scales at depth: the gauge pressure of the water column, the force it puts across a hatch, the buoyancy from displaced seawater, and the mass a flooded compartment adds.`,svg:`<svg viewBox="0 0 1200 480" role="img" font-family="Inter,system-ui,-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="d_oc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3f7"/><stop offset="1" stop-color="#c7d8e6"/></linearGradient>
+    <marker id="d_ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f5d86"/></marker>
+    <marker id="d_ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a6a12"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="64" fill="#f6f8fa"/>
+  <rect x="0" y="64" width="1200" height="416" fill="url(#d_oc)"/>
+  <path d="M0 64 q30 -6 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#2f5d86" stroke-width="1.3" opacity=".4"/>
+  <!-- depth bracket -->
+  <line x1="120" y1="64" x2="120" y2="300" stroke="#565651" stroke-width="1.2"/>
+  <line x1="114" y1="64" x2="126" y2="64" stroke="#565651" stroke-width="1.2"/><line x1="114" y1="300" x2="126" y2="300" stroke="#565651" stroke-width="1.2"/>
+  <text x="108" y="182" text-anchor="middle" fill="#565651" font-size="13" transform="rotate(-90 108 182)"><tspan font-style="italic" fill="#2f5d86" font-weight="700">h</tspan>  operating depth</text>
+  <!-- hull capsule -->
+  <rect x="360" y="266" width="440" height="96" rx="48" fill="#ffffff" stroke="#2f5d86" stroke-width="2.4"/>
+  <line x1="470" y1="266" x2="470" y2="362" stroke="#2f5d86" stroke-width="1" opacity=".4"/><line x1="580" y1="266" x2="580" y2="362" stroke="#2f5d86" stroke-width="1" opacity=".4"/><line x1="690" y1="266" x2="690" y2="362" stroke="#2f5d86" stroke-width="1" opacity=".4"/>
+  <!-- flooded compartment (rightmost) -->
+  <path d="M690 314 h110 v40 a48 48 0 0 1 -48 8 h-62 Z" fill="#2f5d86" opacity=".22"/>
+  <path d="M690 314 h110" stroke="#2f5d86" stroke-width="1.4" opacity=".5"/>
+  <text x="748" y="392" text-anchor="middle" fill="#565651" font-size="12"><tspan font-style="italic" fill="#2f5d86" font-weight="700">m</tspan> floodwater = &#961;V</text>
+  <!-- inward pressure arrows -->
+  <g stroke="#2f5d86" stroke-width="2">
+    <path d="M580 214 L580 258" marker-end="url(#d_ab)"/><path d="M470 214 L470 258" marker-end="url(#d_ab)"/><path d="M690 214 L690 258" marker-end="url(#d_ab)"/>
+    <path d="M470 414 L470 370" marker-end="url(#d_ab)"/><path d="M580 414 L580 370" marker-end="url(#d_ab)"/><path d="M690 414 L690 370" marker-end="url(#d_ab)"/>
+    <path d="M300 314 L352 314" marker-end="url(#d_ab)"/><path d="M860 314 L808 314" marker-end="url(#d_ab)"/>
+  </g>
+  <text x="580" y="196" text-anchor="middle" fill="#2f5d86" font-size="12.5" font-weight="700">pressure  P = &#961;gh</text>
+  <!-- buoyancy up -->
+  <path d="M410 266 L410 150" stroke="#8a6a12" stroke-width="2.6" marker-end="url(#d_ag)"/>
+  <text x="410" y="138" text-anchor="middle" fill="#8a6a12" font-size="12.5" font-weight="700">buoyancy  F&#7495; = &#961;gV</text>
+  <!-- hatch + force -->
+  <rect x="556" y="256" width="48" height="12" fill="#2f5d86"/>
+  <path d="M604 260 L 690 232" fill="none" stroke="#565651" stroke-width="1" opacity=".55"/>
+  <text x="742" y="228" text-anchor="middle" fill="#565651" font-size="12.5"><tspan font-style="italic" fill="#2f5d86" font-weight="700">F</tspan>  hatch load = P &#215; A</text>
+</svg>`},
+'nc_bp_radar':{cap:`Four radar geometry-and-timing benchmarks: the line-of-sight horizon set by antenna height, target range from echo delay, the range resolution fixed by pulse length, and the reaction time before a closing contact arrives.`,svg:`<svg viewBox="0 0 1200 480" role="img" font-family="Inter,system-ui,-apple-system,sans-serif">
+  <defs>
+    <linearGradient id="r_sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f9fb"/><stop offset="1" stop-color="#e7eef4"/></linearGradient>
+    <marker id="r_ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2f5d86"/></marker>
+    <marker id="r_ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a6a12"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="480" fill="url(#r_sky)"/>
+  <!-- earth curvature -->
+  <path d="M0 380 Q600 300 1200 380 L1200 480 L0 480 Z" fill="#e6ddcb" opacity=".85"/>
+  <path d="M0 380 Q600 300 1200 380" fill="none" stroke="#2f5d86" stroke-width="1.4" opacity=".45"/>
+  <!-- antenna + height -->
+  <line x1="230" y1="352" x2="230" y2="250" stroke="#2f5d86" stroke-width="4"/>
+  <path d="M218 250 l24 0 l-6 -12 l-12 0 Z" fill="#2f5d86"/>
+  <line x1="150" y1="352" x2="150" y2="250" stroke="#565651" stroke-width="1.1"/>
+  <line x1="144" y1="352" x2="156" y2="352" stroke="#565651" stroke-width="1.1"/><line x1="144" y1="250" x2="156" y2="250" stroke="#565651" stroke-width="1.1"/>
+  <text x="138" y="304" text-anchor="middle" fill="#565651" font-size="12.5" transform="rotate(-90 138 304)"><tspan font-style="italic" fill="#2f5d86" font-weight="700">h</tspan>  height</text>
+  <!-- line of sight tangent to horizon -->
+  <path d="M230 246 L 636 322" fill="none" stroke="#2f5d86" stroke-width="2" marker-end="url(#r_ab)"/>
+  <circle cx="636" cy="322" r="4" fill="#2f5d86"/>
+  <text x="636" y="346" text-anchor="middle" fill="#565651" font-size="11.5">horizon</text>
+  <!-- dashed continuation to target beyond horizon -->
+  <path d="M636 322 L 980 258" fill="none" stroke="#8a6a12" stroke-width="1.8" stroke-dasharray="7 5" opacity=".8" marker-end="url(#r_ag)"/>
+  <g transform="translate(992,250)" fill="#2f5d86"><path d="M0 8 L40 2 L40 14 Z"/><path d="M26 8 L46 -8 L40 -8 Z"/><path d="M26 8 L46 24 L40 24 Z"/></g>
+  <text x="420" y="268" text-anchor="middle" fill="#565651" font-size="12.5" transform="rotate(10.6 420 268)">horizon &#8776; 2.2&#8730;h  (NM, ft)</text>
+  <text x="812" y="272" text-anchor="middle" fill="#8a6a12" font-size="12.5" font-weight="700" transform="rotate(-10.6 812 272)">range  R = c&#183;t / 2</text>
+  <!-- reaction time note -->
+  <text x="980" y="220" text-anchor="middle" fill="#565651" font-size="12"><tspan font-style="italic" fill="#2f5d86" font-weight="700">t</tspan> reaction = R / closing speed</text>
+  <!-- resolution inset (two pulses) -->
+  <g transform="translate(250,96)">
+    <rect x="0" y="0" width="220" height="58" rx="9" fill="#ffffff" stroke="#e4e4e2" stroke-width="1.2"/>
+    <path d="M16 44 h18 v-24 h14 v24 h30" fill="none" stroke="#2f5d86" stroke-width="2"/>
+    <path d="M78 44 h18 v-24 h14 v24 h30" fill="none" stroke="#8a6a12" stroke-width="2"/>
+    <text x="110" y="20" text-anchor="middle" fill="#565651" font-size="11">resolution &#916;r = c&#183;&#964; / 2</text>
+  </g>
+</svg>`}
+};
+function bpHeroGraphic(id){var S=BP_SCENES[id];if(!S)return '';return '<figure class="bphero">'+S.svg+'<figcaption><b>What this game is about</b>'+S.cap+'</figcaption></figure>';}
 function briefingHTML(){return `<section class="briefing"><div class="briefingkick">${topicIcon(G)}Your assignment</div><h2>Build the quantitative briefing</h2><p>${G.mission||G.context}</p><div class="briefgoals">${(G.goals||G.eqs.map(e=>e.prompt||e.q)).map((goal,i)=>`<div class="briefgoal"><b>${i+1}</b>${goal}</div>`).join('')}</div></section>`}
 function termsHTML(){return `<details class="learn"><summary>Background and vocabulary</summary><div class="learnbody"><p>${G.context}</p><div class="terms">${G.terms.map(t=>`<div class="term"><b>${t[0]}</b>${t[1]}</div>`).join('')}</div></div></details>`}
 function statusHTML(ei){const f=feedback[ei];if(!f)return'';const labels={right:'Right',high:'Too high',low:'Too low',mixed:'Right total, misplaced'};return `<span class="status ${f.kind}">${labels[f.kind]}</span>`}
@@ -142,7 +291,7 @@ function factorClue(f){const clue=(f.playDesc||'').trim();if(!clue||isConversion
 function eqHTML(e,ei){const res=evalEq(e,ei), lock=locked.has(ei);let parts=[];e.factors.forEach((f,fi)=>{const slot=`${ei}:${fi}`, componentRight=correctSlots.has(slot), clue=factorClue(f);parts.push(`<div class="factor ${lock?'lock':''} ${componentRight?'component-right':''}"><div class="flabel">${factorHeading(f)}${clue?`<button type="button" class="finfo" aria-label="More information">i</button>`:''}</div>${clue?`<div class="fclue">${clue}</div>`:''}${componentRight&&!lock?'<span class="componentbadge">✓ correct component</span>':''}${slotHTML(ei,fi)}</div>`);if(fi<e.ops.length)parts.push(`<div class="op">${e.ops[fi]}</div>`)});return `<section class="eqcard ${lock?'locked':''}"><div class="eqtop"><div><div class="eqnum">${topicIcon(G)}Question ${ei+1}</div><div class="eqq">${e.prompt||e.q}</div></div>${statusHTML(ei)}</div><div class="chain">${parts.join('')}<div class="equals">=</div><div class="answer"><div class="lab">your final number</div><div class="val">${isFinite(res)?fmt(res):'?'}</div><div class="unit">${e.unit}</div></div></div>${feedbackHTML(ei)}</section>`}
 function renderGame(){
   const used=usedIds(), remaining=tileOrder.filter(id=>!used.has(id));const solved=locked.size;
-  app.innerHTML=`<div class="topbar"><div class="topbarleft"><div class="gameicon">${topicIcon(G)}</div><div><div class="topic">${G.title}</div></div></div></div><div class="progress"><span style="width:${(solved/4)*100}%"></span></div>${briefingHTML()}<div class="inforow">${termsHTML()}<details class="learn"><summary>How to play</summary><div class="learnbody"><p>Every factor name and operator is already shown. Place each number from the shared bank into one slot — each number is used once. Equations contain only the two or three factors the question naturally requires. When you submit, every final answer is marked right, too high, or too low, and correct components lock in green. The full factual wording and sources appear in the reveal.</p></div></details></div><div class="gamegrid"><main class="gamemain"><div class="equations">${G.eqs.map(eqHTML).join('')}</div><div class="controls">${phase==='play'?`<button class="btn" id="check" ${allFilled()?'':'disabled'}>Check answers</button>`:`<button class="btn" id="reveal">See answers, facts, and sources</button>`}<button class="btn ghost" id="clear" ${phase==='play'?'':'disabled'}>Clear unlocked equations</button><button class="btn ghost" id="restart">Restart topic</button><span class="note">Green equations and green individual components are correct, locked, and removed from play.</span></div></main><aside class="bankside"><div class="bank"><div class="bankhead"><div class="banktitle">Shared number bank</div><div class="remaining">${remaining.length} unplaced</div></div><div class="bankhelp">Drag a number onto a slot — or tap a number, then tap its slot. This bank stays visible while you scroll.</div><div class="tiles">${remaining.map(id=>{const t=tileById(id);return `<button type="button" class="tile ${selected===id?'sel':''}" data-id="${id}">${t.display}</button>`}).join('')||'<div class="bankempty">All values are currently placed in equations.</div>'}</div></div><div class="bankscore"><span class="round">${solved}/4 correct</span></div></aside></div>`;
+  app.innerHTML=`<div class="topbar"><div class="topbarleft"><div class="gameicon">${topicIcon(G)}</div><div><div class="topic">${G.title}</div></div></div></div><div class="progress"><span style="width:${(solved/4)*100}%"></span></div>${briefingHTML()}${bpHeroGraphic(G.id)}<div class="inforow">${termsHTML()}<details class="learn"><summary>How to play</summary><div class="learnbody"><p>Every factor name and operator is already shown. Place each number from the shared bank into one slot — each number is used once. Equations contain only the two or three factors the question naturally requires. When you submit, every final answer is marked right, too high, or too low, and correct components lock in green. The full factual wording and sources appear in the reveal.</p></div></details></div><div class="gamegrid"><main class="gamemain"><div class="equations">${G.eqs.map(eqHTML).join('')}</div><div class="controls">${phase==='play'?`<button class="btn" id="check" ${allFilled()?'':'disabled'}>Check answers</button>`:`<button class="btn" id="reveal">See answers, facts, and sources</button>`}<button class="btn ghost" id="clear" ${phase==='play'?'':'disabled'}>Clear unlocked equations</button><button class="btn ghost" id="restart">Restart topic</button><span class="note">Green equations and green individual components are correct, locked, and removed from play.</span></div></main><aside class="bankside"><div class="bank"><div class="bankhead"><div class="banktitle">Shared number bank</div><div class="remaining">${remaining.length} unplaced</div></div><div class="bankhelp">Drag a number onto a slot — or tap a number, then tap its slot. This bank stays visible while you scroll.</div><div class="tiles">${remaining.map(id=>{const t=tileById(id);return `<button type="button" class="tile ${selected===id?'sel':''}" data-id="${id}">${t.display}</button>`}).join('')||'<div class="bankempty">All values are currently placed in equations.</div>'}</div></div><div class="bankscore"><span class="round">${solved}/4 correct</span></div></aside></div>`;
   app.querySelectorAll('.tile').forEach(t=>{t.onpointerdown=e=>beginDrag(e,t)});
   app.querySelectorAll('.slot').forEach(s=>{const [ei]=s.dataset.slot.split(':').map(Number);if(locked.has(ei)||correctSlots.has(s.dataset.slot))return;s.onclick=ev=>{if(ev.target.closest('.x'))return;if(selected)place(selected,s.dataset.slot)}});
   app.querySelectorAll('.x').forEach(x=>x.onclick=ev=>{ev.stopPropagation();delete assignments[x.dataset.clear];selected=null;phase='play';renderGame()});
