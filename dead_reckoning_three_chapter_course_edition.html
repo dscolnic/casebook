@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dead Reckoning — Three-Chapter Navy Course Edition</title>
+<title>Dead Reckoning — Navy Course Edition</title>
 <style>
 :root{--bg:#f4f2ec;--ink:#1a1a17;--muted:#565651;--line:#e4e4e2;--panel:#fff;--panel2:#fff;--chip:#f4f2ec;--accent:#2f5d86;--accent-soft:#eef3f7;--gold:#8a6a12;--shadow:0 8px 24px rgba(24,32,39,.07);--blue:#76baff;--green:#7ed7aa;--amber:#e7b35e;--red:#ef7474;--scene:#06101a;--scene-ink:#eef5fb;--scene-muted:#98adc0}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
@@ -41,10 +41,10 @@ h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(1
 <body>
 <main class="app">
 <header class="head"><div><h1>Dead Reckoning</h1><p class="sub" id="subtitle"></p></div><div class="headright"><a class="returnlink" id="courseReturn" href="#" hidden>&larr; Return to course</a><div class="tag" id="tag"></div></div></header>
-<nav class="chapterbar" id="chapterBar" aria-label="Dead Reckoning course chapters">
-<button class="chapterbtn" data-chapter="0"><span class="chapternum">Chapter 1</span><span class="chaptername">Navigation Fundamentals</span><span class="chapterplace">After Topic 05</span></button>
-<button class="chapterbtn" data-chapter="1"><span class="chapternum">Chapter 2</span><span class="chaptername">Navigation Without a Trusted Fix</span><span class="chapterplace">After Topic 11</span></button>
-<button class="chapterbtn" data-chapter="2"><span class="chapternum">Chapter 3</span><span class="chaptername">Navigation in a Naval Mission</span><span class="chapterplace">After Topic 14</span></button>
+<nav class="chapterbar" id="chapterBar" aria-label="Dead Reckoning course sections">
+<button class="chapterbtn" data-chapter="0"><span class="chaptername">Navigation Fundamentals</span><span class="chapterplace">After Topic 05</span></button>
+<button class="chapterbtn" data-chapter="1"><span class="chaptername">Navigation Without a Trusted Fix</span><span class="chapterplace">After Topic 11</span></button>
+<button class="chapterbtn" data-chapter="2"><span class="chaptername">Navigation in a Naval Mission</span><span class="chapterplace">After Topic 14</span></button>
 </nav>
 <section class="metrics">
 <div class="metric"><div class="ml">Steps remaining</div><div class="mv" id="steps">—</div></div>
@@ -79,8 +79,8 @@ h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(1
 </section>
 <section class="section" id="courseNavigation"><h2 class="st">Course navigation</h2>
 <div class="coursebox"><div class="courseplace" id="coursePlacement"></div><div class="coursetitle" id="courseChapterTitle"></div><div class="coursehelp" id="courseChapterHelp"></div></div>
-<select id="missionSelect" aria-label="Select mission within this chapter"></select>
-<div class="actions"><button class="small" id="chapterBrief">Chapter briefing</button><button class="small" id="chapterMenu">All chapters</button></div>
+<select id="missionSelect" aria-label="Select mission within this section"></select>
+<div class="actions"><button class="small" id="chapterBrief">Briefing</button><button class="small" id="chapterMenu">Sections</button></div>
 </section>
 </aside></section>
 <div class="foot">Independent educational prototype. Not affiliated with or endorsed by the Office of Naval Research or the U.S. Navy.</div>
@@ -141,7 +141,7 @@ function updateChapterUI(){
   b.hidden=courseLocked&&Number(b.dataset.chapter)!==ci;
  });
  $('#coursePlacement').textContent=ch.placement;
- $('#courseChapterTitle').textContent=`Chapter ${ci+1}: ${ch.title}`;
+ $('#courseChapterTitle').textContent='';
  $('#courseChapterHelp').textContent=ch.summary;
  $('#chapterMenu').hidden=courseLocked;
 }
@@ -157,10 +157,10 @@ function chapterMenu(){
  if(courseLocked){chapterBriefing();return}
  overlay({
   ey:'Dead Reckoning course edition',
-  title:'Choose the course chapter',
-  text:'Each chapter is designed to open at a specific point in the Basic Sailor course.',
-  content:`<div class="chaptercards">${chapters.map((ch,i)=>`<button class="chaptercard" data-open-chapter="${i}"><em>Chapter ${i+1} · ${ch.shortPlacement}</em><strong>${ch.title}</strong><span>${ch.summary}</span></button>`).join('')}</div>`,
-  button:'Open current chapter',
+  title:'Choose a section',
+  text:'Each section is designed to open at a specific point in the Basic Sailor course.',
+  content:`<div class="chaptercards">${chapters.map((ch,i)=>`<button class="chaptercard" data-open-chapter="${i}"><em>${ch.shortPlacement}</em><strong>${ch.title}</strong><span>${ch.summary}</span></button>`).join('')}</div>`,
+  button:'Open current section',
   action:chapterBriefing
  });
 }
@@ -168,18 +168,18 @@ function chapterBriefing(){
  const ch=chapters[ci];
  const chapterMissions=missions.slice(ch.start,ch.end+1);
  overlay({
-  ey:`Chapter ${ci+1} of ${chapters.length} · ${ch.shortPlacement}`,
+  ey:ch.shortPlacement,
   title:ch.title,
   text:ch.summary,
   content:`<div class="coursebox"><div class="courseplace">${ch.placement}</div></div><ul class="olist">${ch.goals.map(x=>`<li>${x}</li>`).join('')}</ul><div class="chaptercards">${chapterMissions.map((mission,i)=>`<button class="chaptercard" data-open-mission="${ch.start+i}"><em>Mission ${i+1} of ${chapterMissions.length}</em><strong>${mission.title}</strong><span>${mission.subtitle}</span></button>`).join('')}</div>`,
-  button:`Begin Chapter ${ci+1}`,
+  button:'Begin',
   action:()=>{mi=ch.start;fillSelect();reset();briefing()}
  });
 }
 function reset(){
  m=missions[mi];
  st={run:false,end:false,steps:m.steps,nav:m.nav,h:m.heading,t:{...m.start},e:{...m.start},u:.35,tr:[{...m.start}],er:[{...m.start}],cand:[],ctype:null,emit:0,moves:0,drifts:0,reveal:false,pulse:0,used:{},depthHistory:[]};
- $('#tag').textContent=`Chapter ${ci+1} · Mission ${chapterMissionNumber()} of ${chapterMissionCount()} · ${m.title}`;$('#subtitle').textContent=m.subtitle;if($('#missionSelect'))$('#missionSelect').value=mi;updateChapterUI();syncUrl();
+ $('#tag').textContent=`Mission ${chapterMissionNumber()} of ${chapterMissionCount()} · ${m.title}`;$('#subtitle').textContent=m.subtitle;if($('#missionSelect'))$('#missionSelect').value=mi;updateChapterUI();syncUrl();
  $('#read').textContent=`MISSION READY\nEstimated position: ${cell(st.e)}\nDestination: ${cell(m.dest)}\nWeather: ${m.scene}\nCurrent: unmeasured`;
  renderTools();ui();drawChart();drawSea();
 }
@@ -203,7 +203,7 @@ function ui(){
 function msg(t,type=''){let e=$('#msg');e.textContent=t;e.style.color=type==='danger'?'#ffc2c2':type==='warn'?'#ffe0a5':'';clearTimeout(timer);timer=setTimeout(()=>{if(!st.end){e.textContent='The chart shows an estimate, not necessarily the true ship position.';e.style.color=''}},4300)}
 function overlay(o){$('#ey').textContent=o.ey;$('#ot').textContent=o.title;$('#op').textContent=o.text;$('#oc').innerHTML=o.content||'';$('#ob').textContent=o.button;overlayAction=o.action;$('#overlay').classList.remove('hidden')}
 function briefing(){
- overlay({ey:`Chapter ${ci+1} · Mission ${chapterMissionNumber()} of ${chapterMissionCount()}`,title:m.title,text:m.subtitle,content:`<div class="coursebox"><div class="courseplace">${chapters[ci].shortPlacement}</div><div class="coursehelp">${chapters[ci].title}</div></div><ul class="olist">${m.intro.map(x=>`<li>${x}</li>`).join('')}</ul>`,button:'Begin mission',action:begin});
+ overlay({ey:`Mission ${chapterMissionNumber()} of ${chapterMissionCount()}`,title:m.title,text:m.subtitle,content:`<div class="coursebox"><div class="courseplace">${chapters[ci].shortPlacement}</div><div class="coursehelp">${chapters[ci].title}</div></div><ul class="olist">${m.intro.map(x=>`<li>${x}</li>`).join('')}</ul>`,button:'Begin mission',action:begin});
 }
 function begin(){reset();$('#overlay').classList.add('hidden');st.run=true;ui();msg(`Destination ${cell(m.dest)}. Navigate with limited steps and observations.`)}
 function turn(k){if(!st.run||st.end)return;st.h=(st.h+k+4)%4;let h=H[st.h];$('#read').textContent=`HELM TURN\nHeading: ${h.n} ${String(h.d).padStart(3,'0')}°\nEstimated position: ${cell(st.e)}\nConfidence: ${conf()}`;ui()}
@@ -248,11 +248,11 @@ function finish(ok,why){
  const ch=chapters[ci],lastInChapter=mi===ch.end;
  const chapterDone=ok&&lastInChapter;
  overlay({
-  ey:ok?(chapterDone?`Chapter ${ci+1} complete`:'Mission complete'):'Mission ended',
+  ey:ok?(chapterDone?'':'Mission complete'):'Mission ended',
   title:ok?(chapterDone?ch.title:m.title+' complete'):'Navigation failure',
   text:chapterDone?`You completed all ${chapterMissionCount()} missions assigned at ${ch.shortPlacement}.`:why,
   content:`<div class="stats"><div class="stat"><div class="sl">Rating</div><div class="sv">${ok?'★'.repeat(stars)+'☆'.repeat(3-stars):'—'}</div></div><div class="stat"><div class="sl">Steps used</div><div class="sv">${st.moves}/${m.steps}</div></div><div class="stat"><div class="sl">Final error</div><div class="sv">${err.toFixed(1)} cells</div></div></div><ul class="olist"><li>Blue route: estimated path.</li><li>White route: true path after environmental drift.</li><li>Amber dashed lines: hidden displacement.</li></ul>`,
-  button:!ok?'Retry mission':chapterDone?(courseLocked?'Replay chapter':'Return to chapter menu'):'Next mission',
+  button:!ok?'Retry mission':chapterDone?(courseLocked?'Replay section':'Return to menu'):'Next mission',
   action:()=>{
    if(!ok){reset();briefing();return}
    if(!lastInChapter){mi++;fillSelect();reset();briefing();return}

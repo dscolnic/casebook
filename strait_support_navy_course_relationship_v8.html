@@ -56,9 +56,9 @@ button{font:inherit}button:focus-visible,.piece:focus-visible,.cell:focus-visibl
 <body>
 <div class="topbar"><div class="topbar-inner">
   <div class="brand"><h1>Strait Support</h1><span>Relationship edition</span></div>
-  <div class="chapter-label" id="chapterLabel">Course Chapter 1</div>
+  <div class="chapter-label" id="chapterLabel"></div>
   <div id="progress" class="progress" aria-label="Campaign progress"></div>
-  <div class="top-actions"><button class="top-btn" id="returnBtn" style="display:none">Return to course</button><button class="top-btn" id="conceptBtn">Brief</button><button class="top-btn" id="campaignBtn">Chapters</button></div>
+  <div class="top-actions"><button class="top-btn" id="returnBtn" style="display:none">Return to course</button><button class="top-btn" id="conceptBtn">Brief</button><button class="top-btn" id="campaignBtn">Sections</button></div>
 </div></div>
 
 <div class="layout">
@@ -104,7 +104,7 @@ button{font:inherit}button:focus-visible,.piece:focus-visible,.cell:focus-visibl
     </div>
     <div class="controls">
       <button class="btn" id="hideStudyBtn">Hide after-action explanation</button>
-      <button class="btn primary" id="studyChapterBtn">Chapter map</button>
+      <button class="btn primary" id="studyChapterBtn">Section map</button>
     </div>
   </div>
 </aside>
@@ -113,13 +113,13 @@ button{font:inherit}button:focus-visible,.piece:focus-visible,.cell:focus-visibl
 <div class="modal hidden" id="lessonModal"><div class="modal-panel">
   <header><div class="eyebrow" id="lessonChapter"></div><h2 id="lessonTitle"></h2><p id="lessonIntro"></p></header>
   <main><div class="lesson-grid"><div class="lesson-card"><h3>What to learn</h3><ul id="lessonPoints"></ul></div><div class="lesson-card"><h3>New puzzle language</h3><ul id="lessonRules"></ul><div class="asset-unlocks" id="assetUnlocks"></div></div></div></main>
-  <footer><button class="btn" id="lessonCampaignBtn">Chapters</button><button class="btn primary" id="beginBtn">Begin mission</button></footer>
+  <footer><button class="btn" id="lessonCampaignBtn">Sections</button><button class="btn primary" id="beginBtn">Begin mission</button></footer>
 </div></div>
 
 <div class="modal" id="campaignModal"><div class="modal-panel wide">
-  <header><div class="eyebrow">Three course appearances</div><h2>Choose the Course Chapter</h2><p>Each chapter is a self-contained integrative puzzle placed after the relevant block of the Basic Sailor course. Chapters can be launched directly in any order.</p><div class="campaign-summary" id="campaignSummary"></div></header>
+  <header><div class="eyebrow">Three course appearances</div><h2>Choose a section</h2><p>Each section is a self-contained integrative puzzle placed after the relevant block of the Basic Sailor course. Sections can be launched directly in any order.</p><div class="campaign-summary" id="campaignSummary"></div></header>
   <main><div class="campaign-grid" id="campaignGrid"></div></main>
-  <footer><button class="btn" id="resetCampaignBtn">Reset progress</button><button class="btn primary" id="resumeBtn">Open last chapter</button></footer>
+  <footer><button class="btn" id="resetCampaignBtn">Reset progress</button><button class="btn primary" id="resumeBtn">Open last section</button></footer>
 </div></div>
 
 <div class="modal hidden" id="debriefModal"><div class="modal-panel">
@@ -145,7 +145,7 @@ title:"Build the Operational Picture",
 concept:"Overlap different sources of information",
 summary:"Four assets must form one trustworthy picture: broad search, local sonar, independent radar confirmation, and a link back to command.",
 brief:"A destroyer must cross the strait. Build an information network that detects both marked contacts, maintains underwater awareness along the route, confirms the surface contact independently, and carries the combined picture back to the western base.",
-lessonIntro:"This chapter is about relationships between sensors. A good plan does not put each asset on a named square; it makes their useful areas overlap over the places that matter.",
+lessonIntro:"This section is about relationships between sensors. A good plan does not put each asset on a named square; it makes their useful areas overlap over the places that matter.",
 lessonPoints:[
   "Broad-area search finds where to look; local sensing maintains contact near the ship.",
   "A contact is more trustworthy when two different sensing methods cover it.",
@@ -227,7 +227,7 @@ title:"Sustain and Recover the Force",
 concept:"Build a protected recovery chain",
 summary:"Four assets must create a connected chain from the casualty to repair, protection, and replenishment.",
 brief:"A damaged ship cannot complete the withdrawal alone. Arrange a tug, repair tender, replenishment ship, and escort so each stage of recovery connects to the next and the vulnerable logistics ships share protection.",
-lessonIntro:"This chapter is harder because pieces depend on one another. The question is not where each asset usually belongs, but whether the whole recovery chain works as a system.",
+lessonIntro:"This section is harder because pieces depend on one another. The question is not where each asset usually belongs, but whether the whole recovery chain works as a system.",
 lessonPoints:[
   "The tug must connect the casualty to the withdrawal route.",
   "The repair tender must remain connected to the tug and central corridor.",
@@ -545,7 +545,7 @@ function isPieceCorrect(p){return evaluatePieceRule(p).ok}
 function solutionPos(p){if(p.solution===null)return null;return Array.isArray(p.solution[0])?p.solution[0]:p.solution}
 function starsForRun(){if(revealed)return 0;let stars=attemptsUsed===1?3:attemptsUsed===2?2:1;if(hintsUsed>=2)stars=Math.min(stars,1);else if(hintsUsed===1)stars=Math.min(stars,2);return stars}
 function renderProgress(){const el=$("progress");el.innerHTML="";levels.forEach((_,i)=>{const dot=document.createElement("i");if(Number(saved.best[i]||0)>0)dot.className="done";if(i===levelIndex)dot.className="active";el.appendChild(dot)})}
-function renderMission(){const L=current();$("missionNo").textContent=`Course chapter ${levelIndex+1} of ${levels.length} · ${L.coursePlacement}`;$("missionTitle").textContent=L.title;$("missionBrief").textContent=L.brief;$("conceptName").textContent=L.concept;$("conceptSummary").textContent=L.summary;$("chapterLabel").textContent=`Course Chapter ${L.chapter+1} · ${CHAPTERS[L.chapter]}`;const ul=$("requirements");ul.innerHTML="";L.requirements.forEach((x,i)=>{const li=document.createElement("li");li.appendChild(document.createTextNode(x));if(revealed&&satisfiedObjectives.has(i)){li.classList.add("revealed-objective");li.innerHTML+=`<span class="objective-status">Shown in one valid solution</span>`}else if(newlySatisfiedObjectives.has(i)){li.classList.add("satisfied-new");li.innerHTML+=`<span class="objective-status">✓ Satisfied this check</span>`}else if(satisfiedObjectives.has(i)){li.classList.add("satisfied-prior");li.innerHTML+=`<span class="objective-status">✓ Satisfied earlier</span>`}else if(hasChecked){li.classList.add("unsatisfied");li.innerHTML+=`<span class="objective-status">Not yet satisfied</span>`}ul.appendChild(li)});renderAttempts();$("assetCount").textContent=`${L.pieces.length} cards`}
+function renderMission(){const L=current();$("missionNo").textContent=`Section ${levelIndex+1} of ${levels.length} · ${L.coursePlacement}`;$("missionTitle").textContent=L.title;$("missionBrief").textContent=L.brief;$("conceptName").textContent=L.concept;$("conceptSummary").textContent=L.summary;$("chapterLabel").textContent="";const ul=$("requirements");ul.innerHTML="";L.requirements.forEach((x,i)=>{const li=document.createElement("li");li.appendChild(document.createTextNode(x));if(revealed&&satisfiedObjectives.has(i)){li.classList.add("revealed-objective");li.innerHTML+=`<span class="objective-status">Shown in one valid solution</span>`}else if(newlySatisfiedObjectives.has(i)){li.classList.add("satisfied-new");li.innerHTML+=`<span class="objective-status">✓ Satisfied this check</span>`}else if(satisfiedObjectives.has(i)){li.classList.add("satisfied-prior");li.innerHTML+=`<span class="objective-status">✓ Satisfied earlier</span>`}else if(hasChecked){li.classList.add("unsatisfied");li.innerHTML+=`<span class="objective-status">Not yet satisfied</span>`}ul.appendChild(li)});renderAttempts();$("assetCount").textContent=`${L.pieces.length} cards`}
 function renderAttempts(){const el=$("attempts");el.innerHTML="";for(let i=0;i<3;i++){const b=document.createElement("b");if(i<attemptsUsed)b.className="used";el.appendChild(b)}$("hintCount").textContent=`${Math.max(0,2-hintsUsed)} remaining`;$("hintBtn").disabled=hintsUsed>=2||solved||revealed}
 function renderTray(){tray.innerHTML="";current().pieces.forEach(p=>{const div=document.createElement("div");div.className="piece";div.tabIndex=0;if(selectedPiece===p.id)div.classList.add("selected");if(placements[p.id])div.classList.add("used");if(locked.has(p.id)){div.classList.add("locked");if(p.solution===null)div.classList.add("reserve-correct")}div.draggable=!locked.has(p.id);const label=locked.has(p.id)?`<span class="piece-result ${lastNewlyLocked.has(p.id)?"new":""}">✓ ${p.solution===null?"Correctly reserved":lastNewlyLocked.has(p.id)?"Correct this check":"Correct"}</span>`:"";div.innerHTML=`<div class="piece-icon">${p.icon}</div><div><strong>${p.name}</strong><small><span class="domain-tag">${p.domain}</span> · ${p.desc}<br><em>${p.legal}</em></small>${label}</div>`;const select=()=>{if(locked.has(p.id)||p.solution===null)return;selectedPiece=selectedPiece===p.id?null:p.id;renderAll()};div.addEventListener("click",select);div.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();select()}});div.addEventListener("dragstart",e=>{if(locked.has(p.id)||p.solution===null){e.preventDefault();return}selectedPiece=p.id;e.dataTransfer.setData("text/plain",p.id);setTimeout(renderAll,0)});tray.appendChild(div)})}
 function renderBoard(){board.innerHTML="";const selected=selectedPiece?pieceById(selectedPiece):null,previewPos=selectedPiece?placements[selectedPiece]:null,covered=selected&&previewPos?new Set(coverageCells(selected,previewPos).map(x=>key(...x))):new Set();for(let r=0;r<8;r++)for(let c=0;c<8;c++){const cell=document.createElement("div");cell.className="cell";cell.tabIndex=0;cell.dataset.r=r;cell.dataset.c=c;const terr=terrainAt(r,c);if(terr){cell.classList.add(terr.t);if(terr.n)cell.innerHTML+=`<span class="route-number">${terr.n}</span>`;if(terr.icon)cell.innerHTML+=`<span class="terrain-icon">${terr.icon}</span>`;if(terr.label)cell.innerHTML+=`<span class="cell-label">${terr.label}</span>`}if(covered.has(key(r,c)))cell.classList.add("covered");if(selected&&!isBlocked(r,c)&&(!occupiedAt(r,c)||(placements[selected.id]&&placements[selected.id][0]===r&&placements[selected.id][1]===c)))cell.classList.add("legal");const occ=occupiedAt(r,c);if(occ){const[id]=occ,p=pieceById(id),token=document.createElement("div");token.className="placed";if(locked.has(id))token.classList.add("locked");if(lastNewlyLocked.has(id))token.classList.add("just-correct");token.textContent=p.icon;token.title=p.name;token.draggable=!locked.has(id);token.addEventListener("click",e=>{e.stopPropagation();if(!locked.has(id)){selectedPiece=id;renderAll()}});token.addEventListener("dragstart",e=>{if(locked.has(id)){e.preventDefault();return}selectedPiece=id;e.dataTransfer.setData("text/plain",id)});cell.appendChild(token)}const place=()=>{if(selectedPiece&&!locked.has(selectedPiece))placePiece(selectedPiece,r,c)};cell.addEventListener("click",place);cell.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&selectedPiece){e.preventDefault();place()}});cell.addEventListener("dragover",e=>e.preventDefault());cell.addEventListener("drop",e=>{e.preventDefault();const id=e.dataTransfer.getData("text/plain")||selectedPiece;if(id&&!locked.has(id))placePiece(id,r,c)});board.appendChild(cell)}}
@@ -562,21 +562,21 @@ function renderStatus(){statusGrid.innerHTML="";current().pieces.forEach(p=>{con
 function renderAll(){renderProgress();renderMission();renderTray();renderBoard();renderStatus()}
 function resetLevel(){attemptsUsed=0;hintsUsed=0;placements={};locked=new Set();selectedPiece=null;solved=false;revealed=false;hasChecked=false;$("playSidebar").style.display="block";$("studySidebar").style.display="none";satisfiedObjectives=new Set();newlySatisfiedObjectives=new Set();lastNewlyLocked=new Set();$("checkBtn").style.display="block";$("clearBtn").style.display="block";$("nextBtn").style.display="none";setFeedback([["","Build the required relationships and check the plan. Several different layouts may be valid."]]);renderAll()}
 function loadLevel(i,showLesson=true){if(i<0||i>=levels.length)return;levelIndex=i;saved.last=i;save();resetLevel();closeModal("campaignModal");closeModal("debriefModal");if(showLesson)openLesson()}
-function openLesson(){const L=current();$("lessonChapter").textContent=`Course Chapter ${L.chapter+1} · ${L.coursePlacement} · ${L.courseTopics}`;$("lessonTitle").textContent=L.concept;$("lessonIntro").textContent=L.lessonIntro;$("lessonPoints").innerHTML=L.lessonPoints.map(x=>`<li>${x}</li>`).join("");$("lessonRules").innerHTML=L.lessonRules.map(x=>`<li>${x}</li>`).join("");$("assetUnlocks").innerHTML=L.pieces.map(p=>`<span class="unlock-chip">${p.icon} ${p.name}</span>`).join("");openModal("lessonModal")}
+function openLesson(){const L=current();$("lessonChapter").textContent=`${L.coursePlacement} · ${L.courseTopics}`;$("lessonTitle").textContent=L.concept;$("lessonIntro").textContent=L.lessonIntro;$("lessonPoints").innerHTML=L.lessonPoints.map(x=>`<li>${x}</li>`).join("");$("lessonRules").innerHTML=L.lessonRules.map(x=>`<li>${x}</li>`).join("");$("assetUnlocks").innerHTML=L.pieces.map(p=>`<span class="unlock-chip">${p.icon} ${p.name}</span>`).join("");openModal("lessonModal")}
 function renderCampaign(){
   const grid=$("campaignGrid");grid.innerHTML="";
   levels.forEach((L,i)=>{
     const tile=document.createElement("button");
     tile.className="mission-tile";
     const best=Number(saved.best[i]||0);
-    tile.innerHTML=`<div class="num">Course Chapter ${i+1}</div><h3>${L.title}</h3><div class="course-placement">${L.coursePlacement}</div><div class="course-topics">${L.courseTopics}</div><p><strong>${L.concept}</strong><br>${L.summary}</p><div class="stars">${best?"★".repeat(best)+"☆".repeat(3-best):"☆☆☆"}</div>`;
+    tile.innerHTML=`<h3>${L.title}</h3><div class="course-placement">${L.coursePlacement}</div><div class="course-topics">${L.courseTopics}</div><p><strong>${L.concept}</strong><br>${L.summary}</p><div class="stars">${best?"★".repeat(best)+"☆".repeat(3-best):"☆☆☆"}</div>`;
     tile.addEventListener("click",()=>loadLevel(i,true));
     grid.appendChild(tile);
   });
   const complete=Object.keys(saved.best).filter(k=>Number(saved.best[k])>=0).length;
   const totalStars=Object.values(saved.best).reduce((a,b)=>a+Number(b),0);
-  $("campaignSummary").innerHTML=`<span class="summary-pill">${complete}/${levels.length} chapters attempted</span><span class="summary-pill">${totalStars}/9 stars</span><span class="summary-pill">All chapters directly available</span>`;
-  $("resumeBtn").textContent=`Open Course Chapter ${Math.min(saved.last+1,levels.length)}`;
+  $("campaignSummary").innerHTML=`<span class="summary-pill">${complete}/${levels.length} sections attempted</span><span class="summary-pill">${totalStars}/9 stars</span><span class="summary-pill">All sections directly available</span>`;
+  $("resumeBtn").textContent=`Open section ${Math.min(saved.last+1,levels.length)}`;
 }
 function showCampaign(){renderCampaign();openModal("campaignModal")}
 function showDebrief(wasReveal,stars){
@@ -605,7 +605,7 @@ $("hideStudyBtn").addEventListener("click",()=>{
   $("nextBtn").style.display="block";
 });
 $("studyChapterBtn").addEventListener("click",showCampaign);
-$("debriefNextBtn").addEventListener("click",nextMission);$("resumeBtn").addEventListener("click",()=>{closeModal("campaignModal");loadLevel(Math.min(saved.last,saved.unlocked-1),true)});$("resetCampaignBtn").addEventListener("click",()=>{if(confirm("Reset all chapter scores and progress?")){saved={unlocked:levels.length,best:{},last:0};save();levelIndex=0;renderCampaign();resetLevel()}});
+$("debriefNextBtn").addEventListener("click",nextMission);$("resumeBtn").addEventListener("click",()=>{closeModal("campaignModal");loadLevel(Math.min(saved.last,saved.unlocked-1),true)});$("resetCampaignBtn").addEventListener("click",()=>{if(confirm("Reset all section scores and progress?")){saved={unlocked:levels.length,best:{},last:0};save();levelIndex=0;renderCampaign();resetLevel()}});
 function resolveRequestedChapter(){
   const params=new URLSearchParams(window.location.search);
   const raw=(params.get("chapter")||"").toLowerCase().trim();
