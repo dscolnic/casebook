@@ -219,7 +219,7 @@ h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;marg
       routeEl=document.getElementById("route");
   var page=0;
 
-  function render(){
+  function render(recenter){
     var s=RC.load();
     var doneFlags=LESSONS.map(function(L){return isDone(L,s);});
     var current=doneFlags.indexOf(false);
@@ -228,8 +228,10 @@ h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;marg
     var items=LESSONS.slice(start,end);
 
     var vw=chart.clientWidth||900;
-    var W=Math.max(vw, 640);                 // scroll horizontally on small screens
     var H=320, midY=156, amp=54, pad=66;
+    // keep each stop at least ~76px wide so labels never overlap; on phones
+    // this makes the leg wider than the screen and the chart scrolls sideways.
+    var W=Math.max(vw, 2*pad + items.length*76);
     var span=(W-2*pad), colW=span/items.length;
 
     var pts=items.map(function(L,i){
@@ -299,6 +301,13 @@ h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;marg
     document.getElementById("progfill").style.width=(100*doneCount/LESSONS.length)+"%";
     document.querySelectorAll("#pager button").forEach(function(b){b.classList.toggle("active",+b.getAttribute("data-p")===page);});
     paintFleet(RC.completedCount(s));
+
+    // If the leg is wider than the viewport, bring the current stop (or the
+    // start of the leg) into view so nothing important is hidden off-screen.
+    if(recenter && W>vw){
+      var focusX = (current>=start && current<end) ? pts[current-start].x : pad;
+      chart.scrollLeft = Math.max(0, Math.min(W-vw, focusX - vw/2));
+    }
   }
 
   function buildPager(){
@@ -307,7 +316,7 @@ h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;marg
     for(var p=0;p<PAGES;p++){ var a=p*PAGE_SIZE+1, b=Math.min(LESSONS.length,(p+1)*PAGE_SIZE); html+="<button type='button' data-p='"+p+"'>"+a+"–"+b+"</button>"; }
     nav.innerHTML=html;
     nav.querySelectorAll("button").forEach(function(btn){
-      btn.addEventListener("click",function(){ page=+btn.getAttribute("data-p"); chart.scrollLeft=0; render(); });
+      btn.addEventListener("click",function(){ page=+btn.getAttribute("data-p"); render(true); });
     });
   }
 
@@ -343,7 +352,7 @@ h1{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.12;marg
 
   buildPager();
   renderSignin();
-  render();
+  render(true);
   RC.flushPendingUnlocks();
   var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(render,150); });
   window.addEventListener("focus", render);
