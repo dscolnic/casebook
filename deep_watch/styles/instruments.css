@@ -1,0 +1,89 @@
+/* Handheld instrument read-out (rendered as a DOM overlay anchored bottom-centre). */
+.instrument-readout {
+  position: fixed;
+  bottom: 84px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 22;
+  font-family: var(--mono);
+  background: rgba(6, 12, 16, 0.9);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 18px;
+  min-width: 240px;
+  pointer-events: none;
+  box-shadow: 0 0 24px rgba(63, 182, 194, 0.15);
+}
+.instrument-readout.hidden { display: none; }
+.instrument-readout .ir-name {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  margin-bottom: 6px;
+}
+.instrument-readout .ir-value {
+  font-size: 26px;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+.instrument-readout .ir-unit { font-size: 14px; color: var(--ink-dim); margin-left: 4px; }
+.instrument-readout .ir-note { font-size: 12px; color: var(--ink-dim); margin-top: 6px; }
+.instrument-readout .ir-value.warn { color: var(--accent-warm); }
+.instrument-readout .ir-value.alarm { color: var(--danger); }
+
+/* Station console building blocks (used by SonarConsole, NavigationTable, etc.) */
+.console-grid { display: grid; gap: 16px; }
+.console-tile {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.console-tile h4 {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-dim);
+}
+.console-readout { font-family: var(--mono); font-size: 20px; color: var(--accent); }
+.console-sub { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); }
+
+.waterfall-canvas, .chart-canvas, .btr-canvas {
+  width: 100%;
+  display: block;
+  background: #04090c;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  image-rendering: pixelated;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-row .cls-biologic { color: var(--ok); }
+.contact-row .cls-merchant { color: var(--accent-warm); }
+.contact-row .cls-warship { color: var(--danger); }
+.contact-row .cls-unknown { color: var(--ink-dim); }
+.contact-row .cls-ownship { color: var(--accent); }
+
+.station-btn {
+  pointer-events: auto;
+  background: var(--panel-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: 5px;
+  margin: 4px 6px 4px 0;
+}
+.station-btn:hover { border-color: var(--accent); }
+.station-btn.active { background: var(--accent); color: #04252a; }
