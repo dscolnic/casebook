@@ -96,6 +96,10 @@ npx playwright test                     # see docs/test_report.md
   submarine map overlay** are stubbed or minimal this run.
 - Multi-deck ladders are present as props but the world is currently single-deck;
   vertical traversal is a later addition.
+- **Vite root is pinned** to the config file's own directory (`vite.config.js`)
+  so it never depends on the shell's working directory — a cwd resolving to a path
+  containing `#`/`?` otherwise breaks Vite's root detection and the index.html
+  entry lookup. `npm run dev` binds :5173 (or the next free port if occupied).
 
 ---
 
