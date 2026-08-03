@@ -62,7 +62,9 @@ test('player can move (position changes over time)', async ({ page }) => {
     p.keys.clear();
   });
   const endZ = await page.evaluate(() => window.__DEEPWATCH__.player.position.z);
-  expect(Math.abs(endZ - startZ)).toBeGreaterThan(0.3);
+  // Spawn faces the bow (yaw 0 → looks down -Z), so W must move forward (-Z).
+  // This guards against the movement-axis sign being flipped again.
+  expect(endZ).toBeLessThan(startZ - 0.3);
 });
 
 test('player can retrieve an instrument into inventory', async ({ page }) => {

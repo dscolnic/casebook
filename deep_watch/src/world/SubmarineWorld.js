@@ -319,12 +319,13 @@ export class SubmarineWorld {
     // Helm + depth control forward, command plot center, nav table on stbd.
     this._placeStation(c, 'control', 'Helm & Depth Control', -HALF_W + 0.5, c.zStart + 1.8, 0x1a4a6a);
     this._placeStation(c, 'control', 'Ship Control Panel', -HALF_W + 0.5, c.zStart + 3.6, 0x1a4a6a);
-    // Command plot: a central table.
-    const plot = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.9, 1.0), this.mat.cabinetGrey());
-    plot.position.set(0.2, 0.45, c.zMid);
+    // Command plot: a chart table set against the starboard side so the central
+    // fore-aft passage (through the hatches) stays walkable.
+    const plot = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.9, 1.0), this.mat.cabinetGrey());
+    plot.position.set(1.25, 0.45, c.zMid);
     this.root.add(plot);
-    const plotTop = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.05, 0.9), this.mat.screenGlass(0x123b40));
-    plotTop.position.set(0.2, 0.92, c.zMid);
+    const plotTop = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.05, 0.9), this.mat.screenGlass(0x123b40));
+    plotTop.position.set(1.25, 0.92, c.zMid);
     this.root.add(plotTop);
     this.collision.addBoxFromObject(plot, 0.05);
     // Navigation table (own station).

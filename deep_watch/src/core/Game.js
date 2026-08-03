@@ -234,9 +234,10 @@ export class Game {
     this.mode = 'playing';
 
     // Place the player in the control room's clear aft passage (centerline, near
-    // the aft hatch), facing forward (yaw 180° looks down -Z toward the bow).
+    // the aft hatch), facing forward toward the bow. With the corrected movement
+    // math, yaw 0 looks down -Z (toward the bow / the rest of the boat).
     const control = this.layout.find((c) => c.id === 'control_room') || this.layout[3];
-    this.player.setPose(0, control.zEnd - 0.7, 180);
+    this.player.setPose(0, control.zEnd - 0.7, 0);
     this.compartments.update(this.player.position.z);
 
     this.player.setEnabled(true);

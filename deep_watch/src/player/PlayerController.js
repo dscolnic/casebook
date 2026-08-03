@@ -111,10 +111,12 @@ export class PlayerController {
     let speed = this.crouch ? 1.5 : 2.5;
     if (sprint) speed = 3.6;
 
+    // Move relative to where the camera looks. With YXZ rotation, the camera's
+    // forward (look) direction is (-sin yaw, -cos yaw) and its right is
+    // (cos yaw, -sin yaw). W (forward=+1) must go along the look direction.
     const sinY = Math.sin(this.yaw), cosY = Math.cos(this.yaw);
-    // Forward is -Z when yaw=0; build a move vector.
     let mx = (strafe * cosY) + (forward * -sinY);
-    let mz = (strafe * sinY) + (forward * cosY);
+    let mz = (strafe * -sinY) + (forward * -cosY);
     const len = Math.hypot(mx, mz);
     if (len > 0) { mx /= len; mz /= len; }
 
