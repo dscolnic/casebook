@@ -14,7 +14,11 @@ export default defineConfig({
   publicDir: fileURLToPath(new URL('./public', import.meta.url)),
   server: {
     port: 5173,
-    open: false,
+    // Auto-open the game in the default browser so `npm run dev` visibly starts.
+    open: true,
+    // If 5173 is taken (e.g. a stale dev server), pick the next free port rather
+    // than silently failing — the chosen URL is printed as "Local:".
+    strictPort: false,
   },
   build: {
     target: 'es2022',
