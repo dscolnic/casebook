@@ -41,12 +41,14 @@ test('game boots and exposes the debug handle with the boat layout', async ({ pa
   expect(hasControl).toBe(true);
 });
 
-test('start button begins the walkdown mission and shows the HUD', async ({ page }) => {
+test('start button begins the selected mission and shows the HUD', async ({ page }) => {
   await page.waitForFunction(() => !!window.__DEEPWATCH__);
+  await expect(page.locator('#mission-select')).toContainText('Boat Walkdown');
+  await expect(page.locator('#mission-select')).toContainText('Forward Flooding');
   await page.locator('#btn-start').click();
   await expect(page.locator('#hud')).toBeVisible();
   await page.waitForFunction(() => window.__DEEPWATCH__.getMode() === 'playing');
-  await expect(page.locator('#hud-objective')).toContainText(/Control Room|Objective/);
+  await expect(page.locator('#hud-objective')).toContainText(/Objective 1\//);
 });
 
 test('player can move (position changes over time)', async ({ page }) => {
@@ -95,7 +97,9 @@ test('taking a measurement records an evidence-notebook entry', async ({ page })
 
 test('mission objective advances when entering the sonar room', async ({ page }) => {
   await page.waitForFunction(() => !!window.__DEEPWATCH__);
-  await page.locator('#btn-start').click();
+  // Start the walkdown explicitly: the start screen's mission picker defaults to
+  // this build's vertical slice (Forward Flooding), not the walkdown.
+  await page.evaluate(() => window.__DEEPWATCH__.startMission('mission_01_walkdown'));
   await page.waitForFunction(() => window.__DEEPWATCH__.getMode() === 'playing');
   // Force the first objective (report to control) then drive into sonar_room.
   const advanced = await page.evaluate(async () => {

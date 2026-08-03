@@ -7,6 +7,25 @@
  * required field list is reproduced in full; not all are exercised yet in this
  * foundation build, but the model is complete so later systems can plug in.
  */
+
+/**
+ * Trim moment arm per compartment (+ forward). Water forward of the centre of
+ * buoyancy pulls the bow down; water aft pulls it up. Unknown keys fall back to a
+ * forward/aft name test so ad-hoc bilge ids still behave sensibly.
+ */
+const TRIM_ARM = {
+  forward_equipment: 1.0,
+  sonar_electronics: 0.8,
+  sonar_room: 0.55,
+  control_room: 0.2,
+  radio_room: -0.05,
+  berthing_mess: -0.3,
+  machinery_control: -0.55,
+  propulsion: -0.75,
+  electrical: -0.9,
+  auxiliary: -1.0,
+};
+
 export class SubmarineState {
   constructor() {
     // --- Motion / depth ---
@@ -43,15 +62,32 @@ export class SubmarineState {
     };
     this.pumpStates = {
       trimPump: { on: false, capacity_m3h: 20 },
-      bilgePumpFwd: { on: false, capacity_m3h: 25 },
+      bilgePumpFwd: { on: false, capacity_m3h: 25, poweredFrom: 'fwd_power_2f' },
       bilgePumpAft: { on: false, capacity_m3h: 25 },
       seawaterPump: { on: true, capacity_m3h: 60 },
+      // Carried to the casualty and set in a sump by hand; not fed from the panel.
+      portablePump: { on: false, capacity_m3h: 20, deployedIn: null, portable: true },
     };
-    this.valveStates = {};        // valveId -> 'open' | 'shut'
+    // valveId -> 'open' | 'shut'. The forward seawater manifold is lined up
+    // normally at the start of a patrol.
+    this.valveStates = {
+      fwd_sw_supply_inbd: 'open',
+      fwd_sw_supply_outbd: 'open',
+      sonar_cooling_supply: 'open',
+      trim_drain: 'shut',
+      sw_crossconnect: 'shut',
+    };
+
+    // Local power/lighting panels that water can reach before it reaches a bus.
+    this.electricalPanels = {
+      fwd_power_2f: { name: 'Forward Power Panel 2F', energized: true, tripped: false, compartment: 'forward_equipment' },
+    };
 
     // --- Flooding / bilge ---
     this.bilgeLevels = {};        // compartmentId -> cm
-    this.floodingSources = [];    // { compartment, rate_m3h, isolated, patched }
+    this.floodingSources = [];    // { compartment, rate_m3h, isolated, repair }
+    this.floodMass_t = 0;         // tonnes of embarked water (drives trim + depth)
+    this.compensatedMass_t = 0;   // tonnes the trim/ballast system has compensated for
 
     // --- Atmosphere ---
     this.compartmentTemperature = {}; // compartmentId -> °C
@@ -79,10 +115,13 @@ export class SubmarineState {
   }
 
   /**
-   * Advance coupled physics by dt seconds. Subsystems register their own
-   * per-step logic; this method handles the cross-system couplings that the
-   * spec calls for (flooding→trim, machinery→self-noise, ventilation→atmosphere).
-   * Detailed subsystem modules refine these; here we keep it coherent.
+   * Advance coupled physics by dt seconds. Subsystems (FloodingSystem and friends)
+   * write their own quantities into this object first; `integrate()` then applies
+   * the cross-system couplings the spec calls for: water→mass→trim and depth,
+   * machinery+flow→self-noise, speed→control authority, time→nav uncertainty.
+   *
+   * All of it lives here (rather than in the Game loop) so the couplings can be
+   * exercised by a test that owns nothing but a SubmarineState.
    */
   integrate(dt) {
     const dtMin = dt / 60;
@@ -91,24 +130,50 @@ export class SubmarineState {
     // Navigation uncertainty grows with time and speed until a fix resets it.
     this.navigationUncertainty += dtMin * (0.004 + this.speed * 0.0006);
 
-    // Machinery self-noise: running pumps and higher shaft rpm raise the floor.
+    // Machinery self-noise: running pumps, shaft rpm, and any flow noise source
+    // (e.g. an open flooding path) raise the floor and mask weak contacts.
     let noise = 40;
     if (this.propulsionState.online) noise += this.propulsionState.shaftRpm * 0.06;
     for (const p of Object.values(this.pumpStates)) if (p.on) noise += 3;
     for (const s of this.machineryNoiseSources) noise += s.level * 0.5;
-    // Smooth toward target so it does not jump.
     this.sonarNoiseFloor += (noise - this.sonarNoiseFloor) * Math.min(1, dt);
 
-    // Trim responds to net forward/aft bilge water (flooding→mass→trim).
-    let fwdWater = 0, aftWater = 0;
+    // Trim responds to where the water is, not just how much: each compartment
+    // has a moment arm about the centre of buoyancy.
+    let moment = 0;
     for (const [comp, cm] of Object.entries(this.bilgeLevels)) {
-      if (comp.startsWith('fwd') || comp.includes('forward') || comp.includes('sonar')) fwdWater += cm;
-      else aftWater += cm;
+      moment += cm * (TRIM_ARM[comp] ?? (/^fwd|forward|sonar/.test(comp) ? 1 : -1));
     }
-    const targetTrim = (fwdWater - aftWater) * 0.02;
+    const targetTrim = moment * 0.02;
     this.trim += (targetTrim - this.trim) * Math.min(1, dt * 0.5);
 
+    // Depth: the planes ease the boat toward ordered depth with an authority that
+    // falls off at low speed, and embarked water makes the boat heavy so it sinks
+    // through the ordered depth until the water is removed or compensated.
+    const authority = 0.3 + Math.min(1, this.speed / 6) * 0.7;
+    const heavy = Math.max(0, this.floodMass_t - this.compensatedMass_t);
+    const sinkRate = (heavy * 0.12) / Math.max(0.4, authority);   // m/min
+    const dDepth = this.orderedDepth - this.depth;
+    this.verticalRate = dDepth * 0.5 * authority + sinkRate;
+    this.depth = Math.max(10, this.depth + this.verticalRate * dtMin);
+
+    // Heading eases toward ordered with the same authority.
+    const dh = ((this.orderedHeading - this.heading + 540) % 360) - 180;
+    this.heading = (this.heading + dh * 0.02 * authority * Math.min(1, dt * 30) + 360) % 360;
+
+    this.lastTrustedFix.ageMin += dtMin;
     return this;
+  }
+
+  /**
+   * How hard the watch is working to hold depth, 0–100 %. Rises with off-trim
+   * angle, embarked water, and low speed. This is the number the control room
+   * uses to confirm that a casualty has actually been fixed, not just masked.
+   */
+  depthControlEffort() {
+    const heavy = Math.max(0, this.floodMass_t - this.compensatedMass_t);
+    const v = Math.abs(this.trim) * 18 + heavy * 9 + (10 - Math.min(10, this.speed)) * 3;
+    return Math.max(0, Math.min(100, v));
   }
 
   /** Formatted watch clock, e.g. "08:42". */
@@ -130,6 +195,8 @@ export class SubmarineState {
       co2: this.carbonDioxideLevel.toFixed(2),
       selfNoise: Math.round(this.sonarNoiseFloor),
       navUncert: this.navigationUncertainty.toFixed(2),
+      floodMass: this.floodMass_t.toFixed(1),
+      effort: Math.round(this.depthControlEffort()),
     };
   }
 }

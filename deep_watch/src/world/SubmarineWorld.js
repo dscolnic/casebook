@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { ProceduralProps } from '../graphics/ProceduralProps.js';
+import { BilgeVisuals } from './BilgeVisuals.js';
+import { VALVES } from '../simulation/FloodingSystem.js';
 
 /**
  * SubmarineWorld — builds the one persistent boat: a single-deck interior running
@@ -38,6 +40,32 @@ export const LAYOUT = (() => {
 
 export const BOAT_LENGTH = LAYOUT[LAYOUT.length - 1].zEnd;
 
+/**
+ * Openings cut in the deck for bilge access. The deck plate over each opening is
+ * a separate liftable lid, so removing it exposes a real recess below the deck
+ * rather than swapping a texture.
+ */
+const FWD = LAYOUT.find((c) => c.id === 'forward_equipment');
+const AUX = LAYOUT.find((c) => c.id === 'auxiliary');
+export const DECK_OPENINGS = [
+  { id: 'deckplate_fwd', compartment: 'forward_equipment', bilge: 'forward_equipment',
+    x1: -0.25, x2: 1.05, z1: FWD.zStart + 3.6, z2: FWD.zStart + 5.0 },
+  { id: 'deckplate_aft', compartment: 'auxiliary', bilge: 'auxiliary',
+    x1: -0.35, x2: 0.95, z1: AUX.zEnd - 1.9, z2: AUX.zEnd - 0.5 },
+];
+
+/** Subtract rect `h` from rect `r`, returning the surviving pieces (0–4 rects). */
+function subtractRect(r, h) {
+  if (h.x2 <= r.x1 || h.x1 >= r.x2 || h.z2 <= r.z1 || h.z1 >= r.z2) return [r];
+  const out = [];
+  if (h.z1 > r.z1) out.push({ x1: r.x1, x2: r.x2, z1: r.z1, z2: h.z1 });
+  if (h.z2 < r.z2) out.push({ x1: r.x1, x2: r.x2, z1: h.z2, z2: r.z2 });
+  const zTop = Math.max(r.z1, h.z1), zBot = Math.min(r.z2, h.z2);
+  if (h.x1 > r.x1) out.push({ x1: r.x1, x2: h.x1, z1: zTop, z2: zBot });
+  if (h.x2 < r.x2) out.push({ x1: h.x2, x2: r.x2, z1: zTop, z2: zBot });
+  return out;
+}
+
 export class SubmarineWorld {
   constructor({ scene, materials, collision, lighting, eventBus, settings }) {
     this.scene = scene;
@@ -53,11 +81,14 @@ export class SubmarineWorld {
 
     this.interactables = [];  // { object, type, id, prompt, data }
     this.hatches = [];        // { id, z, doorMesh, segIds, open }
+    this.bilges = new Map();  // compartmentId -> BilgeVisuals
   }
 
-  build() {
+  build(state) {
+    this.state = state;
     this._buildShell();
     this._buildBulkheadsAndHatches();
+    this._buildBilgeAccess();
     this._furnishCompartments();
     return { layout: LAYOUT, interactables: this.interactables };
   }
@@ -66,12 +97,18 @@ export class SubmarineWorld {
   _buildShell() {
     const L = BOAT_LENGTH;
 
-    // Floor (deck plates).
-    const floor = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 2, L), this.mat.deckPlate());
-    floor.rotation.x = -Math.PI / 2;
-    floor.position.set(0, 0, L / 2);
-    floor.receiveShadow = true;
-    this.root.add(floor);
+    // Deck, cut around the bilge openings so the recesses below are really visible.
+    let rects = [{ x1: -HALF_W, x2: HALF_W, z1: 0, z2: L }];
+    for (const h of DECK_OPENINGS) rects = rects.flatMap((r) => subtractRect(r, h));
+    for (const r of rects) {
+      const w = r.x2 - r.x1, d = r.z2 - r.z1;
+      if (w <= 0.001 || d <= 0.001) continue;
+      const piece = new THREE.Mesh(new THREE.PlaneGeometry(w, d), this.mat.deckPlate());
+      piece.rotation.x = -Math.PI / 2;
+      piece.position.set((r.x1 + r.x2) / 2, 0, (r.z1 + r.z2) / 2);
+      piece.receiveShadow = true;
+      this.root.add(piece);
+    }
 
     // Ceiling.
     const ceil = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 2, L), this.mat.ceiling());
@@ -189,17 +226,107 @@ export class SubmarineWorld {
     this.bus.emit('hatch:changed', { id: hatchId, open });
   }
 
+  // ---- Bilge access: recess, water, liftable deck plate, rupture, sump ----
+  _buildBilgeAccess() {
+    for (const opening of DECK_OPENINGS) {
+      const bilge = new BilgeVisuals({
+        parent: this.root, materials: this.mat, hole: opening,
+        compartment: opening.bilge, state: this.state,
+      });
+      this.bilges.set(opening.bilge, bilge);
+      for (const lip of bilge.lips) this.collision.addBoxFromObject(lip, 0.02);
+
+      const w = opening.x2 - opening.x1, d = opening.z2 - opening.z1;
+      const cx = (opening.x1 + opening.x2) / 2, cz = (opening.z1 + opening.z2) / 2;
+
+      // The liftable plate itself.
+      const plate = new THREE.Mesh(new THREE.BoxGeometry(w + 0.14, 0.05, d + 0.14), this.mat.deckPlate());
+      plate.position.set(cx, 0.055, cz);
+      plate.castShadow = true;
+      this.root.add(plate);
+      // Two lifting-ring handles so it reads as removable.
+      for (const dz of [-d * 0.3, d * 0.3]) {
+        const ring = new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.014, 6, 12), this.mat.brass());
+        ring.position.set(cx, 0.09, cz + dz);
+        ring.rotation.x = Math.PI / 2;
+        this.root.add(ring);
+        plate.userData.rings = plate.userData.rings || [];
+        plate.userData.rings.push(ring);
+      }
+
+      const record = {
+        object: plate, type: 'deckplate', id: opening.id,
+        prompt: () => (record.data.open ? 'Replace deck plate' : 'Lift deck plate'),
+        data: { compartment: opening.compartment, bilge: opening.bilge, open: false, home: plate.position.clone(), opening },
+      };
+      this.interactables.push(record);
+      bilge.plateRecord = record;
+
+      if (opening.bilge !== 'forward_equipment') continue;
+
+      // The failure point — only reachable once the plate is off.
+      this.interactables.push({
+        object: bilge.collar, type: 'rupture', id: 'rupture_fwd_sw',
+        prompt: 'Work on the ruptured line',
+        data: { sourceId: 'fwd_sw_rupture', compartment: opening.compartment },
+      });
+
+      // The sump the portable pump's suction goes into.
+      const sump = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.06, 0.34), this.mat.panelDark());
+      sump.position.set(cx + 0.28, -0.96, cz - 0.2);
+      this.root.add(sump);
+      this.interactables.push({
+        object: sump, type: 'sump', id: 'sump_fwd',
+        prompt: 'Set portable pump suction',
+        data: { compartment: opening.compartment },
+      });
+    }
+  }
+
+  /** Lift or replace a deck plate. */
+  setDeckPlate(id, open) {
+    const rec = this.interactables.find((r) => r.type === 'deckplate' && r.id === id);
+    if (!rec) return;
+    rec.data.open = open;
+    const home = rec.data.home;
+    const o = rec.data.opening;
+    const w = o.x2 - o.x1;
+    if (open) {
+      // Laid flat on the deck beside the opening, where you actually put it.
+      rec.object.position.set(home.x - w * 0.5 - 0.5, 0.04, home.z);
+      rec.object.rotation.z = 0.04;
+    } else {
+      rec.object.position.copy(home);
+      rec.object.rotation.z = 0;
+    }
+    for (const ring of rec.object.userData.rings || []) ring.visible = !open;
+    this.bus.emit('deckplate:changed', { id, open, bilge: o.bilge });
+  }
+
+  /** Per-frame animation of the bilge water/jets. */
+  update(dt, t) {
+    for (const b of this.bilges.values()) b.update(dt, t);
+  }
+
   // ---- Per-compartment furnishing + lights + station anchors ----
   _furnishCompartments() {
     for (const c of LAYOUT) {
       // One pooled light per compartment.
       this.lighting.addCompartmentLight(c.id, 0, CEIL - 0.15, c.zMid);
-      // Deck matting accent so compartments read differently.
-      const mat = new THREE.Mesh(new THREE.PlaneGeometry(HALF_W * 1.6, c.len - 0.6),
-        this.mat.emissive(new THREE.Color(c.color).getHex(), 0.02));
-      mat.rotation.x = -Math.PI / 2;
-      mat.position.set(0, 0.01, c.zMid);
-      this.root.add(mat);
+      // Deck matting accent so compartments read differently — cut around any
+      // bilge opening in this compartment, or it would lie over the hole and the
+      // recess below would be invisible.
+      let matRects = [{ x1: -HALF_W * 0.8, x2: HALF_W * 0.8, z1: c.zStart + 0.3, z2: c.zEnd - 0.3 }];
+      for (const h of DECK_OPENINGS) matRects = matRects.flatMap((r) => subtractRect(r, h));
+      for (const r of matRects) {
+        const w = r.x2 - r.x1, d = r.z2 - r.z1;
+        if (w <= 0.02 || d <= 0.02) continue;
+        const mat = new THREE.Mesh(new THREE.PlaneGeometry(w, d),
+          this.mat.emissive(new THREE.Color(c.color).getHex(), 0.02));
+        mat.rotation.x = -Math.PI / 2;
+        mat.position.set((r.x1 + r.x2) / 2, 0.01, (r.z1 + r.z2) / 2);
+        this.root.add(mat);
+      }
 
       const build = this[`_furnish_${c.id}`];
       if (build) build.call(this, c);
@@ -239,7 +366,7 @@ export class SubmarineWorld {
     });
   }
 
-  _placeLocker(c, x, z, label = 'DC LOCKER') {
+  _placeLocker(c, x, z, label = 'DC LOCKER', contents = null) {
     const locker = this.props.dcLocker(label);
     locker.position.set(x, 0, z);
     locker.rotation.y = x > 0 ? -Math.PI / 2 : Math.PI / 2;
@@ -247,15 +374,101 @@ export class SubmarineWorld {
     this.collision.addBoxFromObject(locker, 0.05);
     this.interactables.push({
       object: locker, type: 'locker', id: `locker_${c.id}_${z.toFixed(0)}`,
-      prompt: 'Open DC locker', data: { compartment: c.id },
+      prompt: 'Open DC locker', data: { compartment: c.id, label, contents },
     });
   }
 
+  /** One hand-operated valve on a manifold; each is separately interactable. */
+  _placeValve(valveId, x, y, z, rotY = -Math.PI / 2) {
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.16, 0.16), this.mat.pipe(0x555f43));
+    const wheel = new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.028, 8, 16), this.mat.valveRed());
+    wheel.position.y = 0.14;
+    wheel.rotation.x = Math.PI / 2;
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.16, 6), this.mat.brass());
+    stem.position.y = 0.09;
+    const tag = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.11),
+      this.mat.labelMaterial(valveId.replace(/_/g, ' ').toUpperCase().slice(0, 22), { bg: '#20282c', fg: '#e6d7a8' }));
+    tag.position.set(0, -0.16, 0.1);
+    g.add(body, wheel, stem, tag);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    const record = {
+      object: g, type: 'valve', id: valveId,
+      prompt: () => `${this.state?.valveStates?.[valveId] === 'shut' ? 'Open' : 'Shut'} ${VALVES[valveId]?.label ?? valveId}`,
+      data: { valveId, wheel },
+    };
+    this.interactables.push(record);
+    return g;
+  }
+
+  /** A local power/lighting panel with a main breaker handle. */
+  _placePanel(panelId, name, x, y, z, rotY = Math.PI / 2) {
+    const g = new THREE.Group();
+    g.add(new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.7, 0.2), this.mat.cabinetGrey()));
+    const face = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.6, 0.03), this.mat.panelDark());
+    face.position.z = 0.11;
+    const handle = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.2, 0.06), this.mat.emissive(0x6bbf73, 0.9));
+    handle.position.set(0, -0.1, 0.15);
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(0.46, 0.1), this.mat.labelMaterial(name, { bg: '#2a2118', fg: '#f0d9a2' }));
+    label.position.set(0, 0.22, 0.13);
+    g.add(face, handle, label);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    this.interactables.push({
+      object: g, type: 'panel', id: panelId,
+      prompt: () => (this.state?.electricalPanels?.[panelId]?.energized ? 'De-energize panel' : 'Energize panel'),
+      data: { panelId, handle },
+    });
+    return g;
+  }
+
+  /** An announcing-circuit handset — how a casualty gets reported to Control. */
+  _placeHandset(id, x, y, z, rotY = -Math.PI / 2) {
+    const g = new THREE.Group();
+    const box = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.3, 0.12), this.mat.panelDark());
+    const cradle = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.2, 0.08), this.mat.cabinetGrey());
+    cradle.position.set(0, 0, 0.09);
+    const led = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.02, 0.01), this.mat.emissive(0xd8a24a, 1.4));
+    led.position.set(0.07, 0.11, 0.07);
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(0.2, 0.06), this.mat.labelMaterial('7MC', { bg: '#1a2228', fg: '#cfe0e6' }));
+    label.position.set(0, -0.12, 0.07);
+    g.add(box, cradle, led, label);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    this.interactables.push({
+      object: g, type: 'comms', id, prompt: 'Report on the 7MC', data: { circuit: '7MC' },
+    });
+    return g;
+  }
+
+  /** A wall-mounted board that opens a station overlay (e.g. the DC plotting board). */
+  _placeWallStation(stationId, name, x, y, z, rotY = Math.PI / 2, screen = 0x123b40) {
+    const g = new THREE.Group();
+    const board = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.85, 0.07), this.mat.cabinetGrey());
+    const face = new THREE.Mesh(new THREE.BoxGeometry(1.15, 0.75, 0.02), this.mat.screenGlass(screen));
+    face.position.z = 0.05;
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 0.13), this.mat.labelMaterial(name, { bg: '#20282c', fg: '#cfe0e6' }));
+    label.position.set(0, 0.5, 0.05);
+    g.add(board, face, label);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    this.interactables.push({
+      object: g, type: 'station', id: stationId,
+      prompt: `Use ${name}`, data: { station: stationId, name },
+    });
+    return g;
+  }
+
   _furnish_forward_equipment(c) {
-    // Equipment racks + hydraulic machinery + valve manifolds + DC lockers + escape trunk.
+    // Equipment racks along the port side (clear of the bilge opening aft of them).
     for (let i = 0; i < 3; i++) {
       const rack = this.props.equipmentRack({ screen: 0x1c6b52 });
-      rack.position.set(-HALF_W + 0.45, 0, c.zStart + 1.2 + i * 1.4);
+      rack.position.set(-HALF_W + 0.45, 0, c.zStart + 1.0 + i * 1.2);
       this.root.add(rack);
       this.collision.addBoxFromObject(rack, 0.05);
     }
@@ -265,24 +478,40 @@ export class SubmarineWorld {
     this.root.add(hyd);
     this.collision.addBoxFromObject(hyd, 0.05);
 
-    const man = this.props.valveManifold(4);
-    man.position.set(HALF_W - 0.4, 1.1, c.zStart + 3.4);
-    man.rotation.y = -Math.PI / 2;
-    this.root.add(man);
+    // The forward seawater manifold: five separately-operable valves on the
+    // starboard side, each with its own tag. The two SUPPLY valves bound the
+    // branch that runs under the deck plates.
+    const manZ = c.zStart + 4.3;
+    const block = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.28, 2.5), this.mat.pipe(0x555f43));
+    block.position.set(HALF_W - 0.32, 1.16, manZ);
+    this.root.add(block);
+    const risers = this.props.pipeRun({ length: 1.5, axis: 'z', radius: 0.07, colorHex: 0x4b6470 });
+    risers.position.set(HALF_W - 0.32, 0.4, manZ);
+    risers.rotation.z = Math.PI / 2;
+    this.root.add(risers);
 
-    this._placeLocker(c, HALF_W - 0.25, c.zEnd - 1.0, 'DC LOCKER 1');
-    this._placeLocker(c, -HALF_W + 0.25, c.zEnd - 1.0, 'ESCAPE TRUNK');
+    const valveZ = {
+      fwd_sw_supply_inbd: manZ - 1.0,
+      fwd_sw_supply_outbd: manZ - 0.5,
+      sonar_cooling_supply: manZ,
+      trim_drain: manZ + 0.5,
+      sw_crossconnect: manZ + 1.0,
+    };
+    for (const [id, z] of Object.entries(valveZ)) {
+      this._placeValve(id, HALF_W - 0.42, 1.28, z);
+    }
 
-    // A removable deck plate (bilge access) — interactable inspection point.
-    const plate = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.05, 0.9), this.mat.deckPlate());
-    plate.position.set(0.4, 0.03, c.zStart + 4.6);
-    this.root.add(plate);
-    this.interactables.push({
-      object: plate, type: 'deckplate', id: 'deckplate_fwd',
-      prompt: 'Lift deck plate', data: { compartment: c.id, bilge: 'fwd_bilge' },
-    });
-    // Instruments live in the forward space too.
-    this._placeInstrumentPickup(c, 'acoustic_probe', 'Acoustic Probe', 0xd8a24a, -HALF_W + 0.3, c.zStart + 2.2);
+    // Forward power panel — sits low on the port bulkhead, in the water's way.
+    this._placePanel('fwd_power_2f', 'FWD PWR 2F', -HALF_W + 0.32, 1.15, c.zStart + 4.9);
+
+    // Announcing-circuit handset by the aft hatch: how you report a casualty.
+    this._placeHandset('handset_fwd', -HALF_W + 0.3, 1.45, c.zEnd - 1.9);
+
+    // The damage-control plotting board (the estimation station).
+    this._placeWallStation('dc_board', 'DC PLOTTING BOARD', HALF_W - 0.3, 1.55, c.zEnd - 1.5, -Math.PI / 2, 0x1a3a2a);
+
+    this._placeLocker(c, HALF_W - 0.25, c.zEnd - 0.6, 'DC LOCKER 1', 'forward');
+    this._placeLocker(c, -HALF_W + 0.25, c.zEnd - 0.6, 'ESCAPE TRUNK', 'escape');
   }
 
   _furnish_sonar_electronics(c) {
@@ -337,6 +566,10 @@ export class SubmarineWorld {
     this.root.add(board);
     this.collision.addBoxFromObject(board, 0.05);
     this._placeInstrumentPickup(c, 'multimeter', 'Multimeter', 0x3fb6c2, -HALF_W + 0.3, c.zEnd - 0.9);
+    // The acoustic probe lives in Control, where the watch actually stands, so a
+    // casualty starts with a real "go and fetch the right instrument" leg.
+    this._placeInstrumentPickup(c, 'acoustic_probe', 'Acoustic Probe', 0xd8a24a, -HALF_W + 0.3, c.zEnd - 1.6);
+    this._placeLocker(c, HALF_W - 0.25, c.zStart + 0.55, 'DC LOCKER 0', 'control');
   }
 
   _furnish_radio_room(c) {
@@ -382,7 +615,7 @@ export class SubmarineWorld {
     this.root.add(mimic);
     this.collision.addBoxFromObject(mimic, 0.05);
     this._placeInstrumentPickup(c, 'vibration_meter', 'Vibration Meter', 0xd8a24a, -HALF_W + 0.3, c.zEnd - 0.9);
-    this._placeLocker(c, HALF_W - 0.25, c.zEnd - 0.9, 'DC LOCKER 2');
+    this._placeLocker(c, HALF_W - 0.25, c.zEnd - 0.9, 'DC LOCKER 2', 'machinery');
   }
 
   _furnish_propulsion(c) {
@@ -440,15 +673,9 @@ export class SubmarineWorld {
     hx.rotation.y = Math.PI / 2;
     this.root.add(hx);
     this.collision.addBoxFromObject(hx, 0.05);
-    // Lower bilge access plate.
-    const plate = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.05, 0.9), this.mat.deckPlate());
-    plate.position.set(0.3, 0.03, c.zEnd - 1.2);
-    this.root.add(plate);
-    this.interactables.push({
-      object: plate, type: 'deckplate', id: 'deckplate_aft',
-      prompt: 'Lift deck plate', data: { compartment: c.id, bilge: 'aft_bilge' },
-    });
+    // (The lower bilge access plate + recess are built by _buildBilgeAccess.)
     this._placeInstrumentPickup(c, 'gas_detector', 'Gas Detector', 0x6bbf73, HALF_W - 0.3, c.zStart + 0.9);
+    this._placeLocker(c, -HALF_W + 0.25, c.zStart + 0.8, 'DC LOCKER 3', 'aft');
   }
 
   dispose() {

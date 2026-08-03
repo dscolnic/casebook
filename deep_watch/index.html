@@ -23,6 +23,10 @@
           <button id="btn-settings" class="secondary-btn">Settings</button>
           <button id="btn-continue" class="secondary-btn" hidden>Continue Patrol</button>
         </div>
+        <div class="mission-picker">
+          <label for="mission-select">Watch</label>
+          <select id="mission-select"></select>
+        </div>
         <p class="start-hint">
           A composite training submarine. Walk the boat, operate the consoles,
           read the instruments, and reason your way through casualties.
@@ -40,6 +44,8 @@
       <div id="hud-crosshair" class="hud-crosshair">·</div>
       <div id="hud-prompt" class="hud-prompt" hidden></div>
       <div id="hud-toast" class="hud-toast" hidden></div>
+      <div id="hud-casualty" class="hud-casualty" hidden></div>
+      <div id="hud-hint" class="hud-hint" hidden></div>
     </div>
 
     <!-- Pause / settings menu -->
@@ -60,8 +66,25 @@
     <div id="notebook" class="overlay-panel" hidden>
       <div class="notebook-panel">
         <h2>Evidence Notebook</h2>
+        <div id="notebook-tabs" class="tab-row">
+          <button class="station-btn active" data-ntab="evidence">Evidence</button>
+          <button class="station-btn" data-ntab="hypotheses">Hypotheses</button>
+          <button class="station-btn" data-ntab="dependencies">Source dependencies</button>
+          <button class="station-btn" data-ntab="report">Mission report</button>
+        </div>
         <div id="notebook-entries" class="notebook-entries"></div>
         <button id="btn-close-notebook" class="secondary-btn">Close (N)</button>
+      </div>
+    </div>
+
+    <!-- Mission debrief -->
+    <div id="debrief" class="overlay-screen" hidden>
+      <div class="debrief-panel">
+        <div id="debrief-body"></div>
+        <div class="pause-actions">
+          <button id="btn-debrief-continue" class="primary-btn">Return to Campaign</button>
+          <button id="btn-debrief-notebook" class="secondary-btn">Review Notebook</button>
+        </div>
       </div>
     </div>
 

@@ -73,10 +73,18 @@ export class InteractionSystem {
     this._setCurrent(found);
   }
 
+  /** A record's `prompt` may be a string or a function, so it can reflect state
+   *  (open/shut, energized/de-energized, what the player is carrying). */
+  static promptText(record) {
+    return typeof record.prompt === 'function' ? record.prompt(record) : record.prompt;
+  }
+
   _setCurrent(record) {
-    if (record === this.current) return;
+    const text = record ? InteractionSystem.promptText(record) : null;
+    if (record === this.current && text === this._lastPrompt) return;
     this.current = record;
-    this.bus.emit('interaction:prompt', record ? { prompt: record.prompt, type: record.type, id: record.id } : null);
+    this._lastPrompt = text;
+    this.bus.emit('interaction:prompt', record ? { prompt: text, type: record.type, id: record.id } : null);
   }
 
   tryInteract() {

@@ -8,6 +8,7 @@ export class EngineeringPanel {
   constructor(ctx) {
     this.state = ctx.state;
     this.bus = ctx.bus;
+    this.flooding = ctx.flooding;
     this._raf = null;
   }
 
@@ -15,9 +16,17 @@ export class EngineeringPanel {
     const s = this.state;
     const busRows = Object.entries(s.electricalBuses).map(([id, b]) =>
       `<div class="contact-row"><span>${id}</span><span class="${b.energized ? 'cls-biologic' : 'cls-warship'}">${b.energized ? b.voltage + ' V · ' + b.source : 'DE-ENERGIZED'}</span></div>`).join('');
-    const pumpRows = Object.entries(s.pumpStates).map(([id, p]) =>
-      `<div class="contact-row"><span>${id}</span>
-        <span><button class="station-btn ${p.on ? 'active' : ''}" data-pump="${id}">${p.on ? 'RUNNING' : 'stopped'}</button></span></div>`).join('');
+    const panel = s.electricalPanels?.fwd_power_2f;
+    const pumpRows = Object.entries(s.pumpStates).map(([id, p]) => {
+      const unpowered = id === 'bilgePumpFwd' && panel && (!panel.energized || panel.tripped);
+      const unrigged = p.portable && !p.deployedIn;
+      const note = unpowered ? 'no power — fwd panel secured'
+        : unrigged ? 'not rigged — set its suction by hand'
+        : p.portable ? `rigged in ${p.deployedIn.replace(/_/g, ' ')}` : `${p.capacity_m3h} m³/h`;
+      return `<div class="contact-row"><span>${id} <span class="console-sub">${note}</span></span>
+        <span><button class="station-btn ${p.on ? 'active' : ''}" data-pump="${id}"
+          ${unpowered || unrigged ? 'disabled' : ''}>${p.on ? 'RUNNING' : 'stopped'}</button></span></div>`;
+    }).join('');
     const coolRows = Object.entries(s.coolingLoops).map(([id, c]) =>
       `<div class="contact-row"><span>${id}</span><span class="${c.tempC > 45 ? 'cls-warship' : 'cls-biologic'}">${c.tempC.toFixed(0)}°C · flow ${(c.flow * 100).toFixed(0)}%</span></div>`).join('');
 
@@ -51,9 +60,11 @@ export class EngineeringPanel {
   _loop() {
     const el = this.container?.querySelector('#eng-bilge');
     if (el) {
-      const levels = Object.entries(this.state.bilgeLevels);
-      el.textContent = levels.length
-        ? levels.map(([k, v]) => `${k}: ${v.toFixed(0)} cm`).join(' · ')
+      const levels = Object.entries(this.state.bilgeLevels).filter(([, v]) => v > 0.2);
+      const rate = this.flooding?.riseRateCmPerMin?.();
+      el.innerHTML = levels.length
+        ? levels.map(([k, v]) => `${k.replace(/_/g, ' ')}: <b>${v.toFixed(0)} cm</b>`).join(' · ')
+          + (rate != null ? ` · <span class="${rate > 0 ? 'cls-warship' : 'cls-biologic'}">${rate > 0 ? '+' : ''}${rate.toFixed(1)} cm/min</span>` : '')
         : 'Bilges dry.';
     }
     this._raf = requestAnimationFrame(() => this._loop());

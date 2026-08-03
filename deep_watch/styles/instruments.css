@@ -87,3 +87,57 @@
 }
 .station-btn:hover { border-color: var(--accent); }
 .station-btn.active { background: var(--accent); color: #04252a; }
+.station-btn[disabled] { opacity: 0.45; cursor: default; }
+.station-btn[disabled]:hover { border-color: var(--line); transform: none; }
+
+.instrument-readout .ir-detail {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink);
+  opacity: 0.85;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.tab-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+
+.contact-row.selected { background: rgba(63, 182, 194, 0.08); }
+
+/* Bearing history table (sonar) */
+.bearing-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+.bearing-table th {
+  text-align: left; color: var(--ink-dim); font-weight: 400; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 6px; border-bottom: 1px solid var(--line);
+}
+.bearing-table td { padding: 3px 6px; border-bottom: 1px solid rgba(34, 50, 63, 0.5); }
+
+/* Damage-control locker */
+.locker-note { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); margin-bottom: 14px; }
+.locker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.locker-item {
+  display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; background: var(--bg);
+}
+.locker-item.carried { opacity: 0.55; border-style: dashed; }
+.locker-item .li-swatch { width: 10px; height: 34px; border-radius: 3px; flex: none; }
+.locker-item .li-text { flex: 1; min-width: 0; }
+.locker-item .li-name { font-size: 13px; }
+.locker-item .li-blurb { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); line-height: 1.4; }
+
+/* Diagnosis hypotheses */
+.hyp-row { border-bottom: 1px solid var(--line); padding: 8px 0; }
+.hyp-row .hyp-label { font-size: 13px; }
+.hyp-row .hyp-claim { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); line-height: 1.5; margin: 3px 0 6px; }
+.lesson-tile { border-color: var(--ok); }
+.lesson-tile p { font-size: 13px; line-height: 1.6; margin: 8px 0; }
+.chain { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; font-family: var(--mono); font-size: 11px; }
+.chain span { background: rgba(63, 182, 194, 0.1); border: 1px solid var(--line); border-radius: 4px; padding: 5px 9px; }
+.chain i { color: var(--accent); font-style: normal; }
+
+/* Valve boundary diagram */
+.pipe-diagram { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; }
+.pipe-diagram i { color: var(--accent); font-style: normal; }
+.pd-node { border: 1px solid var(--line); border-radius: 4px; padding: 6px 10px; }
+.pd-node.rupture { border-color: var(--danger); color: var(--danger); }
+.pd-valve { border: 1px solid var(--ok); color: var(--ok); border-radius: 12px; padding: 6px 12px; }
+.pd-valve.shut { border-color: var(--danger); color: var(--danger); text-decoration: line-through; }

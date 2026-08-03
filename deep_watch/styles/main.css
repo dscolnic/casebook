@@ -151,6 +151,71 @@ h2 { margin: 0 0 18px; font-weight: 700; letter-spacing: 0.02em; }
 }
 .station-body { font-size: 14px; line-height: 1.6; }
 
+.mission-picker { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.mission-picker label {
+  font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--ink-dim);
+}
+.mission-picker select {
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 5px; padding: 8px 10px; font-family: var(--mono); font-size: 13px;
+}
+
+/* Notebook extras */
+.notebook-entry.hypothesis { border-left-color: var(--accent-warm); background: rgba(216, 162, 74, 0.05); }
+.notebook-entry.dependency { border-left-color: var(--danger); background: rgba(209, 89, 78, 0.05); }
+.notebook-entry .ne-detail {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-dim);
+  margin-top: 6px; line-height: 1.6;
+}
+.dep-graph {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 11px; margin: 8px 0;
+}
+.dep-graph .dep-node { border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px; }
+.dep-graph .dep-join { color: var(--danger); line-height: 1; }
+.dep-graph .dep-source { border: 1px solid var(--danger); color: var(--danger); border-radius: 4px; padding: 4px 8px; }
+.report-head { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); margin-bottom: 12px; }
+.report-chain { max-height: 38vh; overflow-y: auto; margin-bottom: 16px; }
+.rc-row {
+  display: grid; grid-template-columns: 56px 190px 1fr; gap: 10px;
+  font-size: 12px; padding: 5px 0; border-bottom: 1px solid var(--line); align-items: baseline;
+}
+.rc-row .rc-clock { font-family: var(--mono); color: var(--accent); }
+.rc-row .rc-where { font-family: var(--mono); color: var(--ink-dim); }
+
+/* Debrief */
+.debrief-panel {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line); border-radius: 10px; padding: 30px 36px;
+  width: min(94vw, 820px); max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+.debrief-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 22px; }
+.debrief-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); }
+.debrief-score { text-align: right; }
+.debrief-score .ds-num { font-size: 46px; font-weight: 800; color: var(--accent); line-height: 1; }
+.debrief-score .ds-grade { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-dim); }
+.debrief-section { margin-bottom: 24px; }
+.debrief-section h3 {
+  font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--ink-dim); margin: 0 0 10px;
+}
+.score-row {
+  display: grid; grid-template-columns: 150px 90px 52px 1fr; gap: 10px;
+  align-items: center; font-size: 12px; padding: 5px 0;
+}
+.score-row .sr-label { font-family: var(--mono); }
+.score-row .sr-bar { height: 6px; background: rgba(63, 182, 194, 0.12); border-radius: 3px; overflow: hidden; }
+.score-row .sr-bar i { display: block; height: 100%; background: var(--accent); }
+.score-row .sr-num { font-family: var(--mono); color: var(--accent); text-align: right; }
+.score-row .sr-why { color: var(--ink-dim); }
+.debrief-chain { margin: 0; padding-left: 20px; }
+.debrief-chain li { font-size: 13px; line-height: 1.6; margin-bottom: 6px; }
+.debrief-chain .dc-where { font-family: var(--mono); font-size: 11px; color: var(--accent); margin-right: 8px; }
+.debrief-objectives { margin: 0; padding-left: 20px; }
+.debrief-objectives li { font-size: 13px; line-height: 1.6; color: var(--ink-dim); margin-bottom: 4px; }
+
 .settings-group { margin-bottom: 20px; }
 .settings-group h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-dim); margin: 0 0 10px; }
 .settings-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; gap: 16px; }

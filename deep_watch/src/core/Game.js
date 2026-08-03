@@ -16,8 +16,11 @@ import { EquipmentInventory } from '../player/EquipmentInventory.js';
 import { InstrumentManager } from '../instruments/InstrumentManager.js';
 import { StationManager } from '../stations/StationManager.js';
 import { MissionManager } from '../missions/MissionManager.js';
+import { FloodingSystem } from '../simulation/FloodingSystem.js';
+import { DamageControl } from '../simulation/DamageControl.js';
 import { HUD } from '../ui/HUD.js';
 import { Notebook } from '../ui/Notebook.js';
+import { Debrief } from '../ui/Debrief.js';
 import { SettingsMenu } from '../ui/SettingsMenu.js';
 
 /**
@@ -54,6 +57,40 @@ export class Game {
       inventory: this.inventory,
       player: this.player,
       layout: LAYOUT,
+      // Systems the mission tests drive directly (headless pointer-lock makes
+      // walking the boat by hand unreliable, so tests act through these).
+      flooding: this.flooding,
+      dc: this.damageControl,
+      instruments: this.instruments,
+      notebook: this.notebook,
+      stations: this.stations,
+      missions: this.missions,
+      world: this.world,
+      compartments: this.compartments,
+      /** Put the player in a compartment as if they had walked there. */
+      goTo: (compartmentId) => {
+        const c = LAYOUT.find((x) => x.id === compartmentId);
+        if (!c) return false;
+        this.player.setPose(0, c.zMid, 0);
+        this.compartments.update(c.zMid);
+        return true;
+      },
+      /** Fast-forward the simulation by N seconds of watch time (same fixed step). */
+      advance: (seconds) => {
+        const step = 1 / 30;
+        for (let t = 0; t < seconds; t += step) {
+          this.flooding.update(step);
+          this.state.integrate(step);
+        }
+      },
+      /** Fire an interactable by id, as if the player had looked at it and pressed E. */
+      interact: (id) => {
+        const rec = this._worldInteractables.find((r) => r.id === id);
+        if (!rec) return false;
+        this.bus.emit('interact', rec);
+        this.bus.emit(`interact:${rec.type}`, rec);
+        return true;
+      },
     };
 
     document.getElementById('loading').hidden = true;
@@ -100,12 +137,13 @@ export class Game {
       scene: this.scene, materials: this.materials, collision: this.collision,
       lighting: this.lighting, eventBus: this.bus, settings: this.settings,
     });
-    const { layout, interactables } = this.world.build();
+    const { layout, interactables } = this.world.build(this.state);
     this.layout = layout;
     this._worldInteractables = interactables;
     this.lighting.setState('normal');
     this.compartments = new CompartmentManager(this.bus, layout);
     this.audio = new AudioEnvironment({ settings: this.settings, state: this.state, eventBus: this.bus });
+    this.flooding = new FloodingSystem({ state: this.state, eventBus: this.bus, layout });
   }
 
   _initPlayerAndSystems() {
@@ -123,16 +161,36 @@ export class Game {
     this.instruments = new InstrumentManager({
       camera: this.camera, scene: this.scene, eventBus: this.bus, inventory: this.inventory,
       state: this.state, compartmentManager: this.compartments, notebook: this.notebook,
+      player: this.player, flooding: this.flooding, world: this.world, layout: this.layout,
     });
-    this.stations = new StationManager({ eventBus: this.bus, state: this.state, save: this.save });
+    this.damageControl = new DamageControl({
+      eventBus: this.bus, state: this.state, flooding: this.flooding, inventory: this.inventory,
+      world: this.world, compartmentManager: this.compartments, instruments: this.instruments,
+    });
+    this.stations = new StationManager({
+      eventBus: this.bus, state: this.state, save: this.save, notebook: this.notebook,
+      instruments: this.instruments, flooding: this.flooding, inventory: this.inventory,
+    });
     this.missions = new MissionManager({
       eventBus: this.bus, state: this.state, save: this.save, compartmentManager: this.compartments,
+      inventory: this.inventory, instruments: this.instruments, flooding: this.flooding,
+      damageControl: this.damageControl, world: this.world, notebook: this.notebook,
     });
   }
 
   _initUI() {
-    this.hud = new HUD({ eventBus: this.bus, state: this.state });
+    this.hud = new HUD({ eventBus: this.bus, state: this.state, flooding: this.flooding });
+    this.debrief = new Debrief({ eventBus: this.bus, notebook: this.notebook });
     this.settingsMenu = new SettingsMenu({ settings: this.settings, container: document.getElementById('settings-container') });
+    this._populateMissionPicker();
+  }
+
+  _populateMissionPicker() {
+    const sel = document.getElementById('mission-select');
+    if (!sel) return;
+    sel.innerHTML = this.missions.list()
+      .map((m) => `<option value="${m.id}">Unit ${m.unit} — ${m.title}</option>`).join('');
+    sel.value = 'mission_04_flooding';
   }
 
   _wireInteractions() {
@@ -148,14 +206,8 @@ export class Game {
     this.bus.on('interact:hatch', (rec) => {
       this.world.setHatch(rec.id, !rec.data.open);
     });
-    // Locker: feedback (missions count these).
-    this.bus.on('interact:locker', () => {
-      this.bus.emit('hud:toast', { concept: 'Damage-Control Locker', text: 'Locker open — breathing gear, patches, wedges, and a portable pump are stowed here.' });
-    });
-    // Deck plate: a physical inspection point.
-    this.bus.on('interact:deckplate', (rec) => {
-      this.bus.emit('hud:toast', { concept: 'Bilge Access', text: 'Deck plate lifted — the bilge below is accessible for inspection.' });
-    });
+    // Lockers open a stowage panel (StationManager) and deck plates, valves,
+    // panels, the rupture, the sump and the 7MC are all handled by DamageControl.
   }
 
   _wireModeControl() {
@@ -181,14 +233,20 @@ export class Game {
       }
       if (e.code === 'BracketLeft') this.inventory.cycle(-1);
       if (e.code === 'BracketRight') this.inventory.cycle(1);
+      if (e.code === 'KeyH' && this.mode === 'playing') this.missions.hint();
     });
     this.canvas.addEventListener('wheel', (e) => {
       if (this.mode === 'playing') this.inventory.cycle(e.deltaY > 0 ? 1 : -1);
     }, { passive: true });
 
     // Start screen / pause menu buttons.
-    document.getElementById('btn-start').addEventListener('click', () => this.startGame());
-    document.getElementById('btn-continue').addEventListener('click', () => this.startGame());
+    const picked = () => document.getElementById('mission-select')?.value || 'mission_01_walkdown';
+    document.getElementById('btn-start').addEventListener('click', () => this.startGame(picked()));
+    document.getElementById('btn-continue').addEventListener('click', () => this.startGame(picked()));
+    document.getElementById('btn-debrief-continue')?.addEventListener('click', () => {
+      this.debrief.hide();
+      this.returnToCampaign();
+    });
     document.getElementById('btn-settings').addEventListener('click', () => { this.settingsMenu.render(); this._openPauseFromMenu(); });
     document.getElementById('btn-resume').addEventListener('click', () => this.resume());
     document.getElementById('btn-restart').addEventListener('click', () => { this.missions.restart(); this.resume(); });
@@ -200,10 +258,14 @@ export class Game {
       }
     });
 
-    // Mission complete → simple debrief toast + return to campaign.
-    this.bus.on('mission:complete', ({ title, score }) => {
-      this.bus.emit('hud:toast', { concept: 'Mission Complete', text: `${title} complete. Score ${score}. Returning to campaign…` });
-      setTimeout(() => this.returnToCampaign(), 4200);
+    // Mission complete → after-action debrief.
+    this.bus.on('mission:complete', (result) => {
+      this.mode = 'debrief';
+      this.player.setEnabled(false);
+      this.interaction.setEnabled(false);
+      this.player.exitLock();
+      this.hud.show(false);
+      this.debrief.show(result);
     });
 
     if (this.save.hasProgress()) document.getElementById('btn-continue').hidden = false;
@@ -230,14 +292,18 @@ export class Game {
   startGame(missionId = 'mission_01_walkdown') {
     document.getElementById('start-screen').hidden = true;
     document.getElementById('pause-menu').hidden = true;
+    this.debrief?.hide();
     this.hud.show(true);
     this.mode = 'playing';
 
-    // Place the player in the control room's clear aft passage (centerline, near
-    // the aft hatch), facing forward toward the bow. With the corrected movement
-    // math, yaw 0 looks down -Z (toward the bow / the rest of the boat).
-    const control = this.layout.find((c) => c.id === 'control_room') || this.layout[3];
-    this.player.setPose(0, control.zEnd - 0.7, 0);
+    // Start the player where the mission says the watch is standing, on the
+    // centreline near the aft end of that compartment, facing the bow. With the
+    // movement math, yaw 0 looks down -Z (toward the bow).
+    const def = this.missions.get(missionId);
+    const startId = def?.startLocation || 'control_room';
+    const room = this.layout.find((c) => c.id === startId) || this.layout[3];
+    this.player.setPose(0, room.zEnd - 0.7, 0);
+    this.compartments.currentId = null;
     this.compartments.update(this.player.position.z);
 
     this.player.setEnabled(true);
@@ -290,23 +356,17 @@ export class Game {
     this.loop.start();
   }
 
+  /**
+   * Fixed-step physics. Subsystems write their own quantities into SubmarineState
+   * first; `integrate()` then applies the cross-system couplings. Stations stay
+   * "live" while open (a casualty does not pause because you are reading a gauge),
+   * but the world is frozen while genuinely paused.
+   */
   _fixedUpdate(dt) {
-    if (this.mode === 'playing') {
-      this._easeControls(dt);
+    if (this.mode === 'playing' || this.mode === 'station' || this.mode === 'notebook') {
+      this.flooding.update(dt);
       this.state.integrate(dt);
     }
-  }
-
-  /** Ease actual depth/heading/rate toward ordered values (control authority). */
-  _easeControls(dt) {
-    const s = this.state;
-    const authority = 0.3 + Math.min(1, s.speed / 6) * 0.7; // low speed → sluggish
-    const dDepth = s.orderedDepth - s.depth;
-    s.verticalRate = dDepth * 0.5 * authority;
-    s.depth += s.verticalRate * (dt / 60) * 60 * 0.02;
-    let dh = ((s.orderedHeading - s.heading + 540) % 360) - 180;
-    s.heading = (s.heading + dh * 0.02 * authority + 360) % 360;
-    s.lastTrustedFix.ageMin += dt / 60;
   }
 
   _update(dt, t) {
@@ -317,6 +377,7 @@ export class Game {
       this.compartments.update(this.player.position.z);
     }
     this.instruments.update(dt, playing && this.player.velocity.lengthSq() > 0.5);
+    this.world.update(dt, t);
     this.lighting.update(t);
     this.audio.update();
     this.hud.updateStatus();

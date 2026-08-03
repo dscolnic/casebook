@@ -99,7 +99,8 @@
 
 .hud-toast {
   position: absolute;
-  top: 76px;
+  /* Clears a three-line objective card and the casualty banner above it. */
+  top: 96px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(13, 20, 27, 0.94);
@@ -114,3 +115,75 @@
   transition: opacity 0.4s ease;
 }
 .hud-toast .toast-concept { color: var(--accent); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; display: block; margin-bottom: 4px; }
+
+.hud-objective .obj-progress {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: rgba(63, 182, 194, 0.16);
+  color: var(--accent);
+  font-size: 11px;
+}
+.hud-objective .obj-detail {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--accent-warm);
+}
+.hud-objective .obj-hint-key {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  opacity: 0.75;
+}
+
+/* Casualty banner — only appears once the player has physically found it. */
+.hud-casualty {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  background: rgba(20, 8, 8, 0.88);
+  border: 1px solid var(--danger);
+  border-radius: 5px;
+  padding: 8px 18px;
+  font-size: 12px;
+}
+.hud-casualty.falling { background: rgba(8, 20, 14, 0.88); border-color: var(--ok); }
+.hud-casualty .hc-title { text-transform: uppercase; letter-spacing: 0.14em; font-size: 10px; color: var(--danger); }
+.hud-casualty.falling .hc-title { color: var(--ok); }
+.hud-casualty .hc-level { font-size: 17px; color: var(--ink); }
+.hud-casualty .hc-rate { color: var(--accent-warm); }
+.hud-casualty .hc-state { color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.1em; font-size: 10px; }
+
+.hud-hint {
+  position: absolute;
+  bottom: 84px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 54vw;
+  background: rgba(10, 18, 24, 0.94);
+  border: 1px dashed var(--accent-warm);
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.hud-hint .hint-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-warm);
+  margin-bottom: 4px;
+}

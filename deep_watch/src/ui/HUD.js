@@ -5,9 +5,10 @@
  * EventBus subscriptions; it never drives simulation.
  */
 export class HUD {
-  constructor({ eventBus, state }) {
+  constructor({ eventBus, state, flooding }) {
     this.bus = eventBus;
     this.state = state;
+    this.flooding = flooding;
     this.el = {
       hud: document.getElementById('hud'),
       objective: document.getElementById('hud-objective'),
@@ -16,8 +17,11 @@ export class HUD {
       instrument: document.getElementById('hud-instrument'),
       prompt: document.getElementById('hud-prompt'),
       toast: document.getElementById('hud-toast'),
+      casualty: document.getElementById('hud-casualty'),
+      hint: document.getElementById('hud-hint'),
     };
     this._toastTimer = null;
+    this._objective = { label: 'Objective', text: '', hasHints: false, detail: null };
     this._ensureReadout();
     this._wire();
   }
@@ -33,8 +37,15 @@ export class HUD {
       this.el.compartment.innerHTML = `<span class="comp-label">Compartment</span><br><span class="comp-name">${compartment.name}</span>`;
     });
     this.bus.on('mission:objective', (obj) => {
-      this.el.objective.innerHTML = `<span class="obj-label">${obj.label || 'Objective'}</span>${obj.text}`;
+      this._objective = { ...obj, progress: null, detail: null };
+      this._renderObjective();
     });
+    this.bus.on('mission:progress', (p) => {
+      this._objective.progress = `${p.have} of ${p.need}`;
+      this._objective.detail = p.detail || null;
+      this._renderObjective();
+    });
+    this.bus.on('mission:hint', (h) => this._showHint(h.text, h.index, h.total));
     this.bus.on('interaction:prompt', (p) => {
       if (p) { this.el.prompt.hidden = false; this.el.prompt.innerHTML = `<span class="key">E</span>${p.prompt}`; }
       else { this.el.prompt.hidden = true; }
@@ -49,6 +60,23 @@ export class HUD {
     this.bus.on('notebook:concept', (c) => this.toast(c.concept, c.text));
   }
 
+  _renderObjective() {
+    const o = this._objective;
+    this.el.objective.innerHTML = `<span class="obj-label">${o.label || 'Objective'}</span>${o.text || ''}`
+      + (o.progress ? `<span class="obj-progress">${o.progress}</span>` : '')
+      + (o.detail ? `<span class="obj-detail">${o.detail}</span>` : '')
+      + (o.hasHints ? `<span class="obj-hint-key">H for a hint</span>` : '');
+  }
+
+  _showHint(text, index, total) {
+    const el = this.el.hint;
+    if (!el) return;
+    el.hidden = false;
+    el.innerHTML = `<span class="hint-label">Hint${index && total ? ` ${index}/${total}` : ''}</span>${text}`;
+    clearTimeout(this._hintTimer);
+    this._hintTimer = setTimeout(() => { el.hidden = true; }, 11000);
+  }
+
   _showReadout(r) {
     if (!r) { this.readout.classList.add('hidden'); return; }
     const lvl = r.level && r.level !== 'ok' ? r.level : '';
@@ -56,6 +84,7 @@ export class HUD {
     this.readout.innerHTML = `
       <div class="ir-name">${r.name}</div>
       <div class="ir-value ${lvl}">${r.value}<span class="ir-unit">${r.unit || ''}</span></div>
+      ${r.detail ? `<div class="ir-detail">${r.detail.join('<br>')}</div>` : ''}
       ${r.note ? `<div class="ir-note">${r.note}</div>` : ''}`;
     clearTimeout(this._readoutTimer);
     this._readoutTimer = setTimeout(() => this.readout.classList.add('hidden'), 6000);
@@ -84,7 +113,26 @@ export class HUD {
       <span class="stat">Head <b>${s.heading}°</b></span>
       <span class="stat">Speed <b>${s.speed} kn</b></span>
       <span class="stat ${Math.abs(this.state.trim) > 1 ? 'warn' : ''}">Trim <b>${s.trim}°</b></span>
+      <span class="stat ${this.state.sonarNoiseFloor > 50 ? 'warn' : ''}">Self-noise <b>${s.selfNoise} dB</b></span>
       <span class="stat ${warnO2}">O₂ <b>${s.o2}%</b></span>
       <span class="stat ${warnCO2}">CO₂ <b>${s.co2}%</b></span>`;
+    this._updateCasualty();
+  }
+
+  /** A casualty banner appears only once the player has actually found the water. */
+  _updateCasualty() {
+    const el = this.el.casualty;
+    if (!el) return;
+    const src = this.state.floodingSources.find((f) => f.discovered);
+    if (!src) { el.hidden = true; return; }
+    const level = this.state.bilgeLevels[src.compartment] ?? 0;
+    const rate = this.flooding?.riseRateCmPerMin(src.compartment) ?? 0;
+    const rising = rate > 0.05;
+    el.hidden = false;
+    el.className = `hud-casualty ${rising ? 'rising' : 'falling'}`;
+    el.innerHTML = `<span class="hc-title">Flooding — ${src.compartment.replace(/_/g, ' ')}</span>
+      <span class="hc-level">${level.toFixed(0)} cm</span>
+      <span class="hc-rate">${rate > 0 ? '+' : ''}${rate.toFixed(1)} cm/min</span>
+      <span class="hc-state">${src.isolated ? 'isolated' : 'source open'}${src.repair?.holding ? ' · patched' : ''}</span>`;
   }
 }

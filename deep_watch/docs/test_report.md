@@ -1,7 +1,7 @@
 # Deep Watch — Test Report
 
 ## Environment
-- **Machine**: MacBook (Apple Silicon), macOS (Darwin 23.1.0).
+- **Machine**: MacBook (Apple Silicon), macOS 14.1.2 (Darwin 23.1.0).
 - **Node**: v25.3.0 · **npm**: 11.7.0.
 - **Browser under test**: system **Google Chrome 150.0.7871.187** via Playwright's
   `channel: 'chrome'` (Playwright test runner 1.62.1). Chrome is driven headless
@@ -14,19 +14,18 @@
 ## Commands run
 ```bash
 cd deep_watch
-npm install            # ok
-npm run build          # ✓ 38 modules, 549 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 11/11 passed (~1.1 min); webServer = build + preview:4173
+npm run build          # ✓ 45 modules, 643 kB (Three.js dominated), no errors
+npx playwright test    # ✓ 20/20 passed (3.3 min); webServer = build + preview:4173
 ```
 
-## Automated smoke tests — 11/11 PASS
-Run with `npm run test` (auto-builds and serves the production bundle on :4173).
+## Results — 20/20 PASS
 
+### Smoke (`tests/smoke.spec.js`) — 11/11
 | # | Test | Result |
 |---|---|---|
 | 1 | Application loads; start screen shown; **no fatal console errors** | ✓ |
 | 2 | Game boots; debug handle exposes the 10-compartment boat layout | ✓ |
-| 3 | Start button begins the walkdown mission; HUD appears; objective set | ✓ |
+| 3 | Start button begins the selected mission; HUD appears; objective set | ✓ |
 | 4 | Player can move (position changes when driving the controller) | ✓ |
 | 5 | Player can retrieve an instrument into inventory | ✓ |
 | 6 | Taking a measurement (F) records an evidence-notebook entry | ✓ |
@@ -36,45 +35,100 @@ Run with `npm run test` (auto-builds and serves the production bundle on :4173).
 | 10 | Progress saves to `deepwatch.progress.v1` and creates **no `reckon*` keys** | ✓ |
 | 11 | State sim: flooding raises the bilge and shifts trim bow-down | ✓ |
 
-Tests 4–7 also exercise: pointer-lock activation path, hatch/station/instrument
-interaction wiring, and mission stage advancement. Test 11 is the state-system
-check the spec calls for (flooding → bilge → trim coupling).
+### Mission 4 — Forward Flooding (`tests/mission-flooding.spec.js`) — 9/9
+| # | Test | Result |
+|---|---|---|
+| 12 | Mission seeds a real casualty in the forward bilge (source, inflow, start location) | ✓ |
+| 13 | **The inflow beats every pump the boat has** — 48 m³/h in vs 45 m³/h out, level still rising with both pumps running | ✓ |
+| 14 | **A soft patch on a pressurised line blows off**; on an isolated line it holds and the rate goes to zero | ✓ |
+| 15 | **Isolating the seawater header takes sonar-array cooling with it**; the aft cross-connect brings it back | ✓ |
+| 16 | **Water reaching the forward power panel trips it** and kills the installed pump (capacity → 0) | ✓ |
+| 17 | **Full 19-stage playthrough** (below) | ✓ |
+| 18 | Tool stage names the tools still missing by name; a single locker can supply all three | ✓ |
+| 19 | Mission progress saved under `deepwatch.progress.v1` only | ✓ |
+| 20 | Restart returns the boat to a clean condition (level, valves, deck plate, notebook, inventory, stage) | ✓ |
 
-## Bugs found by the tests and fixed
-1. **Overlays never hid.** `.overlay-panel`/`.overlay-screen` set `display:flex`,
-   which overrode the UA `[hidden]` rule, so `#station-overlay` (z-index 45) stayed
-   on top and swallowed every click — including the start button. Fixed with a
-   global `[hidden] { display: none !important; }`. (Real gameplay bug, not just a
-   test artifact.)
-2. **Favicon 404** counted as a fatal console error. Added an inline SVG favicon
-   and made the console-error filter ignore benign resource 404s.
-3. **Pause panel overflow.** On a short window the settings-heavy pause menu pushed
-   the action buttons off-screen. Made panels scroll internally (`max-height:88vh;
-   overflow-y:auto`); the pause/resume test now uses the Escape control.
+### What the full playthrough (test 17) actually asserts
+It plays the mission through real DOM and real interactables, and checks a physical
+fact at each step — not that a click happened:
 
-## Manual / interactive verification notes
-- `npm run dev` serves the game at `http://localhost:5173`; the start screen,
-  pointer-lock capture on canvas click, WASD movement through hatches, station
-  overlays (sonar waterfall animates; nav uncertainty ellipse draws), instrument
-  read-outs, and the notebook all render. (Interactive pointer-lock is exercised
-  by a human; headless Chrome does not reliably grant it — see below.)
+- the sonar bearing-history panel says the relative bearing has not moved, and the
+  N01 track is present before it is classified;
+- the control indications show bow-down trim before they are logged;
+- the acoustic trace is **monotonically louder** across control → sonar → sonar
+  electronics → forward equipment, with the maximum at the casualty;
+- lifting the deck plate sets `discovered` and raises the casualty banner;
+- securing the panel actually de-energizes it;
+- the two soundings are >0.4 min apart and the second is higher; salinity >28 PSU;
+  the pressure gauge note reports the lost pressure;
+- a **deliberately wrong** diagnosis call ("hull breach") is made first and the board
+  rejects it with the reading it fails to explain, then the correct call is accepted;
+- shutting **one** valve does *not* advance the isolation stage; shutting the second does;
+- after the patch, `flooding.stopped` is true;
+- after dewatering, the sounding is <12 cm with a **negative** rate;
+- the flow-noise source is gone and the self-noise floor is <50 dB (which requires
+  securing the portable pump — running it keeps the boat too loud to pass);
+- trim <0.3° and depth-control effort <32 % at control;
+- the notebook's mission-report face reconstructs the chain, the debrief renders a
+  score >50, the score persists to localStorage, and the score breakdown **docks the
+  deliberate wrong call** ("1 incorrect call before the right one");
+- **no fatal console errors** across the whole run.
+
+State-system coverage the spec asks for is now real rather than stubbed: flooding
+raises the bilge (11), bilge water changes trim (11), pumps lower water only when
+capacity exceeds inflow (13, 17), machinery/flow state changes sonar noise (17),
+and an electrical boundary changes what is connected (16).
+
+## Bugs found by testing and fixed this run
+1. **The deck matting covered the bilge opening.** Each compartment lays an accent
+   plane over its deck; it spanned the new hole, so lifting the plate revealed a
+   brown surface instead of the recess. Found by screenshotting the discovery beat,
+   not by a test. The matting is now cut with the same rect-subtraction as the deck.
+2. **The bilge was unreadable at deck level** — dark water on a dark bottom. Painted
+   bilge walls lighter than the water, added a dim bilge light that follows the deck
+   plate, and gave the jet its own light and a splash ring.
+3. **Interaction prompts were static.** A valve's prompt has to say "Open" or "Shut"
+   depending on its current position; `InteractionSystem` now accepts a function
+   prompt and re-emits when the resolved text changes.
+4. **The toast overlapped a three-line objective card.** Moved down to clear both the
+   objective and the casualty banner.
+5. **The tool-retrieval stage could soft-lock a player** (reported from real play):
+   it needed three tools but the objective only said where two of them were, and the
+   acoustic probe was a single small object on a shelf. If you could not spot it, the
+   progress counter sat at 2 of 3 with nothing telling you which tool was missing.
+   Fixed three ways: a spare probe is stowed in the same control-room locker as the
+   other two, the objective card now names the specific tools still outstanding, and
+   the hints point at the locker first. Test 18 covers it.
+6. Two pre-existing smoke tests assumed the start button always launches the walkdown.
+   The start screen now has a mission picker (defaulting to the vertical slice), so
+   those tests select the walkdown explicitly.
+
+## Manual / interactive verification
+- `npm run dev` serves the game on :5173. Walked the forward equipment space in a
+  real browser: the deck opening, coaming (which correctly stops you walking over
+  the hole), the five tagged manifold valves, the power panel, the 7MC handset and
+  the plotting board all render and are reachable.
+- Screenshots captured headless at 1280×800 for the discovery beat (plate up, water
+  rising, jet running) and the recovered state (jet gone, suction hose in the water,
+  banner green and falling, dependent-system warning fired). Both read correctly.
 
 ## Known limitations
-- **Pointer lock in headless**: headless Chrome does not reliably grant pointer
-  lock, so movement/pause tests drive the controller through the
-  `window.__DEEPWATCH__` API rather than a real lock. Interactive play uses a real
-  lock.
-- **Mission-progression coverage** is currently the walkdown only (the sole mission
-  in this build). `tests/mission-progression.spec.js` and richer state-system tests
-  (`pump lowers water`, `electrical isolation changes loads`, `machinery→sonar
-  noise`) are stubbed for the next run once those systems land.
-- **Performance**: not yet formally profiled; the boat uses shared materials,
-  reusable geometry, capped pixel ratio, fog, and pooled per-compartment lights to
-  target ~60 FPS on medium. A frame-time capture is a Phase-10 task.
+- **Pointer lock in headless**: headless Chrome does not reliably grant pointer lock,
+  so tests move the player via `__DEEPWATCH__.goTo()` and drive the controller API
+  rather than walking. Interactive play uses a real lock. `goTo()` fires the same
+  compartment-entered event the player's own movement does.
+- **Watch time in tests** is fast-forwarded with `__DEEPWATCH__.advance(seconds)`,
+  which runs the identical 30 Hz fixed step — the physics is not shortcut, only the
+  wall-clock wait.
+- **Missions 2, 3, 5–10 and the command episodes are not implemented**, so
+  `tests/mission-progression.spec.js` (full campaign progression) remains unwritten.
+  Atmosphere and navigation state couplings are still the sketched versions.
+- **Performance**: not formally profiled. One 643 kB chunk (Three.js dominated).
+  A frame-time capture is still a Phase-10 task.
 - Two npm-audit advisories exist in dev-only dependencies (Vite/Playwright chain);
   no runtime dependency is affected.
 
 ## Not claimed
-No test result here is asserted without having been run. Tests not yet written
-(full campaign progression, additional state-coupling checks, performance capture)
-are listed above as pending, not as passing.
+No result here is asserted without having been run. Work not done (remaining
+missions, campaign-progression tests, performance capture) is listed above as
+pending, not as passing.

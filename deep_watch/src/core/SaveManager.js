@@ -81,6 +81,11 @@ export class SaveManager {
     }
   }
 
+  noteHint(missionId) {
+    this.data.hintUsage[missionId] = (this.data.hintUsage[missionId] || 0) + 1;
+    this.save();
+  }
+
   addNotebookConcept(concept) {
     if (!this.data.notebookConcepts.includes(concept)) {
       this.data.notebookConcepts.push(concept);
