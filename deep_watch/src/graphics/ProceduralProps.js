@@ -57,6 +57,9 @@ export class ProceduralProps {
     g.add(frame);
     // Keyboard shelf.
     g.add(this._mesh(this._box, this.mat.panelDark(), w * 0.9, 0.05, 0.28, 0, 0.95, 0.42));
+    // The angled glass, kept on the group so a live compartment feed can be
+    // mapped onto it — a console in a manned space is never a blank panel.
+    g.userData.screenMesh = scr;
     if (label) g.userData.label = label;
     return g;
   }

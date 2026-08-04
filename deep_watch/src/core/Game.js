@@ -7,8 +7,10 @@ import { SubmarineState } from '../simulation/SubmarineState.js';
 import { MaterialFactory } from '../graphics/MaterialFactory.js';
 import { CollisionSystem } from '../world/CollisionSystem.js';
 import { LightingSystem } from '../world/LightingSystem.js';
-import { SubmarineWorld, LAYOUT } from '../world/SubmarineWorld.js';
+import { SubmarineWorld, LAYOUT, HALF_W } from '../world/SubmarineWorld.js';
 import { CompartmentManager } from '../world/CompartmentManager.js';
+import { HintBeacon } from '../world/HintBeacon.js';
+import { WallDisplays } from '../world/WallDisplays.js';
 import { AudioEnvironment } from '../world/AudioEnvironment.js';
 import { PlayerController } from '../player/PlayerController.js';
 import { InteractionSystem } from '../player/InteractionSystem.js';
@@ -65,7 +67,9 @@ export class Game {
       notebook: this.notebook,
       stations: this.stations,
       missions: this.missions,
+      hintBeacon: this.hintBeacon,
       world: this.world,
+      displays: this.displays,
       compartments: this.compartments,
       /** Put the player in a compartment as if they had walked there. */
       goTo: (compartmentId) => {
@@ -144,6 +148,29 @@ export class Game {
     this.compartments = new CompartmentManager(this.bus, layout);
     this.audio = new AudioEnvironment({ settings: this.settings, state: this.state, eventBus: this.bus });
     this.flooding = new FloodingSystem({ state: this.state, eventBus: this.bus, layout });
+
+    // Large live mimic panels on the bulkheads, so a compartment tells you what
+    // it is doing as you walk in rather than waiting to be clicked.
+    this.displays = new WallDisplays({
+      scene: this.scene, materials: this.materials, layout,
+      state: this.state, flooding: this.flooding, halfWidth: HALF_W,
+      collision: this.collision,
+    });
+    this.displays.build(this.world.root);
+    this._shareDisplayFeeds();
+  }
+
+  /** Put each compartment's feed onto the station consoles standing in it. */
+  _shareDisplayFeeds() {
+    for (const rec of this._worldInteractables) {
+      if (rec.type !== 'station') continue;
+      const screen = rec.object.userData?.screenMesh;
+      const comp = rec.data?.compartment
+        || this.layout.find((c) => rec.object.position.z >= c.zStart && rec.object.position.z < c.zEnd)?.id;
+      const texture = this.displays.textureFor(comp);
+      if (!screen || !texture) continue;
+      screen.material = new THREE.MeshBasicMaterial({ map: texture, toneMapped: false, fog: false });
+    }
   }
 
   _initPlayerAndSystems() {
@@ -181,8 +208,55 @@ export class Game {
   _initUI() {
     this.hud = new HUD({ eventBus: this.bus, state: this.state, flooding: this.flooding });
     this.debrief = new Debrief({ eventBus: this.bus, notebook: this.notebook });
+    this.hintBeacon = new HintBeacon({
+      scene: this.scene, lighting: this.lighting, layout: this.layout, eventBus: this.bus,
+    });
+    this.bus.on('mission:hint', (h) => this._showHintTarget(h));
+    // A beacon is for the objective you are on; clear it when that changes.
+    this.bus.on('mission:stageStarted', () => this.hintBeacon.hide());
     this.settingsMenu = new SettingsMenu({ settings: this.settings, container: document.getElementById('settings-container') });
     this._populateMissionPicker();
+  }
+
+  /**
+   * Turn a stage's `target` into a lit place. A target may name an interactable
+   * (`{ interactable: 'handset_fwd' }`), a compartment (`{ compartment: 'sonar_room' }`),
+   * or both; an interactable wins because it is the more specific answer to
+   * "where do I go". Nothing here reveals anything the objective has not said.
+   */
+  _showHintTarget(hint) {
+    const t = hint?.target;
+    if (!t) { this.hintBeacon.hide(); return; }
+
+    let position = null;
+    let compartmentId = t.compartment || null;
+
+    if (t.interactable) {
+      const rec = this._worldInteractables.find((r) => r.id === t.interactable);
+      if (rec) {
+        position = new THREE.Box3().setFromObject(rec.object).getCenter(new THREE.Vector3());
+        compartmentId = compartmentId
+          || rec.data?.compartment
+          || this.compartments.compartmentAtZ(position.z)?.id;
+      }
+    }
+    if (!position && compartmentId) {
+      const c = this.layout.find((x) => x.id === compartmentId);
+      if (c) position = new THREE.Vector3(0, 0, c.zMid);
+    }
+    if (!position) { this.hintBeacon.hide(); return; }
+
+    this.hintBeacon.show(position, compartmentId);
+
+    // Tell the player which way, in words as well as light.
+    const here = this.compartments.current;
+    const there = this.layout.find((c) => c.id === compartmentId);
+    if (there) {
+      const where = !here || here.id === there.id
+        ? `Here, in ${there.name} — look for the marked spot.`
+        : `${there.zMid < here.zMid ? 'Forward' : 'Aft'} of you, in ${there.name}. Follow the marks.`;
+      this.bus.emit('mission:hintLocation', { where, compartment: there.id });
+    }
   }
 
   _populateMissionPicker() {
@@ -234,6 +308,8 @@ export class Game {
       if (e.code === 'BracketLeft') this.inventory.cycle(-1);
       if (e.code === 'BracketRight') this.inventory.cycle(1);
       if (e.code === 'KeyH' && this.mode === 'playing') this.missions.hint();
+      if (e.code === 'KeyK' && this.mode === 'playing') this._skipObjective();
+      if (e.code === 'Space' && this.mode === 'playing') this.hud.dismissToast();
     });
     this.canvas.addEventListener('wheel', (e) => {
       if (this.mode === 'playing') this.inventory.cycle(e.deltaY > 0 ? 1 : -1);
@@ -249,6 +325,10 @@ export class Game {
     });
     document.getElementById('btn-settings').addEventListener('click', () => { this.settingsMenu.render(); this._openPauseFromMenu(); });
     document.getElementById('btn-resume').addEventListener('click', () => this.resume());
+    document.getElementById('btn-skip-objective')?.addEventListener('click', () => {
+      this._skipObjective();
+      this.resume();
+    });
     document.getElementById('btn-restart').addEventListener('click', () => { this.missions.restart(); this.resume(); });
     document.getElementById('btn-to-campaign').addEventListener('click', () => this.returnToCampaign());
     document.getElementById('btn-reset-progress').addEventListener('click', () => {
@@ -269,6 +349,13 @@ export class Game {
     });
 
     if (this.save.hasProgress()) document.getElementById('btn-continue').hidden = false;
+  }
+
+  /** Step over the current objective (pause menu, or K while playing). */
+  _skipObjective() {
+    if (!this.missions.skipObjective()) {
+      this.bus.emit('hud:toast', { concept: 'Nothing to skip', text: 'No mission objective is active.' });
+    }
   }
 
   _enterOverlay(mode) {
@@ -378,6 +465,8 @@ export class Game {
     }
     this.instruments.update(dt, playing && this.player.velocity.lengthSq() > 0.5);
     this.world.update(dt, t);
+    this.displays.update(dt, this.compartments.currentId);
+    this.hintBeacon.update(dt, t, this.player.position);
     this.lighting.update(t);
     this.audio.update();
     this.hud.updateStatus();

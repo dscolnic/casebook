@@ -394,6 +394,154 @@ test('the tool stage names what is still missing, and one locker can supply all 
   await waitForStage(page, 'trace_acoustic');
 });
 
+test('a stage that is already satisfied when it arms completes only itself', async ({ page }) => {
+  await startFlooding(page);
+  // Carry all three tools BEFORE the tool stage arms. Its initial check passes
+  // immediately, on a queued microtask — which must not also complete the
+  // acoustic-trace stage behind it.
+  const seen = await page.evaluate(async () => {
+    const g = window.__DEEPWATCH__;
+    const completed = [];
+    g.bus.on('mission:stageComplete', (s) => completed.push(s.id));
+    ['acoustic_probe', 'sounding_tape', 'salinity_probe'].forEach((i) => g.inventory.add(i, i));
+    g.bus.emit('sonar:anomalyClassified', { internal: true, id: 'N01' });
+    g.bus.emit('control:indicationsLogged', {});
+    await new Promise((r) => setTimeout(r, 200));
+    return { completed, stage: g.missions.current.stage.id };
+  });
+  expect(seen.completed).toEqual(['sonar_symptom', 'control_evidence', 'retrieve_probe']);
+  expect(seen.stage).toBe('trace_acoustic');
+});
+
+test('two soundings taken too close together do not make a rate, and say so', async ({ page }) => {
+  await startFlooding(page);
+  const r = await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    g.goTo('forward_equipment');
+    g.interact('deckplate_fwd');
+    g.inventory.add('sounding_tape', 'Sounding Tape');
+    g.inventory.setActive('sounding_tape');
+    const first = g.instruments.useActive();
+    g.advance(4);                       // a few seconds — nowhere near an interval
+    const tooSoon = g.instruments.useActive();
+    g.advance(40);                      // now a real interval
+    const proper = g.instruments.useActive();
+    return {
+      firstValid: first.valid,
+      tooSoonNote: tooSoon.note,
+      properNote: proper.note,
+      gap: proper.minutes - tooSoon.minutes,
+    };
+  });
+  expect(r.firstValid).toBe(true);
+  // The instrument must explain itself rather than looking broken.
+  expect(r.tooSoonNote).toMatch(/too close together to give a rate/i);
+  expect(r.properNote).toMatch(/Up [\d.]+ cm in [\d.]+ min/i);
+  expect(r.gap).toBeGreaterThan(0.4);
+});
+
+test('the measurement stage lists exactly which readings are still outstanding', async ({ page }) => {
+  await startFlooding(page);
+  // Jump to the measurement stage.
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    g.bus.emit('sonar:anomalyClassified', { internal: true, id: 'N01' });
+    g.bus.emit('control:indicationsLogged', {});
+    ['acoustic_probe', 'sounding_tape', 'salinity_probe'].forEach((i) => g.inventory.add(i, i));
+    g.goTo('forward_equipment');
+  });
+  await waitForStage(page, 'trace_acoustic');
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    g.inventory.setActive('acoustic_probe');
+    for (const c of ['control_room', 'sonar_room', 'forward_equipment']) {
+      g.goTo(c); g.instruments.useActive();
+    }
+  });
+  await waitForStage(page, 'discover_bilge');
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    g.interact('deckplate_fwd');
+    g.interact('handset_fwd');
+    g.interact('fwd_power_2f');
+  });
+  await waitForStage(page, 'measure_water');
+
+  // Nothing measured yet: all four wanted items named.
+  await expect(page.locator('#hud-objective')).toContainText('a first sounding of this bilge');
+  await expect(page.locator('#hud-objective')).toContainText('the salinity of the water');
+  await expect(page.locator('#hud-objective')).toContainText('the manifold pressures');
+
+  // One sounding, then a second far too soon: the card must call out the interval.
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    g.inventory.setActive('sounding_tape');
+    g.instruments.useActive();
+    g.advance(3);
+    g.instruments.useActive();
+  });
+  await expect(page.locator('#hud-objective')).toContainText(/a second sounding at least \d+ s after the first/i);
+  expect(await stageId(page)).toBe('measure_water');
+});
+
+test('pressing H lights up where the player has to go', async ({ page }) => {
+  await startFlooding(page);
+  await page.evaluate(() => window.__DEEPWATCH__.goTo('sonar_room'));
+
+  // Nothing lit before the hint is asked for.
+  expect(await page.evaluate(() => window.__DEEPWATCH__.hintBeacon.active)).toBe(false);
+
+  // Stage 1's target is a sonar console, in the compartment the player is in.
+  await page.keyboard.press('KeyH');
+  const first = await page.evaluate(() => {
+    const b = window.__DEEPWATCH__.hintBeacon;
+    return { active: b.active, compartment: b.targetCompartment, z: b.target.z, visible: b.group.visible };
+  });
+  expect(first.active).toBe(true);
+  expect(first.visible).toBe(true);
+  expect(first.compartment).toBe('sonar_room');
+  await expect(page.locator('#hud-hint')).toContainText(/Here, in Sonar Room/i);
+
+  // Advance a stage: the beacon must follow the new objective, not the old one.
+  await page.evaluate(() => window.__DEEPWATCH__.bus.emit('sonar:anomalyClassified', { internal: true, id: 'N01' }));
+  await waitForStage(page, 'control_evidence');
+  expect(await page.evaluate(() => window.__DEEPWATCH__.hintBeacon.active)).toBe(false);
+
+  await page.keyboard.press('KeyH');
+  const second = await page.evaluate(() => {
+    const b = window.__DEEPWATCH__.hintBeacon;
+    return { compartment: b.targetCompartment, chevrons: b.chevrons.filter((c) => c.visible).length };
+  });
+  expect(second.compartment).toBe('control_room');
+  // Control is aft of sonar, so a trail should be laid down the centreline.
+  expect(second.chevrons).toBeGreaterThan(0);
+  await expect(page.locator('#hud-hint')).toContainText(/Aft of you, in Control Room/i);
+
+  // Each hint is still charged against the score.
+  expect(await page.evaluate(() => window.__DEEPWATCH__.missions.current.hintsUsed)).toBe(2);
+
+  // Arriving clears the trail but leaves the marker on the thing itself.
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    g.goTo('control_room');
+    g.hintBeacon.update(0.1, 1, g.player.position);
+  });
+  const arrived = await page.evaluate(() => {
+    const b = window.__DEEPWATCH__.hintBeacon;
+    return { active: b.active, chevrons: b.chevrons.filter((c) => c.visible).length };
+  });
+  expect(arrived.active).toBe(true);
+  expect(arrived.chevrons).toBe(0);
+
+  // It is temporary: it times out and puts the compartment lighting back.
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    for (let i = 0; i < 300; i++) g.hintBeacon.update(0.1, i * 0.1, g.player.position);
+  });
+  expect(await page.evaluate(() => window.__DEEPWATCH__.hintBeacon.active)).toBe(false);
+  expect(await page.evaluate(() => !!window.__DEEPWATCH__.hintBeacon._savedLight)).toBe(false);
+});
+
 test('mission progress is saved under the Deep Watch key only', async ({ page }) => {
   await startFlooding(page);
   await page.evaluate(() => window.__DEEPWATCH__.save.markMissionComplete('mission_04_flooding', { score: 77 }));

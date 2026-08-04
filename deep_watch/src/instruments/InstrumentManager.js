@@ -16,6 +16,13 @@ import { BILGE_DEPTH_CM } from '../simulation/FloodingSystem.js';
  *     previous, clock }
  * and returns { value, unit, level: 'ok'|'warn'|'alarm', note, numeric?, tag? }.
  */
+/**
+ * Two soundings this far apart (watch minutes) count as a rate. Shorter than this
+ * and the level has not moved enough to divide by the interval. Shared with the
+ * mission and the plotting board so one number governs the whole idea.
+ */
+export const SOUNDING_INTERVAL_MIN = 0.4;
+
 const DEFS = {
   // ---- Light ----
   flashlight: { name: 'Flashlight', color: 0xdfe8ee, unit: '', kind: 'light' },
@@ -117,8 +124,16 @@ const DEFS = {
       let note = cm > BILGE_DEPTH_CM
         ? 'Water is over the deck plates — the recess is full.'
         : 'Wetted length read off the weighted tape.';
-      if (previous && previous.instrument === 'sounding_tape' && previous.compartment === compartment) {
+      if (previous && previous.instrument === 'sounding_tape'
+          && previous.compartment === compartment && previous.valid) {
+        const gap = (state.clock.minutes - previous.minutes);
         note += ` Previous sounding here: ${previous.numeric.toFixed(1)} cm at ${previous.clock}.`;
+        // A rate needs a baseline AND an interval. Sounding twice in the same
+        // breath gives you two numbers and no rate — say so, rather than letting
+        // the player think the instrument is broken.
+        note += gap < SOUNDING_INTERVAL_MIN
+          ? ` That is only ${Math.round(gap * 60)} s after the last one — too close together to give a rate. Let the level move for about half a minute, then sound again.`
+          : ` ${(read - previous.numeric >= 0 ? 'Up' : 'Down')} ${Math.abs(read - previous.numeric).toFixed(1)} cm in ${gap.toFixed(1)} min.`;
       }
       return { value: read.toFixed(1), unit: 'cm', numeric: read, tag: 'sounding',
         level: cm > 45 ? 'alarm' : cm > 8 ? 'warn' : 'ok', note, clock };

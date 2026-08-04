@@ -46,6 +46,7 @@ export class HUD {
       this._renderObjective();
     });
     this.bus.on('mission:hint', (h) => this._showHint(h.text, h.index, h.total));
+    this.bus.on('mission:hintLocation', (l) => this._addHintLocation(l.where));
     this.bus.on('interaction:prompt', (p) => {
       if (p) { this.el.prompt.hidden = false; this.el.prompt.innerHTML = `<span class="key">E</span>${p.prompt}`; }
       else { this.el.prompt.hidden = true; }
@@ -74,7 +75,14 @@ export class HUD {
     el.hidden = false;
     el.innerHTML = `<span class="hint-label">Hint${index && total ? ` ${index}/${total}` : ''}</span>${text}`;
     clearTimeout(this._hintTimer);
-    this._hintTimer = setTimeout(() => { el.hidden = true; }, 11000);
+    this._hintTimer = setTimeout(() => { el.hidden = true; }, 14000);
+  }
+
+  /** Appended by the Game once it has resolved where the hint is pointing. */
+  _addHintLocation(where) {
+    const el = this.el.hint;
+    if (!el || el.hidden || !where) return;
+    el.insertAdjacentHTML('beforeend', `<span class="hint-where">${where}</span>`);
   }
 
   _showReadout(r) {
@@ -87,7 +95,17 @@ export class HUD {
       ${r.detail ? `<div class="ir-detail">${r.detail.join('<br>')}</div>` : ''}
       ${r.note ? `<div class="ir-note">${r.note}</div>` : ''}`;
     clearTimeout(this._readoutTimer);
-    this._readoutTimer = setTimeout(() => this.readout.classList.add('hidden'), 6000);
+    this._readoutTimer = setTimeout(() => this.readout.classList.add('hidden'), 12000);
+  }
+
+  /** Dismiss the current toast early (SPACE). */
+  dismissToast() {
+    const t = this.el.toast;
+    if (!t || t.hidden) return false;
+    clearTimeout(this._toastTimer);
+    t.style.opacity = '0';
+    setTimeout(() => { t.hidden = true; }, 250);
+    return true;
   }
 
   toast(concept, text) {
@@ -96,10 +114,12 @@ export class HUD {
     t.style.opacity = '1';
     t.innerHTML = `${concept ? `<span class="toast-concept">${concept}</span>` : ''}${text}`;
     clearTimeout(this._toastTimer);
+    // Long enough to read a three-line casualty message without hurrying, and
+    // dismissable with SPACE if you have already read it.
     this._toastTimer = setTimeout(() => {
       t.style.opacity = '0';
       setTimeout(() => { t.hidden = true; }, 400);
-    }, 5200);
+    }, 13000);
   }
 
   show(on) { this.el.hud.hidden = !on; }

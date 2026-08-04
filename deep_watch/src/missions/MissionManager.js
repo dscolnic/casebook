@@ -94,4 +94,6 @@ export class MissionManager {
   }
 
   hint() { return this.current?.hint(); }
+
+  skipObjective() { return this.current?.skipStage() ?? false; }
 }

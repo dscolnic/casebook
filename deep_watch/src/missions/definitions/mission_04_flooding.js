@@ -1,5 +1,5 @@
 import { BILGE_AREA, PANEL_THREAT_CM } from '../../simulation/FloodingSystem.js';
-import { InstrumentManager } from '../../instruments/InstrumentManager.js';
+import { InstrumentManager, SOUNDING_INTERVAL_MIN } from '../../instruments/InstrumentManager.js';
 
 /**
  * Mission 4 — Forward Flooding (Unit II: Keep the Boat Alive).
@@ -90,6 +90,7 @@ export const mission04Flooding = {
     // ---------------- SYMPTOM ----------------
     {
       id: 'sonar_symptom',
+      target: { interactable: 'sonar', compartment: 'sonar_room' },
       label: 'Sonar',
       objective: 'Man a sonar console. A new broadband source has appeared — decide whether it is a contact in the water or something aboard.',
       hints: [
@@ -103,6 +104,7 @@ export const mission04Flooding = {
     },
     {
       id: 'control_evidence',
+      target: { interactable: 'control', compartment: 'control_room' },
       label: 'Control Room',
       objective: 'Go aft to Control, man Ship Control, and log the watch indications.',
       hints: [
@@ -116,6 +118,7 @@ export const mission04Flooding = {
     // ---------------- INSTRUMENT + TRACE ----------------
     {
       id: 'retrieve_probe',
+      target: { interactable: 'locker_control', compartment: 'control_room' },
       label: 'Instrument',
       objective: 'Carry three tools: an Acoustic Probe, a Sounding Tape and a Salinity Probe. All three are in DC Locker 0 — the red locker on the starboard side of Control (E to open it). A probe is also on the port shelf aft.',
       hints: [
@@ -147,6 +150,7 @@ export const mission04Flooding = {
     },
     {
       id: 'trace_acoustic',
+      target: { compartment: 'forward_equipment' },
       label: 'Acoustic Trace',
       objective: 'Trace the noise. Take an acoustic-probe reading (F) in at least three compartments, working toward the loudest.',
       hints: [
@@ -173,6 +177,7 @@ export const mission04Flooding = {
     },
     {
       id: 'discover_bilge',
+      target: { interactable: 'deckplate_fwd', compartment: 'forward_equipment' },
       label: 'Discovery',
       objective: 'Find the water. Lift the deck plate in the forward equipment space (E on the plate).',
       hints: [
@@ -186,6 +191,7 @@ export const mission04Flooding = {
     // ---------------- IMMEDIATE ACTIONS ----------------
     {
       id: 'report_flooding',
+      target: { interactable: 'handset_fwd', compartment: 'forward_equipment' },
       label: 'Report',
       objective: 'Report it. Use the 7MC handset by the aft hatch (E) — Control cannot help with what it does not know.',
       hints: [
@@ -198,6 +204,7 @@ export const mission04Flooding = {
     },
     {
       id: 'secure_panel',
+      target: { interactable: 'fwd_power_2f', compartment: 'forward_equipment' },
       label: 'Electrical Boundary',
       objective: `Protect the forward power panel — its lower gland is about ${PANEL_THREAT_CM} cm above the bilge bottom and the water is rising. Secure it at the handle (E).`,
       hints: [
@@ -221,31 +228,37 @@ export const mission04Flooding = {
     // ---------------- MEASURE + DIAGNOSE ----------------
     {
       id: 'measure_water',
+      target: { interactable: 'locker_forward', compartment: 'forward_equipment' },
       label: 'Measure',
-      objective: 'Measure the casualty: two soundings of the forward bilge (a rate needs two), the salinity of the water, and the manifold pressures.',
+      objective: 'Measure the casualty: sound the forward bilge, wait about half a minute and sound it again (a rate needs an interval, not just two numbers), check the salinity of the water, and gauge the manifold pressures.',
       hints: [
-        'Sound the bilge, do something else for a minute, then sound it again. That gives you a rate.',
+        'Sound the bilge, then do something else for thirty seconds or so, then sound it again. Two soundings taken in the same breath give you two numbers and no rate.',
         'The salinity probe tells you whether this is the sea or condensate.',
         'The pressure gauge is in DC Locker 1, here in this compartment. Gauge the manifold test points.',
         'Sound the next compartment aft too — you want to know whether the boundary is holding.',
       ],
       arm: (rt) => {
-        const need = () => {
+        const check = () => {
           const inst = rt.instruments;
           const soundings = inst.readingsTagged('sounding').filter((r) => r.compartment === FWD);
           const spread = soundings.length >= 2
-            && (soundings[soundings.length - 1].minutes - soundings[0].minutes) > 0.4;
-          return {
-            soundings: spread,
-            salinity: inst.readingsTagged('salinity').length > 0,
-            pressure: inst.readingsTagged('pressure').filter((r) => r.compartment === FWD).length > 0,
+            && (soundings[soundings.length - 1].minutes - soundings[0].minutes) >= SOUNDING_INTERVAL_MIN;
+          const done = {
+            'a first sounding of this bilge': soundings.length >= 1,
+            [soundings.length >= 1
+              ? `a second sounding at least ${Math.round(SOUNDING_INTERVAL_MIN * 60)} s after the first`
+              : 'a second sounding after an interval']: spread,
+            'the salinity of the water': inst.readingsTagged('salinity').length > 0,
+            'the manifold pressures (pressure gauge, DC Locker 1)':
+              inst.readingsTagged('pressure').filter((r) => r.compartment === FWD).length > 0,
           };
-        };
-        const check = () => {
-          const n = need();
-          const have = Object.values(n).filter(Boolean).length;
-          rt.bus.emit('mission:progress', { have, need: 3 });
-          if (have === 3) {
+          const missing = Object.entries(done).filter(([, ok]) => !ok).map(([label]) => label);
+          rt.bus.emit('mission:progress', {
+            have: Object.keys(done).length - missing.length,
+            need: Object.keys(done).length,
+            detail: missing.length ? `Still needed: ${missing.join('; ')}` : null,
+          });
+          if (!missing.length) {
             rt.complete('Salty water, rising at a measurable rate, and the forward seawater supply header has lost pressure while everything else reads normal.');
           }
         };
@@ -256,6 +269,7 @@ export const mission04Flooding = {
     },
     {
       id: 'diagnose',
+      target: { interactable: 'dc_board', compartment: 'forward_equipment' },
       label: 'Diagnosis',
       objective: 'Take it to the DC plotting board (starboard, aft end of the compartment) and call the cause on the Diagnosis face.',
       hints: [
@@ -278,6 +292,7 @@ export const mission04Flooding = {
     },
     {
       id: 'estimate',
+      target: { interactable: 'dc_board', compartment: 'forward_equipment' },
       label: 'Estimate',
       objective: 'On the Estimate face of the board, work out the inflow — from your soundings and from head × hole — and decide whether pumping alone can hold it.',
       hints: [
@@ -303,6 +318,7 @@ export const mission04Flooding = {
     // ---------------- PROCEDURE ----------------
     {
       id: 'boundaries',
+      target: { interactable: 'dc_board', compartment: 'forward_equipment' },
       label: 'Boundaries',
       objective: 'Before you shut anything: read the System boundaries face of the board and acknowledge what those valves also feed.',
       hints: [
@@ -314,6 +330,7 @@ export const mission04Flooding = {
     },
     {
       id: 'isolate',
+      target: { interactable: 'fwd_sw_supply_inbd', compartment: 'forward_equipment' },
       label: 'Isolation',
       objective: 'Isolate the branch: shut BOTH the inboard and outboard forward seawater supply valves on the manifold (E on each wheel).',
       hints: [
@@ -331,6 +348,7 @@ export const mission04Flooding = {
     },
     {
       id: 'patch',
+      target: { interactable: 'locker_forward', compartment: 'forward_equipment' },
       label: 'Temporary Patch',
       objective: 'Seal the rupture: take a soft patch or a split clamp from DC Locker 1 and apply it at the line (E on the rupture).',
       hints: [
@@ -348,6 +366,7 @@ export const mission04Flooding = {
     },
     {
       id: 'dewater',
+      target: { interactable: 'sump_fwd', compartment: 'forward_equipment' },
       label: 'Dewatering',
       objective: 'Get the water out: rig the portable pump from DC Locker 1, set its suction in the sump (E), and run it.',
       hints: [
@@ -361,6 +380,7 @@ export const mission04Flooding = {
     // ---------------- VERIFICATION ----------------
     {
       id: 'verify_bilge',
+      target: { interactable: 'deckplate_fwd', compartment: 'forward_equipment' },
       label: 'Verify — the casualty',
       objective: 'Prove it here: sound the bilge again and show the level is falling, below 12 cm.',
       hints: [
@@ -379,6 +399,7 @@ export const mission04Flooding = {
     },
     {
       id: 'restore_cooling',
+      target: { interactable: 'sw_crossconnect', compartment: 'forward_equipment' },
       label: 'Verify — the dependency',
       objective: 'You secured sonar-array cooling to isolate the branch. Open the aft seawater cross-connect, then confirm with the IR thermometer in Sonar-Array Electronics that the cabinets are coming back down.',
       hints: [
@@ -402,6 +423,7 @@ export const mission04Flooding = {
     },
     {
       id: 'verify_sonar',
+      target: { interactable: 'sonar', compartment: 'sonar_room' },
       label: 'Verify — sonar',
       objective: 'Go to Sonar. Confirm the internal flow noise is gone and the boat is quiet enough to hold the weak contact again (self-noise under 50 dB).',
       hints: [
@@ -426,6 +448,7 @@ export const mission04Flooding = {
     },
     {
       id: 'verify_control',
+      target: { interactable: 'control', compartment: 'control_room' },
       label: 'Verify — control',
       objective: 'Finally, back to Ship Control: confirm trim is back inside 0.3° and the depth-control effort has come down.',
       hints: [
@@ -500,7 +523,11 @@ export const mission04Flooding = {
 
     // Hints.
     const hints = rt.hintsUsed || 0;
-    add('Independence', Math.max(0, 10 - hints * 2), 10, hints ? `${hints} hint${hints > 1 ? 's' : ''} taken.` : 'No hints taken.');
+    const skipped = rt.skipped || 0;
+    add('Independence', Math.max(0, 10 - hints * 2 - skipped * 4), 10,
+      [hints ? `${hints} hint${hints > 1 ? 's' : ''} taken` : null,
+       skipped ? `${skipped} objective${skipped > 1 ? 's' : ''} skipped` : null,
+      ].filter(Boolean).join('; ') || 'No hints taken, nothing skipped.');
 
     rt.scoreParts = parts;
     return Math.max(0, Math.min(100, Math.round(score)));

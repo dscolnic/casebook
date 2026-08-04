@@ -15,10 +15,10 @@
 ```bash
 cd deep_watch
 npm run build          # ✓ 45 modules, 643 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 20/20 passed (3.3 min); webServer = build + preview:4173
+npx playwright test    # ✓ 24/24 passed (4.3 min); webServer = build + preview:4173
 ```
 
-## Results — 20/20 PASS
+## Results — 24/24 PASS
 
 ### Smoke (`tests/smoke.spec.js`) — 11/11
 | # | Test | Result |
@@ -35,7 +35,7 @@ npx playwright test    # ✓ 20/20 passed (3.3 min); webServer = build + preview
 | 10 | Progress saves to `deepwatch.progress.v1` and creates **no `reckon*` keys** | ✓ |
 | 11 | State sim: flooding raises the bilge and shifts trim bow-down | ✓ |
 
-### Mission 4 — Forward Flooding (`tests/mission-flooding.spec.js`) — 9/9
+### Mission 4 — Forward Flooding (`tests/mission-flooding.spec.js`) — 13/13
 | # | Test | Result |
 |---|---|---|
 | 12 | Mission seeds a real casualty in the forward bilge (source, inflow, start location) | ✓ |
@@ -45,8 +45,12 @@ npx playwright test    # ✓ 20/20 passed (3.3 min); webServer = build + preview
 | 16 | **Water reaching the forward power panel trips it** and kills the installed pump (capacity → 0) | ✓ |
 | 17 | **Full 19-stage playthrough** (below) | ✓ |
 | 18 | Tool stage names the tools still missing by name; a single locker can supply all three | ✓ |
-| 19 | Mission progress saved under `deepwatch.progress.v1` only | ✓ |
-| 20 | Restart returns the boat to a clean condition (level, valves, deck plate, notebook, inventory, stage) | ✓ |
+| 19 | **A stage already satisfied when it arms completes only itself** (stage-token regression) | ✓ |
+| 20 | **Two soundings too close together do not make a rate** — and the instrument says why | ✓ |
+| 21 | The measurement stage lists exactly which readings are still outstanding | ✓ |
+| 22 | **Pressing H lights up where to go** — beacon, compartment, chevron trail, timeout, light restored | ✓ |
+| 23 | Mission progress saved under `deepwatch.progress.v1` only | ✓ |
+| 24 | Restart returns the boat to a clean condition (level, valves, deck plate, notebook, inventory, stage) | ✓ |
 
 ### What the full playthrough (test 17) actually asserts
 It plays the mission through real DOM and real interactables, and checks a physical
@@ -99,7 +103,24 @@ and an electrical boundary changes what is connected (16).
    Fixed three ways: a spare probe is stowed in the same control-room locker as the
    other two, the objective card now names the specific tools still outstanding, and
    the hints point at the locker first. Test 18 covers it.
-6. Two pre-existing smoke tests assumed the start button always launches the walkdown.
+6. **A stage could complete the stage after it** (found by a new test, and a real
+   play bug). A stage's initial "is this already satisfied?" check runs on a queued
+   microtask; if it passed, `complete()` fired *after* the runtime had already moved
+   on, so the next objective was skipped silently — carrying all three tools before
+   the tool stage armed skipped the whole acoustic trace. Unsubscribing in the
+   teardown cannot help: the microtask has already escaped the bus. Each stage now
+   gets a token and its `complete()` is bound to it. Test 19.
+7. **Wall panels were being built inside the hull.** The side wall is a 0.2 m box
+   centred on ±halfW, so its inner face is at halfW − 0.1; panels mounted at
+   halfW − 0.13 were buried in the steel and invisible. Also, the first placement
+   pass only consulted collision boxes, and much of the scenery (the seawater
+   manifold, valve stands, the plotting board) has no collider — so panels landed
+   behind furniture. Placement now measures real geometry from the world root.
+8. **The after machinery space could not be walked through.** The heat exchanger and
+   the after bilge coaming left a 0.75 m gap against a 0.64 m player. The bilge
+   opening moved off the centreline and the exchanger moved forward and outboard;
+   a test now walks the compartment end to end.
+9. Two pre-existing smoke tests assumed the start button always launches the walkdown.
    The start screen now has a mission picker (defaulting to the vertical slice), so
    those tests select the walkdown explicitly.
 

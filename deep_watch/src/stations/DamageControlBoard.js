@@ -1,4 +1,5 @@
 import { BILGE_AREA, FLOOD_HYPOTHESES, CORRECT_HYPOTHESIS, VALVES } from '../simulation/FloodingSystem.js';
+import { SOUNDING_INTERVAL_MIN } from '../instruments/InstrumentManager.js';
 
 /**
  * DamageControlBoard — the plotting board in the forward space. Three faces:
@@ -139,9 +140,9 @@ export class DamageControlBoard {
       const dt = b.minutes - a.minutes;
       const dl = b.numeric - a.numeric;
       const out = body.querySelector('#est-a-out'), work = body.querySelector('#est-a-work');
-      if (dt <= 0.05) {
+      if (dt < SOUNDING_INTERVAL_MIN) {
         out.textContent = '—';
-        work.textContent = 'Those two soundings are effectively the same moment. Let the level move before you sound again.';
+        work.textContent = `Those two soundings are only ${Math.round(Math.max(0, dt) * 60)} s apart — too close to divide by. Sound the bilge again after about ${Math.round(SOUNDING_INTERVAL_MIN * 60)} s.`;
         this._routeA = null;
         return;
       }

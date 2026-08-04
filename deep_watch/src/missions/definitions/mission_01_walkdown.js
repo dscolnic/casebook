@@ -29,36 +29,42 @@ export const mission01Walkdown = {
   stages: [
     {
       id: 'report_control',
+      target: { compartment: 'control_room' },
       label: 'Control Room',
       objective: 'Report to the Control Room. Find the helm, the command plot, and the navigation table.',
       arm: (rt) => rt.onEnter('control_room', 'Control Room located — helm, command plot, and nav table are here.')(rt),
     },
     {
       id: 'find_sonar',
+      target: { compartment: 'sonar_room' },
       label: 'Sonar Room',
       objective: 'Walk forward and locate the Sonar Room (broadband, narrowband, and bearing-time consoles).',
       arm: (rt) => rt.onEnter('sonar_room', 'Sonar Room located — three watch consoles and the own-ship noise reference.')(rt),
     },
     {
       id: 'find_forward',
+      target: { compartment: 'forward_equipment' },
       label: 'Forward Escape Route',
       objective: 'Continue forward to Forward Equipment & Handling. Note the escape trunk (an escape route) and the DC lockers.',
       arm: (rt) => rt.onEnter('forward_equipment', 'Forward escape trunk noted — remember this route.')(rt),
     },
     {
       id: 'open_lockers',
+      target: { interactable: 'locker_forward', compartment: 'forward_equipment' },
       label: 'Damage-Control Lockers',
       objective: 'Open two damage-control lockers (look for the red lockers; press E). They hold the tools you will need later.',
       arm: (rt) => rt.onInteractCount('locker', 2, 'Two DC lockers checked — you know where the gear lives.')(rt),
     },
     {
       id: 'reach_machinery',
+      target: { compartment: 'machinery_control' },
       label: 'Machinery Control',
       objective: 'Walk aft, through the boat, to the Machinery Control Room.',
       arm: (rt) => rt.onEnter('machinery_control', 'Machinery Control located.')(rt),
     },
     {
       id: 'trace_cooling',
+      target: { interactable: 'engineering', compartment: 'machinery_control' },
       label: 'Cooling Loop',
       objective: 'Man the Machinery Control station and read the cooling-loop indications (temperature and flow).',
       arm: (rt) => rt.onEvent('station:opened', 'Cooling loops read — primary and secondary temperatures and flows noted.',
@@ -66,12 +72,14 @@ export const mission01Walkdown = {
     },
     {
       id: 'reach_aux',
+      target: { compartment: 'auxiliary' },
       label: 'Aft Escape Route',
       objective: 'Continue aft to Auxiliary Machinery & Bilge — the second escape route and the lower bilge access.',
       arm: (rt) => rt.onEnter('auxiliary', 'Aft bilge access and escape route noted. You have walked the boat end to end.')(rt),
     },
     {
       id: 'deliver_message',
+      target: { compartment: 'control_room' },
       label: 'Deliver the Message',
       objective: 'Deliver word back to Control — from memory. No waypoint this time: retrace your route forward to the Control Room.',
       arm: (rt) => rt.onEnter('control_room', 'Message delivered. Boat walkdown complete — you are qualified to stand a watch.')(rt),

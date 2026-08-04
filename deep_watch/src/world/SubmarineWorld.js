@@ -51,7 +51,7 @@ export const DECK_OPENINGS = [
   { id: 'deckplate_fwd', compartment: 'forward_equipment', bilge: 'forward_equipment',
     x1: -0.25, x2: 1.05, z1: FWD.zStart + 3.6, z2: FWD.zStart + 5.0 },
   { id: 'deckplate_aft', compartment: 'auxiliary', bilge: 'auxiliary',
-    x1: -0.35, x2: 0.95, z1: AUX.zEnd - 1.9, z2: AUX.zEnd - 0.5 },
+    x1: 0.15, x2: 1.45, z1: AUX.zEnd - 1.9, z2: AUX.zEnd - 0.5 },
 ];
 
 /** Subtract rect `h` from rect `r`, returning the surviving pieces (0–4 rects). */
@@ -372,8 +372,10 @@ export class SubmarineWorld {
     locker.rotation.y = x > 0 ? -Math.PI / 2 : Math.PI / 2;
     this.root.add(locker);
     this.collision.addBoxFromObject(locker, 0.05);
+    // Stable id keyed on the stowage, so missions and the hint beacon can name a
+    // specific locker without depending on where it happens to sit.
     this.interactables.push({
-      object: locker, type: 'locker', id: `locker_${c.id}_${z.toFixed(0)}`,
+      object: locker, type: 'locker', id: `locker_${contents || c.id}`,
       prompt: 'Open DC locker', data: { compartment: c.id, label, contents },
     });
   }
@@ -662,14 +664,14 @@ export class SubmarineWorld {
   _furnish_auxiliary(c) {
     // Pumps, compressors, heat exchangers + a lower bilge access.
     for (let i = 0; i < 3; i++) {
-      const pump = this.props.machineryHousing({ length: 1.0, radius: 0.35, colorHex: 0x4a6a4a });
-      pump.position.set(-HALF_W + 0.6, 0.4, c.zStart + 1.0 + i * 1.3);
+      const pump = this.props.machineryHousing({ length: 1.0, radius: 0.32, colorHex: 0x4a6a4a });
+      pump.position.set(-HALF_W + 0.45, 0.4, c.zStart + 1.1 + i * 1.2);
       pump.rotation.y = Math.PI / 2;
       this.root.add(pump);
       this.collision.addBoxFromObject(pump, 0.05);
     }
-    const hx = this.props.machineryHousing({ length: 2.0, radius: 0.45, colorHex: 0x6a8a4a });
-    hx.position.set(HALF_W - 0.7, 0.6, c.zMid);
+    const hx = this.props.machineryHousing({ length: 1.6, radius: 0.42, colorHex: 0x6a8a4a });
+    hx.position.set(HALF_W - 0.52, 0.6, c.zStart + 1.5);
     hx.rotation.y = Math.PI / 2;
     this.root.add(hx);
     this.collision.addBoxFromObject(hx, 0.05);
