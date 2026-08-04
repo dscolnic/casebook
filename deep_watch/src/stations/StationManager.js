@@ -25,9 +25,9 @@ const STATIONS = {
 };
 
 export class StationManager {
-  constructor({ eventBus, state, save, notebook, instruments, flooding, inventory }) {
+  constructor({ eventBus, state, save, notebook, instruments, flooding, inventory, sonar, nav }) {
     this.bus = eventBus;
-    this.ctx = { bus: eventBus, state, save, notebook, instruments, flooding, inventory };
+    this.ctx = { bus: eventBus, state, save, notebook, instruments, flooding, inventory, sonar, nav };
     this.overlay = document.getElementById('station-overlay');
     this.titleEl = document.getElementById('station-title');
     this.bodyEl = document.getElementById('station-body');

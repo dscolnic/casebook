@@ -1,9 +1,11 @@
 # Deep Watch — Mission Design
 
 The campaign is **10 missions + 3 command episodes** across three units. This
-build implements **Mission 1 (Boat Walkdown)** and, as the polished vertical
-slice, **Mission 4 (Forward Flooding)**; the rest are specified here as the design
-contract for later runs. Every casualty mission follows the same
+build implements **Unit I complete** — Mission 1 (Boat Walkdown), Mission 2
+(Contact in the Noise), Mission 3 (Position Without a Trusted Fix) and Command
+Episode 1 (Silent Passage) — plus **Mission 4 (Forward Flooding)** as the Unit II
+vertical slice. Missions 5–10 and Command Episodes 2–3 are specified here as the
+design contract for later runs. Every casualty mission follows the same
 loop the spec mandates:
 
 > symptom → measurement → interpretation → travel → second measurement →
@@ -38,15 +40,29 @@ reading was actually taken. That is the rule to keep for the remaining missions.
   control, find sonar/engineering/forward, open two DC lockers, man a machinery
   station to read a cooling loop, walk aft, deliver a message back to Control with
   no waypoint. Proves traversal + interaction.
-- **M2 Contact in the Noise** — Sonar Spy + Casebook. Detect several sources on
-  the `SonarConsole`, distinguish biologic/merchant/own-ship/uncertain by tonal
-  signature (`freqMap`), create a track, justify confidence across displays.
-- **M3 Position Without a Trusted Fix** — Dead Reckoning + Ballpark + Casebook.
-  Record the last trusted fix, advance the estimate, apply current, identify the
-  two nav displays that share one inertial source (source-dependency view), compare
-  bottom contour, choose a safe route.
-- **Command Episode 1 — Silent Passage** — cross a constrained area keeping contact
-  awareness without unnecessary acoustic exposure.
+- **M2 Contact in the Noise** *(implemented)* — Sonar Spy + Casebook. Four sources:
+  a merchant with a full harmonic family, a biologic chorus with no propulsion
+  lines, an own-ship source holding a constant relative bearing, and one contact
+  too faint to name. The player must quiet the boat to hear the fourth at all,
+  designate tracks, classify what the signature supports, decline what it does not,
+  and cite two INDEPENDENT displays — the broadband waterfall, auto-detect list and
+  bearing-time record are all one beamformer, so citing two of them is citing one
+  measurement twice.
+- **M3 Position Without a Trusted Fix** *(implemented)* — Dead Reckoning + Ballpark
+  + Casebook. Three and a half hours of DR with an unapplied current. Record the
+  datum, work distance run and the current offset, discover that a "fix" from the
+  inertial displays shrinks the ring without moving the plot (precision with no
+  accuracy), get a real correction from the fathometer, and choose a route whose
+  charted least depth survives the position ring. The forecast current the table
+  shows is deliberately not the current the sea is using, so applying it helps and
+  does not finish the job.
+- **Command Episode 1 — Silent Passage** *(implemented)* — cross the constriction
+  holding a merchant, keeping the boat quiet, and knowing the position well enough
+  to know what is under the keel. Scored continuously: acoustic exposure is
+  integrated in dB·seconds above the quiet floor, time without the contact is
+  integrated, and the ring, the true error and the least clearance are checked at
+  the exit. Speed, pumps, depth, fixes and EMCON all pull against each other; there
+  is no single right setting.
 
 ## UNIT II — Keep the Boat Alive
 - **M4 Forward Flooding** *(implemented — the canonical full-loop mission)* —

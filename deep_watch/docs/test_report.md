@@ -15,10 +15,10 @@
 ```bash
 cd deep_watch
 npm run build          # ✓ 45 modules, 643 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 24/24 passed (4.3 min); webServer = build + preview:4173
+npx playwright test    # ✓ 34/34 passed (5.2 min); webServer = build + preview:4173
 ```
 
-## Results — 24/24 PASS
+## Results — 34/34 PASS
 
 ### Smoke (`tests/smoke.spec.js`) — 11/11
 | # | Test | Result |
@@ -51,6 +51,20 @@ npx playwright test    # ✓ 24/24 passed (4.3 min); webServer = build + preview
 | 22 | **Pressing H lights up where to go** — beacon, compartment, chevron trail, timeout, light restored | ✓ |
 | 23 | Mission progress saved under `deepwatch.progress.v1` only | ✓ |
 | 24 | Restart returns the boat to a clean condition (level, valves, deck plate, notebook, inventory, stage) | ✓ |
+
+### Missions 2, 3 and Command Episode 1 (`tests/mission-sonar-nav.spec.js`) — 10/10
+| # | Test | Result |
+|---|---|---|
+| 25 | **A loud boat cannot hear its own picture** — the faint contact is under the floor until the plant is quieted, then it appears | ✓ |
+| 26 | The faint contact resolves one or two lines, not a family; naming a class off it is wrong and "Unknown" is right | ✓ |
+| 27 | **Two displays off one beamformer are not two pieces of evidence** — the same call is `independent: false` with the shared-chain explanation | ✓ |
+| 28 | Mission 2 plays through: quiet the boat → designate four → merchant, biologic, own-ship, decline the fourth → report → debrief | ✓ |
+| 29 | **A fix from the drifting source shrinks the ring without moving the plot**; the independent fix moves it onto the truth | ✓ |
+| 30 | The plot drifts because dead reckoning does not know about the water | ✓ |
+| 31 | Mission 3 plays through: datum → current → false fix → sounding disagrees → real fix → safe route → verify, and leaves the dependency note | ✓ |
+| 32 | The episode accumulates acoustic exposure while the boat is loud and stops spending when it is quiet | ✓ |
+| 33 | **The pinnacle is real** — setting east at depth loses water under the keel | ✓ |
+| 34 | Episode 1 plays through the passage to a scored debrief with exposure and contact-awareness lines | ✓ |
 
 ### What the full playthrough (test 17) actually asserts
 It plays the mission through real DOM and real interactables, and checks a physical
@@ -120,7 +134,18 @@ and an electrical boundary changes what is connected (16).
    the after bilge coaming left a 0.75 m gap against a 0.64 m player. The bilge
    opening moved off the centreline and the exchanger moved forward and outboard;
    a test now walks the compartment end to end.
-9. Two pre-existing smoke tests assumed the start button always launches the walkdown.
+9. **`stopped` was true with no flooding at all.** `[].every()` is `true`, so
+   `FloodingSystem.stopped` reported "casualty under control" in every mission
+   that had no casualty — which fired the "Control has finished compensating"
+   branch on the first tick and secured the trim pump. It silently changed the
+   self-noise floor in Missions 2 and 3 and the episode. Found by a sonar test
+   whose floor was 3 dB lower than the plant implied.
+10. **The self-noise floor started stale.** It is a smoothed value, so at mission
+   start it still held the previous value while the pumps that were actually
+   running had not been counted yet. A "rig for quiet" objective could therefore
+   satisfy itself in the first second, before the player touched anything. Missions
+   now call `state.settleNoise()` once their plant lineup is set.
+11. Two pre-existing smoke tests assumed the start button always launches the walkdown.
    The start screen now has a mission picker (defaulting to the vertical slice), so
    those tests select the walkdown explicitly.
 

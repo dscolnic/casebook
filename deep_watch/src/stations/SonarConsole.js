@@ -1,100 +1,72 @@
+import { SonarSystem, FREQ_MAP, DISPLAYS, CLASSES } from '../simulation/SonarSystem.js';
+
 /**
- * SonarConsole — the in-world sonar watch station: a live broadband waterfall
- * (bearing × time), a narrowband frequency strip, a contact list with
- * classification confidence, and the own-ship self-noise reference.
+ * SonarConsole — the sonar watch station.
  *
- * Content lineage: contact types and per-type harmonic signatures are adapted
- * from Sonar Spy (`silent_watch_hunt_mvp.html`), specifically `freqMap`
- * (Submarine [46,92,138,185], Merchant [20,41,82,123,164], Fishing [28,57,79,
- * 109,149], Biologics [12,31,52]) and `bearingTo()`. Presented here as a real
- * console rather than an arcade waterfall — the reasoning (detect → classify from
- * an incomplete signature → use bearing history) is preserved.
+ * Four faces of one picture, and the point of the station is that they are not
+ * four independent opinions: the broadband waterfall, the auto-detect list and
+ * the bearing-time record all run off the same beamformer. The narrowband
+ * analyser is a separate chain, and turning the boat is not a processing product
+ * at all. When the player logs a classification they must say what they are
+ * leaning on, and the console tells them if they have cited one measurement twice.
  *
- * The console also carries the first symptom of an internal casualty. A source
- * that is aboard your own boat holds a CONSTANT RELATIVE bearing while the true
- * bearing swings with own-ship's head; a source in the water does the opposite.
- * That distinction is the whole of the first mission stage, and it is made here
- * out of bearing history rather than by a label.
+ * Content lineage: Sonar Spy (`silent_watch_hunt_mvp.html`) for the harmonic
+ * families and bearing history; Casebook (`nc_greywake_case`) for the shared-source
+ * trap, moved from informant cards onto processing chains.
  */
-const FREQ_MAP = {
-  Submarine: [46, 92, 138, 185],
-  Merchant: [20, 41, 82, 123, 164],
-  Fishing: [28, 57, 79, 109, 149],
-  Biologics: [12, 31, 52],
-  'Own-ship': [24, 48, 90, 120],
-};
-
-const DEFAULT_CONTACTS = [
-  { id: 'S01', bearing: 312, type: 'Merchant', confidence: 0.7, note: 'Steady blade rate, slow bearing drift right.' },
-  { id: 'S02', bearing: 47, type: 'Biologics', confidence: 0.55, note: 'Low-frequency chorus, no propulsion lines.' },
-  { id: 'S03', bearing: 158, type: 'Unknown', confidence: 0.2, note: 'Faint; intermittent tonal near 90 Hz. Weak — masked easily by own-ship noise.' },
-];
-
-/** A contact this faint disappears once the boat gets loud enough. */
-const FAINT_THRESHOLD_DB = 50;
-
 export class SonarConsole {
   constructor(ctx) {
     this.state = ctx.state;
     this.bus = ctx.bus;
     this.notebook = ctx.notebook;
+    this.sonar = ctx.sonar;
     this._raf = null;
     this._t = 0;
-  }
-
-  /** Anything aboard shows up here with a bearing that does not move with own-ship. */
-  _anomaly() {
-    const flow = this.state.machineryNoiseSources.find((n) => n.id === 'flood_flow');
-    if (!flow || flow.level < 1) return null;
-    const relative = 15;
-    return {
-      id: 'N01',
-      relativeBearing: relative,
-      bearing: (this.state.heading + relative) % 360,
-      type: 'Unknown',
-      confidence: 0.35,
-      level: flow.level,
-      note: 'Broad, continuous, low-frequency. No blade rate, no harmonic family — this does not look like a ship.',
-      internal: true,
-    };
+    this._cited = new Set();
   }
 
   render(container) {
     this.container = container;
-    const base = (this.state.contactTracks && this.state.contactTracks.length)
-      ? this.state.contactTracks : DEFAULT_CONTACTS;
-    this.baseContacts = base;
-
     container.innerHTML = `
       <div class="console-grid" style="grid-template-columns: 2fr 1fr;">
         <div class="console-tile">
-          <h4>Broadband Waterfall — Bearing × Time</h4>
-          <canvas class="waterfall-canvas" width="520" height="220"></canvas>
-          <div class="console-sub">Vertical streaks = steady bearings. Own-ship self-noise floor:
-            <b id="sn-floor">${Math.round(this.state.sonarNoiseFloor)} dB</b>
-            <span id="sn-mask"></span></div>
+          <h4>Broadband Waterfall — Bearing × Time <span class="chain-tag">beamformer A</span></h4>
+          <canvas class="waterfall-canvas" width="520" height="200"></canvas>
+          <div class="console-sub">Own-ship self-noise floor:
+            <b id="sn-floor">${Math.round(this.state.sonarNoiseFloor)} dB</b><span id="sn-mask"></span></div>
         </div>
         <div class="console-tile">
-          <h4>Contact List</h4>
+          <h4>Auto-detect List <span class="chain-tag">beamformer A</span></h4>
           <div id="sonar-contacts"></div>
-          <h4 style="margin-top:14px;">Narrowband (selected)</h4>
+          <div class="console-sub" style="margin-top:8px;">Threshold detector on the beamformer output.</div>
+        </div>
+      </div>
+
+      <div class="console-grid" style="grid-template-columns: 1fr 1fr; margin-top:14px;">
+        <div class="console-tile">
+          <h4>Narrowband Analyser <span class="chain-tag alt">analyser B</span></h4>
           <canvas class="btr-canvas" width="240" height="110"></canvas>
           <div class="console-sub" id="sonar-narrow-note">Harmonic lines identify the source class.</div>
         </div>
-      </div>
-      <div class="console-grid" style="grid-template-columns: 1fr 1fr; margin-top:14px;">
         <div class="console-tile">
-          <h4>Bearing history — selected track</h4>
+          <h4>Bearing-Time Record <span class="chain-tag">beamformer A</span></h4>
           <table class="bearing-table" id="bearing-table"></table>
           <div class="console-sub" id="bearing-note"></div>
         </div>
+      </div>
+
+      <div class="console-grid" style="grid-template-columns: 1fr 1fr; margin-top:14px;">
         <div class="console-tile">
-          <h4>Own-ship noise reference</h4>
+          <h4>Own-ship Noise Reference</h4>
           <div id="ownship-sources"></div>
           <div class="console-sub" style="margin-top:8px;">
             Running pumps and shaft rpm raise the floor and mask weak contacts — a quiet boat hears more.
           </div>
           <div id="anomaly-call" style="margin-top:10px;"></div>
+        </div>
+        <div class="console-tile">
+          <h4>Classify the Selected Track</h4>
+          <div id="classify-panel"></div>
         </div>
       </div>`;
 
@@ -104,78 +76,109 @@ export class SonarConsole {
     this.nctx = this.narrow.getContext('2d');
     this.contactsEl = container.querySelector('#sonar-contacts');
 
-    this._history = [];
     this._rebuild();
     this._loop();
   }
 
-  _contacts() {
-    const list = this.baseContacts.map((c) => ({ ...c }));
-    const anom = this._anomaly();
-    if (anom) list.unshift(anom);
-    const masked = this.state.sonarNoiseFloor > FAINT_THRESHOLD_DB;
-    return list.filter((c) => !(masked && (c.confidence ?? 1) < 0.3 && !c.internal));
-  }
+  _audible() { return this.sonar ? this.sonar.audible() : []; }
 
   _rebuild() {
-    this.contacts = this._contacts();
+    this.contacts = this._audible();
     if (!this.selected || !this.contacts.some((c) => c.id === this.selected.id)) {
-      this.selected = this.contacts[0];
+      this.selected = this.contacts[0] ?? null;
     } else {
       this.selected = this.contacts.find((c) => c.id === this.selected.id);
     }
     this._renderContacts();
     this._renderBearingHistory();
     this._renderOwnShip();
+    this._renderClassify();
   }
 
   _renderContacts() {
+    if (!this.contacts.length) {
+      this.contactsEl.innerHTML = '<div class="console-sub">No contacts held. The floor may be too high to hear anything weak.</div>';
+      return;
+    }
     this.contactsEl.innerHTML = this.contacts.map((c) => {
-      const cls = c.internal ? 'ownship' : c.type.toLowerCase().replace('biologics', 'biologic');
-      const conf = Math.round((c.confidence ?? 0) * 100);
+      const track = this.sonar?.tracks.get(c.id);
+      const called = track?.classifiedAs;
+      const cls = (called || (c.internal ? 'Own-ship' : 'Unknown')).toLowerCase().replace('biologics', 'biologic');
       return `<div class="contact-row ${this.selected?.id === c.id ? 'selected' : ''}" data-id="${c.id}" style="cursor:pointer;">
-        <span>${c.id} · ${Math.round(c.bearing)}°${c.internal ? ` <span class="console-sub">(rel ${c.relativeBearing.toString().padStart(3, '0')})</span>` : ''}</span>
-        <span class="cls-${cls === 'unknown' ? 'unknown' : cls}">${c.internal ? 'Unclassified' : c.type} ${conf}%</span>
+        <span>${c.id} · ${Math.round(c.bearing).toString().padStart(3, '0')}°${
+          c.internal ? ` <span class="console-sub">(rel ${String(c.relativeBearing).padStart(3, '0')})</span>` : ''}</span>
+        <span class="cls-${['merchant', 'biologic', 'ownship', 'submarine', 'fishing'].includes(cls) ? cls : 'unknown'}">
+          ${called || 'unclassified'} · ${(c.snr ?? 0).toFixed(0)} dB${track ? '' : ' · not held'}
+        </span>
       </div>`;
-    }).join('');
+    }).join('')
+    + `<button class="station-btn" id="designate" style="margin-top:8px;" ${
+        this.selected && !this.sonar?.tracks.has(this.selected.id) ? '' : 'disabled'}>
+        Designate ${this.selected?.id ?? ''} as a track</button>`;
+
     this.contactsEl.querySelectorAll('.contact-row').forEach((row) => {
       row.addEventListener('click', () => {
         this.selected = this.contacts.find((c) => c.id === row.dataset.id);
-        this._renderContacts();
-        this._renderBearingHistory();
-        const note = document.getElementById('sonar-narrow-note');
-        if (note) note.textContent = this.selected?.note || '';
+        this._rebuild();
       });
+    });
+    this.contactsEl.querySelector('#designate')?.addEventListener('click', () => {
+      if (!this.selected) return;
+      this.sonar.designate(this.selected.id);
+      this.notebook?.record({
+        compartment: 'Sonar Room', instrument: 'Broadband / auto-detect',
+        measurement: `${this.selected.id} designated · ${Math.round(this.selected.bearing)}° · ${(this.selected.snr ?? 0).toFixed(0)} dB`,
+        observation: this.selected.note || 'Track designated.',
+        clock: this.state.formatClock(), kind: 'observation', tag: 'sonar_track',
+      });
+      this._rebuild();
     });
   }
 
   /**
-   * The decisive display. Own-ship's head has wandered over the last few minutes;
-   * a track's TRUE bearing follows it if the source is aboard, and stays put if
-   * the source is out in the water.
+   * The decisive display for anything aboard: own-ship's head has wandered, so a
+   * source in the water holds its TRUE bearing while a source aboard holds its
+   * RELATIVE one.
    */
   _renderBearingHistory() {
     const table = this.container.querySelector('#bearing-table');
     const noteEl = this.container.querySelector('#bearing-note');
-    if (!table || !this.selected) return;
+    if (!table) return;
     const c = this.selected;
-    const heads = [];
-    const hdg = this.state.heading;
-    for (let i = 5; i >= 0; i--) heads.push({ minsAgo: i * 2, heading: (hdg - i * 4 + 360) % 360 });
+    if (!c) { table.innerHTML = ''; noteEl.textContent = ''; return; }
 
-    const rows = heads.map((h) => {
-      const trueB = c.internal
-        ? (h.heading + c.relativeBearing) % 360
-        : c.bearing;
-      const relB = c.internal ? c.relativeBearing : ((c.bearing - h.heading + 360) % 360);
-      return `<tr><td>-${h.minsAgo} min</td><td>${Math.round(h.heading).toString().padStart(3, '0')}°</td>
-        <td>${Math.round(trueB).toString().padStart(3, '0')}°</td>
-        <td class="${c.internal ? 'cls-ownship' : ''}">${Math.round(relB).toString().padStart(3, '0')}°</td></tr>`;
-    }).join('');
-    table.innerHTML = `<thead><tr><th>Time</th><th>Own head</th><th>True brg</th><th>Rel brg</th></tr></thead><tbody>${rows}</tbody>`;
+    const track = this.sonar?.tracks.get(c.id);
+    const rows = (track?.history?.length ? track.history.slice(-6) : this._syntheticHistory(c));
+    table.innerHTML = `<thead><tr><th>Time</th><th>Own head</th><th>True brg</th><th>Rel brg</th></tr></thead><tbody>`
+      + rows.map((r) => `<tr><td>${r.clock ?? '—'}</td>
+        <td>${Math.round(r.ownHeading).toString().padStart(3, '0')}°</td>
+        <td>${Math.round(r.trueBearing).toString().padStart(3, '0')}°</td>
+        <td class="${c.internal ? 'cls-ownship' : ''}">${Math.round(r.relativeBearing).toString().padStart(3, '0')}°</td></tr>`).join('')
+      + '</tbody>';
+
+    const spanTrue = rows.length > 1 ? Math.abs(rows[rows.length - 1].trueBearing - rows[0].trueBearing) : 0;
     noteEl.textContent = c.internal
-      ? 'Own-ship head has come round 20° in ten minutes. This track came round with it — the relative bearing has not moved a degree.'
-      : 'This track holds its true bearing while own-ship head changes.';
+      ? 'Own-ship head has come round through this window. This track came round with it — the relative bearing has not moved a degree.'
+      : spanTrue > 0.4
+        ? `True bearing has moved ${spanTrue.toFixed(1)}° while own head changed. That is a real bearing rate: something out there is moving.`
+        : 'True bearing steady while own head changes — the source is in the water, not aboard.';
+  }
+
+  /** Before a track is designated there is still a history to look at. */
+  _syntheticHistory(c) {
+    const out = [];
+    const hdg = this.state.heading;
+    for (let i = 5; i >= 0; i--) {
+      const ownHeading = (hdg - i * 4 + 360) % 360;
+      const trueBearing = c.internal
+        ? (ownHeading + c.relativeBearing) % 360
+        : (c.bearing - (c.bearingRate ?? 0) * i * 2 + 360) % 360;
+      out.push({
+        clock: '—', ownHeading, trueBearing,
+        relativeBearing: ((trueBearing - ownHeading) % 360 + 360) % 360,
+      });
+    }
+    return out;
   }
 
   _renderOwnShip() {
@@ -183,44 +186,114 @@ export class SonarConsole {
     if (!el) return;
     const s = this.state;
     const rows = [
-      { name: 'Shaft', v: `${Math.round(s.propulsionState.shaftRpm)} rpm`, warn: false },
+      { name: 'shaft', v: `${Math.round(s.propulsionState.shaftRpm)} rpm`, warn: false },
       ...Object.entries(s.pumpStates).filter(([, p]) => p.on)
-        .map(([id, p]) => ({ name: id.replace(/([A-Z])/g, ' $1').toLowerCase(), v: `running · +3 dB`, warn: true })),
+        .map(([id]) => ({ name: id.replace(/([A-Z])/g, ' $1').toLowerCase(), v: 'running · +3 dB', warn: true })),
       ...s.machineryNoiseSources.map((n) => ({
-        name: n.label || n.id, v: `${n.level.toFixed(0)} dB @ ${Math.round(n.freqHz)} Hz`, warn: true,
-      })),
+        name: n.label || n.id, v: `${n.level.toFixed(0)} dB @ ${Math.round(n.freqHz)} Hz`, warn: true })),
     ];
     el.innerHTML = rows.map((r) => `<div class="contact-row"><span>${r.name}</span>
       <span class="${r.warn ? 'cls-merchant' : 'cls-biologic'}">${r.v}</span></div>`).join('');
 
+    // The quick own-ship call, used by the flooding mission's first objective.
     const call = this.container.querySelector('#anomaly-call');
-    const anom = this._anomaly();
+    const anom = this.contacts.find((c) => c.internal);
     if (!call) return;
     if (!anom) {
       call.innerHTML = '<div class="console-sub">No unexplained broadband source on the bearing plot.</div>';
       return;
     }
     if (this._called) return;
-    call.innerHTML = `<div class="console-sub">Track N01 is unexplained. Classify it:</div>
+    call.innerHTML = `<div class="console-sub">Track ${anom.id} is unexplained. Classify it:</div>
       <button class="station-btn" data-call="external">Contact in the water</button>
       <button class="station-btn" data-call="internal">Source aboard own-ship</button>`;
     call.querySelectorAll('[data-call]').forEach((b) => b.addEventListener('click', () => {
       const internal = b.dataset.call === 'internal';
       this._called = true;
+      this.sonar?.designate(anom.id);
+      this.sonar?.classify(anom.id, internal ? 'Own-ship' : 'Merchant', ['btr', 'narrowband']);
       this.notebook?.record({
         compartment: 'Sonar Room', instrument: 'Broadband / bearing history',
-        measurement: `N01 rel ${anom.relativeBearing.toString().padStart(3, '0')}, ${anom.level.toFixed(0)} dB`,
+        measurement: `${anom.id} rel ${String(anom.relativeBearing).padStart(3, '0')}, ${(anom.snr ?? 0).toFixed(0)} dB`,
         observation: internal
-          ? 'Constant relative bearing through a 20° course change, no blade rate, no harmonic family: the source is aboard.'
+          ? 'Constant relative bearing through a course change, no blade rate, no harmonic family: the source is aboard.'
           : 'Called as a contact in the water.',
         clock: this.state.formatClock(), kind: 'observation', tag: 'sonar_anomaly',
       });
-      this.bus.emit('sonar:anomalyClassified', { internal, id: 'N01' });
+      this.bus.emit('sonar:anomalyClassified', { internal, id: anom.id });
       call.innerHTML = internal
-        ? `<div class="console-sub cls-ownship">Logged: source aboard own-ship. Broadband with no blade rate and a locked relative bearing is a flow noise, not a ship.</div>`
-        : `<div class="console-sub cls-warship">Logged as an external contact — but nothing in the water holds a relative bearing through a course change. Look again at the bearing history.</div>`;
+        ? '<div class="console-sub cls-ownship">Logged: source aboard own-ship. Broadband with no blade rate and a locked relative bearing is a flow noise, not a ship.</div>'
+        : '<div class="console-sub cls-warship">Logged as an external contact — but nothing in the water holds a relative bearing through a course change. Look again at the bearing history.</div>';
       if (!internal) this._called = false;
     }));
+  }
+
+  /** Classification with an explicit statement of what the call rests on. */
+  _renderClassify() {
+    const el = this.container.querySelector('#classify-panel');
+    if (!el) return;
+    const c = this.selected;
+    const track = c ? this.sonar?.tracks.get(c.id) : null;
+    if (!c) { el.innerHTML = '<div class="console-sub">No track selected.</div>'; return; }
+    if (!track) {
+      el.innerHTML = `<div class="console-sub">Designate ${c.id} before classifying it. A watch holds tracks, not blips.</div>`;
+      return;
+    }
+    const quality = this.sonar.tonalQuality(c);
+    el.innerHTML = `
+      <div class="console-sub">Track <b>${c.id}</b> · narrowband shows
+        <b class="${quality === 'family' ? 'cls-biologic' : quality === 'partial' ? 'cls-merchant' : 'cls-warship'}">
+        ${quality === 'family' ? 'a full harmonic family' : quality === 'partial' ? 'one or two lines, no family' : 'no discrete lines'}</b>
+        · ${c.bladeRate ?? ''}</div>
+      <div class="settings-row" style="margin-top:8px;">
+        <label for="cls-select">Call it</label>
+        <select id="cls-select">${CLASSES.map((k) =>
+          `<option value="${k}" ${track.classifiedAs === k ? 'selected' : ''}>${k}</option>`).join('')}</select>
+      </div>
+      <div class="console-sub" style="margin-top:8px;">Cite what the call rests on:</div>
+      <div class="cite-list">${Object.entries(DISPLAYS).map(([id, d]) =>
+        `<label class="cite-item"><input type="checkbox" data-cite="${id}" ${this._cited.has(id) ? 'checked' : ''}>
+          <span>${d.name} <span class="chain-tag ${d.chain === 'analyser_B' ? 'alt' : d.chain === 'geometry' ? 'geo' : ''}">${d.chain.replace('_', ' ')}</span></span></label>`).join('')}
+      </div>
+      <button class="station-btn" id="log-class" style="margin-top:10px;">Log classification</button>
+      <div id="class-feedback" class="console-sub" style="margin-top:8px;"></div>`;
+
+    el.querySelectorAll('[data-cite]').forEach((b) => b.addEventListener('change', () => {
+      if (b.checked) this._cited.add(b.dataset.cite); else this._cited.delete(b.dataset.cite);
+    }));
+    el.querySelector('#log-class').addEventListener('click', () => {
+      const kind = el.querySelector('#cls-select').value;
+      const res = this.sonar.classify(c.id, kind, [...this._cited]);
+      const fb = el.querySelector('#class-feedback');
+      const bits = [];
+      if (res.shared) bits.push(`<span class="cls-warship">${res.shared}</span>`);
+      if (!res.independent) bits.push('<span class="cls-merchant">This call rests on one processing chain. Corroborate it from a different one — or from the boat\'s own manoeuvre.</span>');
+      if (res.independent && res.correct) bits.push('<span class="cls-biologic">Two independent chains agree, and the call fits the evidence.</span>');
+      if (res.independent && !res.correct) {
+        bits.push(res.quality === 'family'
+          ? '<span class="cls-warship">Independent evidence, but it does not say this. Look at which harmonic family is actually there.</span>'
+          : '<span class="cls-warship">There is not enough signature here to name a class. "Unknown" is a real answer.</span>');
+      }
+      fb.innerHTML = bits.join('<br>');
+      this.notebook?.record({
+        compartment: 'Sonar Room', instrument: 'Sonar classification',
+        measurement: `${c.id} called ${kind}`,
+        observation: `${res.independent ? 'Cited independent chains' : 'Cited one chain only'}: ${
+          [...this._cited].map((d) => DISPLAYS[d].name).join(', ') || 'nothing'}.`,
+        clock: this.state.formatClock(), kind: 'hypothesis', tag: 'sonar_class',
+      });
+      if (res.shared) {
+        this.notebook?.addDependency({
+          id: 'sonar_chain_A',
+          title: 'Three sonar displays, one beamformer',
+          displays: ['Broadband waterfall', 'Auto-detect list', 'Bearing-time record'],
+          sharedSource: 'beamformer A',
+          note: 'All three are renderings of one beam output. If the beamformer is wrong, all three are wrong together.',
+          independent: 'the narrowband analyser (its own chain), and manoeuvring own-ship.',
+        });
+      }
+      this._renderContacts();
+    });
   }
 
   _loop() {
@@ -232,7 +305,7 @@ export class SonarConsole {
     if (floor) floor.textContent = `${Math.round(this.state.sonarNoiseFloor)} dB`;
     const mask = this.container?.querySelector('#sn-mask');
     if (mask) {
-      mask.innerHTML = this.state.sonarNoiseFloor > FAINT_THRESHOLD_DB
+      mask.innerHTML = this.state.sonarNoiseFloor > 50
         ? ' — <span class="cls-warship">weak contacts are being masked</span>'
         : ' — <span class="cls-biologic">quiet enough to hold weak contacts</span>';
     }
@@ -245,7 +318,7 @@ export class SonarConsole {
     ctx.putImageData(img, 0, 1);
     ctx.fillStyle = '#04090c';
     ctx.fillRect(0, 0, w, 1);
-    const noise = (this.state.sonarNoiseFloor - 40) / 30;
+    const noise = Math.max(0, (this.state.sonarNoiseFloor - 40) / 30);
     for (let x = 0; x < w; x++) {
       if (Math.random() < 0.06 + noise * 0.15) {
         const g = 20 + Math.random() * 40;
@@ -255,9 +328,8 @@ export class SonarConsole {
     }
     for (const c of this.contacts) {
       const x = Math.round((c.bearing / 360) * w);
-      const bright = 120 + (c.confidence ?? 0.3) * 120 - noise * 60;
+      const bright = 110 + (c.confidence ?? 0.3) * 130 - noise * 50;
       const jitter = Math.round((Math.random() - 0.5) * 3);
-      // An internal flow noise smears across bearing instead of being a clean line.
       const width = c.internal ? 9 : 2;
       ctx.fillStyle = c.internal
         ? `rgba(216,162,74,${0.5 + Math.random() * 0.3})`
@@ -273,9 +345,9 @@ export class SonarConsole {
     ctx.fillStyle = '#04090c';
     ctx.fillRect(0, 0, w, h);
     const c = this.selected;
+    if (!c) return;
     const maxF = 200;
-    if (c?.internal) {
-      // Broadband hash: no harmonic family at all. That absence is the evidence.
+    if (c.internal) {
       ctx.fillStyle = 'rgba(216,162,74,0.5)';
       for (let x = 0; x < w; x++) {
         const amp = (h - 26) * (0.35 + 0.3 * Math.sin(x * 0.06 + this._t * 0.03)) * (0.6 + Math.random() * 0.4);
@@ -286,7 +358,7 @@ export class SonarConsole {
       ctx.fillText('no discrete lines — broadband', 6, 12);
       return;
     }
-    const freqs = FREQ_MAP[c?.type] || [];
+    const freqs = this.sonar ? this.sonar.tonalsFor(c) : (FREQ_MAP[c.truth] || []);
     ctx.strokeStyle = '#3fb6c2';
     for (const f of freqs) {
       const x = (f / maxF) * w;
@@ -298,7 +370,10 @@ export class SonarConsole {
     }
     ctx.fillStyle = '#8ea0ad';
     ctx.font = '10px monospace';
-    ctx.fillText(c?.type ? `${c.type} tonals` : 'no selection', 6, 12);
+    const q = this.sonar ? this.sonar.tonalQuality(c) : 'family';
+    ctx.fillText(q === 'family' ? `${freqs.length} lines — a family`
+      : q === 'partial' ? `${freqs.length} line(s) — no family`
+      : 'nothing above the floor', 6, 12);
   }
 
   dispose() {
@@ -306,3 +381,5 @@ export class SonarConsole {
     this._raf = null;
   }
 }
+
+export { SonarSystem };

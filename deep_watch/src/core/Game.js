@@ -20,6 +20,8 @@ import { StationManager } from '../stations/StationManager.js';
 import { MissionManager } from '../missions/MissionManager.js';
 import { FloodingSystem } from '../simulation/FloodingSystem.js';
 import { DamageControl } from '../simulation/DamageControl.js';
+import { SonarSystem } from '../simulation/SonarSystem.js';
+import { NavigationSystem } from '../simulation/NavigationSystem.js';
 import { HUD } from '../ui/HUD.js';
 import { Notebook } from '../ui/Notebook.js';
 import { Debrief } from '../ui/Debrief.js';
@@ -62,6 +64,8 @@ export class Game {
       // Systems the mission tests drive directly (headless pointer-lock makes
       // walking the boat by hand unreliable, so tests act through these).
       flooding: this.flooding,
+      sonar: this.sonar,
+      nav: this.nav,
       dc: this.damageControl,
       instruments: this.instruments,
       notebook: this.notebook,
@@ -84,6 +88,8 @@ export class Game {
         const step = 1 / 30;
         for (let t = 0; t < seconds; t += step) {
           this.flooding.update(step);
+          this.sonar.update(step);
+          this.nav.update(step);
           this.state.integrate(step);
         }
       },
@@ -148,6 +154,8 @@ export class Game {
     this.compartments = new CompartmentManager(this.bus, layout);
     this.audio = new AudioEnvironment({ settings: this.settings, state: this.state, eventBus: this.bus });
     this.flooding = new FloodingSystem({ state: this.state, eventBus: this.bus, layout });
+    this.sonar = new SonarSystem({ state: this.state, eventBus: this.bus });
+    this.nav = new NavigationSystem({ state: this.state, eventBus: this.bus });
 
     // Large live mimic panels on the bulkheads, so a compartment tells you what
     // it is doing as you walk in rather than waiting to be clicked.
@@ -197,11 +205,13 @@ export class Game {
     this.stations = new StationManager({
       eventBus: this.bus, state: this.state, save: this.save, notebook: this.notebook,
       instruments: this.instruments, flooding: this.flooding, inventory: this.inventory,
+      sonar: this.sonar, nav: this.nav,
     });
     this.missions = new MissionManager({
       eventBus: this.bus, state: this.state, save: this.save, compartmentManager: this.compartments,
       inventory: this.inventory, instruments: this.instruments, flooding: this.flooding,
       damageControl: this.damageControl, world: this.world, notebook: this.notebook,
+      sonar: this.sonar, nav: this.nav,
     });
   }
 
@@ -452,6 +462,8 @@ export class Game {
   _fixedUpdate(dt) {
     if (this.mode === 'playing' || this.mode === 'station' || this.mode === 'notebook') {
       this.flooding.update(dt);
+      this.sonar.update(dt);
+      this.nav.update(dt);
       this.state.integrate(dt);
     }
   }

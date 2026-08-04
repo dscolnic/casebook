@@ -132,11 +132,7 @@ export class SubmarineState {
 
     // Machinery self-noise: running pumps, shaft rpm, and any flow noise source
     // (e.g. an open flooding path) raise the floor and mask weak contacts.
-    let noise = 40;
-    if (this.propulsionState.online) noise += this.propulsionState.shaftRpm * 0.06;
-    for (const p of Object.values(this.pumpStates)) if (p.on) noise += 3;
-    for (const s of this.machineryNoiseSources) noise += s.level * 0.5;
-    this.sonarNoiseFloor += (noise - this.sonarNoiseFloor) * Math.min(1, dt);
+    this.sonarNoiseFloor += (this.noiseFloorTarget() - this.sonarNoiseFloor) * Math.min(1, dt);
 
     // Trim responds to where the water is, not just how much: each compartment
     // has a moment arm about the centre of buoyancy.
@@ -163,6 +159,26 @@ export class SubmarineState {
 
     this.lastTrustedFix.ageMin += dtMin;
     return this;
+  }
+
+  /** The self-noise floor the plant as currently lined up actually implies, dB. */
+  noiseFloorTarget() {
+    let noise = 40;
+    if (this.propulsionState.online) noise += this.propulsionState.shaftRpm * 0.06;
+    for (const p of Object.values(this.pumpStates)) if (p.on) noise += 3;
+    for (const s of this.machineryNoiseSources) noise += s.level * 0.5;
+    return noise;
+  }
+
+  /**
+   * Snap the floor to what the plant implies, with no settling lag. Missions call
+   * this after they line the plant up: a "rig for quiet" objective must not be
+   * able to satisfy itself during the second it takes the smoothed floor to catch
+   * up with the pumps that are actually running.
+   */
+  settleNoise() {
+    this.sonarNoiseFloor = this.noiseFloorTarget();
+    return this.sonarNoiseFloor;
   }
 
   /**

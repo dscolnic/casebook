@@ -1,8 +1,9 @@
 # Deep Watch — Handoff
 
-**Latest run scope:** one complete, polished vertical slice — **Mission 4, Forward
-Flooding** — built on the existing foundation, tested end to end, and documented.
-The other campaign missions were deliberately **not** started.
+**Latest run scope:** **Unit I is complete** — Missions 1, 2, 3 and Command
+Episode 1 — on top of the Unit II vertical slice, Mission 4 (Forward Flooding).
+Two new simulation systems (`SonarSystem`, `NavigationSystem`) sit under them.
+Missions 5–10 and Command Episodes 2–3 are **not** started.
 
 **Spec location:** there is no `DEEP_WATCH_MASTER_SPEC.md` in this repository. The
 build specification is the Word document at the repo root,
@@ -11,7 +12,9 @@ build specification is the Word document at the repo root,
 python3 -c "import zipfile,re,html;x=zipfile.ZipFile('Deep Watch Build Specification.docx').read('word/document.xml').decode();x=re.sub(r'</w:p>','\n',x);print(html.unescape(re.sub(r'<[^>]+>','',x)))"
 ```
 The "EXAMPLE INTEGRATED MISSION LOGIC" section of that document is the causal
-structure Mission 4 implements, step for step.
+structure Mission 4 implements, step for step. The UNIT I mission list and the
+Casebook / Sonar Spy / Dead Reckoning sections are what Missions 2, 3 and Command
+Episode 1 implement.
 
 ---
 
@@ -19,16 +22,18 @@ structure Mission 4 implements, step for step.
 
 ```bash
 cd deep_watch && npm install && npm run dev      # :5173, opens automatically
-npm run build                                    # ✓ 45 modules, 643 kB
-npx playwright test                              # ✓ 19/19
+npm run build                                    # ✓ 52 modules, ~660 kB
+npx playwright test                              # ✓ 34/34
 ```
 
-Pick the watch from the **Watch** dropdown on the start screen. It defaults to
-**Forward Flooding**; **Boat Walkdown** is the other entry.
+Pick the watch from the **Watch** dropdown on the start screen: Boat Walkdown,
+Contact in the Noise, Position Without a Trusted Fix, Silent Passage, Forward
+Flooding. `H` gives a hint and lights the place it is talking about; `K` (or the
+pause menu) steps over an objective for practice; `SPACE` dismisses a message.
 
 ---
 
-## Mission 4 — Forward Flooding (this run)
+## Mission 4 — Forward Flooding
 
 The full spec loop, with nothing faked: symptom in sonar → control-room evidence →
 instrument retrieval → acoustic trace through compartments → discovery beneath a
@@ -51,7 +56,27 @@ mistake/recovery table, and the scoring weights. The essentials:
   the installed pump with it. Leave pumps running and sonar cannot pass verification.
   All recoverable; hard failure is not used.
 
-### New code this run
+### Unit I (this run)
+
+- **`simulation/SonarSystem.js`** — contacts that exist independently of the player:
+  source level, spreading loss, and a detection threshold set by the boat's own
+  noise. Harmonic families from Sonar Spy's `freqMap` are the classification
+  evidence, and `tonalQuality()` decides whether a signature can carry a name at
+  all. Displays are tagged with a PROCESSING CHAIN, so `classify()` can report that
+  two cited displays were one measurement shown twice.
+- **`simulation/NavigationSystem.js`** — true position advanced by course, speed AND
+  the water; the estimate advanced by course and speed alone. Fix sources are tagged
+  with what they depend on: the inertial ones shrink the ring without moving the
+  plot, the fathometer actually corrects it. Bathymetry with a bank and a pinnacle
+  on its eastern shoulder, so a lateral position error becomes lost water.
+- **`stations/SonarConsole.js`** rebuilt around four faces with chain tags,
+  designation, bearing-time history and a classification panel that requires the
+  player to say what the call rests on.
+- **`stations/NavigationTable.js`** rebuilt with Plot / Dead reckoning / Fix sources
+  / Route faces and a chart that draws the bank to scale.
+- Missions `mission_02_contact`, `mission_03_navigation`, `episode_01_silent_passage`.
+
+### Mission 4 code (previous run)
 ```
 simulation/FloodingSystem.js     inflow vs depth, bilge geometry, pump prime,
                                  progressive flooding, water mass, flow noise,
@@ -84,7 +109,7 @@ tests/mission-flooding.spec.js   8 tests incl. the full 19-stage playthrough
 ### Test hooks (`window.__DEEPWATCH__`)
 `goTo(compartmentId)`, `interact(interactableId)`, `advance(seconds)` (runs the real
 30 Hz step, just faster), plus `flooding`, `dc`, `instruments`, `notebook`,
-`stations`, `missions`, `world`, `compartments`.
+`stations`, `missions`, `world`, `displays`, `hintBeacon`, `sonar`, `nav`, `compartments`.
 
 ---
 
@@ -121,11 +146,13 @@ procedural audio; HUD; the data-driven mission framework and the Boat Walkdown.
 - **Pointer lock in headless** is unreliable, so tests move the player with `goTo()`
   and drive the controller API. Interactive play uses a real lock.
 - **Bundle size**: one 643 kB chunk, mostly Three.js. Fine locally; code-split if hosted.
-- **Only Missions 1 and 4 exist.** Missions 2, 3, 5–10 and the three command episodes
-  are unbuilt, so there is no campaign-progression test.
-- **Atmosphere and navigation couplings are still sketches** inside `integrate()`;
-  they have not been pulled out into `AtmosphereSystem` / `NavigationSystem` the way
-  flooding now has its own module.
+- **Missions 5–10 and Command Episodes 2–3 are unbuilt**, so there is still no
+  full campaign-progression test.
+- **Atmosphere is still a sketch** inside `integrate()`; it has not been pulled out
+  into an `AtmosphereSystem` the way flooding, sonar and navigation now have modules.
+- **The episode's continuous scoring runs on a real-time interval**, so a test that
+  fast-forwards with `advance()` skips those samples. Interactive play is unaffected;
+  a future version should drive the accumulators from the fixed step instead.
 - **Crew NPCs, smoke/particles, and the submarine map overlay** are still absent.
 - Multi-deck ladders are props; the world is single-deck.
 - **Vite root is pinned** to the config file's directory so a cwd containing `#`/`?`
@@ -135,24 +162,15 @@ procedural audio; HUD; the data-driven mission framework and the Boat Walkdown.
 
 ## Exact next implementation tasks (in order)
 
-1. **Mission 2 — Contact in the Noise** and **Mission 3 — Position Without a Trusted
-   Fix**, to complete the spec's Phase-7 vertical slice. Mission 4 is the pattern:
-   copy its shape (stages that complete on physical facts, hints, `scoreParts`,
-   consequences over labels), not its content. Sonar Spy / Dead Reckoning / Casebook
-   content is already inventoried, and `SonarConsole` already has the bearing-history
-   panel and masking that Mission 2 needs.
-2. **Extract `SonarSystem` and `NavigationSystem`** into `src/simulation/` the way
-   `FloodingSystem` was extracted, so contacts and position drift are simulated
-   rather than drawn. Mission 2/3 will need this.
-3. **Mission 5 — Electrical Fire.** `ElectricalSwitchboard` already enforces
+1. **Mission 5 — Electrical Fire.** `ElectricalSwitchboard` already enforces
    restoration order; add `AtmosphereSystem` (smoke, boundaries, reflash) and the
    breathing-gear path. The locker/decoy machinery from Mission 4 transfers directly.
-4. **Crew system** (`CrewManager` / `CrewMember` / `CrewBehaviors`): station-manned
+2. **Crew system** (`CrewManager` / `CrewMember` / `CrewBehaviors`): station-manned
    NPCs, casualty-state movement, reports over internal comms. The 7MC handset is
    currently the only crew interface and it is a stub that talks back in toasts.
-5. **Submarine map overlay** (`ui/SubmarineMap.js`) + campaign screen (side cutaway,
+3. **Submarine map overlay** (`ui/SubmarineMap.js`) + campaign screen (side cutaway,
    compartments illuminate as qualified). Must not reveal undiscovered faults.
-6. **Missions 6–10 and the three command episodes**, then Phase 9 content-migration
+4. **Missions 6–10 and Command Episodes 2–3**, then Phase 9 content-migration
    review against the old HTML, then polish/perf/tests.
 
 ## Where things live

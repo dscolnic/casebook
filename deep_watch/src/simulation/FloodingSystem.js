@@ -462,9 +462,15 @@ export class FloodingSystem {
     };
   }
 
-  /** True once the casualty is stopped at the source (not merely being pumped). */
+  /**
+   * True once a casualty exists AND has been stopped at the source (not merely
+   * being pumped). With no sources at all this must be false — `[].every()` is
+   * true, which used to make every mission think its flooding was under control
+   * and secure the trim pump on the first tick.
+   */
   get stopped() {
-    return this.sources.every((src) => this.isIsolated(src) && src.repair && src.repair.holding);
+    return this.sources.length > 0
+      && this.sources.every((src) => this.isIsolated(src) && src.repair && src.repair.holding);
   }
 
   reset() {

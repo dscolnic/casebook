@@ -1,6 +1,9 @@
 import { MissionRuntime } from './MissionRuntime.js';
 import { mission01Walkdown } from './definitions/mission_01_walkdown.js';
+import { mission02Contact } from './definitions/mission_02_contact.js';
+import { mission03Navigation } from './definitions/mission_03_navigation.js';
 import { mission04Flooding } from './definitions/mission_04_flooding.js';
+import { episode01SilentPassage } from './definitions/episode_01_silent_passage.js';
 
 /**
  * MissionManager — the campaign registry and launcher. It resolves a definition
@@ -9,6 +12,9 @@ import { mission04Flooding } from './definitions/mission_04_flooding.js';
  */
 const REGISTRY = {
   mission_01_walkdown: mission01Walkdown,
+  mission_02_contact: mission02Contact,
+  mission_03_navigation: mission03Navigation,
+  episode_01_silent_passage: episode01SilentPassage,
   mission_04_flooding: mission04Flooding,
 };
 
@@ -43,6 +49,8 @@ export class MissionManager {
       dc: d.damageControl,
       world: d.world,
       notebook: d.notebook,
+      sonar: d.sonar,
+      nav: d.nav,
     });
     this.current.start();
     return this.current;
@@ -52,6 +60,8 @@ export class MissionManager {
   _resetWorldState() {
     const d = this.deps;
     d.flooding?.reset();
+    d.sonar?.reset();
+    d.nav?.reset();
     d.notebook?.clear();
     d.inventory?.clear();
     if (d.instruments) d.instruments.lastReadings.length = 0;
@@ -73,8 +83,9 @@ export class MissionManager {
       s.trim = 0;
       s.compensatedMass_t = 0;
       s.compartmentTemperature.sonar_electronics = 26;
-      s.machineryNoiseSources = s.machineryNoiseSources.filter((n) => n.id !== 'flood_flow');
+      s.machineryNoiseSources = [];
       s.activeCasualties = [];
+      s.settleNoise();
     }
     // Deck plates back down, pump hoses out.
     for (const [comp, bilge] of (d.world?.bilges ?? new Map())) {
