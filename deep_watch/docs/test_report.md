@@ -14,13 +14,13 @@
 ## Commands run
 ```bash
 cd deep_watch
-npm run build          # ✓ 45 modules, 643 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 46/46 passed (9.8 min, one worker); webServer = build + preview:4173
+npm run build          # ✓ 62 modules, 875 kB (Three.js dominated), no errors
+npx playwright test    # ✓ 58/58 passed (12.0 min, one worker); webServer = build + preview:4173
 ```
 
-## Results — 46/46 PASS
+## Results — 58/58 PASS
 
-### Smoke (`tests/smoke.spec.js`) — 11/11
+### Smoke (`tests/smoke.spec.js`) — 13/13
 | # | Test | Result |
 |---|---|---|
 | 1 | Application loads; start screen shown; **no fatal console errors** | ✓ |
@@ -110,6 +110,27 @@ and an electrical boundary changes what is connected (16).
 | 42 | **The crossing is 12 000 nm and takes ~119 days at the planned 4.2 kn**; speed buys days and costs decibels | ✓ |
 | 43 | The passage advances on the patrol clock and the plot renders it | ✓ |
 | 44 | **V shows the watchstander**, and interaction reach is still measured from the body, not the camera | ✓ |
+
+### The science codex (`tests/science-codex.spec.js`) — 12/12
+| # | Test | Result |
+|---|---|---|
+| 1 | **Every interactable object in the boat has a science entry** — walks the whole interactable list through `resolveScienceKey` | ✓ |
+| 2 | Every wall display is interactable and explains itself (records == panels, none unexplained) | ✓ |
+| 3 | Every station console resolves to its own entry | ✓ |
+| 4 | Every entry has a one-liner, a mechanism, numbers and a how-to-read section | ✓ |
+| 5 | **G** opens the entry for the object under the crosshair, and the world **freezes** while it is open | ✓ |
+| 6 | G with nothing under the crosshair opens the browsable index; a row opens an entry; Back returns | ✓ |
+| 7 | **E** on a wall panel opens what that panel is showing | ✓ |
+| 8 | A console's Science button opens its entry, and closing returns you to the console (mode `station`) | ✓ |
+| 9 | Sonar console captions link to the individual display physics | ✓ |
+| 10 | The HUD prompt advertises G on anything explainable, and does not double up on wall panels | ✓ |
+| 11 | All 46 qualification questions carry a valid `science` key and a well-formed answer | ✓ |
+| 12 | Answering a question offers the science behind it, and the link opens | ✓ |
+
+Test 1 is the load-bearing one: anything new placed in the boat appears in the
+interactable list, so "every object has an explanation" cannot quietly stop being
+true. The freeze assertion in test 5 checks the watch clock does not advance while
+the codex is open — reading a manual must not cost a compartment.
 
 ### Regression guards added after playtest reports
 | # | Test | Result |

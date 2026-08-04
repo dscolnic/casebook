@@ -4,6 +4,8 @@
  * lesson cards), and the handheld instrument read-out. It only reflects state via
  * EventBus subscriptions; it never drives simulation.
  */
+import { resolveScienceKey } from '../content/scienceNotes.js';
+
 export class HUD {
   constructor({ eventBus, state, flooding, crew, voyage }) {
     this.bus = eventBus;
@@ -52,8 +54,15 @@ export class HUD {
     this.bus.on('mission:hint', (h) => this._showHint(h.text, h.index, h.total));
     this.bus.on('mission:hintLocation', (l) => this._addHintLocation(l.where));
     this.bus.on('interaction:prompt', (p) => {
-      if (p) { this.el.prompt.hidden = false; this.el.prompt.innerHTML = `<span class="key">E</span>${p.prompt}`; }
-      else { this.el.prompt.hidden = true; }
+      if (!p) { this.el.prompt.hidden = true; return; }
+      this.el.prompt.hidden = false;
+      // If the thing under the crosshair has a science entry, say so here — that
+      // is the only place a player is reliably looking when they wonder what a
+      // piece of equipment actually does. A wall panel is skipped because E on it
+      // already opens the explanation.
+      const sci = p.type !== 'display' && resolveScienceKey(p.type, p.id);
+      this.el.prompt.innerHTML = `<span class="key">E</span>${p.prompt}`
+        + (sci ? `<span class="prompt-sci"><span class="key">G</span>How it works</span>` : '');
     });
     this.bus.on('inventory:active', (item) => {
       this.el.instrument.innerHTML = item

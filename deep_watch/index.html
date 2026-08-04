@@ -30,6 +30,7 @@
         <p class="start-hint">
           A composite training submarine. Walk the boat, operate the consoles,
           read the instruments, and reason your way through casualties.
+          Press <b>G</b> at any object or screen for the science behind it.
         </p>
         <p class="start-fineprint">Fictional composite vessel. No real classified layout or procedure is represented.</p>
       </div>
@@ -57,6 +58,7 @@
         <div id="settings-container"></div>
         <div class="pause-actions">
           <button id="btn-resume" class="primary-btn">Resume</button>
+          <button class="science-btn" data-science="index">How Everything Works</button>
           <button id="btn-skip-objective" class="secondary-btn">Skip This Objective</button>
           <button id="btn-restart" class="secondary-btn">Restart Mission</button>
           <button id="btn-to-campaign" class="secondary-btn">Return to Campaign</button>
@@ -96,9 +98,25 @@
       <div class="station-panel">
         <div class="station-header">
           <span id="station-title"></span>
+          <button id="btn-station-science" class="science-btn" data-science="">Science of this station (G)</button>
           <button id="btn-close-station" class="secondary-btn">Step Back (Esc)</button>
         </div>
         <div id="station-body" class="station-body"></div>
+      </div>
+    </div>
+
+    <!-- Science codex: how any instrument, screen or fitting actually works -->
+    <div id="science-overlay" class="overlay-panel" hidden>
+      <div class="science-panel">
+        <div class="science-header">
+          <span id="science-title"></span>
+          <span class="science-actions">
+            <button id="btn-science-back" class="secondary-btn" hidden>Back</button>
+            <button id="btn-science-index" class="secondary-btn">Browse all</button>
+            <button id="btn-close-science" class="secondary-btn">Close (G)</button>
+          </span>
+        </div>
+        <div id="science-body" class="science-body"></div>
       </div>
     </div>
 

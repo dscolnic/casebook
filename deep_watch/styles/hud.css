@@ -96,6 +96,20 @@
   font-weight: 700;
   margin-right: 6px;
 }
+/* The second half of the prompt: "and here is where the physics lives". */
+.hud-prompt .prompt-sci {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-size: 12px;
+}
+.hud-prompt .prompt-sci .key {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-weight: 600;
+}
 
 .hud-toast {
   position: absolute;

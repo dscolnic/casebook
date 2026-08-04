@@ -8,6 +8,7 @@ import { DamageControlBoard } from './DamageControlBoard.js';
 import { EquipmentLockerPanel } from './EquipmentLockerPanel.js';
 import { StudyDesk } from './StudyDesk.js';
 import { PassageChart } from './PassageChart.js';
+import { resolveScienceKey } from '../content/scienceNotes.js';
 
 /**
  * StationManager — opens the correct console overlay when the player mans a
@@ -49,6 +50,14 @@ export class StationManager {
     this.active = new def.klass({ ...this.ctx, data });
     this.activeId = stationId;
     this.titleEl.textContent = data.label || def.title;
+    // Point the header's science button at this station's entry, so every console
+    // carries an explanation of what it is measuring and why.
+    const sci = document.getElementById('btn-station-science');
+    if (sci) {
+      const key = resolveScienceKey('station', stationId);
+      sci.hidden = !key;
+      if (key) sci.setAttribute('data-science', key);
+    }
     this.bodyEl.innerHTML = '';
     this.overlay.hidden = false;
     this.active.render(this.bodyEl);

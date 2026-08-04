@@ -30,6 +30,8 @@ import { HUD } from '../ui/HUD.js';
 import { Notebook } from '../ui/Notebook.js';
 import { Debrief } from '../ui/Debrief.js';
 import { SettingsMenu } from '../ui/SettingsMenu.js';
+import { ScienceCodex } from '../ui/ScienceCodex.js';
+import { SCIENCE_NOTES, resolveScienceKey, scienceIndex } from '../content/scienceNotes.js';
 
 /**
  * Game — top-level orchestrator. Owns the renderer, scene, camera, and every
@@ -76,7 +78,11 @@ export class Game {
       // Content the tests need to assert against. Exposed here rather than
       // imported by path, because tests run against the built bundle where the
       // source paths no longer exist.
-      content: { QUAL_QUESTIONS, questionsAvailable, PER_DAY, TOTAL_NM, PLANNED_SPEED_KN },
+      content: { QUAL_QUESTIONS, questionsAvailable, PER_DAY, TOTAL_NM, PLANNED_SPEED_KN,
+        SCIENCE_NOTES, resolveScienceKey, scienceIndex },
+      science: this.science,
+      /** Every interactable in the boat, for coverage tests. */
+      interactables: () => this._worldInteractables.map((r) => ({ type: r.type, id: r.id })),
       dc: this.damageControl,
       instruments: this.instruments,
       notebook: this.notebook,
@@ -181,6 +187,9 @@ export class Game {
     });
     this.displays.build(this.world.root);
     this._shareDisplayFeeds();
+    // Every wall panel is also something you can ask about: E on a screen opens
+    // the physics behind what it is showing.
+    this._worldInteractables.push(...this.displays.interactableRecords());
   }
 
   /** Put each compartment's feed onto the station consoles standing in it. */
@@ -241,6 +250,9 @@ export class Game {
   _initUI() {
     this.hud = new HUD({ eventBus: this.bus, state: this.state, flooding: this.flooding,
       crew: this.crew, voyage: this.voyage });
+    // The science codex: every object, screen and console has an entry, and the
+    // simulation is frozen while it is open (mode 'science' is not stepped).
+    this.science = new ScienceCodex({ eventBus: this.bus, save: this.save });
     this.debrief = new Debrief({ eventBus: this.bus, notebook: this.notebook });
     this.hintBeacon = new HintBeacon({
       scene: this.scene, lighting: this.lighting, layout: this.layout, eventBus: this.bus,
@@ -316,6 +328,8 @@ export class Game {
     });
     // Turning in.
     this.bus.on('interact:bunk', () => this.crew.sleep());
+    // A wall panel cannot be operated, but it can be explained.
+    this.bus.on('interact:display', (rec) => this.science.show(`display:${rec.data.display}`));
 
     // Lockers open a stowage panel (StationManager) and deck plates, valves,
     // panels, the rupture, the sump and the 7MC are all handled by DamageControl.
@@ -335,9 +349,25 @@ export class Game {
       if (!locked && this.mode === 'playing') this.pause();
     });
 
+    // The science codex sits on top of whatever it was opened from, and the world
+    // is frozen behind it: reading how the sounding tape works should not cost you
+    // a compartment.
+    this.bus.on('science:opened', () => {
+      if (this.mode === 'science') return;
+      this._preScience = this.mode;
+      this._enterOverlay('science');
+    });
+    this.bus.on('science:closed', () => {
+      if (this.mode !== 'science') return;
+      if (this._preScience === 'station' && this.stations.isOpen) this.mode = 'station';
+      else if (this._preScience === 'paused' || this._preScience === 'menu') this.mode = this._preScience;
+      else this._exitOverlay();
+    });
+
     document.addEventListener('keydown', (e) => {
       if (e.code === 'Escape') {
-        if (this.mode === 'station') this.stations.close();
+        if (this.mode === 'science') this.science.hide();
+        else if (this.mode === 'station') this.stations.close();
         else if (this.mode === 'notebook') this.notebook.toggle(false);
         else if (this.mode === 'paused') this.resume();
         // (playing → Escape also releases pointer lock, handled above)
@@ -348,6 +378,7 @@ export class Game {
       // Any mode except the start screen — a player who has just opened a console
       // and wants to see themselves should not have to guess that V is gated.
       if (e.code === 'KeyV' && this.mode !== 'menu') this.player.toggleView();
+      if (e.code === 'KeyG' && this.mode !== 'menu') this._toggleScience();
       if (e.code === 'KeyK' && this.mode === 'playing') this._skipObjective();
       if (e.code === 'Space' && this.mode === 'playing') this.hud.dismissToast();
     });
@@ -389,6 +420,20 @@ export class Game {
     });
 
     if (this.save.hasProgress()) document.getElementById('btn-continue').hidden = false;
+  }
+
+  /**
+   * G — "why does this work". What it opens depends on where you are:
+   * the console you are manning, the thing under the crosshair, or the index.
+   */
+  _toggleScience() {
+    if (this.mode === 'science') { this.science.hide(); return; }
+    if (this.mode === 'station' && this.stations.activeId) {
+      const key = resolveScienceKey('station', this.stations.activeId);
+      if (key && this.science.show(key)) return;
+    }
+    if (this.science.showLookedAt()) return;
+    this.science.showIndex();
   }
 
   /** Step over the current objective (pause menu, or K while playing). */
@@ -446,7 +491,7 @@ export class Game {
       this._saidView = true;
       setTimeout(() => this.bus.emit('hud:toast', {
         concept: 'Controls',
-        text: 'Press V to drop the camera back and see the watchstander. H gives a hint and lights up where to go; N is your notebook.',
+        text: 'Press V to drop the camera back and see the watchstander. G explains the science behind whatever you are looking at. H gives a hint and lights up where to go; N is your notebook.',
       }), 1500);
     }
   }

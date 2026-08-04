@@ -27,7 +27,13 @@ export function guideStrip({ what, doNow, why, steps = [], activeStep = -1 }) {
     </div>`;
 }
 
-/** A caption under a display: what it shows, and what to look for in it. */
-export function caption(shows, lookFor) {
-  return `<div class="display-caption"><b>Shows:</b> ${shows}<br><b>Look for:</b> ${lookFor}</div>`;
+/**
+ * A caption under a display: what it shows, what to look for in it, and — if the
+ * display has a science-codex entry — a button to the physics behind it. Adding
+ * the key here rather than in each console means one change covers every caption.
+ */
+export function caption(shows, lookFor, scienceKey = null) {
+  return `<div class="display-caption"><b>Shows:</b> ${shows}<br><b>Look for:</b> ${lookFor}`
+    + (scienceKey ? ` <button class="science-btn inline" data-science="${scienceKey}">Science</button>` : '')
+    + `</div>`;
 }

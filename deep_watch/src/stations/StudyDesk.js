@@ -95,7 +95,9 @@ export class StudyDesk {
               return `<button class="qi-opt ${cls}" data-q="${q.id}" data-opt="${oi}" ${a ? 'disabled' : ''}>
                 <span class="qi-letter">${'ABCD'[oi]}</span>${opt}</button>`;
             }).join('')}
-            ${a ? `<div class="qi-why"><span class="qi-concept">${q.concept}</span>${q.why}</div>` : ''}
+            ${a ? `<div class="qi-why"><span class="qi-concept">${q.concept}</span>${q.why}
+              ${q.science ? `<button class="science-btn inline" data-science="${q.science}">The science behind this</button>` : ''}
+            </div>` : ''}
           </div>` : ''}
       </div>`;
     }).join('');

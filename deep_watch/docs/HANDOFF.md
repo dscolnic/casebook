@@ -22,14 +22,15 @@ Episode 1 implement.
 
 ```bash
 cd deep_watch && npm install && npm run dev      # :5173, opens automatically
-npm run build                                    # ✓ 52 modules, ~660 kB
-npx playwright test                              # ✓ 34/34
+npm run build                                    # ✓ 62 modules, ~875 kB
+npx playwright test                              # ✓ 58/58
 ```
 
 Pick the watch from the **Watch** dropdown on the start screen: Boat Walkdown,
 Contact in the Noise, Position Without a Trusted Fix, Silent Passage, Forward
 Flooding. `H` gives a hint and lights the place it is talking about; `K` (or the
-pause menu) steps over an objective for practice; `SPACE` dismisses a message.
+pause menu) steps over an objective for practice; `SPACE` dismisses a message;
+`G` opens the science behind whatever you are looking at (or the whole index).
 
 ---
 
@@ -55,6 +56,39 @@ mistake/recovery table, and the scoring weights. The essentials:
   nothing. Leave the power panel energized and 45 cm of water grounds it out, taking
   the installed pump with it. Leave pumps running and sonar cannot pass verification.
   All recoverable; hard failure is not used.
+
+### The science codex (this run)
+
+Every object, screen and console in the boat now carries an explanation of the
+physics behind it, reachable with **G** without leaving the game.
+
+- **`src/content/scienceNotes.js`** is the single content file. One entry per thing,
+  each answering the same five questions in the same order: `oneLine`, `how` (the
+  actual mechanism), `numbers` (every quantity on its face and what the value
+  means), optional `math` (the relationship with every term named), `read` (how to
+  interpret a change), `trap` (the misreading that costs people boats). Figures are
+  imported from the simulation (`BILGE_AREA`, `PANEL_THREAT_CM`, `TOTAL_NM`, …) so
+  an explanation cannot drift away from the model it describes.
+- **`resolveScienceKey(type, id)`** is the only place that knows how world objects
+  map onto entries. Per-valve entries are generated from `VALVES`, so a valve added
+  to the simulation gets an explanation automatically, with its own dependants in it.
+- **`src/ui/ScienceCodex.js`** renders entries, keeps a back stack, and offers a
+  browsable index grouped by kind. Any element anywhere may open it with
+  `data-science="<key>"` — that is how the station header button, the console
+  captions and the qualification card all reach it with no per-caller wiring.
+- **Wall panels are interactable.** `WallDisplays.interactableRecords()` returns one
+  record per panel (`type: 'display'`), so pressing **E** on any screen opens what it
+  is showing and why. Panels still cannot be operated; you man a station for that.
+- **The world freezes while the codex is open** (mode `'science'` is not stepped in
+  `_fixedUpdate`). Reading about the sounding tape must not cost you a compartment.
+- **The qualification card was rebuilt around this.** 46 questions, all with a
+  `science` key: instrument and sensor physics first (decibels as ratios, rise × area,
+  Torricelli, discharge coefficient, priming and cavitation, emissivity, I²R, blade
+  rate, delay-and-sum beamforming, spreading loss), then the mission-level reasoning
+  questions. A wrong answer offers the codex entry behind it.
+
+Adding anything to the boat now has a matching obligation: `tests/science-codex.spec.js`
+walks every interactable and fails if it has no entry.
 
 ### Unit I (this run)
 
@@ -176,7 +210,11 @@ procedural audio; HUD; the data-driven mission framework and the Boat Walkdown.
 ## Where things live
 - Add a mission: `src/missions/definitions/` + register in `MissionManager.js`.
 - Add an instrument: `DEFS` in `src/instruments/InstrumentManager.js`, plus a world
-  pickup or a locker entry in `stations/EquipmentLockerPanel.js`.
+  pickup or a locker entry in `stations/EquipmentLockerPanel.js`. **Also add a
+  science entry** — `src/content/scienceNotes.js` — or the coverage test fails.
+- Explain something: `src/content/scienceNotes.js`; open it from anywhere with
+  `data-science="<key>"` on any element.
+- Add a qualification question: `src/content/qualQuestions.js`, with a `science` key.
 - Boat layout: `LAYOUT` in `src/world/SubmarineWorld.js`; deck holes: `DECK_OPENINGS`.
 - Couplings: `SubmarineState.integrate()` and the per-system modules in `simulation/`.
 - Debug handle for tests: `window.__DEEPWATCH__`.

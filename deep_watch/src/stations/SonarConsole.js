@@ -69,7 +69,8 @@ export class SonarConsole {
           <h4>Broadband Waterfall — Bearing × Time <span class="chain-tag">beamformer A</span></h4>
           <canvas class="waterfall-canvas" width="620" height="235"></canvas>
           ${caption('energy against bearing (000° to 360° left to right), newest at the top, scrolling down over time.',
-            'the labelled arrows along the top — each one marks a track\'s column, so you can match a bearing in the list to a streak here. A wide fuzzy smear is usually our own boat.')}
+            'the labelled arrows along the top — each one marks a track\'s column, so you can match a bearing in the list to a streak here. A wide fuzzy smear is usually our own boat.',
+            'display:broadband_waterfall')}
           <div class="console-sub">Own-ship self-noise floor:
             <b id="sn-floor">${Math.round(this.state.sonarNoiseFloor)} dB</b><span id="sn-mask"></span></div>
         </div>
@@ -77,7 +78,8 @@ export class SonarConsole {
           <h4>Auto-detect List <span class="chain-tag">beamformer A</span></h4>
           <div id="sonar-contacts"></div>
           ${caption('anything the detector thinks is above the noise, with its signal strength in dB.',
-            'a strong number means a clear signal — it does NOT mean the contact is close or important.')}
+            'a strong number means a clear signal — it does NOT mean the contact is close or important.',
+            'display:autodetect')}
         </div>
       </div>
 
@@ -87,14 +89,16 @@ export class SonarConsole {
           <canvas class="btr-canvas" width="240" height="110"></canvas>
           <div class="console-sub" id="sonar-narrow-note"></div>
           ${caption('the discrete frequencies coming from the selected track.',
-            'an evenly spaced FAMILY of lines means a turning propeller, and the spacing says what kind of ship. One lonely line means nothing yet. No lines at all means it is not a ship.')}
+            'an evenly spaced FAMILY of lines means a turning propeller, and the spacing says what kind of ship. One lonely line means nothing yet. No lines at all means it is not a ship.',
+            'display:narrowband')}
         </div>
         <div class="console-tile">
           <h4>Bearing-Time Record <span class="chain-tag">beamformer A</span></h4>
           <table class="bearing-table" id="bearing-table"></table>
           <div class="console-sub" id="bearing-note"></div>
           ${caption('how the bearing has moved while our own heading changed.',
-            'if TRUE bearing stays put, it is out in the water. If RELATIVE bearing stays put while we turn, it is bolted to our own hull.')}
+            'if TRUE bearing stays put, it is out in the water. If RELATIVE bearing stays put while we turn, it is bolted to our own hull.',
+            'display:btr')}
         </div>
       </div>
 

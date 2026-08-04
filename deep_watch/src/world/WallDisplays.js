@@ -435,6 +435,25 @@ const DISPLAYS = [
   },
 ];
 
+/**
+ * Which science-codex entry explains each panel. Kept as an explicit map rather
+ * than slugged from the title, so renaming a panel's caption cannot silently
+ * detach it from its explanation.
+ */
+const SCIENCE_KEYS = {
+  'Fwd Damage-Control Status': 'fwd_dc_status',
+  'Sonar-Array Electronics': 'sonar_array_electronics',
+  'Broadband Waterfall': 'broadband_waterfall',
+  'Ship Control Repeater': 'ship_control_repeater',
+  'Passage Plot': 'passage_plot',
+  'Communications Status': 'comms_status',
+  'Plan of the Day': 'plan_of_day',
+  'Plant Mimic': 'plant_mimic',
+  Propulsion: 'propulsion',
+  Distribution: 'distribution',
+  'Auxiliary & Bilge': 'auxiliary_bilge',
+};
+
 export class WallDisplays {
   constructor({ scene, materials, layout, state, flooding, halfWidth, collision, voyage }) {
     this.scene = scene;
@@ -533,13 +552,19 @@ export class WallDisplays {
       // Mounted high enough to clear a console but still read from the doorway.
       const y = 1.62;
 
+      // One group per panel, so the whole thing (bezel, screen, glow) is a single
+      // object the interaction ray can hit and open the science entry for.
+      const panel = new THREE.Group();
+      panel.name = `panel_${def.title}`;
+      this.group.add(panel);
+
       // Bezel + screen, sitting proud of the bulkhead.
       const bezel = new THREE.Mesh(
         new THREE.BoxGeometry(w + 0.1, h + 0.1, 0.07),
         new THREE.MeshStandardMaterial({ color: 0x161d22, roughness: 0.7, metalness: 0.4 }));
       bezel.position.set(x, y, z);
       bezel.rotation.y = sx > 0 ? -Math.PI / 2 : Math.PI / 2;
-      this.group.add(bezel);
+      panel.add(bezel);
 
       // Basic material — a lit screen is emissive by nature and must stay legible
       // in a dim or red-lit compartment.
@@ -548,12 +573,12 @@ export class WallDisplays {
         new THREE.MeshBasicMaterial({ map: texture, toneMapped: false, fog: false }));
       screen.position.set(x - sx * 0.042, y, z);
       screen.rotation.y = sx > 0 ? -Math.PI / 2 : Math.PI / 2;
-      this.group.add(screen);
+      panel.add(screen);
 
       // A little spill of light onto the bulkhead around it.
       const glow = new THREE.PointLight(0x2f7f8c, 0.5, 2.8, 2.0);
       glow.position.set(x - sx * 0.4, y, z);
-      this.group.add(glow);
+      panel.add(glow);
 
       // A panel is furniture too. Without this, a compartment with two panels
       // puts them both on the same clear stretch of bulkhead and they z-fight.
@@ -562,11 +587,29 @@ export class WallDisplays {
         minZ: z - w / 2 - 0.25, maxZ: z + w / 2 + 0.25,
       });
 
-      const d = { def, canvas, ctx, texture, screen, bezel, compartment: def.compartment, index: this.layout.indexOf(c) };
+      const d = { def, canvas, ctx, texture, screen, bezel, panel,
+        science: SCIENCE_KEYS[def.title] || null,
+        compartment: def.compartment, index: this.layout.indexOf(c) };
       this.displays.push(d);
       this._draw(d);      // one frame immediately, so nothing is ever blank
     }
     return this.displays;
+  }
+
+  /**
+   * Interaction records for the panels, so a player can press E on any screen and
+   * get the physics behind what it is showing. The panels stay non-operable — you
+   * still man a station to DO anything — but nothing on a bulkhead is now a wall
+   * of numbers with no explanation attached.
+   */
+  interactableRecords() {
+    return this.displays.filter((d) => d.science).map((d) => ({
+      object: d.panel,
+      type: 'display',
+      id: `display_${d.science}`,
+      prompt: `What ${d.def.title} is showing`,
+      data: { display: d.science, title: d.def.title, compartment: d.compartment },
+    }));
   }
 
   _draw(d) {

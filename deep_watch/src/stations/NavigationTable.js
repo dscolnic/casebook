@@ -129,7 +129,8 @@ export class NavigationTable {
           <span><i class="hatch"></i>shallower than ${danger} m — no room for us</span>
         </div>
         ${caption('the sea bottom in depth bands, our dead-reckoned track, and the three ways out.',
-          'the amber dot (where we think we are), the dashed circle around it (how wrong that could be), and whether that circle reaches any red hatching.')}
+          'the amber dot (where we think we are), the dashed circle around it (how wrong that could be), and whether that circle reaches any red hatching.',
+          'display:nav_chart')}
       </div>
       <div class="stat-chips">
         <div class="chip ${s.navigationUncertainty > 1 ? 'bad' : s.navigationUncertainty > 0.5 ? 'warn' : 'good'}">
