@@ -345,6 +345,9 @@ export class Game {
       if (e.code === 'BracketLeft') this.inventory.cycle(-1);
       if (e.code === 'BracketRight') this.inventory.cycle(1);
       if (e.code === 'KeyH' && this.mode === 'playing') this.missions.hint();
+      // Any mode except the start screen — a player who has just opened a console
+      // and wants to see themselves should not have to guess that V is gated.
+      if (e.code === 'KeyV' && this.mode !== 'menu') this.player.toggleView();
       if (e.code === 'KeyK' && this.mode === 'playing') this._skipObjective();
       if (e.code === 'Space' && this.mode === 'playing') this.hud.dismissToast();
     });
@@ -437,6 +440,15 @@ export class Game {
 
     this.missions.start(missionId);
     this.bus.emit('game:started', { missionId });
+
+    // Say the view key out loud once. Nobody discovers a keybind by accident.
+    if (!this._saidView) {
+      this._saidView = true;
+      setTimeout(() => this.bus.emit('hud:toast', {
+        concept: 'Controls',
+        text: 'Press V to drop the camera back and see the watchstander. H gives a hint and lights up where to go; N is your notebook.',
+      }), 1500);
+    }
   }
 
   pause() {

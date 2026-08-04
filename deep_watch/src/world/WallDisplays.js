@@ -555,6 +555,13 @@ export class WallDisplays {
       glow.position.set(x - sx * 0.4, y, z);
       this.group.add(glow);
 
+      // A panel is furniture too. Without this, a compartment with two panels
+      // puts them both on the same clear stretch of bulkhead and they z-fight.
+      this.obstacles.push({
+        minX: Math.min(x, x - sx * 0.7), maxX: Math.max(x, x - sx * 0.7),
+        minZ: z - w / 2 - 0.25, maxZ: z + w / 2 + 0.25,
+      });
+
       const d = { def, canvas, ctx, texture, screen, bezel, compartment: def.compartment, index: this.layout.indexOf(c) };
       this.displays.push(d);
       this._draw(d);      // one frame immediately, so nothing is ever blank

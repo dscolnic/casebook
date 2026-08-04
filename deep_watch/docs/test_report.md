@@ -15,10 +15,10 @@
 ```bash
 cd deep_watch
 npm run build          # ✓ 45 modules, 643 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 44/44 passed (9.9 min, one worker); webServer = build + preview:4173
+npx playwright test    # ✓ 46/46 passed (9.8 min, one worker); webServer = build + preview:4173
 ```
 
-## Results — 44/44 PASS
+## Results — 46/46 PASS
 
 ### Smoke (`tests/smoke.spec.js`) — 11/11
 | # | Test | Result |
@@ -111,6 +111,12 @@ and an electrical boundary changes what is connected (16).
 | 43 | The passage advances on the patrol clock and the plot renders it | ✓ |
 | 44 | **V shows the watchstander**, and interaction reach is still measured from the body, not the camera | ✓ |
 
+### Regression guards added after playtest reports
+| # | Test | Result |
+|---|---|---|
+| 45 | **Every compartment can be walked end to end down the centreline** — furniture in line with a bulkhead hatch reads as a blocked compartment | ✓ |
+| 46 | V shows the watchstander and the body tracks them | ✓ |
+
 ## Bugs found by testing and fixed this run
 1. **The deck matting covered the bilge opening.** Each compartment lays an accent
    plane over its deck; it spanned the new hole, so lifting the plate revealed a
@@ -173,7 +179,24 @@ and an electrical boundary changes what is connected (16).
    on the import rather than on the behaviour. Content the tests need to assert
    against (`QUAL_QUESTIONS`, `TOTAL_NM`, …) is now exposed on
    `window.__DEEPWATCH__.content`.
-14. Two pre-existing smoke tests assumed the start button always launches the walkdown.
+14. **Three compartments could not be walked into.** Anything placed on the
+   centreline sits directly in line with the bulkhead hatch, so a player steps
+   through and walks straight into it — it reads as "the room is blocked" even
+   when there is a clear lane either side. Hit the after machinery space (heat
+   exchanger + bilge coaming), the forward equipment space (bilge coaming) and
+   propulsion (the main motor). All three moved off the centreline, and test 45
+   now walks all ten compartments so this cannot come back.
+15. **`V` was never bound.** `toggleView()` existed and nothing called it — a
+   `str.replace` that silently missed because the file said "centerline" and the
+   patch said "centreline". The same silent-miss class of error also swallowed the
+   first attempt at moving the propulsion motor. Both now use edits that fail
+   loudly, and the keybind is announced in a toast at mission start, because
+   nobody discovers a keybind by accident.
+16. **Two wall panels in one compartment landed on the same stretch of bulkhead**
+   and z-fought — the "glitching" map in the control room. Panels are furniture
+   too; each one now registers its own footprint so the next has to find its own
+   space.
+17. Two pre-existing smoke tests assumed the start button always launches the walkdown.
    The start screen now has a mission picker (defaulting to the vertical slice), so
    those tests select the walkdown explicitly.
 

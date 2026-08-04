@@ -161,3 +161,62 @@ test('state simulation: flooding raises bilge and shifts trim', async ({ page })
   expect(result.bilge).toBeGreaterThan(0);
   expect(result.trim1).toBeGreaterThan(result.trim0); // bow-down as forward water rises
 });
+
+test('every compartment can be walked end to end down the centreline', async ({ page }) => {
+  // Furniture placed on the centreline sits directly in line with the bulkhead
+  // hatch, so a player steps through and walks straight into it. That has now
+  // happened three times (the after machinery space, the forward bilge coaming,
+  // the propulsion motor), so it gets a test: walk each compartment from just
+  // inside its forward boundary to just inside its after one, holding W.
+  await page.waitForFunction(() => !!window.__DEEPWATCH__);
+  await page.evaluate(() => window.__DEEPWATCH__.startMission('mission_01_walkdown'));
+  await page.waitForFunction(() => window.__DEEPWATCH__.getMode() === 'playing');
+
+  const results = await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    const out = [];
+    for (const c of g.layout) {
+      g.goTo(c.id);
+      g.player.setPose(0, c.zStart + 0.45, 180);       // just inside, facing aft
+      g.player.enabled = true;
+      g.player.keys.add('KeyW');
+      const target = c.zEnd - 0.45;
+      let stuck = 0, last = g.player.position.z;
+      for (let i = 0; i < 900 && g.player.position.z < target; i++) {
+        g.player.update(1 / 30);
+        if (Math.abs(g.player.position.z - last) < 0.001) stuck++; else stuck = 0;
+        last = g.player.position.z;
+        if (stuck > 40) break;                          // wedged against something
+      }
+      g.player.keys.clear();
+      out.push({ id: c.id, reached: g.player.position.z, need: target });
+    }
+    return out;
+  });
+
+  const blocked = results.filter((r) => r.reached < r.need - 0.05);
+  expect(blocked.map((b) => `${b.id} stopped at ${b.reached.toFixed(2)} of ${b.need.toFixed(2)}`)).toEqual([]);
+});
+
+test('V shows the watchstander and the body follows them', async ({ page }) => {
+  await page.waitForFunction(() => !!window.__DEEPWATCH__);
+  await page.locator('#btn-start').click();
+  await page.waitForFunction(() => window.__DEEPWATCH__.getMode() === 'playing');
+  expect(await page.evaluate(() => window.__DEEPWATCH__.body.group.visible)).toBe(false);
+
+  await page.keyboard.press('KeyV');
+  await page.waitForTimeout(250);
+  const third = await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    for (let i = 0; i < 20; i++) g.player.update(1 / 30);
+    return {
+      view: g.player.view,
+      visible: g.body.group.visible,
+      bodyZ: g.body.group.position.z,
+      playerZ: g.player.position.z,
+    };
+  });
+  expect(third.view).toBe('third');
+  expect(third.visible).toBe(true);
+  expect(Math.abs(third.bodyZ - third.playerZ)).toBeLessThan(0.01);
+});

@@ -49,7 +49,7 @@ const FWD = LAYOUT.find((c) => c.id === 'forward_equipment');
 const AUX = LAYOUT.find((c) => c.id === 'auxiliary');
 export const DECK_OPENINGS = [
   { id: 'deckplate_fwd', compartment: 'forward_equipment', bilge: 'forward_equipment',
-    x1: -0.25, x2: 1.05, z1: FWD.zStart + 3.6, z2: FWD.zStart + 5.0 },
+    x1: 0.55, x2: 1.75, z1: FWD.zStart + 3.6, z2: FWD.zStart + 5.0 },
   { id: 'deckplate_aft', compartment: 'auxiliary', bilge: 'auxiliary',
     x1: 0.15, x2: 1.45, z1: AUX.zEnd - 1.9, z2: AUX.zEnd - 0.5 },
 ];
@@ -653,20 +653,24 @@ export class SubmarineWorld {
   }
 
   _furnish_propulsion(c) {
-    // Long motor/turbine housing on centerline + shaft aft.
+    // Motor/turbine housing and its shaft, set to STARBOARD rather than on the
+    // centreline. On the centreline it sits directly in line with the forward
+    // hatch: you step through and walk straight into it, which reads as the
+    // compartment being blocked even though there is a lane down either side.
     const motor = this.props.machineryHousing({ length: 3.0, radius: 0.6, colorHex: 0x4a545c });
-    motor.position.set(0.2, 0.7, c.zStart + 2.2);
+    motor.position.set(1.3, 0.7, c.zStart + 2.4);
     motor.rotation.y = Math.PI / 2;
     this.root.add(motor);
-    this.collision.addBoxFromObject(motor, 0.1);
-    // Shaft continuing aft.
+    this.collision.addBoxFromObject(motor, 0.08);
+    // Shaft continuing aft on the same line.
     const shaft = this.props.pipeRun({ length: 3, axis: 'z', radius: 0.12, colorHex: 0x6a6a6a });
-    shaft.position.set(0.2, 0.7, c.zEnd - 1.6);
+    shaft.position.set(1.3, 0.7, c.zEnd - 1.5);
     this.root.add(shaft);
-    // Access panels + vibration/temperature sensor pucks (visual).
+    // Access panels + sensor pucks on the inboard face, where a watchstander can
+    // actually reach them.
     for (let i = 0; i < 3; i++) {
       const puck = this.props.instrumentPickup(0xd8a24a);
-      puck.position.set(0.2 + 0.62, 0.9, c.zStart + 1.4 + i * 0.9);
+      puck.position.set(0.62, 0.9, c.zStart + 1.6 + i * 0.9);
       this.root.add(puck);
     }
     // Lube-oil / cooling pipe kit down the port side.
