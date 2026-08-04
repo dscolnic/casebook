@@ -15,7 +15,7 @@
 ```bash
 cd deep_watch
 npm run build          # ✓ 45 modules, 643 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 34/34 passed (5.2 min); webServer = build + preview:4173
+npx playwright test    # ✓ 34/34 passed (8.2 min, one worker); webServer = build + preview:4173
 ```
 
 ## Results — 34/34 PASS
@@ -145,7 +145,12 @@ and an electrical boundary changes what is connected (16).
    running had not been counted yet. A "rig for quiet" objective could therefore
    satisfy itself in the first second, before the player touched anything. Missions
    now call `state.settleNoise()` once their plant lineup is set.
-11. Two pre-existing smoke tests assumed the start button always launches the walkdown.
+11. **The suite was flaky in parallel, and the flakiness was real.** Every test
+   drives a live WebGL scene through SwiftShader; two of those on one machine
+   starve each other enough that a long playthrough blows its timeout at whatever
+   assertion happens to be in flight — which is why the reported failure moved
+   between runs. `workers: 1`. Slower and honest.
+12. Two pre-existing smoke tests assumed the start button always launches the walkdown.
    The start screen now has a mission picker (defaulting to the vertical slice), so
    those tests select the walkdown explicitly.
 

@@ -141,3 +141,150 @@
 .pd-node.rupture { border-color: var(--danger); color: var(--danger); }
 .pd-valve { border: 1px solid var(--ok); color: var(--ok); border-radius: 12px; padding: 6px 12px; }
 .pd-valve.shut { border-color: var(--danger); color: var(--danger); text-decoration: line-through; }
+
+/* ---------------------------------------------------------------------------
+   Station guidance. A console that shows only live numbers teaches nothing, so
+   every station opens with what it is, what to do next, and the one idea it
+   exists to teach. The "do now" line is computed from live state.
+   --------------------------------------------------------------------------- */
+.station-guide {
+  border: 1px solid var(--accent);
+  border-left-width: 3px;
+  border-radius: 6px;
+  background: rgba(63, 182, 194, 0.07);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+.station-guide .sg-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 3px 0;
+}
+.station-guide .sg-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--ink-dim);
+  text-align: right;
+}
+.station-guide .sg-text { font-family: var(--sans); font-size: 13.5px; line-height: 1.5; }
+.station-guide .sg-do .sg-tag { color: var(--accent); }
+.station-guide .sg-do .sg-text { color: var(--ink); }
+.station-guide .sg-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+.station-guide .sg-steps li {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+}
+.station-guide .sg-steps li.now { border-color: var(--accent); color: var(--accent); background: rgba(63, 182, 194, 0.12); }
+.station-guide .sg-steps li.done { opacity: 0.5; text-decoration: line-through; }
+
+/* What a given display shows, and what to look for in it. */
+.display-caption {
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+  padding-top: 8px;
+}
+.display-caption b { color: var(--ink); font-weight: 500; }
+
+/* Which processing chain a display is fed by. */
+.chain-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  border-radius: 9px;
+  border: 1px solid rgba(216, 162, 74, 0.6);
+  color: var(--accent-warm);
+  margin-left: 8px;
+  white-space: nowrap;
+}
+.chain-tag.alt { border-color: rgba(107, 191, 115, 0.7); color: var(--ok); }
+.chain-tag.geo { border-color: rgba(63, 182, 194, 0.7); color: var(--accent); }
+
+/* Plain-language evidence readout for a selected sonar track. */
+.evidence-list { border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.evidence-list .ev-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px;
+  padding: 6px 10px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  border-bottom: 1px solid var(--line);
+}
+.evidence-list .ev-row:last-child { border-bottom: none; }
+.evidence-list .ev-key {
+  font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--ink-dim); text-align: right; padding-top: 2px;
+}
+.evidence-list .ev-val.good { color: var(--ok); }
+.evidence-list .ev-val.warn { color: var(--accent-warm); }
+.evidence-list .ev-val.bad { color: var(--danger); }
+
+.cite-list { display: grid; gap: 5px; margin-top: 6px; }
+.cite-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12.5px; padding: 4px 6px; border-radius: 4px; cursor: pointer;
+}
+.cite-item:hover { background: rgba(63, 182, 194, 0.07); }
+.cite-item input { accent-color: var(--accent); }
+
+/* Chart legend, in HTML so it can never overlap a label drawn on the canvas. */
+.chart-legend {
+  display: flex; flex-wrap: wrap; gap: 6px 16px;
+  margin-top: 10px; font-family: var(--mono); font-size: 11px; color: var(--ink-dim);
+}
+.chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.chart-legend i { width: 16px; height: 10px; border-radius: 2px; display: inline-block; }
+.chart-legend i.hatch {
+  background: repeating-linear-gradient(45deg, rgba(209,89,78,0.85) 0 3px, transparent 3px 6px), #1a5468;
+}
+
+/* A row of "what this number means" chips under a display. */
+.stat-chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-top: 14px; }
+.stat-chips .chip {
+  border: 1px solid var(--line); border-left-width: 3px; border-radius: 5px;
+  padding: 9px 12px; background: var(--bg); display: grid; gap: 2px;
+}
+.stat-chips .chip.good { border-left-color: var(--ok); }
+.stat-chips .chip.warn { border-left-color: var(--accent-warm); }
+.stat-chips .chip.bad { border-left-color: var(--danger); }
+.stat-chips .chip-k {
+  font-family: var(--mono); font-size: 9.5px; text-transform: uppercase;
+  letter-spacing: 0.11em; color: var(--ink-dim);
+}
+.stat-chips .chip-v { font-family: var(--mono); font-size: 19px; color: var(--ink); }
+.stat-chips .chip-n { font-size: 11.5px; color: var(--ink-dim); line-height: 1.35; }
+
+/* Auto-detect list: a table, so bearings stay in a column and nothing wraps. */
+.detect-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+.detect-table th {
+  text-align: left; font-weight: 400; font-size: 9.5px; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--ink-dim); padding: 4px 6px; border-bottom: 1px solid var(--line);
+}
+.detect-table td { padding: 5px 6px; border-bottom: 1px solid rgba(34, 50, 63, 0.6); white-space: nowrap; }
+.detect-table .detect-row { cursor: pointer; }
+.detect-table .detect-row:hover { background: rgba(63, 182, 194, 0.06); }
+.detect-table .detect-row.selected { background: rgba(63, 182, 194, 0.13); }
+.detect-table .dt-id { color: var(--accent); }
+.detect-table .dt-brg { color: var(--ink); font-size: 13px; }
+.detect-table .dt-rel { color: var(--ink-dim); }

@@ -107,7 +107,7 @@ test('two displays off one beamformer are not two pieces of evidence', async ({ 
 });
 
 test('mission 2 plays through to a debrief', async ({ page }) => {
-  test.setTimeout(90000);
+  test.setTimeout(150000);
   await start(page, 'mission_02_contact');
 
   await page.evaluate(() => window.__DEEPWATCH__.goTo('sonar_room'));
@@ -191,7 +191,7 @@ test('the plot drifts because it does not know about the water', async ({ page }
 });
 
 test('mission 3 plays through: datum, current, false fix, sounding, real fix, route', async ({ page }) => {
-  test.setTimeout(90000);
+  test.setTimeout(180000);
   await start(page, 'mission_03_navigation');
   await page.evaluate(() => window.__DEEPWATCH__.goTo('control_room'));
 
@@ -278,7 +278,7 @@ test('the pinnacle is real: setting east at depth loses water under the keel', a
 });
 
 test('episode 1 plays through the passage to a scored debrief', async ({ page }) => {
-  test.setTimeout(120000);
+  test.setTimeout(150000);
   await start(page, 'episode_01_silent_passage');
 
   await page.evaluate(() => window.__DEEPWATCH__.goTo('control_room'));

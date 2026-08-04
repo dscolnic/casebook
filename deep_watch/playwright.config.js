@@ -10,6 +10,11 @@ export default defineConfig({
   testDir: './tests',
   timeout: 30000,
   fullyParallel: false,
+  // One worker. Every test drives a real WebGL scene through SwiftShader, and two
+  // of those on one machine starve each other badly enough that long playthroughs
+  // time out at whatever assertion happens to be in flight. Serial is slower and
+  // it is honest.
+  workers: 1,
   retries: 0,
   reporter: [['list']],
   use: {

@@ -171,3 +171,41 @@ Hard failure is not used. The worst case is a low score and a wet compartment.
 Diagnosis 25 (−8 per wrong call) · evidence gathered before the call 20 ·
 estimation 10 · procedure order 20 · restraint (unnecessary valve operations) 15 ·
 casualty control (peak level) 10 · independence (hints) 10.
+
+---
+
+## Teaching surface: how a station explains itself
+
+The consoles were rebuilt after a playtest that said, plainly, "the chart is
+incomprehensible" and "I don't know what to do". Both were fair. A wall of live
+numbers is not a lesson. Every station now opens with `stations/StationGuide.js`:
+
+| Line | Contract |
+|---|---|
+| **What this is** | One sentence, no jargon that has not been earned. |
+| **Do now** | The next physical action, **computed from live state** — it never asks for something already done, and it names the specific thing (`Track S03 has no call against it yet`). |
+| **Why** | The single idea the station exists to teach. |
+
+Under that, a step chip row shows where the player is in the station's workflow
+(done / now / still to come). Under each individual display, a `caption()` gives
+**Shows:** and **Look for:** — what the picture contains, and what to actually
+look at in it.
+
+Rules learned the hard way, worth keeping:
+
+- **A number is useless without its unit of meaning.** "1.90 nm" became "How
+  wrong we could be · 1.90 nm · Low confidence". The chart's route rows became
+  "if we are exactly where we think… but at the edge of the ring…".
+- **Two displays must be cross-referenceable.** The auto-detect list said a track
+  bore 312°, and the waterfall had no bearing scale — so there was no way to tell
+  which streak that was. The waterfall now has a labelled 000–360 axis, an arrow
+  and ID over each track's column, and a guide line down the selected one.
+- **Put labels on the thing, not in a key.** The chart labels the fix, the
+  estimate, the ring, the current and each route where they sit. The depth legend
+  is HTML underneath, so it can never cover a label.
+- **Say what is dangerous, do not make them derive it.** Water shallower than the
+  boat's depth plus 15 m is hatched red. "Where can I not go" is answered by
+  looking.
+- **Plain-language evidence beside the raw display.** The sonar classification
+  panel summarises the selected track — narrowband, bearing behaviour, strength,
+  blade rate — in sentences, without ever naming the answer.
