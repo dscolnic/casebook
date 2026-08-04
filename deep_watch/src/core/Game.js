@@ -22,6 +22,10 @@ import { FloodingSystem } from '../simulation/FloodingSystem.js';
 import { DamageControl } from '../simulation/DamageControl.js';
 import { SonarSystem } from '../simulation/SonarSystem.js';
 import { NavigationSystem } from '../simulation/NavigationSystem.js';
+import { CrewClock } from '../simulation/CrewClock.js';
+import { VoyageSystem, TOTAL_NM, PLANNED_SPEED_KN } from '../simulation/VoyageSystem.js';
+import { QUAL_QUESTIONS, questionsAvailable, PER_DAY } from '../content/qualQuestions.js';
+import { PlayerBody } from '../player/PlayerBody.js';
 import { HUD } from '../ui/HUD.js';
 import { Notebook } from '../ui/Notebook.js';
 import { Debrief } from '../ui/Debrief.js';
@@ -66,6 +70,13 @@ export class Game {
       flooding: this.flooding,
       sonar: this.sonar,
       nav: this.nav,
+      crew: this.crew,
+      voyage: this.voyage,
+      body: this.body,
+      // Content the tests need to assert against. Exposed here rather than
+      // imported by path, because tests run against the built bundle where the
+      // source paths no longer exist.
+      content: { QUAL_QUESTIONS, questionsAvailable, PER_DAY, TOTAL_NM, PLANNED_SPEED_KN },
       dc: this.damageControl,
       instruments: this.instruments,
       notebook: this.notebook,
@@ -90,6 +101,8 @@ export class Game {
           this.flooding.update(step);
           this.sonar.update(step);
           this.nav.update(step);
+          this.crew.update(step);
+          this.voyage.update(step);
           this.state.integrate(step);
         }
       },
@@ -156,13 +169,15 @@ export class Game {
     this.flooding = new FloodingSystem({ state: this.state, eventBus: this.bus, layout });
     this.sonar = new SonarSystem({ state: this.state, eventBus: this.bus });
     this.nav = new NavigationSystem({ state: this.state, eventBus: this.bus });
+    this.crew = new CrewClock({ state: this.state, eventBus: this.bus, save: this.save });
+    this.voyage = new VoyageSystem({ state: this.state, eventBus: this.bus });
 
     // Large live mimic panels on the bulkheads, so a compartment tells you what
     // it is doing as you walk in rather than waiting to be clicked.
     this.displays = new WallDisplays({
       scene: this.scene, materials: this.materials, layout,
       state: this.state, flooding: this.flooding, halfWidth: HALF_W,
-      collision: this.collision,
+      collision: this.collision, voyage: this.voyage,
     });
     this.displays.build(this.world.root);
     this._shareDisplayFeeds();
@@ -187,8 +202,16 @@ export class Game {
       settings: this.settings, eventBus: this.bus,
     });
     this.player.attach();
+    // The watchstander you are playing, visible when the camera drops back.
+    this.body = new PlayerBody(this.scene);
+    this.bus.on('player:viewChanged', (v) => this.body.setVisible(v === 'third'));
 
-    this.interaction = new InteractionSystem({ camera: this.camera, eventBus: this.bus });
+    this.interaction = new InteractionSystem({
+      camera: this.camera, eventBus: this.bus,
+      // In third person the camera is behind the player; reach is measured from
+      // where the watchstander is actually standing.
+      originProvider: () => (this.player.view === 'third' ? this.player.position : null),
+    });
     this.interaction.registerAll(this._worldInteractables);
 
     this.inventory = new EquipmentInventory(this.bus, this.save);
@@ -205,18 +228,19 @@ export class Game {
     this.stations = new StationManager({
       eventBus: this.bus, state: this.state, save: this.save, notebook: this.notebook,
       instruments: this.instruments, flooding: this.flooding, inventory: this.inventory,
-      sonar: this.sonar, nav: this.nav,
+      sonar: this.sonar, nav: this.nav, crew: this.crew, voyage: this.voyage,
     });
     this.missions = new MissionManager({
       eventBus: this.bus, state: this.state, save: this.save, compartmentManager: this.compartments,
       inventory: this.inventory, instruments: this.instruments, flooding: this.flooding,
       damageControl: this.damageControl, world: this.world, notebook: this.notebook,
-      sonar: this.sonar, nav: this.nav,
+      sonar: this.sonar, nav: this.nav, crew: this.crew, voyage: this.voyage,
     });
   }
 
   _initUI() {
-    this.hud = new HUD({ eventBus: this.bus, state: this.state, flooding: this.flooding });
+    this.hud = new HUD({ eventBus: this.bus, state: this.state, flooding: this.flooding,
+      crew: this.crew, voyage: this.voyage });
     this.debrief = new Debrief({ eventBus: this.bus, notebook: this.notebook });
     this.hintBeacon = new HintBeacon({
       scene: this.scene, lighting: this.lighting, layout: this.layout, eventBus: this.bus,
@@ -290,6 +314,9 @@ export class Game {
     this.bus.on('interact:hatch', (rec) => {
       this.world.setHatch(rec.id, !rec.data.open);
     });
+    // Turning in.
+    this.bus.on('interact:bunk', () => this.crew.sleep());
+
     // Lockers open a stowage panel (StationManager) and deck plates, valves,
     // panels, the rupture, the sump and the 7MC are all handled by DamageControl.
   }
@@ -464,6 +491,8 @@ export class Game {
       this.flooding.update(dt);
       this.sonar.update(dt);
       this.nav.update(dt);
+      this.crew.update(dt);
+      this.voyage.update(dt);
       this.state.integrate(dt);
     }
   }
@@ -475,6 +504,9 @@ export class Game {
       this.interaction.update();
       this.compartments.update(this.player.position.z);
     }
+    this.body.setVisible(this.player.view === 'third' && this.player._bodyVisible !== false);
+    this.body.update(dt, this.player.position, this.player.yaw,
+      Math.hypot(this.player.velocity.x, this.player.velocity.z), this.player._eye);
     this.instruments.update(dt, playing && this.player.velocity.lengthSq() > 0.5);
     this.world.update(dt, t);
     this.displays.update(dt, this.compartments.currentId);

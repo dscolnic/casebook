@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { BILGE_AREA, BILGE_DEPTH_CM, PANEL_THREAT_CM, VALVES } from '../simulation/FloodingSystem.js';
+import { drawPassageMap } from '../graphics/PassageMap.js';
 
 /**
  * WallDisplays — the large mimic panels that make each compartment legible from
@@ -292,6 +293,14 @@ const DISPLAYS = [
     },
   },
   {
+    compartment: 'control_room', side: 'port', zFrac: 0.78, w: 2.2,
+    title: 'Passage Plot',
+    draw(ctx, { state, voyage }) {
+      if (!voyage) return;
+      drawPassageMap(ctx, W, H, { voyage, state, title: 'Passage — Ocean Crossing' });
+    },
+  },
+  {
     compartment: 'radio_room', side: 'stbd', zFrac: 0.5,
     title: 'Communications Status',
     draw(ctx, { state }) {
@@ -427,12 +436,13 @@ const DISPLAYS = [
 ];
 
 export class WallDisplays {
-  constructor({ scene, materials, layout, state, flooding, halfWidth, collision }) {
+  constructor({ scene, materials, layout, state, flooding, halfWidth, collision, voyage }) {
     this.scene = scene;
     this.mat = materials;
     this.layout = layout;
     this.state = state;
     this.flooding = flooding;
+    this.voyage = voyage;
     this.halfW = halfWidth;
     this.collision = collision;
     this.displays = [];
@@ -554,7 +564,7 @@ export class WallDisplays {
 
   _draw(d) {
     try {
-      d.def.draw(d.ctx, { state: this.state, flooding: this.flooding, d });
+      d.def.draw(d.ctx, { state: this.state, flooding: this.flooding, voyage: this.voyage, d });
       d.texture.needsUpdate = true;
     } catch (err) {
       console.warn('[WallDisplays] draw failed for', d.compartment, err);

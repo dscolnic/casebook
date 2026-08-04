@@ -12,6 +12,16 @@ const EYE_STAND = 1.68;
 const EYE_CROUCH = 1.15;
 const RADIUS = 0.32;
 
+/**
+ * Third-person boom. The camera stays on the player's own line of sight — no
+ * shoulder offset — because the crosshair has to keep meaning "what I am pointing
+ * at", and a lateral offset breaks that at close range. Instead it rides high
+ * enough to look over the watchstander's head rather than at the back of it.
+ */
+const BOOM_BACK = 2.8;
+const BOOM_UP = 0.55;
+const BOOM_MIN = 1.15;
+
 export class PlayerController {
   constructor({ camera, domElement, collision, settings, eventBus }) {
     this.camera = camera;
@@ -32,6 +42,12 @@ export class PlayerController {
     this._bobPhase = 0;
     this._bobOffset = 0;
     this._eye = EYE_STAND;
+
+    // 'first' or 'third'. In third person the camera rides a boom behind the
+    // watchstander, pulled in whenever a bulkhead is in the way — which, on a
+    // submarine, is most of the time.
+    this.view = 'first';
+    this._boom = BOOM_BACK;
 
     this._onKeyDown = (e) => this._key(e, true);
     this._onKeyUp = (e) => this._key(e, false);
@@ -94,6 +110,16 @@ export class PlayerController {
     this.pitch = Math.max(-lim, Math.min(lim, this.pitch));
   }
 
+  /** Switch between looking out of the watchstander's eyes and looking at them. */
+  toggleView(mode) {
+    this.view = mode || (this.view === 'first' ? 'third' : 'first');
+    this.bus.emit('player:viewChanged', this.view);
+    return this.view;
+  }
+
+  /** Where the player's eyes are, regardless of where the camera is. */
+  get eyePosition() { return this.position; }
+
   /** Teleport the player (used at mission start). */
   setPose(x, z, yawDeg) {
     this.position.set(x, EYE_STAND, z);
@@ -152,8 +178,37 @@ export class PlayerController {
   }
 
   _applyCamera() {
-    this.camera.position.copy(this.position);
     this.camera.rotation.set(this.pitch, this.yaw, 0, 'YXZ');
+
+    if (this.view === 'third') {
+      // Boom straight back along the look direction, then shortened until it is
+      // clear of the structure. Collision is solved in XZ, which is all that
+      // matters in a single-deck boat.
+      const sinY = Math.sin(this.yaw), cosY = Math.cos(this.yaw);
+      const back = Math.cos(this.pitch);
+      let want = BOOM_BACK;
+      for (let d = BOOM_BACK; d >= BOOM_MIN; d -= 0.15) {
+        const cxp = this.position.x + sinY * d * back;
+        const czp = this.position.z + cosY * d * back;
+        const res = this.collision.resolve(cxp, czp, 0.28);
+        if (Math.hypot(res.x - cxp, res.z - czp) < 0.02) { want = d; break; }
+        want = d;
+      }
+      // Ease so the camera does not snap when it clears a doorway.
+      this._boom += (want - this._boom) * 0.25;
+      const d = this._boom;
+      this.camera.position.set(
+        this.position.x + sinY * d * back,
+        Math.min(2.32, this.position.y + BOOM_UP + Math.sin(this.pitch) * -d),
+        this.position.z + cosY * d * back);
+      // If the structure has squeezed the boom right in, we are inside the
+      // watchstander's head; hide them rather than render the inside of a skull.
+      this._bodyVisible = d > 1.0;
+    } else {
+      this.camera.position.copy(this.position);
+      this._bodyVisible = false;
+    }
+
     const fov = this.settings.get('fov');
     if (this.camera.fov !== fov) { this.camera.fov = fov; this.camera.updateProjectionMatrix(); }
   }

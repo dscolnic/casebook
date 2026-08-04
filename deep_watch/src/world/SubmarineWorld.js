@@ -561,6 +561,10 @@ export class SubmarineWorld {
     this.collision.addBoxFromObject(plot, 0.05);
     // Navigation table (own station).
     this._placeStation(c, 'navigation', 'Navigation Table', HALF_W - 0.5, c.zEnd - 2.0, 0x14324a);
+    // The passage plot: the whole crossing, on the after bulkhead of Control.
+    this._placeWallStation('passage_chart', 'PASSAGE PLOT', -HALF_W + 0.3, 1.55, c.zEnd - 0.9,
+      Math.PI / 2, 0x123b40);
+
     // Alarm / status board on the aft bulkhead corner.
     const board = this.props.equipmentRack({ screen: 0xb0863a });
     board.position.set(HALF_W - 0.45, 0, c.zStart + 1.4);
@@ -592,7 +596,35 @@ export class SubmarineWorld {
       b.position.set(-HALF_W + 0.75, 0, c.zStart + 1.2 + i * 1.6);
       this.root.add(b);
       this.collision.addBoxFromObject(b, 0.02);
+      // The forward stack is yours. You can turn in.
+      if (i === 0) {
+        this.interactables.push({
+          object: b, type: 'bunk', id: 'bunk_own',
+          prompt: 'Turn in (6 hours)', data: { compartment: c.id },
+        });
+      }
     }
+
+    // The fold-down study desk where qualification questions are posted.
+    const desk = new THREE.Group();
+    const top = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.05, 0.5), this.mat.cabinetGrey());
+    top.position.y = 0.78;
+    const back = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.55, 0.04), this.mat.panelDark());
+    back.position.set(0, 1.12, -0.22);
+    const card = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.34),
+      this.mat.labelMaterial('QUAL CARD', { bg: '#1d2a1e', fg: '#cfe6cf' }));
+    card.position.set(0, 1.14, -0.19);
+    const lamp = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.05, 0.09), this.mat.emissive(0xd8c98a, 1.2));
+    lamp.position.set(0.24, 1.44, -0.14);
+    desk.add(top, back, card, lamp);
+    desk.position.set(-HALF_W + 0.55, 0, c.zEnd - 1.3);
+    desk.rotation.y = Math.PI / 2;
+    this.root.add(desk);
+    this.collision.addBoxFromObject(desk, 0.05);
+    this.interactables.push({
+      object: desk, type: 'station', id: 'study_desk',
+      prompt: 'Work the qualification card', data: { station: 'study_desk', name: 'Qualification Card' },
+    });
     const table = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.05, 0.7), this.mat.cabinetGrey());
     table.position.set(HALF_W - 1.0, 0.75, c.zStart + 1.6);
     this.root.add(table);

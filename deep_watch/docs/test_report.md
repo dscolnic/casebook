@@ -15,10 +15,10 @@
 ```bash
 cd deep_watch
 npm run build          # ✓ 45 modules, 643 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 34/34 passed (8.2 min, one worker); webServer = build + preview:4173
+npx playwright test    # ✓ 44/44 passed (9.9 min, one worker); webServer = build + preview:4173
 ```
 
-## Results — 34/34 PASS
+## Results — 44/44 PASS
 
 ### Smoke (`tests/smoke.spec.js`) — 11/11
 | # | Test | Result |
@@ -97,6 +97,20 @@ raises the bilge (11), bilge water changes trim (11), pumps lower water only whe
 capacity exceeds inflow (13, 17), machinery/flow state changes sonar noise (17),
 and an electrical boundary changes what is connected (16).
 
+### The patrol layer (`tests/crew-patrol.spec.js`) — 10/10
+| # | Test | Result |
+|---|---|---|
+| 35 | **The patrol clock runs an hour a real minute while the watch clock stays real time** — the two clocks are genuinely separate | ✓ |
+| 36 | Going too long without sleep blurs the view; sleeping six hours clears it and advances the patrol clock | ✓ |
+| 37 | You cannot turn in with a casualty running | ✓ |
+| 38 | The bunk is a real interactable that puts you to sleep | ✓ |
+| 39 | Three qualification questions are posted per patrol day | ✓ |
+| 40 | The card scores answers, awards Dolphins at ten correct, and persists | ✓ |
+| 41 | A wrong answer shows the explanation and the right answer instead of punishing | ✓ |
+| 42 | **The crossing is 12 000 nm and takes ~119 days at the planned 4.2 kn**; speed buys days and costs decibels | ✓ |
+| 43 | The passage advances on the patrol clock and the plot renders it | ✓ |
+| 44 | **V shows the watchstander**, and interaction reach is still measured from the body, not the camera | ✓ |
+
 ## Bugs found by testing and fixed this run
 1. **The deck matting covered the bilge opening.** Each compartment lays an accent
    plane over its deck; it spanned the new hole, so lifting the plate revealed a
@@ -150,7 +164,16 @@ and an electrical boundary changes what is connected (16).
    starve each other enough that a long playthrough blows its timeout at whatever
    assertion happens to be in flight — which is why the reported failure moved
    between runs. `workers: 1`. Slower and honest.
-12. Two pre-existing smoke tests assumed the start button always launches the walkdown.
+12. **`advance()` did not step the new systems.** The fast-forward helper stepped
+   flooding, sonar, navigation and the state, so the patrol clock and the voyage
+   sat still in every test that used it — which is exactly the sort of gap that
+   makes a test pass while the feature does nothing.
+13. **Tests cannot `import()` source paths.** The suite runs against the
+   production bundle, where `/src/...` no longer exists, so three new tests failed
+   on the import rather than on the behaviour. Content the tests need to assert
+   against (`QUAL_QUESTIONS`, `TOTAL_NM`, …) is now exposed on
+   `window.__DEEPWATCH__.content`.
+14. Two pre-existing smoke tests assumed the start button always launches the walkdown.
    The start screen now has a mission picker (defaulting to the vertical slice), so
    those tests select the walkdown explicitly.
 

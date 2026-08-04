@@ -14,7 +14,7 @@
  */
 export class MissionRuntime {
   constructor({ definition, eventBus, state, save, compartmentManager, inventory,
-                instruments, flooding, dc, world, notebook, sonar, nav }) {
+                instruments, flooding, dc, world, notebook, sonar, nav, crew, voyage }) {
     this.def = definition;
     this.bus = eventBus;
     this.state = state;
@@ -28,6 +28,8 @@ export class MissionRuntime {
     this.notebook = notebook;
     this.sonar = sonar;
     this.nav = nav;
+    this.crew = crew;
+    this.voyage = voyage;
 
     this.flags = {};
     this.stageIndex = -1;

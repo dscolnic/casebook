@@ -51,6 +51,8 @@ export class MissionManager {
       notebook: d.notebook,
       sonar: d.sonar,
       nav: d.nav,
+      crew: d.crew,
+      voyage: d.voyage,
     });
     this.current.start();
     return this.current;
@@ -62,6 +64,8 @@ export class MissionManager {
     d.flooding?.reset();
     d.sonar?.reset();
     d.nav?.reset();
+    d.crew?.reset();
+    d.voyage?.reset();
     d.notebook?.clear();
     d.inventory?.clear();
     if (d.instruments) d.instruments.lastReadings.length = 0;

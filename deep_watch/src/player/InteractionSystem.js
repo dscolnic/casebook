@@ -12,9 +12,12 @@ import * as THREE from 'three';
 const MAX_DISTANCE = 2.6;
 
 export class InteractionSystem {
-  constructor({ camera, eventBus }) {
+  constructor({ camera, eventBus, originProvider = null }) {
     this.camera = camera;
     this.bus = eventBus;
+    /** Optional: where the ray should START. Used in third person, where the
+     *  camera sits behind the player but their reach has not changed. */
+    this.originProvider = originProvider;
     this.interactables = [];
     this.ray = new THREE.Raycaster();
     this.ray.far = MAX_DISTANCE;
@@ -61,6 +64,11 @@ export class InteractionSystem {
   update() {
     if (!this.enabled) return;
     this.ray.setFromCamera({ x: 0, y: 0 }, this.camera);
+    const origin = this.originProvider?.();
+    if (origin) {
+      // Keep the camera's direction, but reach from the player's own position.
+      this.ray.ray.origin.copy(origin);
+    }
     const objects = this.interactables.map((r) => r.object);
     const hits = this.ray.intersectObjects(objects, true);
     let found = null;

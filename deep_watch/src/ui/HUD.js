@@ -5,10 +5,12 @@
  * EventBus subscriptions; it never drives simulation.
  */
 export class HUD {
-  constructor({ eventBus, state, flooding }) {
+  constructor({ eventBus, state, flooding, crew, voyage }) {
     this.bus = eventBus;
     this.state = state;
     this.flooding = flooding;
+    this.crew = crew;
+    this.voyage = voyage;
     this.el = {
       hud: document.getElementById('hud'),
       objective: document.getElementById('hud-objective'),
@@ -19,6 +21,8 @@ export class HUD {
       toast: document.getElementById('hud-toast'),
       casualty: document.getElementById('hud-casualty'),
       hint: document.getElementById('hud-hint'),
+      patrol: document.getElementById('hud-patrol'),
+      veil: document.getElementById('fatigue-veil'),
     };
     this._toastTimer = null;
     this._objective = { label: 'Objective', text: '', hasHints: false, detail: null };
@@ -137,6 +141,36 @@ export class HUD {
       <span class="stat ${warnO2}">O₂ <b>${s.o2}%</b></span>
       <span class="stat ${warnCO2}">CO₂ <b>${s.co2}%</b></span>`;
     this._updateCasualty();
+    this._updatePatrol();
+  }
+
+  /**
+   * The patrol clock, the day, how long the watchstander has been awake, and how
+   * far along the crossing they are. This is the slow layer of the game and it
+   * needs somewhere permanent to live.
+   */
+  _updatePatrol() {
+    const el = this.el.patrol;
+    if (!el || !this.crew) return;
+    const awake = this.crew.hoursAwake;
+    const f = this.crew.fatigue01;
+    const tired = awake >= 18;
+    el.innerHTML = `
+      <span class="hp-time">${this.crew.formatPatrolTime()}</span>
+      <span class="hp-day">Patrol day ${this.crew.day}</span>
+      <span class="hp-awake ${f > 0 ? 'bad' : tired ? 'warn' : ''}">${awake.toFixed(1)} h awake${
+        f > 0 ? ' — get your head down' : ''}</span>
+      ${this.voyage ? `<span class="hp-voyage">${(this.voyage.progress01 * 100).toFixed(1)}% across ·
+        ${this.voyage.daysRemaining().toFixed(0)} days to landfall</span>` : ''}`;
+
+    // Fatigue does not tell you you are tired; it makes the watch harder to read.
+    const veil = this.el.veil;
+    if (!veil) return;
+    if (f <= 0) { veil.hidden = true; return; }
+    veil.hidden = false;
+    veil.style.backdropFilter = `blur(${(f * 4.5).toFixed(2)}px)`;
+    veil.style.webkitBackdropFilter = veil.style.backdropFilter;
+    veil.style.opacity = String(0.25 + f * 0.5);
   }
 
   /** A casualty banner appears only once the player has actually found the water. */

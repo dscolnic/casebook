@@ -45,6 +45,9 @@ No API keys, cloud services, or external engines.
 | Cycle carried tools | **[** and **]** (or mouse wheel) |
 | Evidence notebook | **N** |
 | Hint for the current objective (costs score) | **H** |
+| First / third person | **V** |
+| Skip the current objective (practice aid) | **K** |
+| Dismiss a message | **Space** |
 | Crouch | **Ctrl** (hold) or **C** (toggle) |
 | Sprint (where sensible) | **Shift** |
 | Pause / settings | **Esc** |
@@ -54,6 +57,28 @@ No API keys, cloud services, or external engines.
 The **foundation** (spec Phases 1–3 + core systems) plus one **complete, polished
 vertical slice**: Mission 4, *Forward Flooding*. Pick it from the Watch dropdown on
 the start screen (it is the default).
+
+### The patrol
+Underneath the missions there is a patrol running.
+
+- **Two clocks, on purpose.** The *watch* clock is real time and drives every rate,
+  reading and interval — a flooding rate has to be something you can watch. The
+  *patrol* clock runs **an hour a real minute** and drives the days, the crew's
+  fatigue, and the crossing. If the fast clock drove the physics, a bilge would
+  rise a metre a second.
+- **The crossing.** 12 000 nm in five legs. At the planned 4.2 kn transit speed
+  that is about **four months** — and the passage plot in the control room shows
+  exactly what going faster costs you in decibels, which is the same currency the
+  sonar and flooding missions spend. There is no speed that is simply correct.
+- **Sleep.** Your rack is in the berthing space. Six hours. You cannot turn in with
+  a casualty running, and past about twenty hours awake the watch stops being
+  reliable — the view goes soft until you sleep.
+- **Qualification.** A fold-down desk in the berthing space posts **three questions
+  a patrol day**, each about something the boat has already made you do. Ten correct
+  earns your Dolphins. A wrong answer costs nothing but the explanation.
+- **Third person.** **V** drops the camera back onto the watchstander. The boom
+  pulls in around structure, and interaction reach is measured from the body rather
+  than the camera, so the crosshair still means what it says.
 
 ### The vertical slice — Forward Flooding
 A seawater line has failed under the deck plates of the forward equipment space.

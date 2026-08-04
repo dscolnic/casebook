@@ -25,6 +25,9 @@ const EMPTY = {
   submarineCondition: {},
   hintUsage: {},
   lastMission: null,
+  // The written half of qualifying: answers to the desk questions, and awards.
+  qual: { answers: {}, awards: [] },
+  sleepLog: { periods: 0, hours: 0 },
 };
 
 export class SaveManager {
@@ -79,6 +82,37 @@ export class SaveManager {
       this.data.instrumentsQualified.push(id);
       this.save();
     }
+  }
+
+  /** The qualification card. Shape: { answers: { id: {choice, correct, ts} }, awards: [] } */
+  qualProgress() {
+    if (!this.data.qual) this.data.qual = { answers: {}, awards: [] };
+    if (!this.data.qual.answers) this.data.qual.answers = {};
+    if (!this.data.qual.awards) this.data.qual.awards = [];
+    return this.data.qual;
+  }
+
+  recordQualAnswer(id, choice, correct) {
+    const q = this.qualProgress();
+    if (q.answers[id]) return false;
+    q.answers[id] = { choice, correct, ts: this._now() };
+    this.save();
+    return true;
+  }
+
+  grantAward(award) {
+    const q = this.qualProgress();
+    if (q.awards.includes(award)) return false;
+    q.awards.push(award);
+    this.save();
+    return true;
+  }
+
+  noteSleep(hours) {
+    if (!this.data.sleepLog) this.data.sleepLog = { periods: 0, hours: 0 };
+    this.data.sleepLog.periods += 1;
+    this.data.sleepLog.hours += hours;
+    this.save();
   }
 
   noteHint(missionId) {

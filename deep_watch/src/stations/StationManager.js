@@ -6,6 +6,8 @@ import { ElectricalSwitchboard } from './ElectricalSwitchboard.js';
 import { RadioConsole } from './RadioConsole.js';
 import { DamageControlBoard } from './DamageControlBoard.js';
 import { EquipmentLockerPanel } from './EquipmentLockerPanel.js';
+import { StudyDesk } from './StudyDesk.js';
+import { PassageChart } from './PassageChart.js';
 
 /**
  * StationManager — opens the correct console overlay when the player mans a
@@ -22,12 +24,14 @@ const STATIONS = {
   radio: { title: 'Radio & Communications', klass: RadioConsole },
   dc_board: { title: 'Damage-Control Plotting Board', klass: DamageControlBoard },
   dc_locker: { title: 'Damage-Control Locker', klass: EquipmentLockerPanel },
+  study_desk: { title: 'Qualification Card', klass: StudyDesk },
+  passage_chart: { title: 'Passage Plot', klass: PassageChart },
 };
 
 export class StationManager {
-  constructor({ eventBus, state, save, notebook, instruments, flooding, inventory, sonar, nav }) {
+  constructor({ eventBus, state, save, notebook, instruments, flooding, inventory, sonar, nav, crew, voyage }) {
     this.bus = eventBus;
-    this.ctx = { bus: eventBus, state, save, notebook, instruments, flooding, inventory, sonar, nav };
+    this.ctx = { bus: eventBus, state, save, notebook, instruments, flooding, inventory, sonar, nav, crew, voyage };
     this.overlay = document.getElementById('station-overlay');
     this.titleEl = document.getElementById('station-title');
     this.bodyEl = document.getElementById('station-body');

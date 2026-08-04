@@ -288,3 +288,58 @@
 .detect-table .dt-id { color: var(--accent); }
 .detect-table .dt-brg { color: var(--ink); font-size: 13px; }
 .detect-table .dt-rel { color: var(--ink-dim); }
+
+/* Qualification card at the study desk. */
+.qual-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  border: 1px solid var(--line); border-radius: 6px; padding: 14px 18px; margin-bottom: 14px;
+  background: var(--bg);
+}
+.qual-score { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.qual-score .qs-num { font-family: var(--mono); font-size: 38px; color: var(--accent); line-height: 1; }
+.qual-score .qs-of { font-family: var(--mono); font-size: 16px; color: var(--ink-dim); }
+.qual-score .qs-label { font-size: 12px; color: var(--ink-dim); width: 100%; }
+.qual-score.earned .qs-num { color: var(--ok); }
+.qual-meta { font-family: var(--mono); font-size: 11.5px; color: var(--ink-dim); text-align: right; line-height: 1.7; }
+.qual-badge { color: var(--ok); letter-spacing: 0.14em; }
+
+.qual-list { display: grid; gap: 8px; }
+.qual-item { border: 1px solid var(--line); border-left-width: 3px; border-radius: 5px; background: var(--bg); }
+.qual-item.right { border-left-color: var(--ok); }
+.qual-item.wrong { border-left-color: var(--accent-warm); }
+.qi-head {
+  display: grid; grid-template-columns: 30px 1fr 96px; gap: 10px; align-items: baseline;
+  padding: 10px 12px; cursor: pointer;
+}
+.qi-head:hover { background: rgba(63, 182, 194, 0.05); }
+.qi-num { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); }
+.qi-q { font-size: 13.5px; line-height: 1.5; }
+.qi-state { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); text-align: right; }
+.qual-item.right .qi-state { color: var(--ok); }
+.qual-item.wrong .qi-state { color: var(--accent-warm); }
+.qi-body { padding: 0 12px 12px 52px; display: grid; gap: 5px; }
+.qi-from { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); margin-bottom: 3px; }
+.qi-opt {
+  display: flex; align-items: baseline; gap: 10px; text-align: left; width: 100%;
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 5px; padding: 9px 12px; font-size: 13px; font-family: var(--sans);
+}
+.qi-opt:hover:not([disabled]) { border-color: var(--accent); }
+.qi-opt[disabled] { cursor: default; opacity: 0.75; }
+.qi-opt .qi-letter { font-family: var(--mono); font-size: 11px; color: var(--ink-dim); }
+.qi-opt.is-answer { border-color: var(--ok); color: var(--ok); opacity: 1; }
+.qi-opt.is-chosen { border-color: var(--accent-warm); color: var(--accent-warm); }
+.qi-why {
+  font-size: 13px; line-height: 1.6; color: var(--ink-dim);
+  border-left: 2px solid var(--accent); padding: 8px 12px; margin-top: 6px;
+  background: rgba(63, 182, 194, 0.05);
+}
+.qi-why .qi-concept {
+  display: block; font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.13em; color: var(--accent); margin-bottom: 4px;
+}
+
+.passage-canvas {
+  width: 100%; display: block; background: #061119;
+  border: 1px solid var(--line); border-radius: 4px;
+}

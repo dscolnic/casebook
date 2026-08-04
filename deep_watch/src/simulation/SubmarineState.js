@@ -110,8 +110,14 @@ export class SubmarineState {
     this.activeCasualties = [];       // { id, type, severity }
     this.missionFlags = {};           // arbitrary boolean/string flags per mission
 
-    // Bookkeeping
-    this.clock = { minutes: 8 * 60 + 40 }; // 08:40 watch time
+    // Bookkeeping. TWO clocks, on purpose:
+    //  clock     the WATCH clock, real time, drives every rate, reading and interval.
+    //  dayClock  the PATROL clock, an hour a real minute, drives days, fatigue and
+    //            the crossing. See simulation/CrewClock.js for why they are separate.
+    this.clock = { minutes: 8 * 60 + 40 };      // 08:40 watch time
+    this.dayClock = { hours: 6 };               // 06:00 on patrol day 1
+    this.fatigue = { hoursAwake: 2.5, lastSleepAt: 0 };
+    this.voyage = { nmMadeGood: 0, arrived: false };
   }
 
   /**

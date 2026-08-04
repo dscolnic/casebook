@@ -201,3 +201,36 @@
   color: var(--accent-warm);
   margin-bottom: 4px;
 }
+
+/* The slow layer: patrol clock, day, hours awake, and progress across the ocean. */
+.hud-patrol {
+  position: absolute;
+  top: 76px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  background: rgba(8, 14, 19, 0.6);
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-align: right;
+  white-space: nowrap;
+}
+.hud-patrol .hp-time { font-size: 18px; color: var(--ink); letter-spacing: 0.06em; }
+.hud-patrol .hp-day { letter-spacing: 0.12em; text-transform: uppercase; font-size: 10px; }
+.hud-patrol .hp-awake.warn { color: var(--accent-warm); }
+.hud-patrol .hp-awake.bad { color: var(--danger); }
+.hud-patrol .hp-voyage { color: var(--accent); white-space: nowrap; }
+
+/* Fatigue. Not a message — the watch simply gets harder to read. */
+.fatigue-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 45%, rgba(4,8,11,0.75) 100%);
+  transition: opacity 1.2s ease;
+}
