@@ -210,7 +210,7 @@ export const QUAL_QUESTIONS = [
 
   {
     id: 'q_salinity', from: 'Salinity Probe', science: 'instrument:salinity_probe',
-    q: 'The salinity probe reads 34 psu in the bilge. What has that ruled out?',
+    q: 'The salinity probe reads 34 PSU in the bilge. What has that ruled out?',
     options: [
       'Nothing — all bilge water reads similar',
       'Every freshwater source. This is the sea, so it scales with depth and will not run out',
@@ -218,7 +218,7 @@ export const QUAL_QUESTIONS = [
       'That the level will keep rising',
     ],
     answer: 1,
-    why: 'Open ocean is about 35 psu; condensate and potable systems are near zero. Salt water means a sea connection, which behaves completely differently from a tank that can empty.',
+    why: 'Open ocean is about 35 PSU; condensate and potable systems are near zero. Salt water means a sea connection, which behaves completely differently from a tank that can empty.',
     concept: 'Conductivity as source discrimination',
   },
   {

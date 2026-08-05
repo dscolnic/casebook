@@ -51,9 +51,6 @@ export class ScienceCodex {
     return resolveScienceKey(this._lookingAt.type, this._lookingAt.id);
   }
 
-  /** True if the thing the player is looking at has an explanation. */
-  get hasTarget() { return !!this.keyForLookedAt(); }
-
   /** Open for whatever is under the crosshair; false if nothing is. */
   showLookedAt() {
     const key = this.keyForLookedAt();
@@ -110,10 +107,6 @@ export class ScienceCodex {
     this.bus.emit('science:closed');
   }
 
-  toggleLookedAt() {
-    if (this.open) { this.hide(); return true; }
-    return this.showLookedAt() || (this.showIndex(), true);
-  }
 
   _setOpen(on) {
     this.open = on;

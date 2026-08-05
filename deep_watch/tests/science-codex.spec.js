@@ -54,6 +54,113 @@ test('every wall display is interactable and explains itself', async ({ page }) 
   expect(r.unexplained).toEqual([]);
 });
 
+/**
+ * The two directions of the same promise: an explanation must describe numbers
+ * that are actually on the screen, and a number on the screen must be explained.
+ *
+ * Forward direction is exact — every entry declares the on-screen text its number
+ * refers to (or marks itself 'graphic' for a feature of the image, like the slope
+ * of a waterfall streak, which has no text to match). Reverse direction is by
+ * unit: any quantity drawn with a unit must have that unit accounted for in the
+ * entry, which survives the values themselves changing every frame.
+ */
+async function panelText(page) {
+  return page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    const { SCIENCE_NOTES } = g.content;
+    return g.displays.displays.map((d) => {
+      const drawn = [];
+      const orig = d.ctx.fillText.bind(d.ctx);
+      d.ctx.fillText = (txt, x, y) => { drawn.push(String(txt)); return orig(txt, x, y); };
+      try { g.displays._draw(d); } finally { d.ctx.fillText = orig; }
+      const entry = SCIENCE_NOTES[`display:${d.science}`];
+      const explains = [
+        ...(entry.numbers || []).flatMap((n) => [n[0], n[1]]),
+        entry.how, entry.read, entry.trap || '',
+        entry.math?.expr || '', ...(entry.math?.terms || []).flat(),
+      ].join(' ');
+      return {
+        title: d.def.title,
+        drawn: drawn.join(' '),
+        numbers: (entry.numbers || []).map((n) => ({ label: n[0], onScreen: n[2] ?? null })),
+        explains,
+      };
+    });
+  });
+}
+
+// A number followed by a unit. The trailing lookahead matters: without it
+// "1600 Atmosphere sampling" on the plan of the day reads as 1600 amps, and the
+// check passes for the wrong reason because every entry contains the letter A.
+const UNIT_RE = /\d[\d.,]*\s{0,2}(m³\/h|cm\/min|m\/min|psu|m²|°C|dB|kn|nm|rpm|kW|bar|Hz|cm|%|°|V|A|t|m|h)(?![\w²³])/g;
+function unitsIn(text) {
+  return new Set([...text.matchAll(UNIT_RE)].map((m) => m[1]));
+}
+
+test('every number an explanation describes is actually on that panel', async ({ page }) => {
+  const panels = await panelText(page);
+  const problems = [];
+  for (const p of panels) {
+    for (const n of p.numbers) {
+      if (!n.onScreen) problems.push(`${p.title}: "${n.label}" declares no on-screen text`);
+      else if (n.onScreen !== 'graphic' && !p.drawn.includes(n.onScreen)) {
+        problems.push(`${p.title}: explains "${n.label}" but "${n.onScreen}" is not drawn`);
+      }
+    }
+  }
+  expect(problems).toEqual([]);
+});
+
+test('every quantity a panel draws is explained in its entry', async ({ page }) => {
+  const panels = await panelText(page);
+  const problems = [];
+  for (const p of panels) {
+    for (const unit of unitsIn(p.drawn)) {
+      if (!p.explains.includes(unit)) {
+        problems.push(`${p.title}: draws a value in "${unit}" that the entry never mentions`);
+      }
+    }
+  }
+  expect(problems).toEqual([]);
+});
+
+test('every instrument reads out in the units its explanation teaches', async ({ page }) => {
+  // The other half of the same promise: an instrument that reports psi must not
+  // be explained in bar. This caught exactly that on the pressure gauge, and a
+  // PSU/psu case mismatch on the salinity probe.
+  const problems = await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    const { SCIENCE_NOTES } = g.content;
+    const defs = g.instruments.constructor.defs();
+    const out = [];
+    for (const [id, def] of Object.entries(defs)) {
+      if (!def.unit) continue;                       // gear and lights read nothing out
+      const entry = SCIENCE_NOTES[`instrument:${id}`];
+      if (!entry) { out.push(`${id}: no science entry`); continue; }
+      const text = [
+        ...(entry.numbers || []).flatMap((n) => [n[0], n[1]]),
+        entry.oneLine, entry.how, entry.read, entry.trap || '',
+        entry.math?.expr || '', ...(entry.math?.terms || []).flat(),
+      ].join(' ');
+      if (!text.includes(def.unit)) out.push(`${id}: reads out in "${def.unit}", entry never says so`);
+    }
+    return out;
+  });
+  expect(problems).toEqual([]);
+});
+
+test('every wall panel can actually be seen from where a player stands', async ({ page }) => {
+  // Panels used to be placed by footprint alone, which put several of them behind
+  // a pipe run at exactly panel height — visible as a sliver, if at all. Placement
+  // is now scored on line of sight, and this keeps it that way: any new furniture
+  // that shadows a screen fails here rather than in the player's face.
+  const report = await page.evaluate(() => window.__DEEPWATCH__.displays.visibilityReport());
+  expect(report.length).toBeGreaterThan(8);
+  const blocked = report.filter((r) => r.visibility < 0.95)
+    .map((r) => `${r.title} in ${r.compartment} (${r.side}) only ${Math.round(r.visibility * 100)}% visible`);
+  expect(blocked).toEqual([]);
+});
+
 test('every station console can open its own science entry', async ({ page }) => {
   const missing = await page.evaluate(() => {
     const g = window.__DEEPWATCH__;

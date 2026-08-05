@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { BILGE_AREA, BILGE_DEPTH_CM, PANEL_THREAT_CM, VALVES } from '../simulation/FloodingSystem.js';
+import { CEIL } from './SubmarineWorld.js';
 import { drawPassageMap } from '../graphics/PassageMap.js';
 
 /**
@@ -333,9 +334,15 @@ const DISPLAYS = [
         label(ctx, r[0], 24, 74 + i * 30, C.accent, 15);
         label(ctx, r[1], 84, 74 + i * 30, C.ink, 15);
       });
+      // The day and how long this watchstander has been up belong on the plan of
+      // the day, not only in the HUD corner — the science entry explains both, and
+      // an explanation of a number that is not on the screen is no use to anybody.
+      const day = Math.floor(state.dayClock.hours / 24) + 1;
+      label(ctx, `patrol day ${day}   ·   ${state.fatigue.hoursAwake.toFixed(1)} h awake`,
+        24, 238, state.fatigue.hoursAwake >= 18 ? C.warm : C.ink, 15);
       label(ctx, `atmosphere  O₂ ${state.oxygenLevel.toFixed(1)}%   CO₂ ${state.carbonDioxideLevel.toFixed(2)}%`,
-        24, 240, C.dim, 14);
-      label(ctx, 'Fictional composite vessel — training use only.', 24, 300, C.dim, 12);
+        24, 266, C.dim, 14);
+      label(ctx, 'Fictional composite vessel — training use only.', 24, 306, C.dim, 12);
     },
   },
   {
@@ -406,9 +413,20 @@ const DISPLAYS = [
         label(ctx, b.energized ? `${b.voltage} V · ${b.source}` : 'DE-ENERGIZED', 420, y + 26,
           b.energized ? C.ok : C.danger, 15);
       });
+      // Load and the ground lamp: the two numbers that say whether the
+      // distribution is merely alive or actually healthy. Heating goes as the
+      // square of load current, and a falling ground reading means water.
+      const panels = Object.values(state.electricalPanels);
+      const live = panels.filter((q) => q.energized && !q.tripped).length;
+      const load = 40 + live * 18 + (state.pumpStates.portablePump.on ? 26 : 0)
+        + (state.pumpStates.bilgePumpFwd.on ? 14 : 0);
+      const grounded = panels.some((q) => q.tripped);
+      label(ctx, `bus load ${load} A`, 20, 290, load > 120 ? C.warm : C.ink, 15);
+      label(ctx, `ground detector ${grounded ? 'EARTH FAULT — insulation down' : 'clear'}`,
+        190, 290, grounded ? C.danger : C.ok, 15);
       const p = state.electricalPanels.fwd_power_2f;
       label(ctx, `local panels — ${p.name}: ${p.tripped ? 'TRIPPED (ground fault)' : p.energized ? 'energized' : 'secured'}`,
-        20, 306, p.tripped ? C.danger : p.energized ? C.ok : C.warm, 14);
+        20, 314, p.tripped ? C.danger : p.energized ? C.ok : C.warm, 14);
     },
   },
   {
@@ -430,6 +448,10 @@ const DISPLAYS = [
         { name: 'air compressor', text: 'standby', state: 'good' },
         { name: 'heat exchanger', text: `${(state.coolingLoops.secondary.tempC).toFixed(0)}°C`, state: 'good' },
       ], 20, 180, 280);
+      // Removal capacity, so the number you subtract inflow from is on the wall
+      // rather than only in the manual.
+      label(ctx, `dewatering capacity — installed 60 m³/h · portable 45 m³/h`, 20, 286, C.dim, 14);
+      label(ctx, 'compare with the inflow estimate before planning to pump', 20, 306, C.dim, 13);
       void flooding; void d;
     },
   },
@@ -472,47 +494,181 @@ export class WallDisplays {
   }
 
   /**
-   * Every piece of furniture tall enough to hide a panel.
+   * Every piece of geometry that could stand between a watchstander and a panel.
    *
-   * The collision boxes alone are not enough: plenty of scenery (the seawater
-   * manifold block, valve stands, the plotting board) is decorative and never
-   * registered a collider, and a panel placed behind one of those is invisible.
-   * So measure the actual geometry, and keep only the things that could occlude:
-   * tall enough to matter, short enough not to be the hull itself.
+   * This has to be measured from the real meshes, not from collision boxes: much
+   * of the scenery is decorative and never registered a collider, and — the case
+   * that actually bit — several compartments have a pipe or cable run at about
+   * 1.6 m, standing 0.2–0.3 m off the bulkhead, that runs the whole length of the
+   * space. That is exactly panel height, and it hides a screen completely while
+   * occupying almost no floor. So collect leaf meshes with their FULL 3-D extent
+   * and let the line-of-sight test decide, rather than filtering by footprint.
    */
   _collectObstacles(root) {
     const out = [];
     const box = new THREE.Box3();
-    for (const child of root.children) {
-      if (child === this.group) continue;
-      box.setFromObject(child);
-      if (!isFinite(box.min.x)) continue;
-      const zSpan = box.max.z - box.min.z;
-      const xSpan = box.max.x - box.min.x;
-      if (zSpan > 6 || xSpan > 4.2) continue;      // hull shell, deck, overhead runs
-      if (box.max.y < 1.1) continue;               // too low to hide a panel
-      out.push({ minX: box.min.x, maxX: box.max.x, minZ: box.min.z, maxZ: box.max.z });
-    }
+    root.traverse((o) => {
+      if (!o.isMesh) return;
+      // Skip the panels themselves (they are added as occluders once placed).
+      for (let p = o; p; p = p.parent) if (p === this.group) return;
+      box.setFromObject(o);
+      if (!isFinite(box.min.x)) return;
+      const zSpan = box.max.z - box.min.z, xSpan = box.max.x - box.min.x;
+      if (zSpan > 12 || xSpan > 4.3) return;       // the hull shell, deck and overhead
+      if (box.max.y < 0.9) return;                 // below any panel we would mount
+      // Indicator lamps, bolts and tags cannot hide a screen, and there are
+      // thousands of them. Dropping them keeps the placement search quick — this
+      // runs synchronously at start-up, so its cost is felt as load time.
+      if (Math.max(xSpan, box.max.y - box.min.y, zSpan) < 0.12) return;
+      out.push({
+        minX: box.min.x, maxX: box.max.x,
+        minY: box.min.y, maxY: box.max.y,
+        minZ: box.min.z, maxZ: box.max.z,
+      });
+    });
     return out;
   }
 
-  /** Find a length of this compartment's bulkhead that is not already occupied. */
-  _clearZ(c, side, w, wantZ) {
-    const halfLen = w / 2 + 0.15;
-    const lo = c.zStart + halfLen + 0.4, hi = c.zEnd - halfLen - 0.4;
-    if (hi <= lo) return null;
-    const sx = side === 'port' ? -1 : 1;
-    const inner = sx * (this.halfW - 0.95);        // how far a prop may stand off
-    const xMin = Math.min(inner, sx * this.halfW), xMax = Math.max(inner, sx * this.halfW);
+  /** Slab test: does the segment from a to b enter this box before reaching b? */
+  static _segmentHitsBox(a, b, box) {
+    let t0 = 0, t1 = 1;
+    for (const axis of ['x', 'y', 'z']) {
+      const lo = box[`min${axis.toUpperCase()}`], hi = box[`max${axis.toUpperCase()}`];
+      const d = b[axis] - a[axis];
+      if (Math.abs(d) < 1e-9) {
+        if (a[axis] < lo || a[axis] > hi) return false;
+        continue;
+      }
+      let tA = (lo - a[axis]) / d, tB = (hi - a[axis]) / d;
+      if (tA > tB) { const s = tA; tA = tB; tB = s; }
+      t0 = Math.max(t0, tA);
+      t1 = Math.min(t1, tB);
+      if (t0 > t1) return false;
+    }
+    // Ignore a graze right at the panel surface (the bulkhead behind it).
+    return t1 > 0.02 && t0 < 0.98;
+  }
 
-    const clear = (z) => !this.obstacles.some((b) =>
-      b.maxX > xMin && b.minX < xMax && b.maxZ > z - halfLen && b.minZ < z + halfLen);
+  /**
+   * How much of a candidate panel a watchstander can actually see.
+   *
+   * Sample the panel at its centre and four inset corners, look at each of those
+   * from several places a player realistically stands — down the centreline at
+   * eye height, fore and aft of the panel, and from the far side of the boat —
+   * and return the fraction of those sight lines that arrive unobstructed. A
+   * panel scoring 1.0 is fully visible from everywhere that matters; one scoring
+   * 0.3 is the thing the player has been complaining about.
+   */
+  _visibility(cand, occluders, c) {
+    const { x, y, z, w, h, n } = cand;
+    const t = { x: n.z, z: -n.x };                  // along-panel direction, in plan
+    const inset = 0.22;
+    const half = w / 2 - inset;
+    const face = (dx, dy) => ({
+      x: x + n.x * 0.06 + t.x * dx, y: y + dy, z: z + n.z * 0.06 + t.z * dx,
+    });
+    const targets = [face(0, 0), face(-half, h / 2 - inset), face(half, h / 2 - inset),
+      face(-half, -(h / 2 - inset)), face(half, -(h / 2 - inset))];
 
-    let best = null, bestD = Infinity;
-    for (let z = lo; z <= hi; z += 0.1) {
-      if (!clear(z)) continue;
-      const d = Math.abs(z - wantZ);
-      if (d < bestD) { bestD = d; best = z; }
+    // Where a watchstander actually stands: down the centreline, level with the
+    // panel and approaching it from either side, plus one off-axis view.
+    const eye = 1.62;
+    const clampZ = (v) => Math.min(c.zEnd - 0.6, Math.max(c.zStart + 0.6, v));
+    const along = (d) => ({
+      x: Math.abs(n.x) > 0.5 ? 0 : Math.max(-1.2, Math.min(1.2, x + t.x * d)),
+      y: eye,
+      z: clampZ(Math.abs(n.x) > 0.5 ? z + t.z * d : z + n.z * Math.abs(d) * 1.4),
+    });
+    const views = [
+      { x: Math.abs(n.x) > 0.5 ? 0 : x * 0.3, y: eye, z: clampZ(Math.abs(n.x) > 0.5 ? z : z + n.z * 2.4) },
+      along(-2.0),
+      along(2.0),
+      { x: Math.abs(n.x) > 0.5 ? n.x * (this.halfW - 0.8) : x * 0.6, y: eye,
+        z: clampZ(Math.abs(n.x) > 0.5 ? z : z + n.z * 4.0) },
+    ];
+
+    let seen = 0, total = 0;
+    for (const v of views) {
+      for (const target of targets) {
+        total++;
+        if (!occluders.some((b) => WallDisplays._segmentHitsBox(v, target, b))) seen++;
+      }
+    }
+    return seen / total;
+  }
+
+  /** Every place a panel could go in this compartment: both side walls, and the
+   *  two transverse bulkheads either side of the hatch. */
+  * _candidates(def, c) {
+    const heights = [1.62, 1.95, 1.34];
+    const widths = [def.w ?? 2.0, (def.w ?? 2.0) * 0.8, 1.35]
+      .filter((v, i, a) => a.indexOf(v) === i);
+
+    for (const w of widths) {
+      const h = w * H / W;
+      for (const y of heights) {
+        if (y + h / 2 > CEIL - 0.1 || y - h / 2 < 0.85) continue;
+
+        // Side walls: slide along the bulkhead.
+        const halfLen = w / 2 + 0.15;
+        const lo = c.zStart + halfLen + 0.35, hi = c.zEnd - halfLen - 0.35;
+        for (const side of ['port', 'stbd']) {
+          const sx = side === 'port' ? -1 : 1;
+          const x = sx * (this.halfW - 0.16);
+          for (let z = lo; z <= hi + 1e-6; z += 0.2) {
+            yield { x, y, z, w, h, side, n: { x: -sx, z: 0 } };
+          }
+        }
+
+        // Transverse bulkheads: the panel faces you as you come through the
+        // hatch. Has to stand clear of the hatch opening, so only the outboard
+        // half of the bulkhead is available.
+        if (w / 2 + 0.9 > this.halfW - 0.25) continue;
+        for (const [zPos, nz] of [[c.zStart + 0.14, 1], [c.zEnd - 0.14, -1]]) {
+          for (const dir of [-1, 1]) {
+            const xMin = 0.9 + w / 2, xMax = this.halfW - 0.25 - w / 2;
+            for (let ax = xMin; ax <= xMax + 1e-6; ax += 0.2) {
+              yield { x: dir * ax, y, z: zPos, w, h,
+                side: nz > 0 ? 'fwd bulkhead' : 'aft bulkhead', n: { x: 0, z: nz } };
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * Choose where a panel goes: side, height, width and position along the
+   * bulkhead, scored on how much of it can be seen. Bigger and nearer the
+   * requested spot break ties, but visibility dominates — a big screen nobody can
+   * read is worse than a smaller one they can.
+   */
+  _placeBest(def, c, allOccluders) {
+    const wantZ = c.zStart + c.len * (def.zFrac ?? 0.5);
+    // Only things inside this compartment can shadow a panel in it, and every
+    // sight line stays inside it. Filtering first turns the search from tens of
+    // millions of box tests into tens of thousands.
+    const occluders = allOccluders.filter((b) =>
+      b.maxZ > c.zStart - 0.6 && b.minZ < c.zEnd + 0.6);
+    let best = null;
+
+    for (const cand of this._candidates(def, c)) {
+      const vis = this._visibility(cand, occluders, c);
+      // Visibility dominates: a big screen nobody can read is worse than a
+      // smaller one they can. Size, the requested side and the requested spot
+      // only break ties between placements that are equally readable.
+      const score = vis * 100
+        + cand.w * 2
+        + (cand.side === def.side ? 1.2 : 0)
+        + (cand.y === 1.62 ? 0.5 : 0)
+        - Math.min(5, Math.abs(cand.z - wantZ)) * 0.3;
+      if (!best || score > best.score) best = { ...cand, vis, score };
+    }
+
+    if (!best) {
+      const w = 1.35, h = w * H / W, sx = def.side === 'port' ? -1 : 1;
+      best = { x: sx * (this.halfW - 0.16), y: 1.62, z: wantZ, w, h,
+        side: def.side, n: { x: -sx, z: 0 }, vis: 0, score: 0 };
     }
     return best;
   }
@@ -530,27 +686,15 @@ export class WallDisplays {
       const texture = new THREE.CanvasTexture(canvas);
       texture.anisotropy = 4;
 
-      // Take the biggest panel that fits on a clear stretch of bulkhead, trying
-      // the compartment's preferred side first and then the other one.
-      const wantZ = c.zStart + c.len * (def.zFrac ?? 0.5);
-      let w = def.w ?? 2.0, side = def.side, z = null;
-      outer:
-      for (const width of [w, 1.7, 1.4, 1.15]) {
-        for (const s of [def.side, def.side === 'port' ? 'stbd' : 'port']) {
-          const found = this._clearZ(c, s, width, wantZ);
-          if (found != null) { w = width; side = s; z = found; break outer; }
-        }
-      }
-      if (z == null) { z = wantZ; w = 1.15; }      // nowhere clear: put it where asked
-
-      const h = w * H / W;
-      const sx = side === 'port' ? -1 : 1;
-      // The hull side wall is a 0.2 m box centred on ±halfW, so its inner face is
-      // at halfW - 0.1. Anything mounted outboard of that is buried in the steel —
-      // which is exactly what went wrong the first time these were placed.
-      const x = sx * (this.halfW - 0.16);
-      // Mounted high enough to clear a console but still read from the doorway.
-      const y = 1.62;
+      // Where it goes is decided by what can actually be SEEN, over the whole
+      // panel, from where a player stands. The x offset is fixed: the hull side
+      // wall is a 0.2 m box centred on ±halfW, so its inner face is at halfW-0.1,
+      // and anything mounted outboard of that is buried in the steel.
+      const spot = this._placeBest(def, c, this.obstacles);
+      const { w, h, x, y, z, n, side, vis } = spot;
+      // A plane's normal is +Z, so this yaw turns it to face into the compartment
+      // whichever surface it is hung on.
+      const yaw = Math.atan2(n.x, n.z);
 
       // One group per panel, so the whole thing (bezel, screen, glow) is a single
       // object the interaction ray can hit and open the science entry for.
@@ -563,7 +707,7 @@ export class WallDisplays {
         new THREE.BoxGeometry(w + 0.1, h + 0.1, 0.07),
         new THREE.MeshStandardMaterial({ color: 0x161d22, roughness: 0.7, metalness: 0.4 }));
       bezel.position.set(x, y, z);
-      bezel.rotation.y = sx > 0 ? -Math.PI / 2 : Math.PI / 2;
+      bezel.rotation.y = yaw;
       panel.add(bezel);
 
       // Basic material — a lit screen is emissive by nature and must stay legible
@@ -571,29 +715,42 @@ export class WallDisplays {
       const screen = new THREE.Mesh(
         new THREE.PlaneGeometry(w, h),
         new THREE.MeshBasicMaterial({ map: texture, toneMapped: false, fog: false }));
-      screen.position.set(x - sx * 0.042, y, z);
-      screen.rotation.y = sx > 0 ? -Math.PI / 2 : Math.PI / 2;
+      screen.position.set(x + n.x * 0.042, y, z + n.z * 0.042);
+      screen.rotation.y = yaw;
       panel.add(screen);
 
       // A little spill of light onto the bulkhead around it.
       const glow = new THREE.PointLight(0x2f7f8c, 0.5, 2.8, 2.0);
-      glow.position.set(x - sx * 0.4, y, z);
+      glow.position.set(x + n.x * 0.4, y, z + n.z * 0.4);
       panel.add(glow);
 
       // A panel is furniture too. Without this, a compartment with two panels
       // puts them both on the same clear stretch of bulkhead and they z-fight.
+      const tx = n.z, tz = -n.x;                    // along-panel direction
+      const ex = Math.abs(tx) * w / 2 + Math.abs(n.x) * 0.12 + 0.06;
+      const ez = Math.abs(tz) * w / 2 + Math.abs(n.z) * 0.12 + 0.06;
       this.obstacles.push({
-        minX: Math.min(x, x - sx * 0.7), maxX: Math.max(x, x - sx * 0.7),
-        minZ: z - w / 2 - 0.25, maxZ: z + w / 2 + 0.25,
+        minX: x - ex, maxX: x + ex,
+        minY: y - h / 2 - 0.08, maxY: y + h / 2 + 0.08,
+        minZ: z - ez, maxZ: z + ez,
       });
 
       const d = { def, canvas, ctx, texture, screen, bezel, panel,
-        science: SCIENCE_KEYS[def.title] || null,
+        science: SCIENCE_KEYS[def.title] || null, side, w, h, x, y, z, visibility: vis,
         compartment: def.compartment, index: this.layout.indexOf(c) };
       this.displays.push(d);
       this._draw(d);      // one frame immediately, so nothing is ever blank
     }
     return this.displays;
+  }
+
+  /** How visible each panel ended up, for the placement test and for debugging. */
+  visibilityReport() {
+    return this.displays.map((d) => ({
+      title: d.def.title, compartment: d.compartment, side: d.side,
+      w: +d.w.toFixed(2), y: +d.y.toFixed(2), z: +d.z.toFixed(2),
+      visibility: +d.visibility.toFixed(2),
+    }));
   }
 
   /**

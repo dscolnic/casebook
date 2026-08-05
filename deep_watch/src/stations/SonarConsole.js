@@ -24,6 +24,9 @@ export class SonarConsole {
     this._raf = null;
     this._t = 0;
     this._cited = new Set();
+    // Misses per track, so the help can escalate instead of repeating itself.
+    this._wrong = new Map();
+    this._lastCall = null;
   }
 
   /** The next thing to do, worked out from the state of the picture. */
@@ -34,7 +37,16 @@ export class SonarConsole {
     const loud = this.state.sonarNoiseFloor > 50;
 
     let doNow;
-    if (loud) {
+    // A call that did not stand up outranks everything else: the player is mid
+    // mistake and needs the correction in the one line they are already reading,
+    // not only in the feedback box further down the console.
+    const bad = this._lastCall;
+    if (bad) {
+      const misses = this._wrong.get(bad.id) || 1;
+      doNow = `Your <b>${bad.kind}</b> call on <b>${bad.id}</b> did not stand up. Scroll to <b>Classify</b> —`
+        + ` the box under the button says which part failed and what to do about it`
+        + `${misses >= 2 ? ', and now shows the decision rule as well' : ''}.`;
+    } else if (loud) {
       doNow = `Our own boat is making ${Math.round(this.state.sonarNoiseFloor)} dB and that is drowning out anything weak. `
         + 'Secure machinery you do not need (Machinery Control) or slow down, then come back and look again.';
     } else if (held === 0) {
@@ -327,6 +339,128 @@ export class SonarConsole {
     }));
   }
 
+  /**
+   * What to do when a call does not stand up.
+   *
+   * "Wrong" is useless on its own: a trainee at this console needs to know which
+   * of the three separate things went wrong (the class, the independence of the
+   * evidence, or citing one chain twice), what the displays in front of them
+   * actually say, and what to physically do next. So every unsuccessful call
+   * returns three blocks — what is wrong, what the evidence says, do this now —
+   * and the help escalates, because a player who has missed twice is not helped
+   * by being told the same thing a third time:
+   *
+   *   1st  name the failure and the next action
+   *   2nd  add the decision rule — which evidence maps to which class
+   *   3rd  work it through to the answer, and say why it is that
+   *
+   * That is recovery, not punishment: nothing is failed, nothing is locked, and
+   * the call can be logged again as soon as it is right.
+   */
+  _callHelp(res, c, kind) {
+    const tries = this._wrong.get(c.id) || 0;
+    const quality = this.sonar.tonalQuality(c);
+    const cited = [...this._cited];
+    const chainsOf = (ids) => [...new Set(ids.map((i) => DISPLAYS[i]?.chain).filter(Boolean))];
+
+    if (res.correct && res.independent) {
+      return `<div class="call-help ok">
+        <div class="ch-head">That call stands up.</div>
+        <div class="ch-body">Two chains that do not share a source agree, and the signature supports
+          <b>${kind}</b>. Logged in the notebook with what it rests on.</div>
+        <div class="ch-do"><b>Next:</b> select the next track in the auto-detect list and work it the same way.</div>
+      </div>`;
+    }
+
+    // What the displays actually say right now — the same facts, restated as the
+    // player should have read them.
+    const evidence = [];
+    evidence.push(quality === 'family'
+      ? 'The narrowband analyser shows a full harmonic family — evenly spaced lines. Only a turning propeller does that.'
+      : quality === 'partial'
+        ? 'The narrowband analyser shows one or two lines and no family. Suggestive; it will not carry a name.'
+        : quality === 'broadband'
+          ? 'The narrowband analyser shows no discrete lines at all — broad hiss. That is not a propeller.'
+          : 'The narrowband analyser has nothing resolvable above the noise on this track.');
+    evidence.push(c.internal
+      ? 'The bearing holds the same RELATIVE bearing while we turn. Nothing out in the water can do that.'
+      : Math.abs(c.bearingRate ?? 0) > 0.4
+        ? `True bearing is moving about ${Math.abs(c.bearingRate).toFixed(1)}°/min — it is going somewhere on a steady course.`
+        : 'True bearing is nearly steady — far away, or heading at us. Not by itself a classification.');
+    evidence.push(`It is ${(c.snr ?? 0).toFixed(0)} dB above our own noise floor${
+      (c.snr ?? 0) < 6 ? ' — thin evidence to name anything from.' : '.'}`);
+
+    // Which of the three failures happened, and the action that fixes it.
+    let head, why, steps;
+    if (res.shared) {
+      head = 'Both displays you cited come off the same processing chain.';
+      why = res.shared;
+      steps = [
+        `Untick one of them — keep whichever you actually read.`,
+        `Tick <b>Narrowband analyser</b> instead: its own acquisition and FFT, so it can disagree.`,
+        `Or tick <b>Own-ship manoeuvre</b> — geometry, no processing at all — after actually turning the boat at Ship Control.`,
+      ];
+    } else if (!res.independent) {
+      head = cited.length
+        ? 'One chain is not corroboration.'
+        : 'You have not said what this call rests on.';
+      why = cited.length
+        ? `You cited ${cited.map((i) => DISPLAYS[i].name).join(' and ')} — ${chainsOf(cited).join(', ').replace('_', ' ')} only.`
+        : 'A call with nothing cited is an opinion. The watch downstream cannot weigh it.';
+      steps = [
+        'Tick at least two boxes whose chain tags are DIFFERENT.',
+        'Broadband, auto-detect and the bearing-time record are all <i>beamformer A</i> — pick at most one of them.',
+        'The independent ones are <b>Narrowband analyser</b> (analyser B) and <b>Own-ship manoeuvre</b> (geometry).',
+      ];
+    } else if (quality === 'partial' || quality === 'none' || (c.snr ?? 0) < 6) {
+      head = `There is not enough signature here to call it ${kind}.`;
+      why = 'A single line is not a family, and a contact at the edge of the noise will not support a name.';
+      steps = [
+        'Set the call to <b>Unknown</b> and log it. That is a real answer, not a failure.',
+        'If you want more, get quieter: secure machinery at Machinery Control or slow down, then look again.',
+      ];
+    } else {
+      head = `The evidence is independent, but it does not say ${kind}.`;
+      why = 'Read the two displays against each other: what KIND of evidence is present, not how loud it is.';
+      steps = [
+        'Look again at the narrowband analyser: is there a family of lines, or none?',
+        'Then the bearing-time record: steady drift, wandering, or constant relative bearing through our own turn?',
+        'Those two together decide it. Change the call and log it again.',
+      ];
+    }
+
+    // Escalation. Second miss earns the rule; third earns the answer worked out.
+    let extra = '';
+    if (tries >= 2) {
+      extra += `<table class="call-rule">
+        <tr><th>What the displays show</th><th>What it is</th></tr>
+        <tr><td>Harmonic family + steady bearing drift</td><td>Merchant</td></tr>
+        <tr><td>Harmonic family, weaker, irregular bearing</td><td>Fishing</td></tr>
+        <tr><td>No lines, broad chorus, bearing wanders</td><td>Biologics</td></tr>
+        <tr><td>Constant RELATIVE bearing through our own turn</td><td>Own-ship</td></tr>
+        <tr><td>One line, or too faint to resolve</td><td>Unknown</td></tr>
+      </table>`;
+    }
+    if (tries >= 3 && res.truth) {
+      extra += `<div class="ch-answer"><b>Worked through:</b> ${
+        c.internal ? 'it holds relative bearing through our turn, so it is bolted to us — '
+          : quality === 'family' ? 'there is a propeller family in the narrowband, so it is a vessel — '
+            : 'there are no propulsion lines at all, so it is not a vessel — '
+      }the call is <b>${res.truth}</b>. Set it, cite the narrowband analyser plus one beamformer display, and log it.</div>`;
+    }
+
+    return `<div class="call-help">
+      <div class="ch-head">${head}</div>
+      <div class="ch-body">${why}</div>
+      <div class="ch-sub">What the displays actually say</div>
+      <ul class="ch-ev">${evidence.map((e) => `<li>${e}</li>`).join('')}</ul>
+      <div class="ch-sub">Do this now</div>
+      <ol class="ch-steps">${steps.map((s) => `<li>${s}</li>`).join('')}</ol>
+      ${extra}
+      <button class="science-btn inline" data-science="station:sonar">The science behind this</button>
+    </div>`;
+  }
+
   /** Classification with an explicit statement of what the call rests on. */
   _renderClassify() {
     const el = this.container.querySelector('#classify-panel');
@@ -372,16 +506,16 @@ export class SonarConsole {
       const kind = el.querySelector('#cls-select').value;
       const res = this.sonar.classify(c.id, kind, [...this._cited]);
       const fb = el.querySelector('#class-feedback');
-      const bits = [];
-      if (res.shared) bits.push(`<span class="cls-warship">${res.shared}</span>`);
-      if (!res.independent) bits.push('<span class="cls-merchant">This call rests on one processing chain. Corroborate it from a different one — or from the boat\'s own manoeuvre.</span>');
-      if (res.independent && res.correct) bits.push('<span class="cls-biologic">Two independent chains agree, and the call fits the evidence.</span>');
-      if (res.independent && !res.correct) {
-        bits.push(res.quality === 'family'
-          ? '<span class="cls-warship">Independent evidence, but it does not say this. Look at which harmonic family is actually there.</span>'
-          : '<span class="cls-warship">There is not enough signature here to name a class. "Unknown" is a real answer.</span>');
-      }
-      fb.innerHTML = bits.join('<br>');
+      const ok = res.correct && res.independent;
+      if (!ok) this._wrong.set(c.id, (this._wrong.get(c.id) || 0) + 1);
+      else this._wrong.delete(c.id);
+      this._lastCall = ok ? null : { id: c.id, kind };
+      fb.innerHTML = this._callHelp(res, c, kind);
+      // Repaint the guide strip now rather than waiting for the console's slow
+      // rebuild: the correction is worth nothing if it arrives half a second after
+      // the player has looked away from the top of the console.
+      const guide = this.container.querySelector('#sonar-guide');
+      if (guide) guide.innerHTML = this._guide();
       this.notebook?.record({
         compartment: 'Sonar Room', instrument: 'Sonar classification',
         measurement: `${c.id} called ${kind}`,

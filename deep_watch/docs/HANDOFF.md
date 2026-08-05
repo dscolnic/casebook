@@ -23,7 +23,7 @@ Episode 1 implement.
 ```bash
 cd deep_watch && npm install && npm run dev      # :5173, opens automatically
 npm run build                                    # ✓ 62 modules, ~875 kB
-npx playwright test                              # ✓ 58/58
+npx playwright test                              # ✓ 63/63
 ```
 
 Pick the watch from the **Watch** dropdown on the start screen: Boat Walkdown,
@@ -86,6 +86,59 @@ physics behind it, reachable with **G** without leaving the game.
   Torricelli, discharge coefficient, priming and cavitation, emissivity, I²R, blade
   rate, delay-and-sum beamforming, spreading loss), then the mission-level reasoning
   questions. A wrong answer offers the codex entry behind it.
+
+**The explanations and the screens are checked against each other, both ways.**
+Every `numbers` row in a display entry carries a third element: the on-screen text
+it refers to (or the literal `'graphic'` for a feature of the image, like the slope
+of a waterfall streak, which has no text to match). `tests/science-codex.spec.js`
+records every `fillText` a panel draws and asserts:
+
+- forward — every number an entry explains is actually drawn on that panel;
+- reverse — every quantity drawn with a unit is accounted for in the entry;
+- instruments — every instrument's read-out unit appears in its own entry.
+
+That audit found and fixed real drift: the ship-control entry explained a
+self-noise figure that lives on the HUD and not on that panel; the pressure gauge
+reads **psi** while its entry talked in bar; the plan of the day explained a patrol
+day and hours-awake it never showed (now it does); distribution explained load
+current and a ground lamp it never drew (now it does); auxiliary explained a
+dewatering capacity that was only in the manual (now on the panel, where you need
+it to subtract inflow from).
+
+**Panel placement is now decided by line of sight.** `_placeBest` scores every
+candidate — both side walls, both transverse bulkheads, three heights, three
+widths — by casting sight lines from where a player actually stands to the panel's
+centre and corners against the real geometry. Several panels used to end up behind
+a pipe run at exactly panel height (sonar electronics, radio, electrical), which is
+why screens were "covered and only partially seen". All eleven now score 1.0, and
+`visibilityReport()` plus a test keep it that way. The sonar-electronics compartment
+— 4 m long with four cabinets and a full-length cooling run — had its cabinets moved
+forward and its run shortened to leave a display bay.
+
+**A latent loop bug fell out of that work and is fixed.** `GameLoop.start()` stamps
+`_last` with `performance.now()`, but the first rAF callback carries the timestamp
+of the frame already in flight — i.e. from BEFORE the synchronous world build. The
+delta is negative, and the accumulator wore it as debt: with the heavier placement
+search the simulation sat frozen for ~1.3 s after every start, which failed three
+flooding tests. `_tick` now clamps dt at both ends, and the placement search was
+made cheap (per-compartment occluder filtering, small props dropped: 0.4 ms, 230
+boxes). Both fixes matter — the clamp is correct regardless of how fast the build is.
+
+**Getting a sonar call wrong now tells you what to do about it.** A classification
+can fail in three separate ways and they need different actions, so
+`SonarConsole._callHelp()` names which one happened, restates what the displays
+actually say, and gives numbered next steps — and it escalates, because repeating
+the same sentence to somebody who has missed twice is not help:
+
+| miss | what the player gets |
+|------|----------------------|
+| 1st | the failure named (wrong class / one chain cited twice / nothing cited) and the next action |
+| 2nd | the decision rule as a table — which evidence maps to which class |
+| 3rd | the call worked through to the answer, with the one observation that decides it |
+
+Nothing is failed or locked; the call can be logged again the moment it is right,
+and a correct call clears the escalation. The correction is also written into the
+guide strip at the top of the console immediately, not on the next slow rebuild.
 
 Adding anything to the boat now has a matching obligation: `tests/science-codex.spec.js`
 walks every interactable and fails if it has no entry.

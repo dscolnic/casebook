@@ -81,6 +81,7 @@ export class Game {
       content: { QUAL_QUESTIONS, questionsAvailable, PER_DAY, TOTAL_NM, PLANNED_SPEED_KN,
         SCIENCE_NOTES, resolveScienceKey, scienceIndex },
       science: this.science,
+      loop: this.loop,
       /** Every interactable in the boat, for coverage tests. */
       interactables: () => this._worldInteractables.map((r) => ({ type: r.type, id: r.id })),
       dc: this.damageControl,

@@ -339,3 +339,57 @@ test('episode 1 plays through the passage to a scored debrief', async ({ page })
   expect(score).toBeGreaterThan(40);
   expect(fatalErrors, fatalErrors.join('\n')).toEqual([]);
 });
+
+test('a call that does not stand up says why, and the help escalates', async ({ page }) => {
+  // "Wrong" on its own teaches nothing. Each failure mode has to name itself and
+  // give the next physical action, and repeating the mistake has to earn more
+  // help rather than the same sentence again.
+  await start(page, 'mission_02_contact');
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    // Quiet the boat so the whole picture is audible, then hold S01 as a track.
+    g.state.pumpStates.seawaterPump.on = false;
+    g.state.pumpStates.trimPump.on = false;
+    g.advance(6);
+    g.sonar.designate('S01');
+    g.stations.open('sonar');
+  });
+  await expect(page.locator('#station-overlay')).toBeVisible();
+
+  const call = async (kind, cites) => {
+    await page.evaluate(({ k, c }) => {
+      const con = window.__DEEPWATCH__.stations.active;
+      con.selected = con.contacts.find((x) => x.id === 'S01');
+      con._cited = new Set(c);
+      con._renderClassify();
+      document.querySelector('#cls-select').value = k;
+      document.querySelector('#log-class').click();
+    }, { k: kind, c: cites });
+  };
+
+  // 1) Two displays, one beamformer: that is one measurement shown twice.
+  await call('Merchant', ['broadband', 'autodetect']);
+  await expect(page.locator('.call-help .ch-head')).toContainText(/same processing chain/i);
+  await expect(page.locator('.call-help .ch-steps')).toContainText(/Narrowband analyser/);
+  await expect(page.locator('.call-help .ch-ev')).toContainText(/narrowband analyser shows/i);
+  await expect(page.locator('.call-help [data-science="station:sonar"]')).toBeVisible();
+
+  // 2) Nothing cited at all names a different failure.
+  await call('Merchant', []);
+  await expect(page.locator('.call-help .ch-head')).toContainText(/not said what this call rests on/i);
+  // Second miss earns the decision rule.
+  await expect(page.locator('.call-rule')).toBeVisible();
+  await expect(page.locator('.call-rule')).toContainText('Own-ship');
+
+  // 3) Third miss works it through to the answer rather than repeating itself.
+  await call('Biologics', ['narrowband', 'broadband']);
+  await expect(page.locator('.ch-answer')).toContainText(/the call is/i);
+
+  // The guide strip at the top carries the correction too, so it is not missed.
+  await expect(page.locator('.station-guide .sg-do')).toContainText(/did not stand up/i);
+
+  // And getting it right clears all of that.
+  await call('Merchant', ['narrowband', 'broadband']);
+  await expect(page.locator('.call-help.ok .ch-head')).toContainText(/stands up/i);
+  await expect(page.locator('.ch-answer')).toHaveCount(0);
+});

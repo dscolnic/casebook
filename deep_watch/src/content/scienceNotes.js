@@ -109,20 +109,25 @@ const INSTRUMENTS = {
       It is purely mechanical and it reads *gauge* pressure — the difference between inside and the
       surrounding air, so it reads zero when open to the compartment.`,
     numbers: [
-      ['bar', 'about 10 metres of seawater. One bar is also roughly one atmosphere, which is why depth and pressure are almost interchangeable in your head.'],
-      ['0 bar', 'no differential. Either the system is vented or you are reading the wrong side of a shut valve.'],
-      ['sea pressure', 'follows depth exactly: at 60 m the sea presses on the hull at about 6 bar above the inside.'],
+      ['psi', 'pounds per square inch, which is what these gauges are calibrated in. 14.5 psi is 1 bar, and 1 psi is about 0.69 m of seawater.'],
+      ['40–50 psi', 'the normal band for a seawater supply branch on this boat. Below about 35 and something upstream is wrong.'],
+      ['135–165 psi', 'the normal band for trim and drain.'],
+      ['0 psi', 'no pressure at all: that branch is shut in, or you are on the wrong side of a shut valve.'],
+      ['sea pressure', 'follows depth exactly. At 60 m the sea presses on the hull at about 6 bar — roughly 87 psi — above the inside.'],
     ],
     math: {
-      expr: 'p = ρ·g·h',
+      expr: 'p = ρ·g·h        1 psi ≈ 0.69 m of seawater',
       terms: [
         ['ρ', 'seawater density, about 1025 kg/m³ — 2.5 % denser than fresh, which is why a boat trimmed in a river floats differently at sea'],
         ['g', '9.81 m/s²'],
-        ['h', 'depth in metres. So 1 m of seawater ≈ 10.05 kPa, and 10 m ≈ 1 bar'],
+        ['h', 'depth in metres. 1 m of seawater ≈ 10.05 kPa, so 10 m ≈ 1 bar ≈ 14.5 psi'],
+        ['reading it back', 'a branch at 45 psi is carrying about 31 m of head; trim and drain at 147 psi is carrying about 100 m'],
       ],
     },
-    read: `Pressure upstream of a shut valve and no pressure downstream is proof the valve is actually
-      holding. Same pressure both sides means it is passing, whatever the handwheel position says.`,
+    read: `Compare each branch against its own normal band, not against the others — a seawater supply and
+      the trim system are meant to sit at completely different pressures. Pressure upstream of a shut valve
+      and none downstream is proof the valve is actually holding; the same pressure both sides means it is
+      passing, whatever the handwheel position says.`,
     trap: `A gauge reads the pressure at the tapping point, not the pressure at the leak. Between the two
       there may be a shut valve, a strainer or fifteen metres of pipe with its own losses.`,
     see: ['valve:generic', 'fitting:rupture'],
@@ -134,11 +139,11 @@ const INSTRUMENTS = {
     how: `Dissolved salt splits into ions, and ions carry current. The probe passes a small alternating
       current between electrodes and measures how easily it flows. Alternating, not direct, so the ions do
       not pile up on the electrodes and give a drifting reading. Conductivity is then converted to practical
-      salinity units.`,
+      salinity units (PSU).`,
     numbers: [
-      ['~35 psu', 'open-ocean seawater. If the bilge reads this, the sea is coming in.'],
-      ['0–2 psu', 'condensate, potable water, a leaking freshwater system. Bad, but not the ocean, and it does not get worse with depth.'],
-      ['5–25 psu', 'a mixture — often means an old freshwater leak with a new seawater one on top, or the reverse.'],
+      ['~35 PSU', 'open-ocean seawater. If the bilge reads this, the sea is coming in.'],
+      ['0–2 PSU', 'condensate, potable water, a leaking freshwater system. Bad, but not the ocean, and it does not get worse with depth.'],
+      ['5–25 PSU', 'a mixture — often means an old freshwater leak with a new seawater one on top, or the reverse.'],
     ],
     read: `This is the single fastest way to cut your hypothesis list in half. Sea-connected sources scale
       with depth and never run out; internal sources are bounded by a tank and can be isolated without
@@ -662,12 +667,15 @@ const DISPLAYS = {
       manifold reports, and the panel states the switchboard reports. Everything on it is second-hand, which
       is precisely why the sounding tape exists.`,
     numbers: [
-      ['level, cm', `how deep the water is in the forward bilge, out of ${BILGE_DEPTH_CM} cm to the deck plates.`],
-      [`red mark at ${PANEL_THREAT_CM} cm`, 'the forward power panel cable gland. Above this line, water is at live conductors.'],
-      ['cm/min', 'rate of rise. Positive is losing, negative is winning, near zero is holding.'],
-      [`${BILGE_AREA.forward_equipment} m²`, 'bilge plan area — multiply by the rise to get volume flow.'],
-      ['level trend', 'the last minute or so of history. Shape matters more than the instantaneous value.'],
-      ['valve lineup', 'OPEN or SHUT for each seawater valve. This is the boundary you are trying to close.'],
+      ['FORWARD BILGE LEVEL, cm', `how deep the water is in the forward bilge, out of ${BILGE_DEPTH_CM} cm to the deck plates.`, 'FORWARD BILGE LEVEL'],
+      [`red mark at ${PANEL_THREAT_CM} cm`, 'the forward power panel cable gland. Above this line, water is at live conductors.', 'red mark'],
+      ['cm/min', 'rate of rise. Positive is losing, negative is winning, near zero is holding.', 'cm/min'],
+      [`bilge plan area ${BILGE_AREA.forward_equipment} m²`, 'multiply by the rise to get volume flow in m³/h.', 'bilge plan area'],
+      ['level trend', 'the last minute or so of history. Shape matters more than the instantaneous value.', 'level trend'],
+      ['SEAWATER MANIFOLD LINEUP', 'OPEN or SHUT for each seawater valve. This is the boundary you are trying to close.', 'SEAWATER MANIFOLD LINEUP'],
+      ['fwd power panel 2F', 'ENERGIZED, SECURED or TRIPPED — the electrical boundary, next to the water level that threatens it.', 'fwd power panel 2F'],
+      ['source', 'no casualty, OPEN TO SEA, isolated, or SEALED. Isolated is not the same as sealed.', 'source'],
+      ['portable pump', 'RUNNING or stopped. Removal, to be subtracted from inflow — not a fix.', 'portable pump'],
     ],
     read: `The trend line answers the only question that matters: is the gap between inflow and removal
       opening or closing? A flat trace with a running pump means you are exactly matched and one more
@@ -685,11 +693,13 @@ const DISPLAYS = {
       familiar rule of thumb is that life roughly halves for every 10 °C rise — so "hot but working" is a
       countdown, not a state.`,
     numbers: [
-      ['cabinet temperature, °C', 'the air inside the electronics cabinet.'],
-      ['55 °C', 'the cabinet limit on this boat. Beyond it, processing is derated to protect the hardware.'],
-      ['temperature trend', 'the slope tells you how long you have. A steady climb of 1 °C/min from 40 °C gives you fifteen minutes.'],
-      ['cooling water flow', 'FLOWING or NO FLOW. This is the cause; temperature is the effect.'],
-      ['supply header / cross-connect', 'which valves are feeding the cooling loop. The cross-connect is the alternative path.'],
+      ['CABINET TEMPERATURE, °C', 'the air inside the electronics cabinet.', 'CABINET TEMPERATURE'],
+      ['red mark at 55 °C', 'the cabinet limit on this boat. Beyond it, processing is derated to protect the hardware.', 'cabinet limit'],
+      ['temperature trend', 'the slope tells you how long you have. A steady climb of 1 °C/min from 40 °C gives you fifteen minutes.', 'temperature trend'],
+      ['cooling water flow', 'FLOWING or NO FLOW. This is the cause; temperature is the effect.', 'cooling water flow'],
+      ['supply header', 'whether the forward header is feeding this loop.', 'supply header'],
+      ['aft cross-connect', 'the alternative cooling path, if the forward supply has been shut to stop a leak.', 'aft cross-connect'],
+      ['array processing', 'nominal or DERATED. A derated array is a sonar picture you cannot trust.', 'array processing'],
     ],
     read: `Read cause before effect. If flow has stopped, the temperature reading only tells you how far
       into the problem you already are — and a derated array is a sonar picture you cannot trust.`,
@@ -706,12 +716,14 @@ const DISPLAYS = {
       shifts down, so time runs downward and history is visible at a glance. Nothing here is a "contact"
       yet — it is energy, and interpreting it is your job.`,
     numbers: [
-      ['left to right', 'bearing, 000° to 360°.'],
-      ['top to bottom', 'time, newest first. A minute or so of history.'],
-      ['brightness', 'received level. Brighter is louder at your hydrophones, which is not the same as bigger or closer.'],
-      ['a vertical bright line', 'a contact holding steady bearing. Either far away, or on a collision course — the display cannot tell you which.'],
-      ['a slanting line', 'bearing changing steadily. The slope is the bearing rate.'],
-      ['a broad smear', 'noise: sea state, biology, or your own boat when you speed up.'],
+      ['000 … 360 along the top', 'bearing. The scale runs left to right across the whole horizon.', '000'],
+      ['floor, dB', 'your own self-noise. Everything out in the water has to be heard above this line.', 'floor'],
+      ['own-ship line', 'whether you are quiet enough to hold weak contacts, or masking them yourself.', 'own-ship'],
+      ['top to bottom', 'time, newest first. A minute or so of history.', 'graphic'],
+      ['brightness', 'received level. Brighter is louder at your hydrophones, which is not the same as bigger or closer.', 'graphic'],
+      ['a vertical bright line', 'a contact holding steady bearing. Either far away, or on a collision course — the display cannot tell you which.', 'graphic'],
+      ['a slanting line', 'bearing changing steadily. The slope is the bearing rate.', 'graphic'],
+      ['a broad smear', 'noise: sea state, biology, or your own boat when you speed up.', 'graphic'],
     ],
     read: `Track the *shape* over time. Straight and vertical means constant bearing; a slant means relative
       motion; a wander means something biological or a very weak signal being pushed around by noise. A
@@ -830,12 +842,17 @@ const DISPLAYS = {
       seawater density. Course comes from the inertial unit or the gyro. Trim comes from an inclinometer,
       which is a damped pendulum: it measures the direction of "down" relative to the boat.`,
     numbers: [
-      ['depth, m', 'from sea pressure. About 1 bar per 10 m.'],
-      ['course, °', 'true heading.'],
-      ['speed, kn', 'through the water. Over the ground differs by the current.'],
-      ['trim, °', 'fore-and-aft angle. Bow-down as water collects forward.'],
-      ['self-noise, dB', 'how loud you are to yourself, which sets the floor your sonar has to hear over.'],
-      ['control effort', 'how much plane angle is being held to keep ordered depth. This is where hidden weight shows up.'],
+      ['DEPTH, m', 'from sea pressure. About 1 bar per 10 m.', 'DEPTH'],
+      ['ordered depth, m', 'what was asked for. The gap between ordered and actual is the interesting number.', 'ordered'],
+      ['rate, m/min', 'how fast depth is changing. Zero at the wrong depth is a different problem from moving at the right one.', 'rate'],
+      ['TRIM, °', 'fore-and-aft angle. Bow-down as water collects forward.', 'TRIM'],
+      ['HEAD, °', 'true heading.', 'HEAD'],
+      ['SPEED, kn', 'through the water. Over the ground differs by the current.', 'SPEED'],
+      ['WATER EMBARKED, t', 'tonnes of flood water aboard. Weight you did not plan to carry.', 'WATER EMBARKED'],
+      ['DEPTH-CONTROL EFFORT, %', 'how hard the planes are working to hold ordered depth. This is where hidden weight shows up first.', 'DEPTH-CONTROL EFFORT'],
+      ['depth trend', 'the last minute of depth history.', 'depth trend'],
+      ['planes', 'responding normally, or fighting something.', 'planes'],
+      ['main ballast', 'whether the static side of depth control is still on plan.', 'main ballast'],
     ],
     read: `Depth steady with rising control effort means the boat is getting heavier and being flown, not
       floated. That is an early flooding indication and it appears before any bilge alarm.`,
@@ -851,10 +868,11 @@ const DISPLAYS = {
       runs, so it reflects what you actually did rather than what was planned. Days remaining are recomputed
       from your current speed, which is why they move when you change turns.`,
     numbers: [
-      [`${TOTAL_NM.toLocaleString()} nm`, 'total crossing.'],
-      ['% across', 'distance made good divided by total.'],
-      ['days to landfall', 'remaining distance at present speed.'],
-      ['legs', 'the passage divided into segments, each with its own constraints.'],
+      [`x of ${TOTAL_NM.toLocaleString()} nm · % across`, 'distance made good against the whole crossing, and the same thing as a percentage.', `of ${TOTAL_NM.toLocaleString()} nm`],
+      ['making … kn', 'speed made good right now. Everything else on this board is computed from it.', 'making'],
+      ['days to landfall', 'remaining distance at present speed — recomputed, not the plan.', 'days to landfall'],
+      ['patrol day', 'days since sailing, so the crossing and the watch bill share one clock.', 'patrol day'],
+      ['the legs', 'the passage divided into named segments, each with its own constraints.', 'Shelf Edge'],
     ],
     read: `Compare planned against actual. A percentage that has stopped moving means you are slow, stopped,
       or going somewhere other than the plan.`,
@@ -870,9 +888,10 @@ const DISPLAYS = {
       The panel therefore reports the physical prerequisites — antenna or wire streamed, depth — as well as
       traffic, because with the prerequisites unmet, silence means nothing at all.`,
     numbers: [
-      ['antenna / wire state', 'streamed or housed. A housed wire cannot receive.'],
-      ['depth required', 'shallow enough for the frequency in use.'],
-      ['time since last receipt', 'how stale your picture of the world is.'],
+      ['EMCON STATE', 'the emissions-control condition you are keeping. It says what you may radiate, not what you may hear.', 'EMCON STATE'],
+      ['antenna', 'available or housed. A housed antenna cannot receive, so silence proves nothing.', 'antenna'],
+      ['traffic pending', 'messages waiting for you to be shallow enough to take them.', 'traffic pending'],
+      ['depth for mast, m', 'how shallow you would have to come. At 60 m you are simply too deep for it.', 'depth for mast'],
     ],
     read: `Treat time since last receipt as an expiry date on your orders and your threat picture, not as a
       curiosity.`,
@@ -888,10 +907,11 @@ const DISPLAYS = {
       sleep debt degrades reaction time and judgement in the same way as alcohol, and it does so without
       the person noticing.`,
     numbers: [
-      ['patrol day', 'days since sailing.'],
-      ['hours awake', 'past about 18 hours, measurable impairment; the boat expects you to sleep before then.'],
-      ['O₂ %', 'about 20.9 % normally; below 19.5 % is deficient.'],
-      ['CO₂ %', '0.5 % is routine at sea; above 1 % costs you concentration.'],
+      ['the watch bill, 0400–2000', 'when watches turn over and what evolutions are planned.', 'Watch relief'],
+      ['patrol day', 'days since sailing.', 'patrol day'],
+      ['h awake', 'hours since you last slept. Past about 18, measurable impairment; the boat expects you down before then.', 'h awake'],
+      ['O₂ %', 'about 20.9 % normally; below 19.5 % is deficient.', 'O₂'],
+      ['CO₂ %', '0.5 % is routine at sea; above 1 % costs you concentration.', 'CO₂'],
     ],
     read: `Read this as a limit on *you*, alongside the plant limits everywhere else on the boat.`,
     trap: `Fatigue and CO₂ both impair the judgement being used to decide whether you are impaired.`,
@@ -905,9 +925,11 @@ const DISPLAYS = {
       than as a list of valve positions. Follow the energy: heat to steam, steam to turbines, turbines to
       shaft and generators, generators to buses.`,
     numbers: [
-      ['flows and pressures', 'on the lines that carry them.'],
-      ['open/shut symbols', 'valve and breaker positions, drawn in place.'],
-      ['temperatures', 'at the points where heat is meant to leave the system.'],
+      ['ELECTRICAL — bus voltage, V', 'each bus with its voltage and what is feeding it. 450 V mains, 120 V vital.', 'ELECTRICAL'],
+      ['COOLING — °C and flow %', 'loop temperature and how much flow it is getting. Flow is the cause, temperature the effect.', 'COOLING'],
+      ['PUMPS', 'what is running. Each running pump is both work being done and noise being made.', 'PUMPS'],
+      ['SELF-NOISE FLOOR, dB', 'the acoustic bill for the plant lineup — about 3 dB per running pump.', 'SELF-NOISE FLOOR'],
+      ['BILGES', 'dry, or the level in each compartment that is not.', 'BILGES'],
     ],
     read: `Trace the path rather than scanning for red. Most plant faults are a break in one chain, and the
       alarm usually fires downstream of the actual cause.`,
@@ -924,9 +946,12 @@ const DISPLAYS = {
       shaft rpm divided by 60. Push harder and pressure on the blade backs falls until water flashes to
       vapour: cavitation, whose collapsing bubbles are broadband and extremely loud.`,
     numbers: [
-      ['shaft rpm', 'and therefore blade rate in hertz.'],
-      ['bearing temperature, °C', 'friction becoming heat. Trend matters more than value.'],
-      ['cavitation margin', 'how close you are to the propeller boiling water. Improves with depth — pressure suppresses cavitation.'],
+      ['SHAFT, rpm', 'shaft speed, and therefore blade rate in hertz: blades × rpm ÷ 60.', 'SHAFT'],
+      ['mode · online', 'what is driving the shaft and whether it is answering.', 'mode'],
+      ['shaft trend', 'recent rpm history — a speed change is an acoustic event, not just a navigational one.', 'shaft trend'],
+      ['lube oil', 'the film that keeps metal off metal. Lose it and the bearing temperature follows immediately.', 'lube oil'],
+      ['thrust bearing, °C', 'friction becoming heat, at the bearing taking the propeller thrust. Trend matters more than value.', 'thrust bearing'],
+      ['cavitation', 'none, or RISK. Depends on speed AND depth: pressure suppresses cavitation, so shallow and fast is the loud corner.', 'cavitation'],
     ],
     read: `Depth and speed together decide whether you cavitate. The same rpm can be quiet deep and very
       loud shallow, which makes depth a tactical choice and not just a safety one.`,
@@ -942,10 +967,10 @@ const DISPLAYS = {
       the smallest breaker able to clear a fault is the one that opens. That is why a whole bus dropping is
       a much worse finding than one panel tripping: the grading failed, or the fault was upstream.`,
     numbers: [
-      ['bus voltage, V', 'health of the supply.'],
-      ['load current, A', 'heating goes as current squared. Twice the current is four times the heat.'],
-      ['breaker state', 'closed, open, or tripped. Tripped is not the same as open — tripped means something happened.'],
-      ['ground indication', 'insulation resistance to the hull. Falling means moisture or damage.'],
+      ['bus voltage, V', 'health of each supply — 450 V mains, 120 V vital — and what is feeding it.', 'portMain'],
+      ['bus load, A', 'current drawn. Heating goes as current squared, so a 20 % overload is 44 % more heat.', 'bus load'],
+      ['ground detector', 'clear, or EARTH FAULT. This distribution is ungrounded, so the FIRST fault does not trip — it is hunted.', 'ground detector'],
+      ['local panels', 'energized, secured, or TRIPPED. Tripped is not the same as secured: something happened.', 'local panels'],
     ],
     read: `Read the tripped breaker as evidence about the load behind it, and ask what else that breaker
       was feeding before you close it again.`,
@@ -962,10 +987,11 @@ const DISPLAYS = {
       the practical question is never "can we pump" but "can we pump *this* compartment, at *this* depth,
       fast enough".`,
     numbers: [
-      ['pump running / stopped', 'per pump.'],
-      ['suction lineup', 'which compartment each pump is drawing from. Wrong lineup, no water moves.'],
-      ['discharge pressure', 'what the pump is working against. Rising pressure at falling flow means a restriction.'],
-      ['capacity, m³/h', 'the number to compare against your inflow estimate. The portable is 45 m³/h.'],
+      ['AFTER BILGE LEVEL, cm', 'how much water is in the after bilge, on the same scale as the forward one.', 'AFTER BILGE LEVEL'],
+      ['after bilge pump / seawater pump', 'RUNNING or stopped, per pump.', 'after bilge pump'],
+      ['air compressor', 'standby or running — the ship\'s air, which is also what the breathing manifolds run on.', 'air compressor'],
+      ['heat exchanger, °C', 'where the secondary loop dumps its heat into the sea.', 'heat exchanger'],
+      ['dewatering capacity, m³/h', 'installed 60 and portable 45. This is the number you subtract inflow from.', 'dewatering capacity'],
     ],
     read: `Removal capacity is only a number until you subtract inflow from it. Do the subtraction at the
       plotting board first; line up the pump second.`,

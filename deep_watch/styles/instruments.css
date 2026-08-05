@@ -343,3 +343,46 @@
   width: 100%; display: block; background: #061119;
   border: 1px solid var(--line); border-radius: 4px;
 }
+
+/* ---------------------------------------------------------------------------
+   Recovery help at the sonar console.
+
+   A call that does not stand up fails in one of three separate ways — wrong
+   class, one chain cited twice, or nothing cited — and each needs a different
+   next action. This block states which one happened, restates what the displays
+   in front of the player actually say, and gives the physical steps. It escalates
+   on repeat: the decision rule on the second miss, the worked answer on the third.
+   --------------------------------------------------------------------------- */
+.call-help {
+  border-left: 2px solid var(--accent-warm);
+  background: rgba(216, 162, 74, 0.07);
+  padding: 12px 16px 14px;
+  margin-top: 10px;
+  border-radius: 0 6px 6px 0;
+}
+.call-help.ok { border-left-color: var(--ok); background: rgba(107, 191, 115, 0.08); }
+.ch-head { font-size: 15px; font-weight: 700; color: var(--accent-warm); margin-bottom: 6px; }
+.call-help.ok .ch-head { color: var(--ok); }
+.ch-body { font-size: 13.5px; line-height: 1.6; color: var(--ink); }
+.ch-sub {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-dim); margin: 12px 0 5px;
+}
+.ch-ev, .ch-steps { margin: 0; padding-left: 20px; font-size: 13.5px; line-height: 1.65; }
+.ch-ev li { color: var(--ink-dim); }
+.ch-steps li { color: var(--ink); margin-bottom: 3px; }
+.ch-do { font-size: 13.5px; margin-top: 8px; color: var(--ink); }
+.call-rule {
+  width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px;
+}
+.call-rule th {
+  text-align: left; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--line);
+  padding: 5px 8px 5px 0;
+}
+.call-rule td { padding: 5px 8px 5px 0; border-bottom: 1px solid rgba(34, 50, 63, 0.5); color: var(--ink); }
+.call-rule td:last-child { color: var(--accent); font-family: var(--mono); white-space: nowrap; }
+.ch-answer {
+  margin-top: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 5px;
+  background: rgba(63, 182, 194, 0.07); font-size: 13.5px; line-height: 1.6;
+}

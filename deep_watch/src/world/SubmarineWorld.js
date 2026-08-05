@@ -517,17 +517,23 @@ export class SubmarineWorld {
   }
 
   _furnish_sonar_electronics(c) {
-    for (let i = 0; i < 4; i++) {
+    // This is the smallest compartment on the boat (4 m) and it used to have four
+    // 1.9 m cabinets and a full-length cooling run at panel height, which left
+    // nowhere a mimic panel could be seen from. The cabinets now sit forward and
+    // the run stops short, keeping the after starboard bulkhead clear as a
+    // display bay. Same equipment, arranged so the space can be read.
+    const rackSpots = [[-1, 0.75], [-1, 1.6], [-1, 2.45], [1, 0.75]];
+    for (const [side, dz] of rackSpots) {
       const rack = this.props.equipmentRack({ screen: 0x2f6f8f, h: 1.9 });
-      const side = i % 2 === 0 ? -1 : 1;
-      rack.position.set(side * (HALF_W - 0.45), 0, c.zStart + 0.9 + Math.floor(i / 2) * 1.6);
+      rack.position.set(side * (HALF_W - 0.45), 0, c.zStart + dz);
       rack.rotation.y = side > 0 ? -Math.PI / 2 : Math.PI / 2;
       this.root.add(rack);
       this.collision.addBoxFromObject(rack, 0.05);
     }
-    // Cooling loop pipe with valve.
-    const cool = this.props.pipeRun({ length: c.len - 1, axis: 'z', colorHex: 0x3a6a7a, valveAt: 0 });
-    cool.position.set(HALF_W - 0.25, 1.6, c.zMid);
+    // Cooling loop pipe with valve — forward half only, clear of the display bay.
+    const coolLen = 1.7;
+    const cool = this.props.pipeRun({ length: coolLen, axis: 'z', colorHex: 0x3a6a7a, valveAt: 0 });
+    cool.position.set(HALF_W - 0.25, 1.6, c.zStart + 0.3 + coolLen / 2);
     this.root.add(cool);
     this._placeInstrumentPickup(c, 'ir_thermometer', 'IR Thermometer', 0xd1594e, HALF_W - 0.3, c.zEnd - 1.0);
   }

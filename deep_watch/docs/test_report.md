@@ -15,10 +15,10 @@
 ```bash
 cd deep_watch
 npm run build          # ✓ 62 modules, 875 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 58/58 passed (12.0 min, one worker); webServer = build + preview:4173
+npx playwright test    # ✓ 63/63 passed (one worker); webServer = build + preview:4173
 ```
 
-## Results — 58/58 PASS
+## Results — 63/63 PASS
 
 ### Smoke (`tests/smoke.spec.js`) — 13/13
 | # | Test | Result |
@@ -52,7 +52,7 @@ npx playwright test    # ✓ 58/58 passed (12.0 min, one worker); webServer = bu
 | 23 | Mission progress saved under `deepwatch.progress.v1` only | ✓ |
 | 24 | Restart returns the boat to a clean condition (level, valves, deck plate, notebook, inventory, stage) | ✓ |
 
-### Missions 2, 3 and Command Episode 1 (`tests/mission-sonar-nav.spec.js`) — 10/10
+### Missions 2, 3 and Command Episode 1 (`tests/mission-sonar-nav.spec.js`) — 11/11
 | # | Test | Result |
 |---|---|---|
 | 25 | **A loud boat cannot hear its own picture** — the faint contact is under the floor until the plant is quieted, then it appears | ✓ |
@@ -111,21 +111,44 @@ and an electrical boundary changes what is connected (16).
 | 43 | The passage advances on the patrol clock and the plot renders it | ✓ |
 | 44 | **V shows the watchstander**, and interaction reach is still measured from the body, not the camera | ✓ |
 
-### The science codex (`tests/science-codex.spec.js`) — 12/12
+The sonar spec gained one test: **a call that does not stand up says why, and the
+help escalates** — it makes three different wrong calls through the real DOM and
+checks each failure is named separately (one chain cited twice; nothing cited; a
+class the evidence does not support), that the second miss produces the decision
+rule and the third the worked answer, that the guide strip carries the correction,
+and that a correct call clears all of it.
+
+### The science codex (`tests/science-codex.spec.js`) — 16/16
 | # | Test | Result |
 |---|---|---|
 | 1 | **Every interactable object in the boat has a science entry** — walks the whole interactable list through `resolveScienceKey` | ✓ |
 | 2 | Every wall display is interactable and explains itself (records == panels, none unexplained) | ✓ |
-| 3 | Every station console resolves to its own entry | ✓ |
-| 4 | Every entry has a one-liner, a mechanism, numbers and a how-to-read section | ✓ |
-| 5 | **G** opens the entry for the object under the crosshair, and the world **freezes** while it is open | ✓ |
-| 6 | G with nothing under the crosshair opens the browsable index; a row opens an entry; Back returns | ✓ |
-| 7 | **E** on a wall panel opens what that panel is showing | ✓ |
-| 8 | A console's Science button opens its entry, and closing returns you to the console (mode `station`) | ✓ |
-| 9 | Sonar console captions link to the individual display physics | ✓ |
-| 10 | The HUD prompt advertises G on anything explainable, and does not double up on wall panels | ✓ |
-| 11 | All 46 qualification questions carry a valid `science` key and a well-formed answer | ✓ |
-| 12 | Answering a question offers the science behind it, and the link opens | ✓ |
+| 3 | **Forward audit** — every number an entry explains is text actually drawn on that panel | ✓ |
+| 4 | **Reverse audit** — every quantity a panel draws with a unit is accounted for in its entry | ✓ |
+| 5 | **Instrument audit** — every instrument's read-out unit appears in its own entry | ✓ |
+| 6 | **Every wall panel is ≥ 95 % visible** from where a player stands (all eleven score 1.0) | ✓ |
+| 7 | Every station console resolves to its own entry | ✓ |
+| 8 | Every entry has a one-liner, a mechanism, numbers and a how-to-read section | ✓ |
+| 9 | **G** opens the entry for the object under the crosshair, and the world **freezes** while it is open | ✓ |
+| 10 | G with nothing under the crosshair opens the browsable index; a row opens an entry; Back returns | ✓ |
+| 11 | **E** on a wall panel opens what that panel is showing | ✓ |
+| 12 | A console's Science button opens its entry, and closing returns you to the console (mode `station`) | ✓ |
+| 13 | Sonar console captions link to the individual display physics | ✓ |
+| 14 | The HUD prompt advertises G on anything explainable, and does not double up on wall panels | ✓ |
+| 15 | All 46 qualification questions carry a valid `science` key and a well-formed answer | ✓ |
+| 16 | Answering a question offers the science behind it, and the link opens | ✓ |
+
+Tests 3–5 are the audit the explanations are held to, in both directions. They are
+built by recording every `fillText` a panel draws and comparing it with the entry:
+the forward direction is exact (each `numbers` row names the on-screen text it
+refers to, or marks itself `'graphic'`), the reverse is by unit, so it survives the
+values changing every frame. Building them found real drift — a self-noise figure
+explained on a panel that does not show it, a gauge reading psi explained in bar,
+and three panels whose entries described numbers that were only in the manual.
+
+Test 6 is the placement guard: panels are positioned by scoring sight lines from
+where a player stands, after several were found mounted behind pipe runs at exactly
+panel height.
 
 Test 1 is the load-bearing one: anything new placed in the boat appears in the
 interactable list, so "every object has an explanation" cannot quietly stop being

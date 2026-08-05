@@ -33,7 +33,14 @@ export class GameLoop {
     if (!this.running) return;
     let dt = (now - this._last) / 1000;
     this._last = now;
-    if (dt > 0.1) dt = 0.1; // clamp big stalls (tab switch)
+    if (dt > 0.1) dt = 0.1;   // clamp big stalls (tab switch)
+    // …and never trust a negative one. `start()` stamps `_last` with
+    // performance.now(), but the first rAF callback carries the timestamp of the
+    // frame that was already in flight, which is EARLIER — by however long the
+    // synchronous world build took. Left unclamped that lands a second or more of
+    // debt in the accumulator and the simulation sits frozen while it pays it off,
+    // which is exactly what happened when panel placement got more expensive.
+    if (dt < 0) dt = 0;
 
     this._acc += dt;
     let guard = 0;
