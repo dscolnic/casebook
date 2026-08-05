@@ -16,22 +16,22 @@ const LOCKERS = {
     note: 'The watchstander\'s locker: measuring gear and breathing protection close to hand.',
     // A spare acoustic probe is stowed here as well as on the shelf, so failing to
     // spot one small object on a bulkhead can never block the watch.
-    items: ['acoustic_probe', 'sounding_tape', 'salinity_probe', 'eab', 'extinguisher'],
+    items: ['acoustic_probe', 'sounding_tape', 'salinity_probe', 'gas_detector', 'eab', 'ext_co2'],
   },
   forward: {
     title: 'DC Locker 1 — Forward Equipment Space',
     note: 'The forward casualty locker. Repair gear, dewatering, and test equipment.',
-    items: ['soft_patch', 'pipe_clamp', 'portable_pump', 'shoring', 'pressure_gauge', 'sounding_tape', 'salinity_probe', 'eab', 'extinguisher'],
+    items: ['soft_patch', 'pipe_clamp', 'portable_pump', 'shoring', 'pressure_gauge', 'sounding_tape', 'salinity_probe', 'eab', 'ext_co2', 'ext_afff'],
   },
   machinery: {
     title: 'DC Locker 2 — Machinery Control',
     note: 'Engineering-side locker.',
-    items: ['pipe_clamp', 'shoring', 'pressure_gauge', 'eab', 'extinguisher'],
+    items: ['pipe_clamp', 'shoring', 'pressure_gauge', 'ir_thermometer', 'thermal_camera', 'multimeter', 'vibration_meter', 'eab', 'ext_co2', 'ext_afff', 'ext_dry'],
   },
   aft: {
     title: 'DC Locker 3 — Auxiliary Machinery',
     note: 'Aft casualty locker.',
-    items: ['portable_pump', 'soft_patch', 'shoring', 'eab'],
+    items: ['portable_pump', 'soft_patch', 'shoring', 'gas_detector', 'eab', 'ext_afff', 'ext_dry'],
   },
   escape: {
     title: 'Escape Trunk',

@@ -363,6 +363,56 @@ const INSTRUMENTS = {
     see: ['instrument:pipe_clamp', 'fitting:rupture'],
   },
 
+  'instrument:ext_co2': {
+    kind: 'Instrument', title: 'CO₂ Extinguisher',
+    oneLine: 'Carbon dioxide under pressure — the bottle for electrical fires, because it conducts nothing and leaves nothing behind.',
+    how: `The bottle holds CO₂ as a liquid under about 55 bar. Released, it flashes to gas and expands
+      enormously, which both cools the seat and pushes the air — and therefore the oxygen — away from it.
+      Because it is a gas with no water in it, it does not conduct and it does not damage the equipment it
+      is discharged into.`,
+    numbers: [
+      ['non-conductive', 'the property that matters near live equipment.'],
+      ['no residue', 'the switchboard can go back into service afterwards.'],
+      ['it displaces YOUR oxygen too', 'in a sealed compartment that is a real hazard, not a footnote.'],
+    ],
+    read: `Discharge at the base of the flame, not at the smoke. And remember that it removes the fire that
+      is burning now — it does nothing about a circuit that is still energized.`,
+    trap: `In a closed submarine compartment, enough CO₂ to smother a fire is also enough to make the
+      atmosphere unbreathable. Go on air first.`,
+    see: ['fitting:fire_seat', 'instrument:ext_afff', 'station:electrical'],
+  },
+
+  'instrument:ext_afff': {
+    kind: 'Instrument', title: 'AFFF Extinguisher',
+    oneLine: 'Aqueous film-forming foam: the right answer for burning liquid, and a conductor.',
+    how: `The foam floats a thin aqueous film across the surface of a fuel, which stops vapour rising — and
+      it is vapour, not liquid, that burns. That film is water-based, and water with surfactant in it
+      conducts electricity perfectly well.`,
+    numbers: [
+      ['good on oil and fuel', 'the fire it is designed for.'],
+      ['conductive', 'on live electrics the stream earths the fault back through the nozzle.'],
+    ],
+    read: `Fuel fire, no electrics: this is the bottle. Anything energized: it is not.`,
+    trap: `"It is only foam" is how people get hurt. Electrically it behaves like the hose.`,
+    see: ['instrument:ext_co2', 'instrument:ext_dry', 'fitting:fire_seat'],
+  },
+
+  'instrument:ext_dry': {
+    kind: 'Instrument', title: 'Dry Chemical Extinguisher',
+    oneLine: 'A powder that interrupts the flame chemistry itself — non-conductive, and it ruins what it saves.',
+    how: `Flame is a chain reaction of free radicals. The powder — typically a bicarbonate or a phosphate —
+      breaks that chain, so combustion stops even though fuel and oxygen are still present. It works fast and
+      it does not conduct, which makes it safe near electrics.`,
+    numbers: [
+      ['non-conductive', 'safe on electrical fires.'],
+      ['residue', 'corrosive and everywhere. Electronics that survive the fire may not survive the powder.'],
+    ],
+    read: `A good general-purpose bottle when you do not know what is burning. On a switchboard you would
+      rather have CO₂, because you want the equipment back.`,
+    trap: `The powder blocks your view of the seat at exactly the moment you need to see whether it is out.`,
+    see: ['instrument:ext_co2', 'fitting:fire_seat'],
+  },
+
   'instrument:eab': {
     kind: 'Instrument', title: 'Emergency Air Breathing Mask',
     oneLine: 'A mask on a hose that plugs into air manifolds all over the boat, so you can work in an atmosphere you cannot breathe.',
@@ -1044,6 +1094,82 @@ const FITTINGS = {
     see: ['instrument:multimeter', 'station:electrical', 'display:distribution'],
   },
 
+  'fitting:fire_seat': {
+    kind: 'Fitting', title: 'Cable-Run Junction Box',
+    oneLine: 'Where cables are joined behind a cover — ordinary equipment, and the usual seat of an electrical fire.',
+    how: `A joint is a discontinuity: two conductors clamped together with more resistance than either of
+      them has on its own. Heat in a conductor goes as current squared times resistance, so a joint that
+      loosens gets hot, and heat oxidises the contact, which raises the resistance further. That is a
+      runaway. Add cable insulation as fuel and an arc as the ignition source and you have a fire that is
+      being actively powered — which is why it cannot be put out at the fire.`,
+    numbers: [
+      ['seat temperature, °C', 'how hot the burning material itself is. Under 90 °C it will not relight; above, it can.'],
+      ['intensity', 'how much is alight right now. An extinguisher changes this and nothing else.'],
+      ['energized / dead', 'whether anything is still feeding the fault. This is the number that decides the outcome.'],
+    ],
+    read: `Treat the flame and the cause as two separate problems, because they are. De-energize, then
+      extinguish, then cool. In that order the fire ends; in any other order you are fighting the same fire
+      repeatedly.`,
+    trap: `A conductive agent — water, or AFFF, which is water-based — on a live circuit earths the fault
+      through the stream you are holding. The breaker trips, which people mistake for progress, and the fire
+      is still burning.`,
+    see: ['instrument:ext_co2', 'station:electrical', 'fitting:eab_manifold'],
+  },
+
+  'fitting:eab_manifold': {
+    kind: 'Fitting', title: 'Emergency Air Manifold',
+    oneLine: 'A pair of air outlets on the bulkhead: where a mask plugs into the ship\'s air instead of the compartment\'s.',
+    how: `The manifolds run off the low-pressure air system and are spaced so that you can always reach the
+      next one on a single held breath. That spacing IS the design: it is what makes a supplied-air system
+      workable in a boat where a self-contained set would run out and could not be recharged.`,
+    numbers: [
+      ['on air / off air', 'whether you are breathing ship\'s air or compartment air.'],
+      ['manifold spacing', 'one held breath. Moving means unplugging, crossing, and plugging in again.'],
+    ],
+    read: `Go on air BEFORE you enter, not once it starts hurting. Carbon monoxide and low oxygen both take
+      your judgement first, and the person deciding whether to don a mask is the person already impaired.`,
+    trap: `Being tethered is not a detail. Plan the route between manifolds before you commit to a
+      compartment full of smoke.`,
+    see: ['instrument:eab', 'instrument:gas_detector', 'fitting:fire_seat'],
+  },
+
+  'fitting:hose_reel': {
+    kind: 'Fitting', title: 'Firemain Hose Reel',
+    oneLine: 'Seawater under pressure, for cooling a bulkhead from the side that is not on fire.',
+    how: `Water is the best heat sink available: turning a kilogram of it to steam absorbs about 2.3 MJ,
+      far more than warming it ever does. Played on the cool face of a bulkhead it pulls heat out of the
+      steel faster than the fire next door can put it in, which stops the structure passing ignition
+      temperature to whatever is stowed against it on this side.`,
+    numbers: [
+      ['bulkhead temperature, °C', 'read it with an IR thermometer. Falling means the boundary is holding.'],
+      ['cool side', 'the compartment NEXT to the fire. Boundary cooling is never done in the fire.'],
+    ],
+    read: `Cool the boundary and the casualty stays one compartment\'s problem. Skip it and the fire
+      recruits the next space through a bulkhead nobody was watching.`,
+    trap: `This is seawater, and it conducts. It is for steel, not for electrics.`,
+    see: ['fitting:fire_seat', 'instrument:ir_thermometer', 'station:electrical'],
+  },
+
+  'fitting:damper': {
+    kind: 'Fitting', title: 'Ventilation Damper',
+    oneLine: 'A hand-operated flap in the duct: it decides whether the ventilation system reaches this compartment at all.',
+    how: `Ventilation is a loop — supply fan, ducting, compartments, exhaust, scrubber and burner — and a
+      damper is how one compartment is cut out of that loop. Shutting it is a boundary, exactly like shutting
+      a valve: it stops smoke spreading, and it also stops the scrubber removing that compartment's CO₂ and
+      the generator replacing its oxygen. There is no free version of this decision.`,
+    numbers: [
+      ['open', 'ventilated: air exchanges with the rest of the boat, and the scrubber can reach it.'],
+      ['shut', 'isolated: whatever is in that air stays in it, good or bad.'],
+      ['CO₂ rise with the damper shut', 'roughly 0.005 % per minute per person in the compartment.'],
+    ],
+    read: `Shut it to contain smoke or a toxic release; open it to recover a compartment. Then check the
+      handheld reading, because a compartment can be shut off by a damper somebody closed hours ago for a
+      reason that no longer exists.`,
+    trap: `A closed damper is invisible from the control room. The air in that space goes bad slowly and the
+      ship average never shows it.`,
+    see: ['station:engineering', 'instrument:gas_detector', 'display:plan_of_day'],
+  },
+
   'fitting:hatch': {
     kind: 'Fitting', title: 'Watertight Hatch',
     oneLine: 'A dogged steel door in a bulkhead: the boat\'s ability to lose one compartment and survive.',
@@ -1207,6 +1333,10 @@ export function resolveScienceKey(type, id) {
     sump: 'fitting:sump',
     comms: 'fitting:comms',
     bunk: 'fitting:bunk',
+    fire_seat: 'fitting:fire_seat',
+    eab_manifold: 'fitting:eab_manifold',
+    hose_reel: 'fitting:hose_reel',
+    damper: 'fitting:damper',
     display: `display:${String(id).replace(/^display_/, '')}`,
   }[type];
   if (direct && SCIENCE_NOTES[direct]) return direct;

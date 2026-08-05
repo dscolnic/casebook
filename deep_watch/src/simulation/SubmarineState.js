@@ -80,7 +80,10 @@ export class SubmarineState {
 
     // Local power/lighting panels that water can reach before it reaches a bus.
     this.electricalPanels = {
-      fwd_power_2f: { name: 'Forward Power Panel 2F', energized: true, tripped: false, compartment: 'forward_equipment' },
+      fwd_power_2f: { name: 'Forward Power Panel 2F', energized: true, tripped: false,
+        compartment: 'forward_equipment', fedFrom: 'portMain' },
+      aft_dist_2a: { name: 'Aft Distribution Panel 2A', energized: true, tripped: false,
+        compartment: 'electrical', fedFrom: 'stbdMain' },
     };
 
     // --- Flooding / bilge ---

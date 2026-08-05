@@ -256,8 +256,28 @@ const DEFS = {
     blurb: 'Emergency air breathing mask for smoke or toxic atmospheres.',
     useHint: 'Nothing here needs breathing protection.',
   },
+  // Three bottles, three different chemistries. Which one is right depends on
+  // what is burning AND on whether the circuit is still live: the two water-based
+  // agents conduct, so on live electrics they fault the circuit through the stream
+  // you are holding. Nothing here is labelled "correct".
+  ext_co2: {
+    name: 'CO₂ Extinguisher', color: 0xd1594e, kind: 'gear', agent: 'co2',
+    blurb: 'Portable CO₂ bottle. Non-conductive, no residue — and it displaces your oxygen too.',
+    useHint: 'Discharge at the seat of a fire (E).',
+  },
+  ext_afff: {
+    name: 'AFFF Extinguisher', color: 0xd8a24a, kind: 'gear', agent: 'afff',
+    blurb: 'Aqueous film-forming foam. Blankets burning liquid — water-based, so it conducts.',
+    useHint: 'Discharge at the seat of a fire (E).',
+  },
+  ext_dry: {
+    name: 'Dry Chemical Extinguisher', color: 0xdfe8ee, kind: 'gear', agent: 'dry_chem',
+    blurb: 'Interrupts the flame chemistry. Non-conductive; the residue ruins what it saves.',
+    useHint: 'Discharge at the seat of a fire (E).',
+  },
+  // Kept as the generic bottle for missions that predate the three-agent choice.
   extinguisher: {
-    name: 'CO₂ Extinguisher', color: 0xd1594e, kind: 'gear',
+    name: 'CO₂ Extinguisher', color: 0xd1594e, kind: 'gear', agent: 'co2',
     blurb: 'Portable CO₂ bottle for electrical fires.',
     useHint: 'Nothing is burning.',
   },

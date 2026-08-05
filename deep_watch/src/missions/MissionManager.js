@@ -3,6 +3,7 @@ import { mission01Walkdown } from './definitions/mission_01_walkdown.js';
 import { mission02Contact } from './definitions/mission_02_contact.js';
 import { mission03Navigation } from './definitions/mission_03_navigation.js';
 import { mission04Flooding } from './definitions/mission_04_flooding.js';
+import { mission05Fire } from './definitions/mission_05_fire.js';
 import { episode01SilentPassage } from './definitions/episode_01_silent_passage.js';
 
 /**
@@ -16,6 +17,7 @@ const REGISTRY = {
   mission_03_navigation: mission03Navigation,
   episode_01_silent_passage: episode01SilentPassage,
   mission_04_flooding: mission04Flooding,
+  mission_05_fire: mission05Fire,
 };
 
 export class MissionManager {
@@ -53,6 +55,9 @@ export class MissionManager {
       nav: d.nav,
       crew: d.crew,
       voyage: d.voyage,
+      atmosphere: d.atmosphere,
+      fire: d.fire,
+      fireControl: d.fireControl,
     });
     this.current.start();
     return this.current;
@@ -79,7 +84,13 @@ export class MissionManager {
     if (s) {
       s.valveStates = { fwd_sw_supply_inbd: 'open', fwd_sw_supply_outbd: 'open',
         sonar_cooling_supply: 'open', trim_drain: 'shut', sw_crossconnect: 'shut' };
-      s.electricalPanels.fwd_power_2f = { name: 'Forward Power Panel 2F', energized: true, tripped: false, compartment: 'forward_equipment' };
+      s.electricalPanels.fwd_power_2f = { name: 'Forward Power Panel 2F', energized: true, tripped: false,
+        compartment: 'forward_equipment', fedFrom: 'portMain' };
+      s.electricalPanels.aft_dist_2a = { name: 'Aft Distribution Panel 2A', energized: true, tripped: false,
+        compartment: 'electrical', fedFrom: 'stbdMain' };
+      for (const b of Object.values(s.electricalBuses)) b.energized = true;
+      s.playerOnAir = false;
+      s.smokeImpairment = 0;
       s.pumpStates.bilgePumpFwd.on = false;
       s.pumpStates.bilgePumpAft.on = false;
       s.pumpStates.trimPump.on = false;
@@ -91,6 +102,20 @@ export class MissionManager {
       s.activeCasualties = [];
       s.settleNoise();
     }
+    // Fire out, air clean, dampers open: a new attempt starts on a healthy boat.
+    if (d.fire) { d.fire.fires.length = 0; d.fire._elapsed = 0; }
+    if (d.fireControl) { d.fireControl.exposureS = 0; d.fireControl.actions.length = 0; }
+    if (d.atmosphere) {
+      for (const c of d.atmosphere.layout) {
+        Object.assign(d.atmosphere.air(c.id), { o2: 20.9, co2: 0.4, co: 0, smoke: 0, tempC: 24 });
+        d.state.ventDampers[c.id] = 'open';
+        d.state.atmosphereSensors[c.id] = { failed: false, bias: { o2: 0, co2: 0, co: 0 }, frozenAt: null };
+        d.state.smokeLevel[c.id] = 0;
+      }
+      d.state.ventilationRoutes = { supply: true, exhaust: true, scrubber: true, o2gen: true };
+      d.atmosphere._alarmed.clear();
+    }
+
     // Deck plates back down, pump hoses out.
     for (const [comp, bilge] of (d.world?.bilges ?? new Map())) {
       if (bilge.plateRecord?.data?.open) d.world.setDeckPlate(bilge.plateRecord.id, false);

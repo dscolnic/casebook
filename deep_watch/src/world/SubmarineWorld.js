@@ -82,6 +82,7 @@ export class SubmarineWorld {
     this.interactables = [];  // { object, type, id, prompt, data }
     this.hatches = [];        // { id, z, doorMesh, segIds, open }
     this.bilges = new Map();  // compartmentId -> BilgeVisuals
+    this.fireSeats = new Map(); // seatId -> { group, ember }
   }
 
   build(state) {
@@ -328,6 +329,13 @@ export class SubmarineWorld {
         this.root.add(mat);
       }
 
+      // Every compartment gets the two fittings a casualty needs: somewhere to
+      // plug a mask in, and a hose to cool a bulkhead from the cool side. They are
+      // low-profile and go on the port side, clear of the display bays.
+      this._placeEabManifold(`eab_${c.id}`, c, -HALF_W + 0.22, 1.5, c.zStart + 0.85, Math.PI / 2);
+      this._placeHoseReel(`hose_${c.id}`, c, -HALF_W + 0.28, 1.05, c.zEnd - 0.75, Math.PI / 2);
+      this._placeDamper(`damper_${c.id}`, c, HALF_W - 0.24, 1.85, c.zStart + 0.8, -Math.PI / 2);
+
       const build = this[`_furnish_${c.id}`];
       if (build) build.call(this, c);
     }
@@ -443,6 +451,103 @@ export class SubmarineWorld {
     this.root.add(g);
     this.interactables.push({
       object: g, type: 'comms', id, prompt: 'Report on the 7MC', data: { circuit: '7MC' },
+    });
+    return g;
+  }
+
+  /**
+   * A cable-run junction box: ordinary equipment most of the time, and the seat of
+   * an electrical fire when a mission puts one there. It is always present and
+   * always interactable, so the compartment does not suddenly grow a new object
+   * the moment something goes wrong.
+   */
+  _placeFireSeat(id, c, x, y, z, rotY = Math.PI / 2) {
+    const g = new THREE.Group();
+    g.add(new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.44, 0.24), this.mat.cabinetGrey()));
+    const face = new THREE.Mesh(new THREE.BoxGeometry(0.54, 0.36, 0.03), this.mat.panelDark());
+    face.position.z = 0.13;
+    const conduit = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.9, 8), this.mat.pipe(0x6a6a6a));
+    conduit.position.set(0, 0.62, 0.02);
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.09),
+      this.mat.labelMaterial('CABLE RUN 2F-J', { bg: '#2a2118', fg: '#f0d9a2' }));
+    label.position.set(0, -0.16, 0.15);
+    // The glow only means anything once something is burning behind it.
+    const ember = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.26), this.mat.emissive(0xd1594e, 2.2));
+    ember.position.set(0, 0.02, 0.155);
+    ember.visible = false;
+    g.add(face, conduit, label, ember);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    this.fireSeats.set(id, { group: g, ember });
+    this.interactables.push({
+      object: g, type: 'fire_seat', id,
+      prompt: 'Fight the fire at this seat',
+      data: { compartment: c.id, seat: 'cable run 2F-J' },
+    });
+    return g;
+  }
+
+  /** An emergency-air manifold: where you plug a mask in. */
+  _placeEabManifold(id, c, x, y, z, rotY = -Math.PI / 2) {
+    const g = new THREE.Group();
+    g.add(new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.2, 0.14), this.mat.pipe(0x2f8f8f)));
+    for (const dx of [-0.07, 0.07]) {
+      const nozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.12, 6), this.mat.brass());
+      nozzle.position.set(dx, -0.13, 0.02);
+      g.add(nozzle);
+    }
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.07), this.mat.labelMaterial('EAB', { bg: '#12333a', fg: '#bfe9ee' }));
+    label.position.set(0, 0.16, 0.08);
+    g.add(label);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    this.interactables.push({
+      object: g, type: 'eab_manifold', id,
+      prompt: () => (this.state?.playerOnAir ? 'Come off air' : 'Plug in and go on air'),
+      data: { compartment: c.id },
+    });
+    return g;
+  }
+
+  /** A firemain hose reel — used for boundary cooling from the cool side. */
+  _placeHoseReel(id, c, x, y, z, rotY = -Math.PI / 2) {
+    const g = new THREE.Group();
+    const drum = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.16, 12), this.mat.pipe(0xb0433a));
+    drum.rotation.z = Math.PI / 2;
+    const bracket = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.3, 0.3), this.mat.cabinetGrey());
+    bracket.position.x = -0.12;
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.08), this.mat.labelMaterial('FIREMAIN', { bg: '#2a1818', fg: '#f0c0b0' }));
+    label.position.set(0, -0.3, 0.02);
+    g.add(drum, bracket, label);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    this.interactables.push({
+      object: g, type: 'hose_reel', id,
+      prompt: 'Run a hose on the bulkhead (boundary cooling)',
+      data: { compartment: c.id },
+    });
+    return g;
+  }
+
+  /** A ventilation damper: the thing that decides whether air reaches a space. */
+  _placeDamper(id, c, x, y, z, rotY = -Math.PI / 2) {
+    const g = new THREE.Group();
+    const duct = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.32, 0.22), this.mat.pipe(0x5a6a72));
+    const handle = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.22, 0.05), this.mat.emissive(0x6bbf73, 0.9));
+    handle.position.set(0.1, 0, 0.14);
+    const label = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.08), this.mat.labelMaterial('VENT DAMPER', { bg: '#20282c', fg: '#cfe0e6' }));
+    label.position.set(0, -0.22, 0.12);
+    g.add(duct, handle, label);
+    g.position.set(x, y, z);
+    g.rotation.y = rotY;
+    this.root.add(g);
+    this.interactables.push({
+      object: g, type: 'damper', id,
+      prompt: () => (this.state?.ventDampers?.[c.id] === 'shut' ? 'Open the vent damper' : 'Shut the vent damper'),
+      data: { compartment: c.id },
     });
     return g;
   }
@@ -701,6 +806,9 @@ export class SubmarineWorld {
     this.root.add(xfmr);
     this.collision.addBoxFromObject(xfmr, 0.05);
     this._placeStation(c, 'electrical', 'Electrical Switchboard', HALF_W - 0.5, c.zEnd - 1.2, 0xb0a03a);
+    // The cable-run junction that Mission 5 sets alight, and the panel feeding it.
+    this._placeFireSeat('fire_seat_electrical', c, HALF_W - 0.28, 1.35, c.zStart + 3.3, -Math.PI / 2);
+    this._placePanel('aft_dist_2a', 'AFT DIST 2A', -HALF_W + 0.32, 1.25, c.zStart + 3.3);
   }
 
   _furnish_auxiliary(c) {

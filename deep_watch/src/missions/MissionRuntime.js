@@ -14,7 +14,8 @@
  */
 export class MissionRuntime {
   constructor({ definition, eventBus, state, save, compartmentManager, inventory,
-                instruments, flooding, dc, world, notebook, sonar, nav, crew, voyage }) {
+                instruments, flooding, dc, world, notebook, sonar, nav, crew, voyage,
+                atmosphere, fire, fireControl }) {
     this.def = definition;
     this.bus = eventBus;
     this.state = state;
@@ -30,6 +31,9 @@ export class MissionRuntime {
     this.nav = nav;
     this.crew = crew;
     this.voyage = voyage;
+    this.atmosphere = atmosphere;
+    this.fire = fire;
+    this.fireControl = fireControl;
 
     this.flags = {};
     this.stageIndex = -1;
@@ -191,6 +195,55 @@ export class MissionRuntime {
         rt.bus.emit('mission:progress', { have: seen.size, need: count });
         if (seen.size >= count) rt.complete(note);
       });
+    };
+  }
+
+  /**
+   * Complete when every item on a checklist is true.
+   *
+   * A mission objective should be a piece of WORK — "find the water", "measure the
+   * casualty" — not a single button press, or the card turns into a wizard with
+   * twenty steps. This arms one objective that covers several actions and keeps
+   * the player oriented while they do them: the HUD shows how many are done and
+   * names exactly what is still outstanding, so bundling never costs clarity.
+   *
+   * item: { label, done(rt) => bool, on?: [events], watch?(rt, changed) => off }
+   * opts: { note, pollMs } — pollMs re-checks on a timer for conditions that
+   * become true without an event (trim settling, a temperature falling).
+   */
+  checklist(items, { note, pollMs = 0 } = {}) {
+    return (rt) => {
+      const offs = [];
+      let finished = false;
+      // Items LATCH. Several of these are things you can only be doing in one
+      // place — "at Sonar, self-noise under 50 dB" and "at Ship Control, trim
+      // inside 0.3°" — and without latching, walking aft to satisfy the second
+      // un-satisfies the first and the objective can never complete.
+      const met = items.map(() => false);
+      const evaluate = () => {
+        if (finished) return;
+        items.forEach((it, i) => { if (!met[i] && it.done(rt)) met[i] = true; });
+        const outstanding = items
+          .filter((_, i) => !met[i])
+          .map((it) => (typeof it.label === 'function' ? it.label(rt) : it.label));
+        rt.bus.emit('mission:progress', {
+          have: items.length - outstanding.length,
+          need: items.length,
+          detail: outstanding.length ? `Still to do: ${outstanding.join('; ')}` : null,
+        });
+        if (!outstanding.length) { finished = true; rt.complete(note); }
+      };
+      for (const ev of new Set(items.flatMap((it) => it.on || []))) offs.push(rt.bus.on(ev, evaluate));
+      for (const it of items) {
+        const off = it.watch?.(rt, evaluate);
+        if (off) offs.push(off);
+      }
+      if (pollMs) {
+        const id = setInterval(evaluate, pollMs);
+        offs.push(() => clearInterval(id));
+      }
+      queueMicrotask(evaluate);
+      return () => offs.forEach((o) => o());
     };
   }
 

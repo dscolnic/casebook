@@ -169,7 +169,8 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
     await expect(page.locator('#bearing-note')).toContainText(/relative bearing has not moved/i);
     await page.locator('[data-call="internal"]').click();
   });
-  await waitForStage(page, 'control_evidence');
+  // Objective 1 covers both symptoms, so it stays put until Control is logged too.
+  expect(await stageId(page)).toBe('symptoms');
 
   // --- 2. Control: log the watch indications. ---
   await page.evaluate(() => window.__DEEPWATCH__.goTo('control_room'));
@@ -177,7 +178,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
     await expect(page.locator('#cr-indications')).toContainText(/bow-down/i);
     await page.locator('#cr-log').click();
   });
-  await waitForStage(page, 'retrieve_probe');
+  await waitForStage(page, 'locate');
 
   // --- 3. Pick up the probe, and choose gear out of the control-room locker. ---
   await page.evaluate(() => window.__DEEPWATCH__.interact('acoustic_probe'));
@@ -185,7 +186,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
   await page.locator('[data-take="sounding_tape"]').click();
   await page.locator('[data-take="salinity_probe"]').click();
   await page.evaluate(() => window.__DEEPWATCH__.stations.close());
-  await waitForStage(page, 'trace_acoustic');
+  expect(await stageId(page)).toBe('locate');
 
   // --- 4. Acoustic trace: read forward through the boat, loudest at the source. ---
   const trace = await page.evaluate(async () => {
@@ -202,22 +203,22 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
   // Monotonically louder toward the casualty — the gradient IS the evidence.
   for (let i = 1; i < trace.length; i++) expect(trace[i].dB).toBeGreaterThan(trace[i - 1].dB);
   expect(trace[trace.length - 1].c).toBe('forward_equipment');
-  await waitForStage(page, 'discover_bilge');
+  expect(await stageId(page)).toBe('locate');
 
   // --- 5. Lift the deck plate. ---
   await page.evaluate(() => window.__DEEPWATCH__.interact('deckplate_fwd'));
   expect(await page.evaluate(() => window.__DEEPWATCH__.flooding.sources[0].discovered)).toBe(true);
-  await waitForStage(page, 'report_flooding');
+  await waitForStage(page, 'first_actions');
   await expect(page.locator('#hud-casualty')).toBeVisible();
 
   // --- 6. Report on the 7MC. ---
   await page.evaluate(() => window.__DEEPWATCH__.interact('handset_fwd'));
-  await waitForStage(page, 'secure_panel');
+  expect(await stageId(page)).toBe('first_actions');
 
   // --- 7. Secure the forward power panel before the water gets to it. ---
   await page.evaluate(() => window.__DEEPWATCH__.interact('fwd_power_2f'));
   expect(await page.evaluate(() => window.__DEEPWATCH__.state.electricalPanels.fwd_power_2f.energized)).toBe(false);
-  await waitForStage(page, 'measure_water');
+  await waitForStage(page, 'measure');
 
   // --- 8. Measure: two soundings, salinity, and the manifold pressures. ---
   await page.evaluate(() => window.__DEEPWATCH__.stations.open('dc_locker', { contents: 'forward' }));
@@ -244,7 +245,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
   expect(measured.dtMin).toBeGreaterThan(0.4);
   expect(measured.salinity).toBeGreaterThan(28);
   expect(measured.pressureNote).toMatch(/lost pressure/i);
-  await waitForStage(page, 'diagnose');
+  await waitForStage(page, 'work_the_board');
 
   // --- 9. Diagnosis at the plotting board. A wrong call is survivable. ---
   await atStation(page, 'dc_board', async () => {
@@ -254,7 +255,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
     await page.locator('[data-call="sw_branch"]').click();
     await expect(page.locator('#hyp-feedback')).toContainText(/Ruptured forward seawater-supply branch/i);
   });
-  await waitForStage(page, 'estimate');
+  expect(await stageId(page)).toBe('work_the_board');
 
   // --- 10. Estimate: two routes, then the verdict. ---
   await atStation(page, 'dc_board', async () => {
@@ -263,7 +264,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
     await expect(page.locator('#est-b-out')).not.toHaveText('—');
     await page.locator('[data-verdict="cannot"]').click();
   });
-  await waitForStage(page, 'boundaries');
+  expect(await stageId(page)).toBe('work_the_board');
 
   // --- 11. Boundaries: know what those valves feed before shutting them. ---
   await atStation(page, 'dc_board', async () => {
@@ -286,7 +287,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
 
   // --- 14. Rig the portable pump in the sump. ---
   await page.evaluate(() => window.__DEEPWATCH__.interact('sump_fwd'));
-  await waitForStage(page, 'verify_bilge');
+  expect(await stageId(page)).toBe('dewater');
 
   // --- 15. Verify at the casualty: sound it again, falling and under 12 cm. ---
   const drained = await page.evaluate(() => {
@@ -298,7 +299,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
   });
   expect(drained.level).toBeLessThan(12);
   expect(drained.rate).toBeLessThan(0);
-  await waitForStage(page, 'restore_cooling');
+  await waitForStage(page, 'verify');
 
   // --- 16. Verify the dependency: restore cooling, confirm with the IR gun. ---
   await page.evaluate(() => window.__DEEPWATCH__.interact('sw_crossconnect'));
@@ -310,7 +311,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
     g.inventory.setActive('ir_thermometer');
     g.instruments.useActive();
   });
-  await waitForStage(page, 'verify_sonar');
+  expect(await stageId(page)).toBe('verify');
 
   // --- 17. Verify at sonar: flow noise gone and the boat quiet again. ---
   await page.evaluate(() => {
@@ -319,7 +320,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
     g.advance(60);
     g.goTo('sonar_room');
   });
-  await waitForStage(page, 'verify_control');
+  await page.waitForTimeout(900);   // the verify checklist re-checks on a timer
   const quiet = await page.evaluate(() => {
     const g = window.__DEEPWATCH__;
     return {
@@ -336,7 +337,7 @@ test('full playthrough: symptom → trace → discovery → estimate → isolate
     g.advance(120);
     g.goTo('control_room');
   });
-  await waitForStage(page, 'file_report');
+  await page.waitForTimeout(900);
   const recovered = await page.evaluate(() => {
     const g = window.__DEEPWATCH__;
     return { trim: Math.abs(g.state.trim), effort: g.state.depthControlEffort() };
@@ -374,7 +375,7 @@ test('the tool stage names what is still missing, and one locker can supply all 
     g.bus.emit('sonar:anomalyClassified', { internal: true, id: 'N01' });
     g.bus.emit('control:indicationsLogged', {});
   });
-  await waitForStage(page, 'retrieve_probe');
+  await waitForStage(page, 'locate');
 
   // With nothing carried, the objective card must name all three by name.
   await expect(page.locator('#hud-objective')).toContainText('Acoustic Probe');
@@ -385,13 +386,15 @@ test('the tool stage names what is still missing, and one locker can supply all 
   await page.evaluate(() => window.__DEEPWATCH__.stations.open('dc_locker', { contents: 'control' }));
   await page.locator('[data-take="sounding_tape"]').click();
   await page.locator('[data-take="salinity_probe"]').click();
-  await expect(page.locator('#hud-objective')).toContainText('Still needed: Acoustic Probe');
-  expect(await stageId(page)).toBe('retrieve_probe');
+  await expect(page.locator('#hud-objective')).toContainText('draw Acoustic Probe from a DC locker');
+  await expect(page.locator('#hud-objective')).not.toContainText('Sounding Tape');
 
   // The same locker carries the third — the shelf pickup can never be a blocker.
   await page.locator('[data-take="acoustic_probe"]').click();
   await page.evaluate(() => window.__DEEPWATCH__.stations.close());
-  await waitForStage(page, 'trace_acoustic');
+  // Tools done; the objective stays on `locate` for the trace and the deck plate.
+  await expect(page.locator('#hud-objective')).toContainText('acoustic readings in at least three compartments');
+  expect(await stageId(page)).toBe('locate');
 });
 
 test('a stage that is already satisfied when it arms completes only itself', async ({ page }) => {
@@ -409,8 +412,10 @@ test('a stage that is already satisfied when it arms completes only itself', asy
     await new Promise((r) => setTimeout(r, 200));
     return { completed, stage: g.missions.current.stage.id };
   });
-  expect(seen.completed).toEqual(['sonar_symptom', 'control_evidence', 'retrieve_probe']);
-  expect(seen.stage).toBe('trace_acoustic');
+  // The symptoms objective completes on its own; carrying the tools must NOT
+  // also complete `locate` behind it, because the water has not been found.
+  expect(seen.completed).toEqual(['symptoms']);
+  expect(seen.stage).toBe('locate');
 });
 
 test('two soundings taken too close together do not make a rate, and say so', async ({ page }) => {
@@ -450,7 +455,7 @@ test('the measurement stage lists exactly which readings are still outstanding',
     ['acoustic_probe', 'sounding_tape', 'salinity_probe'].forEach((i) => g.inventory.add(i, i));
     g.goTo('forward_equipment');
   });
-  await waitForStage(page, 'trace_acoustic');
+  await waitForStage(page, 'locate');
   await page.evaluate(() => {
     const g = window.__DEEPWATCH__;
     g.inventory.setActive('acoustic_probe');
@@ -458,14 +463,14 @@ test('the measurement stage lists exactly which readings are still outstanding',
       g.goTo(c); g.instruments.useActive();
     }
   });
-  await waitForStage(page, 'discover_bilge');
+  await waitForStage(page, 'locate');
   await page.evaluate(() => {
     const g = window.__DEEPWATCH__;
     g.interact('deckplate_fwd');
     g.interact('handset_fwd');
     g.interact('fwd_power_2f');
   });
-  await waitForStage(page, 'measure_water');
+  await waitForStage(page, 'measure');
 
   // Nothing measured yet: all four wanted items named.
   await expect(page.locator('#hud-objective')).toContainText('a first sounding of this bilge');
@@ -481,7 +486,7 @@ test('the measurement stage lists exactly which readings are still outstanding',
     g.instruments.useActive();
   });
   await expect(page.locator('#hud-objective')).toContainText(/a second sounding at least \d+ s after the first/i);
-  expect(await stageId(page)).toBe('measure_water');
+  expect(await stageId(page)).toBe('measure');
 });
 
 test('pressing H lights up where the player has to go', async ({ page }) => {
@@ -503,8 +508,13 @@ test('pressing H lights up where the player has to go', async ({ page }) => {
   await expect(page.locator('#hud-hint')).toContainText(/Here, in Sonar Room/i);
 
   // Advance a stage: the beacon must follow the new objective, not the old one.
-  await page.evaluate(() => window.__DEEPWATCH__.bus.emit('sonar:anomalyClassified', { internal: true, id: 'N01' }));
-  await waitForStage(page, 'control_evidence');
+  // Objective 1 needs both symptoms, so both are supplied here.
+  await page.evaluate(() => {
+    const g = window.__DEEPWATCH__;
+    g.bus.emit('sonar:anomalyClassified', { internal: true, id: 'N01' });
+    g.bus.emit('control:indicationsLogged', {});
+  });
+  await waitForStage(page, 'locate');
   expect(await page.evaluate(() => window.__DEEPWATCH__.hintBeacon.active)).toBe(false);
 
   await page.keyboard.press('KeyH');
@@ -512,6 +522,7 @@ test('pressing H lights up where the player has to go', async ({ page }) => {
     const b = window.__DEEPWATCH__.hintBeacon;
     return { compartment: b.targetCompartment, chevrons: b.chevrons.filter((c) => c.visible).length };
   });
+  // Objective 2 starts at the control-room DC locker.
   expect(second.compartment).toBe('control_room');
   // Control is aft of sonar, so a trail should be laid down the centreline.
   expect(second.chevrons).toBeGreaterThan(0);
@@ -520,10 +531,15 @@ test('pressing H lights up where the player has to go', async ({ page }) => {
   // Each hint is still charged against the score.
   expect(await page.evaluate(() => window.__DEEPWATCH__.missions.current.hintsUsed)).toBe(2);
 
-  // Arriving clears the trail but leaves the marker on the thing itself.
+  // Arriving clears the trail but leaves the marker on the thing itself. The
+  // target is the control-room DC locker, so walk to the locker rather than
+  // stopping in the middle of the compartment.
   await page.evaluate(() => {
     const g = window.__DEEPWATCH__;
+    const c = g.layout.find((x) => x.id === 'control_room');
     g.goTo('control_room');
+    g.player.setPose(0, c.zStart + 0.6, 0);
+    g.compartments.update(g.player.position.z);
     g.hintBeacon.update(0.1, 1, g.player.position);
   });
   const arrived = await page.evaluate(() => {
@@ -583,5 +599,5 @@ test('restarting the mission puts the boat back to a clean condition', async ({ 
   expect(clean.plateOpen).toBe(false);
   expect(clean.notebook).toBe(0);
   expect(clean.carrying).toBe(0);
-  expect(clean.stage).toBe('sonar_symptom');
+  expect(clean.stage).toBe('symptoms');
 });

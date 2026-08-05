@@ -23,6 +23,9 @@ import { DamageControl } from '../simulation/DamageControl.js';
 import { SonarSystem } from '../simulation/SonarSystem.js';
 import { NavigationSystem } from '../simulation/NavigationSystem.js';
 import { CrewClock } from '../simulation/CrewClock.js';
+import { AtmosphereSystem } from '../simulation/AtmosphereSystem.js';
+import { FireSystem } from '../simulation/FireSystem.js';
+import { FireControl } from '../simulation/FireControl.js';
 import { VoyageSystem, TOTAL_NM, PLANNED_SPEED_KN } from '../simulation/VoyageSystem.js';
 import { QUAL_QUESTIONS, questionsAvailable, PER_DAY } from '../content/qualQuestions.js';
 import { PlayerBody } from '../player/PlayerBody.js';
@@ -74,6 +77,9 @@ export class Game {
       nav: this.nav,
       crew: this.crew,
       voyage: this.voyage,
+      atmosphere: this.atmosphere,
+      fire: this.fire,
+      fireControl: this.fireControl,
       body: this.body,
       // Content the tests need to assert against. Exposed here rather than
       // imported by path, because tests run against the built bundle where the
@@ -110,6 +116,9 @@ export class Game {
           this.nav.update(step);
           this.crew.update(step);
           this.voyage.update(step);
+          this.atmosphere.update(step);
+          this.fire.update(step);
+          this.fireControl.update(step);
           this.state.integrate(step);
         }
       },
@@ -177,6 +186,10 @@ export class Game {
     this.sonar = new SonarSystem({ state: this.state, eventBus: this.bus });
     this.nav = new NavigationSystem({ state: this.state, eventBus: this.bus });
     this.crew = new CrewClock({ state: this.state, eventBus: this.bus, save: this.save });
+    // Air first, then fire: a fire is an atmosphere casualty as much as a heat one,
+    // and it pushes its products straight into the compartment it is burning in.
+    this.atmosphere = new AtmosphereSystem({ state: this.state, eventBus: this.bus, layout });
+    this.fire = new FireSystem({ state: this.state, eventBus: this.bus, layout, atmosphere: this.atmosphere });
     this.voyage = new VoyageSystem({ state: this.state, eventBus: this.bus });
 
     // Large live mimic panels on the bulkheads, so a compartment tells you what
@@ -235,16 +248,22 @@ export class Game {
       eventBus: this.bus, state: this.state, flooding: this.flooding, inventory: this.inventory,
       world: this.world, compartmentManager: this.compartments, instruments: this.instruments,
     });
+    this.fireControl = new FireControl({
+      eventBus: this.bus, state: this.state, fire: this.fire, atmosphere: this.atmosphere,
+      inventory: this.inventory, world: this.world, compartmentManager: this.compartments,
+    });
     this.stations = new StationManager({
       eventBus: this.bus, state: this.state, save: this.save, notebook: this.notebook,
       instruments: this.instruments, flooding: this.flooding, inventory: this.inventory,
       sonar: this.sonar, nav: this.nav, crew: this.crew, voyage: this.voyage,
+      atmosphere: this.atmosphere, fire: this.fire,
     });
     this.missions = new MissionManager({
       eventBus: this.bus, state: this.state, save: this.save, compartmentManager: this.compartments,
       inventory: this.inventory, instruments: this.instruments, flooding: this.flooding,
       damageControl: this.damageControl, world: this.world, notebook: this.notebook,
       sonar: this.sonar, nav: this.nav, crew: this.crew, voyage: this.voyage,
+      atmosphere: this.atmosphere, fire: this.fire, fireControl: this.fireControl,
     });
   }
 
@@ -551,6 +570,9 @@ export class Game {
       this.nav.update(dt);
       this.crew.update(dt);
       this.voyage.update(dt);
+      this.atmosphere.update(dt);
+      this.fire.update(dt);
+      this.fireControl.update(dt);
       this.state.integrate(dt);
     }
   }
