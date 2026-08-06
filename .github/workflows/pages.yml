@@ -26,6 +26,29 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
+      # Deep Watch is a Vite + Three.js project, so its source cannot be served
+      # as-is (bare `import 'three'` specifiers). Build it, then replace the
+      # source directory in the upload with the built site, so the game lands at
+      # <pages-url>/deep_watch/. vite.config.js already uses base: './', which is
+      # what makes a subpath deploy work.
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: deep_watch/package-lock.json
+      - name: Build Deep Watch
+        working-directory: deep_watch
+        run: |
+          npm ci
+          npm run build
+      - name: Stage Deep Watch build
+        run: |
+          mv deep_watch/dist "$RUNNER_TEMP/deep_watch_dist"
+          rm -rf deep_watch
+          mv "$RUNNER_TEMP/deep_watch_dist" deep_watch
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

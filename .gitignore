@@ -16,3 +16,6 @@ batch/launchd.err
 *.pem
 *.key
 apikey*
+
+# Vite build output (Deep Watch is built in CI for Pages)
+deep_watch/dist/
