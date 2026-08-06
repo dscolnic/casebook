@@ -197,14 +197,35 @@ const DEFS = {
   },
 
   gas_detector: {
-    name: 'Gas Detector', color: 0x6bbf73, unit: '', kind: 'measure',
-    blurb: 'O₂ / CO₂ / CO in this compartment.',
-    measure: ({ state }) => {
-      const co2 = state.carbonDioxideLevel;
-      const co = state.toxicGasLevel;
-      const level = co > 35 ? 'alarm' : co2 > 1.0 ? 'warn' : 'ok';
-      return { value: `O₂ ${state.oxygenLevel.toFixed(1)}% · CO₂ ${co2.toFixed(2)}% · CO ${co.toFixed(0)}ppm`,
-        unit: '', level, note: level === 'ok' ? 'Atmosphere within limits.' : 'Atmosphere trending out of limits.' };
+    name: 'Gas Detector', color: 0x6bbf73, unit: '%', kind: 'measure',
+    blurb: 'O₂ / CO₂ / CO where you are standing — the truth, not what the panel believes.',
+    measure: ({ state, compartment, compartmentName }) => {
+      // The compartment you are IN, not a ship average. That distinction is the
+      // whole of Mission 6: a boat's atmosphere is a set of connected volumes, and
+      // the installed sensor for one of them can be lying.
+      const air = state.atmosphere?.[compartment];
+      if (!air) {
+        return { value: '—', unit: '', level: 'warn', note: 'No reading here.' };
+      }
+      const level = air.co > 35 ? 'alarm' : air.co2 > 1.0 || air.o2 < 19.5 ? 'warn' : 'ok';
+      const sensor = state.atmosphereSensors?.[compartment];
+      const shown = sensor
+        ? { o2: (sensor.failed && sensor.frozenAt) ? sensor.frozenAt.o2 : air.o2 + sensor.bias.o2,
+            co2: (sensor.failed && sensor.frozenAt) ? sensor.frozenAt.co2 : air.co2 + sensor.bias.co2 }
+        : null;
+      const disagrees = shown && (Math.abs(shown.co2 - air.co2) > 0.15 || Math.abs(shown.o2 - air.o2) > 0.3);
+      return {
+        value: `O₂ ${air.o2.toFixed(1)}% · CO₂ ${air.co2.toFixed(2)}% · CO ${air.co.toFixed(0)}ppm`,
+        unit: '%', numeric: air.co2, tag: 'gas', level,
+        detail: [`${compartmentName}: measured by hand, independent of the installed sensor.`],
+        note: disagrees
+          ? `This does NOT match what the installed sensor for ${compartmentName} is reporting (CO₂ ${shown.co2.toFixed(2)} %). One of them is wrong, and it is not this one.`
+          : level === 'ok'
+            ? 'Atmosphere within limits here.'
+            : air.co2 > 1.0
+              ? 'CO₂ above 1 % — that is a thinking problem before it is a breathing one.'
+              : 'Atmosphere out of limits here.',
+      };
     },
   },
 

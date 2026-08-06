@@ -26,13 +26,24 @@ export class Notebook {
 
     document.getElementById('btn-close-notebook')?.addEventListener('click', () => this.toggle(false));
     document.addEventListener('keydown', (e) => {
-      if (e.code === 'KeyN' && !this._typing(e)) this.toggle();
+      if (e.code !== 'KeyN' || this._typing(e)) return;
+      // Not while a console or the codex is up. Both are painted over the top of
+      // this panel, so opening it underneath them looks like the key did nothing
+      // and leaves an invisible, unclickable notebook stacked below.
+      if (!this.open && this._blockedByOverlay()) return;
+      this.toggle();
     });
     this.bus.on('notebook:concept', (c) => this.save?.addNotebookConcept(c.concept));
     this.tabsEl?.addEventListener('click', (e) => {
       const t = e.target.dataset?.ntab;
       if (t) { this.tab = t; this._render(); }
     });
+  }
+
+  /** Another full-screen panel is already up. */
+  _blockedByOverlay() {
+    return ['station-overlay', 'science-overlay', 'pause-menu', 'debrief', 'start-screen']
+      .some((id) => document.getElementById(id) && !document.getElementById(id).hidden);
   }
 
   _typing(e) {

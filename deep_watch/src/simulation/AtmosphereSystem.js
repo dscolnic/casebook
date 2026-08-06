@@ -64,6 +64,8 @@ export class AtmosphereSystem {
     this.layout = layout;
     this._elapsed = 0;
     this._alarmed = new Set();
+    /** Compartments this system has put heat into, and therefore owns the mirror for. */
+    this._heated = new Set();
 
     // Truth, per compartment.
     state.atmosphere = {};
@@ -73,7 +75,7 @@ export class AtmosphereSystem {
     state.atmosphereSensors = {};
 
     for (const c of layout) {
-      state.atmosphere[c.id] = { o2: NORMAL.o2, co2: NORMAL.co2, co: 0, smoke: 0, tempC: 24 };
+      state.atmosphere[c.id] = { o2: NORMAL.o2, co2: NORMAL.co2, co: 0, smoke: 0, tempC: 24, heatAdded: 0 };
       state.ventDampers[c.id] = 'open';
       state.atmosphereSensors[c.id] = { failed: false, bias: { o2: 0, co2: 0, co: 0 }, frozenAt: null };
       state.compartmentTemperature[c.id] = 24;
@@ -143,15 +145,28 @@ export class AtmosphereSystem {
     return true;
   }
 
-  /** Fire and other casualties push their products in through here. */
+  /**
+   * Fire and other casualties push their products in through here.
+   *
+   * Heat is tracked separately as `heatAdded`, because temperature is a field
+   * several systems write: a sonar cabinet that has lost its cooling water is
+   * heated by FloodingSystem, and the atmosphere must add to that rather than
+   * assign over the top of it. Two systems assigning one field is how a regression
+   * gets in — this one did, and the flooding mission caught it.
+   */
   inject(compartment, { co = 0, smoke = 0, heat = 0, o2burn = 0, co2 = 0 }) {
     const a = this.air(compartment);
     if (!a) return;
     a.co += co;
     a.smoke = Math.min(1, a.smoke + smoke);
-    a.tempC += heat;
     a.o2 = Math.max(0, a.o2 - o2burn);
     a.co2 += co2;
+    if (heat) {
+      // Capped: compartment air, not the seat of the fire, which FireSystem tracks
+      // separately and which runs far hotter.
+      a.heatAdded = Math.min(140, (a.heatAdded || 0) + heat);
+      this._heated.add(compartment);
+    }
   }
 
   /** Ventilated means the supply fan is running and this compartment's damper is open. */
@@ -199,9 +214,21 @@ export class AtmosphereSystem {
         a.smoke = Math.max(0, a.smoke - 0.01 * dtMin);
       }
 
-      // Heat leaks to the sea through the hull, so temperature comes home slowly.
-      a.tempC += (24 - a.tempC) * Math.min(1, dtMin * 0.35);
-      this.state.compartmentTemperature[c.id] = a.tempC;
+      // Heat: only what a casualty put in here is ours to decay, and the mirror to
+      // `compartmentTemperature` is only written for compartments we have actually
+      // heated. Everything else that warms a space belongs to the system modelling
+      // it, and is left alone.
+      // Heat leaves through the hull into the sea, but slowly — a compartment with
+      // a fire in it gets hotter for as long as the fire is growing.
+      a.heatAdded = Math.max(0, (a.heatAdded || 0) - (a.heatAdded || 0) * Math.min(1, dtMin * 0.15));
+      const base = this.state.compartmentTemperature[c.id] ?? 24;
+      if (this._heated.has(c.id)) {
+        a.tempC = 24 + a.heatAdded;
+        this.state.compartmentTemperature[c.id] = a.tempC;
+        if (a.heatAdded < 0.05) this._heated.delete(c.id);
+      } else {
+        a.tempC = base;
+      }
       this.state.smokeLevel[c.id] = a.smoke;
     }
 
@@ -212,7 +239,9 @@ export class AtmosphereSystem {
       if (this.state.ventDampers[A] !== 'open' || this.state.ventDampers[B] !== 'open') continue;
       const k = Math.min(0.5, MIX_RATE * dtMin * (vent.supply ? 1 : 0.25));
       const a = this.air(A), b = this.air(B);
-      for (const key of ['o2', 'co2', 'co', 'smoke', 'tempC']) {
+      // Heat spreads as `heatAdded`, not as tempC, for the same ownership reason.
+      for (const key of ['o2', 'co2', 'co', 'smoke', 'heatAdded']) {
+        a[key] = a[key] || 0; b[key] = b[key] || 0;
         const d = (b[key] - a[key]) * k;
         a[key] += d;
         b[key] -= d;

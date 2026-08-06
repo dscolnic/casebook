@@ -228,10 +228,13 @@ export class FireSystem {
         fire.seatTempC += (180 + fire.intensity * 520 - fire.seatTempC) * Math.min(1, dtMin * 1.6);
 
         // Products into the air: this is why a fire is a habitability problem.
+        // Products, per minute at full intensity. These outrun the ventilation on
+        // purpose: a fire the fans can clear faster than it burns is not a fire,
+        // and the smoke is what forces the player onto air.
         this.atmosphere?.inject(fire.compartment, {
-          co: 120 * fire.intensity * dtMin,
-          smoke: 0.55 * fire.intensity * dtMin,
-          heat: 40 * fire.intensity * dtMin,
+          co: 150 * fire.intensity * dtMin,
+          smoke: 1.4 * fire.intensity * dtMin,
+          heat: 35 * fire.intensity * dtMin,
           o2burn: 0.9 * fire.intensity * dtMin,
         });
       } else {

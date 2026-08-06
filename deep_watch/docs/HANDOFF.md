@@ -1,9 +1,15 @@
 # Deep Watch — Handoff
 
-**Latest run scope:** **Unit I is complete** — Missions 1, 2, 3 and Command
-Episode 1 — on top of the Unit II vertical slice, Mission 4 (Forward Flooding).
-Two new simulation systems (`SonarSystem`, `NavigationSystem`) sit under them.
-Missions 5–10 and Command Episodes 2–3 are **not** started.
+**Latest run scope:** **Units I and II are complete** — Missions 1, 2, 3 and
+Command Episode 1, plus Missions 4, 5, 6 and Command Episode 2. Five simulation
+systems have been added across the two runs (`SonarSystem`, `NavigationSystem`,
+`AtmosphereSystem`, `FireSystem`, `CrewTeams`). Missions 7–10 and Command
+Episode 3 are **not** started.
+
+**Objective ceiling:** no mission may post more than **ten** objectives, enforced
+by a test. An objective is a piece of WORK, not a keystroke — use
+`MissionRuntime.checklist()`, which posts one objective covering several actions
+and names in the HUD exactly which of them are still outstanding.
 
 **Spec location:** there is no `DEEP_WATCH_MASTER_SPEC.md` in this repository. The
 build specification is the Word document at the repo root,
@@ -23,16 +29,62 @@ Episode 1 implement.
 ```bash
 cd deep_watch && npm install && npm run dev      # :5173, opens automatically
 npm run build                                    # ✓ 62 modules, ~875 kB
-npx playwright test                              # ✓ 63/63
+npx playwright test                              # ✓ 85/85
 ```
 
 Pick the watch from the **Watch** dropdown on the start screen: Boat Walkdown,
 Contact in the Noise, Position Without a Trusted Fix, Silent Passage, Forward
-Flooding. `H` gives a hint and lights the place it is talking about; `K` (or the
+Flooding, Electrical Fire, Atmosphere Degradation, Compound Casualty. `H` gives a hint and lights the place it is talking about; `K` (or the
 pause menu) steps over an objective for practice; `SPACE` dismisses a message;
 `G` opens the science behind whatever you are looking at (or the whole index).
 
 ---
+
+## Unit II — the casualty unit
+
+| # | Mission | Objectives | Primary mechanics | The one idea |
+|---|---------|-----------|-------------------|--------------|
+| 4 | Forward Flooding | 9 | Diagnosis, Protocol, Ballpark, Sequence | Pumping cannot win; the estimate is what tells you to stop the source |
+| 5 | Electrical Fire | 8 | Protocol, Diagnosis, equipment selection | An electrical fire is put out by de-energizing it, not by the agent |
+| 6 | Atmosphere Degradation | 6 | Diagnosis, Ballpark, evidence independence | An installed sensor is a report; a handheld reading is a measurement |
+| E2 | Compound Casualty | 6 | all of the above + delegation | Command is deciding what YOU do and who does the rest |
+
+### Mission 5 — Electrical Fire
+
+`FireSystem` models the three legs of the fire triangle separately, because each is
+a different player action: the **ignition source** (an energized fault, removed at
+the switchboard), the **fuel** (cable insulation, which is what reflashes), and the
+**oxygen** (the compartment atmosphere, which the fire consumes while giving back
+CO, smoke and heat). Heat conducts through bulkheads, so boundaries are an IR
+reading rather than a checkbox.
+
+Every mistake is physical, never a label: a conductive agent on a live circuit
+earths the fault through the stream and trips the breaker with the fire still
+burning; smoke without breathing gear makes the compartment unreadable; trusting
+the switchboard lamp instead of a meter leaves "isolated" a belief; restoring loads
+before the seat is cold puts energy back into the fault. `REFLASH_DELAY_S = 22`.
+
+### Mission 6 — Atmosphere Degradation
+
+`AtmosphereSystem` gives every compartment its own air. People make CO₂ in
+proportion to `OCCUPANCY`, the scrubber only reaches compartments whose dampers are
+open, neighbours mix through open dampers, and the **installed sensors are a
+separate layer from the truth** — one can be frozen or biased while the air is fine,
+and vice versa. The mission is a matched pair: berthing is genuinely bad behind a
+frozen sensor that reads normal, the radio room is genuinely fine behind a sensor
+biased high. Only the handheld separates them, and the cause (a damper left shut)
+is upstream of both.
+
+### Command Episode 2 — Compound Casualty
+
+`CrewTeams` makes the other people aboard real: they have trades, they walk at
+about nine seconds per compartment, they are slower than the player, and they
+report back either way. A team sent outside its trade still makes the trip. A task
+can be `blockedBy` another — the flooding is behind the blocked passage — so the
+priority order is scored on dependency as well as on life safety. The `CommandBoard`
+station holds the two decisions that belong to whoever is in charge: the order, and
+who does which. The blocked passage is a real collider (`world.setPassageBlocked`),
+so "blocked" means the player genuinely cannot get past.
 
 ## Mission 4 — Forward Flooding
 
@@ -249,16 +301,16 @@ procedural audio; HUD; the data-driven mission framework and the Boat Walkdown.
 
 ## Exact next implementation tasks (in order)
 
-1. **Mission 5 — Electrical Fire.** `ElectricalSwitchboard` already enforces
-   restoration order; add `AtmosphereSystem` (smoke, boundaries, reflash) and the
-   breathing-gear path. The locker/decoy machinery from Mission 4 transfers directly.
-2. **Crew system** (`CrewManager` / `CrewMember` / `CrewBehaviors`): station-manned
-   NPCs, casualty-state movement, reports over internal comms. The 7MC handset is
-   currently the only crew interface and it is a stub that talks back in toasts.
+1. **Unit III (Missions 7–10) and Command Episode 3.** The systems are now in
+   place for most of it: `FireSystem`, `AtmosphereSystem` and `CrewTeams` are
+   general, not mission-specific.
+2. **Visible crew** — `CrewTeams` gives teams state, travel time and reports, but
+   nobody is rendered. Bodies moving through the boat would make delegation legible
+   at a glance instead of only on the board.
 3. **Submarine map overlay** (`ui/SubmarineMap.js`) + campaign screen (side cutaway,
    compartments illuminate as qualified). Must not reveal undiscovered faults.
-4. **Missions 6–10 and Command Episodes 2–3**, then Phase 9 content-migration
-   review against the old HTML, then polish/perf/tests.
+4. **A smoke veil.** `state.smokeImpairment` is computed by `FireControl` and drives
+   nothing visual yet; the fatigue veil is the model to follow.
 
 ## Where things live
 - Add a mission: `src/missions/definitions/` + register in `MissionManager.js`.

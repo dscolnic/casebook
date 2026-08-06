@@ -26,6 +26,7 @@ import { CrewClock } from '../simulation/CrewClock.js';
 import { AtmosphereSystem } from '../simulation/AtmosphereSystem.js';
 import { FireSystem } from '../simulation/FireSystem.js';
 import { FireControl } from '../simulation/FireControl.js';
+import { CrewTeams } from '../simulation/CrewTeams.js';
 import { VoyageSystem, TOTAL_NM, PLANNED_SPEED_KN } from '../simulation/VoyageSystem.js';
 import { QUAL_QUESTIONS, questionsAvailable, PER_DAY } from '../content/qualQuestions.js';
 import { PlayerBody } from '../player/PlayerBody.js';
@@ -80,6 +81,7 @@ export class Game {
       atmosphere: this.atmosphere,
       fire: this.fire,
       fireControl: this.fireControl,
+      teams: this.teams,
       body: this.body,
       // Content the tests need to assert against. Exposed here rather than
       // imported by path, because tests run against the built bundle where the
@@ -119,6 +121,7 @@ export class Game {
           this.atmosphere.update(step);
           this.fire.update(step);
           this.fireControl.update(step);
+          this.teams.update(step);
           this.state.integrate(step);
         }
       },
@@ -190,6 +193,9 @@ export class Game {
     // and it pushes its products straight into the compartment it is burning in.
     this.atmosphere = new AtmosphereSystem({ state: this.state, eventBus: this.bus, layout });
     this.fire = new FireSystem({ state: this.state, eventBus: this.bus, layout, atmosphere: this.atmosphere });
+    // The other people aboard. Command Episode 2 is built on the fact that they
+    // exist, are slower than the player, and take time to walk anywhere.
+    this.teams = new CrewTeams({ state: this.state, eventBus: this.bus, layout });
     this.voyage = new VoyageSystem({ state: this.state, eventBus: this.bus });
 
     // Large live mimic panels on the bulkheads, so a compartment tells you what
@@ -256,7 +262,7 @@ export class Game {
       eventBus: this.bus, state: this.state, save: this.save, notebook: this.notebook,
       instruments: this.instruments, flooding: this.flooding, inventory: this.inventory,
       sonar: this.sonar, nav: this.nav, crew: this.crew, voyage: this.voyage,
-      atmosphere: this.atmosphere, fire: this.fire,
+      atmosphere: this.atmosphere, fire: this.fire, teams: this.teams,
     });
     this.missions = new MissionManager({
       eventBus: this.bus, state: this.state, save: this.save, compartmentManager: this.compartments,
@@ -264,6 +270,7 @@ export class Game {
       damageControl: this.damageControl, world: this.world, notebook: this.notebook,
       sonar: this.sonar, nav: this.nav, crew: this.crew, voyage: this.voyage,
       atmosphere: this.atmosphere, fire: this.fire, fireControl: this.fireControl,
+      teams: this.teams,
     });
   }
 
@@ -573,6 +580,7 @@ export class Game {
       this.atmosphere.update(dt);
       this.fire.update(dt);
       this.fireControl.update(dt);
+      this.teams.update(dt);
       this.state.integrate(dt);
     }
   }

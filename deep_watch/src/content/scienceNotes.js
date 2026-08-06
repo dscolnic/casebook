@@ -25,6 +25,7 @@
 
 import { BILGE_AREA, BILGE_DEPTH_CM, PANEL_THREAT_CM, VALVES } from '../simulation/FloodingSystem.js';
 import { TOTAL_NM, PLANNED_SPEED_KN } from '../simulation/VoyageSystem.js';
+import { CO2_ROUTINE, CO2_UNCOMFORTABLE } from '../simulation/AtmosphereSystem.js';
 import { SOUNDING_INTERVAL_MIN } from '../instruments/InstrumentManager.js';
 
 /* ---------------------------------------------------------------------------
@@ -639,6 +640,29 @@ const STATIONS = {
     see: ['instrument:sounding_tape', 'instrument:portable_pump', 'valve:generic'],
   },
 
+  'station:command_board': {
+    kind: 'Station', title: 'Command Board',
+    oneLine: 'Every casualty aboard, every team you can send, and the two decisions that cannot be delegated: the order, and who does what.',
+    how: `Command under a compound casualty is a scheduling problem with one special constraint: one of the
+      resources is you. Teams are slower than you and have to walk, but they work in parallel, so the
+      throughput of the boat is set by how early you commit them — not by how fast you personally move.
+      Anything that blocks access to another casualty is a dependency, and a dependency worked late costs
+      you every task behind it.`,
+    numbers: [
+      ['casualties outstanding', 'how many things are happening. Five is not five times one.'],
+      ['what each threatens', 'a person, the ship, access, or the mission. That is the ranking, in that order.'],
+      ['team trades', 'what a team can actually work. Sending the wrong trade costs the travel time twice.'],
+      ['travel time', 'about nine seconds per compartment. It is why delegating late is expensive.'],
+      ['blocked', 'a task nobody can start until another one is finished.'],
+    ],
+    read: `Rank by threat and by dependency: people first, then whatever is blocking access, then the ship,
+      then the mission. Commit teams early — an idle team while something is outstanding is the most
+      expensive thing on this board — and keep for yourself only the decision nobody else can take.`,
+    trap: `Doing it all yourself. It feels faster because you are the fastest single worker aboard, and it
+      is slower, because four things are happening and you are in one compartment.`,
+    see: ['fitting:debris', 'station:dc_board', 'station:navigation'],
+  },
+
   'station:dc_locker': {
     kind: 'Station', title: 'Damage-Control Locker',
     oneLine: 'The stowage that decides what repairs are physically possible in the next five minutes.',
@@ -655,6 +679,39 @@ const STATIONS = {
     trap: `The nearest locker is not always the right one — and finding out mid-casualty costs a round trip
       through a flooding compartment.`,
     see: ['instrument:pipe_clamp', 'instrument:soft_patch', 'instrument:shoring'],
+  },
+
+  'station:atmosphere_control': {
+    kind: 'Station', title: 'Atmosphere & Ventilation Control',
+    oneLine: 'Every compartment\'s air, the fans and scrubbers that condition it, and the dampers that decide which spaces they reach.',
+    how: `A submarine's atmosphere is a closed loop: fans push air round the boat, a scrubber pulls CO₂ out
+      of it — traditionally by passing it over an amine solution or through lithium-hydroxide curtains —
+      an oxygen generator replaces what people breathe, and a burner deals with carbon monoxide and
+      hydrogen. Every compartment is on that loop through a damper. Shut the damper and that compartment
+      leaves the loop: the scrubber no longer sees its air, and the people in it keep breathing.`,
+    numbers: [
+      ['CO₂ %', `0.04 % ashore, about ${CO2_ROUTINE} % routine at sea, ${CO2_UNCOMFORTABLE} % and you lose concentration.`],
+      ['O₂ %', '20.9 % normal; below 19.5 % is oxygen-deficient.'],
+      ['CO ppm', '50 ppm is an action level, 200 ppm means leave and go on air.'],
+      ['people', 'the CO₂ source. Roughly 0.005 % per minute per person in a sealed compartment.'],
+      ['damper open / shut', 'whether the ventilation reaches that space at all. This is the fault most often found here.'],
+      ['installed sensor vs handheld', 'the whole point of the two columns: one is a report, the other is a measurement.'],
+    ],
+    math: {
+      expr: 'rise (% per minute) ≈ 0.005 × people, while the damper is shut',
+      terms: [
+        ['0.005', 'roughly what one person adds to one compartment per minute'],
+        ['people', 'six in the berthing space, which is why it goes bad first'],
+        ['while shut', 'with the damper open the scrubber removes it faster than the crew makes it'],
+      ],
+    },
+    read: `Read the board and the handheld together. Where they agree, believe them. Where they disagree,
+      only one is a measurement — and which one is wrong decides what you do: bad air is a ventilation job,
+      a bad sensor is a work order.`,
+    trap: `A frozen sensor reports a perfectly ordinary number for ever, so the compartment going bad is the
+      one the board is quietest about. And the ship-wide average is taken in Control, where the watch is —
+      it says nothing about a sealed compartment at the other end of the boat.`,
+    see: ['instrument:gas_detector', 'fitting:damper', 'display:plan_of_day'],
   },
 
   'station:study_desk': {
@@ -1170,6 +1227,25 @@ const FITTINGS = {
     see: ['station:engineering', 'instrument:gas_detector', 'display:plan_of_day'],
   },
 
+  'fitting:debris': {
+    kind: 'Fitting', title: 'Shifted Stores',
+    oneLine: 'A pallet of stores that has come adrift across a passage — and therefore a casualty in its own right.',
+    how: `Everything aboard is stowed for sea because a submarine rolls, pitches and takes shock. When a
+      lashing fails, the load moves, and in a boat where the passage is a metre wide the load and the
+      passage are the same space. It is not dangerous in itself. What makes it a casualty is what is on
+      the far side of it: every compartment aft is now unreachable, including anything flooding in one.`,
+    numbers: [
+      ['blocked / clear', 'whether anybody can get past. There is no partly.'],
+      ['what is behind it', 'the real measure of how urgent it is.'],
+      ['minutes to clear', 'a team can shift it in about a minute of work, plus however long it takes them to get there.'],
+    ],
+    read: `Rank a blockage by what it is blocking, not by how bad it looks. A pile of crates outranks a
+      flooding compartment when the crates are between the party and the water.`,
+    trap: `It is easy to treat access as free. Plan the order so that whatever unblocks the boat is worked
+      before the thing it is blocking, or your damage-control party walks aft and comes straight back.`,
+    see: ['station:command_board', 'station:dc_board'],
+  },
+
   'fitting:hatch': {
     kind: 'Fitting', title: 'Watertight Hatch',
     oneLine: 'A dogged steel door in a bulkhead: the boat\'s ability to lose one compartment and survive.',
@@ -1338,6 +1414,7 @@ export function resolveScienceKey(type, id) {
     hose_reel: 'fitting:hose_reel',
     damper: 'fitting:damper',
     display: `display:${String(id).replace(/^display_/, '')}`,
+    debris: 'fitting:debris',
   }[type];
   if (direct && SCIENCE_NOTES[direct]) return direct;
   // Fall back to the family entry, so a new valve or panel is still explained.

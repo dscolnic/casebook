@@ -15,10 +15,10 @@
 ```bash
 cd deep_watch
 npm run build          # ✓ 62 modules, 875 kB (Three.js dominated), no errors
-npx playwright test    # ✓ 63/63 passed (one worker); webServer = build + preview:4173
+npx playwright test    # ✓ 85/85 passed (16.6 min, one worker); webServer = build + preview:4173
 ```
 
-## Results — 63/63 PASS
+## Results — 85/85 PASS
 
 ### Smoke (`tests/smoke.spec.js`) — 13/13
 | # | Test | Result |
@@ -35,7 +35,7 @@ npx playwright test    # ✓ 63/63 passed (one worker); webServer = build + prev
 | 10 | Progress saves to `deepwatch.progress.v1` and creates **no `reckon*` keys** | ✓ |
 | 11 | State sim: flooding raises the bilge and shifts trim bow-down | ✓ |
 
-### Mission 4 — Forward Flooding (`tests/mission-flooding.spec.js`) — 13/13
+### Mission 4 — Forward Flooding (`tests/mission-flooding.spec.js`) — 13/13, now nine objectives
 | # | Test | Result |
 |---|---|---|
 | 12 | Mission seeds a real casualty in the forward bilge (source, inflow, start location) | ✓ |
@@ -117,6 +117,31 @@ checks each failure is named separately (one chain cited twice; nothing cited; a
 class the evidence does not support), that the second miss produces the decision
 rule and the third the worked answer, that the guide strip carries the correction,
 and that a correct call clears all of it.
+
+### Unit II — Missions 5, 6 and Command Episode 2
+
+`tests/mission-fire.spec.js` — 10/10. The seeded fire is live and already smoking;
+a fire left alone eats its own atmosphere (CO up, O₂ down, temperature up); a
+conductive agent on a live circuit raises a shock hazard and leaves it burning; CO₂
+on a live circuit knocks it down and it **reflashes**; de-energizing first ends it,
+but only once the seat is below 90 °C; the switchboard names the zone and refuses a
+load whose bus is open; smoke without breathing gear impairs the player and an EAB
+manifold fixes it; boundary cooling only works from the compartment next door; and
+the full eight-objective playthrough to a scored debrief. Plus the campaign-wide
+rule: **no mission may post more than ten objectives**.
+
+`tests/mission-atmosphere.spec.js` — 6/6. The boat starts with one frozen sensor on
+genuinely bad air and one biased sensor on good air; a sealed compartment goes bad
+on its own and recovers when the damper opens; the handheld reads the compartment
+you are standing in and says so when the installed sensor disagrees; calling a
+sensor fault where the air is really bad is allowed and explains what it costs;
+calling anything without measuring is called out; and the six-objective playthrough.
+
+`tests/episode-compound.spec.js` — 6/6. Four interacting casualties with the
+flooding `blockedBy` the blocked passage; the blockage is a real collider that stops
+the player walking aft; a team sent outside its trade makes the trip and reports it
+cannot help; a blocked task cannot be worked until its blocker clears; the priority
+board scores dependency as well as life safety; and the full episode.
 
 ### The science codex (`tests/science-codex.spec.js`) — 16/16
 | # | Test | Result |

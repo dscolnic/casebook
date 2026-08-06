@@ -8,6 +8,8 @@ import { DamageControlBoard } from './DamageControlBoard.js';
 import { EquipmentLockerPanel } from './EquipmentLockerPanel.js';
 import { StudyDesk } from './StudyDesk.js';
 import { PassageChart } from './PassageChart.js';
+import { AtmosphereControl } from './AtmosphereControl.js';
+import { CommandBoard } from './CommandBoard.js';
 import { resolveScienceKey } from '../content/scienceNotes.js';
 
 /**
@@ -27,14 +29,16 @@ const STATIONS = {
   dc_locker: { title: 'Damage-Control Locker', klass: EquipmentLockerPanel },
   study_desk: { title: 'Qualification Card', klass: StudyDesk },
   passage_chart: { title: 'Passage Plot', klass: PassageChart },
+  atmosphere_control: { title: 'Atmosphere & Ventilation Control', klass: AtmosphereControl },
+  command_board: { title: 'Command Board', klass: CommandBoard },
 };
 
 export class StationManager {
   constructor({ eventBus, state, save, notebook, instruments, flooding, inventory,
-                sonar, nav, crew, voyage, atmosphere, fire }) {
+                sonar, nav, crew, voyage, atmosphere, fire, teams }) {
     this.bus = eventBus;
     this.ctx = { bus: eventBus, state, save, notebook, instruments, flooding, inventory,
-      sonar, nav, crew, voyage, atmosphere, fire };
+      sonar, nav, crew, voyage, atmosphere, fire, teams };
     this.overlay = document.getElementById('station-overlay');
     this.titleEl = document.getElementById('station-title');
     this.bodyEl = document.getElementById('station-body');

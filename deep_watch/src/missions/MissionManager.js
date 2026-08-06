@@ -4,6 +4,8 @@ import { mission02Contact } from './definitions/mission_02_contact.js';
 import { mission03Navigation } from './definitions/mission_03_navigation.js';
 import { mission04Flooding } from './definitions/mission_04_flooding.js';
 import { mission05Fire } from './definitions/mission_05_fire.js';
+import { mission06Atmosphere } from './definitions/mission_06_atmosphere.js';
+import { episode02Compound } from './definitions/episode_02_compound.js';
 import { episode01SilentPassage } from './definitions/episode_01_silent_passage.js';
 
 /**
@@ -18,6 +20,8 @@ const REGISTRY = {
   episode_01_silent_passage: episode01SilentPassage,
   mission_04_flooding: mission04Flooding,
   mission_05_fire: mission05Fire,
+  mission_06_atmosphere: mission06Atmosphere,
+  episode_02_compound: episode02Compound,
 };
 
 export class MissionManager {
@@ -58,6 +62,7 @@ export class MissionManager {
       atmosphere: d.atmosphere,
       fire: d.fire,
       fireControl: d.fireControl,
+      teams: d.teams,
     });
     this.current.start();
     return this.current;
@@ -104,6 +109,8 @@ export class MissionManager {
     }
     // Fire out, air clean, dampers open: a new attempt starts on a healthy boat.
     if (d.fire) { d.fire.fires.length = 0; d.fire._elapsed = 0; }
+    d.teams?.reset();
+    d.world?.setPassageBlocked?.('propulsion', false);
     if (d.fireControl) { d.fireControl.exposureS = 0; d.fireControl.actions.length = 0; }
     if (d.atmosphere) {
       for (const c of d.atmosphere.layout) {

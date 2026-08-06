@@ -83,6 +83,7 @@ export class SubmarineWorld {
     this.hatches = [];        // { id, z, doorMesh, segIds, open }
     this.bilges = new Map();  // compartmentId -> BilgeVisuals
     this.fireSeats = new Map(); // seatId -> { group, ember }
+    this.debris = new Map();    // compartmentId -> { group, segId, z }
   }
 
   build(state) {
@@ -552,6 +553,47 @@ export class SubmarineWorld {
     return g;
   }
 
+  /**
+   * Stores that have come adrift and blocked a passage. Built once, hidden until a
+   * mission needs it — and when it is there it is a real collider, so "blocked"
+   * means the player genuinely cannot get past rather than being told not to.
+   */
+  _placeDebris(id, c, z) {
+    const g = new THREE.Group();
+    for (let i = 0; i < 5; i++) {
+      const crate = new THREE.Mesh(
+        new THREE.BoxGeometry(0.5 + (i % 3) * 0.15, 0.42, 0.44),
+        this.mat.pipe(i % 2 ? 0x6a5a3a : 0x54604a));
+      crate.position.set(-0.7 + (i % 3) * 0.62, 0.22 + Math.floor(i / 3) * 0.44, (i % 2) * 0.18);
+      crate.rotation.y = (i - 2) * 0.16;
+      g.add(crate);
+    }
+    const strap = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.06, 0.06), this.mat.valveRed());
+    strap.position.set(0, 0.52, 0.2);
+    g.add(strap);
+    g.position.set(0, 0, z);
+    g.visible = false;
+    this.root.add(g);
+    this.debris.set(c.id, { group: g, segId: `debris_${c.id}`, z });
+    this.collision.addSegment(-HATCH_HALF - 0.6, z, HATCH_HALF + 0.6, z, `debris_${c.id}`).active = false;
+    this.interactables.push({
+      object: g, type: 'debris', id,
+      prompt: 'Shift the stores blocking the passage',
+      data: { compartment: c.id },
+    });
+    return g;
+  }
+
+  /** Block or clear a compartment's passage. */
+  setPassageBlocked(compartmentId, blocked) {
+    const d = this.debris.get(compartmentId);
+    if (!d) return false;
+    d.group.visible = blocked;
+    this.collision.setSegmentActive(d.segId, blocked);
+    this.bus.emit('world:passage', { compartment: compartmentId, blocked });
+    return true;
+  }
+
   /** A wall-mounted board that opens a station overlay (e.g. the DC plotting board). */
   _placeWallStation(stationId, name, x, y, z, rotY = Math.PI / 2, screen = 0x123b40) {
     const g = new THREE.Group();
@@ -673,6 +715,8 @@ export class SubmarineWorld {
     // Navigation table (own station).
     this._placeStation(c, 'navigation', 'Navigation Table', HALF_W - 0.5, c.zEnd - 2.0, 0x14324a);
     // The passage plot: the whole crossing, on the after bulkhead of Control.
+    this._placeWallStation('command_board', 'COMMAND BOARD', -HALF_W + 0.3, 1.55, c.zStart + 1.6,
+      Math.PI / 2, 0x3a2a4a);
     this._placeWallStation('passage_chart', 'PASSAGE PLOT', -HALF_W + 0.3, 1.55, c.zEnd - 0.9,
       Math.PI / 2, 0x123b40);
 
@@ -761,6 +805,9 @@ export class SubmarineWorld {
     this.collision.addBoxFromObject(mimic, 0.05);
     this._placeInstrumentPickup(c, 'vibration_meter', 'Vibration Meter', 0xd8a24a, -HALF_W + 0.3, c.zEnd - 0.9);
     this._placeLocker(c, HALF_W - 0.25, c.zEnd - 0.9, 'DC LOCKER 2', 'machinery');
+    // Ventilation and atmosphere control lives with the engineering watch.
+    this._placeWallStation('atmosphere_control', 'ATMOSPHERE & VENT', -HALF_W + 0.3, 1.55, c.zStart + 1.4,
+      Math.PI / 2, 0x2f6f4a);
   }
 
   _furnish_propulsion(c) {
@@ -784,6 +831,8 @@ export class SubmarineWorld {
       puck.position.set(0.62, 0.9, c.zStart + 1.6 + i * 0.9);
       this.root.add(puck);
     }
+    // Stores that Command Episode 2 shakes loose across the passage.
+    this._placeDebris('debris_propulsion', c, c.zStart + 1.1);
     // Lube-oil / cooling pipe kit down the port side.
     const lube = this.props.pipeRun({ length: c.len - 1, axis: 'z', colorHex: 0x8a7a3a, valveAt: 1 });
     lube.position.set(-HALF_W + 0.3, 0.9, c.zMid);
