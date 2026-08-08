@@ -4,6 +4,8 @@ import { MISSION_DEFS } from './missions.js';
 import { esc, fmt, clamp } from './utils.js';
 import { GROUP_DEFS } from './divisions.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
+import { WEEKS } from './constants.js';
+import { TOTAL_DAYS } from './time.js';
 
 export function renderCentralBoardTexture(ctx, width, height){
   // Draw central board onto a canvas 2D context — mission campaign board
@@ -123,106 +125,99 @@ export function renderCentralBoardTexture(ctx, width, height){
   ctx.fillText('E — Board  |  M — Map  |  Mission route lights the next building (blue beacon)  |  Walk ~3h  |  Visit +4h', 24, height-18);
 }
 
+/**
+ * The heads-up display: five readings and one instruction.
+ *
+ * What was here before was a full-width toolbar carrying the mission title,
+ * the learning objective, a "Why:" line, a chip per stop and a fifteen-dot
+ * timeline — a briefing document stapled over the top of the game. None of it
+ * told the player the only two things they need while walking: where to go,
+ * and how much trouble they are in.
+ */
 export function updateHUD(){
   const state=getState();
   if(!state) return;
-  // Running clock
-  const clockEl=document.getElementById('clockStat');
-  const clockSub=document.getElementById('clockSub');
-  if(clockEl && clockSub){
-    const h=Math.floor(((state.timeHours??8)%24+24)%24);
-    const m=Math.floor((((state.timeHours??8)%24+24)%24 - h)*60);
-    const pad=n=>String(n).padStart(2,'0');
-    const day=Math.floor((state.timeHours??8)/24)+1;
-    const daysLeft=Math.max(0, 20 - Math.floor((state.timeHours??8)/24));
-    const hrsLeft=Math.max(0, 480 - Math.floor(state.timeHours??8));
-    clockEl.querySelector('strong').textContent=`Day ${day}/20 — ${pad(h)}:${pad(m)}`;
-    const isNight=h<6||h>=18;
-    clockSub.textContent=`${daysLeft} days to delivery · ${hrsLeft}h left ${isNight?'☾ night':'☀ day'}`;
+  const hours=state.timeHours??8;
+  const pad=n=>String(Math.floor(n)).padStart(2,'0');
+
+  const set=(id,text,cls)=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.textContent=text;
+    if(cls!==undefined) el.className=cls;
+  };
+
+  // 1. running clock  2. days left  3. mission x of y
+  set('hudClock', `Day ${Math.floor(hours/24)+1} · ${pad(hours%24)}:${pad((hours%1)*60)}`);
+  const daysLeft=Math.max(0, TOTAL_DAYS - Math.floor(hours/24));
+  set('hudDaysLeft', `${daysLeft} ${daysLeft===1?'day':'days'}`);
+  const missionNo=Math.min(WEEKS, state.week||1);
+  set('hudMission', `${missionNo} of ${WEEKS}`);
+
+  // 4. projection, as a word. The percentage it comes from is inspectable on
+  //    the command board; while walking, the player needs to know whether the
+  //    campaign is on course, and a number does not answer that at a glance.
+  //    Wrong calls cost readiness and time, so this slides Great -> Good -> Bad.
+  // forecastReadiness projects the *final* readiness if the player carries on
+  // as they are, so absolute bands are meaningful — measured across plausible
+  // states it runs ~6% (neglected) to 100% (late and well run), with a healthy
+  // mid-campaign around 77%. Before the first mission closes there is no trend
+  // to extrapolate from, so it says nothing rather than opening on 'Bad'.
+  const started = (state.week||1) > 1 || completedMissionStops(state).length > 0;
+  if(!started){
+    set('hudProjection', '—', '');
+  } else {
+    const projected=forecastReadiness(state).overall;
+    const band = projected>=75 ? ['Great','great'] : projected>=40 ? ['Good','good'] : ['Bad','bad'];
+    set('hudProjection', band[0], band[1]);
   }
-  // Top mission bar
-  const curMission=getCurrentMission(state);
-  const done=completedMissionStops(state);
-  const nextIdx=nextMissionStopIndex(state);
-  const counter=document.getElementById('missionCounter');
-  const title=document.getElementById('missionTitle');
-  const objective=document.getElementById('missionObjective');
-  const routeEl=document.getElementById('missionRoute');
-  const prog=document.getElementById('missionProgress');
-  const specialActive=isSpecialRequestActive(state);
-  const specialReq=specialActive ? getSpecialRequest(state.week) : null;
-  const specialPerson=specialReq ? HISTORIC_CHARACTERS.find(c=>c.id===specialReq.personId) : null;
-  const nextStop=curMission && nextIdx>=0 ? curMission.stops[nextIdx] : null;
-  const nextDef=nextStop ? def(nextStop.group) : null;
-  const isPersonNext = nextStop ? isPersonStopForIdx(state, nextIdx) : false;
-  const personId = isPersonNext ? getPersonIdForStop(state, nextIdx) : null;
-  const person = personId ? HISTORIC_CHARACTERS.find(c=>c.id===personId) : null;
-  if(counter) counter.textContent=curMission ? `MISSION ${state.week} OF 15 — ${curMission.title.toUpperCase()}` : 'ALL MISSIONS COMPLETE';
-  if(title){
-    if(specialActive && specialPerson && specialReq){
-      title.innerHTML=`<span style="color:#9a741d">→ Fourth meeting: Find ${esc(specialPerson.name)} — ${esc(specialPerson.role)} [${esc(specialReq.division)}]</span> — ${esc(specialReq.title)} <span style="font-weight:400;color:#666158">· ${done.length}/${curMission.stops.length} done + special</span>`;
-    } else if(curMission && nextStop && nextDef){
-      if(isPersonNext && person){
-        title.innerHTML=`<span style="color:#315c78">→ Find ${esc(person.name)} — ${esc(person.role)} [${esc(nextDef.code)}]</span> — ${esc(nextStop.task)} <span style="font-weight:400;color:#666158">· ${done.length}/${curMission.stops.length} done</span>`;
-      } else {
-        title.innerHTML=`<span style="color:#315c78">→ Go to ${esc(nextDef.name)} (${nextDef.code})</span> — ${esc(nextStop.task)} <span style="font-weight:400;color:#666158">· ${done.length}/${curMission.stops.length} done</span>`;
-      }
-    } else if(curMission){
-      title.textContent=curMission.title;
-    } else {
-      title.textContent='Campaign complete';
-    }
+
+  // 5. money left
+  set('hudMoney', `$${fmt(state.reserve)}`);
+
+  // ---- the instruction: where to go, and why it matters
+  const mission=getCurrentMission(state);
+  const idx=nextMissionStopIndex(state);
+  const whereEl=document.getElementById('objectiveWhere');
+  const whyEl=document.getElementById('objectiveWhy');
+  const objEl=document.getElementById('objective');
+  if(!whereEl||!whyEl) return;
+
+  if(!mission){
+    objEl?.classList.add('done');
+    whereEl.textContent='Campaign complete';
+    whyEl.textContent='Every mission is closed.';
+  } else if(isSpecialRequestActive(state)){
+    const req=getSpecialRequest(state.week);
+    const person=HISTORIC_CHARACTERS.find(c=>c.id===req?.personId);
+    objEl?.classList.remove('done');
+    whereEl.textContent=person?`Find ${person.name}`:'Find your colleague';
+    whyEl.textContent=req?.title||'';
+  } else if(idx<0){
+    objEl?.classList.add('done');
+    whereEl.textContent='Return to City Command';
+    whyEl.textContent='Every stop is done. Take the evidence back and make the mission decision.';
+  } else {
+    objEl?.classList.remove('done');
+    const stop=mission.stops[idx];
+    const area=def(stop.group);
+    const personId=isPersonStopForIdx(state,idx)?getPersonIdForStop(state,idx):null;
+    const person=personId?HISTORIC_CHARACTERS.find(c=>c.id===personId):null;
+    whereEl.textContent = person
+      ? `Find ${person.name} — ${person.role}`
+      : `Go to ${area?area.name:stop.group}`;
+    // The "why" is what is at stake, in the book's own words, not the learning
+    // objective — the player is being asked to act, not to revise.
+    const reopened = (state.attempts?.[`${state.week}-${idx}`]||0) > 0;
+    whyEl.textContent = reopened
+      ? 'This call is still open — Riverton needs an answer here.'
+      : (mission.stake || mission.objective || '');
   }
-  if(objective) objective.textContent=curMission ? (nextStop ? `Why: ${curMission.briefing.split('. ')[0]}.` : curMission.objective) : 'All 15 missions completed — evidence chain closed.';
-  if(routeEl && curMission){
-    let html=curMission.stops.map((s,i)=>{
-      const isDone=done.includes(i);
-      const isNext=i===nextIdx && !isSpecialRequestActive(state);
-      const isPerson=isPersonStopForIdx(state,i);
-      const pid=isPerson?getPersonIdForStop(state,i):null;
-      const pchar=pid?HISTORIC_CHARACTERS.find(c=>c.id===pid):null;
-      const label = isPerson && pchar ? `${s.group} · ${pchar.name.split(' ').pop()}` : s.group;
-      const bg=isDone?'#3d6f52':isNext?'#315c78':'#fff';
-      const fg=isDone||isNext?'#fff':'#666158';
-      const border=isNext?'2px solid #315c78':'1px solid #d9d2c5';
-      return `<span title="${isPerson&&pchar?esc(pchar.name):''}" style="background:${bg};color:${fg};border:${border};border-radius:999px;padding:3px 8px;font:800 .66rem Inter,sans-serif">${isDone?'✓ '+(i+1):(i+1)+'. '+esc(label)}${isNext?' → next':''}</span>`;
-    }).join('<span style="color:#9a741d;font-weight:900">→</span>');
-    if(hasSpecialRequest(state.week)){
-      const spDone=Array.isArray(state.specialRequestsCompleted) && state.specialRequestsCompleted.includes(state.week);
-      const spActive=isSpecialRequestActive(state);
-      const spReq=getSpecialRequest(state.week);
-      const spChar=spReq?HISTORIC_CHARACTERS.find(c=>c.id===spReq.personId):null;
-      const bg=spDone?'#3d6f52':spActive?'#9a741d':'#fff';
-      const fg=spDone||spActive?'#fff':'#666158';
-      const border=spActive?'2px solid #9a741d':'1px solid #d9d2c5';
-      html+=` <span style="color:#9a741d;font-weight:900">→</span> <span title="${spChar?esc(spChar.name):''}" style="background:${bg};color:${fg};border:${border};border-radius:999px;padding:3px 8px;font:800 .66rem Inter,sans-serif">4. ${esc(spReq?spReq.personId:'special')}${spActive?' → fourth meeting':spDone?' ✓':''}</span>`;
-    }
-    routeEl.innerHTML=html;
-  } else if(routeEl) routeEl.innerHTML='';
-  if(prog) prog.textContent=curMission ? `${done.length} / ${curMission.stops.length} stops` : '15 / 15 missions';
-  // also update stats overlay if open
+
   const statsBody=document.getElementById('statsBody');
-  if(statsBody && !document.getElementById('statsOverlay').classList.contains('hidden')){
-    renderStats();
-  }
-  // timeline: missions (week is mission number)
-  const track=document.getElementById('timelineTrack');
-  const label=document.getElementById('timelineLabel');
-  if(label){
-    const curMission = getCurrentMission(state);
-    label.textContent= curMission ? `Mission ${state.week}/15 — ${curMission.title} · ${curMission.stops.length} stops` : 'Campaign complete — 15/15 missions';
-  }
-  if(track){
-    track.innerHTML=Array.from({length:15},(_,i)=>{
-      const isPast = i < (state.week-1);
-      const isCurrent = i === (state.week-1);
-      return `<i class="dayDot ${isPast?'past':isCurrent?'today':''} ${i===14?'deadline':''}"></i>`;
-    }).join('');
-  }
-  // render fallback 2D town if visible
+  if(statsBody && document.getElementById('statsOverlay')?.classList.contains('show')) renderStats();
   renderFallbackTown();
 }
-
 function renderFallbackTown(){
   const fallback=document.getElementById('fallbackTown');
   if(!fallback || fallback.classList.contains('hidden')) return;

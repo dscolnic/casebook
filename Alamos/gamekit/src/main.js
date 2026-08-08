@@ -14,6 +14,7 @@ import {
   getState, save, tryLoadSaved, createFresh, advanceTime, getNextMissionStop, walkCost,
 } from '../engine/core/gameState.js';
 import { updateHUD, renderStats } from '../engine/core/dashboard.js';
+import { renderMap } from '../engine/core/map.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
 
@@ -141,6 +142,52 @@ document.getElementById('startBtn').addEventListener('click', () => {
   blocker.classList.add('hidden');
   controls.lock();
 });
+// ---- map and settings
+const sheet = (id, on) => {
+  const el = document.getElementById(id);
+  el.classList.toggle('show', on);
+  if(on && document.pointerLockElement) document.exitPointerLock();
+};
+function openMap(){
+  document.getElementById('mapBody').innerHTML = renderMap();
+  sheet('mapOverlay', true);
+}
+document.getElementById('mapBtn').addEventListener('click', openMap);
+document.getElementById('mapClose').addEventListener('click', () => sheet('mapOverlay', false));
+// player.js already emits this on M.
+window.addEventListener('projecty:togglemap', () => {
+  const open = document.getElementById('mapOverlay').classList.contains('show');
+  open ? sheet('mapOverlay', false) : openMap();
+});
+
+const PREFS = 'gamekit_prefs_v1';
+const prefs = JSON.parse(localStorage.getItem(PREFS) || '{}');
+const applyPrefs = () => {
+  document.body.classList.toggle('highContrast', !!prefs.highContrast);
+  document.body.classList.toggle('reduceMotion', !!prefs.reduceMotion);
+};
+applyPrefs();
+document.getElementById('settingsBtn').addEventListener('click', () => {
+  document.getElementById('setHighContrast').checked = !!prefs.highContrast;
+  document.getElementById('setReduceMotion').checked = !!prefs.reduceMotion;
+  sheet('settingsOverlay', true);
+});
+document.getElementById('settingsClose').addEventListener('click', () => sheet('settingsOverlay', false));
+for(const [id, key] of [['setHighContrast', 'highContrast'], ['setReduceMotion', 'reduceMotion']]){
+  document.getElementById(id).addEventListener('change', (e) => {
+    prefs[key] = e.target.checked;
+    localStorage.setItem(PREFS, JSON.stringify(prefs));
+    applyPrefs();
+  });
+}
+document.getElementById('setReset').addEventListener('click', () => {
+  // Destructive and irreversible, so it asks first.
+  if(!confirm('Restart the campaign? The current run is deleted and cannot be recovered.')) return;
+  localStorage.removeItem('gamekit_' + theme.id + '_v1');
+  window.removeEventListener('beforeunload', saveOnExit);
+  location.reload();
+});
+
 document.getElementById('modalClose').addEventListener('click', () => closeModal());
 document.getElementById('statsOverlay').addEventListener('click', (e) => {
   if(e.target.id === 'statsOverlay') e.currentTarget.classList.remove('show');
@@ -153,12 +200,15 @@ window.addEventListener('keydown', (e) => {
   if(e.code === 'Escape'){
     overlay.classList.remove('show');
     document.getElementById('statsOverlay').classList.remove('show');
+    sheet('mapOverlay', false);
+    sheet('settingsOverlay', false);
   }
 });
 // questionUI closes its own modal; the world has to catch up afterwards.
 const observer = new MutationObserver(() => { if(!overlay.classList.contains('show')) refreshWorld(); });
 observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
-window.addEventListener('beforeunload', () => save());
+const saveOnExit = () => save();
+window.addEventListener('beforeunload', saveOnExit);
 
 // -------------------------------------------------------------- the loop
 let last = performance.now();

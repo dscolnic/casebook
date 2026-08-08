@@ -27,20 +27,62 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
         text-align:center;border:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.35)}
 #prompt.hidden{display:none}
 
-#hudBar{position:fixed;top:0;left:0;right:0;z-index:4;background:rgba(251,249,244,.94);
-        backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:7px 12px;display:flex;
-        justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;min-height:44px;font-size:.8rem}
-#hudBar strong{font-variant-numeric:tabular-nums}
-#hudLeft,#hudRight{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-#missionTitle{font-weight:800}
-#missionObjective{color:var(--muted);max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#missionRoute{color:var(--muted)}
-#timelineTrack{display:flex;gap:3px;align-items:center}
-.dayDot{width:8px;height:8px;border-radius:2px;background:#e3ded2;display:inline-block}
-.dayDot.past{background:#3d6f52}
-.dayDot.today{background:var(--accent);outline:2px solid rgba(47,127,168,.35)}
-.dayDot.deadline{border-radius:50%}
+/* Status: five readings, top left, over the world rather than above it. */
+#hudStatus{position:fixed;top:10px;left:12px;z-index:4;display:flex;gap:0;
+  background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.hudStat{padding:6px 13px;display:flex;flex-direction:column;gap:2px;min-width:74px;
+  border-right:1px solid var(--line)}
+.hudStat:last-child{border-right:0}
+.hudLabel{font:700 .58rem/1 Inter,system-ui;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.hudStat b{font:800 .92rem/1.1 Inter,system-ui;font-variant-numeric:tabular-nums;color:var(--ink)}
+#hudProjection.great{color:#0a8a0a}
+#hudProjection.good{color:#b0762a}
+#hudProjection.bad{color:#c0392b}
 
+/* The one instruction, centred, where the eye already is. */
+/* Below the readings, not level with them: the why-line is a full sentence and
+   at 1350px it ran straight under the status strip. */
+#objective{position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:4;
+  max-width:min(640px,58vw);text-align:center;pointer-events:none;
+  /* A dark ground rather than a text shadow: the sky is nearly white at the top
+     of the frame, and white-on-white survives no amount of shadow. */
+  background:rgba(22,25,28,.62);backdrop-filter:blur(6px);
+  border-radius:12px;padding:8px 18px}
+#objectiveWhere{font:800 1.05rem/1.25 Inter,system-ui;color:#fff;letter-spacing:.01em}
+#objectiveWhy{font:500 .82rem/1.4 Inter,system-ui;color:rgba(255,255,255,.86);margin-top:3px}
+#objective.done #objectiveWhere{color:#9fe6a8}
+
+/* Map and settings, opposite the readings. */
+#hudTools{position:fixed;top:10px;right:12px;z-index:4;display:flex;gap:6px}
+.hudBtn{background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
+  border-radius:10px;padding:7px 12px;font:700 .78rem/1 Inter,system-ui;color:var(--ink);cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.hudBtn:hover{background:#fff}
+
+.sheet{position:fixed;inset:0;z-index:110;display:none;place-items:center;padding:20px;
+  background:rgba(10,13,15,.6)}
+.sheet.show{display:grid}
+.sheetCard{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  width:min(820px,100%);max-height:88vh;overflow:auto;box-shadow:0 28px 80px rgba(0,0,0,.45)}
+.sheetHead{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.sheetHead h3{margin:0;font:800 1.2rem/1.2 Georgia,serif}
+.sheetBody{padding:14px 18px}
+.mapWrap{padding:12px}
+.mapWrap svg{display:block;border:1px solid var(--line);border-radius:10px}
+.mapLegend{font:500 .74rem/1.4 Inter,system-ui;color:var(--muted);padding:8px 2px 0;text-align:center}
+.settingRow{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.settingRow:last-child{border-bottom:0}
+.settingRow span{display:flex;flex-direction:column;gap:2px;flex:1}
+.settingRow small{color:var(--muted);font-size:.76rem}
+.settingRow.danger{align-items:center}
+.settingRow input{margin-top:3px;width:16px;height:16px}
+
+/* Manual overrides for the two accessibility settings. */
+body.highContrast{--line:#6c6558}
+body.highContrast .hudBtn,body.highContrast .reading,body.highContrast .candidate{border-color:#4a463d}
+body.reduceMotion *,body.reduceMotion *::before,body.reduceMotion *::after{animation:none!important;transition:none!important}
 #blocker{position:fixed;inset:0;background:rgba(10,13,15,.72);display:grid;place-items:center;z-index:20}
 #blocker.hidden{display:none}
 #blockerBox{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
@@ -96,21 +138,41 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 <div id="crosshair"></div>
 <div id="prompt" class="hidden"></div>
 
-<div id="hudBar">
-  <div id="hudLeft">
-    <span id="missionCounter"></span>
-    <span id="missionTitle"></span>
-    <span id="missionObjective"></span>
-  </div>
-  <div id="hudRight">
-    <span id="missionProgress"></span>
-    <span id="missionRoute"></span>
-    <span id="clockStat"><strong></strong></span>
-    <span id="clockSub"></span>
-    <span id="timelineLabel"></span>
-    <div id="timelineTrack"></div>
-  </div>
+<!-- Five readings and one instruction. The full-width toolbar that was here
+     carried the mission name, the route chips, a "Why:" line and a timeline,
+     which is a briefing document stapled over the game. -->
+<div id="hudStatus">
+  <div class="hudStat"><span class="hudLabel">Clock</span><b id="hudClock">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Remaining</span><b id="hudDaysLeft">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Mission</span><b id="hudMission">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Projection</span><b id="hudProjection">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Funds</span><b id="hudMoney">—</b></div>
 </div>
+
+<div id="objective">
+  <div id="objectiveWhere"></div>
+  <div id="objectiveWhy"></div>
+</div>
+
+<div id="hudTools">
+  <button class="hudBtn" id="mapBtn" type="button" title="Map (M)"><span aria-hidden="true">🗺</span> Map</button>
+  <button class="hudBtn" id="settingsBtn" type="button" title="Settings"><span aria-hidden="true">⚙</span> Settings</button>
+</div>
+
+<div id="mapOverlay" class="sheet"><div class="sheetCard">
+  <div class="sheetHead"><h3>Riverton</h3><button class="btn small" id="mapClose" type="button">Close</button></div>
+  <div id="mapBody"></div>
+</div></div>
+
+<div id="settingsOverlay" class="sheet"><div class="sheetCard">
+  <div class="sheetHead"><h3>Settings</h3><button class="btn small" id="settingsClose" type="button">Close</button></div>
+  <div class="sheetBody">
+    <label class="settingRow"><input type="checkbox" id="setHighContrast"> <span><b>High contrast</b><small>Darker outlines on panels and readings.</small></span></label>
+    <label class="settingRow"><input type="checkbox" id="setReduceMotion"> <span><b>Reduce motion</b><small>Turns off the verdict animation and the counting readout.</small></span></label>
+    <div class="settingRow danger"><span><b>Restart the campaign</b><small>Clears the saved run and starts again at Mission 1.</small></span>
+      <button class="btn small" id="setReset" type="button">Restart</button></div>
+  </div>
+</div></div>
 
 <!-- Question and briefing modal. questionUI.js writes into these ids. -->
 <div id="overlay" class="overlay">
