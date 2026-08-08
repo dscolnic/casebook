@@ -22,3 +22,8 @@ deep_watch/dist/
 
 # gamekit build output (per-theme)
 Alamos/gamekit/dist/
+
+# The two shipped games: source only, never their builds or backups
+Alamos/Hospital/hospital-fps/dist/
+Alamos/project-y-fps/dist/
+*.bak

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Heroes — Junior Doctor</title>
+<link rel="stylesheet" href="./src/styles.css">
+<style>
+:root{--panel:#fffdf8;--ink:#1b1a17;--muted:#666158;--line:#d9d2c5}
+*{box-sizing:border-box}
+html{font-size:15px}
+body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+#canvas{display:block;width:100vw;height:100vh}
+#crosshair{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;pointer-events:none;z-index:5;opacity:.42;transition:opacity .12s}
+#crosshair:before,#crosshair:after{content:"";position:absolute;background:var(--ink);border-radius:1px}
+#crosshair:before{left:6px;top:0;width:2px;height:14px}
+#crosshair:after{left:0;top:6px;width:14px;height:2px}
+#crosshair.hidden{display:none}
+.locked #crosshair{opacity:.72}
+#prompt{position:fixed;left:50%;bottom:22%;transform:translateX(-50%);background:var(--panel);color:var(--ink);padding:9px 12px;border-radius:10px;font:700 .8rem/1 Inter,system-ui;letter-spacing:.02em;z-index:6;max-width:80vw;text-align:center;border:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.14)}
+#prompt.hidden{display:none}
+#prompt kbd{background:var(--ink);color:#fff;padding:2px 6px;border-radius:4px;margin-right:6px;font:800 .75rem ui-monospace,monospace}
+#hudBar{position:fixed;top:0;left:0;right:0;z-index:4;background:rgba(244,241,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:7px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;min-height:44px}
+#hudBar strong{font-variant-numeric:tabular-nums}
+#topActions{display:flex;gap:6px;flex-wrap:wrap}
+#blocker{position:fixed;inset:0;background:rgba(24,21,16,.62);display:none;place-items:center;z-index:20}
+#blocker.show{display:grid}
+#blockerBox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;max-width:480px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+#blockerBox h2{font:800 1.25rem/1.2 Georgia,serif;margin:0 0 8px}
+#blockerBox p{color:var(--muted);font-size:.82rem;line-height:1.45}
+#interiorOverlay{position:fixed;inset:0;background:rgba(24,21,16,.55);display:none;z-index:15;place-items:center;padding:18px}
+#interiorOverlay.show{display:grid}
+#interiorCard{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:760px;width:100%;padding:12px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.modal{border-radius:12px}
+.modalHead{padding:14px 16px}
+.modalBody{padding:12px 16px;max-height:85vh;overflow:auto}
+.modalBody .modalActions{position:sticky;bottom:0;background:var(--panel);padding-top:10px;margin-top:12px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.highContrast{--line:#1b1a17}
+.highContrast .btn{border-color:var(--ink)}
+.highContrast #hudBar{background:#fff}
+#setupOverlay{position:fixed;inset:0;background:rgba(244,241,233,.98);z-index:30;overflow:auto;padding:18px}
+#setupOverlay.hidden{display:none}
+#mapOverlay{position:fixed;right:18px;top:110px;z-index:7;background:rgba(255,253,248,.96);border:1px solid #d9d2c5;border-radius:12px;padding:12px;min-width:220px;backdrop-filter:blur(6px);box-shadow:0 12px 32px rgba(0,0,0,.14)}
+#mapOverlay.hidden{display:none}
+#mapOverlay h4{margin:0 0 8px;font-family:Georgia,serif}
+#mapOverlay .miniMap{width:200px;height:200px;background:#d9c7a7;border:1px solid #d9d2c5;border-radius:8px;position:relative;overflow:hidden}
+#mapOverlay .miniDot{position:absolute;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.22);display:grid;place-items:center;font:800 7px Georgia,serif;color:#fff}
+#fallbackTown{position:fixed;inset:0;background:#f4f1e9;z-index:12;overflow:auto;padding:18px}
+#fallbackTown.hidden{display:none}
+#settingsPanel{position:fixed;right:18px;top:110px;z-index:8;background:#fffdf8;border:1px solid #d9d2c5;border-radius:12px;padding:12px;min-width:260px}
+#settingsPanel.hidden{display:none}
+#settingsPanel label{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;margin:8px 0}
+#settingsPanel input[type=range]{width:120px}
+.locked #crosshair{opacity:1}
+@media(max-width:700px){#hudBar{font-size:.82rem} #crosshair{display:none}}
+
+/* ——— Verdict ——————————————————————————————————————————————————————
+   The result used to be appended to the bottom of the question panel, so the
+   player scrolled past the whole question to find out whether they were right. */
+#verdictOverlay{position:fixed;inset:0;z-index:120;display:none;place-items:center;padding:20px;
+  background:rgba(10,13,15,.55);backdrop-filter:blur(3px)}
+#verdictOverlay.show{display:grid}
+#verdictCard{width:min(620px,100%);max-height:88vh;overflow:auto;background:var(--panel);
+  border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.5);
+  animation:verdictIn .22s cubic-bezier(.2,.9,.3,1.1)}
+@keyframes verdictIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.verdictHead{padding:20px 24px 16px;border-bottom:1px solid var(--line);
+  border-top:6px solid var(--vc,#0ca30c);border-radius:16px 16px 0 0}
+.verdictKicker{font:800 .68rem/1 Inter,system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--vc)}
+.verdictTitle{font:800 1.9rem/1.1 Georgia,serif;margin:8px 0 0;color:var(--ink)}
+.verdictStake{font:500 .88rem/1.45 Inter,system-ui;color:var(--muted);margin-top:8px}
+.verdictLedger{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;
+  background:var(--line);border-bottom:1px solid var(--line)}
+.ledgerCell{background:var(--panel);padding:12px 14px}
+.ledgerLabel{font:700 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ledgerValue{font:800 1.15rem/1.2 Inter,system-ui;margin-top:5px;font-variant-numeric:tabular-nums}
+.ledgerNote{font:400 .7rem/1.3 Inter,system-ui;color:var(--muted);margin-top:3px}
+.ledgerValue.gain{color:#0a8a0a}
+.ledgerValue.cost{color:#c0392b}
+.verdictBody{padding:16px 24px}
+.verdictWhy{font:400 .88rem/1.55 Inter,system-ui;color:#33363a}
+.verdictDetail{margin-top:12px}
+.verdictDetail summary{cursor:pointer;font:700 .8rem/1 Inter,system-ui;color:#315c78;padding:6px 0}
+.verdictActions{position:sticky;bottom:0;background:var(--panel);display:flex;justify-content:flex-end;
+  gap:8px;padding:14px 24px;border-top:1px solid var(--line);flex-wrap:wrap;border-radius:0 0 16px 16px}
+.answerCompareBox b{display:block;font:800 .66rem/1 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#666158;margin-bottom:5px}
+.stakeLine{display:flex;gap:8px;align-items:baseline;background:#fdf6e8;border:1px solid #e6d5b0;
+  border-left:4px solid #b0762a;border-radius:8px;padding:9px 12px;margin:0 0 10px;
+  font:600 .82rem/1.45 Inter,system-ui;color:#6b4b12}
+
+/* ——— HUD: five readings, one instruction ——————————————————————————
+   Replaces a branding bar and a mission bar that between them carried the
+   title, the objective, a chip per stop and a progress count — none of which
+   answered "where do I go" or "how much trouble am I in". */
+#hudStatus{position:fixed;top:10px;left:12px;z-index:4;display:flex;
+  background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.hudStat{padding:6px 13px;display:flex;flex-direction:column;gap:2px;min-width:74px;border-right:1px solid var(--line)}
+.hudStat:last-child{border-right:0}
+.hudLabel{font:700 .58rem/1 Inter,system-ui;letter-spacing:.09em;text-transform:uppercase;color:#666158}
+.hudStat b{font:800 .92rem/1.1 Inter,system-ui;font-variant-numeric:tabular-nums;color:var(--ink)}
+#hudProjection.great{color:#0a8a0a}
+#hudProjection.good{color:#b0762a}
+#hudProjection.bad{color:#c0392b}
+#objective{position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:4;
+  max-width:min(640px,58vw);text-align:center;pointer-events:none;
+  background:rgba(22,25,28,.62);backdrop-filter:blur(6px);border-radius:12px;padding:8px 18px}
+#objectiveWhere{font:800 1.05rem/1.25 Inter,system-ui;color:#fff}
+#objectiveWhy{font:500 .82rem/1.4 Inter,system-ui;color:rgba(255,255,255,.86);margin-top:3px}
+#objective.done #objectiveWhere{color:#9fe6a8}
+#hudTools{position:fixed;top:10px;right:12px;z-index:4;display:flex;gap:6px}
+</style>
+
+</head>
+<body>
+<div id="hudStatus">
+  <div class="hudStat"><span class="hudLabel">Clock</span><b id="hudClock">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Remaining</span><b id="hudDaysLeft">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Mission</span><b id="hudMission">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Projection</span><b id="hudProjection">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Funds</span><b id="hudMoney">—</b></div>
+</div>
+
+<div id="objective">
+  <div id="objectiveWhere"></div>
+  <div id="objectiveWhy"></div>
+</div>
+<div id="hudTools">
+    <button class="btn small ghost" id="statsBtn" type="button">● Stats</button>
+    <button class="btn small ghost" id="mapBtn" type="button">M — Map</button>
+    <button class="btn small ghost" id="tabBtn" type="button">Tab — Summary</button>
+    <button class="btn small ghost" id="settingsBtn" type="button">Settings</button>
+  </div>
+
+<canvas id="canvas"></canvas>
+<div id="crosshair"></div>
+<div id="prompt" class="hidden"></div>
+
+<div id="blocker">
+  <div id="blockerBox">
+    <h2>Children's Hospital — First-Person</h2>
+    <p>Walk with <b>WASD</b> · look with <b>mouse</b> · <b>E</b> to interact · <b>Shift</b> to run · <b>M</b> map · <b>Tab</b> summary · <b>Esc</b> releases mouse.</p>
+    <p style="font-size:.76rem;color:#666158;margin-top:8px">The town is small: ~30–60 seconds to walk across. Approach the central board or a building door and press <b>E</b>.</p>
+    <button class="btn primary" id="enterTownBtn" type="button">Click to look around</button>
+    <p style="font-size:.7rem;color:#666158;margin-top:10px">No weapons, combat, or enemies — exploration only.</p>
+  </div>
+</div>
+
+<div id="mapOverlay" class="hidden">
+  <h4>Town map</h4>
+  <div class="miniMap" id="miniMap"></div>
+  <div style="font-size:.7rem;color:#666158;margin-top:8px">Yellow dot = you · Click building names to orient</div>
+  <button class="btn small" id="closeMapBtn" type="button" style="margin-top:8px;width:100%">Close</button>
+</div>
+
+<div id="settingsPanel" class="hidden">
+  <h4 style="margin:0 0 6px;font:800 1rem Georgia,serif">Settings</h4>
+  <label>Mouse sensitivity <input type="range" id="sensRange" min="0.2" max="2.5" step="0.1" value="1"></label>
+  <label>Move speed <input type="range" id="speedRange" min="0.6" max="1.8" step="0.1" value="1"></label>
+  <label><span>Volume</span><input type="range" id="volRange" min="0" max="1" step="0.05" value="0.6"></label>
+  <label><span>Reduced motion</span><input type="checkbox" id="reducedMotion"></label>
+  <label><span>High contrast</span><input type="checkbox" id="highContrast"></label>
+  <div style="margin-top:12px;padding:10px;border:1px solid #d9d2c5;border-radius:10px;background:#faf8f2">
+    <div style="font:800 .82rem Georgia,serif">Mission jump (debug)</div>
+    <div style="font-size:.7rem;color:#666158;margin-bottom:6px">Jump to any mission. Current progress for that mission will reset.</div>
+    <select id="missionJumpSelect" style="width:100%;padding:6px;border:1px solid #d9d2c5;border-radius:8px;background:#fff">
+      <option value="1">1 — Welcome to Triage</option>
+      <option value="2">2 — Breathing & Heart</option>
+      <option value="3">3 — Food & Water</option>
+      <option value="4">4 — Bones, Muscles & Skin</option>
+      <option value="5">5 — Brain & Senses</option>
+      <option value="6">6 — Germs & Defenses</option>
+      <option value="7">7 — Clues Notebook</option>
+      <option value="8">8 — Systems Check</option>
+      <option value="9">9 — Verify Patterns</option>
+      <option value="10">10 — Handoff Practice</option>
+      <option value="11">11 — Team Rounds</option>
+      <option value="12">12 — Safe Steps</option>
+      <option value="13">13 — Family Talk</option>
+      <option value="14">14 — Case Reviews</option>
+      <option value="15">15 — Junior Doctor Graduation</option>
+    </select>
+    <button class="btn small" id="missionJumpBtn" type="button" style="margin-top:6px;width:100%">Jump to mission</button>
+  </div>
+  <div style="display:grid;gap:6px;margin-top:10px">
+    <button class="btn small ghost" id="fallbackBtn" type="button">2D Fallback</button>
+    <button class="btn small ghost" id="resetBtn" type="button">Reset progress</button>
+  </div>
+  <button class="btn small" id="closeSettingsBtn" type="button" style="margin-top:8px;width:100%">Close</button>
+</div>
+
+<div id="setupOverlay" class="hidden" style="display:none">
+  <div class="shell" style="width:min(1080px,100%);margin:62px auto 0">
+    <article class="card hero" style="padding:18px 22px;margin-top:12px;position:relative">
+      <div class="eyebrow">You are a Junior Doctor</div>
+      <h2 style="font-family:Georgia,serif;font-size:clamp(34px,5vw,58px);margin:6px 0 0">Hospital Heroes</h2>
+      <p class="lead" style="max-width:860px;color:#403d37;font-size:.92rem">Learn to care for patients by sorting clues, choosing the right team, and handing off clear notes. Assign mentors, decide where your time helps most, and practice safe hospital routines — no real diagnoses, just learning the steps.</p>
+      <div style="margin-top:12px;padding:10px 12px;border-left:4px solid #9a741d;background:#f7f0dc;font-size:.8rem;color:#584a24"><b>Learning scope:</b> triage, body systems, safe routines, and teamwork. No gore, no real diagnoses, no medicines — just short sentences and showing your reasoning. Always ask a real clinician.</div>
+    </article>
+    <article class="card setup" style="margin-top:12px;padding:18px;background:#fffdf8;border:1px solid #d9d2c5;border-radius:16px">
+      <div class="setupHead" style="display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap"><div><div class="eyebrow">Assignments</div><h3 style="font-family:Georgia,serif;font-size:1.5rem;margin:4px 0 0">Choose leaders</h3></div><div style="font-size:.74rem;color:#666158">Science = pace + issue prevention · Management = lower burn + funding efficiency</div></div>
+      <div id="assignGrid" style="margin-top:14px"></div>
+      <div id="roster" style="margin-top:14px"></div>
+      <div id="savedBox" class="hidden" style="margin-top:12px;border:1px dashed #315c78;background:#e8f0f4;padding:12px;border-radius:10px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px"><span id="validation" style="color:#9a3f36;font-weight:700;font-size:.8rem"></span><button class="btn primary" id="startBtn" type="button">Start Shift 1</button></div>
+    </article>
+  </div>
+</div>
+
+<div id="interiorOverlay">
+  <div id="interiorCard"></div>
+</div>
+
+<div class="overlay" id="overlay"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalHead" style="padding:16px 18px;border-bottom:1px solid #d9d2c5;display:flex;justify-content:space-between;gap:14px;align-items:start"><div><div class="eyebrow" id="modalEyebrow"></div><h2 id="modalTitle" style="font-family:Georgia,serif;margin:4px 0 0"></h2></div><button class="close" id="modalClose" aria-label="Close" style="border:1px solid #d9d2c5;background:transparent;border-radius:8px;width:38px;height:38px;font-weight:900">×</button></div><div class="modalBody" id="modalBody" style="padding:16px 18px;max-height:70vh;overflow:auto"></div></div></div>
+
+<!-- Stats overlay -->
+<div id="statsOverlay" class="overlay"><div class="modal" style="width:min(520px,94vw)"><div class="modalHead"><div><div class="eyebrow">Director’s desk</div><h2>Project stats</h2></div><button class="close" id="statsClose" aria-label="Close">×</button></div><div class="modalBody" id="statsBody"></div></div></div>
+<!-- Dashboard expanded overlay -->
+<div id="dashboardOverlay" class="overlay"><div class="modal" style="width:min(1100px,96vw)"><div class="modalHead"><div><div class="eyebrow">Project dashboard</div><h2>Central board — expanded</h2></div><button class="close" id="dashboardClose" aria-label="Close">×</button></div><div class="modalBody" id="dashboardBody"></div></div></div>
+
+<!-- End screen -->
+<section id="endScreen" class="hidden" style="position:fixed;inset:0;z-index:25;background:#f4f1e9;overflow:auto;padding:36px;text-align:center"></section>
+
+<!-- Fallback 2D -->
+<div id="fallbackTown" class="hidden"></div>
+
+<div id="errorOverlay" style="position:fixed;bottom:12px;left:12px;right:12px;z-index:9999;background:#ff4444;color:#fff;padding:10px 14px;border-radius:8px;font:700 12px monospace;white-space:pre-wrap;display:none;max-height:40vh;overflow:auto"></div><script>window.addEventListener("error",e=>{const el=document.getElementById("errorOverlay"); if(el){el.style.display="block"; el.textContent="[Error] "+e.message+"\n"+(e.error&&e.error.stack?e.error.stack:"")+"\n"+e.filename+":"+e.lineno;}}); window.addEventListener("unhandledrejection",e=>{const el=document.getElementById("errorOverlay"); if(el){el.style.display="block"; el.textContent="[Rejection] "+(e.reason&&e.reason.message?e.reason.message:e.reason);}});</script><script type="module" src="./src/main.js"></script>
+<!-- The verdict, on its own layer above the question modal. -->
+<div id="verdictOverlay" aria-live="assertive"><div id="verdictCard"></div></div>
+</body>
+</html>
