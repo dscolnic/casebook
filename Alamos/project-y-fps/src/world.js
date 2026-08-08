@@ -181,7 +181,10 @@ function addGableRoof(scene, pos, w, d, wallTop, opts={}){
   for(const side of [-1, 1]){
     const slab = new THREE.Mesh(new THREE.BoxGeometry(runLen + overhang*2, thick, slopeLen), roofMat);
     slab.position.set(0, rise/2, side * (halfSpan/2));
-    slab.rotation.x = -side * pitch;
+    // +side must tilt the outer edge DOWN. Rotation about X by a positive angle
+    // drops the +z end, so this is +side, not -side. With -side both slabs lift
+    // the edge that should fall and every roof in the town splays open into a V.
+    slab.rotation.x = side * pitch;
     slab.castShadow = true; slab.receiveShadow = true;
     group.add(slab);
   }
