@@ -4,7 +4,8 @@ import { MISSION_DEFS } from './missions.js';
 import { CURRICULUM } from './curriculum.js';
 import { GROUP_DEFS } from './divisions.js';
 import { BALLPARK_CALCS, JARGON } from './curriculum.js';
-import { HINT_COST, RETRY_COST, VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
+import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, SKIP_COST, SKIP_HOURS,
+         VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
 import { renderFigure, readingsPanel, dataTable } from './figures.js';
 
@@ -546,7 +547,11 @@ function finishVisit(ok){
   const attemptKey = state.week + '-' + stopIndex;
   const attempt = (state.attempts[attemptKey] || 0) + 1;
   state.attempts[attemptKey] = attempt;
-  const closes = ok || attempt >= 2;
+  // Only a correct call closes the stop by itself. A wrong one leaves it open
+  // and lets the player choose: answer again, or take the miss and move on.
+  // Both are on offer in money or in time, so this can never trap anyone —
+  // which is what the old "second attempt closes it regardless" rule was for.
+  const closes = ok;
   if(closes) markMissionStopComplete(stopIndex, ok);
 
   // What this cost, for the panel to show. Time was already being charged in
@@ -567,9 +572,10 @@ function finishVisit(ok){
   } else {
     state.log.push({week:state.week, text:`Mission ${state.week}, stop ${stopIndex+1}: ${d.code} Division review completed, but no readiness bonus was earned.`});
     // 12-36h penalty for getting building/person challenge wrong
-    const hrs=penaltyHours(12,36);
-    state.timeHours = Math.min(480, (state.timeHours||8) + hrs);
-    state.log.push({week:state.week, text:`Incorrect answer caused ${hrs.toFixed(1)}h delay.`});
+    // The only automatic charge: the time the attempt itself took. Everything
+    // beyond this is a choice the player makes and can see the price of.
+    state.timeHours = Math.min(480, (state.timeHours||8) + MIN_ALLOTMENT_HOURS);
+    state.log.push({week:state.week, text:`Attempt took ${MIN_ALLOTMENT_HOURS}h.`});
   }
   if(state.log.length>100) state.log=state.log.slice(-100);
   const afterPct=groupPct(gs);
@@ -641,16 +647,34 @@ function finishVisit(ok){
     ? (isLastStop
         ? `<p class="verdictWhy"><b>All ${completedMissionStops(state).length} stops are complete.</b> Take it back to command.</p>`
         : `<p class="verdictWhy">Stop ${stopIndex + 1} is closed. The next place on the route is open.</p>`)
-    : `<p class="verdictWhy"><b>This stop stays open.</b> The team still needs an answer here — go back in and make the call again. The next attempt closes it either way.</p>`;
+    : `<p class="verdictWhy"><b>This stop stays open.</b> The team still needs an answer here. Answering again costs money or time; so does moving on without it. Nothing is decided until you choose.</p>`;
 
   const detail = `<details class="verdictDetail"><summary>Show the full reasoning</summary>` +
     reasoningHTML(ch, lesson, solution, whyText) + `</details>`;
 
-  const canRetryNow = !ok && state.reserve >= RETRY_COST;
+  // A wrong call is a decision, not a punishment: two ways forward, each
+  // priced in money or in time. The money buttons disable when the reserve
+  // cannot cover them; the time ones never can, so a broke player is never stuck.
+  const priced = (id, label, cost, hours) =>
+    '<button class="btn priced" id="' + id + '" type="button"' +
+    (cost > state.reserve ? ' disabled' : '') + '>' +
+    '<span>' + esc(label) + '</span><small>' +
+    (cost ? '$' + cost : hours + ' h') + '</small></button>';
+  const group = (label, a, b) =>
+    '<div class="verdictChoice"><div class="verdictChoiceLabel">' + esc(label) + '</div>' + a + b + '</div>';
+  const choices = ok ? '' :
+    group('Answer again',
+      priced('retryMoney', 'Pay for another attempt', RETRY_COST, 0),
+      priced('retryTime',  'Take the time instead',   0, RETRY_HOURS)) +
+    group('Move on without it',
+      priced('skipMoney',  'Buy the team past it',    SKIP_COST, 0),
+      priced('skipTime',   'Lose the day instead',    0, SKIP_HOURS));
   const actions =
-    (canRetryNow ? `<button class="btn" id="visitRetry" type="button">Answer again · $${RETRY_COST}</button>` : '') +
-    (isLastStop && ledger.closes ? `<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ${state.week}</button>` : '') +
-    `<button class="btn ${isLastStop && ledger.closes ? 'ghost' : 'primary'}" id="visitClose" type="button">Return</button>`;
+    (isLastStop && ledger.closes
+      ? '<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ' + state.week + '</button>'
+      : '') +
+    '<button class="btn ' + (ok ? 'primary' : 'ghost') + '" id="visitClose" type="button">' +
+    (ok ? 'Return' : 'Decide later') + '</button>';
 
   const card = document.getElementById('verdictCard');
   const vOverlay = document.getElementById('verdictOverlay');
@@ -662,6 +686,7 @@ function finishVisit(ok){
       (stake ? `<p class="verdictStake">${esc(stake)}</p>` : '') + `</div>` +
       `<div class="verdictLedger">${ledgerHTML}</div>` +
       `<div class="verdictBody">${consequence}${worldNote}${stopNote}${detail}</div>` +
+      choices +
       `<div class="verdictActions">${actions}</div>`;
     vOverlay.classList.add('show');
     bindTerms(card);
@@ -697,20 +722,41 @@ function finishVisit(ok){
       }
     };
   }
-  const retryBtn=document.getElementById('visitRetry');
-  if(retryBtn){
-    retryBtn.onclick=()=>{
-      if(state.reserve < RETRY_COST) return;
-      state.reserve-=RETRY_COST;
-      state.retries=state.retries||{};
-      state.retries[key]=true;
-      closeVerdict();
-      removeMissionStop(stopIndex);
-      state.log.push({week:state.week, text:`A $${RETRY_COST} retry was used for Mission ${state.week}, stop ${stopIndex+1}.`});
-      save();
-      openVisit(gs.id, true);
-    };
-  }
+  // The four ways out of a wrong call. Each spends exactly what its button
+  // said it would, logs it, and then either reopens the question or closes the
+  // stop as a miss.
+  const spend = (money, hours, why) => {
+    if(money){ state.reserve -= money; }
+    if(hours){ state.timeHours = Math.min(480, (state.timeHours || 8) + hours); }
+    state.log.push({ week: state.week, text: why });
+  };
+  const again = (money, hours) => {
+    spend(money, hours, `Second attempt at Mission ${state.week}, stop ${stopIndex + 1}` +
+      (money ? ` cost $${money}.` : ` cost ${hours}h.`));
+    state.retries = state.retries || {};
+    state.retries[key] = true;
+    closeVerdict();
+    removeMissionStop(stopIndex);
+    save();
+    openVisit(gs.id, true);
+  };
+  const moveOn = (money, hours) => {
+    spend(money, hours, `Moved past Mission ${state.week}, stop ${stopIndex + 1} unresolved` +
+      (money ? ` for $${money}.` : `, losing ${hours}h.`));
+    // Credited as attempted-and-wrong: the stop closes, the readiness does not.
+    markMissionStopComplete(stopIndex, false);
+    save();
+    closeVerdict();
+    closeModal();
+    window.dispatchEvent(new CustomEvent('projecty:statechange'));
+    window.dispatchEvent(new CustomEvent('projecty:visitdone'));
+  };
+  const bind = (id, fn) => { const b = document.getElementById(id); if(b && !b.disabled) b.onclick = fn; };
+  bind('retryMoney', () => again(RETRY_COST, 0));
+  bind('retryTime',  () => again(0, RETRY_HOURS));
+  bind('skipMoney',  () => moveOn(SKIP_COST, 0));
+  bind('skipTime',   () => moveOn(0, SKIP_HOURS));
+
   save();
   window.dispatchEvent(new CustomEvent('projecty:statechange'));
 }
