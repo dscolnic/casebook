@@ -14,7 +14,7 @@
 //   · anonymous extras carry the same rig and no interaction, which is what
 //     makes a street feel worked rather than staffed by exactly the cast list
 import * as THREE from 'three';
-import { NOMINAL_H, pickLook, buildBody, stepGait, gaitAdvance, idleSway } from './rig.js';
+import { NOMINAL_H, pickLook, buildBody, buildExtraBody, stepGait, gaitAdvance, idleSway } from './rig.js';
 import { srand, srandRange, resetSeed } from '../world/materials.js';
 
 let ctx = null;
@@ -113,11 +113,25 @@ export function initCrowd(opts){
     if(opts.blocked?.(x, z)) continue;
     const look = pickLook(opts.outfits[opts.roleToOutfit('', (n) => Math.floor(srand() * n))]
                           ?? Object.values(opts.outfits)[0]);
-    const body = buildBody(look);
-    body.position.set(x, opts.groundHeight(x, z), z);
+    // The cheap merged rig, which is what this tier is for: four meshes instead
+    // of fourteen. It was building the full one, so 26 extras cost as much as 26
+    // named people and the header's claim about it was simply untrue.
+    const body = buildExtraBody(look);
+    const y = opts.groundHeight(x, z);
+    body.position.set(x, y, z);
     body.rotation.y = srand() * 6.28;
     group.add(body);
-    extras.push({ body, phase: srand() * 6.28, pos: new THREE.Vector3(x, 0, z) });
+    // Extras walk too. They had idle sway and nothing else, so half the street
+    // was permanently rooted to the spot while the named cast moved around them.
+    extras.push({
+      body, phase: srand() * 6.28,
+      pos: new THREE.Vector3(x, y, z),
+      home: new THREE.Vector3(x, y, z),
+      target: new THREE.Vector3(x, y, z),
+      facing: body.rotation.y,
+      speed: srandRange(0.7, 1.2),
+      pause: srandRange(0.5, 6),
+    });
     opts.softColliders.push({ x, z, r: 0.5 });
   }
 
@@ -193,7 +207,7 @@ export function updateCrowd(delta, t){
     n.plate.material.opacity += (want - n.plate.material.opacity) * Math.min(1, delta * 8);
     n.plate.visible = n.plate.material.opacity > 0.02;
   }
-  for(const e of extras) idleSway(e.body, Math.sin(t * 0.8 + e.phase) * 0.025);
+  for(const e of extras) walk(e, delta, t);
 }
 
 /**
@@ -235,7 +249,7 @@ function walk(n, delta, t){
   n.phase += gaitAdvance(n.speed, delta);
   const bob = stepGait(n.body, n.phase, n.speed);
   n.body.position.set(n.pos.x, ctx.groundHeight(n.pos.x, n.pos.z) + bob, n.pos.z);
-  n.hit.position.set(n.pos.x, n.body.position.y + 0.95, n.pos.z);
+  if(n.hit) n.hit.position.set(n.pos.x, n.body.position.y + 0.95, n.pos.z);
 }
 
 export function getNPCs(){ return npcs; }

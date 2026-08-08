@@ -9,7 +9,7 @@ import theme from '@theme/theme.js';
 import * as world from '../engine/core/world.js';
 import { initPlayer, updatePlayer, camera, controls, getPosition, teleport, isLocked } from '../engine/core/player.js';
 import { updateInteractions, getCurrentTarget } from '../engine/core/interactions.js';
-import { initCrowd, updateCrowd } from '../engine/people/crowd.js';
+import { initCrowd, updateCrowd, getNPCs } from '../engine/people/crowd.js';
 import {
   getState, save, tryLoadSaved, createFresh, advanceTime, getNextMissionStop, walkCost,
 } from '../engine/core/gameState.js';
@@ -245,7 +245,10 @@ requestAnimationFrame(frame);
 
 // Dev handles. audit.js is run from the console, and needs the scene.
 if(import.meta.env?.DEV){
-  window.gamekit = { theme, world, scene, renderer, camera, getState, getPosition };
+  // crowd + updateCrowd so a frozen background tab can be stepped by hand;
+  // rAF is throttled to nothing there, which makes the town look dead.
+  window.gamekit = { theme, world, scene, renderer, camera, getState, getPosition,
+                     updateCrowd, getNPCs };
   console.log(
     `%c${theme.title}%c — theme "${theme.id}", ${theme.content.MISSIONS.length} missions, `
     + `${Object.values(theme.content.CURRICULUM).reduce((n, v) => n + v.length, 0)} lessons.\n`
