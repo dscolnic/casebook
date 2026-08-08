@@ -376,7 +376,10 @@ function questionContextHTML(lesson,ch){
   // What is riding on this, in one sentence, before the question is asked. The
   // books write it for every mission and it was only ever used in the briefing,
   // where the player reads it once and forgets it.
-  const stake=getCurrentMission(getState())?.stake;
+  // Not every book writes a separate stake line. Where there is none, the
+  // first sentence of the briefing is the nearest thing the author wrote.
+  const m=getCurrentMission(getState());
+  const stake=m ? (m.stake || String(m.briefing||'').split(/(?<=\.)\s/)[0]) : '';
   const stakeHTML=stake?`<div class="stakeLine"><span aria-hidden="true">▲</span> ${esc(stake)}</div>`:'';
   return stakeHTML+`<div class="scienceBrief storyBrief"><p>${esc(storyBriefText(lesson))}</p></div>`+jargonHTML(text);
 }
