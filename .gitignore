@@ -19,3 +19,6 @@ apikey*
 
 # Vite build output (Deep Watch is built in CI for Pages)
 deep_watch/dist/
+
+# gamekit build output (per-theme)
+Alamos/gamekit/dist/

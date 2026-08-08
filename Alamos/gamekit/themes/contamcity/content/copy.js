@@ -1,0 +1,75 @@
+// copy.js — what the player reads at each place.
+//
+// One entry per place id in site.js, plus the interactive objects props.js adds.
+// This text explains what a location can *measure* and what it cannot; it never
+// states a lesson's answer, because the player can read it before the question.
+//
+// The scenario is fictional. Nothing here is a procedure for handling real
+// hazardous material — the design book's scope note applies to every word.
+
+export const COPY = {
+  // ---------------------------------------------------------- the six areas
+  WATER: '<b>Water Intake Laboratory</b> — The drinking-water intake and the bench beside it. '
+    + 'Polarity and intermolecular forces decide what dissolves, what floats as a surface film and what binds to sediment; '
+    + 'pH and buffering decide how far a correction actually moves. What this room cannot tell you is where the contaminant '
+    + 'went once it left the water column — that answer is in the mud, and it is measured somewhere else.',
+
+  GASES: '<b>Air &amp; Plume Station</b> — Mast, sondes and the gas bench. The ideal gas law gives an honest sense of '
+    + 'scale: how much volume a release occupies at ambient temperature and pressure. It says nothing about where the '
+    + 'material goes. Wind, turbulence, terrain and buoyancy do that, and they change while you are calculating.',
+
+  IDENT: '<b>Molecular Identification Lab</b> — Chromatography, spectroscopy and the reference library. '
+    + 'Separation tells you how many things are present; spectra tell you what they might be. Neither is sufficient alone, '
+    + 'and one peak is not automatically one compound. Identity is an evidence package assembled from records, separation '
+    + 'and structure together.',
+
+  QUANT: '<b>Quantitative Analysis &amp; Quality Assurance</b> — Calibration curves, blanks, reference samples and the '
+    + 'desk that decides whether a number counts as a result. Dilution, path length and matrix interference all sit between '
+    + 'a signal and a concentration. A measurement without an uncertainty is not yet evidence for a decision.',
+
+  ENERGY: '<b>Reaction &amp; Thermal Hall</b> — Stoichiometry, calorimetry and kinetics under one roof. '
+    + 'Balanced equations bound how much can react; a heat balance separates stored heat from heat still being produced; '
+    + 'rate laws and activation energy say how quickly that changes as the vessel warms. All three are needed before anyone '
+    + 'enters a confined space.',
+
+  TREAT: '<b>Pilot Treatment Plant</b> — Oxidation, adsorption and precipitation at pilot scale, with the byproduct bench '
+    + 'next door. Every method here lowers the target contaminant. They differ in what they create, what they move into '
+    + 'sludge, and what they leave for whoever is monitoring this river in ten years.',
+
+  // ------------------------------------------------------------- landmarks
+  CMD: '<b>City Command</b> — Where the mission decision is actually made. The board carries scientific readiness, open '
+    + 'high-consequence issues, response credits, and the projection at the deadline. Progress here is not the fraction of '
+    + 'questions answered correctly; it is whether the evidence forms one chain that a reviewer could not break.',
+
+  RECORDS: '<b>Records &amp; Shipping Office</b> — Manifests, supplier lot information and chain-of-custody paperwork. '
+    + 'This is evidence that exists before any instrument is switched on, and it is often the cheapest way to eliminate a '
+    + 'candidate. A label giving only a common name, with no composition or concentration, is not a record — it is a rumour '
+    + 'with letterhead.',
+
+  BRIEF: '<b>Public Briefing Center</b> — Where the city is told what is known. An uncertainty that survives being repeated '
+    + 'has to be stated plainly the first time. A central estimate can be reassuring while the distribution behind it is not.',
+
+  YARD: '<b>Freight Yard Gatehouse</b> — The fire started here, and several containers beside the river were damaged. '
+    + 'The cordon stays until identity and hazard class are established, because an incompatible firefighting or treatment '
+    + 'decision is worse than a slow one.',
+
+  // -------------------------------------------------- interactive objects
+  DRUMS: '<b>The damaged containers</b> — Seven drums, two visibly scorched, none with a usable label. '
+    + 'Nobody opens them and nobody identifies a chemical by smell. Composition, charge and provenance come first: '
+    + 'secure and inventory, reconcile the records, then measure with validated remote or small-sample methods.',
+
+  DOCK: '<b>River sampling point</b> — Surface, mid-depth and sediment samples come off this dock. '
+    + 'Where and when you sample decides what you are able to conclude: a surface grab and a sediment core can disagree '
+    + 'completely and both be correct about the water they came from.',
+
+  READOUT_WATER:  '<b>Intake chemistry display</b> — pH, conductivity and dissolved concentration at the intake, against the sediment trend beneath it.',
+  READOUT_GASES:  '<b>Wind and plume display</b> — Wind speed and direction, stability class, and the current downwind corridor. The corridor is only as fresh as the last wind reading.',
+  READOUT_IDENT:  '<b>Spectra and identity display</b> — Chromatogram peaks alongside candidate spectral matches, with the confidence rank for each provisional identity.',
+  READOUT_QUANT:  '<b>Calibration and limits display</b> — The working calibration curve, today\'s blanks, the detection limit and the guard band around the release limit.',
+  READOUT_ENERGY: '<b>Vessel temperature display</b> — Bulk temperature against time, with the cooling capacity drawn as a line the curve must not cross.',
+  READOUT_TREAT:  '<b>Treatment train display</b> — Influent and effluent for each stage, plus the byproduct and sludge mass that leaves with them.',
+
+  BOARD: '<b>Response status</b> — Mission, time remaining, scientific readiness and evidence independence, open issues, '
+    + 'credits, risk and public trust, with the projection at the deadline. The assumptions behind the projection are '
+    + 'inspectable, so a bottleneck can be fixed rather than merely out-spent.',
+};

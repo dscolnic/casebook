@@ -1,0 +1,215 @@
+// validateContent.mjs — check a theme's content agrees with itself.
+//
+//   node engine/dev/validateContent.mjs <theme>
+//
+// Content is generated from a design document, so the failures are always the
+// same shape: a mission points at a group that was renamed, a lesson index that
+// does not exist, or a character who is never spawned. That last one shipped in
+// the hospital build — spawnNPCs(26) against a 26-person roster meant any
+// character beyond the 26th had nobody for the player to talk to.
+import { readFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+import { resolve, dirname } from 'node:path';
+
+const here = dirname(new URL(import.meta.url).pathname);
+const themeName = process.argv[2];
+if(!themeName){
+  console.error('usage: node engine/dev/validateContent.mjs <theme>');
+  process.exit(2);
+}
+const themeDir = resolve(here, '../../themes', themeName);
+
+const problems = [];
+const notes = [];
+const fail = (m) => problems.push(m);
+const note = (m) => notes.push(m);
+
+async function load(rel){
+  try{
+    return await import(pathToFileURL(resolve(themeDir, rel)).href);
+  }catch(e){
+    fail(`cannot load ${rel}: ${e.message}`);
+    return null;
+  }
+}
+
+const theme = await load('theme.js');
+if(!theme){ report(); process.exit(1); }
+
+const T = theme.default ?? theme;
+const content = T.content ?? {};
+const GROUPS = content.GROUPS ?? [];
+const MISSIONS = content.MISSIONS ?? [];
+const CURRICULUM = content.CURRICULUM ?? {};
+const ROSTER = content.ROSTER ?? [];
+
+// ---- manifest basics
+for(const k of ['id', 'title', 'site', 'content', 'people']){
+  if(!T[k]) fail(`theme.js is missing "${k}" (see THEME_CONTRACT.md)`);
+}
+if(T.site && !['interior', 'outdoor'].includes(T.site.kind)){
+  fail(`site.kind is "${T.site.kind}" — expected "interior" or "outdoor"`);
+}
+
+// ---- groups
+const groupIds = new Set();
+for(const g of GROUPS){
+  if(!g.id) fail('a group has no id');
+  if(groupIds.has(g.id)) fail(`duplicate group id "${g.id}"`);
+  groupIds.add(g.id);
+  if(!g.milestones?.length) fail(`group "${g.id}" has no milestones`);
+}
+if(!GROUPS.length) fail('no groups defined');
+
+// ---- every group needs somewhere to happen
+const planRooms = T.site?.plan?.rooms ?? [];
+const roomGroups = new Set(planRooms.filter(r => r.group).map(r => r.group));
+if(T.site?.kind === 'interior'){
+  for(const id of groupIds){
+    if(!roomGroups.has(id)) fail(`group "${id}" has no room in plan.js — the player cannot reach it`);
+  }
+  for(const g of roomGroups){
+    if(!groupIds.has(g)) fail(`plan.js room references unknown group "${g}"`);
+  }
+}
+// The outdoor equivalent: a mission stop resolves through stopMeshes, which is
+// built from the buildings that carry a `group`. A group with no building is
+// exactly as unreachable as a group with no room, and used to go unchecked.
+const siteBuildings = T.site?.buildings ?? [];
+const buildingGroups = new Set(siteBuildings.filter(b => b.group).map(b => b.group));
+if(T.site?.kind === 'outdoor'){
+  if(!siteBuildings.length){
+    fail('site.kind is "outdoor" but site.buildings is empty — there is nowhere to walk to');
+  }
+  for(const id of groupIds){
+    if(!buildingGroups.has(id)) fail(`group "${id}" has no building in site.js — the player cannot reach it`);
+  }
+  for(const g of buildingGroups){
+    if(!groupIds.has(g)) fail(`site.js building references unknown group "${g}"`);
+  }
+  if(!T.site?.spawn && !T.start) fail('outdoor site has no spawn point');
+  // A prop over the spawn welds the player in place while everything still
+  // renders — the symptom is "renders great, W does nothing". Buildings are the
+  // one thing placed before the audit can run in the browser, so check them here.
+  const spawn = T.start ?? T.site?.spawn;
+  if(spawn){
+    for(const b of siteBuildings){
+      const clearX = Math.abs(spawn.x - b.x) - b.w / 2;
+      const clearZ = Math.abs(spawn.z - b.z) - b.d / 2;
+      if(clearX < 3 && clearZ < 3){
+        fail(`building "${b.id}" sits on or beside the spawn point (${spawn.x}, ${spawn.z}) — ` +
+             `the player would render fine and be unable to move`);
+      }
+    }
+  }
+}
+
+// ---- missions and lesson indices
+MISSIONS.forEach((m, mi) => {
+  const label = `mission ${mi + 1} ("${m.title ?? '?'}")`;
+  if(!m.stops?.length) return fail(`${label} has no stops`);
+  if(m.stops.length !== 3) note(`${label} has ${m.stops.length} stops; the loop is built around 3`);
+  m.stops.forEach((s, si) => {
+    if(!groupIds.has(s.group)) fail(`${label} stop ${si + 1} references unknown group "${s.group}"`);
+    const lessons = CURRICULUM[s.group];
+    if(lessons === undefined){
+      fail(`${label} stop ${si + 1}: no curriculum entry for group "${s.group}"`);
+    } else if(typeof s.lesson === 'number' && Array.isArray(lessons) && s.lesson >= lessons.length){
+      fail(`${label} stop ${si + 1}: lesson index ${s.lesson} but group "${s.group}" ` +
+           `only has ${lessons.length} lessons`);
+    }
+    if(!s.task) note(`${label} stop ${si + 1} has no task label`);
+  });
+});
+if(!MISSIONS.length) fail('no missions defined');
+
+// ---- roster: everyone a mission needs must actually spawn
+const rosterIds = new Set();
+for(const p of ROSTER){
+  if(!p.id) fail('a roster entry has no id');
+  if(rosterIds.has(p.id)) fail(`duplicate roster id "${p.id}"`);
+  rosterIds.add(p.id);
+  if(!p.role) note(`roster "${p.id}" has no role, so outfit selection falls back to default`);
+}
+const extras = T.people?.extras ?? 0;
+const spawnCount = T.people?.spawn ?? ROSTER.length;
+if(spawnCount < ROSTER.length){
+  fail(`people.spawn is ${spawnCount} but the roster has ${ROSTER.length}. ` +
+       `Characters past the limit never appear — any mission stop naming them is unreachable.`);
+}
+// Any explicit person-stops must name someone on the roster.
+MISSIONS.forEach((m, mi) => {
+  m.stops?.forEach((s, si) => {
+    if(s.personId && !rosterIds.has(s.personId)){
+      fail(`mission ${mi + 1} stop ${si + 1} names person "${s.personId}", who is not on the roster`);
+    }
+  });
+});
+
+// ---- outfits
+const OUTFITS = T.people?.OUTFITS ?? {};
+if(!Object.keys(OUTFITS).length) fail('people.OUTFITS is empty — everyone will be default-coloured');
+for(const [k, o] of Object.entries(OUTFITS)){
+  if(o.top === undefined || o.bottom === undefined) fail(`outfit "${k}" needs top and bottom colours`);
+}
+
+// ---- copy
+const COPY = content.COPY ?? {};
+if(T.site?.kind === 'interior'){
+  for(const r of planRooms){
+    if(!COPY[r.id]) note(`room "${r.id}" has no COPY entry, so its info panel will be a bare title`);
+  }
+}
+if(T.site?.kind === 'outdoor'){
+  for(const b of siteBuildings){
+    if(!COPY[b.id]) note(`building "${b.id}" has no COPY entry, so its info panel will be a bare title`);
+  }
+}
+
+// ---- lessons: the content-integrity invariants from THEME_CONTRACT.md
+for(const [group, lessons] of Object.entries(CURRICULUM)){
+  if(!Array.isArray(lessons)) continue;
+  lessons.forEach((l, i) => {
+    const at = `${group} lesson ${i + 1} ("${l.title ?? '?'}")`;
+    if(!l.scene || l.scene.length < 40){
+      fail(`${at}: no scene — the pre-question panel would show nothing to reason from`);
+    }
+    if(l.takeaway && l.game?.why && l.takeaway.trim() === l.game.why.trim()){
+      fail(`${at}: takeaway repeats the "why", so the intro gives the answer away`);
+    }
+    const g = l.game;
+    if(!g) return note(`${at}: no game object`);
+    if(g.choices && g.correctChoice && !g.choices.includes(g.correctChoice)){
+      fail(`${at}: correctChoice is not in choices — grading is indexOf, so this is ungradeable`);
+    }
+    if(g.type === 'Protocol' && g.mapping && new Set(g.mapping).size !== g.mapping.length){
+      fail(`${at}: protocol mapping is not a permutation`);
+    }
+    if(g.type === 'Sequence' && g.order && g.cards && new Set(g.order).size !== g.cards.length){
+      fail(`${at}: sequence order does not use every card exactly once`);
+    }
+    if(g.type === 'Ballpark'){
+      const spec = content.BALLPARK_CALCS?.[`${group}-${l.day}`];
+      if(!spec) fail(`${at}: Ballpark with no BALLPARK_CALCS["${group}-${l.day}"] — it renders un-answerable`);
+      else if(spec.correct?.length !== spec.slots){
+        fail(`${at}: Ballpark spec has ${spec.correct?.length} correct tiles for ${spec.slots} slots`);
+      }
+    }
+  });
+}
+
+function report(){
+  if(notes.length){
+    console.log(`\n${notes.length} note(s):`);
+    notes.forEach(n => console.log('  · ' + n));
+  }
+  if(problems.length){
+    console.error(`\n${problems.length} problem(s) in theme "${themeName}":`);
+    problems.forEach(p => console.error('  ✗ ' + p));
+  } else {
+    console.log(`\n✓ theme "${themeName}" content is consistent ` +
+                `(${GROUPS.length} groups, ${MISSIONS.length} missions, ${ROSTER.length} people)`);
+  }
+}
+report();
+process.exit(problems.length ? 1 : 0);
