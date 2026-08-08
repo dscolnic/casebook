@@ -213,3 +213,13 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .passageChoice[disabled]{cursor:default;opacity:.72}
 .passageChoice.right{border-color:#3d6f52;border-width:2px;padding:8px 10px;background:#f0f7f2;opacity:1}
 .passageChoice.wrong{border-color:#c0392b;border-width:2px;padding:8px 10px;background:#fdf4f3;opacity:1}
+
+/* The read-then-answer gate. The passage is visible while it is being read and
+   closed while it is being answered — with looking again offered honestly, at
+   the price of the reward, so nobody who genuinely forgot is stranded. */
+.passageGate{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.passageGate .passageNote{margin:0}
+.passagePeek{display:block;margin-top:10px;background:none;border:0;padding:4px 0;cursor:pointer;
+  font:600 .76rem/1.3 Inter,system-ui;color:#8a6921;text-decoration:underline}
+.passagePeek:hover{color:#6b4b12}

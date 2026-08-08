@@ -94,31 +94,49 @@ export function passageState(personId){
   return s?.passages?.[personId] ?? 'unasked';
 }
 
-/** The panel: the passage, then the question about it. */
+/**
+ * The panel, in two stages. The passage is on screen while you read it and
+ * gone once the question appears — otherwise this is recognition, not recall:
+ * the answer is a sentence sitting six lines above the choices and you can
+ * simply scan for it.
+ *
+ * Looking again is allowed and costs the dollar. That keeps the honest reader
+ * rewarded without ever stranding someone who genuinely forgot.
+ */
 export function passageHTML(person){
   const status = passageState(person.id);
   const q = questionFor(person);
   const head =
-    `<div class="passageHead"><b>${esc(person.name)}</b>` +
-    `<span>${esc(person.role || '')}</span></div>`;
-  const body = `<div class="passageBody">${person.bio || ''}</div>`;
+    '<div class="passageHead"><b>' + esc(person.name) + '</b>' +
+    '<span>' + esc(person.role || '') + '</span></div>';
 
   if(status === 'earned'){
-    return head + body +
-      `<div class="passageDone">You have already answered ${esc(person.name)}’s question.</div>`;
+    return head + '<div class="passageBody">' + (person.bio || '') + '</div>' +
+      '<div class="passageDone">You have already answered ' + esc(person.name) + '\u2019s question.</div>';
   }
-  const opts = q.choices.map((c, i) =>
-    `<button class="passageChoice" data-passage="${i}" type="button">` +
-    `<b>${String.fromCharCode(65 + i)}.</b><span>${esc(c)}</span></button>`).join('');
-  return head + body +
-    `<div class="passageQ"><div class="passageQPrompt">${esc(q.prompt)}</div>` +
-    (status === 'missed'
-      ? `<div class="passageNote">You missed this one. Answering now costs nothing and pays nothing.</div>`
-      : `<div class="passageNote">Answer correctly and ${esc(person.name)} signs off $${PASSAGE_REWARD} of expenses.</div>`) +
-    `<div class="passageChoices">${opts}</div>` +
-    `<div id="passageResult"></div></div>`;
-}
 
+  const opts = q.choices.map((c, i) =>
+    '<button class="passageChoice" data-passage="' + i + '" type="button">' +
+    '<b>' + String.fromCharCode(65 + i) + '.</b><span>' + esc(c) + '</span></button>').join('');
+
+  return head +
+    '<div class="passageBody" id="passageText">' + (person.bio || '') + '</div>' +
+    '<div class="passageGate" id="passageGate">' +
+      '<button class="btn primary" id="passageAsk" type="button">Ready \u2014 ask me</button>' +
+      '<span class="passageNote">The passage closes when the question opens.</span>' +
+    '</div>' +
+    '<div class="passageQ hidden" id="passageQ">' +
+      '<div class="passageQPrompt">' + esc(q.prompt) + '</div>' +
+      '<div class="passageNote" id="passageStake">' +
+        (status === 'missed'
+          ? 'You missed this one before. Answering now costs nothing and pays nothing.'
+          : 'Answer from memory and ' + esc(person.name) + ' signs off $' + PASSAGE_REWARD + '.') +
+      '</div>' +
+      '<div class="passageChoices">' + opts + '</div>' +
+      '<button class="passagePeek" id="passagePeek" type="button">Read it again \u2014 gives up the $' + PASSAGE_REWARD + '</button>' +
+      '<div id="passageResult"></div>' +
+    '</div>';
+}
 /**
  * Wire the choices. `onDone` lets the caller refresh whatever shows money.
  * Pays once: a second correct answer to the same person earns nothing, so this
@@ -127,6 +145,26 @@ export function passageHTML(person){
 export function bindPassage(container, person, onDone){
   const q = questionFor(person);
   const result = container.querySelector('#passageResult');
+  const text = container.querySelector('#passageText');
+  const gate = container.querySelector('#passageGate');
+  const quiz = container.querySelector('#passageQ');
+  let peeked = false;
+
+  // Stage one: they read it, then close it themselves.
+  const ask = container.querySelector('#passageAsk');
+  if(ask) ask.onclick = () => {
+    text?.classList.add('hidden');
+    gate?.classList.add('hidden');
+    quiz?.classList.remove('hidden');
+  };
+  const peek = container.querySelector('#passagePeek');
+  if(peek) peek.onclick = () => {
+    peeked = true;
+    text?.classList.remove('hidden');
+    peek.remove();
+    const stake = container.querySelector('#passageStake');
+    if(stake) stake.textContent = 'You looked again, so this one pays nothing. Answer it anyway.';
+  };
   container.querySelectorAll('[data-passage]').forEach(btn => {
     btn.onclick = () => {
       const picked = q.choices[+btn.dataset.passage];
@@ -138,14 +176,15 @@ export function bindPassage(container, person, onDone){
       btn.classList.add(ok ? 'right' : 'wrong');
 
       if(ok){
-        const paid = first ? PASSAGE_REWARD : 0;
+        const paid = (first && !peeked) ? PASSAGE_REWARD : 0;
         if(paid){
           state.reserve += paid;
           state.log.push({ week: state.week, text: `${person.name} signed off $${paid} of expenses.` });
         }
         state.passages[person.id] = 'earned';
         result.innerHTML = `<div class="feedback good"><h4>Correct</h4><p>` +
-          (paid ? `${esc(person.name)} signs off $${paid}.` : `No further payment for this one.`) +
+          (paid ? `${esc(person.name)} signs off ${paid}.`
+                : `Right answer — but no payment for this one.`) +
           `</p></div>`;
       } else {
         if(first) state.passages[person.id] = 'missed';
