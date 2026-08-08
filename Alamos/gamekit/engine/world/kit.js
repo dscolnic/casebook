@@ -377,3 +377,217 @@ export function ring(cx, cz, r0, r1, n, blocked){
   }
   return out;
 }
+
+// ——— period building vocabulary ————————————————————————————————————
+//
+// `building()` above makes one thing: a flat-roofed panel box. That is right for
+// a treatment plant and wrong for almost anything built before 1950, which is
+// why Los Alamos could not move onto this engine — pointing it at `building()`
+// would have replaced a gabled, board-sided town with a business park.
+//
+// These are ported from that game's world.js, which had them tuned and shipped;
+// they are generalised here so any theme can use them and no theme has to
+// rewrite them. A theme that wants a modern shed simply never calls them.
+
+/** Weathered stucco. Rendered a stop darker than it looks — see the ground note. */
+export function stuccoTexture(base = '#e8e0c8', repeat = 1){
+  return canvasTex(512, (g, s) => {
+    g.fillStyle = base; g.fillRect(0, 0, s, s);
+    for(let i = 0; i < 900; i++){
+      const x = srand() * s, y = srand() * s, r = srand() * 1.8;
+      g.fillStyle = srand() > 0.5 ? 'rgba(0,0,0,0.07)' : 'rgba(255,255,255,0.08)';
+      g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    }
+    g.strokeStyle = 'rgba(0,0,0,0.06)'; g.lineWidth = 1;
+    for(let i = 0; i < 4; i++){
+      g.beginPath(); g.moveTo(0, i * s / 4); g.lineTo(s, i * s / 4); g.stroke();
+      g.beginPath(); g.moveTo(i * s / 4, 0); g.lineTo(i * s / 4, s); g.stroke();
+    }
+  }, repeat, repeat);
+}
+
+/** Sawn timber, for log walls, poles and boardwalks. */
+export function woodTexture(repeat = 1){
+  return canvasTex(512, (g, s) => {
+    g.fillStyle = '#6b4226'; g.fillRect(0, 0, s, s);
+    g.strokeStyle = 'rgba(40,22,10,0.35)'; g.lineWidth = 2;
+    for(let y = 0; y < s; y += 14){
+      g.beginPath();
+      g.moveTo(0, y + Math.sin(y * 0.02) * 6);
+      g.bezierCurveTo(s * 0.33, y, s * 0.66, y + 8, s, y + Math.sin(y * 0.02 + 1) * 6);
+      g.stroke();
+    }
+    for(let i = 0; i < 30; i++){
+      g.fillStyle = 'rgba(20,12,6,0.45)';
+      g.beginPath(); g.ellipse(srand() * s, srand() * s, 2 + srand() * 3, 1, 0, 0, Math.PI * 2); g.fill();
+    }
+  }, repeat, repeat);
+}
+
+/**
+ * Tar paper, which is what almost every roof of the period actually was: laid
+ * in overlapping rolls with battens over the seams. Weathered mid-grey rather
+ * than fresh black — a near-black albedo just punches holes in a skyline.
+ */
+export function tarPaperTexture(repeatX = 1, repeatY = 1){
+  return canvasTex(512, (g, s) => {
+    g.fillStyle = '#575349'; g.fillRect(0, 0, s, s);
+    for(let i = 0; i < 4000; i++){
+      g.fillStyle = srand() > 0.5 ? 'rgba(30,28,24,0.20)' : 'rgba(160,154,140,0.20)';
+      g.fillRect(srand() * s, srand() * s, 1.6, 1.6);
+    }
+    for(let y = 0; y < s; y += 64){
+      g.fillStyle = 'rgba(30,28,24,0.26)'; g.fillRect(0, y, s, 3);
+      g.fillStyle = 'rgba(168,162,148,0.20)'; g.fillRect(0, y + 3, s, 2);
+    }
+    for(let i = 0; i < 22; i++){
+      g.fillStyle = 'rgba(112,104,90,0.30)';
+      g.beginPath();
+      g.ellipse(srand() * s, srand() * s, 8 + srand() * 20, 5 + srand() * 12, srand(), 0, Math.PI * 2);
+      g.fill();
+    }
+  }, repeatX, repeatY);
+}
+
+/** Board-and-batten siding: vertical boards with battens over the joints. */
+export function boardTexture(base = '#8a7f6a', repeat = 1){
+  return canvasTex(512, (g, s) => {
+    g.fillStyle = base; g.fillRect(0, 0, s, s);
+    for(let i = 0; i < 2600; i++){
+      g.fillStyle = srand() > 0.5 ? 'rgba(0,0,0,0.055)' : 'rgba(255,255,255,0.05)';
+      g.fillRect(srand() * s, srand() * s, 2, 1);
+    }
+    for(let x = 0; x < s; x += 32){
+      g.fillStyle = 'rgba(0,0,0,0.20)';        g.fillRect(x, 0, 2, s);      // joint shadow
+      g.fillStyle = 'rgba(0,0,0,0.10)';        g.fillRect(x + 3, 0, 5, s);  // batten shadow
+      g.fillStyle = 'rgba(255,255,255,0.045)'; g.fillRect(x + 8, 0, 3, s);  // batten highlight
+    }
+  }, repeat, repeat);
+}
+
+/**
+ * A pitched roof: two slopes, gable-end triangles, fascia boards and a ridge
+ * cap. The fascia is not decoration — the shadow line it casts under the eaves
+ * is what gives the roof depth from the ground.
+ *
+ * `wallTop` is the height the walls reach; the roof sits on top of it.
+ */
+export function gableRoof(scene, { x, z }, w, d, wallTop, opts = {}){
+  const alongX = opts.ridgeAlongX !== false;
+  const span = alongX ? d : w;          // the direction that slopes
+  const runLen = alongX ? w : d;        // the direction the ridge runs
+  const overhang = opts.overhang ?? 0.55;
+  const rise = opts.rise ?? span * 0.19;
+  const halfSpan = span / 2 + overhang;
+  const slopeLen = Math.hypot(halfSpan, rise);
+  const pitch = Math.atan2(rise, halfSpan);
+  const thick = 0.16;
+
+  const tex = tarPaperTexture(Math.max(1, runLen / 5), Math.max(1, slopeLen / 4));
+  const roofMat = new THREE.MeshStandardMaterial({
+    // The map already carries the roofing colour; tint only when asked.
+    color: opts.colour ?? 0xffffff, map: tex, roughness: 0.93, metalness: 0.02,
+    envMapIntensity: ENV,
+  });
+  const group = new THREE.Group();
+  for(const side of [-1, 1]){
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(runLen + overhang * 2, thick, slopeLen), roofMat);
+    slab.position.set(0, rise / 2, side * (halfSpan / 2));
+    slab.rotation.x = -side * pitch;
+    slab.castShadow = true; slab.receiveShadow = true;
+    group.add(slab);
+  }
+  const gableMat = mat(`kit.gable.${opts.gableColour ?? 0x6b5f4e}`, () =>
+    new THREE.MeshStandardMaterial({ color: opts.gableColour ?? 0x6b5f4e, roughness: 0.92, envMapIntensity: ENV }));
+  for(const end of [-1, 1]){
+    const shape = new THREE.Shape();
+    shape.moveTo(-span / 2, 0); shape.lineTo(span / 2, 0); shape.lineTo(0, rise); shape.closePath();
+    const tri = new THREE.Mesh(new THREE.ShapeGeometry(shape), gableMat);
+    tri.position.set(end * runLen / 2, 0, 0);
+    tri.rotation.y = Math.PI / 2;
+    tri.castShadow = true;
+    group.add(tri);
+  }
+  const fascia = mat('kit.fascia', () =>
+    new THREE.MeshStandardMaterial({ color: 0x53483a, roughness: 0.93, envMapIntensity: ENV }));
+  for(const side of [-1, 1]){
+    const f = new THREE.Mesh(new THREE.BoxGeometry(runLen + overhang * 2, 0.24, 0.1), fascia);
+    f.position.set(0, -0.06, side * halfSpan);
+    f.castShadow = true;
+    group.add(f);
+  }
+  const cap = new THREE.Mesh(new THREE.BoxGeometry(runLen + overhang * 2, 0.1, 0.34), fascia);
+  cap.position.set(0, rise + 0.06, 0);
+  group.add(cap);
+
+  group.position.set(x, wallTop, z);
+  if(!alongX) group.rotation.y = Math.PI / 2;
+  scene.add(group);
+  return { group, rise, ridgeY: wallTop + rise };
+}
+
+/** Concrete pier plinth plus a skirt board — buildings never sit flush on dirt. */
+export function plinth(scene, { x, z }, w, d, height = 0.5){
+  const skirt = new THREE.Mesh(
+    new THREE.BoxGeometry(w + 0.14, height, d + 0.14),
+    mat('kit.skirt', () => new THREE.MeshStandardMaterial({ color: 0x4a443c, roughness: 0.95, envMapIntensity: ENV })));
+  skirt.position.set(x, height / 2, z);
+  skirt.castShadow = true; skirt.receiveShadow = true;
+  scene.add(skirt);
+  const pierMat = mat('kit.pier', () =>
+    new THREE.MeshStandardMaterial({ color: 0x8a857c, roughness: 0.94, envMapIntensity: ENV }));
+  for(const sx of [-1, 1]) for(const sz of [-1, 1]){
+    const p = new THREE.Mesh(new THREE.BoxGeometry(0.5, height + 0.12, 0.5), pierMat);
+    p.position.set(x + sx * (w / 2 - 0.4), (height + 0.12) / 2 - 0.06, z + sz * (d / 2 - 0.4));
+    p.receiveShadow = true;
+    scene.add(p);
+  }
+  return height;
+}
+
+/** A two-tread stoop up to a raised threshold. `angle` faces the door. */
+export function steps(scene, x, z, angle, width, baseY){
+  const m = mat('kit.step', () =>
+    new THREE.MeshStandardMaterial({ color: 0x6b5844, roughness: 0.94, envMapIntensity: ENV }));
+  for(let i = 0; i < 2; i++){
+    const y = baseY * (1 - (i + 1) / 3);
+    const depth = 0.42;
+    const off = 0.55 + i * depth;
+    const s = new THREE.Mesh(new THREE.BoxGeometry(width, Math.max(0.1, baseY / 3), depth), m);
+    s.position.set(x + Math.sin(angle) * off, y + baseY / 6, z + Math.cos(angle) * off);
+    s.rotation.y = angle;
+    s.castShadow = true; s.receiveShadow = true;
+    scene.add(s);
+  }
+}
+
+/**
+ * A window pane that can light up after dark. It is emissive rather than a real
+ * light — a lamp per window is the 28-point-light mistake in period costume —
+ * and it is tagged so a world can raise them all at dusk.
+ */
+export function litWindow(scene, w, h, x, y, z, opts = {}){
+  const pane = new THREE.Mesh(
+    new THREE.PlaneGeometry(w, h),
+    new THREE.MeshStandardMaterial({
+      color: 0x2b3138, emissive: opts.glow ?? 0xffd9a0, emissiveIntensity: 0,
+      roughness: 0.25, metalness: 0.1, envMapIntensity: ENV,
+    }));
+  pane.position.set(x, y, z);
+  pane.rotation.y = opts.facing ?? 0;
+  pane.userData.litWindow = true;
+  // Not every window in a town is occupied; a uniformly lit block reads as a
+  // hotel rather than a working site.
+  pane.userData.lightChance = opts.lightChance ?? 0.5;
+  scene.add(pane);
+  return pane;
+}
+
+/** Raise or lower every window this kit made. `night` runs 0 (day) to 1. */
+export function setWindowGlow(scene, night){
+  scene.traverse(o => {
+    if(!o.userData?.litWindow || !o.material) return;
+    const on = o.userData.lightChance > 0.5 ? 1 : 0.55;
+    o.material.emissiveIntensity = night * on * 1.4;
+  });
+}
