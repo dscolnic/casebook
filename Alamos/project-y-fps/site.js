@@ -51,6 +51,51 @@ export const DIVISION_STYLE = {
   trim: 0x53483a,
 };
 
+
+/**
+ * The town around the divisions. These carry no mission stop — they are what
+ * makes the place a town rather than five sheds on a mesa — so they have no
+ * group, and the engine treats a building without one as scenery.
+ *
+ * Each row's construction is what world.js's createFillerBuilding did with its
+ * flag: log walls on a deeper plinth for the two lodges, board-and-batten for
+ * the housing rows, stucco for the chapel and infirmary, and the shallow plinth
+ * the hutments barely had.
+ */
+export const FILLER = [
+  { id: 'FULLER', name: 'Fuller Lodge',       x: 0,   z: -30, w: 22, d: 12, h: 8,
+    colour: 0x7a4a2e, siding: 'wood',   base: 0.6,  corners: false },
+  { id: 'BIG',    name: 'Big House',          x: 10,  z: -38, w: 16, d: 10, h: 7.5,
+    colour: 0x6b3a1f, siding: 'wood',   base: 0.6,  corners: false },
+  { id: 'SUNDTS', name: 'Sundt 4-Plex Row',   x: -48, z: -26, w: 18, d: 9,  h: 7,
+    colour: 0x8a6a3a, siding: 'board',  base: 0.45 },
+  { id: 'SUNDTS2', name: 'Sundt 4-Plex Row',  x: 44,  z: -26, w: 18, d: 9,  h: 7,
+    colour: 0x8a6a3a, siding: 'board',  base: 0.45 },
+  { id: 'DUP',    name: 'Sundt Duplexes',     x: -28, z: 24,  w: 14, d: 8,  h: 5.5,
+    colour: 0x9a8a73, siding: 'board',  base: 0.45 },
+  { id: 'MCKEE',  name: 'McKee Hutments',     x: 30,  z: 26,  w: 16, d: 8,  h: 4.5,
+    colour: 0x6b7a6b, siding: 'board',  base: 0.22 },
+  { id: 'DORMF',  name: 'Women\u2019s Dorm T-178', x: -66, z: -6, w: 14, d: 10, h: 6,
+    colour: 0xd9d2c5, siding: 'board',  base: 0.45 },
+  { id: 'DORMM',  name: 'Men\u2019s Dorm',        x: -80, z: -6,  w: 14, d: 10, h: 6,
+    colour: 0xd9d2c5, siding: 'board',  base: 0.45 },
+  { id: 'WAC',    name: 'WAC Barracks',       x: -76, z: 26,  w: 16, d: 9,  h: 5,
+    colour: 0x5a6a7a, siding: 'board',  base: 0.45 },
+  { id: 'THEAT',  name: 'Theater No. 2',      x: 68,  z: -6,  w: 16, d: 12, h: 8,
+    colour: 0x4a3d2e, siding: 'board',  base: 0.45 },
+  { id: 'PX',     name: 'Post Exchange',      x: 58,  z: 24,  w: 11, d: 10, h: 6,
+    colour: 0x9a741d, siding: 'board',  base: 0.45 },
+  { id: 'CHAPL',  name: 'Army Chapel',        x: -48, z: 34,  w: 10, d: 12, h: 7,
+    colour: 0xf5f1e9, siding: 'stucco', base: 0.45, corners: false },
+  { id: 'INFIR',  name: 'Infirmary',          x: 58,  z: 38,  w: 12, d: 10, h: 6.5,
+    colour: 0xf2f2f0, siding: 'stucco', base: 0.45, corners: false },
+  { id: 'GUARD',  name: 'Main Gate House',    x: 27,  z: 88,  w: 6,  d: 6,  h: 4,
+    colour: 0x3a2e22, siding: 'board',  base: 0.22 },
+];
+
+/** What every filler building shares: pitched roof, punched windows, a stoop. */
+export const FILLER_STYLE = { roof: 'gable', stoop: true, windows: true, trim: 0x53483a };
+
 export const site = {
   kind: 'outdoor',
 
@@ -66,7 +111,14 @@ export const site = {
   // the whole dome out to near-white.
   atmosphere: { turbidity: 1.8, rayleigh: 2.6, mie: 0.0026, mieG: 0.80, scale: 850, stars: 1600 },
 
-  buildings: DIVISIONS.map(b => ({ ...DIVISION_STYLE, ...b })),
+  buildings: [
+    ...DIVISIONS.map(b => ({ ...DIVISION_STYLE, ...b })),
+    ...FILLER.map(b => ({ ...FILLER_STYLE, ...b })),
+  ],
+
+  // Ashley Pond is not a building. It sat in the same table only because that
+  // table was "things to place"; here it is what it actually is.
+  water: { cx: 0, cz: -8, width: 14, depth: 14, level: -0.35 },
 
   spawn: { x: 0, z: 14, yaw: 0 },
 };

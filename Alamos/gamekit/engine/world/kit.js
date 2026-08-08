@@ -159,6 +159,10 @@ export function building(scene, opts){
     //   base:   height of the plinth under it, 0 for none
     //   stoop:  put steps at the door
     roof = 'flat', siding = 'panel', base = 0, stoop = false,
+    // Corner boards: the vertical trim every wood-frame building of the period
+    // carried over its butt joints. Default on for board siding and off for
+    // everything else — log walls interlock at the corners and never had them.
+    corners = siding === 'board',
   } = opts;
   const group = new THREE.Group();
   const wallMat = siding === 'panel'
@@ -181,6 +185,14 @@ export function building(scene, opts){
   if(base <= 0) box(group, w + 1.2, 0.35, d + 1.2, 0, 0.175, 0, MATERIALS.concrete());
   // Shell.
   box(group, w, h, d, 0, floorY + h / 2, 0, wallMat);
+  if(corners){
+    const cornerHex = new THREE.Color(colour).multiplyScalar(0.78).getHex();
+    const cornerMat = mat(`kit.corner.${cornerHex}`, () =>
+      new THREE.MeshStandardMaterial({ color: cornerHex, roughness: 0.94, envMapIntensity: ENV }));
+    for(const sx of [-1, 1]) for(const sz of [-1, 1]){
+      box(group, 0.22, h, 0.22, sx * (w / 2 - 0.05), floorY + h / 2, sz * (d / 2 - 0.05), cornerMat);
+    }
+  }
   if(roof === 'gable'){
     gableRoof(group, { x: 0, z: 0 }, w, d, floorY + h, { ridgeAlongX: w >= d });
   } else {
