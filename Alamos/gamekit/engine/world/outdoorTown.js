@@ -42,6 +42,8 @@ let waypointMesh = null;
 let boardScreens = [];
 let lightPanels = [];
 let peopleStations = [];
+/** groupId -> the area's readout screen, so a call can change the street. */
+export const areaScreens = new Map();
 
 /** The one source of truth for floor height. Re-exported so nothing forks it. */
 export function groundHeight(x, z){ return terrainHeight(x, z); }
@@ -210,7 +212,7 @@ export function initWorld(canvas, activeTheme){
   // 7. Theme hook for the objects that make this place recognisable.
   theme.decorate?.(scene, {
     groundHeight, colliders, softColliders, interactables, blocked, sign, MATERIALS,
-    lightPanels,
+    lightPanels, areaScreens,
   });
 
   // 8. The people. Every third mission stop is a person stop, so this is
@@ -246,6 +248,19 @@ export function updateWorldFromState(state, nextStopId = null, pct = () => 0){
     // building reads as a rendering bug, not as a hint.
     stop.door.material.color.copy(base).multiplyScalar(0.5 + 0.5 * done);
   }
+  // An unresolved call turns that area's readout red and holds it there until
+  // the player goes back and settles it. Answering used to change nothing
+  // outside the modal: you walked out into an identical town either way.
+  for(const [id, screen] of areaScreens){
+    const verdict = state.areaVerdict?.[id];
+    if(!screen.material) continue;
+    const base = screen.userData.baseTint ?? screen.material.color.getHex();
+    screen.userData.baseTint = base;
+    const tint = verdict === 'unresolved' ? 0xc0392b : verdict === 'clear' ? 0x1f8a4c : base;
+    screen.material.color.setHex(tint);
+    screen.material.emissive.setHex(tint);
+  }
+
   const target = nextStopId ? stopMeshes.get(nextStopId) : null;
   if(target) setWaypointPosition(target.entry.x, target.entry.z);
   else if(waypointMesh) waypointMesh.visible = false;

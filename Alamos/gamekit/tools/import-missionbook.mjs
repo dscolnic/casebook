@@ -173,6 +173,10 @@ for(const mission of missions){
     title: mission.title,
     objective: mission.outcome,
     briefing: [mission.problem, mission.stake].filter(Boolean).join(' '),
+    // Kept separate as well as folded into the briefing: the question panel
+    // shows it on its own, because "what is at stake" in one human sentence is
+    // what makes an answer feel like a decision rather than a quiz item.
+    stake: mission.stake,
     takeaway: mission.outcome,
     route: mission.route,
     concepts: mission.concepts,

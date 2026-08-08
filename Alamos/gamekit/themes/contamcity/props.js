@@ -33,7 +33,7 @@ const READOUTS = {
  *         sign, MATERIALS, lightPanels }
  */
 export function decorate(scene, ctx){
-  const { groundHeight, colliders, softColliders, interactables, lightPanels } = ctx;
+  const { groundHeight, colliders, softColliders, interactables, lightPanels, areaScreens } = ctx;
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
 
@@ -54,6 +54,8 @@ export function decorate(scene, ctx){
     const b = displayBoard(scene, x, z, y(x, z), { facing, title: r.title, tint: r.tint });
     soft(b.soft);
     lightPanels.push(b.screen);
+    // The world's channel for 'this area still owes an answer'.
+    areaScreens?.set(id, b.screen);
     interactables.push({
       mesh: b.screen, type: 'info', id: `READOUT_${id}`,
       prompt: `E — Read the ${r.title.toLowerCase()} display`,

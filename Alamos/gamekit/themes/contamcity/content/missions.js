@@ -7,6 +7,7 @@ export const MISSIONS = [
     "title": "The Unknown Containers",
     "objective": "Create a provisional identity list and choose the next discriminating measurements.",
     "briefing": "A freight-yard fire damages several unlabeled containers beside Riverton's river. The response team must establish chemical identity and hazard classes before firefighters, residents, and the water utility act on rumors. A wrong identity can cause an incompatible firefighting or treatment decision.",
+    "stake": "A wrong identity can cause an incompatible firefighting or treatment decision.",
     "takeaway": "Create a provisional identity list and choose the next discriminating measurements.",
     "route": [
       "Accident Command Post",
@@ -42,6 +43,7 @@ export const MISSIONS = [
     "title": "The Vapor Cloud",
     "objective": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "briefing": "A colorless plume moves toward two neighborhoods as the weather changes. The team must estimate expansion, density, and direction without treating an ideal-gas model as a complete atmospheric forecast. A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.",
+    "stake": "A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.",
     "takeaway": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "route": [
       "Mobile Weather Station",
@@ -77,6 +79,7 @@ export const MISSIONS = [
     "title": "What Dissolved in the River?",
     "objective": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
     "briefing": "Runoff from the accident enters the river. Some compounds remain in surface films, some dissolve, and others bind to sediment. The player must predict partitioning from molecular interactions and verify it with sampling. If the team samples only water, a persistent sediment reservoir may be missed until it re-enters the water supply.",
+    "stake": "If the team samples only water, a persistent sediment reservoir may be missed until it re-enters the water supply.",
     "takeaway": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
     "route": [
       "River Sampling Boat",
@@ -112,6 +115,7 @@ export const MISSIONS = [
     "title": "Identify the Unknowns",
     "objective": "Assign confidence-ranked identities to mixture components using orthogonal evidence.",
     "briefing": "Chromatography reveals several peaks, while spectroscopy suggests overlapping functional groups. The player must combine separation and structural evidence rather than forcing one peak to equal one compound. A false identification could lead the treatment plant to use chemistry that creates a more hazardous byproduct.",
+    "stake": "A false identification could lead the treatment plant to use chemistry that creates a more hazardous byproduct.",
     "takeaway": "Assign confidence-ranked identities to mixture components using orthogonal evidence.",
     "route": [
       "Chromatography Lab",
@@ -147,6 +151,7 @@ export const MISSIONS = [
     "title": "The Concentration Problem",
     "objective": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "briefing": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and matrix interference. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.",
+    "stake": "An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.",
     "takeaway": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "route": [
       "Quantitative Analysis Lab",
@@ -182,6 +187,7 @@ export const MISSIONS = [
     "title": "A Reaction Underground",
     "objective": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
     "briefing": "Two drainage streams may mix in a confined tunnel. The player must determine limiting reactants, plausible products, and gas or heat generation before crews enter. Entering before bounding the chemistry could expose crews to heat, pressure, or oxygen displacement.",
+    "stake": "Entering before bounding the chemistry could expose crews to heat, pressure, or oxygen displacement.",
     "takeaway": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
     "route": [
       "Sewer Monitoring Station",
@@ -217,6 +223,7 @@ export const MISSIONS = [
     "title": "The Heat Is Rising",
     "objective": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
     "briefing": "A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. If self-heating is mistaken for leftover warmth, responders may leave before runaway conditions develop.",
+    "stake": "If self-heating is mistaken for leftover warmth, responders may leave before runaway conditions develop.",
     "takeaway": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
     "route": [
       "Thermal Camera Team",
@@ -252,6 +259,7 @@ export const MISSIONS = [
     "title": "Will the Reaction Run Away?",
     "objective": "Identify the controlling rate factors and define a safe operating envelope with automatic shutdown triggers.",
     "briefing": "A treatment chemical reacts slowly at room temperature but rapidly as the vessel warms. The team must connect rate laws and activation energy to thermal feedback. A treatment intended to remove contamination could become the largest hazard on the site.",
+    "stake": "A treatment intended to remove contamination could become the largest hazard on the site.",
     "takeaway": "Identify the controlling rate factors and define a safe operating envelope with automatic shutdown triggers.",
     "route": [
       "Kinetics Lab",
@@ -287,6 +295,7 @@ export const MISSIONS = [
     "title": "The Water Changes pH",
     "objective": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
     "briefing": "The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. A pH correction can mobilize metals, damage infrastructure, or injure workers if the chemical context is ignored.",
+    "stake": "A pH correction can mobilize metals, damage infrastructure, or injure workers if the chemical context is ignored.",
     "takeaway": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
     "route": [
       "Water Intake Laboratory",
@@ -322,6 +331,7 @@ export const MISSIONS = [
     "title": "Equilibrium in the Reservoir",
     "objective": "Predict how pH and ligands shift dissolved concentration and design monitoring for remobilization.",
     "briefing": "After pH adjustment, dissolved contaminant decreases but sediment concentrations rise. The team must determine whether precipitation and complexation have transferred rather than destroyed the hazard. An apparently clean reservoir can become contaminated again when chemistry or flow changes.",
+    "stake": "An apparently clean reservoir can become contaminated again when chemistry or flow changes.",
     "takeaway": "Predict how pH and ligands shift dissolved concentration and design monitoring for remobilization.",
     "route": [
       "Reservoir Sampling Dock",
@@ -357,6 +367,7 @@ export const MISSIONS = [
     "title": "The Corrosion Failure",
     "objective": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
     "briefing": "Acidic water and dissimilar metals threaten the intake pipeline. The player must identify redox couples and stop a small leak from becoming a system-wide failure. A hidden localized failure could interrupt drinking water during the emergency.",
+    "stake": "A hidden localized failure could interrupt drinking water during the emergency.",
     "takeaway": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
     "route": [
       "Pipeline Inspection Gallery",
@@ -392,6 +403,7 @@ export const MISSIONS = [
     "title": "Remove It Without Making It Worse",
     "objective": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "briefing": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.",
+    "stake": "A rapid treatment can create a less visible but more persistent hazard.",
     "takeaway": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "route": [
       "Pilot Treatment Plant",
@@ -427,6 +439,7 @@ export const MISSIONS = [
     "title": "The Air Is Not Clear Yet",
     "objective": "Identify likely secondary products and update monitoring locations and times.",
     "briefing": "Sunlight and atmospheric oxidants transform remaining vapors into secondary products. The player must reason about radicals, reaction pathways, and changing exposure after the source is controlled. Residents may return after the primary plume clears while secondary pollutants are still forming.",
+    "stake": "Residents may return after the primary plume clears while secondary pollutants are still forming.",
     "takeaway": "Identify likely secondary products and update monitoring locations and times.",
     "route": [
       "Atmospheric Monitoring Station",
@@ -462,6 +475,7 @@ export const MISSIONS = [
     "title": "Can the Water Be Released?",
     "objective": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
     "briefing": "Treatment results cluster near the decision threshold. The player must account for uncertainty, detection limits, and sampling representativeness before reopening the water system. A premature release exposes the city; an unnecessary hold can deprive hospitals and homes of essential water.",
+    "stake": "A premature release exposes the city; an unnecessary hold can deprive hospitals and homes of essential water.",
     "takeaway": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
     "route": [
       "Final Verification Lab",
@@ -497,6 +511,7 @@ export const MISSIONS = [
     "title": "Reopen the City",
     "objective": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "briefing": "The final board must explain what was released, how chemicals moved and changed, which treatments worked, and what contamination remains in solids, infrastructure, and ecosystems. Without a complete fate and uncertainty record, the city cannot know whether the emergency is over or merely hidden.",
+    "stake": "Without a complete fate and uncertainty record, the city cannot know whether the emergency is over or merely hidden.",
     "takeaway": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "route": [
       "Scientific Review Hall",

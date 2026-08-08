@@ -1,5 +1,5 @@
 import { getState, save, markMissionStopComplete, getNextMissionStop, removeMissionStop, completeMission, advanceTime } from './gameState.js';
-import { leader, def, currentMilestone, curriculumFor, completeMilestoneIfReady, groupPct, getCurrentMission, missionStopForGroup, missionStopIndex, nextMissionStopIndex, completedMissionStops, missionComplete, isPersonStopForIdx, globalStopIndex, CHARACTER_DIVISION, getSpecialRequest, isSpecialRequestActive, getPersonIdForStop } from './simulation.js';
+import { forecastReadiness, leader, def, currentMilestone, curriculumFor, completeMilestoneIfReady, groupPct, getCurrentMission, missionStopForGroup, missionStopIndex, nextMissionStopIndex, completedMissionStops, missionComplete, isPersonStopForIdx, globalStopIndex, CHARACTER_DIVISION, getSpecialRequest, isSpecialRequestActive, getPersonIdForStop } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { CURRICULUM } from './curriculum.js';
 import { GROUP_DEFS } from './divisions.js';
@@ -95,6 +95,10 @@ function openModal(title, bodyHTML){
   if(document.pointerLockElement) document.exitPointerLock();
   // bind term chips
   bindTerms(body);
+}
+export function closeVerdict(){
+  const v=document.getElementById('verdictOverlay');
+  if(v) v.classList.remove('show');
 }
 export function closeModal(){
   const overlay=document.getElementById('overlay');
@@ -369,7 +373,12 @@ function scientistPanel(gs, lesson, person=null){
 }
 function questionContextHTML(lesson,ch){
   const text=allChallengeText(lesson,ch,false);
-  return `<div class="scienceBrief storyBrief"><p>${esc(storyBriefText(lesson))}</p></div>${jargonHTML(text)}`;
+  // What is riding on this, in one sentence, before the question is asked. The
+  // books write it for every mission and it was only ever used in the briefing,
+  // where the player reads it once and forgets it.
+  const stake=getCurrentMission(getState())?.stake;
+  const stakeHTML=stake?`<div class="stakeLine"><span aria-hidden="true">▲</span> ${esc(stake)}</div>`:'';
+  return stakeHTML+`<div class="scienceBrief storyBrief"><p>${esc(storyBriefText(lesson))}</p></div>`+jargonHTML(text);
 }
 function visitAssistHTML(){
   const state=getState();
@@ -516,8 +525,29 @@ function finishVisit(ok){
   const stopIndex=activeChallenge.stopIndex;
   state.visitedGroup=gs.id;
   state.visitOutcome=ok?'correct':'wrong';
-  // record mission stop completion regardless of correctness (unlocks next stop)
-  markMissionStopComplete(stopIndex, ok);
+
+  // A wrong call no longer closes the stop. It used to be credited either way,
+  // so the only cost of being wrong was a number the player never saw.
+  //
+  // The second attempt always closes it, right or wrong: the design book is
+  // explicit that a mistake must never trap anyone, and that a player who has
+  // read the full explanation has still learned the thing.
+  state.attempts = state.attempts || {};
+  const attemptKey = state.week + '-' + stopIndex;
+  const attempt = (state.attempts[attemptKey] || 0) + 1;
+  state.attempts[attemptKey] = attempt;
+  const closes = ok || attempt >= 2;
+  if(closes) markMissionStopComplete(stopIndex, ok);
+
+  // What this cost, for the panel to show. Time was already being charged in
+  // silence; readiness only ever appeared as a line in the log.
+  const clockBefore = state.timeHours || 8;
+  const projectionBefore = forecastReadiness(state).overall;
+  const milestoneBefore = gs.milestone;
+  // Which areas the world should show as unresolved.
+  state.areaVerdict = state.areaVerdict || {};
+  state.areaVerdict[gs.id] = ok ? 'clear' : 'unresolved';
+
   if(ok){
     gs.workDone+=bonus;
     if(activeChallenge.hadIssue){ gs.issue=null; gs.issueSince=null; }
@@ -532,6 +562,15 @@ function finishVisit(ok){
     state.log.push({week:state.week, text:`Incorrect answer caused ${hrs.toFixed(1)}h delay.`});
   }
   if(state.log.length>100) state.log=state.log.slice(-100);
+  const afterPct=groupPct(gs);
+  const ledger = {
+    ok, closes, attempt,
+    hoursSpent: (state.timeHours || 8) - clockBefore,
+    readinessBefore: before, readinessAfter: afterPct,
+    projectionBefore, projectionAfter: forecastReadiness(state).overall,
+    bonus: ok ? bonus : 0,
+    milestoneDone: gs.milestone > milestoneBefore,
+  };
   const solution=solutionText(ch);
   const bp=ch.type==='Ballpark'? BALLPARK_CALCS[`${activeChallenge.id}-${lesson.day}`]:null;
   const whyText=ch.type==='Ballpark' ? (bp?.explanation || ch.why) : ch.why;
@@ -547,20 +586,99 @@ function finishVisit(ok){
   const canRetry = !ok && state.reserve>=RETRY_COST;
   const retryButton = canRetry ? `<button class="btn" id="visitRetry" type="button">Retry challenge · $${RETRY_COST}</button>` : '';
   const completeBtn = isLastStop ? `<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ${state.week} → Mission ${Math.min(15,state.week+1)}</button>` : '';
-  const fb=`<div class="feedback ${ok?'good':'bad'} scienceAnswer"><h4>${ok?'Correct':'Incorrect — review the correct answer'}</h4>${comparison}${reasoningHTML(ch,lesson,solution,whyText)}${routeNote}</div><div class="modalActions">${retryButton}${completeBtn}<button class="btn ${isLastStop?'ghost': 'primary'}" id="visitClose" type="button">Return to town</button></div>`;
-  const target=document.getElementById('visitFeedback');
-  if(target) target.innerHTML=fb;
-  else document.getElementById('modalBody').insertAdjacentHTML('beforeend', fb);
+  // ——— the verdict ————————————————————————————————————————————————
+  // Rendered into its own overlay above the modal. It used to be appended to
+  // the bottom of the question panel, which on a Diagnosis meant scrolling
+  // past a figure, six readings and five candidates to discover whether you
+  // were right — the single least dramatic place it could have been put.
+  const mission = getCurrentMission(state);
+  const stake = mission?.stake || '';
+  const pad2 = (n) => String(Math.floor(n)).padStart(2, '0');
+  const clockAt = (h) => `Day ${Math.floor(h / 24) + 1}, ${pad2(h % 24)}:${pad2((h % 1) * 60)}`;
+  const projDelta = ledger.projectionAfter - ledger.projectionBefore;
+
+  const cell = (label, value, cls, note) =>
+    `<div class="ledgerCell"><div class="ledgerLabel">${esc(label)}</div>` +
+    `<div class="ledgerValue ${cls || ''}">${value}</div>` +
+    (note ? `<div class="ledgerNote">${esc(note)}</div>` : '') + `</div>`;
+
+  const ledgerHTML =
+    cell('Readiness', ok ? `+${fmt(ledger.readinessAfter - ledger.readinessBefore)}%` : 'no gain',
+         ok ? 'gain' : '', `${def(gs.id).code} now ${fmt(ledger.readinessAfter)}%`) +
+    cell('Time spent', ledger.hoursSpent > 0 ? `+${ledger.hoursSpent.toFixed(0)} h` : '—',
+         ledger.hoursSpent > 0 ? 'cost' : '', clockAt(state.timeHours || 8)) +
+    cell('Projection at deadline', `${fmt(ledger.projectionAfter)}%`,
+         projDelta > 0.5 ? 'gain' : projDelta < -0.5 ? 'cost' : '',
+         projDelta === 0 ? 'unchanged' : `${projDelta > 0 ? '+' : ''}${fmt(projDelta)} from this call`);
+
+  const headline = ok
+    ? (ledger.milestoneDone ? 'Milestone cleared' : 'The call holds')
+    : (ledger.closes ? 'The call does not hold' : 'The call does not hold');
+  const kicker = ok ? 'Evidence accepted' : 'Evidence rejected';
+  const colour = ok ? '#0ca30c' : '#c0392b';
+
+  const consequence = ok
+    ? `<p class="verdictWhy"><b>${esc(def(gs.id).name)} is clear to proceed.</b> ${esc(ch.why || lesson.takeaway || '')}</p>`
+    : `<div class="wrongAnswerCompare"><div class="answerCompareBox user"><b>Your answer</b>${esc(activeChallenge.userAnswer || '(no answer)')}</div>` +
+      `<div class="answerCompareBox correct"><b>What the evidence supports</b>${esc(solution)}</div></div>` +
+      `<p class="verdictWhy">${esc(whyText || '')}</p>`;
+
+  const worldNote = ok
+    ? `<p class="verdictWhy">Outside, the ${esc(def(gs.id).name)} readout has gone green.</p>`
+    : `<p class="verdictWhy">Outside, the ${esc(def(gs.id).name)} readout is showing red, and it stays that way until this is settled.</p>`;
+
+  const stopNote = ledger.closes
+    ? (isLastStop
+        ? `<p class="verdictWhy"><b>All ${completedMissionStops(state).length} stops are complete.</b> Take it back to City Command.</p>`
+        : `<p class="verdictWhy">Stop ${stopIndex + 1} is closed. The next place on the route is open.</p>`)
+    : `<p class="verdictWhy"><b>This stop stays open.</b> Riverton still needs an answer here — go back in and make the call again. The next attempt closes it either way.</p>`;
+
+  const detail = `<details class="verdictDetail"><summary>Show the full reasoning</summary>` +
+    reasoningHTML(ch, lesson, solution, whyText) + `</details>`;
+
+  const canRetryNow = !ok && state.reserve >= RETRY_COST;
+  const actions =
+    (canRetryNow ? `<button class="btn" id="visitRetry" type="button">Answer again · $${RETRY_COST}</button>` : '') +
+    (isLastStop && ledger.closes ? `<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ${state.week}</button>` : '') +
+    `<button class="btn ${isLastStop && ledger.closes ? 'ghost' : 'primary'}" id="visitClose" type="button">Back to Riverton</button>`;
+
+  const card = document.getElementById('verdictCard');
+  const vOverlay = document.getElementById('verdictOverlay');
+  if(card && vOverlay){
+    card.style.setProperty('--vc', colour);
+    card.innerHTML =
+      `<div class="verdictHead"><div class="verdictKicker">${esc(kicker)}</div>` +
+      `<h3 class="verdictTitle">${esc(headline)}</h3>` +
+      (stake ? `<p class="verdictStake">${esc(stake)}</p>` : '') + `</div>` +
+      `<div class="verdictLedger">${ledgerHTML}</div>` +
+      `<div class="verdictBody">${consequence}${worldNote}${stopNote}${detail}</div>` +
+      `<div class="verdictActions">${actions}</div>`;
+    vOverlay.classList.add('show');
+    bindTerms(card);
+    const gainEl = card.querySelector('.ledgerValue.gain');
+    const gained = ledger.readinessAfter - ledger.readinessBefore;
+    if(gainEl && ok && gained > 0 && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+      const t0 = performance.now(), DUR = 620;
+      const tick = (now) => {
+        const k = Math.min(1, (now - t0) / DUR);
+        const eased = 1 - Math.pow(1 - k, 3);
+        gainEl.textContent = `+${fmt(gained * eased)}%`;
+        if(k < 1) requestAnimationFrame(tick);
+      };
+      gainEl.textContent = '+0%';
+      requestAnimationFrame(tick);
+    }
+  }
   document.getElementById('modalBody').querySelectorAll('button,select,input,textarea').forEach(b=>{
-    if(!['visitClose','visitRetry'].includes(b.id) && !b.classList.contains('termChip')) b.disabled=true;
+    if(!b.classList.contains('termChip')) b.disabled=true;
   });
   const closeBtn=document.getElementById('visitClose');
-  if(closeBtn){ closeBtn.disabled=false; closeBtn.onclick=()=>{ closeModal(); window.dispatchEvent(new CustomEvent('projecty:statechange')); window.dispatchEvent(new CustomEvent('projecty:visitdone')); }; }
+  if(closeBtn){ closeBtn.onclick=()=>{ closeVerdict(); closeModal(); window.dispatchEvent(new CustomEvent('projecty:statechange')); window.dispatchEvent(new CustomEvent('projecty:visitdone')); }; }
   const compBtn=document.getElementById('completeMissionBtn');
   if(compBtn){
-    compBtn.disabled=false;
     compBtn.onclick=()=>{
       const res=completeMission();
+      closeVerdict();
       closeModal();
       window.dispatchEvent(new CustomEvent('projecty:statechange'));
       window.dispatchEvent(new CustomEvent('projecty:visitdone'));
@@ -571,12 +689,12 @@ function finishVisit(ok){
   }
   const retryBtn=document.getElementById('visitRetry');
   if(retryBtn){
-    retryBtn.disabled=false;
     retryBtn.onclick=()=>{
       if(state.reserve < RETRY_COST) return;
       state.reserve-=RETRY_COST;
       state.retries=state.retries||{};
       state.retries[key]=true;
+      closeVerdict();
       removeMissionStop(stopIndex);
       state.log.push({week:state.week, text:`A $${RETRY_COST} retry was used for Mission ${state.week}, stop ${stopIndex+1}.`});
       save();

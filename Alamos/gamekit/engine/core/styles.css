@@ -157,3 +157,14 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .candidate b{grid-row:1;font-weight:800;color:#5f6368}
 .candidateLabel{grid-row:1;font-weight:700;font-size:.86rem}
 .candidateMechanism{grid-column:2;grid-row:2;font-size:.78rem;line-height:1.4;color:#5f6368}
+
+/* The stake, above the question. Deliberately not alarm-red: it is the reason
+   the question matters, not a warning that something has gone wrong. */
+.stakeLine{display:flex;gap:8px;align-items:baseline;background:#fdf6e8;border:1px solid #e6d5b0;
+  border-left:4px solid #b0762a;border-radius:8px;padding:9px 12px;margin:0 0 10px;
+  font:600 .82rem/1.45 Inter,system-ui;color:#6b4b12}
+
+/* The compare boxes render "<b>Your answer</b>" straight into the text, so the
+   label needs to be its own line rather than running into the sentence. */
+.answerCompareBox b{display:block;font:800 .66rem/1 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#5f6368;margin-bottom:5px}
