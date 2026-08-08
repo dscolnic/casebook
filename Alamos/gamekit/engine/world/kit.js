@@ -173,6 +173,7 @@ export function building(scene, opts){
           map, roughness: 0.92, metalness: 0, envMapIntensity: ENV });
       });
   const trimMat = MATERIALS.paintedSteel(trim);
+  const doorW = 2.2, doorH = 2.6;
 
   // The floor the walls stand on: a concrete slab, or a pier plinth for
   // anything of a period that did not pour slabs.
@@ -187,9 +188,15 @@ export function building(scene, opts){
     box(group, w + 0.5, 0.5, d + 0.5, 0, floorY + h + 0.25, 0, trimMat);
   }
 
-  if(windows){
-    // One continuous band per long side rather than a mesh per window: the band
-    // is a single draw call and reads identically at gameplay distance.
+  // A continuous glass band is a modern idiom and reads wrong on anything of an
+  // earlier period, which wants individual punched openings. 'punched' is the
+  // default whenever the roof is pitched, because the two go together.
+  const windowStyle = windows === false ? 'none'
+    : windows === true ? (roof === 'gable' ? 'punched' : 'band')
+    : windows;
+  if(windowStyle === 'band'){
+    // One band per long side rather than a mesh per window: a single draw call
+    // that reads identically at gameplay distance.
     const bandY = floorY + h * 0.62;
     for(const s of [1, -1]){
       box(group, w * 0.82, 1.5, 0.12, 0, bandY, s * (d / 2 + 0.02), MATERIALS.glass());
@@ -197,10 +204,22 @@ export function building(scene, opts){
     for(const s of [1, -1]){
       box(group, 0.12, 1.5, d * 0.7, s * (w / 2 + 0.02), bandY, 0, MATERIALS.glass());
     }
+  } else if(windowStyle === 'punched'){
+    const winY = floorY + h * 0.56;
+    const count = Math.max(2, Math.min(6, Math.floor(w / 3.4)));
+    const pitchX = w * 0.78 / count;
+    for(const face of [1, -1]){
+      for(let i = 0; i < count; i++){
+        const px = (i - (count - 1) / 2) * pitchX;
+        // The doorway owns the middle of the entrance face.
+        if(face === 1 && Math.abs(px) < doorW * 0.8) continue;
+        litWindow(group, 1.0, 1.25, px, winY, face * (d / 2 + 0.03),
+          { facing: face === 1 ? 0 : Math.PI, lightChance: (i % 3) ? 0.9 : 0.2 });
+      }
+    }
   }
 
   // Entrance, on the +Z face before the group is rotated.
-  const doorW = 2.2, doorH = 2.6;
   box(group, doorW + 0.7, doorH + 0.5, 0.3, 0, floorY + (doorH + 0.5) / 2, d / 2 + 0.05, trimMat);
   const door = box(group, doorW, doorH, 0.18, 0, floorY + doorH / 2, d / 2 + 0.22,
     MATERIALS.paintedSteel(accent ?? 0x4a5b6e));
@@ -210,9 +229,19 @@ export function building(scene, opts){
   if(stoop && base > 0) steps(group, 0, d / 2, 0, doorW + 0.6, base);
 
   if(name){
+    // The sign used to be 3.2 m tall on a 4.6 m wall: its base sat below the
+    // canopy, the canopy stands in front of it, and its head overshot the eaves
+    // by a metre. It read as a clipped sign, and no amount of text fitting could
+    // help — the panel was behind a slab. Seat it in the band that is actually
+    // clear, between the canopy top and the wall head, and size it to fit.
+    const canopyTop = floorY + doorH + 0.45 + 0.09;
+    const headroom = (floorY + h) - canopyTop - 0.3;
+    let signW = Math.min(w * 0.72, 5.2);
+    let signH = signW * 0.42;
+    if(signH > headroom){ signH = Math.max(0.55, headroom); signW = signH / 0.42; }
     sign(group, name, {
-      x: 0, y: floorY + doorH + 1.5, z: d / 2 + 0.28,
-      w: Math.min(w * 0.8, 6.4), h: Math.min(w * 0.8, 6.4) * 0.5,
+      x: 0, y: canopyTop + 0.15 + signH / 2, z: d / 2 + 0.30,
+      w: signW, h: signH,
       sub, accent: accent ? `#${accent.toString(16).padStart(6, '0')}` : null,
     });
   }
