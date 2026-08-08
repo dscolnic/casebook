@@ -209,6 +209,38 @@ before assuming a module is generic.**
   `engine/people/crowd.js` wired and at least one roster entry per area, or a
   third of the campaign has nobody to talk to.
 
+## Migrating a world: what has to exist first
+
+The *logic* of both shipped games now runs on this engine. Their **worlds** do
+not, and the blocker is not plumbing — it is vocabulary.
+
+`kit.building()` makes one thing: a flat-roofed panel box with a parapet, a
+window band and a canopy. That is a modern industrial shed, and it is right for
+a treatment plant. Los Alamos is gabled, board-and-batten sided, on a plinth,
+with steps and lit windows, and `createBuilding` spends 213 lines saying so.
+Pointing project-y at `outdoorTown` today would not "migrate" that town, it
+would replace it with a business park.
+
+So before either world can move, `kit.js` needs the vocabulary those buildings
+are written in — roughly what project-y already has and this engine does not:
+
+| project-y has | kit.js has |
+| --- | --- |
+| `addGableRoof` | flat roof + parapet only |
+| `boardTexture` (board-and-batten) | flat colour |
+| `stuccoTexture`, `woodTexture`, `tarPaperTexture` | none |
+| `addPlinth`, `addSteps` | none |
+| `registerWindow` (lit at night) | a glass band |
+
+Do that first, as additions to `kit.js` that the chemistry game never has to
+use, and *then* project-y's seven geometry builders become its `decorate` hook
+and its town becomes ~150 lines of site data. Hospital additionally needs
+`interiorBuilding.js`, which does not exist at all.
+
+Verify a world migration by eye, not by assertion: fixed viewpoints screenshotted
+before and after, plus `audit.js`. Every rule in this file is a graphics bug,
+and none of them would fail a headless check.
+
 ## Known work still to do
 
 - `engine/world/interiorBuilding.js` does not exist. `interiorSite.js` has the
