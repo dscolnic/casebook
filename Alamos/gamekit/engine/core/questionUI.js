@@ -624,14 +624,14 @@ function finishVisit(ok){
       `<p class="verdictWhy">${esc(whyText || '')}</p>`;
 
   const worldNote = ok
-    ? `<p class="verdictWhy">Outside, the ${esc(def(gs.id).name)} readout has gone green.</p>`
-    : `<p class="verdictWhy">Outside, the ${esc(def(gs.id).name)} readout is showing red, and it stays that way until this is settled.</p>`;
+    ? `<p class="verdictWhy">Outside, ${esc(def(gs.id).name)} has gone green.</p>`
+    : `<p class="verdictWhy">Outside, ${esc(def(gs.id).name)} is showing red, and stays that way until this is settled.</p>`;
 
   const stopNote = ledger.closes
     ? (isLastStop
-        ? `<p class="verdictWhy"><b>All ${completedMissionStops(state).length} stops are complete.</b> Take it back to City Command.</p>`
+        ? `<p class="verdictWhy"><b>All ${completedMissionStops(state).length} stops are complete.</b> Take it back to command.</p>`
         : `<p class="verdictWhy">Stop ${stopIndex + 1} is closed. The next place on the route is open.</p>`)
-    : `<p class="verdictWhy"><b>This stop stays open.</b> Riverton still needs an answer here — go back in and make the call again. The next attempt closes it either way.</p>`;
+    : `<p class="verdictWhy"><b>This stop stays open.</b> The team still needs an answer here — go back in and make the call again. The next attempt closes it either way.</p>`;
 
   const detail = `<details class="verdictDetail"><summary>Show the full reasoning</summary>` +
     reasoningHTML(ch, lesson, solution, whyText) + `</details>`;
@@ -640,7 +640,7 @@ function finishVisit(ok){
   const actions =
     (canRetryNow ? `<button class="btn" id="visitRetry" type="button">Answer again · $${RETRY_COST}</button>` : '') +
     (isLastStop && ledger.closes ? `<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ${state.week}</button>` : '') +
-    `<button class="btn ${isLastStop && ledger.closes ? 'ghost' : 'primary'}" id="visitClose" type="button">Back to Riverton</button>`;
+    `<button class="btn ${isLastStop && ledger.closes ? 'ghost' : 'primary'}" id="visitClose" type="button">Return</button>`;
 
   const card = document.getElementById('verdictCard');
   const vOverlay = document.getElementById('verdictOverlay');
