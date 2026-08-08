@@ -487,8 +487,12 @@ function finishVisit(ok){
   const solution=solutionText(ch);
   const bp=ch.type==='Ballpark'? BALLPARK_CALCS[`${activeChallenge.id}-${lesson.day}`]:null;
   const whyText=ch.type==='Ballpark' ? (bp?.explanation || ch.why) : ch.why;
+  // Nothing on the correct path: the block this is nested inside already prints
+  // the "Correct" heading, and reasoningHTML below already prints the why. It
+  // used to render a second, identical feedback box, so every correct answer
+  // read "Correct / Correct" and gave its reasoning twice.
   const comparison = ok
-    ? `<div class="feedback good scienceAnswer"><h4>Correct</h4><p>${esc(ch.why||lesson.takeaway||'')}</p></div>`
+    ? ''
     : `<div class="wrongAnswerCompare"><div class="answerCompareBox user"><b>Your answer</b>${esc(activeChallenge.userAnswer||'(no answer)')}</div><div class="answerCompareBox correct"><b>Correct answer</b>${esc(solution)}</div></div>`;
   const isLastStop = missionComplete(state);
   const routeNote = isLastStop?`<div class="readinessNote" style="background:#e6f0e9;border:1px solid #b8d0c0;border-radius:8px;padding:8px 10px">✅ All ${missionComplete(state)?completedMissionStops(state).length:0} mission stops are complete. Click <b>Complete Mission ${state.week}</b> to advance to Mission ${Math.min(15,state.week+1)}.</div>`:`<div class="readinessNote">Stop ${stopIndex+1} complete. The next building on the route is now unlocked.</div>`;
