@@ -78,18 +78,28 @@ function signTexture(text, { bg = '#1d2733', fg = '#f4f1e8', sub = '', accent = 
     g.fillStyle = fg;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
-    const size = text.length > 22 ? 40 : text.length > 14 ? 52 : 64;
+    // Wrap first, then size to fit: a name that breaks to two lines needs a
+    // smaller face, and picking the size from character count alone pushed
+    // "Theory & Calculations" off the bottom of the painted panel.
+    const wrap = (px) => {
+      g.font = `700 ${px}px Inter, system-ui, sans-serif`;
+      const out = [];
+      let line = '';
+      for(const w of text.split(' ')){
+        const next = line ? `${line} ${w}` : w;
+        if(g.measureText(next).width > s * 0.86 && line){ out.push(line); line = w; }
+        else line = next;
+      }
+      if(line) out.push(line);
+      return out;
+    };
+    let size = 64, lines = wrap(size);
+    // The panel is the top half of the canvas; leave room for the sub-line.
+    const room = s * (sub ? 0.34 : 0.44);
+    while(size > 26 && lines.length * size * 1.2 > room){ size -= 4; lines = wrap(size); }
     g.font = `700 ${size}px Inter, system-ui, sans-serif`;
-    const words = text.split(' ');
-    const lines = [];
-    let line = '';
-    for(const w of words){
-      const next = line ? `${line} ${w}` : w;
-      if(g.measureText(next).width > s * 0.88 && line){ lines.push(line); line = w; }
-      else line = next;
-    }
-    if(line) lines.push(line);
-    const top = s * 0.25 - (lines.length - 1) * size * 0.6;
+    const blockH = lines.length * size * 1.2;
+    const top = s * 0.22 - blockH / 2 + size * 0.6;
     lines.forEach((l, i) => g.fillText(l, s / 2, top + i * size * 1.2));
     if(sub){
       g.font = '500 30px Inter, system-ui, sans-serif';
@@ -141,23 +151,46 @@ export function building(scene, opts){
     x, z, w, d, h = 6.2, facing = 0, baseY = 0,
     colour = 0xd6d2c6, trim = 0x8d949a, accent = null,
     name = '', sub = '', windows = true,
+    // A building is a period as much as a shape. `roof` and `siding` are what
+    // let one function make both a treatment plant and a 1943 laboratory, so a
+    // theme describes its town as data instead of writing geometry.
+    //   roof:   'flat' (slab + parapet) | 'gable' (pitched, tar paper, eaves)
+    //   siding: 'panel' | 'board' (board-and-batten) | 'stucco' | 'wood'
+    //   base:   height of the plinth under it, 0 for none
+    //   stoop:  put steps at the door
+    roof = 'flat', siding = 'panel', base = 0, stoop = false,
   } = opts;
   const group = new THREE.Group();
-  const wallMat = mat(`kit.wall.${colour}`, () => new THREE.MeshStandardMaterial({
-    color: colour, roughness: 0.88, metalness: 0.02, envMapIntensity: ENV }));
+  const wallMat = siding === 'panel'
+    ? mat(`kit.wall.${colour}`, () => new THREE.MeshStandardMaterial({
+        color: colour, roughness: 0.88, metalness: 0.02, envMapIntensity: ENV }))
+    : mat(`kit.wall.${siding}.${colour}`, () => {
+        const hex = '#' + colour.toString(16).padStart(6, '0');
+        const map = siding === 'board' ? boardTexture(hex, Math.max(2, w / 5))
+                  : siding === 'stucco' ? stuccoTexture(hex, Math.max(1, w / 8))
+                  : woodTexture(Math.max(1, w / 6));
+        return new THREE.MeshStandardMaterial({
+          map, roughness: 0.92, metalness: 0, envMapIntensity: ENV });
+      });
   const trimMat = MATERIALS.paintedSteel(trim);
 
-  // Slab, a little proud of the ground so the wall never meets bare terrain.
-  box(group, w + 1.2, 0.35, d + 1.2, 0, 0.175, 0, MATERIALS.concrete());
+  // The floor the walls stand on: a concrete slab, or a pier plinth for
+  // anything of a period that did not pour slabs.
+  const floorY = base > 0 ? plinth(group, { x: 0, z: 0 }, w, d, base) : 0.35;
+  if(base <= 0) box(group, w + 1.2, 0.35, d + 1.2, 0, 0.175, 0, MATERIALS.concrete());
   // Shell.
-  box(group, w, h, d, 0, 0.35 + h / 2, 0, wallMat);
-  // Parapet, which reads as a roof edge from the ground for one extra box.
-  box(group, w + 0.5, 0.5, d + 0.5, 0, 0.35 + h + 0.25, 0, trimMat);
+  box(group, w, h, d, 0, floorY + h / 2, 0, wallMat);
+  if(roof === 'gable'){
+    gableRoof(group, { x: 0, z: 0 }, w, d, floorY + h, { ridgeAlongX: w >= d });
+  } else {
+    // Parapet, which reads as a roof edge from the ground for one extra box.
+    box(group, w + 0.5, 0.5, d + 0.5, 0, floorY + h + 0.25, 0, trimMat);
+  }
 
   if(windows){
     // One continuous band per long side rather than a mesh per window: the band
     // is a single draw call and reads identically at gameplay distance.
-    const bandY = 0.35 + h * 0.62;
+    const bandY = floorY + h * 0.62;
     for(const s of [1, -1]){
       box(group, w * 0.82, 1.5, 0.12, 0, bandY, s * (d / 2 + 0.02), MATERIALS.glass());
     }
@@ -168,16 +201,17 @@ export function building(scene, opts){
 
   // Entrance, on the +Z face before the group is rotated.
   const doorW = 2.2, doorH = 2.6;
-  box(group, doorW + 0.7, doorH + 0.5, 0.3, 0, 0.35 + (doorH + 0.5) / 2, d / 2 + 0.05, trimMat);
-  const door = box(group, doorW, doorH, 0.18, 0, 0.35 + doorH / 2, d / 2 + 0.22,
+  box(group, doorW + 0.7, doorH + 0.5, 0.3, 0, floorY + (doorH + 0.5) / 2, d / 2 + 0.05, trimMat);
+  const door = box(group, doorW, doorH, 0.18, 0, floorY + doorH / 2, d / 2 + 0.22,
     MATERIALS.paintedSteel(accent ?? 0x4a5b6e));
   door.userData.isDoor = true;
   // A shallow canopy, which is what makes an entrance read as an entrance.
-  box(group, doorW + 1.6, 0.18, 1.1, 0, 0.35 + doorH + 0.45, d / 2 + 0.6, trimMat);
+  box(group, doorW + 1.6, 0.18, 1.1, 0, floorY + doorH + 0.45, d / 2 + 0.6, trimMat);
+  if(stoop && base > 0) steps(group, 0, d / 2, 0, doorW + 0.6, base);
 
   if(name){
     sign(group, name, {
-      x: 0, y: 0.35 + doorH + 1.5, z: d / 2 + 0.28,
+      x: 0, y: floorY + doorH + 1.5, z: d / 2 + 0.28,
       w: Math.min(w * 0.8, 6.4), h: Math.min(w * 0.8, 6.4) * 0.5,
       sub, accent: accent ? `#${accent.toString(16).padStart(6, '0')}` : null,
     });
