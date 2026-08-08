@@ -192,3 +192,24 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
   padding:8px 13px;line-height:1.2}
 .btn.priced small{font:800 .72rem/1 Inter,system-ui;opacity:.72;font-variant-numeric:tabular-nums}
 .btn.priced[disabled]{opacity:.45;cursor:not-allowed}
+
+/* ——— Someone's passage, and the question about it ———————————————— */
+.passageHead{display:flex;flex-direction:column;gap:2px;margin-bottom:8px}
+.passageHead b{font:800 1.1rem/1.2 Georgia,serif}
+.passageHead span{font:600 .74rem/1 Inter,system-ui;letter-spacing:.05em;text-transform:uppercase;color:#666158}
+.passageBody{font:400 .86rem/1.55 Inter,system-ui;color:#33363a}
+.passageBody p{margin:0 0 8px}
+.passageQ{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.passageQPrompt{font:800 .92rem/1.35 Inter,system-ui;color:var(--ink)}
+.passageNote{font:500 .76rem/1.4 Inter,system-ui;color:#666158;margin:4px 0 10px}
+.passageDone{margin-top:14px;border-top:1px solid var(--line);padding-top:12px;
+  font:600 .82rem/1.4 Inter,system-ui;color:#3d6f52}
+.passageChoices{display:grid;gap:7px}
+.passageChoice{display:grid;grid-template-columns:20px 1fr;gap:8px;text-align:left;background:#fff;
+  border:1px solid #d9d2c5;border-radius:9px;padding:9px 11px;cursor:pointer;font:inherit;color:inherit;
+  font-size:.84rem;line-height:1.45}
+.passageChoice:hover:not([disabled]){border-color:#9aa3ad;background:#fdfcf9}
+.passageChoice b{font-weight:800;color:#666158}
+.passageChoice[disabled]{cursor:default;opacity:.72}
+.passageChoice.right{border-color:#3d6f52;border-width:2px;padding:8px 10px;background:#f0f7f2;opacity:1}
+.passageChoice.wrong{border-color:#c0392b;border-width:2px;padding:8px 10px;background:#fdf4f3;opacity:1}

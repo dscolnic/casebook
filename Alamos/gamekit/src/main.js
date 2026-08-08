@@ -15,6 +15,7 @@ import {
 } from '../engine/core/gameState.js';
 import { updateHUD, renderStats } from '../engine/core/dashboard.js';
 import { renderMap } from '../engine/core/map.js';
+import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
 
@@ -132,7 +133,12 @@ function activate(target){
     const before = overlay.classList.contains('show');
     openPersonVisit(target.npc);
     if(!before && !overlay.classList.contains('show')){
-      showInfo(target.char?.name ?? 'Someone', target.info || '');
+      // Not the person this mission wants — so they tell you about themselves,
+      // and ask one question about it. Worth a dollar, once.
+      const person = target.char;
+      showInfo(person?.name ?? 'Someone', passageHTML(person));
+      const body = document.getElementById('modalBody');
+      bindPassage(body, person, () => refreshWorld());
     }
   }
 }
