@@ -107,6 +107,13 @@ export function closeModal(){
 }
 function bindTerms(container){
   container.querySelectorAll('.termChip').forEach(btn=>{
+    // Idempotent, because several paths bind the same chips: openModal binds
+    // when it writes the body, and the challenge renderers bind again after
+    // wiring their own controls. Two identical listeners meant the first click
+    // opened the definition and the second immediately closed it — so clicking
+    // a term did visibly nothing at all.
+    if(btn.dataset.termBound) return;
+    btn.dataset.termBound = '1';
     btn.addEventListener('click', (e)=>{
       e.stopPropagation();
       const idx=+btn.dataset.term;
@@ -176,7 +183,7 @@ function protocolHTML(ch){
   // the display order. activeProtocol.order maps display letter -> real choice index.
   const display=(activeProtocol&&activeProtocol.order)||ch.choices.map((_,j)=>j);
   const letter=j=>String.fromCharCode(65+j);
-  return `<div class="compactInstruction">Match each situation to the best scientific explanation or engineering response.</div><div class="protocolGrid">${ch.scenarios.map((s,i)=>`<label class="matchRow"><span><b>${i+1}.</b> ${esc(s)}</span><select data-proto="${i}"><option value="">Select…</option>${display.map((real,j)=>`<option value="${j}">${letter(j)}. ${esc(ch.choices[real])}</option>`).join('')}</select></label>`).join('')}</div><div class="termStrip" style="margin-top:10px"><div class="termStripLabel">Choices</div><div class="answerMappings">${display.map((real,j)=>`<div><b>${letter(j)}.</b><span>${esc(ch.choices[real])}</span></div>`).join('')}</div></div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="protocolCheck" type="button">Check</button></div>`;
+  return `<div class="compactInstruction">Match each situation to the best scientific explanation or engineering response.</div><div class="protocolGrid">${ch.scenarios.map((s,i)=>`<label class="matchRow"><span><b>${i+1}.</b> ${esc(s)}</span><select data-proto="${i}"><option value="">Select…</option>${display.map((real,j)=>`<option value="${j}">${letter(j)}. ${esc(ch.choices[real])}</option>`).join('')}</select></label>`).join('')}</div><div class="choiceList"><div class="choiceListLabel">Choices</div><div class="answerMappings">${display.map((real,j)=>`<div><b>${letter(j)}.</b><span>${esc(ch.choices[real])}</span></div>`).join('')}</div></div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="protocolCheck" type="button">Check</button></div>`;
 }
 function bindProtocol(){
   const btn=document.getElementById('protocolCheck');
@@ -333,7 +340,7 @@ function diagnosisHTML(ch){
 function casebookHTML(ch){
   if(ch.proposals) return tankHTML(ch);
   const opts=(ch.choices||[]).map((c,i)=>`<div><b>${String.fromCharCode(65+i)}.</b> ${esc(c)}</div>`).join('');
-  return `<div class="compactInstruction">${esc(ch.task||'Match the clues to the best explanation.')}</div><div class="protocolGrid">${(ch.scenarios||ch.cards||[]).map((s,i)=>`<label class="matchRow"><span><b>${i+1}.</b> ${esc(s)}</span><select data-casebook="${i}"><option value="">Select…</option>${(ch.choices||[]).map((c,j)=>`<option value="${j}">${String.fromCharCode(65+j)}. ${esc(c)}</option>`).join('')}</select></label>`).join('')}</div><div class="termStrip" style="margin-top:10px"><div class="termStripLabel">Choices</div><div class="answerMappings">${opts}</div></div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="casebookCheck" type="button">Check</button></div>`;
+  return `<div class="compactInstruction">${esc(ch.task||'Match the clues to the best explanation.')}</div><div class="protocolGrid">${(ch.scenarios||ch.cards||[]).map((s,i)=>`<label class="matchRow"><span><b>${i+1}.</b> ${esc(s)}</span><select data-casebook="${i}"><option value="">Select…</option>${(ch.choices||[]).map((c,j)=>`<option value="${j}">${String.fromCharCode(65+j)}. ${esc(c)}</option>`).join('')}</select></label>`).join('')}</div><div class="choiceList"><div class="choiceListLabel">Choices</div><div class="answerMappings">${opts}</div></div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="casebookCheck" type="button">Check</button></div>`;
 }
 function bindTank(){
   const inputs=[...document.querySelectorAll('[data-tank]')];
