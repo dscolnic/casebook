@@ -1,34 +1,5 @@
-import { KEY } from './constants.js';
-const LEGACY_KEYS = ['projectY_15week_simple_money_v20','projectY_15week_dashboard_v21','projectY_15mission_v21'];
-const LEGACY_KEY = 'projectY_15week_dashboard_v21';
-
-export function saveState(state){
-  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
-}
-
-export function loadState(){
-  try{
-    let raw = localStorage.getItem(KEY);
-    if(raw){
-      const parsed=JSON.parse(raw);
-      // migrate mission fields if missing
-      if(parsed && parsed.missionIdx==null){ parsed.missionIdx=0; parsed.missionStopIdx=0; parsed.missionProgress={}; parsed.version=21; try{localStorage.setItem(KEY, JSON.stringify(parsed));}catch(e){} }
-      return parsed;
-    }
-    for(const k of LEGACY_KEYS){
-      raw = localStorage.getItem(k);
-      if(raw){
-        const parsed = JSON.parse(raw);
-        if(parsed && parsed.missionIdx==null){ parsed.missionIdx=0; parsed.missionStopIdx=0; parsed.missionProgress={}; }
-        parsed.version=21;
-        try{ localStorage.setItem(KEY, JSON.stringify(parsed)); }catch(e){}
-        return parsed;
-      }
-    }
-    return null;
-  }catch(e){ return null; }
-}
-
-export function clearState(){
-  try{ localStorage.removeItem(KEY); localStorage.removeItem(LEGACY_KEY); }catch(e){}
-}
+// save.js — now the engine's, not this game's.
+//
+// engine copy scopes the save slot per theme.
+// See ../../gamekit/THEME_CONTRACT.md. The forked original is in git history.
+export * from '../../gamekit/engine/core/save.js';
