@@ -14,7 +14,7 @@
 //   · anonymous extras carry the same rig and no interaction, which is what
 //     makes a street feel worked rather than staffed by exactly the cast list
 import * as THREE from 'three';
-import { NOMINAL_H, pickLook, buildBody, stepGait, idleSway } from './rig.js';
+import { NOMINAL_H, pickLook, buildBody, stepGait, gaitAdvance, idleSway } from './rig.js';
 import { srand, srandRange, resetSeed } from '../world/materials.js';
 
 let ctx = null;
@@ -87,7 +87,12 @@ export function initCrowd(opts){
       char: person, id: person.id, division: person.division,
       body, hit, plate, look,
       pos: new THREE.Vector3(x, y, z),
+      home: new THREE.Vector3(x, y, z),
+      target: new THREE.Vector3(x, y, z),
+      facing: body.rotation.y,
+      speed: srandRange(0.75, 1.15),
       phase: srand() * 6.28,
+      pause: srandRange(0.5, 4),
     };
     npcs.push(npc);
     opts.softColliders.push({ x, z, r: 0.55 });
@@ -153,6 +158,24 @@ function nameplate(person){
 
 const toCam = new THREE.Vector3();
 const camDir = new THREE.Vector3();
+const step = new THREE.Vector3();
+
+/**
+ * Somewhere else to stand, near where this person belongs. People who never
+ * move read as props; people who wander off read as lost. A short beat around
+ * a home point is the cheapest thing that looks like working.
+ */
+function pickTarget(n){
+  for(let tries = 0; tries < 8; tries++){
+    const a = srand() * Math.PI * 2;
+    const r = srandRange(1.5, 6);
+    const x = n.home.x + Math.cos(a) * r, z = n.home.z + Math.sin(a) * r;
+    if(ctx.blocked?.(x, z)) continue;
+    n.target.set(x, ctx.groundHeight(x, z), z);
+    return;
+  }
+  n.target.copy(n.home);
+}
 
 /** Idle motion, billboarded plates, and the near-and-looked-at fade. */
 export function updateCrowd(delta, t){
@@ -160,7 +183,7 @@ export function updateCrowd(delta, t){
   const cam = ctx.camera;
   cam.getWorldDirection(camDir);
   for(const n of npcs){
-    idleSway(n.body, Math.sin(t * 0.9 + n.phase) * 0.03);
+    walk(n, delta, t);
     toCam.copy(cam.position).sub(n.pos);
     const dist = toCam.length();
     n.plate.lookAt(cam.position.x, n.body.position.y + NOMINAL_H * 1.12, cam.position.z);
@@ -171,6 +194,48 @@ export function updateCrowd(delta, t){
     n.plate.visible = n.plate.material.opacity > 0.02;
   }
   for(const e of extras) idleSway(e.body, Math.sin(t * 0.8 + e.phase) * 0.025);
+}
+
+/**
+ * One person, one frame. The gait is driven from the distance actually covered
+ * — see rig.js strideFor — so the feet do not skate, and the body turns to face
+ * where it is going before the legs are asked to take it there.
+ */
+function walk(n, delta, t){
+  if(n.pause > 0){
+    n.pause -= delta;
+    idleSway(n.body, Math.sin(t * 0.9 + n.phase) * 0.03);
+    n.body.position.y = ctx.groundHeight(n.pos.x, n.pos.z);
+    if(n.pause <= 0) pickTarget(n);
+    return;
+  }
+  step.subVectors(n.target, n.pos); step.y = 0;
+  const dist = step.length();
+  if(dist < 0.25){
+    n.pause = srandRange(2, 7);
+    return;
+  }
+  step.divideScalar(dist);
+  const travel = Math.min(dist, n.speed * delta);
+  n.pos.x += step.x * travel;
+  n.pos.z += step.z * travel;
+
+  // Turn toward travel first — a body facing one way while sliding another is
+  // the other half of why the old walk read as aimless.
+  const want = Math.atan2(step.x, step.z);
+  let d = want - n.facing;
+  while(d > Math.PI) d -= Math.PI * 2;
+  while(d < -Math.PI) d += Math.PI * 2;
+  n.facing += d * Math.min(1, delta * 5);
+  // Wrap, or facing accumulates for ever and eventually loses precision.
+  if(n.facing > Math.PI) n.facing -= Math.PI * 2;
+  else if(n.facing < -Math.PI) n.facing += Math.PI * 2;
+  n.body.rotation.y = n.facing;
+
+  n.phase += gaitAdvance(n.speed, delta);
+  const bob = stepGait(n.body, n.phase, n.speed);
+  n.body.position.set(n.pos.x, ctx.groundHeight(n.pos.x, n.pos.z) + bob, n.pos.z);
+  n.hit.position.set(n.pos.x, n.body.position.y + 0.95, n.pos.z);
 }
 
 export function getNPCs(){ return npcs; }

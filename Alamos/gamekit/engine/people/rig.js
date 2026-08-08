@@ -41,7 +41,45 @@ export const G = {
   badge: new THREE.BoxGeometry(0.075, 0.105, 0.012),
   lanyard: new THREE.BoxGeometry(0.02, 0.20, 0.012),
   collar: new THREE.BoxGeometry(0.30, 0.07, 0.045),
+  eye:   new THREE.SphereGeometry(0.017, 8, 6),
+  nose:  new THREE.BoxGeometry(0.026, 0.042, 0.032),
+  mouth: new THREE.BoxGeometry(0.046, 0.010, 0.013),
 };
+
+/**
+ * A face, in head-local units — the head sphere is r = 0.115 with +Z forward,
+ * before the head's own (1, 1.26, 1.06) scale is applied.
+ *
+ * There was no face at all, which is most of why a walking person read as a
+ * mannequin: with no eyes there is nothing to tell you which way they are
+ * looking, so a body turning to face its direction of travel communicates
+ * nothing. Six small parts is enough at conversation distance and cheap enough
+ * for the extras, who get them merged into their single upper-body mesh.
+ */
+export const FACE = [
+  { geo: 'eye',   at: [-0.040,  0.020, 0.112], tint: 'eye' },
+  { geo: 'eye',   at: [ 0.040,  0.020, 0.112], tint: 'eye' },
+  // No brows: the hair cap's rim sits at head-local y ≈ 0.022, level with the
+  // top of the eyes, so a brow is covered on every character who has hair. An
+  // invisible mesh on 49 people is pure cost.
+  { geo: 'nose',  at: [ 0.000, -0.006, 0.124], tint: 'skin' },
+  { geo: 'mouth', at: [ 0.000, -0.058, 0.112], tint: 'mouth' },
+];
+
+/** Face colours derived from the look, so they never clash with the skin. */
+export function faceTints(look){
+  const dark = (hex, f) => {
+    const c = new THREE.Color(hex);
+    c.multiplyScalar(f);
+    return c.getHex();
+  };
+  return {
+    eye: 0x241c17,
+    hair: look.hair,
+    skin: dark(look.skin, 0.94),
+    mouth: dark(look.skin, 0.62),
+  };
+}
 
 /**
  * Draw an appearance. `outfit` is theme data: { top, bottom, kind }.
@@ -94,7 +132,7 @@ function addLimbs(group, look, skinMat, topMat, botMat, shoeHex){
     shoe.position.set(0, -0.40, 0.035); shoe.castShadow = true;
     knee.add(shin, shoe);
     legPivot.add(knee);
-    legPivot.userData = { isLeg: true, side, knee };
+    legPivot.userData = { isLeg: true, side, knee, shoe };
     group.add(legPivot);
     limbs.push(legPivot);
   }
@@ -133,6 +171,17 @@ export function buildBody(look, opts = {}){
   head.castShadow = true;
   head.userData.isHead = true;
   group.add(head);
+
+  // Counter-scaled, so the head's own stretch does not smear the features.
+  const face = new THREE.Group();
+  face.scale.set(1, 1 / 1.26, 1 / 1.06);
+  const tints = faceTints(look);
+  for(const part of FACE){
+    const m = new THREE.Mesh(G[part.geo], bodyMat(tints[part.tint], part.tint === 'eye' ? 0.35 : 0.85));
+    m.position.set(part.at[0], part.at[1], part.at[2]);
+    face.add(m);
+  }
+  head.add(face);
 
   if(look.cap){
     const cap = new THREE.Mesh(G.cap, bodyMat(look.outfit.top, 0.92));
@@ -180,6 +229,12 @@ export function buildExtraBody(look){
   push(G.torso, topMat, { x: 0, y: 1.18, z: 0 }, { x: look.shoulders, y: 1, z: 1 });
   push(G.hips, botMat, { x: 0, y: 0.90, z: 0 });
   push(G.head, skinMat, { x: 0, y: 1.63, z: 0 }, { x: 1, y: 1.26, z: 1.06 });
+  // The head was pushed pre-scaled, so face parts follow the same transform.
+  const tints = faceTints(look);
+  for(const part of FACE){
+    push(G[part.geo], bodyMat(tints[part.tint], part.tint === 'eye' ? 0.35 : 0.85),
+      { x: part.at[0], y: 1.63 + part.at[1] * 1.26, z: part.at[2] });
+  }
   if(look.badge){
     push(G.badge, bodyMat(0xf6f4ec, 0.7), { x: 0, y: 1.21, z: 0.14 });
     push(G.lanyard, bodyMat(0x2c3742, 0.9), { x: 0, y: 1.36, z: 0.135 });
@@ -217,23 +272,71 @@ export function poseSeated(group, seatHeight = 0.44){
   group.position.y -= seatHeight * group.scale.y;
 }
 
-/** One frame of the walk cycle. Stride rate follows actual speed. */
+// Hip pivot to sole, at nominal scale: 0.88 (hip) - 0.44 (knee) - 0.40 (ankle).
+export const LEG_LENGTH = 0.84;
+
+/**
+ * How far the body travels per full walk cycle, for a given leg swing.
+ *
+ * At heel strike the two feet are `2·L·sin(A)` apart — that is one step — and a
+ * full cycle is two steps. Everything below is derived from this identity, which
+ * is the thing the old gait did not do: it swung the legs by an amplitude
+ * proportional to speed while advancing the body by a *fixed* 0.74 m stride, so
+ * the feet travelled about twice as far as the ground did. That mismatch is
+ * exactly what reads as "the legs are moving but they are not taking him
+ * anywhere" — the feet skate, and no amount of torso sway hides it.
+ */
+export function strideFor(speed){
+  // Real walking raises step length and cadence together. Both are clamped so a
+  // dawdling NPC does not mince and a hurrying one does not do the splits.
+  const step = Math.min(0.80, Math.max(0.30, 0.42 + 0.30 * speed));
+  const swing = Math.asin(Math.min(0.95, step / (2 * LEG_LENGTH)));
+  return { step, swing, cycleDistance: 2 * step };
+}
+
+/** Radians of phase for one frame at this speed. Pair with stepGait. */
+export function gaitAdvance(speed, delta){
+  const { cycleDistance } = strideFor(speed);
+  return (speed * delta / cycleDistance) * Math.PI * 2;
+}
+
+/**
+ * One frame of the walk cycle, in the body's own local space (+Z is forward).
+ *
+ * Phase convention: `theta = A·sin(phase)` is the leg angle, positive = behind
+ * the body. So phase π/2 is toe-off (leg fully back), 3π/2 is heel strike (leg
+ * fully forward), and 0 and π are mid-stance with the legs together.
+ *
+ * Returns the vertical offset for the body — the pelvis *drops* when the legs
+ * are apart, because the leg is a longer hypotenuse than it is a vertical. The
+ * old version raised it instead, which put the bounce exactly out of phase with
+ * the step and made the walk look like wading.
+ */
 export function stepGait(body, phase, speed){
-  const swing = Math.min(0.5, Math.max(0.14, speed * 0.40));
-  const s1 = Math.sin(phase) * swing, s2 = -s1;
+  const { swing } = strideFor(speed);
+  const lead = Math.sin(phase);
   body.userData.limbs.forEach(l => {
+    const opposed = l.userData.side === -1 ? lead : -lead;
     if(l.userData.isLeg){
-      const sw = l.userData.side === -1 ? s1 : s2;
-      l.rotation.x = sw;
-      if(l.userData.knee) l.userData.knee.rotation.x = Math.max(0, -sw) * 0.9;
+      const theta = opposed * swing;
+      l.rotation.x = theta;
+      // The knee is straight at heel strike and at toe-off, and flexes through
+      // mid-swing so the foot clears the ground. Bending it at full extension —
+      // which is what Math.max(0, -theta) did — is the opposite of a stride.
+      const swingPhase = l.userData.side === -1 ? phase : phase + Math.PI;
+      const bend = Math.max(0, -Math.cos(swingPhase));
+      if(l.userData.knee) l.userData.knee.rotation.x = bend * 1.15;
+      // Hold the sole roughly level instead of letting it point wherever the
+      // leg happens to aim.
+      if(l.userData.shoe) l.userData.shoe.rotation.x = -theta - bend * 1.15 * 0.55;
     } else {
-      l.rotation.x = (l.userData.side === -1 ? s2 : s1) * 0.62;
+      l.rotation.x = -opposed * swing * 0.55;      // arms oppose the same-side leg
     }
   });
-  // Counter-rotating torso is what makes a walk read as human.
-  if(body.userData.torso) body.userData.torso.rotation.y = -Math.sin(phase) * 0.10;
-  if(body.userData.head) body.userData.head.rotation.y = Math.sin(phase) * 0.06;
-  return Math.abs(Math.sin(phase)) * 0.03;      // vertical bob
+  if(body.userData.torso) body.userData.torso.rotation.y = -lead * 0.10;
+  if(body.userData.head) body.userData.head.rotation.y = lead * 0.05;
+  // Pelvis height: L·cos(theta) is shorter than L whenever the leg is swung out.
+  return -LEG_LENGTH * (1 - Math.cos(swing)) * Math.abs(lead);
 }
 
 /** Standing still is not standing frozen: weight shifts, arms settle. */
@@ -242,7 +345,14 @@ export function idleSway(body, sway, seated = false){
   if(body.userData.torso) body.userData.torso.rotation.y = s * 0.045;
   if(seated) return;
   body.userData.limbs?.forEach(l => {
-    if(l.userData.isLeg) l.rotation.x = l.userData.side === -1 ? s * 0.035 : -s * 0.035;
-    else l.rotation.x = (l.userData.side === -1 ? -s : s) * 0.05;
+    if(l.userData.isLeg){
+      l.rotation.x = l.userData.side === -1 ? s * 0.035 : -s * 0.035;
+      // Standing still means knees straight and soles flat; without this a
+      // person who stops mid-stride keeps the bent knee for ever.
+      if(l.userData.knee) l.userData.knee.rotation.x = 0;
+      if(l.userData.shoe) l.userData.shoe.rotation.x = 0;
+    } else {
+      l.rotation.x = (l.userData.side === -1 ? -s : s) * 0.05;
+    }
   });
 }
