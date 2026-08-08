@@ -175,3 +175,9 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .choiceList{margin-top:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#fbf9f4}
 .choiceListLabel{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
   color:#666158;margin-bottom:6px}
+
+/* The relationship the estimate is built on, stated before the tiles. */
+.calcLaw{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:10px 0 4px;
+  background:#f2f6fa;border:1px solid #cfdce8;border-left:4px solid #2a78d6;border-radius:8px;padding:9px 12px}
+.calcLawLabel{font:800 .6rem/1 Inter,system-ui;letter-spacing:.09em;text-transform:uppercase;color:#4a6a86}
+.calcLawBody{font:700 1rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#14324f}

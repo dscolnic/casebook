@@ -236,7 +236,7 @@ function ballparkBody(ch,spec){
     const result=calculateBallpark(spec);
     preview=`Your estimate gives <b>${formatCalc(result)} ${esc(spec.units)}</b>.`;
   }
-  return `<div class="ballparkBox"><div class="question">${esc(spec.prompt)}</div><div class="question" style="margin-top:8px;font-weight:700">${esc(spec.question)}</div><div class="numberBank">${bank}</div><div class="calcEquation">${equation}</div><div class="calcPreview ${activeCalc.chosen.length===spec.slots?'':'muted'}">${preview}</div><div class="calcActions"><button class="btn small" id="calcClear" type="button">Clear</button><button class="btn primary small" id="calcSubmit" type="button">Check estimate</button></div></div><div id="visitFeedback"></div>`;
+  return `<div class="ballparkBox"><div class="question">${esc(spec.prompt)}</div><div class="question" style="margin-top:8px;font-weight:700">${esc(spec.question)}</div>${ch.relationship?`<div class="calcLaw"><span class="calcLawLabel">Governing relationship</span><span class="calcLawBody">${esc(ch.relationship)}</span></div>`:''}<div class="numberBank">${bank}</div><div class="calcEquation">${equation}</div><div class="calcPreview ${activeCalc.chosen.length===spec.slots?'':'muted'}">${preview}</div><div class="calcActions"><button class="btn small" id="calcClear" type="button">Clear</button><button class="btn primary small" id="calcSubmit" type="button">Check estimate</button></div></div><div id="visitFeedback"></div>`;
 }
 function ballparkHTML(ch){
   const spec=ballparkSpec();
