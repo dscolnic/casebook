@@ -493,7 +493,11 @@ export function gableRoof(scene, { x, z }, w, d, wallTop, opts = {}){
   for(const side of [-1, 1]){
     const slab = new THREE.Mesh(new THREE.BoxGeometry(runLen + overhang * 2, thick, slopeLen), roofMat);
     slab.position.set(0, rise / 2, side * (halfSpan / 2));
-    slab.rotation.x = -side * pitch;
+    // +side must tilt the outer edge DOWN. Rotation about X by a positive angle
+    // drops the +z end, so the sign is +side, not -side: with -side the two
+    // slabs splay upward into a V and the roof reads as collapsed. Verified by
+    // rendering it, which is the only way this kind of mistake shows up.
+    slab.rotation.x = side * pitch;
     slab.castShadow = true; slab.receiveShadow = true;
     group.add(slab);
   }
