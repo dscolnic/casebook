@@ -57,6 +57,18 @@ if(existsSync(specPath)){
   ({ BALLPARK_SPECS: ballparkSpecs } = await import(pathToFileURL(specPath).href));
 }
 
+// ------------------------------------------------------------ diagnosis packs
+// The books define four formats and Diagnosis is not one of them — it folds
+// diagnostic work into Protocol. A theme may re-author chosen activities as
+// Diagnosis, which is a different task (rule explanations out against a whole
+// panel of readings) and needs a figure. Packs are keyed by activity id and
+// replace that activity's game object; everything else still comes from the book.
+let diagnosisPacks = {};
+const packPath = resolve(outDir, 'diagnosis-packs.js');
+if(existsSync(packPath)){
+  ({ DIAGNOSIS_PACKS: diagnosisPacks } = await import(pathToFileURL(packPath).href));
+}
+
 // -------------------------------------------------------------- the content
 /**
  * The paragraph the player reasons from. The book splits the situation across
@@ -65,15 +77,32 @@ if(existsSync(specPath)){
  * all three. THEME_CONTRACT.md § Content integrity requires this to be real
  * text and requires the takeaway to stay out of it.
  */
-function sceneFor(mission, activity, stop){
+function sceneFor(mission, activity, stop, { keepActivityScene = true } = {}){
   const parts = [mission.problem];
   if(stop) parts.push(`At the ${stop.place}, you ${stop.beat.replace(/\.$/, '')}.`);
-  if(activity.scene) parts.push(activity.scene);
+  // A converted activity drops the book's own scene line, because that line is
+  // the *Protocol* instruction ("Match each observation to the process
+  // implication") and it describes a task the player is no longer being asked
+  // to do. The pack's headline carries the situation instead.
+  if(activity.scene && keepActivityScene) parts.push(activity.scene);
   return parts.filter(Boolean).join(' ');
 }
 
 /** The engine's challenge object, in the shape questionUI.js dispatches on. */
 function gameFor(activity, group, day){
+  const pack = diagnosisPacks[activity.id];
+  if(pack){
+    // Keep the book's title and scene; the pack supplies the panel and the
+    // candidates. `answer` is what the feedback panel prints as the solution.
+    return {
+      type: 'DIAGNOSIS',
+      title: activity.title,
+      setup: activity.scene,
+      ...pack,
+      task: pack.play,
+      answer: pack.correctChoice,
+    };
+  }
   const base = {
     type: activity.format,
     title: activity.title,
@@ -115,7 +144,8 @@ for(const mission of missions){
   const stops = mission.activities.map((activity, i) => {
     const day = CURRICULUM[group].length + 1;      // unique within the group; keys BALLPARK_CALCS
     const stop = mission.stops.find(s => s.index === i + 1);
-    const scene = sceneFor(mission, activity, stop);
+    const scene = sceneFor(mission, activity, stop,
+      { keepActivityScene: !diagnosisPacks[activity.id] });
 
     if(activity.format === 'Ballpark' && ballparkSpecs[activity.id]){
       BALLPARK_CALCS[`${group}-${day}`] = ballparkSpecs[activity.id];
@@ -179,6 +209,16 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
     }
     if(g.type === 'Sequence' && new Set(g.order).size !== g.cards?.length){
       warn(`${at}: sequence order does not use every card exactly once`);
+    }
+    if(g.type === 'DIAGNOSIS'){
+      const labels = (g.choices || []).map(c => (typeof c === 'string' ? c : c.label));
+      if(labels.length < 4) warn(`${at}: diagnosis offers ${labels.length} candidates; the format wants at least four`);
+      if(!labels.includes(g.correctChoice)) warn(`${at}: correctChoice is not one of the candidates — ungradeable`);
+      if(new Set(labels).size !== labels.length) warn(`${at}: two candidates share a label, so grading cannot tell them apart`);
+      if(!g.figure) warn(`${at}: diagnosis has no figure — the panel cannot be reasoned across as prose`);
+      if(!(g.readings || []).some(r => r.status !== 'alarm')){
+        warn(`${at}: every reading is an alarm; the format needs quiet readings to rule explanations out`);
+      }
     }
     if(g.type === 'Science Tank'){
       const total = Object.values(g.recommended || {}).reduce((a, b) => a + b, 0);

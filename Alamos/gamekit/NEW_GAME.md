@@ -59,13 +59,26 @@ in one exchange. Propose it; do not silently pick it.
    could not be placed, and it flags real defects in the *book* (one activity in
    the chemistry book offers the same answer text as two different options).
 
-4. **Hand-write the three things a book cannot supply.**
+4. **Hand-write the things a book cannot supply.**
    - `content/groups.js` — the areas: names, colours, milestones, issue pools.
    - `content/roster.js` — the cast. The books name *functions* (local expert,
      skeptical reviewer, operations lead, affected stakeholder), not people.
    - `content/ballpark-specs.js` — numeric specs for estimate activities. A
      prose relationship ("two moles A per mole B") carries no arithmetic, so
      these are written by hand and checked against the book's own solution line.
+   - `content/diagnosis-packs.js` — *optional*. Re-authors chosen activities as
+     Diagnosis: an instrument panel plus candidate explanations, where the task
+     is to rule explanations out rather than pair them up. Keyed by activity id;
+     the pack replaces that activity's game and the rest still comes from the
+     book. Neither book defines this format, so a conversion is a design choice —
+     pick activities whose science genuinely is differential reasoning from
+     instruments, and leave Science Tank alone (it teaches portfolio reasoning,
+     which the conversion would destroy).
+
+     A pack needs a `figure` (`line`, `peaks` or `bars` — see
+     `engine/core/figures.js`), `readings` including quiet ones, and at least
+     four candidates with one benign dismissal. The validator enforces all of
+     that, because a panel of nothing but alarms has nothing to rule out.
 
 5. **Make the ids agree in three places** — `content/groups.js`, the `group:`
    fields in `site.js` (or `plan.js`), and the map from step 2. This is the most

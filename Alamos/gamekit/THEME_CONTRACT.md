@@ -121,6 +121,22 @@ checks all of them at runtime in dev mode.
    Equipment parked against a wall runs *parallel* to it; rotating it 90° lays it
    across the corridor. Pass `spawn`, `colliders` and `route` to the audit.
 
+## Question formats
+
+`questionUI.js` renders `Protocol`, `Sequence`, `Ballpark`, `Science Tank`,
+`DIAGNOSIS`, `TRIAGE` and `CASEBOOK`. `DIAGNOSIS` is the only one that draws a
+figure: it hands the player an instrument panel and asks which explanation fits
+*all* of it, so it carries `figure`, `readings` and candidate objects
+(`{ label, mechanism }`). Figures come from `engine/core/figures.js` — three
+primitives (`line`, `peaks`, `bars`) that a theme feeds with data and never
+draws itself.
+
+Two things that format gets wrong if left to taste, both now handled centrally:
+colour is never the only channel (glyph + status word on every reading, direct
+labels on every series, and a data table under every figure), and the candidate
+order is shuffled at render — authored packs put the correct answer first, and a
+player who spots that stops reading the panel.
+
 ## Content integrity
 
 A generated lesson must carry the **scene** — the paragraph with the clues the

@@ -80,7 +80,9 @@ const fail = (m) => problems.push(m);
         (ch.type === 'Protocol' && ch.scenarios?.length && ch.mapping?.length === ch.scenarios.length) ||
         (ch.type === 'Sequence' && ch.cards?.length && ch.order?.length === ch.cards.length) ||
         (ch.type === 'Science Tank' && ch.proposals?.length && Object.keys(ch.recommended ?? {}).length) ||
-        (ch.type === 'Ballpark' && !!BALLPARK_CALCS[`${group}-${lesson.day}`]);
+        (ch.type === 'Ballpark' && !!BALLPARK_CALCS[`${group}-${lesson.day}`]) ||
+        (ch.type === 'DIAGNOSIS' && ch.choices?.length >= 4 && !!ch.figure &&
+          ch.choices.map(c => (typeof c === 'string' ? c : c.label)).includes(ch.correctChoice));
       if(!ok) fail(`mission ${mission} stop ${idx + 1} ("${lesson.title}"): ${ch.type} is not gradeable`);
 
       gameState.markMissionStopComplete(idx, true);

@@ -199,8 +199,8 @@ export const CURRICULUM = {
       "progress": "Assign confidence-ranked identities to mixture components using orthogonal evidence.",
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Analytical confidence rises when independent selectivity points to the same compound.",
-      "story": "Chromatography reveals several peaks, while spectroscopy suggests overlapping functional groups. The player must combine separation and structural evidence rather than forcing one peak to equal one compound. At the Spectroscopy Suite, you test the leading mechanism with a different instrument or model. Match each pattern to the best response.",
-      "scene": "Chromatography reveals several peaks, while spectroscopy suggests overlapping functional groups. The player must combine separation and structural evidence rather than forcing one peak to equal one compound. At the Spectroscopy Suite, you test the leading mechanism with a different instrument or model. Match each pattern to the best response.",
+      "story": "Chromatography reveals several peaks, while spectroscopy suggests overlapping functional groups. The player must combine separation and structural evidence rather than forcing one peak to equal one compound. At the Spectroscopy Suite, you test the leading mechanism with a different instrument or model.",
+      "scene": "Chromatography reveals several peaks, while spectroscopy suggests overlapping functional groups. The player must combine separation and structural evidence rather than forcing one peak to equal one compound. At the Spectroscopy Suite, you test the leading mechanism with a different instrument or model.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -209,37 +209,145 @@ export const CURRICULUM = {
         "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
       ],
       "game": {
-        "type": "Protocol",
+        "type": "DIAGNOSIS",
         "title": "Read analytical disagreement",
         "setup": "Match each pattern to the best response.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Retention time matches a standard but the spectrum does not. → Do not identify; investigate interference or misassignment. 2. Spectrum matches, but the peak co-elutes with another compound. → Improve separation or use a selective confirmation method. 3. Blank contains the same peak as samples. → Suspect contamination or background. 4. Two independent methods agree within calibration limits. → Report a supported identity with stated confidence.",
-        "why": "A single matching feature can be produced by interference; blanks and orthogonal confirmation are essential.",
-        "rebuttals": [
-          "Situation 1: The supported response is \"Do not identify; investigate interference or misassignment.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Improve separation or use a selective confirmation method.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Suspect contamination or background.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Report a supported identity with stated confidence.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
-        ],
-        "scenarios": [
-          "Retention time matches a standard but the spectrum does not.",
-          "Spectrum matches, but the peak co-elutes with another compound.",
-          "Blank contains the same peak as samples.",
-          "Two independent methods agree within calibration limits."
+        "headline": "A target compound is reported in the river sample at 3.1 minutes — and the laboratory blank has a peak in the same place.",
+        "play": "One explanation has to fit the sample, the blank and the second-method result together. Which is it?",
+        "figure": {
+          "kind": "peaks",
+          "xLabel": "Retention time (minutes)",
+          "yLabel": "Detector response",
+          "xMax": 10,
+          "caption": "Chromatograms of the river sample and the method blank, run in the same sequence.",
+          "traces": [
+            {
+              "name": "River sample",
+              "peaks": [
+                {
+                  "at": 3.1,
+                  "height": 62,
+                  "width": 0.22
+                },
+                {
+                  "at": 5.4,
+                  "height": 88,
+                  "width": 0.3
+                },
+                {
+                  "at": 7.9,
+                  "height": 34,
+                  "width": 0.2
+                }
+              ]
+            },
+            {
+              "name": "Method blank",
+              "peaks": [
+                {
+                  "at": 3.1,
+                  "height": 55,
+                  "width": 0.22
+                }
+              ]
+            }
+          ],
+          "peaks": [
+            {
+              "at": 3.1,
+              "height": 62,
+              "label": "also in blank",
+              "status": "alarm"
+            },
+            {
+              "at": 5.4,
+              "height": 88,
+              "label": "broad — two compounds?",
+              "status": "high"
+            },
+            {
+              "at": 7.9,
+              "height": 34,
+              "label": "sample only",
+              "status": "normal"
+            }
+          ]
+        },
+        "readings": [
+          {
+            "zone": "Sample",
+            "label": "Peak at 3.1 min",
+            "value": "62 units",
+            "status": "alarm",
+            "note": "Retention time matches the reference standard."
+          },
+          {
+            "zone": "Blank",
+            "label": "Peak at 3.1 min",
+            "value": "55 units",
+            "status": "alarm",
+            "note": "The blank should be empty. It is not."
+          },
+          {
+            "zone": "Sample",
+            "label": "Peak at 5.4 min",
+            "value": "88 units, broad",
+            "status": "high",
+            "note": "Width is nearly double the standard — likely two compounds."
+          },
+          {
+            "zone": "Sample",
+            "label": "Peak at 7.9 min",
+            "value": "34 units",
+            "status": "normal",
+            "note": "Absent from the blank. Spectrum matches its standard."
+          },
+          {
+            "zone": "Spectrometer",
+            "label": "Spectrum at 3.1 min",
+            "value": "does not match standard",
+            "status": "high"
+          },
+          {
+            "zone": "Instrument",
+            "label": "Calibration check",
+            "value": "within limits",
+            "status": "normal",
+            "note": "The instrument itself is behaving."
+          }
         ],
         "choices": [
-          "Do not identify; investigate interference or misassignment.",
-          "Improve separation or use a selective confirmation method.",
-          "Suspect contamination or background.",
-          "Report a supported identity with stated confidence."
+          {
+            "label": "The 3.1-minute peak is laboratory contamination",
+            "mechanism": "The blank carries the same peak at nearly the same size, so it entered during preparation — not from the river."
+          },
+          {
+            "label": "The river contains the target compound at 62 units",
+            "mechanism": "Take the retention-time match at face value and report the sample result."
+          },
+          {
+            "label": "The detector is drifting",
+            "mechanism": "A gain or baseline drift would inflate every peak in the run."
+          },
+          {
+            "label": "The 5.4-minute peak is the target, misassigned",
+            "mechanism": "The broad peak is the largest, so it is the compound of interest."
+          },
+          {
+            "label": "Nothing is wrong; chromatograms always show small peaks",
+            "mechanism": "Minor features are normal instrument noise and can be ignored."
+          }
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "The 3.1-minute peak is laboratory contamination",
+        "why": "A blank exists to answer exactly one question: did this signal come from the sample? Here it did not — the blank carries the same peak at nearly the same height, so the 3.1-minute response is contamination introduced during preparation. Retention time alone never confirms identity, and the spectrum at 3.1 minutes does not match the standard either. The one peak that survives every check is at 7.9 minutes: absent from the blank, with a matching spectrum.",
+        "rebuttals": [
+          "Reporting 62 units treats a retention-time match as an identification. It is a screening match at best, and the blank has already shown where this peak came from.",
+          "Detector drift would raise the whole baseline and every peak with it. The 7.9-minute peak is unaffected and the calibration check is within limits, so the instrument is not the problem.",
+          "Size is not identity. The 5.4-minute peak is broad enough to be two co-eluting compounds, which makes it the least trustworthy peak to quantify, not the most.",
+          "Dismissing the blank peak as noise discards the only control in the run. A blank peak at 89% of the sample peak is not noise; it is the answer."
+        ],
+        "task": "One explanation has to fit the sample, the blank and the second-method result together. Which is it?",
+        "answer": "The 3.1-minute peak is laboratory contamination"
       }
     },
     {
@@ -493,8 +601,8 @@ export const CURRICULUM = {
       "progress": "Identify likely secondary products and update monitoring locations and times.",
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Atmospheric chemistry must be inferred from coordinated chemical and meteorological patterns.",
-      "story": "Sunlight and atmospheric oxidants transform remaining vapors into secondary products. The player must reason about radicals, reaction pathways, and changing exposure after the source is controlled. At the Photochemistry Lab, you test the leading mechanism with a different instrument or model. Match each trend to a useful inference.",
-      "scene": "Sunlight and atmospheric oxidants transform remaining vapors into secondary products. The player must reason about radicals, reaction pathways, and changing exposure after the source is controlled. At the Photochemistry Lab, you test the leading mechanism with a different instrument or model. Match each trend to a useful inference.",
+      "story": "Sunlight and atmospheric oxidants transform remaining vapors into secondary products. The player must reason about radicals, reaction pathways, and changing exposure after the source is controlled. At the Photochemistry Lab, you test the leading mechanism with a different instrument or model.",
+      "scene": "Sunlight and atmospheric oxidants transform remaining vapors into secondary products. The player must reason about radicals, reaction pathways, and changing exposure after the source is controlled. At the Photochemistry Lab, you test the leading mechanism with a different instrument or model.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -503,37 +611,226 @@ export const CURRICULUM = {
         "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
       ],
       "game": {
-        "type": "Protocol",
+        "type": "DIAGNOSIS",
         "title": "Read the day-night pattern",
         "setup": "Match each trend to a useful inference.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. A product peaks in afternoon sunlight. → Photochemical production is plausible. 2. A compound persists overnight but declines after sunrise. → Photolysis or daytime oxidation may remove it. 3. Downwind product rises where primary vapor falls. → Secondary formation during transport is plausible. 4. All monitors share the same inlet material and report the same artifact. → The apparent regional pattern may be common-mode contamination.",
-        "why": "Time, transport, and independent instrumentation constrain pathways.",
-        "rebuttals": [
-          "Situation 1: The supported response is \"Photochemical production is plausible.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Photolysis or daytime oxidation may remove it.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Secondary formation during transport is plausible.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"The apparent regional pattern may be common-mode contamination.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
-        ],
-        "scenarios": [
-          "A product peaks in afternoon sunlight.",
-          "A compound persists overnight but declines after sunrise.",
-          "Downwind product rises where primary vapor falls.",
-          "All monitors share the same inlet material and report the same artifact."
+        "headline": "The yard was sealed at 06:00 and primary vapour has fallen all day — but the neighbourhood monitor peaked at 15:00.",
+        "play": "The source is controlled and exposure went up. Which explanation fits the whole day, at both monitors?",
+        "figure": {
+          "kind": "line",
+          "xLabel": "Hour of day",
+          "yLabel": "Concentration (ppb)",
+          "caption": "Primary vapour at the yard fence and secondary product at the neighbourhood monitor, the day after the source was sealed.",
+          "marks": [
+            {
+              "x": 6,
+              "label": "source sealed"
+            },
+            {
+              "x": 13,
+              "label": "peak sunlight"
+            }
+          ],
+          "series": [
+            {
+              "name": "Primary vapour",
+              "points": [
+                [
+                  0,
+                  42
+                ],
+                [
+                  4,
+                  40
+                ],
+                [
+                  6,
+                  38
+                ],
+                [
+                  9,
+                  27
+                ],
+                [
+                  12,
+                  18
+                ],
+                [
+                  15,
+                  11
+                ],
+                [
+                  18,
+                  7
+                ],
+                [
+                  21,
+                  5
+                ],
+                [
+                  24,
+                  4
+                ]
+              ]
+            },
+            {
+              "name": "Secondary product",
+              "points": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  4,
+                  3
+                ],
+                [
+                  6,
+                  4
+                ],
+                [
+                  9,
+                  12
+                ],
+                [
+                  12,
+                  26
+                ],
+                [
+                  15,
+                  34
+                ],
+                [
+                  18,
+                  21
+                ],
+                [
+                  21,
+                  9
+                ],
+                [
+                  24,
+                  5
+                ]
+              ]
+            },
+            {
+              "name": "Inert tracer",
+              "points": [
+                [
+                  0,
+                  10
+                ],
+                [
+                  4,
+                  10
+                ],
+                [
+                  6,
+                  10
+                ],
+                [
+                  9,
+                  10
+                ],
+                [
+                  12,
+                  10
+                ],
+                [
+                  15,
+                  10
+                ],
+                [
+                  18,
+                  10
+                ],
+                [
+                  21,
+                  10
+                ],
+                [
+                  24,
+                  10
+                ]
+              ]
+            }
+          ]
+        },
+        "readings": [
+          {
+            "zone": "Neighbourhood",
+            "label": "Secondary product",
+            "value": "34 ppb at 15:00",
+            "status": "alarm",
+            "note": "Highest reading of the day, nine hours after the source was sealed."
+          },
+          {
+            "zone": "Yard fence",
+            "label": "Primary vapour",
+            "value": "11 ppb and falling",
+            "status": "normal",
+            "note": "Down from 42 ppb. The source control is working."
+          },
+          {
+            "zone": "Neighbourhood",
+            "label": "Overnight behaviour",
+            "value": "persists, then falls after sunrise",
+            "status": "high"
+          },
+          {
+            "zone": "Sky",
+            "label": "Solar radiation",
+            "value": "clear; peak at 13:00",
+            "status": "normal"
+          },
+          {
+            "zone": "All monitors",
+            "label": "Inert tracer",
+            "value": "10 ppb, flat all day",
+            "status": "normal",
+            "note": "A shared artefact would move this. It has not."
+          },
+          {
+            "zone": "All monitors",
+            "label": "Inlet material",
+            "value": "identical across the network",
+            "status": "high",
+            "note": "A common-mode risk worth noting — but the tracer rules it out today."
+          }
         ],
         "choices": [
-          "Photochemical production is plausible.",
-          "Photolysis or daytime oxidation may remove it.",
-          "Secondary formation during transport is plausible.",
-          "The apparent regional pattern may be common-mode contamination."
+          {
+            "label": "Sunlight is converting the remaining vapour into a secondary product",
+            "mechanism": "The product rises as the primary falls, peaks two hours after peak sun, and appears downwind rather than at the fence."
+          },
+          {
+            "label": "A second, uncontrolled release has started",
+            "mechanism": "A new source would explain rising concentrations in the neighbourhood."
+          },
+          {
+            "label": "The monitors share an inlet artefact",
+            "mechanism": "Identical inlet material across the network can generate the same false signal everywhere."
+          },
+          {
+            "label": "The wind reversed and carried the plume back over the neighbourhood",
+            "mechanism": "A wind shift moves the corridor without changing the chemistry."
+          },
+          {
+            "label": "Exposure is over; the source is sealed and the primary vapour is falling",
+            "mechanism": "Once the release stops, the hazard decays with it."
+          }
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "Sunlight is converting the remaining vapour into a secondary product",
+        "why": "The two traces are mirror images with sunlight between them: the product climbs while the primary falls, peaks about two hours after solar maximum, decays overnight and drops again after sunrise. That is formation in the atmosphere, not release from the ground — which is why it is highest downwind rather than at the fence. Controlling a source ends the release; it does not end the chemistry, and the exposure that matters to the neighbourhood arrived after the yard was already sealed.",
+        "rebuttals": [
+          "A second release would raise the primary vapour at the fence. It fell all day, from 42 ppb to 11.",
+          "A shared inlet artefact is a genuine common-mode risk and the reason the inert tracer is on the network. The tracer held flat at 10 ppb all day, so the instruments are reporting real air.",
+          "A wind reversal moves material, it does not create it. It cannot explain why the downwind compound is one the yard never released, or why it tracks the sun.",
+          "This is the conclusion the panel is built to refute. The source is sealed, the primary is falling, and today’s highest exposure still happened at 15:00 — nine hours later."
+        ],
+        "task": "The source is controlled and exposure went up. Which explanation fits the whole day, at both monitors?",
+        "answer": "Sunlight is converting the remaining vapour into a secondary product"
       }
     },
     {
@@ -786,8 +1083,8 @@ export const CURRICULUM = {
       "progress": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Titration is both a quantitative method and a diagnostic fingerprint.",
-      "story": "The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. At the Acid-Base Bench, you test the leading mechanism with a different instrument or model. Match each feature to its meaning.",
-      "scene": "The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. At the Acid-Base Bench, you test the leading mechanism with a different instrument or model. Match each feature to its meaning.",
+      "story": "The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. At the Acid-Base Bench, you test the leading mechanism with a different instrument or model.",
+      "scene": "The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. At the Acid-Base Bench, you test the leading mechanism with a different instrument or model.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -796,37 +1093,184 @@ export const CURRICULUM = {
         "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
       ],
       "game": {
-        "type": "Protocol",
+        "type": "DIAGNOSIS",
         "title": "Read the titration curve",
         "setup": "Match each feature to its meaning.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. A broad region resists pH change. → Buffer region. 2. A sharp rise occurs near stoichiometric neutralization. → Equivalence region. 3. Equivalence pH is above 7 for weak acid titrated by strong base. → Conjugate-base hydrolysis affects pH. 4. Replicate curves shift after a new sample container is used. → Investigate container contamination or sample alteration.",
-        "why": "Curve shape reveals acid-base strength and capacity, while shifts may expose procedural artifacts.",
-        "rebuttals": [
-          "Situation 1: The supported response is \"Buffer region.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Equivalence region.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Conjugate-base hydrolysis affects pH.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Investigate container contamination or sample alteration.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
-        ],
-        "scenarios": [
-          "A broad region resists pH change.",
-          "A sharp rise occurs near stoichiometric neutralization.",
-          "Equivalence pH is above 7 for weak acid titrated by strong base.",
-          "Replicate curves shift after a new sample container is used."
+        "headline": "The intake reads pH 4.6. Dosing for a strong acid at that pH overshoots badly on the trial batch.",
+        "play": "The titration curve is on screen. Which explanation accounts for the plateau, the equivalence point and the dose the trial actually needed?",
+        "figure": {
+          "kind": "line",
+          "xLabel": "Base added (mL)",
+          "yLabel": "pH",
+          "caption": "Titration of the intake water with standard base. The dashed line marks neutral pH.",
+          "limit": {
+            "at": 7,
+            "label": "pH 7"
+          },
+          "series": [
+            {
+              "name": "Intake water",
+              "points": [
+                [
+                  0,
+                  3.4
+                ],
+                [
+                  4,
+                  4.1
+                ],
+                [
+                  8,
+                  4.5
+                ],
+                [
+                  12,
+                  4.7
+                ],
+                [
+                  16,
+                  4.9
+                ],
+                [
+                  20,
+                  5.2
+                ],
+                [
+                  23,
+                  5.9
+                ],
+                [
+                  25,
+                  8.4
+                ],
+                [
+                  27,
+                  10.1
+                ],
+                [
+                  32,
+                  10.8
+                ],
+                [
+                  40,
+                  11.2
+                ]
+              ]
+            },
+            {
+              "name": "Strong acid, same pH",
+              "points": [
+                [
+                  0,
+                  4.6
+                ],
+                [
+                  2,
+                  4.9
+                ],
+                [
+                  4,
+                  5.4
+                ],
+                [
+                  5,
+                  8.9
+                ],
+                [
+                  6,
+                  10.4
+                ],
+                [
+                  10,
+                  11
+                ],
+                [
+                  20,
+                  11.3
+                ],
+                [
+                  40,
+                  11.6
+                ]
+              ]
+            }
+          ]
+        },
+        "readings": [
+          {
+            "zone": "Intake",
+            "label": "pH",
+            "value": "4.6",
+            "status": "alarm",
+            "note": "The headline number, and the one that misled the dose."
+          },
+          {
+            "zone": "Titration",
+            "label": "Plateau from 4 to 20 mL",
+            "value": "pH moves 4.1 → 5.2",
+            "status": "high",
+            "note": "Sixteen millilitres of base for one pH unit."
+          },
+          {
+            "zone": "Titration",
+            "label": "Equivalence point",
+            "value": "pH 8.4",
+            "status": "high",
+            "note": "Above 7, not at it."
+          },
+          {
+            "zone": "Titration",
+            "label": "Base to equivalence",
+            "value": "25 mL",
+            "status": "alarm",
+            "note": "Five times what the strong-acid reference needed."
+          },
+          {
+            "zone": "Reference",
+            "label": "Strong acid at the same pH",
+            "value": "5 mL to equivalence",
+            "status": "normal"
+          },
+          {
+            "zone": "Bench",
+            "label": "Electrode calibration",
+            "value": "pH 4 and 7 buffers within 0.02",
+            "status": "normal",
+            "note": "The pH reading itself is trustworthy."
+          }
         ],
         "choices": [
-          "Buffer region.",
-          "Equivalence region.",
-          "Conjugate-base hydrolysis affects pH.",
-          "Investigate container contamination or sample alteration."
+          {
+            "label": "The water contains a weak acid and its buffer system",
+            "mechanism": "A long plateau, an equivalence point above pH 7 and five times the expected base demand are what a weak acid does — pH shows the free H⁺, not the reservoir behind it."
+          },
+          {
+            "label": "The intake is a strong acid at pH 4.6",
+            "mechanism": "Read the pH, calculate the free hydrogen ion, and dose to match it."
+          },
+          {
+            "label": "The pH electrode is out of calibration",
+            "mechanism": "A drifting electrode would explain why the dose calculated from pH was wrong."
+          },
+          {
+            "label": "The base used for dosing is more concentrated than labelled",
+            "mechanism": "An over-strength reagent would overshoot regardless of the water chemistry."
+          },
+          {
+            "label": "Nothing unusual; treatment always needs a safety factor",
+            "mechanism": "Operators routinely add extra base to be sure of neutralising."
+          }
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "The water contains a weak acid and its buffer system",
+        "why": "pH measures the hydrogen ion that is free right now. A weak acid keeps most of its acidity in reserve, undissociated, and releases it as base is added — which is what the sixteen-millilitre plateau is. The equivalence point above pH 7 confirms it: the conjugate base left at the end is itself basic. That is why the water needed five times the base a strong acid at the same pH would, and why a dose calculated from pH alone first under-treats and then, once the buffer is exhausted, overshoots into strongly basic conditions.",
+        "rebuttals": [
+          "A strong acid at pH 4.6 is the reference curve on the same axes, and it reaches equivalence at 5 mL with a sharp rise and no plateau. The intake does neither.",
+          "The electrode was calibrated against pH 4 and 7 buffers to within 0.02. The pH reading is correct — it is simply answering a different question from the one the dose needed.",
+          "An over-strength base would overshoot, but it would also shorten the titration. This titration took five times *more* base than expected, not less.",
+          "A safety factor is a policy, not a mechanism, and it cannot explain a plateau, an equivalence point at 8.4, or a five-fold demand. Adding margin on top of a misread curve is how the overshoot happened."
+        ],
+        "task": "The titration curve is on screen. Which explanation accounts for the plateau, the equivalence point and the dose the trial actually needed?",
+        "answer": "The water contains a weak acid and its buffer system"
       }
     },
     {
@@ -1078,8 +1522,8 @@ export const CURRICULUM = {
       "progress": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "A numerical display does not guarantee a valid concentration.",
-      "story": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and matrix interference. The team must turn signals into defensible concentrations. At the River Mapping Center, you test the leading mechanism with a different instrument or model. Match each problem to the correction.",
-      "scene": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and matrix interference. The team must turn signals into defensible concentrations. At the River Mapping Center, you test the leading mechanism with a different instrument or model. Match each problem to the correction.",
+      "story": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and matrix interference. The team must turn signals into defensible concentrations. At the River Mapping Center, you test the leading mechanism with a different instrument or model.",
+      "scene": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and matrix interference. The team must turn signals into defensible concentrations. At the River Mapping Center, you test the leading mechanism with a different instrument or model.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1088,37 +1532,140 @@ export const CURRICULUM = {
         "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
       ],
       "game": {
-        "type": "Protocol",
+        "type": "DIAGNOSIS",
         "title": "Protect the calibration",
         "setup": "Match each problem to the correction.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Sample absorbance lies above the highest standard. → Dilute and remeasure within range. 2. Calibration blank has nonzero absorbance. → Investigate baseline or contamination and correct only through validated procedures. 3. Matrix spike recovery is very low. → Suspect matrix suppression or incomplete recovery. 4. Replicate results scatter widely. → Investigate precision, heterogeneity, and instrument stability.",
-        "why": "Quantitation is valid only within a demonstrated calibration and matrix performance range.",
-        "rebuttals": [
-          "Situation 1: The supported response is \"Dilute and remeasure within range.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Investigate baseline or contamination and correct only through validated procedures.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Suspect matrix suppression or incomplete recovery.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Investigate precision, heterogeneity, and instrument stability.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
-        ],
-        "scenarios": [
-          "Sample absorbance lies above the highest standard.",
-          "Calibration blank has nonzero absorbance.",
-          "Matrix spike recovery is very low.",
-          "Replicate results scatter widely."
+        "headline": "The river sample reads 1.34 absorbance. The highest calibration standard reads 0.98.",
+        "play": "The instrument returned a number. Which explanation fits the calibration, the blank and the spike together?",
+        "figure": {
+          "kind": "line",
+          "xLabel": "Concentration of standard (mg/L)",
+          "yLabel": "Absorbance",
+          "caption": "Today’s calibration curve, with the sample’s absorbance drawn across it.",
+          "limit": {
+            "at": 0.98,
+            "label": "top standard"
+          },
+          "series": [
+            {
+              "name": "Standards",
+              "points": [
+                [
+                  0,
+                  0.01
+                ],
+                [
+                  2,
+                  0.2
+                ],
+                [
+                  4,
+                  0.4
+                ],
+                [
+                  6,
+                  0.6
+                ],
+                [
+                  8,
+                  0.79
+                ],
+                [
+                  10,
+                  0.98
+                ]
+              ]
+            },
+            {
+              "name": "This sample",
+              "points": [
+                [
+                  0,
+                  1.34
+                ],
+                [
+                  10,
+                  1.34
+                ]
+              ]
+            }
+          ]
+        },
+        "readings": [
+          {
+            "zone": "Sample",
+            "label": "Absorbance",
+            "value": "1.34",
+            "status": "alarm",
+            "note": "Above every standard on the curve."
+          },
+          {
+            "zone": "Calibration",
+            "label": "Highest standard",
+            "value": "0.98 at 10 mg/L",
+            "status": "normal"
+          },
+          {
+            "zone": "Calibration",
+            "label": "Curve linearity",
+            "value": "r² = 0.999 to 10 mg/L",
+            "status": "normal",
+            "note": "The curve is excellent — within the range it covers."
+          },
+          {
+            "zone": "Blank",
+            "label": "Calibration blank",
+            "value": "0.01 absorbance",
+            "status": "normal",
+            "note": "Clean. No contamination baseline."
+          },
+          {
+            "zone": "QC",
+            "label": "Matrix spike recovery",
+            "value": "97%",
+            "status": "normal",
+            "note": "The river matrix is not suppressing the signal."
+          },
+          {
+            "zone": "QC",
+            "label": "Replicate scatter",
+            "value": "±1.5%",
+            "status": "normal",
+            "note": "Precision is fine. The result is repeatable."
+          }
         ],
         "choices": [
-          "Dilute and remeasure within range.",
-          "Investigate baseline or contamination and correct only through validated procedures.",
-          "Suspect matrix suppression or incomplete recovery.",
-          "Investigate precision, heterogeneity, and instrument stability."
+          {
+            "label": "The result is outside the calibrated range",
+            "mechanism": "Above the top standard the instrument response is unverified, so converting 1.34 to a concentration extrapolates a relationship nobody measured."
+          },
+          {
+            "label": "Matrix interference is inflating the reading",
+            "mechanism": "Something in the river water adds absorbance the analyte did not produce."
+          },
+          {
+            "label": "The blank is contaminated",
+            "mechanism": "A dirty baseline lifts every reading in the batch."
+          },
+          {
+            "label": "The measurement is imprecise and should be repeated",
+            "mechanism": "Scattered replicates mean the number cannot be trusted as it stands."
+          },
+          {
+            "label": "The reading is fine; report 13.7 mg/L by extending the line",
+            "mechanism": "The curve is linear with r² = 0.999, so it can be extended past the last standard."
+          }
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "The result is outside the calibrated range",
+        "why": "Every quality control on this panel is clean: the blank is at 0.01, spike recovery is 97%, replicates agree to 1.5%, and the curve is linear across the range it actually covers. Nothing is wrong with the measurement — the problem is that 1.34 lies beyond the last point anyone verified. Detectors saturate, and linearity is a property of a measured interval, not a promise about everything above it. Dilute the sample into the calibrated range and re-run it.",
+        "rebuttals": [
+          "Matrix interference would show as poor spike recovery. Recovery is 97%, so the river matrix is behaving.",
+          "A contaminated blank would read high. This one reads 0.01, and it would in any case lift the standards along with the sample.",
+          "Imprecision would show as replicate scatter. These agree to ±1.5%; the result is repeatable, it is simply repeatable and unverified.",
+          "Extending the line past the last standard is the specific mistake this panel is built around. r² = 0.999 describes the fit between 0 and 10 mg/L and says nothing about 13.7."
+        ],
+        "task": "The instrument returned a number. Which explanation fits the calibration, the blank and the spike together?",
+        "answer": "The result is outside the calibrated range"
       }
     },
     {
@@ -1494,8 +2041,8 @@ export const CURRICULUM = {
       "progress": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Thermal diagnosis requires an energy balance, not a single temperature threshold.",
-      "story": "A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. At the Calorimetry Lab, you test the leading mechanism with a different instrument or model. Match each trend to the next interpretation or test.",
-      "scene": "A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. At the Calorimetry Lab, you test the leading mechanism with a different instrument or model. Match each trend to the next interpretation or test.",
+      "story": "A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. At the Calorimetry Lab, you test the leading mechanism with a different instrument or model.",
+      "scene": "A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. At the Calorimetry Lab, you test the leading mechanism with a different instrument or model.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1504,37 +2051,203 @@ export const CURRICULUM = {
         "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
       ],
       "game": {
-        "type": "Protocol",
+        "type": "DIAGNOSIS",
         "title": "Stored heat or continuing reaction?",
         "setup": "Match each trend to the next interpretation or test.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Temperature falls after cooling stops. → Consistent with dissipation of stored heat. 2. Temperature continues rising after external heat is removed. → Possible ongoing exothermic process; escalate monitoring. 3. A hot spot moves with fluid circulation. → Transport may dominate local temperature. 4. Temperature sensors agree but all share one calibration reference. → Check an independent temperature reference.",
-        "why": "Time trends and independent measurements distinguish energy storage, transport, and generation.",
-        "rebuttals": [
-          "Situation 1: The supported response is \"Consistent with dissipation of stored heat.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Possible ongoing exothermic process; escalate monitoring.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Transport may dominate local temperature.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Check an independent temperature reference.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
-        ],
-        "scenarios": [
-          "Temperature falls after cooling stops.",
-          "Temperature continues rising after external heat is removed.",
-          "A hot spot moves with fluid circulation.",
-          "Temperature sensors agree but all share one calibration reference."
+        "headline": "Ninety minutes after cooling was shut off, the west bay is still climbing — and it has crossed the confined-entry limit.",
+        "play": "Fire Command needs to know whether this is heat left over from the fire or a reaction still running. Which explanation fits every zone?",
+        "figure": {
+          "kind": "line",
+          "xLabel": "Minutes since cooling stopped",
+          "yLabel": "Temperature (°C)",
+          "caption": "Bulk temperature in the two storage bays after external cooling was withdrawn.",
+          "limit": {
+            "at": 85,
+            "label": "entry limit"
+          },
+          "series": [
+            {
+              "name": "West bay",
+              "points": [
+                [
+                  0,
+                  61
+                ],
+                [
+                  15,
+                  66
+                ],
+                [
+                  30,
+                  72
+                ],
+                [
+                  45,
+                  78
+                ],
+                [
+                  60,
+                  84
+                ],
+                [
+                  75,
+                  90
+                ],
+                [
+                  90,
+                  96
+                ]
+              ]
+            },
+            {
+              "name": "East bay",
+              "points": [
+                [
+                  0,
+                  58
+                ],
+                [
+                  15,
+                  54
+                ],
+                [
+                  30,
+                  50
+                ],
+                [
+                  45,
+                  47
+                ],
+                [
+                  60,
+                  44
+                ],
+                [
+                  75,
+                  42
+                ],
+                [
+                  90,
+                  40
+                ]
+              ]
+            },
+            {
+              "name": "Ambient",
+              "points": [
+                [
+                  0,
+                  24
+                ],
+                [
+                  15,
+                  24
+                ],
+                [
+                  30,
+                  23
+                ],
+                [
+                  45,
+                  23
+                ],
+                [
+                  60,
+                  23
+                ],
+                [
+                  75,
+                  22
+                ],
+                [
+                  90,
+                  22
+                ]
+              ]
+            }
+          ],
+          "marks": [
+            {
+              "x": 0,
+              "label": "cooling stopped"
+            }
+          ]
+        },
+        "readings": [
+          {
+            "zone": "West bay",
+            "label": "Bulk temperature",
+            "value": "96 °C, rising 0.4 °C/min",
+            "status": "alarm",
+            "note": "Rising steadily with no external heat applied."
+          },
+          {
+            "zone": "East bay",
+            "label": "Bulk temperature",
+            "value": "40 °C, falling",
+            "status": "normal",
+            "note": "Cooling toward ambient, as stored heat does."
+          },
+          {
+            "zone": "West bay",
+            "label": "Off-gas",
+            "value": "detectable and increasing",
+            "status": "high",
+            "note": "A gas is being produced, not merely warmed."
+          },
+          {
+            "zone": "West bay",
+            "label": "Hot spot position",
+            "value": "stationary at the drum stack",
+            "status": "high",
+            "note": "It has not moved with fluid circulation."
+          },
+          {
+            "zone": "Ambient",
+            "label": "Air temperature",
+            "value": "22 °C",
+            "status": "normal"
+          },
+          {
+            "zone": "Instruments",
+            "label": "Sensor calibration",
+            "value": "all four share one reference",
+            "status": "high",
+            "note": "A shared reference is a shared failure mode — but it would move both bays together."
+          }
         ],
         "choices": [
-          "Consistent with dissipation of stored heat.",
-          "Possible ongoing exothermic process; escalate monitoring.",
-          "Transport may dominate local temperature.",
-          "Check an independent temperature reference."
+          {
+            "label": "An exothermic reaction is still running in the west bay",
+            "mechanism": "Temperature rises after the heat source is removed, off-gas is increasing, and the hot spot is fixed at the material — heat is being generated, not stored."
+          },
+          {
+            "label": "Stored heat from the fire is still dissipating",
+            "mechanism": "A large thermal mass takes hours to give up the heat it absorbed."
+          },
+          {
+            "label": "The temperature sensors are miscalibrated",
+            "mechanism": "All four share one calibration reference, so one bad reference would corrupt every reading."
+          },
+          {
+            "label": "Hot fluid circulation is carrying heat into the west bay",
+            "mechanism": "Convection moves a hot region around the bay and can make one sensor read high."
+          },
+          {
+            "label": "Nothing unusual; bays always differ after a fire",
+            "mechanism": "Two bays exposed to the same fire will cool at different rates."
+          }
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "An exothermic reaction is still running in the west bay",
+        "why": "Stored heat can only leave. Once the external source is gone, a hot mass falls toward ambient — which is exactly what the east bay does. The west bay does the opposite, and it does so while producing off-gas from a hot spot that has not moved. Heat that increases with no source is heat being made. The distinction matters because cooling has to out-run generation, not merely carry away a fixed quantity, and the entry limit has already been crossed.",
+        "rebuttals": [
+          "Stored heat is the explanation the east bay fits, and it is why the east bay is the control. A stored-heat curve cannot rise after the source is withdrawn.",
+          "The shared calibration reference is a real common-mode risk and worth fixing, but it would push both bays the same way. West rises while east falls, so the divergence is physical rather than instrumental.",
+          "Circulation moves a hot region around. This hot spot is stationary at the drum stack, and convection cannot add energy to a closed bay in any case.",
+          "Two bays cooling at different rates is ordinary. One bay heating while the other cools is not, and treating it as ordinary is how a crew gets sent into a confined space."
+        ],
+        "task": "Fire Command needs to know whether this is heat left over from the fire or a reaction still running. Which explanation fits every zone?",
+        "answer": "An exothermic reaction is still running in the west bay"
       }
     },
     {
@@ -1892,8 +2605,8 @@ export const CURRICULUM = {
       "progress": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Treatment evaluation follows the contaminant and all major byproducts.",
-      "story": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. At the Pilot Treatment Plant, you receive the initial anomaly and inspect the first evidence. Match each observation to the process implication.",
-      "scene": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. At the Pilot Treatment Plant, you receive the initial anomaly and inspect the first evidence. Match each observation to the process implication.",
+      "story": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. At the Pilot Treatment Plant, you receive the initial anomaly and inspect the first evidence.",
+      "scene": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. At the Pilot Treatment Plant, you receive the initial anomaly and inspect the first evidence.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1902,37 +2615,123 @@ export const CURRICULUM = {
         "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
       ],
       "game": {
-        "type": "Protocol",
+        "type": "DIAGNOSIS",
         "title": "What did the treatment actually do?",
         "setup": "Match each observation to the process implication.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Target disappears from water and appears on activated media. → Adsorption transferred the contaminant to a replaceable solid. 2. Target converts to a more mobile oxidation state. → Treatment may have worsened transport risk. 3. Target precipitates into sludge. → Removal now depends on secure sludge handling. 4. Total measured mass falls far below inputs and outputs. → Investigate unmeasured phases, losses, or analytical bias.",
-        "why": "Removal from one phase does not equal destruction; mass balance reveals transfers and missing pathways.",
-        "rebuttals": [
-          "Situation 1: The supported response is \"Adsorption transferred the contaminant to a replaceable solid.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Treatment may have worsened transport risk.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Removal now depends on secure sludge handling.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Investigate unmeasured phases, losses, or analytical bias.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
-        ],
-        "scenarios": [
-          "Target disappears from water and appears on activated media.",
-          "Target converts to a more mobile oxidation state.",
-          "Target precipitates into sludge.",
-          "Total measured mass falls far below inputs and outputs."
+        "headline": "Treated water is down to 6 kg of the 100 kg that went in. The plant is being described as 94% effective.",
+        "play": "Read the mass balance across every stream, not just the one the city is asking about.",
+        "figure": {
+          "kind": "bars",
+          "yLabel": "Contaminant mass (kg)",
+          "caption": "Mass balance across the pilot treatment train for one campaign.",
+          "bars": [
+            {
+              "name": "Influent",
+              "value": 100,
+              "display": "100 kg",
+              "status": "normal"
+            },
+            {
+              "name": "Treated water",
+              "value": 6,
+              "display": "6 kg",
+              "status": "normal"
+            },
+            {
+              "name": "Sludge",
+              "value": 71,
+              "display": "71 kg",
+              "status": "high"
+            },
+            {
+              "name": "Off-gas",
+              "value": 3,
+              "display": "3 kg",
+              "status": "normal"
+            },
+            {
+              "name": "Unaccounted",
+              "value": 20,
+              "display": "20 kg",
+              "status": "alarm"
+            }
+          ]
+        },
+        "readings": [
+          {
+            "zone": "Water",
+            "label": "Contaminant out",
+            "value": "6 kg of 100 kg",
+            "status": "normal",
+            "note": "The number the city is being quoted."
+          },
+          {
+            "zone": "Sludge",
+            "label": "Contaminant in solids",
+            "value": "71 kg",
+            "status": "high",
+            "note": "Now a waste stream that needs a destination."
+          },
+          {
+            "zone": "Off-gas",
+            "label": "Volatilised",
+            "value": "3 kg",
+            "status": "normal"
+          },
+          {
+            "zone": "Balance",
+            "label": "Unaccounted mass",
+            "value": "20 kg",
+            "status": "alarm",
+            "note": "Not measured in any stream that was sampled."
+          },
+          {
+            "zone": "Byproduct bench",
+            "label": "Transformation product",
+            "value": "detected, no validated standard",
+            "status": "high",
+            "note": "Present, but not quantifiable yet — so it falls outside the balance."
+          },
+          {
+            "zone": "Plant",
+            "label": "Flow and residence time",
+            "value": "at design values",
+            "status": "normal",
+            "note": "The unit is operating as specified."
+          }
         ],
         "choices": [
-          "Adsorption transferred the contaminant to a replaceable solid.",
-          "Treatment may have worsened transport risk.",
-          "Removal now depends on secure sludge handling.",
-          "Investigate unmeasured phases, losses, or analytical bias."
+          {
+            "label": "The contaminant was moved, not destroyed",
+            "mechanism": "Only 3 kg left as gas. 71 kg is in sludge and 20 kg is unaccounted for — most likely as the transformation product the bench can see but cannot yet quantify."
+          },
+          {
+            "label": "The treatment destroyed 94% of the contaminant",
+            "mechanism": "Influent minus effluent is the removal efficiency."
+          },
+          {
+            "label": "The plant is running outside its design conditions",
+            "mechanism": "Off-spec flow or residence time would explain an unexpected result."
+          },
+          {
+            "label": "The influent measurement was too high",
+            "mechanism": "An overstated input would create an apparent gap at the end."
+          },
+          {
+            "label": "The 20 kg gap is normal measurement uncertainty",
+            "mechanism": "No mass balance closes exactly; a small shortfall is expected."
+          }
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "The contaminant was moved, not destroyed",
+        "why": "Removal from water and destruction are different claims, and this balance only supports the first. Seventy-one kilograms are in sludge — a solid that now needs a destination, and that will release the contaminant again if it meets acidic water. A further twenty are unaccounted for, and the byproduct bench has already seen a transformation product it cannot yet quantify, which is the most likely home for them. A treatment is judged on its complete chemical consequences, not on the one stream the public is asking about.",
+        "rebuttals": [
+          "Ninety-four per cent is a true statement about the water and a false one about the contaminant. Destruction would show as loss to a measured, benign product — not as 71 kg of solids.",
+          "Flow and residence time are at design values, so the plant is doing exactly what it was built to do. That is the point: this is the designed outcome, not a malfunction.",
+          "An overstated influent would open a gap, but it cannot put 71 kg into the sludge. The solids were weighed and analysed independently.",
+          "Twenty per cent is not measurement uncertainty. Calling it that is how a transformation product leaves a plant unmeasured and turns up downstream."
+        ],
+        "task": "Read the mass balance across every stream, not just the one the city is asking about.",
+        "answer": "The contaminant was moved, not destroyed"
       }
     },
     {

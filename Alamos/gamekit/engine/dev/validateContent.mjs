@@ -179,8 +179,20 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
     }
     const g = l.game;
     if(!g) return note(`${at}: no game object`);
-    if(g.choices && g.correctChoice && !g.choices.includes(g.correctChoice)){
-      fail(`${at}: correctChoice is not in choices — grading is indexOf, so this is ungradeable`);
+    // A candidate may be a plain string or { label, mechanism }; grading
+    // compares the label either way.
+    const labelsOf = (cs) => (cs || []).map(c => (typeof c === 'string' ? c : c.label));
+    if(g.choices && g.correctChoice && !labelsOf(g.choices).includes(g.correctChoice)){
+      fail(`${at}: correctChoice is not among the choices — grading compares labels, so this is ungradeable`);
+    }
+    if(g.type === 'DIAGNOSIS'){
+      const labels = labelsOf(g.choices);
+      if(labels.length < 4) fail(`${at}: diagnosis offers ${labels.length} candidates; the format needs at least four to rule out`);
+      if(new Set(labels).size !== labels.length) fail(`${at}: two candidates share a label — grading cannot tell them apart`);
+      if(!g.figure) fail(`${at}: diagnosis has no figure; the panel has to be readable at a glance`);
+      if(!(g.readings || []).some(r => r.status !== 'alarm')){
+        fail(`${at}: every reading is an alarm — the quiet readings are what rule explanations out`);
+      }
     }
     if(g.type === 'Protocol' && g.mapping && new Set(g.mapping).size !== g.mapping.length){
       fail(`${at}: protocol mapping is not a permutation`);

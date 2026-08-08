@@ -6,11 +6,13 @@ import { GROUP_DEFS } from './divisions.js';
 import { BALLPARK_CALCS, JARGON } from './curriculum.js';
 import { HINT_COST, RETRY_COST, VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
+import { renderFigure, readingsPanel, dataTable } from './figures.js';
 
 let activeChallenge = null;
 let activeOrder = null;
 let activeCalc = null;
 let activeProtocol = null;
+let activeDiagnosis = null;
 
 function jargonMatches(text, max=12){
   const normalized=` ${String(text||'').toLowerCase()} `;
@@ -30,7 +32,11 @@ function storyBriefText(lesson){
 }
 function allChallengeText(lesson,ch,includeAnswer=false){
   const parts=[lesson.title,lesson.progress,lesson.takeaway,ch.title,ch.setup,ch.play,ch.task,ch.question];
-  ['cards','scenarios','choices','givens'].forEach(k=>{if(Array.isArray(ch[k])) parts.push(...ch[k])});
+  ['cards','scenarios','choices','givens'].forEach(k=>{
+    if(Array.isArray(ch[k])) parts.push(...ch[k].map(v=> typeof v==='string' ? v : `${v.label ?? ''} ${v.mechanism ?? ''}`));
+  });
+  if(ch.headline) parts.push(ch.headline);
+  if(Array.isArray(ch.readings)) ch.readings.forEach(r=> parts.push(r.zone, r.label, r.value, r.note));
   if(Array.isArray(ch.proposals)) ch.proposals.forEach(p=>parts.push(p.text));
   if(ch.type==='Ballpark'){
     const spec=BALLPARK_CALCS[`${activeChallenge?activeChallenge.id:''}-${lesson.day}`];
@@ -49,6 +55,12 @@ function scientificHint(ch, lesson){
   if(ch.type==='Ballpark'){
     const spec=BALLPARK_CALCS[`${activeChallenge.id}-${lesson.day}`];
     return spec?`Anchor the estimate with "${spec.labels[spec.correct[0]]}." Then choose the remaining scale that makes the displayed relationship physically sensible.`:'Start by identifying the physical scale that should dominate the estimate.';
+  }
+  if(ch.type==='DIAGNOSIS'){
+    const quiet=(ch.readings||[]).filter(r=> r.status!=='alarm');
+    return quiet.length
+      ? `Start from a quiet reading, not the alarm: "${quiet[0].zone} — ${quiet[0].label}: ${quiet[0].value}". Any explanation that cannot account for it is out.`
+      : 'The right explanation has to fit every reading on the panel, including the calm ones.';
   }
   const rec=ch.recommended||{}, best=Object.keys(rec).sort((a,b)=>(rec[b]||0)-(rec[a]||0))[0];
   return `Proposal ${best||'?' } has the strongest supporting evidence. Consider how each proposal addresses the system-level question with limited resources.`;
@@ -275,9 +287,44 @@ function triageHTML(ch){
   const opts=(ch.choices||[]).map((c,i)=>`<button class="orderItem" data-triage="${i}" type="button"><b>${String.fromCharCode(65+i)}.</b> ${esc(c)}</button>`).join('');
   return `<div class="compactInstruction">${esc(ch.task||ch.question||'Choose who needs help first.')}</div><div class="orderBank" style="display:grid;gap:8px">${opts}</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="triageCheck" type="button" disabled>Choose</button></div>`;
 }
+/**
+ * DIAGNOSIS — differential reasoning from an instrument panel.
+ *
+ * The format's whole lesson is that the loud reading gets your attention and
+ * the right explanation fits the *whole* panel, so the panel has to be visible
+ * while the player chooses: the figure, every zone including the quiet ones,
+ * and the numbers behind both. A list of sentences cannot teach it, which is
+ * what this renderer replaced.
+ *
+ * A candidate is { label, mechanism }; plain strings still work, so the older
+ * hospital-shaped content renders unchanged.
+ */
 function diagnosisHTML(ch){
-  const opts=(ch.choices||[]).map((c,i)=>`<button class="orderItem" data-diagnosis="${i}" type="button"><b>${String.fromCharCode(65+i)}.</b> ${esc(c)}</button>`).join('');
-  return `<div class="compactInstruction">${esc(ch.play||ch.task||'Pick the best explanation.')}</div><div class="orderBank" style="display:grid;gap:8px">${opts}</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="diagnosisCheck" type="button" disabled>Check</button></div>`;
+  const all=(ch.choices||[]).map(c=> typeof c==='string' ? { label:c, mechanism:'' } : c);
+  // Display order is shuffled, and `order` maps display position back to the
+  // real index. Authored packs tend to put the correct explanation first; a
+  // player who notices that stops reading the panel, which is the whole game.
+  const state=getState();
+  const order=shuffleSeeded(all.map((_,i)=>i),
+    state.week*63 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*17 + 5);
+  activeDiagnosis={ order };
+  const opts=order.map((real,i)=>{
+    const c=all[real];
+    return `<button class="candidate" data-diagnosis="${real}" type="button">`
+      + `<b>${String.fromCharCode(65+i)}.</b><span class="candidateLabel">${esc(c.label)}</span>`
+      + (c.mechanism?`<span class="candidateMechanism">${esc(c.mechanism)}</span>`:'')
+      + `</button>`;
+  }).join('');
+  const headline = ch.headline
+    ? `<div class="alarmLine"><span aria-hidden="true">■</span> ${esc(ch.headline)}</div>` : '';
+  return headline
+    + renderFigure(ch.figure)
+    + readingsPanel(ch.readings)
+    + dataTable(ch.figure, ch.readings)
+    + `<div class="compactInstruction">${esc(ch.play||ch.task||'Which explanation fits every reading, not just the loudest one?')}</div>`
+    + `<div class="candidateBank">${opts}</div>`
+    + `<div id="visitFeedback"></div>`
+    + `<div class="modalActions"><button class="btn primary" id="diagnosisCheck" type="button" disabled>Check</button></div>`;
 }
 function casebookHTML(ch){
   if(ch.proposals) return tankHTML(ch);
@@ -414,10 +461,11 @@ function bindDiagnosis(){
   if(!check) return;
   check.onclick=()=>{
     const ch=activeChallenge.ch;
-    const correctStr = ch.correctChoice||ch.answer;
     const picked = ch.choices[chosen];
-    const ok = picked===correctStr || (correctStr && picked===correctStr);
-    finishVisit(ok);
+    const label = typeof picked==='string' ? picked : picked.label;
+    const correctStr = ch.correctChoice||ch.answer;
+    activeChallenge.userAnswer=label;
+    finishVisit(label===correctStr);
   };
 }
 function bindCasebook(){
