@@ -643,6 +643,30 @@ export function litWindow(scene, w, h, x, y, z, opts = {}){
   pane.position.set(x, y, z);
   pane.rotation.y = opts.facing ?? 0;
   pane.userData.litWindow = true;
+  // A bare dark rectangle reads as a hole, not a window. The frame and sill are
+  // what make it period: side by side with the original, the glass matched and
+  // the missing casing was the whole difference.
+  if(opts.frame !== false){
+    const f = opts.frameColour ?? 0xe8e3d6;
+    const fm = mat(`kit.winframe.${f}`, () =>
+      new THREE.MeshStandardMaterial({ color: f, roughness: 0.9, envMapIntensity: ENV }));
+    const t = 0.075, out = 0.012;
+    const nx = Math.sin(opts.facing ?? 0) * out, nz = Math.cos(opts.facing ?? 0) * out;
+    const put = (bw, bh, ox, oy) => {
+      const m = new THREE.Mesh(BOX, fm);
+      m.scale.set(bw, bh, 0.05);
+      m.position.set(x + nx, y + oy, z + nz);
+      m.rotation.y = opts.facing ?? 0;
+      m.translateX(ox);
+      m.castShadow = true;
+      scene.add(m);
+    };
+    put(w + t * 2, t, 0, h / 2 + t / 2);          // head
+    put(w + t * 2, t * 1.6, 0, -h / 2 - t * 0.8); // sill, heavier than the head
+    put(t, h, -(w / 2 + t / 2), 0);               // jambs
+    put(t, h, (w / 2 + t / 2), 0);
+    put(w, t * 0.5, 0, 0);                        // one glazing bar
+  }
   // Not every window in a town is occupied; a uniformly lit block reads as a
   // hotel rather than a working site.
   pane.userData.lightChance = opts.lightChance ?? 0.5;
