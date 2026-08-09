@@ -37,6 +37,7 @@ import {
   mat, paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture, grainTexture,
 } from './materials.js';
 import { instrumentScreen, printedSheet } from './screens.js';
+import { addCaseBeacon } from './caseBeacon.js';
 
 /** Far enough along +x that the town is past the camera's far plane. */
 export const DISTRICT_X = 4000;
@@ -262,6 +263,12 @@ export function buildInteriorBuilding(scene, spec){
     mesh: standHit, type: 'case', id: spec.id,
     prompt: `E — Take the case in ${spec.name}`,
   });
+  // The stand is the only thing in the room that starts a question, and from
+  // the doorway it looks like the rest of the paper in the room. Mark it.
+  const beacon = addCaseBeacon(group, {
+    x: standX, z: standZ, colour: accent.getHex(),
+    label: 'Take the case · E', height: 2.25,
+  });
 
   // ------------------------------------------------------------ the door
   const doorHit = add(new THREE.Mesh(
@@ -280,7 +287,9 @@ export function buildInteriorBuilding(scene, spec){
 
   return {
     id: spec.id,
-    group, colliders, interactables, light, screen, plate, chart,
+    group, colliders, interactables, light, screen, plate, chart, beacon,
+    /** Light the marker only while there is actually a case waiting here. */
+    setCaseOpen(on){ beacon.setActive(on); },
     /** Where the player stands on entering: just inside, facing the room. */
     enterTransform: { x: ox, y: 0, z: oz + z0 + 1.5, yaw: Math.PI },
     origin: { x: ox, z: oz },
@@ -291,6 +300,6 @@ export function buildInteriorBuilding(scene, spec){
       light.visible = on;
       fill.visible = on;
     },
-    update(delta){ screen.update(delta); },
+    update(delta, camera){ screen.update(delta); beacon.update(delta, camera); },
   };
 }

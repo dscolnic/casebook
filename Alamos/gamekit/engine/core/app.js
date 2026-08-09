@@ -11,6 +11,22 @@
 // works whether the game reaches the world through the engine's module or
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
+import { getState, getNextMissionStop } from './gameState.js';
+import { nextMissionStopIndex, isPersonStopForIdx } from './simulation.js';
+
+/**
+ * Which area has a case open right now, or null.
+ *
+ * A person stop counts as nothing open anywhere: the player is looking for
+ * somebody, and a lit stand in an empty room would send them the wrong way.
+ */
+export function openCaseGroup(){
+  const state = getState();
+  if(!state) return null;
+  const idx = nextMissionStopIndex(state);
+  if(idx < 0 || isPersonStopForIdx(state, idx)) return null;
+  return getNextMissionStop()?.group ?? null;
+}
 
 /**
  * The interiors: one walkable room per area, built on first entry, in a
@@ -36,6 +52,7 @@ export function createInteriors({
 }){
   const rooms = new Map();
   let inside = null;
+  let sinceCheck = 0;
   // `scene` and `camera` may still be undefined when this is built: two of the
   // three games assign theirs inside initWorld/initPlayer, and the manager has
   // to exist before the frame loop starts. Resolve them at first use, and
@@ -88,6 +105,7 @@ export function createInteriors({
       onEnter?.(id);
       inside = { id, room, back: player.getPosition().clone(), yaw: live(camera).rotation.y };
       room.setVisible(true);
+      room.setCaseOpen(openCaseGroup() === id);
       player.setGround(room.groundHeight);
       player.setBounds(DISTRICT_X + 400);
       player.teleport(room.enterTransform, room.enterTransform.yaw);
@@ -104,7 +122,17 @@ export function createInteriors({
       return true;
     },
     /** Per frame. Only the room the player is in repaints its screen. */
-    update(delta){ inside?.room.update(delta); },
+    update(delta){
+      if(!inside) return;
+      inside.room.update(delta, live(camera));
+      // The case can close while the player is standing in the room — they
+      // answer it, and the marker has to go out with it.
+      sinceCheck += delta;
+      if(sinceCheck > 0.4){
+        sinceCheck = 0;
+        inside.room.setCaseOpen(openCaseGroup() === inside.id);
+      }
+    },
   };
 }
 

@@ -8,7 +8,7 @@
 // their own zone, so no NPC ever tries to walk through the Tech Area wire.
 import * as THREE from 'three';
 import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
-import { scene, colliders, interactables } from './world.js';
+import { scene, colliders, interactables, softColliders } from './world.js';
 import { camera } from './player.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { CHARACTER_DIVISION } from './simulation.js';
@@ -528,6 +528,10 @@ export function spawnNPCs(count = 20){
       facing: srand() * Math.PI * 2,
     };
     n.target.copy(scheduledTarget(n));
+    // A collider that travels with them, so walking into somebody is a bump
+    // rather than passing through a ghost.
+    n.soft = { x: pos.x, z: pos.z, r: n.seated ? 0.3 : BODY_RADIUS };
+    softColliders.push(n.soft);
     npcs.push(n);
   });
 
@@ -641,6 +645,9 @@ function stepWalker(n, delta){
   n.body.rotation.y += d * Math.min(1, delta * 6);
 
   if(n.hit) n.hit.position.set(nx, groundY + 0.95, nz);
+  // The collider travels with them, or it is an invisible pillar where they
+  // used to be — and one wider than the distance at which they step aside.
+  if(n.soft){ n.soft.x = nx; n.soft.z = nz; }
 }
 
 /** Standing still is not standing frozen: weight shifts, arms settle. */
@@ -661,12 +668,59 @@ function animateIdle(n, delta){
   });
 }
 
+
+/** How wide a person is, for the player walking into them. */
+const BODY_RADIUS = 0.34;
+/**
+ * How close somebody lets *the player* get before stepping aside. Distinct from
+ * PERSONAL_SPACE, which is how far apart two of them stand from each other, and
+ * bigger, because it has to exceed the player's radius plus BODY_RADIUS — or
+ * the player is stopped by the body before the person notices them, and nothing
+ * ever appears to yield.
+ */
+const PLAYER_SPACE = 1.0;
+
+/**
+ * Get out of the player's way.
+ *
+ * Walking into a crew member used to mean walking through them. They step
+ * directly away where there is room and slide along the obstruction where there
+ * is not, which is what a person in a corridor actually does.
+ */
+function yieldToPlayer(n, px, pz){
+  if(n.seated) return false;
+  const dx = n.pos.x - px, dz = n.pos.z - pz;
+  const d = Math.hypot(dx, dz);
+  if(d > PLAYER_SPACE) return false;
+  const push = PLAYER_SPACE - d + 0.02;
+  // Standing exactly on somebody gives no direction to push them in. Pick one
+  // rather than doing nothing, which is what "walk straight at a person and
+  // nothing happens" looked like.
+  const ux = d > 1e-3 ? dx / d : 1, uz = d > 1e-3 ? dz / d : 0;
+  for(const [ax, az] of [[ux, uz], [-uz, ux], [uz, -ux]]){
+    const nx = n.pos.x + ax * push, nz = n.pos.z + az * push;
+    if(!isClear(nx, nz, 0.4)) continue;
+    n.pos.x = nx; n.pos.z = nz;
+    if(n.body){ n.body.position.x = nx; n.body.position.z = nz; }
+    if(n.hit) n.hit.position.set(nx, n.hit.position.y, nz);
+    if(n.target?.set) n.target.set(nx, n.body ? n.body.position.y : 0, nz);
+    n.pause = Math.max(n.pause ?? 0, 0.6);
+    if(n.soft){ n.soft.x = nx; n.soft.z = nz; n.soft.r = BODY_RADIUS; }
+    return true;
+  }
+  // Cornered. Being walked through is better than wedging the player against a
+  // bulkhead, so they stop being solid until there is room again.
+  if(n.soft) n.soft.r = 0;
+  return false;
+}
+
 export function updateNPCs(delta, playerPos){
   if(!npcs.length && !extras.length) return;
   if(camera) camera.getWorldDirection(camForward);
 
   for(const n of npcs){
     stepWalker(n, delta);
+    yieldToPlayer(n, playerPos.x, playerPos.z);
     // Nameplate: visible only when close AND actually being looked at, then
     // faded by distance. An always-on label is the loudest "this is a game" tell.
     if(n.plate){
@@ -699,6 +753,7 @@ export function updateNPCs(delta, playerPos){
   for(const e of extras){
     if(e.mode === 'walk') stepWalker(e, delta);
     else animateIdle(e, delta);
+    yieldToPlayer(e, playerPos.x, playerPos.z);
   }
 }
 

@@ -117,7 +117,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .scoreBox strong{display:block;font-family:var(--serif);font-size:1rem}
 .scoreBox span{font-size:.7rem;color:var(--muted)}
 .debrief{max-width:860px;margin:14px auto;text-align:left;background:var(--goldSoft);border-left:4px solid var(--gold);padding:12px;font-size:.8rem;line-height:1.55}
-@media(max-width:780px){.scientistPanel{grid-template-columns:1fr}.wrongAnswerCompare{grid-template-columns:1fr}.matchRow{grid-template-columns:1fr}.numberBank{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:780px){.askCard{grid-template-columns:1fr}.askBody{border-left:0;padding-left:0}.scientistPanel{grid-template-columns:1fr}.wrongAnswerCompare{grid-template-columns:1fr}.matchRow{grid-template-columns:1fr}.numberBank{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}
 }
 
@@ -202,24 +202,41 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .gaugeRow .figure{flex:0 1 240px;margin:0}
 .gaugeRow .figure svg{min-width:0}
 
-/* Sequence, as a rail. Every slot is on screen from the start so the shape of
-   the task — four steps, in order — is visible before anything is placed. */
-.timelineTask{margin:10px 0;padding:10px 12px;background:#fbf9f4;border:1px solid #ded8cc;border-radius:10px}
-.tlEnd{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;color:#5f6368}
-.timelineSlots{list-style:none;margin:6px 0;padding:0 0 0 4px;position:relative}
-.timelineSlots::before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:#ded8cc}
-.tlSlot{position:relative;display:flex;align-items:center;gap:10px;padding:4px 0}
-.tlNum{position:relative;z-index:1;flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:#fff;
-  border:2px solid #ded8cc;color:#5f6368;display:grid;place-items:center;font:800 .72rem Inter,system-ui}
+/* Sequence, as a rail on a worksheet — not four text fields in a stack.
+   Every slot is on screen from the start so the shape of the task (four steps,
+   in this order) is visible before anything is placed, and the cards look like
+   things you move rather than inputs you type into. */
+.timelineTask{margin:10px 0;padding:12px 14px;background:linear-gradient(#fbf9f4,#f6f2e8);
+  border:1px solid #ded8cc;border-radius:12px}
+.tlEnd{font:800 .62rem/1 Inter,system-ui;letter-spacing:.1em;text-transform:uppercase;color:#8a8172;
+  display:flex;align-items:center;gap:8px}
+.tlEnd::after{content:"";flex:1;height:1px;background:#e2dbcc}
+.timelineSlots{list-style:none;margin:8px 0;padding:0 0 0 4px;position:relative}
+.timelineSlots::before{content:"";position:absolute;left:16px;top:10px;bottom:10px;width:3px;
+  background:linear-gradient(#cfc7b8,#b9c9d8);border-radius:2px}
+.tlSlot{position:relative;display:flex;align-items:stretch;gap:12px;padding:5px 0}
+.tlNum{position:relative;z-index:1;flex:0 0 auto;width:29px;height:29px;border-radius:50%;background:#fff;
+  border:2px solid #cfc7b8;color:#6c6558;display:grid;place-items:center;font:800 .78rem Inter,system-ui;
+  align-self:center;box-shadow:0 1px 0 #fff inset}
 .tlSlot.filled .tlNum{background:#2a78d6;border-color:#2a78d6;color:#fff}
-.tlCard{flex:1;display:flex;justify-content:space-between;gap:8px;align-items:baseline;text-align:left;
-  background:#fff;border:1px solid var(--line);border-left:4px solid #2a78d6;border-radius:9px;
-  padding:9px 10px;font:inherit;font-size:.78rem;color:inherit;cursor:pointer}
-.tlCard:hover{border-color:#9aa3ad;border-left-color:#2a78d6}
-.tlRemove{color:var(--muted);font-size:.66rem;white-space:nowrap}
-.tlGhost{flex:1;border:1px dashed #cfc7b8;border-radius:9px;padding:9px 10px;font-size:.74rem;color:#8d8676;background:#fdfcf9}
-.tlBankLabel{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;color:#5f6368;margin:10px 0 4px}
-.tlBankCard{cursor:pointer}
+.tlCard{flex:1;display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;
+  background:#fff;border:1px solid #cdd6df;border-left:5px solid #2a78d6;border-radius:10px;
+  padding:11px 12px;font:inherit;font-size:.82rem;line-height:1.4;color:inherit;cursor:pointer;
+  box-shadow:0 1px 2px rgba(40,32,18,.06)}
+.tlCard:hover{border-color:#9aa3ad;border-left-color:#1b5fae;box-shadow:0 3px 8px rgba(40,32,18,.12)}
+.tlRemove{color:#8d8676;font:700 .62rem/1 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.tlGhost{flex:1;display:flex;align-items:center;border:1.5px dashed #cfc7b8;border-radius:10px;
+  padding:11px 12px;font:600 .74rem/1.3 Inter,system-ui;color:#8d8676;background:#fdfcf9}
+.tlBankLabel{font:800 .62rem/1 Inter,system-ui;letter-spacing:.1em;text-transform:uppercase;color:#8a8172;margin:14px 0 6px}
+/* The cards waiting to be placed: physical chips with a grip, laid out two up
+   where there is room, so a four-card bank is not a column of grey bars. */
+.orderBank{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}
+.tlBankCard{position:relative;cursor:pointer;background:#fff;border:1px solid #d9d2c5;
+  border-radius:10px;padding:12px 12px 12px 26px;text-align:left;font:inherit;font-size:.82rem;line-height:1.4;
+  box-shadow:0 1px 2px rgba(40,32,18,.06)}
+.tlBankCard::before{content:"";position:absolute;left:10px;top:14px;bottom:14px;width:6px;
+  background:radial-gradient(circle at 2px 2px,#c8c0b0 1.4px,transparent 1.6px) 0 0/4px 5px repeat-y}
+.tlBankCard:hover{border-color:#2a78d6;box-shadow:0 3px 10px rgba(40,32,18,.13);transform:translateY(-1px)}
 
 /* Protocol's live diagram. It sits above the selects and redraws on every
    change, so a crossed pair of lines is visible while it can still be fixed. */
@@ -308,3 +325,34 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .passagePeek{display:block;margin-top:10px;background:none;border:0;padding:4px 0;cursor:pointer;
   font:600 .76rem/1.3 Inter,system-ui;color:#8a6921;text-decoration:underline}
 .passagePeek:hover{color:#6b4b12}
+
+/* ——— The ask card ———————————————————————————————————————————————————
+   Who is asking, and the situation. The panel used to open with a week
+   counter, a division tag, the place name, "first call of three", the
+   mission stake in a warning box and a labelled strip of glossary chips —
+   six blocks before the question. This is what replaced all of it. */
+.askCard{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:start;margin:2px 0 14px}
+.askWho{display:flex;flex-direction:column;align-items:center;text-align:center}
+.askWho .portrait{display:block;border-radius:12px;box-shadow:0 6px 18px rgba(40,32,18,.14)}
+.askName{font:800 .78rem/1.25 Inter,system-ui;margin-top:7px;color:var(--ink)}
+.askRole{font:500 .68rem/1.3 Inter,system-ui;color:var(--muted);margin-top:2px}
+.askBody{border-left:3px solid var(--accent,#3b566b);padding-left:14px}
+.askBrief{margin:0;font:400 .95rem/1.62 Inter,system-ui;color:#2f3336}
+.askAsks{margin:9px 0 0;font:700 .9rem/1.45 Georgia,serif;color:var(--ink)}
+.termStrip.inline{margin:10px 0 0;padding:0;border:0;background:none}
+.termStrip.inline .termChip{border-color:#ded5c2;background:#fbf7ee;font-size:.66rem;padding:3px 8px}
+/* The hint sits under the controls now: a price tag between the paragraph and
+   the question put a shop counter in the middle of the reading. */
+.visitAssist{margin:14px 0 0;padding:0;border:0;background:none;opacity:.85}
+.visitAssist .btn.small{font-size:.7rem}
+
+/* ——— The match board ————————————————————————————————————————————————
+   PROTOCOL and CASEBOOK are worked on the diagram itself. Nothing here is
+   decorative: every node is a button. */
+.matchBoard{background:#fbf9f4;border:1px solid #ded8cc;border-radius:10px;padding:8px 6px;margin:10px 0;overflow-x:auto}
+.matchBoard svg{display:block;min-width:520px;margin:0 auto}
+.mbNode{cursor:pointer}
+.mbNode rect{transition:stroke .12s ease,fill .12s ease}
+.mbNode:hover rect{stroke:#9aa3ad}
+.mbNode:focus{outline:none}
+.mbNode:focus rect{stroke:#c8901b;stroke-width:2}

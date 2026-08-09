@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { passageHTML, bindPassage } from '../../../gamekit/engine/core/personQuiz.js';
-import { initWorld, scene, renderer, updateWorldFromState, centralBoardMesh, getBuildingPosition } from './world.js';
+import { initWorld, scene, renderer, updateWorldFromState, centralBoardMesh, getBuildingPosition, updateCaseBeacons } from './world.js';
 import { initPlayer, controls, camera, updatePlayer, getPosition, teleport } from './player.js';
 import { updateInteractions, getCurrentTarget } from './interactions.js';
 import { LEADERS } from './leaders.js';
@@ -224,6 +224,7 @@ function animate(){
     // The screens in the rooms keep running whether or not anyone is watching;
     // they repaint at their own rate, not the frame rate.
     try{ updateInstruments(delta); }catch(e){}
+    try{ updateCaseBeacons(delta, camera); }catch(e){}
     // waypoint: special fourth meeting takes priority, otherwise assigned person if next stop is person-type
     try{
       if(state && isSpecialRequestActive(state)){

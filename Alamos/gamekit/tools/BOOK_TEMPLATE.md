@@ -23,7 +23,9 @@ matter are few, and every one of them exists because breaking it shipped a bug:
   arithmetic; without it the panel opens with "not yet converted".
 - **`takeaway` never repeats `why`.** The takeaway is shown before the question.
 - **The `scene` is what the player reasons from**, and it is shown before the
-  question, so it must not contain the answer.
+  question, so it must not contain the answer. Neither must `motivation`, the
+  optional line about why this stop matters now — `why` is the answer's
+  reasoning and is only ever shown in the verdict.
 
 Three stops per mission, fifteen missions, and every stop's lesson lives at the
 stop. There is no separate curriculum to index into and therefore nothing to

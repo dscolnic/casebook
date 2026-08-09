@@ -61,6 +61,7 @@ const LANDMARKS = [
 
 export const site = {
   kind: 'outdoor',
+  name: 'Riverton',
 
   // A river floodplain: flat, not a mesa. `relief` keeps a little undulation so
   // the ground is not a billiard table, and the pads flatten it under buildings.

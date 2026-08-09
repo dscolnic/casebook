@@ -32,21 +32,31 @@ const WORLDS = {
   interior: 'engine/world/interiorSite.js',
 };
 
-// Read the kind without importing the theme (which would need a DOM). A theme
-// declares it in site.js as `kind: 'outdoor'`.
+// Read the kind — and any world of the theme's own — without importing the
+// theme, which would need a DOM. Both are declared in site.js:
+//
+//   kind:  'outdoor' | 'interior'      which engine world builds the place
+//   world: 'themes/<name>/world.js'    the theme builds its own instead
+//
+// A theme brings its own world when the place already exists: Deep Watch
+// arrived as a finished submarine, and rebuilding it as generated rooms would
+// have thrown away the thing that made it worth converting.
 import { readFileSync, existsSync } from 'node:fs';
-function siteKind(theme){
+function siteFile(theme){
   for(const f of ['site.js', 'plan.js']){
     const p = resolve(here, 'themes', theme, f);
-    if(!existsSync(p)) continue;
-    const m = /kind:\s*'(\w+)'/.exec(readFileSync(p, 'utf8'));
-    if(m) return m[1];
+    if(existsSync(p)) return readFileSync(p, 'utf8');
   }
-  return 'outdoor';
+  return '';
 }
-const kind = siteKind(THEME);
-const world = WORLDS[kind];
+const declared = siteFile(THEME);
+const kind = (/kind:\s*'(\w+)'/.exec(declared) ?? [])[1] ?? 'outdoor';
+const ownWorld = (/\bworld:\s*'([^']+)'/.exec(declared) ?? [])[1] ?? null;
+const world = ownWorld ?? WORLDS[kind];
 if(!world) throw new Error(`theme "${THEME}" declares site kind "${kind}", which has no world module`);
+if(ownWorld && !existsSync(resolve(here, ownWorld))){
+  throw new Error(`theme "${THEME}" declares world "${ownWorld}", which does not exist`);
+}
 
 export default defineConfig({
   resolve: {

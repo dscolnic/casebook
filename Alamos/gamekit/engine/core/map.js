@@ -39,6 +39,14 @@ function heading(x, z, yaw, len, colour){
 /** World bounds that hold everything worth drawing. */
 function bounds(site){
   const xs = [], zs = [];
+  // An interior describes itself as rooms along a plan rather than buildings on
+  // terrain. Without this the map had nothing to size itself against and drew
+  // an empty rectangle with the player dot in the middle of it.
+  for(const r of site.plan?.rooms ?? []){
+    const half = site.plan.halfWidth ?? 4;
+    xs.push(-half, half);
+    zs.push(r.z0, r.z1);
+  }
   for(const b of site.buildings ?? []){
     xs.push(b.x - b.w / 2, b.x + b.w / 2);
     zs.push(b.z - b.d / 2, b.z + b.d / 2);
@@ -63,11 +71,29 @@ export function renderMap(){
   const site = theme.site ?? {};
   const state = getState();
   const b = bounds(site);
-  const W = 720, H = Math.round(W * (b.z1 - b.z0) / (b.x1 - b.x0));
-  const sx = (x) => ((x - b.x0) / (b.x1 - b.x0)) * W;
-  const sz = (z) => ((z - b.z0) / (b.z1 - b.z0)) * H;
-  const sw = (w) => (w / (b.x1 - b.x0)) * W;
-  const sd = (d) => (d / (b.z1 - b.z0)) * H;
+  // A submarine is fifty-five metres long and four and a half wide. Drawn with
+  // north up it is a strip four compartments tall in a panel that shows two, so
+  // a place much longer than it is wide is turned on its side: its length runs
+  // across the map and the bow is on the left.
+  const spanX = b.x1 - b.x0, spanZ = b.z1 - b.z0;
+  const sideways = spanZ > spanX * 2.5;
+  // A sideways plan is very wide and very short; the height is padded so the
+  // rotated names and the target's marker have somewhere to go.
+  const W = 720;
+  const H = sideways
+    ? Math.max(260, Math.round(W * spanX / spanZ))
+    : Math.round(W * spanZ / spanX);
+  const sx = sideways ? (x, z) => ((z - b.z0) / spanZ) * W
+                      : (x) => ((x - b.x0) / spanX) * W;
+  const sz = sideways ? (z, x) => ((x - b.x0) / spanX) * H
+                      : (z) => ((z - b.z0) / spanZ) * H;
+  const sw = (w) => (w / (sideways ? spanZ : spanX)) * W;
+  const sd = (d) => (d / (sideways ? spanX : spanZ)) * H;
+  /** A world point, wherever the map decided to put it. */
+  const px = (x, z) => (sideways ? sx(x, z) : sx(x));
+  const py = (x, z) => (sideways ? sz(z, x) : sz(z));
+  /** The same yaw, in the map's frame. */
+  const yawOf = (yaw) => (sideways ? Math.PI / 2 - yaw : yaw);
 
   // Which place the mission wants next, so the map can say "here".
   const mission = getCurrentMission(state);
@@ -81,6 +107,36 @@ export function renderMap(){
   const wanted = wantedId ? (getNPCs() ?? []).find(n => n.char?.id === wantedId) : null;
 
   let g = '';
+  // ---- an interior: the rooms in order along the plan
+  for(const r of site.plan?.rooms ?? []){
+    const area = r.group ? def(r.group) : null;
+    const isTarget = r.group && r.group === targetGroup;
+    const half = site.plan.halfWidth ?? 4;
+    const x = sideways ? sx(0, r.z0) : sx(-half);
+    const y = sideways ? sz(0, -half) : sz(r.z0);
+    const w = sideways ? sw(r.z1 - r.z0) : sw(half * 2);
+    const h = sideways ? sd(half * 2) : sd(r.z1 - r.z0);
+    g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" `
+       + `fill="${area ? area.color : (r.colour ?? '#9a958a')}" opacity="${area ? 0.9 : 0.4}" `
+       + `stroke="${isTarget ? '#f2c14e' : 'rgba(0,0,0,.3)'}" stroke-width="${isTarget ? 3 : 1}"/>`;
+    // Sideways, a compartment is a narrow vertical band and ten names centred in
+    // ten of them land on the same line as one another. The label turns to run
+    // along the band instead, which is the only direction it fits.
+    const cx = x + w / 2, cy = y + h / 2;
+    const label = esc(r.name ?? r.id);
+    g += sideways
+      ? `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="10.5" fill="#1c1b19" `
+        + `font-weight="${isTarget ? 800 : 600}" transform="rotate(-90 ${cx} ${cy})">${label}</text>`
+      : `<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="11" fill="#1c1b19" `
+        + `font-weight="${isTarget ? 800 : 600}">${label}</text>`;
+    if(isTarget){
+      g += sideways
+        ? `<text x="${cx}" y="${y - 8}" text-anchor="middle" font-size="10" fill="#8a6410" `
+          + `font-weight="800">▼ go here</text>`
+        : `<text x="${cx}" y="${cy + 18}" text-anchor="middle" font-size="10" fill="#8a6410" `
+          + `font-weight="800">◀ go here</text>`;
+    }
+  }
   if(site.water){
     g += `<rect x="${sx(site.water.cx - site.water.width / 2)}" y="${sz(site.water.cz - site.water.depth / 2)}" `
        + `width="${sw(site.water.width)}" height="${sd(site.water.depth)}" fill="#2c4a52" opacity="0.55"/>`;
@@ -111,9 +167,10 @@ export function renderMap(){
   // way they are facing — they walk, so a static dot would be a lie by the time
   // the player got there.
   if(wanted){
-    const mx = sx(wanted.pos?.x ?? 0), mz = sz(wanted.pos?.z ?? 0);
+    const mx = px(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
+    const mz = py(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
     const colour = def(wanted.division)?.color ?? '#8a6410';
-    g += heading(mx, mz, wanted.facing ?? 0, 15, colour)
+    g += heading(mx, mz, yawOf(wanted.facing ?? 0), 15, colour)
        + `<circle cx="${mx}" cy="${mz}" r="7" fill="${colour}" stroke="#fff" stroke-width="2.5"/>`
        + `<circle cx="${mx}" cy="${mz}" r="12" fill="none" stroke="${colour}" stroke-width="1.5" opacity="0.55"/>`
        + `<text x="${mx}" y="${mz - 17}" text-anchor="middle" font-size="11" font-weight="800" `
@@ -122,17 +179,18 @@ export function renderMap(){
 
   // The player, with the direction they are actually looking.
   const p = getPosition();
-  const px = sx(p.x), pz = sz(p.z);
+  const pxx = px(p.x, p.z), pz = py(p.x, p.z);
   let yaw = 0;
   if(camera){
     const d = new (p.constructor)();
     camera.getWorldDirection(d);
     yaw = Math.atan2(d.x, d.z);
   }
-  g += heading(px, pz, yaw, 17, '#1c1b19')
-     + `<circle cx="${px}" cy="${pz}" r="6" fill="#fff" stroke="#1c1b19" stroke-width="2.5"/>`;
+  g += heading(pxx, pz, yawOf(yaw), 17, '#1c1b19')
+     + `<circle cx="${pxx}" cy="${pz}" r="6" fill="#fff" stroke="#1c1b19" stroke-width="2.5"/>`;
 
-  const legend = ['North is up', 'you are the white dot']
+  const legend = [site.plan ? (sideways ? 'Bow to the left' : 'Bow at the top') : 'North is up',
+                  'you are the white dot']
     .concat(targetGroup ? ['gold outline is your next stop'] : [])
     .concat(wanted ? [`find ${wanted.char?.name ?? 'your contact'} — the ringed dot, arrow shows the way they face`] : []);
   return `<div class="mapWrap"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" `

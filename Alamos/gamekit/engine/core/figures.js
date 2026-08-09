@@ -539,3 +539,92 @@ export function dataTable(fig, readings){
     + `<table><tbody>${rows.map(([a, b]) =>
         `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</tbody></table></details>`;
 }
+
+/**
+ * A match question you can actually work — the diagram *is* the interface.
+ *
+ * The old Protocol panel printed the same question three times: a picture of
+ * two columns you could not touch, a grid of `<select>` menus repeating every
+ * word of it, and then "Choices in full" repeating them once more. It read like
+ * a form because it was one.
+ *
+ * This is one object. Click a situation, click an explanation, a line is drawn.
+ * Click a joined node to break it. Nothing is written twice, and the thing the
+ * player looks at is the thing they operate.
+ *
+ * Grading marks are optional: pass `links[].ok` and the verdict can redraw the
+ * same board with the player's joins in green and red.
+ *
+ * `spec`  { left, right, links:[{from,to,ok}], selected:{side,i}, accent }
+ */
+export function matchBoard(spec, { w = 620 } = {}){
+  const left = spec.left ?? [], right = spec.right ?? [];
+  const accent = spec.accent || SERIES[0];
+  const colW = 244, gap = w - colW * 2 - 16;
+  const CHARS = 30;
+  const wrapL = left.map(t => wrap(t, CHARS)), wrapR = right.map(t => wrap(t, CHARS));
+  const lineH = 13, padY = 11;
+  const boxH = (lines) => padY * 2 + lines.length * lineH + 4;
+  const hL = wrapL.map(boxH), hR = wrapR.map(boxH);
+  // Rows are laid out independently down each column and centred against each
+  // other, so a three-line explanation does not drag its situation off-screen.
+  const stack = (hs) => { let y = 26, out = []; for(const h of hs){ out.push(y); y += h + 12; } return { tops: out, total: y }; };
+  const L = stack(hL), R = stack(hR);
+  const h = Math.max(L.total, R.total) + 8;
+  const offL = (h - L.total) / 2, offR = (h - R.total) / 2;
+  const yL = (i) => offL + L.tops[i] + hL[i] / 2, yR = (i) => offR + R.tops[i] + hR[i] / 2;
+  const x0 = 8, x1 = w - 8 - colW;
+
+  const node = (side, i, x, y, hh, lines, tag, linked, sel) => {
+    const fill = sel ? '#fff8e6' : linked ? '#f4f8fd' : '#fff';
+    const stroke = sel ? '#c8901b' : linked ? accent : GRID;
+    let t = '';
+    lines.forEach((ln, n) => {
+      t += `<text x="${x + 30}" y="${y - hh / 2 + padY + 10 + n * lineH}" font-size="11.5" fill="${INK}">${esc(ln)}</text>`;
+    });
+    return `<g class="mbNode${sel ? ' sel' : ''}${linked ? ' linked' : ''}" data-side="${side}" data-i="${i}" tabindex="0" role="button">`
+      + `<rect x="${x}" y="${y - hh / 2}" width="${colW}" height="${hh}" rx="9" fill="${fill}" stroke="${stroke}" stroke-width="${sel ? 2 : 1.2}"/>`
+      + `<circle cx="${x + 16}" cy="${y}" r="10" fill="${linked || sel ? accent : '#eceade'}"/>`
+      + `<text x="${x + 16}" y="${y + 3.6}" font-size="10.5" font-weight="800" text-anchor="middle" fill="${linked || sel ? '#fff' : MUTED}">${esc(tag)}</text>`
+      + t + `</g>`;
+  };
+
+  const linkOf = (i) => (spec.links ?? []).find(l => l.from === i);
+  const rightLinked = new Set((spec.links ?? []).map(l => l.to));
+  let body = `<text x="${x0}" y="14" font-size="10" font-weight="800" fill="${MUTED}">SITUATION</text>`
+    + `<text x="${x1 + colW}" y="14" font-size="10" font-weight="800" text-anchor="end" fill="${MUTED}">RESPONSE</text>`;
+  // Joins first, so a line never crosses over the text of a box.
+  for(const l of spec.links ?? []){
+    if(l.from == null || l.to == null || l.to < 0) continue;
+    const a = x0 + colW, b = x1, ya = yL(l.from), yb = yR(l.to);
+    const colour = l.ok === false ? STATUS.alarm.colour : l.ok === true ? STATUS.normal.colour : accent;
+    const mid = (a + b) / 2;
+    body += `<path d="M${a},${ya} C${mid},${ya} ${mid},${yb} ${b},${yb}" fill="none" stroke="${colour}" stroke-width="2.4"`
+      + `${l.ok === false ? ' stroke-dasharray="6 4"' : ''}/>`
+      + `<circle cx="${a}" cy="${ya}" r="4" fill="${colour}"/><circle cx="${b}" cy="${yb}" r="4" fill="${colour}"/>`;
+  }
+  left.forEach((t, i) => {
+    const lk = linkOf(i);
+    body += node('l', i, x0, yL(i), hL[i], wrapL[i], String(i + 1),
+      !!lk, spec.selected?.side === 'l' && spec.selected.i === i);
+  });
+  right.forEach((t, i) => {
+    body += node('r', i, x1, yR(i), hR[i], wrapR[i], String.fromCharCode(65 + i),
+      rightLinked.has(i), spec.selected?.side === 'r' && spec.selected.i === i);
+  });
+  return `<div class="matchBoard"><svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:${w}px" `
+    + `role="group" aria-label="${esc(spec.caption || 'matching board')}" preserveAspectRatio="xMidYMid meet">${body}</svg></div>`;
+}
+
+/** Greedy word wrap for SVG text, which has no line box of its own. */
+function wrap(text, chars){
+  const words = String(text ?? '').split(/\s+/).filter(Boolean);
+  const lines = [];
+  let line = '';
+  for(const word of words){
+    const test = line ? `${line} ${word}` : word;
+    if(test.length > chars && line){ lines.push(line); line = word; } else line = test;
+  }
+  if(line) lines.push(line);
+  return lines.length ? lines : [''];
+}

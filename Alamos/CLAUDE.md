@@ -13,8 +13,21 @@ every rule in it cost hours to learn.
 | Game | Where | Setting | Run it |
 | --- | --- | --- | --- |
 | The Contaminated City | `gamekit/themes/contamcity/` | Riverton, college chemistry, outdoor | `cd gamekit && THEME=contamcity npm run dev` |
+| Deep Watch | `gamekit/themes/deepwatch/` | A submarine, reasoning under pressure | `cd gamekit && THEME=deepwatch npm run dev` |
 | Project Y | `project-y-fps/` | Los Alamos 1943–45, outdoor | `cd project-y-fps && npx vite` |
 | Hospital Heroes | `Hospital/hospital-fps/` | Children's hospital, interior, ~grades 3–4 | `cd Hospital/hospital-fps && npx vite` |
+
+**Deep Watch is the first game built the way the rest are supposed to be built.**
+It came from `deep_watch/`, which was its own engine — a persistent boat, five
+simulation systems, a stage-based mission runtime. The boat came across as
+`themes/deepwatch/boat/` behind an adapter; the simulation did not, because a
+flooding rate that rises while you read a gauge has nowhere to live in a loop
+that is walk, answer, hand off. Everything else is one book file,
+`books/deep-watch.yml`, and `themes/deepwatch/site.js` reads the boat's own
+`LAYOUT` so there is still one description of the compartments.
+
+A theme may bring its own world: declare `world: 'themes/<name>/world.js'` in
+site.js and vite.config.js points `@world` at it.
 
 **All three share one engine** (`gamekit/engine/core`). Their `src/*.js` logic
 files are re-export shims. `gamekit/` also holds the world layer, the tools and
@@ -117,6 +130,10 @@ thirds of its campaign unreachable. `validateContent` cannot see that.
   which is how the hospital ended up with 36 "diagnoses" that had no instrument
   panel and 27 "casebooks" whose proposals read "Other pattern". `theme.js`
   retypes them; the book's own `rebuttals` now appear in the verdict.
+- **People stand aside.** Walking into somebody displaces them — straight back
+  where there is room, sideways where there is not. A four-metre passage with
+  two people in it is otherwise a blocked passage the player cannot ask to
+  move. In `crowd.js` and in both forked `npcs.js`.
 - **Every room is walkable whenever you like, in all three games.** What
   changes with the mission is whether a case is open there. A room with nothing
   open shows a short card and charges nothing — it is not a locked door.
@@ -163,26 +180,41 @@ thirds of its campaign unreachable. `validateContent` cannot see that.
    `(x, y, z)` put six display boards sixteen metres in the air.
 8. **Keep the spawn point and the route clear.** A prop over the spawn welds the
    player in place: renders perfectly, W does nothing.
-9. **Compare a challenge format through `kindOf()`, never as a raw string.**
+9. **A crowd checks its destination, not its path — fix both.** `blocked` was
+   consulted when a walker *chose* somewhere to go and never while it walked
+   there, so on open ground people rarely crossed a building and in a submarine
+   they walked through every bulkhead. The same predicate now takes a pad, since
+   the margin that keeps somebody from being *placed* against a wall is wider
+   than their shoulders. A fanned-out crowd position needs the same check: a
+   person placed inside the furniture stands there all game, because every
+   direction out is blocked and no target is reachable.
+10. **The player's width is a theme decision.** 0.45 suits a street. A hatch is
+   a 1.1 m opening, which leaves a twelve-centimetre slot — "sometimes I cannot
+   get through the door". `look.playerRadius`.
+11. **`scene.environmentIntensity` does not exist before three r163.** Setting it
+   is silent and the environment applies at full strength — a submarine rendered
+   with every bulkhead lifted to pale sage. `dampEnvironment(scene, level)` in
+   `engine/world/materials.js` is the repo's answer, and it works per material.
+12. **Compare a challenge format through `kindOf()`, never as a raw string.**
    The books spell them "Sequence", "SEQUENCE" and "Science Tank". Comparing
    raw strings left 72 of the hospital's lessons matching no branch and
    rendering "challenge type SEQUENCE is not yet implemented" in a game that
    had shipped. Both dev checkers canonicalise the same way.
-10. **`walkCost()` charges the time itself.** It returns advanceTime's verdict,
+13. **`walkCost()` charges the time itself.** It returns advanceTime's verdict,
    not a number of hours, so `advanceTime(walkCost(d))` adds `undefined` to the
    clock. NaN reached the sun angle before it reached the HUD, so the symptom
    was the whole world going black. `advanceTime` now refuses non-finite hours.
-11. **A save belongs to the theme that wrote it.** `loadState` used to fall back
+14. **A save belongs to the theme that wrote it.** `loadState` used to fall back
    to the hospital's legacy key for *every* theme, so playing the hospital and
    then opening either other game loaded a hospital campaign into it — group ids
    that theme has never heard of, and the first question panel died on
    `gs.issue` of undefined. `tryLoadSaved` now rejects a save whose group ids do
    not match the theme.
-12. **The two older games fork `styles.css`.** Their forks stop before the
+15. **The two older games fork `styles.css`.** Their forks stop before the
    instrument-panel rules, so anything the shared question UI draws had no
    styling there at all. Both now `@import` the engine sheet at the top of their
    fork — a `<link>` cannot do it, the path leaves Vite's root and 404s.
-13. **Grep for the previous game's nouns before assuming a module is generic.**
+16. **Grep for the previous game's nouns before assuming a module is generic.**
    `simulation.js` held one game's cast, `constants.js` one game's save key,
    `player.js` one game's field of view and floor height.
 

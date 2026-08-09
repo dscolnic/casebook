@@ -1,0 +1,2237 @@
+# Deep Watch — the book.
+#
+#   node tools/import-book.mjs books/deep-watch.yml deepwatch --verify
+#
+# Fifteen missions from the build specification's ten missions and three command
+# episodes, plus two the spec implies and never writes down: tracing a cooling
+# path end to end (Mission 1 lists it as a task and nothing ever tests it), and
+# the rig-for-dive checks before the last patrol.
+#
+# The boat is fictional and so is every casualty in it. Nothing here is a
+# procedure: the numbers are the size of things, and the reasoning is what the
+# game is about.
+
+theme:
+  id: deepwatch
+  title: Deep Watch
+  subtitle: Reasoning Under Pressure Beneath the Surface
+
+# ---------------------------------------------------------------- the areas
+groups:
+  - id: SONAR
+    code: SONAR
+    name: Sonar & Acoustics
+    color: '#2f8f8f'
+    desc: What the water carries, what the boat makes, and how to tell them apart.
+    defaultLeader: rask
+    format: diagnosis
+    milestones: [Learn the displays, Separate signal from noise, Hold a track, Ready to report]
+    issues: [A contact was called from one display., The bearing rate was never checked.]
+
+  - id: NAV
+    code: NAV
+    name: Navigation & Position
+    color: '#3f7fb6'
+    desc: Where the boat is, how old that answer is, and how wrong it is allowed to be.
+    defaultLeader: sowande
+    format: ballpark
+    milestones: [Learn the plot, Carry the error, Take an independent fix, Ready to route]
+    issues: [The plot has no time on it., Two displays agreed and nobody asked why.]
+
+  - id: DC
+    code: DC
+    name: Damage Control
+    color: '#6a8a4a'
+    desc: Water in the boat — finding it, stopping it, and knowing whether you are winning.
+    defaultLeader: ferro
+    format: protocol
+    milestones: [Learn the compartments, Find the source, Stop the source, Ready to dewater]
+    issues: [A pump was started before the source was found., The bilge level was never trended.]
+
+  - id: FIRE
+    code: FIRE
+    name: Fire & Electrical
+    color: '#b0a03a'
+    desc: Fire aboard is an electrical problem until the power is proved gone.
+    defaultLeader: okonkwo
+    format: protocol
+    milestones: [Learn the switchboard, Isolate the fault, Prove it dead, Ready to restore]
+    issues: [An indicator lamp was trusted as proof., A load was restored before the seat was cold.]
+
+  - id: ATMO
+    code: ATMO
+    name: Atmosphere & Life Support
+    color: '#6a5fb0'
+    desc: The air is a system with sources, sinks and a flow path, and people are in it.
+    defaultLeader: lindqvist
+    format: diagnosis
+    milestones: [Learn the air path, Measure it yourself, Find the sink, Ready to recover]
+    issues: [An installed sensor was treated as a measurement., A damper position was assumed.]
+
+  - id: ENG
+    code: ENG
+    name: Propulsion & Engineering
+    color: '#b0533a'
+    desc: What turns the shaft, what cools it, and what the boat gives away by running it.
+    defaultLeader: haruki
+    format: sequence
+    milestones: [Learn the plant, Trace a dependency, Reduce a signature, Ready to answer bells]
+    issues: [A pump was secured without checking what it cooled., The plant was quiet and nobody said why.]
+
+# ------------------------------------------------------------------ the crew
+# Each is one of the four functions the design books ask for: someone who owns
+# an instrument's limits, someone who holds the alternative explanation, someone
+# who owns the time or the safety constraint, and someone who makes the
+# consequence visible without deciding the science.
+roster:
+  - id: rask
+    name: Petty Officer Nils Rask
+    role: Sonar Supervisor
+    division: SONAR
+    bio: |
+      Runs the sonar room, which is a dark space with three displays and one
+      rule: the loudest thing on the screen is almost never the thing that
+      matters. He has eleven years of watches and can tell you what a fishing
+      fleet sounds like at four thousand yards.
+
+      Sound in water is not like light in air. It bends toward the colder,
+      slower water, so a layer of warm surface water above a cold one makes a
+      shadow zone the boat can hide in — and so can everybody else. A contact
+      that vanishes has not necessarily left; it may have crossed the layer.
+
+      His limit is that passive sonar gives him bearing and almost nothing
+      else. Range and course have to be built up by watching how the bearing
+      changes over time, which is why he will not give a track from one look and
+      gets short with anybody who asks for one.
+    quiz:
+      - q: Why can a contact disappear from Rask's display without going anywhere?
+        a: Sound bends toward colder water, so crossing the layer puts it in a shadow zone
+        wrong:
+          - Passive sonar stops working when a contact slows down
+          - The array can only hold four contacts at a time
+          - A contact that stops making noise ceases to reflect sound
+      - q: What does passive sonar give Rask directly?
+        a: A bearing, and almost nothing else until he watches it change
+        wrong:
+          - A range, from the strength of the sound
+          - A course and speed, from the frequency alone
+          - A depth, from the angle the sound arrives at
+
+  - id: dunne
+    name: Sonarman Kes Dunne
+    role: Broadband Operator
+    division: SONAR
+    bio: |
+      Sits the broadband stack for six hours at a stretch, which is a job of
+      listening to noise and noticing when a shape appears in it. Two years
+      aboard, and better at it than people twice her time.
+
+      The display she watches is bearing against time, and the thing she is
+      looking for is a line that persists. A single bright mark is nothing —
+      the sea is full of them. A faint mark in the same place minute after
+      minute is a contact, because the sea has no reason to be consistent.
+
+      She keeps a paper log of what the boat itself was doing when a trace
+      appeared, because half the traces that frighten a new operator are the
+      boat's own: a pump that started, a shaft that came up in turns, a hull
+      popping as the depth changed.
+    quiz:
+      - q: What makes Dunne treat a faint mark as a real contact?
+        a: It persists in the same place minute after minute, and noise does not
+        wrong:
+          - It is brighter than the marks around it
+          - It appears at the same time as a hull pop
+          - It shows on two displays fed by the same array
+
+  - id: sowande
+    name: Lieutenant Imani Sowande
+    role: Navigator
+    division: NAV
+    bio: |
+      Keeps the plot, and holds the only opinion on this boat that the captain
+      cannot overrule with an order: how well the plot is known. Her working
+      rule is that a position is a claim with an age on it, and the age is the
+      part everybody forgets to ask about.
+
+      Submerged, the boat navigates by dead reckoning — a course, a speed, and a
+      clock, drawn forward from the last position that came from a measurement.
+      That line is exactly as good as its assumptions, and it knows nothing
+      about the water it is drawn on. A half-knot current running for four hours
+      is two miles the plot will never mention.
+
+      So she draws the uncertainty as a circle and grows it with time, and picks
+      routes that survive being wrong rather than routes that are safe if she is
+      right. The bottom is her favourite instrument, because a depth sounding is
+      the one thing aboard that cannot be wrong for the same reason the plot is.
+    quiz:
+      - q: What does Sowande mean by the age of a position?
+        a: How long since the position last came from a measurement rather than a calculation
+        wrong:
+          - How long the chart itself has been aboard
+          - How long the boat has been submerged on this patrol
+          - How long the plot takes to redraw at a new speed
+      - q: Why does she treat a depth sounding as her best instrument?
+        a: It cannot be wrong for the same reason the plot is — it is independent
+        wrong:
+          - It is more precise than any other instrument aboard
+          - It gives a position directly, without a chart
+          - It works at any speed, where other instruments do not
+
+  - id: petrov
+    name: Quartermaster Anya Petrov
+    role: Assistant Navigator
+    division: NAV
+    bio: |
+      Runs the chart table and the fathometer, and is the person who actually
+      writes the time beside a fix. Nine years, four boats, and a handwriting
+      that anybody can read at two in the morning, which is not a small thing.
+
+      Her job is the arithmetic the plot depends on: set and drift, course made
+      good, speed of advance. She is the one who notices that a course steered
+      and a course made good have quietly diverged, because she is the one
+      comparing them.
+
+      What she guards against is the display that looks like a measurement and
+      is not. The chart overlay and the electronic repeat both draw from the
+      inertial navigator, so they agree perfectly and always will. Two displays
+      showing one source is not confirmation, and she will say so out loud.
+    quiz:
+      - q: Why is Petrov unimpressed when the chart overlay and the plot repeat agree?
+        a: Both are drawn from the inertial navigator, so their agreement carries no new information
+        wrong:
+          - The overlay updates more slowly than the repeat does
+          - They use different chart datums and should not be compared
+          - Agreement between displays is only meaningful at periscope depth
+
+  - id: ferro
+    name: Chief Petty Officer Dario Ferro
+    role: Chief of the Boat, Damage Control
+    division: DC
+    bio: |
+      Runs damage control, which means he runs the drills nobody enjoys and owns
+      the compartments when something goes wrong in one. Twenty-two years. He
+      has been in a flooded space twice and does not tell either story.
+
+      The thing he teaches first is that water coming in through a hole under
+      pressure does not care how hard you pump. Flow through a hole goes up with
+      the square root of the pressure difference, and pressure goes up with
+      depth, so the same hole floods faster the deeper you are. Pumping buys
+      minutes; the hull fitting is what ends it.
+
+      His second rule is that a bilge level is not a number, it is a trend. One
+      reading tells you nothing. Two readings a minute apart tell you whether
+      you are winning, and that is the only question a flooding casualty is
+      actually asking.
+    quiz:
+      - q: Why does the same hole flood faster deeper?
+        a: Flow rises with the pressure difference across the hole, and pressure rises with depth
+        wrong:
+          - Water is denser deeper, so more of it fits through
+          - The hull flexes at depth and enlarges the hole
+          - Pumps lose suction at depth, which only seems like faster flooding
+      - q: What is Ferro's rule about a bilge level?
+        a: One reading is nothing; two readings a minute apart say whether you are winning
+        wrong:
+          - Any reading above the deck plate means abandon the compartment
+          - The level matters less than the temperature of the water
+          - A level that is not rising means the leak has stopped
+
+  - id: hallam
+    name: Machinist's Mate Ruth Hallam
+    role: Auxiliary Division, Pumps & Patches
+    division: DC
+    bio: |
+      Owns the drain pump, the portable pumps and the shoring locker, and can
+      put a patch on a split pipe in the dark, which she has had to prove more
+      than once during drills.
+
+      She thinks in rates rather than amounts. A pump is a number of gallons a
+      minute at a stated head, and that number falls as it has to lift water
+      further — so the same pump that empties a bilge on the surface struggles
+      at depth against a rising level. Knowing the two rates is knowing whether
+      to fight or to isolate.
+
+      Her standing complaint is that people start pumps before they find the
+      source, because starting a pump feels like doing something. It also
+      empties the compartment of the evidence that would have shown where the
+      water was coming in.
+    quiz:
+      - q: Why does Hallam object to starting a pump before finding the source?
+        a: It feels like progress and washes away the evidence of where the water is entering
+        wrong:
+          - Pumps cannot run while a compartment is still flooding
+          - Starting a pump early floods the bilge main
+          - A pump run dry will not restart later
+
+  - id: okonkwo
+    name: Chief Electrician's Mate Bede Okonkwo
+    role: Electrical Division
+    division: FIRE
+    bio: |
+      Owns the switchboard, the breakers and every cable run on the boat, and
+      has the calmest voice in an emergency of anybody aboard, which is not an
+      accident — he practises it.
+
+      His subject is that an electrical fire is not a fire problem. It has three
+      legs: the fuel, which is cable insulation; the oxygen, which is the air in
+      the compartment; and the ignition source, which is an energized fault that
+      will keep re-lighting the fuel no matter what you spray on it. Take the
+      power away and it becomes an ordinary fire. Leave it on and it is a fire
+      that reflashes.
+
+      What he refuses to accept is a lamp as proof. A switchboard indicator says
+      what the switchboard believes, and a meter says what the cable is doing.
+      Between those two is where people get hurt, so isolation is not isolation
+      until it has been measured.
+    quiz:
+      - q: Why is spraying an energized electrical fire not enough?
+        a: The fault keeps re-lighting the insulation, so it reflashes until the power is gone
+        wrong:
+          - The agent cannot reach a fire behind a panel
+          - Electrical fires burn hotter than the agent can absorb
+          - The smoke displaces the agent before it works
+      - q: What does Okonkwo mean by "isolation is not isolation until it is measured"?
+        a: An indicator lamp reports what the switchboard believes; a meter reports what the cable is doing
+        wrong:
+          - Isolation has to be logged before it counts
+          - Two people must witness a breaker being opened
+          - A breaker is only isolated once the load has cooled
+
+  - id: mbeki
+    name: Electrician's Mate Sipho Mbeki
+    role: Power Distribution
+    division: FIRE
+    bio: |
+      Traces circuits, which sounds dull until the day it is the only thing that
+      matters. He keeps the dependency diagrams that say what each breaker feeds
+      and, more importantly, what stops when it opens.
+
+      Every isolation costs something downstream. Killing a bus to make a fire
+      safe also kills whatever that bus was feeding — a cooling pump, a scrubber
+      fan, a gyro. The decision is never whether to isolate; it is knowing what
+      you are turning off at the same time and in what order to bring it back.
+
+      Restoring is the part people rush. Loads come back in dependency order —
+      cooling before the thing that needs cooling, ventilation before the space
+      that needs it — and never onto a fault that has not been proved gone.
+    quiz:
+      - q: What does Mbeki's dependency diagram tell you that a breaker label does not?
+        a: What stops working elsewhere when that breaker opens
+        wrong:
+          - How much current the breaker will carry before tripping
+          - Which compartment the cable physically runs through
+          - How long the breaker takes to reset after a trip
+
+  - id: lindqvist
+    name: Lieutenant Junior Grade Ana Lindqvist
+    role: Atmosphere Control Officer
+    division: ATMO
+    bio: |
+      Owns the air. On a submerged boat that means the scrubbers that take
+      carbon dioxide out, the generators that put oxygen in, the monitors that
+      say how it is going, and the ventilation that decides which compartments
+      any of it reaches.
+
+      Her subject is a balance. People produce carbon dioxide steadily, at a
+      rate that depends on how many of them are in the space and how hard they
+      are working. The scrubber removes it at a rate that depends on being able
+      to reach the air — which means the dampers. A compartment isolated from
+      the ventilation system has no scrubber, however healthy the plant looks.
+
+      What she insists on is the difference between a report and a measurement.
+      An installed sensor is a report from a device that may itself have failed;
+      a handheld reading taken in the space is a measurement. When the two
+      disagree the answer is not to average them.
+    quiz:
+      - q: Why can a compartment's air go bad while the scrubber plant reads healthy?
+        a: The scrubber only reaches compartments whose dampers are open to it
+        wrong:
+          - Scrubbers work more slowly at depth
+          - Carbon dioxide is heavier than air and sinks below the sensors
+          - The plant reads its own outlet, which is always the cleanest air
+      - q: An installed sensor and a handheld reading disagree. What does Lindqvist do?
+        a: Treats the handheld as the measurement and the sensor as a report that may have failed
+        wrong:
+          - Averages the two, since both are instruments
+          - Believes the installed sensor, because it is calibrated more often
+          - Waits for a third reading before doing anything
+
+  - id: navarro
+    name: Hospital Corpsman Elena Navarro
+    role: Corpsman
+    division: ATMO
+    bio: |
+      The only medical person aboard, which makes her the first instrument the
+      atmosphere has: people show symptoms before a monitor alarms, and she is
+      the one who hears about a headache in berthing.
+
+      She is careful about what a symptom proves. A headache and heavy breathing
+      in one compartment and not another is evidence about that compartment. The
+      same symptoms everywhere are evidence about the whole boat. Symptoms in
+      one person and nobody else is evidence about that person, and she treats it
+      that way.
+
+      What she brings to a casualty is the consequence, stated plainly and
+      without deciding the engineering: how long the crew in a space can keep
+      working, who has to come out now, and what she will need if the answer
+      arrives late.
+    quiz:
+      - q: What does Navarro conclude from symptoms in one compartment and not the others?
+        a: The evidence is about that compartment, not about the whole boat
+        wrong:
+          - The whole boat's atmosphere is degrading and that space showed it first
+          - The people in that space are more susceptible than the rest of the crew
+          - The monitors in the other compartments have failed
+
+  - id: haruki
+    name: Chief Machinist's Mate Jun Haruki
+    role: Engineering Watch Supervisor
+    division: ENG
+    bio: |
+      Runs the plant: what turns the shaft, what cools what, and what every one
+      of those things gives away in noise. Eighteen years, most of them within
+      earshot of a reduction gear.
+
+      He thinks in dependency chains. A seawater pump cools a heat exchanger,
+      which cools a lubricating oil system, which is what lets a bearing carry a
+      shaft. Secure the pump to be quiet and you have started a clock on the
+      bearing, and the clock is not on any gauge in the room.
+
+      Noise is the other half of his job. Machinery that is loose, misaligned or
+      cavitating tells the whole ocean about it, and the sonar room hears the
+      boat's own faults before anybody in the engine room feels them. He and
+      Rask compare notes more than either department expects.
+    quiz:
+      - q: What has Haruki started when he secures a cooling pump to be quiet?
+        a: A clock on whatever that pump was cooling, which no gauge in the room shows
+        wrong:
+          - A drop in shaft speed that sonar will hear immediately
+          - A loss of propulsion that must be reported before it happens
+          - An automatic restart, once the temperature rises far enough
+
+  - id: adeyemi
+    name: Machinist's Mate Tunde Adeyemi
+    role: Propulsion Plant Operator
+    division: ENG
+    bio: |
+      Stands the throttle watch, which is a job of small adjustments and long
+      attention. He knows the boat's speed curve by feel and can tell you what a
+      turn count costs in noise before the sonar room does.
+
+      His concern is cavitation: below a certain depth-and-speed combination the
+      propeller boils the water on its own blades, and the bubbles collapsing
+      are the loudest thing a submarine can do. Deeper water suppresses it,
+      because there is more pressure holding the bubbles shut. Faster brings it
+      on. The two trade off against each other, and the trade is the decision.
+
+      He is also the one who has to say no. An ordered speed that would make the
+      boat audible is a report to the officer of the deck, not a throttle
+      movement, and saying so is the job.
+    quiz:
+      - q: Why does going deeper let Adeyemi turn more shaft revolutions quietly?
+        a: More pressure holds the bubbles shut, so the propeller cavitates less
+        wrong:
+          - Colder water at depth muffles the propeller
+          - The hull is stiffer at depth and transmits less noise
+          - Sound travels more slowly deeper, so it carries less far
+
+  - id: vance
+    name: Commander Iris Vance
+    role: Commanding Officer
+    division: NAV
+    bio: |
+      Has the boat. Every decision in this game eventually arrives on her table
+      as a choice between things that are all partly true, and she is the only
+      person aboard who cannot pass it on.
+
+      She works in a currency the departments do not: an hour spent confirming a
+      contact is an hour the boat has not moved, and an hour of transit is an
+      hour of exposure. What she asks for is never certainty. It is what is
+      known, what is not, and which of the two is about to change.
+
+      She is unimpressed by confidence and interested in evidence. A watch
+      officer who says "probably nothing" gets asked what would have to be true
+      for that to be wrong, and how expensive it would be to check.
+    quiz:
+      - q: What does Vance actually ask her watchstanders for?
+        a: What is known, what is not, and which of the two is about to change
+        wrong:
+          - A single recommendation, with the reasoning left out
+          - The most cautious option available, every time
+          - Certainty before the boat commits to anything
+
+  - id: whitfield
+    name: Lieutenant Commander Theo Whitfield
+    role: Executive Officer
+    division: DC
+    bio: |
+      Runs the watch bill, the drills and the boat's time, which makes him the
+      person who decides what the crew is doing while a casualty is being
+      fought — and therefore what is not being watched.
+
+      His subject is delegation. There are more jobs than people in any real
+      casualty, and the mistake is not choosing wrong, it is choosing everything:
+      a boat where the whole crew is fighting a fire has nobody on sonar and
+      nobody on the plot, and it will hit something while it is winning.
+
+      He keeps the casualty log, which is the record of what was known when. It
+      is dull until the debrief, when it is the only thing that can tell the
+      difference between a bad decision and a decision that was right with the
+      information on the table.
+    quiz:
+      - q: What is Whitfield's objection to putting the whole crew on the casualty?
+        a: Nobody is left on sonar or the plot, and the boat can hit something while winning
+        wrong:
+          - A large team gets in each other's way in a small compartment
+          - The relief watch will be too tired to take over
+          - Damage control equipment is only issued to one team at a time
+
+# ------------------------------------------------------------------ glossary
+glossary:
+  - name: Bearing
+    aliases: [bearing, bearings]
+    def: The direction to something, measured as an angle. Passive sonar gives you this and little else.
+  - name: Bearing rate
+    aliases: [bearing rate]
+    def: How fast a contact's bearing is changing. Near zero on a closing contact is the dangerous case.
+  - name: Broadband
+    aliases: [broadband]
+    def: Listening across all frequencies at once. Shows a contact as a smear that persists in bearing.
+  - name: Narrowband
+    aliases: [narrowband]
+    def: Listening at one frequency. Machinery makes lines here, and a line can identify what is making it.
+  - name: The layer
+    aliases: [the layer, thermocline]
+    def: The boundary between warm surface water and cold water below. Sound bends at it, making shadow zones.
+  - name: Dead reckoning
+    aliases: [dead reckoning]
+    def: Advancing a position from course, speed and time. It knows what the boat did and nothing about the water.
+  - name: Set and drift
+    aliases: [set and drift, set, drift]
+    def: The direction and speed the water is carrying the boat. Invisible to dead reckoning until measured.
+  - name: Fix
+    aliases: [fix, a fix]
+    def: A position from a measurement rather than a calculation. Everything after it is dead reckoning again.
+  - name: Trim
+    aliases: [trim]
+    def: How the boat's weight is balanced fore and aft. Water taken aboard anywhere changes it.
+  - name: Bilge
+    aliases: [bilge, bilges]
+    def: The lowest part of a compartment, where water collects. Its level over time is the flooding rate.
+  - name: Reflash
+    aliases: [reflash]
+    def: A fire re-igniting after it looked out, because the ignition source was never removed.
+  - name: Scrubber
+    aliases: [scrubber, scrubbers, co2 scrubber]
+    def: The plant that removes carbon dioxide from the boat's air. It reaches only where the dampers let it.
+  - name: Damper
+    aliases: [damper, dampers]
+    def: A valve in a ventilation duct. Its position decides which compartments share air with the plant.
+  - name: Cavitation
+    aliases: [cavitation, cavitate, cavitating]
+    def: Bubbles forming and collapsing on a propeller blade. The loudest ordinary thing a submarine does.
+  - name: Signature
+    aliases: [signature, acoustic signature]
+    def: The sound a boat makes that identifies it. Every machine running adds to it.
+  - name: Dependency
+    aliases: [dependency, dependencies]
+    def: What stops working when you secure or isolate something else. The reason isolation is never free.
+
+# ------------------------------------------------- what each station reads
+interiors:
+  SONAR:
+    caption: The loudest thing on the display is almost never the thing that matters.
+    standLine: Four sources on the broadband stack, one of them ours, and the watch has six minutes on it.
+    station:
+      kind: vitals
+      animated: true
+      wave: sine
+      rate: 3
+      title: Broadband stack
+      status: high
+      rows:
+        - { label: Contacts held, value: 4, unit: 'two unresolved', status: high }
+        - { label: Bearing rate, value: 0.1, unit: 'degrees per minute', status: alarm }
+        - { label: Own-ship noise, value: 62, unit: 'per cent of the display', status: normal }
+  NAV:
+    caption: A position is a claim with an age on it.
+    standLine: Three and a half hours of dead reckoning, and a set nobody has measured.
+    station:
+      kind: panel
+      title: Chart table
+      rows:
+        - { label: Last trusted fix, value: '3 h 30 m ago', status: alarm }
+        - { label: Uncertainty radius, value: '1.9 nm', status: high }
+        - { label: Sounding vs charted, value: '12 m shallow', status: high }
+        - { label: Course made good, value: '021°', status: normal }
+  DC:
+    caption: Pumping buys minutes. The hull fitting is what ends it.
+    standLine: Water in the forward bilge, and the level was last read four minutes ago.
+    station:
+      kind: panel
+      title: Damage control board
+      rows:
+        - { label: Forward bilge, value: '31 cm, rising', status: alarm }
+        - { label: Drain pump, value: 'running, 55 gpm', status: high }
+        - { label: Trim, value: '1.4° bow down', status: high }
+        - { label: Source, value: 'not isolated', status: alarm }
+  FIRE:
+    caption: An electrical fire is put out by de-energizing it, not by the agent.
+    standLine: Smoke in the electrical space, and the switchboard lamp says the bus is open.
+    station:
+      kind: panel
+      title: Switchboard
+      rows:
+        - { label: Bus indicator, value: 'OPEN', status: normal }
+        - { label: Meter at the cable, value: '440 V present', status: alarm }
+        - { label: Compartment temperature, value: '68 °C at the boundary', status: high }
+        - { label: Seat of the fire, value: 'behind the panel', status: alarm }
+  ATMO:
+    caption: An installed sensor is a report. A handheld reading is a measurement.
+    standLine: A headache in berthing, and the plant says the air is fine.
+    station:
+      kind: panel
+      title: Atmosphere board
+      rows:
+        - { label: Plant outlet CO₂, value: '0.4 %', status: normal }
+        - { label: Berthing, handheld, value: '2.1 %', status: alarm }
+        - { label: Berthing damper, value: 'shut', status: alarm }
+        - { label: Oxygen, value: '20.4 %', status: normal }
+  ENG:
+    caption: Secure a pump to be quiet and you have started a clock nobody can see.
+    standLine: Turns for eight knots at ninety metres, and the sonar room is asking why they can hear us.
+    station:
+      kind: vitals
+      animated: true
+      wave: resp
+      rate: 2
+      title: Machinery control
+      rows:
+        - { label: Shaft, value: 78, unit: 'turns per minute', status: normal }
+        - { label: Lube oil temperature, value: 71, unit: '°C, rising', status: high }
+        - { label: Seawater cooling, value: 'one pump', status: alarm }
+
+# ------------------------------------------- what the other spaces tell you
+copy:
+  sonar_room: <p><b>Sonar Room</b> — three displays and a dark space, because the eye recovers faster than the ear does. Everything the boat knows about the world outside the hull arrives here first.</p>
+  control_room: <p><b>Control Room</b> — the plot, the planes and the periscope. The boat is driven from here, and the chart table is where a position stops being a calculation and becomes a decision.</p>
+  propulsion: <p><b>Propulsion Machinery</b> — what turns the shaft, and the loudest compartment aboard. Everything in this space is a trade between speed and being heard.</p>
+  electrical: <p><b>Electrical Distribution</b> — the switchboard and every cable run in the boat. A fire in here is a fire with a power supply, which is a different problem from a fire.</p>
+  forward_equipment: <p><b>Forward Equipment &amp; Handling</b> — the working space at the bow, and the reason flooding is a forward problem: the sea connections for the forward systems are here, under the deck plates.</p>
+  sonar_electronics: <p><b>Sonar-Array Electronics</b> — the cabinets that turn what the array hears into something a person can read. They need cooling water, which is why a flooding casualty forward is also a sonar casualty.</p>
+  radio_room: <p><b>Radio &amp; Communications</b> — where the boat would talk to anybody, which submerged it mostly does not. Coming up to transmit is a decision about exposure, not about equipment.</p>
+  berthing_mess: <p><b>Berthing, Mess &amp; Medical</b> — where the crew that is not on watch is, which makes it the compartment where atmosphere problems show up as people before they show up as numbers.</p>
+  machinery_control: <p><b>Machinery Control Room</b> — the plant is run from here rather than from beside it. Every gauge in this space is a report from somewhere else in the boat.</p>
+  auxiliary: <p><b>Auxiliary Machinery &amp; Bilge</b> — scrubbers, oxygen generation, the drain pump and the lowest deck in the boat. Two of the three things keeping the crew alive are in this compartment.</p>
+
+# ------------------------------------------------------------- the campaign
+# Unit I qualifies the player on the boat. Unit II is the casualty unit. Unit III
+# operates the whole system at once, and the last three are command episodes
+# where the question is what YOU do and who does the rest.
+missions:
+
+  # ---------------------------------------------------------------- UNIT I
+  - title: Boat Walkdown
+    objective: Learn the boat as a system of spaces, not a list of names.
+    briefing: >
+      You have the watch for the first time. Before anything else happens, you
+      have to be able to find your way around this hull in the dark, and know
+      what is in each space and how you would get out of it.
+    stake: A watchstander who has to think about where the locker is has already lost the minutes that mattered.
+    takeaway: A compartment is defined by its boundaries, what it holds, and how you leave it.
+    stops:
+      - group: DC
+        task: Learn a compartment properly
+        title: What a walkdown is for
+        place: Forward Equipment & Handling
+        scene: >
+          Chief Ferro walks you into the forward space and asks you to learn
+          it. There is equipment down both sides, deck plates over a recess,
+          a hose reel on the bulkhead and two ways out. A submarine survives
+          casualties by being divided: watertight bulkheads keep a fire or a
+          flood inside one compartment instead of letting it have the whole
+          boat, and every space is stored so the people already in it can
+          fight what happens there. Learning a compartment is not
+          sightseeing. It is building the map you will be using by feel, in
+          the dark, with the lighting gone and somebody shouting. Ferro is
+          not telling you what to take in first — that is what he is asking.
+        takeaway: You learn a space in the order you would need it, not in the order you see it.
+        format: SEQUENCE
+        cards:
+          - Find the boundaries — where this compartment ends and the next begins.
+          - Find the ways out, and check both are clear.
+          - Find what is in here that fights a casualty — lockers, reels, isolation valves.
+          - Learn what the space holds that could cause one — sea connections, cables, stores.
+        order: [0, 1, 2, 3]
+        why: >
+          Boundaries first because they decide whether a casualty is yours; exits
+          second because they are the thing you need when you can no longer see.
+      - group: ENG
+        task: Name the fittings by what they do
+        title: Every fitting is an argument
+        place: Propulsion Machinery
+        scene: >
+          Chief Haruki stops beside four fittings on the same bulkhead and
+          asks you what each one is for. None of them is labelled with its
+          purpose, only with its number. That is normal: the tag says which
+          valve it is, not what happens when you turn it. What a fitting
+          does comes from what it is connected to, and the shape of it — a
+          wheel, a manifold, a locker, a reel — is most of the clue you get
+          when there is no time to trace a line. At depth the sea is on the
+          other side of some of these, at several atmospheres, and opening
+          one you meant to shut is a casualty you created yourself.
+        takeaway: A fitting you cannot explain is a fitting you will use wrongly under pressure.
+        format: PROTOCOL
+        task: Match each fitting to what it is there to do.
+        scenarios:
+          - A red wheel valve on a pipe that goes through the hull.
+          - A manifold with hose connections at head height.
+          - A steel locker with a strap and a quick-release catch.
+          - A reel of flat hose beside a small isolating valve.
+        choices:
+          - Shuts the sea off from a system inboard of it.
+          - Supplies air to a breathing mask so a space can be entered.
+          - Holds the tools and shoring for a casualty in this compartment.
+          - Puts water where a fire is, once the power is proved gone.
+        mapping: [0, 1, 2, 3]
+        why: A hull valve, a breathing manifold, a damage-control locker and a hose reel are four different decisions.
+      - group: NAV
+        task: Carry a message without a marker
+        title: The trip back without a waypoint
+        place: Control Room
+        scene: >
+          The navigator hands you a written message for machinery control
+          and tells you the marker will be switched off for the walk back.
+          You have been through the boat once. Submerged there are no
+          windows and no landmarks: everything anybody aboard knows about
+          where they are comes from keeping track since the last thing they
+          were sure of. That is dead reckoning, and it is exactly what the
+          boat does with its own position between fixes. Whatever you decide
+          to carry in your head has to work on a real boat — somebody
+          stopping you in a passage, a hatch shut, the lights out.
+        takeaway: Knowing where you are is the same skill submerged as it is in a passage.
+        format: CHOICE
+        question: What should you fix in your head before you set off?
+        choices:
+          - The order of the compartments, so you always know which one you are in.
+          - The exact number of paces between hatches.
+          - The colour of each compartment's deck.
+          - Nothing — the boat is small enough to wander until it looks familiar.
+        answer: The order of the compartments, so you always know which one you are in.
+        why: >
+          A sequence survives being interrupted. A count of paces does not survive
+          stepping round a person, and neither does a colour in the dark.
+        rebuttals:
+          - Paces stop being useful the moment you have to step around somebody.
+          - Deck colours vanish with the lighting, which is exactly when you need this.
+          - Wandering works until the boat is dark or on fire, which is when it is asked for.
+
+  - title: Contact in the Noise
+    objective: Work out what is out there before the boat commits to anything.
+    briefing: >
+      Sonar has four sources on the display at once. Two of them have been there
+      since before the boat slowed, one came with the turn, and one comes and
+      goes. The captain wants to know which of them she has to care about.
+    stake: A contact called wrong is a boat that manoeuvres into the thing it was avoiding.
+    takeaway: A bearing is a measurement; a track is an argument built from several of them.
+    stops:
+      - group: SONAR
+        task: Sort the sound sources
+        title: Four traces, one of them ours
+        place: Sonar Room
+        scene: >
+          Four traces are on the broadband display. The watch has been on
+          for six minutes, the boat slowed four minutes ago, and one trace
+          changed when it did. Broadband sonar is passive listening: it
+          hears everything radiating into the water, which includes the
+          ocean itself, the animals in it, the ships on it, and always the
+          boat you are standing in. Sorting them is the first job of the
+          room, because nothing can be tracked until it is identified, and
+          the sea is full of noise that looks like a contact for a few
+          minutes. Commander Vance wants a picture of what is out there, not
+          a count of lines.
+        takeaway: A source that changes when the boat changes belongs to the boat.
+        format: PROTOCOL
+        task: Match each trace to what is making it.
+        scenarios:
+          - A steady hiss whose level rises and falls with our own turn count.
+          - A narrow line at a fixed frequency, drifting slowly in bearing.
+          - Short chirps with no bearing rate at all, gone within a minute.
+          - Two lines an octave apart, bearing barely moving, growing louder.
+        choices:
+          - Own-ship machinery, because it follows our own throttle.
+          - A merchant on a steady course, her blade rate showing as a line.
+          - Biologic — it does not behave the way a hull has to.
+          - A contact closing on a steady bearing, which is the dangerous one.
+        mapping: [0, 1, 2, 3]
+        why: Own noise moves with own machinery, and biologics ignore the rules a ship obeys.
+      - group: SONAR
+        task: Decide whether the fourth trace is real
+        title: The trace that will not resolve
+        place: Sonar Room
+        scene: >
+          The fourth trace is faint, has held nearly the same bearing for
+          eleven minutes, and does not appear on the narrowband display at
+          all. The boat has not changed speed or depth since it appeared.
+          Broadband hears the total sound a thing makes; narrowband picks
+          out the pure tones machinery produces at fixed frequencies, which
+          is usually how a contact gets a name. Sound in the ocean does not
+          travel in straight lines — temperature layers bend it, and the
+          path a sound took shapes what survives of it by the time it
+          arrives. So a missing line is evidence too, not a blank space
+          where evidence should be.
+        takeaway: Evidence that survives a change in your own state is evidence about the world.
+        format: DIAGNOSIS
+        headline: A faint trace has held the same bearing for eleven minutes and shows nothing on narrowband.
+        task: Which explanation fits every reading, not just the loudest one?
+        readings:
+          - { zone: Broadband, label: The trace, value: 'faint, persistent', status: alarm }
+          - { zone: Narrowband, label: Lines at that bearing, value: none, status: normal }
+          - { zone: Own ship, label: Speed and depth, value: 'unchanged 11 min', status: normal }
+          - { zone: Own ship, label: Machinery started, value: none, status: normal }
+          - { zone: Environment, label: Layer depth, value: '40 m, we are below it', status: normal }
+        choices:
+          - { label: A quiet contact beyond the layer, mechanism: 'Sound from above the layer bends away, arriving faint and without its machinery lines.' }
+          - { label: Own-ship noise, mechanism: 'Something aboard is making it, and it would have changed when we did.' }
+          - { label: Biologic, mechanism: 'A living source, which would come and go rather than hold a bearing for eleven minutes.' }
+          - { label: A display artefact, mechanism: 'The processor drawing a line where there is no sound at all.' }
+          - { label: Nothing to explain, mechanism: 'Ordinary noise that happens to look like a line.' }
+        answer: A quiet contact beyond the layer
+        why: >
+          Persistence rules out noise and biologics; the absence of narrowband
+          lines fits a path bent through the layer, which strips the detail; and
+          nothing of ours changed, so it is not ours.
+      - group: NAV
+        task: Say what a steady bearing means
+        title: The bearing that does not move
+        place: Control Room
+        scene: >
+          The contact's bearing has changed by less than half a degree in
+          six minutes, and it is getting louder. The officer of the deck
+          asks you what that means for the boat. Passive sonar gives you
+          direction and nothing else: no range, no closing speed, nothing
+          but a bearing and how it behaves as time passes. That makes
+          relative motion the whole trade — the way a bearing moves, or
+          refuses to, is the only ranging instrument a quiet boat has. You
+          are submerged, you cannot see the thing, and the answer decides
+          whether the boat manoeuvres now or in ten minutes.
+        takeaway: A constant bearing with a rising level is a collision geometry, not a quiet one.
+        format: CHOICE
+        question: What does a steady bearing and a rising level tell you?
+        choices:
+          - We are on a collision course, or close to it, and the range is closing.
+          - The contact is stopped, since its bearing is not changing.
+          - The contact is opening, and the level is rising for another reason.
+          - Nothing until a range is available.
+        answer: We are on a collision course, or close to it, and the range is closing.
+        why: >
+          Two ships whose relative bearing does not change are closing along a
+          straight line between them. It is the oldest rule at sea and it does
+          not need a range.
+        rebuttals:
+          - A stopped contact's bearing would change as we moved past it.
+          - An opening contact gets quieter, not louder.
+          - Waiting for a range wastes the six minutes the geometry just gave you.
+
+  - title: Position Without a Trusted Fix
+    objective: Work out not where the boat is, but how well that is known.
+    briefing: >
+      The boat has been submerged for hours on dead reckoning. The plot is a
+      confident-looking line drawn from course and speed, and it knows nothing
+      about the water that has been setting the boat sideways the whole time.
+      Ahead is a bank.
+    stake: A route chosen from a plot that is two miles wrong is a route into the bottom.
+    takeaway: Precision is not accuracy, and two displays sharing a source are one measurement.
+    stops:
+      - group: NAV
+        task: Age the position
+        title: How far the water has carried us
+        place: Control Room
+        scene: >
+          The last trusted fix was three and a half hours ago. The forecast
+          set for this area is about half a knot, and nobody has applied it
+          to the plot because nobody has measured it. Between fixes the
+          boat's position is dead reckoning: course, speed and time worked
+          forward from the last certainty. But the water moves as well, and
+          a current carries the entire boat sideways without registering on
+          a single instrument aboard — the log measures speed through the
+          water, not over the ground. The error grows every hour it goes
+          unmeasured, and this plot is what the route through the narrows
+          will be drawn on.
+        takeaway: Dead reckoning tells you where you would be if nothing pushed you.
+        format: BALLPARK
+        question: Estimate how far the boat could be from where the plot says it is.
+        why: The water has been carrying the boat sideways the whole time, and a plot drawn from course and speed cannot see it.
+        estimate:
+          prompt: The set has been running about half a knot since the last trusted fix.
+          question: Estimate how far the boat could be from the plotted position.
+          labels:
+            - 0.55 kn  (the set, forecast)
+            - 3.5 h  (since the last fix)
+            - 8 kn  (own speed)
+            - 70 m  (depth)
+            - 021°  (course made good)
+          values: [0.55, 3.5, 8, 70, 21]
+          slots: 2
+          template: '{0} × {1}'
+          formula: a*b
+          correct: [0, 1]
+          target: 1.925
+          tolerance: 0.35
+          units: nautical miles
+          solution: 0.55 kn × 3.5 h ≈ 1.9 nautical miles of set nobody has drawn.
+          explanation: >
+            Distance is rate times time, and the rate here is the water, not the
+            boat. Own speed is what the plot already knows about; it is not part
+            of the error.
+      - group: NAV
+        task: Find the display that is telling you nothing
+        title: Two displays, one source
+        place: Control Room
+        scene: >
+          The chart overlay and the electronic plot repeat agree to within a
+          hundred yards. The fathometer says the water is twelve metres
+          shallower than the chart shows for the plotted position. Agreement
+          between instruments feels like confirmation, but it is only worth
+          something when the two could have failed in different ways. The
+          fathometer is not part of that arrangement at all — it is looking
+          straight down at something outside the boat. There is a bank
+          ahead, and the boat is about to act on whichever of these three
+          things you decide to believe.
+        takeaway: Independent confirmation only counts when the second source can fail differently.
+        format: DIAGNOSIS
+        headline: The two navigation displays agree exactly, and the bottom does not agree with either.
+        task: Which explanation accounts for every reading here?
+        readings:
+          - { zone: Plot, label: Chart overlay, value: 'agrees with repeat', status: normal }
+          - { zone: Plot, label: Electronic repeat, value: 'agrees with overlay', status: normal }
+          - { zone: Plot, label: Common source, value: 'inertial navigator', status: alarm }
+          - { zone: Sounding, label: Depth under keel, value: '12 m shallower than charted', status: alarm }
+          - { zone: Log, label: Time since a fix, value: '3 h 30 m', status: high }
+        choices:
+          - { label: The plot is wrong and the sounding is the only real measurement, mechanism: 'Both displays repeat one degraded source, so they cannot disagree; the bottom is independent.' }
+          - { label: The fathometer has failed, mechanism: 'A single instrument fault, with the two agreeing displays correct.' }
+          - { label: The chart is out of date here, mechanism: 'The survey is old and the bottom has changed.' }
+          - { label: The boat is where the plot says and the water is unusually shallow today, mechanism: 'Tide and pressure moving the surface, not the bottom.' }
+          - { label: Nothing to explain, mechanism: 'Twelve metres is within ordinary sounding scatter.' }
+        answer: The plot is wrong and the sounding is the only real measurement
+        why: >
+          Two displays fed by one navigator agree by construction. The
+          disagreement with the bottom is the only new information on the table,
+          and it points at the plot.
+      - group: SONAR
+        task: Use the bottom as an instrument
+        title: What the bottom is good for
+        place: Sonar Room
+        scene: >
+          Ahead the charted bottom rises steeply toward the bank. Rask
+          offers to run a line of soundings across the contour as the boat
+          closes it. The seabed has been surveyed and printed, so depth
+          under the keel is an independent measurement — it fails for
+          entirely different reasons than a plot does. One sounding is a
+          weak clue, because many places on a chart are twelve metres deep.
+          A profile taken while moving is a shape, and shapes can be matched
+          against the chart. With the plot in doubt and a bank ahead, that
+          difference is worth the time it costs to run.
+        takeaway: A contour crossing turns a depth into a position line.
+        format: CHOICE
+        question: What does a run of soundings across a rising contour give you?
+        choices:
+          - A line of position, independent of the plot, from where the depths match the chart.
+          - A range to the bank, from how long the sound took to return.
+          - Confirmation of the plot, since the depths came from the same chart.
+          - Nothing useful until the boat surfaces for a proper fix.
+        answer: A line of position, independent of the plot, from where the depths match the chart.
+        why: >
+          Matching a measured depth profile against a charted one says where you
+          crossed it. It cannot be wrong for the same reason the plot is, which
+          is the whole point of it.
+        rebuttals:
+          - A fathometer measures the depth under the keel, not the range to anything ahead.
+          - The chart is a record of the bottom; comparing a measurement to it is not circular.
+          - Surfacing for a fix is a decision about exposure, and the bottom is already here.
+
+  - title: Silent Passage
+    objective: Cross a constrained area without losing contact awareness or making unnecessary noise.
+    briefing: >
+      The route ahead narrows between the bank and a shipping lane. Command
+      wants the boat through it with contact held throughout and as little
+      acoustic exposure as the plant allows.
+    stake: Every machine running is a sentence the boat is saying out loud to anybody listening.
+    takeaway: Quiet costs capability, and the trade has to be made deliberately rather than by default.
+    stops:
+      - group: SONAR
+        task: Order the passage
+        title: What has to be true before the boat commits
+        place: Sonar Room
+        scene: >
+          Rask lays out what the sonar room needs before the boat enters the
+          narrows: the picture built, the layer known, the own-noise
+          baseline taken, and an agreement about what happens if contact is
+          lost. A passage plan is not a list of jobs for later. It is a set
+          of conditions that have to be true at the moment the boat commits,
+          because inside a constrained channel there is no room to go back
+          and collect one you skipped. Some of these are measurements and
+          some are agreements, and Rask wants them in the order they have to
+          happen in.
+        takeaway: A passage plan is a list of things that must already be true, not a list of things to do later.
+        format: SEQUENCE
+        cards:
+          - Take the own-noise baseline, so a new sound can be recognised as new.
+          - Find the layer depth, so you know where sound will and will not reach.
+          - Build the contact picture, and hold it long enough to have bearing rates.
+          - Agree what the boat does if contact is lost in the narrows.
+        order: [0, 1, 2, 3]
+        why: >
+          The baseline has to come first because everything after it is measured
+          against it; the plan for losing contact has to be agreed before you
+          are busy losing it.
+      - group: NAV
+        task: Decide how close is close enough
+        title: The margin that survives being wrong
+        place: Control Room
+        scene: >
+          The narrows are four miles across. The plot's uncertainty is a
+          circle about two miles wide, and the bank is on the left-hand side
+          of the channel. A plotted position is the centre of a probability,
+          not a fact; the circle drawn round it is the honest width of where
+          the boat might actually be. Planning a route is arithmetic done on
+          that circle rather than on the pencil line — the whole circle has
+          to stay in water the boat can survive, not just its middle. Four
+          miles sounds like plenty until the numbers are written down.
+        takeaway: A route is chosen against the uncertainty, not against the plotted line.
+        format: BALLPARK
+        question: How much clear water is left if the boat runs the middle of the channel?
+        why: The uncertainty is not a decoration on the plot; it is the width of the boat's real position.
+        estimate:
+          prompt: Four miles of channel, and a position that could be a mile out either way.
+          question: Estimate the clear water on the bank side if the boat runs the centre.
+          labels:
+            - 4 nm  (channel width)
+            - 2 nm  (uncertainty diameter)
+            - 8 kn  (own speed)
+            - 2  (halves of the channel)
+          values: [4, 2, 8, 2]
+          slots: 3
+          template: '{0} ÷ {3} − {1} ÷ {3}'
+          formula: a/d - b/d
+          correct: [0, 1, 3]
+          target: 1
+          tolerance: 0.2
+          units: nautical miles
+          solution: Half the channel is 2 nm; half the uncertainty is 1 nm; the margin is 1 nm.
+          explanation: >
+            Running the centre puts two miles between the plotted position and
+            each side, and the position could be a mile off toward either. What
+            is left is the margin, and it is what the route has to survive on.
+      - group: ENG
+        task: Buy quiet with capability
+        title: What the boat can afford to stop
+        place: Machinery Control Room
+        scene: >
+          Haruki lists what could be secured or slowed for the passage.
+          Everything aboard radiates: pumps, fans, turbines, and above all
+          the propeller, which is the loudest thing a submarine does at any
+          speed worth making. Quieting the boat means giving up the work
+          those machines were doing, so every line on his list is a trade —
+          acoustic gain now against a capability the boat may badly want
+          inside the next two hours. Spending the hundred points is you
+          stating, on the record, what this boat can afford to be without
+          while it is in the narrows.
+        takeaway: Silence is not free, and the bill is paid by whatever the machine was doing.
+        format: SCIENCETANK
+        task: Spend the effort where quiet is worth what it costs.
+        proposals:
+          - { label: A, text: 'Reduce turns and accept a slower passage — the largest single source of noise is the propeller.' }
+          - { label: B, text: 'Secure one of the two seawater cooling pumps, accepting a rising lube oil temperature.' }
+          - { label: C, text: 'Stop the ventilation fans in the crew spaces, accepting the air will go stale.' }
+          - { label: D, text: 'Shut down the sonar processors that are not being used, to reduce electrical noise.' }
+        recommended: { A: 45, C: 25, D: 20 }
+        evidence: |
+          Cavitation from the propeller dominates every other source at this
+          depth and speed. The cooling pump is the one machine on the list whose
+          loss starts a clock on a bearing. The fans are noisy and the crew can
+          be uncomfortable for two hours. The processors contribute almost
+          nothing acoustically and cost the picture the passage depends on.
+        why: >
+          The propeller is where the noise is, so that is where the spending
+          belongs. Securing a cooling pump trades a small acoustic gain for a
+          machinery casualty, which is the worst bargain on the list.
+
+  # --------------------------------------------------------------- UNIT II
+  - title: Forward Flooding
+    objective: Find the water, decide whether pumping can win, and stop the source.
+    briefing: >
+      The forward space is taking water. The drain pump is running and the level
+      is still rising. Somewhere under those deck plates is a hole, and the boat
+      is at ninety metres, which is what makes it a hole worth respecting.
+    stake: Pumping is a way of buying minutes, and the minutes are worth nothing if they are not spent finding the source.
+    takeaway: Flooding is stopped at the hull fitting; everything else is delay.
+    stops:
+      - group: DC
+        task: Find where the water is coming in
+        title: Under the deck plates
+        place: Forward Equipment & Handling
+        scene: >
+          Water is over the bilge in the forward space and the level is
+          still rising with the drain pump running. The space carries a
+          seawater supply header, a fresh water line and the sonar cooling
+          return: three systems, one puddle. Water aboard is not only weight
+          — it is a leak whose behaviour depends on where it came from, and
+          a sea connection at depth is fed by the entire ocean at roughly
+          one extra atmosphere for every ten metres down. What the water is,
+          and what has and has not changed on the systems around it, is the
+          evidence that names the source. Pumping without naming it is just
+          a slower flood.
+        takeaway: What the water is tells you which system it came from.
+        format: DIAGNOSIS
+        headline: The forward bilge is rising with the drain pump already running.
+        task: Which source fits every reading on the board?
+        readings:
+          - { zone: Bilge, label: Level, value: '31 cm and rising', status: alarm }
+          - { zone: Bilge, label: Salinity, value: 'salt', status: alarm }
+          - { zone: Systems, label: Fresh water tank level, value: 'unchanged', status: normal }
+          - { zone: Systems, label: Sonar cooling flow, value: 'normal', status: normal }
+          - { zone: Boat, label: Depth, value: '90 m, unchanged', status: normal }
+          - { zone: Boat, label: Trim, value: '1.4° bow down and increasing', status: high }
+        choices:
+          - { label: A hull fitting on the seawater supply header, mechanism: 'Sea pressure driving salt water in at a rate set by depth, taking bow trim as the space fills.' }
+          - { label: A split in the fresh water line, mechanism: 'A domestic line emptying into the bilge; the tank level would fall.' }
+          - { label: The sonar cooling return, mechanism: 'Cooling water escaping; flow through the system would drop.' }
+          - { label: Condensation and normal drainage, mechanism: 'Ordinary accumulation, which the drain pump would be winning against.' }
+          - { label: Back-flooding through the drain pump, mechanism: 'The pump running backwards, which would show as a falling discharge pressure.' }
+        answer: A hull fitting on the seawater supply header
+        why: >
+          Salt rules out the fresh water line. Unchanged cooling flow rules out
+          the sonar return. Only a sea connection explains water arriving faster
+          than the pump can remove it at this depth.
+      - group: DC
+        task: Decide whether the pump can win
+        title: Gallons in against gallons out
+        place: Forward Equipment & Handling
+        scene: >
+          Hallam reads the bilge level twice, one minute apart, and reports
+          the drain pump's rate at this head. Both numbers are on the board.
+          Flooding is a race between two rates: what the sea is putting in
+          against what the pump is taking out, and both of them can be
+          measured rather than argued about. Pump output is not a fixed
+          number either — it falls as the head it works against rises, so
+          "the drain pump is running" answers nothing on its own. If the
+          inflow is the bigger number, pumping is buying minutes, and
+          command has to know how many before it decides whether to change
+          depth.
+        takeaway: A flooding casualty is a race between two rates, and you can measure both.
+        format: BALLPARK
+        question: Is the pump winning, and by how much?
+        why: A rate you have not measured is a hope, and hoping is not a damage control action.
+        estimate:
+          prompt: The level went from 31 cm to 39 cm in one minute in a space this wide.
+          question: Estimate the flooding rate and compare it to the pump.
+          labels:
+            - 8 cm  (rise in one minute)
+            - 11 gallons per cm  (this bilge)
+            - 55 gpm  (drain pump at this head)
+            - 90 m  (depth)
+          values: [8, 11, 55, 90]
+          slots: 2
+          template: '{0} × {1}'
+          formula: a*b
+          correct: [0, 1]
+          target: 88
+          tolerance: 6
+          units: gallons per minute, net
+          solution: 8 cm × 11 gal/cm = 88 gpm still coming in on top of what the pump is already taking out.
+          explanation: >
+            The rise is what is left after the pump has done its work, so the
+            leak is the rise plus the pump — well over a hundred gallons a
+            minute. The pump is not going to win, and knowing that is what sends
+            somebody to the hull valve instead of for another pump.
+      - group: ENG
+        task: Isolate without breaking something else
+        title: What else that valve feeds
+        place: Machinery Control Room
+        scene: >
+          Two valves will stop the water: the outboard hull valve and the
+          inboard supply valve. The header they sit on also feeds the sonar-
+          array cooling. Isolation is never free — every valve shut takes a
+          system away from somebody else, and on a boat where one header
+          serves both the sea and the sonar, stopping the flooding and
+          blinding the array can be the same movement of the same wheel.
+          Haruki wants each action matched to what it actually achieves.
+          "Shut everything" is what people say when they have not worked out
+          what each thing costs.
+        takeaway: Every isolation stops something else, and the order decides what that is.
+        format: PROTOCOL
+        task: Match each action to what it actually achieves.
+        scenarios:
+          - Shut the outboard hull valve first.
+          - Shut the inboard supply valve only.
+          - Start a second portable pump before isolating.
+          - Tell sonar before the header is isolated.
+        choices:
+          - Stops the sea at the hull, which is the only cut that ends it.
+          - Stops flow to the break but leaves the sea connected to the header.
+          - Buys minutes without changing the outcome.
+          - Gives the array's operators warning before their cooling stops.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Only the hull valve separates the boat from the sea. The rest are
+          useful, and none of them is a substitute for it.
+
+  - title: Electrical Fire
+    objective: Put out a fire whose ignition source is electrical, in the order that makes it stay out.
+    briefing: >
+      Smoke in the electrical distribution space. The switchboard indicator says
+      the affected bus is open, and the fire is behind a panel where nobody can
+      see the seat of it.
+    stake: A fire that is fought without removing its source is a fire you will fight twice.
+    takeaway: An electrical fire is put out by de-energizing it; the agent only finishes the job.
+    stops:
+      - group: FIRE
+        task: Take the legs away in the right order
+        title: Three legs, three different actions
+        place: Electrical Distribution
+        scene: >
+          Chief Okonkwo puts the three legs of the fire on the board — the
+          fault that keeps lighting it, the insulation that burns, and the
+          air in the compartment — and asks what each one is removed by.
+          Fire needs fuel, oxygen and energy, and an electrical fire is the
+          awkward case, because the energy keeps arriving down a cable from
+          somewhere else in the boat. Submerged there is nowhere to vent to,
+          and the air feeding the fire is also the air the crew is breathing
+          for the rest of the patrol. Every leg has its own action and none
+          of them substitutes for another.
+        takeaway: Each leg of a fire is a different action, and they are not interchangeable.
+        format: PROTOCOL
+        task: Match each leg of the fire to the action that removes it.
+        scenarios:
+          - The energized fault that keeps re-igniting the cable.
+          - The cable insulation that is actually burning.
+          - The air in the compartment feeding the flame.
+          - The heat conducting through the bulkhead to the next space.
+        choices:
+          - Open the breaker, then prove the cable dead with a meter.
+          - Cool it below the temperature at which it re-lights.
+          - Shut the ventilation to the space so the fire stops being fed.
+          - Set and read boundaries with an infrared thermometer.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Removing the ignition source is what makes the rest hold. Everything
+          else is fighting the symptom of a circuit that is still live.
+      - group: FIRE
+        task: Prove it before you fight it
+        title: What a lamp is worth
+        place: Electrical Distribution
+        scene: >
+          The switchboard indicator shows the bus open. A meter on the cable
+          in the compartment reads four hundred and forty volts. The team is
+          at the door with a hose, waiting on you. An indicator lamp reports
+          what the switchboard believes: a contact somewhere, a lamp that
+          can fail, a bus that can be back-fed from another source. A meter
+          on the conductor reports the condition of that conductor and
+          nothing else. Water on an energised cable puts the fault straight
+          into the people holding the hose, which is why the order these
+          things happen in is the entire question.
+        takeaway: An indicator reports a belief; a meter reports a condition.
+        format: SEQUENCE
+        cards:
+          - Open the breaker for the affected bus.
+          - Meter the cable in the compartment and confirm it is dead.
+          - Enter with breathing protection and fight the fire.
+          - Set boundaries and read them until the seat is cold.
+          - Restore loads in dependency order, once the seat is proved cold.
+        order: [0, 1, 2, 3, 4]
+        why: >
+          Metering between opening and entering is the whole lesson: the lamp and
+          the cable disagreed, and the team that trusts the lamp goes in with the
+          fault still live.
+      - group: ATMO
+        task: Decide what the smoke has done to the space
+        title: Smoke is not only a breathing problem
+        place: Auxiliary Machinery & Bilge
+        scene: >
+          The compartment is full of smoke. The team can breathe on air
+          masks, but nobody can see the far bulkhead and the fire is behind
+          a panel. Breathing apparatus solves exactly one problem, which is
+          the air, and leaves every other one untouched. Smoke takes away
+          the instrument the team had actually been using to find the fire —
+          their own eyes — and a fire burning inside a structure will not
+          show you where it is, whatever the visibility. Searching a
+          compartment by hand is slow, and everything burning behind that
+          panel is getting worse while it happens.
+        takeaway: Smoke removes the instrument you were relying on, which is your own eyes.
+        format: CHOICE
+        question: What does the smoke change about how the casualty is fought?
+        choices:
+          - The space can no longer be read by eye, so the boundaries have to be measured instead.
+          - Nothing, as long as everybody is on breathing protection.
+          - The fire will go out on its own once the smoke displaces the air.
+          - The compartment must be abandoned until the smoke clears.
+        answer: The space can no longer be read by eye, so the boundaries have to be measured instead.
+        why: >
+          Breathing gear solves breathing. It does not tell you where the heat
+          is, and in a space you cannot see, an infrared reading on the bulkhead
+          is the only thing that does.
+        rebuttals:
+          - Masks keep the team working; they do not restore the information the smoke took away.
+          - A fire consuming the air also produces carbon monoxide, which is worse, not self-solving.
+          - Abandoning it hands the compartment to the fire, and the boundaries still need reading.
+
+  - title: Atmosphere Degradation
+    objective: Tell a failing sensor from failing air, and find where the air stopped moving.
+    briefing: >
+      Two of the crew in berthing have headaches. The atmosphere plant says
+      everything is normal. Both of those statements can be true at once, and
+      working out how is the whole of this watch.
+    stake: The air is the one system where the crew notices the problem before the instruments do.
+    takeaway: A plant reading is a report about the plant, not about the compartment you are standing in.
+    stops:
+      - group: ATMO
+        task: Find where the air stopped
+        title: The compartment the scrubber cannot reach
+        place: Auxiliary Machinery & Bilge
+        scene: >
+          The scrubber plant is running and its outlet reads clean. A
+          handheld meter in berthing reads far higher than the sensor
+          installed there, while control and machinery both read normal on
+          handhelds. A submarine's atmosphere is a closed system: the crew
+          puts carbon dioxide into it every minute of the patrol and the
+          plant takes it back out — but only out of air that actually
+          reaches the plant. The ducting, the dampers and the fans decide
+          which compartments are in that loop at all. And an installed
+          sensor is one more instrument that can be wrong, which is exactly
+          why handhelds exist.
+        takeaway: Ventilation decides which compartments the plant is actually treating.
+        format: DIAGNOSIS
+        headline: Berthing is high on a handheld and normal on its installed sensor, and the plant says it is fine.
+        task: Which explanation accounts for every reading?
+        readings:
+          - { zone: Plant, label: Scrubber outlet CO₂, value: '0.4 %', status: normal }
+          - { zone: Berthing, label: Handheld CO₂, value: '2.1 %', status: alarm }
+          - { zone: Berthing, label: Installed sensor, value: '0.5 %', status: alarm }
+          - { zone: Berthing, label: Supply damper, value: shut, status: alarm }
+          - { zone: Control, label: Handheld CO₂, value: '0.5 %', status: normal }
+          - { zone: Crew, label: Symptoms, value: 'berthing only', status: high }
+        choices:
+          - { label: Berthing is isolated from the ventilation and its sensor has failed, mechanism: 'A shut damper leaves the space unscrubbed, and the installed sensor is reporting a level that is not there.' }
+          - { label: The whole boat is degrading, mechanism: 'A plant-wide failure, which would show on every handheld and not just one space.' }
+          - { label: The scrubber has failed, mechanism: 'The plant not removing CO₂, which its own outlet reading would show.' }
+          - { label: The handheld is faulty, mechanism: 'A single instrument reading high, with the installed sensor correct.' }
+          - { label: Nothing to explain, mechanism: 'Headaches in a crowded space with no cause in the air at all.' }
+        answer: Berthing is isolated from the ventilation and its sensor has failed
+        why: >
+          Two things are wrong at once, which is why no single reading settles
+          it: the damper explains the level, and the symptoms in that space
+          alone say the level is real, which is what convicts the sensor.
+      - group: ATMO
+        task: Work out how long the space has
+        title: Nine people and a shut damper
+        place: Berthing, Mess & Medical
+        scene: >
+          Navarro wants to know how long the space can be left before she
+          pulls people out of it. Berthing holds nine people off watch and
+          the compartment's volume is on the board. A person at rest
+          produces carbon dioxide at a rate you can put a number to, and a
+          sealed volume divided by that rate is a deadline in hours instead
+          of an argument about whether it feels stuffy. Concentration
+          matters earlier than most people expect: the air stays breathable
+          long after it starts making judgement and reaction time worse,
+          which is the part that hurts submariners.
+        takeaway: A closed space with people in it has a rate, and a rate gives you a deadline.
+        format: BALLPARK
+        question: Roughly how long until berthing doubles its carbon dioxide?
+        why: A deadline turns an argument about whether to act into a decision about when.
+        estimate:
+          prompt: Nine people, each producing about 0.04 cubic metres of CO₂ an hour, in a sealed space.
+          question: Estimate how long to add another one per cent of CO₂ to the compartment.
+          labels:
+            - 9  (people off watch)
+            - 0.04 m³/h  (CO₂ per person)
+            - 36 m³  (compartment volume)
+            - 0.01  (one per cent, as a fraction)
+          values: [9, 0.04, 36, 0.01]
+          slots: 4
+          template: '{2} × {3} ÷ ({0} × {1})'
+          formula: c*d/(a*b)
+          correct: [0, 1, 2, 3]
+          target: 1
+          tolerance: 0.2
+          units: hours
+          solution: 36 m³ × 0.01 = 0.36 m³ of CO₂ needed; nine people make 0.36 m³ in about an hour.
+          explanation: >
+            The volume and the target concentration give how much gas it takes;
+            the people and their rate give how fast it arrives. An hour is not
+            an emergency and it is not comfortable either, which is exactly the
+            kind of answer that changes what you do next.
+      - group: ENG
+        task: Put the air back where it belongs
+        title: Opening the damper is not the whole job
+        place: Machinery Control Room
+        scene: >
+          The damper to berthing is shut and can be opened from the
+          machinery space. The ventilation fan that serves that branch was
+          stopped during the last drill and never restarted. Ventilation
+          aboard is a branched system — every compartment hangs off a branch
+          that can be closed, and the scrubbers only ever treat the air that
+          actually passes through them. Whatever gets done here has to be
+          proved afterwards with the same handheld that found the problem,
+          because a compartment that is still not in the loop reads exactly
+          like one that is until somebody measures it. Berthing is on a
+          deadline that was worked out an hour ago.
+        takeaway: A path needs both a way through and something moving the air along it.
+        format: CHOICE
+        question: What restores berthing to the scrubber?
+        choices:
+          - Open the damper and start the branch fan, then measure the space again.
+          - Open the damper — the plant will do the rest.
+          - Start the fan; the damper will lift with the flow.
+          - Move the crew out and leave the ventilation as it is.
+        answer: Open the damper and start the branch fan, then measure the space again.
+        why: >
+          A damper is a hole and a fan is the reason air goes through it. Neither
+          on its own moves the compartment's air, and the measurement afterwards
+          is what proves it did.
+        rebuttals:
+          - The plant can only treat air that reaches it, and nothing is pushing this air anywhere.
+          - A damper is a mechanical valve; flow does not open it.
+          - Moving the crew treats the symptom and leaves the compartment unventilated.
+
+  - title: Compound Casualty
+    objective: Prioritise and delegate when there are more casualties than there are people.
+    briefing: >
+      Flooding forward, a partial power loss, a degraded plot and one injured
+      crewman, all inside four minutes. There are not enough people to do
+      everything, so the first decision is which things do not get done yet.
+    stake: A boat that fights every casualty at once is a boat with nobody watching where it is going.
+    takeaway: Command is deciding what you do, and who does the rest.
+    stops:
+      - group: DC
+        task: Decide what is first
+        title: Four casualties, one crew
+        place: Forward Equipment & Handling
+        scene: >
+          Water forward, a bus lost aft, the plot degraded by the power
+          loss, and a crewman with a broken wrist in the passage. Every one
+          of them has somebody standing in front of you asking about it.
+          Casualties do not queue by how loudly they are being reported;
+          they queue by how fast they get worse if nobody touches them, and
+          some of them have already done all the getting worse they are
+          going to do. This is the part of having the watch that is not
+          about knowing the systems at all: four people want a decision, and
+          the seconds spent choosing are the cheapest seconds on offer.
+        takeaway: You order casualties by how fast they get worse, not by how loud they are.
+        format: TRIAGE
+        question: What gets the first team?
+        choices:
+          - The flooding, because it is the only one that gets worse by itself and can sink the boat.
+          - The injured crewman, because a person comes before equipment.
+          - The lost bus, because everything else depends on power.
+          - The plot, because the boat is still moving toward a bank.
+        answer: The flooding, because it is the only one that gets worse by itself and can sink the boat.
+        why: >
+          Water comes in whether or not anybody is watching it. The injury is
+          stable, the bus is already lost, and the plot can be frozen by slowing
+          the boat — which is itself a decision you can make in four seconds.
+      - group: FIRE
+        task: Give the rest away
+        title: Who does the things you are not doing
+        place: Electrical Distribution
+        scene: >
+          You have the flooding. Whitfield is waiting for the rest of the
+          casualty organisation and he will not invent it for you. The watch
+          bill exists so that one person's attention is never the thing that
+          limits the boat: every casualty aboard has somebody qualified who
+          can start on it inside the next minute. What that person needs
+          from you is not a description of the problem — a problem handed to
+          a volunteer is a problem nobody owns. Get this wrong and you will
+          spend the next twenty minutes supervising four things and
+          completing none of them, with the water still coming in.
+        takeaway: Delegation is naming a person and a first action, not describing a problem.
+        format: PROTOCOL
+        task: Match each remaining casualty to the right assignment.
+        scenarios:
+          - The lost bus and everything it fed.
+          - The injured crewman in the passage.
+          - The plot, degraded since the power loss.
+          - The boundaries around the flooded space.
+        choices:
+          - Okonkwo, with a meter — find what is dead and what is only reported dead.
+          - Navarro, who can treat him where he is and clear the passage.
+          - Petrov, to slow the boat and re-establish a sounding line before anything else.
+          - The after damage-control party, reading temperatures and levels either side.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each of these has one person aboard who can start it in the next
+          minute. Naming them is the job; supervising all four of them is not.
+      - group: NAV
+        task: Buy the time to think
+        title: Slowing down as a decision
+        place: Control Room
+        scene: >
+          The boat is making eight knots toward a bank nine miles away, with
+          a plot that has been degraded for six minutes. Time is the only
+          resource in a casualty that can be manufactured, and speed is the
+          price list: distance divided by speed is how long there is before
+          the geometry makes the decision instead of you. Slowing costs
+          progress and buys everything else — the plot can be rebuilt, the
+          flooding can be fought, the passage will still be there. Work out
+          what eight knots is actually spending, in minutes, before deciding
+          whether the boat can afford it.
+        takeaway: Slowing the boat converts a distance problem into a time budget.
+        format: BALLPARK
+        question: How long does the boat have at the present speed, and how much does slowing buy?
+        why: Time is the only resource in a casualty that can be manufactured, and speed is how you buy it.
+        estimate:
+          prompt: Nine miles to the bank at eight knots, with the option of coming down to three.
+          question: Estimate how long the boat has at present speed.
+          labels:
+            - 9 nm  (to the bank)
+            - 8 kn  (present speed)
+            - 3 kn  (the slow option)
+            - 6 min  (since the plot degraded)
+          values: [9, 8, 3, 6]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 1.125
+          tolerance: 0.15
+          units: hours
+          solution: 9 nm ÷ 8 kn ≈ 1.1 hours. At three knots the same distance is three hours.
+          explanation: >
+            An hour is not enough time to fight a flooding casualty and rebuild
+            a plot. Three hours is. The boat's speed is the one number on this
+            list that you control, and it is worth two hours.
+
+  # -------------------------------------------------------------- UNIT III
+  - title: Sonar Blinded by the Boat
+    objective: Find the noise the boat is making about itself, and prove which machine it is.
+    briefing: >
+      Sonar has lost the picture. There is a broadband rise across every bearing
+      and a new narrowband line, and the ocean has not changed. The problem is
+      aboard, which makes it the engineers' problem and sonar's evidence.
+    stake: A boat that cannot hear is a boat that is being heard.
+    takeaway: Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.
+    stops:
+      - group: SONAR
+        task: Prove the noise is ours
+        title: The rise on every bearing
+        place: Sonar Room
+        scene: >
+          Broadband is up across the whole display rather than in one
+          sector. A new narrowband line has appeared at a frequency that is
+          not a round number, and it moved slightly when the plant changed.
+          A contact out in the water has a direction; something the boat is
+          carrying does not, because it is radiating into the array from the
+          hull the array is mounted on. Machinery tones sit at frequencies
+          tied to the rate a thing turns, which is why they shift when the
+          plant does. A boat that cannot hear is also a boat that is being
+          heard, and right now this one may be both.
+        takeaway: A source everywhere at once is a source you are carrying.
+        format: DIAGNOSIS
+        headline: Broadband is up on every bearing at once and a new narrowband line has appeared.
+        task: Which explanation fits the whole picture?
+        readings:
+          - { zone: Broadband, label: Rise, value: 'all bearings', status: alarm }
+          - { zone: Narrowband, label: New line, value: '113 Hz', status: alarm }
+          - { zone: Narrowband, label: Line behaviour, value: 'shifts with shaft speed', status: alarm }
+          - { zone: Environment, label: Sea state and layer, value: unchanged, status: normal }
+          - { zone: Plant, label: Machinery started recently, value: 'seawater pump, 20 min ago', status: high }
+        choices:
+          - { label: A machinery fault aboard, mechanism: 'A source we carry radiates in every direction at once, and its line follows our own machinery.' }
+          - { label: A close contact, mechanism: 'Another vessel nearby, which would appear in one sector and have its own bearing rate.' }
+          - { label: A change in the sea, mechanism: 'Weather or a layer shift, which would change with the environment and not with our shaft.' }
+          - { label: A failing hydrophone, mechanism: 'A defective element, which would degrade one part of the array rather than all bearings.' }
+          - { label: Nothing to explain, mechanism: 'Ordinary variation in a noisy ocean.' }
+        answer: A machinery fault aboard
+        why: >
+          Direction is the whole clue: a contact has a bearing and a fault does
+          not. The line moving with shaft speed ties it to our own plant.
+      - group: ENG
+        task: Find which machine
+        title: Narrowing it to one mount
+        place: Propulsion Machinery
+        scene: >
+          Four machines were running when the noise appeared, and only one
+          of them was started in the last half hour. Haruki wants it
+          narrowed down without stopping things at random. Finding a noise
+          source is an experiment rather than a search: change one thing,
+          listen to what the change did, and let that decide the next move.
+          Securing machinery in bunches proves nothing and costs the boat
+          capability it may need in the next ten minutes. Meanwhile every
+          minute the mount runs, the boat is broadcasting a line that
+          anybody listening can write down and keep.
+        takeaway: You find a noise source by changing one thing at a time and listening.
+        format: SEQUENCE
+        cards:
+          - Ask sonar for the frequency and whether it tracks a shaft or a pump speed.
+          - List what was started or changed in the window when the noise appeared.
+          - Change one machine's state and have sonar report before changing another.
+          - Confirm by restoring the suspect machine and hearing the noise return.
+        order: [0, 1, 2, 3]
+        why: >
+          Restoring it is what turns a correlation into a cause. Everything
+          before that is a list of suspects.
+      - group: SONAR
+        task: Say what the line means
+        title: A line that is not a round number
+        place: Sonar Room
+        scene: >
+          The line sits at a hundred and thirteen hertz, which is roughly
+          twice the shaft rate, and it grows when turns increase. Rotating
+          machinery writes its own rate into the water: a shaft turning so
+          many times a second radiates at that frequency and at whole
+          multiples of it, and which multiple stands out says something
+          about the kind of fault underneath. This is how anybody at sea
+          identifies anybody else, which is the uncomfortable half of it —
+          the same line is being written into somebody else's display right
+          now, with our name attached to it.
+        takeaway: A frequency that is a multiple of a rotation belongs to the thing that rotates.
+        format: CHOICE
+        question: What does a line at twice shaft rate suggest?
+        choices:
+          - Something turning with the shaft that is doing it twice per revolution — a misalignment or a damaged mount.
+          - A contact whose engine happens to run at that frequency.
+          - An electrical harmonic, unrelated to anything rotating.
+          - Nothing — frequencies drift, and the number is a coincidence.
+        answer: Something turning with the shaft that is doing it twice per revolution — a misalignment or a damaged mount.
+        why: >
+          A rotating fault repeats at a multiple of its rotation. Twice per turn
+          is the signature of something out of line rather than out of balance.
+        rebuttals:
+          - A contact's frequency would not follow our own throttle.
+          - An electrical harmonic sits on a supply frequency and stays there.
+          - A line that tracks shaft speed is the opposite of a coincidence.
+
+  - title: Uncontrolled Depth Change
+    objective: Tell a symptom from a cause when the boat is going somewhere you did not order.
+    briefing: >
+      The boat is heavier than it was an hour ago and it is going down. The
+      depth gauge, the trim state and the planes all have something to say and
+      only one of them is the cause.
+    stake: A boat that treats a symptom keeps sinking while everybody watches the wrong gauge.
+    takeaway: Depth is the outcome of weight, angle and speed, and each of those has its own cause.
+    stops:
+      - group: NAV
+        task: Separate the symptom from the cause
+        title: Three gauges, one problem
+        place: Control Room
+        scene: >
+          Depth is increasing slowly with the planes already at rise. The
+          trim shows the boat heavy forward, speed is unchanged, and the
+          depth gauge in control disagrees with the one aft by four metres.
+          A submarine holds its depth two ways at once: buoyancy, which is
+          weight against displacement, and dynamics, which is the planes
+          working against water flowing past the hull. When the two fight
+          each other the boat still moves, slowly, in whichever direction is
+          winning. And two gauges a hundred feet apart on a boat that is not
+          level are not measuring the same column of water, so the odd one
+          out is a suspect and not yet a verdict.
+        takeaway: The instrument that disagrees is a candidate, not automatically the culprit.
+        format: DIAGNOSIS
+        headline: The boat is going deeper with the planes at rise, and the two depth gauges disagree.
+        task: Which cause accounts for every reading?
+        readings:
+          - { zone: Depth, label: Control gauge, value: '94 m, increasing', status: alarm }
+          - { zone: Depth, label: After gauge, value: '98 m, increasing', status: alarm }
+          - { zone: Trim, label: Bubble, value: '1.2° bow down', status: alarm }
+          - { zone: Trim, label: Trim tank levels, value: unchanged, status: normal }
+          - { zone: Plant, label: Speed, value: '8 kn, unchanged', status: normal }
+          - { zone: DC, label: Forward bilge, value: 'wet, level unread', status: high }
+        choices:
+          - { label: Water coming aboard forward, mechanism: 'Weight added at the bow explains the trim, the depth and the wet bilge, and the gauges disagree because they are at different depths in a boat that is down by the bow.' }
+          - { label: A depth-gauge fault, mechanism: 'One instrument reading wrong, which would not make the boat heavy or bow-down.' }
+          - { label: Trim water transferred aft by mistake, mechanism: 'Weight moved inside the boat, which the tank levels would show.' }
+          - { label: A planes-control failure, mechanism: 'Control surfaces not doing what is ordered, which would show as an angle without added weight.' }
+          - { label: Speed loss reducing lift, mechanism: 'Less flow over the planes, which the unchanged speed rules out.' }
+        answer: Water coming aboard forward
+        why: >
+          The two gauges disagree by exactly what a bow-down boat would produce,
+          and only added weight explains trim, depth and a wet bilge together.
+      - group: DC
+        task: Work out how much water that is
+        title: What a metre of depth costs in tonnes
+        place: Forward Equipment & Handling
+        scene: >
+          Ferro wants to know how much water is aboard before deciding
+          whether to blow anything. The boat's tonnes-per-metre figure is on
+          the board: it says how many tonnes of added weight take the boat
+          one metre deeper. Weight aboard can be worked out from the boat's
+          own behaviour instead of guessed at, and the number decides the
+          action — pumping is quiet, slow, and enough if the amount is
+          small, while blowing ballast is fast, spends air the boat cannot
+          replace submerged, and can be heard a long way off. Two very
+          different decisions, one arithmetic problem between them.
+        takeaway: A trim change is a weight, and a weight can be estimated rather than guessed.
+        format: BALLPARK
+        question: About how much water has come aboard?
+        why: How much is aboard decides whether pumping is enough or the boat has to blow.
+        estimate:
+          prompt: The boat has gone four metres deeper at unchanged speed and planes.
+          question: Estimate the weight of water aboard.
+          labels:
+            - 4 m  (depth gained)
+            - 1.6 t/m  (this boat, at this speed)
+            - 8 kn  (speed)
+            - 90 m  (starting depth)
+          values: [4, 1.6, 8, 90]
+          slots: 2
+          template: '{0} × {1}'
+          formula: a*b
+          correct: [0, 1]
+          target: 6.4
+          tolerance: 0.8
+          units: tonnes
+          solution: 4 m × 1.6 t/m ≈ 6.4 tonnes of water aboard.
+          explanation: >
+            Six tonnes is inside what the drain pump can handle if the source is
+            stopped, and well outside what it can handle if it is not. The number
+            is what turns "pump or blow" from an argument into a decision.
+      - group: ENG
+        task: Respond without making it worse
+        title: What each control actually does
+        place: Machinery Control Room
+        scene: >
+          Four things can be done in the next thirty seconds. Each of them
+          changes the boat, and two of them are hard to undo at this depth.
+          Speed and plane angle work through the water flowing past the
+          hull: cheap, reversible, and effective only while the boat is
+          making way. Blowing ballast works through buoyancy: immediate,
+          powerful, expensive in high-pressure air that cannot be made back
+          submerged, and the loudest thing a submarine can do short of an
+          emergency surface. Every one of them is the right answer in some
+          situation, which is exactly why this one has to be reasoned.
+        takeaway: Speed and angle buy time; blowing buys depth and gives away position.
+        format: PROTOCOL
+        task: Match each action to what it actually achieves.
+        scenarios:
+          - Increase speed with the planes at rise.
+          - Blow the forward main ballast.
+          - Pump the forward trim tank to sea.
+          - Slow down and hold the depth with the planes.
+        choices:
+          - More flow over the planes, so the same angle lifts harder — buys minutes.
+          - Removes weight fast, and is heard for miles.
+          - Removes weight slowly, quietly, and only if the pump can beat the leak.
+          - Reduces the lift available, which is the wrong way at this moment.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Every one of these is correct in some situation. The question is which
+          costs you least right now, and blowing is the loudest thing the boat
+          can do short of an emergency surface.
+
+  - title: The Cooling Path
+    objective: Trace one cooling path end to end and find where it stopped.
+    briefing: >
+      Lube oil temperature is rising on the main bearing and nothing has
+      changed on the throttle. Somewhere between the sea and that bearing there
+      is a chain of things that carry heat away, and one of them is not.
+    stake: A bearing that runs hot for an hour is a bearing that will be replaced in a shipyard.
+    takeaway: A cooling system is a chain, and a chain is diagnosed link by link.
+    stops:
+      - group: ENG
+        task: Trace the path
+        title: From the sea to the bearing
+        place: Propulsion Machinery
+        scene: >
+          Haruki wants the path written down in order before anybody touches
+          a valve. Heat made in a bearing has exactly one place to go — the
+          sea outside the hull — and it gets there through a chain of
+          handovers, each one a heat exchanger with its own flow, its own
+          temperature difference and its own way of failing. Write the chain
+          down and a hot bearing becomes a question about which link stopped
+          passing heat along. Leave it unwritten and it stays a guess, made
+          under time pressure, while the bearing carries on making heat at
+          the same rate it always did.
+        takeaway: You cannot find the broken link in a chain you have not written down.
+        format: SEQUENCE
+        cards:
+          - The bearing makes heat, and the lube oil carries it away.
+          - The lube oil gives its heat to the oil cooler.
+          - The oil cooler gives its heat to the fresh water loop.
+          - The fresh water loop gives its heat to the seawater, which goes over the side.
+        order: [0, 1, 2, 3]
+        why: >
+          Heat moves from where it is made to the sea through three handovers,
+          and each handover is a place the chain can break.
+      - group: ENG
+        task: Find the broken link
+        title: One link is not handing the heat on
+        place: Machinery Control Room
+        scene: >
+          The oil is hot and the fresh water loop is hot. The seawater
+          outlet is barely warmer than the inlet, and one of the two
+          seawater pumps was secured during the last quiet run. A heat
+          exchanger only moves heat when there is a temperature difference
+          across it and something on the far side able to carry heat away as
+          fast as it arrives. Any link can fail, and each one fails in its
+          own way. That gives you a method rather than a guess: walk the
+          temperatures along the chain and find where the difference across
+          a stage has gone. A bearing run hot for an hour is a shipyard
+          visit.
+        takeaway: The link that broke is the one where the temperature difference disappears.
+        format: DIAGNOSIS
+        headline: The oil is hot, the fresh water is hot, and the seawater is leaving barely warmer than it arrived.
+        task: Which link in the chain has failed?
+        readings:
+          - { zone: Bearing, label: Lube oil, value: '71 °C, rising', status: alarm }
+          - { zone: Fresh water, label: Loop temperature, value: '64 °C, rising', status: alarm }
+          - { zone: Seawater, label: Inlet, value: '9 °C', status: normal }
+          - { zone: Seawater, label: Outlet, value: '11 °C', status: alarm }
+          - { zone: Plant, label: Seawater pumps running, value: 'one of two', status: high }
+        choices:
+          - { label: Not enough seawater flow to carry the heat away, mechanism: 'One pump cannot move enough water, so it leaves nearly as cold as it arrived while everything upstream heats up.' }
+          - { label: The oil cooler is fouled, mechanism: 'Heat not crossing from oil to fresh water — the fresh water loop would be cool, not hot.' }
+          - { label: The bearing is failing and making more heat, mechanism: 'A mechanical fault adding heat, which the seawater side would still be carrying away.' }
+          - { label: A faulty oil temperature sensor, mechanism: 'One instrument wrong, which does not explain the fresh water loop.' }
+          - { label: Nothing to explain, mechanism: 'Normal warming at this power.' }
+        answer: Not enough seawater flow to carry the heat away
+        why: >
+          The heat has reached the seawater, which clears both the oil cooler and
+          the sensor. It is not leaving, and the only thing that carries it out
+          of the boat is flow.
+      - group: FIRE
+        task: Find out why the pump is off
+        title: The breaker nobody logged
+        place: Electrical Distribution
+        scene: >
+          The second seawater pump did not trip; its breaker is open at the
+          switchboard. The quiet-running lineup from two watches ago is
+          still in force and nobody wrote down what it turned off. Every
+          configuration change aboard is a trade somebody made for a reason,
+          and the reason usually expires long before the configuration does.
+          The log is the only thing that carries that reason across a watch
+          change — without it, three watches later, a perfectly sensible
+          decision is indistinguishable from a fault, and it gets diagnosed
+          as one while a bearing heats up.
+        takeaway: A configuration nobody recorded is a configuration nobody will restore.
+        format: CHOICE
+        question: What does this say about the quiet-running lineup?
+        choices:
+          - Securing a machine needs a record of what it was cooling and when it must come back.
+          - The breaker should never have been opened for a quiet run.
+          - The pump should restart automatically on high temperature.
+          - Nothing — the watch that secured it made a reasonable trade at the time.
+        answer: Securing a machine needs a record of what it was cooling and when it must come back.
+        why: >
+          The trade was reasonable and the record was not made, which is why it
+          survived two watch changes and turned into a hot bearing.
+        rebuttals:
+          - Quiet running is a legitimate reason to secure a pump; the fault is in the handover.
+          - An automatic restart would defeat the point of a deliberately quiet lineup.
+          - It was reasonable at the time and stopped being reasonable an hour later, which is the whole problem.
+
+  - title: Silent-Running Configuration
+    objective: Decide what may be secured, reduced or rescheduled while keeping the boat alive.
+    briefing: >
+      The boat has to be quiet for four hours. Everything aboard that makes
+      noise also does something, and the ones that keep people breathing and
+      bearings cool are not on the table.
+    stake: Quiet is bought with capability, and the bill arrives after the transit.
+    takeaway: A silent lineup is a set of deadlines, not a set of switches.
+    stops:
+      - group: ENG
+        task: Choose the lineup
+        title: Four hours of quiet
+        place: Machinery Control Room
+        scene: >
+          Haruki lists what can be secured for the transit. Four hours, and
+          every item saves noise while costing something that will come due
+          before the end of it. Some machines can be restarted the moment
+          they are wanted; others take a plant with them, or leave something
+          quietly heating up while they are off. Radiated noise is what
+          makes a submarine findable, so quiet is worth real money — but it
+          is bought on credit, and the bill arrives at a time you do not
+          choose. Spend the hundred points on the items whose bill this boat
+          can actually pay.
+        takeaway: Every quiet decision has an expiry time attached to it.
+        format: SCIENCETANK
+        task: Spend the quiet where it buys most and costs least.
+        proposals:
+          - { label: A, text: 'Come down in turns and accept a longer transit — the propeller is the loudest thing aboard.' }
+          - { label: B, text: 'Stop the galley and laundry machinery, which nobody needs for four hours.' }
+          - { label: C, text: 'Secure one of two scrubber trains, accepting a slow rise in carbon dioxide.' }
+          - { label: D, text: 'Secure the second seawater cooling pump, accepting a rising bearing temperature.' }
+        recommended: { A: 45, B: 30, C: 15 }
+        evidence: |
+          Cavitation dominates the signature at this depth and speed. Galley and
+          laundry are pure noise with no consequence in four hours. One scrubber
+          train can be spared for a while because carbon dioxide rises slowly
+          and is measurable. The cooling pump is the item on this list that
+          starts a clock nobody can read from the control room.
+        why: >
+          Three of these are reversible at any moment and one of them is not.
+          The cooling pump is where a quiet run turns into a machinery casualty.
+      - group: ATMO
+        task: Put a deadline on the quiet
+        title: How long one scrubber lasts
+        place: Auxiliary Machinery & Bilge
+        scene: >
+          With one scrubber train secured, the remaining train removes less
+          carbon dioxide than the crew produces. Lindqvist wants the number
+          of hours before the boat has to make a noise to fix that. A closed
+          atmosphere with a production rate and a removal rate has a net
+          rate, and a net rate measured against a limit is a deadline
+          expressed in hours rather than an argument in the wardroom.
+          Command can plan a transit around a number of hours. It cannot
+          plan around "soon", and it will not slow the boat for a feeling
+          about the air.
+        takeaway: A slow problem with a known rate is a deadline, and a deadline can be planned around.
+        format: BALLPARK
+        question: How long can the boat run on one scrubber train?
+        why: A rate and a limit give an hour, and an hour is something command can plan a transit around.
+        estimate:
+          prompt: The crew makes more carbon dioxide than one train removes, and the limit is a rise of one per cent.
+          question: Estimate how long until the boat reaches the limit.
+          labels:
+            - 1.4 m³/h  (crew production)
+            - 1.1 m³/h  (one train removes)
+            - 6.0 m³  (a one per cent rise, boat-wide)
+            - 4 h  (the transit)
+          values: [1.4, 1.1, 6.0, 4]
+          slots: 3
+          template: '{2} ÷ ({0} − {1})'
+          formula: c/(a-b)
+          correct: [0, 1, 2]
+          target: 20
+          tolerance: 2
+          units: hours
+          solution: The net gain is 0.3 m³/h; 6.0 ÷ 0.3 = 20 hours to the limit.
+          explanation: >
+            Twenty hours against a four-hour transit is a comfortable margin, and
+            knowing it is what makes securing the train a decision rather than a
+            gamble. Had the answer been three hours, the same action would have
+            been reckless.
+      - group: SONAR
+        task: Say what quiet costs the picture
+        title: What you give up by being silent
+        place: Sonar Room
+        scene: >
+          Rask points out that a quiet boat is also a slow boat, and a slow
+          boat takes longer to build a bearing rate on anything it finds.
+          Passive sonar gives bearing alone, so everything the room knows
+          about where a contact is and where it is going has to be assembled
+          out of how that bearing changes while your own boat moves. Slowing
+          does help the array — much of what it fights is the boat's own
+          machinery. Rask is asking what the same decision costs on the
+          other side of the ledger, before the boat commits to four hours of
+          it.
+        takeaway: Quiet buys concealment and spends time, and time is what a track is made of.
+        format: CHOICE
+        question: What does slowing down do to the sonar picture?
+        choices:
+          - It makes the boat quieter to listen with, but a track takes longer to develop.
+          - It has no effect; sonar is passive and does not care about own speed.
+          - It improves the track, because a slower boat gets more bearings.
+          - It removes the need for a track, since a slow boat cannot be hit.
+        answer: It makes the boat quieter to listen with, but a track takes longer to develop.
+        why: >
+          Own noise falls, so the array hears more. But a track is built from how
+          the bearing changes as you move, and moving less means waiting longer
+          for the same answer.
+        rebuttals:
+          - Passive sonar hears own-ship noise louder than anything else, so speed matters a great deal.
+          - More bearings from the same place are not more information about range.
+          - A slow boat is easier to hit, not harder, because it has fewer options.
+
+  - title: Rig for Dive
+    objective: Prove the boat is ready before the last patrol, rather than assuming it.
+    briefing: >
+      The boat sails in an hour. Every check on the rig-for-dive list exists
+      because somebody once did not do it, and each one proves a different
+      thing.
+    stake: A check skipped alongside is a casualty at depth.
+    takeaway: A check is a measurement that proves a specific claim, not a box beside a word.
+    stops:
+      - group: DC
+        task: Say what each check proves
+        title: What the checklist is actually asking
+        place: Forward Equipment & Handling
+        scene: >
+          Four items off the rig-for-dive list. A checklist is compressed
+          language: each line is a claim about something that must be true
+          when the boat submerges, written short enough to be read aloud on
+          a busy deck by somebody who already knows what it means. The check
+          is the evidence for the claim. The failures it is guarding against
+          are not variations on one theme either — something that will not
+          move, something nobody has looked at, something that runs and
+          achieves nothing are three different casualties with three
+          different consequences at depth.
+        takeaway: A checklist item is a claim; the check is the evidence for it.
+        format: PROTOCOL
+        task: Match each check to what it proves.
+        scenarios:
+          - Operate every hull valve through its full travel.
+          - Read every bilge and log the level.
+          - Test the drain pump against a closed discharge.
+          - Walk the compartment and confirm both escape routes are clear.
+        choices:
+          - That the valve will move when it is needed, not just that it exists.
+          - That the starting level is known, so a rise can be recognised as a rise.
+          - That the pump can build pressure, not merely turn.
+          - That the way out is a way out today, and not where the stores were left.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each of these is a different failure: seized, unknown, spinning
+          uselessly, and blocked. One list, four claims.
+      - group: ATMO
+        task: Line up the air before you need it
+        title: Dampers before dive
+        place: Auxiliary Machinery & Bilge
+        scene: >
+          The ventilation has been open to the surface all week. Before
+          diving, the boat has to be closed up and the internal air path
+          lined up, and the order of those two things matters. Once the hull
+          is sealed the atmosphere aboard is the only atmosphere there is:
+          what the plant treats, where air can move, and what the readings
+          were before anything went wrong all become fixed facts the crew
+          lives inside for weeks. Some of it is very cheap to get right
+          while there is still a hatch open, and very expensive afterwards.
+        takeaway: The air path has to be proved before the boat is sealed, not after.
+        format: SEQUENCE
+        cards:
+          - Line up the internal ventilation so every compartment reaches the plant.
+          - Start the scrubber and oxygen plant and prove they are working.
+          - Take a handheld reading in each compartment as a starting baseline.
+          - Shut the boat off from the surface and dive.
+        order: [0, 1, 2, 3]
+        why: >
+          Once the boat is shut, a damper you forgot is a compartment nobody is
+          treating, and a missing baseline means the first bad reading has
+          nothing to be compared against.
+      - group: FIRE
+        task: Prove the isolation you inherited
+        title: What the last watch left open
+        place: Electrical Distribution
+        scene: >
+          The switchboard shows two breakers open from maintenance last
+          week. The log says one of them was restored. The lamps and the log
+          disagree, and you are about to send people to work on that cable.
+          A log records what somebody intended to do at the end of a long
+          watch. An indicator records what the switchboard believes about
+          itself. Neither of them is in contact with the conductor your team
+          will have their hands on, and isolation inherited from a watch
+          that has gone to bed has hurt more electricians than faults have.
+        takeaway: A record and an indicator are two beliefs; a meter is a measurement.
+        format: CHOICE
+        question: What settles the disagreement?
+        choices:
+          - Meter the circuits and record what you actually find.
+          - Believe the log, because a person wrote it deliberately.
+          - Believe the lamps, because they show the present state.
+          - Close both breakers, since one of them is meant to be closed anyway.
+        answer: Meter the circuits and record what you actually find.
+        why: >
+          The log records an intention and the lamp records what the switchboard
+          thinks. The meter is the only one of the three that is looking at the
+          cable.
+        rebuttals:
+          - A written record is a claim about the past, and the past is what is in dispute.
+          - An indicator lamp has its own failure modes, which is why this check exists.
+          - Closing a breaker to resolve an argument is how a fault gets energised.
+
+  - title: Refit Decision
+    objective: Choose what to improve before the last patrol, on evidence rather than preference.
+    briefing: >
+      There is money and yard time for some of what the boat wants and not all
+      of it. Every proposal has a cost, an uncertain benefit, and an effect on
+      the patrol that follows.
+    stake: The wrong refit is a patrol spent wishing for the thing you did not buy.
+    takeaway: An upgrade is worth what it changes about the decisions you will actually face.
+    stops:
+      - group: ENG
+        task: Spend the yard time
+        title: What the boat should buy
+        place: Machinery Control Room
+        scene: >
+          Four refit proposals, each with a real cost and an honest
+          uncertainty about what it buys. Ahead is a long transit with a
+          constrained passage in the middle of it. Money spent on a boat is
+          really spent on the decisions the boat will have to make: an
+          improvement that makes an already-good number better changes
+          nothing anybody does, while a modest one that removes a blind spot
+          changes what command can risk. You have stood fourteen watches on
+          this boat and you know which arguments kept coming back. This is
+          where that is worth something.
+        takeaway: You fund what changes a decision, not what improves a number.
+        format: SCIENCETANK
+        task: Fund the refit the evidence supports.
+        proposals:
+          - { label: A, text: 'Re-mount the seawater pumps on new isolators — attacks the largest known noise source after the propeller.' }
+          - { label: B, text: 'A second independent depth sounder — an instrument that cannot fail the same way the plot does.' }
+          - { label: C, text: 'Faster scrubber media — improves a margin that is already twenty hours wide.' }
+          - { label: D, text: 'A larger drain pump — helps in a flooding casualty the boat has never had.' }
+        recommended: { A: 45, B: 35 }
+        evidence: |
+          The last three patrols recorded pump noise as the leading contributor to
+          the signature after cavitation. The plot has twice been wrong in a way
+          only an independent measurement could have caught. Carbon dioxide has
+          never come close to a limit. The drain pump has never been the binding
+          constraint in a drill, because the source was always stopped first.
+        why: >
+          Two of these change decisions the boat has actually had to make. The
+          other two improve numbers that were never the problem.
+      - group: SONAR
+        task: Say what the mounts buy
+        title: Why isolators and not a better array
+        place: Sonar Room
+        scene: >
+          The alternative proposal was a more sensitive array. Rask argues
+          for the pump mounts instead, and the reason is not about the
+          array's quality. Every sonar has a noise floor, and on a submarine
+          that floor is usually set by the boat's own machinery, conducted
+          into the water through the mountings that hold it down.
+          Sensitivity and noise are separate quantities, and only one of
+          them is what the room has been complaining about since the first
+          transit. Say what the mounts buy that a better ear would not.
+        takeaway: A more sensitive instrument in a noisier boat hears its own boat better.
+        format: CHOICE
+        question: Why do the mounts beat a better array?
+        choices:
+          - The array's limit is our own noise, so removing noise helps more than more sensitivity.
+          - A new array would not fit the existing hull opening.
+          - Sensitivity is already perfect and cannot be improved.
+          - Mounts are cheaper, and cost is the only criterion.
+        answer: The array's limit is our own noise, so removing noise helps more than more sensitivity.
+        why: >
+          When the noise floor is set by the boat itself, a better ear hears that
+          floor more clearly and nothing else.
+        rebuttals:
+          - Fit is an engineering detail, not the reason one buys more than the other.
+          - No instrument is perfect; this one is limited by its surroundings.
+          - Cost matters, but it is not why this is the better buy.
+      - group: NAV
+        task: Say what the second sounder is worth
+        title: The value of a different failure
+        place: Control Room
+        scene: >
+          The second depth sounder costs as much as the pump mounts and
+          improves no number on the plot. Sowande wants it anyway. A spare
+          is only worth what it costs when it fails differently from the
+          thing it backs up — two instruments sharing a sensor, a power
+          supply or a source of data also share their mistakes, and they
+          will agree with each other confidently while both being wrong.
+          This boat has been misled twice this patrol by exactly that. Say
+          what the second sounder actually buys, given that it makes nothing
+          on the chart more precise.
+        takeaway: A second instrument is worth having when it fails differently, not when it agrees.
+        format: CHOICE
+        question: What does the second sounder actually buy?
+        choices:
+          - A measurement that cannot be wrong for the same reason as the plot.
+          - A more precise depth, which improves the plot's accuracy.
+          - A backup for when the first sounder is broken, and nothing more.
+          - Confirmation of the existing sounder, which builds confidence.
+        answer: A measurement that cannot be wrong for the same reason as the plot.
+        why: >
+          Independence is the whole product. The boat has twice been misled by
+          two displays sharing one source, and this is the fix for that.
+        rebuttals:
+          - Precision is not the problem; the plot has been precisely wrong before.
+          - It is a backup too, but that is not what makes it worth the money.
+          - Confirmation from a source that fails the same way is not confirmation.
+
+  - title: Deep Watch
+    objective: Run the whole boat at once, with everything degraded a little and nothing decided for you.
+    briefing: >
+      An uncertain contact, a plot four hours old, water in the forward bilge, a
+      scrubber train down and a bearing running warm. None of them is an
+      emergency. Together they are the patrol.
+    stake: This is the watch the whole campaign has been for, and every department will ask you for something at once.
+    takeaway: Command is choosing which uncertainty you can live with, and saying so out loud.
+    stops:
+      - group: NAV
+        task: Read the whole board
+        title: Five small problems
+        place: Control Room
+        scene: >
+          Nothing on the board is red. The plot is four hours old, the
+          contact is faint and unresolved, the forward bilge is wet, one
+          scrubber train is down and a bearing is warm. The boat is closing
+          a constrained passage. A set of small problems is more dangerous
+          than one big one, because none of them is loud enough to demand
+          attention — the watch attends to whatever is shouting, and
+          meanwhile some of these are stable and will keep, while others get
+          quietly worse on their own with nobody touching them. Where the
+          boat is about to be is what turns one of them urgent.
+        takeaway: A set of small problems can be worse than a big one, because none of them demands attention.
+        format: DIAGNOSIS
+        headline: Nothing on the board is red, and the boat is an hour from a passage it cannot take twice.
+        task: What is the first thing that has to change?
+        readings:
+          - { zone: Plot, label: Age of position, value: '4 h', status: alarm }
+          - { zone: Sonar, label: Contact, value: 'faint, unresolved', status: high }
+          - { zone: DC, label: Forward bilge, value: 'wet, not rising', status: normal }
+          - { zone: Atmosphere, label: CO₂, value: '0.7 %, slowly rising', status: normal }
+          - { zone: Plant, label: Bearing temperature, value: '68 °C, steady', status: normal }
+        choices:
+          - { label: The age of the position, mechanism: 'Everything else is stable and measured; the plot is the only thing getting worse on its own, and the passage depends on it.' }
+          - { label: The unresolved contact, mechanism: 'A faint contact that may be nothing, and can be watched while something else is fixed.' }
+          - { label: The wet bilge, mechanism: 'Water that is not rising, which is a note in the log rather than a casualty.' }
+          - { label: The carbon dioxide, mechanism: 'A slow rise with twenty hours of margin behind it.' }
+          - { label: The warm bearing, mechanism: 'A steady temperature, which is a watch item and not a fault.' }
+        answer: The age of the position
+        why: >
+          Four of these are stable and one of them degrades every minute without
+          anybody touching it. The passage is what makes it urgent.
+      - group: DC
+        task: Give the rest of it away
+        title: Everything you are not doing yourself
+        place: Forward Equipment & Handling
+        scene: >
+          You are taking the plot yourself. Four other things need somebody,
+          and Whitfield is waiting with the watch bill. This is the last
+          watch of the patrol and there is more happening than one person
+          can hold in their head: what you assign now is what will actually
+          get done, and an assignment that does not say who has it, what
+          they do first and when they come back is a wish rather than an
+          order. Everything you keep for yourself is attention taken away
+          from the plot you just decided was the priority.
+        takeaway: Delegation is a name, a first action and a time to report back.
+        format: PROTOCOL
+        task: Match each item to the assignment that fits it.
+        scenarios:
+          - The wet forward bilge.
+          - The unresolved contact.
+          - The scrubber train that is down.
+          - The bearing running warm.
+        choices:
+          - Hallam — read and log the level every ten minutes and report a change, not a number.
+          - Dunne — hold it, get a bearing rate, and report before it resolves rather than after.
+          - Lindqvist — restore the train or tell me the hour at which it stops being optional.
+          - Haruki — restore the second cooling pump and tell me what that costs acoustically.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each assignment names a person, a first action and what "report back"
+          means. None of them asks anybody to watch something.
+      - group: SONAR
+        task: Report what you know and what you do not
+        title: The report the captain asked for
+        place: Sonar Room
+        scene: >
+          Commander Vance wants your assessment before the boat enters the
+          passage, and she has been clear all patrol about what she expects
+          in one. Everything you know down here arrived through an
+          instrument with a limit on it — a bearing with no range, a plot
+          with an age, a level read four minutes ago. The person acting on
+          your words cannot see any of those limits unless you put them
+          there. A report is not a summary of your evidence; it is the raw
+          material somebody else makes a decision out of, at speed, without
+          the time to come back and ask what you meant.
+        takeaway: A report that hides its uncertainty is worse than no report, because it will be acted on.
+        format: CHOICE
+        question: What belongs in the assessment?
+        choices:
+          - What is known, what is not, and which of the two is about to change.
+          - The most likely case, stated plainly, without hedging it.
+          - Every reading from every department, so nothing is left out.
+          - A recommendation, since the captain has to decide anyway.
+        answer: What is known, what is not, and which of the two is about to change.
+        why: >
+          It is the only form that lets somebody else make a decision. A single
+          likely case hides the error, and a list of readings hands the work
+          back to the person who asked.
+        rebuttals:
+          - A likely case with the uncertainty stripped out is what puts a boat into a bank.
+          - Everything you know is not a report; it is the raw material for one.
+          - A recommendation is welcome after the assessment, not instead of it.

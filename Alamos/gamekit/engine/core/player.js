@@ -10,6 +10,10 @@ let onGround=true;
 // at a fixed height the moment the same code met a heightfield.
 let GROUND = () => 0;
 let BOUNDS = 105;
+// How wide the player is, for collision. 0.45 suits a street; a submarine's
+// hatch is a 1.1 m opening, which left a twelve-centimetre slot that only a
+// perfectly centred approach fitted through. A theme that has doorways says so.
+let RADIUS = 0.45;
 
 /**
  * @param opts { fov, near, far, start:{x,z,yaw}, bounds, groundHeight }
@@ -22,6 +26,7 @@ export function initPlayer(canvas, scene, renderer, opts = {}){
     opts.fov ?? 66, window.innerWidth/window.innerHeight, opts.near ?? 0.08, opts.far ?? 160);
   if(typeof opts.groundHeight === 'function') GROUND = opts.groundHeight;
   if(typeof opts.bounds === 'number') BOUNDS = opts.bounds;
+  if(typeof opts.radius === 'number') RADIUS = opts.radius;
   const s = opts.start ?? { x: 0, z: 14 };
   camera.position.set(s.x, GROUND(s.x, s.z) + playerHeight, s.z);
 
@@ -105,7 +110,7 @@ export function updatePlayer(delta){
   const newPos = oldPos.clone().add(move);
 
   // Simple AABB collision against colliders
-  const playerRadius=0.45;
+  const playerRadius=RADIUS;
   const nextBox=new THREE.Box3().setFromCenterAndSize(
     new THREE.Vector3(newPos.x, playerHeight/2, newPos.z),
     new THREE.Vector3(playerRadius*2, playerHeight, playerRadius*2)
@@ -160,6 +165,7 @@ export function updatePlayer(delta){
  * both back on the way out.
  */
 export function setGround(fn){ if(typeof fn === 'function') GROUND = fn; }
+export function setRadius(r){ if(typeof r === 'number') RADIUS = r; }
 export function setBounds(n){ if(typeof n === 'number') BOUNDS = n; }
 export function getGround(){ return GROUND; }
 export function getBounds(){ return BOUNDS; }

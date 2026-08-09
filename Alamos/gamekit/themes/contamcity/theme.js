@@ -32,6 +32,22 @@ export default {
   // the instrument in it reads. Omit it and the doors stay as they were.
   interiors: INTERIORS,
 
+  // The opening screen. Lives here rather than in index.html, which is shared by
+  // every theme served from gamekit/ — Deep Watch spent a session opening with a
+  // paragraph about a river city.
+  opening: [
+    'A freight yard beside the river burned last night, and nobody can say what came off it. '
+    + 'Two neighbourhoods are downwind of a plume nobody has identified. The drinking-water intake '
+    + 'for a hundred and forty thousand people sits nine hundred metres downstream of the outfall, '
+    + 'and the utility has closed it — which means the city is drinking its reserves, and the '
+    + 'reserves are measured in days. You are the Chief Scientific Officer. Every hour you spend '
+    + 'getting an answer right is an hour the intake stays shut; every hour you save by guessing is '
+    + 'an hour a wrong answer spreads through the mains. The clock at the top of the screen is that '
+    + 'reserve running down. It is the only thing in this response you cannot get back.',
+    'Nothing here punishes you for being wrong. A wrong call costs time and shows you the whole '
+    + 'reasoning; it never locks you out. What it cannot do is give you the hours back.',
+  ],
+
   people: {
     OUTFITS,
     roleToOutfit,

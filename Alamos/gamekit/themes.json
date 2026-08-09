@@ -3,6 +3,7 @@
   "themes": {
     "contamcity": "themes/contamcity",
     "projecty": "../project-y-fps",
-    "hospital": "../Hospital/hospital-fps"
+    "hospital": "../Hospital/hospital-fps",
+    "deepwatch": "themes/deepwatch"
   }
 }

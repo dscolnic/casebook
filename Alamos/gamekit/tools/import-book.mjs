@@ -136,7 +136,15 @@ missions.forEach((m, mi) => {
     lessons.push({ day, title: s.title ?? s.task ?? `${s.group} ${day}`, scene, takeaway,
                    place: s.place ?? '', story: scene, game });
     CURRICULUM[s.group] = lessons;
-    return { group: s.group, lesson: day - 1, task: s.task ?? s.title ?? '', ...(s.why ? { why: s.why } : {}) };
+    // `why` is the answer's reasoning and belongs in the verdict. The engine's
+    // `stop.why` is something else entirely — the line shown ABOVE the question
+    // saying why this stop matters now — so copying one into the other printed
+    // the reasoning before the question and gave the answer away. A book that
+    // wants to write that line uses `motivation`.
+    return {
+      group: s.group, lesson: day - 1, task: s.task ?? s.title ?? '',
+      ...(s.motivation ? { why: s.motivation } : {}),
+    };
   });
 
   MISSIONS.push({

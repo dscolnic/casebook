@@ -4,6 +4,7 @@ import { MISSION_DEFS } from './missions.js';
 import { esc, fmt, clamp } from './utils.js';
 import { GROUP_DEFS } from './divisions.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
+import { destinationLabel } from './place.js';
 import { WEEKS } from './constants.js';
 import { TOTAL_DAYS } from './time.js';
 
@@ -205,7 +206,7 @@ export function updateHUD(){
     const person=personId?HISTORIC_CHARACTERS.find(c=>c.id===personId):null;
     whereEl.textContent = person
       ? `Find ${person.name} — ${person.role}`
-      : `Go to ${area?area.name:stop.group}`;
+      : `Go to ${destinationLabel(stop.group)}`;
     // The "why" is what is at stake, in the book's own words, not the learning
     // objective — the player is being asked to act, not to revise.
     const reopened = (state.attempts?.[`${state.week}-${idx}`]||0) > 0;

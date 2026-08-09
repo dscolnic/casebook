@@ -18,6 +18,8 @@ import {
 } from './plan.js';
 import { buildProps } from './hospitalProps.js';
 import { buildStations } from './instruments.js';
+import { addCaseBeacon } from '../../../gamekit/engine/world/caseBeacon.js';
+import { openCaseGroup } from '../../../gamekit/engine/core/app.js';
 import { chair as buildChair } from './hospitalProps.js';
 import {
   buildLighting, addRoomLight, vinylFloorTexture, paintTexture, ceilingTileTexture,
@@ -548,6 +550,13 @@ function addRoomCaseStand(r, gdef){
     mesh: hit, type: 'case', id: r.group,
     prompt: `E — Review the case in ${r.name}`,
   });
+  // The stand is the only thing in the room that opens a case, and it reads as
+  // one more clipboard. The marker is the same one the engine's rooms use.
+  caseBeacons.push({
+    group: r.group,
+    beacon: addCaseBeacon(scene, { x, z, colour: new THREE.Color(gdef.color).getHex(),
+                                   label: 'Review the case · E', height: 2.05 }),
+  });
 }
 
 /**
@@ -572,6 +581,27 @@ function addRoomExit(r){
 }
 
 // ---------------------------------------------------------------- world build
+/**
+ * The case-stand markers, one per room, lit only where a case is open.
+ *
+ * A hospital corridor of identical doorways is exactly the case the engine's
+ * beacon was written for; the hospital builds its own rooms, so it keeps its
+ * own list and drives it from the same `openCaseGroup()` the other games use.
+ */
+const caseBeacons = [];
+let beaconClock = 0;
+export function updateCaseBeacons(delta, camera){
+  if(!caseBeacons.length) return;
+  beaconClock += delta;
+  const recheck = beaconClock > 0.4;
+  if(recheck) beaconClock = 0;
+  const open = recheck ? openCaseGroup() : null;
+  for(const b of caseBeacons){
+    if(recheck) b.beacon.setActive(open === b.group);
+    b.beacon.update(delta, camera);
+  }
+}
+
 export function initWorld(canvas){
   resetSeed();
   clearMaterialCache();

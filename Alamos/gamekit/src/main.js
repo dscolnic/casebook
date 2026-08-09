@@ -30,6 +30,13 @@ const overlay = document.getElementById('overlay');
 document.title = `${theme.title} — ${theme.subtitle}`;
 document.getElementById('titleName').textContent = theme.title;
 document.getElementById('titleRole').textContent = theme.subtitle;
+// The opening is the theme's, not this file's: it was written for one game and
+// every other theme served from here inherited a paragraph about a river city.
+// The map is of a place, and the place has a name. index.html said "Riverton"
+// for every theme served from here.
+document.getElementById('mapTitle').textContent = theme.site?.name ?? theme.title;
+document.getElementById('titleStakes').innerHTML =
+  (theme.opening ?? []).map(p => `<p class="stakes">${p}</p>`).join('');
 document.getElementById('titleScope').textContent =
   'A fictional scenario for teaching. Numerical examples are generic and non-operational; '
   + 'nothing here is a procedure for handling real hazardous material.';
@@ -47,6 +54,9 @@ initPlayer(canvas, scene, renderer, {
   fov: theme.look?.fov, near: theme.look?.near, far: theme.look?.far,
   start: theme.start ?? theme.site?.spawn,
   bounds: theme.site?.terrain?.playerLimit,
+  // How wide the player is for collision — an interior with doorways needs less
+  // than a street does.
+  radius: theme.look?.playerRadius,
   // The world's own height function, never a second opinion about the floor.
   groundHeight: world.groundHeight,
 });
@@ -66,8 +76,11 @@ initCrowd({
   extraSpots: world.getExtraSpots?.() ?? [],
   extras: theme.people.extras ?? 0,
   groundHeight: world.groundHeight,
-  blocked: (x, z) => world.colliders.some(c =>
-    x > c.min.x - 1 && x < c.max.x + 1 && z > c.min.z - 1 && z < c.max.z + 1),
+  // The pad is the caller's: one metre keeps somebody from being *placed* hard
+  // against a wall, and that same metre used while walking would wall a person
+  // into a four-metre passage.
+  blocked: (x, z, pad = 1) => world.colliders.some(c =>
+    x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad),
 });
 
 // --------------------------------------------------------------- objective

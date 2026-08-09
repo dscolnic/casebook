@@ -7,8 +7,7 @@ import { BALLPARK_CALCS, JARGON } from './curriculum.js';
 import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, SKIP_COST, SKIP_HOURS,
          VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
-import { TOTAL_HOURS } from './time.js';
-import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchDiagram } from './figures.js';
+import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard } from './figures.js';
 
 let activeChallenge = null;
 let activeOrder = null;
@@ -34,11 +33,6 @@ function jargonMatches(text, max=12){
     if(item.aliases.some(a=>normalized.includes(String(a).toLowerCase()))){ found.push(item); if(found.length>=max) break; }
   }
   return found;
-}
-function jargonHTML(text, title='Terminology — click for definition'){
-  const terms=jargonMatches(text,12);
-  if(!terms.length) return '';
-  return `<div class="termStrip"><div class="termStripLabel">${esc(title)}</div><div class="termButtons">${terms.map(t=>`<button type="button" class="termChip" data-term="${JARGON.indexOf(t)}">${esc(t.name)}</button>`).join('')}</div><div class="termDefinition hidden"></div></div>`;
 }
 function storyBriefText(lesson){
   return lesson.story || lesson.progress || lesson.title;
@@ -85,13 +79,73 @@ function solutionText(ch){
   if(ch.recommended) return Object.entries(ch.recommended).map(([k,v])=>`Proposal ${k}: about ${v} points`).join('; ');
   return ch.answer;
 }
-function avatarSvgSmall(leaderId){
-  const l=leader(leaderId);
-  return `<div style="width:46px;height:46px;border-radius:10px;background:#315c78;color:#fff;display:grid;place-items:center;font-weight:900">${esc(l.name[0])}</div>`;
+/**
+ * A portrait, drawn from the person's own id.
+ *
+ * It was a rounded square with the first letter of their name in it, which is
+ * a placeholder, and it sat next to three lines of metadata that mattered to
+ * nobody. The person asking is the one part of this panel that should look
+ * like something: a bust in their group's colour, with skin, hair and build
+ * varied by a hash of their id so the same person is the same face every time.
+ *
+ * Deliberately flat and geometric — the same language as the rigs walking
+ * around outside, not an attempt at a photograph.
+ */
+const SKINS = ['#f0c9a4', '#e0ab7d', '#c78a5c', '#a2663d', '#7d4b2a', '#5c3720'];
+const HAIRS = ['#2b2119', '#4a3526', '#6f5137', '#8d7a5f', '#b8b2a8', '#3a2f2a'];
+function hashOf(str){
+  let n = 0;
+  for(const c of String(str || '?')) n = (n * 31 + c.charCodeAt(0)) >>> 0;
+  return n;
 }
-function personAvatarSvg(person){
-  const col=person.color || '#315c78';
-  return `<div style="width:46px;height:46px;border-radius:10px;background:${col};color:#fff;display:grid;place-items:center;font-weight:900">${esc(person.name[0])}</div>`;
+export function portraitSvg(person, accent){
+  const h = hashOf(person?.id || person?.name);
+  const skin = SKINS[h % SKINS.length];
+  const hair = HAIRS[(h >> 3) % HAIRS.length];
+  const col = accent || person?.color || '#3b566b';
+  const style = (h >> 6) % 4;                      // cropped, swept, tied back, bald
+  const glasses = ((h >> 9) % 4) === 0;
+  const W = 132, H = 148, cx = W / 2, cy = 58;
+  const rx = 25, ry = 29;
+  const hairShape = [
+    // cropped: a close cap that stops above the brow
+    `<path d="M${cx - rx - 1} ${cy - 6} q1-27 ${rx + 1}-27 q${rx} 0 ${rx + 1} 27 q-7-13-${rx + 1}-13 q-19 0-${rx + 1} 13z" fill="${hair}"/>`,
+    // swept: a side parting with a fringe across one side
+    `<path d="M${cx - rx - 1} ${cy - 4} q0-29 ${rx + 2}-29 q${rx} 0 ${rx}-27 q6 30-14 32 q-16 2-24 10 q-4 4-5 14z" fill="${hair}"/>`,
+    // tied back: cap plus a bun behind
+    `<path d="M${cx - rx - 1} ${cy - 6} q1-27 ${rx + 1}-27 q${rx} 0 ${rx + 1} 27 q-7-13-${rx + 1}-13 q-19 0-${rx + 1} 13z" fill="${hair}"/>`
+      + `<circle cx="${cx + rx + 3}" cy="${cy - 6}" r="8" fill="${hair}"/>`,
+    // bald: a trim at the temples only
+    `<path d="M${cx - rx - 1} ${cy + 2} q2-14 8-18 q-3 9-2 18z M${cx + rx + 1} ${cy + 2} q-2-14-8-18 q3 9 2 18z" fill="${hair}"/>`,
+  ][style];
+  return `<svg class="portrait" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(person?.name || 'portrait')}">`
+    + `<defs><clipPath id="pc${h}"><rect x="0" y="0" width="${W}" height="${H}" rx="12"/></clipPath></defs>`
+    + `<g clip-path="url(#pc${h})">`
+    + `<rect width="${W}" height="${H}" fill="#efece3"/>`
+    + `<circle cx="${cx}" cy="${cy + 4}" r="50" fill="${col}" opacity="0.14"/>`
+    // shoulders and collar, in the group's colour: the uniform reads first
+    + `<path d="M4 ${H} q0-40 34-52 l22-7 h12 l22 7 q34 12 34 52 z" fill="${col}"/>`
+    + `<path d="M${cx - 15} ${H - 59} l15 21 15-21 l-7-5h-16z" fill="#f7f5ef"/>`
+    + `<rect x="${cx + 21}" y="${H - 32}" width="15" height="4" rx="2" fill="#f0e2b8"/>`
+    + `<rect x="${cx + 21}" y="${H - 24}" width="15" height="4" rx="2" fill="#f0e2b8"/>`
+    // neck, ears, head
+    + `<rect x="${cx - 10}" y="${cy + 18}" width="20" height="22" rx="8" fill="${skin}"/>`
+    + `<ellipse cx="${cx - rx}" cy="${cy + 4}" rx="4" ry="6" fill="${skin}"/>`
+    + `<ellipse cx="${cx + rx}" cy="${cy + 4}" rx="4" ry="6" fill="${skin}"/>`
+    + `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${skin}"/>`
+    + hairShape
+    + (glasses
+      ? `<g fill="none" stroke="#33302b" stroke-width="1.6"><circle cx="${cx - 9}" cy="${cy + 2}" r="6.4"/>`
+        + `<circle cx="${cx + 9}" cy="${cy + 2}" r="6.4"/><path d="M${cx - 2.6} ${cy + 2}h5.2"/></g>`
+      : `<ellipse cx="${cx - 9}" cy="${cy + 2}" rx="2" ry="2.4" fill="#2a221c"/>`
+        + `<ellipse cx="${cx + 9}" cy="${cy + 2}" rx="2" ry="2.4" fill="#2a221c"/>`)
+    + `<path d="M${cx - 13} ${cy - 5} q5-3 10-1 M${cx + 3} ${cy - 6} q5-2 10 1" stroke="${hair}" stroke-width="2" fill="none" stroke-linecap="round"/>`
+    + `<path d="M${cx - 6} ${cy + 15} q6 4 12 0" stroke="#9c6549" stroke-width="1.8" fill="none" stroke-linecap="round"/>`
+    + `</g></svg>`;
+}
+function leaderPortrait(gs){
+  const l = leader(gs?.leaderId);
+  return portraitSvg({ id: l?.id, name: l?.name }, def(gs?.id)?.color);
 }
 
 function openModal(title, bodyHTML){
@@ -209,43 +263,98 @@ function rerenderOrder(){
   const person=activeChallenge.person || null;
   const body=document.getElementById('modalBody');
   if(!body) return;
-  body.innerHTML = challengePrefix(gs, lesson, ch, person) + orderHTML(ch);
+  body.innerHTML = challengePrefix(gs, lesson, ch, person) + withAssist(orderHTML(ch));
   bindOrder(); bindVisitAssist(); bindTerms(body);
 }
 
 // ——— Protocol ———
+/**
+ * PROTOCOL — the board is the interface.
+ *
+ * This used to be three renderings of one question stacked on top of each
+ * other: a diagram you could not touch, a grid of `<select>` menus repeating
+ * every word of it, and a "Choices in full" list repeating them again. Every
+ * situation and every response was on screen three times.
+ *
+ * Now: tap a situation, tap a response, the join is drawn. Tap either end again
+ * to break it. Nothing is printed twice, and what the player looks at is what
+ * they operate.
+ */
 function protocolHTML(ch){
   // The lettered choices are shuffled so that a correct match cannot be read off
   // the display order. activeProtocol.order maps display letter -> real choice index.
   const display=(activeProtocol&&activeProtocol.order)||ch.choices.map((_,j)=>j);
-  const letter=j=>String.fromCharCode(65+j);
-  return `<div class="compactInstruction">Match each situation to the best scientific explanation or engineering response. The lines redraw as you choose.</div>`
-    + `<div id="protoDiagram" class="matchLive">${matchDiagram({ left: ch.scenarios, right: display.map(real=>ch.choices[real]), links: [] })}</div>`
-    + `<div class="protocolGrid">${ch.scenarios.map((s,i)=>`<label class="matchRow"><span><b>${i+1}.</b> ${esc(s)}</span><select data-proto="${i}"><option value="">Select…</option>${display.map((real,j)=>`<option value="${j}">${letter(j)}. ${esc(ch.choices[real])}</option>`).join('')}</select></label>`).join('')}</div>`
-    + `<div class="choiceList"><div class="choiceListLabel">Choices in full</div><div class="answerMappings">${display.map((real,j)=>`<div><b>${letter(j)}.</b><span>${esc(ch.choices[real])}</span></div>`).join('')}</div></div>`
+  activeProtocol.links=activeProtocol.links??{};
+  return `<div class="compactInstruction">Join each situation to the response it calls for. Tap one, then the other — tap a joined end to undo it.</div>`
+    + `<div id="protoBoard">${protocolBoardHTML(ch, display)}</div>`
     + `<div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="protocolCheck" type="button">Check</button></div>`;
 }
-/** Redraw the connector diagram from whatever the selects currently say. */
-function refreshProtocolDiagram(){
-  const host=document.getElementById('protoDiagram');
-  if(!host||!activeChallenge) return;
-  const ch=activeChallenge.ch;
-  const display=(activeProtocol&&activeProtocol.order)||ch.choices.map((_,j)=>j);
-  const links=[...document.querySelectorAll('[data-proto]')]
-    .map((sel,i)=> sel.value===''?null:{ from:i, to:+sel.value })
-    .filter(Boolean);
-  host.innerHTML=matchDiagram({ left: ch.scenarios, right: display.map(real=>ch.choices[real]), links });
+function protocolBoardHTML(ch, display){
+  const links=Object.entries(activeProtocol?.links ?? {}).map(([from,to])=>({ from:+from, to }));
+  return matchBoard({
+    left: ch.scenarios,
+    right: display.map(real=>ch.choices[real]),
+    links,
+    selected: activeProtocol?.selected ?? null,
+    accent: def(activeChallenge?.id)?.color,
+  });
+}
+/**
+ * Two taps make a join.
+ *
+ * Tapping a node that is already joined breaks that join instead. Without it
+ * the only way to correct one wrong guess is a Reset that throws away all four
+ * answers, which is why the old panel needed one.
+ */
+function bindMatchBoard(host, model, redraw){
+  host.querySelectorAll('.mbNode').forEach(node=>{
+    const act=()=>{
+      const side=node.dataset.side, i=+node.dataset.i;
+      const joined = side==='l' ? model.links[i]!==undefined
+                                : Object.values(model.links).includes(i);
+      if(joined){
+        if(side==='l') delete model.links[i];
+        else for(const k of Object.keys(model.links)) if(model.links[k]===i) delete model.links[k];
+        model.selected=null;
+        redraw();
+        return;
+      }
+      const sel=model.selected;
+      if(sel && sel.side!==side){
+        const from = sel.side==='l' ? sel.i : i;
+        const to   = sel.side==='l' ? i : sel.i;
+        // One response per situation and one situation per response: joining a
+        // taken response moves it rather than stacking two lines on one box.
+        for(const k of Object.keys(model.links)) if(model.links[k]===to) delete model.links[k];
+        model.links[from]=to;
+        model.selected=null;
+      } else {
+        model.selected={ side, i };
+      }
+      redraw();
+    };
+    node.addEventListener('click', act);
+    node.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); act(); } });
+  });
 }
 function bindProtocol(){
-  document.querySelectorAll('[data-proto]').forEach(sel=> sel.addEventListener('change', refreshProtocolDiagram));
-  refreshProtocolDiagram();
+  const ch=activeChallenge.ch;
+  const display=(activeProtocol&&activeProtocol.order)||ch.choices.map((_,j)=>j);
+  activeProtocol.links=activeProtocol.links??{};
+  const host=document.getElementById('protoBoard');
+  const redraw=()=>{
+    host.innerHTML=protocolBoardHTML(ch, display);
+    bindMatchBoard(host, activeProtocol, redraw);
+  };
+  if(host) bindMatchBoard(host, activeProtocol, redraw);
   const btn=document.getElementById('protocolCheck');
   if(!btn) return;
   btn.onclick=()=>{
-    const ch=activeChallenge.ch;
-    const display=(activeProtocol&&activeProtocol.order)||ch.choices.map((_,j)=>j);
-    const picked=[...document.querySelectorAll('[data-proto]')].map(sel=> sel.value===''?-1:display[+sel.value]);
-    if(picked.includes(-1)){ alert('Complete all four matches.'); return; }
+    const picked=ch.scenarios.map((_,i)=>{
+      const shown=activeProtocol.links[i];
+      return shown===undefined ? -1 : display[shown];
+    });
+    if(picked.includes(-1)){ alert('Every situation still needs a response.'); return; }
     activeChallenge.userAnswer=ch.scenarios.map((sc,i)=>`${sc} → ${ch.choices[picked[i]]}`).join('; ');
     // Kept for the verdict: which join the player drew, and whether it holds.
     activeChallenge.userLinks=picked.map((real,i)=>({ from:i, to:display.indexOf(real), ok: real===ch.mapping[i] }));
@@ -318,7 +427,7 @@ function rerenderBallpark(){
   const spec=ballparkSpec();
   const body=document.getElementById('modalBody');
   if(!body) return;
-  body.innerHTML = challengePrefix(gs, lesson, ch, person) + ballparkBody(ch,spec);
+  body.innerHTML = challengePrefix(gs, lesson, ch, person) + withAssist(ballparkBody(ch,spec));
   bindBallpark(); bindVisitAssist(); bindTerms(body);
 }
 function bindBallpark(){
@@ -456,10 +565,28 @@ function bindChoice(){
     finishVisit(label===(ch.correctChoice||ch.answer));
   };
 }
+/**
+ * CASEBOOK — clues joined to explanations, on the same board as PROTOCOL.
+ *
+ * It had the same three-times-over problem: a select per clue, every
+ * explanation inside every select, and then a "Choices" list underneath.
+ */
 function casebookHTML(ch){
   if(ch.proposals) return tankHTML(ch);
-  const opts=(ch.choices||[]).map((c,i)=>`<div><b>${String.fromCharCode(65+i)}.</b> ${esc(c)}</div>`).join('');
-  return `<div class="compactInstruction">${esc(ch.task||'Match the clues to the best explanation.')}</div><div class="protocolGrid">${(ch.scenarios||ch.cards||[]).map((s,i)=>`<label class="matchRow"><span><b>${i+1}.</b> ${esc(s)}</span><select data-casebook="${i}"><option value="">Select…</option>${(ch.choices||[]).map((c,j)=>`<option value="${j}">${String.fromCharCode(65+j)}. ${esc(c)}</option>`).join('')}</select></label>`).join('')}</div><div class="choiceList"><div class="choiceListLabel">Choices</div><div class="answerMappings">${opts}</div></div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="casebookCheck" type="button">Check</button></div>`;
+  activeProtocol={ order:(ch.choices||[]).map((_,j)=>j), links:{}, selected:null };
+  return `<div class="compactInstruction">${esc(ch.task||'Join each clue to what explains it.')}</div>`
+    + `<div id="protoBoard">${casebookBoardHTML(ch)}</div>`
+    + `<div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="casebookCheck" type="button">Check</button></div>`;
+}
+function casebookBoardHTML(ch){
+  const links=Object.entries(activeProtocol?.links ?? {}).map(([from,to])=>({ from:+from, to }));
+  return matchBoard({
+    left: ch.scenarios||ch.cards||[],
+    right: ch.choices||[],
+    links,
+    selected: activeProtocol?.selected ?? null,
+    accent: def(activeChallenge?.id)?.color,
+  });
 }
 function bindTank(){
   const inputs=[...document.querySelectorAll('[data-tank]')];
@@ -490,72 +617,39 @@ function bindTank(){
   };
 }
 
-function scientistPanel(gs, lesson, person=null){
-  if(person){
-    return `<div class="scientistPanel"><div style="text-align:center">${personAvatarSvg(person)}<div class="visitTag" style="margin-top:6px">${esc(person.name)}</div><div style="font-size:.68rem;color:#666158;margin-top:2px">${esc(person.role)}</div></div><div class="scientistSpeech"><div class="speechTag">Week ${getState().week} · ${esc(def(gs.id).name)} — with ${esc(person.name)}</div><h4>${esc(lesson.title)}</h4><p style="font-size:.82rem;color:#4e4a43;margin:6px 0 0">${esc(lesson.place||'')}</p></div></div>`;
-  }
-  const l=leader(gs.leaderId);
-  return `<div class="scientistPanel"><div style="text-align:center">${avatarSvgSmall(l.id)}<div class="visitTag" style="margin-top:6px">${esc(l.name)}</div></div><div class="scientistSpeech"><div class="speechTag">Week ${getState().week} · ${esc(def(gs.id).name)}</div><h4>${esc(lesson.title)}</h4><p style="font-size:.82rem;color:#4e4a43;margin:6px 0 0">${esc(lesson.place||'')}</p></div></div>`;
-}
 /**
- * Why this particular stop, right now.
+ * Who is asking, and what the situation is. Nothing else.
  *
- * The mission's stake is written once and read once, at the briefing, and by
- * the third stop nobody remembers why any of it mattered. This is the line
- * above the question that keeps it in front of the player, and it moves: it
- * knows which stop of how many this is, how the earlier ones went, and how
- * much of the clock is gone. Composed rather than authored, so it cannot fall
- * out of step with content and needs nothing written per stop — a theme that
- * *does* write one puts it on the stop as `why`, and that wins.
+ * This used to open with a week counter, a division name, the place name, a
+ * line about which call of three this was, the mission's stake in a warning
+ * box, the story paragraph, and a strip of glossary chips — six blocks of
+ * chrome before the question. The player has all of that on the HUD and in the
+ * briefing already. What they cannot get anywhere else is the person in front
+ * of them and the situation, so that is what this is.
  */
-function stopDramaHTML(){
-  const state=getState();
-  const m=getCurrentMission(state);
-  if(!m) return '';
-  const stops=m.stops ?? [];
-  const idx=activeChallenge?.stopIndex ?? 0;
-  const n=stops.length;
-  const authored=stops[idx]?.why;
-
-  const done=completedMissionStops(state).filter(i=>i!==idx);
-  const results=state.missionResults ?? {};
-  const missed=done.filter(i=> results[`${state.week}-${i}`]?.correct===false).length;
-
-  let line;
-  if(authored){
-    line=authored;
-  } else if(idx===0){
-    line=`First call of ${n}. Nothing else in this mission moves until it is made.`;
-  } else if(idx===n-1){
-    line=missed
-      ? `Last call of ${n}, and ${missed===1?'one earlier call did':`${missed} earlier calls did`} not hold. `
-        + `Whatever the team carries out of here, this is the part they will be asked about.`
-      : `Last call of ${n}. This is the one that closes the mission and goes into the handoff.`;
-  } else {
-    line=missed
-      ? `Stop ${idx+1} of ${n}. The last call did not hold, so this one is carrying more than its share.`
-      : `Stop ${idx+1} of ${n}. The first result is holding; this is what it rests on next.`;
-  }
-
-  const hours=state.timeHours ?? 0;
-  const left=Math.max(0, Math.round((TOTAL_HOURS - hours) / 24));
-  const clock=`Day ${Math.floor(hours/24)+1} · ${left} day${left===1?'':'s'} left`;
-  return `<div class="stopDrama"><div class="stopDramaLine">${esc(line)}</div>`
-    + `<div class="stopDramaClock">${esc(clock)}</div></div>`;
+function askCard(gs, lesson, ch, person){
+  const d = def(gs.id);
+  const who = person || leader(gs.leaderId);
+  const art = person ? portraitSvg(person, d?.color) : leaderPortrait(gs);
+  const role = person ? (person.role || '') : `${d?.name ?? ''} lead`;
+  const brief = storyBriefText(lesson);
+  return `<div class="askCard">`
+    + `<div class="askWho" style="--accent:${d?.color || '#3b566b'}">${art}`
+    + `<div class="askName">${esc(who.name)}</div><div class="askRole">${esc(role)}</div></div>`
+    + `<div class="askBody">`
+    + `<p class="askBrief">${esc(brief)}</p>`
+    + termsRow(allChallengeText(lesson, ch, false))
+    + `</div></div>`;
 }
-function questionContextHTML(lesson,ch){
-  const text=allChallengeText(lesson,ch,false);
-  // What is riding on this, in one sentence, before the question is asked. The
-  // books write it for every mission and it was only ever used in the briefing,
-  // where the player reads it once and forgets it.
-  // Not every book writes a separate stake line. Where there is none, the
-  // first sentence of the briefing is the nearest thing the author wrote.
-  const m=getCurrentMission(getState());
-  const stake=m ? (m.stake || String(m.briefing||'').split(/(?<=\.)\s/)[0]) : '';
-  const stakeHTML=stake?`<div class="stakeLine"><span aria-hidden="true">▲</span> ${esc(stake)}</div>`:'';
-  return stopDramaHTML()+stakeHTML
-    +`<div class="scienceBrief storyBrief"><p>${esc(storyBriefText(lesson))}</p></div>`+jargonHTML(text);
+/** The glossary, as one quiet line rather than a labelled box of chips. */
+function termsRow(text){
+  const terms = jargonMatches(text, 8);
+  if(!terms.length) return '';
+  return `<div class="termStrip inline"><div class="termButtons">${terms.map(t =>
+    `<button type="button" class="termChip" data-term="${JARGON.indexOf(t)}">${esc(t.name)}</button>`).join('')}</div>`
+    + `<div class="termDefinition hidden"></div></div>`;
 }
+
 /**
  * The instrument for this question, for every format.
  *
@@ -572,12 +666,26 @@ function figureBlock(lesson, ch){
   if(!fig) return '';
   return renderFigure(fig) + dataTable(Array.isArray(fig) ? fig[0] : fig, null);
 }
-/** Everything above the controls. One function, so the three render paths agree. */
+/**
+ * Everything above the controls: the person asking, the situation, the picture.
+ *
+ * The hint is deliberately *not* here. It used to sit between the paragraph and
+ * the question as a boxed row with a price on it, which put a shop counter in
+ * the middle of the reading. It goes under the controls now — see
+ * `withAssist`.
+ */
 function challengePrefix(gs, lesson, ch, person){
-  return scientistPanel(gs, lesson, person)
-    + questionContextHTML(lesson, ch)
-    + (kindOf(ch) === 'DIAGNOSIS' ? '' : figureBlock(lesson, ch))
-    + visitAssistHTML();
+  return askCard(gs, lesson, ch, person)
+    + (kindOf(ch) === 'DIAGNOSIS' ? '' : figureBlock(lesson, ch));
+}
+/**
+ * The challenge, with the hint control at the bottom of it — above the action
+ * bar, which is sticky, so anything appended after it is stranded off-screen.
+ */
+function withAssist(html){
+  const assist = visitAssistHTML();
+  const at = html.lastIndexOf('<div class="modalActions"');
+  return at < 0 ? html + assist : html.slice(0, at) + assist + html.slice(at);
 }
 function visitAssistHTML(){
   const state=getState();
@@ -665,15 +773,18 @@ function verdictFigureHTML(ch, lesson, ok){
         note: placed.length && placed[n]!==idx && Number.isInteger(placed[n]) ? `you put "${ch.cards[placed[n]]}" here` : '' })),
       caption:'Green where your order matched; red where it did not' });
   }
-  if(kindOf(ch)==='PROTOCOL' && activeChallenge.userLinks){
+  if((kindOf(ch)==='PROTOCOL' || kindOf(ch)==='CASEBOOK') && activeChallenge.userLinks){
     // Both readings at once: the joins that hold, and where a wrong one went
     // instead. Showing only the player's lines says "these four are wrong" and
     // leaves them to work out the right pairing from a paragraph.
     const wrong=activeChallenge.userLinks.filter(l=>!l.ok);
-    return matchDiagram({ left: ch.scenarios, right: activeChallenge.matchRight||[],
-      links: [...(activeChallenge.rightLinks||[]), ...wrong],
-      caption: wrong.length ? 'Solid green: the joins that hold. Dashed red: where yours went instead'
-                            : 'Every join holds' });
+    // The same board they worked, marked up — not a second, different picture
+    // of the same question in the verdict.
+    const board=matchBoard({ left: ch.scenarios, right: activeChallenge.matchRight||[],
+      links: [...(activeChallenge.rightLinks||[]), ...wrong] });
+    const caption = wrong.length ? 'Solid: the joins that hold. Dashed red: where yours went instead'
+                                 : 'Every join holds';
+    return board + `<div class="figureCaption">${esc(caption)}</div>`;
   }
   if(kindOf(ch)==='DIAGNOSIS') return renderFigure(ch.figure);
   return renderFigure(ch.figure ?? lesson.figure);
@@ -739,6 +850,12 @@ function bindDiagnosis(){
   };
 }
 function bindCasebook(){
+  const ch0=activeChallenge.ch;
+  const host=document.getElementById('protoBoard');
+  if(host && !ch0.proposals){
+    const redraw=()=>{ host.innerHTML=casebookBoardHTML(ch0); bindMatchBoard(host, activeProtocol, redraw); };
+    bindMatchBoard(host, activeProtocol, redraw);
+  }
   const btn=document.getElementById('casebookCheck');
   if(!btn) return;
   btn.onclick=()=>{
@@ -762,11 +879,15 @@ function bindCasebook(){
       finishVisit(ok);
       return;
     }
-    // protocol mapping variant
-    const sels=[...document.querySelectorAll('[data-casebook]')];
-    const vals=sels.map(s=> s.value==='' ? -1 : +s.value);
-    const ok = vals.every((v,i)=> v===ch.mapping[i]);
-    finishVisit(ok);
+    // the match-board variant
+    const clues=(ch.scenarios||ch.cards||[]);
+    const picked=clues.map((_,i)=> activeProtocol.links[i] ?? -1);
+    if(picked.includes(-1)){ alert('Every clue still needs an explanation.'); return; }
+    activeChallenge.userAnswer=clues.map((c,i)=>`${c} → ${(ch.choices||[])[picked[i]]}`).join('; ');
+    activeChallenge.userLinks=picked.map((to,i)=>({ from:i, to, ok: to===ch.mapping[i] }));
+    activeChallenge.rightLinks=(ch.mapping||[]).map((to,i)=>({ from:i, to, ok:true }));
+    activeChallenge.matchRight=(ch.choices||[]);
+    finishVisit(picked.every((v,i)=> v===ch.mapping[i]));
   };
 }
 function fundingCostForStop(stopIndex, lesson){
@@ -1099,13 +1220,10 @@ function showChallengeForStop(id, stop, isRetry, person=null){
       challengeHTML = tankHTML(ch);
     }
   }
-  let titlePrefix;
-  if(person){
-    titlePrefix = `${esc(person.name)} — Field question [${d.code}]`;
-  } else {
-    titlePrefix = isPersonStopForIdx(state, stop.index) ? `${d.code} Division · Field question — ` : `${d.code} Division · Visit`;
-  }
-  openModal(titlePrefix, bodyPrefix + challengeHTML);
+  // The title is the question, not the filing reference. Who is asking and
+  // which area it belongs to are both on the card underneath.
+  const titlePrefix = lesson.title || ch.title || def(id).name;
+  openModal(titlePrefix, bodyPrefix + withAssist(challengeHTML));
   const body=document.getElementById('modalBody');
   if(kindOf(ch)==='SEQUENCE') { bindOrder(); }
   else if(kindOf(ch)==='PROTOCOL') { bindProtocol(); }

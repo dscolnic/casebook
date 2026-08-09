@@ -15,12 +15,14 @@
 //     - id: two           a sequence of mappings
 //       name: Two
 //   key: [a, b, c]        an inline list of simple scalars
+//   key: { a: 1, b: two } an inline mapping — one short record on one line
+//   - { a: 1, b: two }    a sequence of them, which is how readings are written
 //   key: |                a literal block: newlines kept
 //   key: >                a folded block: newlines become spaces
 //   # comment             to end of line, outside quotes
 //
 // What it deliberately does not support: anchors, aliases, tags, multiple
-// documents, flow mappings, complex keys. If a book needs one of those, the
+// documents, nested flow collections, complex keys. If a book needs one of those, the
 // book is doing something the game does not need.
 
 export function parseYaml(text){
@@ -92,6 +94,15 @@ function parseSequence(lines, i, indent){
       // "-" alone: the item is the indented block under it.
       const [v, next] = parseBlock(lines, i + 1, indent + 1);
       out.push(v); i = next; continue;
+    }
+    // A flow value on the dash — `- { label: A, text: … }` or `- [1, 2]` — is a
+    // scalar, not the first key of a block mapping. Without this the brace was
+    // read as the start of an indented mapping and every candidate list in the
+    // first book came out empty.
+    if(rest.startsWith('{') || rest.startsWith('[')){
+      out.push(scalar(rest));
+      i++;
+      continue;
     }
     if(/^[^:\s][^:]*:(\s|$)/.test(rest)){
       // "- key: value" — the item is a mapping whose first key is on this line.
@@ -171,6 +182,21 @@ function scalar(raw){
     if(!body) return [];
     return splitTop(body).map(scalar);
   }
+  // An inline mapping: `{ zone: Bilge, label: Level, value: '31 cm' }`. A
+  // reading or a candidate is one short record and reads far better on one line
+  // than as five indented ones — which is why BOOK_TEMPLATE.md is written this
+  // way, and why the first book written to that template would not parse.
+  if(s.startsWith('{') && s.endsWith('}')){
+    const body = s.slice(1, -1).trim();
+    if(!body) return {};
+    const out = {};
+    for(const pair of splitTop(body)){
+      const at = pair.indexOf(':');
+      if(at < 0) continue;
+      out[scalar(pair.slice(0, at))] = scalar(pair.slice(at + 1));
+    }
+    return out;
+  }
   if(s === 'true') return true;
   if(s === 'false') return false;
   if(s === 'null' || s === '~' || s === '') return null;
@@ -185,8 +211,8 @@ function splitTop(s){
   for(const c of s){
     if(quote){ cur += c; if(c === quote) quote = null; continue; }
     if(c === '"' || c === "'"){ quote = c; cur += c; continue; }
-    if(c === '[') depth++;
-    if(c === ']') depth--;
+    if(c === '[' || c === '{') depth++;
+    if(c === ']' || c === '}') depth--;
     if(c === ',' && depth === 0){ out.push(cur); cur = ''; continue; }
     cur += c;
   }
