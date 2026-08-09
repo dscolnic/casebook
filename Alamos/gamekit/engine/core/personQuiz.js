@@ -103,7 +103,8 @@ export function passageState(personId){
  * Looking again is allowed and costs the dollar. That keeps the honest reader
  * rewarded without ever stranding someone who genuinely forgot.
  */
-export function passageHTML(person){
+export function passageHTML(person, opts = {}){
+  const ownBio = opts.ownBio !== false;
   const status = passageState(person.id);
   const q = questionFor(person);
   const head =
@@ -111,16 +112,15 @@ export function passageHTML(person){
     '<span>' + esc(person.role || '') + '</span></div>';
 
   if(status === 'earned'){
-    return head + '<div class="passageBody">' + (person.bio || '') + '</div>' +
+    return (ownBio ? head + '<div class="passageBody">' + (person.bio || '') + '</div>' : '') +
       '<div class="passageDone">You have already answered ' + esc(person.name) + '\u2019s question.</div>';
   }
 
-  const opts = q.choices.map((c, i) =>
+  const choiceHTML = q.choices.map((c, i) =>
     '<button class="passageChoice" data-passage="' + i + '" type="button">' +
     '<b>' + String.fromCharCode(65 + i) + '.</b><span>' + esc(c) + '</span></button>').join('');
 
-  return head +
-    '<div class="passageBody" id="passageText">' + (person.bio || '') + '</div>' +
+  return (ownBio ? head + '<div class="passageBody" id="passageText">' + (person.bio || '') + '</div>' : '') +
     '<div class="passageGate" id="passageGate">' +
       '<button class="btn primary" id="passageAsk" type="button">Ready \u2014 ask me</button>' +
       '<span class="passageNote">The passage closes when the question opens.</span>' +
@@ -132,7 +132,7 @@ export function passageHTML(person){
           ? 'You missed this one before. Answering now costs nothing and pays nothing.'
           : 'Answer from memory and ' + esc(person.name) + ' signs off $' + PASSAGE_REWARD + '.') +
       '</div>' +
-      '<div class="passageChoices">' + opts + '</div>' +
+      '<div class="passageChoices">' + choiceHTML + '</div>' +
       '<button class="passagePeek" id="passagePeek" type="button">Read it again \u2014 gives up the $' + PASSAGE_REWARD + '</button>' +
       '<div id="passageResult"></div>' +
     '</div>';
@@ -142,10 +142,11 @@ export function passageHTML(person){
  * Pays once: a second correct answer to the same person earns nothing, so this
  * is an errand rather than an income.
  */
-export function bindPassage(container, person, onDone){
+export function bindPassage(container, person, onDone, opts = {}){
   const q = questionFor(person);
   const result = container.querySelector('#passageResult');
-  const text = container.querySelector('#passageText');
+  // The passage element may belong to the host panel rather than to us.
+  const text = opts.textEl || container.querySelector('#passageText');
   const gate = container.querySelector('#passageGate');
   const quiz = container.querySelector('#passageQ');
   let peeked = false;

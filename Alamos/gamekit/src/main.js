@@ -253,8 +253,12 @@ requestAnimationFrame(frame);
 if(import.meta.env?.DEV){
   // crowd + updateCrowd so a frozen background tab can be stepped by hand;
   // rAF is throttled to nothing there, which makes the town look dead.
+  // activate + updateInteractions as well, so 'is the E key actually wired to
+  // this?' can be answered without a foreground tab. A throttled tab never runs
+  // the raycast, so getCurrentTarget is null there and every interaction looks
+  // broken whether it is or not.
   window.gamekit = { theme, world, scene, renderer, camera, getState, getPosition,
-                     updateCrowd, getNPCs };
+                     updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget };
   console.log(
     `%c${theme.title}%c — theme "${theme.id}", ${theme.content.MISSIONS.length} missions, `
     + `${Object.values(theme.content.CURRICULUM).reduce((n, v) => n + v.length, 0)} lessons.\n`
