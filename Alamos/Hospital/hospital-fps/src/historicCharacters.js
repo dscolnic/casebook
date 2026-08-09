@@ -1,39 +1,603 @@
+// historicCharacters.js — the people of the children's hospital.
+//
+// The name is a leftover from the Los Alamos game this engine came from. Nobody
+// here is historic: they are the staff who work in this building and the
+// patients who are being looked after in it. All of them are invented.
+//
+// ## Bios are teaching passages
+//
+// Every bio is three short paragraphs, written for roughly grades 3–4, and each
+// paragraph has a job:
+//
+//   1. who this person is and why they are in the hospital today
+//   2. the piece of science, or the machine, that their day turns on
+//   3. one thing worth knowing that the player would not have guessed
+//
+// The frame is fictional and stays gentle. Nobody in this game diagnoses a real
+// illness, prescribes anything, or is told what to do about their own health.
+// Patients explain what the team did for them and what the machine measured —
+// that is the learning, and it keeps the safety framing the design book asks
+// for.
+//
+// ## `quiz` — what the player is asked
+//
+// `quiz: [{ q, a, wrong: [three] }]`. Real comprehension questions about the
+// passage, with wrong answers that are wrong about the same subject, so a
+// player who skimmed cannot rule them out by noticing they belong to someone
+// else. `gamekit/engine/core/personQuiz.js` picks one per person, always the
+// same one, and falls back to a generated question if `quiz` is missing.
+
+const bio = (...paras) => paras.map(p => `<p>${p}</p>`).join('');
+
 export const HISTORIC_CHARACTERS=[
-  {id:"patel",name:"Dr. Maya Patel",role:"ED Director",bio:"<p>Leads Emergency Department triage. Teaches breathing clues first.</p>",color:"#c0392b",hat:"none" },
-  {id:"reyes",name:"Dr. Luis Reyes",role:"Respiratory Lead",bio:"<p>Pediatric lung specialist.</p>",color:"#2980b9",hat:"none" },
-  {id:"chen",name:"Dr. Mei Chen",role:"Pediatrics",bio:"<p>Nutrition and digestion.</p>",color:"#27ae60",hat:"none" },
-  {id:"garcia",name:"Dr. Elena Garcia",role:"Orthopedics",bio:"<p>Bones and rehab.</p>",color:"#d35400",hat:"none" },
-  {id:"kim",name:"Dr. Sam Kim",role:"Neurology",bio:"<p>Brain and senses.</p>",color:"#16a085",hat:"none" },
-  {id:"okafor",name:"Dr. Amaka Okafor",role:"Infection",bio:"<p>Germs and immunity.</p>",color:"#2c3e50",hat:"none" },
-  {id:"nurse_lee",name:"Nurse Alex Lee",role:"Charge Nurse",bio:"<p>Keeps shifts on time.</p>",color:"#8e44ad",hat:"cap" },
-  {id:"amara",name:"Amara",role:"Patient",bio:"<p>Patient Amara.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"ana",name:"Ana",role:"Patient",bio:"<p>Patient Ana.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"arjun",name:"Arjun",role:"Patient",bio:"<p>Patient Arjun.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"ava",name:"Ava",role:"Patient",bio:"<p>Patient Ava.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"ben",name:"Ben",role:"Patient",bio:"<p>Patient Ben.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"caleb",name:"Caleb",role:"Patient",bio:"<p>Patient Caleb.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"chloe",name:"Chloe",role:"Patient",bio:"<p>Patient Chloe.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"dante",name:"Dante",role:"Patient",bio:"<p>Patient Dante.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"deshawn",name:"DeShawn",role:"Patient",bio:"<p>Patient DeShawn.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"eli",name:"Eli",role:"Patient",bio:"<p>Patient Eli.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"ella",name:"Ella",role:"Patient",bio:"<p>Patient Ella.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"fatima",name:"Fatima",role:"Patient",bio:"<p>Patient Fatima.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"harper",name:"Harper",role:"Patient",bio:"<p>Patient Harper.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"ivy",name:"Ivy",role:"Patient",bio:"<p>Patient Ivy.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"jamal",name:"Jamal",role:"Patient",bio:"<p>Patient Jamal.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"jordan",name:"Jordan",role:"Patient",bio:"<p>Patient Jordan.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"jules",name:"Jules",role:"Patient",bio:"<p>Patient Jules.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"june",name:"June",role:"Patient",bio:"<p>Patient June.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"lena",name:"Lena",role:"Patient",bio:"<p>Patient Lena.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"lily",name:"Lily",role:"Patient",bio:"<p>Patient Lily.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"luis",name:"Luis",role:"Patient",bio:"<p>Patient Luis.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"mae",name:"Mae",role:"Patient",bio:"<p>Patient Mae.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"malik",name:"Malik",role:"Patient",bio:"<p>Patient Malik.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"mateo",name:"Mateo",role:"Patient",bio:"<p>Patient Mateo.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"maya",name:"Maya",role:"Patient",bio:"<p>Patient Maya.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"mei",name:"Mei",role:"Patient",bio:"<p>Patient Mei.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"mina",name:"Mina",role:"Patient",bio:"<p>Patient Mina.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"mr_alvarez",name:"Mr. Alvarez",role:"Patient",bio:"<p>Patient Mr. Alvarez.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"mr_bell",name:"Mr. Bell",role:"Patient",bio:"<p>Patient Mr. Bell.</p>",color:"#7f8c8d",hat:"none" },
-  {id:"mr_cho",name:"Mr. Cho",role:"Patient",bio:"<p>Patient Mr. Cho.</p>",color:"#7f8c8d",hat:"none" },
+  // ------------------------------------------------------------------ staff
+  { id:"patel", name:"Dr. Maya Patel", role:"ED Director", division:"TRI", color:"#c0392b", hat:"none",
+    bio: bio(
+      'Dr. Patel runs the Emergency Department. Her first job every shift is triage, which means deciding who needs help first. It is not first-come-first-served, and it is not who is loudest.',
+      'She sorts by how fast someone could get worse. Breathing comes first, because the body can only go a few minutes without oxygen. Then circulation, which is blood carrying that oxygen around. Then everything else. A broken arm hurts a lot more than a quiet cough, and the quiet cough can still be the one that goes first.',
+      'She teaches new staff to watch before they touch. Is the child talking in whole sentences, or stopping for breath in the middle? Are the shoulders lifting with every breath? Those clues are free, they take four seconds, and they arrive long before any machine is switched on.'),
+    quiz: [
+      { q: 'How does Dr. Patel decide who gets seen first in the Emergency Department?',
+        a: 'By who could get worse fastest, starting with breathing',
+        wrong: [
+          'By who arrived at the hospital first',
+          'By who is in the most pain right now',
+          'By who has been waiting in the loudest part of the room',
+        ] },
+      { q: 'What clue does Dr. Patel look for before she touches a patient at all?',
+        a: 'Whether they can talk in whole sentences without stopping for breath',
+        wrong: [
+          'Whether their temperature is above normal',
+          'Whether they can stand up on their own',
+          'Whether their heartbeat can be heard from across the room',
+        ] },
+    ] },
+  { id:"reyes", name:"Dr. Luis Reyes", role:"Respiratory Lead", division:"RESP", color:"#2980b9", hat:"none",
+    bio: bio(
+      'Dr. Reyes looks after children who are having trouble breathing. He says lungs are basically a huge folded-up surface: if you could spread one flat it would cover most of a classroom floor.',
+      'That surface is where the trade happens. Air comes in, oxygen crosses into the blood, and carbon dioxide crosses back out to be breathed away. Anything that narrows the tubes leading to that surface — swelling, squeezing muscle, or mucus — means less air gets through, and the child has to work harder for every breath.',
+      'His favourite measurement is the peak flow meter, a plastic tube you blow into as hard as you can. It gives a number for how fast air can leave the lungs. One number on its own means little, but the same child’s numbers over a week show whether the tubes are opening up again.'),
+    quiz: [
+      { q: 'What is happening on that huge folded surface inside the lungs?',
+        a: 'Oxygen crosses into the blood and carbon dioxide crosses back out',
+        wrong: [
+          'Air is warmed up before it reaches the stomach',
+          'Blood is cleaned of germs before it returns to the heart',
+          'Water is squeezed out of the blood so it does not flood the lungs',
+        ] },
+      { q: 'Why does Dr. Reyes care more about a week of peak flow numbers than about one number?',
+        a: 'One number alone means little; the change over time shows whether the airways are opening up',
+        wrong: [
+          'One number is often measured wrong the first time',
+          'The meter has to warm up for several days before it is accurate',
+          'A single number only works for children over ten years old',
+        ] },
+    ] },
+  { id:"chen", name:"Dr. Mei Chen", role:"Pediatrics", division:"NUTR", color:"#27ae60", hat:"none",
+    bio: bio(
+      'Dr. Chen works on nutrition and digestion — what food does after you swallow it, and why a child who is not eating well gets tired before they get thin.',
+      'Digestion is mostly taking big things apart. Bread and pasta get broken down into sugars the body can burn. Meat, beans and eggs get broken into building blocks for muscle and repair. Most of that unpacking happens in the small intestine, which is around six metres long and lined with tiny folds so it can soak up as much as possible.',
+      'The part she has to explain most often is water. A body loses water all day through breathing, sweating and going to the toilet, and it has no way to store a spare supply. That is why a day of vomiting can make a child feel dreadful even though nothing is broken and no germ is left.'),
+    quiz: [
+      { q: 'Why is the small intestine lined with tiny folds?',
+        a: 'The folds give it far more surface to soak nutrients up through',
+        wrong: [
+          'The folds squeeze food along so it does not get stuck',
+          'The folds trap germs before they reach the blood',
+          'The folds hold water in case the body runs short',
+        ] },
+      { q: 'Why can a day of vomiting leave a child feeling dreadful even after the germ has gone?',
+        a: 'The body cannot store spare water, so what was lost has to be replaced',
+        wrong: [
+          'The stomach needs a full day to grow a new lining',
+          'The body stops making energy until it has eaten solid food',
+          'The germ leaves behind poison that takes days to clear',
+        ] },
+    ] },
+  { id:"garcia", name:"Dr. Elena Garcia", role:"Orthopedics", division:"MOVE", color:"#d35400", hat:"none",
+    bio: bio(
+      'Dr. Garcia looks after bones. Most of her patients arrive convinced a broken bone is the end of something, and leave knowing it is one of the few parts of the body that repairs itself completely.',
+      'Bone is alive. After a break, blood clots around the gap, then the body builds a soft bridge of new tissue across it, then it hardens that bridge into real bone and slowly tidies the lump away. A cast does not do the healing. It holds the two ends still and lined up so the body can do the healing.',
+      'Children’s bones have a trick adults have lost: a growth plate near each end, a band of softer tissue where new bone is added as the child gets taller. It is why children heal faster than grown-ups, and also why she takes a break near a growth plate more seriously than the same break in the middle of the bone.'),
+    quiz: [
+      { q: 'What does a cast actually do for a broken bone?',
+        a: 'It holds the two ends still and lined up while the body does the healing',
+        wrong: [
+          'It supplies the minerals the bone needs to knit together',
+          'It presses the ends of the bone tightly together so they fuse',
+          'It keeps germs away from the break inside the arm',
+        ] },
+      { q: 'What is a growth plate?',
+        a: 'A band of softer tissue near the end of a child’s bone where new bone is added as they grow',
+        wrong: [
+          'The hard outer shell that protects the middle of the bone',
+          'The joint where two bones meet and slide past each other',
+          'The scar left behind after a break has healed',
+        ] },
+    ] },
+  { id:"kim", name:"Dr. Sam Kim", role:"Neurology", division:"BRAIN", color:"#16a085", hat:"none",
+    bio: bio(
+      'Dr. Kim works on the brain and the senses. He describes the nervous system as the hospital’s own wiring: signals travelling out to every part of the body and back, far faster than anyone can think about them.',
+      'Nerve signals are electrical, and that is what makes them measurable. Some of his tests involve no picture at all — he taps a knee, touches a foot with something cold, asks a child to follow a finger with their eyes, and watches which signals arrive and which do not. Where the message stops tells him where to look.',
+      'The thing he most wants people to understand is that a headache, dizziness or a strange taste are all information, not just symptoms. The brain sits behind bone and cannot be prodded, so the way it reports on itself through the senses is often the best evidence anybody gets.'),
+    quiz: [
+      { q: 'Why can Dr. Kim learn something from tapping a knee or asking a child to follow his finger?',
+        a: 'He is watching where the nerve signal stops, which shows where the problem is',
+        wrong: [
+          'He is measuring how strong the child’s muscles have become',
+          'He is checking that the bones in the leg are lined up',
+          'He is testing how quickly the child gets tired',
+        ] },
+      { q: 'How does Dr. Kim describe the nervous system?',
+        a: 'As wiring carrying electrical signals out to the body and back',
+        wrong: [
+          'As tubes carrying blood from the brain to the muscles',
+          'As a store of energy the body draws on when it is tired',
+          'As a filter that removes what the brain does not need to know',
+        ] },
+    ] },
+  { id:"okafor", name:"Dr. Amaka Okafor", role:"Infection", division:"DEF", color:"#2c3e50", hat:"none",
+    bio: bio(
+      'Dr. Okafor works on germs and immunity. Her whole job comes down to two questions: how does this germ move between people, and how do we stand in its way?',
+      'Germs travel in a few ordinary ways — on hands, in droplets from a cough, and on surfaces people touch afterwards. That is why hand-washing is the most powerful thing in the building. Soap does not poison germs; it breaks up the greasy coat around many of them and lets running water carry the whole lot away down the drain. Twenty seconds is about how long that takes.',
+      'The immune system is her other subject. White blood cells learn the shape of a germ they have met before, so the second time it arrives they recognise it and start fighting immediately instead of taking days to work out what it is. That memory is exactly what a vaccine gives, without the illness.'),
+    quiz: [
+      { q: 'How does soap help against germs?',
+        a: 'It breaks up the greasy coat around them so running water washes them away',
+        wrong: [
+          'It poisons the germs where they sit on the skin',
+          'It dries the skin out so germs cannot survive on it',
+          'It coats the hands so germs cannot stick to them later',
+        ] },
+      { q: 'Why is the second meeting with a germ usually easier than the first?',
+        a: 'White blood cells remember its shape, so the fight starts straight away',
+        wrong: [
+          'The germ becomes weaker each time it enters a body',
+          'The body has already used up whatever the germ feeds on',
+          'The skin grows thicker where the germ got in before',
+        ] },
+    ] },
+  { id:"nurse_lee", name:"Nurse Alex Lee", role:"Charge Nurse", division:"TRI", color:"#8e44ad", hat:"cap",
+    bio: bio(
+      'Nurse Lee is the charge nurse, which means they run the shift: who is in which bed, which nurse is looking after them, and what has to happen in the next hour.',
+      'The tool that runs the ward is the handover. At every shift change the team passes on each patient in the same order every single time — who they are, what happened, what has been done, what to watch for. Fixed order is the point. When people improvise, something gets missed, and the thing that gets missed is always the thing nobody thought to mention.',
+      'Nurse Lee also owns the observation round: temperature, breathing rate, heart rate, and how the child looks. Those numbers matter far more as a trend than as single readings. A heart rate creeping up over three rounds is a story, and it is usually the first page of it.'),
+    quiz: [
+      { q: 'Why does Nurse Lee insist every handover follows the same order?',
+        a: 'When people improvise, whatever nobody thought to mention is what gets missed',
+        wrong: [
+          'A fixed order makes the handover shorter than a free conversation',
+          'The computer system will not save notes entered in a different order',
+          'It gives every nurse a turn to speak about their own patients',
+        ] },
+      { q: 'What does Nurse Lee find most useful about the observation numbers?',
+        a: 'The trend across several rounds, such as a heart rate creeping up',
+        wrong: [
+          'Whether any single number is above the normal range',
+          'Which nurse recorded them and at what time',
+          'Whether the numbers match what the child says they feel',
+        ] },
+    ] },
+
+  // --------------------------------------------------------------- patients
+  { id:"amara", name:"Amara", role:"Patient", division:"RESP", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Amara is nine and has asthma. Her airways are more easily irritated than most people’s, so cold air, dust or a heavy cold can make the muscle around those tubes tighten up and squeeze them narrower.',
+      'She uses an inhaler with a spacer — a clear plastic chamber that clips onto the inhaler. Fired straight into the mouth, a lot of the medicine hits the back of the throat and stops there. The spacer holds the puff in the air for a moment so she can breathe it in slowly, and far more of it reaches the small airways where it is needed.',
+      'She keeps an asthma plan on the fridge at home, written with her doctor: what a good day looks like, what a bad day looks like, and who to call. She says the plan is the part that stopped her being frightened, because bad days stopped being a surprise.'),
+    quiz: [
+      { q: 'What does the spacer on Amara’s inhaler do?',
+        a: 'It holds the puff of medicine so she can breathe it in slowly and more reaches her airways',
+        wrong: [
+          'It squeezes the medicine into a stronger dose before it is breathed in',
+          'It warms the medicine up so that it does not make her cough',
+          'It counts how many puffs are left in the inhaler and shows the number',
+        ] },
+    ] },
+  { id:"ana", name:"Ana", role:"Patient", division:"MOVE", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Ana came off her bike and landed on her wrist. It hurt to move, so the team sent her for an X-ray before anyone decided anything.',
+      'An X-ray is a kind of light your eyes cannot see, and it passes straight through soft parts like skin and muscle. Bone is much denser, so it blocks more of the beam. Wherever bone stops the X-rays, less reaches the detector on the far side, and that spot comes out white in the picture. That is why bones look bright and everything around them looks grey.',
+      'The picture took under a second and Ana felt nothing at all. The longest part was holding her arm perfectly still, because a picture taken while a wrist is moving comes out blurred in exactly the place everyone needs to look.'),
+    quiz: [
+      { q: 'Why do bones show up white on Ana’s X-ray?',
+        a: 'Bone is dense and blocks more of the beam, so less reaches the detector there',
+        wrong: [
+          'Bone glows when the X-ray beam touches it',
+          'The machine adds white afterwards to make bones easier to see',
+          'Bone is naturally white, so it photographs white',
+        ] },
+    ] },
+  { id:"arjun", name:"Arjun", role:"Patient", division:"NUTR", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Arjun had a stomach bug for two days and could not keep any drink down. By the time he arrived he was dizzy standing up and had a headache, which is what a body running short of water feels like.',
+      'He has a drip in his arm — a thin tube putting fluid straight into a vein, so it does not have to survive the stomach. The bag is not plain water. It has salts dissolved in it in about the same amount the blood already carries, because cells sit in a careful balance with the fluid around them and flooding them with pure water upsets it.',
+      'The nurses call those salts electrolytes. They are the same things you lose in sweat, which is why sweat tastes salty, and why sports drinks were invented to put them back.'),
+    quiz: [
+      { q: 'Why is Arjun’s drip bag salty water rather than plain water?',
+        a: 'Cells sit in a balance with the fluid around them, and plain water would upset it',
+        wrong: [
+          'Salt helps the fluid travel up the tube more quickly',
+          'Salt stops germs growing inside the bag',
+          'Salt makes the fluid taste better when it reaches the stomach',
+        ] },
+    ] },
+  { id:"ava", name:"Ava", role:"Patient", division:"DEF", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Ava has a peanut allergy, and she is here for a check-up rather than an emergency. She says the tiring part is not the food — it is being asked about it every single day.',
+      'An allergy is the immune system making a mistake. It is built to attack germs, but in Ava’s case it has decided a harmless peanut protein is dangerous, and it responds with the full alarm: swelling, itching, and airways narrowing. The protein is not poison. The reaction is her own body being far too enthusiastic about a false alarm.',
+      'She carries an adrenaline auto-injector and so does her teacher, and she knows exactly where both are. The other half of her plan is reading labels for the phrase "may contain", which is there because the same factory line may have made something else an hour earlier.'),
+    quiz: [
+      { q: 'What is actually happening when Ava has an allergic reaction?',
+        a: 'Her immune system is treating a harmless peanut protein as if it were dangerous',
+        wrong: [
+          'The peanut protein is poisoning her blood',
+          'Her stomach cannot break the peanut down and it stays whole',
+          'The peanut is blocking her airway on the way down',
+        ] },
+    ] },
+  { id:"ben", name:"Ben", role:"Patient", division:"RESP", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Ben has a clip on his finger with a small red light in it. He was told it does not hurt, which is true, and that it is measuring his blood, which he did not believe until it was explained.',
+      'The clip is a pulse oximeter. Blood carrying plenty of oxygen is a brighter red than blood that is not, and that difference changes how much light gets through a fingertip. The clip shines light through one side and measures what comes out the other, thousands of times a second, and turns it into a percentage on the screen.',
+      'It picks out the pulse too. With every heartbeat a little more blood is pushed through the finger and the reading twitches, so the same clip counts his heart rate without anyone touching his wrist.'),
+    quiz: [
+      { q: 'How does the clip on Ben’s finger measure his oxygen?',
+        a: 'Blood with more oxygen is a brighter red, which changes how much light passes through the finger',
+        wrong: [
+          'It takes a tiny drop of blood through the fingertip',
+          'It measures how warm the finger is when blood flows through it',
+          'It listens to the sound of blood moving past the clip',
+        ] },
+    ] },
+  { id:"caleb", name:"Caleb", role:"Patient", division:"BRAIN", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Caleb is here for a hearing test, sitting in a very quiet room with headphones on and a button in his hand. The rule is simple: press it whenever you hear a beep, even a beep so faint you are not sure.',
+      'Sound is air vibrating, and how fast it vibrates decides how high the note sounds. The test walks through high and low notes separately, because hearing is not one thing that works or does not. Plenty of people hear low notes perfectly well and miss the high ones, which is why someone can hear that you are talking without making out which words.',
+      'The result is drawn as a graph called an audiogram, with pitch across the bottom and how loud a beep had to be before he heard it up the side. It maps the shape of his hearing rather than giving one score.'),
+    quiz: [
+      { q: 'Why does Caleb’s hearing test use high and low beeps separately?',
+        a: 'Hearing is not all-or-nothing — someone can hear low notes well and miss high ones',
+        wrong: [
+          'Low beeps are used for one ear and high beeps for the other',
+          'The high beeps check the ear and the low beeps check the brain',
+          'Starting low and going high stops the ears getting tired',
+        ] },
+    ] },
+  { id:"chloe", name:"Chloe", role:"Patient", division:"NUTR", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Chloe has type 1 diabetes and has been managing it for three years. She is here for a routine review, and she can explain the whole thing faster than most adults.',
+      'Sugar from food travels in the blood, but it cannot get into the cells that need to burn it without a key called insulin. Chloe’s body has stopped making that key, so the sugar stays in the blood instead of getting used — which is why she can feel tired and thirsty while the fuel is right there.',
+      'She checks her blood sugar with a small meter and gives herself insulin to match what she eats. The part she wants people to know is that it is arithmetic, not fragility: she plays football, goes on school trips, and simply does a calculation first.'),
+    quiz: [
+      { q: 'Why does sugar build up in Chloe’s blood?',
+        a: 'Without insulin, the sugar cannot get into the cells that would burn it',
+        wrong: [
+          'Her body makes extra sugar that it does not need',
+          'Her blood cannot carry the sugar to where it is needed',
+          'The sugar in her food is a kind her body cannot break down',
+        ] },
+    ] },
+  { id:"dante", name:"Dante", role:"Patient", division:"BRAIN", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Dante took a knock to the head in a football match and was seen straight away. He feels mostly fine, which he thinks means he can go back on Saturday, and the team have been patiently explaining why not.',
+      'The brain floats in fluid inside the skull, and that fluid is a shock absorber. A hard enough knock still shakes the brain against the inside of the bone, and the bruising that follows is what makes someone foggy, headachey or slow with words for a while afterwards.',
+      'Recovery is mostly rest, including rest from screens and homework, because thinking hard uses the part that is healing. The reason the team are firm about it is that a second knock before the first has settled is much worse than either one on its own.'),
+    quiz: [
+      { q: 'Why does the team want Dante to rest from screens and homework, not just from sport?',
+        a: 'Thinking hard uses the part of him that is healing',
+        wrong: [
+          'Screen light makes the bruise on his head swell',
+          'Homework would remind him of the match and upset him',
+          'Reading makes the fluid around the brain drain away',
+        ] },
+    ] },
+  { id:"deshawn", name:"DeShawn", role:"Patient", division:"RESP", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'DeShawn has sickle cell disease and knows the ward well. He came in today because of pain in his legs, and he had already started his plan at home before anyone here saw him.',
+      'Red blood cells are normally round and squashy, which lets them bend through the narrowest blood vessels. His can change into a stiff curved shape, and stiff cells get stuck where soft ones would slip past. Where they pile up, that patch of the body is short of oxygen for a while, and that is what hurts.',
+      'Warmth, drinking plenty and rest all help, because well-hydrated blood flows more easily. He is unimpressed by people who say he does not look ill, and points out that nothing about it happens where anybody can see.'),
+    quiz: [
+      { q: 'Why do DeShawn’s stiff red blood cells cause pain?',
+        a: 'They get stuck in narrow vessels, leaving that part of the body short of oxygen',
+        wrong: [
+          'They carry a chemical that irritates the muscles',
+          'They are larger than normal cells and stretch the vessels',
+          'They break apart and the pieces cut the vessel walls',
+        ] },
+    ] },
+  { id:"eli", name:"Eli", role:"Patient", division:"MOVE", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Eli cut his hand on a broken glass while helping clear the table. It bled a lot, which frightened everyone, and stopped within a few minutes with a clean cloth pressed on it.',
+      'That is clotting. Tiny cell fragments called platelets pile into the gap and stick together, then a mesh of fibres forms across them and traps blood cells to make a plug. Pressing on a cut helps because it holds the edges close enough for that plug to bridge the gap instead of being washed away.',
+      'The cut was tidy, so the team closed it with skin glue rather than stitches. Either way the closure only holds the edges together — the healing underneath is new skin cells growing across from both sides until they meet in the middle.'),
+    quiz: [
+      { q: 'Why does pressing on a cut help it stop bleeding?',
+        a: 'It holds the edges close so the clot can bridge the gap instead of being washed away',
+        wrong: [
+          'It pushes the blood back into the vessel it came from',
+          'It warms the blood so it thickens more quickly',
+          'It squeezes the germs out before the cut closes',
+        ] },
+    ] },
+  { id:"ella", name:"Ella", role:"Patient", division:"BRAIN", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Ella has been copying from a friend’s book because the board at the front of class had gone fuzzy. She had not mentioned it to anyone, on the reasonable grounds that it had been fuzzy for a while and she assumed it was fuzzy for everybody.',
+      'Seeing clearly means light being bent to land exactly on the back of the eye. The cornea and the lens do the bending. If the eyeball is a little too long, the light comes to a focus just before it gets there, so far-away things blur while close-up things stay sharp. Glasses simply bend the light a bit less on the way in, so the focus lands in the right place.',
+      'The eye chart works by shrinking the letters row by row. The smallest row she can read tells the optometrist how much correction to put in the lens.'),
+    quiz: [
+      { q: 'Why do far-away things look blurry to Ella?',
+        a: 'Light comes to a focus slightly before it reaches the back of her eye',
+        wrong: [
+          'The back of her eye is not sensitive enough to dim light',
+          'Her eyes cannot move quickly enough to follow distant objects',
+          'The clear front of her eye has become cloudy',
+        ] },
+    ] },
+  { id:"fatima", name:"Fatima", role:"Patient", division:"DEF", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Fatima came in for a vaccination and is very clear that she does not enjoy needles. She came anyway, which the nurse pointed out is the definition of brave rather than the opposite of it.',
+      'A vaccine gives the immune system a look at the shape of a germ without the illness that usually comes with it. White blood cells learn that shape and keep a memory of it. If the real germ turns up later, the response starts immediately instead of taking several days to work out what it is dealing with.',
+      'A sore arm for a day is that learning happening. It is the immune system busy at the spot, not the vaccine wearing off — and it is also why some vaccines need a second dose, to make the memory stronger and longer-lasting.'),
+    quiz: [
+      { q: 'What does a vaccine actually give Fatima?',
+        a: 'A memory of the germ’s shape, so a real infection is fought immediately',
+        wrong: [
+          'A dose of medicine that kills the germ if it arrives',
+          'A coating that stops the germ getting into her blood',
+          'Extra white blood cells to replace the ones she has used',
+        ] },
+    ] },
+  { id:"harper", name:"Harper", role:"Patient", division:"NUTR", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Harper had bad tummy pain that would not settle and had an ultrasound scan on the way to finding out why. She is recovering now and mostly annoyed about missing a school trip.',
+      'An ultrasound uses sound far too high for anyone to hear. The probe sends a pulse into the body and then listens. Different tissues bounce the sound back differently, and the machine measures how long each echo takes to return — longer echo, deeper structure. From thousands of echoes it builds a picture, the same way a bat maps a dark room.',
+      'Because it is only sound, it is safe to repeat as often as needed, which is why it is often the first scan tried in children rather than the last.'),
+    quiz: [
+      { q: 'How does an ultrasound build its picture?',
+        a: 'It sends sound pulses in and times how long the echoes take to bounce back',
+        wrong: [
+          'It shines a very bright light through the skin',
+          'It uses a weak X-ray beam that is safe for children',
+          'It measures the heat coming off each organ',
+        ] },
+    ] },
+  { id:"ivy", name:"Ivy", role:"Patient", division:"DEF", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Ivy has earache and has spent two nights not sleeping. The doctor looked in her ear with an otoscope, which is a small light with a magnifying lens on the end.',
+      'Behind the ear canal is the eardrum, a thin tight sheet that vibrates when sound hits it. A healthy one is pale and slightly see-through, and it reflects a small cone of light back at the doctor. When the space behind it is inflamed the drum looks red and pushed outward, and that reflected cone goes missing — which is a clear thing to look for rather than a matter of opinion.',
+      'The tube that normally drains that space runs down towards the throat, and in children it is shorter and flatter than in adults. That is exactly why ear infections are so much more common at Ivy’s age than at her mother’s.'),
+    quiz: [
+      { q: 'Why does the doctor look for a small cone of reflected light in Ivy’s ear?',
+        a: 'A healthy eardrum reflects it; when the drum is inflamed and pushed outward it disappears',
+        wrong: [
+          'The cone shows how deep the ear canal is behind the outer ear',
+          'The cone appears only when there is an infection behind the drum',
+          'The cone shows whether wax is blocking the canal further in',
+        ] },
+    ] },
+  { id:"jamal", name:"Jamal", role:"Patient", division:"MOVE", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Jamal broke his ankle skateboarding and is learning to use crutches, which he has discovered is much harder than it looks from the outside.',
+      'The crutches are levers. They let his arms and shoulders carry weight that his ankle cannot, and the bone underneath can only knit if it is not being loaded while it does. The cast is holding the ends still and lined up; the crutches are keeping his body weight off them.',
+      'The part nobody warned him about is what happens to a leg that does not move. Muscle shrinks surprisingly fast when it is not used, so once the cast comes off there is a second job — building the leg back up — and that takes longer than the bone did.'),
+    quiz: [
+      { q: 'What job are Jamal’s crutches doing that the cast cannot?',
+        a: 'Keeping his body weight off the healing bone',
+        wrong: [
+          'Holding the broken ends still and lined up',
+          'Keeping the ankle warm so it heals faster',
+          'Stopping the muscles in the leg from shrinking',
+        ] },
+    ] },
+  { id:"jordan", name:"Jordan", role:"Patient", division:"DEF", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Jordan came in with a fever and was surprised to be told the fever itself is not the problem the team are chasing.',
+      'Body temperature is held near 37 degrees by a control centre in the brain, a bit like a thermostat. When the immune system detects an infection it turns that setting up on purpose. Many germs grow best at normal body temperature and do worse when it rises, and parts of the immune response work faster warm. The shivering at the start is the body making heat to reach the new setting.',
+      'So the team treat how Jordan feels and watch how he is doing, rather than chasing the number down for its own sake. What they are really watching is whether he is drinking, alert and breathing comfortably.'),
+    quiz: [
+      { q: 'Why does Jordan’s body raise its own temperature during an infection?',
+        a: 'Many germs do worse when it is warmer, and parts of the immune response work faster',
+        wrong: [
+          'The heat burns the germs away where they entered',
+          'A high temperature makes the body sleep so it can repair',
+          'Warmth thins the blood so it reaches the infection sooner',
+        ] },
+    ] },
+  { id:"jules", name:"Jules", role:"Patient", division:"MOVE", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Jules had knee surgery six weeks ago and now comes in twice a week for physiotherapy. The surgery took an afternoon. This part is taking months, and it is the part that decides how well the knee ends up working.',
+      'Muscle responds to being used. Working a muscle causes tiny amounts of damage, and the body repairs it slightly stronger than before — which is why exercises get harder week by week rather than staying the same. Too little and nothing improves; too much and the repair never catches up.',
+      'The other half is the joint itself. Tissue that is not moved lays down stiff fibres that limit how far it will bend later, so early gentle movement is not impatience. It is protecting a range of motion that is much easier to keep than to win back.'),
+    quiz: [
+      { q: 'Why do Jules’s exercises get harder every week?',
+        a: 'The body repairs a worked muscle slightly stronger, so the same exercise stops being enough',
+        wrong: [
+          'The knee gets weaker over time and needs more work to keep up',
+          'Harder exercises hurt less than gentle ones after surgery',
+          'The scar needs increasing pressure to break it down',
+        ] },
+    ] },
+  { id:"june", name:"June", role:"Patient", division:"BRAIN", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'June is booked in for an MRI scan, and the two things she was told to expect are that it is loud and that it is long. Both are true, and she has brought her own music.',
+      'MRI uses a very strong magnet and radio waves, not X-rays. Bodies are mostly water, and the magnet lines up part of every water molecule; a radio pulse knocks them out of line, and the machine listens to the signal they give off as they settle back. Different tissues settle at different speeds, and that difference is what makes soft parts show up in far more detail than an X-ray can manage.',
+      'The banging noise is the machine switching its magnetic fields very fast, which makes the coils flex. And holding still matters more here than for an X-ray, because the picture is built up over minutes rather than in a fraction of a second.'),
+    quiz: [
+      { q: 'What does an MRI scanner use to make its picture?',
+        a: 'A strong magnet and radio waves, which the water in the body responds to',
+        wrong: [
+          'A stronger X-ray beam than an ordinary X-ray machine',
+          'Very high sound pulses and their echoes',
+          'A dye that glows when it reaches the part being scanned',
+        ] },
+    ] },
+  { id:"lena", name:"Lena", role:"Patient", division:"TRI", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Lena has had a blood test and is waiting for the result. She wanted to know what actually happens to the little tube once it leaves the room, so somebody took her to look.',
+      'The tube goes into a centrifuge, which spins it very fast. Spinning makes heavier things move outward, so the blood separates into layers: red cells packed at the bottom, a thin pale layer of white cells above them, and clear yellowish plasma on top. Plasma is mostly water carrying salts, proteins and everything the body is transporting, and it is where a lot of the answers are.',
+      'Once separated, a machine can count the cells and measure what is dissolved in the plasma from a very small sample — which is why one small tube can answer several quite different questions at once.'),
+    quiz: [
+      { q: 'What does the centrifuge do to Lena’s blood sample?',
+        a: 'Spins it so the heavier cells move to the bottom and the plasma separates on top',
+        wrong: [
+          'Heats it so the cells release what is inside them',
+          'Filters out the germs before the sample is measured',
+          'Mixes it thoroughly so the reading is the same throughout',
+        ] },
+    ] },
+  { id:"lily", name:"Lily", role:"Patient", division:"MOVE", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Lily caught her hand on a hot pan handle. Her grandfather ran it under cool water straight away and kept it there, which the team told her was exactly the right first move.',
+      'Skin has layers. The top one is a barrier, and underneath is a thicker layer holding nerves, blood vessels and the cells that rebuild the barrier when it is damaged. Heat keeps damaging tissue for a while after contact ends, because the skin holds the heat; cool running water carries it away and stops the burn getting deeper.',
+      'That deeper layer is also why a burn hurts so much — it is full of nerve endings. The dressing she has now is doing one job: keeping the area clean and moist so the new barrier can grow across.'),
+    quiz: [
+      { q: 'Why does cool running water help a fresh burn?',
+        a: 'Skin holds heat and keeps burning; the water carries the heat away so the damage stops',
+        wrong: [
+          'It washes the germs out before the skin closes over',
+          'It makes the skin contract so the burn covers less area',
+          'It numbs the nerves so the skin can repair without pain',
+        ] },
+    ] },
+  { id:"luis", name:"Luis", role:"Patient", division:"RESP", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Luis is sitting with a mask over his nose and mouth, breathing a fine mist. He calls it the smoke machine. It is a nebuliser, and it is not smoke.',
+      'The machine pushes air or oxygen through liquid medicine at speed and breaks it into droplets small enough to float. Droplet size is the whole trick: too big and they land in the mouth and throat, too small and they are breathed straight back out. In between, they travel with the air deep into the small airways and settle there.',
+      'It takes about ten minutes of ordinary breathing, and it works for a child too breathless to use an inhaler properly. Nothing has to be timed or coordinated — he just breathes.'),
+    quiz: [
+      { q: 'Why does droplet size matter so much in Luis’s nebuliser?',
+        a: 'Too big and they land in the throat, too small and they are breathed straight back out',
+        wrong: [
+          'Bigger droplets carry more medicine, so bigger is always better',
+          'Small droplets are colder and make the airways tighten',
+          'The size decides how long the treatment takes to finish',
+        ] },
+    ] },
+  { id:"mae", name:"Mae", role:"Patient", division:"BRAIN", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Mae is staying overnight for a sleep study, with soft sensors stuck to her head and a band around her chest. She was worried she would never fall asleep with all of it on. Almost everybody does.',
+      'The head sensors pick up the brain’s electrical activity, which is what an EEG measures. Sleep is not one flat state: brain activity moves through stages in cycles of roughly ninety minutes, from light sleep to deep sleep and into the dreaming stage, and the pattern of those cycles is what the team are recording.',
+      'The chest band tracks her breathing and a finger clip tracks her oxygen at the same time, so the record shows what her breathing was doing at each stage — something that cannot be seen at all while someone is awake.'),
+    quiz: [
+      { q: 'What do the sensors on Mae’s head record?',
+        a: 'The brain’s electrical activity, which changes through the stages of sleep',
+        wrong: [
+          'How warm her head becomes during deep sleep',
+          'How often she moves and turns over in the night',
+          'What she is dreaming about while she is asleep',
+        ] },
+    ] },
+  { id:"malik", name:"Malik", role:"Patient", division:"RESP", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'A doctor heard an extra sound in Malik’s chest during a routine check-up, so he has come back for a proper look. He is fine, and he has learned a lot about hearts in the meantime.',
+      'A heartbeat is mostly the sound of valves closing — two beats, lub and dub, as the valves shut in turn to stop blood flowing backwards. A murmur is an extra whooshing sound between those beats, and it comes from blood moving turbulently rather than smoothly. Plenty of murmurs are completely harmless and simply mean the sound of normal fast-flowing blood is easy to hear through a thin chest.',
+      'They also put stickers on his chest for an ECG, which records the electrical signal that makes the heart squeeze. That signal always runs in the same order, so a trace out of order tells the doctor which part to look at.'),
+    quiz: [
+      { q: 'What makes the "lub-dub" sound of a heartbeat?',
+        a: 'Valves closing in turn to stop blood flowing backwards',
+        wrong: [
+          'Blood hitting the wall of the heart as it is pushed out',
+          'The heart muscle squeezing and then relaxing again',
+          'Air moving in the lungs on either side of the heart',
+        ] },
+    ] },
+  { id:"mateo", name:"Mateo", role:"Patient", division:"MOVE", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Mateo comes in every few months to have his back checked and his brace adjusted. His spine curves sideways slightly, and the team are watching whether the curve changes as he grows.',
+      'A spine is a stack of small bones with soft cushions between them, and the stack is meant to be straight from behind. His leans a little, and the brace applies gentle pressure at particular points to encourage it to grow straighter — it is not squeezing anything into place, it is nudging growth in a direction over months.',
+      'Which is exactly why the appointments matter more than they seem to. The brace can only work while he is still growing, so the checks are timed against his growth rather than against the calendar.'),
+    quiz: [
+      { q: 'How is Mateo’s brace meant to work?',
+        a: 'It applies gentle pressure that nudges the spine to grow straighter over months',
+        wrong: [
+          'It pushes the spine back into place in a single adjustment',
+          'It holds the spine completely still so it cannot bend further',
+          'It strengthens the back muscles by making them work harder',
+        ] },
+    ] },
+  { id:"maya", name:"Maya", role:"Patient", division:"BRAIN", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Maya gets migraines. They are not ordinary headaches: bright light and noise become painful, she often feels sick, and she needs a dark quiet room until it passes.',
+      'The team asked her to keep a diary — what she ate, how she slept, what the day was like — because migraines often have triggers, and a trigger is very hard to spot from memory alone. Written down over two months, patterns show up that nobody would have guessed: hers cluster after short nights and long gaps without eating.',
+      'That diary is real evidence gathering. It turned an unpredictable event into something with warning signs, which means she now sometimes gets to act before one properly arrives instead of only afterwards.'),
+    quiz: [
+      { q: 'Why does Maya keep a diary about her days?',
+        a: 'Triggers are hard to spot from memory, but patterns appear when they are written down over months',
+        wrong: [
+          'So the doctors can check that she is taking her medicine properly',
+          'Because writing an attack down helps it pass sooner than it would',
+          'To show her school how many days she has had to miss this year',
+        ] },
+    ] },
+  { id:"mei", name:"Mei", role:"Patient", division:"DEF", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Mei has a very contagious infection, so she is in a room on her own with a sign on the door. She is not in trouble and she is not more ill than anyone else on the ward. She is simply more catching.',
+      'Germs that spread through the air travel in tiny droplets that hang around after a cough. So her room takes air out faster than it lets air in, which means air flows inward through the doorway and does not drift into the corridor. Staff put on a gown, gloves and a mask before they come in, and take them off in the doorway on the way out.',
+      'The order matters more than people expect: on before entering, off before leaving. Carrying a used glove three steps down the corridor undoes the entire arrangement, which is why there is a bin just inside the door.'),
+    quiz: [
+      { q: 'Why does Mei’s room pull air inward from the corridor?',
+        a: 'So air carrying germs does not drift out to the rest of the ward',
+        wrong: [
+          'So the room stays cooler than the corridor',
+          'So fresh air reaches her faster than it reaches other rooms',
+          'So the smell of the medicines does not escape',
+        ] },
+    ] },
+  { id:"mina", name:"Mina", role:"Patient", division:"NUTR", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Mina has had a urine test, which she thought was a slightly ridiculous thing to be asked for until somebody explained what it shows.',
+      'Kidneys are filters. All the blood in the body passes through them many times a day, and they pull out waste and extra water while keeping the things worth keeping — cells, proteins, most of the salt. Urine is what they decided to throw away, so testing it is really a way of asking the kidneys what they have been dealing with.',
+      'That is why the test looks for things that should not be there at all. Protein or blood in urine means the filter is letting through something it normally holds back, and sugar means there was more in the blood than the body could keep hold of.'),
+    quiz: [
+      { q: 'Why does testing urine tell the team about the kidneys?',
+        a: 'Urine is what the kidneys filtered out, so it shows what they have been dealing with',
+        wrong: [
+          'Urine is stored inside the kidneys until it is needed for a test',
+          'Urine is made by the bladder and the kidneys only pass it along',
+          'Urine has the same contents as blood, only weaker',
+        ] },
+    ] },
+  { id:"mr_alvarez", name:"Mr. Alvarez", role:"Patient", division:"MOVE", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Mr. Alvarez is a caretaker at a primary school and hurt his back lifting a stack of chairs. He is here for a check and, in his words, a telling-off he already knows the content of.',
+      'The physiotherapist showed him the mechanics with a broom handle. A back bent forward works like a long lever, and the muscles along the spine have to pull hard at a short distance from the joint to hold up a load held far away from it. Bringing the load close to the body and bending at the knees shortens that lever and moves the effort to the big muscles in the legs, which are built for it.',
+      'His exercises are less about strength than about habit. The lift that hurt him was the four hundredth of the day, not an unusually heavy one, and the fix is the same technique every time rather than a stronger back for special occasions.'),
+    quiz: [
+      { q: 'Why is it easier on the back to lift with the load held close to the body?',
+        a: 'A load held far away makes a longer lever, so the back muscles have to pull much harder',
+        wrong: [
+          'Holding it close warms the back muscles up before the lift',
+          'The load weighs less when it is nearer the body',
+          'Holding it close keeps the spine bent, which is safer',
+        ] },
+    ] },
+  { id:"mr_bell", name:"Mr. Bell", role:"Patient", division:"TRI", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Mr. Bell brought his granddaughter in and had his blood pressure taken while he waited, which is how he came to be a patient in a children’s hospital.',
+      'The cuff tightens until it briefly stops the blood moving through the artery in the arm, then lets the pressure down slowly. The machine listens for the moment blood first pushes through again, and then the moment it flows smoothly and silently once more. Those two moments give the two numbers — the pressure while the heart is pushing, and the pressure while it is refilling between beats.',
+      'He has been asked to have it checked again on a normal day rather than a hospital day, since sitting in a waiting room worrying about a grandchild is not a typical afternoon and blood pressure notices things like that.'),
+    quiz: [
+      { q: 'What are the two numbers in a blood pressure reading?',
+        a: 'The pressure while the heart is pushing, and the pressure between beats while it refills',
+        wrong: [
+          'The pressure in the left arm and the pressure in the right arm',
+          'The heart rate and the pressure in the artery',
+          'The pressure before the cuff tightened and after it was released',
+        ] },
+    ] },
+  { id:"mr_cho", name:"Mr. Cho", role:"Patient", division:"TRI", color:"#7f8c8d", hat:"none",
+    bio: bio(
+      'Mr. Cho had an operation two days ago and has been asked to get up and walk a short distance along the corridor several times a day. He would rather stay in bed, and he has been told, kindly and repeatedly, why he is not going to.',
+      'Blood in the legs is pushed back up towards the heart largely by the leg muscles squeezing the veins as they work. Lie still for long enough and that pump stops, blood moves sluggishly, and sluggish blood is much more likely to clot. Walking restarts the pump. The tight stockings he is wearing help the same veins in the same way.',
+      'Lying still also lets the bottom of the lungs stay uninflated, which is why the nurses keep asking him to sit upright and take slow deep breaths. Both instructions are the same idea: things that are used keep working, and things that are left alone quietly stop.'),
+    quiz: [
+      { q: 'Why is Mr. Cho asked to walk so soon after his operation?',
+        a: 'Leg muscles pump blood back towards the heart, and blood that sits still is more likely to clot',
+        wrong: [
+          'Walking makes the wound close over more quickly than lying still',
+          'Moving about stops his temperature rising while the wound heals',
+          'Walking is how the hospital measures when he is ready to go home',
+        ] },
+    ] },
 ];

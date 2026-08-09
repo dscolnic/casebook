@@ -5,12 +5,18 @@
 // depended on it. Now something does — read the passage, answer one question
 // about it, earn a dollar.
 //
-// The questions are generated rather than authored, for two reasons. There are
-// roughly eighty named people across the three games, so authoring is eighty
-// questions that then have to be maintained alongside every bio edit. And a
-// generated question is guaranteed to be about the passage actually on screen:
-// the correct answer is a sentence lifted from it, and the distractors are
-// sentences lifted from other people's. Nothing can drift out of sync.
+// There are two sources of question, tried in order.
+//
+// **Authored** — a `quiz` array on the roster entry. Each item is a real
+// comprehension question: something the passage explains, with three wrong
+// answers that are wrong about the same subject rather than about a different
+// person. This is what a bio written as a teaching passage deserves; a lifted
+// sentence only ever tests whether you recognise a sentence.
+//
+// **Generated** — the fallback for rosters with no `quiz` yet. The correct
+// answer is a sentence lifted from this passage and the distractors are
+// sentences lifted from other people's, so it cannot drift out of sync with a
+// bio edit. Below that sits a role question for bios too short to quote.
 //
 // A dollar is deliberately small. The reserve starts at 20 and a wrong call now
 // costs 5 or 10, so a full sweep of the town is worth roughly one recovered
@@ -46,6 +52,28 @@ function sentences(bio){
 }
 
 /**
+ * An authored question, if the roster entry carries any.
+ *
+ * Shape: `quiz: [{ q, a, wrong: [three strings] }]`. Anything malformed is
+ * dropped rather than shown, so a half-written entry degrades to the generated
+ * question instead of rendering a two-choice question or a blank button.
+ */
+function authoredQuestion(person, seed){
+  const bank = (Array.isArray(person.quiz) ? person.quiz : []).filter(q =>
+    q && typeof q.q === 'string' && typeof q.a === 'string' &&
+    Array.isArray(q.wrong) && q.wrong.filter(w => typeof w === 'string' && w !== q.a).length >= 3);
+  if(!bank.length) return null;
+  const item = bank[Math.floor(seeded(seed + 5) * bank.length)];
+  const wrong = item.wrong.filter(w => w !== item.a).slice(0, 3);
+  return {
+    kind: 'authored',
+    prompt: item.q,
+    correct: item.a,
+    choices: shuffle([item.a, ...wrong], seed),
+  };
+}
+
+/**
  * One question about this person's passage, stable for a given person so the
  * answer cannot be rerolled by walking away and coming back.
  *
@@ -58,6 +86,9 @@ export function questionFor(person){
   const others = roster.filter(p => p.id !== person.id);
   const seed = [...person.id].reduce((a, c) => a + c.charCodeAt(0), 0);
   const pick = (arr, n) => arr[Math.floor(seeded(seed + n * 31) * arr.length)];
+
+  const written = authoredQuestion(person, seed);
+  if(written) return written;
 
   if(mine.length){
     const correct = pick(mine, 1);
@@ -201,8 +232,14 @@ export function bindPassage(container, person, onDone, opts = {}){
           `</p></div>`;
       } else {
         if(first) state.passages[person.id] = 'missed';
+        // A lifted sentence really was said; an authored answer is a fact from
+        // the passage, and quoting it as speech would be putting words in a
+        // mouth that never formed them.
         result.innerHTML = `<div class="feedback bad"><h4>Not that one</h4><p>` +
-          `${esc(person.name)} actually said: “${esc(q.correct)}”</p></div>`;
+          (q.kind === 'authored'
+            ? `The answer was: ${esc(q.correct)}`
+            : `${esc(person.name)} actually said: “${esc(q.correct)}”`) +
+          `</p></div>`;
       }
       save();
       onDone?.();
