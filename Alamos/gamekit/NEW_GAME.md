@@ -1,5 +1,25 @@
 # Runbook: a new game from a new design document
 
+## Two ways in
+
+**Writing a new game from scratch — write a book file.** One file describes the
+whole game, `tools/BOOK_TEMPLATE.md` is the format with a worked example of
+every question format, and the importer checks it rather than guessing:
+
+```sh
+node tools/import-book.mjs my-game.yml <theme> --dry      # parse and report, write nothing
+node tools/import-book.mjs my-game.yml <theme> --verify   # write, then run every check
+```
+
+It refuses to write a book that would produce an unplayable game: an unknown
+format, a mapping that is not a permutation, a roster entry with no division, a
+ballpark stop with no estimate block, an answer that is not among the options.
+
+**Bringing an existing Word design book** — the two docx importers below. They
+have to infer things the format above states, and every inference has cost us a
+defect: use them for a book that already exists, not for a book you are about
+to write.
+
 ## What to say
 
 Paste this, filling in the two blanks. Nothing else is needed.

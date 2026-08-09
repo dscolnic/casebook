@@ -7,8 +7,11 @@ import { plan } from './plan.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { GROUPS } from './content/groups.js';
 import { MISSIONS } from './content/missions.js';
-import { CURRICULUM } from './content/curriculum.js';
-import { ROSTER } from './content/roster.js';
+// tools/import-book.mjs writes all of these; a hand-written theme can leave the
+// optional ones empty. BALLPARK_CALCS and JARGON must be imported or the
+// estimates render un-answerable and no term is ever clickable.
+import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
+import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { fitOutRoom, fitOutSpine } from './props.js';
 
@@ -21,7 +24,7 @@ export default {
   // 'outdoor' uses engine/world/outdoorSite.js and needs terrain settings.
   site: { kind: 'interior', plan },
 
-  content: { GROUPS, MISSIONS, CURRICULUM, ROSTER, COPY },
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY },
 
   people: {
     OUTFITS,

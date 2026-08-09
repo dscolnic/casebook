@@ -14,3 +14,9 @@ export const CURRICULUM = {
   G5: lessons(6, 'Area Five'),
   G6: lessons(12, 'Area Six'),
 };
+
+/** Number-tile estimate specs, keyed `<group>-<day>`. Written by the book importer. */
+export const BALLPARK_CALCS = {};
+
+/** Clickable terms in the question panel: { name, aliases, def }. */
+export const JARGON = [];

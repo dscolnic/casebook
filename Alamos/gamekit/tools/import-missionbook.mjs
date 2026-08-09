@@ -1,6 +1,6 @@
 // import-missionbook.mjs — turn a mission-shaped design book into theme content.
 //
-//   node tools/import-missionbook.mjs <book.docx> <theme> [--map map.json] [--dry]
+//   node tools/import-missionbook.mjs <book.docx> <theme> [--map map.json] [--dry] [--verify]
 //
 // Companion to import-designbook.mjs, which reads the SHIFT/CASE hospital shape.
 // This one reads the MISSION/Activity shape described in parse-missionbook.mjs,
@@ -22,7 +22,7 @@ import { parseMissionBook } from './parse-missionbook.mjs';
 const here = dirname(new URL(import.meta.url).pathname);
 const [bookPath, themeName, ...rest] = process.argv.slice(2);
 if(!bookPath || !themeName){
-  console.error('usage: node tools/import-missionbook.mjs <book.docx> <theme> [--map map.json] [--dry]');
+  console.error('usage: node tools/import-missionbook.mjs <book.docx> <theme> [--map map.json] [--dry] [--verify]');
   process.exit(2);
 }
 const dry = rest.includes('--dry');
@@ -89,8 +89,18 @@ function sceneFor(mission, activity, stop, { keepActivityScene = true } = {}){
 }
 
 /** The engine's challenge object, in the shape questionUI.js dispatches on. */
+/** Formats the question UI can render. Anything else is reported, not written. */
+const RENDERABLE = new Set(['PROTOCOL','SEQUENCE','BALLPARK','SCIENCETANK','DIAGNOSIS','TRIAGE','CASEBOOK','CHOICE']);
+
 function gameFor(activity, group, day){
   const pack = diagnosisPacks[activity.id];
+  if(activity.wantsPack && !pack){
+    // Project Y shipped nine lessons naming packs that nothing imported. They
+    // reached the question panel as a format with no data and rendered
+    // "not yet implemented". A named pack that does not resolve is an error.
+    report.unmapped.push({ id: activity.id, title: activity.title,
+      reason: `names diagnosis pack "${activity.id}", which content/diagnosis-packs.js does not supply` });
+  }
   if(pack){
     // Keep the book's title and scene; the pack supplies the panel and the
     // candidates. `answer` is what the feedback panel prints as the solution.
@@ -103,8 +113,16 @@ function gameFor(activity, group, day){
       answer: pack.correctChoice,
     };
   }
+  // The engine compares formats canonically; emit them that way so a book that
+  // writes "Science Tank" and a book that writes "SCIENCE_TANK" produce the
+  // same content. A format the engine cannot render is reported, not written.
+  const format = String(activity.format ?? '').toUpperCase().replace(/[\s_-]+/g, '');
+  if(!RENDERABLE.has(format)){
+    report.unmapped.push({ id: activity.id, title: activity.title,
+      reason: `format "${activity.format}" has no renderer — emitting CHOICE, which needs choices and an answer` });
+  }
   const base = {
-    type: activity.format,
+    type: RENDERABLE.has(format) ? format : 'CHOICE',
     title: activity.title,
     setup: activity.scene,
     play: activity.play,
@@ -113,16 +131,16 @@ function gameFor(activity, group, day){
     why: activity.why || activity.interpretation,
     rebuttals: activity.rebuttals,
   };
-  if(activity.format === 'Protocol'){
+  if(format === 'PROTOCOL'){
     return { ...base, scenarios: activity.scenarios, choices: activity.choices, mapping: activity.mapping };
   }
-  if(activity.format === 'Sequence'){
+  if(format === 'SEQUENCE'){
     return { ...base, cards: activity.cards, order: activity.order };
   }
-  if(activity.format === 'Science Tank'){
+  if(format === 'SCIENCETANK'){
     return { ...base, proposals: activity.proposals, recommended: activity.recommended, research: '' };
   }
-  if(activity.format === 'Ballpark'){
+  if(format === 'BALLPARK'){
     const spec = ballparkSpecs[activity.id];
     if(!spec){
       report.unmapped.push({ id: activity.id, title: activity.title,
@@ -130,6 +148,12 @@ function gameFor(activity, group, day){
     }
     return { ...base, givens: activity.ballpark?.givens ?? [], relationship: activity.ballpark?.relationship ?? '',
              question: activity.ballpark?.question ?? '', calcKey: `${group}-${day}` };
+  }
+  // A question with options and one right answer is not a diagnosis, a protocol
+  // or a funding round. Typing it as the nearest neighbour is what left 63
+  // hospital lessons rendering panels with nothing in them.
+  if(format === 'CHOICE' || (!RENDERABLE.has(format) && activity.choices?.length)){
+    return { ...base, type: 'CHOICE', choices: activity.choices, correctChoice: activity.solution };
   }
   return base;
 }
@@ -207,11 +231,11 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
       warn(`${at}: takeaway repeats the "why" — the intro would give the answer away`);
     }
     const g = l.game;
-    if(g.type === 'Protocol'){
+    if(g.type === 'PROTOCOL'){
       if(g.mapping?.length !== g.scenarios?.length) warn(`${at}: protocol mapping does not cover every situation`);
       if(new Set(g.mapping).size !== g.mapping?.length) warn(`${at}: protocol mapping is not a permutation`);
     }
-    if(g.type === 'Sequence' && new Set(g.order).size !== g.cards?.length){
+    if(g.type === 'SEQUENCE' && new Set(g.order).size !== g.cards?.length){
       warn(`${at}: sequence order does not use every card exactly once`);
     }
     if(g.type === 'DIAGNOSIS'){
@@ -219,12 +243,16 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
       if(labels.length < 4) warn(`${at}: diagnosis offers ${labels.length} candidates; the format wants at least four`);
       if(!labels.includes(g.correctChoice)) warn(`${at}: correctChoice is not one of the candidates — ungradeable`);
       if(new Set(labels).size !== labels.length) warn(`${at}: two candidates share a label, so grading cannot tell them apart`);
-      if(!g.figure) warn(`${at}: diagnosis has no figure — the panel cannot be reasoned across as prose`);
+      const zones = new Set((g.readings || []).map(r => r.zone).filter(Boolean));
+      if(!g.figure && zones.size < 3){
+        warn(`${at}: diagnosis has neither a figure nor readings across three zones — ` +
+             `the panel cannot be reasoned across as prose`);
+      }
       if(!(g.readings || []).some(r => r.status !== 'alarm')){
         warn(`${at}: every reading is an alarm; the format needs quiet readings to rule explanations out`);
       }
     }
-    if(g.type === 'Science Tank'){
+    if(g.type === 'SCIENCETANK'){
       const total = Object.values(g.recommended || {}).reduce((a, b) => a + b, 0);
       if(total < 60) warn(`${at}: recommended allocation totals ${total}; the engine requires at least 80 of 100 to be spent`);
       for(const k of Object.keys(g.recommended || {})){
@@ -264,6 +292,20 @@ if(dry){
 }
 
 console.log(`\n${missions.length} missions, ${activities.length} activities, ${lessonCount} lessons`);
+
+// --verify runs the same checks CI does, against what was just written. An
+// importer that reports success and leaves a theme that cannot be played is the
+// failure mode this exists to close.
+if(rest.includes('--verify') && !dry){
+  const { spawnSync } = await import('node:child_process');
+  const gamekit = resolve(here, '..');
+  const res = spawnSync(process.execPath, [resolve(gamekit, 'engine/dev/check.mjs'), themeName],
+    { stdio: 'inherit', cwd: gamekit });
+  if(res.status !== 0){
+    console.error('\n--verify: the written theme does not pass its checks.');
+    process.exit(1);
+  }
+}
 if(report.unmapped.length){
   console.log(`\n${report.unmapped.length} unmapped section(s):`);
   report.unmapped.forEach(u => console.log(`  · ${u.id ?? ''} ${u.title ?? ''} — ${u.reason}`));

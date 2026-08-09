@@ -20,7 +20,10 @@ engine/core     loop, player, interactions, state, save, simulation, dashboard,
                 questionUI, figures, map, personQuiz, terminology
 engine/people   rig (bodies, faces, gait) + crowd (placement, walking, plates)
 engine/world    outdoorSite (ground/sky/planting), outdoorTown (assembles a site),
-                interiorSite, kit (generic + period building vocabulary), materials
+                interiorSite (a whole indoor floor), interiorBuilding (one room
+                an outdoor town can be entered into), kit (generic + period
+                building vocabulary), materials,
+                screens (canvas faces for the machines in a room)
 engine/dev      audit, validateContent, smokeCampaign, themeResolver
 themes/<name>/  theme.js, site.js or plan.js, outfits.js, props.js, content/
 src/main.js     the entry point — NOT shared, see below

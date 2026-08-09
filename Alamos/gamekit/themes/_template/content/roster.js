@@ -12,3 +12,9 @@ export const ROSTER = [
   { id: 'guest2', name: 'Guest Two', role: 'Guest', division: 'G2', color: '#7f8c8d', bio: '<p>Replace with a short profile.</p>' },
   { id: 'guest3', name: 'Guest Three', role: 'Guest', division: 'G3', color: '#7f8c8d', bio: '<p>Replace with a short profile.</p>' },
 ];
+
+/** One per area; groups.js `defaultLeader` points at these ids. */
+export const LEADERS = [];
+
+/** Optional face parameters for the 2-D avatar in the question panel. */
+export const AVATARS = {};
