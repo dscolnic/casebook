@@ -1,0 +1,104 @@
+// interiors.js — what is inside each of Riverton's six laboratories.
+//
+// The engine builds the room (engine/world/interiorBuilding.js); this file says
+// what the instrument in it reads and what is live on the bench. One entry per
+// area of study, keyed by the group id from content/groups.js.
+//
+// Everything here is a reading on a fictional instrument in a fictional
+// response. Nothing is a procedure, a threshold to act on, or a number anybody
+// should carry out of the game.
+//
+// `station` is a screens.js spec:
+//   kind    'vitals' — a moving trace with numbers beside it
+//           'panel'  — rows of label / value / status
+//           'film'   — a plate on a lightbox
+//   rows    up to three (vitals) or five (panel)
+//   status  colours the trace, and prints the word as well as the colour
+
+export const INTERIORS = {
+  IDENT: {
+    caption: 'A name is a claim. A claim needs evidence that could have come out differently.',
+    standLine: 'Unlabelled drum from the freight yard. Provisional identity within the hour; '
+      + 'confirmation when a second method with a different failure mode agrees.',
+    station: {
+      kind: 'panel', title: 'GC-MS bench',
+      rows: [
+        { label: 'Retention time', value: '7.42 min', status: 'normal' },
+        { label: 'Library match', value: '91 %', status: 'high' },
+        { label: 'Second method', value: 'not yet run', status: 'low' },
+        { label: 'Blank', value: 'clean', status: 'normal' },
+      ],
+    },
+  },
+  GASES: {
+    caption: 'Which part of the answer is thermodynamics, and which part is weather.',
+    standLine: 'A colourless plume is leaving the yard and the wind turns at about four. '
+      + 'Command wants a corridor before it does.',
+    station: {
+      kind: 'vitals', animated: true, wave: 'sine', rate: 2, title: 'Mobile weather station',
+      status: 'high',
+      rows: [
+        { label: 'Wind', value: 3.4, unit: 'm/s, from the yard', status: 'normal' },
+        { label: 'Vapour density', value: 2.1, unit: '× air', status: 'alarm' },
+        { label: 'Mixing', value: 'poor', unit: 'still, cold night', status: 'high' },
+      ],
+    },
+  },
+  WATER: {
+    caption: 'Ask where the contaminant went. Never whether it disappeared.',
+    standLine: 'The water column reads cleaner every hour and the sediment core has not '
+      + 'been opened yet. One of those is a measurement.',
+    station: {
+      kind: 'panel', title: 'River & sediment',
+      rows: [
+        { label: 'Water column', value: '0.8 µg/L', status: 'normal' },
+        { label: 'Sediment, 0–5 cm', value: '46 µg/kg', status: 'alarm' },
+        { label: 'Organic carbon', value: '3.1 %', status: 'high' },
+        { label: 'Flow at intake', value: '11 m³/s', status: 'normal' },
+      ],
+    },
+  },
+  QUANT: {
+    caption: 'The decision rule is written before the measurement arrives.',
+    standLine: 'A result of 4.7 against a limit of 5, with a spread of ±2. '
+      + 'The question is not the number. It is whether the number decides anything.',
+    station: {
+      kind: 'panel', title: 'Quality assurance desk',
+      rows: [
+        { label: 'Reading', value: '4.7', status: 'high' },
+        { label: 'Uncertainty', value: '± 2.0', status: 'alarm' },
+        { label: 'Limit', value: '5.0', status: 'normal' },
+        { label: 'Calibration', value: 'bracketed, in range', status: 'normal' },
+        { label: 'Blank', value: 'clean', status: 'normal' },
+      ],
+    },
+  },
+  ENERGY: {
+    caption: 'A slow reaction in a warm vessel is a different event from the same reaction in a cool one.',
+    standLine: 'Drum in afternoon sun, thirty degrees above the one in shade. '
+      + 'Nobody enters the space until there is a gas-production estimate.',
+    station: {
+      kind: 'vitals', animated: true, wave: 'resp', rate: 1.5, title: 'Vessel monitor',
+      status: 'alarm',
+      rows: [
+        { label: 'Skin temperature', value: 54, unit: '°C, rising', status: 'alarm' },
+        { label: 'Headspace', value: 38, unit: '% of lower limit', status: 'high' },
+        { label: 'Rate doubling', value: 10, unit: '°C per doubling', status: 'normal' },
+      ],
+    },
+  },
+  TREAT: {
+    caption: 'Every option comes with the byproduct, the sludge and the destination attached.',
+    standLine: 'Carbon takes it out of the water and into a bed. Stripping takes it out of '
+      + 'the water and into the air. Neither destroys anything.',
+    station: {
+      kind: 'panel', title: 'Pilot treatment train',
+      rows: [
+        { label: 'Removal, target compound', value: '99.1 %', status: 'normal' },
+        { label: 'Off-gas, stripper', value: 'to atmosphere', status: 'alarm' },
+        { label: 'Spent carbon', value: '1.2 t, no destination', status: 'high' },
+        { label: 'Byproducts screened', value: 'not yet', status: 'low' },
+      ],
+    },
+  },
+};

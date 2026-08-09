@@ -17,6 +17,7 @@ import {
   DOOR_W, DOOR_W_WIDE, DOOR_H, roomBounds, doorCentre, roomEntryPoint,
 } from './plan.js';
 import { buildProps } from './hospitalProps.js';
+import { buildStations } from './instruments.js';
 import { chair as buildChair } from './hospitalProps.js';
 import {
   buildLighting, addRoomLight, vinylFloorTexture, paintTexture, ceilingTileTexture,
@@ -662,6 +663,9 @@ export function initWorld(canvas){
   const props = buildProps(scene);
   props.hard.forEach(b => colliders.push(b));
   props.soft.forEach(c => softColliders.push(c));
+
+  // One working instrument per department room, with this room's case on it.
+  buildStations(scene);
 
   addBladeSign(11.5, 'Waiting', 'Pharmacy');
   addBladeSign(26.5, 'Nutrition', 'Imaging');

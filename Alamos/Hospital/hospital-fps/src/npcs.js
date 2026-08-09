@@ -16,6 +16,7 @@ import { CHARACTER_DIVISION } from './simulation.js';
 import { getState } from './gameState.js';
 import { srand, srandRange } from './interiorEnv.js';
 import { CORRIDOR, WAITING_CHAIRS } from './plan.js';
+import { occupantSpots, caseFor } from './instruments.js';
 
 let npcs = [];
 let extras = [];
@@ -489,9 +490,27 @@ export function spawnNPCs(count = 40){
   npcGroup = new THREE.Group();
   scene.add(npcGroup);
 
+  // Each department room's live case: the patient it is about, and the member
+  // of staff running it. They stand in the room rather than in the corridor, so
+  // walking in shows a shift in progress instead of an empty set. instruments.js
+  // owns both the choice and the spots, so the plate on the wall and the person
+  // in the bed are always the same case.
+  const roomSpots = occupantSpots();
+  const inRoom = new Map();
+  for(const [group, s] of Object.entries(roomSpots)){
+    const { patient, staff } = caseFor(group);
+    if(patient) inRoom.set(patient.id, { spot: s.patient, seated: s.seatedPatient, lift: s.lift || 0 });
+    if(staff)   inRoom.set(staff.id,   { spot: s.staff,   seated: false, lift: 0 });
+  }
+
+  // The people a room's case is about are never left out of the sample. They
+  // were, at count 26 of 37, and the result was a bed with a chart beside it
+  // and nobody in it.
+  const posted = HISTORIC_CHARACTERS.filter(c => inRoom.has(c.id));
+  const rest = HISTORIC_CHARACTERS.filter(c => !inRoom.has(c.id));
   const roster = count >= HISTORIC_CHARACTERS.length
     ? [...HISTORIC_CHARACTERS]
-    : [...HISTORIC_CHARACTERS].sort(() => srand() - 0.5).slice(0, count);
+    : [...posted, ...[...rest].sort(() => srand() - 0.5)].slice(0, Math.max(count, posted.length));
 
   let chairIdx = 0;
   roster.forEach((ch, i) => {
@@ -499,15 +518,21 @@ export function spawnNPCs(count = 40){
     ch.division = division;
     const look = pickLook(ch.role);
     const isPatient = (ch.role || '').toLowerCase().includes('patient');
+    const posted = inRoom.get(ch.id) || null;
     // Patients are seated in the waiting room until their case is called.
-    const seat = isPatient && chairIdx < CHAIRS.length ? CHAIRS[chairIdx++] : null;
-    const body = buildBody(look, { seated: !!seat });
+    const seat = posted ? null
+      : (isPatient && chairIdx < CHAIRS.length ? CHAIRS[chairIdx++] : null);
+    const body = buildBody(look, { seated: posted ? posted.seated : !!seat });
 
     const plate = nameplate(ch);
     npcGroup.add(plate);
 
     let pos;
-    if(seat){
+    if(posted){
+      pos = new THREE.Vector3(posted.spot[0], 0, posted.spot[1]);
+      body.position.set(pos.x, body.position.y + (posted.lift || 0), pos.z);
+      body.rotation.y = posted.spot[2];
+    } else if(seat){
       pos = new THREE.Vector3(seat[0], 0, seat[1]);
       body.position.set(pos.x, body.position.y, pos.z);
       body.rotation.y = seat[2];
@@ -536,7 +561,9 @@ export function spawnNPCs(count = 40){
 
     const n = {
       char: ch, body, hit, plate, division, look,
-      seated: !!seat,
+      // `seated` is what stops the walker moving them, so a member of staff
+      // posted to a room is "seated" here while standing up in the world.
+      seated: !!seat || !!posted,
       pos, target: new THREE.Vector3(),
       speed: srandRange(0.75, 1.25),
       bobPhase: srand() * Math.PI * 2,
@@ -545,7 +572,7 @@ export function spawnNPCs(count = 40){
       sway: srand() * Math.PI * 2,
       swayRate: srandRange(0.4, 0.8),
     };
-    if(!seat) n.target.copy(scheduledTarget(n));
+    if(!seat && !posted) n.target.copy(scheduledTarget(n));
     npcs.push(n);
   });
 
