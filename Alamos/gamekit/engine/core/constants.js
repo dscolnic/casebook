@@ -9,17 +9,22 @@ const STARTING_RESERVE=20;
 const WEEKLY_APPROPRIATION=5;
 const FUND_COST=1;
 const HINT_COST=2;
-// A wrong call is no longer punished automatically. The player is charged a
-// minimum allotment and then chooses how to pay for what happens next: answer
-// again, or accept the miss and move on. Each is priced in money or in time, so
-// nobody is ever stuck for want of funds — time is always affordable.
-const MIN_ALLOTMENT_HOURS=3;
+// A wrong call costs money, and only money. Time is no longer a currency —
+// the day runs down by itself now, so charging hours for a mistake would be
+// charging twice. Answer again for $5, accept the miss and move on for $10.
+//
+// If neither is affordable the day restarts. That is the floor of the design:
+// a player can always earn their way back by talking to people, and the price
+// of being both wrong and broke is the day rather than the campaign.
+const MIN_ALLOTMENT_HOURS=0;
 const RETRY_COST=5;
-const RETRY_HOURS=12;
+const RETRY_HOURS=0;
 const SKIP_COST=10;
-const SKIP_HOURS=24;
+const SKIP_HOURS=0;
+// Paid each morning, so a day never opens with no way out of a wrong answer.
+const DAILY_STIPEND=8;
 const VISIT_BONUS=6;
 const ISSUE_VISIT_BONUS=10;
 export { KEY, WEEKS, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,
          MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, SKIP_COST, SKIP_HOURS,
-         VISIT_BONUS, ISSUE_VISIT_BONUS };
+         DAILY_STIPEND, VISIT_BONUS, ISSUE_VISIT_BONUS };

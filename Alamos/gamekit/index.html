@@ -39,6 +39,8 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 #hudProjection.great{color:#0a8a0a}
 #hudProjection.good{color:#b0762a}
 #hudProjection.bad{color:#c0392b}
+#hudClock.low{color:#b0762a}
+#hudClock.urgent{color:#c0392b}
 
 /* The one instruction, centred, where the eye already is. */
 /* Below the readings, not level with them: the why-line is a full sentence and
@@ -142,8 +144,8 @@ body.reduceMotion *,body.reduceMotion *::before,body.reduceMotion *::after{anima
      carried the mission name, the route chips, a "Why:" line and a timeline,
      which is a briefing document stapled over the game. -->
 <div id="hudStatus">
-  <div class="hudStat"><span class="hudLabel">Clock</span><b id="hudClock">—</b></div>
-  <div class="hudStat"><span class="hudLabel">Remaining</span><b id="hudDaysLeft">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Time left</span><b id="hudClock">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Calls</span><b id="hudDaysLeft">—</b></div>
   <div class="hudStat"><span class="hudLabel">Mission</span><b id="hudMission">—</b></div>
   <div class="hudStat"><span class="hudLabel">Projection</span><b id="hudProjection">—</b></div>
   <div class="hudStat"><span class="hudLabel">Funds</span><b id="hudMoney">—</b></div>

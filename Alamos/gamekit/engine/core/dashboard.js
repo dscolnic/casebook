@@ -1,7 +1,8 @@
 import { getState } from './gameState.js';
-import { def, currentMilestone, groupPct, readiness, forecastReadiness, forecastMoney, getCurrentMission, nextMissionStopIndex, completedMissionStops, isPersonStopForIdx, getPersonIdForStop, isSpecialRequestActive, getSpecialRequest, hasSpecialRequest } from './simulation.js';
+import { def, currentMilestone, groupPct, readiness, forecastReadiness, forecastMoney, getCurrentMission, nextMissionStopIndex, openStopIndices, completedMissionStops, isPersonStopForIdx, getPersonIdForStop, isSpecialRequestActive, getSpecialRequest, hasSpecialRequest } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { esc, fmt, clamp } from './utils.js';
+import { formatCountdown } from './day.js';
 import { GROUP_DEFS } from './divisions.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { destinationLabel } from './place.js';
@@ -148,10 +149,18 @@ export function updateHUD(){
     if(cls!==undefined) el.className=cls;
   };
 
-  // 1. running clock  2. days left  3. mission x of y
-  set('hudClock', `Day ${Math.floor(hours/24)+1} · ${pad(hours%24)}:${pad((hours%1)*60)}`);
-  const daysLeft=Math.max(0, TOTAL_DAYS - Math.floor(hours/24));
-  set('hudDaysLeft', `${daysLeft} ${daysLeft===1?'day':'days'}`);
+  // 1. the day's countdown  2. what is still open  3. mission x of y
+  //
+  // This used to be a running campaign clock and a count of days left. Neither
+  // told the player the thing they actually need while walking: how much of
+  // *today* is left, and how many calls they still owe.
+  const left = state.dayLeft ?? 0;
+  const frac = state.dayBudget ? left / state.dayBudget : 1;
+  set('hudClock', state.dayStarted ? formatCountdown(left) : '—',
+      frac < 0.12 ? 'urgent' : frac < 0.3 ? 'low' : '');
+  const open = openStopIndices(state).length;
+  const total = getCurrentMission(state)?.stops?.length ?? 0;
+  set('hudDaysLeft', open ? `${open} of ${total}` : 'all made');
   const missionNo=Math.min(WEEKS, state.week||1);
   set('hudMission', `${missionNo} of ${WEEKS}`);
 
@@ -196,23 +205,23 @@ export function updateHUD(){
     whyEl.textContent=req?.title||'';
   } else if(idx<0){
     objEl?.classList.add('done');
-    whereEl.textContent='Return to City Command';
-    whyEl.textContent='Every stop is done. Take the evidence back and make the mission decision.';
+    whereEl.textContent='Every call is made';
+    whyEl.textContent='The rest of the day is yours — talk to people, and they will sign off expenses.';
   } else {
     objEl?.classList.remove('done');
-    const stop=mission.stops[idx];
-    const area=def(stop.group);
-    const personId=isPersonStopForIdx(state,idx)?getPersonIdForStop(state,idx):null;
-    const person=personId?HISTORIC_CHARACTERS.find(c=>c.id===personId):null;
-    whereEl.textContent = person
-      ? `Find ${person.name} — ${person.role}`
-      : `Go to ${destinationLabel(stop.group)}`;
-    // The "why" is what is at stake, in the book's own words, not the learning
-    // objective — the player is being asked to act, not to revise.
-    const reopened = (state.attempts?.[`${state.week}-${idx}`]||0) > 0;
-    whyEl.textContent = reopened
-      ? 'This call is still open — Riverton needs an answer here.'
-      : (mission.stake || mission.objective || '');
+    // Every open call, not one. The player chooses the order now, so naming a
+    // single "next" stop would be the game deciding for them.
+    const open = openStopIndices(state);
+    const label = (i) => {
+      const stop = mission.stops[i];
+      const personId = isPersonStopForIdx(state, i) ? getPersonIdForStop(state, i) : null;
+      const person = personId ? HISTORIC_CHARACTERS.find(c => c.id === personId) : null;
+      return person ? person.name : destinationLabel(stop.group);
+    };
+    whereEl.textContent = open.length === 1
+      ? `Still open: ${label(open[0])}`
+      : `Still open: ${open.map(label).join('  ·  ')}`;
+    whyEl.textContent = mission.stake || mission.objective || '';
   }
 
   const statsBody=document.getElementById('statsBody');

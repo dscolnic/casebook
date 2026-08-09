@@ -9,9 +9,9 @@ import { updateInteractions, getCurrentTarget } from './interactions.js';
 import { LEADERS } from './leaders.js';
 import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
-import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest } from './gameState.js';
+import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
-import { createInteriors, exposeDebug } from '../../gamekit/engine/core/app.js';
+import { createInteriors, exposeDebug, createDay } from '../../gamekit/engine/core/app.js';
 import { createDriving } from '../../gamekit/engine/world/driving.js';
 import { updateHUD, renderEndScreen, renderStats } from './dashboard.js';
 import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
@@ -20,7 +20,7 @@ import { formatTime, timeToDay, TOTAL_DAYS, TOTAL_HOURS } from './time.js';
 import { updateDayNight } from './world.js';
 import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, getNPCs } from './npcs.js';
 import { getWaypointMesh, setWaypointPosition } from './world.js';
-import { facingArrowHTML } from '../../gamekit/engine/core/map.js';
+import { facingArrowHTML, renderMap } from '../../gamekit/engine/core/map.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import themeManifest from '../theme.js';
 import { getPersonIdForStop } from './simulation.js';
@@ -60,6 +60,62 @@ const interiors = createInteriors({
     }
   },
 });
+
+// ------------------------------------------------------------------- the day
+// A mission is a day on the Hill: the plan opens it, the countdown runs it down
+// in real time whatever the player is doing, and running out means taking the
+// day again.
+const day = createDay({
+  theme: themeManifest,
+  def: (id) => GROUP_DEFS.find(g => g.id === id),
+  positionOf: (id) => {
+    const p = getBuildingPosition(id);
+    return p ? { x: p.x, z: p.z } : null;
+  },
+  spawn: () => { const p = getPosition(); return { x: p.x, z: p.z }; },
+  mapHTML: () => renderMap(),
+  ui: {
+    open(title, html, actions){
+      document.getElementById('modalTitle').textContent = title;
+      const eyebrow = document.getElementById('modalEyebrow');
+      if(eyebrow) eyebrow.textContent = '';
+      document.getElementById('modalBody').innerHTML = html
+        + '<div class="modalActions">' + actions.map(a =>
+            `<button class="btn ${a.primary ? 'primary' : ''}" id="${a.id}" type="button">${a.label}</button>`).join('') + '</div>';
+      document.getElementById('overlay').classList.add('show');
+      if(document.pointerLockElement) document.exitPointerLock();
+      for(const a of actions){
+        const b = document.getElementById(a.id);
+        if(b) b.onclick = a.onClick;
+      }
+    },
+    close(){ document.getElementById('overlay').classList.remove('show'); },
+  },
+  onDayStart: () => { updateHUD(); updateWorldFromState(); updateDayNight(); },
+  onDayEnd: (outstanding) => showDayOver(outstanding),
+});
+
+function showDayOver(outstanding){
+  const state = getState();
+  if(outstanding > 0){
+    day.ui.open('The day ran out',
+      `<div class="briefBox"><p><b>${outstanding} call${outstanding === 1 ? '' : 's'} still open when the light went.</b></p>`
+      + '<p>You take the same day again — the calls reopen, the clock refills, and the morning pays an allowance.</p></div>',
+      [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => day.restart() }]);
+    return;
+  }
+  day.ui.open(`Day ${state.week} closed`,
+    '<div class="briefBox"><p>Every call made. The divisions write it up overnight.</p></div>',
+    [{ id: 'dayNext', label: 'Start the next day', primary: true, onClick: () => {
+      const res = completeMission();
+      document.getElementById('overlay').classList.remove('show');
+      updateHUD(); updateWorldFromState(); updateDayNight();
+      if(res !== 'won') day.showPlan();
+    } }]);
+}
+
+window.addEventListener('projecty:restartday', () => day.restart());
+
 
 // ——— Driving ———
 // The motor pool's jeeps. The Hill is six hundred metres end to end, which is
@@ -213,6 +269,8 @@ function startGameLoop(){
   // position player at plaza
   teleport(new THREE.Vector3(0,1.7,14));
   if(!rafId) animate();
+  // The day is planned before it is walked.
+  if(!getState()?.dayStarted) day.showPlan();
   // A handle on the running game, as gamekit and the hospital both expose. A
   // dynamic import() from the console resolves to a *second* copy of the module
   // graph with its own empty world, so without this there is no way to inspect
@@ -220,7 +278,7 @@ function startGameLoop(){
   exposeDebug(themeManifest, { THREE, scene, renderer, camera, teleport, getPosition, getState,
                                getCurrentTarget, interiors,
                                world: { colliders: worldColliders, interactables: worldInteractables },
-                               driving });
+                               driving, day });
 }
 
 function animate(){
@@ -232,10 +290,10 @@ function animate(){
     // player is in a jeep, the jeep owns it.
     if(driving.active) driving.update(delta);
     else updatePlayer(delta);
-    // ticking clock — constant rate, not tied to walking (week is mission index, not time-derived)
-    if(state && state.status==='playing'){
-      const idleRate = 0.012;
-      const tick = delta * idleRate;
+    // The old idle drip is gone: the day's own countdown is the clock now, and
+    // it runs whether or not the player is standing still.
+    if(false){
+      const tick = 0;
       if(tick>0){
         state.timeHours = Math.min(TOTAL_HOURS, state.timeHours + tick);
         if(state.timeHours>=TOTAL_HOURS) state.status='lost';
@@ -244,6 +302,9 @@ function animate(){
     // time is constant — walking no longer speeds clock
     if(state) updateDayNight();
   }
+  // The countdown runs everywhere: street, room, jeep, question panel.
+  if(day.tick(delta) === 'expired') day.close();
+
   if(!interiorMode){
     if(driving.active){
       promptEl.textContent = 'W/S drive · A/D steer · Shift faster · E — get out';

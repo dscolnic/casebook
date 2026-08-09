@@ -36,6 +36,26 @@ export function missionStopIndex(state, id){
   const pending=m.stops.findIndex((s,i)=> s.group===id && !done.includes(i));
   return pending>=0 ? pending : m.stops.findIndex(s=>s.group===id);
 }
+/**
+ * Every stop still open today, in mission order.
+ *
+ * The player chooses their own route now, so there is no single "next" stop —
+ * all of a day's calls are open from the moment the day starts, and the plan
+ * screen shows where each one is. `nextMissionStopIndex` survives as "the first
+ * one still open", which is what the map's default target and a few labels
+ * want, but nothing gates on it any more.
+ */
+export function openStopIndices(state){
+  const m=getCurrentMission(state);
+  if(!m) return [];
+  const done=completedMissionStops(state);
+  return m.stops.map((_,i)=>i).filter(i=>!done.includes(i));
+}
+export function openStopGroups(state){
+  const m=getCurrentMission(state);
+  if(!m) return new Set();
+  return new Set(openStopIndices(state).map(i=>m.stops[i].group));
+}
 export function nextMissionStopIndex(state){
   const m=getCurrentMission(state);
   if(!m) return -1;

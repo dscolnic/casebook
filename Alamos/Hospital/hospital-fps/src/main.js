@@ -6,7 +6,7 @@ import { updateInteractions, getCurrentTarget } from './interactions.js';
 import { LEADERS } from './leaders.js';
 import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
-import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest } from './gameState.js';
+import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
 import { updateHUD, renderEndScreen, renderStats } from './dashboard.js';
 import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
@@ -16,8 +16,8 @@ import { updateDayNight } from './world.js';
 import { updateInstruments } from './instruments.js';
 import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, getNPCs } from './npcs.js';
 import { getWaypointMesh, setWaypointPosition, getRoomEntry } from './world.js';
-import { facingArrowHTML } from '../../../gamekit/engine/core/map.js';
-import { exposeDebug } from '../../../gamekit/engine/core/app.js';
+import { facingArrowHTML, renderMap } from '../../../gamekit/engine/core/map.js';
+import { exposeDebug, createDay } from '../../../gamekit/engine/core/app.js';
 import themeManifest from '../theme.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { getPersonIdForStop } from './simulation.js';
@@ -33,6 +33,60 @@ const dashboardOverlay=document.getElementById('dashboardOverlay');
 const mapOverlay=document.getElementById('mapOverlay');
 const miniMapEl=document.getElementById('miniMap');
 const fallbackTown=document.getElementById('fallbackTown');
+
+// ------------------------------------------------------------------ the day
+// A mission is a shift: the plan opens it, the countdown runs it down in real
+// time whatever the player is doing, and running out means taking it again.
+const day = createDay({
+  theme: themeManifest,
+  def: (id) => GROUP_DEFS.find(g => g.id === id),
+  positionOf: (id) => {
+    const p = getBuildingPosition(id);
+    return p ? { x: p.x, z: p.z } : null;
+  },
+  spawn: () => { const p = getPosition(); return { x: p.x, z: p.z }; },
+  mapHTML: () => renderMap(),
+  ui: {
+    open(title, html, actions){
+      document.getElementById('modalTitle').textContent = title;
+      const eyebrow = document.getElementById('modalEyebrow');
+      if(eyebrow) eyebrow.textContent = '';
+      document.getElementById('modalBody').innerHTML = html
+        + '<div class="modalActions">' + actions.map(a =>
+            `<button class="btn ${a.primary ? 'primary' : ''}" id="${a.id}" type="button">${a.label}</button>`).join('') + '</div>';
+      document.getElementById('overlay').classList.add('show');
+      if(document.pointerLockElement) document.exitPointerLock();
+      for(const a of actions){
+        const b = document.getElementById(a.id);
+        if(b) b.onclick = a.onClick;
+      }
+    },
+    close(){ document.getElementById('overlay').classList.remove('show'); },
+  },
+  onDayStart: () => { updateHUD(); updateWorldFromState(); },
+  onDayEnd: (outstanding) => showDayOver(outstanding),
+});
+
+function showDayOver(outstanding){
+  const state = getState();
+  if(outstanding > 0){
+    day.ui.open('The shift ran out',
+      `<div class="briefBox"><p><b>${outstanding} patient${outstanding === 1 ? '' : 's'} still waiting when the shift ended.</b></p>`
+      + '<p>You take the same shift again. The clock refills, and the morning pays an allowance.</p></div>',
+      [{ id: 'dayRetry', label: 'Take the shift again', primary: true, onClick: () => day.restart() }]);
+    return;
+  }
+  day.ui.open(`Shift ${state.week} finished`,
+    '<div class="briefBox"><p>Everyone was seen. The evening team takes it from here.</p></div>',
+    [{ id: 'dayNext', label: 'Start the next shift', primary: true, onClick: () => {
+      const res = completeMission();
+      document.getElementById('overlay').classList.remove('show');
+      updateHUD(); updateWorldFromState();
+      if(res !== 'won') day.showPlan();
+    } }]);
+}
+
+window.addEventListener('projecty:restartday', () => day.restart());
 
 let rafId=null;
 let clock=new THREE.Clock();
@@ -186,6 +240,7 @@ function ensurePeople(){
   try{ spawnNPCs(26); }catch(e){ console.warn('NPC spawn failed', e); }
 }
 // ——— Game loop ———
+
 function startGameLoop(){
   updateHUD();
   updateWorldFromState();
@@ -193,11 +248,13 @@ function startGameLoop(){
   // position player at plaza
   teleport(new THREE.Vector3(0,1.7,14));
   if(!rafId) animate();
+  // The shift is planned before it is walked.
+  if(!getState()?.dayStarted) day.showPlan();
   // A handle on the running game, the same one gamekit's own build exposes. A
   // background tab gets no requestAnimationFrame, so without this there is no
   // way to step the world by hand and check what a room actually looks like.
   exposeDebug(themeManifest, { THREE, scene, renderer, camera, teleport, getPosition,
-                               getState, getCurrentTarget, updateInstruments, animateOnce: ()=>animate() });
+                               getState, getCurrentTarget, updateInstruments, day, animateOnce: ()=>animate() });
 }
 
 function animate(){
@@ -206,10 +263,10 @@ function animate(){
   const state=getState();
   if(!interiorMode && !dashboardOverlay.classList.contains('show') && !document.getElementById('overlay').classList.contains('show')){
     updatePlayer(delta);
-    // ticking clock — constant rate, not tied to walking (week is mission index, not time-derived)
-    if(state && state.status==='playing'){
-      const idleRate = 0.012;
-      const tick = delta * idleRate;
+    // The old idle drip is gone: the shift's own countdown is the clock now,
+    // and it runs whether or not the player is standing in a doorway.
+    if(false){
+      const tick = 0;
       if(tick>0){
         state.timeHours = Math.min(TOTAL_HOURS, state.timeHours + tick);
         if(state.timeHours>=TOTAL_HOURS) state.status='lost';
@@ -218,6 +275,9 @@ function animate(){
     // time is constant — walking no longer speeds clock
     if(state) updateDayNight();
   }
+  // The countdown runs everywhere: corridor, room, question panel.
+  if(day.tick(delta) === 'expired') day.close();
+
   if(!interiorMode){
     updateInteractions(promptEl);
     try{ updateNPCs(delta, getPosition()); }catch(e){}

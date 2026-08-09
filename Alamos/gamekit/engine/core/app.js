@@ -11,8 +11,9 @@
 // works whether the game reaches the world through the engine's module or
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
-import { getState, getNextMissionStop } from './gameState.js';
-import { nextMissionStopIndex, isPersonStopForIdx } from './simulation.js';
+import { getState, getNextMissionStop, startDay, restartDay, tickDay } from './gameState.js';
+import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission } from './simulation.js';
+import { esc } from './utils.js';
 
 /**
  * Which area has a case open right now, or null.
@@ -21,11 +22,28 @@ import { nextMissionStopIndex, isPersonStopForIdx } from './simulation.js';
  * somebody, and a lit stand in an empty room would send them the wrong way.
  */
 export function openCaseGroup(){
+  const groups = openCaseGroups();
+  return groups.size ? [...groups][0] : null;
+}
+
+/**
+ * Every area with a call open right now.
+ *
+ * The player picks their own order, so more than one stand can be lit at once.
+ * Person stops are not in here: they are answered by finding somebody, and a
+ * lit stand in an empty room would send the player to the wrong place.
+ */
+export function openCaseGroups(){
   const state = getState();
-  if(!state) return null;
-  const idx = nextMissionStopIndex(state);
-  if(idx < 0 || isPersonStopForIdx(state, idx)) return null;
-  return getNextMissionStop()?.group ?? null;
+  const out = new Set();
+  if(!state) return out;
+  const m = getCurrentMission(state);
+  if(!m) return out;
+  for(const i of openStopIndices(state)){
+    if(isPersonStopForIdx(state, i)) continue;
+    out.add(m.stops[i].group);
+  }
+  return out;
 }
 
 /**
@@ -105,7 +123,7 @@ export function createInteriors({
       onEnter?.(id);
       inside = { id, room, back: player.getPosition().clone(), yaw: live(camera).rotation.y };
       room.setVisible(true);
-      room.setCaseOpen(openCaseGroup() === id);
+      room.setCaseOpen(openCaseGroups().has(id));
       player.setGround(room.groundHeight);
       player.setBounds(DISTRICT_X + 400);
       player.teleport(room.enterTransform, room.enterTransform.yaw);
@@ -130,7 +148,7 @@ export function createInteriors({
       sinceCheck += delta;
       if(sinceCheck > 0.4){
         sinceCheck = 0;
-        inside.room.setCaseOpen(openCaseGroup() === inside.id);
+        inside.room.setCaseOpen(openCaseGroups().has(inside.id));
       }
     },
   };
@@ -168,4 +186,99 @@ export function exposeDebug(theme, parts){
   const name = theme?.id ? String(theme.id).replace(/[^a-z0-9]/gi, '') : 'game';
   window[name] = parts;
   window.gamekit = window.gamekit ?? parts;
+}
+
+/**
+ * The day: plan it, run it down, restart it, close it.
+ *
+ * A mission is a working day now. It opens with a plan — the calls, where they
+ * are, and how far apart — and the countdown does not start until the player
+ * accepts it. After that the clock runs in real time whatever they are doing,
+ * including while a question is open, because reading the panel is part of the
+ * day and pausing there would make thinking free.
+ *
+ * The entry point owns the world, so it passes in the two things this cannot
+ * know: where a group's stop physically is, and where the player starts.
+ *
+ *   positionOf(groupId)  {x, z} or null
+ *   spawn                {x, z}
+ *   personPositionOf(i)  optional, for a person stop
+ *   onPlanShown/onDayStart/onDayEnd  hooks for pointer lock and HUD
+ */
+export function createDay({
+  theme, def, positionOf, spawn, onDayStart, onDayEnd, mapHTML, ui,
+}){
+  let planOpen = false;
+
+  const stopPositions = () => {
+    const state = getState();
+    const m = getCurrentMission(state);
+    if(!m) return [];
+    return m.stops.map(s => positionOf?.(s.group) ?? null);
+  };
+
+  function planHTML(){
+    const state = getState();
+    const m = getCurrentMission(state);
+    if(!m) return '';
+    const here = spawn?.() ?? { x: 0, z: 0 };
+    const rows = m.stops.map((s, i) => {
+      const p = positionOf?.(s.group);
+      const away = p ? Math.round(Math.hypot(p.x - here.x, p.z - here.z)) : null;
+      const person = isPersonStopForIdx(state, i);
+      const d = def?.(s.group);
+      return `<tr><td class="planNum">${i + 1}</td>`
+        + `<td><b>${esc(d?.name ?? s.group)}</b><div class="planTask">${esc(s.task ?? '')}</div></td>`
+        + `<td class="planKind">${person ? 'a person' : 'a room'}</td>`
+        + `<td class="planDist">${away == null ? '—' : `${away} m`}</td></tr>`;
+    }).join('');
+    return `<div class="planCard">`
+      + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`
+      + `<table class="planTable"><thead><tr><th></th><th>Call</th><th></th><th>from here</th></tr></thead>`
+      + `<tbody>${rows}</tbody></table>`
+      + `<div class="planNote">Take them in whatever order you like. The clock runs from the moment you start — walking, driving, reading and answering all cost the same time.</div>`
+      + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
+      + `</div>`;
+  }
+
+  return {
+    get planOpen(){ return planOpen; },
+    // The entry point's own end-of-day card uses the same overlay this does.
+    ui,
+    /** Put the plan up. The countdown does not move until `start()`. */
+    showPlan(){
+      const state = getState();
+      const m = getCurrentMission(state);
+      if(!m) return;
+      planOpen = true;
+      ui.open(`Day ${state.week} — ${m.title}`, planHTML(), [
+        { id: 'planStart', label: `Start the day`, primary: true, onClick: () => this.start() },
+      ]);
+    },
+    /** Accept the plan: budget the day from the route and start the clock. */
+    start(){
+      const budget = startDay(stopPositions(), spawn?.() ?? { x: 0, z: 0 });
+      planOpen = false;
+      ui.close();
+      onDayStart?.(budget);
+    },
+    /** Same day again, from the top. */
+    restart(){
+      restartDay(stopPositions(), spawn?.() ?? { x: 0, z: 0 });
+      planOpen = false;
+      this.showPlan();
+    },
+    /** Per frame, in real seconds. Returns 'expired' once, when it runs out. */
+    tick(delta){
+      if(planOpen) return null;
+      return tickDay(delta);
+    },
+    /** The day ran out or the player closed it. */
+    close(){
+      const state = getState();
+      const outstanding = openStopIndices(state).length;
+      onDayEnd?.(outstanding);
+      return outstanding;
+    },
+  };
 }

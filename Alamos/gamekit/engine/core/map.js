@@ -9,7 +9,7 @@
 // readout, not a way of finding the treatment plant.
 import theme from './theme.js';
 import { getState } from './gameState.js';
-import { def, getCurrentMission, nextMissionStopIndex, isPersonStopForIdx,
+import { def, getCurrentMission, nextMissionStopIndex, openStopIndices, isPersonStopForIdx,
          getPersonIdForStop } from './simulation.js';
 import { getNPCs } from '../people/crowd.js';
 import { getPosition, camera } from './player.js';
@@ -95,22 +95,28 @@ export function renderMap(){
   /** The same yaw, in the map's frame. */
   const yawOf = (yaw) => (sideways ? Math.PI / 2 - yaw : yaw);
 
-  // Which place the mission wants next, so the map can say "here".
+  // Every call still open today, so the player can pick their own order. The
+  // map used to mark one "next stop", which is the game choosing the route.
   const mission = getCurrentMission(state);
-  const idx = mission ? nextMissionStopIndex(state) : -1;
-  const isPerson = idx >= 0 && isPersonStopForIdx(state, idx);
-  // A person stop has no building to outline: the answer is walking somewhere
-  // in the town. Without them on the map the only way to find them was to walk
-  // the whole place reading nameplates.
-  const targetGroup = idx >= 0 && !isPerson ? mission.stops[idx].group : null;
-  const wantedId = isPerson ? getPersonIdForStop(state, idx) : null;
-  const wanted = wantedId ? (getNPCs() ?? []).find(n => n.char?.id === wantedId) : null;
+  const open = mission ? openStopIndices(state) : [];
+  const targetGroups = new Set();
+  const wantedPeople = [];
+  for(const i of open){
+    if(isPersonStopForIdx(state, i)){
+      const pid = getPersonIdForStop(state, i);
+      const npc = pid ? (getNPCs() ?? []).find(n => n.char?.id === pid) : null;
+      if(npc) wantedPeople.push(npc);
+    } else {
+      targetGroups.add(mission.stops[i].group);
+    }
+  }
+  const targetGroup = null;   // kept: the old single-target checks read it
 
   let g = '';
   // ---- an interior: the rooms in order along the plan
   for(const r of site.plan?.rooms ?? []){
     const area = r.group ? def(r.group) : null;
-    const isTarget = r.group && r.group === targetGroup;
+    const isTarget = r.group && targetGroups.has(r.group);
     const half = site.plan.halfWidth ?? 4;
     const x = sideways ? sx(0, r.z0) : sx(-half);
     const y = sideways ? sz(0, -half) : sz(r.z0);
@@ -147,7 +153,7 @@ export function renderMap(){
   }
   for(const bl of site.buildings ?? []){
     const area = bl.group ? def(bl.group) : null;
-    const isTarget = bl.group && bl.group === targetGroup;
+    const isTarget = bl.group && targetGroups.has(bl.group);
     const fill = area ? area.color : '#9a958a';
     const x = sx(bl.x - bl.w / 2), y = sz(bl.z - bl.d / 2);
     const w = sw(bl.w), h = sd(bl.d);
@@ -159,14 +165,14 @@ export function renderMap(){
        + `fill="#2b2a27" font-weight="${isTarget ? 800 : 600}">${esc(bl.name)}</text>`;
     if(isTarget){
       g += `<text x="${x + w / 2}" y="${y - 6}" text-anchor="middle" font-size="11" `
-         + `fill="#8a6410" font-weight="800">▼ go here</text>`;
+         + `fill="#8a6410" font-weight="800">▼ open</text>`;
     }
   }
 
   // The person the mission wants, where they are standing right now, and which
   // way they are facing — they walk, so a static dot would be a lie by the time
   // the player got there.
-  if(wanted){
+  for(const wanted of wantedPeople){
     const mx = px(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
     const mz = py(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
     const colour = def(wanted.division)?.color ?? '#8a6410';
@@ -191,8 +197,10 @@ export function renderMap(){
 
   const legend = [site.plan ? (sideways ? 'Bow to the left' : 'Bow at the top') : 'North is up',
                   'you are the white dot']
-    .concat(targetGroup ? ['gold outline is your next stop'] : [])
-    .concat(wanted ? [`find ${wanted.char?.name ?? 'your contact'} — the ringed dot, arrow shows the way they face`] : []);
+    .concat(targetGroups.size ? ['gold outline is a call still open — take them in any order'] : [])
+    .concat(wantedPeople.length
+      ? [`ringed dots are people you owe a call: ${wantedPeople.map(w => w.char?.name ?? 'a colleague').join(', ')}`]
+      : []);
   return `<div class="mapWrap"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" `
        + `aria-label="Map of the site"><rect width="${W}" height="${H}" fill="#efeade"/>${g}</svg>`
        + `<div class="mapLegend">${esc(legend.join(' · '))}</div></div>`;

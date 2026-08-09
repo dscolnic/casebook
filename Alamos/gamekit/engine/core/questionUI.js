@@ -1,5 +1,5 @@
 import { getState, save, markMissionStopComplete, getNextMissionStop, removeMissionStop, completeMission, advanceTime } from './gameState.js';
-import { forecastReadiness, leader, def, currentMilestone, curriculumFor, completeMilestoneIfReady, groupPct, getCurrentMission, missionStopForGroup, missionStopIndex, nextMissionStopIndex, completedMissionStops, missionComplete, isPersonStopForIdx, globalStopIndex, CHARACTER_DIVISION, getSpecialRequest, isSpecialRequestActive, getPersonIdForStop } from './simulation.js';
+import { forecastReadiness, leader, def, currentMilestone, curriculumFor, completeMilestoneIfReady, groupPct, getCurrentMission, missionStopForGroup, missionStopIndex, nextMissionStopIndex, openStopIndices, openStopGroups, completedMissionStops, missionComplete, isPersonStopForIdx, globalStopIndex, CHARACTER_DIVISION, getSpecialRequest, isSpecialRequestActive, getPersonIdForStop } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { CURRICULUM } from './curriculum.js';
 import { GROUP_DEFS } from './divisions.js';
@@ -7,6 +7,7 @@ import { BALLPARK_CALCS, JARGON } from './curriculum.js';
 import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, SKIP_COST, SKIP_HOURS,
          VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
+import { formatCountdown } from './day.js';
 import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard } from './figures.js';
 
 let activeChallenge = null;
@@ -942,11 +943,8 @@ function finishVisit(ok){
     state.log.push({week:state.week, text:`Mission ${state.week}, stop ${stopIndex+1}: ${d.code} Division increased readiness from ${fmt(before)}% to ${fmt(after)}%.`});
   } else {
     state.log.push({week:state.week, text:`Mission ${state.week}, stop ${stopIndex+1}: ${d.code} Division review completed, but no readiness bonus was earned.`});
-    // 12-36h penalty for getting building/person challenge wrong
-    // The only automatic charge: the time the attempt itself took. Everything
-    // beyond this is a choice the player makes and can see the price of.
-    state.timeHours = Math.min(480, (state.timeHours||8) + MIN_ALLOTMENT_HOURS);
-    state.log.push({week:state.week, text:`Attempt took ${MIN_ALLOTMENT_HOURS}h.`});
+    // No time charge. The attempt already cost whatever it took to make, on
+    // the day's own countdown, which has been running the whole time.
   }
   if(state.log.length>100) state.log=state.log.slice(-100);
   const afterPct=groupPct(gs);
@@ -969,7 +967,9 @@ function finishVisit(ok){
     ? ''
     : `<div class="wrongAnswerCompare"><div class="answerCompareBox user"><b>Your answer</b>${esc(activeChallenge.userAnswer||'(no answer)')}</div><div class="answerCompareBox correct"><b>Correct answer</b>${esc(solution)}</div></div>`;
   const isLastStop = missionComplete(state);
-  const routeNote = isLastStop?`<div class="readinessNote" style="background:#e6f0e9;border:1px solid #b8d0c0;border-radius:8px;padding:8px 10px">✅ All ${missionComplete(state)?completedMissionStops(state).length:0} mission stops are complete. Click <b>Complete Mission ${state.week}</b> to advance to Mission ${Math.min(15,state.week+1)}.</div>`:`<div class="readinessNote">Stop ${stopIndex+1} complete. The next building on the route is now unlocked.</div>`;
+  const routeNote = isLastStop
+    ? `<div class="readinessNote" style="background:#e6f0e9;border:1px solid #b8d0c0;border-radius:8px;padding:8px 10px">✅ Every call today is made. What is left on the clock is yours — people will sign off expenses for a conversation.</div>`
+    : `<div class="readinessNote">That call is closed. ${openStopIndices(state).length} still open, in any order you like.</div>`;
   const canRetry = !ok && state.reserve>=RETRY_COST;
   const retryButton = canRetry ? `<button class="btn" id="visitRetry" type="button">Retry challenge · $${RETRY_COST}</button>` : '';
   const completeBtn = isLastStop ? `<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ${state.week} → Mission ${Math.min(15,state.week+1)}</button>` : '';
@@ -992,8 +992,9 @@ function finishVisit(ok){
   const ledgerHTML =
     cell('Readiness', ok ? `+${fmt(ledger.readinessAfter - ledger.readinessBefore)}%` : 'no gain',
          ok ? 'gain' : '', `${def(gs.id).code} now ${fmt(ledger.readinessAfter)}%`) +
-    cell('Time spent', ledger.hoursSpent > 0 ? `+${ledger.hoursSpent.toFixed(0)} h` : '—',
-         ledger.hoursSpent > 0 ? 'cost' : '', clockAt(state.timeHours || 8)) +
+    cell('Left today', formatCountdown(state.dayLeft ?? 0),
+         (state.dayLeft ?? 0) < (state.dayBudget ?? 1) * 0.2 ? 'cost' : '',
+         `${openStopIndices(state).length} call${openStopIndices(state).length === 1 ? '' : 's'} still open`) +
     cell('Projection at deadline', `${fmt(ledger.projectionAfter)}%`,
          projDelta > 0.5 ? 'gain' : projDelta < -0.5 ? 'cost' : '',
          projDelta === 0 ? 'unchanged' : `${projDelta > 0 ? '+' : ''}${fmt(projDelta)} from this call`);
@@ -1016,33 +1017,39 @@ function finishVisit(ok){
 
   const stopNote = ledger.closes
     ? (isLastStop
-        ? `<p class="verdictWhy"><b>All ${completedMissionStops(state).length} stops are complete.</b> Take it back to command.</p>`
-        : `<p class="verdictWhy">Stop ${stopIndex + 1} is closed. The next place on the route is open.</p>`)
-    : `<p class="verdictWhy"><b>This stop stays open.</b> The team still needs an answer here. Answering again costs money or time; so does moving on without it. Nothing is decided until you choose.</p>`;
+        ? `<p class="verdictWhy"><b>Every call today is made.</b> The rest of the day is yours.</p>`
+        : `<p class="verdictWhy">That call is closed. ${openStopIndices(state).length} still open — take them in any order.</p>`)
+    : `<p class="verdictWhy"><b>This call stays open.</b> Answering again costs $${RETRY_COST}; moving on without it costs $${SKIP_COST}. The clock keeps running either way.</p>`;
 
   const detail = `<details class="verdictDetail"><summary>Show the full reasoning</summary>` +
     reasoningHTML(ch, lesson, solution, whyText) + `</details>`;
 
-  // A wrong call is a decision, not a punishment: two ways forward, each
-  // priced in money or in time. The money buttons disable when the reserve
-  // cannot cover them; the time ones never can, so a broke player is never stuck.
-  const priced = (id, label, cost, hours) =>
+  // A wrong call costs money and only money: the day is already running down
+  // by itself, so charging hours as well would bill the same mistake twice.
+  //
+  // If neither price is affordable there is no third option, and the day starts
+  // again. That is deliberate — it is the only hard consequence in the game,
+  // and it is always escapable, because a new day pays a stipend and reopens
+  // every conversation in town.
+  const priced = (id, label, cost) =>
     '<button class="btn priced" id="' + id + '" type="button"' +
     (cost > state.reserve ? ' disabled' : '') + '>' +
-    '<span>' + esc(label) + '</span><small>' +
-    (cost ? '$' + cost : hours + ' h') + '</small></button>';
-  const group = (label, a, b) =>
-    '<div class="verdictChoice"><div class="verdictChoiceLabel">' + esc(label) + '</div>' + a + b + '</div>';
+    '<span>' + esc(label) + '</span><small>$' + cost + '</small></button>';
+  const broke = state.reserve < RETRY_COST && state.reserve < SKIP_COST;
   const choices = ok ? '' :
-    group('Answer again',
-      priced('retryMoney', 'Pay for another attempt', RETRY_COST, 0),
-      priced('retryTime',  'Take the time instead',   0, RETRY_HOURS)) +
-    group('Move on without it',
-      priced('skipMoney',  'Buy the team past it',    SKIP_COST, 0),
-      priced('skipTime',   'Lose the day instead',    0, SKIP_HOURS));
+    (broke
+      ? '<div class="verdictChoice"><div class="verdictChoiceLabel">Nothing left to pay with</div>'
+        + '<p class="verdictWhy">$' + fmt(state.reserve) + ' in hand, and the cheapest way forward is $'
+        + RETRY_COST + '. The day has to start again.</p>'
+        + '<button class="btn primary" id="restartDayBtn" type="button">Start the day again</button></div>'
+      : '<div class="verdictChoice"><div class="verdictChoiceLabel">What now</div>'
+        + priced('retryMoney', 'Answer it again', RETRY_COST)
+        + priced('skipMoney', 'Move on without it', SKIP_COST) + '</div>');
+  // The last call of the day no longer ends the day. Whatever is left on the
+  // countdown is the player's: walk the town, talk to people, get paid.
   const actions =
     (isLastStop && ledger.closes
-      ? '<button class="btn primary" id="completeMissionBtn" type="button">Complete Mission ' + state.week + '</button>'
+      ? '<button class="btn primary" id="dayIsYours" type="button">Every call made — take the rest of the day</button>'
       : '') +
     '<button class="btn ' + (ok ? 'primary' : 'ghost') + '" id="visitClose" type="button">' +
     (ok ? 'Return' : 'Decide later') + '</button>';
@@ -1080,17 +1087,13 @@ function finishVisit(ok){
   });
   const closeBtn=document.getElementById('visitClose');
   if(closeBtn){ closeBtn.onclick=()=>{ closeVerdict(); closeModal(); window.dispatchEvent(new CustomEvent('projecty:statechange')); window.dispatchEvent(new CustomEvent('projecty:visitdone')); }; }
-  const compBtn=document.getElementById('completeMissionBtn');
+  const compBtn=document.getElementById('dayIsYours');
   if(compBtn){
     compBtn.onclick=()=>{
-      const res=completeMission();
       closeVerdict();
       closeModal();
       window.dispatchEvent(new CustomEvent('projecty:statechange'));
       window.dispatchEvent(new CustomEvent('projecty:visitdone'));
-      if(res==='won'){
-        // let renderEndScreen handle
-      }
     };
   }
   // The four ways out of a wrong call. Each spends exactly what its button
@@ -1098,7 +1101,6 @@ function finishVisit(ok){
   // stop as a miss.
   const spend = (money, hours, why) => {
     if(money){ state.reserve -= money; }
-    if(hours){ state.timeHours = Math.min(480, (state.timeHours || 8) + hours); }
     state.log.push({ week: state.week, text: why });
   };
   const again = (money, hours) => {
@@ -1124,9 +1126,14 @@ function finishVisit(ok){
   };
   const bind = (id, fn) => { const b = document.getElementById(id); if(b && !b.disabled) b.onclick = fn; };
   bind('retryMoney', () => again(RETRY_COST, 0));
-  bind('retryTime',  () => again(0, RETRY_HOURS));
   bind('skipMoney',  () => moveOn(SKIP_COST, 0));
-  bind('skipTime',   () => moveOn(0, SKIP_HOURS));
+  bind('restartDayBtn', () => {
+    closeVerdict();
+    closeModal();
+    // The entry point owns the world, so it is the one that can measure the
+    // route and put the plan back up.
+    window.dispatchEvent(new CustomEvent('projecty:restartday'));
+  });
 
   save();
   window.dispatchEvent(new CustomEvent('projecty:statechange'));
@@ -1329,21 +1336,19 @@ export function openVisit(id, isRetry=false){
     renderMissionLock(id);
     return;
   }
-  // if next stop is a person stop, building visit is locked — must find person
-  if(isPersonStopForIdx(state, nextIdx) && stop.index===nextIdx){
-    const npcName=`walking ${def(stop.group).name} scientist [${stop.group}]`;
-    renderMissionLock(id, `Find the ${def(stop.group).name} scientist — look for [${stop.group}] nameplates. This stop requires talking to a person, not entering the building.`);
+  // A person stop is answered by finding the person, not by entering the room.
+  if(isPersonStopForIdx(state, stop.index)){
+    renderMissionLock(id, `This call is with a person, not a room — find the ${def(stop.group).name} name on the map and go to them.`);
     return;
   }
-  if(stop.index!==nextIdx && !isRetry){
+  // Any call still open today can be taken, in whatever order the player
+  // decided at the plan screen. Only a call already made is refused.
+  if(completedMissionStops(state).includes(stop.index) && !isRetry){
     state.selectedGroup=id;
     save();
-    const isDone=completedMissionStops(state).includes(stop.index);
-    if(isDone){
-      openModal('Mission stop already complete', `<div class="briefBox">This stop is already credited for Mission ${state.week}. Next required: ${getNextMissionStop()?.group||'?'}. ${isPersonStopForIdx(state, nextMissionStopIndex(state))?'Find the walking scientist.':'Follow the blue beacon.'}</div>`);
-    } else {
-      renderMissionLock(id);
-    }
+    const left=openStopIndices(state).length;
+    openModal('That call is already made',
+      `<div class="briefBox">This one is credited for today.${left?` ${left} still open — the map has them.`:' Every call is made; the rest of the day is yours.'}</div>`);
     return;
   }
   showChallengeForStop(id, stop, isRetry);

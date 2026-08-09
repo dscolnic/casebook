@@ -104,6 +104,8 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 #hudProjection.great{color:#0a8a0a}
 #hudProjection.good{color:#b0762a}
 #hudProjection.bad{color:#c0392b}
+#hudClock.low{color:#b0762a}
+#hudClock.urgent{color:#c0392b}
 #objective{position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:4;
   max-width:min(640px,58vw);text-align:center;pointer-events:none;
   background:rgba(22,25,28,.62);backdrop-filter:blur(6px);border-radius:12px;padding:8px 18px}
@@ -116,8 +118,8 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 </head>
 <body>
 <div id="hudStatus">
-  <div class="hudStat"><span class="hudLabel">Clock</span><b id="hudClock">—</b></div>
-  <div class="hudStat"><span class="hudLabel">Remaining</span><b id="hudDaysLeft">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Time left</span><b id="hudClock">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Calls</span><b id="hudDaysLeft">—</b></div>
   <div class="hudStat"><span class="hudLabel">Mission</span><b id="hudMission">—</b></div>
   <div class="hudStat"><span class="hudLabel">Projection</span><b id="hudProjection">—</b></div>
   <div class="hudStat"><span class="hudLabel">Funds</span><b id="hudMoney">—</b></div>

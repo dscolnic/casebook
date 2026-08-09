@@ -118,6 +118,45 @@ reportAudit(gamekit.scene, gamekit.renderer, {
 `smokeCampaign` exists because a theme once had entirely valid content and two
 thirds of its campaign unreachable. `validateContent` cannot see that.
 
+## A mission is a day, and a day is a countdown
+
+The campaign clock is gone. It charged time in lumps — `walkCost` on arrival,
+`visitBuildingCost` on opening a question, a penalty for a wrong answer — which
+meant the player could not see what a decision cost until after making it, and
+standing still was free. The optimal play was to think as long as you liked and
+then walk in a straight line.
+
+Each mission is now one working day:
+
+- **The day opens with a plan.** `createDay()` in `engine/core/app.js` puts up
+  the calls, what each one is, whether it is a room or a person, and how far
+  away it is, with the map underneath. The countdown does not move until the
+  player accepts it.
+- **The budget comes from the map, not from an author.** `day.js`
+  `budgetForRoute()` walks the day's stops nearest-neighbour from the spawn,
+  converts the distance to walking time and says travel should be a little
+  under half the day. Spread-out days get more hours; a day that never leaves
+  one building gets the floor of five. Move a building and the budget follows.
+- **Time runs in real time, at 2.5 game minutes a second, whatever the player
+  is doing** — walking, driving, reading a bio, or sitting in a question panel.
+  Nothing is charged. Thinking is not free, which is the whole point.
+- **The stops are open in any order.** `openStopIndices()` is the truth;
+  `nextMissionStopIndex` survives only as "the first still open". Every open
+  room's case beacon is lit at once and the map outlines all of them.
+- **A wrong call costs money and only money**: $5 to answer again, $10 to move
+  on without it. If neither is affordable the day restarts — the only hard
+  consequence in the game, and always escapable, because each morning pays a
+  stipend and clears `state.passages` so the town is worth talking to again.
+- **Running out of time restarts the day too.** Same card, same rule.
+- **The last call of the day does not end the day.** Whatever is left on the
+  clock is the player's: conversations pay $3 each, once per person per day.
+
+Two traps, both already paid for: the entry points start their frame loop
+during module evaluation, so `const day` (like `const driving`) must be
+declared *above* that call or every frame throws `Cannot access 'day' before
+initialization`; and `state.timeHours` is now derived from the countdown for
+the sun angle only — nothing should add to it.
+
 ## What a mission stop looks like now
 
 - Three stops per mission; **every third is a person stop** — find a named

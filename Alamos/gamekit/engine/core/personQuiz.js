@@ -18,14 +18,19 @@
 // sentences lifted from other people's, so it cannot drift out of sync with a
 // bio edit. Below that sits a role question for bios too short to quote.
 //
-// A dollar is deliberately small. The reserve starts at 20 and a wrong call now
-// costs 5 or 10, so a full sweep of the town is worth roughly one recovered
-// mistake — a reason to talk to people, not a way to farm.
+// Three dollars a conversation. A wrong call costs 5 to answer again and 10 to
+// walk away from, so two or three conversations buy one recovered mistake —
+// enough that the evening of a day is worth walking, not so much that a player
+// can farm the town instead of thinking.
 import { getState, save } from './gameState.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { esc, seeded } from './utils.js';
 
-export const PASSAGE_REWARD = 1;
+// A conversation is now the only way to earn, and a wrong call costs $5. One
+// dollar a person made the earning phase of a day take longer than the day.
+// `state.passages` is cleared each morning (see startDay), so the same people
+// are worth talking to again tomorrow.
+export const PASSAGE_REWARD = 3;
 
 /**
  * Bios are HTML. Strip it, then split into sentences worth quoting.

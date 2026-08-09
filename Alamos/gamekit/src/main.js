@@ -13,13 +13,14 @@ import { updateInteractions, getCurrentTarget } from '../engine/core/interaction
 import { initCrowd, updateCrowd, getNPCs } from '../engine/people/crowd.js';
 import {
   getState, save, tryLoadSaved, createFresh, advanceTime, getNextMissionStop, walkCost,
+  endDayNow, dayRunning, completeMission,
 } from '../engine/core/gameState.js';
 import { updateHUD, renderStats } from '../engine/core/dashboard.js';
 import { renderMap } from '../engine/core/map.js';
 import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
-import { createInteriors, makeActivate, exposeDebug } from '../engine/core/app.js';
+import { createInteriors, makeActivate, exposeDebug, createDay } from '../engine/core/app.js';
 import { createDriving } from '../engine/world/driving.js';
 
 const canvas = document.getElementById('canvas');
@@ -145,6 +146,66 @@ const driving = createDriving({
   player: { teleport, getPosition },
 });
 
+// ------------------------------------------------------------------ the day
+// A mission is a working day: the plan opens it, the countdown runs it down in
+// real time whatever the player is doing, and running out restarts it.
+const day = createDay({
+  theme, def,
+  positionOf: (id) => {
+    const s = world.stopMeshes.get(id);
+    return s ? { x: s.pos.x, z: s.pos.z } : null;
+  },
+  spawn: () => {
+    const p = getPosition();
+    return { x: p.x, z: p.z };
+  },
+  mapHTML: () => renderMap(),
+  ui: {
+    open(title, html, actions){
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalEyebrow').textContent = '';
+      document.getElementById('modalBody').innerHTML = html
+        + `<div class="modalActions">` + actions.map(a =>
+            `<button class="btn ${a.primary ? 'primary' : ''}" id="${a.id}" type="button">${a.label}</button>`).join('') + `</div>`;
+      overlay.classList.add('show');
+      if(document.pointerLockElement) document.exitPointerLock();
+      for(const a of actions){
+        const b = document.getElementById(a.id);
+        if(b) b.onclick = a.onClick;
+      }
+    },
+    close(){ overlay.classList.remove('show'); },
+  },
+  onDayStart: () => { updateHUD(); refreshWorld(); },
+  onDayEnd: (outstanding) => showDayOver(outstanding),
+});
+
+/**
+ * The end of a day, either way it happens.
+ *
+ * Outstanding calls mean the day is retaken — that is the only hard rule in
+ * the game, and the stipend plus a fresh set of conversations is what keeps it
+ * from being a dead end.
+ */
+function showDayOver(outstanding){
+  const state = getState();
+  if(outstanding > 0){
+    day.ui.open(`The day ran out`,
+      `<div class="briefBox"><p><b>${outstanding} call${outstanding === 1 ? '' : 's'} still open when the light went.</b></p>`
+      + `<p>Tomorrow is this same day again — the calls reopen, the clock refills, and the morning pays an allowance.</p></div>`,
+      [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => day.restart() }]);
+    return;
+  }
+  day.ui.open(`Day ${state.week} closed`,
+    `<div class="briefBox"><p>Every call made. ${COPY.dayEnd ?? 'The team writes it up overnight.'}</p></div>`,
+    [{ id: 'dayNext', label: 'Start the next day', primary: true, onClick: () => {
+      const res = completeMission();
+      overlay.classList.remove('show');
+      updateHUD(); refreshWorld();
+      if(res !== 'won') day.showPlan();
+    } }]);
+}
+
 const COPY = theme.content.COPY ?? {};
 const activate = makeActivate({
   board: () => {
@@ -173,9 +234,16 @@ const activate = makeActivate({
   },
 });
 
+// The verdict card raises this when a wrong call leaves the player unable to
+// pay for either way forward.
+window.addEventListener('projecty:restartday', () => day.restart());
+
 // -------------------------------------------------------------- input glue
 document.getElementById('startBtn').addEventListener('click', () => {
   blocker.classList.add('hidden');
+  // The day is planned before it is walked: the calls, where they are, and how
+  // far apart. Nothing moves until the player accepts it.
+  if(!getState()?.dayStarted) day.showPlan();
   controls.lock();
 });
 // ---- map and settings
@@ -268,6 +336,9 @@ function frame(now){
     promptEl.classList.remove('hidden');
   } else promptEl.classList.add('hidden');
 
+  // The day runs down in real time — walking, driving, reading, answering.
+  if(day.tick(delta) === 'expired') day.close();
+
   world.updateWorldAnimation?.(now / 1000);
   updateCrowd(delta, now / 1000);
   // Only the room the player is standing in repaints its screen.
@@ -299,7 +370,7 @@ if(import.meta.env?.DEV){
   // the raycast, so getCurrentTarget is null there and every interaction looks
   // broken whether it is or not.
   exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition,
-                       updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving,
+                       updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving, day,
                        interiors });
   console.log(
     `%c${theme.title}%c — theme "${theme.id}", ${theme.content.MISSIONS.length} missions, `
