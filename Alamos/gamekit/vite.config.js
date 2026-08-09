@@ -25,7 +25,11 @@ const THEME = argTheme || process.env.THEME || 'contamcity';
 // theme only appears here if it introduces a genuinely new kind of place.
 const WORLDS = {
   outdoor: 'engine/world/outdoorTown.js',
-  interior: 'engine/world/interiorBuilding.js',
+  // interiorSite builds a whole floor — a spine with rooms down both sides —
+  // which is what a theme whose *site* is indoors needs. Not to be confused
+  // with engine/world/interiorBuilding.js, which builds one room to walk into
+  // from an outdoor town and is not a world module.
+  interior: 'engine/world/interiorSite.js',
 };
 
 // Read the kind without importing the theme (which would need a DOM). A theme

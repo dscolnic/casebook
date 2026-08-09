@@ -17,6 +17,7 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { decorate } from './props.js';
+import { INTERIORS } from './interiors.js';
 
 export default {
   id: 'contamcity',
@@ -26,6 +27,10 @@ export default {
   site,
 
   content: { GROUPS, MISSIONS, CURRICULUM, ROSTER, COPY, BALLPARK_CALCS, JARGON, LEADERS, AVATARS },
+
+  // What is inside each laboratory. The engine builds the room; this says what
+  // the instrument in it reads. Omit it and the doors stay as they were.
+  interiors: INTERIORS,
 
   people: {
     OUTFITS,

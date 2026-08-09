@@ -7,7 +7,8 @@
 //   THEME=contamcity npm run dev
 import theme from '@theme/theme.js';
 import * as world from '../engine/core/world.js';
-import { initPlayer, updatePlayer, camera, controls, getPosition, teleport, isLocked } from '../engine/core/player.js';
+import { initPlayer, updatePlayer, camera, controls, getPosition, teleport, isLocked,
+         setGround, setBounds } from '../engine/core/player.js';
 import { updateInteractions, getCurrentTarget } from '../engine/core/interactions.js';
 import { initCrowd, updateCrowd, getNPCs } from '../engine/people/crowd.js';
 import {
@@ -18,6 +19,7 @@ import { renderMap } from '../engine/core/map.js';
 import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
+import { createInteriors, makeActivate, exposeDebug } from '../engine/core/app.js';
 
 const canvas = document.getElementById('canvas');
 const promptEl = document.getElementById('prompt');
@@ -95,53 +97,52 @@ function showInfo(title, html){
   document.getElementById('infoClose').onclick = () => closeModal();
 }
 
-function activate(target){
-  if(!target) return;
-  const COPY = theme.content.COPY ?? {};
-  if(target.type === 'board'){
+
+// ------------------------------------------------------------- interiors
+// A door opens a room. The manager is the engine's — it was written here first
+// and then again in Project Y's entry point, which is exactly the duplication
+// this file is not supposed to own.
+const interiors = createInteriors({
+  scene, camera, theme, def,
+  colliders: world.colliders,
+  interactables: world.interactables,
+  player: { getPosition, teleport, setGround, setBounds },
+  townGround: world.groundHeight,
+  townBounds: theme.site?.terrain?.playerLimit ?? 105,
+  // Walking there costs time. Standing in a laboratory with nothing open in it
+  // does not.
+  onEnter: (id) => {
+    const stop = world.stopMeshes.get(id);
+    if(stop && id === nextStopGroup()) walkCost(getPosition().distanceTo(stop.entry));
+  },
+});
+
+const COPY = theme.content.COPY ?? {};
+const activate = makeActivate({
+  board: () => {
     renderStats();
     document.getElementById('statsOverlay').classList.add('show');
     if(document.pointerLockElement) document.exitPointerLock();
-    return;
-  }
-  if(target.type === 'info'){
-    showInfo(target.prompt.replace(/^E — /, ''), COPY[target.id] || target.info || 'Nothing here yet.');
-    return;
-  }
-  if(target.type === 'door'){
-    const wanted = nextStopGroup();
-    if(target.id !== wanted){
-      // Not a refusal — the door still tells you what happens inside, and where
-      // the mission actually wants you.
-      const where = world.stopMeshes.get(wanted);
-      showInfo(def(target.id)?.name ?? target.id,
-        (COPY[target.id] || '')
-        + (where ? `<p><b>Not this stop yet.</b> This mission needs the ${where.name} next.</p>` : ''));
-      return;
-    }
-    // Walking there costs time; the visit costs more. Both are charged once.
-    const stopMesh = world.stopMeshes.get(target.id);
-    const dist = stopMesh ? getPosition().distanceTo(stopMesh.entry) : 0;
-    advanceTime(walkCost(dist), `Travelled to ${stopMesh?.name ?? target.id}`);
-    openVisit(target.id);
-    return;
-  }
-  if(target.type === 'npc'){
+  },
+  info: (t) => showInfo(t.prompt.replace(/^E — /, ''), COPY[t.id] || t.info || 'Nothing here yet.'),
+  // Every door opens, mission stop or not. What changes is whether there is a
+  // case on the stand inside.
+  door: (t) => { if(!interiors.enter(t.id)) openVisit(t.id); },
+  case: (t) => openVisit(t.id),
+  roomexit: () => interiors.exit(),
+  npc: (t) => {
     // A person stop asks the same science question a building would; anyone
     // else just talks. openPersonVisit decides which, and returns quietly when
     // this is not the person the mission wants.
     const before = overlay.classList.contains('show');
-    openPersonVisit(target.npc);
+    openPersonVisit(t.npc);
     if(!before && !overlay.classList.contains('show')){
-      // Not the person this mission wants — so they tell you about themselves,
-      // and ask one question about it. Worth a dollar, once.
-      const person = target.char;
+      const person = t.char;
       showInfo(person?.name ?? 'Someone', passageHTML(person));
-      const body = document.getElementById('modalBody');
-      bindPassage(body, person, () => refreshWorld());
+      bindPassage(document.getElementById('modalBody'), person, () => refreshWorld());
     }
-  }
-}
+  },
+});
 
 // -------------------------------------------------------------- input glue
 document.getElementById('startBtn').addEventListener('click', () => {
@@ -231,6 +232,8 @@ function frame(now){
 
   world.updateWorldAnimation?.(now / 1000);
   updateCrowd(delta, now / 1000);
+  // Only the room the player is standing in repaints its screen.
+  interiors.update(delta);
 
   // The clock only needs to move a few times a second, and updateTimeOfDay
   // rebakes the sky IBL when the sun moves far enough — not per frame.
@@ -257,8 +260,9 @@ if(import.meta.env?.DEV){
   // this?' can be answered without a foreground tab. A throttled tab never runs
   // the raycast, so getCurrentTarget is null there and every interaction looks
   // broken whether it is or not.
-  window.gamekit = { theme, world, scene, renderer, camera, getState, getPosition,
-                     updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget };
+  exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition,
+                       updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget,
+                       interiors });
   console.log(
     `%c${theme.title}%c — theme "${theme.id}", ${theme.content.MISSIONS.length} missions, `
     + `${Object.values(theme.content.CURRICULUM).reduce((n, v) => n + v.length, 0)} lessons.\n`

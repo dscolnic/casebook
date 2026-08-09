@@ -25,7 +25,7 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 #topActions{display:flex;gap:6px;flex-wrap:wrap}
 #blocker{position:fixed;inset:0;background:rgba(24,21,16,.62);display:none;place-items:center;z-index:20}
 #blocker.show{display:grid}
-#blockerBox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;max-width:480px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+#blockerBox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;max-width:660px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.28);max-height:88vh;overflow:auto}
 #blockerBox h2{font:800 1.25rem/1.2 Georgia,serif;margin:0 0 8px}
 #blockerBox p{color:var(--muted);font-size:.82rem;line-height:1.45}
 #interiorOverlay{position:fixed;inset:0;background:rgba(24,21,16,.55);display:none;z-index:15;place-items:center;padding:18px}
@@ -140,11 +140,19 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 
 <div id="blocker">
   <div id="blockerBox">
-    <h2>Children's Hospital — First-Person</h2>
-    <p>Walk with <b>WASD</b> · look with <b>mouse</b> · <b>E</b> to interact · <b>Shift</b> to run · <b>M</b> map · <b>Tab</b> summary · <b>Esc</b> releases mouse.</p>
-    <p style="font-size:.76rem;color:#666158;margin-top:8px">The town is small: ~30–60 seconds to walk across. Approach the central board or a building door and press <b>E</b>.</p>
-    <button class="btn primary" id="enterTownBtn" type="button">Click to look around</button>
-    <p style="font-size:.7rem;color:#666158;margin-top:10px">No weapons, combat, or enemies — exploration only.</p>
+    <h2>Children's Hospital — your first shift</h2>
+    <p class="stakes">It is eight in the morning and the department is already full. Fifteen shifts stand
+       between you and the end of your rotation, and every one of them has children in it who are waiting
+       on somebody working out what is wrong. You are the junior doctor. You do not prescribe and you do
+       not treat — you look, you measure, you think, and you tell the team what the evidence says. The
+       clock in the corner is the thing that makes it hard: beds are finite, the queue is not, and a child
+       waiting for your answer is a child nobody else is looking at. Take too long and the day runs out
+       with people still waiting. Take a shortcut and somebody gets sent to the wrong room.</p>
+    <p class="stakes">Being wrong is survivable here — the team explains it, and you go again. Losing the
+       day is not. Watch the clock.</p>
+    <button class="btn primary" id="enterTownBtn" type="button">Start the shift</button>
+    <p class="controlsNote">Controls are in <b>Settings</b>, top right. No weapons, no combat — this is a
+       hospital.</p>
   </div>
 </div>
 
@@ -157,6 +165,12 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 
 <div id="settingsPanel" class="hidden">
   <h4 style="margin:0 0 6px;font:800 1rem Georgia,serif">Settings</h4>
+  <div class="controlsHelp">
+    <h4>Controls</h4>
+    <p><b>W A S D</b> walk · <b>mouse</b> look · <b>Shift</b> run · <b>E</b> use whatever the crosshair is on ·
+       <b>M</b> map · <b>Tab</b> summary · <b>Esc</b> releases the mouse.</p>
+  </div>
+
   <label>Mouse sensitivity <input type="range" id="sensRange" min="0.2" max="2.5" step="0.1" value="1"></label>
   <label>Move speed <input type="range" id="speedRange" min="0.6" max="1.8" step="0.1" value="1"></label>
   <label><span>Volume</span><input type="range" id="volRange" min="0" max="1" step="0.05" value="0.6"></label>

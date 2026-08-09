@@ -8,8 +8,14 @@
     "build": "vite build",
     "validate": "node engine/dev/validateContent.mjs",
     "smoke": "node engine/dev/smokeCampaign.mjs",
-    "check": "node engine/dev/validateContent.mjs $npm_config_theme && node engine/dev/smokeCampaign.mjs $npm_config_theme"
+    "check": "node engine/dev/check.mjs",
+    "new-theme": "node tools/new-theme.mjs",
+    "import-book": "node tools/import-book.mjs"
   },
-  "dependencies": { "three": "^0.160.0" },
-  "devDependencies": { "vite": "^5.0.0" }
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
 }

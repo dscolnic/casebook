@@ -1,0 +1,8 @@
+{
+  "_comment": "Every game the checks know about. A bare theme name resolves through this; anything with a slash is still taken as a path. Two of the three predate themes/ and live in their own package directories.",
+  "themes": {
+    "contamcity": "themes/contamcity",
+    "projecty": "../project-y-fps",
+    "hospital": "../Hospital/hospital-fps"
+  }
+}

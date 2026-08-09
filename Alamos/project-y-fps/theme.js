@@ -14,18 +14,38 @@ import { GROUP_DEFS } from './src/divisions.js';
 import { HISTORIC_CHARACTERS } from './src/historicCharacters.js';
 import { LEADERS, AVATARS } from './src/leaders.js';
 import { SPECIAL_REQUESTS } from './src/specialRequests.js';
+import { INTERIORS } from './src/interiors.js';
+import { DIAGNOSIS_PACKS } from './src/diagnosis.js';
+import { site } from './site.js';
+
 
 export default {
   id: 'projecty',
   title: 'Project Y',
   subtitle: 'Los Alamos · 1943–45',
+
+  // The place, as data. src/world.js still builds the mesa by hand — flipping
+  // it to engine/world/outdoorTown is its own job — but declaring the site here
+  // lets the checks see the buildings, the spawn and the terrain limit now,
+  // which is most of what they need to catch an unreachable group.
+  site,
+  start: site.spawn,
   content: {
     CURRICULUM, BALLPARK_CALCS, JARGON,
     MISSIONS: MISSION_DEFS,
     GROUPS: GROUP_DEFS,
     ROSTER: HISTORIC_CHARACTERS,
     LEADERS, AVATARS,
+    // Expanded into the lessons that reference them by engine/content/normalize.js.
+    DIAGNOSIS_PACKS,
     COPY: {},
     SPECIAL_REQUESTS,
   },
+
+  // The crowd is this game's own (src/npcs.js builds and dresses its people),
+  // so there is no OUTFITS table for the engine to read. Declared rather than
+  // omitted: a missing block and a bespoke one are different situations.
+  people: { crowd: 'bespoke', spawn: HISTORIC_CHARACTERS.length, extras: 22 },
+
+  interiors: INTERIORS,
 };

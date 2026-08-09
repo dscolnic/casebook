@@ -25,7 +25,7 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 #topActions{display:flex;gap:6px;flex-wrap:wrap}
 #blocker{position:fixed;inset:0;background:rgba(24,21,16,.62);display:none;place-items:center;z-index:20}
 #blocker.show{display:grid}
-#blockerBox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;max-width:480px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+#blockerBox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;max-width:660px;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.28);max-height:88vh;overflow:auto}
 #blockerBox h2{font:800 1.25rem/1.2 Georgia,serif;margin:0 0 8px}
 #blockerBox p{color:var(--muted);font-size:.82rem;line-height:1.45}
 #interiorOverlay{position:fixed;inset:0;background:rgba(24,21,16,.55);display:none;z-index:15;place-items:center;padding:18px}
@@ -140,11 +140,21 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 
 <div id="blocker">
   <div id="blockerBox">
-    <h2>Los Alamos — First-Person Town</h2>
-    <p>Walk with <b>WASD</b> · look with <b>mouse</b> · <b>E</b> to interact · <b>Shift</b> to run · <b>M</b> map · <b>Tab</b> summary · <b>Esc</b> releases mouse.</p>
-    <p style="font-size:.76rem;color:#666158;margin-top:8px">The town is small: ~30–60 seconds to walk across. Approach the central board or a building door and press <b>E</b>.</p>
-    <button class="btn primary" id="enterTownBtn" type="button">Click to look around</button>
-    <p style="font-size:.7rem;color:#666158;margin-top:10px">No weapons, combat, or enemies — exploration only.</p>
+    <h2>Project Y — Los Alamos, 1943</h2>
+    <p class="stakes">You have been brought to a mesa in New Mexico that does not appear on any map, to
+       run the scientific programme of a laboratory whose existence is secret from the people who pay for
+       it. Five divisions work here — theory, experimental physics, chemistry and metallurgy, ordnance,
+       and the group that has to make the other four agree. None of them can finish alone, and none of
+       them trusts a number that has not been measured twice. The war is the deadline, and the deadline
+       is not yours to move: the clock at the top of the screen is the programme's remaining time, and it
+       runs whether or not you are certain. Every hour you spend confirming a result is an hour the
+       schedule does not have. Every hour you save by accepting a result that has not been checked is a
+       month lost later, when it fails in front of everybody.</p>
+    <p class="stakes">This is a game about evidence under a deadline. Nothing is built here, nothing is
+       tested here, and being wrong costs you time and an explanation — never the run.</p>
+    <button class="btn primary" id="enterTownBtn" type="button">Report to the Director</button>
+    <p class="controlsNote">Controls are in <b>Settings</b>, top right. No weapons, no combat —
+       exploration and evidence only.</p>
   </div>
 </div>
 
@@ -157,6 +167,12 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 
 <div id="settingsPanel" class="hidden">
   <h4 style="margin:0 0 6px;font:800 1rem Georgia,serif">Settings</h4>
+  <div class="controlsHelp">
+    <h4>Controls</h4>
+    <p><b>W A S D</b> walk · <b>mouse</b> look · <b>Shift</b> run · <b>E</b> use whatever the crosshair is on ·
+       <b>M</b> map · <b>Tab</b> summary · <b>Esc</b> releases the mouse.</p>
+  </div>
+
   <label>Mouse sensitivity <input type="range" id="sensRange" min="0.2" max="2.5" step="0.1" value="1"></label>
   <label>Move speed <input type="range" id="speedRange" min="0.6" max="1.8" step="0.1" value="1"></label>
   <label><span>Volume</span><input type="range" id="volRange" min="0" max="1" step="0.05" value="0.6"></label>

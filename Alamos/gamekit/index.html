@@ -167,6 +167,11 @@ body.reduceMotion *,body.reduceMotion *::before,body.reduceMotion *::after{anima
 <div id="settingsOverlay" class="sheet"><div class="sheetCard">
   <div class="sheetHead"><h3>Settings</h3><button class="btn small" id="settingsClose" type="button">Close</button></div>
   <div class="sheetBody">
+  <div class="controlsHelp">
+    <h4>Controls</h4>
+    <p><b>W A S D</b> walk · <b>mouse</b> look · <b>Shift</b> run · <b>E</b> use whatever the crosshair is on ·
+       <b>M</b> map · <b>Tab</b> summary · <b>Esc</b> releases the mouse.</p>
+  </div>
     <label class="settingRow"><input type="checkbox" id="setHighContrast"> <span><b>High contrast</b><small>Darker outlines on panels and readings.</small></span></label>
     <label class="settingRow"><input type="checkbox" id="setReduceMotion"> <span><b>Reduce motion</b><small>Turns off the verdict animation and the counting readout.</small></span></label>
     <div class="settingRow danger"><span><b>Restart the campaign</b><small>Clears the saved run and starts again at Mission 1.</small></span>
@@ -200,12 +205,19 @@ body.reduceMotion *,body.reduceMotion *::before,body.reduceMotion *::after{anima
   <div id="blockerBox">
     <h1 id="titleName">Loading…</h1>
     <h2 id="titleRole"></h2>
-    <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to walk, mouse to look, <kbd>Shift</kbd> to run.
-       <kbd>E</kbd> to use whatever the crosshair is on. <kbd>Esc</kbd> releases the mouse.</p>
-    <p>Walk to the place the marker points at, work the evidence there, then take what you found back to
-       City Command. Getting an answer wrong reveals the full reasoning — it never locks you out.</p>
+    <p class="stakes">A freight yard beside the river burned last night, and nobody can say what came off
+       it. Two neighbourhoods are downwind of a plume nobody has identified. The drinking-water intake
+       for a hundred and forty thousand people sits nine hundred metres downstream of the outfall, and
+       the utility has closed it — which means the city is drinking its reserves, and the reserves are
+       measured in days. You are the Chief Scientific Officer. Every hour you spend getting an answer
+       right is an hour the intake stays shut; every hour you save by guessing is an hour a wrong answer
+       spreads through the mains. The clock at the top of the screen is that reserve running down. It is
+       the only thing in this response you cannot get back.</p>
+    <p class="stakes">Nothing here punishes you for being wrong. A wrong call costs time and shows you
+       the whole reasoning; it never locks you out. What it cannot do is give you the hours back.</p>
     <p class="scope" id="titleScope"></p>
-    <button class="btn primary" id="startBtn" type="button">Click to begin</button>
+    <button class="btn primary" id="startBtn" type="button">Take the response</button>
+    <p class="controlsNote">Controls are in <b>Settings</b>, top right.</p>
   </div>
 </div>
 

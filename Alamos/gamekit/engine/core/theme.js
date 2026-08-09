@@ -7,6 +7,16 @@
 //
 // `@theme` is a Vite alias set in vite.config.js from THEME=<name>.
 import theme from '@theme/theme.js';
+import { normalizeContent } from '../content/normalize.js';
 
 export default theme;
 export const CONTENT = theme.content ?? {};
+
+// Content arrives as a design document's importer left it: formats spelled
+// three ways, pack references unexpanded, estimates with no spec. Repairing
+// that inside each game's theme.js meant the same code in two manifests and a
+// third game quietly missing it. One call, here, before anything reads it.
+export const CONTENT_REPORT = normalizeContent(CONTENT);
+if(CONTENT_REPORT.problems.length && typeof console !== 'undefined'){
+  console.warn(`[${theme.id}] content problems:\n  ` + CONTENT_REPORT.problems.join('\n  '));
+}

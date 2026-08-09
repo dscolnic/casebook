@@ -10,14 +10,19 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve, dirname } from 'node:path';
+import { themeDir as resolveTheme } from './registry.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const themeName = process.argv[2];
 if(!themeName){
-  console.error('usage: node engine/dev/validateContent.mjs <theme>');
+  console.error('usage: node engine/dev/validateContent.mjs <theme|path-to-theme-dir>');
   process.exit(2);
 }
-const themeDir = resolve(here, '../../themes', themeName);
+// Two of the three games predate themes/ and still live in their own package
+// directories, so a bare name means themes/<name> and anything with a slash in
+// it is taken as the path to a theme directory — otherwise the older games
+// cannot be validated at all.
+const themeDir = resolveTheme(themeName);
 
 const problems = [];
 const notes = [];
@@ -35,6 +40,10 @@ async function load(rel){
 
 const theme = await load('theme.js');
 if(!theme){ report(); process.exit(1); }
+// engine/core/theme.js normalises on the way into the game. This tool loads the
+// manifest directly — no Vite alias, no engine — so it has to do the same, or
+// it checks content the game never sees.
+const { normalizeContent } = await import('../content/normalize.js');
 
 const T = theme.default ?? theme;
 const content = T.content ?? {};
@@ -49,6 +58,17 @@ for(const k of ['id', 'title', 'site', 'content', 'people']){
 }
 if(T.site && !['interior', 'outdoor'].includes(T.site.kind)){
   fail(`site.kind is "${T.site.kind}" — expected "interior" or "outdoor"`);
+}
+
+// ---- normalisation: what the engine repairs on the way in
+const normalised = normalizeContent(content);
+for(const p of normalised.problems ?? []) fail(p);
+// The normaliser makes hundreds of small changes on a generated theme. They
+// are worth seeing when you are debugging content, and noise otherwise.
+if(process.argv.includes('--verbose')){
+  for(const c of normalised.changes ?? []) note(`normalised — ${c}`);
+} else if((normalised.changes ?? []).length){
+  note(`${normalised.changes.length} content items normalised on load (run with --verbose to list them)`);
 }
 
 // ---- groups
@@ -147,10 +167,33 @@ MISSIONS.forEach((m, mi) => {
 });
 
 // ---- outfits
+// A theme whose crowd is its own module has no OUTFITS table for the engine to
+// read, and that is a different situation from having forgotten one. It has to
+// say so: `people: { crowd: 'bespoke' }`.
+const bespokeCrowd = T.people?.crowd === 'bespoke';
 const OUTFITS = T.people?.OUTFITS ?? {};
-if(!Object.keys(OUTFITS).length) fail('people.OUTFITS is empty — everyone will be default-coloured');
-for(const [k, o] of Object.entries(OUTFITS)){
-  if(o.top === undefined || o.bottom === undefined) fail(`outfit "${k}" needs top and bottom colours`);
+if(!bespokeCrowd){
+  if(!Object.keys(OUTFITS).length) fail('people.OUTFITS is empty — everyone will be default-coloured');
+  for(const [k, o] of Object.entries(OUTFITS)){
+    if(o.top === undefined || o.bottom === undefined) fail(`outfit "${k}" needs top and bottom colours`);
+  }
+} else {
+  note('people.crowd is "bespoke" — the theme builds its own cast, so OUTFITS is not checked');
+}
+
+// ---- normalisation: what the engine had to repair on the way in
+
+
+// ---- interiors, where a theme declares them
+const INTERIORS = T.interiors ?? null;
+if(INTERIORS){
+  for(const [id, spec] of Object.entries(INTERIORS)){
+    if(!groupIds.has(id)) fail(`interiors names unknown group "${id}"`);
+    if(!spec.station) fail(`interiors["${id}"] has no station — the room would have no instrument`);
+  }
+  for(const id of groupIds){
+    if(!INTERIORS[id]) note(`group "${id}" has no interior, so its door opens the question panel directly`);
+  }
 }
 
 // ---- copy
@@ -167,12 +210,17 @@ if(T.site?.kind === 'outdoor'){
 }
 
 // ---- lessons: the content-integrity invariants from THEME_CONTRACT.md
+// (content has already been normalised above)
 for(const [group, lessons] of Object.entries(CURRICULUM)){
   if(!Array.isArray(lessons)) continue;
   lessons.forEach((l, i) => {
     const at = `${group} lesson ${i + 1} ("${l.title ?? '?'}")`;
-    if(!l.scene || l.scene.length < 40){
-      fail(`${at}: no scene — the pre-question panel would show nothing to reason from`);
+    // The pre-question panel shows `story`, falling back to `progress`, then
+    // the title. One book writes `scene`, another writes `story`; the rule is
+    // that *something* is there to reason from, not which key it is under.
+    const scene = l.scene || l.story || l.progress || '';
+    if(scene.length < 40){
+      fail(`${at}: nothing for the pre-question panel to show — needs scene, story or progress`);
     }
     if(l.takeaway && l.game?.why && l.takeaway.trim() === l.game.why.trim()){
       fail(`${at}: takeaway repeats the "why", so the intro gives the answer away`);
@@ -185,16 +233,30 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
     if(g.choices && g.correctChoice && !labelsOf(g.choices).includes(g.correctChoice)){
       fail(`${at}: correctChoice is not among the choices — grading compares labels, so this is ungradeable`);
     }
-    if(g.type === 'DIAGNOSIS'){
+    const kind = String(g.type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
+    if(kind === 'DIAGNOSIS'){
       const labels = labelsOf(g.choices);
       if(labels.length < 4) fail(`${at}: diagnosis offers ${labels.length} candidates; the format needs at least four to rule out`);
       if(new Set(labels).size !== labels.length) fail(`${at}: two candidates share a label — grading cannot tell them apart`);
-      if(!g.figure) fail(`${at}: diagnosis has no figure; the panel has to be readable at a glance`);
+      // The rule is that the panel must be readable at a glance, not that it
+      // must be a chart. A figure does that; so does a reading panel that spans
+      // three or more zones, which is the shape the authored packs use — they
+      // dropped the schematic on purpose and label every reading with its zone.
+      const zones = new Set((g.readings || []).map(r => r.zone).filter(Boolean));
+      if(!g.figure && zones.size < 3){
+        fail(`${at}: diagnosis has neither a figure nor readings across three zones; `
+          + `the panel has to be readable at a glance`);
+      }
+      const want = Array.isArray(g.correctChoices) ? g.correctChoices
+        : (g.correctChoice ? [g.correctChoice] : []);
+      if(want.length && !want.every(w => labels.includes(w))){
+        fail(`${at}: the answer names a candidate that is not on the list — grading compares labels`);
+      }
       if(!(g.readings || []).some(r => r.status !== 'alarm')){
         fail(`${at}: every reading is an alarm — the quiet readings are what rule explanations out`);
       }
     }
-    if(g.type === 'Protocol' && g.mapping && new Set(g.mapping).size !== g.mapping.length){
+    if(kind === 'PROTOCOL' && g.mapping && new Set(g.mapping).size !== g.mapping.length){
       fail(`${at}: protocol mapping is not a permutation`);
     }
     if(g.type === 'Sequence' && g.order && g.cards && new Set(g.order).size !== g.cards.length){

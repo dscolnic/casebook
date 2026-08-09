@@ -13,8 +13,12 @@ import { readiness, forecastReadiness, forecastMoney, getCurrentMission, mission
 import { esc, fmt } from './utils.js';
 import { formatTime, timeToDay, TOTAL_DAYS, TOTAL_HOURS } from './time.js';
 import { updateDayNight } from './world.js';
+import { updateInstruments } from './instruments.js';
 import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, getNPCs } from './npcs.js';
 import { getWaypointMesh, setWaypointPosition, getRoomEntry } from './world.js';
+import { facingArrowHTML } from '../../../gamekit/engine/core/map.js';
+import { exposeDebug } from '../../../gamekit/engine/core/app.js';
+import themeManifest from '../theme.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { getPersonIdForStop } from './simulation.js';
 
@@ -189,6 +193,11 @@ function startGameLoop(){
   // position player at plaza
   teleport(new THREE.Vector3(0,1.7,14));
   if(!rafId) animate();
+  // A handle on the running game, the same one gamekit's own build exposes. A
+  // background tab gets no requestAnimationFrame, so without this there is no
+  // way to step the world by hand and check what a room actually looks like.
+  exposeDebug(themeManifest, { THREE, scene, renderer, camera, teleport, getPosition,
+                               getState, getCurrentTarget, updateInstruments, animateOnce: ()=>animate() });
 }
 
 function animate(){
@@ -212,6 +221,9 @@ function animate(){
   if(!interiorMode){
     updateInteractions(promptEl);
     try{ updateNPCs(delta, getPosition()); }catch(e){}
+    // The screens in the rooms keep running whether or not anyone is watching;
+    // they repaint at their own rate, not the frame rate.
+    try{ updateInstruments(delta); }catch(e){}
     // waypoint: special fourth meeting takes priority, otherwise assigned person if next stop is person-type
     try{
       if(state && isSpecialRequestActive(state)){
@@ -279,6 +291,23 @@ function updateMiniMap(){
   const z=(p.z+55)/110*200;
   dot.style.left=(x-7)+'px';
   dot.style.top=(z-7)+'px';
+  // Which way you are looking. A dot on a map says where you are and nothing
+  // about which way you are about to walk, which on a plan of a building or a
+  // town is the half that matters.
+  let youArr=document.getElementById('youArrow');
+  if(!youArr){
+    youArr=document.createElement('div');
+    youArr.id='youArrow';
+    youArr.style.position='absolute';
+    youArr.style.pointerEvents='none';
+    youArr.style.zIndex='6';
+    miniMapEl.appendChild(youArr);
+  }
+  const look=new THREE.Vector3();
+  camera.getWorldDirection(look);
+  youArr.innerHTML=facingArrowHTML(Math.atan2(look.x, look.z), '#d4a017', 18);
+  youArr.style.left=(x-9)+'px';
+  youArr.style.top=(z-9)+'px';
   if(!miniMapEl._built){
     GROUP_DEFS.forEach(d=>{
       const data={TRI:[100,20],RESP:[20,100],NUTR:[180,100],MOVE:[60,170],BRAIN:[140,170],DEF:[100,100]}[d.id] || [100,100];
@@ -325,12 +354,15 @@ function updateMiniMap(){
       nd.textContent='★';
       nd.title=`${target.char.name} [${target.division}] — NEXT → ${isSpecial?'Fourth meeting':'Find this person'}`;
       miniMapEl.appendChild(nd);
+      // Their facing, not a static caret: they walk, and knowing which way
+      // they are heading is the difference between catching someone and
+      // following them down the corridor.
       const arr=document.createElement('div');
       arr.id='targetArrow';
-      arr.style.position='absolute'; arr.style.pointerEvents='none';
-      arr.style.fontSize='14px'; arr.style.color=isSpecial?'#9a741d':'#315c78'; arr.textContent='↓';
-      arr.style.left=((target.pos.x+55)/110*200-6)+'px';
-      arr.style.top=((target.pos.z+55)/110*200-18)+'px';
+      arr.style.position='absolute'; arr.style.pointerEvents='none'; arr.style.zIndex='5';
+      arr.innerHTML=facingArrowHTML(target.body?.rotation.y ?? 0, isSpecial?'#9a741d':'#315c78', 20);
+      arr.style.left=((target.pos.x+55)/110*200-10)+'px';
+      arr.style.top=((target.pos.z+55)/110*200-10)+'px';
       miniMapEl.appendChild(arr);
     }catch(e){}
   }
@@ -390,13 +422,13 @@ window.addEventListener('keydown', (e)=>{
         }
       }
       const isNpc=target.type==='npc';
-      const info=target.info || 'Historic Los Alamos.';
+      const info=target.info || 'Part of the hospital. Nothing to do here yet.';
       const titleEl=document.getElementById('modalTitle');
       const bodyEl=document.getElementById('modalBody');
       const eye=document.getElementById('modalEyebrow');
       if(titleEl) titleEl.textContent=isNpc ? target.char.name : target.id;
-      if(eye) eye.textContent=isNpc ? target.char.role : 'Historic Los Alamos — 1943-45';
-      if(bodyEl) bodyEl.innerHTML=`<div style="display:flex;gap:12px;align-items:start"><div style="width:64px;height:64px;border-radius:50%;background:${isNpc?target.char.color:'#9a741d'};display:grid;place-items:center;color:#fff;font:900 22px Georgia,serif">${isNpc?target.char.name[0]: '▣'}</div><div style="flex:1"><div id="hospBio" style="padding:10px 12px;border-left:4px solid #9a741d;background:#f7f0dc;font-size:.88rem;line-height:1.5">${info}</div>${isNpc?`<div style="font-size:.74rem;color:#666158;margin-top:8px">They walk the town — watch their nameplate, then press E to talk. ${target.char.id==='fuchs' || target.char.id==='hall' || target.char.id==='greenglass' ? 'Their wartime choices echo post-war secrecy debates.' : target.char.id==='woods' || target.char.id==='hinton' || target.char.id==='hornig' || target.char.id==='mayer' || target.char.id==='wu' || target.char.id==='graves' ? 'Women’s work was often uncredited — this game recenters it.' : ''}</div>`: `<div style="font-size:.74rem;color:#666158;margin-top:10px">Walk the town to find Fuller Lodge, Ashley Pond, Sundt row, dorms, theater, PX, chapel — the real 1943-45 footprint was linear along Trinity Drive, not a square. Tech Area (your 5 labs) lay just south of the canyon rim.</div>`}</div></div><div style="margin-top:12px"><button class="btn primary" id="closeInfoBtn">Continue exploring</button></div>`;
+      if(eye) eye.textContent=isNpc ? target.char.role : 'Children’s Hospital';
+      if(bodyEl) bodyEl.innerHTML=`<div style="display:flex;gap:12px;align-items:start"><div style="width:64px;height:64px;border-radius:50%;background:${isNpc?target.char.color:'#9a741d'};display:grid;place-items:center;color:#fff;font:900 22px Georgia,serif">${isNpc?target.char.name[0]: '▣'}</div><div style="flex:1"><div id="hospBio" style="padding:10px 12px;border-left:4px solid #9a741d;background:#f7f0dc;font-size:.88rem;line-height:1.5">${info}</div>${isNpc?`<div style="font-size:.74rem;color:#666158;margin-top:8px">They move around the hospital — watch for their nameplate, then press E to talk. ${target.char.role==='Patient' ? 'Patients explain what was done for them and what the machines measured.' : 'Staff explain the part of the hospital they run.'}</div>`: `<div style="font-size:.74rem;color:#666158;margin-top:10px">Walk the building to find the Emergency Department, the imaging suite, the wards, the labs and the therapy rooms. Everyone you pass has something to tell you about the work that happens there.</div>`}</div></div><div style="margin-top:12px"><button class="btn primary" id="closeInfoBtn">Continue exploring</button></div>`;
       document.getElementById('overlay').classList.add('show');
       if(document.pointerLockElement) document.exitPointerLock();
       // One question about what they just told you, worth a dollar. Their own
@@ -540,12 +572,19 @@ function stepOutToCorridor(id){
 function enterBuilding(id){
   const state=getState();
   if(!state) return;
-  // Skip readiness/mission screen — go straight to the question (building = like field person)
-  const bpos=getBuildingPosition(id);
-  const dist = bpos ? getPosition().distanceTo(bpos) : 48;
-  walkCost(dist);
-  visitBuildingCost();
-  updateHUD(); updateWorldFromState(); updateDayNight();
+  // Rooms are open whether or not they hold this mission's case, so the time
+  // and the visit are charged only when there is actually a case to review.
+  // Reading an idle stand used to cost the same as working a case.
+  const stop=missionStopForGroup(state, id);
+  const isOpenCase = !!stop && stop.index===nextMissionStopIndex(state)
+    && !isPersonStopForIdx(state, stop.index);
+  if(isOpenCase){
+    const bpos=getBuildingPosition(id);
+    const dist = bpos ? getPosition().distanceTo(bpos) : 48;
+    walkCost(dist);
+    visitBuildingCost();
+    updateHUD(); updateWorldFromState(); updateDayNight();
+  }
   if(controls.isLocked) controls.unlock();
   openVisit(id);
 }

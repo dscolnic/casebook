@@ -1,13 +1,15 @@
 import * as THREE from 'three';
 import { passageHTML, bindPassage } from '../../gamekit/engine/core/personQuiz.js';
-import { initWorld, scene, renderer, updateWorldFromState, centralBoardMesh, getBuildingPosition } from './world.js';
-import { initPlayer, controls, camera, updatePlayer, getPosition, teleport } from './player.js';
+import { initWorld, scene, renderer, updateWorldFromState, centralBoardMesh, getBuildingPosition,
+         colliders as worldColliders, interactables as worldInteractables } from './world.js';
+import { initPlayer, controls, camera, updatePlayer, getPosition, teleport, setGround, setBounds } from './player.js';
 import { updateInteractions, getCurrentTarget } from './interactions.js';
 import { LEADERS } from './leaders.js';
 import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
+import { createInteriors, exposeDebug } from '../../gamekit/engine/core/app.js';
 import { updateHUD, renderEndScreen, renderStats } from './dashboard.js';
 import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
 import { esc, fmt } from './utils.js';
@@ -15,7 +17,9 @@ import { formatTime, timeToDay, TOTAL_DAYS, TOTAL_HOURS } from './time.js';
 import { updateDayNight } from './world.js';
 import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, getNPCs } from './npcs.js';
 import { getWaypointMesh, setWaypointPosition } from './world.js';
+import { facingArrowHTML } from '../../gamekit/engine/core/map.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
+import themeManifest from '../theme.js';
 import { getPersonIdForStop } from './simulation.js';
 
 const canvas=document.getElementById('canvas');
@@ -28,6 +32,31 @@ const dashboardOverlay=document.getElementById('dashboardOverlay');
 const mapOverlay=document.getElementById('mapOverlay');
 const miniMapEl=document.getElementById('miniMap');
 const fallbackTown=document.getElementById('fallbackTown');
+
+// Declared up here because startGameLoop() — and therefore animate() — runs
+// during module evaluation, long before the interior manager is built.
+// ——— Interiors ———————————————————————————————————————————————————————
+// A door opens a room. The manager is the engine's: this file had its own copy,
+// which is how the same feature ends up subtly different in two games.
+const interiors = createInteriors({
+  // scene and camera are assigned inside initWorld/initPlayer, which run after
+  // this line; the manager resolves them at first entry.
+  scene: () => scene, camera: () => camera, theme: themeManifest, def: (id) => GROUP_DEFS.find(g => g.id === id),
+  colliders: worldColliders, interactables: worldInteractables,
+  player: { getPosition, teleport, setGround, setBounds },
+  townGround: () => 0, townBounds: 105,
+  onEnter: (id) => {
+    // Time is charged for the walk only when this room holds the open case.
+    const state = getState();
+    const stop = state ? missionStopForGroup(state, id) : null;
+    if(stop && stop.index === nextMissionStopIndex(state) && !isPersonStopForIdx(state, stop.index)){
+      const bpos = getBuildingPosition(id);
+      walkCost(bpos ? getPosition().distanceTo(bpos) : 48);
+      visitBuildingCost();
+      updateHUD(); updateWorldFromState(); updateDayNight();
+    }
+  },
+});
 
 let rafId=null;
 let clock=new THREE.Clock();
@@ -167,6 +196,13 @@ function startGameLoop(){
   // position player at plaza
   teleport(new THREE.Vector3(0,1.7,14));
   if(!rafId) animate();
+  // A handle on the running game, as gamekit and the hospital both expose. A
+  // dynamic import() from the console resolves to a *second* copy of the module
+  // graph with its own empty world, so without this there is no way to inspect
+  // the one that is actually running.
+  exposeDebug(themeManifest, { THREE, scene, renderer, camera, teleport, getPosition, getState,
+                               getCurrentTarget, interiors,
+                               world: { colliders: worldColliders, interactables: worldInteractables } });
 }
 
 function animate(){
@@ -190,6 +226,7 @@ function animate(){
   if(!interiorMode){
     updateInteractions(promptEl);
     try{ updateNPCs(delta, getPosition()); }catch(e){}
+    interiors.update(delta);
     // waypoint: special fourth meeting takes priority, otherwise assigned person if next stop is person-type
     try{
       if(state && isSpecialRequestActive(state)){
@@ -257,6 +294,23 @@ function updateMiniMap(){
   const z=(p.z+55)/110*200;
   dot.style.left=(x-7)+'px';
   dot.style.top=(z-7)+'px';
+  // Which way you are looking. A dot on a map says where you are and nothing
+  // about which way you are about to walk, which on a plan of a building or a
+  // town is the half that matters.
+  let youArr=document.getElementById('youArrow');
+  if(!youArr){
+    youArr=document.createElement('div');
+    youArr.id='youArrow';
+    youArr.style.position='absolute';
+    youArr.style.pointerEvents='none';
+    youArr.style.zIndex='6';
+    miniMapEl.appendChild(youArr);
+  }
+  const look=new THREE.Vector3();
+  camera.getWorldDirection(look);
+  youArr.innerHTML=facingArrowHTML(Math.atan2(look.x, look.z), '#d4a017', 18);
+  youArr.style.left=(x-9)+'px';
+  youArr.style.top=(z-9)+'px';
   if(!miniMapEl._built){
     GROUP_DEFS.forEach(d=>{
       const data={T:[100,20],P:[20,100],X:[180,100],CM:[60,170],E:[140,170]}[d.id] || [100,100];
@@ -303,12 +357,15 @@ function updateMiniMap(){
       nd.textContent='★';
       nd.title=`${target.char.name} [${target.division}] — NEXT → ${isSpecial?'Fourth meeting':'Find this person'}`;
       miniMapEl.appendChild(nd);
+      // Their facing, not a static caret: they walk, and knowing which way
+      // they are heading is the difference between catching someone and
+      // following them down the corridor.
       const arr=document.createElement('div');
       arr.id='targetArrow';
-      arr.style.position='absolute'; arr.style.pointerEvents='none';
-      arr.style.fontSize='14px'; arr.style.color=isSpecial?'#9a741d':'#315c78'; arr.textContent='↓';
-      arr.style.left=((target.pos.x+55)/110*200-6)+'px';
-      arr.style.top=((target.pos.z+55)/110*200-18)+'px';
+      arr.style.position='absolute'; arr.style.pointerEvents='none'; arr.style.zIndex='5';
+      arr.innerHTML=facingArrowHTML(target.body?.rotation.y ?? 0, isSpecial?'#9a741d':'#315c78', 20);
+      arr.style.left=((target.pos.x+55)/110*200-10)+'px';
+      arr.style.top=((target.pos.z+55)/110*200-10)+'px';
       miniMapEl.appendChild(arr);
     }catch(e){}
   }
@@ -331,7 +388,13 @@ window.addEventListener('keydown', (e)=>{
     if(target.type==='board'){
       openDashboard();
     } else if(target.type==='door'){
-      enterBuilding(target.id);
+      // Every door opens, mission stop or not. What changes is whether there
+      // is a case on the stand inside.
+      if(!interiors.enter(target.id)) enterBuilding(target.id);
+    } else if(target.type==='case'){
+      openVisit(target.id);
+    } else if(target.type==='roomexit'){
+      interiors.exit();
     } else if(target.type==='info' || target.type==='npc'){
       if(target.type==='npc'){
         pauseNPC(target.char.id, 8);
@@ -490,6 +553,7 @@ function closeDashboard(){
 }
 document.getElementById('dashboardClose').onclick=closeDashboard;
 dashboardOverlay.onclick=(e)=>{ if(e.target===dashboardOverlay) closeDashboard(); };
+
 
 // ——— Building interior ———
 function enterBuilding(id){

@@ -16,21 +16,41 @@
 // Nothing here touches three.js or the DOM, so it runs in CI.
 import { register } from 'node:module';
 import { resolve, dirname } from 'node:path';
+import { themeDir as resolveTheme } from './registry.mjs';
 import { pathToFileURL } from 'node:url';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const root = resolve(here, '../..');
 const themeName = process.argv[2] || 'contamcity';
+// A bare name means themes/<name>; anything with a slash is the path to a theme
+// directory, which is how the two games that still live in their own package
+// directories get played through this harness at all.
+const themeDir = resolveTheme(themeName);
 
 // engine/core imports its content through the `@theme` alias, which Vite
 // supplies in the browser. Node gets the same alias from a resolve hook, so the
 // modules under test are the real ones rather than a headless copy of them.
 register('./themeResolver.mjs', pathToFileURL(here + '/'), {
-  data: { themeDir: resolve(root, 'themes', themeName) },
+  data: { themeDir },
 });
 
 const problems = [];
 const fail = (m) => problems.push(m);
+
+/**
+ * A diagnosis is playable when the panel can be read at a glance — a figure, or
+ * readings spanning three or more zones — and when every answer it names is on
+ * the candidate list. `correctChoices` is the L4 form, where no single cause
+ * fits and the answer is a pair.
+ */
+function diagnosisAnswerable(ch){
+  const labels = (ch.choices || []).map(c => (typeof c === 'string' ? c : c.label));
+  const want = Array.isArray(ch.correctChoices) ? ch.correctChoices
+    : (ch.correctChoice ? [ch.correctChoice] : []);
+  const zones = new Set((ch.readings || []).map(r => r.zone).filter(Boolean));
+  return (!!ch.figure || zones.size >= 3)
+    && want.length > 0 && want.every(w => labels.includes(w));
+}
 
 {
   const gameState = await import('../core/gameState.js');
@@ -42,7 +62,7 @@ const fail = (m) => problems.push(m);
   const assign = Object.fromEntries(GROUP_DEFS.map(g => [g.id, g.defaultLeader]));
   gameState.createFresh(assign);
 
-  let stopsPlayed = 0, personStops = 0;
+  let stopsPlayed = 0, personStops = 0, specials = 0;
   for(let mission = 1; mission <= MISSION_DEFS.length; mission++){
     const state = gameState.getState();
     if(state.week !== mission){
@@ -76,17 +96,42 @@ const fail = (m) => problems.push(m);
       const lesson = lessons[stop.lesson];
       if(!lesson){ fail(`mission ${mission} stop ${idx + 1}: no lesson ${stop.lesson} in "${group}"`); break; }
       const ch = lesson.game;
+      // Formats are compared through the same canonical form the question UI
+      // uses: the books spell them "Sequence", "SEQUENCE" and "Science Tank",
+      // and comparing raw strings reported a shipped game as unplayable.
+      const kind = String(ch.type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
       const ok =
-        (ch.type === 'Protocol' && ch.scenarios?.length && ch.mapping?.length === ch.scenarios.length) ||
-        (ch.type === 'Sequence' && ch.cards?.length && ch.order?.length === ch.cards.length) ||
-        (ch.type === 'Science Tank' && ch.proposals?.length && Object.keys(ch.recommended ?? {}).length) ||
-        (ch.type === 'Ballpark' && !!BALLPARK_CALCS[`${group}-${lesson.day}`]) ||
-        (ch.type === 'DIAGNOSIS' && ch.choices?.length >= 4 && !!ch.figure &&
-          ch.choices.map(c => (typeof c === 'string' ? c : c.label)).includes(ch.correctChoice));
+        (kind === 'PROTOCOL' && ch.scenarios?.length && ch.mapping?.length === ch.scenarios.length) ||
+        (kind === 'SEQUENCE' && ch.cards?.length && ch.order?.length === ch.cards.length) ||
+        (kind === 'SCIENCETANK' && ch.proposals?.length && Object.keys(ch.recommended ?? {}).length) ||
+        (kind === 'BALLPARK' && !!BALLPARK_CALCS[`${group}-${lesson.day}`]) ||
+        (kind === 'DIAGNOSIS' && ch.choices?.length >= 4 && diagnosisAnswerable(ch)) ||
+        (kind === 'TRIAGE' && ch.choices?.length >= 2 && ch.choices.includes(ch.correctChoice)) ||
+        (kind === 'CHOICE' && ch.choices?.length >= 3 &&
+          ch.choices.map(c => (typeof c === 'string' ? c : c.label)).includes(ch.correctChoice ?? ch.answer)) ||
+        (kind === 'CASEBOOK' && (
+          (ch.proposals?.length && ch.proposals.every(p => Number.isFinite(+p.target))) ||
+          ((ch.scenarios || ch.cards)?.length && ch.mapping?.length === (ch.scenarios || ch.cards).length)));
       if(!ok) fail(`mission ${mission} stop ${idx + 1} ("${lesson.title}"): ${ch.type} is not gradeable`);
 
       gameState.markMissionStopComplete(idx, true);
       stopsPlayed++;
+    }
+
+    // Some missions also carry a between-mission funding meeting, and
+    // missionComplete() will not return true until it has been settled. The
+    // player does that by talking to the named person; here it is settled
+    // directly, after checking that person is somebody the roster contains —
+    // a request naming a stranger can never be completed in the real game.
+    if(sim.hasSpecialRequest(gameState.getState().week)){
+      const req = sim.getSpecialRequest(gameState.getState().week);
+      const roster = (await import('../core/historicCharacters.js')).HISTORIC_CHARACTERS ?? [];
+      if(req?.personId && !roster.some(p => p.id === req.personId)){
+        fail(`mission ${mission}: the funding request names "${req.personId}", who is not on the roster — ` +
+             `the mission can never be completed`);
+      }
+      gameState.completeSpecialRequest(gameState.getState().week);
+      specials++;
     }
 
     if(!sim.missionComplete(gameState.getState())){
@@ -106,6 +151,7 @@ const fail = (m) => problems.push(m);
   } else {
     console.log(`\n✓ theme "${themeName}" plays end to end: ${MISSION_DEFS.length} missions, ` +
       `${stopsPlayed} stops (${personStops} of them person stops), ` +
+      `${specials} funding meetings, ` +
       `final status "${finalState.status}", readiness ${Math.round(sim.readiness(finalState))}%`);
   }
 }

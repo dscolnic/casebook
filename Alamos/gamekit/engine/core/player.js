@@ -151,6 +151,20 @@ export function updatePlayer(delta){
 }
 
 /**
+ * Swap the floor and the leash at runtime.
+ *
+ * Both are set once by initPlayer from the theme, which is right while there is
+ * one world. Walking into an interior is a second world: the floor is flat
+ * rather than terrain, and the room is built far outside the town's own limit,
+ * so a fixed BOUNDS would stop the player dead at the door. The caller puts
+ * both back on the way out.
+ */
+export function setGround(fn){ if(typeof fn === 'function') GROUND = fn; }
+export function setBounds(n){ if(typeof n === 'number') BOUNDS = n; }
+export function getGround(){ return GROUND; }
+export function getBounds(){ return BOUNDS; }
+
+/**
  * Move the player, optionally turning them to face a given yaw. Walking into a
  * room should leave you looking at the case, not at the wall you came through.
  */

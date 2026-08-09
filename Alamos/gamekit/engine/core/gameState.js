@@ -4,6 +4,7 @@ import { MISSION_DEFS } from './missions.js';
 import { saveState, loadState } from './save.js';
 import { clamp, seeded } from './utils.js';
 import { freshState } from './simulation.js';
+import { GROUP_DEFS } from './divisions.js';
 import { TOTAL_DAYS, TOTAL_HOURS, START_HOUR, VISIT_COST_HOURS, WALK_BASE_HOURS, AVG_WALK_DISTANCE, HOURS_PER_WEEK, timeToWeek, timeToDay, formatTime, walkCostForDistance } from './time.js';
 
 let _state = null;
@@ -26,8 +27,18 @@ export function createFresh(assign){
 
 export function tryLoadSaved(){
   const s=loadState();
-  if(s && s.status==='playing'){ _state=s; ensureMissionFields(); return s; }
+  // A save is only usable by the theme that wrote it. Anything else — an older
+  // shape, another game's slot, a theme whose areas have been renamed — has
+  // group ids the content no longer contains, and every lookup downstream
+  // returns undefined at the point where it is least recoverable.
+  if(s && s.status==='playing' && matchesTheme(s)){ _state=s; ensureMissionFields(); return s; }
   return null;
+}
+function matchesTheme(s){
+  const ids = (GROUP_DEFS ?? []).map(d => d.id);
+  if(!ids.length) return true;
+  return Array.isArray(s.groups) && s.groups.length === ids.length
+    && s.groups.every(g => ids.includes(g.id));
 }
 function ensureMissionFields(){
   if(!_state) return;
@@ -126,6 +137,11 @@ export function fundAllSelected(){
 
 export function advanceTime(hours, reason=''){
   if(!_state || _state.status!=='playing') return;
+  // A caller that passes undefined — walkCost() returns a verdict, not hours —
+  // used to put NaN in the clock, and NaN reached the sun angle before it
+  // reached the HUD, so the first visible symptom was the whole world going
+  // black. Refuse it here rather than anywhere downstream.
+  if(!Number.isFinite(hours)) return;
   _state.timeHours = Math.min(TOTAL_HOURS, _state.timeHours + hours);
   // week is mission index, not time-derived in missions mode; keep time for day/night but don't auto-advance week via time
   if(reason) _state.log.push({week:_state.week, text:`${reason} — ${formatTime(_state.timeHours)} (${hours>0?'+'+hours.toFixed(1)+'h':''})`});
