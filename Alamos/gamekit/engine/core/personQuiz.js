@@ -21,16 +21,28 @@ import { esc, seeded } from './utils.js';
 
 export const PASSAGE_REWARD = 1;
 
-/** Bios are HTML. Strip it, then split into sentences worth quoting. */
+/**
+ * Bios are HTML. Strip it, then split into sentences worth quoting.
+ *
+ * The floor is adaptive because the three games write bios at very different
+ * lengths: the chemistry and Los Alamos casts get paragraphs, while the
+ * hospital's are one-liners with a median of fourteen characters. A fixed
+ * 45-character minimum silently excluded every hospital bio and dropped all 37
+ * of them to the role fallback — a question that is not about the passage at
+ * all, and barely a question when 37 people share 8 roles.
+ */
 function sentences(bio){
-  return String(bio || '')
+  const all = String(bio || '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .split(/(?<=[.?!])\s+/)
     .map(s => s.trim())
-    // Very short fragments make trivially guessable distractors, and very long
-    // ones wrap into a wall. Both hurt the question.
-    .filter(s => s.length >= 45 && s.length <= 190);
+    // The ceiling stays fixed: a very long sentence wraps into a wall of text.
+    .filter(s => s.length <= 190);
+  // Prefer substantial sentences; accept short ones only when there is nothing
+  // else, so the games with real prose are unaffected.
+  const full = all.filter(s => s.length >= 45);
+  return full.length ? full : all.filter(s => s.length >= 18);
 }
 
 /**

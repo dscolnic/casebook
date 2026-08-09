@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { passageHTML, bindPassage } from '../../../gamekit/engine/core/personQuiz.js';
 import { initWorld, scene, renderer, updateWorldFromState, centralBoardMesh, getBuildingPosition } from './world.js';
 import { initPlayer, controls, camera, updatePlayer, getPosition, teleport } from './player.js';
 import { updateInteractions, getCurrentTarget } from './interactions.js';
@@ -395,9 +396,18 @@ window.addEventListener('keydown', (e)=>{
       const eye=document.getElementById('modalEyebrow');
       if(titleEl) titleEl.textContent=isNpc ? target.char.name : target.id;
       if(eye) eye.textContent=isNpc ? target.char.role : 'Historic Los Alamos — 1943-45';
-      if(bodyEl) bodyEl.innerHTML=`<div style="display:flex;gap:12px;align-items:start"><div style="width:64px;height:64px;border-radius:50%;background:${isNpc?target.char.color:'#9a741d'};display:grid;place-items:center;color:#fff;font:900 22px Georgia,serif">${isNpc?target.char.name[0]: '▣'}</div><div style="flex:1"><div style="padding:10px 12px;border-left:4px solid #9a741d;background:#f7f0dc;font-size:.88rem;line-height:1.5">${info}</div>${isNpc?`<div style="font-size:.74rem;color:#666158;margin-top:8px">They walk the town — watch their nameplate, then press E to talk. ${target.char.id==='fuchs' || target.char.id==='hall' || target.char.id==='greenglass' ? 'Their wartime choices echo post-war secrecy debates.' : target.char.id==='woods' || target.char.id==='hinton' || target.char.id==='hornig' || target.char.id==='mayer' || target.char.id==='wu' || target.char.id==='graves' ? 'Women’s work was often uncredited — this game recenters it.' : ''}</div>`: `<div style="font-size:.74rem;color:#666158;margin-top:10px">Walk the town to find Fuller Lodge, Ashley Pond, Sundt row, dorms, theater, PX, chapel — the real 1943-45 footprint was linear along Trinity Drive, not a square. Tech Area (your 5 labs) lay just south of the canyon rim.</div>`}</div></div><div style="margin-top:12px"><button class="btn primary" id="closeInfoBtn">Continue exploring</button></div>`;
+      if(bodyEl) bodyEl.innerHTML=`<div style="display:flex;gap:12px;align-items:start"><div style="width:64px;height:64px;border-radius:50%;background:${isNpc?target.char.color:'#9a741d'};display:grid;place-items:center;color:#fff;font:900 22px Georgia,serif">${isNpc?target.char.name[0]: '▣'}</div><div style="flex:1"><div id="hospBio" style="padding:10px 12px;border-left:4px solid #9a741d;background:#f7f0dc;font-size:.88rem;line-height:1.5">${info}</div>${isNpc?`<div style="font-size:.74rem;color:#666158;margin-top:8px">They walk the town — watch their nameplate, then press E to talk. ${target.char.id==='fuchs' || target.char.id==='hall' || target.char.id==='greenglass' ? 'Their wartime choices echo post-war secrecy debates.' : target.char.id==='woods' || target.char.id==='hinton' || target.char.id==='hornig' || target.char.id==='mayer' || target.char.id==='wu' || target.char.id==='graves' ? 'Women’s work was often uncredited — this game recenters it.' : ''}</div>`: `<div style="font-size:.74rem;color:#666158;margin-top:10px">Walk the town to find Fuller Lodge, Ashley Pond, Sundt row, dorms, theater, PX, chapel — the real 1943-45 footprint was linear along Trinity Drive, not a square. Tech Area (your 5 labs) lay just south of the canyon rim.</div>`}</div></div><div style="margin-top:12px"><button class="btn primary" id="closeInfoBtn">Continue exploring</button></div>`;
       document.getElementById('overlay').classList.add('show');
       if(document.pointerLockElement) document.exitPointerLock();
+      // One question about what they just told you, worth a dollar. Their own
+      // bio block is the passage, so the gate closes that rather than drawing
+      // a second copy of it.
+      if(isNpc && bodyEl){
+        const holder=document.createElement('div');
+        holder.innerHTML=passageHTML(target.char, { ownBio:false });
+        bodyEl.insertBefore(holder, bodyEl.lastElementChild);
+        bindPassage(bodyEl, target.char, null, { textEl: document.getElementById('hospBio') });
+      }
       setTimeout(()=>{ const b=document.getElementById('closeInfoBtn'); if(b) b.onclick=()=> document.getElementById('overlay').classList.remove('show'); }, 0);
     }
   }
