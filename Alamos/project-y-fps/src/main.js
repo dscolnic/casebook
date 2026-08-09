@@ -1,8 +1,10 @@
 import * as THREE from 'three';
 import { passageHTML, bindPassage } from '../../gamekit/engine/core/personQuiz.js';
 import { initWorld, scene, renderer, updateWorldFromState, centralBoardMesh, getBuildingPosition,
-         colliders as worldColliders, interactables as worldInteractables } from './world.js';
-import { initPlayer, controls, camera, updatePlayer, getPosition, teleport, setGround, setBounds } from './player.js';
+         colliders as worldColliders, interactables as worldInteractables,
+         softColliders as worldSoftColliders } from './world.js';
+import { terrainHeight } from './env.js';
+import { initPlayer, controls, camera, updatePlayer, getPosition, teleport, setGround, setBounds, moveState } from './player.js';
 import { updateInteractions, getCurrentTarget } from './interactions.js';
 import { LEADERS } from './leaders.js';
 import { GROUP_DEFS } from './divisions.js';
@@ -10,6 +12,7 @@ import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
 import { createInteriors, exposeDebug } from '../../gamekit/engine/core/app.js';
+import { createDriving } from '../../gamekit/engine/world/driving.js';
 import { updateHUD, renderEndScreen, renderStats } from './dashboard.js';
 import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
 import { esc, fmt } from './utils.js';
@@ -56,6 +59,20 @@ const interiors = createInteriors({
       updateHUD(); updateWorldFromState(); updateDayNight();
     }
   },
+});
+
+// ——— Driving ———
+// The motor pool's jeeps. The Hill is six hundred metres end to end, which is
+// why everybody who worked there wanted one.
+const driving = createDriving({
+  // assigned inside initWorld/initPlayer, after this line
+  camera: () => camera,
+  colliders: worldColliders,
+  softColliders: worldSoftColliders,
+  groundHeight: terrainHeight,
+  bounds: 105,
+  input: () => moveState,
+  player: { teleport, getPosition },
 });
 
 let rafId=null;
@@ -202,7 +219,8 @@ function startGameLoop(){
   // the one that is actually running.
   exposeDebug(themeManifest, { THREE, scene, renderer, camera, teleport, getPosition, getState,
                                getCurrentTarget, interiors,
-                               world: { colliders: worldColliders, interactables: worldInteractables } });
+                               world: { colliders: worldColliders, interactables: worldInteractables },
+                               driving });
 }
 
 function animate(){
@@ -210,7 +228,10 @@ function animate(){
   const delta=Math.min(0.05, clock.getDelta());
   const state=getState();
   if(!interiorMode && !dashboardOverlay.classList.contains('show') && !document.getElementById('overlay').classList.contains('show')){
-    updatePlayer(delta);
+    // Two things must never write the camera position in one frame. While the
+    // player is in a jeep, the jeep owns it.
+    if(driving.active) driving.update(delta);
+    else updatePlayer(delta);
     // ticking clock — constant rate, not tied to walking (week is mission index, not time-derived)
     if(state && state.status==='playing'){
       const idleRate = 0.012;
@@ -224,7 +245,10 @@ function animate(){
     if(state) updateDayNight();
   }
   if(!interiorMode){
-    updateInteractions(promptEl);
+    if(driving.active){
+      promptEl.textContent = 'W/S drive · A/D steer · Shift faster · E — get out';
+      promptEl.classList.remove('hidden');
+    } else updateInteractions(promptEl);
     try{ updateNPCs(delta, getPosition()); }catch(e){}
     interiors.update(delta);
     // waypoint: special fourth meeting takes priority, otherwise assigned person if next stop is person-type
@@ -383,6 +407,9 @@ window.addEventListener('keydown', (e)=>{
       // For now interior card has Visit button
       return;
     }
+    // Getting out is the same key that got you in. A raycast from the seat
+    // rarely finds anything, so this cannot go through the interactables.
+    if(driving.active){ driving.exit(); return; }
     const target=getCurrentTarget();
     if(!target) return;
     if(target.type==='board'){
@@ -395,6 +422,8 @@ window.addEventListener('keydown', (e)=>{
       openVisit(target.id);
     } else if(target.type==='roomexit'){
       interiors.exit();
+    } else if(target.type==='vehicle'){
+      driving.enter(target.vehicle);
     } else if(target.type==='info' || target.type==='npc'){
       if(target.type==='npc'){
         pauseNPC(target.char.id, 8);

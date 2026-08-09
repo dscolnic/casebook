@@ -9,6 +9,7 @@ import {
   terrainHeight, setTerrainPads, resetSeed, srand, srandRange,
 } from './env.js';
 import { buildProps } from './props.js';
+import { driveable } from '../../gamekit/engine/world/driving.js';
 
 export let scene, renderer, centralBoardMesh, centralBoardCanvas, centralBoardTexture;
 export const buildingMeshes = new Map(); // id -> { mesh, doorMesh, signMesh, lightMesh, label }
@@ -343,6 +344,11 @@ export function initWorld(canvas){
   const props = buildProps(scene);
   props.hard.forEach(b=>colliders.push(b));
   props.soft.forEach(c=>softColliders.push(c));
+  // The motor pool's jeeps. `driveable` owns their collision boxes, which is
+  // why props.js deliberately did not give them one.
+  for(const v of props.driveables ?? []){
+    driveable(scene, v.group, { ...v, colliders, interactables, topSpeed: 13 });
+  }
 
   buildTerrain(scene);
 

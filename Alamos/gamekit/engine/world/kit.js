@@ -406,19 +406,32 @@ export function vehicle(scene, x, z, y = 0, { facing = 0, colour = 0xc4442f, box
   box(g, 2.3, 1.0, 5.6, 0, 1.15, 0, body);
   box(g, 2.2, 1.25, 2.0, 0, 2.0, isBox ? -1.6 : 0.4, isBox ? body : MATERIALS.glass());
   if(isBox) box(g, 2.3, 1.9, 3.2, 0, 2.3, 1.2, body);
+  const wheels = [];
   for(const [sx, sz] of [[1, 1.8], [-1, 1.8], [1, -1.9], [-1, -1.9]]){
     const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.52, 0.52, 0.34, 12), MATERIALS.rubber());
     wheel.rotation.z = Math.PI / 2;
     wheel.position.set(sx * 1.12, 0.52, sz);
+    // Laid on its side by a z-rotation, so the roll axis is x in its own frame.
+    wheel.userData.spinAxis = 'x';
+    wheels.push(wheel);
     g.add(wheel);
   }
   g.position.set(x, y, z);
   g.rotation.y = facing;
   scene.add(g);
   const along = Math.abs(Math.sin(facing)) > 0.5;
-  return new THREE.Box3(
+  const collider = new THREE.Box3(
     new THREE.Vector3(x - (along ? 2.9 : 1.3), y, z - (along ? 1.3 : 2.9)),
     new THREE.Vector3(x + (along ? 2.9 : 1.3), y + 3.2, z + (along ? 1.3 : 2.9)));
+  // The group and the wheels come back too, so a caller can hand this to
+  // `world/driving.js` and let the player take it. Returning the Box3 alone is
+  // what made these props: a vehicle you can only walk around.
+  collider.group = g;
+  collider.wheels = wheels;
+  // Where the cab is, so a driver is seated in it rather than behind the load.
+  // The body runs along -z, which is the direction the vehicle drives.
+  collider.cabZ = isBox ? -1.6 : 0.4;
+  return collider;
 }
 
 /**

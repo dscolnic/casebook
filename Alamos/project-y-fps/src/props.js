@@ -20,11 +20,16 @@ const M = {
   ash:       new THREE.MeshStandardMaterial({ color: 0x9a948a, roughness: 0.99 }),
   cloth:     new THREE.MeshStandardMaterial({ color: 0xe8e3d4, roughness: 0.94, side: THREE.DoubleSide }),
   glassDark: new THREE.MeshStandardMaterial({ color: 0x15191d, roughness: 0.08, metalness: 0.9, envMapIntensity: 1.4 }),
+  windscreen: new THREE.MeshStandardMaterial({ color: 0xaebfc7, roughness: 0.06, metalness: 0.1,
+    transparent: true, opacity: 0.12, side: THREE.DoubleSide, envMapIntensity: 0.9 }),
   concrete:  new THREE.MeshStandardMaterial({ color: 0x8a857c, roughness: 0.92 }),
 };
 
 const softColliders = [];   // {x,z,r} — cylinders, cheap distance test
 const hardBoxes = [];       // THREE.Box3 pushed into world colliders
+// Vehicles the player can take. These deliberately do *not* get a hardBox: the
+// driving controller owns their collision box, because it has to move with them.
+const driveables = [];
 
 function soft(x, z, r){ softColliders.push({ x, z, r }); }
 function hard(cx, cz, w, d, h = 2, cy = null){
@@ -416,7 +421,7 @@ function bicycle(scene, x, z, ry){
 }
 
 // ------------------------------------------------------------------- vehicles
-function jeep(scene, x, z, ry){
+function jeep(scene, x, z, ry, { drive = false, label = 'jeep', id = null } = {}){
   const y = terrainHeight(x, z);
   const g = new THREE.Group();
   // body tub
@@ -437,11 +442,27 @@ function jeep(scene, x, z, ry){
     l.rotation.z = Math.PI / 2;
     l.position.set(1.95, 1.16, dz); g.add(l);
   });
-  // windshield, folded up
-  const ws = new THREE.Mesh(new THREE.PlaneGeometry(1.42, 0.62), M.glassDark);
+  // Windshield, folded up. Glass rather than the dark panel the rest of the
+  // Hill's windows use: from the driver's seat that panel is forty centimetres
+  // from your face and fills most of the screen, which is what "I get in and
+  // cannot see anything" looks like.
+  const ws = new THREE.Mesh(new THREE.PlaneGeometry(1.42, 0.62), M.windscreen);
   ws.position.set(0.72, 1.42, 0);
   ws.rotation.set(0, Math.PI / 2, -0.22); g.add(ws);
-  const wsFrame = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.7, 1.5), M.oliveDark);
+  // A frame, not a slab. This was one solid 0.7 x 1.5 m box: from the seat it
+  // is seventy centimetres from your eyes and blacks out most of the screen,
+  // which is only visible once somebody sits in the thing.
+  const wsFrame = new THREE.Group();
+  const railGeo = new THREE.BoxGeometry(0.06, 0.07, 1.5);
+  const postGeo = new THREE.BoxGeometry(0.06, 0.7, 0.07);
+  for(const dy of [0.315, -0.315]){
+    const rail = new THREE.Mesh(railGeo, M.oliveDark);
+    rail.position.y = dy; wsFrame.add(rail);
+  }
+  for(const dz of [0.715, -0.715]){
+    const post = new THREE.Mesh(postGeo, M.oliveDark);
+    post.position.z = dz; wsFrame.add(post);
+  }
   wsFrame.position.set(0.72, 1.42, 0); wsFrame.rotation.z = -0.22; g.add(wsFrame);
   // seats
   [-0.45, 0.45].forEach(dz => {
@@ -452,9 +473,13 @@ function jeep(scene, x, z, ry){
   });
   // wheels
   const wheelGeo = new THREE.CylinderGeometry(0.44, 0.44, 0.26, 12);
+  const wheels = [];
   [[1.15, 0.86], [1.15, -0.86], [-1.15, 0.86], [-1.15, -0.86]].forEach(([dx, dz]) => {
     const w = new THREE.Mesh(wheelGeo, M.rubber);
     w.rotation.x = Math.PI / 2;
+    // Stood upright by an x-rotation, so its own roll axis is y.
+    w.userData.spinAxis = 'y';
+    wheels.push(w);
     w.position.set(dx, 0.44, dz); g.add(w);
     const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.28, 8), M.oliveDark);
     hub.rotation.x = Math.PI / 2;
@@ -473,8 +498,24 @@ function jeep(scene, x, z, ry){
   g.rotation.y = ry;
   g.traverse(o => { if(o.isMesh){ o.castShadow = true; o.receiveShadow = true; } });
   scene.add(g);
+  if(drive){
+    // The jeep's body is built along +x, so its long axis is x and the driver
+    // sits on the left of the tub, facing the way the body points.
+    driveables.push({
+      group: g, wheels, label, id,
+      halfWidth: 0.95, halfLength: 1.95, height: 1.9,
+      // Seat given in the driving wrapper's frame (see driving.js): the jeep's
+      // own +x becomes -z there, so its left-hand seat lands on +x.
+      seat: { x: 0.45, y: 1.62, z: -0.05 }, bodyYaw: Math.PI / 2,
+      // Behind the windscreen, not out on the bonnet: the jeep is short, and the
+      // default arm's-length offset puts the wheel past the glass.
+      wheelAt: { x: 0.45, y: 1.24, z: -0.5 },
+    });
+    return g;
+  }
   hard(x, z, Math.abs(Math.cos(ry)) * 4.0 + Math.abs(Math.sin(ry)) * 2.0,
        Math.abs(Math.sin(ry)) * 4.0 + Math.abs(Math.cos(ry)) * 2.0, 1.7);
+  return g;
 }
 function stakeTruck(scene, x, z, ry){
   const y = terrainHeight(x, z);
@@ -595,6 +636,7 @@ function pondReeds(scene, cx, cz, radius){
 export function buildProps(scene){
   softColliders.length = 0;
   hardBoxes.length = 0;
+  driveables.length = 0;
 
   techAreaWire(scene);
   waterTower(scene, -78, -46);
@@ -627,11 +669,14 @@ export function buildProps(scene){
   duckboard(scene, -22, 8.5, 14, 0);
   duckboard(scene, 61, -6, 12, Math.PI / 2);
 
-  // Motor pool and parked vehicles.
-  jeep(scene, -12, 17.4, 0.12);
-  jeep(scene, 26, 17.2, -0.08);
-  jeep(scene, 6, 3.4, Math.PI + 0.1);
-  jeep(scene, -37, 6, Math.PI / 2);
+  // Motor pool and parked vehicles. Four of the five are driveable — the Hill
+  // is six hundred metres end to end and everybody who worked there complained
+  // about the walking. The fifth stays parked so the motor pool still reads as
+  // a motor pool rather than an empty lot.
+  jeep(scene, -12, 17.4, 0.12, { drive: true, id: 'JEEP_POOL_A', label: 'jeep' });
+  jeep(scene, 26, 17.2, -0.08, { drive: true, id: 'JEEP_POOL_B', label: 'jeep' });
+  jeep(scene, 6, 3.4, Math.PI + 0.1, { drive: true, id: 'JEEP_TECH', label: 'jeep' });
+  jeep(scene, -37, 6, Math.PI / 2, { drive: true, id: 'JEEP_WEST', label: 'jeep' });
   jeep(scene, 17, 44, 0.02);
   stakeTruck(scene, -30, 16.5, 0.05);
   stakeTruck(scene, 42, 33, Math.PI / 2 + 0.1);
@@ -653,5 +698,5 @@ export function buildProps(scene){
   sled(scene, 5.5, -15.4, 0.7);
   pondReeds(scene, 0, -8, 7.2);
 
-  return { soft: softColliders.slice(), hard: hardBoxes.slice() };
+  return { soft: softColliders.slice(), hard: hardBoxes.slice(), driveables: driveables.slice() };
 }

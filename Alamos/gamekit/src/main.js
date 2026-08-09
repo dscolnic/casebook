@@ -8,7 +8,7 @@
 import theme from '@theme/theme.js';
 import * as world from '../engine/core/world.js';
 import { initPlayer, updatePlayer, camera, controls, getPosition, teleport, isLocked,
-         setGround, setBounds } from '../engine/core/player.js';
+         setGround, setBounds, moveState } from '../engine/core/player.js';
 import { updateInteractions, getCurrentTarget } from '../engine/core/interactions.js';
 import { initCrowd, updateCrowd, getNPCs } from '../engine/people/crowd.js';
 import {
@@ -20,6 +20,7 @@ import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug } from '../engine/core/app.js';
+import { createDriving } from '../engine/world/driving.js';
 
 const canvas = document.getElementById('canvas');
 const promptEl = document.getElementById('prompt');
@@ -130,6 +131,20 @@ const interiors = createInteriors({
   },
 });
 
+// ------------------------------------------------------------- the vehicles
+// The parked trucks are driveable. `props.js` registered them; this is the
+// controller, and it needs the world's own arrays so a moving vehicle collides
+// with the same boxes the player does.
+const driving = createDriving({
+  camera,
+  colliders: world.colliders,
+  softColliders: world.softColliders,
+  groundHeight: world.groundHeight,
+  bounds: theme.site?.terrain?.playerLimit ?? 105,
+  input: () => moveState,
+  player: { teleport, getPosition },
+});
+
 const COPY = theme.content.COPY ?? {};
 const activate = makeActivate({
   board: () => {
@@ -143,6 +158,7 @@ const activate = makeActivate({
   door: (t) => { if(!interiors.enter(t.id)) openVisit(t.id); },
   case: (t) => openVisit(t.id),
   roomexit: () => interiors.exit(),
+  vehicle: (t) => driving.enter(t.vehicle),
   npc: (t) => {
     // A person stop asks the same science question a building would; anyone
     // else just talks. openPersonVisit decides which, and returns quietly when
@@ -215,6 +231,9 @@ document.getElementById('statsOverlay').addEventListener('click', (e) => {
 window.addEventListener('keydown', (e) => {
   if(e.code === 'KeyE'){
     if(overlay.classList.contains('show')) return;
+    // Getting out is the same key that got you in. The raycast from a seat
+    // rarely finds anything, so this cannot go through the interactables.
+    if(driving.active){ driving.exit(); return; }
     activate(getCurrentTarget());
   }
   if(e.code === 'Escape'){
@@ -239,9 +258,15 @@ function frame(now){
   const delta = Math.min(0.1, (now - last) / 1000);
   last = now;
 
-  updatePlayer(delta);
-  if(isLocked) updateInteractions(promptEl);
-  else promptEl.classList.add('hidden');
+  // Two things must never write the camera position in the same frame. While
+  // the player is in a vehicle, the vehicle owns it.
+  if(driving.active) driving.update(delta);
+  else updatePlayer(delta);
+  if(isLocked && !driving.active) updateInteractions(promptEl);
+  else if(driving.active){
+    promptEl.textContent = 'W/S drive · A/D steer · Shift faster · E — get out';
+    promptEl.classList.remove('hidden');
+  } else promptEl.classList.add('hidden');
 
   world.updateWorldAnimation?.(now / 1000);
   updateCrowd(delta, now / 1000);
@@ -274,7 +299,7 @@ if(import.meta.env?.DEV){
   // the raycast, so getCurrentTarget is null there and every interaction looks
   // broken whether it is or not.
   exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition,
-                       updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget,
+                       updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving,
                        interiors });
   console.log(
     `%c${theme.title}%c — theme "${theme.id}", ${theme.content.MISSIONS.length} missions, `

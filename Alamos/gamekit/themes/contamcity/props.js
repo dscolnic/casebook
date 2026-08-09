@@ -14,6 +14,7 @@ import * as THREE from 'three';
 import {
   tank, pipeRun, crateStack, vehicle, fenceRun, displayBoard, post, box, cyl, MATERIALS,
 } from '../../engine/world/kit.js';
+import { driveable } from '../../engine/world/driving.js';
 
 /** What each area's display shows, and the tint that identifies it at range. */
 const READOUTS = {
@@ -36,6 +37,23 @@ export function decorate(scene, ctx){
   const { groundHeight, colliders, softColliders, interactables, lightPanels, areaScreens } = ctx;
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
+  /**
+   * A parked vehicle the player can take. `vehicle()` hands back its group and
+   * its wheels along with the collision box; `driveable()` does the rest.
+   */
+  const park = (x, z, opts = {}) => {
+    const box = vehicle(scene, x, z, y(x, z), opts);
+    return driveable(scene, box.group, {
+      id: opts.id, label: opts.label ?? 'vehicle',
+      halfWidth: 1.25, halfLength: 2.9, height: 3.0,
+      // In the cab, on the left, looking out over the bonnet. Seated behind the
+      // load instead — which is what a positive z put you — the whole vehicle
+      // is in front of you and you cannot see where you are going.
+      seat: { x: 0.52, y: 2.18, z: box.cabZ },
+      wheels: box.wheels, topSpeed: 12,
+      colliders, interactables,
+    });
+  };
 
   // ---------------------------------------------------------- area readouts
   // One beside each area entrance, offset to the side so it never stands in the
@@ -84,9 +102,19 @@ export function decorate(scene, ctx){
   colliders.push(fenceRun(scene, { x0: -30, z0: 78, x1: 30, z1: 78, y: yardY, height: 2.4 }));
   colliders.push(fenceRun(scene, { x0: -30, z0: 78, x1: -30, z1: 104, y: yardY, height: 2.4 }));
   colliders.push(fenceRun(scene, { x0: 30, z0: 78, x1: 30, z1: 104, y: yardY, height: 2.4 }));
-  // Parked parallel to the fence, never across the gate.
-  colliders.push(vehicle(scene, -20, 98, yardY, { facing: Math.PI / 2, colour: 0xb33a2c }));
-  colliders.push(vehicle(scene, 20, 98, yardY, { facing: Math.PI / 2, colour: 0xd8b13a, box: false }));
+  // Parked parallel to the fence, never across the gate — and driveable, which
+  // is why they are registered rather than pushed straight into `colliders`.
+  // Riverton is two hundred metres across and the clock is the whole game.
+  park(-20, 98, { facing: Math.PI / 2, colour: 0xb33a2c, label: 'response truck', id: 'VEH_YARD_A' });
+  park(20, 98, { facing: Math.PI / 2, colour: 0xd8b13a, box: false, label: 'utility pickup', id: 'VEH_YARD_B' });
+
+  // Three more along the avenue, so there is nearly always one within a short
+  // walk of wherever the mission has left you. All parked with the street —
+  // never across it — and none within ten metres of the spawn at (0, 36) or of
+  // a doorway, which is the prop mistake that welds a player in place.
+  park(-11, 30, { facing: 0, colour: 0x39607a, box: false, label: 'city sedan', id: 'VEH_AVE_A' });
+  park(12, -6, { facing: Math.PI, colour: 0x5b6f52, label: 'sampling van', id: 'VEH_AVE_B' });
+  park(-13, 62, { facing: 0, colour: 0x7b5f3a, box: false, label: 'works pickup', id: 'VEH_AVE_C' });
   soft(crateStack(scene, -12, 100, yardY, { rows: 2, colour: 0x8c7a4e }));
   soft(crateStack(scene, 12, 100, yardY, { rows: 1, colour: 0x6f7a52 }));
 
