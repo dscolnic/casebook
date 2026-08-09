@@ -3,8 +3,22 @@
 // A Diagnosis question asks the player to find the explanation that fits the
 // *whole* panel of readings rather than the loudest one. That is unreadable as
 // prose: it needs the traces, the limit line and the quiet zones on screen at
-// once. These three primitives cover every instrument the chemistry book asks
-// for — a trace over time, a separation trace with peaks, and a mass balance.
+// once. The first three primitives cover the chemistry book's instruments — a
+// trace over time, a separation trace with peaks, and a mass balance.
+//
+// The rest were added when every other question format was still a block of
+// text with buttons under it. They are the faces those formats deserve:
+//
+//   readout        the number you just produced, on an instrument face
+//   gauge          a banded dial; gaugeRow puts two or three side by side
+//   estimateScale  your estimate against the true value on a log axis
+//   timeline       an ordered sequence along an arrow
+//   matchDiagram   two columns joined by lines, right joins and wrong ones
+//   waveform       a repeating monitor trace — a machine face, not a chart
+//
+// All of them return the same self-contained SVG string, so anything that can
+// print HTML can print an instrument: the question panel, the verdict card,
+// and (via a canvas) the screens on the machines in a room.
 //
 // Rules these follow, and why (they are not stylistic):
 //
@@ -214,6 +228,227 @@ export function bars(spec, { w = 560, h = 210 } = {}){
   return svg(body, w, h, spec.caption);
 }
 
+/**
+ * A big instrument readout: the number the player just produced, in the units
+ * it is in. Used live while a Ballpark estimate is being assembled.
+ *
+ * It deliberately shows no target and no scale. The moment a target appears the
+ * question stops being an estimate and becomes a game of nudging a needle until
+ * it turns green.
+ */
+export function readout(spec, { w = 560, h = 108 } = {}){
+  const value = String(spec.value ?? '—');
+  const units = spec.units ? ` ${spec.units}` : '';
+  // The digits shrink as they lengthen, so "1.2" and "4.06e-3 mol" both sit on
+  // one line inside the same panel.
+  const size = value.length > 9 ? 30 : value.length > 6 ? 38 : 46;
+  const body =
+    `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="10" fill="#14181c" stroke="#2b3238"/>` +
+    `<text x="18" y="26" font-size="11" fill="#7f9aa8" font-weight="700" letter-spacing="1.4">${esc(spec.label || 'ESTIMATE')}</text>` +
+    `<text x="18" y="${h - 26}" font-size="${size}" fill="${spec.dim ? '#5f7280' : '#67e0a3'}" font-weight="800" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">${esc(value + units)}</text>` +
+    (spec.note ? `<text x="${w - 18}" y="${h - 22}" text-anchor="end" font-size="11" fill="#7f9aa8">${esc(spec.note)}</text>` : '');
+  return svg(body, w, h, spec.caption);
+}
+
+/**
+ * A dial with banded zones. One pointer, one scale, bands behind it — the
+ * shape every pressure, temperature and flow instrument in these settings
+ * actually has.
+ *
+ * Bands carry a status, so they are named as well as coloured, and the value
+ * is printed under the dial. Nothing here depends on reading a hue.
+ */
+export function gauge(spec, { w = 260, h = 168 } = {}){
+  const lo = spec.min ?? 0, hi = spec.max ?? 100;
+  const cx = w / 2, cy = h - 44, r = Math.min(w, h * 1.5) / 2 - 30;
+  // A 240° sweep, opening downward: the usual instrument face, and it leaves
+  // room under the pivot for the value without overlapping the arc.
+  const A0 = Math.PI * 0.86, A1 = Math.PI * 2.14;
+  const ang = (v) => A0 + ((clampN(v, lo, hi) - lo) / (hi - lo || 1)) * (A1 - A0);
+  const pt = (a, rad) => [round(cx + Math.cos(a) * rad), round(cy + Math.sin(a) * rad)];
+  const arc = (from, to, rad, colour, width) => {
+    const [x0, y0] = pt(ang(from), rad), [x1, y1] = pt(ang(to), rad);
+    const large = ang(to) - ang(from) > Math.PI ? 1 : 0;
+    return `<path d="M${x0},${y0} A${rad},${rad} 0 ${large} 1 ${x1},${y1}" fill="none" stroke="${colour}" stroke-width="${width}" stroke-linecap="butt"/>`;
+  };
+  let body = arc(lo, hi, r, GRID, 12);
+  for(const b of spec.bands ?? []){
+    const st = STATUS[b.status] ?? STATUS.normal;
+    body += arc(b.from, b.to, r, st.colour, 12);
+  }
+  for(let i = 0; i <= 4; i++){
+    const v = lo + (i / 4) * (hi - lo);
+    const [x0, y0] = pt(ang(v), r - 9), [x1, y1] = pt(ang(v), r - 15);
+    const [tx, ty] = pt(ang(v), r - 27);
+    body += `<line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" stroke="${MUTED}" stroke-width="1.5"/>`
+          + `<text x="${tx}" y="${ty + 4}" text-anchor="middle" font-size="10" fill="${MUTED}">${round(v)}</text>`;
+  }
+  if(Number.isFinite(spec.value)){
+    const [nx, ny] = pt(ang(spec.value), r - 20);
+    body += `<line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>`
+          + `<circle cx="${cx}" cy="${cy}" r="5" fill="${INK}"/>`;
+  }
+  const st = spec.status ? STATUS[spec.status] : null;
+  body += `<text x="${cx}" y="22" text-anchor="middle" font-size="11" fill="${MUTED}" font-weight="700">${esc(spec.label || '')}</text>`
+        + `<text x="${cx}" y="${h - 18}" text-anchor="middle" font-size="15" fill="${INK}" font-weight="800">${esc(spec.display ?? `${round(spec.value)}${spec.units ? ' ' + spec.units : ''}`)}</text>`
+        + (st ? `<text x="${cx}" y="${h - 4}" text-anchor="middle" font-size="10" fill="${st.colour}" font-weight="700">${st.glyph} ${st.word}</text>` : '');
+  return svg(body, w, h, spec.caption);
+}
+
+/**
+ * An order-of-magnitude scale: your estimate against the true value, on a log
+ * axis, with the accepted band drawn.
+ *
+ * This is the verdict for a Ballpark, and it is a picture rather than a
+ * sentence because "you were out by a factor of thirty" is a *distance*. Told
+ * in prose it reads the same as being out by a factor of three.
+ */
+export function estimateScale(spec, { w = 560, h = 150 } = {}){
+  const vals = [spec.yours, spec.target].filter(v => Number.isFinite(v) && v > 0);
+  if(!vals.length) return '';
+  const lo10 = Math.floor(Math.log10(Math.min(...vals))) - 1;
+  const hi10 = Math.ceil(Math.log10(Math.max(...vals))) + 1;
+  const pad = { l: 26, r: 26, t: 54, b: 40 };
+  const iw = w - pad.l - pad.r, axisY = h - pad.b;
+  const sx = (v) => pad.l + ((Math.log10(v) - lo10) / (hi10 - lo10 || 1)) * iw;
+  let body = '';
+  for(let d = lo10; d <= hi10; d++){
+    const x = sx(Math.pow(10, d));
+    body += `<line x1="${round(x)}" y1="${pad.t}" x2="${round(x)}" y2="${axisY}" stroke="${GRID}" stroke-width="1"/>`
+          + `<text x="${round(x)}" y="${axisY + 16}" text-anchor="middle" font-size="10" fill="${MUTED}">10<tspan font-size="7" dy="-4">${d}</tspan></text>`;
+  }
+  body += `<line x1="${pad.l}" y1="${axisY}" x2="${pad.l + iw}" y2="${axisY}" stroke="${MUTED}" stroke-width="1"/>`;
+  if(Number.isFinite(spec.tolerance) && spec.tolerance > 0 && Number.isFinite(spec.target)){
+    const bLo = Math.max(Math.pow(10, lo10), spec.target - spec.tolerance);
+    const bHi = spec.target + spec.tolerance;
+    body += `<rect x="${round(sx(bLo))}" y="${pad.t}" width="${round(Math.max(3, sx(bHi) - sx(bLo)))}" height="${round(axisY - pad.t)}" fill="${STATUS.normal.colour}" opacity="0.14"/>`;
+  }
+  const marker = (v, colour, label, above) => {
+    if(!Number.isFinite(v) || v <= 0) return '';
+    const x = round(sx(v)), y = above ? pad.t - 8 : axisY;
+    return `<line x1="${x}" y1="${pad.t}" x2="${x}" y2="${axisY}" stroke="${colour}" stroke-width="2.5"/>`
+      + `<circle cx="${x}" cy="${above ? pad.t : axisY}" r="5" fill="${colour}"/>`
+      + `<text x="${x}" y="${above ? pad.t - 12 : axisY + 32}" text-anchor="middle" font-size="11" fill="${colour}" font-weight="700">${esc(label)}</text>`;
+  };
+  body += marker(spec.target, STATUS.normal.colour, spec.targetLabel ?? 'true value', false);
+  body += marker(spec.yours, SERIES[1], spec.yoursLabel ?? 'your estimate', true);
+  if(Number.isFinite(spec.yours) && Number.isFinite(spec.target) && spec.yours > 0 && spec.target > 0){
+    const factor = spec.yours / spec.target;
+    const out = factor >= 1 ? factor : 1 / factor;
+    // `headline` exists because landing on the number is not the same as being
+    // right: a Ballpark is also graded on which quantities went into it, and a
+    // panel reading "on the money" above a rejected verdict is a contradiction.
+    const word = spec.headline ?? (out < 1.3 ? 'on the money'
+      : `out by a factor of ${out < 10 ? round(out) : Math.round(out)} — ${factor > 1 ? 'too high' : 'too low'}`);
+    body += `<text x="${w / 2}" y="20" text-anchor="middle" font-size="12" fill="${INK}" font-weight="700">${esc(word)}</text>`;
+  }
+  return svg(body, w, h, spec.caption ?? 'Estimate against the true value, on a log scale');
+}
+
+/**
+ * An ordered sequence as a strip along an arrow. Steps are numbered and the
+ * arrow gives the list a direction, which a bulleted list does not: the whole
+ * point of the format is that step two depends on step one having happened.
+ */
+export function timeline(spec, { w = 560 } = {}){
+  const steps = spec.steps ?? [];
+  if(!steps.length) return '';
+  const rowH = 44, h = 42 + steps.length * rowH;
+  const x = 26;
+  let body = `<line x1="${x}" y1="30" x2="${x}" y2="${28 + steps.length * rowH - 14}" stroke="${GRID}" stroke-width="3"/>`
+    + `<path d="M${x - 5},${28 + steps.length * rowH - 14} L${x + 5},${28 + steps.length * rowH - 14} L${x},${30 + steps.length * rowH - 4} Z" fill="${GRID}"/>`
+    + `<text x="${x + 16}" y="16" font-size="11" fill="${MUTED}" font-weight="700">${esc(spec.label || 'Earliest first')}</text>`;
+  steps.forEach((s, i) => {
+    const y = 34 + i * rowH;
+    const st = s.status ? STATUS[s.status] : null;
+    const colour = st ? st.colour : SERIES[0];
+    body += `<circle cx="${x}" cy="${y + 8}" r="11" fill="${colour}"/>`
+      + `<text x="${x}" y="${y + 12}" text-anchor="middle" font-size="11" fill="#fff" font-weight="800">${i + 1}</text>`
+      + `<text x="${x + 22}" y="${y + 6}" font-size="12" fill="${INK}" font-weight="600">${esc(clip(s.label, 72))}</text>`
+      + (s.note ? `<text x="${x + 22}" y="${y + 22}" font-size="10.5" fill="${MUTED}">${esc(clip(s.note, 86))}</text>` : '');
+  });
+  return svg(body, w, h, spec.caption);
+}
+
+/**
+ * Two columns joined by lines: which situation the player matched to which
+ * response, and which of those joins hold.
+ *
+ * A wrong Protocol used to be reported as a semicolon-separated string of eight
+ * clauses. Drawn, a crossed pair of lines is the mistake, visible at a glance.
+ */
+export function matchDiagram(spec, { w = 560 } = {}){
+  const left = spec.left ?? [], right = spec.right ?? [];
+  const rowH = 46, h = 30 + Math.max(left.length, right.length) * rowH;
+  const lx = 8, rx = w - 8, colW = Math.min(232, w / 2 - 40);
+  const ly = (i) => 26 + i * rowH + 16;
+  let body = '';
+  const box = (x, y, text, tag, anchor) =>
+    `<rect x="${x}" y="${y - 15}" width="${colW}" height="34" rx="7" fill="#fff" stroke="${GRID}"/>`
+    + `<text x="${x + 9}" y="${y - 1}" font-size="10" fill="${MUTED}" font-weight="800">${esc(tag)}</text>`
+    + `<text x="${x + 9}" y="${y + 12}" font-size="10.5" fill="${INK}">${esc(clip(text, 38))}</text>`;
+  left.forEach((t, i) => { body += box(lx, ly(i), t, String(i + 1) + '.', 'start'); });
+  right.forEach((t, i) => { body += box(rx - colW, ly(i), t, String.fromCharCode(65 + i) + '.', 'end'); });
+  for(const link of spec.links ?? []){
+    if(link.from == null || link.to == null || link.to < 0) continue;
+    const y0 = ly(link.from), y1 = ly(link.to);
+    const x0 = lx + colW, x1 = rx - colW;
+    const colour = link.ok === false ? STATUS.alarm.colour : link.ok === true ? STATUS.normal.colour : SERIES[0];
+    const mid = (x0 + x1) / 2;
+    body += `<path d="M${x0},${y0} C${mid},${y0} ${mid},${y1} ${x1},${y1}" fill="none" stroke="${colour}" stroke-width="2"${link.ok === false ? ' stroke-dasharray="5 4"' : ''}/>`
+      + `<circle cx="${x0}" cy="${y0}" r="3.5" fill="${colour}"/><circle cx="${x1}" cy="${y1}" r="3.5" fill="${colour}"/>`;
+  }
+  return svg(body, w, h, spec.caption);
+}
+
+/**
+ * A repeating monitor trace. Not a data chart — a machine face, for the screens
+ * in a room and for questions whose subject is "what is this monitor showing".
+ *
+ * `kind` picks the shape: a heart trace, a breathing trace, or a plain
+ * oscillation. `rate` is beats or breaths across the window.
+ */
+export function waveform(spec, { w = 560, h = 140 } = {}){
+  const kind = spec.kind ?? 'ecg';
+  const rate = Math.max(1, spec.rate ?? (kind === 'resp' ? 3 : 6));
+  const mid = h / 2 + 6, amp = (h - 52) / 2;
+  const st = spec.status ? STATUS[spec.status] : null;
+  const colour = st ? st.colour : STATUS.normal.colour;
+  const N = 480;
+  let d = '';
+  for(let i = 0; i <= N; i++){
+    const x = 10 + (i / N) * (w - 20);
+    const p = (i / N) * rate % 1;               // phase within one beat
+    let y = 0;
+    if(kind === 'ecg'){
+      // P wave, QRS spike, T wave — the shape people recognise, not a sine.
+      y = 0.12 * bump(p, 0.16, 0.045)
+        - 0.22 * bump(p, 0.30, 0.014)
+        + 1.00 * bump(p, 0.34, 0.012)
+        - 0.30 * bump(p, 0.38, 0.018)
+        + 0.26 * bump(p, 0.58, 0.05);
+    } else if(kind === 'resp'){
+      y = Math.sin(p * Math.PI * 2) * 0.85;
+    } else {
+      y = Math.sin(p * Math.PI * 2);
+    }
+    d += `${i ? 'L' : 'M'}${round(x)},${round(mid - y * amp)}`;
+  }
+  const body =
+    `<rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="10" fill="#0f1418" stroke="#242c31"/>` +
+    `<path d="${d}" fill="none" stroke="${colour}" stroke-width="2" stroke-linejoin="round"/>` +
+    `<text x="16" y="22" font-size="11" fill="#7f9aa8" font-weight="700" letter-spacing="1.2">${esc(spec.label || kind.toUpperCase())}</text>` +
+    (spec.display ? `<text x="${w - 16}" y="24" text-anchor="end" font-size="16" fill="${colour}" font-weight="800">${esc(spec.display)}</text>` : '') +
+    (st ? `<text x="${w - 16}" y="${h - 12}" text-anchor="end" font-size="10" fill="${colour}" font-weight="700">${st.glyph} ${st.word}</text>` : '');
+  return svg(body, w, h, spec.caption);
+}
+function bump(p, at, width){
+  const d = p - at;
+  return Math.exp(-(d * d) / (2 * width * width));
+}
+function clampN(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+function clip(s, n){ const t = String(s ?? ''); return t.length > n ? t.slice(0, n - 1) + '…' : t; }
+
 function svg(body, w, h, caption){
   return `<div class="figure"><svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:${w}px;margin:0 auto" role="img" `
     + `aria-label="${esc(caption || 'instrument panel')}" preserveAspectRatio="xMidYMid meet">${body}</svg>`
@@ -223,10 +458,24 @@ function svg(body, w, h, caption){
 /** Dispatch on `kind`, so a pack only ever supplies data. */
 export function renderFigure(fig){
   if(!fig) return '';
+  if(Array.isArray(fig)) return fig.map(renderFigure).join('');
   if(fig.kind === 'line') return lineChart(fig);
   if(fig.kind === 'peaks') return peaks(fig);
   if(fig.kind === 'bars') return bars(fig);
+  if(fig.kind === 'gauge') return gauge(fig);
+  if(fig.kind === 'gauges') return gaugeRow(fig.gauges ?? []);
+  if(fig.kind === 'readout') return readout(fig);
+  if(fig.kind === 'scale') return estimateScale(fig);
+  if(fig.kind === 'timeline') return timeline(fig);
+  if(fig.kind === 'match') return matchDiagram(fig);
+  if(fig.kind === 'waveform') return waveform(fig);
   return '';
+}
+
+/** Two or three dials side by side — an instrument bay rather than one dial. */
+export function gaugeRow(specs){
+  if(!specs.length) return '';
+  return `<div class="gaugeRow">${specs.map(s => gauge(s, { w: 240, h: 168 })).join('')}</div>`;
 }
 
 /**
@@ -242,11 +491,36 @@ export function readingsPanel(readings = []){
       + `<div class="readingZone">${esc(r.zone)}</div>`
       + `<div class="readingLabel">${esc(r.label)}</div>`
       + `<div class="readingValue">${esc(r.value)}</div>`
+      + readingBar(r)
       + `<div class="readingStatus" style="color:${st.colour}"><span aria-hidden="true">${st.glyph}</span> ${st.word}</div>`
       + (r.note ? `<div class="readingNote">${esc(r.note)}</div>` : '')
       + `</div>`;
   };
   return `<div class="readingPanel">${readings.map(row).join('')}</div>`;
+}
+
+/**
+ * A one-line scale under a reading: where this value sits, and where the
+ * normal band is. Drawn only when the pack supplies `min`/`max` (and ideally
+ * `normal: [lo, hi]`), because a bar without a scale is decoration.
+ *
+ * The value itself is parsed out of the display string when it is not given
+ * separately, so `value: "38.9 °C"` still places a marker. It is a strict
+ * leading-number parse: "trace" and "not detected" produce no bar rather than
+ * a marker at zero, which would read as a measurement that was made.
+ */
+function readingBar(r){
+  const min = Number(r.min), max = Number(r.max);
+  if(!Number.isFinite(min) || !Number.isFinite(max) || max <= min) return '';
+  const n = Number.isFinite(Number(r.n)) ? Number(r.n)
+    : Number((String(r.value ?? '').match(/^-?\d+(\.\d+)?/) || [])[0]);
+  if(!Number.isFinite(n)) return '';
+  const pos = (v) => `${round(((clampN(v, min, max) - min) / (max - min)) * 100)}%`;
+  const band = Array.isArray(r.normal) && r.normal.length === 2
+    ? `<span class="readingBandNormal" style="left:${pos(r.normal[0])};right:calc(100% - ${pos(r.normal[1])})"></span>` : '';
+  const st = STATUS[r.status] ?? STATUS.normal;
+  return `<div class="readingBar" role="presentation">${band}`
+    + `<span class="readingBarMark" style="left:${pos(n)};background:${st.colour}"></span></div>`;
 }
 
 /** The table behind the picture. Required, not optional — see the header. */
