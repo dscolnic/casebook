@@ -165,3 +165,58 @@ What is still likely:
   person from that area rather than enter the building. A theme with no roster
   entry for an area makes a third of its campaign unreachable. `smokeCampaign`
   checks this.
+
+---
+
+# Runbook: changing something in all three games
+
+Most changes now land once, in `gamekit/engine/`, and all three games get them.
+The exceptions are the files the migration deliberately left per-game.
+
+## Shared — edit once
+
+`engine/core/*` (gameState, simulation, questionUI, dashboard, save, constants,
+time, utils, terminology, interactions, player, personQuiz, map, figures),
+`engine/world/*`, `engine/people/*`.
+
+After editing, build all three. They import the engine across a package
+boundary, so a mistake shows up as a build failure in the other two rather than
+in the one you were working on:
+
+```sh
+cd gamekit && THEME=contamcity npx vite build
+cd ../project-y-fps && npx vite build
+cd ../Hospital/hospital-fps && npx vite build
+```
+
+## Per game — edit three times, or it ships in one
+
+| File | Why it is not shared |
+| --- | --- |
+| `src/main.js` | the wiring: which key does what, which panel opens |
+| `index.html` | each game's own DOM and styling |
+| `world.js`, props, `plan.js`/`site.js` | the place |
+| `curriculum, missions, divisions, leaders, historicCharacters` | the content |
+
+**A feature added to one `main.js` reaches one game.** The passage quiz shipped
+working in the chemistry game and invisible in the other two because of exactly
+this. If a change adds an interaction, a panel or a key binding, grep all three
+`main.js` files before calling it done.
+
+## Adding a question format
+
+1. Renderer and binder in `engine/core/questionUI.js`, dispatched on `ch.type`.
+2. Teach `validateContent.mjs` and `smokeCampaign.mjs` what "gradeable" means
+   for it, or a broken one passes both checks.
+3. If it draws anything, use `engine/core/figures.js` — three SVG primitives
+   (line, peaks, bars) that take data, never geometry.
+4. Shuffle the choices at render. Authored packs put the correct answer first;
+   a player who notices stops reading.
+
+## Adding a person-facing feature
+
+The roster shape is `{ id, name, role, division, color, bio }`. `division` ties
+someone to an area and is what makes them a valid person stop.
+`engine/core/personQuiz.js` is the worked example of generating content from
+bios rather than authoring per person — it scales to all three casts and cannot
+drift out of sync with the text.

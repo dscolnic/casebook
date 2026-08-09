@@ -241,6 +241,22 @@ Verify a world migration by eye, not by assertion: fixed viewpoints screenshotte
 before and after, plus `audit.js`. Every rule in this file is a graphics bug,
 and none of them would fail a headless check.
 
+## Where the world migration actually stands
+
+- `kit.js` now has the period vocabulary: gable roofs, board-and-batten,
+  stucco, wood, tar paper, plinths, steps, corner boards, framed lit windows.
+  `building()` takes `roof`, `siding`, `base`, `stoop`, `corners` and
+  `windows: 'band' | 'punched'`, so a period building is a data row.
+- `project-y-fps/site.js` describes all 19 buildings and Ashley Pond as data.
+  **Nothing imports it.** `@world` still points at `src/world.js` and the game
+  runs exactly as it always did.
+- Before flipping project-y over: each of the 14 filler buildings wants a
+  side-by-side screenshot against its original (the 5 divisions got one, the
+  fillers did not), and the roads, boardwalks, power poles, fences, vehicles and
+  central board still have no representation in the data.
+- Hospital cannot start: `engine/world/interiorBuilding.js` does not exist.
+  `interiorSite.js` has the parts but not the contract exports.
+
 ## Known work still to do
 
 - `engine/world/interiorBuilding.js` does not exist. `interiorSite.js` has the

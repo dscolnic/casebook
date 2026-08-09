@@ -1,21 +1,7 @@
 # gamekit
 
-**Bringing a new design document? Read `NEW_GAME.md` — it has the exact
-sentence to say and the steps.**
-
-One engine, many games. Read `THEME_CONTRACT.md` first — it is short, and it
-documents the interface plus the five graphics rules that each cost real time
-to learn twice.
-
-```
-engine/core     loop, player, interactions, state, save, simulation, question UI
-engine/people   rig + crowd; only clothing changes per theme
-engine/world    interiorSite, outdoorSite, materials, kit
-engine/dev      audit (runtime), validateContent (content), shots (screenshots)
-themes/         one directory per game
-```
-
-## Run it
+One engine, three games. **Bringing a new design document? Read `NEW_GAME.md`.**
+**Touching world code? Read `THEME_CONTRACT.md` first.**
 
 ```sh
 npm install
@@ -23,17 +9,46 @@ THEME=contamcity npm run dev
 ```
 
 `THEME` picks the theme; `vite.config.js` turns it into the `@theme` and
-`@world` aliases the engine imports through. `themes/contamcity` (The
-Contaminated City — college chemistry in a river city, outdoor) is the worked
-example.
+`@world` aliases the engine imports through. The other two games run from their
+own directories (`../project-y-fps`, `../Hospital/hospital-fps`) and import this
+engine across the package boundary.
+
+## Layout
+
+```
+engine/core     loop, player, interactions, state, save, simulation, dashboard,
+                questionUI, figures, map, personQuiz, terminology
+engine/people   rig (bodies, faces, gait) + crowd (placement, walking, plates)
+engine/world    outdoorSite (ground/sky/planting), outdoorTown (assembles a site),
+                interiorSite, kit (generic + period building vocabulary), materials
+engine/dev      audit, validateContent, smokeCampaign, themeResolver
+themes/<name>/  theme.js, site.js or plan.js, outfits.js, props.js, content/
+src/main.js     the entry point — NOT shared, see below
+index.html      the DOM the HUD, question modal and verdict card write into
+```
+
+## How a theme reaches the engine
+
+`engine/core/*` imports its content under fixed names — `./curriculum.js`,
+`./divisions.js`, `./missions.js`, `./leaders.js`, `./historicCharacters.js`,
+`./world.js`. Each is a thin re-export that reads `@theme`, an alias for
+`themes/<name>/`; `@world` is picked from the theme's `site.kind`. So the engine
+never names a theme and a theme never edits the engine.
+
+The two older games do the same from their own directories: each has a
+`theme.js` adapter presenting its existing content in the shape the engine
+reads, and `src/*.js` logic files that are one-line re-exports of
+`../../gamekit/engine/core/*`. Their `vite.config.js` needs
+`resolve.dedupe: ['three']` and `server.fs.allow: ['..']`, or three.js loads
+twice and dev cannot serve the engine.
+
+**`main.js` is per game.** It is the wiring, not the engine: a feature added
+there reaches one game only. This has already shipped a bug.
 
 ## Import content from a design document
 
-The design books have a regular structure, so content is generated rather than
-retyped:
-
-There are two book shapes and one importer each. Run both with `--dry`; the one
-that reports missions and activities is the right one.
+Two book shapes, one importer each. Run both with `--dry`; the one that reports
+missions and activities is the right one.
 
 ```sh
 # MISSION n / Activity n.m / SELECTED FORMAT
@@ -46,47 +61,31 @@ node tools/import-designbook.mjs book.docx <theme> --map tools/my-shift-map.json
 
 Which mission belongs to which area of study is a design decision, so the map is
 supplied explicitly; the mission-book importer refuses to write without one.
+`tools/docx.mjs` is the dependency-free reader (shells out to `unzip`).
 
-It emits `content/missions.js`, `content/curriculum.js` and an
-`import-report.json` listing anything it could not place. On the hospital design
-book it extracts all 15 sessions and 45 activities — 28 multiple-choice with the
-correct option matched, 17 step-ordering with the steps in order — plus scene
-text, objectives, prompts, per-distractor rebuttals, takeaways and teacher
-prompts. `tools/hospital-shift-map.json` is a worked example of a map file.
+Hand-written alongside the generated content: `content/groups.js` (the areas),
+`content/roster.js` (the cast — books name functions, not people),
+`content/ballpark-specs.js` (numeric specs; prose relationships carry no
+arithmetic), and optionally `content/diagnosis-packs.js`.
 
-Nothing is guessed: the shift/case/format comes from the document's own
-`SHIFT n • CASE m • FORMAT` marker lines, and unmatched sections are reported
-rather than invented.
-
-## Start a new game
+## Checks
 
 ```sh
-cp -r themes/_template themes/airport
-node tools/import-designbook.mjs airport-book.docx airport --map tools/airport-map.json
-node engine/dev/validateContent.mjs airport     # content agrees with itself
-node engine/dev/smokeCampaign.mjs  airport      # every stop is reachable
-THEME=airport npm run dev
+node engine/dev/validateContent.mjs <theme>   # content agrees with itself
+node engine/dev/smokeCampaign.mjs  <theme>    # every stop is reachable, headless
 ```
 
-Group ids must agree across three files — `content/groups.js`, the `group:`
-fields in `plan.js`, and the map you passed to the importer. The validator
-catches every mismatch, so let it, rather than checking by hand.
-
 Both exit non-zero, so either can gate a build, and they catch different things.
-`smokeCampaign` plays all 15 missions headlessly through the real engine — it
-exists because the first new theme had entirely valid content and two thirds of
-its campaign unreachable. `validateContent` catches the class of bug that
-actually shipped: a mission pointing at a renamed group, a lesson
-index that does not exist, a group with no room to reach it, and a roster
-truncated below the number of characters the missions name.
+`smokeCampaign` plays all 15 missions through the real engine — it exists
+because a theme once had entirely valid content and two thirds of its campaign
+unreachable. In the browser, `reportAudit()` from `engine/dev/audit.js` before
+judging how a scene looks.
 
-In the browser, call `reportAudit(scene, renderer, { people })` from
-`engine/dev/audit.js` and fix what it prints before judging how a theme looks.
+**None of them catch a wrong-looking scene.** Screenshot it. See CLAUDE.md.
 
 ## Provenance
 
 Extracted from two working games — `../project-y-fps` (Los Alamos, outdoor) and
-`../Hospital/hospital-fps` (interior). Both still run from their own forked
-copies and are untouched; migrate them when convenient. Files named `_ref_*.js`
-under `engine/world` and `engine/people` are the originals kept for reference
-while the generalisation is finished.
+`../Hospital/hospital-fps` (interior). Both now run on this engine's logic; both
+still own their worlds. Files named `_ref_*.js` are the originals, kept while
+the world generalisation is finished.
