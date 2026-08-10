@@ -5,6 +5,10 @@ shared engine they run on. Each is the same loop in a different setting:
 15 missions × 3 stops, walk to a place, answer a science question, hand off.
 No combat, no weapons.
 
+**`GAMES.md` is the inventory** — all seven games, what each one is, where its
+content and its place live, and what is still unfinished. Read it first if you
+are picking this up cold.
+
 **Read `gamekit/THEME_CONTRACT.md` before touching world code.** It is short and
 every rule in it cost hours to learn.
 
@@ -297,10 +301,22 @@ wrote, at load, for every theme — so a re-import cannot lose it.
    instrument-panel rules, so anything the shared question UI draws had no
    styling there at all. Both now `@import` the engine sheet at the top of their
    fork — a `<link>` cannot do it, the path leaves Vite's root and 404s.
-16. **`look.far` has to clear the sky dome outdoors.** At an interior's 160 the
+16. **Nobody may be *placed* without asking whether the spot is free.** A person
+   dropped inside a collider is there permanently: every walker refuses to step
+   into a blocked point, and from inside one every neighbouring point is blocked
+   too, so they cannot walk out. Three of the hospital's four spawn paths had no
+   check at all. `settle()` (all three crowds) rings outward to the nearest
+   clear spot, and each walker also rescues anybody already inside something.
+17. **The physical sky has a radiance floor.** With the sun below the horizon and
+   both scattering terms at zero it still renders ~0.03 linear, which tone
+   mapping lifts to flat grey. No uniform reaches it. A nocturnal theme sets
+   `atmosphere.nightSky` and the dome is hidden below deep night. Related:
+   `nightTurbidity` / `nightRayleigh` and `look.nightLift` exist because the
+   engine's defaults are tuned for a *daytime* game's dusk.
+18. **`look.far` has to clear the sky dome outdoors.** At an interior's 160 the
    dome is clipped away and the sky renders black in broad daylight, with no
    error anywhere and the horizon ranks gone. 900 is the working value.
-17. **Grep for the previous game's nouns before assuming a module is generic.**
+19. **Grep for the previous game's nouns before assuming a module is generic.**
    `simulation.js` held one game's cast, `constants.js` one game's save key,
    `player.js` one game's field of view and floor height.
 
@@ -327,6 +343,47 @@ Corollaries:
 - A dynamic `import()` from the console may resolve to a **second copy** of the
   module graph with its own state. Compare
   `getState() === window.gamekit.getState()` before trusting a console test.
+
+## Editions, audience and copy
+
+- **A theme declares who it is for.** `audience: { grade }` in the manifest;
+  `engine/core/typography.js` scales the root font size from it — 1.18× at
+  primary, 1.10× middle, 1.04× high school, 1× undergraduate. `audience.textScale`
+  overrides. Applied from `engine/core/theme.js`, once, for every game. The same
+  game can therefore ship at several reading levels: a new edition is a manifest
+  line plus a differently-written book.
+- **Measure the reading level, do not judge it.** The hospital's opening card was
+  written at Flesch–Kincaid 7.7 for an audience whose lessons sit at 2.7.
+  Hospital ≈ 2.6; the college games run 10–14.
+- **The opening card is ONE paragraph of situation.** No mechanics (order,
+  clock, prices), no scope disclaimer, no controls note — all of it was removed
+  from every game. And never tell the player what they *do not* do: "you do not
+  touch the vehicle", "you do not prescribe" both read as apologies for the game.
+- **The verdict says `Correct` / `Incorrect` first.** "Evidence accepted" is the
+  response's language, one inference away from what the player asked.
+- **The plan card note is "Take them in whatever order."** Nothing else.
+- **A scene is ~90–100 words.** That is what the first two games carry, and it is
+  the whole teaching surface before a question: situation, mechanism, what is
+  uncertain — never the answer. Three books arrived at 10–36 words a scene and
+  read as instructions; all 135 were rewritten. Measure before believing.
+- **`theme.stopNoun`** — what a non-person stop is called. Mission Control has no
+  rooms and no doors, and "a room" sent players hunting for one.
+
+## Finding things and people
+
+- **Anybody the day still wants has a cone over their head**, several at once,
+  drawn with `depthTest: false` so it shows through walls. The only thing in
+  these games allowed to draw over everything. In `engine/people/crowd.js` and
+  both forked `npcs.js`.
+- **Any open call is marked** — case beacon in a room, and in Mission Control a
+  beacon over the console (there is no room to put one in).
+- **The map is drawn at the size it will be seen at.** `renderMap({ maxW, maxH })`
+  fits the box and turns the plan sideways when that shows it larger; it used to
+  be 720 px wide regardless and then scaled down by CSS, which made a long site's
+  labels two pixels high. Interior rooms are drawn on their own side of the
+  corridor — drawing every room full-width put opposite rooms on top of each
+  other — and a name that will not fit inside its room goes outside with a leader
+  line rather than being truncated.
 
 ## Content and safety
 
