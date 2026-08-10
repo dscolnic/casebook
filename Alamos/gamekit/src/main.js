@@ -260,8 +260,8 @@ document.getElementById('startBtn').addEventListener('click', () => {
   // The day is planned before it is walked: the calls, where they are, and how
   // far apart. Nothing moves until the player accepts it — and grabbing the
   // pointer while that card is up only takes it away again.
-  if(!getState()?.dayStarted) day.showPlan();
-  else controls.lock();
+  // Always: a plan for a fresh day, a briefing for one already running.
+  day.showPlan();
 });
 // ---- map and settings
 const sheet = (id, on) => {

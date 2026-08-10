@@ -507,8 +507,10 @@ window.addEventListener('keydown', (e)=>{
  */
 function leaveTitleCard(){
   showBlocker(false);
-  if(!getState()?.dayStarted) day.showPlan();
-  else controls.lock();
+  // Always: a plan for a fresh day, a briefing for one already running. The
+  // games auto-save, so most sessions resume a half-finished day, and skipping
+  // the card dropped the player into the world with no map and no list.
+  day.showPlan();
 }
 document.getElementById('enterTownBtn').onclick=leaveTitleCard;
 document.getElementById('blocker').onclick=(e)=>{ if(e.target===blocker) leaveTitleCard(); };

@@ -211,8 +211,25 @@ export function renderMap(){
     taken.push({ x0: x, y0: y, x1: x + w, y1: y + h });
     plots.push({ bl, x, y, w, h, isTarget, area });
   }
+  // The people first, so their names win the space: a building label can move,
+  // and the name of somebody you have to find is the point of the map.
+  const peopleLabels = [];
+  for(const wanted of wantedPeople){
+    const mx = px(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
+    const mz = py(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
+    const colour = def(wanted.division)?.color ?? '#8a6410';
+    g += heading(mx, mz, yawOf(wanted.facing ?? 0), 15, colour)
+       + `<circle cx="${mx}" cy="${mz}" r="7" fill="${colour}" stroke="#fff" stroke-width="2.5"/>`
+       + `<circle cx="${mx}" cy="${mz}" r="12" fill="none" stroke="${colour}" stroke-width="1.5" opacity="0.55"/>`;
+    taken.push({ x0: mx - 13, y0: mz - 13, x1: mx + 13, y1: mz + 13 });
+    peopleLabels.push([mx, mz, wanted.char?.name ?? 'your contact']);
+  }
+
   // Pass two: the labels, the ones that matter first.
   plots.sort((a, b) => (b.isTarget - a.isTarget) || (b.w * b.h - a.w * a.h));
+  for(const [mx, mz, name] of peopleLabels){
+    g += label(mx, mz, 13, 13, name, { weight: 800 });
+  }
   for(const p of plots){
     if(p.isTarget){
       g += label(p.x + p.w / 2, p.y - p.h / 2 - 2, p.w / 2, 4, '▼ open',
@@ -225,17 +242,6 @@ export function renderMap(){
   // The person the mission wants, where they are standing right now, and which
   // way they are facing — they walk, so a static dot would be a lie by the time
   // the player got there.
-  for(const wanted of wantedPeople){
-    const mx = px(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
-    const mz = py(wanted.pos?.x ?? 0, wanted.pos?.z ?? 0);
-    const colour = def(wanted.division)?.color ?? '#8a6410';
-    g += heading(mx, mz, yawOf(wanted.facing ?? 0), 15, colour)
-       + `<circle cx="${mx}" cy="${mz}" r="7" fill="${colour}" stroke="#fff" stroke-width="2.5"/>`
-       + `<circle cx="${mx}" cy="${mz}" r="12" fill="none" stroke="${colour}" stroke-width="1.5" opacity="0.55"/>`
-       + `<text x="${mx}" y="${mz - 17}" text-anchor="middle" font-size="11" font-weight="800" `
-       + `fill="#2b2a27">${esc(wanted.char?.name ?? 'your contact')}</text>`;
-  }
-
   // The player, with the direction they are actually looking.
   const p = getPosition();
   const pxx = px(p.x, p.z), pz = py(p.x, p.z);

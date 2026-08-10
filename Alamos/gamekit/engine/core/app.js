@@ -12,7 +12,7 @@
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
 import { getState, getNextMissionStop, startDay, restartDay, tickDay } from './gameState.js';
-import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission } from './simulation.js';
+import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops } from './simulation.js';
 import { esc } from './utils.js';
 
 /**
@@ -221,27 +221,33 @@ export function createDay({
     return m.stops.map(s => positionOf?.(s.group) ?? null);
   };
 
-  function planHTML(){
+  function planHTML(resuming = false){
     const state = getState();
     const m = getCurrentMission(state);
     if(!m) return '';
-    const here = spawn?.() ?? { x: 0, z: 0 };
+    const done = new Set(completedMissionStops(state));
+    // No distances. The map shows where these are and how far apart they look;
+    // printing metres beside each one turns choosing a route into arithmetic,
+    // and reads as though the game is telling you how long each will take.
     const rows = m.stops.map((s, i) => {
-      const p = positionOf?.(s.group);
-      const away = p ? Math.round(Math.hypot(p.x - here.x, p.z - here.z)) : null;
       const person = isPersonStopForIdx(state, i);
       const d = def?.(s.group);
-      return `<tr><td class="planNum">${i + 1}</td>`
+      const made = done.has(i);
+      return `<tr class="${made ? 'planDone' : ''}"><td class="planNum">${made ? '✓' : i + 1}</td>`
         + `<td><b>${esc(d?.name ?? s.group)}</b><div class="planTask">${esc(s.task ?? '')}</div></td>`
-        + `<td class="planKind">${person ? 'a person' : 'a room'}</td>`
-        + `<td class="planDist">${away == null ? '—' : `${away} m`}</td></tr>`;
+        + `<td class="planKind">${made ? 'made' : person ? 'a person' : 'a room'}</td></tr>`;
     }).join('');
+    // The map first: it is what the player is choosing an order from, and a
+    // plan drawn to the site's own aspect can be seventeen hundred pixels tall,
+    // so under a table in a 70vh card it is a map nobody ever sees.
     return `<div class="planCard">`
       + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`
-      + `<table class="planTable"><thead><tr><th></th><th>Call</th><th></th><th>from here</th></tr></thead>`
-      + `<tbody>${rows}</tbody></table>`
-      + `<div class="planNote">Take them in whatever order you like. The clock runs from the moment you start — walking, driving, reading and answering all cost the same time.</div>`
       + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
+      + `<table class="planTable"><thead><tr><th></th><th>Call</th><th></th></tr></thead>`
+      + `<tbody>${rows}</tbody></table>`
+      + `<div class="planNote">${resuming
+          ? `${openStopIndices(state).length} still open, in whatever order you like. The clock is paused while you read this.`
+          : 'Take them in whatever order you like. The clock runs from the moment you start — walking and driving spend it fastest, reading a panel spends it at a quarter rate.'}</div>`
       + `</div>`;
   }
 
@@ -249,15 +255,31 @@ export function createDay({
     get planOpen(){ return planOpen; },
     // The entry point's own end-of-day card uses the same overlay this does.
     ui,
-    /** Put the plan up. The countdown does not move until `start()`. */
+    /**
+     * Put the plan up. The countdown does not move while it is open.
+     *
+     * It shows for a day already in progress too, as a briefing rather than a
+     * plan — the games auto-save, so most sessions after the first resume a
+     * half-finished day, and skipping the card meant being dropped into the
+     * town with no map and no list of what was still owed.
+     */
     showPlan(){
       const state = getState();
       const m = getCurrentMission(state);
       if(!m) return;
+      const resuming = !!state.dayStarted && !state.dayEnded;
       planOpen = true;
-      ui.open(`Day ${state.week} — ${m.title}`, planHTML(), [
-        { id: 'planStart', label: `Start the day`, primary: true, onClick: () => this.start() },
+      ui.open(`Day ${state.week} — ${m.title}`, planHTML(resuming), [
+        resuming
+          ? { id: 'planStart', label: 'Back to it', primary: true, onClick: () => this.resume() }
+          : { id: 'planStart', label: 'Start the day', primary: true, onClick: () => this.start() },
       ]);
+    },
+    /** Close a briefing without touching the clock. */
+    resume(){
+      planOpen = false;
+      ui.close();
+      onDayStart?.(getState()?.dayBudget ?? 0);
     },
     /** Accept the plan: budget the day from the route and start the clock. */
     start(){

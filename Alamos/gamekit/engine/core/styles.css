@@ -370,9 +370,15 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .planNum{font:800 .9rem Inter,system-ui;color:#8a8172;width:24px}
 .planTask{font-size:.76rem;color:var(--muted);margin-top:2px}
 .planKind{font-size:.74rem;color:var(--muted);white-space:nowrap}
-.planDist{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-weight:700}
 .planNote{font:500 .78rem/1.5 Inter,system-ui;color:#4e4a43}
-.planMap{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.planMap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#efeade;
+  display:flex;justify-content:center;max-height:min(46vh,340px)}
+/* The site plan is drawn to the site's own aspect — a long hospital corridor
+   comes out 1700px tall. Constrain by height and let the width follow, or the
+   map sits far below the fold of the card it is supposed to inform. */
+.planMap svg{height:min(46vh,340px);width:auto;max-width:100%;display:block}
+.planMap .mapWrap{max-width:100%;display:flex;flex-direction:column;align-items:center}
+.planMap .mapLegend{display:none}
 
 /* The day's countdown. The text can only move in whole minutes; the bar under
    it moves every frame, which is what makes the clock read as running rather
@@ -382,3 +388,5 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
   background:var(--blue);transition:background .3s ease}
 #hudClock.low ~ .hudBar .hudBarFill{background:var(--gold)}
 #hudClock.urgent ~ .hudBar .hudBarFill{background:var(--red)}
+.planTable tr.planDone td{opacity:.55}
+.planTable tr.planDone .planNum{color:#3d6f52}
