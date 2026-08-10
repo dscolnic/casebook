@@ -355,42 +355,86 @@ export function buildInteriorBuilding(scene, spec){
   sheet.position.set(0, 1.95 - SH / 2 - PH / 2 - 0.09, z1 - P.wall / 2 - 0.06);
   sheet.rotation.y = Math.PI;
 
-  // ---------------------------------------------------------- case stand
-  // Off to one side of the room's centre line, so it does not stand between
-  // the player and the screen they are meant to read first.
-  // Close enough to the centre line to be in frame when you walk in — at
-  // 2.6 m off centre it sat outside a 66° field and nobody ever saw it — and
-  // far enough across not to stand between the player and the screen.
+  // ---------------------------------------------------------- the case table
+  // This used to be a podium: a chromed post with a clipboard tilted on top of
+  // it, which is a lectern, and nobody in a laboratory or a wartime office ever
+  // read a case off a lectern. It is a work table now, with the papers left on
+  // it the way papers are left — the case sheet square-ish in the middle, the
+  // rest fanned around it at whatever angle they landed.
+  //
+  // Off to one side of the room's centre line so it does not stand between the
+  // player and the board they are meant to read first, but close enough to be
+  // in frame from the doorway: at 2.6 m out it sat outside a 66° field and
+  // nobody ever saw it.
   const standX = 2.3, standZ = 0.4;
-  const standMat = () => isChalk
-    ? new THREE.MeshStandardMaterial({ color: 0x6b4f30, roughness: 0.86, metalness: 0.0 })
+  const TABLE_H = 0.76, TABLE_W = 1.15, TABLE_D = 0.78;
+  const timberTable = isChalk;
+  const legMat = () => timberTable
+    ? new THREE.MeshStandardMaterial({ color: 0x6b4f30, roughness: 0.88 })
     : new THREE.MeshStandardMaterial({ color: 0x8d9299, roughness: 0.5, metalness: 0.3 });
-  const foot = add(new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.26, 0.04, 14), standMat()));
-  foot.position.set(standX, 0.02, standZ);
-  const post = add(new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.034, 1.05, 10), standMat()));
-  post.position.set(standX, 0.53, standZ);
+  const topMat = timberTable
+    ? new THREE.MeshStandardMaterial({ map: grainTexture('#8a6a44'), roughness: 0.86 })
+    : new THREE.MeshStandardMaterial({ color: 0xcfd3d6, roughness: 0.5, metalness: 0.1 });
+
+  const tableTop = add(new THREE.Mesh(new THREE.BoxGeometry(TABLE_W, 0.05, TABLE_D), topMat));
+  tableTop.position.set(standX, TABLE_H, standZ);
+  tableTop.castShadow = true;
+  tableTop.receiveShadow = true;
+  const apron = add(new THREE.Mesh(new THREE.BoxGeometry(TABLE_W - 0.12, 0.07, TABLE_D - 0.12), legMat()));
+  apron.position.set(standX, TABLE_H - 0.07, standZ);
+  for(const [lx, lz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]){
+    const leg = add(new THREE.Mesh(new THREE.BoxGeometry(0.055, TABLE_H - 0.05, 0.055), legMat()));
+    leg.position.set(standX + lx * (TABLE_W / 2 - 0.07), (TABLE_H - 0.05) / 2, standZ + lz * (TABLE_D / 2 - 0.07));
+    leg.castShadow = true;
+  }
+
+  // The case itself: one sheet, face up, a little askew.
   const chart = sheet_({
     accent: '#' + accent.getHexString(), tag: spec.code ?? '', title: 'Notes',
     heading: spec.name ?? '', body: spec.standLine ?? 'Waiting for a call on this one.',
     footer: 'Press E to take the case',
   }, { w: 384, h: 512 });
-  const board = add(new THREE.Mesh(
-    new THREE.BoxGeometry(0.42, 0.56, 0.02),
-    [null, null, null, null,
-     new THREE.MeshStandardMaterial({ map: chart.texture, roughness: 0.7, envMapIntensity: 0.35 }),
-     null].map(m => m ?? new THREE.MeshStandardMaterial({ color: 0x8d9299, roughness: 0.55 }))));
-  board.position.set(standX, 1.2, standZ);
-  board.rotation.set(-0.3, Math.PI, 0);      // tilted back, facing the doorway
-  board.castShadow = true;
+  const caseSheet = add(new THREE.Mesh(
+    new THREE.PlaneGeometry(0.3, 0.4),
+    new THREE.MeshStandardMaterial({ map: chart.texture, roughness: 0.82, envMapIntensity: 0.3 })));
+  caseSheet.rotation.set(-Math.PI / 2, 0, 0.12);
+  caseSheet.position.set(standX - 0.05, TABLE_H + 0.028, standZ + 0.02);
+
+  // The rest of the desk: loose paper, a folder, a pencil. Deterministic, so a
+  // room looks the same every time it is entered — a table that reshuffles
+  // itself is a table the player notices for the wrong reason.
+  const paperMat = mat(`int-paper-${timberTable}`, () => new THREE.MeshStandardMaterial({
+    color: timberTable ? 0xece2c8 : 0xf6f4ee, roughness: 0.94, envMapIntensity: 0.25 }));
+  const LOOSE = [
+    [-0.34, -0.14, 0.55, 0.20, 0.26],
+    [ 0.30, -0.18, -0.42, 0.19, 0.25],
+    [ 0.36,  0.16, 0.22, 0.21, 0.27],
+    [-0.28,  0.20, -0.85, 0.18, 0.24],
+    [ 0.02, -0.26, 1.25, 0.20, 0.26],
+  ];
+  LOOSE.forEach(([dx, dz, rot, pw, ph], i) => {
+    const sheet = add(new THREE.Mesh(new THREE.PlaneGeometry(pw, ph), paperMat));
+    sheet.rotation.set(-Math.PI / 2, 0, rot);
+    sheet.position.set(standX + dx, TABLE_H + 0.026 + i * 0.0015, standZ + dz);
+  });
+  const folder = add(new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.012, 0.34),
+    new THREE.MeshStandardMaterial({ color: timberTable ? 0xa8763f : 0x9aa3ad, roughness: 0.9 })));
+  folder.rotation.y = -0.34;
+  folder.position.set(standX + 0.36, TABLE_H + 0.031, standZ - 0.02);
+  const pencil = add(new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.17, 6),
+    new THREE.MeshStandardMaterial({ color: 0xd8b13a, roughness: 0.7 })));
+  pencil.rotation.set(Math.PI / 2, 0, 0.5);
+  pencil.position.set(standX - 0.18, TABLE_H + 0.034, standZ - 0.26);
+
   const standHit = add(new THREE.Mesh(
-    new THREE.BoxGeometry(0.8, 1.5, 0.8), new THREE.MeshBasicMaterial({ visible: false })));
-  standHit.position.set(standX, 0.9, standZ);
+    new THREE.BoxGeometry(TABLE_W + 0.3, 1.5, TABLE_D + 0.3), new THREE.MeshBasicMaterial({ visible: false })));
+  standHit.position.set(standX, 0.85, standZ);
   interactables.push({
     mesh: standHit, type: 'case', id: spec.id,
     prompt: `E — Take the case in ${spec.name}`,
   });
-  // The stand is the only thing in the room that starts a question, and from
-  // the doorway it looks like the rest of the paper in the room. Mark it.
+  // The table is the only thing in the room that starts a question, and from
+  // the doorway it is a table with paper on it. Mark it.
   const beacon = addCaseBeacon(group, {
     x: standX, z: standZ, colour: accent.getHex(),
     label: 'Take the case · E', height: 2.25,
