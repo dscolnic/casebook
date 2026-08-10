@@ -22,6 +22,11 @@ import { COPY } from './content/copy.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
+  // Who this edition is for. `engine/core/typography.js` reads it and scales the
+  // root font size, so the same game can ship at several reading levels with
+  // type sized for each. Undergraduate: no scaling.
+  audience: { grade: 13 },
+
   id: 'bring_them_home',
   title: 'Bring Them Home',
   subtitle: 'Flight Director · Lunar Return Mission',
@@ -32,6 +37,11 @@ export default {
   // A theme whose place already exists may declare its own instead, with
   // `world: 'themes/<name>/world.js'` inside plan.js. Deep Watch does.
   site,
+
+  // There are no rooms to walk into here and no doors to find: the whole game
+  // is one floor, and a call is a console on it. The plan card asks the theme
+  // what to call a non-person stop.
+  stopNoun: 'a console',
 
   // Where the player starts the day, and which way they face. The day's budget
   // is measured from here, not from wherever the player is standing.

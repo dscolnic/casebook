@@ -1358,7 +1358,7 @@ export function openVisit(id, isRetry=false){
   }
   // A person stop is answered by finding the person, not by entering the room.
   if(isPersonStopForIdx(state, stop.index)){
-    renderMissionLock(id, `This call is with a person, not a room — find the ${def(stop.group).name} name on the map and go to them.`);
+    renderMissionLock(id, `This call is with a person — find the ${def(stop.group).name} name on the map and go to them.`);
     return;
   }
   // Any call still open today can be taken, in whatever order the player

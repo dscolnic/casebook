@@ -23,6 +23,11 @@ import { INTERIORS } from './interiors.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
+  // Who this edition is for. `engine/core/typography.js` reads it and scales the
+  // root font size, so the same game can ship at several reading levels with
+  // type sized for each. Undergraduate: no scaling.
+  audience: { grade: 13 },
+
   id: 'planetary_defense',
   title: 'Planetary Defense',
   subtitle: 'Campaign Director · International NEO Response',

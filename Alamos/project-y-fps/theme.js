@@ -20,6 +20,11 @@ import { site } from './site.js';
 
 
 export default {
+  // Who this edition is for. `engine/core/typography.js` reads it and scales the
+  // root font size, so the same game can ship at several reading levels with
+  // type sized for each. Undergraduate: no scaling.
+  audience: { grade: 11 },
+
   id: 'projecty',
   title: 'Project Y',
   subtitle: 'Los Alamos · 1943–45',

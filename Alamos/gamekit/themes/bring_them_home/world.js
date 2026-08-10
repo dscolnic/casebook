@@ -20,8 +20,15 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { site, CONSOLES, BOARDS } from './site.js';
+import { openCaseGroups } from '../../engine/core/app.js';
+// The beacon's label billboards toward whoever is looking at it.
+import { camera } from '../../engine/core/player.js';
 import { instrumentScreen } from '../../engine/world/screens.js';
 import { dampEnvironment } from '../../engine/world/materials.js';
+// The same marker the other games put over an open case stand. Here it hangs
+// over the console: with no doors and no rooms, an open call had nothing to
+// announce it from across the floor except a ring on the carpet.
+import { addCaseBeacon } from '../../engine/world/caseBeacon.js';
 
 export let scene = null;
 export let renderer = null;
@@ -40,6 +47,8 @@ let peopleStations = [];
 const R = site.room;
 const boardScreens = [];
 const consoleScreens = [];
+/** groupId -> the beacon over that console, lit while its call is open. */
+const beacons = new Map();
 
 /**
  * The floor is a staircase, and this is the only description of it.
@@ -238,6 +247,14 @@ function buildConsole(spec, def){
     softColliders.push({ x: cx, z: z + 1.25, r: 0.42 });
   }
 
+  const beacon = addCaseBeacon(scene, {
+    x: spec.x, z: z + 1.9, y: y + 0.02,
+    colour: def?.color ?? 0xf0b429,
+    label: spec.name, height: 2.15,
+  });
+  beacon.setActive(false);
+  beacons.set(spec.group, beacon);
+
   // The stop. `entry` is where the player ends up standing: in the aisle behind
   // the desk, facing the boards.
   stopMeshes.set(spec.group, {
@@ -406,6 +423,11 @@ export function updateWorldFromState(state, nextStopId = null, pct = () => 0){
     });
   }
 
+  // Every console with a call still open is lit, not just the next one: the day
+  // is taken in any order.
+  const open = openCaseGroups();
+  for(const [id, b] of beacons) b.setActive(open.has(id));
+
   const target = nextStopId ? stopMeshes.get(nextStopId) : null;
   if(target) setWaypointPosition(target.entry.x, target.entry.z);
   else if(waypointMesh) waypointMesh.visible = false;
@@ -430,7 +452,11 @@ export function getExtraSpots(){
   return out;
 }
 
+let lastAnim = 0;
 export function updateWorldAnimation(t){
+  const delta = lastAnim ? Math.min(0.1, t - lastAnim) : 0.016;
+  lastAnim = t;
+  for(const b of beacons.values()) b.update(delta, camera);
   if(waypointMesh?.visible){
     waypointMesh.userData.ring.rotation.z = t * 0.9;
     waypointMesh.position.y = groundHeight(waypointMesh.position.x, waypointMesh.position.z)

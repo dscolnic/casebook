@@ -235,7 +235,11 @@ export function createDay({
       const made = done.has(i);
       return `<tr class="${made ? 'planDone' : ''}"><td class="planNum">${made ? '✓' : i + 1}</td>`
         + `<td><b>${esc(d?.name ?? s.group)}</b><div class="planTask">${esc(s.task ?? '')}</div></td>`
-        + `<td class="planKind">${made ? 'made' : person ? 'a person' : 'a room'}</td></tr>`;
+        // What a non-person stop *is* depends on the game. In a town it is a
+        // room you walk into; in Mission Control it is a console on the floor
+        // you are already standing on, and calling that "a room" sent players
+        // looking for a door that does not exist.
+        + `<td class="planKind">${made ? 'made' : person ? 'a person' : (theme.stopNoun ?? 'a room')}</td></tr>`;
     }).join('');
     // The map first: it is what the player is choosing an order from, and a
     // plan drawn to the site's own aspect can be seventeen hundred pixels tall,
@@ -245,9 +249,12 @@ export function createDay({
       + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
       + `<table class="planTable"><thead><tr><th></th><th>Call</th><th></th></tr></thead>`
       + `<tbody>${rows}</tbody></table>`
+      // One line. The rest of what used to be here — how fast the clock runs
+      // while you walk, drive or read — is a rule the player learns by playing
+      // and read past by everyone else.
       + `<div class="planNote">${resuming
-          ? `${openStopIndices(state).length} still open, in whatever order you like. The clock is paused while you read this.`
-          : 'Take them in whatever order you like. The clock runs from the moment you start — walking and driving spend it fastest, reading a panel spends it at a quarter rate.'}</div>`
+          ? `${openStopIndices(state).length} still open. Take them in whatever order.`
+          : 'Take them in whatever order.'}</div>`
       + `</div>`;
   }
 

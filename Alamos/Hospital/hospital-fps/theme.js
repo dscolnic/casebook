@@ -19,6 +19,12 @@ import { LEADERS } from './src/leaders.js';
 
 
 export default {
+  // Who this edition is for. `engine/core/typography.js` scales the root font
+  // size from it, so the whole interface comes up larger for a nine-year-old
+  // than for an undergraduate reading the same layout. It is a property of the
+  // edition, not a setting the player should have to find.
+  audience: { grade: 4 },
+
   id: 'hospital',
   title: 'Hospital Heroes',
   subtitle: 'Junior Doctor · Children’s Hospital',

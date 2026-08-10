@@ -18,6 +18,11 @@ import { OUTFITS, roleToOutfit } from './outfits.js';
 import { INTERIORS } from './interiors.js';
 
 export default {
+  // Who this edition is for. `engine/core/typography.js` reads it and scales the
+  // root font size, so the same game can ship at several reading levels with
+  // type sized for each. Undergraduate: no scaling.
+  audience: { grade: 13 },
+
   id: 'deepwatch',
   title: 'Deep Watch',
   subtitle: 'Reasoning Under Pressure Beneath the Surface',

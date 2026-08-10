@@ -18,6 +18,22 @@ import { esc } from './utils.js';
 const PAD = 14;
 
 /**
+ * Black or white, whichever can be read on this fill.
+ *
+ * Relative luminance with the usual coefficients — the eye is far more
+ * sensitive to green than to blue, so a plain average picks the wrong ink on
+ * anything saturated.
+ */
+function readableInk(fill){
+  const m = /^#?([0-9a-f]{6})$/i.exec(String(fill).trim());
+  if(!m) return '#1c1b19';
+  const n = parseInt(m[1], 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(v => v / 255);
+  const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return lum > 0.55 ? '#1c1b19' : '#ffffff';
+}
+
+/**
  * A stubby arrow from a point, in a world yaw. Used for the player and for the
  * person they are looking for: a dot says where, an arrow says which way they
  * are about to walk, and on a map of a town that is the difference between
@@ -57,10 +73,14 @@ function bounds(site){
   }
   if(site.spawn){ xs.push(site.spawn.x); zs.push(site.spawn.z); }
   if(!xs.length) return { x0: -100, x1: 100, z0: -100, z1: 100 };
-  return {
-    x0: Math.min(...xs) - PAD, x1: Math.max(...xs) + PAD,
-    z0: Math.min(...zs) - PAD, z1: Math.max(...zs) + PAD,
-  };
+  // Padding in world units has to be a fraction of the world. A flat 14 metres
+  // is a sensible margin around a town three hundred metres across and a
+  // quarter of the drawing wasted on a ward fifty metres long.
+  const x0 = Math.min(...xs), x1 = Math.max(...xs);
+  const z0 = Math.min(...zs), z1 = Math.max(...zs);
+  const padX = Math.max(1.5, Math.min(PAD, (x1 - x0) * 0.05));
+  const padZ = Math.max(1.5, Math.min(PAD, (z1 - z0) * 0.05));
+  return { x0: x0 - padX, x1: x1 + padX, z0: z0 - padZ, z1: z1 + padZ };
 }
 
 /**
@@ -94,18 +114,25 @@ export function renderMap(opts = {}){
   // ratio (longer than 2.5× wide), which left a ridge 400 m long and 160 m wide
   // upright and therefore tiny. Now it is simply whichever way round shows the
   // place larger.
-  const fitUpright = Math.min(maxW / spanX, maxH / spanZ);
-  const fitSideways = Math.min(maxW / spanZ, maxH / spanX);
+  // An interior draws its room names outside the plan with leader lines, so the
+  // box has to leave room for two tiers of them on each side.
+  const labelGutter = site.plan ? 64 : 0;
+  const boxW = Math.max(120, maxW - (site.plan ? 40 : 0));
+  const boxH = Math.max(120, maxH - labelGutter);
+  const fitUpright = Math.min(boxW / spanX, boxH / spanZ);
+  const fitSideways = Math.min(boxW / spanZ, boxH / spanX);
   const sideways = fitSideways > fitUpright * 1.02;
   const scale = sideways ? fitSideways : fitUpright;
   const W = Math.round((sideways ? spanZ : spanX) * scale);
-  const H = Math.round((sideways ? spanX : spanZ) * scale);
+  const H = Math.round((sideways ? spanX : spanZ) * scale) + labelGutter;
   const sx = sideways ? (x, z) => ((z - b.z0) / spanZ) * W
                       : (x) => ((x - b.x0) / spanX) * W;
-  const sz = sideways ? (z, x) => ((x - b.x0) / spanX) * H
-                      : (z) => ((z - b.z0) / spanZ) * H;
+  const inner = H - labelGutter;
+  const top = labelGutter / 2;
+  const sz = sideways ? (z, x) => top + ((x - b.x0) / spanX) * inner
+                      : (z) => top + ((z - b.z0) / spanZ) * inner;
   const sw = (w) => (w / (sideways ? spanZ : spanX)) * W;
-  const sd = (d) => (d / (sideways ? spanX : spanZ)) * H;
+  const sd = (d) => (d / (sideways ? spanX : spanZ)) * inner;
   /** A world point, wherever the map decided to put it. */
   const px = (x, z) => (sideways ? sx(x, z) : sx(x));
   const py = (x, z) => (sideways ? sz(z, x) : sz(z));
@@ -181,23 +208,67 @@ export function renderMap(opts = {}){
     const area = r.group ? def(r.group) : null;
     const isTarget = r.group && targetGroups.has(r.group);
     const half = site.plan.halfWidth ?? 4;
-    const x = sideways ? sx(0, r.z0) : sx(-half);
-    const y = sideways ? sz(0, -half) : sz(r.z0);
-    const w = sideways ? sw(r.z1 - r.z0) : sw(half * 2);
-    const h = sideways ? sd(half * 2) : sd(r.z1 - r.z0);
+    // Rooms sit on a side of the corridor, and the map has to say so. Every
+    // room was drawn spanning the full width, so a room on the west and a room
+    // on the east covering the same stretch of corridor were painted on top of
+    // one another — two fills and two labels in the same rectangle, which is
+    // exactly as readable as it sounds. A plan with a spine is drawn as a plan.
+    const side = r.side === 'w' ? -1 : r.side === 'e' ? 1 : 0;
+    const x0 = side === 0 ? -half : side < 0 ? -half : 0;
+    const x1 = side === 0 ? half : side < 0 ? 0 : half;
+    const x = sideways ? sx(0, r.z0) : sx(x0);
+    const y = sideways ? sz(0, x0) : sz(r.z0);
+    const w = sideways ? sw(r.z1 - r.z0) : sw(x1 - x0);
+    const h = sideways ? sd(x1 - x0) : sd(r.z1 - r.z0);
+    const fill = area ? area.color : (r.colour ?? '#9a958a');
     g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" `
-       + `fill="${area ? area.color : (r.colour ?? '#9a958a')}" opacity="${area ? 0.9 : 0.4}" `
+       + `fill="${fill}" opacity="${area ? 0.9 : 0.4}" `
        + `stroke="${isTarget ? '#f2c14e' : 'rgba(0,0,0,.3)'}" stroke-width="${isTarget ? 3 : 1}"/>`;
-    // Sideways, a compartment is a narrow vertical band and ten names centred in
-    // ten of them land on the same line as one another. The label turns to run
-    // along the band instead, which is the only direction it fits.
     const cx = x + w / 2, cy = y + h / 2;
-    const label = esc(r.name ?? r.id);
-    g += sideways
-      ? `<text x="${cx}" y="${cy}" text-anchor="middle" font-size="10.5" fill="#1c1b19" `
-        + `font-weight="${isTarget ? 800 : 600}" transform="rotate(-90 ${cx} ${cy})">${label}</text>`
-      : `<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="11" fill="#1c1b19" `
-        + `font-weight="${isTarget ? 800 : 600}">${label}</text>`;
+    const ink = readableInk(fill);
+    const halo = ink === '#ffffff' ? 'rgba(0,0,0,.55)' : 'rgba(255,255,255,.75)';
+    const size = 10.5;
+    const name = String(r.name ?? r.id);
+
+    // A room name goes inside the room when it fits, and outside with a leader
+    // line when it does not — which is how a floor plan is drawn, and the only
+    // arrangement that does not either overflow into the neighbouring room or
+    // truncate the name to "Nutri…". Rotated-and-clipped was worse than both.
+    const along = sideways ? h : w;          // the direction the name would run
+    const across = sideways ? w : h;
+    const fitsRotated = sideways && textW(name, size) < along - 6 && across > size + 4;
+    const fitsFlat = !sideways && textW(name, size) < w - 6 && h > size + 4;
+
+    if(fitsRotated || fitsFlat){
+      const extra = fitsRotated ? `transform="rotate(-90 ${cx} ${cy})"` : '';
+      g += `<text x="${cx}" y="${cy + (fitsRotated ? 0 : 4)}" text-anchor="middle" `
+         + `font-size="${size}" font-weight="${isTarget ? 800 : 600}" stroke="${halo}" `
+         + `stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="${ink}" `
+         + `${extra}>${esc(name)}</text>`;
+      taken.push({ x0: cx - along / 2, x1: cx + along / 2, y0: cy - size, y1: cy + size });
+    } else {
+      // Outside, on the room's own side of the corridor: above for west, below
+      // for east, stepping further out until the slot is free. The leader line
+      // is what keeps the name attached to its room.
+      const tw = textW(name, size);
+      const up = sideways ? (side <= 0) : true;
+      let placed = null;
+      for(let tier = 0; tier < 4 && !placed; tier++){
+        const off = 10 + tier * (size + 4);
+        const ly = up ? y - off : y + h + off;
+        const box = { x0: cx - tw / 2, x1: cx + tw / 2, y0: ly - size, y1: ly + 3 };
+        if(!overlaps(box)){ placed = { ly, box }; }
+      }
+      if(placed){
+        taken.push(placed.box);
+        const edge = up ? y : y + h;
+        g += `<line x1="${cx}" y1="${edge}" x2="${cx}" y2="${placed.ly + (up ? 3 : -size)}" `
+           + `stroke="rgba(0,0,0,.35)" stroke-width="1"/>`
+           + `<text x="${cx}" y="${placed.ly}" text-anchor="middle" font-size="${size}" `
+           + `font-weight="${isTarget ? 800 : 600}" stroke="rgba(255,255,255,.8)" stroke-width="3" `
+           + `stroke-linejoin="round" paint-order="stroke" fill="#1c1b19">${esc(name)}</text>`;
+      }
+    }
     if(isTarget){
       g += sideways
         ? `<text x="${cx}" y="${y - 8}" text-anchor="middle" font-size="10" fill="#8a6410" `
