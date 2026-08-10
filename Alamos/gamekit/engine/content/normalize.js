@@ -47,6 +47,7 @@ export function normalizeContent(content = {}){
   const changes = [];
   const problems = [];
   const curriculum = content.CURRICULUM ?? {};
+  // Applied after the lessons are canonical, at the bottom of this function.
   const calcs = content.BALLPARK_CALCS ?? {};
   const packs = content.DIAGNOSIS_PACKS ?? {};
   const specs = content.BALLPARK_BY_TITLE ?? {};
@@ -126,6 +127,9 @@ export function normalizeContent(content = {}){
     }
   }
 
+  // ---- last: the shape of the days themselves
+  shapeMissions(content.MISSIONS ?? [], curriculum, changes);
+
   return { changes, problems };
 }
 
@@ -157,4 +161,112 @@ function applyPack(ch, pack){
   const answers = String(ch.answer ?? '').split(' + ').map(a => a.trim()).filter(Boolean);
   if(answers.length > 1) ch.correctChoices = answers;
   else ch.correctChoice = answers[0] ?? ch.answer;
+}
+
+/**
+ * The shape of a teaching day, applied to whatever the book wrote.
+ *
+ * Two things were wrong with the days as authored, and both are structural
+ * rather than editorial, so they are fixed here rather than in four books.
+ *
+ * ## Nobody should walk into the same room three times
+ *
+ * The design books write a day as one unit on one topic — "The Unknown
+ * Containers", "Breathing Room" — and an area is a building, so all three calls
+ * landed in the same building. Riverton and the hospital did it on 15 days out
+ * of 15. The fix keeps the unit intact: the *first* call on an area is at its
+ * room, and any repeat of that area the same day is a person stop, which is
+ * somebody standing somewhere else in the town. The lesson is unchanged; only
+ * where you answer it moves.
+ *
+ * ## A unit that closes is never asked about again
+ *
+ * That is the bigger problem. Blocked practice — all of one topic, then all of
+ * the next — is how these books are written and it is how people forget: the
+ * material is never retrieved once its unit ends, until the capstone fifteen
+ * days later. Spaced retrieval is the best-evidenced intervention in the
+ * literature, and the content for it already exists, so from the third day on
+ * every day carries one extra call that revisits an area taught earlier.
+ *
+ * A callback prefers a `— Review` variant of the lesson where the theme has one
+ * (the hospital has 105 of them, none of which were reachable), and otherwise
+ * re-asks the lesson itself, which is what spacing means.
+ *
+ * Deep Watch needs almost none of the first rule — it was authored interleaved
+ * — and Project Y needs none of it. Both still get the callbacks.
+ */
+export function shapeMissions(missions = [], curriculum = {}, changes = []){
+  if(!Array.isArray(missions) || !missions.length) return missions;
+  /** Lessons already taught, oldest first: [group, lessonIndex, title]. */
+  const taught = [];
+  const calledBack = new Set();
+
+  missions.forEach((mission, day) => {
+    if(!Array.isArray(mission.stops) || !mission.stops.length) return;
+    // Drop any callback a previous run added, so this is idempotent under HMR.
+    mission.stops = mission.stops.filter(s => !s.callback);
+
+    // ---- who is a person stop, decided here rather than by a campaign-wide
+    // "every third one" rule that knows nothing about the day it lands in.
+    //
+    // A repeat of an area has to be a person, or the day sends the player into
+    // the same room twice. Beyond that every day wants exactly one person stop:
+    // the rosters carry three-paragraph teaching bios and a quiz each, and a
+    // day with none never opens one. Leaving it to the old rule stacked the two
+    // and made 34 of Riverton's 58 calls a person hunt.
+    const seen = new Set();
+    for(const stop of mission.stops){
+      if(seen.has(stop.group)){
+        if(stop.person !== true){
+          stop.person = true;
+          changes.push(`day ${day + 1}: second call on ${stop.group} becomes a person stop`);
+        }
+      } else {
+        seen.add(stop.group);
+        stop.person = false;
+      }
+    }
+    if(!mission.stops.some(s => s.person)){
+      // The middle of the day, so it is neither the opening nor the close.
+      const at = Math.min(1, mission.stops.length - 1);
+      mission.stops[at].person = true;
+      changes.push(`day ${day + 1}: call ${at + 1} becomes the day's person stop`);
+    }
+
+    // ---- the callback, from the third day on
+    if(day >= 2){
+      // Oldest first, and something not already revisited if there is one —
+      // but with six areas and three in the day, the early days can run out of
+      // fresh material, and a second retrieval of the same lesson is worth more
+      // than no retrieval at all.
+      const candidate = taught.find(t => !calledBack.has(`${t.group}:${t.lesson}`) && !seen.has(t.group))
+                     ?? taught.find(t => !seen.has(t.group));
+      if(candidate){
+        calledBack.add(`${candidate.group}:${candidate.lesson}`);
+        const lessons = curriculum[candidate.group] ?? [];
+        const base = lessons[candidate.lesson];
+        // A review variant if the theme wrote one, the lesson itself otherwise.
+        const reviewAt = lessons.findIndex(l =>
+          typeof l?.title === 'string' && base?.title
+          && l.title.startsWith(base.title) && /review/i.test(l.title));
+        const lessonIdx = reviewAt >= 0 ? reviewAt : candidate.lesson;
+        mission.stops.push({
+          group: candidate.group,
+          lesson: lessonIdx,
+          task: `Second look — ${base?.title ?? 'earlier work'}`,
+          title: base?.title ?? '',
+          // A callback is a room: it is the day's other building, and the point
+          // of it is partly that the player goes somewhere else.
+          person: false,
+          callback: true,
+        });
+        changes.push(`day ${day + 1}: callback to ${candidate.group} lesson ${lessonIdx}`);
+      }
+    }
+
+    for(const stop of mission.stops){
+      if(!stop.callback) taught.push({ group: stop.group, lesson: stop.lesson });
+    }
+  });
+  return missions;
 }

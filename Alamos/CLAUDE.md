@@ -159,10 +159,34 @@ declared *above* that call or every frame throws `Cannot access 'day' before
 initialization`; and `state.timeHours` is now derived from the countdown for
 the sun angle only — nothing should add to it.
 
+## The shape of a teaching day
+
+`engine/content/normalize.js` `shapeMissions()` reshapes whatever the books
+wrote, at load, for every theme — so a re-import cannot lose it.
+
+- **Nobody walks into the same room twice in a day.** The design books write a
+  day as one unit on one topic and an area is a building, so Riverton and the
+  hospital sent the player to the same building three times, on 15 days out of
+  15. The unit is kept: the first call on an area is at its room, any repeat
+  that day is a person stop.
+- **Each day has exactly one person stop**, unless a repeat forces a second.
+  The old rule — every third stop campaign-wide — knew nothing about the day it
+  landed in, and stacked with the rule above it made 34 of Riverton's 58 calls
+  a person hunt.
+- **From day 3, every day carries a callback**: one extra call revisiting an
+  area taught earlier, oldest first. Blocked practice is how the books are
+  written and how people forget; this is the spaced retrieval that fixes it,
+  and it is why a day has a second building to walk to. A callback prefers a
+  `— Review` variant of the lesson where the theme has one — the hospital has
+  105 of them and none were reachable before this.
+- A stop's `person` and `callback` flags are authored data; `isPersonStopForIdx`
+  honours the flag and falls back to the campaign-wide rule for anything
+  unshaped.
+
 ## What a mission stop looks like now
 
-- Three stops per mission; **every third is a person stop** — find a named
-  person from that area instead of entering the building.
+- Three stops per mission plus a callback from day 3; **the day's person stop**
+  is found by walking to a named person instead of entering a building.
 - Answer formats: Protocol, Sequence, Ballpark, Science Tank, Diagnosis
   (instrument panel + candidates, draws a figure), TRIAGE, CASEBOOK, and CHOICE
   — one question, four candidates, and the rebuttals for the wrong ones.

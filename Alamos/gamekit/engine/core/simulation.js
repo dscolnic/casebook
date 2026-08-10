@@ -110,6 +110,13 @@ export function isPersonStop(state){
 }
 export function isPersonStopForIdx(state, idx){
   if(idx<0) return false;
+  // The day's own shape wins. `normalize.shapeMissions` marks the second call
+  // on an area as a person stop so nobody walks into the same room twice, and
+  // marks the first as explicitly not one — without that, the fallback below
+  // would still turn every third call in the campaign into a person hunt
+  // regardless of what the day looks like.
+  const stop = getCurrentMission(state)?.stops?.[idx];
+  if(stop && typeof stop.person === 'boolean') return stop.person;
   return globalStopIndex(state, idx) % 3 === 1;
 }
 // The cast is theme content, not engine content. Both of these used to be
@@ -132,7 +139,11 @@ export function getPersonIdForStop(state, stopIdx){
   const list=PERSONS_BY_DIVISION[stop.group] || [];
   if(!list.length) return null;
   const gi=globalStopIndex(state, stopIdx);
-  return list[gi % list.length];
+  // Two person stops on the same area in one day must be two different people,
+  // or the day sends the player back to the same shoulder twice.
+  const earlier = m.stops.slice(0, stopIdx)
+    .filter((s, i) => s.group === stop.group && isPersonStopForIdx(state, i)).length;
+  return list[(gi + earlier) % list.length];
 }
 // An optional between-mission meeting: a named person asks for funding and
 // justifies it. Content, so it comes from the theme; a theme that supplies none
