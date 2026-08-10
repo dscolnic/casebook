@@ -47,12 +47,36 @@ function matchesTheme(s){
 }
 function ensureMissionFields(){
   if(!_state) return;
+  repairDay();
   if(!Array.isArray(_state.missionStopsCompleted)) _state.missionStopsCompleted=[];
   if(!_state.missionResults) _state.missionResults={};
   if(!_state.hints) _state.hints={};
   if(!_state.retries) _state.retries={};
   if(!Array.isArray(_state.specialRequestsCompleted)) _state.specialRequestsCompleted=[];
 }
+/**
+ * A saved day that cannot be true, put back to unplanned.
+ *
+ * `budgetForRoute` used to measure from wherever the player was standing, so a
+ * day restarted from inside an interior — which lives four kilometres along +x
+ * — was budgeted for a four-kilometre walk and opened with forty hours on the
+ * clock. The measuring is fixed; this is for the saves that already have one,
+ * because the alternative is telling somebody to clear their browser storage.
+ */
+const SANE_DAY_MINUTES = 900;    // fifteen hours; no honest route asks for more
+function repairDay(){
+  if(!_state) return;
+  const bad = (_state.dayBudget ?? 0) > SANE_DAY_MINUTES
+    || (_state.dayLeft ?? 0) > (_state.dayBudget ?? 0) + 1
+    || !Number.isFinite(_state.dayLeft ?? 0);
+  if(!bad) return;
+  _state.dayStarted = false;
+  _state.dayEnded = false;
+  _state.dayLeft = 0;
+  _state.dayBudget = 0;
+  save();
+}
+
 export function completeSpecialRequest(week){
   if(!_state) return;
   if(!Array.isArray(_state.specialRequestsCompleted)) _state.specialRequestsCompleted=[];

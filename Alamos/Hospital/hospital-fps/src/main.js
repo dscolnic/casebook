@@ -48,7 +48,8 @@ const day = createDay({
     const p = getBuildingPosition(id);
     return p ? { x: p.x, z: p.z } : null;
   },
-  spawn: () => { const p = getPosition(); return { x: p.x, z: p.z }; },
+  // The department's own start, not wherever the player is standing.
+  spawn: () => themeManifest.start ?? { x: 0, z: 14 },
   mapHTML: () => renderMap(),
   // A quarter rate while a panel is up — reading is the game, and at full rate
   // an instrument panel costs more of the shift than the walk to reach it.
@@ -80,7 +81,7 @@ function showDayOver(outstanding){
     day.ui.open('The shift ran out',
       `<div class="briefBox"><p><b>${outstanding} patient${outstanding === 1 ? '' : 's'} still waiting when the shift ended.</b></p>`
       + '<p>You take the same shift again. The clock refills, and the morning pays an allowance.</p></div>',
-      [{ id: 'dayRetry', label: 'Take the shift again', primary: true, onClick: () => day.restart() }]);
+      [{ id: 'dayRetry', label: 'Take the shift again', primary: true, onClick: () => retakeDay() }]);
     return;
   }
   day.ui.open(`Shift ${state.week} finished`,
@@ -93,7 +94,14 @@ function showDayOver(outstanding){
     } }]);
 }
 
-window.addEventListener('projecty:restartday', () => day.restart());
+// Out of whatever room the player is in first: the interior district is four
+// kilometres from the town, and a day planned from out there is planned from
+// nowhere.
+function retakeDay(){
+  try{ interiors.exit(); }catch{}
+  day.restart();
+}
+window.addEventListener('projecty:restartday', () => retakeDay());
 
 let rafId=null;
 let clock=new THREE.Clock();

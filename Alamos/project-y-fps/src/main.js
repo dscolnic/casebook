@@ -76,7 +76,9 @@ const day = createDay({
     const p = getBuildingPosition(id);
     return p ? { x: p.x, z: p.z } : null;
   },
-  spawn: () => { const p = getPosition(); return { x: p.x, z: p.z }; },
+  // The Hill's own start, not wherever the player is standing: a budget taken
+  // from inside an interior measures a route to the interior district.
+  spawn: () => themeManifest.start ?? { x: 0, z: 14 },
   mapHTML: () => renderMap(),
   // A quarter rate while a panel is up — reading is the game, and at full rate
   // an instrument panel costs more of the day than the walk to reach it.
@@ -108,7 +110,7 @@ function showDayOver(outstanding){
     day.ui.open('The day ran out',
       `<div class="briefBox"><p><b>${outstanding} call${outstanding === 1 ? '' : 's'} still open when the light went.</b></p>`
       + '<p>You take the same day again — the calls reopen, the clock refills, and the morning pays an allowance.</p></div>',
-      [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => day.restart() }]);
+      [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => retakeDay() }]);
     return;
   }
   day.ui.open(`Day ${state.week} closed`,
@@ -121,7 +123,14 @@ function showDayOver(outstanding){
     } }]);
 }
 
-window.addEventListener('projecty:restartday', () => day.restart());
+// Out of whatever room the player is in first: the interior district is four
+// kilometres from the town, and a day planned from out there is planned from
+// nowhere.
+function retakeDay(){
+  try{ interiors.exit(); }catch{}
+  day.restart();
+}
+window.addEventListener('projecty:restartday', () => retakeDay());
 
 
 // ——— Driving ———

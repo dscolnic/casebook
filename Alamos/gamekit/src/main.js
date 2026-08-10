@@ -156,10 +156,11 @@ const day = createDay({
     const s = world.stopMeshes.get(id);
     return s ? { x: s.pos.x, z: s.pos.z } : null;
   },
-  spawn: () => {
-    const p = getPosition();
-    return { x: p.x, z: p.z };
-  },
+  // The town's own start, not wherever the player happens to be standing. A
+  // day's budget must not depend on which corner yesterday ended in — and a
+  // restart taken from inside an interior measured a route to the interior
+  // district, four kilometres away, and handed out a forty-hour day.
+  spawn: () => theme.start ?? theme.site?.spawn ?? { x: 0, z: 0 },
   mapHTML: () => renderMap(),
   // A quarter rate while any panel is up: reading the evidence is the game, and
   // at full rate a Diagnosis costs more of the day than the walk to reach it.
@@ -197,7 +198,7 @@ function showDayOver(outstanding){
     day.ui.open(`The day ran out`,
       `<div class="briefBox"><p><b>${outstanding} call${outstanding === 1 ? '' : 's'} still open when the light went.</b></p>`
       + `<p>Tomorrow is this same day again — the calls reopen, the clock refills, and the morning pays an allowance.</p></div>`,
-      [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => day.restart() }]);
+      [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => retakeDay() }]);
     return;
   }
   day.ui.open(`Day ${state.week} closed`,
@@ -240,7 +241,18 @@ const activate = makeActivate({
 
 // The verdict card raises this when a wrong call leaves the player unable to
 // pay for either way forward.
-window.addEventListener('projecty:restartday', () => day.restart());
+/**
+ * Take the day again.
+ *
+ * Whatever room the player is standing in, they come out of it first: the
+ * interior district is four kilometres from the town, and a day planned from
+ * out there is planned from nowhere.
+ */
+function retakeDay(){
+  interiors.exit();
+  day.restart();
+}
+window.addEventListener('projecty:restartday', () => retakeDay());
 
 // -------------------------------------------------------------- input glue
 document.getElementById('startBtn').addEventListener('click', () => {

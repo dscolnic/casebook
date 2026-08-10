@@ -65,11 +65,19 @@ const MIN_DAY_MINUTES = 180;
  * @param spawn      {x, z} where the player starts the day
  * @param positions  [{x, z}] one per stop, in mission order; nulls are skipped
  */
+/**
+ * Interiors are built in a district four kilometres along +x (see
+ * `interiorBuilding.js`). A position out there is not a place in the town, and
+ * budgeting a route to it produces a forty-hour day.
+ */
+const IN_TOWN = (p) => p && Number.isFinite(p.x) && Number.isFinite(p.z) && Math.abs(p.x) < 1000;
+
 export function budgetForRoute(spawn, positions){
-  const pts = (positions ?? []).filter(p => p && Number.isFinite(p.x) && Number.isFinite(p.z));
+  const pts = (positions ?? []).filter(IN_TOWN);
+  if(!IN_TOWN(spawn)) spawn = { x: 0, z: 0 };
   const stops = Math.max(1, pts.length);
   let metres = 0;
-  let at = spawn && Number.isFinite(spawn.x) ? { x: spawn.x, z: spawn.z } : { x: 0, z: 0 };
+  let at = { x: spawn.x, z: spawn.z };
   // Nearest-neighbour, because the player is free to choose their own order and
   // will mostly choose a sensible one. Budgeting for the worst order would make
   // every day generous; budgeting for the best would punish a reasonable one.
