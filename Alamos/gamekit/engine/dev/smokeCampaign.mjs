@@ -96,6 +96,10 @@ function diagnosisAnswerable(ch){
       const lesson = lessons[stop.lesson];
       if(!lesson){ fail(`mission ${mission} stop ${idx + 1}: no lesson ${stop.lesson} in "${group}"`); break; }
       const ch = lesson.game;
+      // A lesson with no game at all is the shape a hand-written placeholder
+      // has, and it used to end this run with a TypeError three frames deep —
+      // which reads as a broken checker rather than as unwritten content.
+      if(!ch){ fail(`mission ${mission} stop ${idx + 1}: lesson "${lesson.title ?? stop.lesson}" in "${group}" has no game`); break; }
       // Formats are compared through the same canonical form the question UI
       // uses: the books spell them "Sequence", "SEQUENCE" and "Science Tank",
       // and comparing raw strings reported a shipped game as unplayable.

@@ -35,19 +35,20 @@ export const plan = {
    * door  'wide'             for rooms that take a trolley or a crowd
    * open  true               no spine wall: lobbies, counters, concourse bays
    */
+  // One room per group in book.yml, plus the rooms that carry the place rather
+  // than a lesson. A group with no room here is a call the player cannot reach:
+  // `worldParity` fails on it, which is the only reason it is caught at all.
   rooms: [
     { id: 'ARRIVE',  side: 'w', z0: -4, z1: 4,  name: 'Arrivals & Sign-in', kind: 'reception', open: true },
     { id: 'WAIT',    side: 'w', z0: 4,  z1: 14, name: 'Waiting Area',       kind: 'waiting',   open: true },
-    { id: 'ONE',     side: 'w', z0: 14, z1: 23, name: 'Station One',        kind: 'workroom',  group: 'G1', door: 'wide' },
-    { id: 'TWO',     side: 'w', z0: 23, z1: 32, name: 'Station Two',        kind: 'workroom',  group: 'G2' },
-    { id: 'THREE',   side: 'w', z0: 32, z1: 41, name: 'Station Three',      kind: 'lab',       group: 'G3' },
+    { id: 'ONE',     side: 'w', z0: 14, z1: 23, name: 'Field Station',      kind: 'workroom',  group: 'G1', door: 'wide' },
+    { id: 'TWO',     side: 'w', z0: 23, z1: 32, name: 'Sample Room',        kind: 'workroom',  group: 'G2' },
     { id: 'QUIET',   side: 'w', z0: 41, z1: 47, name: 'Quiet Room',         kind: 'quiet' },
 
-    { id: 'FOUR',    side: 'e', z0: -4, z1: 7,  name: 'Station Four',       kind: 'workroom',  group: 'G4', door: 'wide' },
+    { id: 'THREE',   side: 'e', z0: -4, z1: 7,  name: 'Records Office',     kind: 'lab',       group: 'G3', door: 'wide' },
+    { id: 'FOUR',    side: 'e', z0: 19, z1: 28, name: 'Response Desk',      kind: 'station',   group: 'G4', door: 'wide' },
     { id: 'STORE',   side: 'e', z0: 7,  z1: 13, name: 'Supplies',           kind: 'supply' },
     { id: 'LABX',    side: 'e', z0: 13, z1: 19, name: 'Analysis Bench',     kind: 'lab' },
-    { id: 'FIVE',    side: 'e', z0: 19, z1: 28, name: 'Station Five',       kind: 'workroom',  group: 'G5', door: 'wide' },
-    { id: 'SIX',     side: 'e', z0: 28, z1: 37, name: 'Station Six',        kind: 'workroom',  group: 'G6' },
     { id: 'DESK',    side: 'e', z0: 37, z1: 43, name: 'Team Desk',          kind: 'station',   open: true },
     { id: 'BACK',    side: 'e', z0: 43, z1: 47, name: 'Back of House',      kind: 'supply' },
   ],
@@ -55,8 +56,8 @@ export const plan = {
   /** Overhead wayfinding, read from both directions. */
   bladeSigns: [
     { z: 11.5, west: 'Waiting',      east: 'Supplies' },
-    { z: 26.5, west: 'Station Two',  east: 'Station Five' },
-    { z: 38.5, west: 'Station Three', east: 'Team Desk' },
+    { z: 26.5, west: 'Sample Room',  east: 'Analysis Bench' },
+    { z: 38.5, west: 'Quiet Room',   east: 'Team Desk' },
   ],
 
   /** Seating shared by the fit-out (which builds chairs) and the crowd

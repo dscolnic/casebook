@@ -64,9 +64,17 @@ Full runbook: `gamekit/NEW_GAME.md`. Short version:
 
 ```sh
 cd gamekit
-npm run new-theme <name>                                   # scaffold + register + what a book cannot supply
-node tools/import-book.mjs my-game.yml <name> --verify     # write the content, then run every check
+npm run new-theme <name>                 # a town   — or `-- --interior` for a floor
+npm run check <name> && THEME=<name> npm run dev          # green and walkable already
+node tools/import-book.mjs books/<name>.yml <name> --verify   # then write the real game
 ```
+
+The scaffold imports a starter book, so what comes out is a **complete playable
+game** — four areas, four days, a worked example of every question format — and
+the baseline is green before you touch it. A theme served from `gamekit/` needs
+no entry point of its own: `gamekit/src/main.js` names nothing game-specific.
+The campaign is as long as the book; 15 missions is what the shipped games have,
+not a requirement.
 
 **A new game should be written as a book file**, not a Word document.
 `tools/BOOK_TEMPLATE.md` is the format, with a worked example of every question
@@ -279,7 +287,10 @@ wrote, at load, for every theme — so a re-import cannot lose it.
    instrument-panel rules, so anything the shared question UI draws had no
    styling there at all. Both now `@import` the engine sheet at the top of their
    fork — a `<link>` cannot do it, the path leaves Vite's root and 404s.
-16. **Grep for the previous game's nouns before assuming a module is generic.**
+16. **`look.far` has to clear the sky dome outdoors.** At an interior's 160 the
+   dome is clipped away and the sky renders black in broad daylight, with no
+   error anywhere and the horizon ranks gone. 900 is the working value.
+17. **Grep for the previous game's nouns before assuming a module is generic.**
    `simulation.js` held one game's cast, `constants.js` one game's save key,
    `player.js` one game's field of view and floor height.
 
@@ -325,10 +336,13 @@ you are, never the takeaway.
 - **Worlds are still forked.** Logic is shared; `world.js`, props and plan are
   not. `project-y-fps/site.js` holds all 19 buildings as data but **nothing
   imports it** — `@world` still points at `src/world.js`. Before flipping it:
-  each filler building wants a side-by-side against the original, the roads,
+  each filler building wants a side-by-side against the original, and the roads,
   boardwalks, poles, fences, vehicles and central board have no home in the data
-  yet, and hospital needs `engine/world/interiorBuilding.js` written from
-  nothing.
+  yet. The modules both games would need now exist:
+  `engine/world/interiorBuilding.js` (one room to walk into) and
+  `engine/world/interiorFloor.js` (a whole floor, satisfying the world contract
+  over `interiorSite.js`'s builder — `site.kind: 'interior'` pointed straight at
+  the builder until a scaffolded theme failed on import).
 - **The worlds are still hand-built in two games.** Both now declare a `site`
   in their manifest and `worldParity` checks it against the groups, but
   `project-y-fps/src/world.js` and the hospital's still build the place

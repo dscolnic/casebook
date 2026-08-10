@@ -27,9 +27,36 @@ matter are few, and every one of them exists because breaking it shipped a bug:
   optional line about why this stop matters now — `why` is the answer's
   reasoning and is only ever shown in the verdict.
 
-Three stops per mission, fifteen missions, and every stop's lesson lives at the
-stop. There is no separate curriculum to index into and therefore nothing to
-drift.
+Three stops per mission and every stop's lesson lives at the stop — there is no
+separate curriculum to index into and therefore nothing to drift. **The campaign
+is as long as the book**: fifteen missions is what the four shipped games have,
+not a requirement, and the HUD and the win condition follow whatever you write.
+
+## What the engine does to your missions
+
+`engine/content/normalize.js` reshapes every book at load, for every theme, so a
+re-import cannot lose it. Write with this in mind rather than around it:
+
+- **A day that visits the same area twice** has the repeat turned into a person
+  stop — the player finds somebody from that area instead of entering the room
+  again. Write each day into three different areas and this never fires.
+- **Each day gets exactly one person stop** anyway, unless a repeat forced a
+  second. Marking a stop `person: true` yourself is honoured.
+- **From the third day on, a fourth call is appended**: a callback to an area
+  taught earlier, oldest first, preferring a lesson whose title ends `— Review`
+  if the theme wrote one. You do not author it. A book whose every day visits
+  every area gets no callbacks — there is nothing left to call back to, so give
+  the campaign more areas than a day has stops.
+- **A format with no data for its format is retyped**, and an estimate spec is
+  registered across a lesson and its review variants.
+
+## Two optional fields worth using
+
+- `motivation:` — one line on why this stop matters now, shown before the
+  question. The panel composes a serviceable one from the day if you leave it
+  out.
+- `figure:` — every format renders one, not just DIAGNOSIS. See
+  `engine/core/figures.js` for the shapes (`line`, `peaks`, `bars`, gauges).
 
 ---
 

@@ -4,7 +4,11 @@ import theme from './theme.js';
 // game built on the engine wrote over the same slot — starting a second theme
 // silently loaded the first one's campaign.
 const KEY=`gamekit_${theme.id}_v1`;
-const WEEKS=15;
+// The campaign is as long as the book: one mission is one working day, and the
+// last one won is the end of it. This was 15, which is what all four shipped
+// games happen to have — a theme with any other number could never reach 'won',
+// and its HUD counted toward a day that did not exist.
+const WEEKS=theme.content?.MISSIONS?.length || 15;
 const STARTING_RESERVE=20;
 const WEEKLY_APPROPRIATION=5;
 const FUND_COST=1;

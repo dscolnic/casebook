@@ -28,35 +28,55 @@ gamekit/
 
 ## What a theme must export
 
-`themes/<name>/theme.js` is the single entry point the engine reads.
+`themes/<name>/theme.js` is the single entry point the engine reads. Every key
+below is read by the engine; nothing else in the file is.
 
 ```js
 export default {
-  id: 'hospital',
+  id: 'hospital',                        // also the save slot: gamekit_<id>_v1
   title: 'Hospital Heroes',
   subtitle: 'Junior Doctor · Children’s Hospital',
 
-  // Which world builder to use, and its data.
-  site: { kind: 'interior', plan },      // or { kind: 'outdoor', terrain }
+  // The place, and which world builds it.
+  //   { kind: 'outdoor', … }   engine/world/outdoorTown.js
+  //   { kind: 'interior', plan }  engine/world/interiorFloor.js
+  //   site.js may also declare `world: 'themes/<name>/world.js'` and build its own
+  site,
+  start: site.spawn,                     // where the player starts, and the yaw
 
   // Content. validateContent checks these agree with each other.
-  content: { GROUPS, MISSIONS, CURRICULUM, ROSTER, COPY },
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON,
+             ROSTER, LEADERS, AVATARS, COPY },
 
-  // People.
-  people: { OUTFITS, roleToOutfit, extras: 22 },
+  // People. spawn must be >= ROSTER.length or anyone past the limit never
+  // appears, and a mission stop naming them is unreachable.
+  people: { OUTFITS, roleToOutfit, spawn: ROSTER.length, extras: 22 },
 
-  // Look and feel.
+  // What is inside each room the player walks into, keyed by group id, and how
+  // those rooms are built: 'lab' | 'timber' | 'steel'. Written by the book.
+  interiors: INTERIORS,
+  interiorStyle: 'lab',
+
+  // The title card, in the theme's own words. Two or three paragraphs.
+  opening: ['…', '…'],
+
   look: {
-    fov: 66, near: 0.08, far: 160,
-    fog: { colour: 0xdfe4e6, near: 26, far: 96 },
-    exposure: 1.0,
-    lighting: 'interiorFluorescent',      // preset name from engine/world
+    fov: 66, near: 0.1, far: 900,        // far must clear the sky dome outdoors
+    fog: { colour: 0xb9c4c8, near: 150, far: 460 },   // or { colour, density }
+    exposure: 0.86,                      // below 1.0 outdoors
+    playerRadius: 0.45,                  // 0.3 where the doorways are a metre
+    lighting: { ambient: 0.08, sun: 3.0, hemi: 0.22, shadowExtent: 110 },
   },
 
-  // Optional theme hooks, all called with (scene, ctx).
-  fitOutRoom, fitOutCorridor, decorate,
+  // Optional hooks. `decorate` is called by the outdoor world, the fit-out
+  // hooks by the interior one; the unused ones are ignored.
+  decorate, fitOutRoom, fitOutSpine,
 };
 ```
+
+The campaign is as long as `MISSIONS`. It used to be fixed at 15 — which is what
+all four shipped games happen to have — so a theme with any other number counted
+toward a day that did not exist and could never reach `won`.
 
 ## What the world module must provide
 
@@ -80,6 +100,14 @@ new — satisfies this and nothing else:
 
 `groundHeight` is not optional even indoors, where it returns 0. Both existing
 builds had a bug from having two answers to this question.
+
+Three modules satisfy this: `engine/world/outdoorTown.js` (a town),
+`engine/world/interiorFloor.js` (a floor) and `themes/deepwatch/world.js` (a
+theme's own). **`interiorSite.js` does not** — it is the builder underneath
+`interiorFloor`, exporting `buildInterior` and the light rig. `vite.config.js`
+pointed `kind: 'interior'` straight at it for a year; nothing noticed, because
+the two indoor games predate this engine. The first theme scaffolded as an
+interior failed on `import`, before a frame was drawn.
 
 ## Interaction types the engine handles
 
@@ -124,8 +152,19 @@ checks all of them at runtime in dev mode.
 ## Question formats
 
 `questionUI.js` renders `Protocol`, `Sequence`, `Ballpark`, `Science Tank`,
-`DIAGNOSIS`, `TRIAGE` and `CASEBOOK`. `DIAGNOSIS` is the only one that draws a
-figure: it hands the player an instrument panel and asks which explanation fits
+`DIAGNOSIS`, `TRIAGE`, `CASEBOOK` and `CHOICE`. Compare a format through
+`kindOf()`, never as a raw string: the books spell them `Sequence`, `SEQUENCE`
+and `Science Tank`, and a raw comparison left 72 lessons in a shipped game
+rendering "challenge type SEQUENCE is not yet implemented".
+
+`CHOICE` exists because importers guess. A plain multiple-choice activity gets
+typed as the nearest format the importer knows, which is how one game ended up
+with 36 "diagnoses" that had no instrument panel; `normalize.js` retypes them
+and the book's own `rebuttals` appear in the verdict.
+
+Any lesson may carry a `figure`, and every format renders one — Ballpark settles
+a live readout onto a log scale, Sequence is a numbered rail, Protocol draws its
+matches as lines that redraw as you choose. `DIAGNOSIS` hands the player an instrument panel and asks which explanation fits
 *all* of it, so it carries `figure`, `readings` and candidate objects
 (`{ label, mechanism }`). Figures come from `engine/core/figures.js` — three
 primitives (`line`, `peaks`, `bars`) that a theme feeds with data and never
@@ -160,16 +199,17 @@ theme (and by `tools/repair-hospital-content.mjs` for the hospital build):
 
 Full runbook in `NEW_GAME.md`. In short:
 
-1. `cp -r themes/_template themes/<name>`
-2. Write the place as data — `site.js` for outdoor (buildings, paths, water,
+1. `npm run new-theme <name>` — or `-- --interior`. It scaffolds, imports a
+   starter book and registers the theme, so what you get is a complete playable
+   game before you have written anything. Do not `cp -r` the template by hand;
+   the copy is only half of it.
+2. `npm run check <name>` and `THEME=<name> npm run dev`, to confirm the
+   baseline is green *before* you change it.
+3. Write the game as one book file (`tools/BOOK_TEMPLATE.md`) and import it over
+   the top with `--verify`.
+4. Write the place as data — `site.js` for outdoor (buildings, paths, water,
    horizon, spawn) or `plan.js` for interior (a spine with rooms off it covers
    an airport concourse, a lab corridor and a ward alike).
-3. Run the importer on the design document, then
-   `node engine/dev/validateContent.mjs <name>` and
-   `node engine/dev/smokeCampaign.mjs <name>` until both are quiet. Run both:
-   the first checks the content against itself, the second checks the engine can
-   actually reach every stop.
-4. `THEME=<name> npm run dev`
 5. Fix whatever `audit` reports before judging how it looks. Outdoors, pass
    `groundHeight` to it or every prop standing in a dip is reported.
 
@@ -204,10 +244,14 @@ before assuming a module is generic.**
   resolved back to stop 1 and reported "mission locked" — two thirds of a
   campaign unreachable, with every content file valid.
   `engine/dev/smokeCampaign.mjs` exists to catch exactly this and runs headless.
-- **Every third stop is a person stop.** The player must find a named person
-  from that area instead of entering the building, so a theme needs
-  `engine/people/crowd.js` wired and at least one roster entry per area, or a
-  third of the campaign has nobody to talk to.
+- **Every day has a person stop.** `normalize.js` picks one per day: the player
+  must find a named person from that area instead of entering the room, so a
+  theme needs `engine/people/crowd.js` wired and at least one roster entry per
+  area — a roster entry with no `division` is invisible to this and nothing says
+  so until somebody walks the whole map. It also turns a day's second visit to
+  the same area into a person stop, and from day 3 appends a callback to an area
+  taught earlier. A campaign whose every day visits every area gets no
+  callbacks: there is nothing left to call back to.
 
 ## Migrating a world: what has to exist first
 
@@ -235,7 +279,8 @@ are written in — roughly what project-y already has and this engine does not:
 Do that first, as additions to `kit.js` that the chemistry game never has to
 use, and *then* project-y's seven geometry builders become its `decorate` hook
 and its town becomes ~150 lines of site data. Hospital additionally needs
-`interiorBuilding.js`, which does not exist at all.
+`interiorFloor.js` to carry a whole ward — which now exists, so what is left
+there is the plan data and the fit-out, not a missing module.
 
 Verify a world migration by eye, not by assertion: fixed viewpoints screenshotted
 before and after, plus `audit.js`. Every rule in this file is a graphics bug,
@@ -254,21 +299,24 @@ and none of them would fail a headless check.
   side-by-side screenshot against its original (the 5 divisions got one, the
   fillers did not), and the roads, boardwalks, power poles, fences, vehicles and
   central board still have no representation in the data.
-- Hospital cannot start: `engine/world/interiorBuilding.js` does not exist.
-  `interiorSite.js` has the parts but not the contract exports.
+- `engine/world/interiorBuilding.js` exists: it builds one room to walk into
+  from a town, lazily, in a district at x ≈ 4000, in three styles — `lab`,
+  `timber` (board walls and chalkboards, for a game set before screens) and
+  `steel`. Entering swaps the player's ground function and bounds.
+- `engine/world/interiorFloor.js` exists: a whole floor, satisfying the contract
+  over `interiorSite.js`'s builder.
 
 ## Known work still to do
 
-- `engine/world/interiorBuilding.js` does not exist. `interiorSite.js` has the
-  parts but not the contract exports, so an interior theme on this engine needs
-  it written first — `outdoorTown.js` is the worked example of the shape.
 - `questionUI.js` carries the question-type renderers. Those are partly
   theme-specific (a hospital TRIAGE screen is not a Los Alamos one) and should
   become pluggable renderers registered by the theme.
 - `engine/core/*` still uses the original vocabulary in places — `divisions`,
   `budget`, `Director funds`, `historicCharacters`. Renaming is mechanical but
   touches every file, so it is deliberately not done yet.
-- The crowd stands still. `rig.js` has `stepGait`; giving people routes is the
-  next obvious improvement.
-- The two shipped games still have their own forked copies of the core. They
-  keep working; migrate them when convenient, newest first.
+- `project-y-fps/src/world.js` and the hospital's still build their place by
+  hand, though both declare a site as data. That is the last fork, and the
+  roads, boardwalks, poles, fences, vehicles and central board have no home in
+  the data yet.
+- `engine/core/*` still uses one game's vocabulary in places — `divisions`,
+  `budget`, `Director funds`, `historicCharacters`.

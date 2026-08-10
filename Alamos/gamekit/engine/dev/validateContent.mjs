@@ -128,7 +128,11 @@ if(T.site?.kind === 'outdoor'){
 MISSIONS.forEach((m, mi) => {
   const label = `mission ${mi + 1} ("${m.title ?? '?'}")`;
   if(!m.stops?.length) return fail(`${label} has no stops`);
-  if(m.stops.length !== 3) note(`${label} has ${m.stops.length} stops; the loop is built around 3`);
+  // Three authored stops, plus whatever normalize.js added. Every day from the
+  // third carries a callback to an area taught earlier, so counting raw stops
+  // reported thirteen days a game as malformed when all of them were correct.
+  const authored = m.stops.filter(s => !s.callback).length;
+  if(authored !== 3) note(`${label} has ${authored} authored stops; the loop is built around 3`);
   m.stops.forEach((s, si) => {
     if(!groupIds.has(s.group)) fail(`${label} stop ${si + 1} references unknown group "${s.group}"`);
     const lessons = CURRICULUM[s.group];
@@ -200,12 +204,15 @@ if(INTERIORS){
 const COPY = content.COPY ?? {};
 if(T.site?.kind === 'interior'){
   for(const r of planRooms){
-    if(!COPY[r.id]) note(`room "${r.id}" has no COPY entry, so its info panel will be a bare title`);
+    // A room that carries a lesson is read through its group — that is the key
+    // the book writes and the key the question panel uses. Only a room with no
+    // group is read by its own id.
+    if(!COPY[r.group ?? r.id]) note(`room "${r.id}" has no COPY entry, so its info panel will be a bare title`);
   }
 }
 if(T.site?.kind === 'outdoor'){
   for(const b of siteBuildings){
-    if(!COPY[b.id]) note(`building "${b.id}" has no COPY entry, so its info panel will be a bare title`);
+    if(!COPY[b.group ?? b.id]) note(`building "${b.id}" has no COPY entry, so its info panel will be a bare title`);
   }
 }
 

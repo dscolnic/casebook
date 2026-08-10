@@ -1,34 +1,57 @@
-# Making a fourth game cheap
+# Making the next game cheap
 
-`NEW_GAME.md` is the runbook for building one today. This was the list of things
-to change first so that building one costs less than the last three did.
+`NEW_GAME.md` is the runbook for building one today. This is the ledger: what
+the fourth game cost, what was changed so the fifth costs less, and what is
+still expensive.
 
-**Status: phases 1 and 2 are done, and phase 3 is done except the worlds.**
-What that means in practice:
+**Game four shipped.** Deep Watch is `themes/deepwatch/`, written as one book
+file and brought across with its own submarine behind the world contract. It is
+the first game built the way the rest are supposed to be built.
 
 ```sh
 cd gamekit
-npm run new-theme <name>     # scaffolds, registers, and prints what a book cannot supply
-npm run check                # every theme, every check — all three games pass
+npm run new-theme <name>     # scaffolds, imports a starter book, registers it
+npm run check                # every registered theme, every check
 ```
 
-Done: content normalisation moved into `engine/content/normalize.js`; the theme
-contract is enforced and all three manifests satisfy it; one harness
-(`npm run check`) with a `themes.json` registry; the stylesheet forks deleted
-(107 duplicated rules each) with a check that they cannot come back; the
-interior manager, the E-key dispatch and the debug handle extracted to
-`engine/core/app.js`; the importer emits canonical formats, errors on an
-unresolved pack, and takes `--verify`; `worldParity` keeps the site data honest.
+## Where the phases landed
 
-Not done: the world forks. Both games declare their site as data now, but
-`src/world.js` still builds the place by hand in each. That is the last item.
+**Phase 1 — done.** Content normalisation moved into
+`engine/content/normalize.js` and runs once at load for every theme; the theme
+contract is enforced; one harness (`npm run check`) over a `themes.json`
+registry.
 
-The migration shared the logic and left the wiring. `gameState`, `simulation`,
-`questionUI`, `personQuiz` and `figures` are single copies; `main.js`,
-`world.js`, `styles.css`, `index.html` and every content file are per game — and
-those are the files features actually land in.
+**Phase 2 — done.** The interior manager, the E-key dispatch, the debug handle
+and the day now live in `engine/core/app.js`; the stylesheet forks are gone
+(107 duplicated rules each) with a check that they cannot come back;
+`gamekit/src/main.js` names nothing game-specific, so **a theme served from
+`gamekit/` needs no entry point of its own** — two themes already share it.
 
-## What that cost, measured
+**Phase 3 — done except the worlds.** The importer emits canonical formats,
+errors on an unresolved pack and takes `--verify`; `worldParity` keeps the site
+data honest. Both older games declare their site as data and still build their
+place by hand in `src/world.js`. That is the last fork.
+
+## What the fifth game found
+
+Each of these was discovered by scaffolding a theme and trying to play it —
+which is the only reason to keep doing it before every new game.
+
+| What was broken | Why it went unnoticed |
+| --- | --- |
+| A scaffolded theme failed `npm run check` on placeholder content, with a stack trace rather than a message | `themes/_template` was never registered, so nothing ever checked it |
+| `--interior` changed nothing but the sentence printed at the end | the flag was only ever read for the message |
+| `site.kind: 'interior'` pointed at `interiorSite.js`, which exports none of the contract | both indoor games predate this engine; one brings its own world |
+| `vite.config.js` read the first `kind:` in `plan.js` — a *room's* `kind: 'reception'` | no theme here had a plan |
+| The campaign length was fixed at 15 | all four games have 15 missions |
+| A day's callback stop was reported by the validator as a malformed mission | the note was written before callbacks existed |
+| `COPY` was checked by room id for rooms the book keys by group | the book format changed after the check |
+
+The fixes: the scaffold now imports a starter book and hands back a complete
+playable game; `engine/world/interiorFloor.js` satisfies the contract over
+`interiorSite`'s builder; `WEEKS` comes from `MISSIONS.length`.
+
+## What the forks cost, measured
 
 Each of these shipped. All of them were invisible: the code ran, the build
 passed, and one game quietly did the wrong thing.
@@ -44,67 +67,23 @@ passed, and one game quietly did the wrong thing.
 | Clock went NaN, sun angle followed, world went black | `advanceTime(walkCost(d))` in one fork | 1 game |
 | Two checkers could not run on two of the games | harness assumed `themes/<name>` | 2 games |
 
-## The work, in the order worth doing it
+## Still expensive
 
-**Phase 1 — before a fourth game starts.**
+1. **The world forks.** `project-y-fps/src/world.js` and the hospital's build
+   their place directly. Roads, boardwalks, poles, fences, vehicles and the
+   central board have no home in the site data yet.
+2. **Two entry points.** Project Y and the hospital keep their own `main.js`,
+   `index.html` and stylesheet fork. Anything added to one reaches one game.
+3. **Question renderers are not pluggable.** A hospital TRIAGE screen is not a
+   Los Alamos one, and both live in `questionUI.js`.
+4. **The engine's vocabulary.** `divisions`, `budget`, `Director funds`,
+   `historicCharacters` — mechanical to rename, touches every file.
 
-1. **Normalise content in the engine, not in each theme.** Two `theme.js` files
-   now carry repair code doing the same job (pack expansion; retyping formats
-   the importer guessed at; registering estimate specs by title). Move it to
-   `engine/content/normalize.js`, run once at load: canonicalise `game.type`,
-   expand `pack` ids and fail loudly on an unresolved one, retype a format that
-   has no data for its format, register specs across review lessons, backfill or
-   refuse a roster with no `division`.
-2. **Make the theme contract enforceable.** Two manifests have no `site` and no
-   `people`, so the validator checks half of them. Write the schema down, add
-   `engine/dev/conformance.mjs`, and unify how a theme declares an interior —
-   right now one game uses a theme-level `interiors` map and another a bespoke
-   `instruments.js`.
-3. **One harness for every game.** A registry mapping theme name → directory,
-   and one `npm run check` running validate + smoke + conformance over all of
-   them, in CI.
-
-**Phase 2 — while the fourth game is in flight.**
-
-4. **Unfork `main.js`.** Extract `engine/core/app.js` with
-   `bootGame({ theme, world, hooks })` owning init, the frame loop, the HUD
-   tick, input, the `activate()` dispatch table, interiors, the minimap and the
-   debug handle. A game's `main.js` becomes imports plus the hooks it really
-   overrides. Migrate the engine-native game first, the hospital last.
-   Doing this with a new game in flight is the honest test of the boundary.
-5. **Unfork `styles.css`.** Both forks now `@import` the engine sheet (a
-   `<link>` cannot — the path leaves Vite's root and 404s). Finish it: delete
-   the forked bodies, keep only real overrides, and fail a check when a
-   per-game sheet redefines an engine class.
-
-**Phase 3 — after it ships.**
-
-6. **Kill the world forks.** `project-y-fps/site.js` holds all 19 buildings as
-   data and nothing imports it; the hospital has a `plan.js` beside a hand-built
-   world. Roads, boardwalks, poles, fences, vehicles and the central board have
-   no home in the data yet.
-7. **An importer that refuses to guess.** Emit canonical types, emit a plain
-   question format when that is what the activity is, error on an unresolved
-   pack id, and add `--verify` that runs the checks and exits non-zero.
-8. **The authoring kit.** A scaffold command, a complete `_template`, and a
-   checklist of what a book cannot supply — including the two silent ones: a
-   roster entry with no `division` makes a person stop unreachable, and a bio
-   under ~40 characters degrades its passage question to a role question.
-
-## Definition of done for game four
+## Definition of done for a new game
 
 - No file outside `themes/<name>/` was edited to build it.
-- `npm run check <name>` passes: content consistent, conformance clean, every
-  stop reachable and gradeable headless.
+- `npm run check <name>` passes: content consistent, every stop reachable and
+  gradeable headless, no stylesheet collision, every group somewhere to happen.
 - Its rooms have been walked into and screenshotted. None of the checks above
-  can see a wrong-looking scene.
-
-## Tests worth encoding now
-
-- Every challenge type resolves to a renderer, compared canonically.
-- Every group a person stop can land on has a roster member in it.
-- Every estimate lesson has a spec; every pack reference resolves.
-- Every diagnosis has a figure or readings across three zones.
-- No building within three metres of the spawn point.
-- The save key comes from the manifest; a save with foreign group ids is refused.
-- No per-game stylesheet redefines an engine class.
+  can see a wrong-looking scene, and a background tab renders one whether it is
+  wrong or not.

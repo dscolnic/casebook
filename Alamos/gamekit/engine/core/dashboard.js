@@ -31,14 +31,14 @@ export function renderCentralBoardTexture(ctx, width, height){
   const isNight = hr<6 || hr>=18;
   ctx.fillStyle='#9a741d';
   ctx.font='900 11px Inter, sans-serif';
-  const missionLabel = curMission ? `MISSION ${state.week} OF 15 — ${curMission.title.toUpperCase()}` : 'ALL MISSIONS COMPLETE';
+  const missionLabel = curMission ? `MISSION ${state.week} OF ${WEEKS} — ${curMission.title.toUpperCase()}` : 'ALL MISSIONS COMPLETE';
   ctx.fillText(missionLabel, 24, 28);
   ctx.fillStyle='#1b1a17';
   ctx.font='900 20px Georgia, serif';
   ctx.fillText(curMission ? curMission.title : 'Campaign complete', 24, 52);
   ctx.fillStyle='#4b463d';
   ctx.font='600 11px Inter, sans-serif';
-  const brief = curMission ? curMission.objective : 'All 15 missions completed — evidence chain closed.';
+  const brief = curMission ? curMission.objective : `All ${WEEKS} missions completed — evidence chain closed.`;
   // wrap brief to ~70 chars
   let bx=24, by=68;
   const words=brief.split(' '); let line='';

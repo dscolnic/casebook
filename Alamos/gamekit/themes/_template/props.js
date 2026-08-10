@@ -4,8 +4,32 @@
 // should come from engine/world/kit.js; this file is only for the ten or so
 // things that make *this* place recognisable.
 //
-// Both hooks receive the builder context from engine/world/interiorSite.js:
-//   { scene, plan, geo, P, box, wall, materials, soft, hard, addInteractable }
+// Which hook runs depends on the world:
+//   outdoor   decorate(scene, ctx)     after ground, buildings and furniture
+//             ctx = { groundHeight, colliders, softColliders, interactables,
+//                     blocked, sign, MATERIALS, lightPanels, areaScreens }
+//   interior  fitOutRoom / fitOutSpine, with the builder context from
+//             engine/world/interiorSite.js:
+//             { scene, plan, geo, P, box, wall, materials, soft, hard,
+//               addInteractable }
+//
+// The unused ones are ignored, so all three can be exported from here.
+
+/**
+ * Decorate an outdoor town. Everything generic — benches, bins, posts, signs,
+ * fences, tanks, pipe runs, display boards, vehicles — is already in
+ * engine/world/kit.js and is placed from site.js. This is for what makes *this*
+ * place recognisable.
+ *
+ * Placement helpers take `(x, z, y)` — ground last. One call written `(x, y, z)`
+ * put six display boards sixteen metres in the air.
+ *
+ * To make a parked vehicle driveable, see themes/contamcity/props.js `park()`.
+ */
+export function decorate(scene, ctx){
+  const { groundHeight } = ctx;
+  void scene; void groundHeight;
+}
 
 /** Fit out one room. `bounds` gives the room's inner/outer faces and centre. */
 export function fitOutRoom(room, ctx){

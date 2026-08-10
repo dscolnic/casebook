@@ -75,6 +75,10 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   const interactables = [];
   const lightPanels = [];
   const stopMeshes = new Map();
+  /** roomId -> the flat hit target in its doorway, group room or not. A room
+   *  with no lesson still has a sign to read, and the world module needs
+   *  something to hang that interaction on. */
+  const roomDoors = new Map();
 
   const M = {
     wall:  mat('wall',  () => new THREE.MeshStandardMaterial({ map: paintTexture(P.palette.wall), roughness: 0.92, envMapIntensity: 0.5 })),
@@ -280,6 +284,7 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
 
     if(opening){
       const d = door(r, opening);
+      roomDoors.set(r.id, d.hit);
       if(r.group){
         stopMeshes.set(r.group, {
           room: r, doorMesh: d.hit, leaf: d.leaf,
@@ -304,8 +309,8 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   }
   if(hooks.fitOutSpine) hooks.fitOutSpine(ctx);
 
-  return { geo, colliders, softColliders, interactables, stopMeshes, lightPanels,
-           groundHeight: () => 0 };
+  return { geo, colliders, softColliders, interactables, stopMeshes, roomDoors,
+           lightPanels, groundHeight: () => 0 };
 }
 
 /**

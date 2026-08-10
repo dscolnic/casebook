@@ -25,11 +25,13 @@ const THEME = argTheme || process.env.THEME || 'contamcity';
 // theme only appears here if it introduces a genuinely new kind of place.
 const WORLDS = {
   outdoor: 'engine/world/outdoorTown.js',
-  // interiorSite builds a whole floor — a spine with rooms down both sides —
-  // which is what a theme whose *site* is indoors needs. Not to be confused
-  // with engine/world/interiorBuilding.js, which builds one room to walk into
-  // from an outdoor town and is not a world module.
-  interior: 'engine/world/interiorSite.js',
+  // interiorFloor builds a whole floor — a spine with rooms down both sides —
+  // which is what a theme whose *site* is indoors needs. Two things it is not:
+  // interiorSite.js, which is the builder underneath it and exports none of the
+  // contract; and interiorBuilding.js, which builds one room to walk into from
+  // a town and is not a world module either. This pointed at interiorSite until
+  // the first interior theme was scaffolded and failed on import.
+  interior: 'engine/world/interiorFloor.js',
 };
 
 // Read the kind — and any world of the theme's own — without importing the
@@ -42,16 +44,30 @@ const WORLDS = {
 // arrived as a finished submarine, and rebuilding it as generated rooms would
 // have thrown away the thing that made it worth converting.
 import { readFileSync, existsSync } from 'node:fs';
-function siteFile(theme){
-  for(const f of ['site.js', 'plan.js']){
-    const p = resolve(here, 'themes', theme, f);
-    if(existsSync(p)) return readFileSync(p, 'utf8');
+const read = (theme, f) => {
+  const p = resolve(here, 'themes', theme, f);
+  return existsSync(p) ? readFileSync(p, 'utf8') : '';
+};
+
+// Scoped to the site declaration, never the whole file. A bare
+// /kind:\s*'(\w+)'/ over plan.js matches the first *room's* `kind: 'reception'`
+// and reports a site kind that has no world module — which is what a freshly
+// scaffolded interior theme did, before it had rendered a single frame.
+function declaredKind(theme){
+  for(const [file, re] of [
+    // theme.js: site: { kind: 'interior', plan }
+    ['theme.js', /\bsite:\s*\{[^}]*?\bkind:\s*'(\w+)'/],
+    // site.js / plan.js: export const site = { kind: 'outdoor', … }
+    ['site.js', /\bsite\s*=\s*\{[\s\S]{0,600}?\bkind:\s*'(\w+)'/],
+    ['plan.js', /\bsite\s*=\s*\{[\s\S]{0,600}?\bkind:\s*'(\w+)'/],
+  ]){
+    const m = re.exec(read(theme, file));
+    if(m) return m[1];
   }
-  return '';
+  return 'outdoor';
 }
-const declared = siteFile(THEME);
-const kind = (/kind:\s*'(\w+)'/.exec(declared) ?? [])[1] ?? 'outdoor';
-const ownWorld = (/\bworld:\s*'([^']+)'/.exec(declared) ?? [])[1] ?? null;
+const kind = declaredKind(THEME);
+const ownWorld = (/\bworld:\s*'(themes\/[^']+)'/.exec(read(THEME, 'site.js') + read(THEME, 'plan.js')) ?? [])[1] ?? null;
 const world = ownWorld ?? WORLDS[kind];
 if(!world) throw new Error(`theme "${THEME}" declares site kind "${kind}", which has no world module`);
 if(ownWorld && !existsSync(resolve(here, ownWorld))){
