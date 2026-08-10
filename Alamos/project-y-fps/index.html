@@ -41,10 +41,12 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 .highContrast #hudBar{background:#fff}
 #setupOverlay{position:fixed;inset:0;background:rgba(244,241,233,.98);z-index:30;overflow:auto;padding:18px}
 #setupOverlay.hidden{display:none}
-#mapOverlay{position:fixed;right:18px;top:110px;z-index:7;background:rgba(255,253,248,.96);border:1px solid #d9d2c5;border-radius:12px;padding:12px;min-width:220px;backdrop-filter:blur(6px);box-shadow:0 12px 32px rgba(0,0,0,.14)}
+#mapOverlay{position:fixed;right:18px;top:110px;z-index:7;background:rgba(255,253,248,.96);border:1px solid #d9d2c5;border-radius:12px;padding:12px;width:min(560px,46vw);backdrop-filter:blur(6px);box-shadow:0 12px 32px rgba(0,0,0,.14)}
 #mapOverlay.hidden{display:none}
 #mapOverlay h4{margin:0 0 8px;font-family:Georgia,serif}
-#mapOverlay .miniMap{width:200px;height:200px;background:#d9c7a7;border:1px solid #d9d2c5;border-radius:8px;position:relative;overflow:hidden}
+#mapOverlay .miniMap{width:100%;background:#efeade;border:1px solid #d9d2c5;border-radius:8px;position:relative;overflow:hidden}
+#mapOverlay .mapWrap svg{display:block;width:100%;height:auto}
+#mapOverlay .mapLegend{font-size:.68rem;color:#666158;padding:6px 2px 0;line-height:1.4}
 #mapOverlay .miniDot{position:absolute;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.22);display:grid;place-items:center;font:800 7px Georgia,serif;color:#fff}
 #fallbackTown{position:fixed;inset:0;background:#f4f1e9;z-index:12;overflow:auto;padding:18px}
 #fallbackTown.hidden{display:none}
@@ -147,23 +149,18 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
        run the scientific programme of a laboratory whose existence is secret from the people who pay for
        it. Five divisions work here — theory, experimental physics, chemistry and metallurgy, ordnance,
        and the group that has to make the other four agree. None of them can finish alone, and none of
-       them trusts a number that has not been measured twice. The war is the deadline, and the deadline
-       is not yours to move: the clock at the top of the screen is the programme's remaining time, and it
-       runs whether or not you are certain. Every hour you spend confirming a result is an hour the
-       schedule does not have. Every hour you save by accepting a result that has not been checked is a
-       month lost later, when it fails in front of everybody.</p>
-    <p class="stakes">This is a game about evidence under a deadline. Nothing is built here, nothing is
-       tested here, and being wrong costs you time and an explanation — never the run.</p>
+       them trusts a number that has not been measured twice.</p>
+    <p class="stakes">Each day you are given the day's calls, and you take them in whatever order you
+       like. All of them have to be answered before the light goes or the day starts over — and the
+       clock at the top of the screen is what is left of it, running whether or not you are certain.</p>
     <button class="btn primary" id="enterTownBtn" type="button">Report to the Director</button>
-    <p class="controlsNote">Controls are in <b>Settings</b>, top right. No weapons, no combat —
-       exploration and evidence only.</p>
   </div>
 </div>
 
 <div id="mapOverlay" class="hidden">
   <h4>Town map</h4>
   <div class="miniMap" id="miniMap"></div>
-  <div style="font-size:.7rem;color:#666158;margin-top:8px">Yellow dot = you · Click building names to orient</div>
+  <div style="font-size:.7rem;color:#666158;margin-top:8px">White dot is you · gold outlines are calls still open</div>
   <button class="btn small" id="closeMapBtn" type="button" style="margin-top:8px;width:100%">Close</button>
 </div>
 
@@ -209,23 +206,10 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
   <button class="btn small" id="closeSettingsBtn" type="button" style="margin-top:8px;width:100%">Close</button>
 </div>
 
-<div id="setupOverlay">
-  <div class="shell" style="width:min(1080px,100%);margin:62px auto 0">
-    <article class="card hero" style="padding:18px 22px;margin-top:12px;position:relative">
-      <div class="eyebrow">You are J. Robert Oppenheimer</div>
-      <h2 style="font-family:Georgia,serif;font-size:clamp(34px,5vw,58px);margin:6px 0 0">Project Y</h2>
-      <p class="lead" style="max-width:860px;color:#403d37;font-size:.92rem">Build a research organization capable of finishing an unprecedented wartime physics and engineering program. Assign leaders, decide which work receives scarce funding, read the historical record, and spend your time where it can accelerate the laboratory.</p>
-      <div style="margin-top:12px;padding:10px 12px;border-left:4px solid #9a741d;background:#f7f0dc;font-size:.8rem;color:#584a24"><b>Educational scope:</b> leadership, nuclear-physics reasoning, experimental evidence, and project organization. It deliberately omits weapon dimensions, material quantities, manufacturing recipes, assembly procedures, and other operational design details.</div>
-    </article>
-    <article class="card setup" style="margin-top:12px;padding:18px;background:#fffdf8;border:1px solid #d9d2c5;border-radius:16px">
-      <div class="setupHead" style="display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap"><div><div class="eyebrow">Assignments</div><h3 style="font-family:Georgia,serif;font-size:1.5rem;margin:4px 0 0">Choose leaders</h3></div><div style="font-size:.74rem;color:#666158">Science = pace + issue prevention · Management = lower burn + funding efficiency</div></div>
-      <div id="assignGrid" style="margin-top:14px"></div>
-      <div id="roster" style="margin-top:14px"></div>
-      <div id="savedBox" class="hidden" style="margin-top:12px;border:1px dashed #315c78;background:#e8f0f4;padding:12px;border-radius:10px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"></div>
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px"><span id="validation" style="color:#9a3f36;font-weight:700;font-size:.8rem"></span><button class="btn primary" id="startBtn" type="button">Open Project Y</button></div>
-    </article>
-  </div>
-</div>
+<!-- The leader-assignment screen used to live here. Every game now opens
+     straight into its own title card with the default leaders assigned:
+     choosing five names before seeing the place taught nobody anything and
+     was the first thing every player skipped. -->
 
 <div id="interiorOverlay">
   <div id="interiorCard"></div>

@@ -48,4 +48,7 @@ export default {
   people: { crowd: 'bespoke', spawn: HISTORIC_CHARACTERS.length, extras: 22 },
 
   interiors: INTERIORS,
+  // Board walls, plank floor, open rafters and one bulb on a flex. The Hill's
+  // buildings went up in weeks out of whatever the Army could ship.
+  interiorStyle: 'timber',
 };

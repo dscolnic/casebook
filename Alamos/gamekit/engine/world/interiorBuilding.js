@@ -35,6 +35,7 @@
 import * as THREE from 'three';
 import {
   mat, paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture, grainTexture,
+  boardTexture,
 } from './materials.js';
 import { instrumentScreen, printedSheet } from './screens.js';
 import { addCaseBeacon } from './caseBeacon.js';
@@ -42,6 +43,42 @@ import { addCaseBeacon } from './caseBeacon.js';
 /** Far enough along +x that the town is past the camera's far plane. */
 export const DISTRICT_X = 4000;
 const GAP = 60;               // between neighbouring rooms in the district
+
+/**
+ * How a room is built, as opposed to what is in it.
+ *
+ * Every interior in every game was the same room: white paint, sheet vinyl, a
+ * suspended tile ceiling with lit diffusers. That is right for a Riverton
+ * laboratory and wrong for a wooden building on a mesa in 1943, and a player
+ * who walks into Project Y and recognises the Contaminated City's floor is a
+ * player who has been told the two places are the same place.
+ *
+ * A theme sets `interiorStyle` in its manifest; `createInteriors` passes it
+ * through. Nothing here names a game.
+ */
+const STYLES = {
+  lab: {
+    wall: '#e7e4dc', wallKind: 'paint',
+    floor: 'sheet', floorTint: [206, 202, 192],
+    ceiling: 'tiles', ceilingLight: 0xffffff,
+    skirt: 0x5d6169, bench: 0xdedbd2, worktop: '#9aa0a6',
+  },
+  // Board walls, a plank floor, open rafters and a hanging bulb: a wartime
+  // building put up in a hurry, which is what every one of these was.
+  timber: {
+    wall: '#c8b088', wallKind: 'board',
+    floor: 'plank', floorTint: '#8d6f4a',
+    ceiling: 'rafters', ceilingLight: 0xffd9a0,
+    skirt: 0x6b5334, bench: 0xa98b63, worktop: '#7d6242',
+  },
+  // Painted steel, deck matting, a low deckhead with strip lighting.
+  steel: {
+    wall: '#8d9a94', wallKind: 'paint',
+    floor: 'sheet', floorTint: [92, 104, 100],
+    ceiling: 'tiles', ceilingLight: 0xdfe9ff,
+    skirt: 0x3c4a46, bench: 0x7c8a86, worktop: '#6b7772',
+  },
+};
 
 const DEFAULTS = {
   w: 13,        // across, as you look in from the door
@@ -59,6 +96,7 @@ const DEFAULTS = {
  */
 export function buildInteriorBuilding(scene, spec){
   const P = { ...DEFAULTS, ...spec.metrics };
+  const S = { ...STYLES.lab, ...(STYLES[spec.style] ?? {}), ...(spec.styleOverrides ?? {}) };
   const index = spec.index ?? 0;
   const ox = DISTRICT_X + index * GAP;      // room origin, x
   const oz = 0;
@@ -74,7 +112,9 @@ export function buildInteriorBuilding(scene, spec){
   const x0 = -P.w / 2, x1 = P.w / 2, z0 = -P.d / 2, z1 = P.d / 2;
 
   // ---------------------------------------------------------------- shell
-  const floorTex = sheetFloorTexture([206, 202, 192], 0.55);
+  const floorTex = S.floor === 'plank'
+    ? grainTexture(S.floorTint)
+    : sheetFloorTexture(S.floorTint, 0.55);
   floorTex.repeat.set(P.w / 2.4, P.d / 2.4);
   const floor = add(new THREE.Mesh(
     new THREE.PlaneGeometry(P.w, P.d),
@@ -83,11 +123,12 @@ export function buildInteriorBuilding(scene, spec){
   floor.rotation.x = -Math.PI / 2;
   floor.receiveShadow = true;
 
-  const wallMat = () => mat('int-wall', () => new THREE.MeshStandardMaterial({
-    map: paintTexture('#e7e4dc'), roughness: 0.92, metalness: 0.0, envMapIntensity: 0.3,
+  const wallMat = () => mat(`int-wall-${S.wallKind}-${S.wall}`, () => new THREE.MeshStandardMaterial({
+    map: S.wallKind === 'board' ? boardTexture(S.wall) : paintTexture(S.wall),
+    roughness: 0.92, metalness: 0.0, envMapIntensity: 0.3,
   }));
-  const baseMat = () => mat('int-base', () => new THREE.MeshStandardMaterial({
-    color: 0x5d6169, roughness: 0.7, metalness: 0.05, envMapIntensity: 0.3,
+  const baseMat = () => mat(`int-base-${S.skirt}`, () => new THREE.MeshStandardMaterial({
+    color: S.skirt, roughness: 0.7, metalness: 0.05, envMapIntensity: 0.3,
   }));
 
   /** A wall panel with its collider. `skip` leaves a doorway hole. */
@@ -122,33 +163,62 @@ export function buildInteriorBuilding(scene, spec){
     new THREE.BoxGeometry(P.doorW, P.h - P.doorH, P.wall), wallMat()));
   header.position.set(0, P.doorH + (P.h - P.doorH) / 2, z0);
 
-  // Ceiling: a tiled grid with two lit diffuser panels. Emissive panels do the
-  // work that a row of point lights would otherwise do, at no light cost.
-  const ceilTex = ceilingTileTexture(4);
-  ceilTex.repeat.set(P.w / 2.4, P.d / 2.4);
-  const ceiling = add(new THREE.Mesh(
-    new THREE.PlaneGeometry(P.w, P.d),
-    new THREE.MeshStandardMaterial({ map: ceilTex, roughness: 0.95, envMapIntensity: 0.2 })
-  ));
-  ceiling.rotation.x = Math.PI / 2;
-  ceiling.position.y = P.h - 0.35;
-  const panelMat = new THREE.MeshStandardMaterial({
-    map: diffuserTexture(), emissive: 0xffffff, emissiveIntensity: 1.15,
-    color: 0xffffff, roughness: 0.6,
-  });
-  for(const pz of [-P.d / 4, P.d / 4]){
-    const p = add(new THREE.Mesh(new THREE.PlaneGeometry(2.2, 0.7), panelMat));
-    p.rotation.x = Math.PI / 2;
-    p.position.set(0, P.h - 0.352, pz);
+  // Ceiling. A suspended tile grid with lit diffusers for a laboratory or a
+  // boat; open rafters and a hanging bulb for a building that was put up in a
+  // fortnight in 1943. Both are emissive rather than lit — see the light budget
+  // in CLAUDE.md — so neither costs a real light.
+  if(S.ceiling === 'rafters'){
+    const boardTex = grainTexture(typeof S.floorTint === 'string' ? S.floorTint : '#7a6244');
+    boardTex.repeat.set(P.w / 2.4, P.d / 2.4);
+    const deck = add(new THREE.Mesh(
+      new THREE.PlaneGeometry(P.w, P.d),
+      new THREE.MeshStandardMaterial({ map: boardTex, roughness: 0.96, envMapIntensity: 0.16 })));
+    deck.rotation.x = Math.PI / 2;
+    deck.position.y = P.h - 0.06;
+    const beamMat = mat(`int-beam-${S.skirt}`, () => new THREE.MeshStandardMaterial({
+      color: S.skirt, roughness: 0.85, envMapIntensity: 0.2 }));
+    for(let i = -2; i <= 2; i++){
+      const beam = add(new THREE.Mesh(new THREE.BoxGeometry(P.w - 0.1, 0.16, 0.12), beamMat));
+      beam.position.set(0, P.h - 0.16, i * (P.d / 5));
+    }
+    // One bulb on a flex, which is the whole lighting installation.
+    const flex = add(new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.5, 6),
+      new THREE.MeshStandardMaterial({ color: 0x2b2620, roughness: 0.9 })));
+    flex.position.set(0, P.h - 0.45, 0);
+    const bulb = add(new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 10),
+      new THREE.MeshStandardMaterial({ color: 0xfff0d0, emissive: S.ceilingLight,
+        emissiveIntensity: 2.2, roughness: 0.4 })));
+    bulb.position.set(0, P.h - 0.72, 0);
+    const shade = add(new THREE.Mesh(new THREE.ConeGeometry(0.26, 0.18, 16, 1, true),
+      new THREE.MeshStandardMaterial({ color: 0x3a3229, roughness: 0.8, side: THREE.DoubleSide })));
+    shade.position.set(0, P.h - 0.6, 0);
+  } else {
+    const ceilTex = ceilingTileTexture(4);
+    ceilTex.repeat.set(P.w / 2.4, P.d / 2.4);
+    const ceiling = add(new THREE.Mesh(
+      new THREE.PlaneGeometry(P.w, P.d),
+      new THREE.MeshStandardMaterial({ map: ceilTex, roughness: 0.95, envMapIntensity: 0.2 })
+    ));
+    ceiling.rotation.x = Math.PI / 2;
+    ceiling.position.y = P.h - 0.35;
+    const panelMat = new THREE.MeshStandardMaterial({
+      map: diffuserTexture(), emissive: S.ceilingLight, emissiveIntensity: 1.15,
+      color: 0xffffff, roughness: 0.6,
+    });
+    for(const pz of [-P.d / 4, P.d / 4]){
+      const p = add(new THREE.Mesh(new THREE.PlaneGeometry(2.2, 0.7), panelMat));
+      p.rotation.x = Math.PI / 2;
+      p.position.set(0, P.h - 0.352, pz);
+    }
   }
-  // No point light at all. One hung anywhere below the ceiling burns a bright
-  // pool into the tiles directly above it — the room is small enough that its
-  // falloff cannot avoid them — and the light budget in CLAUDE.md is six for a
-  // whole scene. A hemisphere, a little ambient and the lit panels give an even
-  // room with no real light spent.
-  const light = new THREE.HemisphereLight(0xf6f8fa, 0x8f8d86, 1.15);
+  // No point light at all: a hemisphere, a little ambient and whatever the
+  // ceiling is emitting. One real light hung in a room this small burns a
+  // bright pool into the surface directly above it.
+  const light = new THREE.HemisphereLight(
+    S.ceiling === 'rafters' ? 0xf3e3c6 : 0xf6f8fa, 0x8f8d86,
+    S.ceiling === 'rafters' ? 0.95 : 1.15);
   add(light);
-  const fill = new THREE.AmbientLight(0xfff3e2, 0.35);
+  const fill = new THREE.AmbientLight(0xfff3e2, S.ceiling === 'rafters' ? 0.42 : 0.35);
   add(fill);
 
   // ------------------------------------------------------------- fit-out
@@ -157,12 +227,12 @@ export function buildInteriorBuilding(scene, spec){
   const benchZ = z1 - 0.62;
   const carcass = add(new THREE.Mesh(
     new THREE.BoxGeometry(P.w - 2.4, 0.86, 0.72),
-    new THREE.MeshStandardMaterial({ color: 0xdedbd2, roughness: 0.7, envMapIntensity: 0.3 })));
+    new THREE.MeshStandardMaterial({ color: S.bench, roughness: 0.7, envMapIntensity: 0.3 })));
   carcass.position.set(0, 0.43, benchZ);
   carcass.castShadow = true;
   const top = add(new THREE.Mesh(
     new THREE.BoxGeometry(P.w - 2.3, 0.06, 0.8),
-    new THREE.MeshStandardMaterial({ map: grainTexture('#9aa0a6'), roughness: 0.45, envMapIntensity: 0.4 })));
+    new THREE.MeshStandardMaterial({ map: grainTexture(S.worktop), roughness: 0.45, envMapIntensity: 0.4 })));
   top.position.set(0, 0.89, benchZ);
   const band = add(new THREE.Mesh(
     new THREE.BoxGeometry(P.w - 2.4, 0.07, 0.02),

@@ -8,7 +8,7 @@ import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
-import { updateHUD, renderEndScreen, renderStats } from './dashboard.js';
+import { updateHUD, updateDayClock, renderEndScreen, renderStats } from './dashboard.js';
 import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
 import { esc, fmt } from './utils.js';
 import { formatTime, timeToDay, TOTAL_DAYS, TOTAL_HOURS } from './time.js';
@@ -28,7 +28,10 @@ const promptEl=document.getElementById('prompt');
 const blocker=document.getElementById('blocker');
 const interiorOverlay=document.getElementById('interiorOverlay');
 const interiorCard=document.getElementById('interiorCard');
-const setupOverlay=document.getElementById('setupOverlay');
+// The leader-assignment screen is gone; these keep the old call sites honest
+// without a null check at every one of them.
+const NO_OVERLAY = { classList: { add(){}, remove(){}, contains(){ return true; }, toggle(){} }, style: {} };
+const setupOverlay=document.getElementById('setupOverlay') || NO_OVERLAY;
 const dashboardOverlay=document.getElementById('dashboardOverlay');
 const mapOverlay=document.getElementById('mapOverlay');
 const miniMapEl=document.getElementById('miniMap');
@@ -275,8 +278,10 @@ function animate(){
     // time is constant — walking no longer speeds clock
     if(state) updateDayNight();
   }
-  // The countdown runs everywhere: corridor, room, question panel.
+  // The countdown runs everywhere: corridor, room, question panel — and is
+  // written every frame, because a clock refreshed at 2 Hz steps unevenly.
   if(day.tick(delta) === 'expired') day.close();
+  updateDayClock();
 
   if(!interiorMode){
     updateInteractions(promptEl);

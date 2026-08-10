@@ -99,6 +99,10 @@ export function createInteriors({
       id, index: Math.max(0, order),
       name: d?.name ?? id, code: d?.code ?? '',
       colour: d?.color,
+      // How the room is *built* is the theme's, not the area's: a wartime
+      // building on a mesa should not be a Riverton laboratory with different
+      // numbers on the screen.
+      style: theme.interiorStyle ?? 'lab',
       ...spec,
       caseName: who.name, caseLine: who.line,
     });

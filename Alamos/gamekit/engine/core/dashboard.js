@@ -136,6 +136,47 @@ export function renderCentralBoardTexture(ctx, width, height){
  * told the player the only two things they need while walking: where to go,
  * and how much trouble they are in.
  */
+/**
+ * The countdown, every frame.
+ *
+ * `updateHUD` does forecast arithmetic over every group and is called a couple
+ * of times a second at most — which is fine for money and projection and wrong
+ * for a clock. A game minute is 0.4 real seconds, so refreshing the countdown
+ * at 2 Hz makes it step by one minute, then two, then one; Project Y refreshed
+ * it on `Math.random() < 0.02`, so the steps were not even evenly spaced.
+ *
+ * This writes the countdown and nothing else, cheaply enough to call from the
+ * frame loop: a string compare, and a transform on a bar that moves smoothly
+ * whatever the frame rate is.
+ */
+let lastCountdown = '';
+export function updateDayClock(){
+  const state = getState();
+  const el = document.getElementById('hudClock');
+  if(!state || !el) return;
+  const left = state.dayLeft ?? 0;
+  const text = state.dayStarted ? formatCountdown(left) : '—';
+  if(text !== lastCountdown){
+    el.textContent = text;
+    lastCountdown = text;
+  }
+  const frac = state.dayBudget ? left / state.dayBudget : 1;
+  const cls = !state.dayStarted ? '' : frac < 0.12 ? 'urgent' : frac < 0.3 ? 'low' : '';
+  if(el.className !== cls) el.className = cls;
+  // The bar is the continuous part: the text can only move in whole minutes,
+  // and a countdown that only moves in steps reads as a stutter.
+  let bar = el.parentElement?.querySelector('.hudBarFill');
+  if(!bar && el.parentElement){
+    const track = document.createElement('div');
+    track.className = 'hudBar';
+    bar = document.createElement('div');
+    bar.className = 'hudBarFill';
+    track.appendChild(bar);
+    el.parentElement.appendChild(track);
+  }
+  if(bar) bar.style.transform = `scaleX(${Math.max(0, Math.min(1, frac))})`;
+}
+
 export function updateHUD(){
   const state=getState();
   if(!state) return;
@@ -154,10 +195,7 @@ export function updateHUD(){
   // This used to be a running campaign clock and a count of days left. Neither
   // told the player the thing they actually need while walking: how much of
   // *today* is left, and how many calls they still owe.
-  const left = state.dayLeft ?? 0;
-  const frac = state.dayBudget ? left / state.dayBudget : 1;
-  set('hudClock', state.dayStarted ? formatCountdown(left) : '—',
-      frac < 0.12 ? 'urgent' : frac < 0.3 ? 'low' : '');
+  updateDayClock();
   const open = openStopIndices(state).length;
   const total = getCurrentMission(state)?.stops?.length ?? 0;
   set('hudDaysLeft', open ? `${open} of ${total}` : 'all made');

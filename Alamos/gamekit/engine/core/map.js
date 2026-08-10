@@ -113,6 +113,52 @@ export function renderMap(){
   const targetGroup = null;   // kept: the old single-target checks read it
 
   let g = '';
+  // ---- label placement
+  //
+  // Every building label used to be pinned twelve pixels under its own
+  // footprint. On a town of five buildings that is fine; Project Y has
+  // nineteen, several of them a few metres apart, and the names landed on top
+  // of each other in a pile nobody could read.
+  //
+  // So labels are placed in a second pass, against the boxes already taken —
+  // the footprints themselves and every label placed before it. A label tries
+  // below, above, right and left, then a shorter form of its own name, and is
+  // dropped only if all of that fails. Targets and people are placed first, so
+  // the ones that matter always win the space.
+  const taken = [];
+  const overlaps = (b) => taken.some(t =>
+    !(b.x1 < t.x0 - 1 || b.x0 > t.x1 + 1 || b.y1 < t.y0 - 1 || b.y0 > t.y1 + 1));
+  /** 11px Inter is about 0.55em average — close enough to reserve space with. */
+  const textW = (t, size = 11) => String(t).length * size * 0.55;
+  const shorten = (name) => {
+    const cut = String(name).split(/\s+[&·—-]\s+|,\s*/)[0];
+    return cut.length < String(name).length ? cut : String(name).split(/\s+/)[0];
+  };
+  /**
+   * Put a label somewhere it can be read, or nowhere.
+   * @returns svg text, or '' when there was no room for it at any anchor.
+   */
+  function label(cx, cy, halfW, halfH, text, { weight = 600, colour = '#2b2a27', size = 11 } = {}){
+    for(const candidate of [text, shorten(text)]){
+      const tw = textW(candidate, size);
+      const anchors = [
+        { x: cx,             y: cy + halfH + size + 1, anchor: 'middle', x0: cx - tw / 2, x1: cx + tw / 2 },
+        { x: cx,             y: cy - halfH - 4,        anchor: 'middle', x0: cx - tw / 2, x1: cx + tw / 2 },
+        { x: cx + halfW + 5, y: cy + size / 3,         anchor: 'start',  x0: cx + halfW + 5, x1: cx + halfW + 5 + tw },
+        { x: cx - halfW - 5, y: cy + size / 3,         anchor: 'end',    x0: cx - halfW - 5 - tw, x1: cx - halfW - 5 },
+        { x: cx,             y: cy + halfH + size * 2 + 3, anchor: 'middle', x0: cx - tw / 2, x1: cx + tw / 2 },
+      ];
+      for(const a of anchors){
+        const box = { x0: a.x0, x1: a.x1, y0: a.y - size, y1: a.y + 3 };
+        if(box.x0 < 2 || box.x1 > W - 2 || box.y0 < 2 || box.y1 > H - 2) continue;
+        if(overlaps(box)) continue;
+        taken.push(box);
+        return `<text x="${a.x}" y="${a.y}" text-anchor="${a.anchor}" font-size="${size}" `
+             + `fill="${colour}" font-weight="${weight}">${esc(candidate)}</text>`;
+      }
+    }
+    return '';
+  }
   // ---- an interior: the rooms in order along the plan
   for(const r of site.plan?.rooms ?? []){
     const area = r.group ? def(r.group) : null;
@@ -151,6 +197,8 @@ export function renderMap(){
     g += `<rect x="${sx(p.cx - p.w / 2)}" y="${sz(p.cz - p.d / 2)}" width="${sw(p.w)}" height="${sd(p.d)}" `
        + `fill="#cfc9bb"/>`;
   }
+  // Pass one: the footprints, which are also the obstacles the labels avoid.
+  const plots = [];
   for(const bl of site.buildings ?? []){
     const area = bl.group ? def(bl.group) : null;
     const isTarget = bl.group && targetGroups.has(bl.group);
@@ -160,13 +208,18 @@ export function renderMap(){
     g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="${fill}" `
        + `opacity="${area ? 0.92 : 0.55}" stroke="${isTarget ? '#f2c14e' : 'rgba(0,0,0,.25)'}" `
        + `stroke-width="${isTarget ? 3 : 1}"/>`;
-    // Labels go beneath the footprint so they never sit on top of another one.
-    g += `<text x="${x + w / 2}" y="${y + h + 12}" text-anchor="middle" font-size="11" `
-       + `fill="#2b2a27" font-weight="${isTarget ? 800 : 600}">${esc(bl.name)}</text>`;
-    if(isTarget){
-      g += `<text x="${x + w / 2}" y="${y - 6}" text-anchor="middle" font-size="11" `
-         + `fill="#8a6410" font-weight="800">▼ open</text>`;
+    taken.push({ x0: x, y0: y, x1: x + w, y1: y + h });
+    plots.push({ bl, x, y, w, h, isTarget, area });
+  }
+  // Pass two: the labels, the ones that matter first.
+  plots.sort((a, b) => (b.isTarget - a.isTarget) || (b.w * b.h - a.w * a.h));
+  for(const p of plots){
+    if(p.isTarget){
+      g += label(p.x + p.w / 2, p.y - p.h / 2 - 2, p.w / 2, 4, '▼ open',
+                 { weight: 800, colour: '#8a6410' });
     }
+    g += label(p.x + p.w / 2, p.y + p.h / 2, p.w / 2, p.h / 2, p.bl.name,
+               { weight: p.isTarget ? 800 : 600 });
   }
 
   // The person the mission wants, where they are standing right now, and which

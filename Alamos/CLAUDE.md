@@ -137,7 +137,7 @@ Each mission is now one working day:
   converts the distance to walking time and says travel should be a little
   under half the day. Spread-out days get more hours; a day that never leaves
   one building gets the floor of five. Move a building and the budget follows.
-- **Time runs in real time, at 2.5 game minutes a second, whatever the player
+- **Time runs in real time, one game minute a second, whatever the player
   is doing** — walking, driving, reading a bio, or sitting in a question panel.
   Nothing is charged. Thinking is not free, which is the whole point.
 - **The stops are open in any order.** `openStopIndices()` is the truth;

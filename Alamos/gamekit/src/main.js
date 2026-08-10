@@ -15,7 +15,7 @@ import {
   getState, save, tryLoadSaved, createFresh, advanceTime, getNextMissionStop, walkCost,
   endDayNow, dayRunning, completeMission,
 } from '../engine/core/gameState.js';
-import { updateHUD, renderStats } from '../engine/core/dashboard.js';
+import { updateHUD, updateDayClock, renderStats } from '../engine/core/dashboard.js';
 import { renderMap } from '../engine/core/map.js';
 import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
@@ -338,6 +338,9 @@ function frame(now){
 
   // The day runs down in real time — walking, driving, reading, answering.
   if(day.tick(delta) === 'expired') day.close();
+  // The countdown is written every frame. The rest of the HUD is not: it does
+  // forecast arithmetic, and a clock refreshed at 2 Hz steps unevenly.
+  updateDayClock();
 
   world.updateWorldAnimation?.(now / 1000);
   updateCrowd(delta, now / 1000);

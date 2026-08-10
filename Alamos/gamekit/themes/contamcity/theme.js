@@ -42,10 +42,13 @@ export default {
     + 'and the utility has closed it — which means the city is drinking its reserves, and the '
     + 'reserves are measured in days. You are the Chief Scientific Officer. Every hour you spend '
     + 'getting an answer right is an hour the intake stays shut; every hour you save by guessing is '
-    + 'an hour a wrong answer spreads through the mains. The clock at the top of the screen is that '
-    + 'reserve running down. It is the only thing in this response you cannot get back.',
-    'Nothing here punishes you for being wrong. A wrong call costs time and shows you the whole '
-    + 'reasoning; it never locks you out. What it cannot do is give you the hours back.',
+    + 'an hour a wrong answer spreads through the mains. Each day you get one shift, and the clock '
+    + 'at the top of the screen is what is left of it. It runs while you walk, while you drive and '
+    + 'while you read — thinking is not free.',
+    'You are shown the day\'s calls before it starts, and you take them in whatever order you like. '
+    + 'A wrong call costs $5 to answer again or $10 to walk away from; run out of money or out of '
+    + 'daylight with a call still open and you take the day again. Whatever is left when the calls '
+    + 'are made is yours: people will sign off expenses for a conversation.',
   ],
 
   people: {

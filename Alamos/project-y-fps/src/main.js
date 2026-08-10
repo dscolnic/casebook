@@ -13,7 +13,7 @@ import { getState, setState, save, load, createFresh, fundSelected, fundAllSelec
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
 import { createInteriors, exposeDebug, createDay } from '../../gamekit/engine/core/app.js';
 import { createDriving } from '../../gamekit/engine/world/driving.js';
-import { updateHUD, renderEndScreen, renderStats } from './dashboard.js';
+import { updateHUD, updateDayClock, renderEndScreen, renderStats } from './dashboard.js';
 import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
 import { esc, fmt } from './utils.js';
 import { formatTime, timeToDay, TOTAL_DAYS, TOTAL_HOURS } from './time.js';
@@ -30,7 +30,10 @@ const promptEl=document.getElementById('prompt');
 const blocker=document.getElementById('blocker');
 const interiorOverlay=document.getElementById('interiorOverlay');
 const interiorCard=document.getElementById('interiorCard');
-const setupOverlay=document.getElementById('setupOverlay');
+// The leader-assignment screen is gone; these keep the old call sites honest
+// without a null check at every one of them.
+const NO_OVERLAY = { classList: { add(){}, remove(){}, contains(){ return true; }, toggle(){} }, style: {} };
+const setupOverlay=document.getElementById('setupOverlay') || NO_OVERLAY;
 const dashboardOverlay=document.getElementById('dashboardOverlay');
 const mapOverlay=document.getElementById('mapOverlay');
 const miniMapEl=document.getElementById('miniMap');
@@ -244,7 +247,8 @@ if(savedRawAlways){
 } else {
   autoAssignAndStart();
 }
-document.getElementById('startBtn').onclick=()=>{
+const _setupStart=document.getElementById('startBtn');
+if(_setupStart) _setupStart.onclick=()=>{
   const assign={};
   document.querySelectorAll('.leaderSelect').forEach(s=> assign[s.dataset.group]=s.value);
   const ids=Object.values(assign);
@@ -302,8 +306,11 @@ function animate(){
     // time is constant — walking no longer speeds clock
     if(state) updateDayNight();
   }
-  // The countdown runs everywhere: street, room, jeep, question panel.
+  // The countdown runs everywhere: street, room, jeep, question panel — and is
+  // written every frame. It used to ride on `Math.random() < 0.02`, which is
+  // what made it look like it was stepping at random.
   if(day.tick(delta) === 'expired') day.close();
+  updateDayClock();
 
   if(!interiorMode){
     if(driving.active){
@@ -340,7 +347,7 @@ function animate(){
   } else {
     promptEl.classList.add('hidden');
   }
-  updateMiniMap();
+  updateMiniMap(delta);
   // Running clock — update every frame for smooth ticking
   if(state){
     const clockEl=document.getElementById('clockStat');
@@ -362,98 +369,27 @@ function animate(){
   renderer.render(scene, camera);
 }
 
-function updateMiniMap(){
+/**
+ * The map, from the engine, not from a diagram of five dots.
+ *
+ * This drew the five divisions at hardcoded positions in a 200-pixel square —
+ * T at the top, P on the left, and so on — which is not where any of them are.
+ * The labels sat on top of each other because nothing had ever measured them,
+ * and a player orienting by it was orienting by a picture of a different town.
+ *
+ * `renderMap` draws the real site, outlines every call still open, marks the
+ * people you owe a call with the way they are facing, and places its labels
+ * against the space already taken. Rebuilt a few times a second while the map
+ * is open, which is often enough for a walking player and cheap enough to
+ * ignore.
+ */
+let mapAccum = 0;
+function updateMiniMap(delta = 0){
   if(mapOverlay.classList.contains('hidden')) return;
-  const p=getPosition();
-  let dot=document.getElementById('youDot');
-  if(!dot){
-    dot=document.createElement('div');
-    dot.id='youDot';
-    dot.className='miniDot';
-    dot.style.background='#d4a017';
-    dot.textContent='You';
-    dot.style.zIndex='5';
-    miniMapEl.appendChild(dot);
-  }
-  const x=(p.x+55)/110*200;
-  const z=(p.z+55)/110*200;
-  dot.style.left=(x-7)+'px';
-  dot.style.top=(z-7)+'px';
-  // Which way you are looking. A dot on a map says where you are and nothing
-  // about which way you are about to walk, which on a plan of a building or a
-  // town is the half that matters.
-  let youArr=document.getElementById('youArrow');
-  if(!youArr){
-    youArr=document.createElement('div');
-    youArr.id='youArrow';
-    youArr.style.position='absolute';
-    youArr.style.pointerEvents='none';
-    youArr.style.zIndex='6';
-    miniMapEl.appendChild(youArr);
-  }
-  const look=new THREE.Vector3();
-  camera.getWorldDirection(look);
-  youArr.innerHTML=facingArrowHTML(Math.atan2(look.x, look.z), '#d4a017', 18);
-  youArr.style.left=(x-9)+'px';
-  youArr.style.top=(z-9)+'px';
-  if(!miniMapEl._built){
-    GROUP_DEFS.forEach(d=>{
-      const data={T:[100,20],P:[20,100],X:[180,100],CM:[60,170],E:[140,170]}[d.id] || [100,100];
-      const bd=document.createElement('div');
-      bd.className='miniDot';
-      bd.style.left=(data[0]-7)+'px'; bd.style.top=(data[1]-7)+'px';
-      bd.style.background=d.color;
-      bd.textContent=d.code;
-      bd.title=d.name;
-      miniMapEl.appendChild(bd);
-    });
-    miniMapEl._built=true;
-  }
-  // NPC dot — only the target person (special fourth meeting takes priority)
-  const state=getState();
-  miniMapEl.querySelectorAll('.npcDot').forEach(el=>el.remove());
-  const oldArr=document.getElementById('targetArrow');
-  if(oldArr) oldArr.remove();
-  let target=null;
-  let isSpecial=false;
-  if(state && isSpecialRequestActive(state)){
-    const req=getSpecialRequest(state.week);
-    target=req ? getNPCByCharId(req.personId) : null;
-    isSpecial=true;
-  } else {
-    const nextIdx=state?nextMissionStopIndex(state):-1;
-    const isPersonNext = state && nextIdx>=0 && isPersonStopForIdx(state, nextIdx);
-    const targetPid = isPersonNext ? getPersonIdForStop(state, nextIdx) : null;
-    target = targetPid ? getNPCByCharId(targetPid) : null;
-    isSpecial=false;
-  }
-  if(target){
-    try{
-      const nd=document.createElement('div');
-      nd.className='miniDot npcDot';
-      nd.style.left=((target.pos.x+55)/110*200-7)+'px';
-      nd.style.top=((target.pos.z+55)/110*200-7)+'px';
-      nd.style.width='14px'; nd.style.height='14px'; nd.style.borderRadius='50%';
-      nd.style.border='2px solid #fff';
-      nd.style.background=isSpecial?'#9a741d':'#315c78';
-      nd.style.boxShadow=`0 0 0 2px ${isSpecial?'#9a741d':'#315c78'}, 0 0 8px ${isSpecial?'#9a741d':'#315c78'}`;
-      nd.style.zIndex='4';
-      nd.style.fontSize='7px'; nd.style.color='#fff'; nd.style.display='grid'; nd.style.placeItems='center';
-      nd.textContent='★';
-      nd.title=`${target.char.name} [${target.division}] — NEXT → ${isSpecial?'Fourth meeting':'Find this person'}`;
-      miniMapEl.appendChild(nd);
-      // Their facing, not a static caret: they walk, and knowing which way
-      // they are heading is the difference between catching someone and
-      // following them down the corridor.
-      const arr=document.createElement('div');
-      arr.id='targetArrow';
-      arr.style.position='absolute'; arr.style.pointerEvents='none'; arr.style.zIndex='5';
-      arr.innerHTML=facingArrowHTML(target.body?.rotation.y ?? 0, isSpecial?'#9a741d':'#315c78', 20);
-      arr.style.left=((target.pos.x+55)/110*200-10)+'px';
-      arr.style.top=((target.pos.z+55)/110*200-10)+'px';
-      miniMapEl.appendChild(arr);
-    }catch(e){}
-  }
+  mapAccum += delta;
+  if(mapAccum < 0.25 && miniMapEl.childElementCount) return;
+  mapAccum = 0;
+  miniMapEl.innerHTML = renderMap();
 }
 
 // ——— Interactions ———
@@ -737,7 +673,8 @@ interiorOverlay.onclick=(e)=>{ if(e.target===interiorOverlay) exitInterior(); };
 // ——— Map & Tab ———
 function toggleMap(){
   mapOverlay.classList.toggle('hidden');
-  updateMiniMap();
+  mapAccum = 1;                      // rebuild immediately on opening
+  updateMiniMap(1);
 }
 document.getElementById('mapBtn').onclick=toggleMap;
 document.getElementById('closeMapBtn').onclick=()=> mapOverlay.classList.add('hidden');

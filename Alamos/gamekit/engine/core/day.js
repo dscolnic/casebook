@@ -23,8 +23,18 @@
 // This means a theme gets a sensible day without writing a number, and a theme
 // that moves a building gets a day that adjusts itself.
 
-/** Game minutes per real second. A 10-hour day is then about four minutes. */
-export const MINUTES_PER_SECOND = 2.5;
+/**
+ * Game minutes per real second — one, so the countdown ticks once a second and
+ * reads as a clock rather than a blur. At 2.5 the minutes field moved two and a
+ * half times a second, which looked like stuttering however smoothly it was
+ * driven.
+ *
+ * Everything else here is expressed in game minutes, so changing this changes
+ * how long a day *feels* without changing the shape of the budget: the travel
+ * term is derived from walking seconds and multiplied back through this, so the
+ * real time allowed for walking is the same whatever the rate.
+ */
+export const MINUTES_PER_SECOND = 1;
 
 /** Player walking speed, m/s — `player.js` moves at 4.2 and sprints at 8.5. */
 const WALK_SPEED = 4.2;
@@ -33,10 +43,10 @@ const WALK_SPEED = 4.2;
 const TRAVEL_SHARE = 0.42;
 
 /** Minutes allowed per stop for reading the panel and answering it. */
-const MINUTES_PER_STOP = 55;
+const MINUTES_PER_STOP = 45;
 
 /** Nobody gets less than this, however tightly packed the stops are. */
-const MIN_DAY_MINUTES = 300;
+const MIN_DAY_MINUTES = 180;
 
 /**
  * The day's budget, in game minutes, for a route through these positions.
