@@ -266,14 +266,64 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
     if(kind === 'PROTOCOL' && g.mapping && new Set(g.mapping).size !== g.mapping.length){
       fail(`${at}: protocol mapping is not a permutation`);
     }
-    if(g.type === 'Sequence' && g.order && g.cards && new Set(g.order).size !== g.cards.length){
+    // House rule 12, which this file was itself breaking: these two compared
+    // `g.type` against "Sequence" and "Ballpark" as the books spell them, and
+    // normalizeContent has already canonicalised them to SEQUENCE and BALLPARK.
+    // Neither branch had fired since normalisation moved into theme.js.
+    if(kind === 'SEQUENCE' && g.order && g.cards && new Set(g.order).size !== g.cards.length){
       fail(`${at}: sequence order does not use every card exactly once`);
     }
-    if(g.type === 'Ballpark'){
+    // ---- every choice set has to be gradeable and worth answering
+    if(g.choices?.length){
+      const labels = labelsOf(g.choices).map(s => String(s).trim());
+      if(new Set(labels).size !== labels.length){
+        fail(`${at}: two choices are the same string — a panel that grades by label cannot tell them apart`);
+      }
+    }
+    if((kind === 'CHOICE' || kind === 'TRIAGE') && g.choices?.length){
+      const want = String(g.correctChoice ?? g.answer ?? '').trim();
+      if(!want) fail(`${at}: ${kind} with no answer`);
+      else if(!labelsOf(g.choices).map(s => String(s).trim()).includes(want)){
+        fail(`${at}: the answer is not one of the choices — grading compares labels`);
+      }
+    }
+    // The verdict card is where a wrong answer becomes a lesson. Formats that
+    // draw their own detail (the mapping, the ordered list, the worked
+    // estimate) survive without one; a bare choice does not.
+    if(!String(g.why ?? '').trim() && ['CHOICE', 'TRIAGE', 'DIAGNOSIS'].includes(kind)){
+      note(`${at}: no "why" — the verdict card names the answer and explains nothing`);
+    }
+    if(kind === 'BALLPARK'){
       const spec = content.BALLPARK_CALCS?.[`${group}-${l.day}`];
-      if(!spec) fail(`${at}: Ballpark with no BALLPARK_CALCS["${group}-${l.day}"] — it renders un-answerable`);
-      else if(spec.correct?.length !== spec.slots){
-        fail(`${at}: Ballpark spec has ${spec.correct?.length} correct tiles for ${spec.slots} slots`);
+      if(!spec){
+        fail(`${at}: BALLPARK with no BALLPARK_CALCS["${group}-${l.day}"] — it renders un-answerable`);
+      } else {
+        if(spec.correct?.length !== spec.slots){
+          fail(`${at}: estimate has ${spec.correct?.length} correct tiles for ${spec.slots} slots`);
+        }
+        // Evaluate the spec the way questionUI does: the tiles that belong,
+        // in slot order, bound to a, b, c… This is what caught a template
+        // referencing a slot the player could not fill, which returned NaN
+        // for every submission and which no other check could see.
+        const vals = (spec.correct ?? []).map(i => spec.values?.[i]);
+        const names = 'abcdefgh'.slice(0, Math.max(vals.length, spec.slots ?? 0)).split('');
+        let got;
+        try{ got = Function(...names, `return (${spec.formula})`)(...vals); }
+        catch(e){ got = NaN; }
+        if(!Number.isFinite(got)){
+          fail(`${at}: estimate formula "${spec.formula}" does not evaluate — the panel can never be answered`);
+        } else if(Math.abs(got - spec.target) > (spec.tolerance ?? 0)){
+          fail(`${at}: estimate formula gives ${got}, outside target ${spec.target} ±${spec.tolerance}`);
+        }
+        // Distractor tiles are the format: without one, choosing which
+        // quantities belong — the actual skill — has been done for the player.
+        if((spec.labels?.length ?? 0) <= (spec.correct?.length ?? 0)){
+          fail(`${at}: estimate offers no distractor tiles, so every number given belongs in the answer`);
+        }
+        if(!spec.units) fail(`${at}: estimate has no units`);
+        if(!String(spec.explanation ?? '').trim()){
+          note(`${at}: estimate has no explanation, so the verdict shows a number and no reasoning`);
+        }
       }
     }
   });

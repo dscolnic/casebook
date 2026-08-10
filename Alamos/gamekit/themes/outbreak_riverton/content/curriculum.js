@@ -162,39 +162,26 @@ export const CURRICULUM = {
       "place": "Clinical Chemistry Bench",
       "story": "A patient is deteriorating and there is time and money for a few bedside measurements before the team commits to a treatment. Arterial oxygenation and carbon dioxide report the lung; a cardiac output or validated flow surrogate reports the pump; tissue lactate and acid-base status report whether delivery is actually failing to meet demand at the far end of the chain. Repeating the pulse oximeter gives you the number you already have. Integrated physiology is diagnosed by sampling several points along the transport chain, not by trusting the loudest one.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Measure the failing link",
         "setup": "Clinical Chemistry Bench",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Measure arterial oxygenation and carbon dioxide."
-          },
-          {
-            "label": "B",
-            "text": "Measure cardiac output or a validated flow surrogate."
-          },
-          {
-            "label": "C",
-            "text": "Measure tissue lactate and acid-base status."
-          },
-          {
-            "label": "D",
-            "text": "Repeat the same pulse-oximeter reading on three identical devices."
-          }
+        "play": "One bedside measurement before the team commits to a treatment. Which?",
+        "task": "One bedside measurement before the team commits to a treatment. Which?",
+        "question": "One bedside measurement before the team commits to a treatment. Which?",
+        "answer": "Tissue lactate and acid-base status.",
+        "why": "Oxygen delivery is a chain and the panel has already measured its top: saturation is low, carbon dioxide and cardiac output are not. What nobody has measured is the far end — whether delivery is actually failing to meet demand in the tissues, which is the thing the treatment is meant to change.",
+        "rebuttals": [
+          "Arterial oxygenation and carbon dioxide are already on the chart from the earlier panel. Measuring them again is precision about a number that is not in dispute.",
+          "Cardiac output reports the pump, and the pump has already read normal. Worth repeating if the patient changes; not the missing measurement now.",
+          "Three identical devices agreeing tells you the devices agree. It does not add an independent observation."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 30,
-          "D": 5
-        },
-        "research": "Allocate 100 credits among bedside measurements for a deteriorating patient."
+        "choices": [
+          "Tissue lactate and acid-base status.",
+          "Arterial oxygenation and carbon dioxide.",
+          "Cardiac output or a validated flow surrogate.",
+          "The same pulse oximeter reading, repeated on three devices."
+        ],
+        "correctChoice": "Tissue lactate and acid-base status."
       }
     },
     {
@@ -280,39 +267,26 @@ export const CURRICULUM = {
       "place": "Pathology Archive",
       "story": "Late deterioration is killing patients and the ward wants to act tonight. Measuring agent burden alongside inflammatory markers separates the two candidate drivers; comparing immune-cell states in improving and deteriorating patients asks which response differs; pathology on affected tissue asks where the damage actually is. Suppressing the immune system immediately treats one hypothesis as settled and, if the infection is still active, removes the response that is clearing it. The intervention should follow evidence about what the immune system is doing, where, and when.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Treat the mechanism, not the marker",
         "setup": "Pathology Archive",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Measure agent burden and inflammatory markers together over time."
-          },
-          {
-            "label": "B",
-            "text": "Compare immune-cell states in improving and worsening patients."
-          },
-          {
-            "label": "C",
-            "text": "Suppress the entire immune system immediately in everyone."
-          },
-          {
-            "label": "D",
-            "text": "Use pathology to identify which tissues are being damaged."
-          }
+        "play": "The ward wants to start immunosuppression tonight. What do you do?",
+        "task": "The ward wants to start immunosuppression tonight. What do you do?",
+        "question": "The ward wants to start immunosuppression tonight. What do you do?",
+        "answer": "Measure agent burden and inflammatory markers together over time first.",
+        "why": "The two candidate drivers — a pathogen still replicating and a host response that has become the injury — are distinguished by which curve is rising while the other falls. Paired measurements over time separate them within hours, and the answer decides whether suppression helps or removes the thing that is clearing the infection.",
+        "rebuttals": [
+          "Suppressing now treats one hypothesis as settled. If agent burden is still rising in some of these patients, it removes their only defence.",
+          "Comparing immune-cell states is the right study and returns in days. The ward is asking about tonight.",
+          "Pathology says where the damage is. It does not say whether the pathogen is still driving it, which is the question the treatment turns on."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 5,
-          "D": 30
-        },
-        "research": "Allocate 100 credits to resolve why late deterioration occurs."
+        "choices": [
+          "Measure agent burden and inflammatory markers together over time first.",
+          "Suppress the immune response immediately in everyone deteriorating.",
+          "Compare immune-cell states in improving and worsening patients.",
+          "Send pathology on affected tissue to identify what is being damaged."
+        ],
+        "correctChoice": "Measure agent burden and inflammatory markers together over time first."
       }
     },
     {
@@ -364,9 +338,9 @@ export const CURRICULUM = {
         "setup": "Hospital Capacity Center",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the no-discharge upper-bound time to capacity and explain why it is only a bound.",
+        "question": "Estimate the upper bound on time to capacity, assuming nobody is discharged.",
         "answer": "",
-        "why": "",
+        "why": "A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.",
         "givens": [],
         "relationship": "",
         "calcKey": "CLIN-7"
@@ -448,39 +422,26 @@ export const CURRICULUM = {
       "place": "Structural Biology Room",
       "story": "Some cells are vulnerable and some are not, and the team wants to know at which step the resistant ones stop the process. Receptor abundance on both cell types tests whether binding is possible; tracking whether bound material is internalised tests whether entry follows binding; measuring a late cellular response tells you only that something already went wrong upstream. A mechanistic experiment earns its cost by identifying the earliest point at which the two conditions diverge — everything after that point is a consequence, not a cause.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Separate binding from entry",
         "setup": "Structural Biology Room",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Measure receptor abundance on vulnerable and resistant cells."
-          },
-          {
-            "label": "B",
-            "text": "Track whether bound material is internalized."
-          },
-          {
-            "label": "C",
-            "text": "Measure a late cellular response only."
-          },
-          {
-            "label": "D",
-            "text": "Increase the exposure until every cell shows damage."
-          }
+        "play": "Which experiment locates the step where resistant cells stop the process?",
+        "task": "Which experiment locates the step where resistant cells stop the process?",
+        "question": "Which experiment locates the step where resistant cells stop the process?",
+        "answer": "Measure receptor abundance on vulnerable and resistant cells.",
+        "why": "Entry is a chain and the earliest divergence is the cause; everything after it is a consequence. Receptor abundance tests the first step, and it is the only measurement whose result changes what the next experiment should be.",
+        "rebuttals": [
+          "Internalisation is the right second experiment and it is only interpretable once you know both cell types can bind. Run it after, not instead.",
+          "A late response tells you something already went wrong upstream, which is what you knew before you started.",
+          "Flooding the system until everything is damaged destroys the difference between the two cell types, which is the entire measurement."
         ],
-        "recommended": {
-          "A": 40,
-          "B": 40,
-          "C": 15,
-          "D": 5
-        },
-        "research": "Allocate 100 credits among experiments designed to locate the first failed step in resistant cells."
+        "choices": [
+          "Measure receptor abundance on vulnerable and resistant cells.",
+          "Track whether bound material is internalised.",
+          "Measure a late cellular response in both cell types.",
+          "Increase the exposure until every cell shows damage."
+        ],
+        "correctChoice": "Measure receptor abundance on vulnerable and resistant cells."
       }
     }
   ],
@@ -493,39 +454,26 @@ export const CURRICULUM = {
       "place": "Molecular Identification Lab",
       "story": "Two hypotheses about the agent's identity remain open, and there is money for roughly two more pieces of work. A higher magnification of the same image is more of the evidence you already have; a validated molecular signature interrogates the genome rather than the appearance; a replication assay in permissive and non-permissive cells asks the mechanistic question directly. What separates useful evidence from expensive reassurance is independence of failure mode: if two methods can fail for the same reason, agreement between them is not confirmation.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Choose the next discriminating evidence",
         "setup": "Molecular Identification Lab",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Repeat the same microscope image at higher magnification."
-          },
-          {
-            "label": "B",
-            "text": "Obtain a molecular signature using a validated broad panel."
-          },
-          {
-            "label": "C",
-            "text": "Compare growth or replication behavior in approved diagnostic systems."
-          },
-          {
-            "label": "D",
-            "text": "Ask a famous scientist to choose the most likely answer."
-          }
+        "play": "One experiment separates the two remaining hypotheses. Which?",
+        "task": "One experiment separates the two remaining hypotheses. Which?",
+        "question": "One experiment separates the two remaining hypotheses. Which?",
+        "answer": "Obtain a molecular signature using a validated broad panel.",
+        "why": "The evidence so far is morphological, and the two candidates differ in their genome rather than their appearance. A molecular panel fails in a different way from microscopy, so agreement between the two would mean something; more microscopy could only agree with itself.",
+        "rebuttals": [
+          "Higher magnification is more of the evidence already held. If the first image could be misread, so can a sharper one taken the same way.",
+          "The replication comparison is a real and independent test and it is what you run next. It answers whether the agent needs host cells — which the panel has already shown — rather than which candidate it is.",
+          "An authority's opinion carries the authority's failure modes and adds no measurement at all."
         ],
-        "recommended": {
-          "A": 15,
-          "B": 45,
-          "C": 35,
-          "D": 5
-        },
-        "research": "Allocate 100 credits to distinguish the leading hypotheses."
+        "choices": [
+          "Obtain a molecular signature using a validated broad panel.",
+          "Repeat the same microscope image at higher magnification.",
+          "Compare growth in permissive and non-permissive cell systems.",
+          "Ask a recognised authority which answer is most likely."
+        ],
+        "correctChoice": "Obtain a molecular signature using a validated broad panel."
       }
     },
     {
@@ -602,39 +550,26 @@ export const CURRICULUM = {
       "place": "Protein Analysis Core",
       "story": "An unfamiliar protein is abundant in affected cells and the team has money for a few measurements. Quantifying its messenger RNA across time asks whether transcription changed; measuring ribosome association with that RNA asks whether translation did; measuring protein half-life asks whether the protein is simply being destroyed more slowly, which produces abundance with no change in production at all. Sequencing a neighbouring chromosomal region answers a question nobody has asked. Mechanism needs measurements that span the whole causal chain, because abundance alone is consistent with all of them.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Find the controlling stage",
         "setup": "Protein Analysis Core",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Quantify its messenger RNA across time."
-          },
-          {
-            "label": "B",
-            "text": "Measure ribosome association with that RNA."
-          },
-          {
-            "label": "C",
-            "text": "Measure protein half-life and degradation."
-          },
-          {
-            "label": "D",
-            "text": "Sequence only the neighboring chromosome region and stop."
-          }
+        "play": "Abundance alone fits every mechanism. Which measurement do you make first?",
+        "task": "Abundance alone fits every mechanism. Which measurement do you make first?",
+        "question": "Abundance alone fits every mechanism. Which measurement do you make first?",
+        "answer": "Quantify the protein's messenger RNA across time.",
+        "why": "An abundant protein is consistent with more transcript, more efficient translation, or slower destruction. Transcript abundance is the one measurement that splits the three: if the message did not move, transcription is out and the cause is downstream of it.",
+        "rebuttals": [
+          "Ribosome association asks whether translation changed, and it only means something once you know whether the amount of message changed underneath it.",
+          "Half-life asks whether the protein is simply being destroyed more slowly. A real possibility, and the third measurement rather than the first.",
+          "The neighbouring region answers a question nobody has asked about a protein whose gene is already identified."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 35,
-          "C": 25,
-          "D": 5
-        },
-        "research": "Allocate 100 credits among measurements of an unfamiliar protein that is abundant in affected cells."
+        "choices": [
+          "Quantify the protein's messenger RNA across time.",
+          "Measure ribosome association with that RNA.",
+          "Measure the protein's half-life and degradation rate.",
+          "Sequence the neighbouring chromosomal region."
+        ],
+        "correctChoice": "Quantify the protein's messenger RNA across time."
       }
     },
     {
@@ -912,43 +847,30 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Spend the first response reserve",
       "scene": "There is one reserve of response money and it will not stretch across everything the room wants. Interviews with hospital directors are fast and produce impressions; a standardised line list across all three hospitals produces comparable clinical observations but takes days of staff time; wastewater sampling sees the population rather than the patients who reached a hospital, and is independent of who chose to seek care. Independence is the property that matters here — two data streams sharing the same selection process can agree with each other and be wrong together. Nothing has yet been measured in a way that would change a decision.",
-      "takeaway": "The best first portfolio combines comparable clinical observations with an independent population-level signal.",
+      "takeaway": "Comparable observations come before independent ones, because everything else is read against them.",
       "place": "Clinical Data Office",
       "story": "There is one reserve of response money and it will not stretch across everything the room wants. Interviews with hospital directors are fast and produce impressions; a standardised line list across all three hospitals produces comparable clinical observations but takes days of staff time; wastewater sampling sees the population rather than the patients who reached a hospital, and is independent of who chose to seek care. Independence is the property that matters here — two data streams sharing the same selection process can agree with each other and be wrong together. Nothing has yet been measured in a way that would change a decision.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Spend the first response reserve",
         "setup": "Clinical Data Office",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Interview every hospital director for an expert impression."
-          },
-          {
-            "label": "B",
-            "text": "Build a standardized line list across all hospitals."
-          },
-          {
-            "label": "C",
-            "text": "Add wastewater sampling in affected and comparison neighborhoods."
-          },
-          {
-            "label": "D",
-            "text": "Launch a citywide warning before transmission is understood."
-          }
+        "play": "What does the office start this afternoon?",
+        "task": "What does the office start this afternoon?",
+        "question": "What does the office start this afternoon?",
+        "answer": "A standardised line list across all three hospitals.",
+        "why": "Nothing can be counted until the three hospitals are counting the same thing. The line list is what turns three sets of impressions into one comparable set of observations with dates and denominators, and every later stream — including the wastewater — is interpreted against it.",
+        "rebuttals": [
+          "Interviews are fast and produce impressions. An impression has no denominator, so it cannot say whether seven cases in four days is a departure from anything.",
+          "Wastewater is the right second stream, and it is valuable precisely because it is independent of who chose to seek care. It cannot name a patient or define a case, which is what this week's decisions need.",
+          "A warning issued before transmission is understood spends credibility on a hypothesis, and credibility is what every later message depends on."
         ],
-        "recommended": {
-          "A": 10,
-          "B": 50,
-          "C": 35,
-          "D": 5
-        },
-        "research": "Allocate 100 response credits among the first three evidence sources."
+        "choices": [
+          "A standardised line list across all three hospitals.",
+          "Interviews with every hospital director for an expert impression.",
+          "Wastewater sampling in the affected and comparison neighbourhoods.",
+          "A citywide warning, before transmission is understood."
+        ],
+        "correctChoice": "A standardised line list across all three hospitals."
       }
     },
     {
@@ -994,9 +916,9 @@ export const CURRICULUM = {
         "setup": "Clinical Statistics Desk",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the chance that a positive result represents a true case.",
+        "question": "Estimate the chance that a positive result is a true case.",
         "answer": "",
-        "why": "",
+        "why": "Specificity is a property of the test; the fraction of positives that are real is a property of the test and the population together. Moving this assay from the ward to the city changes nothing about the chemistry and almost everything about what a positive means.",
         "givens": [],
         "relationship": "",
         "calcKey": "POP-5"
@@ -1015,9 +937,9 @@ export const CURRICULUM = {
         "setup": "Cardiopulmonary Physiology Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate oxygen delivery for each patient and identify the larger bottleneck.",
+        "question": "Estimate oxygen delivery for the patient with the lower cardiac output.",
         "answer": "",
-        "why": "",
+        "why": "Two patients with identical saturations can differ by a factor of two in delivery, because the flow term is doing the work. A concentration is not a rate.",
         "givens": [],
         "relationship": "",
         "calcKey": "POP-6"
@@ -1026,44 +948,31 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Find transmission before the hospital",
-      "scene": "Hospital isolation has held for nine days and new cases keep appearing in neighbourhoods with nobody admitted from them. Wastewater upstream of the hospital catchment has been rising for a week, the transit authority holds trip counts nobody has matched to the case map, and there is enough money this week for about two of the four proposals. Surveillance is useful in proportion to how far upstream of the outcome it sits: a stream that reports what already happened cannot inform a decision about what is happening now.",
+      "scene": "Hospital isolation has held for nine days and new cases keep appearing in neighbourhoods with nobody admitted from them. Wastewater upstream of the hospital catchment has been rising for a week, the transit authority holds trip counts nobody has matched to the case map, and there is enough money this week for one of the four things the room has proposed. Surveillance is useful in proportion to how far upstream of the outcome it sits: a stream that reports what already happened cannot inform a decision about what is happening now.",
       "takeaway": "The most useful surveillance reaches upstream of the outcome it is trying to prevent.",
       "place": "Transit and Mobility Center",
-      "story": "Hospital isolation has held for nine days and new cases keep appearing in neighbourhoods with nobody admitted from them. Wastewater upstream of the hospital catchment has been rising for a week, the transit authority holds trip counts nobody has matched to the case map, and there is enough money this week for about two of the four proposals. Surveillance is useful in proportion to how far upstream of the outcome it sits: a stream that reports what already happened cannot inform a decision about what is happening now.",
+      "story": "Hospital isolation has held for nine days and new cases keep appearing in neighbourhoods with nobody admitted from them. Wastewater upstream of the hospital catchment has been rising for a week, the transit authority holds trip counts nobody has matched to the case map, and there is enough money this week for one of the four things the room has proposed. Surveillance is useful in proportion to how far upstream of the outcome it sits: a stream that reports what already happened cannot inform a decision about what is happening now.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Find transmission before the hospital",
         "setup": "Transit and Mobility Center",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Expand wastewater sampling across connected sewersheds."
-          },
-          {
-            "label": "B",
-            "text": "Conduct structured household and workplace contact studies."
-          },
-          {
-            "label": "C",
-            "text": "Add more hospital bed counts only."
-          },
-          {
-            "label": "D",
-            "text": "Sample a comparison neighborhood with no reported cases."
-          }
+        "play": "Cases appear in neighbourhoods with nobody admitted. What do you commission?",
+        "task": "Cases appear in neighbourhoods with nobody admitted. What do you commission?",
+        "question": "Cases appear in neighbourhoods with nobody admitted. What do you commission?",
+        "answer": "Expand wastewater sampling across the connected sewersheds.",
+        "why": "Hospital isolation has held for nine days, so the chain is running somewhere the hospital cannot see. Wastewater reports the population rather than the patients who reached care, and sampling it by sewershed turns 'somewhere' into a map — which is the thing every other option needs and none of them supplies.",
+        "rebuttals": [
+          "Contact studies are how presymptomatic transmission is established, and they need a place to start. Which households, in which neighbourhoods, is what the sewershed map is for.",
+          "More bed counts measure the outcome you are trying to get ahead of. They will confirm the problem after it arrives.",
+          "A comparison neighbourhood is worth sampling and is part of the same programme, not a substitute for finding where transmission is happening."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 35,
-          "C": 10,
-          "D": 20
-        },
-        "research": "Allocate 100 surveillance credits."
+        "choices": [
+          "Expand wastewater sampling across the connected sewersheds.",
+          "Conduct structured household and workplace contact studies.",
+          "Add more hospital bed and admission counts.",
+          "Sample one comparison neighbourhood with no reported cases."
+        ],
+        "correctChoice": "Expand wastewater sampling across the connected sewersheds."
       }
     },
     {
@@ -1074,39 +983,28 @@ export const CURRICULUM = {
       "place": "Comparative Genomics Lab",
       "story": "There is one field campaign to fund, and its design decides what can be concluded from it. Sampling only the most feared species near one village guarantees a result that cannot be generalised; stratifying across species, habitat and season makes prevalence comparable; sequencing positives from both humans and animals is what connects the two populations evolutionarily. Removing wildlife before establishing whether it is the reservoir is an intervention that also destroys the evidence. One Health decisions have to connect human, animal and environmental evidence before anything irreversible happens.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Choose the One Health campaign",
         "setup": "Comparative Genomics Lab",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
+        "play": "One field campaign. What is its design?",
+        "task": "One field campaign. What is its design?",
+        "question": "One field campaign. What is its design?",
+        "answer": "Stratify sampling across species, habitat, season and comparison sites.",
+        "why": "A reservoir claim is a claim about prevalence, and prevalence only means something against a design that could have found the agent somewhere else. Comparison sites are what separate a reservoir from a bystander that caught it from people.",
+        "rebuttals": [
+          "Sampling hard around one household guarantees a positive that cannot be generalised, and it will be the species people were already afraid of.",
           {
-            "label": "A",
-            "text": "Sample only the most feared species near one case household."
+            "'Sequencing is essential and comes second": "you can only sequence what the sampling design found, and a biased design produces a confident tree of the wrong animals.'"
           },
-          {
-            "label": "B",
-            "text": "Stratify sampling across species, habitat, season, and comparison sites."
-          },
-          {
-            "label": "C",
-            "text": "Sequence positive samples from humans and animals."
-          },
-          {
-            "label": "D",
-            "text": "Remove wildlife before determining whether it is involved."
-          }
+          "Removing wildlife before involvement is established destroys the evidence, and does nothing at all if the reservoir is a species nobody removed."
         ],
-        "recommended": {
-          "A": 5,
-          "B": 50,
-          "C": 40,
-          "D": 5
-        },
-        "research": "Allocate 100 credits among field studies."
+        "choices": [
+          "Stratify sampling across species, habitat, season and comparison sites.",
+          "Sample the most feared species intensively near one case household.",
+          "Sequence every positive sample from humans and animals.",
+          "Remove wildlife from the flood plain while the investigation continues."
+        ],
+        "correctChoice": "Stratify sampling across species, habitat, season and comparison sites."
       }
     },
     {
@@ -1197,9 +1095,9 @@ export const CURRICULUM = {
         "setup": "Regional Surveillance Hub",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Compute both frequencies and the percentage-point increase.",
+        "question": "Estimate the change in variant frequency, in percentage points.",
         "answer": "",
-        "why": "",
+        "why": "A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.",
         "givens": [],
         "relationship": "",
         "calcKey": "POP-10"
@@ -1318,39 +1216,26 @@ export const CURRICULUM = {
       "place": "Pharmacology Unit",
       "story": "Effectiveness is falling and the pharmacology unit has a limited budget. Sequencing failures alongside matched successes asks whether the target site has changed; measuring drug exposure and adherence objectively asks whether the drug ever reached therapeutic concentration; testing combinations or alternative targets asks what would still work. Raising the dose for everyone without safety data treats one hypothesis as established and exposes patients who never had a resistance problem to toxicity. A resistance response has to combine the evolutionary evidence with pharmacology and with what is safe.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Recover treatment effectiveness",
         "setup": "Pharmacology Unit",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Sequence failures and matched successful cases."
-          },
-          {
-            "label": "B",
-            "text": "Measure drug exposure and adherence objectively."
-          },
-          {
-            "label": "C",
-            "text": "Increase dose for every patient without safety evidence."
-          },
-          {
-            "label": "D",
-            "text": "Test combinations or alternative targets under controlled clinical protocols."
-          }
+        "play": "One thing before anybody's prescription changes. Which?",
+        "task": "One thing before anybody's prescription changes. Which?",
+        "question": "One thing before anybody's prescription changes. Which?",
+        "answer": "Sequence the failures alongside matched successful cases.",
+        "why": "Every failure here occurred on documented dosing with drug concentrations inside the therapeutic range, so the drug arrived. What is in question is whether the target site changed — and the matched successes are the control that turns a resistance-associated variant into evidence rather than a coincidence.",
+        "rebuttals": [
+          "Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.",
+          "Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.",
+          "Combinations and alternative targets are the response once you know what changed. Chosen now, they are a guess with a protocol attached."
         ],
-        "recommended": {
-          "A": 30,
-          "B": 30,
-          "C": 5,
-          "D": 35
-        },
-        "research": "Allocate 100 research credits among response options."
+        "choices": [
+          "Sequence the failures alongside matched successful cases.",
+          "Measure drug exposure and adherence objectively.",
+          "Increase the dose for every patient on the ward.",
+          "Test combinations and alternative targets under a clinical protocol."
+        ],
+        "correctChoice": "Sequence the failures alongside matched successful cases."
       }
     },
     {
@@ -1422,44 +1307,31 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Build a layered intervention portfolio",
-      "scene": "There is one portfolio to fund and several plausible layers competing for it: a vaccine candidate against a conserved surface target, a therapeutic aimed at a validated host or agent process, and ventilation and rapid-isolation improvements that work regardless of what the biology turns out to be. A publicity campaign declaring the crisis over is not a layer. A portfolio is stronger when the mechanisms are genuinely different, and it is only useful afterwards if the design still allows the team to learn which layer did the work.",
-      "takeaway": "Portfolio design should diversify mechanisms while preserving the ability to learn which layer works.",
+      "scene": "Several plausible layers are competing for the one the city can start now: a vaccine candidate against a conserved surface target, a therapeutic aimed at a validated host or agent process, and ventilation and rapid-isolation improvements that work regardless of what the biology turns out to be. A publicity campaign declaring the crisis over is not a layer. A strategy is stronger when the mechanisms are genuinely different, and it is only useful afterwards if the design still allows the team to learn which layer did the work.",
+      "takeaway": "Layers are chosen for different mechanisms and different timescales, not for how promising each one sounds.",
       "place": "Public Health Strategy Room",
-      "story": "There is one portfolio to fund and several plausible layers competing for it: a vaccine candidate against a conserved surface target, a therapeutic aimed at a validated host or agent process, and ventilation and rapid-isolation improvements that work regardless of what the biology turns out to be. A publicity campaign declaring the crisis over is not a layer. A portfolio is stronger when the mechanisms are genuinely different, and it is only useful afterwards if the design still allows the team to learn which layer did the work.",
+      "story": "Several plausible layers are competing for the one the city can start now: a vaccine candidate against a conserved surface target, a therapeutic aimed at a validated host or agent process, and ventilation and rapid-isolation improvements that work regardless of what the biology turns out to be. A publicity campaign declaring the crisis over is not a layer. A strategy is stronger when the mechanisms are genuinely different, and it is only useful afterwards if the design still allows the team to learn which layer did the work.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Build a layered intervention portfolio",
         "setup": "Public Health Strategy Room",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "A vaccine candidate targeting a conserved surface feature."
-          },
-          {
-            "label": "B",
-            "text": "A therapeutic aimed at a validated host or agent pathway."
-          },
-          {
-            "label": "C",
-            "text": "Ventilation and rapid-isolation improvements."
-          },
-          {
-            "label": "D",
-            "text": "A publicity campaign claiming the crisis is already solved."
-          }
+        "play": "The city can start one layer this month. Which?",
+        "task": "The city can start one layer this month. Which?",
+        "question": "The city can start one layer this month. Which?",
+        "answer": "Ventilation and rapid-isolation improvements.",
+        "why": "Layers are chosen for mechanism and for timing. Ventilation and isolation reduce transmission opportunities whatever the biology turns out to be, and they work this month — which is the month the other two spend in development.",
+        "rebuttals": [
+          "The vaccine is the strongest long-run layer and protects nobody during the months it takes to make. Start it too; it is not what this month buys.",
+          "A therapeutic depends on a pathway that is still being validated, and it acts after infection rather than reducing how much of it there is.",
+          "A campaign announcing control is not a layer. It has no mechanism, and it fails in exactly the way that costs the most."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 30,
-          "D": 5
-        },
-        "research": "Allocate 100 credits across complementary strategies."
+        "choices": [
+          "Ventilation and rapid-isolation improvements.",
+          "A vaccine candidate against a conserved surface feature.",
+          "A therapeutic aimed at a validated host or agent pathway.",
+          "A publicity campaign stating that the crisis is under control."
+        ],
+        "correctChoice": "Ventilation and rapid-isolation improvements."
       }
     },
     {
@@ -1475,9 +1347,9 @@ export const CURRICULUM = {
         "setup": "Biostatistics Office",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Compute the absolute risk reduction, relative risk, and number needed to treat using 1/absolute reduction.",
+        "question": "Estimate the number of patients who must be treated for one to benefit.",
         "answer": "",
-        "why": "",
+        "why": "Relative and absolute effects answer different questions, and reporting only the one that sounds biggest is the most common way a real but modest effect is oversold.",
         "givens": [],
         "relationship": "",
         "calcKey": "POP-17"
@@ -1491,39 +1363,26 @@ export const CURRICULUM = {
       "place": "Independent Safety Board",
       "story": "The result is promising and imprecise, and the safety board has to decide what happens next. Expanding enrolment under the same pre-specified analysis buys precision; intensifying independent safety monitoring buys confidence about the uneven adverse events; adding targeted mechanistic measurements asks why it works, which decides whether the effect will generalise. Declaring success and stopping data collection converts an imprecise estimate into a permanent one. A mature decision here is encouraging and cautious at the same time, and the allocation is where that shows.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Continue, expand, or pause?",
         "setup": "Independent Safety Board",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Expand enrollment with the same pre-specified outcomes."
-          },
-          {
-            "label": "B",
-            "text": "Intensify independent safety monitoring."
-          },
-          {
-            "label": "C",
-            "text": "Declare success and stop collecting data."
-          },
-          {
-            "label": "D",
-            "text": "Add targeted mechanistic measurements that do not compromise the trial."
-          }
+        "play": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
+        "task": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
+        "question": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
+        "answer": "Expand enrolment under the same pre-specified analysis.",
+        "why": "The estimate is real and too wide to act on, and width is fixed by numbers rather than by argument. Keeping the pre-specified analysis is what makes the extra participants add precision instead of adding a second chance to find a positive result.",
+        "rebuttals": [
+          "Stopping now converts an imprecise estimate into a permanent one, and the imprecision is the whole reason the board was convened.",
+          "Mechanism is worth knowing and does not narrow the interval the decision turns on.",
+          "Pausing is right if the safety signal is real, and the safety board's monitoring is what establishes that — it runs alongside enrolment rather than instead of it."
         ],
-        "recommended": {
-          "A": 45,
-          "B": 30,
-          "C": 5,
-          "D": 20
-        },
-        "research": "Allocate 100 decision credits across next steps after a promising but imprecise result."
+        "choices": [
+          "Expand enrolment under the same pre-specified analysis.",
+          "Declare success and stop collecting data.",
+          "Add mechanistic measurements to explain why it works.",
+          "Pause the trial until the adverse events are fully investigated."
+        ],
+        "correctChoice": "Expand enrolment under the same pre-specified analysis."
       }
     },
     {
@@ -1564,39 +1423,26 @@ export const CURRICULUM = {
       "place": "City Command",
       "story": "The outbreak is geographically uneven and the council wants a policy it can defend for a month. Targeted containment where transmission chains are traceable is cheap and fails silently if chains are missed; city-wide measures tied to hospital and growth indicators are costly and self- correcting; capacity expansion protects the outcome that matters without touching transmission. Committing permanently to one option regardless of what is observed is the only choice on the table that cannot learn. Policy under uncertainty works as a feedback system with observable triggers agreed in advance.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Choose an adaptive policy",
         "setup": "City Command",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Targeted containment where transmission chains are traceable."
-          },
-          {
-            "label": "B",
-            "text": "Citywide measures tied to hospital and growth thresholds."
-          },
-          {
-            "label": "C",
-            "text": "Capacity expansion and protection of vulnerable populations."
-          },
-          {
-            "label": "D",
-            "text": "Commit permanently to one policy regardless of new evidence."
-          }
+        "play": "A policy the council can defend for a month. Which?",
+        "task": "A policy the council can defend for a month. Which?",
+        "question": "A policy the council can defend for a month. Which?",
+        "answer": "Citywide measures tied to hospital and growth thresholds.",
+        "why": "Uncertainty is not resolved by choosing more confidently. A policy tied to observable triggers agreed in advance changes when the outbreak changes, and it can be relaxed without anybody having to admit they were wrong — which is what keeps it defensible for a month.",
+        "rebuttals": [
+          "Targeted containment is cheap and effective where chains are traceable, and it fails silently where they are not. Nothing in it tells you it has stopped working.",
+          "Capacity expansion protects the outcome that matters and does nothing about transmission, so it raises the ceiling without slowing the climb.",
+          "Committing regardless of new evidence is the only option here that cannot learn, which in a month of an uneven outbreak is the one guaranteed to be wrong somewhere."
         ],
-        "recommended": {
-          "A": 30,
-          "B": 30,
-          "C": 35,
-          "D": 5
-        },
-        "research": "Allocate 100 policy credits across a trigger-based plan."
+        "choices": [
+          "Citywide measures tied to hospital and growth thresholds.",
+          "Targeted containment wherever transmission chains are traceable.",
+          "Capacity expansion and protection of vulnerable populations.",
+          "Commit to one policy now and hold it whatever the data show."
+        ],
+        "correctChoice": "Citywide measures tied to hospital and growth thresholds."
       }
     },
     {
@@ -1673,39 +1519,26 @@ export const CURRICULUM = {
       "place": "Public Briefing Room",
       "story": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Integrated clinical, environmental and genomic surveillance is what would detect the next event early; health-system resilience and workforce training is what determines whether detection helps; preserving transparent data, methods and after-action lessons is what makes the next response start from this one rather than from nothing. The fourth proposal is a request to delete the records before they can be used against the city. Crisis knowledge only becomes capability if something is funded to carry it.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Fund the post-crisis legacy",
         "setup": "Public Briefing Room",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Maintain integrated clinical, environmental, and genomic surveillance."
-          },
-          {
-            "label": "B",
-            "text": "Invest in health-system resilience and workforce training."
-          },
-          {
-            "label": "C",
-            "text": "Preserve transparent data, methods, and after-action lessons."
-          },
-          {
-            "label": "D",
-            "text": "Erase records to avoid future criticism."
-          }
+        "play": "The emergency budget closes this month. What does the city commit it to?",
+        "task": "The emergency budget closes this month. What does the city commit it to?",
+        "question": "The emergency budget closes this month. What does the city commit it to?",
+        "answer": "Integrated clinical, environmental and genomic surveillance.",
+        "why": "Every week of warning this outbreak got came from a signal somebody was already collecting. Surveillance is the one item here that has to run continuously to be worth anything, so it is the one a closing budget should endow rather than leave to next year's argument.",
+        "rebuttals": [
+          "Resilience and training decide whether detection helps, and they are the next call. They do nothing if nothing detects the next event.",
+          "Preserving the record costs very little and should happen regardless. It is a filing decision, not what an emergency budget is for.",
+          "Closing the records removes the only account of how any of this was measured, and the next response would start from nothing."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 35,
-          "D": 0
-        },
-        "research": "Allocate 100 long-term credits."
+        "choices": [
+          "Integrated clinical, environmental and genomic surveillance.",
+          "Health-system resilience and workforce training.",
+          "Preserving the data, methods and after-action record.",
+          "Closing the records once the review is published."
+        ],
+        "correctChoice": "Integrated clinical, environmental and genomic surveillance."
       }
     }
   ],
@@ -1723,9 +1556,9 @@ export const CURRICULUM = {
         "setup": "Field Epidemiology Office",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the next generation and state whether the chain is growing.",
+        "question": "Estimate how many infections the next generation produces.",
         "answer": "",
-        "why": "",
+        "why": "Twenty-eight against twenty is growth, and the fact that it is growth — not the size of the number — is what decides whether the chain burns out or doubles every fortnight.",
         "givens": [],
         "relationship": "",
         "calcKey": "FIELD-1"
@@ -1802,44 +1635,58 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "POP-5": {
-    "prompt": "In a low-prevalence screening group, even a specific test can produce a meaningful fraction of false positives.",
-    "question": "Estimate the chance that a positive result represents a true case.",
+    "prompt": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The screening group is ten thousand people, about one per cent of whom are infected, and the assay detects nine in ten infections and clears ninety-nine in a hundred uninfected people.",
+    "question": "Estimate the chance that a positive result is a true case.",
     "labels": [
-      "90 true positives",
-      "99 false positives"
+      "10,000 people screened",
+      "0.01 (prevalence in the screening group)",
+      "0.90 (sensitivity)",
+      "0.99 (specificity)",
+      "0.30 (prevalence on the affected ward)",
+      "0.10 (the fraction reporting symptoms)"
     ],
     "values": [
-      90,
-      99
+      10000,
+      0.01,
+      0.9,
+      0.99,
+      0.3,
+      0.1
     ],
-    "slots": 2,
-    "template": "{0} / ({0} + {1}) x 100",
-    "formula": "a/(a+b)*100",
+    "slots": 4,
+    "template": "{0}×{1}×{2} ÷ ( {0}×{1}×{2} + {0}×(1−{1})×(1−{3}) ) × 100",
+    "formula": "a*b*c/(a*b*c + a*(1-b)*(1-d))*100",
     "correct": [
       0,
-      1
+      1,
+      2,
+      3
     ],
     "target": 47.62,
-    "tolerance": 2,
+    "tolerance": 3,
     "units": "%",
-    "solution": "90/(90+99) is about 48%.",
-    "explanation": ""
+    "solution": "90 true positives against 99 false ones, so about 48% of positives are real.",
+    "explanation": "A hundred infected people give ninety true positives; the nine thousand nine hundred uninfected give ninety-nine false ones, because one per cent of a large number is a large number. The same assay on the affected ward, where prevalence is thirty per cent, would return positives that are almost all real."
   },
   "POP-6": {
-    "prompt": "Use a simplified relationship to compare two patients.",
-    "question": "Estimate oxygen delivery for each patient and identify the larger bottleneck.",
+    "prompt": "Two patients are being compared and the bedside argument has stalled on which is worse off. Blood carries about 0.20 litres of oxygen per litre in both of them; the first moves 3 litres a minute and the second moves 5.",
+    "question": "Estimate oxygen delivery for the patient with the lower cardiac output.",
     "labels": [
-      "3 L/min cardiac output",
-      "0.20 L O2/L blood",
-      "5 L/min (comparison patient)"
+      "3 L/min (cardiac output, first patient)",
+      "0.20 L O₂/L (oxygen content of the blood)",
+      "5 L/min (cardiac output, comparison patient)",
+      "86 % (arterial saturation)",
+      "14 g/dL (haemoglobin)"
     ],
     "values": [
       3,
       0.2,
-      5
+      5,
+      86,
+      14
     ],
     "slots": 2,
-    "template": "{0} x {1}",
+    "template": "{0} × {1}",
     "formula": "a*b",
     "correct": [
       0,
@@ -1847,23 +1694,29 @@ export const BALLPARK_CALCS = {
     ],
     "target": 0.6,
     "tolerance": 0.06,
-    "units": "L O2/min",
-    "solution": "Patient B: 3 x 0.20 = 0.6 L O2/min; Patient A is 1.0 L O2/min.",
-    "explanation": ""
+    "units": "L O₂/min",
+    "solution": "3 × 0.20 = 0.6 L O₂/min, against 1.0 for the comparison patient.",
+    "explanation": "Delivery is a rate, and it is the product of what each litre carries and how many litres arrive. Saturation and haemoglobin describe the content term and cannot on their own say how much oxygen reaches anything."
   },
   "FIELD-1": {
-    "prompt": "Use a simple reproduction estimate to interpret early growth.",
-    "question": "Estimate the next generation and state whether the chain is growing.",
+    "prompt": "About twenty people are currently infectious, and each is producing roughly 1.4 new infections in the next generation of transmission.",
+    "question": "Estimate how many infections the next generation produces.",
     "labels": [
-      "20 infectious people",
-      "1.4 new infections/person/generation"
+      "20 people currently infectious",
+      "1.4 new infections per person per generation",
+      "5 days (the serial interval)",
+      "140 cases reported so far",
+      "0.7 new infections per person, after control"
     ],
     "values": [
       20,
-      1.4
+      1.4,
+      5,
+      140,
+      0.7
     ],
     "slots": 2,
-    "template": "{0} x {1}",
+    "template": "{0} × {1}",
     "formula": "a*b",
     "correct": [
       0,
@@ -1872,26 +1725,30 @@ export const BALLPARK_CALCS = {
     "target": 28,
     "tolerance": 2,
     "units": "new infections",
-    "solution": "20 x 1.4 is about 28; an average above one means growth.",
-    "explanation": ""
+    "solution": "20 × 1.4 ≈ 28, so the chain grows.",
+    "explanation": "The serial interval says how fast the generations arrive and not how many there are in each; the cumulative count says what has already happened. Growth or decline is decided by one number, and by whether it is above or below one."
   },
   "POP-10": {
-    "prompt": "Estimate a frequency change from representative samples.",
-    "question": "Compute both frequencies and the percentage-point increase.",
+    "prompt": "In week one, 40 of 400 sequenced samples carried the variant. In week three, 180 of 600 did. The denominators are what make the two weeks comparable.",
+    "question": "Estimate the change in variant frequency, in percentage points.",
     "labels": [
       "40 variant, week 1",
-      "400 total, week 1",
+      "400 sequenced, week 1",
       "180 variant, week 3",
-      "600 total, week 3"
+      "600 sequenced, week 3",
+      "220 variant, weeks 1 and 3 together",
+      "1,000 sequenced across both weeks"
     ],
     "values": [
       40,
       400,
       180,
-      600
+      600,
+      220,
+      1000
     ],
     "slots": 4,
-    "template": "(({2}/{3}) - ({0}/{1})) x 100",
+    "template": "( {2} ÷ {3} − {0} ÷ {1} ) × 100",
     "formula": "(c/d-a/b)*100",
     "correct": [
       0,
@@ -1902,46 +1759,62 @@ export const BALLPARK_CALCS = {
     "target": 20,
     "tolerance": 1,
     "units": "percentage points",
-    "solution": "Week 1 is 10%, week 3 is 30%, so the increase is 20 percentage points.",
-    "explanation": ""
+    "solution": "10% in week one, 30% in week three: an increase of 20 percentage points.",
+    "explanation": "Pooling the two weeks throws away the comparison — the whole question is whether the ratio moved, and a combined numerator over a combined denominator cannot say. Each week needs its own denominator."
   },
   "POP-17": {
-    "prompt": "A trial reports hospitalization in 20 of 200 control participants and 10 of 200 treated participants.",
-    "question": "Compute the absolute risk reduction, relative risk, and number needed to treat using 1/absolute reduction.",
+    "prompt": "The trial reports hospitalisation in 20 of 200 control participants and 10 of 200 treated participants.",
+    "question": "Estimate the number of patients who must be treated for one to benefit.",
     "labels": [
-      "0.10 control risk",
-      "0.05 treatment risk"
+      "20 hospitalised, control arm",
+      "200 participants, control arm",
+      "10 hospitalised, treated arm",
+      "200 participants, treated arm",
+      "30 hospitalised in the trial",
+      "400 participants in the trial"
     ],
     "values": [
-      0.1,
-      0.05
+      20,
+      200,
+      10,
+      200,
+      30,
+      400
     ],
-    "slots": 2,
-    "template": "1 / ({0} - {1})",
-    "formula": "1/(a-b)",
+    "slots": 4,
+    "template": "1 ÷ ( {0} ÷ {1} − {2} ÷ {3} )",
+    "formula": "1/((a/b)-(c/d))",
     "correct": [
       0,
-      1
+      1,
+      2,
+      3
     ],
     "target": 20,
     "tolerance": 1,
-    "units": "people per additional benefit",
-    "solution": "Absolute risk reduction is 0.05, so NNT is about 20.",
-    "explanation": ""
+    "units": "patients treated per additional benefit",
+    "solution": "Risks of 0.10 and 0.05, an absolute reduction of 0.05, so about 20.",
+    "explanation": "The same result is a halving of risk, a five-percentage-point reduction, and one benefit per twenty treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy."
   },
   "CLIN-7": {
-    "prompt": "A region has 120 staffed critical-care beds, 90 are already occupied, and severe cases are arriving at 8 per day with average stays of 6 days.",
-    "question": "Estimate the no-discharge upper-bound time to capacity and explain why it is only a bound.",
+    "prompt": "The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about eight a day, and the average stay is around six days.",
+    "question": "Estimate the upper bound on time to capacity, assuming nobody is discharged.",
     "labels": [
       "30 open beds",
-      "8 admissions/day"
+      "8 admissions/day",
+      "120 staffed beds",
+      "90 beds occupied",
+      "6 days (average stay)"
     ],
     "values": [
       30,
-      8
+      8,
+      120,
+      90,
+      6
     ],
     "slots": 2,
-    "template": "{0} / {1}",
+    "template": "{0} ÷ {1}",
     "formula": "a/b",
     "correct": [
       0,
@@ -1950,8 +1823,8 @@ export const BALLPARK_CALCS = {
     "target": 3.75,
     "tolerance": 0.3,
     "units": "days",
-    "solution": "30/8 is about 3.75 days without discharges.",
-    "explanation": ""
+    "solution": "30 ÷ 8 ≈ 3.75 days, if nobody leaves.",
+    "explanation": "Total beds is the wrong numerator, because ninety of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes."
   }
 };
 

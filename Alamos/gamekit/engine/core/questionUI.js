@@ -65,7 +65,10 @@ function scientificHint(ch, lesson){
     return spec?`Anchor the estimate with "${spec.labels[spec.correct[0]]}." Then choose the remaining scale that makes the displayed relationship physically sensible.`:'Start by identifying the physical scale that should dominate the estimate.';
   }
   if(kindOf(ch)==='DIAGNOSIS'){
-    const quiet=(ch.readings||[]).filter(r=> r.status!=='alarm');
+    // "Quiet" means normal, not merely un-alarmed: a pack's key readings are
+    // the ones the puzzle turns on, and pointing the player at one as though it
+    // were incidental is the opposite of the hint.
+    const quiet=(ch.readings||[]).filter(r=> r.status==='normal');
     return quiet.length
       ? `Start from a quiet reading, not the alarm: "${quiet[0].zone} — ${quiet[0].label}: ${quiet[0].value}". Any explanation that cannot account for it is out.`
       : 'The right explanation has to fit every reading on the panel, including the calm ones.';
@@ -613,8 +616,13 @@ function bindTank(){
     const userBest=Object.keys(vals).filter(k=> vals[k]===maxUser);
     // The strongest proposal has to lead, but a proposal the evidence also supports
     // cannot be starved, and the unsupported proposals cannot be quietly funded.
+    //
+    // "Unsupported" has to include a proposal written `X: 0`. Books express a
+    // trap two ways — by omitting it from `recommended`, and by weighting it
+    // zero — and only the first used to cost anything, so a player could put
+    // thirty points into "identify the chemicals by smell" and still pass.
     const topOk = maxUser>=35 && userBest.some(k=> recBest.includes(k));
-    const unsupported = Object.entries(vals).filter(([k])=> rec[k]===undefined).reduce((s,[,v])=>s+v,0);
+    const unsupported = Object.entries(vals).filter(([k])=> !rec[k]).reduce((s,[,v])=>s+v,0);
     const starved = Object.entries(rec).filter(([k,v])=> v/recSum>=0.25 && (vals[k]||0)<20);
     const ok = topOk && unsupported<=15 && starved.length===0;
     activeChallenge.userAnswer=Object.entries(vals).map(([k,v])=>`Proposal ${k}: ${v} points`).join('; ');

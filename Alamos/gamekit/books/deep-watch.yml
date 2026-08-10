@@ -1013,8 +1013,8 @@ missions:
             - 2  (halves of the channel)
           values: [4, 2, 8, 2]
           slots: 3
-          template: '{0} ÷ {3} − {1} ÷ {3}'
-          formula: a/d - b/d
+          template: '{0} ÷ {2} − {1} ÷ {2}'
+          formula: a/c - b/c
           correct: [0, 1, 3]
           target: 1
           tolerance: 0.2
@@ -1035,28 +1035,25 @@ missions:
           speed worth making. Quieting the boat means giving up the work
           those machines were doing, so every line on his list is a trade —
           acoustic gain now against a capability the boat may badly want
-          inside the next two hours. Spending the hundred points is you
-          stating, on the record, what this boat can afford to be without
-          while it is in the narrows.
+          inside the next two hours. He wants one of them, and he wants it
+          before the boat is in the narrows rather than after.
         takeaway: Silence is not free, and the bill is paid by whatever the machine was doing.
-        format: SCIENCETANK
-        task: Spend the effort where quiet is worth what it costs.
-        proposals:
-          - { label: A, text: 'Reduce turns and accept a slower passage — the largest single source of noise is the propeller.' }
-          - { label: B, text: 'Secure one of the two seawater cooling pumps, accepting a rising lube oil temperature.' }
-          - { label: C, text: 'Stop the ventilation fans in the crew spaces, accepting the air will go stale.' }
-          - { label: D, text: 'Shut down the sonar processors that are not being used, to reduce electrical noise.' }
-        recommended: { A: 45, C: 25, D: 20 }
-        evidence: |
-          Cavitation from the propeller dominates every other source at this
-          depth and speed. The cooling pump is the one machine on the list whose
-          loss starts a clock on a bearing. The fans are noisy and the crew can
-          be uncomfortable for two hours. The processors contribute almost
-          nothing acoustically and cost the picture the passage depends on.
+        format: CHOICE
+        question: Haruki can make one change before the narrows. Which?
+        choices:
+          - Come down in turns and accept a slower passage.
+          - Secure one of the two seawater cooling pumps.
+          - Stop the ventilation fans in the crew spaces.
+          - Shut down the sonar processors that are not being used.
+        answer: Come down in turns and accept a slower passage.
         why: >
-          The propeller is where the noise is, so that is where the spending
-          belongs. Securing a cooling pump trades a small acoustic gain for a
-          machinery casualty, which is the worst bargain on the list.
+          Cavitation off the propeller dominates every other source at this
+          depth and speed, so turns are where the whole signature is, and
+          slowing costs only time — which the boat has and can get back.
+        rebuttals:
+          - The cooling pump is the one machine on the list whose loss starts a clock on a bearing, and a bearing run hot for an hour is a shipyard visit. It is the worst bargain here.
+          - The fans are genuinely noisy and stopping them costs only stale air, but they are not where the noise is. Do it as well if you like; it will not change what anybody hears.
+          - Unused processors radiate almost nothing acoustically, and shutting them down costs the contact picture the passage depends on.
 
   # --------------------------------------------------------------- UNIT II
   - title: Forward Flooding
@@ -1122,25 +1119,26 @@ missions:
           depth.
         takeaway: A flooding casualty is a race between two rates, and you can measure both.
         format: BALLPARK
-        question: Is the pump winning, and by how much?
+        question: How fast is the sea actually coming in?
         why: A rate you have not measured is a hope, and hoping is not a damage control action.
         estimate:
-          prompt: The level went from 31 cm to 39 cm in one minute in a space this wide.
-          question: Estimate the flooding rate and compare it to the pump.
+          prompt: The level went from 31 cm to 39 cm in one minute in a space this wide, with the drain pump already running.
+          question: Estimate the rate the sea is actually coming in at.
           labels:
             - 8 cm  (rise in one minute)
             - 11 gallons per cm  (this bilge)
             - 55 gpm  (drain pump at this head)
             - 90 m  (depth)
-          values: [8, 11, 55, 90]
-          slots: 2
-          template: '{0} × {1}'
-          formula: a*b
-          correct: [0, 1]
-          target: 88
-          tolerance: 6
-          units: gallons per minute, net
-          solution: 8 cm × 11 gal/cm = 88 gpm still coming in on top of what the pump is already taking out.
+            - 31 cm  (level at the first reading)
+          values: [8, 11, 55, 90, 31]
+          slots: 3
+          template: '{0} × {1} + {2}'
+          formula: a*b + c
+          correct: [0, 1, 2]
+          target: 143
+          tolerance: 12
+          units: gallons per minute
+          solution: The level gains 88 gpm while the pump removes 55, so the sea is putting in about 143.
           explanation: >
             The rise is what is left after the pump has done its work, so the
             leak is the rise plus the pump — well over a hundred gallons a
@@ -1349,7 +1347,9 @@ missions:
             - 0.04 m³/h  (CO₂ per person)
             - 36 m³  (compartment volume)
             - 0.01  (one per cent, as a fraction)
-          values: [9, 0.04, 36, 0.01]
+            - 1  (one per cent, written as a percentage)
+            - 70 m  (depth)
+          values: [9, 0.04, 36, 0.01, 1, 70]
           slots: 4
           template: '{2} × {3} ÷ ({0} × {1})'
           formula: c*d/(a*b)
@@ -1479,25 +1479,26 @@ missions:
           whether the boat can afford it.
         takeaway: Slowing the boat converts a distance problem into a time budget.
         format: BALLPARK
-        question: How long does the boat have at the present speed, and how much does slowing buy?
+        question: How much time does coming down to three knots buy?
         why: Time is the only resource in a casualty that can be manufactured, and speed is how you buy it.
         estimate:
           prompt: Nine miles to the bank at eight knots, with the option of coming down to three.
-          question: Estimate how long the boat has at present speed.
+          question: Estimate the extra time coming down to three knots buys.
           labels:
             - 9 nm  (to the bank)
             - 8 kn  (present speed)
             - 3 kn  (the slow option)
             - 6 min  (since the plot degraded)
-          values: [9, 8, 3, 6]
-          slots: 2
-          template: '{0} ÷ {1}'
-          formula: a/b
-          correct: [0, 1]
-          target: 1.125
-          tolerance: 0.15
+            - 5 kn  (the difference between the two speeds)
+          values: [9, 8, 3, 6, 5]
+          slots: 3
+          template: '{0} ÷ {2} − {0} ÷ {1}'
+          formula: a/c - a/b
+          correct: [0, 1, 2]
+          target: 1.875
+          tolerance: 0.2
           units: hours
-          solution: 9 nm ÷ 8 kn ≈ 1.1 hours. At three knots the same distance is three hours.
+          solution: 1.1 hours at eight knots against three at three knots, so slowing buys nearly two more.
           explanation: >
             An hour is not enough time to fight a flooding casualty and rebuild
             a plot. Three hours is. The boat's speed is the one number on this
@@ -1582,7 +1583,10 @@ missions:
           machinery writes its own rate into the water: a shaft turning so
           many times a second radiates at that frequency and at whole
           multiples of it, and which multiple stands out says something
-          about the kind of fault underneath. This is how anybody at sea
+          about the kind of fault underneath. A mass out of balance pulls
+          once per revolution, so it shows at shaft rate; a shaft out of
+          line is loaded twice in every turn, once at each extreme of its
+          wobble. This is how anybody at sea
           identifies anybody else, which is the uncomfortable half of it —
           the same line is being written into somebody else's display right
           now, with our name attached to it.
@@ -1842,26 +1846,26 @@ missions:
           quietly heating up while they are off. Radiated noise is what
           makes a submarine findable, so quiet is worth real money — but it
           is bought on credit, and the bill arrives at a time you do not
-          choose. Spend the hundred points on the items whose bill this boat
-          can actually pay.
+          choose. Haruki intends to take everything on his list. He wants to
+          know which item you will strike off it.
         takeaway: Every quiet decision has an expiry time attached to it.
-        format: SCIENCETANK
-        task: Spend the quiet where it buys most and costs least.
-        proposals:
-          - { label: A, text: 'Come down in turns and accept a longer transit — the propeller is the loudest thing aboard.' }
-          - { label: B, text: 'Stop the galley and laundry machinery, which nobody needs for four hours.' }
-          - { label: C, text: 'Secure one of two scrubber trains, accepting a slow rise in carbon dioxide.' }
-          - { label: D, text: 'Secure the second seawater cooling pump, accepting a rising bearing temperature.' }
-        recommended: { A: 45, B: 30, C: 15 }
-        evidence: |
-          Cavitation dominates the signature at this depth and speed. Galley and
-          laundry are pure noise with no consequence in four hours. One scrubber
-          train can be spared for a while because carbon dioxide rises slowly
-          and is measurable. The cooling pump is the item on this list that
-          starts a clock nobody can read from the control room.
+        format: CHOICE
+        question: Which of these does the boat refuse, whatever quiet it buys?
+        choices:
+          - Secure the second seawater cooling pump, accepting a rising bearing temperature.
+          - Come down in turns and accept a longer transit.
+          - Stop the galley and laundry machinery, which nobody needs for four hours.
+          - Secure one of two scrubber trains, accepting a slow rise in carbon dioxide.
+        answer: Secure the second seawater cooling pump, accepting a rising bearing temperature.
         why: >
-          Three of these are reversible at any moment and one of them is not.
-          The cooling pump is where a quiet run turns into a machinery casualty.
+          Three of these are reversible the moment somebody wants them back.
+          The cooling pump is not: it starts a clock on a bearing that nobody
+          in the control room can read, and the damage is done before the
+          gauge says so.
+        rebuttals:
+          - Coming down in turns costs time and returns the moment turns are increased. It is the cheapest quiet aboard.
+          - Galley and laundry are pure noise with no consequence at all in four hours.
+          - One scrubber train can be spared for a while, because carbon dioxide rises slowly and — unlike a bearing temperature nobody is watching — it is measured continuously.
       - group: ATMO
         task: Put a deadline on the quiet
         title: How long one scrubber lasts
@@ -2051,26 +2055,25 @@ missions:
           improvement that makes an already-good number better changes
           nothing anybody does, while a modest one that removes a blind spot
           changes what command can risk. You have stood fourteen watches on
-          this boat and you know which arguments kept coming back. This is
-          where that is worth something.
+          this boat and you know which arguments kept coming back. The yard
+          will fit two of the four, and Sowande wants your first.
         takeaway: You fund what changes a decision, not what improves a number.
-        format: SCIENCETANK
-        task: Fund the refit the evidence supports.
-        proposals:
-          - { label: A, text: 'Re-mount the seawater pumps on new isolators — attacks the largest known noise source after the propeller.' }
-          - { label: B, text: 'A second independent depth sounder — an instrument that cannot fail the same way the plot does.' }
-          - { label: C, text: 'Faster scrubber media — improves a margin that is already twenty hours wide.' }
-          - { label: D, text: 'A larger drain pump — helps in a flooding casualty the boat has never had.' }
-        recommended: { A: 45, B: 35 }
-        evidence: |
-          The last three patrols recorded pump noise as the leading contributor to
-          the signature after cavitation. The plot has twice been wrong in a way
-          only an independent measurement could have caught. Carbon dioxide has
-          never come close to a limit. The drain pump has never been the binding
-          constraint in a drill, because the source was always stopped first.
+        format: CHOICE
+        question: Which refit goes first on the yard list?
+        choices:
+          - Re-mount the seawater pumps on new isolators.
+          - A second independent depth sounder.
+          - Faster scrubber media, for a wider air margin.
+          - A larger drain pump, for a worse flooding casualty.
+        answer: Re-mount the seawater pumps on new isolators.
         why: >
-          Two of these change decisions the boat has actually had to make. The
-          other two improve numbers that were never the problem.
+          After cavitation, the pumps are the largest recorded contributor to
+          the boat's signature — and the signature is what decides whether the
+          boat is found at all in the passage this patrol is built around.
+        rebuttals:
+          - The second sounder is the right next buy and Sowande argues for it two stops from here. What puts the mounts ahead of it is that the array's noise floor is the boat's own machinery, so every contact the passage depends on is limited by the pumps first.
+          - Faster media improves an air margin that has never come within twenty hours of a limit. A better number nobody was waiting on.
+          - A larger drain pump has never been the binding constraint in a drill, because the source was always stopped first. It buys minutes in a casualty the boat has not had.
       - group: SONAR
         task: Say what the mounts buy
         title: Why isolators and not a better array

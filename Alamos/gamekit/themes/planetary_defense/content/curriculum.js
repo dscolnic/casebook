@@ -124,9 +124,9 @@ export const CURRICULUM = {
         "setup": "Minor-Planet Operations Desk",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate rate in arcseconds per minute and per hour.",
+        "question": "Estimate the apparent motion in arcseconds per hour.",
         "answer": "",
-        "why": "",
+        "why": "Angular rate decides how long an exposure can be before the source trails, how large a search box the next telescope needs, and whether the motion is consistent with something distant or something near.",
         "givens": [],
         "relationship": "",
         "calcKey": "ORBIT-1"
@@ -205,9 +205,9 @@ export const CURRICULUM = {
         "setup": "Statistical Orbit Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate probability as a decimal and percent.",
+        "question": "Estimate the impact probability, as a percentage.",
         "answer": "",
-        "why": "",
+        "why": "The figure is only as good as the sampling behind it, and it will be quoted in public long after the assumptions are forgotten.",
         "givens": [],
         "relationship": "",
         "calcKey": "ORBIT-4"
@@ -221,39 +221,26 @@ export const CURRICULUM = {
       "place": "Orbit Center",
       "story": "The window is four hours wide and does not repeat for eleven years. High-precision range and range- rate collapse the orbit uncertainty in the direction optical astrometry leaves widest; delay-Doppler imaging across a rotation gives shape and spin, which the deflection design needs; calibration and background observations are what make either of them trustworthy. One proposal would spend the dish repeating a brightness measurement that any optical telescope can make tonight. Scarce time should buy the information that is unavailable by any other means.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Use the radar window",
         "setup": "Orbit Center",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "High-precision range and range-rate measurements."
-          },
-          {
-            "label": "B",
-            "text": "Delay-Doppler imaging across rotation."
-          },
-          {
-            "label": "C",
-            "text": "Calibration and background observations."
-          },
-          {
-            "label": "D",
-            "text": "Spend the window repeating an optical brightness measurement."
-          }
+        "play": "Four hours, and the window does not repeat for eleven years. What comes first?",
+        "task": "Four hours, and the window does not repeat for eleven years. What comes first?",
+        "question": "Four hours, and the window does not repeat for eleven years. What comes first?",
+        "answer": "High-precision range and range-rate.",
+        "why": "Range collapses the orbit uncertainty in exactly the direction optical astrometry leaves widest, and it is the measurement that decides whether there is a deflection problem to solve at all. Everything else the window could buy is worth less if the orbit stays ambiguous.",
+        "rebuttals": [
+          "Delay-Doppler imaging gives the shape and spin the deflection design needs, and a beautifully imaged asteroid on an unresolved orbit is not a plan.",
+          "Calibration protects both measurements and consumes window. Take the minimum that makes the range defensible.",
+          "Spending planetary radar on a brightness any optical telescope can measure tonight is the one indefensible use of a window eleven years wide."
         ],
-        "recommended": {
-          "A": 40,
-          "B": 35,
-          "C": 20,
-          "D": 5
-        },
-        "research": "Allocate 100 observing credits."
+        "choices": [
+          "High-precision range and range-rate.",
+          "Delay-Doppler imaging across a full rotation.",
+          "Calibration and background observations.",
+          "A brightness measurement, at higher signal than optical can reach."
+        ],
+        "correctChoice": "High-precision range and range-rate."
       }
     },
     {
@@ -264,39 +251,26 @@ export const CURRICULUM = {
       "place": "Orbit Monitoring Room",
       "story": "There is budget for one campaign. Reconnaissance would measure the mass the deflection depends on and delay the impactor by a year; launching sooner buys lead time and aims a spacecraft at a body whose mass is uncertain by a factor of three; long-term tracking before and after is what turns the impact into a measurement rather than a hope. Skipping characterisation to launch earlier is defensible only if the resulting velocity change does not need to be predicted — and it does, because the corridor is decided by it.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Build the deflection campaign",
         "setup": "Orbit Monitoring Room",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Reconnaissance to measure mass, shape, and rotation."
-          },
-          {
-            "label": "B",
-            "text": "Kinetic-impact mission with navigational margins."
-          },
-          {
-            "label": "C",
-            "text": "Long-term tracking before and after impact."
-          },
-          {
-            "label": "D",
-            "text": "Skip characterization to launch sooner regardless of uncertainty."
-          }
+        "play": "The impactor is funded. What must the campaign add that the impactor alone does not?",
+        "task": "The impactor is funded. What must the campaign add that the impactor alone does not?",
+        "question": "The impactor is funded. What must the campaign add that the impactor alone does not?",
+        "answer": "Long-term tracking, before and after the impact.",
+        "why": "The dependent variable of a deflection is the asteroid's orbit. Without a measured before and after there is no way to know whether the momentum transfer matched the prediction — and the ejecta enhancement, which nobody can calculate, is exactly what the next mission would have to assume all over again.",
+        "rebuttals": [
+          "Reconnaissance measures the mass the predicted velocity change depends on, and it costs a year of the lead time that makes any velocity change effective.",
+          "Navigational margin decides whether the spacecraft hits. It says nothing about what happened to the orbit when it did.",
+          "An impact with no measurement is a demonstration rather than an experiment, and it leaves the next campaign exactly as uncertain as this one."
         ],
-        "recommended": {
-          "A": 30,
-          "B": 40,
-          "C": 30,
-          "D": 0
-        },
-        "research": "Allocate 100 credits."
+        "choices": [
+          "Long-term tracking, before and after the impact.",
+          "Reconnaissance to measure the mass, delaying the impactor by a year.",
+          "Additional navigational margin on the impactor itself.",
+          "Nothing — the impact is the experiment."
+        ],
+        "correctChoice": "Long-term tracking, before and after the impact."
       }
     },
     {
@@ -375,39 +349,26 @@ export const CURRICULUM = {
       "place": "Physical Characterization Group",
       "story": "The consequence estimate scales with diameter cubed, and the diameter currently rests on a reflectivity borrowed from a different asteroid class. Thermal-infrared measurement sees emitted heat, which depends on size and temperature rather than on albedo; multi-band photometry and phase behaviour constrain the surface properties themselves; radar gives a size directly when the geometry allows. Assuming the average albedo of a familiar class is free and reproduces the problem. Characterisation improves when independent methods break the same degeneracy in different ways.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Bound the diameter",
         "setup": "Physical Characterization Group",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Thermal-infrared measurement."
-          },
-          {
-            "label": "B",
-            "text": "Multi-band reflected-light photometry and phase behavior."
-          },
-          {
-            "label": "C",
-            "text": "Assume the average albedo of a familiar asteroid class."
-          },
-          {
-            "label": "D",
-            "text": "Radar size constraints if available."
-          }
+        "play": "The diameter rests on an albedo borrowed from another class. What do you measure?",
+        "task": "The diameter rests on an albedo borrowed from another class. What do you measure?",
+        "question": "The diameter rests on an albedo borrowed from another class. What do you measure?",
+        "answer": "Thermal-infrared emission.",
+        "why": "Emitted heat depends on size and temperature rather than on how reflective the surface is, so it breaks the degeneracy from outside it. Every measurement made in reflected light still carries an albedo assumption inside the answer.",
+        "rebuttals": [
+          "Multi-band photometry and phase behaviour constrain the surface itself, and the size stays entangled with whatever they imply about it.",
+          "Radar gives a diameter directly and only when the geometry allows, which it will not for months. Book it; do not wait on it.",
+          "Adopting the class average is free and reproduces exactly the problem it was meant to solve, with the assumption now buried in a number."
         ],
-        "recommended": {
-          "A": 40,
-          "B": 25,
-          "C": 10,
-          "D": 25
-        },
-        "research": "Allocate 100 characterization credits."
+        "choices": [
+          "Thermal-infrared emission.",
+          "Multi-band reflected light and phase behaviour.",
+          "Radar, as soon as the geometry allows it.",
+          "Nothing — adopt the average albedo of the assumed class."
+        ],
+        "correctChoice": "Thermal-infrared emission."
       }
     },
     {
@@ -649,9 +610,9 @@ export const CURRICULUM = {
         "setup": "Impact Physics Group",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate mass and kinetic energy.",
+        "question": "Estimate the impact kinetic energy.",
         "answer": "",
-        "why": "",
+        "why": "Every term in this is a measurement somebody made with its own uncertainty, which is why the result should arrive as a range rather than as a single figure.",
         "givens": [],
         "relationship": "",
         "calcKey": "IMPACT-2"
@@ -700,9 +661,9 @@ export const CURRICULUM = {
         "setup": "Deflection Physics Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate asteroid velocity change.",
+        "question": "Estimate the asteroid's change in speed.",
         "answer": "",
-        "why": "",
+        "why": "A centimetre per second sounds like nothing. Applied years before encounter it accumulates into a displacement measured in Earth radii, which is the whole basis of deflection.",
         "givens": [],
         "relationship": "",
         "calcKey": "IMPACT-4"
@@ -829,39 +790,26 @@ export const CURRICULUM = {
       "place": "Time Standards Room",
       "story": "There are four hours of discretionary telescope time and four ways to spend them. The arc is short, the object is faint and setting, and a press office has been asking since lunchtime whether it can say anything. Another exposure from the same telescope adds a point that looks like the ones already held; a later observation lengthens the time baseline, which is what actually shrinks the orbit family; a geographically separated observation adds parallax, a fundamentally different constraint. Follow-up is bought for information gain, and the two options that add the most are not the two that are easiest to schedule.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Buy the best next observation",
         "setup": "Time Standards Room",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Another exposure immediately from the same telescope."
-          },
-          {
-            "label": "B",
-            "text": "A later observation that lengthens the time baseline."
-          },
-          {
-            "label": "C",
-            "text": "A geographically separated observation for parallax."
-          },
-          {
-            "label": "D",
-            "text": "A press release before confirmation."
-          }
+        "play": "Four hours of discretionary time, and the object is faint and setting. What do you book?",
+        "task": "Four hours of discretionary time, and the object is faint and setting. What do you book?",
+        "question": "Four hours of discretionary time, and the object is faint and setting. What do you book?",
+        "answer": "A later observation that lengthens the time baseline.",
+        "why": "The orbit family is wide because the arc is short, and arc length is the quantity that collapses it. A point taken later changes the geometry the fit is solving; a point taken now barely changes anything the fit already has.",
+        "rebuttals": [
+          "Another exposure tonight adds a measurement almost identical to the ones already held, and identical measurements do not narrow an orbit.",
+          "A separated observation adds parallax, which constrains distance rather than arc. It is the right second booking and answers a different question.",
+          "A release before confirmation spends the only thing the office cannot buy back, on an object that may not survive the next night."
         ],
-        "recommended": {
-          "A": 20,
-          "B": 45,
-          "C": 35,
-          "D": 0
-        },
-        "research": "Allocate 100 follow-up credits."
+        "choices": [
+          "A later observation that lengthens the time baseline.",
+          "Another exposure immediately, from the same telescope.",
+          "A geographically separated observation, for parallax.",
+          "A press release, before the object is confirmed."
+        ],
+        "correctChoice": "A later observation that lengthens the time baseline."
       }
     },
     {
@@ -908,39 +856,26 @@ export const CURRICULUM = {
       "place": "Follow-Up Scheduling Desk",
       "story": "The allowed orbits form a family rather than a line, and the corridor they sweep across Earth's distance is wide enough to matter. Radar has a window in nine days and measures the one quantity optical astrometry cannot; extending optical tracking over more nights lengthens the arc; observing from a second hemisphere adds parallax. One proposal on the table only changes how the same data are displayed — it produces a sharper-looking orbit from no new evidence, which is the most dangerous product on the list because it looks like progress.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Collapse the orbit uncertainty",
         "setup": "Follow-Up Scheduling Desk",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Obtain radar range if geometry permits."
-          },
-          {
-            "label": "B",
-            "text": "Extend optical tracking over additional nights."
-          },
-          {
-            "label": "C",
-            "text": "Improve the nominal orbit display without changing data."
-          },
-          {
-            "label": "D",
-            "text": "Observe from a second hemisphere or long baseline."
-          }
+        "play": "Radar has a window in nine days. What do you do with the nine nights before it?",
+        "task": "Radar has a window in nine days. What do you do with the nine nights before it?",
+        "question": "Radar has a window in nine days. What do you do with the nine nights before it?",
+        "answer": "Extend optical tracking over as many of them as the weather allows.",
+        "why": "The object is faint and setting, so every night not taken is arc that cannot be recovered later. Radar will measure a quantity optical work never can, and it will measure it against whatever arc exists by then.",
+        "rebuttals": [
+          "Waiting for radar makes the whole campaign depend on one window and one weather forecast, and leaves the arc as short as it is tonight.",
+          "A second hemisphere adds parallax where the schedule allows it, and it does not replace the nights of arc that are about to be lost.",
+          "A sharper-looking orbit drawn from the same data is the most dangerous product on this list, because it looks like progress and narrows nothing."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 40,
-          "C": 0,
-          "D": 25
-        },
-        "research": "Allocate 100 credits."
+        "choices": [
+          "Extend optical tracking over as many of them as the weather allows.",
+          "Hold the telescopes and wait for the radar range.",
+          "Observe from a second hemisphere for a parallax baseline.",
+          "Reprocess the existing data into a sharper nominal orbit."
+        ],
+        "correctChoice": "Extend optical tracking over as many of them as the weather allows."
       }
     },
     {
@@ -951,39 +886,26 @@ export const CURRICULUM = {
       "place": "Planetary Defense Coordination Office",
       "story": "The nominal orbit misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and those solutions predict a sky position that differs from the rest by a few arcseconds in about a week. Everything else the board could buy would confirm what every solution already agrees on. The observation worth having is the one where the live hypotheses disagree most — measurement is only informative where the candidate explanations make different predictions, and that condition is a place and a date, not a telescope.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Reduce the dangerous uncertainty",
         "setup": "Planetary Defense Coordination Office",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Observe where predicted positions differ most among impact and non-impact solutions."
-          },
-          {
-            "label": "B",
-            "text": "Repeat low-leverage images that all solutions predict equally."
-          },
-          {
-            "label": "C",
-            "text": "Improve timing and astrometric bias calibration."
-          },
-          {
-            "label": "D",
-            "text": "Run independent orbit software and assumptions."
-          }
+        "play": "A thin set of solutions still hits Earth. Where do you point next week?",
+        "task": "A thin set of solutions still hits Earth. Where do you point next week?",
+        "question": "A thin set of solutions still hits Earth. Where do you point next week?",
+        "answer": "Where the impacting and non-impacting solutions predict different positions.",
+        "why": "A measurement is informative only where the live hypotheses disagree. Everywhere else, both families predict the same thing, so the observation is guaranteed to confirm what nobody was disputing — and that condition is a place and a date rather than a telescope.",
+        "rebuttals": [
+          "The brightest field is the easiest measurement and the least informative one; every solution already agrees about where the object will be.",
+          "Bias calibration improves every measurement a little and separates the two families not at all.",
+          "Independent software checks the arithmetic rather than the sky. Worth doing, and it adds no observation."
         ],
-        "recommended": {
-          "A": 40,
-          "B": 10,
-          "C": 25,
-          "D": 25
-        },
-        "research": "Allocate 100 credits."
+        "choices": [
+          "Where the impacting and non-impacting solutions predict different positions.",
+          "Wherever the object is brightest and easiest to measure.",
+          "At the same fields again, to improve the astrometric bias calibration.",
+          "Nowhere new — run the arc through independent orbit software."
+        ],
+        "correctChoice": "Where the impacting and non-impacting solutions predict different positions."
       }
     },
     {
@@ -999,9 +921,9 @@ export const CURRICULUM = {
         "setup": "Infrared Telescope Team",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "How does the higher-albedo object’s diameter compare?",
+        "question": "How does the higher-albedo object's diameter compare?",
         "answer": "",
-        "why": "",
+        "why": "Photometry alone cannot separate size from reflectivity, so every diameter quoted from brightness carries an assumed albedo inside it whether or not the assumption is written down.",
         "givens": [],
         "relationship": "",
         "calcKey": "OPS-6"
@@ -1045,39 +967,26 @@ export const CURRICULUM = {
       "place": "Composition Review Room",
       "story": "The draft circular names a composition class outright. Behind it are one spectrum, at one phase angle, on one rotation — and the deflection team is about to size a spacecraft from the density that class implies. Extending wavelength coverage, observing at other phase angles or rotational phases, and adding polarimetry or radar texture each test the claim against a different physical dependency. Renaming the object after the preferred composition is on the list as a reminder of what confidence without evidence looks like from outside.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Improve the composition claim",
         "setup": "Composition Review Room",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Extend wavelength coverage."
-          },
-          {
-            "label": "B",
-            "text": "Observe at additional phase angles or rotations."
-          },
-          {
-            "label": "C",
-            "text": "Obtain polarimetry or radar texture constraints."
-          },
-          {
-            "label": "D",
-            "text": "Rename the asteroid after the preferred composition."
-          }
+        "play": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
+        "task": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
+        "question": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
+        "answer": "Wavelength coverage extended beyond the current range.",
+        "why": "Three mineral models already reproduce every feature in the spectrum within the noise. More wavelengths is what makes those models predict different things — and a claim the current data could not have contradicted is not yet a measurement.",
+        "rebuttals": [
+          "Other phase angles and rotations test whether the surface is uniform, which matters once the candidate classes are narrowed rather than before.",
+          "Polarimetry and radar texture constrain grain structure by different physics and are the right independent check on whichever class survives.",
+          "Publishing the class with a note attached is the same claim in smaller type, and the deflection team will size a spacecraft from the density it implies."
         ],
-        "recommended": {
-          "A": 40,
-          "B": 25,
-          "C": 35,
-          "D": 0
-        },
-        "research": "Allocate 100 credits."
+        "choices": [
+          "Wavelength coverage extended beyond the current range.",
+          "Observations at other phase angles and rotational phases.",
+          "Polarimetry or a radar texture constraint.",
+          "Nothing further — publish the class and note the uncertainty."
+        ],
+        "correctChoice": "Wavelength coverage extended beyond the current range."
       }
     },
     {
@@ -1093,9 +1002,9 @@ export const CURRICULUM = {
         "setup": "Rotation Dynamics Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the candidate period.",
+        "question": "Estimate the candidate rotation period.",
         "answer": "",
-        "why": "",
+        "why": "A spacecraft arriving at the wrong rotational phase meets a different face of the target than the one it was designed for, and the factor of two is where that error comes from.",
         "givens": [],
         "relationship": "",
         "calcKey": "OPS-9"
@@ -1109,39 +1018,28 @@ export const CURRICULUM = {
       "place": "Mission Design Office",
       "story": "The light curve varies by a factor of three over about seven hours, which could be a single rotation, half of one, or a tumbling body seen from a changing angle. The spacecraft has to arrive at a known orientation, and it launches whichever of those is true. Continuous longitude coverage removes the gaps where a period can hide; combining light curves across changing viewing geometry tests whether one period explains all of them; high-cadence photometry in a single short interval refines a curve that may be the wrong curve. Mission timing should rest on a rotation model that has been tested from more than one direction.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Resolve the spin state",
         "setup": "Mission Design Office",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
+        "play": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
+        "task": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
+        "question": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
+        "answer": "Continuous longitude coverage across several observatories.",
+        "why": "A period hides in the gaps, and the gaps are one site's daylight. Coverage around the Earth removes the aliases before anything is fitted, which is what stops a half-period being adopted as a period.",
+        "rebuttals": [
+          "High cadence through one night refines a curve that may be the wrong curve, at higher precision.",
+          "Combining light curves across changing geometry is what tests whether one period explains all of them, and it needs a gap-free curve to combine.",
           {
-            "label": "A",
-            "text": "Coordinate continuous longitude coverage."
-          },
-          {
-            "label": "B",
-            "text": "Obtain higher-cadence photometry during one short interval only."
-          },
-          {
-            "label": "C",
-            "text": "Combine light curves over changing viewing geometry."
-          },
-          {
-            "label": "D",
-            "text": "Plan the mission using one provisional period."
+            "'Adopting a provisional period is the failure this stop exists to prevent": "the spacecraft arrives at a rotational phase chosen by an assumption.'"
           }
         ],
-        "recommended": {
-          "A": 40,
-          "B": 15,
-          "C": 40,
-          "D": 5
-        },
-        "research": "Allocate 100 credits."
+        "choices": [
+          "Continuous longitude coverage across several observatories.",
+          "Higher-cadence photometry through one long night.",
+          "Light curves combined across changing viewing geometry.",
+          "A provisional period, adopted now so the design can proceed."
+        ],
+        "correctChoice": "Continuous longitude coverage across several observatories."
       }
     },
     {
@@ -1157,9 +1055,9 @@ export const CURRICULUM = {
         "setup": "Delay-Doppler Analysis Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate range.",
+        "question": "Estimate the range to the object.",
         "answer": "",
-        "why": "",
+        "why": "Optical astrometry constrains direction and leaves distance to be inferred from the fit. This measures the distance itself, to metres, in four seconds.",
         "givens": [],
         "relationship": "",
         "calcKey": "OPS-11"
@@ -1209,39 +1107,26 @@ export const CURRICULUM = {
       "place": "Emergency Planning Office",
       "story": "The consequence range spans two orders of magnitude, and every part of it traces back to a physical measurement: diameter, density, entry speed and angle. Improving diameter with thermal or radar data attacks the cubed term; improving density needs composition and dynamical analogues; refining speed and angle attacks the squared term and the entry geometry together. One proposal would resolve none of them and simply report the worst case as the number. Risk communication has to show how physical uncertainty becomes consequence uncertainty, not hide it behind a single figure.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Reduce consequence uncertainty",
         "setup": "Emergency Planning Office",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Improve diameter with thermal or radar data."
-          },
-          {
-            "label": "B",
-            "text": "Improve density using composition and dynamical analogs."
-          },
-          {
-            "label": "C",
-            "text": "Refine impact speed and angle."
-          },
-          {
-            "label": "D",
-            "text": "Report only the most dramatic scenario."
-          }
+        "play": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
+        "task": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
+        "question": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
+        "answer": "The diameter, from thermal infrared or radar.",
+        "why": "Energy goes as the cube of the diameter and only linearly with density, so a factor of two in size is a factor of eight in consequence. The measurement worth most is always the one attached to the steepest exponent.",
+        "rebuttals": [
+          "Density enters linearly and is genuinely uncertain. Worth improving, and worth a third as much per factor of error.",
+          "Speed enters squared and is already the best determined of the three, so there is least left to win there.",
+          "Reporting only the worst case resolves nothing and spends public attention on a number that cannot be defended when it is questioned."
         ],
-        "recommended": {
-          "A": 45,
-          "B": 25,
-          "C": 30,
-          "D": 0
-        },
-        "research": "Allocate 100 credits."
+        "choices": [
+          "The diameter, from thermal infrared or radar.",
+          "The density, from composition and dynamical analogues.",
+          "The entry speed and angle.",
+          "None — report the worst case and plan against that."
+        ],
+        "correctChoice": "The diameter, from thermal infrared or radar."
       }
     },
     {
@@ -1327,39 +1212,28 @@ export const CURRICULUM = {
       "place": "Consequence Modeling Center",
       "story": "The models disagree because the object's strength and internal structure are unknown, not because anybody made an arithmetic error. Running strength and density ensembles propagates that ignorance honestly; analogue fireball observations calibrate the models against events that actually happened; refining entry angle and speed removes uncertainty that is genuinely measurable. Assuming every object of a given diameter behaves identically buries the structural uncertainty inside a single asteroid 'type' — the planning office gets one clean answer and no way of knowing how wrong it might be.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Bound the atmospheric outcome",
         "setup": "Consequence Modeling Center",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
+        "play": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
+        "task": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
+        "question": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
+        "answer": "Strength and density ensembles rather than one model run.",
+        "why": "The three groups disagree because the object's strength is unknown, not because anybody made an arithmetic error. An ensemble carries that ignorance into the answer, where the planning office can see it, instead of hiding it inside whichever strength each modeller happened to assume.",
+        "rebuttals": [
+          "Analogue fireballs calibrate the models against events that actually happened, and they are the right check on the ensemble once it exists.",
+          "Entry angle and speed are genuinely measurable and are not what the three models disagree about.",
           {
-            "label": "A",
-            "text": "Run strength and density ensembles rather than one model."
-          },
-          {
-            "label": "B",
-            "text": "Use analog fireball observations."
-          },
-          {
-            "label": "C",
-            "text": "Improve entry angle and speed."
-          },
-          {
-            "label": "D",
-            "text": "Assume every object of the same diameter behaves identically."
+            "'One agreed answer is what the planning office wants and the least defensible thing to give it": "the disagreement is the finding.'"
           }
         ],
-        "recommended": {
-          "A": 40,
-          "B": 30,
-          "C": 30,
-          "D": 0
-        },
-        "research": "Allocate 100 credits."
+        "choices": [
+          "Strength and density ensembles rather than one model run.",
+          "Comparison against observed analogue fireballs.",
+          "A better measurement of the entry angle and speed.",
+          "A single agreed model, so the planning office has one answer."
+        ],
+        "correctChoice": "Strength and density ensembles rather than one model run."
       }
     },
     {
@@ -1450,9 +1324,9 @@ export const CURRICULUM = {
         "setup": "Telescope Network",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the volume factor.",
+        "question": "Estimate the factor by which the searchable volume grows.",
         "answer": "",
-        "why": "",
+        "why": "Modest gains in sensitivity produce disproportionate gains in discovery, which is why depth and sky coverage trade against each other rather than being separate arguments.",
         "givens": [],
         "relationship": "",
         "calcKey": "OPS-17"
@@ -1466,39 +1340,26 @@ export const CURRICULUM = {
       "place": "Population Statistics Lab",
       "story": "This object was found eleven days before its closest approach, from the direction of the Sun, at a brightness the survey reaches only in good conditions. Greater depth finds fainter and darker bodies; a cadence optimised for linking motion turns detections into tracked objects rather than one-night stands; wider sky and hemisphere coverage removes the geometric blind spots that hid this one. The fourth proposal reports completeness as 100 per cent because no uncatalogued objects appear in the catalogue — which is exactly the reasoning this campaign exists to disprove.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Improve discovery completeness",
         "setup": "Population Statistics Lab",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Greater depth for faint objects."
-          },
-          {
-            "label": "B",
-            "text": "Cadence optimized for linking motion."
-          },
-          {
-            "label": "C",
-            "text": "Wider sky and hemisphere coverage."
-          },
-          {
-            "label": "D",
-            "text": "Publish completeness as 100% because no unknown objects are catalogued."
-          }
+        "play": "This object was found eleven days out, from the direction of the Sun. What does the survey change?",
+        "task": "This object was found eleven days out, from the direction of the Sun. What does the survey change?",
+        "question": "This object was found eleven days out, from the direction of the Sun. What does the survey change?",
+        "answer": "Wider sky and hemisphere coverage, including low solar elongations.",
+        "why": "This object was bright enough for the survey and geometrically impossible to see. What hid it was where the telescope pointed, not how faint it could go — and depth added to the same sky would have found it on exactly the same night.",
+        "rebuttals": [
+          "Greater depth finds fainter and darker bodies across the sky already covered, and would not have moved this discovery by a day.",
+          "A linking cadence turns detections into tracked objects, which requires the detection first.",
+          "Reporting completeness from the catalogue counts the objects that were found using the objects that were found. It is the reasoning this discovery disproved."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 35,
-          "D": 0
-        },
-        "research": "Allocate 100 survey credits."
+        "choices": [
+          "Wider sky and hemisphere coverage, including low solar elongations.",
+          "Greater depth, to reach fainter and darker bodies.",
+          "A cadence optimised for linking detections into tracked objects.",
+          "Nothing — report completeness from the fraction already catalogued."
+        ],
+        "correctChoice": "Wider sky and hemisphere coverage, including low solar elongations."
       }
     },
     {
@@ -1575,39 +1436,26 @@ export const CURRICULUM = {
       "place": "Autonomy Test Range",
       "story": "The design closes on paper with nothing left over. Whatever margin is bought now comes out of the headline performance number the programme has been promising, and the target's ephemeris will still be uncertain at arrival. Extra launch energy buys trajectory flexibility; better ephemeris and onboard optical navigation buy accuracy where it is actually lost; redundancy in critical functions buys survival of a single failure at an encounter that cannot be repeated. A planetary-defence mission is judged by whether it works under the conditions that turn up, not by its nominal figures.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Spend mission margin",
         "setup": "Autonomy Test Range",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Additional launch-energy or trajectory flexibility."
-          },
-          {
-            "label": "B",
-            "text": "Better target ephemeris and onboard optical navigation."
-          },
-          {
-            "label": "C",
-            "text": "Redundant critical spacecraft functions."
-          },
-          {
-            "label": "D",
-            "text": "Maximize one headline performance number at the expense of all reserves."
-          }
+        "play": "The design closes on paper with nothing left over. Where does the first margin go?",
+        "task": "The design closes on paper with nothing left over. Where does the first margin go?",
+        "question": "The design closes on paper with nothing left over. Where does the first margin go?",
+        "answer": "Better target ephemeris and onboard optical navigation.",
+        "why": "The accuracy is lost at the encounter, not at launch. The target's position is still uncertain when the spacecraft has to steer itself, and this is the only margin that converts directly into hitting the thing it was sent to hit.",
+        "rebuttals": [
+          "Launch energy buys trajectory flexibility, which does not help a spacecraft aimed accurately at where the asteroid is not.",
+          "Redundancy buys survival of one failure at an encounter that cannot be repeated. It is the right second call.",
+          "Maximising the headline number at the expense of every reserve is how a design closes on paper and fails in flight."
         ],
-        "recommended": {
-          "A": 30,
-          "B": 40,
-          "C": 30,
-          "D": 0
-        },
-        "research": "Allocate 100 margin credits."
+        "choices": [
+          "Better target ephemeris and onboard optical navigation.",
+          "Additional launch energy and trajectory flexibility.",
+          "Redundancy in the critical spacecraft functions.",
+          "Into the headline performance number the programme has promised."
+        ],
+        "correctChoice": "Better target ephemeris and onboard optical navigation."
       }
     },
     {
@@ -1659,9 +1507,9 @@ export const CURRICULUM = {
         "setup": "Emergency Management Office",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Compute the expectation and explain why it is not an evacuation count.",
+        "question": "Estimate the expected displaced population.",
         "answer": "",
-        "why": "",
+        "why": "The same expectation arises from a small chance of a very large displacement and a near-certainty of a small one, and those call for entirely different preparations. The summary is only usable alongside the distribution it summarises.",
         "givens": [],
         "relationship": "",
         "calcKey": "OPS-23"
@@ -1675,39 +1523,26 @@ export const CURRICULUM = {
       "place": "Scientific Advisory Board",
       "story": "The corridor crosses two coastal regions, the probability has moved twice this month and both times downward, and regional authorities want a decision they can act on. Improving tracking narrows the corridor itself; reversible evacuation and shelter plans can be started and stood down without cost to credibility; publishing the uncertainty with the triggers and protective steps is what makes a later change of advice look like the system working. Announcing an inevitable impact before the orbit is resolved spends the credibility that every subsequent message depends on.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Prepare without panic",
         "setup": "Scientific Advisory Board",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Improve tracking and corridor definition."
-          },
-          {
-            "label": "B",
-            "text": "Build reversible evacuation and shelter plans."
-          },
-          {
-            "label": "C",
-            "text": "Communicate uncertainty, triggers, and protective steps."
-          },
-          {
-            "label": "D",
-            "text": "Announce an inevitable impact before the orbit is resolved."
-          }
+        "play": "The probability has moved twice this month, both times downward. What does the board issue?",
+        "task": "The probability has moved twice this month, both times downward. What does the board issue?",
+        "question": "The probability has moved twice this month, both times downward. What does the board issue?",
+        "answer": "The uncertainty, published together with the triggers and protective steps.",
+        "why": "An advisory that says in advance what would change it can change without looking like a reversal. That is the only form that survives a probability which moves twice a month, and it is what keeps the next message believed.",
+        "rebuttals": [
+          "Reassurance with no trigger attached has to be withdrawn from scratch if the probability moves back up, and it will be read as the board having been wrong.",
+          "Corridor evacuation planning is exactly what the triggers should start. Starting it without them makes it impossible to stop.",
+          "Calling an impact likely before the orbit is resolved spends the credibility that every later message, including the reassuring ones, depends on."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 35,
-          "D": 0
-        },
-        "research": "Allocate 100 preparedness credits."
+        "choices": [
+          "The uncertainty, published together with the triggers and protective steps.",
+          "A statement that tracking continues and there is no cause for concern.",
+          "An instruction to begin corridor evacuation planning immediately.",
+          "A warning that an impact should now be treated as likely."
+        ],
+        "correctChoice": "The uncertainty, published together with the triggers and protective steps."
       }
     },
     {
@@ -1754,39 +1589,26 @@ export const CURRICULUM = {
       "place": "Mission Operations",
       "story": "The campaign budget ends with this review, and what survives it decides whether the next object is found eleven days out or eleven years out. Survey completeness and rapid follow-up networks are what produce warning time; characterisation and deflection demonstration missions are what convert warning time into options; international decision protocols and civil preparedness are what turn options into action. The fourth proposal is to assume discovery now happens automatically — which is the assumption this object spent eight years disproving.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Fund the planetary-defense legacy",
         "setup": "Mission Operations",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Survey completeness and rapid follow-up networks."
-          },
-          {
-            "label": "B",
-            "text": "Characterization and deflection demonstration missions."
-          },
-          {
-            "label": "C",
-            "text": "International decision protocols and civil preparedness."
-          },
-          {
-            "label": "D",
-            "text": "Assume the next object will be found early automatically."
-          }
+        "play": "The campaign budget ends with this review. What survives it?",
+        "task": "The campaign budget ends with this review. What survives it?",
+        "question": "The campaign budget ends with this review. What survives it?",
+        "answer": "Survey completeness and the rapid follow-up network.",
+        "why": "Everything else in planetary defence is a function of warning time, and warning time is produced by finding the object and by nothing else. This one was found eleven days out, and that number is what set every constraint in the campaign that followed.",
+        "rebuttals": [
+          "Characterisation and deflection demonstrations convert warning time into options, and they need the warning time to exist first.",
+          "Protocols and civil preparedness turn options into action, and they inherit the same dependency one step further down.",
+          "Assuming discovery is automatic is the assumption this object spent eight years disproving, from a blind spot the survey still has."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 35,
-          "C": 30,
-          "D": 0
-        },
-        "research": "Allocate 100 long-term credits."
+        "choices": [
+          "Survey completeness and the rapid follow-up network.",
+          "Characterisation and deflection demonstration missions.",
+          "International decision protocols and civil preparedness.",
+          "Nothing new — discovery is now routine and happens automatically."
+        ],
+        "correctChoice": "Survey completeness and the rapid follow-up network."
       }
     }
   ]
@@ -1794,18 +1616,24 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "ORBIT-1": {
-    "prompt": "The object shifts 12 arcseconds in 20 minutes.",
-    "question": "Estimate rate in arcseconds per minute and per hour.",
+    "prompt": "The object shifts 12 arcseconds in 20 minutes, and the desk needs a rate before it can predict where to look next.",
+    "question": "Estimate the apparent motion in arcseconds per hour.",
     "labels": [
-      "12 arcsec",
-      "20 min"
+      "12 arcsec (measured shift)",
+      "20 min (between the two frames)",
+      "3 exposures",
+      "1,200 s (the same interval, in seconds)",
+      "24 h"
     ],
     "values": [
       12,
-      20
+      20,
+      3,
+      1200,
+      24
     ],
     "slots": 2,
-    "template": "{0}/{1} x 60",
+    "template": "{0} ÷ {1} × 60",
     "formula": "a/b*60",
     "correct": [
       0,
@@ -1814,22 +1642,28 @@ export const BALLPARK_CALCS = {
     "target": 36,
     "tolerance": 3,
     "units": "arcsec/hour",
-    "solution": "12/20 = 0.6 arcsec/min = 36 arcsec/hour.",
-    "explanation": ""
+    "solution": "12 ÷ 20 = 0.6 arcsec/min, so about 36 arcsec/hour.",
+    "explanation": "The 60 in the template is minutes per hour, so the interval has to be in minutes. Handing it the same interval in seconds gives an answer 60 times too small — which would look like a main-belt object rather than something close."
   },
   "ORBIT-4": {
-    "prompt": "In a simplified Monte Carlo set, 37 of 100,000 allowed trajectories strike Earth.",
-    "question": "Estimate probability as a decimal and percent.",
+    "prompt": "In a simplified Monte Carlo set, 37 of 100,000 sampled trajectories consistent with the observations strike Earth.",
+    "question": "Estimate the impact probability, as a percentage.",
     "labels": [
       "37 impacting samples",
-      "100000 total samples"
+      "100,000 samples drawn",
+      "1,000 samples (the first quick run)",
+      "99,963 samples that miss",
+      "8 years to encounter"
     ],
     "values": [
       37,
-      100000
+      100000,
+      1000,
+      99963,
+      8
     ],
     "slots": 2,
-    "template": "{0}/{1} x 100",
+    "template": "{0} ÷ {1} × 100",
     "formula": "a/b*100",
     "correct": [
       0,
@@ -1838,46 +1672,58 @@ export const BALLPARK_CALCS = {
     "target": 0.037,
     "tolerance": 0.004,
     "units": "%",
-    "solution": "37/100000 = 3.7e-4 = 0.037%.",
-    "explanation": ""
+    "solution": "37/100,000 = 3.7 × 10⁻⁴, or 0.037%.",
+    "explanation": "The denominator is every sample drawn, not the ones that missed — dividing by the misses gives almost the same number here and the wrong quantity everywhere. A thousand samples could not have resolved a probability this small at all."
   },
   "OPS-6": {
-    "prompt": "Two objects have the same reflected brightness, but one has four times the albedo.",
-    "question": "How does the higher-albedo object’s diameter compare?",
+    "prompt": "Two objects show the same reflected brightness and one has four times the albedo of the other. Reflected flux scales with cross-sectional area times reflectivity.",
+    "question": "How does the higher-albedo object's diameter compare?",
     "labels": [
-      "4 x albedo",
-      "1 x reference brightness"
+      "1.0 (reflected brightness, relative)",
+      "4.0 (albedo, relative)",
+      "2.0 (the square root of the albedo ratio)",
+      "16.0 (the albedo ratio, squared)",
+      "0.25 (the reciprocal of the albedo ratio)"
     ],
     "values": [
+      1,
       4,
-      1
+      2,
+      16,
+      0.25
     ],
     "slots": 2,
-    "template": "sqrt({1}/{0})",
-    "formula": "Math.sqrt(b/a)",
+    "template": "√( {0} ÷ {1} )",
+    "formula": "Math.sqrt(a/b)",
     "correct": [
       0,
       1
     ],
     "target": 0.5,
     "tolerance": 0.05,
-    "units": "diameter ratio",
-    "solution": "At fixed reflected brightness, four times the albedo permits about half the diameter.",
-    "explanation": ""
+    "units": "× the diameter of the darker object",
+    "solution": "Four times the albedo at the same brightness means a quarter of the area, so half the diameter.",
+    "explanation": "Brightness fixes the product of area and reflectivity, so four times the reflectivity requires a quarter of the area — and diameter goes as the square root of area, not as area. The tile that has already taken the square root is the trap."
   },
   "OPS-9": {
-    "prompt": "Similar maxima are separated by 3.5 hours, but an elongated body may show two maxima per rotation.",
-    "question": "Estimate the candidate period.",
+    "prompt": "Similar maxima in the light curve are separated by 3.5 hours, and an elongated body presents its long profile twice per rotation.",
+    "question": "Estimate the candidate rotation period.",
     "labels": [
-      "3.5 h between similar peaks",
-      "2 similar maxima per rotation"
+      "3.5 h (between similar maxima)",
+      "2 maxima per rotation",
+      "1.75 h (half the spacing between maxima)",
+      "4 maxima per rotation",
+      "0.3 mag (the amplitude)"
     ],
     "values": [
       3.5,
-      2
+      2,
+      1.75,
+      4,
+      0.3
     ],
     "slots": 2,
-    "template": "{0} x {1}",
+    "template": "{0} × {1}",
     "formula": "a*b",
     "correct": [
       0,
@@ -1886,24 +1732,28 @@ export const BALLPARK_CALCS = {
     "target": 7,
     "tolerance": 0.5,
     "units": "h",
-    "solution": "Candidate rotation period is about 7 h.",
-    "explanation": ""
+    "solution": "3.5 h between maxima, two maxima per turn, so about 7 h.",
+    "explanation": "The repetition time is not the period. Multiplying rather than dividing is the whole point: a body that shows two maxima per rotation repeats twice as often as it turns, so the period is longer than the spacing, not shorter."
   },
   "OPS-11": {
-    "prompt": "A radar echo returns after 4.0 seconds.",
-    "question": "Estimate range.",
+    "prompt": "The dish transmits and the echo returns four seconds later. The signal covers the distance twice.",
+    "question": "Estimate the range to the object.",
     "labels": [
-      "3.0e8 m/s",
-      "4.0 s round-trip",
-      "2 for outbound+return"
+      "3.0e8 m/s (speed of light)",
+      "4.0 s (round-trip delay)",
+      "2 (out and back)",
+      "2.0 s (half the delay)",
+      "1.5e8 m/s (light speed, halved already)"
     ],
     "values": [
       300000000,
       4,
-      2
+      2,
+      2,
+      150000000
     ],
     "slots": 3,
-    "template": "{0} x {1} / {2}",
+    "template": "{0} × {1} ÷ {2}",
     "formula": "a*b/c",
     "correct": [
       0,
@@ -1913,24 +1763,28 @@ export const BALLPARK_CALCS = {
     "target": 600000000,
     "tolerance": 50000000,
     "units": "m",
-    "solution": "Range = ct/2 = 6.0e8 m.",
-    "explanation": ""
+    "solution": "Range = ct/2 = 6.0 × 10⁸ m.",
+    "explanation": "The factor of two can be taken out of the time or out of the speed, but not out of both — the two tiles that have already halved something are there to be noticed and left alone."
   },
   "IMPACT-2": {
-    "prompt": "Use a simplified spherical object.",
-    "question": "Estimate mass and kinetic energy.",
+    "prompt": "The best current estimates are a radius near 50 metres, a density around 3,000 kg per cubic metre, and an approach speed of about 20 kilometres a second.",
+    "question": "Estimate the impact kinetic energy.",
     "labels": [
-      "50 m radius",
-      "3000 kg/m^3 density",
-      "20000 m/s speed"
+      "50 m (radius)",
+      "3,000 kg/m³ (density)",
+      "20,000 m/s (approach speed)",
+      "100 m (diameter)",
+      "11,000 m/s (Earth escape velocity)"
     ],
     "values": [
       50,
       3000,
-      20000
+      20000,
+      100,
+      11000
     ],
     "slots": 3,
-    "template": "0.5 x ((4π/3){0}^3 {1}) x {2}^2",
+    "template": "0.5 × ( (4π/3) {0}³ {1} ) × {2}²",
     "formula": "0.5*((4*Math.PI/3)*a*a*a*b)*c*c",
     "correct": [
       0,
@@ -1940,67 +1794,86 @@ export const BALLPARK_CALCS = {
     "target": 314160000000000000,
     "tolerance": 40000000000000000,
     "units": "J",
-    "solution": "Mass is about 1.6e9 kg and kinetic energy about 3.1e17 J.",
-    "explanation": ""
+    "solution": "Mass about 1.6 × 10⁹ kg, kinetic energy about 3 × 10¹⁷ J.",
+    "explanation": "The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other."
   },
   "OPS-17": {
-    "prompt": "A survey can detect a standard object twice as far away after an upgrade.",
-    "question": "Estimate the volume factor.",
+    "prompt": "A survey upgrade lets it detect a standard object twice as far away. The searchable region is roughly a sphere.",
+    "question": "Estimate the factor by which the searchable volume grows.",
     "labels": [
-      "2 x maximum distance"
+      "2 (the gain in detection distance)",
+      "3 (dimensions of space)",
+      "4 (twice the distance, squared)",
+      "1.5 mag (the depth gain)"
     ],
     "values": [
-      2
+      2,
+      3,
+      4,
+      1.5
     ],
     "slots": 1,
-    "template": "{0}^3",
+    "template": "{0}³",
     "formula": "a*a*a",
     "correct": [
       0
     ],
     "target": 8,
     "tolerance": 0.5,
-    "units": "volume factor",
-    "solution": "Doubling distance gives about 2^3 = 8 times the idealized searchable volume.",
-    "explanation": ""
+    "units": "× the searchable volume",
+    "solution": "Volume goes as the cube of the distance limit, so twice the range is eight times the volume.",
+    "explanation": "The exponent is in the template because it comes from the geometry rather than from a measurement; what the player supplies is the distance gain. Doubling the range and squaring it is the area answer, and the survey searches a volume."
   },
   "IMPACT-4": {
-    "prompt": "A 1,000 kg impactor strikes a 1.0×10^9 kg asteroid at 10,000 m/s in a perfectly inelastic lower-bound estimate.",
-    "question": "Estimate asteroid velocity change.",
+    "prompt": "A 1,000 kg impactor strikes a 1.0 × 10⁹ kg asteroid at 10,000 metres per second, in a perfectly inelastic lower-bound estimate.",
+    "question": "Estimate the asteroid's change in speed.",
     "labels": [
-      "1.0e7 kg m/s transferred momentum",
-      "1.0e9 kg asteroid mass"
+      "1,000 kg (impactor mass)",
+      "10,000 m/s (impact speed)",
+      "1.0e9 kg (asteroid mass)",
+      "20,000 m/s (the encounter speed with Earth)",
+      "3.0 (momentum enhancement from ejecta)"
     ],
     "values": [
-      10000000,
-      1000000000
+      1000,
+      10000,
+      1000000000,
+      20000,
+      3
     ],
-    "slots": 2,
-    "template": "{0}/{1}",
-    "formula": "a/b",
+    "slots": 3,
+    "template": "{0} × {1} ÷ {2}",
+    "formula": "a*b/c",
     "correct": [
       0,
-      1
+      1,
+      2
     ],
     "target": 0.01,
     "tolerance": 0.001,
     "units": "m/s",
-    "solution": "Δv is about 0.01 m/s.",
-    "explanation": ""
+    "solution": "Momentum transferred is 10⁷ kg m/s; divided by 10⁹ kg, Δv ≈ 0.01 m/s.",
+    "explanation": "Conservation of momentum needs the impactor's mass and speed, not the asteroid's encounter speed with Earth. The ejecta enhancement is real and would raise this figure — it is left out because nobody can predict it, which is exactly why the mission has to measure it."
   },
   "OPS-23": {
-    "prompt": "A simplified corridor contains 2 million people and current impact probability is 0.5%.",
-    "question": "Compute the expectation and explain why it is not an evacuation count.",
+    "prompt": "A simplified corridor contains 2 million people and the current impact probability is 0.5 per cent.",
+    "question": "Estimate the expected displaced population.",
     "labels": [
-      "2.0e6 exposed population",
-      "0.005 probability"
+      "2.0e6 people (in the corridor)",
+      "0.005 (impact probability)",
+      "2.0e5 people (in the largest corridor town)",
+      "0.05 (an earlier probability estimate)",
+      "0.037 % (the ensemble figure)"
     ],
     "values": [
       2000000,
-      0.005
+      0.005,
+      200000,
+      0.05,
+      0.037
     ],
     "slots": 2,
-    "template": "{0} x {1}",
+    "template": "{0} × {1}",
     "formula": "a*b",
     "correct": [
       0,
@@ -2009,8 +1882,8 @@ export const BALLPARK_CALCS = {
     "target": 10000,
     "tolerance": 800,
     "units": "people (expectation)",
-    "solution": "The narrow mathematical expectation is 10,000 people; it is not an evacuation count.",
-    "explanation": ""
+    "solution": "2 × 10⁶ × 0.005 = 10,000 people, as an expectation.",
+    "explanation": "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of a hundred."
   }
 };
 

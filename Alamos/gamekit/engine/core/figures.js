@@ -41,6 +41,10 @@ export const STATUS = {
   high:   { colour: '#ec835a', glyph: '▲', word: 'high' },
   low:    { colour: '#fab219', glyph: '▼', word: 'low' },
   normal: { colour: '#0ca30c', glyph: '●', word: 'normal' },
+  // Not a severity. A pack marks the readings the puzzle turns on, and those
+  // are often the reassuring ones — "counts with the high voltage off: zero" is
+  // what clears the electronics. Colouring them red said the opposite.
+  key:    { colour: '#3b6fd0', glyph: '◆', word: 'key reading' },
 };
 const INK = '#1c1b19', MUTED = '#5f6368', GRID = '#ded8cc';
 

@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 2,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "What does the office start this afternoon?"
       }
     ]
   },
@@ -47,7 +47,7 @@ export const MISSIONS = [
       {
         "group": "MOL",
         "lesson": 0,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "One experiment separates the two remaining hypotheses. Which?"
       }
     ]
   },
@@ -71,7 +71,7 @@ export const MISSIONS = [
       {
         "group": "CELL",
         "lesson": 2,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Which experiment locates the step where resistant cells stop the process?"
       }
     ]
   },
@@ -95,7 +95,7 @@ export const MISSIONS = [
       {
         "group": "MOL",
         "lesson": 3,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Abundance alone fits every mechanism. Which measurement do you make first?"
       }
     ]
   },
@@ -143,7 +143,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 2,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "One bedside measurement before the team commits to a treatment. Which?"
       }
     ]
   },
@@ -167,7 +167,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 4,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The ward wants to start immunosuppression tonight. What do you do?"
       }
     ]
   },
@@ -191,7 +191,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 6,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Cases appear in neighbourhoods with nobody admitted. What do you commission?"
       }
     ]
   },
@@ -215,7 +215,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 7,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "One field campaign. What is its design?"
       }
     ]
   },
@@ -263,7 +263,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 12,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "One thing before anybody's prescription changes. Which?"
       }
     ]
   },
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 15,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The city can start one layer this month. Which?"
       }
     ]
   },
@@ -311,7 +311,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 17,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Promising, imprecise, and the adverse events are uneven. What does the board decide?"
       }
     ]
   },
@@ -335,7 +335,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 19,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "A policy the council can defend for a month. Which?"
       }
     ]
   },
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 22,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The emergency budget closes this month. What does the city commit it to?"
       }
     ]
   }

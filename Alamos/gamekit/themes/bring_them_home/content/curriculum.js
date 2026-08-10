@@ -85,7 +85,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the spacecraft range.",
         "answer": "",
-        "why": "",
+        "why": "Range is the one quantity the restarted computer lost, and it is measured here directly rather than inferred from a fit — which is why one pulse is worth more than an hour of angles.",
         "givens": [],
         "relationship": "",
         "calcKey": "NAV-3"
@@ -106,7 +106,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the change in speed.",
         "answer": "",
-        "why": "",
+        "why": "Four metres per second looks absurd beside an orbital speed in kilometres per second. Applied days out, it is hundreds of kilometres at arrival — which is why an early correction is cheap and a late one is not.",
         "givens": [],
         "relationship": "",
         "calcKey": "NAV-4"
@@ -120,39 +120,26 @@ export const CURRICULUM = {
       "place": "Propulsion Desk",
       "story": "The drift is real but the tracking is thin, and the propellant is not replaceable. Correcting now costs little and risks correcting toward a state that has been measured badly; waiting buys a better measurement and a much larger burn, because the same positional error costs more velocity to fix the closer you are to arrival. Preserving a backup engine and an alternate attitude plan costs capability that could have gone into the burn itself. The plan that wins is not the one that is cheapest against the current best estimate but the one that still works if that estimate is wrong.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Choose the correction strategy",
         "setup": "Propulsion Desk",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "An early modest correction with extensive tracking afterward."
-          },
-          {
-            "label": "B",
-            "text": "Wait for certainty and accept a much larger late burn."
-          },
-          {
-            "label": "C",
-            "text": "Preserve a backup engine and alternate attitude plan."
-          },
-          {
-            "label": "D",
-            "text": "Use one trajectory solution without independent verification."
-          }
+        "play": "The drift is real and the tracking is thin. What do you do?",
+        "task": "The drift is real and the tracking is thin. What do you do?",
+        "question": "The drift is real and the tracking is thin. What do you do?",
+        "answer": "Make an early modest correction, then track it hard.",
+        "why": "The same positional error costs more velocity to remove the closer the vehicle is to arrival, so an early burn is cheap. What makes it safe rather than merely cheap is the tracking afterwards: a modest correction against an uncertain state can be measured and corrected again, and a large one cannot.",
+        "rebuttals": [
+          "Waiting buys a better measurement and pays for it in propellant that cannot be replaced, at the point in the trajectory where propellant is worth most.",
+          "Preserving a backup engine is a constraint on how you burn. It is not an alternative to burning, and the drift does not stop while it is being preserved.",
+          "One unverified solution is how a correction is made confidently toward the wrong place. The burn is only as good as the state it was computed from."
         ],
-        "recommended": {
-          "A": 45,
-          "B": 10,
-          "C": 30,
-          "D": 15
-        },
-        "research": "Allocate 100 planning credits."
+        "choices": [
+          "Make an early modest correction, then track it hard.",
+          "Wait for a better state estimate and accept a larger late burn.",
+          "Preserve the backup engine and an alternate attitude plan instead.",
+          "Correct now against the single best trajectory solution held."
+        ],
+        "correctChoice": "Make an early modest correction, then track it hard."
       }
     },
     {
@@ -168,9 +155,9 @@ export const CURRICULUM = {
         "setup": "Guidance Console",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the torque.",
+        "question": "Estimate the torque about the centre of mass.",
         "answer": "",
-        "why": "",
+        "why": "The same thruster mounted closer in produces proportionally less turn for the same propellant. On a vehicle this size the lever arm is the term the crew can actually choose.",
         "givens": [],
         "relationship": "",
         "calcKey": "NAV-6"
@@ -189,9 +176,9 @@ export const CURRICULUM = {
         "setup": "Crew Navigation Trainer",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate transverse offset.",
+        "question": "Estimate the transverse offset at that range.",
         "answer": "",
-        "why": "",
+        "why": "Angular precision becomes position precision through geometry alone. At lunar distance a tenth of a degree is hundreds of kilometres, which is why a hand-held sighting is discussed so carefully.",
         "givens": [],
         "relationship": "",
         "calcKey": "NAV-7"
@@ -205,39 +192,26 @@ export const CURRICULUM = {
       "place": "Guidance Review Board",
       "story": "The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to check them against, and nobody has measured how repeatable that is. Calibrating reticle and eye position in the simulator quantifies the systematic part; using multiple stars and repeated measurements quantifies the random part and averages it down; a timed attitude-rate check before ignition catches a vehicle that is still drifting when the sighting was taken. A manual procedure is not unreliable by nature — it is unreliable until its geometry and its repeatability have been measured.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Bound the manual alignment",
         "setup": "Guidance Review Board",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Calibrate reticle and eye position in the simulator."
-          },
-          {
-            "label": "B",
-            "text": "Use multiple stars and repeated measurements."
-          },
-          {
-            "label": "C",
-            "text": "Include a timed attitude-rate check before ignition."
-          },
-          {
-            "label": "D",
-            "text": "Trust one hurried visual alignment."
-          }
+        "play": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?",
+        "task": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?",
+        "question": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?",
+        "answer": "Multiple stars, each sighted more than once.",
+        "why": "Repetition is the only thing that measures the scatter, and averaging is the only thing that reduces it. A procedure with no repeat has no error bar at all, which is what makes it impossible to say whether the burn is inside the corridor.",
+        "rebuttals": [
+          "Simulator calibration removes the systematic part — the fixed offset between eye, reticle and axis — and tells you nothing about how much the answer moves from one sighting to the next.",
+          "The attitude-rate check catches a vehicle still drifting when the sighting was taken. A real error source, and a different one.",
+          "One alignment by the best crew member is a single sample. It may well be the most accurate one; nobody can demonstrate that it was."
         ],
-        "recommended": {
-          "A": 30,
-          "B": 35,
-          "C": 30,
-          "D": 5
-        },
-        "research": "Allocate 100 procedure credits."
+        "choices": [
+          "Multiple stars, each sighted more than once.",
+          "A reticle and eye-position calibration in the simulator.",
+          "A timed attitude-rate check immediately before ignition.",
+          "One careful alignment by the most practised crew member."
+        ],
+        "correctChoice": "Multiple stars, each sighted more than once."
       }
     },
     {
@@ -328,9 +302,9 @@ export const CURRICULUM = {
         "setup": "Navigation Covariance Room",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the two-dimensional uncertainty scale.",
+        "question": "Estimate the combined two-dimensional uncertainty.",
         "answer": "",
-        "why": "",
+        "why": "Overstated uncertainty argues for a burn that is not needed; understated uncertainty hides a corridor violation. Both directions matter, which is why the combination rule has to be right.",
         "givens": [],
         "relationship": "",
         "calcKey": "NAV-10"
@@ -344,39 +318,26 @@ export const CURRICULUM = {
       "place": "Entry Tracking Network",
       "story": "The crew is aboard the recovery ship and the review board convenes on Monday. Preserving complete telemetry, configuration and decision logs is what makes the reconstruction possible at all; redesigning the common-mode electrical and sensor dependencies addresses the failure that started this; improving simulation and crew rehearsal for degraded modes addresses how it was survived. The fourth proposal is to celebrate the outcome and treat every anomaly as a one-off. A programme learns from the discrepancies it recorded, and only from those.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Fund the mission legacy",
         "setup": "Entry Tracking Network",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Preserve complete telemetry, configuration, and decision logs."
-          },
-          {
-            "label": "B",
-            "text": "Redesign common-mode electrical and sensor dependencies."
-          },
-          {
-            "label": "C",
-            "text": "Improve simulation and crew rehearsal for degraded modes."
-          },
-          {
-            "label": "D",
-            "text": "Celebrate success and classify every anomaly as irrelevant."
-          }
+        "play": "The review board convenes on Monday. What does the programme commit to?",
+        "task": "The review board convenes on Monday. What does the programme commit to?",
+        "question": "The review board convenes on Monday. What does the programme commit to?",
+        "answer": "Redesign the common-mode electrical and sensor dependencies.",
+        "why": "The failure that started this was three pressure readouts sharing one reference, and the near-miss at the end was two tracking stations sharing one clock. It is the only item here that removes a cause rather than improving the response to it.",
+        "rebuttals": [
+          "Preserving telemetry and decision logs is what makes any reconstruction possible, and it should be finished before Monday rather than funded after it.",
+          "Rehearsal for degraded modes improves how the next crew survives the same fault. Valuable, and it accepts the fault.",
+          "Closing the anomalies as one-offs keeps every dependency that produced them, and the next mission inherits all of it."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 35,
-          "D": 0
-        },
-        "research": "Allocate 100 postflight credits."
+        "choices": [
+          "Redesign the common-mode electrical and sensor dependencies.",
+          "Preserve the complete telemetry, configuration and decision logs.",
+          "Improve simulation and crew rehearsal for degraded modes.",
+          "Record the outcome as a success and close the anomalies."
+        ],
+        "correctChoice": "Redesign the common-mode electrical and sensor dependencies."
       }
     }
   ],
@@ -394,9 +355,9 @@ export const CURRICULUM = {
         "setup": "Electrical Systems Room",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate ideal endurance.",
+        "question": "Estimate the ideal endurance.",
         "answer": "",
-        "why": "",
+        "why": "It is an ideal figure — it assumes the load stays flat and every last watt-hour is available, and neither is true. It is still the number every other decision this shift gets argued against.",
         "givens": [],
         "relationship": "",
         "calcKey": "ELEC-1"
@@ -451,9 +412,9 @@ export const CURRICULUM = {
         "setup": "Electrical Integration Room",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate heating power at the connection.",
+        "question": "Estimate the heating power at the connection.",
         "answer": "",
-        "why": "",
+        "why": "Twenty watts sounds like nothing until you notice where it is going — into a connector, inside a sealed cabin, with no air moving over it.",
         "givens": [],
         "relationship": "",
         "calcKey": "ELEC-3"
@@ -474,9 +435,9 @@ export const CURRICULUM = {
         "setup": "Thermal Control Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate temperature drop.",
+        "question": "Estimate the temperature drop over three hours.",
         "answer": "",
-        "why": "",
+        "why": "Thermal inertia is why the cabin cools slowly rather than instantly when the power goes — and it is also why reheating it later costs far more than holding it warm.",
         "givens": [],
         "relationship": "",
         "calcKey": "THERM-1"
@@ -531,9 +492,9 @@ export const CURRICULUM = {
         "setup": "Cabin Air Console",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate CO2 volume produced in six hours.",
+        "question": "Estimate the carbon dioxide produced in six hours.",
         "answer": "",
-        "why": "",
+        "why": "Source rate sets the minimum the fix has to achieve. A scrubber that removes less than this only changes how fast the concentration climbs.",
         "givens": [],
         "relationship": "",
         "calcKey": "THERM-3"
@@ -552,9 +513,9 @@ export const CURRICULUM = {
         "setup": "Thermal Protection Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate kinetic energy.",
+        "question": "Estimate the kinetic energy to be dissipated.",
         "answer": "",
-        "why": "",
+        "why": "Speed enters squared, which is why lunar return is a categorically harder problem than return from low orbit rather than a slightly harder one.",
         "givens": [],
         "relationship": "",
         "calcKey": "THERM-4"
@@ -680,9 +641,9 @@ export const CURRICULUM = {
         "setup": "Communications Analysis Room",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate wavelength.",
+        "question": "Estimate the wavelength.",
         "answer": "",
-        "why": "",
+        "why": "Every pointing tolerance the team quotes for the rest of the shift starts from this number, because beam width goes as wavelength over aperture.",
         "givens": [],
         "relationship": "",
         "calcKey": "COMMS-2"
@@ -807,7 +768,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the natural period.",
         "answer": "",
-        "why": "",
+        "why": "Knowing where a structure's natural frequency sits tells you which operating speeds will drive it, before the hardware tells you the same thing much more expensively.",
         "givens": [],
         "relationship": "",
         "calcKey": "STRUCT-3"
@@ -928,39 +889,26 @@ export const CURRICULUM = {
       "place": "Spacecraft Systems Console",
       "story": "Four controllers, a crew flying a vehicle that is venting something, and ten minutes before the next tracking pass. Every subsystem wants the loop and each believes their own problem is the one that kills the crew. Attention is a physical resource here in the same way propellant is: reconstructing the electrical and pressure timeline tells you what happened, verifying trajectory independently tells you whether the vehicle can still come home, and a single anomaly log with one command authority is what stops two rooms acting on different versions of the same number. Asking all six subsystems for complete reports at once spends the ten minutes and returns nothing usable.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Spend the first ten minutes",
         "setup": "Spacecraft Systems Console",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Reconstruct the electrical and pressure timeline."
-          },
-          {
-            "label": "B",
-            "text": "Verify trajectory and attitude independently."
-          },
-          {
-            "label": "C",
-            "text": "Ask every subsystem for a complete report at once."
-          },
-          {
-            "label": "D",
-            "text": "Establish a single anomaly log and command authority."
-          }
+        "play": "Ten minutes to the next tracking pass. What does the flight director do first?",
+        "task": "Ten minutes to the next tracking pass. What does the flight director do first?",
+        "question": "Ten minutes to the next tracking pass. What does the flight director do first?",
+        "answer": "Establish a single anomaly log and one command authority.",
+        "why": "Four controllers are already working the same failure from four sets of numbers. Until there is one record and one voice, every analysis that follows can be done twice and contradicted once — and the crew executes whichever version reaches them.",
+        "rebuttals": [
+          "The electrical and pressure timeline is the first real analysis, and it is exactly what the log exists to hold. Start it second and it survives the shift change.",
+          "Independent trajectory verification decides whether the vehicle can come home. It is needed before the burn, not before the room is organised.",
+          "Six complete subsystem reports arrive after the tracking pass and consume the ten minutes that were supposed to prepare for it."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 10,
-          "D": 25
-        },
-        "research": "Allocate 100 console-attention credits."
+        "choices": [
+          "Establish a single anomaly log and one command authority.",
+          "Reconstruct the electrical and pressure timeline.",
+          "Verify the trajectory and attitude independently.",
+          "Ask every subsystem for a complete report at once."
+        ],
+        "correctChoice": "Establish a single anomaly log and one command authority."
       }
     },
     {
@@ -1106,39 +1054,28 @@ export const CURRICULUM = {
       "place": "Mission Planning Desk",
       "story": "The energy inventory is fixed and the loads are not. Guidance needs power at known times and is useless outside them; communications wants it continuously and degrades gracefully; thermal control wants it before the cabin is cold rather than after, because reheating a cold cabin costs far more than holding a warm one; life support cannot be switched off at all. A power plan is an allocation across time as well as across systems, and the loads that look cheapest to shed are often the ones whose consequences arrive later and cost more.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Shed load without losing the mission",
         "setup": "Mission Planning Desk",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
+        "play": "Which load comes off the bus first?",
+        "task": "Which load comes off the bus first?",
+        "question": "Which load comes off the bus first?",
+        "answer": "Continuous high-bandwidth communications.",
+        "why": "It is the only load on the bus that degrades gracefully. A lower rate and a narrower channel still get the numbers down; everything else on the list either cannot be switched off or costs more to restore than it saved.",
+        "rebuttals": [
+          "Life support is not a load that can be traded. It is the reason the rest of the vehicle is powered.",
+          "Guidance draws power at known times and none outside them, so it is scheduled rather than shed — and the window it needs is the burn that gets the crew home.",
           {
-            "label": "A",
-            "text": "Life support and cabin circulation."
-          },
-          {
-            "label": "B",
-            "text": "Guidance and timed navigation windows."
-          },
-          {
-            "label": "C",
-            "text": "Continuous high-bandwidth communications."
-          },
-          {
-            "label": "D",
-            "text": "Thermal survival loads and battery conditioning."
+            "'Thermal loads look cheap to drop and are the most expensive": "reheating a cold cabin costs far more energy than holding a warm one, and cold batteries deliver less than the plan assumes.'"
           }
         ],
-        "recommended": {
-          "A": 35,
-          "B": 25,
-          "C": 10,
-          "D": 30
-        },
-        "research": "Allocate 100 power credits."
+        "choices": [
+          "Continuous high-bandwidth communications.",
+          "Life support and cabin circulation.",
+          "Guidance and the timed navigation windows.",
+          "Thermal survival loads and battery conditioning."
+        ],
+        "correctChoice": "Continuous high-bandwidth communications."
       }
     },
     {
@@ -1149,39 +1086,26 @@ export const CURRICULUM = {
       "place": "Crew Procedure Simulator",
       "story": "Engineers want to reconnect a module from the damaged bus to buy hours of endurance. Nobody knows the module's state of charge, the connector was never designed for this current, and the crew is inside a sealed cabin with the hardware. A mismatched module connected in parallel with a charged one will equalise through whatever resistance lies between them, which can mean a large current through a connector chosen for a much smaller one. Improvisation in an emergency is legitimate; what makes it survivable is measuring the quantities that decide the outcome first, and providing protection that acts before anybody smells anything.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Qualify the emergency battery plan",
         "setup": "Crew Procedure Simulator",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Verify module voltage and state of charge before connection."
-          },
-          {
-            "label": "B",
-            "text": "Measure current sharing and connector temperature under load."
-          },
-          {
-            "label": "C",
-            "text": "Add independent fusing and isolation procedures."
-          },
-          {
-            "label": "D",
-            "text": "Connect first and diagnose any smoke afterward."
-          }
+        "play": "Engineers want to bolt the module in now. What has to happen first?",
+        "task": "Engineers want to bolt the module in now. What has to happen first?",
+        "question": "Engineers want to bolt the module in now. What has to happen first?",
+        "answer": "Verify the module's voltage and state of charge.",
+        "why": "A mismatched module connected in parallel equalises through whatever resistance lies between the two, and the current that flows is set by the voltage difference. That difference is the one quantity nobody has measured, and it decides whether the connector runs warm or starts a fire in a sealed cabin.",
+        "rebuttals": [
+          "Current sharing and connector temperature are measured under load — which is after the connection this decision is about.",
+          "Independent fusing is required and is protection against being wrong. It is not a substitute for knowing, and a fuse chosen for the wrong current is not protection at all.",
+          "Connecting first inside a sealed cabin makes the crew the instrument, and smoke is a reading that arrives too late to act on."
         ],
-        "recommended": {
-          "A": 30,
-          "B": 35,
-          "C": 35,
-          "D": 0
-        },
-        "research": "Allocate 100 test credits."
+        "choices": [
+          "Verify the module's voltage and state of charge.",
+          "Measure current sharing and connector temperature under load.",
+          "Add independent fusing and an isolation procedure.",
+          "Connect it and watch for smoke, with the crew standing by."
+        ],
+        "correctChoice": "Verify the module's voltage and state of charge."
       }
     },
     {
@@ -1192,39 +1116,26 @@ export const CURRICULUM = {
       "place": "Materials and Insulation Shop",
       "story": "With the systems powered down the cabin is at 4 degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Heating everything is not affordable on the remaining energy, so the question is what gets heated and when: insulating the crew zone and the critical batteries concentrates a fixed budget where the consequences are worst, short circulation periods limit the temperature gradients that drive the condensation, and monitoring several locations is what tells you whether either is working. Thermal survival is an allocation problem across space, time and consequence.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Keep the cabin survivable",
         "setup": "Materials and Insulation Shop",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Insulate the crew zone and critical batteries."
-          },
-          {
-            "label": "B",
-            "text": "Schedule short circulation periods to limit gradients and condensation."
-          },
-          {
-            "label": "C",
-            "text": "Heat the entire spacecraft continuously."
-          },
-          {
-            "label": "D",
-            "text": "Monitor temperatures at several representative locations."
-          }
+        "play": "Four degrees and falling, on a fixed energy budget. What do you spend it on?",
+        "task": "Four degrees and falling, on a fixed energy budget. What do you spend it on?",
+        "question": "Four degrees and falling, on a fixed energy budget. What do you spend it on?",
+        "answer": "Insulate the crew zone and the critical batteries.",
+        "why": "Insulation changes the rate at which heat leaves rather than replacing the heat that left, so it is the only option whose benefit does not stop when the energy does. Concentrating it on the crew and the batteries puts a fixed budget where the consequences of being cold are worst.",
+        "rebuttals": [
+          "Short circulation periods limit the gradients that drive condensation and cost power every time they run. Worth doing; not what keeps anybody alive.",
+          "Heating the whole vehicle spends the budget on volume nobody is in, and the loss scales with the surface it is heating.",
+          "Monitoring is how you find out whether any of this worked. It warms nothing."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 25,
-          "C": 10,
-          "D": 30
-        },
-        "research": "Allocate 100 thermal credits."
+        "choices": [
+          "Insulate the crew zone and the critical batteries.",
+          "Schedule short circulation periods to limit gradients.",
+          "Heat the whole spacecraft continuously at a low level.",
+          "Monitor temperature at several representative locations."
+        ],
+        "correctChoice": "Insulate the crew zone and the critical batteries."
       }
     },
     {
@@ -1310,39 +1221,26 @@ export const CURRICULUM = {
       "place": "Crew Hardware Workshop",
       "story": "Carbon dioxide is climbing on the cabin sensor and the spare canisters are the wrong shape for the sockets in this module. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time. Two things have to be true at once: enough sorbent surface exposed to take the CO2 chemically, and a sealed flow path that actually forces cabin air through it rather than around it. Bypass is the failure mode that looks like success — the fan runs, the crew hears it, and the concentration keeps rising.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Restore breathable air",
         "setup": "Crew Hardware Workshop",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Increase effective sorbent area without blocking flow."
-          },
-          {
-            "label": "B",
-            "text": "Provide a sealed flow path that prevents bypass."
-          },
-          {
-            "label": "C",
-            "text": "Measure CO2 at several cabin locations."
-          },
-          {
-            "label": "D",
-            "text": "Assume visible fan motion proves adequate circulation."
-          }
+        "play": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
+        "task": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
+        "question": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
+        "answer": "A sealed flow path that forces cabin air through the sorbent.",
+        "why": "Bypass is the failure mode that looks like success. The fan runs, the crew hears it, and the concentration keeps climbing — because sorbent only removes carbon dioxide from air that actually crosses it, and air takes the easiest path it is offered.",
+        "rebuttals": [
+          "Exposed area helps only for the fraction of the air that reaches it. A large sorbent bed with a gap around it removes less than a small one with none.",
+          "Measuring in several places is how the crew finds out whether the fix worked, which is necessary and is not the fix.",
+          "An audible fan proves a motor is turning. It says nothing about how much air is moving, or where."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 35,
-          "C": 25,
-          "D": 5
-        },
-        "research": "Allocate 100 engineering credits."
+        "choices": [
+          "A sealed flow path that forces cabin air through the sorbent.",
+          "As much exposed sorbent area as the canister allows.",
+          "A carbon dioxide reading taken at several cabin locations.",
+          "Enough fan speed that the crew can hear it running."
+        ],
+        "correctChoice": "A sealed flow path that forces cabin air through the sorbent."
       }
     },
     {
@@ -1383,39 +1281,26 @@ export const CURRICULUM = {
       "place": "Crew G-Load Console",
       "story": "The corridor is about a degree wide. Too steep and the deceleration and heating exceed what the crew and the structure survive; too shallow and the capsule skips back out with no propellant left to return. The state estimate going into it carries real uncertainty in both directions, and the atmosphere itself varies from the model. Safety here does not come from optimising the nominal trajectory — it comes from checking that the plan still works across the range of atmospheres, entry angles and vehicle configurations that are actually consistent with what is known.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Protect the entry corridor",
         "setup": "Crew G-Load Console",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Refine position and velocity uncertainty before entry."
-          },
-          {
-            "label": "B",
-            "text": "Model steep and shallow atmospheric scenarios."
-          },
-          {
-            "label": "C",
-            "text": "Verify thermal-protection and center-of-mass configuration."
-          },
-          {
-            "label": "D",
-            "text": "Optimize only the nominal trajectory."
-          }
+        "play": "The corridor is about a degree wide. What does the room do with the time left?",
+        "task": "The corridor is about a degree wide. What does the room do with the time left?",
+        "question": "The corridor is about a degree wide. What does the room do with the time left?",
+        "answer": "Refine the position and velocity uncertainty before entry.",
+        "why": "The corridor is a constraint on where the vehicle actually is, and the uncertainty is what decides whether the whole distribution fits inside it. Shrinking it is the only action available that makes the same corridor easier to hit.",
+        "rebuttals": [
+          "Steep and shallow atmospheres bound a variation nobody can reduce. Worth knowing; it changes what you can survive, not where you are.",
+          "Verifying the shield and the centre of mass is required before commitment and moves the trajectory not at all.",
+          "Optimising the nominal makes the best case better. The corridor is missed by the cases that are not nominal."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 30,
-          "D": 5
-        },
-        "research": "Allocate 100 analysis credits."
+        "choices": [
+          "Refine the position and velocity uncertainty before entry.",
+          "Model steep and shallow atmospheric scenarios.",
+          "Verify the heat-shield and centre-of-mass configuration.",
+          "Optimise the nominal entry trajectory as far as it will go."
+        ],
+        "correctChoice": "Refine the position and velocity uncertainty before entry."
       }
     },
     {
@@ -1501,39 +1386,26 @@ export const CURRICULUM = {
       "place": "Operations Planning Room",
       "story": "A panel oscillates whenever the pump runs near one particular speed, and the amplitude has grown across three cycles. The pump is needed, the panel is structural, and nobody has measured the response anywhere except the one accelerometer that noticed. Shifting the operating speed moves the forcing away from the mode; adding damping bleeds energy out of it; measuring at several locations and configurations establishes whether the fix worked or merely moved the problem. Driving harder to pass through the resonance faster is a plan that depends on the structure surviving the passage.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Stop the resonance",
         "setup": "Operations Planning Room",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Shift operating speed away from the measured resonance."
-          },
-          {
-            "label": "B",
-            "text": "Add or restore damping where feasible."
-          },
-          {
-            "label": "C",
-            "text": "Measure response at multiple locations and configurations."
-          },
-          {
-            "label": "D",
-            "text": "Increase forcing to pass through the resonance faster without analysis."
-          }
+        "play": "The panel oscillates whenever the pump runs near one speed. What do you do?",
+        "task": "The panel oscillates whenever the pump runs near one speed. What do you do?",
+        "question": "The panel oscillates whenever the pump runs near one speed. What do you do?",
+        "answer": "Shift the pump's operating speed away from the measured resonance.",
+        "why": "Resonance is a coincidence between a forcing frequency and a natural one, and only two things can change: the structure or the forcing. On a vehicle in flight, the forcing is the one that can be changed now, reversibly, without anybody touching the panel.",
+        "rebuttals": [
+          "Damping bleeds energy out of the mode and is the right permanent fix. It needs hardware, access and a crew member with their hands on the structure.",
+          "Measuring in more places is how you confirm the fix worked or merely moved the problem. It is the check, not the change.",
+          "Passing through faster assumes the structure survives the passage, which is the assumption the growing amplitude across three cycles is calling into question."
         ],
-        "recommended": {
-          "A": 35,
-          "B": 30,
-          "C": 30,
-          "D": 5
-        },
-        "research": "Allocate 100 mitigation credits."
+        "choices": [
+          "Shift the pump's operating speed away from the measured resonance.",
+          "Add or restore damping at the panel.",
+          "Measure the response at several more locations first.",
+          "Drive the pump harder to pass through the band faster."
+        ],
+        "correctChoice": "Shift the pump's operating speed away from the measured resonance."
       }
     },
     {
@@ -1580,39 +1452,26 @@ export const CURRICULUM = {
       "place": "Life-Support Desk",
       "story": "Four return paths, each best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it — carbon dioxide removal capacity, water, power — are known only to within about a day, and that uncertainty is larger than the differences between two of the options. Robust choice values margin and the ability to change your mind later, not nominal efficiency: a path that is optimal against the current best estimate and infeasible if that estimate is off by a day is not the safest thing on the board.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Select the robust trajectory",
         "setup": "Life-Support Desk",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Fast return with narrow entry and propulsion margins."
-          },
-          {
-            "label": "B",
-            "text": "Moderate return with balanced fuel, thermal, and consumable margins."
-          },
-          {
-            "label": "C",
-            "text": "Slow return that preserves fuel but exceeds uncertain life-support capacity."
-          },
-          {
-            "label": "D",
-            "text": "Hold reserve for a correction after new tracking."
-          }
+        "play": "Consumables are known only to within about a day. Which return do you fly?",
+        "task": "Consumables are known only to within about a day. Which return do you fly?",
+        "question": "Consumables are known only to within about a day. Which return do you fly?",
+        "answer": "The moderate return, with balanced fuel, thermal and consumable margins.",
+        "why": "The uncertainty in the consumables is larger than the difference between the two fastest options, so choosing between them on nominal numbers is choosing on noise. The moderate path is the one that stays feasible across the whole range the crew might actually be in.",
+        "rebuttals": [
+          "The fast return is optimal against an estimate carrying a day of uncertainty, and its margins are narrowest exactly where that uncertainty lands.",
+          "The slow return preserves propellant and spends a life-support capacity nobody has bounded. It is optimal against the wrong constraint.",
+          "Deferring is a rule about when to burn, not a trajectory. The vehicle is on one whether or not the choice is made."
         ],
-        "recommended": {
-          "A": 15,
-          "B": 60,
-          "C": 10,
-          "D": 15
-        },
-        "research": "Allocate 100 decision credits."
+        "choices": [
+          "The moderate return, with balanced fuel, thermal and consumable margins.",
+          "The fast return, accepting narrow entry and propulsion margins.",
+          "The slow return, preserving fuel at the cost of life-support margin.",
+          "Defer the choice and hold the propellant for a later correction."
+        ],
+        "correctChoice": "The moderate return, with balanced fuel, thermal and consumable margins."
       }
     },
     {
@@ -1623,39 +1482,26 @@ export const CURRICULUM = {
       "place": "Flight Director Console",
       "story": "Two tracking stations disagree by slightly more than either one's stated error, and the errors are not independent — both use the same station clock model. A correction burn carries its own execution uncertainty, roughly the size of the disagreement being corrected, so a burn commanded on this data could move the vehicle by about as much as it might be wrong. One more high-leverage observation would separate the hypotheses; preserving propulsion keeps a later correction possible. A correction is worth making when it reduces total risk, not when it merely moves the nominal point.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Burn or observe?",
         "setup": "Flight Director Console",
-        "play": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "question": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission.",
-        "answer": "",
-        "why": "",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Obtain one more independent high-leverage observation."
-          },
-          {
-            "label": "B",
-            "text": "Execute a correction whose expected shift is smaller than burn uncertainty."
-          },
-          {
-            "label": "C",
-            "text": "Preserve propulsion capability if the current corridor remains acceptable."
-          },
-          {
-            "label": "D",
-            "text": "Update entry predictions across the full covariance."
-          }
+        "play": "Two stations disagree by more than either one's stated error. Do you burn?",
+        "task": "Two stations disagree by more than either one's stated error. Do you burn?",
+        "question": "Two stations disagree by more than either one's stated error. Do you burn?",
+        "answer": "No — obtain one more independent, high-leverage observation.",
+        "why": "Both stations use the same clock model, so their agreement was never independent and their disagreement does not say which is wrong. Only a measurement that cannot fail the same way can settle it — and the correction being argued about is about the same size as the error it would be correcting.",
+        "rebuttals": [
+          "A burn whose expected shift is smaller than its own execution uncertainty moves the nominal without reducing the risk, and spends propellant doing it.",
+          "Preserving propulsion is the consequence of not burning rather than a decision in its own right, and it leaves the disagreement exactly where it was.",
+          "Updating the predictions across the covariance says how bad the disagreement is. It adds no new information about which station is right."
         ],
-        "recommended": {
-          "A": 30,
-          "B": 5,
-          "C": 25,
-          "D": 40
-        },
-        "research": "Allocate 100 decision credits."
+        "choices": [
+          "No — obtain one more independent, high-leverage observation.",
+          "Yes — execute the correction the current solution calls for.",
+          "No — preserve propulsion and accept the corridor as it stands.",
+          "No — update the entry predictions across the full covariance first."
+        ],
+        "correctChoice": "No — obtain one more independent, high-leverage observation."
       }
     },
     {
@@ -1729,20 +1575,24 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "NAV-3": {
-    "prompt": "A tracking pulse returns 2.6 seconds after transmission.",
+    "prompt": "A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The pulse makes the trip twice.",
     "question": "Estimate the spacecraft range.",
     "labels": [
-      "3.0e8 m/s",
-      "2.6 s round-trip",
-      "2 for outbound+return"
+      "3.0e8 m/s (speed of light)",
+      "2.6 s (round-trip time)",
+      "2 (out and back)",
+      "1.3 s (half the round trip)",
+      "343 m/s (speed of sound in air)"
     ],
     "values": [
       300000000,
       2.6,
-      2
+      2,
+      1.3,
+      343
     ],
     "slots": 3,
-    "template": "{0} x {1} / {2}",
+    "template": "{0} × {1} ÷ {2}",
     "formula": "a*b/c",
     "correct": [
       0,
@@ -1752,24 +1602,28 @@ export const BALLPARK_CALCS = {
     "target": 390000000,
     "tolerance": 30000000,
     "units": "m",
-    "solution": "Range = ct/2 is about 3.9e8 m.",
-    "explanation": ""
+    "solution": "Range = ct/2 ≈ 3.9 × 10⁸ m.",
+    "explanation": "Halving the time and halving the answer come to the same thing, which is why the factor of two is the step people drop rather than get wrong. Sound has no part in it: the measurement is radio, in vacuum."
   },
   "NAV-4": {
-    "prompt": "A 30,000 kg spacecraft receives a 6,000 N thrust for 20 s.",
+    "prompt": "A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.",
     "question": "Estimate the change in speed.",
     "labels": [
-      "6000 N",
-      "20 s",
-      "30000 kg"
+      "6,000 N (thrust)",
+      "20 s (burn duration)",
+      "30,000 kg (vehicle mass)",
+      "9.81 m/s² (surface gravity)",
+      "1,500 s (specific impulse)"
     ],
     "values": [
       6000,
       20,
-      30000
+      30000,
+      9.81,
+      1500
     ],
     "slots": 3,
-    "template": "{0} x {1} / {2}",
+    "template": "{0} × {1} ÷ {2}",
     "formula": "a*b/c",
     "correct": [
       0,
@@ -1780,48 +1634,57 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.3,
     "units": "m/s",
     "solution": "Δv = Ft/m = 4 m/s.",
-    "explanation": ""
+    "explanation": "Force times time is impulse; impulse divided by mass is the velocity change. Surface gravity has no bearing on a vehicle in free flight, and specific impulse would tell you what the burn costs in propellant rather than what it achieves."
   },
   "NAV-6": {
-    "prompt": "A 200 N thruster acts 3 m from the center of mass at right angles.",
-    "question": "Estimate the torque.",
+    "prompt": "A 200 N thruster fires at right angles, three metres from the centre of mass.",
+    "question": "Estimate the torque about the centre of mass.",
     "labels": [
-      "3 m lever arm",
-      "200 N force",
-      "sin 90 deg = 1"
+      "3 m (lever arm to the centre of mass)",
+      "200 N (thruster force)",
+      "1.5 m (distance to the docking ring)",
+      "30,000 kg (vehicle mass)",
+      "0.5 (cosine of 60°)"
     ],
     "values": [
       3,
       200,
-      1
+      1.5,
+      30000,
+      0.5
     ],
-    "slots": 3,
-    "template": "{0} x {1} x {2}",
-    "formula": "a*b*c",
+    "slots": 2,
+    "template": "{0} × {1}",
+    "formula": "a*b",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
     "target": 600,
     "tolerance": 40,
     "units": "N m",
-    "solution": "τ = rF sinθ = 600 N m.",
-    "explanation": ""
+    "solution": "τ = rF = 600 N m, with the force at right angles.",
+    "explanation": "Torque is force times lever arm times the sine of the angle between them, and at right angles that last factor is one — which is why it does not appear. The lever arm has to be measured to the centre of mass, not to whatever structure is nearest."
   },
   "ELEC-1": {
-    "prompt": "Use a simplified energy budget.",
-    "question": "Estimate ideal endurance.",
+    "prompt": "The fuel cells are gone. The entry batteries hold about 18 kilowatt-hours of usable energy and the essential loads draw about 3 kilowatts.",
+    "question": "Estimate the ideal endurance.",
     "labels": [
-      "18 kWh usable energy",
-      "3 kW essential load"
+      "18 kWh (usable energy)",
+      "3 kW (essential load)",
+      "28 V (bus voltage)",
+      "3.5 kW (peak load, briefly)",
+      "6 h (time to the next burn)"
     ],
     "values": [
       18,
-      3
+      3,
+      28,
+      3.5,
+      6
     ],
     "slots": 2,
-    "template": "{0} / {1}",
+    "template": "{0} ÷ {1}",
     "formula": "a/b",
     "correct": [
       0,
@@ -1830,22 +1693,28 @@ export const BALLPARK_CALCS = {
     "target": 6,
     "tolerance": 0.4,
     "units": "h",
-    "solution": "18 kWh / 3 kW = 6 h ideal endurance.",
-    "explanation": ""
+    "solution": "18 kWh ÷ 3 kW = 6 h.",
+    "explanation": "Energy is an inventory and power is the rate it is spent at; the hours come from dividing one by the other. Bus voltage describes how the energy is delivered and says nothing about how much there is."
   },
   "ELEC-3": {
-    "prompt": "A connector develops 0.05 Ω resistance while carrying 20 A.",
-    "question": "Estimate heating power at the connection.",
+    "prompt": "A connector in the improvised path develops 0.05 ohms while carrying 20 amps.",
+    "question": "Estimate the heating power at the connection.",
     "labels": [
-      "20 A",
-      "0.05 ohm"
+      "20 A (current through the joint)",
+      "0.05 Ω (joint resistance)",
+      "28 V (bus voltage)",
+      "0.5 Ω (resistance of the whole cable run)",
+      "10 A (half the current)"
     ],
     "values": [
       20,
-      0.05
+      0.05,
+      28,
+      0.5,
+      10
     ],
     "slots": 2,
-    "template": "{0}^2 x {1}",
+    "template": "{0}² × {1}",
     "formula": "a*a*b",
     "correct": [
       0,
@@ -1854,24 +1723,28 @@ export const BALLPARK_CALCS = {
     "target": 20,
     "tolerance": 2,
     "units": "W",
-    "solution": "P = I^2R = 20 W.",
-    "explanation": ""
+    "solution": "P = I²R = 20 W, in a joint the size of a thumbnail.",
+    "explanation": "The bus voltage is the wrong term: the power lost in a series joint depends on the current through it and the voltage across it, not the voltage of the system it sits in. Current enters squared, so the same joint at 10 A would dissipate a quarter as much."
   },
   "THERM-1": {
-    "prompt": "Use a lumped thermal estimate for a simplified cabin and contents.",
-    "question": "Estimate temperature drop.",
+    "prompt": "With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.",
+    "question": "Estimate the temperature drop over three hours.",
     "labels": [
-      "1000 W net heat loss",
-      "10800 s",
-      "12e6 J/K heat capacity"
+      "1,000 W (net heat loss)",
+      "10,800 s (three hours)",
+      "12e6 J/K (heat capacity)",
+      "3 h (three hours, in hours)",
+      "4 °C (present cabin temperature)"
     ],
     "values": [
       1000,
       10800,
-      12000000
+      12000000,
+      3,
+      4
     ],
     "slots": 3,
-    "template": "{0} x {1} / {2}",
+    "template": "{0} × {1} ÷ {2}",
     "formula": "a*b/c",
     "correct": [
       0,
@@ -1881,24 +1754,28 @@ export const BALLPARK_CALCS = {
     "target": 0.9,
     "tolerance": 0.1,
     "units": "K",
-    "solution": "Energy loss is 10.8 MJ; divided by 12 MJ/K gives about 0.9 K.",
-    "explanation": ""
+    "solution": "1 kW for 10,800 s is 10.8 MJ; divided by 12 MJ/K, about 0.9 K.",
+    "explanation": "A watt is a joule per second, so the time has to be in seconds or the answer is out by 3,600. That is the arithmetic slip this problem exists to catch."
   },
   "THERM-3": {
-    "prompt": "Three crew members each produce about 20 L of CO2 per hour in a simplified estimate.",
-    "question": "Estimate CO2 volume produced in six hours.",
+    "prompt": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.",
+    "question": "Estimate the carbon dioxide produced in six hours.",
     "labels": [
       "3 people",
       "20 L/person/hour",
-      "6 hours"
+      "6 hours",
+      "24 hours (a full day)",
+      "1.0 kg/person/day (mass basis)"
     ],
     "values": [
       3,
       20,
-      6
+      6,
+      24,
+      1
     ],
     "slots": 3,
-    "template": "{0} x {1} x {2}",
+    "template": "{0} × {1} × {2}",
     "formula": "a*b*c",
     "correct": [
       0,
@@ -1908,22 +1785,28 @@ export const BALLPARK_CALCS = {
     "target": 360,
     "tolerance": 25,
     "units": "L",
-    "solution": "3 x 20 x 6 = 360 L.",
-    "explanation": ""
+    "solution": "3 × 20 × 6 = 360 L over the six hours.",
+    "explanation": "A rate per person per hour needs a head count and an interval, and both have to match the question asked. A daily mass figure describes the same crew and cannot be multiplied into this one without a density and a different arithmetic."
   },
   "COMMS-2": {
-    "prompt": "The carrier frequency is 2.0 GHz.",
-    "question": "Estimate wavelength.",
+    "prompt": "The carrier is at 2.0 gigahertz, and beam width scales with wavelength over aperture.",
+    "question": "Estimate the wavelength.",
     "labels": [
-      "3.0e8 m/s",
-      "2.0e9 Hz"
+      "3.0e8 m/s (speed of light)",
+      "2.0e9 Hz (carrier frequency)",
+      "2.0e6 Hz (the carrier, misread as megahertz)",
+      "343 m/s (speed of sound)",
+      "12 dB (the observed loss)"
     ],
     "values": [
       300000000,
-      2000000000
+      2000000000,
+      2000000,
+      343,
+      12
     ],
     "slots": 2,
-    "template": "{0} / {1}",
+    "template": "{0} ÷ {1}",
     "formula": "a/b",
     "correct": [
       0,
@@ -1933,45 +1816,58 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.015,
     "units": "m",
     "solution": "λ = c/f = 0.15 m.",
-    "explanation": ""
+    "explanation": "A factor of a thousand in the frequency is a factor of a thousand in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation."
   },
   "NAV-7": {
-    "prompt": "A pointing error is 0.1° at a distance of 400,000 km.",
-    "question": "Estimate transverse offset.",
+    "prompt": "A pointing error of 0.1 degrees at a range of 400,000 kilometres. Small angles convert to transverse distance by multiplying the angle in radians by the range.",
+    "question": "Estimate the transverse offset at that range.",
     "labels": [
-      "4.0e8 m range",
-      "1.75e-3 rad"
+      "4.0e8 m (range)",
+      "0.1 degrees (pointing error)",
+      "0.01745 rad per degree",
+      "57.3 degrees per radian",
+      "1,000 m per km"
     ],
     "values": [
       400000000,
-      0.00175
+      0.1,
+      0.01745,
+      57.3,
+      1000
     ],
-    "slots": 2,
-    "template": "{0} x {1}",
-    "formula": "a*b",
+    "slots": 3,
+    "template": "{0} × {1} × {2}",
+    "formula": "a*b*c",
     "correct": [
       0,
-      1
+      1,
+      2
     ],
-    "target": 700000,
+    "target": 698000,
     "tolerance": 50000,
     "units": "m",
-    "solution": "Transverse offset is about 7e5 m, or 700 km.",
-    "explanation": ""
+    "solution": "0.1° is about 1.75 milliradians; times 4 × 10⁸ m, roughly 700 km.",
+    "explanation": "Radians per degree and degrees per radian are reciprocals, and picking the wrong one puts the answer out by a factor of 3,300. The small-angle relation only holds in radians, which is the whole reason the conversion is here."
   },
   "THERM-4": {
-    "prompt": "A 5,000 kg return capsule moves at 11,000 m/s.",
-    "question": "Estimate kinetic energy.",
+    "prompt": "A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.",
+    "question": "Estimate the kinetic energy to be dissipated.",
     "labels": [
-      "5.0e3 kg",
-      "1.1e4 m/s"
+      "5.0e3 kg (capsule mass)",
+      "1.1e4 m/s (entry speed)",
+      "7.8e3 m/s (speed from low Earth orbit)",
+      "9.81 m/s² (surface gravity)",
+      "0.5 (the one-half in the formula)"
     ],
     "values": [
       5000,
-      11000
+      11000,
+      7800,
+      9.81,
+      0.5
     ],
     "slots": 2,
-    "template": "0.5 x {0} x {1}^2",
+    "template": "0.5 × {0} × {1}²",
     "formula": "0.5*a*b*b",
     "correct": [
       0,
@@ -1980,22 +1876,28 @@ export const BALLPARK_CALCS = {
     "target": 302500000000,
     "tolerance": 30000000000,
     "units": "J",
-    "solution": "KE is about 3.0e11 J.",
-    "explanation": ""
+    "solution": "½mv² ≈ 3.0 × 10¹¹ J.",
+    "explanation": "The one-half is written into the template rather than offered as a tile, because it is part of the relationship and not a measured quantity. The low-orbit speed is there to be compared: 40 per cent slower is half the energy, through the same heat shield."
   },
   "STRUCT-3": {
-    "prompt": "A simplified mounted component has m = 4 kg and k = 400 N/m.",
+    "prompt": "A mounted component is modelled as a 4 kg mass on a 400 N/m spring.",
     "question": "Estimate the natural period.",
     "labels": [
-      "4 kg",
-      "400 N/m"
+      "4 kg (component mass)",
+      "400 N/m (mount stiffness)",
+      "3,200 rpm (reaction-wheel speed)",
+      "0.5 kg (the damper)",
+      "10 Hz (a nearby mode)"
     ],
     "values": [
       4,
-      400
+      400,
+      3200,
+      0.5,
+      10
     ],
     "slots": 2,
-    "template": "2π sqrt({0}/{1})",
+    "template": "2π √({0} ÷ {1})",
     "formula": "2*Math.PI*Math.sqrt(a/b)",
     "correct": [
       0,
@@ -2004,22 +1906,28 @@ export const BALLPARK_CALCS = {
     "target": 0.628,
     "tolerance": 0.05,
     "units": "s",
-    "solution": "T = 2π sqrt(m/k) is about 0.63 s.",
-    "explanation": ""
+    "solution": "T = 2π√(m/k) ≈ 0.63 s, about 1.6 Hz.",
+    "explanation": "Only inertia and stiffness set the natural frequency — heavier is slower, stiffer is faster. The wheel speed is what might drive this mode, which is the next question and not this one."
   },
   "NAV-10": {
-    "prompt": "Two independent one-sigma position errors are 6 km and 8 km along perpendicular directions.",
-    "question": "Estimate the two-dimensional uncertainty scale.",
+    "prompt": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.",
+    "question": "Estimate the combined two-dimensional uncertainty.",
     "labels": [
-      "6 km",
-      "8 km"
+      "6 km (one-sigma, first axis)",
+      "8 km (one-sigma, second axis)",
+      "14 km (the two added)",
+      "7 km (their average)",
+      "2 (number of axes)"
     ],
     "values": [
       6,
-      8
+      8,
+      14,
+      7,
+      2
     ],
     "slots": 2,
-    "template": "sqrt({0}^2 + {1}^2)",
+    "template": "√({0}² + {1}²)",
     "formula": "Math.sqrt(a*a+b*b)",
     "correct": [
       0,
@@ -2028,8 +1936,8 @@ export const BALLPARK_CALCS = {
     "target": 10,
     "tolerance": 0.5,
     "units": "km",
-    "solution": "sqrt(6^2+8^2) = 10 km.",
-    "explanation": ""
+    "solution": "√(6² + 8²) = 10 km.",
+    "explanation": "Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by forty per cent here."
   }
 };
 

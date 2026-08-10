@@ -47,7 +47,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 1,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Four hours of discretionary time, and the object is faint and setting. What do you book?"
       }
     ]
   },
@@ -71,7 +71,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 3,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Radar has a window in nine days. What do you do with the nine nights before it?"
       }
     ]
   },
@@ -95,7 +95,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 4,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "A thin set of solutions still hits Earth. Where do you point next week?"
       }
     ]
   },
@@ -119,7 +119,7 @@ export const MISSIONS = [
       {
         "group": "CHAR",
         "lesson": 1,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The diameter rests on an albedo borrowed from another class. What do you measure?"
       }
     ]
   },
@@ -143,7 +143,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 7,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?"
       }
     ]
   },
@@ -167,7 +167,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 9,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?"
       }
     ]
   },
@@ -191,7 +191,7 @@ export const MISSIONS = [
       {
         "group": "ORBIT",
         "lesson": 4,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Four hours, and the window does not repeat for eleven years. What comes first?"
       }
     ]
   },
@@ -215,7 +215,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 12,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The consequence range spans two orders of magnitude. Which measurement narrows it most?"
       }
     ]
   },
@@ -239,7 +239,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 14,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?"
       }
     ]
   },
@@ -263,7 +263,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 17,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "This object was found eleven days out, from the direction of the Sun. What does the survey change?"
       }
     ]
   },
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "ORBIT",
         "lesson": 5,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The impactor is funded. What must the campaign add that the impactor alone does not?"
       }
     ]
   },
@@ -311,7 +311,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 20,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The design closes on paper with nothing left over. Where does the first margin go?"
       }
     ]
   },
@@ -335,7 +335,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 23,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The probability has moved twice this month, both times downward. What does the board issue?"
       }
     ]
   },
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 25,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The campaign budget ends with this review. What survives it?"
       }
     ]
   }

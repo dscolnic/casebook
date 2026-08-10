@@ -55,7 +55,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading, not just the loudest one?",
         "question": "Which explanation fits every reading, not just the loudest one?",
         "answer": "A quiet contact beyond the layer",
-        "why": "Persistence rules out noise and biologics; the absence of narrowband lines fits a path bent through the layer, which strips the detail; and nothing of ours changed, so it is not ours.",
+        "why": "Persistence rules out noise and biologics; the absence of narrowband lines fits a path bent through the layer, which strips the detail; and nothing of ours changed, so it is not ours.\n",
         "headline": "A faint trace has held the same bearing for eleven minutes and shows nothing on narrowband.",
         "readings": [
           {
@@ -129,7 +129,7 @@ export const CURRICULUM = {
         "task": "Use the bottom as an instrument",
         "question": "What does a run of soundings across a rising contour give you?",
         "answer": "A line of position, independent of the plot, from where the depths match the chart.",
-        "why": "Matching a measured depth profile against a charted one says where you crossed it. It cannot be wrong for the same reason the plot is, which is the whole point of it.",
+        "why": "Matching a measured depth profile against a charted one says where you crossed it. It cannot be wrong for the same reason the plot is, which is the whole point of it.\n",
         "rebuttals": [
           "A fathometer measures the depth under the keel, not the range to anything ahead.",
           "The chart is a record of the bottom; comparing a measurement to it is not circular.",
@@ -159,7 +159,7 @@ export const CURRICULUM = {
         "task": "Order the passage",
         "question": "Order the passage",
         "answer": "",
-        "why": "The baseline has to come first because everything after it is measured against it; the plan for losing contact has to be agreed before you are busy losing it.",
+        "why": "The baseline has to come first because everything after it is measured against it; the plan for losing contact has to be agreed before you are busy losing it.\n",
         "cards": [
           "Take the own-noise baseline, so a new sound can be recognised as new.",
           "Find the layer depth, so you know where sound will and will not reach.",
@@ -189,7 +189,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits the whole picture?",
         "question": "Which explanation fits the whole picture?",
         "answer": "A machinery fault aboard",
-        "why": "Direction is the whole clue: a contact has a bearing and a fault does not. The line moving with shaft speed ties it to our own plant.",
+        "why": "Direction is the whole clue: a contact has a bearing and a fault does not. The line moving with shaft speed ties it to our own plant.\n",
         "headline": "Broadband is up on every bearing at once and a new narrowband line has appeared.",
         "readings": [
           {
@@ -251,10 +251,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "A line that is not a round number",
-      "scene": "The line sits at a hundred and thirteen hertz, which is roughly twice the shaft rate, and it grows when turns increase. Rotating machinery writes its own rate into the water: a shaft turning so many times a second radiates at that frequency and at whole multiples of it, and which multiple stands out says something about the kind of fault underneath. This is how anybody at sea identifies anybody else, which is the uncomfortable half of it — the same line is being written into somebody else's display right now, with our name attached to it.",
+      "scene": "The line sits at a hundred and thirteen hertz, which is roughly twice the shaft rate, and it grows when turns increase. Rotating machinery writes its own rate into the water: a shaft turning so many times a second radiates at that frequency and at whole multiples of it, and which multiple stands out says something about the kind of fault underneath. A mass out of balance pulls once per revolution, so it shows at shaft rate; a shaft out of line is loaded twice in every turn, once at each extreme of its wobble. This is how anybody at sea identifies anybody else, which is the uncomfortable half of it — the same line is being written into somebody else's display right now, with our name attached to it.",
       "takeaway": "A frequency that is a multiple of a rotation belongs to the thing that rotates.",
       "place": "Sonar Room",
-      "story": "The line sits at a hundred and thirteen hertz, which is roughly twice the shaft rate, and it grows when turns increase. Rotating machinery writes its own rate into the water: a shaft turning so many times a second radiates at that frequency and at whole multiples of it, and which multiple stands out says something about the kind of fault underneath. This is how anybody at sea identifies anybody else, which is the uncomfortable half of it — the same line is being written into somebody else's display right now, with our name attached to it.",
+      "story": "The line sits at a hundred and thirteen hertz, which is roughly twice the shaft rate, and it grows when turns increase. Rotating machinery writes its own rate into the water: a shaft turning so many times a second radiates at that frequency and at whole multiples of it, and which multiple stands out says something about the kind of fault underneath. A mass out of balance pulls once per revolution, so it shows at shaft rate; a shaft out of line is loaded twice in every turn, once at each extreme of its wobble. This is how anybody at sea identifies anybody else, which is the uncomfortable half of it — the same line is being written into somebody else's display right now, with our name attached to it.",
       "game": {
         "type": "CHOICE",
         "title": "A line that is not a round number",
@@ -263,7 +263,7 @@ export const CURRICULUM = {
         "task": "Say what the line means",
         "question": "What does a line at twice shaft rate suggest?",
         "answer": "Something turning with the shaft that is doing it twice per revolution — a misalignment or a damaged mount.",
-        "why": "A rotating fault repeats at a multiple of its rotation. Twice per turn is the signature of something out of line rather than out of balance.",
+        "why": "A rotating fault repeats at a multiple of its rotation. Twice per turn is the signature of something out of line rather than out of balance.\n",
         "rebuttals": [
           "A contact's frequency would not follow our own throttle.",
           "An electrical harmonic sits on a supply frequency and stays there.",
@@ -293,7 +293,7 @@ export const CURRICULUM = {
         "task": "Say what quiet costs the picture",
         "question": "What does slowing down do to the sonar picture?",
         "answer": "It makes the boat quieter to listen with, but a track takes longer to develop.",
-        "why": "Own noise falls, so the array hears more. But a track is built from how the bearing changes as you move, and moving less means waiting longer for the same answer.",
+        "why": "Own noise falls, so the array hears more. But a track is built from how the bearing changes as you move, and moving less means waiting longer for the same answer.\n",
         "rebuttals": [
           "Passive sonar hears own-ship noise louder than anything else, so speed matters a great deal.",
           "More bearings from the same place are not more information about range.",
@@ -323,7 +323,7 @@ export const CURRICULUM = {
         "task": "Say what the mounts buy",
         "question": "Why do the mounts beat a better array?",
         "answer": "The array's limit is our own noise, so removing noise helps more than more sensitivity.",
-        "why": "When the noise floor is set by the boat itself, a better ear hears that floor more clearly and nothing else.",
+        "why": "When the noise floor is set by the boat itself, a better ear hears that floor more clearly and nothing else.\n",
         "rebuttals": [
           "Fit is an engineering detail, not the reason one buys more than the other.",
           "No instrument is perfect; this one is limited by its surroundings.",
@@ -353,7 +353,7 @@ export const CURRICULUM = {
         "task": "Report what you know and what you do not",
         "question": "What belongs in the assessment?",
         "answer": "What is known, what is not, and which of the two is about to change.",
-        "why": "It is the only form that lets somebody else make a decision. A single likely case hides the error, and a list of readings hands the work back to the person who asked.",
+        "why": "It is the only form that lets somebody else make a decision. A single likely case hides the error, and a list of readings hands the work back to the person who asked.\n",
         "rebuttals": [
           "A likely case with the uncertainty stripped out is what puts a boat into a bank.",
           "Everything you know is not a report; it is the raw material for one.",
@@ -385,7 +385,7 @@ export const CURRICULUM = {
         "task": "Carry a message without a marker",
         "question": "What should you fix in your head before you set off?",
         "answer": "The order of the compartments, so you always know which one you are in.",
-        "why": "A sequence survives being interrupted. A count of paces does not survive stepping round a person, and neither does a colour in the dark.",
+        "why": "A sequence survives being interrupted. A count of paces does not survive stepping round a person, and neither does a colour in the dark.\n",
         "rebuttals": [
           "Paces stop being useful the moment you have to step around somebody.",
           "Deck colours vanish with the lighting, which is exactly when you need this.",
@@ -415,7 +415,7 @@ export const CURRICULUM = {
         "task": "Say what a steady bearing means",
         "question": "What does a steady bearing and a rising level tell you?",
         "answer": "We are on a collision course, or close to it, and the range is closing.",
-        "why": "Two ships whose relative bearing does not change are closing along a straight line between them. It is the oldest rule at sea and it does not need a range.",
+        "why": "Two ships whose relative bearing does not change are closing along a straight line between them. It is the oldest rule at sea and it does not need a range.\n",
         "rebuttals": [
           "A stopped contact's bearing would change as we moved past it.",
           "An opening contact gets quieter, not louder.",
@@ -466,7 +466,7 @@ export const CURRICULUM = {
         "task": "Which explanation accounts for every reading here?",
         "question": "Which explanation accounts for every reading here?",
         "answer": "The plot is wrong and the sounding is the only real measurement",
-        "why": "Two displays fed by one navigator agree by construction. The disagreement with the bottom is the only new information on the table, and it points at the plot.",
+        "why": "Two displays fed by one navigator agree by construction. The disagreement with the bottom is the only new information on the table, and it points at the plot.\n",
         "headline": "The two navigation displays agree exactly, and the bottom does not agree with either.",
         "readings": [
           {
@@ -559,7 +559,7 @@ export const CURRICULUM = {
         "setup": "Control Room",
         "play": "Buy the time to think",
         "task": "Buy the time to think",
-        "question": "How long does the boat have at the present speed, and how much does slowing buy?",
+        "question": "How much time does coming down to three knots buy?",
         "answer": "",
         "why": "Time is the only resource in a casualty that can be manufactured, and speed is how you buy it.",
         "givens": [],
@@ -582,7 +582,7 @@ export const CURRICULUM = {
         "task": "Which cause accounts for every reading?",
         "question": "Which cause accounts for every reading?",
         "answer": "Water coming aboard forward",
-        "why": "The two gauges disagree by exactly what a bow-down boat would produce, and only added weight explains trim, depth and a wet bilge together.",
+        "why": "The two gauges disagree by exactly what a bow-down boat would produce, and only added weight explains trim, depth and a wet bilge together.\n",
         "headline": "The boat is going deeper with the planes at rise, and the two depth gauges disagree.",
         "readings": [
           {
@@ -662,7 +662,7 @@ export const CURRICULUM = {
         "task": "Say what the second sounder is worth",
         "question": "What does the second sounder actually buy?",
         "answer": "A measurement that cannot be wrong for the same reason as the plot.",
-        "why": "Independence is the whole product. The boat has twice been misled by two displays sharing one source, and this is the fix for that.",
+        "why": "Independence is the whole product. The boat has twice been misled by two displays sharing one source, and this is the fix for that.\n",
         "rebuttals": [
           "Precision is not the problem; the plot has been precisely wrong before.",
           "It is a backup too, but that is not what makes it worth the money.",
@@ -692,7 +692,7 @@ export const CURRICULUM = {
         "task": "What is the first thing that has to change?",
         "question": "What is the first thing that has to change?",
         "answer": "The age of the position",
-        "why": "Four of these are stable and one of them degrades every minute without anybody touching it. The passage is what makes it urgent.",
+        "why": "Four of these are stable and one of them degrades every minute without anybody touching it. The passage is what makes it urgent.\n",
         "headline": "Nothing on the board is red, and the boat is an hour from a passage it cannot take twice.",
         "readings": [
           {
@@ -768,7 +768,7 @@ export const CURRICULUM = {
         "task": "Learn a compartment properly",
         "question": "Learn a compartment properly",
         "answer": "",
-        "why": "Boundaries first because they decide whether a casualty is yours; exits second because they are the thing you need when you can no longer see.",
+        "why": "Boundaries first because they decide whether a casualty is yours; exits second because they are the thing you need when you can no longer see.\n",
         "cards": [
           "Find the boundaries — where this compartment ends and the next begins.",
           "Find the ways out, and check both are clear.",
@@ -798,7 +798,7 @@ export const CURRICULUM = {
         "task": "Which source fits every reading on the board?",
         "question": "Which source fits every reading on the board?",
         "answer": "A hull fitting on the seawater supply header",
-        "why": "Salt rules out the fresh water line. Unchanged cooling flow rules out the sonar return. Only a sea connection explains water arriving faster than the pump can remove it at this depth.",
+        "why": "Salt rules out the fresh water line. Unchanged cooling flow rules out the sonar return. Only a sea connection explains water arriving faster than the pump can remove it at this depth.\n",
         "headline": "The forward bilge is rising with the drain pump already running.",
         "readings": [
           {
@@ -876,7 +876,7 @@ export const CURRICULUM = {
         "setup": "Forward Equipment & Handling",
         "play": "Decide whether the pump can win",
         "task": "Decide whether the pump can win",
-        "question": "Is the pump winning, and by how much?",
+        "question": "How fast is the sea actually coming in?",
         "answer": "",
         "why": "A rate you have not measured is a hope, and hoping is not a damage control action.",
         "givens": [],
@@ -899,7 +899,7 @@ export const CURRICULUM = {
         "task": "Decide what is first",
         "question": "What gets the first team?",
         "answer": "The flooding, because it is the only one that gets worse by itself and can sink the boat.",
-        "why": "Water comes in whether or not anybody is watching it. The injury is stable, the bus is already lost, and the plot can be frozen by slowing the boat — which is itself a decision you can make in four seconds.",
+        "why": "Water comes in whether or not anybody is watching it. The injury is stable, the bus is already lost, and the plot can be frozen by slowing the boat — which is itself a decision you can make in four seconds.\n",
         "choices": [
           "The flooding, because it is the only one that gets worse by itself and can sink the boat.",
           "The injured crewman, because a person comes before equipment.",
@@ -945,7 +945,7 @@ export const CURRICULUM = {
         "task": "Match each check to what it proves.",
         "question": "Match each check to what it proves.",
         "answer": "",
-        "why": "Each of these is a different failure: seized, unknown, spinning uselessly, and blocked. One list, four claims.",
+        "why": "Each of these is a different failure: seized, unknown, spinning uselessly, and blocked. One list, four claims.\n",
         "scenarios": [
           "Operate every hull valve through its full travel.",
           "Read every bilge and log the level.",
@@ -981,7 +981,7 @@ export const CURRICULUM = {
         "task": "Match each item to the assignment that fits it.",
         "question": "Match each item to the assignment that fits it.",
         "answer": "",
-        "why": "Each assignment names a person, a first action and what \"report back\" means. None of them asks anybody to watch something.",
+        "why": "Each assignment names a person, a first action and what \"report back\" means. None of them asks anybody to watch something.\n",
         "scenarios": [
           "The wet forward bilge.",
           "The unresolved contact.",
@@ -1019,7 +1019,7 @@ export const CURRICULUM = {
         "task": "Match each leg of the fire to the action that removes it.",
         "question": "Match each leg of the fire to the action that removes it.",
         "answer": "",
-        "why": "Removing the ignition source is what makes the rest hold. Everything else is fighting the symptom of a circuit that is still live.",
+        "why": "Removing the ignition source is what makes the rest hold. Everything else is fighting the symptom of a circuit that is still live.\n",
         "scenarios": [
           "The energized fault that keeps re-igniting the cable.",
           "The cable insulation that is actually burning.",
@@ -1055,7 +1055,7 @@ export const CURRICULUM = {
         "task": "Prove it before you fight it",
         "question": "Prove it before you fight it",
         "answer": "",
-        "why": "Metering between opening and entering is the whole lesson: the lamp and the cable disagreed, and the team that trusts the lamp goes in with the fault still live.",
+        "why": "Metering between opening and entering is the whole lesson: the lamp and the cable disagreed, and the team that trusts the lamp goes in with the fault still live.\n",
         "cards": [
           "Open the breaker for the affected bus.",
           "Meter the cable in the compartment and confirm it is dead.",
@@ -1087,7 +1087,7 @@ export const CURRICULUM = {
         "task": "Match each remaining casualty to the right assignment.",
         "question": "Match each remaining casualty to the right assignment.",
         "answer": "",
-        "why": "Each of these has one person aboard who can start it in the next minute. Naming them is the job; supervising all four of them is not.",
+        "why": "Each of these has one person aboard who can start it in the next minute. Naming them is the job; supervising all four of them is not.\n",
         "scenarios": [
           "The lost bus and everything it fed.",
           "The injured crewman in the passage.",
@@ -1123,7 +1123,7 @@ export const CURRICULUM = {
         "task": "Find out why the pump is off",
         "question": "What does this say about the quiet-running lineup?",
         "answer": "Securing a machine needs a record of what it was cooling and when it must come back.",
-        "why": "The trade was reasonable and the record was not made, which is why it survived two watch changes and turned into a hot bearing.",
+        "why": "The trade was reasonable and the record was not made, which is why it survived two watch changes and turned into a hot bearing.\n",
         "rebuttals": [
           "Quiet running is a legitimate reason to secure a pump; the fault is in the handover.",
           "An automatic restart would defeat the point of a deliberately quiet lineup.",
@@ -1153,7 +1153,7 @@ export const CURRICULUM = {
         "task": "Prove the isolation you inherited",
         "question": "What settles the disagreement?",
         "answer": "Meter the circuits and record what you actually find.",
-        "why": "The log records an intention and the lamp records what the switchboard thinks. The meter is the only one of the three that is looking at the cable.",
+        "why": "The log records an intention and the lamp records what the switchboard thinks. The meter is the only one of the three that is looking at the cable.\n",
         "rebuttals": [
           "A written record is a claim about the past, and the past is what is in dispute.",
           "An indicator lamp has its own failure modes, which is why this check exists.",
@@ -1185,7 +1185,7 @@ export const CURRICULUM = {
         "task": "Decide what the smoke has done to the space",
         "question": "What does the smoke change about how the casualty is fought?",
         "answer": "The space can no longer be read by eye, so the boundaries have to be measured instead.",
-        "why": "Breathing gear solves breathing. It does not tell you where the heat is, and in a space you cannot see, an infrared reading on the bulkhead is the only thing that does.",
+        "why": "Breathing gear solves breathing. It does not tell you where the heat is, and in a space you cannot see, an infrared reading on the bulkhead is the only thing that does.\n",
         "rebuttals": [
           "Masks keep the team working; they do not restore the information the smoke took away.",
           "A fire consuming the air also produces carbon monoxide, which is worse, not self-solving.",
@@ -1215,7 +1215,7 @@ export const CURRICULUM = {
         "task": "Which explanation accounts for every reading?",
         "question": "Which explanation accounts for every reading?",
         "answer": "Berthing is isolated from the ventilation and its sensor has failed",
-        "why": "Two things are wrong at once, which is why no single reading settles it: the damper explains the level, and the symptoms in that space alone say the level is real, which is what convicts the sensor.",
+        "why": "Two things are wrong at once, which is why no single reading settles it: the damper explains the level, and the symptoms in that space alone say the level is real, which is what convicts the sensor.\n",
         "headline": "Berthing is high on a handheld and normal on its installed sensor, and the plant says it is fine.",
         "readings": [
           {
@@ -1337,7 +1337,7 @@ export const CURRICULUM = {
         "task": "Line up the air before you need it",
         "question": "Line up the air before you need it",
         "answer": "",
-        "why": "Once the boat is shut, a damper you forgot is a compartment nobody is treating, and a missing baseline means the first bad reading has nothing to be compared against.",
+        "why": "Once the boat is shut, a damper you forgot is a compartment nobody is treating, and a missing baseline means the first bad reading has nothing to be compared against.\n",
         "cards": [
           "Line up the internal ventilation so every compartment reaches the plant.",
           "Start the scrubber and oxygen plant and prove they are working.",
@@ -1393,43 +1393,31 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What the boat can afford to stop",
-      "scene": "Haruki lists what could be secured or slowed for the passage. Everything aboard radiates: pumps, fans, turbines, and above all the propeller, which is the loudest thing a submarine does at any speed worth making. Quieting the boat means giving up the work those machines were doing, so every line on his list is a trade — acoustic gain now against a capability the boat may badly want inside the next two hours. Spending the hundred points is you stating, on the record, what this boat can afford to be without while it is in the narrows.",
+      "scene": "Haruki lists what could be secured or slowed for the passage. Everything aboard radiates: pumps, fans, turbines, and above all the propeller, which is the loudest thing a submarine does at any speed worth making. Quieting the boat means giving up the work those machines were doing, so every line on his list is a trade — acoustic gain now against a capability the boat may badly want inside the next two hours. He wants one of them, and he wants it before the boat is in the narrows rather than after.",
       "takeaway": "Silence is not free, and the bill is paid by whatever the machine was doing.",
       "place": "Machinery Control Room",
-      "story": "Haruki lists what could be secured or slowed for the passage. Everything aboard radiates: pumps, fans, turbines, and above all the propeller, which is the loudest thing a submarine does at any speed worth making. Quieting the boat means giving up the work those machines were doing, so every line on his list is a trade — acoustic gain now against a capability the boat may badly want inside the next two hours. Spending the hundred points is you stating, on the record, what this boat can afford to be without while it is in the narrows.",
+      "story": "Haruki lists what could be secured or slowed for the passage. Everything aboard radiates: pumps, fans, turbines, and above all the propeller, which is the loudest thing a submarine does at any speed worth making. Quieting the boat means giving up the work those machines were doing, so every line on his list is a trade — acoustic gain now against a capability the boat may badly want inside the next two hours. He wants one of them, and he wants it before the boat is in the narrows rather than after.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "What the boat can afford to stop",
         "setup": "Machinery Control Room",
-        "play": "Spend the effort where quiet is worth what it costs.",
-        "task": "Spend the effort where quiet is worth what it costs.",
-        "question": "Spend the effort where quiet is worth what it costs.",
-        "answer": "",
-        "why": "The propeller is where the noise is, so that is where the spending belongs. Securing a cooling pump trades a small acoustic gain for a machinery casualty, which is the worst bargain on the list.",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Reduce turns and accept a slower passage — the largest single source of noise is the propeller."
-          },
-          {
-            "label": "B",
-            "text": "Secure one of the two seawater cooling pumps, accepting a rising lube oil temperature."
-          },
-          {
-            "label": "C",
-            "text": "Stop the ventilation fans in the crew spaces, accepting the air will go stale."
-          },
-          {
-            "label": "D",
-            "text": "Shut down the sonar processors that are not being used, to reduce electrical noise."
-          }
+        "play": "Buy quiet with capability",
+        "task": "Buy quiet with capability",
+        "question": "Haruki can make one change before the narrows. Which?",
+        "answer": "Come down in turns and accept a slower passage.",
+        "why": "Cavitation off the propeller dominates every other source at this depth and speed, so turns are where the whole signature is, and slowing costs only time — which the boat has and can get back.\n",
+        "rebuttals": [
+          "The cooling pump is the one machine on the list whose loss starts a clock on a bearing, and a bearing run hot for an hour is a shipyard visit. It is the worst bargain here.",
+          "The fans are genuinely noisy and stopping them costs only stale air, but they are not where the noise is. Do it as well if you like; it will not change what anybody hears.",
+          "Unused processors radiate almost nothing acoustically, and shutting them down costs the contact picture the passage depends on."
         ],
-        "recommended": {
-          "A": 45,
-          "C": 25,
-          "D": 20
-        },
-        "research": "Cavitation from the propeller dominates every other source at this\ndepth and speed. The cooling pump is the one machine on the list whose\nloss starts a clock on a bearing. The fans are noisy and the crew can\nbe uncomfortable for two hours. The processors contribute almost\nnothing acoustically and cost the picture the passage depends on."
+        "choices": [
+          "Come down in turns and accept a slower passage.",
+          "Secure one of the two seawater cooling pumps.",
+          "Stop the ventilation fans in the crew spaces.",
+          "Shut down the sonar processors that are not being used."
+        ],
+        "correctChoice": "Come down in turns and accept a slower passage."
       }
     },
     {
@@ -1447,7 +1435,7 @@ export const CURRICULUM = {
         "task": "Match each action to what it actually achieves.",
         "question": "Match each action to what it actually achieves.",
         "answer": "",
-        "why": "Only the hull valve separates the boat from the sea. The rest are useful, and none of them is a substitute for it.",
+        "why": "Only the hull valve separates the boat from the sea. The rest are useful, and none of them is a substitute for it.\n",
         "scenarios": [
           "Shut the outboard hull valve first.",
           "Shut the inboard supply valve only.",
@@ -1483,7 +1471,7 @@ export const CURRICULUM = {
         "task": "Put the air back where it belongs",
         "question": "What restores berthing to the scrubber?",
         "answer": "Open the damper and start the branch fan, then measure the space again.",
-        "why": "A damper is a hole and a fan is the reason air goes through it. Neither on its own moves the compartment's air, and the measurement afterwards is what proves it did.",
+        "why": "A damper is a hole and a fan is the reason air goes through it. Neither on its own moves the compartment's air, and the measurement afterwards is what proves it did.\n",
         "rebuttals": [
           "The plant can only treat air that reaches it, and nothing is pushing this air anywhere.",
           "A damper is a mechanical valve; flow does not open it.",
@@ -1513,7 +1501,7 @@ export const CURRICULUM = {
         "task": "Find which machine",
         "question": "Find which machine",
         "answer": "",
-        "why": "Restoring it is what turns a correlation into a cause. Everything before that is a list of suspects.",
+        "why": "Restoring it is what turns a correlation into a cause. Everything before that is a list of suspects.\n",
         "cards": [
           "Ask sonar for the frequency and whether it tracks a shaft or a pump speed.",
           "List what was started or changed in the window when the noise appeared.",
@@ -1543,7 +1531,7 @@ export const CURRICULUM = {
         "task": "Match each action to what it actually achieves.",
         "question": "Match each action to what it actually achieves.",
         "answer": "",
-        "why": "Every one of these is correct in some situation. The question is which costs you least right now, and blowing is the loudest thing the boat can do short of an emergency surface.",
+        "why": "Every one of these is correct in some situation. The question is which costs you least right now, and blowing is the loudest thing the boat can do short of an emergency surface.\n",
         "scenarios": [
           "Increase speed with the planes at rise.",
           "Blow the forward main ballast.",
@@ -1579,7 +1567,7 @@ export const CURRICULUM = {
         "task": "Trace the path",
         "question": "Trace the path",
         "answer": "",
-        "why": "Heat moves from where it is made to the sea through three handovers, and each handover is a place the chain can break.",
+        "why": "Heat moves from where it is made to the sea through three handovers, and each handover is a place the chain can break.\n",
         "cards": [
           "The bearing makes heat, and the lube oil carries it away.",
           "The lube oil gives its heat to the oil cooler.",
@@ -1609,7 +1597,7 @@ export const CURRICULUM = {
         "task": "Which link in the chain has failed?",
         "question": "Which link in the chain has failed?",
         "answer": "Not enough seawater flow to carry the heat away",
-        "why": "The heat has reached the seawater, which clears both the oil cooler and the sensor. It is not leaving, and the only thing that carries it out of the boat is flow.",
+        "why": "The heat has reached the seawater, which clears both the oil cooler and the sensor. It is not leaving, and the only thing that carries it out of the boat is flow.\n",
         "headline": "The oil is hot, the fresh water is hot, and the seawater is leaving barely warmer than it arrived.",
         "readings": [
           {
@@ -1671,84 +1659,61 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Four hours of quiet",
-      "scene": "Haruki lists what can be secured for the transit. Four hours, and every item saves noise while costing something that will come due before the end of it. Some machines can be restarted the moment they are wanted; others take a plant with them, or leave something quietly heating up while they are off. Radiated noise is what makes a submarine findable, so quiet is worth real money — but it is bought on credit, and the bill arrives at a time you do not choose. Spend the hundred points on the items whose bill this boat can actually pay.",
+      "scene": "Haruki lists what can be secured for the transit. Four hours, and every item saves noise while costing something that will come due before the end of it. Some machines can be restarted the moment they are wanted; others take a plant with them, or leave something quietly heating up while they are off. Radiated noise is what makes a submarine findable, so quiet is worth real money — but it is bought on credit, and the bill arrives at a time you do not choose. Haruki intends to take everything on his list. He wants to know which item you will strike off it.",
       "takeaway": "Every quiet decision has an expiry time attached to it.",
       "place": "Machinery Control Room",
-      "story": "Haruki lists what can be secured for the transit. Four hours, and every item saves noise while costing something that will come due before the end of it. Some machines can be restarted the moment they are wanted; others take a plant with them, or leave something quietly heating up while they are off. Radiated noise is what makes a submarine findable, so quiet is worth real money — but it is bought on credit, and the bill arrives at a time you do not choose. Spend the hundred points on the items whose bill this boat can actually pay.",
+      "story": "Haruki lists what can be secured for the transit. Four hours, and every item saves noise while costing something that will come due before the end of it. Some machines can be restarted the moment they are wanted; others take a plant with them, or leave something quietly heating up while they are off. Radiated noise is what makes a submarine findable, so quiet is worth real money — but it is bought on credit, and the bill arrives at a time you do not choose. Haruki intends to take everything on his list. He wants to know which item you will strike off it.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "Four hours of quiet",
         "setup": "Machinery Control Room",
-        "play": "Spend the quiet where it buys most and costs least.",
-        "task": "Spend the quiet where it buys most and costs least.",
-        "question": "Spend the quiet where it buys most and costs least.",
-        "answer": "",
-        "why": "Three of these are reversible at any moment and one of them is not. The cooling pump is where a quiet run turns into a machinery casualty.",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Come down in turns and accept a longer transit — the propeller is the loudest thing aboard."
-          },
-          {
-            "label": "B",
-            "text": "Stop the galley and laundry machinery, which nobody needs for four hours."
-          },
-          {
-            "label": "C",
-            "text": "Secure one of two scrubber trains, accepting a slow rise in carbon dioxide."
-          },
-          {
-            "label": "D",
-            "text": "Secure the second seawater cooling pump, accepting a rising bearing temperature."
-          }
+        "play": "Choose the lineup",
+        "task": "Choose the lineup",
+        "question": "Which of these does the boat refuse, whatever quiet it buys?",
+        "answer": "Secure the second seawater cooling pump, accepting a rising bearing temperature.",
+        "why": "Three of these are reversible the moment somebody wants them back. The cooling pump is not: it starts a clock on a bearing that nobody in the control room can read, and the damage is done before the gauge says so.\n",
+        "rebuttals": [
+          "Coming down in turns costs time and returns the moment turns are increased. It is the cheapest quiet aboard.",
+          "Galley and laundry are pure noise with no consequence at all in four hours.",
+          "One scrubber train can be spared for a while, because carbon dioxide rises slowly and — unlike a bearing temperature nobody is watching — it is measured continuously."
         ],
-        "recommended": {
-          "A": 45,
-          "B": 30,
-          "C": 15
-        },
-        "research": "Cavitation dominates the signature at this depth and speed. Galley and\nlaundry are pure noise with no consequence in four hours. One scrubber\ntrain can be spared for a while because carbon dioxide rises slowly\nand is measurable. The cooling pump is the item on this list that\nstarts a clock nobody can read from the control room."
+        "choices": [
+          "Secure the second seawater cooling pump, accepting a rising bearing temperature.",
+          "Come down in turns and accept a longer transit.",
+          "Stop the galley and laundry machinery, which nobody needs for four hours.",
+          "Secure one of two scrubber trains, accepting a slow rise in carbon dioxide."
+        ],
+        "correctChoice": "Secure the second seawater cooling pump, accepting a rising bearing temperature."
       }
     },
     {
       "day": 10,
       "title": "What the boat should buy",
-      "scene": "Four refit proposals, each with a real cost and an honest uncertainty about what it buys. Ahead is a long transit with a constrained passage in the middle of it. Money spent on a boat is really spent on the decisions the boat will have to make: an improvement that makes an already-good number better changes nothing anybody does, while a modest one that removes a blind spot changes what command can risk. You have stood fourteen watches on this boat and you know which arguments kept coming back. This is where that is worth something.",
+      "scene": "Four refit proposals, each with a real cost and an honest uncertainty about what it buys. Ahead is a long transit with a constrained passage in the middle of it. Money spent on a boat is really spent on the decisions the boat will have to make: an improvement that makes an already-good number better changes nothing anybody does, while a modest one that removes a blind spot changes what command can risk. You have stood fourteen watches on this boat and you know which arguments kept coming back. The yard will fit two of the four, and Sowande wants your first.",
       "takeaway": "You fund what changes a decision, not what improves a number.",
       "place": "Machinery Control Room",
-      "story": "Four refit proposals, each with a real cost and an honest uncertainty about what it buys. Ahead is a long transit with a constrained passage in the middle of it. Money spent on a boat is really spent on the decisions the boat will have to make: an improvement that makes an already-good number better changes nothing anybody does, while a modest one that removes a blind spot changes what command can risk. You have stood fourteen watches on this boat and you know which arguments kept coming back. This is where that is worth something.",
+      "story": "Four refit proposals, each with a real cost and an honest uncertainty about what it buys. Ahead is a long transit with a constrained passage in the middle of it. Money spent on a boat is really spent on the decisions the boat will have to make: an improvement that makes an already-good number better changes nothing anybody does, while a modest one that removes a blind spot changes what command can risk. You have stood fourteen watches on this boat and you know which arguments kept coming back. The yard will fit two of the four, and Sowande wants your first.",
       "game": {
-        "type": "SCIENCETANK",
+        "type": "CHOICE",
         "title": "What the boat should buy",
         "setup": "Machinery Control Room",
-        "play": "Fund the refit the evidence supports.",
-        "task": "Fund the refit the evidence supports.",
-        "question": "Fund the refit the evidence supports.",
-        "answer": "",
-        "why": "Two of these change decisions the boat has actually had to make. The other two improve numbers that were never the problem.",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "Re-mount the seawater pumps on new isolators — attacks the largest known noise source after the propeller."
-          },
-          {
-            "label": "B",
-            "text": "A second independent depth sounder — an instrument that cannot fail the same way the plot does."
-          },
-          {
-            "label": "C",
-            "text": "Faster scrubber media — improves a margin that is already twenty hours wide."
-          },
-          {
-            "label": "D",
-            "text": "A larger drain pump — helps in a flooding casualty the boat has never had."
-          }
+        "play": "Spend the yard time",
+        "task": "Spend the yard time",
+        "question": "Which refit goes first on the yard list?",
+        "answer": "Re-mount the seawater pumps on new isolators.",
+        "why": "After cavitation, the pumps are the largest recorded contributor to the boat's signature — and the signature is what decides whether the boat is found at all in the passage this patrol is built around.\n",
+        "rebuttals": [
+          "The second sounder is the right next buy and Sowande argues for it two stops from here. What puts the mounts ahead of it is that the array's noise floor is the boat's own machinery, so every contact the passage depends on is limited by the pumps first.",
+          "Faster media improves an air margin that has never come within twenty hours of a limit. A better number nobody was waiting on.",
+          "A larger drain pump has never been the binding constraint in a drill, because the source was always stopped first. It buys minutes in a casualty the boat has not had."
         ],
-        "recommended": {
-          "A": 45,
-          "B": 35
-        },
-        "research": "The last three patrols recorded pump noise as the leading contributor to\nthe signature after cavitation. The plot has twice been wrong in a way\nonly an independent measurement could have caught. Carbon dioxide has\nnever come close to a limit. The drain pump has never been the binding\nconstraint in a drill, because the source was always stopped first."
+        "choices": [
+          "Re-mount the seawater pumps on new isolators.",
+          "A second independent depth sounder.",
+          "Faster scrubber media, for a wider air margin.",
+          "A larger drain pump, for a worse flooding casualty."
+        ],
+        "correctChoice": "Re-mount the seawater pumps on new isolators."
       }
     }
   ]
@@ -1783,7 +1748,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.35,
     "units": "nautical miles",
     "solution": "0.55 kn × 3.5 h ≈ 1.9 nautical miles of set nobody has drawn.",
-    "explanation": "Distance is rate times time, and the rate here is the water, not the boat. Own speed is what the plot already knows about; it is not part of the error."
+    "explanation": "Distance is rate times time, and the rate here is the water, not the boat. Own speed is what the plot already knows about; it is not part of the error.\n"
   },
   "NAV-5": {
     "prompt": "Four miles of channel, and a position that could be a mile out either way.",
@@ -1801,8 +1766,8 @@ export const BALLPARK_CALCS = {
       2
     ],
     "slots": 3,
-    "template": "{0} ÷ {3} − {1} ÷ {3}",
-    "formula": "a/d - b/d",
+    "template": "{0} ÷ {2} − {1} ÷ {2}",
+    "formula": "a/c - b/c",
     "correct": [
       0,
       1,
@@ -1812,35 +1777,38 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.2,
     "units": "nautical miles",
     "solution": "Half the channel is 2 nm; half the uncertainty is 1 nm; the margin is 1 nm.",
-    "explanation": "Running the centre puts two miles between the plotted position and each side, and the position could be a mile off toward either. What is left is the margin, and it is what the route has to survive on."
+    "explanation": "Running the centre puts two miles between the plotted position and each side, and the position could be a mile off toward either. What is left is the margin, and it is what the route has to survive on.\n"
   },
   "DC-3": {
-    "prompt": "The level went from 31 cm to 39 cm in one minute in a space this wide.",
-    "question": "Estimate the flooding rate and compare it to the pump.",
+    "prompt": "The level went from 31 cm to 39 cm in one minute in a space this wide, with the drain pump already running.",
+    "question": "Estimate the rate the sea is actually coming in at.",
     "labels": [
       "8 cm  (rise in one minute)",
       "11 gallons per cm  (this bilge)",
       "55 gpm  (drain pump at this head)",
-      "90 m  (depth)"
+      "90 m  (depth)",
+      "31 cm  (level at the first reading)"
     ],
     "values": [
       8,
       11,
       55,
-      90
+      90,
+      31
     ],
-    "slots": 2,
-    "template": "{0} × {1}",
-    "formula": "a*b",
+    "slots": 3,
+    "template": "{0} × {1} + {2}",
+    "formula": "a*b + c",
     "correct": [
       0,
-      1
+      1,
+      2
     ],
-    "target": 88,
-    "tolerance": 6,
-    "units": "gallons per minute, net",
-    "solution": "8 cm × 11 gal/cm = 88 gpm still coming in on top of what the pump is already taking out.",
-    "explanation": "The rise is what is left after the pump has done its work, so the leak is the rise plus the pump — well over a hundred gallons a minute. The pump is not going to win, and knowing that is what sends somebody to the hull valve instead of for another pump."
+    "target": 143,
+    "tolerance": 12,
+    "units": "gallons per minute",
+    "solution": "The level gains 88 gpm while the pump removes 55, so the sea is putting in about 143.",
+    "explanation": "The rise is what is left after the pump has done its work, so the leak is the rise plus the pump — well over a hundred gallons a minute. The pump is not going to win, and knowing that is what sends somebody to the hull valve instead of for another pump.\n"
   },
   "ATMO-3": {
     "prompt": "Nine people, each producing about 0.04 cubic metres of CO₂ an hour, in a sealed space.",
@@ -1849,13 +1817,17 @@ export const BALLPARK_CALCS = {
       "9  (people off watch)",
       "0.04 m³/h  (CO₂ per person)",
       "36 m³  (compartment volume)",
-      "0.01  (one per cent, as a fraction)"
+      "0.01  (one per cent, as a fraction)",
+      "1  (one per cent, written as a percentage)",
+      "70 m  (depth)"
     ],
     "values": [
       9,
       0.04,
       36,
-      0.01
+      0.01,
+      1,
+      70
     ],
     "slots": 4,
     "template": "{2} × {3} ÷ ({0} × {1})",
@@ -1870,35 +1842,38 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.2,
     "units": "hours",
     "solution": "36 m³ × 0.01 = 0.36 m³ of CO₂ needed; nine people make 0.36 m³ in about an hour.",
-    "explanation": "The volume and the target concentration give how much gas it takes; the people and their rate give how fast it arrives. An hour is not an emergency and it is not comfortable either, which is exactly the kind of answer that changes what you do next."
+    "explanation": "The volume and the target concentration give how much gas it takes; the people and their rate give how fast it arrives. An hour is not an emergency and it is not comfortable either, which is exactly the kind of answer that changes what you do next.\n"
   },
   "NAV-6": {
     "prompt": "Nine miles to the bank at eight knots, with the option of coming down to three.",
-    "question": "Estimate how long the boat has at present speed.",
+    "question": "Estimate the extra time coming down to three knots buys.",
     "labels": [
       "9 nm  (to the bank)",
       "8 kn  (present speed)",
       "3 kn  (the slow option)",
-      "6 min  (since the plot degraded)"
+      "6 min  (since the plot degraded)",
+      "5 kn  (the difference between the two speeds)"
     ],
     "values": [
       9,
       8,
       3,
-      6
+      6,
+      5
     ],
-    "slots": 2,
-    "template": "{0} ÷ {1}",
-    "formula": "a/b",
+    "slots": 3,
+    "template": "{0} ÷ {2} − {0} ÷ {1}",
+    "formula": "a/c - a/b",
     "correct": [
       0,
-      1
+      1,
+      2
     ],
-    "target": 1.125,
-    "tolerance": 0.15,
+    "target": 1.875,
+    "tolerance": 0.2,
     "units": "hours",
-    "solution": "9 nm ÷ 8 kn ≈ 1.1 hours. At three knots the same distance is three hours.",
-    "explanation": "An hour is not enough time to fight a flooding casualty and rebuild a plot. Three hours is. The boat's speed is the one number on this list that you control, and it is worth two hours."
+    "solution": "1.1 hours at eight knots against three at three knots, so slowing buys nearly two more.",
+    "explanation": "An hour is not enough time to fight a flooding casualty and rebuild a plot. Three hours is. The boat's speed is the one number on this list that you control, and it is worth two hours.\n"
   },
   "DC-5": {
     "prompt": "The boat has gone four metres deeper at unchanged speed and planes.",
@@ -1926,7 +1901,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.8,
     "units": "tonnes",
     "solution": "4 m × 1.6 t/m ≈ 6.4 tonnes of water aboard.",
-    "explanation": "Six tonnes is inside what the drain pump can handle if the source is stopped, and well outside what it can handle if it is not. The number is what turns \"pump or blow\" from an argument into a decision."
+    "explanation": "Six tonnes is inside what the drain pump can handle if the source is stopped, and well outside what it can handle if it is not. The number is what turns \"pump or blow\" from an argument into a decision.\n"
   },
   "ATMO-4": {
     "prompt": "The crew makes more carbon dioxide than one train removes, and the limit is a rise of one per cent.",
@@ -1955,7 +1930,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 2,
     "units": "hours",
     "solution": "The net gain is 0.3 m³/h; 6.0 ÷ 0.3 = 20 hours to the limit.",
-    "explanation": "Twenty hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless."
+    "explanation": "Twenty hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless.\n"
   }
 };
 

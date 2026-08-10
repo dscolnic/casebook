@@ -332,8 +332,7 @@ missions:
     - 3
     why: Evidence preservation and metadata validation precede state estimation and action.
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Ten minutes to the next tracking pass. What does the flight director do first?
     title: Spend the first ten minutes
     place: Spacecraft Systems Console
     scene: >-
@@ -345,22 +344,23 @@ missions:
       authority is what stops two rooms acting on different versions of the same number. Asking all six
       subsystems for complete reports at once spends the ten minutes and returns nothing usable.
     takeaway: Attention is a scarce physical resource during a fast-moving systems failure.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Reconstruct the electrical and pressure timeline.
-    - label: B
-      text: Verify trajectory and attitude independently.
-    - label: C
-      text: Ask every subsystem for a complete report at once.
-    - label: D
-      text: Establish a single anomaly log and command authority.
-    recommended:
-      A: 35
-      B: 30
-      C: 10
-      D: 25
-    evidence: Allocate 100 console-attention credits.
+    format: CHOICE
+    question: Ten minutes to the next tracking pass. What does the flight director do first?
+    choices:
+    - Establish a single anomaly log and one command authority.
+    - Reconstruct the electrical and pressure timeline.
+    - Verify the trajectory and attitude independently.
+    - Ask every subsystem for a complete report at once.
+    answer: Establish a single anomaly log and one command authority.
+    why: >-
+      Four controllers are already working the same failure from four sets of
+      numbers. Until there is one record and one voice, every analysis that
+      follows can be done twice and contradicted once — and the crew executes
+      whichever version reaches them.
+    rebuttals:
+    - The electrical and pressure timeline is the first real analysis, and it is exactly what the log exists to hold. Start it second and it survives the shift change.
+    - Independent trajectory verification decides whether the vehicle can come home. It is needed before the burn, not before the room is organised.
+    - Six complete subsystem reports arrive after the tracking pass and consume the ten minutes that were supposed to prepare for it.
 - title: Find the Spacecraft
   objective: Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.
   briefing: Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and
@@ -438,18 +438,25 @@ missions:
       rather than inferred from a fit.
     takeaway: Travel time converts directly into range when the propagation speed is known.
     format: BALLPARK
+    why: Range is the one quantity the restarted computer lost, and it is measured here directly rather than inferred from a fit — which is why one pulse is worth more than an hour of angles.
     question: Estimate the spacecraft range.
     estimate:
+      prompt: A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The pulse makes the trip twice.
+      question: Estimate the spacecraft range.
       labels:
-      - 3.0e8 m/s
-      - 2.6 s round-trip
-      - 2 for outbound+return
+      - 3.0e8 m/s (speed of light)
+      - 2.6 s (round-trip time)
+      - 2 (out and back)
+      - 1.3 s (half the round trip)
+      - 343 m/s (speed of sound in air)
       values:
       - 300000000.0
       - 2.6
       - 2
+      - 1.3
+      - 343
       slots: 3
-      template: '{0} x {1} / {2}'
+      template: '{0} × {1} ÷ {2}'
       formula: a*b/c
       correct:
       - 0
@@ -458,9 +465,8 @@ missions:
       target: 390000000.0
       tolerance: 30000000.0
       units: m
-      solution: Range = ct/2 is about 3.9e8 m.
-      prompt: A tracking pulse returns 2.6 seconds after transmission.
-      question: Estimate the spacecraft range.
+      solution: Range = ct/2 ≈ 3.9 × 10⁸ m.
+      explanation: 'Halving the time and halving the answer come to the same thing, which is why the factor of two is the step people drop rather than get wrong. Sound has no part in it: the measurement is radio, in vacuum.'
 - title: The Wrong Trajectory
   objective: Choose a correction that restores a safe return while preserving fuel and engine options.
   briefing: The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse
@@ -508,18 +514,25 @@ missions:
       kilometres.
     takeaway: Orbital corrections often rely on small velocity changes applied early.
     format: BALLPARK
+    why: Four metres per second looks absurd beside an orbital speed in kilometres per second. Applied days out, it is hundreds of kilometres at arrival — which is why an early correction is cheap and a late one is not.
     question: Estimate the change in speed.
     estimate:
+      prompt: A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.
+      question: Estimate the change in speed.
       labels:
-      - 6000 N
-      - 20 s
-      - 30000 kg
+      - 6,000 N (thrust)
+      - 20 s (burn duration)
+      - 30,000 kg (vehicle mass)
+      - 9.81 m/s² (surface gravity)
+      - 1,500 s (specific impulse)
       values:
       - 6000
       - 20
       - 30000
+      - 9.81
+      - 1500
       slots: 3
-      template: '{0} x {1} / {2}'
+      template: '{0} × {1} ÷ {2}'
       formula: a*b/c
       correct:
       - 0
@@ -528,12 +541,10 @@ missions:
       target: 4
       tolerance: 0.3
       units: m/s
-      solution: "\u0394v = Ft/m = 4 m/s."
-      prompt: A 30,000 kg spacecraft receives a 6,000 N thrust for 20 s.
-      question: Estimate the change in speed.
+      solution: Δv = Ft/m = 4 m/s.
+      explanation: Force times time is impulse; impulse divided by mass is the velocity change. Surface gravity has no bearing on a vehicle in free flight, and specific impulse would tell you what the burn costs in propellant rather than what it achieves.
   - group: NAV
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: The drift is real and the tracking is thin. What do you do?
     title: Choose the correction strategy
     place: Propulsion Desk
     scene: >-
@@ -544,22 +555,24 @@ missions:
       capability that could have gone into the burn itself. The plan that wins is not the one that is
       cheapest against the current best estimate but the one that still works if that estimate is wrong.
     takeaway: The best trajectory plan balances efficiency with robustness to model and hardware uncertainty.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: An early modest correction with extensive tracking afterward.
-    - label: B
-      text: Wait for certainty and accept a much larger late burn.
-    - label: C
-      text: Preserve a backup engine and alternate attitude plan.
-    - label: D
-      text: Use one trajectory solution without independent verification.
-    recommended:
-      A: 45
-      B: 10
-      C: 30
-      D: 15
-    evidence: Allocate 100 planning credits.
+    format: CHOICE
+    question: The drift is real and the tracking is thin. What do you do?
+    choices:
+    - Make an early modest correction, then track it hard.
+    - Wait for a better state estimate and accept a larger late burn.
+    - Preserve the backup engine and an alternate attitude plan instead.
+    - Correct now against the single best trajectory solution held.
+    answer: Make an early modest correction, then track it hard.
+    why: >-
+      The same positional error costs more velocity to remove the closer the
+      vehicle is to arrival, so an early burn is cheap. What makes it safe
+      rather than merely cheap is the tracking afterwards: a modest correction
+      against an uncertain state can be measured and corrected again, and a
+      large one cannot.
+    rebuttals:
+    - Waiting buys a better measurement and pays for it in propellant that cannot be replaced, at the point in the trajectory where propellant is worth most.
+    - Preserving a backup engine is a constraint on how you burn. It is not an alternative to burning, and the drift does not stop while it is being preserved.
+    - One unverified solution is how a correction is made confidently toward the wrong place. The burn is only as good as the state it was computed from.
 - title: Turn Without Wasting Fuel
   objective: Develop a controlled reorientation procedure that stops the rotation at the required attitude.
   briefing: The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and
@@ -637,29 +650,34 @@ missions:
       choose.
     takeaway: Force location matters as much as force magnitude in rotational control.
     format: BALLPARK
-    question: Estimate the torque.
+    why: The same thruster mounted closer in produces proportionally less turn for the same propellant. On a vehicle this size the lever arm is the term the crew can actually choose.
+    question: Estimate the torque about the centre of mass.
     estimate:
+      prompt: A 200 N thruster fires at right angles, three metres from the centre of mass.
+      question: Estimate the torque about the centre of mass.
       labels:
-      - 3 m lever arm
-      - 200 N force
-      - sin 90 deg = 1
+      - 3 m (lever arm to the centre of mass)
+      - 200 N (thruster force)
+      - 1.5 m (distance to the docking ring)
+      - 30,000 kg (vehicle mass)
+      - 0.5 (cosine of 60°)
       values:
       - 3
       - 200
-      - 1
-      slots: 3
-      template: '{0} x {1} x {2}'
-      formula: a*b*c
+      - 1.5
+      - 30000
+      - 0.5
+      slots: 2
+      template: '{0} × {1}'
+      formula: a*b
       correct:
       - 0
       - 1
-      - 2
       target: 600
       tolerance: 40
       units: N m
-      solution: "\u03C4 = rF sin\u03B8 = 600 N m."
-      prompt: A 200 N thruster acts 3 m from the center of mass at right angles.
-      question: Estimate the torque.
+      solution: τ = rF = 600 N m, with the force at right angles.
+      explanation: Torque is force times lever arm times the sine of the angle between them, and at right angles that last factor is one — which is why it does not appear. The lever arm has to be measured to the centre of mass, not to whatever structure is nearest.
 - title: The Power Budget
   objective: Build a load-shedding plan that preserves essential functions through the next critical maneuver.
   briefing: Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal
@@ -681,16 +699,25 @@ missions:
       true. It is still the number every other decision this shift will be argued against.
     takeaway: Power is the rate of energy use; endurance depends on both energy inventory and load.
     format: BALLPARK
-    question: Estimate ideal endurance.
+    why: It is an ideal figure — it assumes the load stays flat and every last watt-hour is available, and neither is true. It is still the number every other decision this shift gets argued against.
+    question: Estimate the ideal endurance.
     estimate:
+      prompt: The fuel cells are gone. The entry batteries hold about 18 kilowatt-hours of usable energy and the essential loads draw about 3 kilowatts.
+      question: Estimate the ideal endurance.
       labels:
-      - 18 kWh usable energy
-      - 3 kW essential load
+      - 18 kWh (usable energy)
+      - 3 kW (essential load)
+      - 28 V (bus voltage)
+      - 3.5 kW (peak load, briefly)
+      - 6 h (time to the next burn)
       values:
       - 18
       - 3
+      - 28
+      - 3.5
+      - 6
       slots: 2
-      template: '{0} / {1}'
+      template: '{0} ÷ {1}'
       formula: a/b
       correct:
       - 0
@@ -698,9 +725,8 @@ missions:
       target: 6
       tolerance: 0.4
       units: h
-      solution: 18 kWh / 3 kW = 6 h ideal endurance.
-      prompt: Use a simplified energy budget.
-      question: Estimate ideal endurance.
+      solution: 18 kWh ÷ 3 kW = 6 h.
+      explanation: Energy is an inventory and power is the rate it is spent at; the hours come from dividing one by the other. Bus voltage describes how the energy is delivered and says nothing about how much there is.
   - group: INTEG
     task: Which fault fits the voltage, current, generation, and thermal evidence?
     title: Why is bus voltage collapsing?
@@ -755,8 +781,7 @@ missions:
     why: Normal array and load currents rule against missing generation or a major new load, while the hot junction supplies
       the expected signature of resistive voltage drop and heating.
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Which load comes off the bus first?
     title: Shed load without losing the mission
     place: Mission Planning Desk
     scene: >-
@@ -767,22 +792,22 @@ missions:
       across time as well as across systems, and the loads that look cheapest to shed are often the ones
       whose consequences arrive later and cost more.
     takeaway: A power plan matches load timing and consequence to a finite energy inventory.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Life support and cabin circulation.
-    - label: B
-      text: Guidance and timed navigation windows.
-    - label: C
-      text: Continuous high-bandwidth communications.
-    - label: D
-      text: Thermal survival loads and battery conditioning.
-    recommended:
-      A: 35
-      B: 25
-      C: 10
-      D: 30
-    evidence: Allocate 100 power credits.
+    format: CHOICE
+    question: Which load comes off the bus first?
+    choices:
+    - Continuous high-bandwidth communications.
+    - Life support and cabin circulation.
+    - Guidance and the timed navigation windows.
+    - Thermal survival loads and battery conditioning.
+    answer: Continuous high-bandwidth communications.
+    why: >-
+      It is the only load on the bus that degrades gracefully. A lower rate and
+      a narrower channel still get the numbers down; everything else on the list
+      either cannot be switched off or costs more to restore than it saved.
+    rebuttals:
+    - Life support is not a load that can be traded. It is the reason the rest of the vehicle is powered.
+    - Guidance draws power at known times and none outside them, so it is scheduled rather than shed — and the window it needs is the burn that gets the crew home.
+    - 'Thermal loads look cheap to drop and are the most expensive: reheating a cold cabin costs far more energy than holding a warm one, and cold batteries deliver less than the plan assumes.'
 - title: A Dangerous Battery Configuration
   objective: Approve only a configuration whose voltage, current sharing, and failure behavior are understood.
   briefing: Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The
@@ -834,16 +859,25 @@ missions:
       fire.
     takeaway: Small resistances matter when current is large because heating scales with current squared.
     format: BALLPARK
-    question: Estimate heating power at the connection.
+    why: Twenty watts sounds like nothing until you notice where it is going — into a connector, inside a sealed cabin, with no air moving over it.
+    question: Estimate the heating power at the connection.
     estimate:
+      prompt: A connector in the improvised path develops 0.05 ohms while carrying 20 amps.
+      question: Estimate the heating power at the connection.
       labels:
-      - 20 A
-      - 0.05 ohm
+      - 20 A (current through the joint)
+      - 0.05 Ω (joint resistance)
+      - 28 V (bus voltage)
+      - 0.5 Ω (resistance of the whole cable run)
+      - 10 A (half the current)
       values:
       - 20
       - 0.05
+      - 28
+      - 0.5
+      - 10
       slots: 2
-      template: '{0}^2 x {1}'
+      template: '{0}² × {1}'
       formula: a*a*b
       correct:
       - 0
@@ -851,12 +885,10 @@ missions:
       target: 20
       tolerance: 2
       units: W
-      solution: P = I^2R = 20 W.
-      prompt: "A connector develops 0.05 \u03A9 resistance while carrying 20 A."
-      question: Estimate heating power at the connection.
+      solution: P = I²R = 20 W, in a joint the size of a thumbnail.
+      explanation: 'The bus voltage is the wrong term: the power lost in a series joint depends on the current through it and the voltage across it, not the voltage of the system it sits in. Current enters squared, so the same joint at 10 A would dissipate a quarter as much.'
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Engineers want to bolt the module in now. What has to happen first?
     title: Qualify the emergency battery plan
     place: Crew Procedure Simulator
     scene: >-
@@ -868,22 +900,24 @@ missions:
       makes it survivable is measuring the quantities that decide the outcome first, and providing
       protection that acts before anybody smells anything.
     takeaway: Emergency electrical improvisation should still be bounded by measurements and protection.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Verify module voltage and state of charge before connection.
-    - label: B
-      text: Measure current sharing and connector temperature under load.
-    - label: C
-      text: Add independent fusing and isolation procedures.
-    - label: D
-      text: Connect first and diagnose any smoke afterward.
-    recommended:
-      A: 30
-      B: 35
-      C: 35
-      D: 0
-    evidence: Allocate 100 test credits.
+    format: CHOICE
+    question: Engineers want to bolt the module in now. What has to happen first?
+    choices:
+    - Verify the module's voltage and state of charge.
+    - Measure current sharing and connector temperature under load.
+    - Add independent fusing and an isolation procedure.
+    - Connect it and watch for smoke, with the crew standing by.
+    answer: Verify the module's voltage and state of charge.
+    why: >-
+      A mismatched module connected in parallel equalises through whatever
+      resistance lies between the two, and the current that flows is set by the
+      voltage difference. That difference is the one quantity nobody has
+      measured, and it decides whether the connector runs warm or starts a fire
+      in a sealed cabin.
+    rebuttals:
+    - Current sharing and connector temperature are measured under load — which is after the connection this decision is about.
+    - Independent fusing is required and is protection against being wrong. It is not a substitute for knowing, and a fuse chosen for the wrong current is not protection at all.
+    - Connecting first inside a sealed cabin makes the crew the instrument, and smoke is a reading that arrives too late to act on.
 - title: The Cabin Is Cooling
   objective: Create a thermal survival plan that protects crew, electronics, and batteries with minimal power.
   briefing: With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction,
@@ -905,18 +939,25 @@ missions:
       why reheating it later is expensive.
     takeaway: Thermal inertia can make temperature change slowly even when power is lost.
     format: BALLPARK
-    question: Estimate temperature drop.
+    why: Thermal inertia is why the cabin cools slowly rather than instantly when the power goes — and it is also why reheating it later costs far more than holding it warm.
+    question: Estimate the temperature drop over three hours.
     estimate:
+      prompt: With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.
+      question: Estimate the temperature drop over three hours.
       labels:
-      - 1000 W net heat loss
-      - 10800 s
-      - 12e6 J/K heat capacity
+      - 1,000 W (net heat loss)
+      - 10,800 s (three hours)
+      - 12e6 J/K (heat capacity)
+      - 3 h (three hours, in hours)
+      - 4 °C (present cabin temperature)
       values:
       - 1000
       - 10800
       - 12000000.0
+      - 3
+      - 4
       slots: 3
-      template: '{0} x {1} / {2}'
+      template: '{0} × {1} ÷ {2}'
       formula: a*b/c
       correct:
       - 0
@@ -925,9 +966,8 @@ missions:
       target: 0.9
       tolerance: 0.1
       units: K
-      solution: Energy loss is 10.8 MJ; divided by 12 MJ/K gives about 0.9 K.
-      prompt: Use a lumped thermal estimate for a simplified cabin and contents.
-      question: Estimate temperature drop.
+      solution: 1 kW for 10,800 s is 10.8 MJ; divided by 12 MJ/K, about 0.9 K.
+      explanation: A watt is a joule per second, so the time has to be in seconds or the answer is out by 3,600. That is the arithmetic slip this problem exists to catch.
   - group: THERM
     task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
       once.
@@ -959,8 +999,7 @@ missions:
     - 3
     why: Thermal management uses all three transfer modes and heat storage.
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Four degrees and falling, on a fixed energy budget. What do you spend it on?
     title: Keep the cabin survivable
     place: Materials and Insulation Shop
     scene: >-
@@ -972,22 +1011,23 @@ missions:
       locations is what tells you whether either is working. Thermal survival is an allocation problem
       across space, time and consequence.
     takeaway: Thermal survival is an allocation problem across space, time, and consequence.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Insulate the crew zone and critical batteries.
-    - label: B
-      text: Schedule short circulation periods to limit gradients and condensation.
-    - label: C
-      text: Heat the entire spacecraft continuously.
-    - label: D
-      text: Monitor temperatures at several representative locations.
-    recommended:
-      A: 35
-      B: 25
-      C: 10
-      D: 30
-    evidence: Allocate 100 thermal credits.
+    format: CHOICE
+    question: Four degrees and falling, on a fixed energy budget. What do you spend it on?
+    choices:
+    - Insulate the crew zone and the critical batteries.
+    - Schedule short circulation periods to limit gradients.
+    - Heat the whole spacecraft continuously at a low level.
+    - Monitor temperature at several representative locations.
+    answer: Insulate the crew zone and the critical batteries.
+    why: >-
+      Insulation changes the rate at which heat leaves rather than replacing the
+      heat that left, so it is the only option whose benefit does not stop when
+      the energy does. Concentrating it on the crew and the batteries puts a
+      fixed budget where the consequences of being cold are worst.
+    rebuttals:
+    - Short circulation periods limit the gradients that drive condensation and cost power every time they run. Worth doing; not what keeps anybody alive.
+    - Heating the whole vehicle spends the budget on volume nobody is in, and the loss scales with the surface it is heating.
+    - Monitoring is how you find out whether any of this worked. It warms nothing.
 - title: The Air Problem
   objective: Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored
     limits.
@@ -1062,18 +1102,25 @@ missions:
       number that decides whether the tape-and-hose solution is worth building at all.
     takeaway: Source rate sets the minimum removal requirement.
     format: BALLPARK
-    question: Estimate CO2 volume produced in six hours.
+    why: Source rate sets the minimum the fix has to achieve. A scrubber that removes less than this only changes how fast the concentration climbs.
+    question: Estimate the carbon dioxide produced in six hours.
     estimate:
+      prompt: Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.
+      question: Estimate the carbon dioxide produced in six hours.
       labels:
       - 3 people
       - 20 L/person/hour
       - 6 hours
+      - 24 hours (a full day)
+      - 1.0 kg/person/day (mass basis)
       values:
       - 3
       - 20
       - 6
+      - 24
+      - 1.0
       slots: 3
-      template: '{0} x {1} x {2}'
+      template: '{0} × {1} × {2}'
       formula: a*b*c
       correct:
       - 0
@@ -1082,12 +1129,10 @@ missions:
       target: 360
       tolerance: 25
       units: L
-      solution: 3 x 20 x 6 = 360 L.
-      prompt: Three crew members each produce about 20 L of CO2 per hour in a simplified estimate.
-      question: Estimate CO2 volume produced in six hours.
+      solution: 3 × 20 × 6 = 360 L over the six hours.
+      explanation: A rate per person per hour needs a head count and an interval, and both have to match the question asked. A daily mass figure describes the same crew and cannot be multiplied into this one without a density and a different arithmetic.
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
     title: Restore breathable air
     place: Crew Hardware Workshop
     scene: >-
@@ -1098,22 +1143,23 @@ missions:
       it. Bypass is the failure mode that looks like success — the fan runs, the crew hears it, and the
       concentration keeps rising.
     takeaway: A life-support fix must manage both chemical uptake and fluid flow.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Increase effective sorbent area without blocking flow.
-    - label: B
-      text: Provide a sealed flow path that prevents bypass.
-    - label: C
-      text: Measure CO2 at several cabin locations.
-    - label: D
-      text: Assume visible fan motion proves adequate circulation.
-    recommended:
-      A: 35
-      B: 35
-      C: 25
-      D: 5
-    evidence: Allocate 100 engineering credits.
+    format: CHOICE
+    question: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
+    choices:
+    - A sealed flow path that forces cabin air through the sorbent.
+    - As much exposed sorbent area as the canister allows.
+    - A carbon dioxide reading taken at several cabin locations.
+    - Enough fan speed that the crew can hear it running.
+    answer: A sealed flow path that forces cabin air through the sorbent.
+    why: >-
+      Bypass is the failure mode that looks like success. The fan runs, the crew
+      hears it, and the concentration keeps climbing — because sorbent only
+      removes carbon dioxide from air that actually crosses it, and air takes
+      the easiest path it is offered.
+    rebuttals:
+    - Exposed area helps only for the fraction of the air that reaches it. A large sorbent bed with a gap around it removes less than a small one with none.
+    - Measuring in several places is how the crew finds out whether the fix worked, which is necessary and is not the fix.
+    - An audible fan proves a motor is turning. It says nothing about how much air is moving, or where.
 - title: Communication Fades
   objective: Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.
   briefing: The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter
@@ -1186,16 +1232,25 @@ missions:
       every pointing tolerance the team will quote for the rest of the shift.
     takeaway: Frequency and wavelength are reciprocal descriptions of the same propagating wave.
     format: BALLPARK
-    question: Estimate wavelength.
+    why: Every pointing tolerance the team quotes for the rest of the shift starts from this number, because beam width goes as wavelength over aperture.
+    question: Estimate the wavelength.
     estimate:
+      prompt: The carrier is at 2.0 gigahertz, and beam width scales with wavelength over aperture.
+      question: Estimate the wavelength.
       labels:
-      - 3.0e8 m/s
-      - 2.0e9 Hz
+      - 3.0e8 m/s (speed of light)
+      - 2.0e9 Hz (carrier frequency)
+      - 2.0e6 Hz (the carrier, misread as megahertz)
+      - 343 m/s (speed of sound)
+      - 12 dB (the observed loss)
       values:
       - 300000000.0
       - 2000000000.0
+      - 2000000.0
+      - 343
+      - 12
       slots: 2
-      template: '{0} / {1}'
+      template: '{0} ÷ {1}'
       formula: a/b
       correct:
       - 0
@@ -1203,9 +1258,8 @@ missions:
       target: 0.15
       tolerance: 0.015
       units: m
-      solution: "\u03BB = c/f = 0.15 m."
-      prompt: The carrier frequency is 2.0 GHz.
-      question: Estimate wavelength.
+      solution: λ = c/f = 0.15 m.
+      explanation: A factor of a thousand in the frequency is a factor of a thousand in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation.
   - group: STRUCT
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
       placed cards after each check.
@@ -1282,29 +1336,37 @@ missions:
       precision through geometry, and at lunar distances a fraction of a degree is hundreds of kilometres.
     takeaway: Angle precision becomes position precision through geometry.
     format: BALLPARK
-    question: Estimate transverse offset.
+    why: Angular precision becomes position precision through geometry alone. At lunar distance a tenth of a degree is hundreds of kilometres, which is why a hand-held sighting is discussed so carefully.
+    question: Estimate the transverse offset at that range.
     estimate:
+      prompt: A pointing error of 0.1 degrees at a range of 400,000 kilometres. Small angles convert to transverse distance by multiplying the angle in radians by the range.
+      question: Estimate the transverse offset at that range.
       labels:
-      - 4.0e8 m range
-      - 1.75e-3 rad
+      - 4.0e8 m (range)
+      - 0.1 degrees (pointing error)
+      - 0.01745 rad per degree
+      - 57.3 degrees per radian
+      - 1,000 m per km
       values:
       - 400000000.0
-      - 0.00175
-      slots: 2
-      template: '{0} x {1}'
-      formula: a*b
+      - 0.1
+      - 0.01745
+      - 57.3
+      - 1000
+      slots: 3
+      template: '{0} × {1} × {2}'
+      formula: a*b*c
       correct:
       - 0
       - 1
-      target: 700000.0
+      - 2
+      target: 698000.0
       tolerance: 50000.0
       units: m
-      solution: Transverse offset is about 7e5 m, or 700 km.
-      prompt: "A pointing error is 0.1\xB0 at a distance of 400,000 km."
-      question: Estimate transverse offset.
+      solution: 0.1° is about 1.75 milliradians; times 4 × 10⁸ m, roughly 700 km.
+      explanation: Radians per degree and degrees per radian are reciprocals, and picking the wrong one puts the answer out by a factor of 3,300. The small-angle relation only holds in radians, which is the whole reason the conversion is here.
   - group: NAV
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Nobody has measured how repeatable a hand sighting is. What do you require before the burn?
     title: Bound the manual alignment
     place: Guidance Review Board
     scene: >-
@@ -1316,22 +1378,23 @@ missions:
       not unreliable by nature — it is unreliable until its geometry and its repeatability have been
       measured.
     takeaway: A manual procedure becomes reliable when its geometry and repeatability are measured.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Calibrate reticle and eye position in the simulator.
-    - label: B
-      text: Use multiple stars and repeated measurements.
-    - label: C
-      text: Include a timed attitude-rate check before ignition.
-    - label: D
-      text: Trust one hurried visual alignment.
-    recommended:
-      A: 30
-      B: 35
-      C: 30
-      D: 5
-    evidence: Allocate 100 procedure credits.
+    format: CHOICE
+    question: Nobody has measured how repeatable a hand sighting is. What do you require before the burn?
+    choices:
+    - Multiple stars, each sighted more than once.
+    - A reticle and eye-position calibration in the simulator.
+    - A timed attitude-rate check immediately before ignition.
+    - One careful alignment by the most practised crew member.
+    answer: Multiple stars, each sighted more than once.
+    why: >-
+      Repetition is the only thing that measures the scatter, and averaging is
+      the only thing that reduces it. A procedure with no repeat has no error
+      bar at all, which is what makes it impossible to say whether the burn is
+      inside the corridor.
+    rebuttals:
+    - Simulator calibration removes the systematic part — the fixed offset between eye, reticle and axis — and tells you nothing about how much the answer moves from one sighting to the next.
+    - The attitude-rate check catches a vehicle still drifting when the sighting was taken. A real error source, and a different one.
+    - One alignment by the best crew member is a single sample. It may well be the most accurate one; nobody can demonstrate that it was.
 - title: Crossing the Atmosphere
   objective: Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.
   briefing: 'The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping
@@ -1377,16 +1440,25 @@ missions:
       carries roughly twice the energy to dispose of, through the same heat shield.
     takeaway: Speed dominates kinetic energy because it enters squared.
     format: BALLPARK
-    question: Estimate kinetic energy.
+    why: Speed enters squared, which is why lunar return is a categorically harder problem than return from low orbit rather than a slightly harder one.
+    question: Estimate the kinetic energy to be dissipated.
     estimate:
+      prompt: A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.
+      question: Estimate the kinetic energy to be dissipated.
       labels:
-      - 5.0e3 kg
-      - 1.1e4 m/s
+      - 5.0e3 kg (capsule mass)
+      - 1.1e4 m/s (entry speed)
+      - 7.8e3 m/s (speed from low Earth orbit)
+      - 9.81 m/s² (surface gravity)
+      - 0.5 (the one-half in the formula)
       values:
       - 5000.0
       - 11000.0
+      - 7800.0
+      - 9.81
+      - 0.5
       slots: 2
-      template: 0.5 x {0} x {1}^2
+      template: 0.5 × {0} × {1}²
       formula: 0.5*a*b*b
       correct:
       - 0
@@ -1394,12 +1466,10 @@ missions:
       target: 302500000000.0
       tolerance: 30000000000.0
       units: J
-      solution: KE is about 3.0e11 J.
-      prompt: A 5,000 kg return capsule moves at 11,000 m/s.
-      question: Estimate kinetic energy.
+      solution: ½mv² ≈ 3.0 × 10¹¹ J.
+      explanation: 'The one-half is written into the template rather than offered as a tile, because it is part of the relationship and not a measured quantity. The low-orbit speed is there to be compared: 40 per cent slower is half the energy, through the same heat shield.'
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: The corridor is about a degree wide. What does the room do with the time left?
     title: Protect the entry corridor
     place: Crew G-Load Console
     scene: >-
@@ -1410,22 +1480,23 @@ missions:
       trajectory — it comes from checking that the plan still works across the range of atmospheres, entry
       angles and vehicle configurations that are actually consistent with what is known.
     takeaway: Entry safety comes from margins across plausible conditions, not perfection at one nominal point.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Refine position and velocity uncertainty before entry.
-    - label: B
-      text: Model steep and shallow atmospheric scenarios.
-    - label: C
-      text: Verify thermal-protection and center-of-mass configuration.
-    - label: D
-      text: Optimize only the nominal trajectory.
-    recommended:
-      A: 35
-      B: 30
-      C: 30
-      D: 5
-    evidence: Allocate 100 analysis credits.
+    format: CHOICE
+    question: The corridor is about a degree wide. What does the room do with the time left?
+    choices:
+    - Refine the position and velocity uncertainty before entry.
+    - Model steep and shallow atmospheric scenarios.
+    - Verify the heat-shield and centre-of-mass configuration.
+    - Optimise the nominal entry trajectory as far as it will go.
+    answer: Refine the position and velocity uncertainty before entry.
+    why: >-
+      The corridor is a constraint on where the vehicle actually is, and the
+      uncertainty is what decides whether the whole distribution fits inside it.
+      Shrinking it is the only action available that makes the same corridor
+      easier to hit.
+    rebuttals:
+    - Steep and shallow atmospheres bound a variation nobody can reduce. Worth knowing; it changes what you can survive, not where you are.
+    - Verifying the shield and the centre of mass is required before commitment and moves the trajectory not at all.
+    - Optimising the nominal makes the best case better. The corridor is missed by the cases that are not nominal.
 - title: The Structure Is Vibrating
   objective: Move the system away from resonance and verify that the mitigation works across operating conditions.
   briefing: A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance
@@ -1501,16 +1572,25 @@ missions:
       expensively.
     takeaway: Natural frequency emerges from inertia and stiffness.
     format: BALLPARK
+    why: Knowing where a structure's natural frequency sits tells you which operating speeds will drive it, before the hardware tells you the same thing much more expensively.
     question: Estimate the natural period.
     estimate:
+      prompt: A mounted component is modelled as a 4 kg mass on a 400 N/m spring.
+      question: Estimate the natural period.
       labels:
-      - 4 kg
-      - 400 N/m
+      - 4 kg (component mass)
+      - 400 N/m (mount stiffness)
+      - 3,200 rpm (reaction-wheel speed)
+      - 0.5 kg (the damper)
+      - 10 Hz (a nearby mode)
       values:
       - 4
       - 400
+      - 3200
+      - 0.5
+      - 10
       slots: 2
-      template: "2\u03C0 sqrt({0}/{1})"
+      template: 2π √({0} ÷ {1})
       formula: 2*Math.PI*Math.sqrt(a/b)
       correct:
       - 0
@@ -1518,12 +1598,10 @@ missions:
       target: 0.628
       tolerance: 0.05
       units: s
-      solution: "T = 2\u03C0 sqrt(m/k) is about 0.63 s."
-      prompt: A simplified mounted component has m = 4 kg and k = 400 N/m.
-      question: Estimate the natural period.
+      solution: T = 2π√(m/k) ≈ 0.63 s, about 1.6 Hz.
+      explanation: Only inertia and stiffness set the natural frequency — heavier is slower, stiffer is faster. The wheel speed is what might drive this mode, which is the next question and not this one.
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: The panel oscillates whenever the pump runs near one speed. What do you do?
     title: Stop the resonance
     place: Operations Planning Room
     scene: >-
@@ -1534,22 +1612,23 @@ missions:
       and configurations establishes whether the fix worked or merely moved the problem. Driving harder to
       pass through the resonance faster is a plan that depends on the structure surviving the passage.
     takeaway: A structural fix should change the dynamics and then demonstrate that the dangerous mode is controlled.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Shift operating speed away from the measured resonance.
-    - label: B
-      text: Add or restore damping where feasible.
-    - label: C
-      text: Measure response at multiple locations and configurations.
-    - label: D
-      text: Increase forcing to pass through the resonance faster without analysis.
-    recommended:
-      A: 35
-      B: 30
-      C: 30
-      D: 5
-    evidence: Allocate 100 mitigation credits.
+    format: CHOICE
+    question: The panel oscillates whenever the pump runs near one speed. What do you do?
+    choices:
+    - Shift the pump's operating speed away from the measured resonance.
+    - Add or restore damping at the panel.
+    - Measure the response at several more locations first.
+    - Drive the pump harder to pass through the band faster.
+    answer: Shift the pump's operating speed away from the measured resonance.
+    why: >-
+      Resonance is a coincidence between a forcing frequency and a natural one,
+      and only two things can change: the structure or the forcing. On a vehicle
+      in flight, the forcing is the one that can be changed now, reversibly,
+      without anybody touching the panel.
+    rebuttals:
+    - Damping bleeds energy out of the mode and is the right permanent fix. It needs hardware, access and a crew member with their hands on the structure.
+    - Measuring in more places is how you confirm the fix worked or merely moved the problem. It is the check, not the change.
+    - Passing through faster assumes the structure survives the passage, which is the assumption the growing amplitude across three cycles is calling into question.
 - title: Choose the Return Path
   objective: Select a return plan with explicit margins and contingencies for the dominant uncertainties.
   briefing: Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player
@@ -1589,8 +1668,7 @@ missions:
     - 3
     why: A trajectory is a system choice whose effects propagate across subsystems.
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Consumables are known only to within about a day. Which return do you fly?
     title: Select the robust trajectory
     place: Life-Support Desk
     scene: >-
@@ -1601,22 +1679,23 @@ missions:
       efficiency: a path that is optimal against the current best estimate and infeasible if that estimate
       is off by a day is not the safest thing on the board.
     takeaway: Robust optimization values margin and adaptability, not only nominal efficiency.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Fast return with narrow entry and propulsion margins.
-    - label: B
-      text: Moderate return with balanced fuel, thermal, and consumable margins.
-    - label: C
-      text: Slow return that preserves fuel but exceeds uncertain life-support capacity.
-    - label: D
-      text: Hold reserve for a correction after new tracking.
-    recommended:
-      A: 15
-      B: 60
-      C: 10
-      D: 15
-    evidence: Allocate 100 decision credits.
+    format: CHOICE
+    question: Consumables are known only to within about a day. Which return do you fly?
+    choices:
+    - The moderate return, with balanced fuel, thermal and consumable margins.
+    - The fast return, accepting narrow entry and propulsion margins.
+    - The slow return, preserving fuel at the cost of life-support margin.
+    - Defer the choice and hold the propellant for a later correction.
+    answer: The moderate return, with balanced fuel, thermal and consumable margins.
+    why: >-
+      The uncertainty in the consumables is larger than the difference between
+      the two fastest options, so choosing between them on nominal numbers is
+      choosing on noise. The moderate path is the one that stays feasible across
+      the whole range the crew might actually be in.
+    rebuttals:
+    - The fast return is optimal against an estimate carrying a day of uncertainty, and its margins are narrowest exactly where that uncertainty lands.
+    - The slow return preserves propellant and spends a life-support capacity nobody has bounded. It is optimal against the wrong constraint.
+    - Deferring is a rule about when to burn, not a trajectory. The vehicle is on one whether or not the choice is made.
   - group: THERM
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
       placed cards after each check.
@@ -1717,16 +1796,25 @@ missions:
       a corridor violation.
     takeaway: Independent orthogonal uncertainties combine in quadrature.
     format: BALLPARK
-    question: Estimate the two-dimensional uncertainty scale.
+    why: Overstated uncertainty argues for a burn that is not needed; understated uncertainty hides a corridor violation. Both directions matter, which is why the combination rule has to be right.
+    question: Estimate the combined two-dimensional uncertainty.
     estimate:
+      prompt: Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.
+      question: Estimate the combined two-dimensional uncertainty.
       labels:
-      - 6 km
-      - 8 km
+      - 6 km (one-sigma, first axis)
+      - 8 km (one-sigma, second axis)
+      - 14 km (the two added)
+      - 7 km (their average)
+      - 2 (number of axes)
       values:
       - 6
       - 8
+      - 14
+      - 7
+      - 2
       slots: 2
-      template: sqrt({0}^2 + {1}^2)
+      template: √({0}² + {1}²)
       formula: Math.sqrt(a*a+b*b)
       correct:
       - 0
@@ -1734,12 +1822,10 @@ missions:
       target: 10
       tolerance: 0.5
       units: km
-      solution: sqrt(6^2+8^2) = 10 km.
-      prompt: Two independent one-sigma position errors are 6 km and 8 km along perpendicular directions.
-      question: Estimate the two-dimensional uncertainty scale.
+      solution: √(6² + 8²) = 10 km.
+      explanation: Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by forty per cent here.
   - group: INTEG
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: Two stations disagree by more than either one's stated error. Do you burn?
     title: Burn or observe?
     place: Flight Director Console
     scene: >-
@@ -1750,22 +1836,24 @@ missions:
       would separate the hypotheses; preserving propulsion keeps a later correction possible. A correction
       is worth making when it reduces total risk, not when it merely moves the nominal point.
     takeaway: Corrections should reduce total uncertainty and risk, not merely move the nominal trajectory.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Obtain one more independent high-leverage observation.
-    - label: B
-      text: Execute a correction whose expected shift is smaller than burn uncertainty.
-    - label: C
-      text: Preserve propulsion capability if the current corridor remains acceptable.
-    - label: D
-      text: Update entry predictions across the full covariance.
-    recommended:
-      A: 30
-      B: 5
-      C: 25
-      D: 40
-    evidence: Allocate 100 decision credits.
+    format: CHOICE
+    question: Two stations disagree by more than either one's stated error. Do you burn?
+    choices:
+    - No — obtain one more independent, high-leverage observation.
+    - Yes — execute the correction the current solution calls for.
+    - No — preserve propulsion and accept the corridor as it stands.
+    - No — update the entry predictions across the full covariance first.
+    answer: No — obtain one more independent, high-leverage observation.
+    why: >-
+      Both stations use the same clock model, so their agreement was never
+      independent and their disagreement does not say which is wrong. Only a
+      measurement that cannot fail the same way can settle it — and the
+      correction being argued about is about the same size as the error it would
+      be correcting.
+    rebuttals:
+    - A burn whose expected shift is smaller than its own execution uncertainty moves the nominal without reducing the risk, and spends propellant doing it.
+    - Preserving propulsion is the consequence of not burning rather than a decision in its own right, and it leaves the disagreement exactly where it was.
+    - Updating the predictions across the covariance says how bad the disagreement is. It adds no new information about which station is right.
 - title: Reentry
   objective: Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.
   briefing: 'The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere,
@@ -1831,8 +1919,7 @@ missions:
     - 3
     why: Configuration and authority precede commitment; monitoring and evidence preservation continue through recovery.
   - group: NAV
-    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
-      before submission.
+    task: The review board convenes on Monday. What does the programme commit to?
     title: Fund the mission legacy
     place: Entry Tracking Network
     scene: >-
@@ -1843,23 +1930,23 @@ missions:
       fourth proposal is to celebrate the outcome and treat every anomaly as a one-off. A programme learns
       from the discrepancies it recorded, and only from those.
     takeaway: The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.
-    format: SCIENCETANK
-    proposals:
-    - label: A
-      text: Preserve complete telemetry, configuration, and decision logs.
-    - label: B
-      text: Redesign common-mode electrical and sensor dependencies.
-    - label: C
-      text: Improve simulation and crew rehearsal for degraded modes.
-    - label: D
-      text: Celebrate success and classify every anomaly as irrelevant.
-    recommended:
-      A: 35
-      B: 30
-      C: 35
-      D: 0
-    evidence: Allocate 100 postflight credits.
-
+    format: CHOICE
+    question: The review board convenes on Monday. What does the programme commit to?
+    choices:
+    - Redesign the common-mode electrical and sensor dependencies.
+    - Preserve the complete telemetry, configuration and decision logs.
+    - Improve simulation and crew rehearsal for degraded modes.
+    - Record the outcome as a success and close the anomalies.
+    answer: Redesign the common-mode electrical and sensor dependencies.
+    why: >-
+      The failure that started this was three pressure readouts sharing one
+      reference, and the near-miss at the end was two tracking stations sharing
+      one clock. It is the only item here that removes a cause rather than
+      improving the response to it.
+    rebuttals:
+    - Preserving telemetry and decision logs is what makes any reconstruction possible, and it should be finished before Monday rather than funded after it.
+    - Rehearsal for degraded modes improves how the next crew survives the same fault. Valuable, and it accepts the fault.
+    - Closing the anomalies as one-offs keeps every dependency that produced them, and the next mission inherits all of it.
 # --------------------------------------------------------------- the rooms
 # What is inside each back room, and what its console reads. Keyed by group.
 interiors:

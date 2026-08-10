@@ -147,11 +147,15 @@ function applyPack(ch, pack){
   ch.type = 'DIAGNOSIS';
   ch.headline = pack.hook ?? ch.headline;
   ch.play = pack.riddle ?? ch.play;
-  ch.readings = Object.entries(pack.readings ?? {}).map(([key, r]) => ({
+  // A pack's `salient` list names the readings the puzzle turns on. That is not
+  // a severity, and rendering it as one told the player the opposite of the
+  // truth: "counts with the detector high voltage off: 0" is the reading that
+  // clears the electronics, and it was arriving in alarm red.
+  ch.readings = Object.entries(pack.readings ?? {}).map(([id, r]) => ({
     zone: pack.zones?.[r.zone] ?? r.zone,
     label: r.name,
     value: r.observed,
-    status: salient.has(key) ? 'alarm' : 'normal',
+    status: r.status ?? (salient.has(id) ? 'key' : 'normal'),
     note: r.reference ? `Expected: ${r.reference}` : r.purpose,
   }));
   ch.choices = Object.values(pack.hypotheses ?? {})

@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 2,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Ten minutes to the next tracking pass. What does the flight director do first?"
       }
     ]
   },
@@ -71,7 +71,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 4,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The drift is real and the tracking is thin. What do you do?"
       }
     ]
   },
@@ -119,7 +119,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 6,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Which load comes off the bus first?"
       }
     ]
   },
@@ -143,7 +143,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 7,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Engineers want to bolt the module in now. What has to happen first?"
       }
     ]
   },
@@ -167,7 +167,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 8,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Four degrees and falling, on a fixed energy budget. What do you spend it on?"
       }
     ]
   },
@@ -191,7 +191,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 10,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?"
       }
     ]
   },
@@ -239,7 +239,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 7,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?"
       }
     ]
   },
@@ -263,7 +263,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 12,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The corridor is about a degree wide. What does the room do with the time left?"
       }
     ]
   },
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 14,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The panel oscillates whenever the pump runs near one speed. What do you do?"
       }
     ]
   },
@@ -306,7 +306,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 16,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Consumables are known only to within about a day. Which return do you fly?"
       },
       {
         "group": "THERM",
@@ -335,7 +335,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 17,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "Two stations disagree by more than either one's stated error. Do you burn?"
       }
     ]
   },
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 10,
-        "task": "Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion before submission."
+        "task": "The review board convenes on Monday. What does the programme commit to?"
       }
     ]
   }
