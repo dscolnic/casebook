@@ -16,6 +16,11 @@
 import * as THREE from 'three';
 import { pickLook, buildBody, buildExtraBody, stepGait, gaitAdvance, idleSway } from './rig.js';
 import { srand, srandRange, resetSeed } from '../world/materials.js';
+// Which people the day still wants. The crowd is the only place that knows
+// where those people are standing right now, so it is the only place that can
+// mark them.
+import { getState } from '../core/gameState.js';
+import { openStopIndices, isPersonStopForIdx, getPersonIdForStop } from '../core/simulation.js';
 
 let ctx = null;
 let group = null;
@@ -243,6 +248,39 @@ function nameplate(person){
  * the body, so the standoff has to be computed in the body's own frame — the
  * body turns as it walks and a world-space offset would swing into its back.
  */
+/**
+ * The marker over the head of somebody this day's calls want.
+ *
+ * A person stop is answered by finding a named person in a crowd of thirty who
+ * are dressed like them, and the only aids were a nameplate you have to be
+ * within nine metres and looking straight at, and a dot on the map. This is the
+ * third: a cone the size of a road sign, hanging over their head, bobbing.
+ *
+ * Two deliberate choices. It is a cone rather than a billboarded chevron, so it
+ * reads the same from every angle without a per-frame rotation. And it draws
+ * with `depthTest: false` — through walls, through other people — because the
+ * whole point is finding somebody you cannot see. It is the one thing in these
+ * games allowed to do that.
+ */
+const MARKER_LIFT = 2.35;              // clear of a 1.775 m rig's head
+function findMarker(colour){
+  const g = new THREE.Group();
+  const cone = new THREE.Mesh(
+    new THREE.ConeGeometry(0.28, 0.62, 4),
+    new THREE.MeshBasicMaterial({ color: colour, depthTest: false, transparent: true, opacity: 0.95 }));
+  cone.rotation.x = Math.PI;           // point down, at the head
+  cone.rotation.y = Math.PI / 4;       // a diamond in plan, not a square
+  const halo = new THREE.Mesh(
+    new THREE.ConeGeometry(0.36, 0.78, 4),
+    new THREE.MeshBasicMaterial({ color: 0xffffff, depthTest: false, transparent: true, opacity: 0.35 }));
+  halo.rotation.copy(cone.rotation);
+  halo.position.y = 0.02;
+  g.add(halo, cone);
+  g.renderOrder = 9000;                // over everything, including the halo's own siblings
+  g.userData.cone = cone;
+  return g;
+}
+
 const plateLocal = new THREE.Vector3();
 const worldChest = new THREE.Vector3();
 function faceChest(n, cam){
@@ -346,8 +384,34 @@ function yieldToPlayer(n, px, pz){
 }
 
 /** Idle motion, billboarded plates, and the near-and-looked-at fade. */
+/**
+ * Who the day still wants, refreshed a few times a second rather than per
+ * frame — it walks the open stops and resolves a person for each, and none of
+ * that changes between two frames.
+ *
+ * More than one at once is normal: a day whose repeat visit became a second
+ * person stop wants two people, and they can be standing in the same room.
+ */
+let wantedIds = new Set();
+let sinceWanted = 1;
+function refreshWanted(){
+  const state = getState?.();
+  if(!state){ wantedIds = new Set(); return; }
+  const next = new Set();
+  try{
+    for(const i of openStopIndices(state)){
+      if(!isPersonStopForIdx(state, i)) continue;
+      const id = getPersonIdForStop(state, i);
+      if(id) next.add(id);
+    }
+  }catch{ /* a theme mid-load has no mission yet */ }
+  wantedIds = next;
+}
+
 export function updateCrowd(delta, t){
   if(!ctx) return;
+  sinceWanted += delta;
+  if(sinceWanted > 0.4){ sinceWanted = 0; refreshWanted(); }
   const cam = ctx.camera;
   cam.getWorldDirection(camDir);
   const px = cam.position.x, pz = cam.position.z;
@@ -371,6 +435,21 @@ export function updateCrowd(delta, t){
     n.plate.material.opacity += (want - n.plate.material.opacity) * Math.min(1, delta * 8);
     n.plate.visible = n.plate.material.opacity > 0.02;
     if(n.plate.visible) faceChest(n, cam);
+
+    // The marker over the head of anybody today still owes a call to.
+    const wanted = wantedIds.has(n.char?.id);
+    if(wanted && !n.marker){
+      n.marker = findMarker(n.char?.color ?? 0xf2c14e);
+      group.add(n.marker);
+    }
+    if(n.marker){
+      n.marker.visible = wanted;
+      if(wanted){
+        n.marker.position.set(n.pos.x, ctx.groundHeight(n.pos.x, n.pos.z) + MARKER_LIFT
+          + Math.sin(t * 2.2 + n.phase) * 0.09, n.pos.z);
+        n.marker.rotation.y = t * 1.1;
+      }
+    }
   }
   for(const e of extras){ walk(e, delta, t); yieldToPlayer(e, px, pz); }
 }

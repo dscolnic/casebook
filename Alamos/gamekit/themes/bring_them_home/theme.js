@@ -19,7 +19,6 @@ import { MISSIONS } from './content/missions.js';
 import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
-import { INTERIORS } from './interiors.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -46,34 +45,37 @@ export default {
     // spawn must be >= ROSTER.length, or characters past the limit never appear
     // and any mission stop naming them is unreachable. Validated.
     spawn: ROSTER.length,
-    // Background people. A narrow place needs far fewer: on the submarine more
-    // than eight and the player cannot get down the passage.
-    extras: 18,
+    // Background people, and indoors this number is half what it was. A control
+    // room with eighteen unnamed extras in it reads as a crowd to push through
+    // rather than as a room with people working in it — and every one of them
+    // is somebody the player has to check is not the person they are looking
+    // for. Outdoors the same number disperses across a town; here it does not.
+    extras: 9,
   },
 
-  // What is inside each room the player walks into, from book.yml. Rooms are
-  // built by engine/world/interiorBuilding.js on first entry, in a district
-  // four kilometres from the town.
-  interiors: INTERIORS,
+  // No `interiors`. That block builds a room to walk *into*, in a district four
+  // kilometres away, which is what an outdoor game needs when a door opens. The
+  // whole of this game happens on one floor: the consoles are the workplace and
+  // the player is already standing in it. What the book wrote under `interiors`
+  // now reads out on the console screens instead — see world.js.
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   // Painted steel, grey consoles and deck matting, not laboratory vinyl.
   interiorStyle: 'steel',
 
-  // The title card. Two or three paragraphs: what the player is, what is at
-  // stake, and how a day works. Nothing here is generated.
+  // The title card: ONE paragraph. What the player is, where they are, and what
+  // happens if the work is not done — the situation, and nothing else. The
+  // rules of a day (order, clock, the price of a wrong call) used to be a
+  // second paragraph here and in every game, and it was the part nobody read:
+  // four sentences of mechanics standing between the player and the game, all
+  // of it discoverable in the first minute of play or from the plan card.
   opening: [
     'Three people are in a spacecraft on the far side of a quarter-million miles, and something aboard '
-    + 'has exploded. You are the flight director, which means you do not touch the vehicle — you sit in a '
-    + 'room with six back rooms feeding you numbers, and every number arrives late, incomplete and '
-    + 'sometimes wrong. Power is falling, the cabin is cooling, the trajectory is drifting off a path '
-    + 'that only works if nothing else goes wrong, and the crew can hear you. Fifteen shifts stand '
-    + 'between the bang and the water, and physics is the only thing in the building that does not '
-    + 'negotiate.',
-    'Each shift opens with its calls and you take them in any order. The clock runs while you walk the '
-    + 'corridor and at a quarter rate while you are reading a panel. A wrong call costs $5 to work again '
-    + 'or $10 to leave open; run out of either and you stand the shift again. Whatever time is left when '
-    + 'the calls are made is yours — the controllers will tell you things if you ask them.',
+    + 'has just exploded. You are the flight director, and the calls are yours to make. Power is '
+    + 'falling. The cabin is cooling. The trajectory is drifting off the one path that gets them back, '
+    + 'and the air they are breathing is already on a countdown. Six teams work the problem from the '
+    + 'consoles in front of you, the crew can hear every word on the loop, and fifteen shifts stand '
+    + 'between the bang and the water.',
   ],
 
   look: {

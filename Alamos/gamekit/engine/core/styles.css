@@ -376,7 +376,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 /* The site plan is drawn to the site's own aspect — a long hospital corridor
    comes out 1700px tall. Constrain by height and let the width follow, or the
    map sits far below the fold of the card it is supposed to inform. */
-.planMap svg{height:min(46vh,340px);width:auto;max-width:100%;display:block}
+.planMap svg{max-width:100%;max-height:min(46vh,360px);width:auto;height:auto;display:block}
 .planMap .mapWrap{max-width:100%;display:flex;flex-direction:column;align-items:center}
 .planMap .mapLegend{display:none}
 

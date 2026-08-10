@@ -79,7 +79,7 @@ const day = createDay({
   // The Hill's own start, not wherever the player is standing: a budget taken
   // from inside an interior measures a route to the interior district.
   spawn: () => themeManifest.start ?? { x: 0, z: 14 },
-  mapHTML: () => renderMap(),
+  mapHTML: () => renderMap({ maxW: 660, maxH: 340 }),
   // A quarter rate while a panel is up — reading is the game, and at full rate
   // an instrument panel costs more of the day than the walk to reach it.
   pace: () => (document.getElementById('overlay')?.classList.contains('show') ? PANEL_PACE : 1),
@@ -401,7 +401,7 @@ function updateMiniMap(delta = 0){
   mapAccum += delta;
   if(mapAccum < 0.25 && miniMapEl.childElementCount) return;
   mapAccum = 0;
-  miniMapEl.innerHTML = renderMap();
+  miniMapEl.innerHTML = renderMap({ maxW: Math.min(1100, innerWidth - 120), maxH: Math.min(760, innerHeight - 190) });
 }
 
 // ——— Interactions ———

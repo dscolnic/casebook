@@ -246,10 +246,13 @@ function buildConsole(spec, def){
     entry: new THREE.Vector3(spec.x, y, z + 2.6),
   });
 
-  // Pressing E at the desk opens the back room for that team — the interior
-  // district room, exactly as a door does in the other games.
+  // `case`, not `door`. A door hands off to the interior manager, which builds
+  // the team's room out in the district four kilometres away and teleports the
+  // player into it — right in the other games, where a door is the way into a
+  // place you are not yet standing in, and wrong here: the console IS the
+  // workplace, and the player is already in the room.
   interactables.push({
-    mesh: desk, type: 'door', id: spec.group,
+    mesh: desk, type: 'case', id: spec.group,
     prompt: `E — Take the ${spec.name} console`,
   });
 

@@ -40,9 +40,10 @@ document.getElementById('titleRole').textContent = theme.subtitle;
 document.getElementById('mapTitle').textContent = theme.site?.name ?? theme.title;
 document.getElementById('titleStakes').innerHTML =
   (theme.opening ?? []).map(p => `<p class="stakes">${p}</p>`).join('');
-document.getElementById('titleScope').textContent =
-  'A fictional scenario for teaching. Numerical examples are generic and non-operational; '
-  + 'nothing here is a procedure for handling real hazardous material.';
+// The scope line — "a fictional scenario for teaching, nothing here is a real
+// procedure" — is gone. It was the last thing between the player and the game
+// and it told them the stakes they had just read were not real.
+document.getElementById('titleScope').textContent = '';
 
 // ------------------------------------------------------------------- state
 // Every area starts at zero readiness, led by the person groups.js names.
@@ -161,7 +162,9 @@ const day = createDay({
   // restart taken from inside an interior measured a route to the interior
   // district, four kilometres away, and handed out a forty-hour day.
   spawn: () => theme.start ?? theme.site?.spawn ?? { x: 0, z: 0 },
-  mapHTML: () => renderMap(),
+  // The plan card is 70vh tall with a table under the map, so the map gets a
+  // box rather than the whole card.
+  mapHTML: () => renderMap({ maxW: 660, maxH: 340 }),
   // A quarter rate while any panel is up: reading the evidence is the game, and
   // at full rate a Diagnosis costs more of the day than the walk to reach it.
   pace: () => (overlay.classList.contains('show') ? PANEL_PACE : 1),
@@ -270,7 +273,10 @@ const sheet = (id, on) => {
   if(on && document.pointerLockElement) document.exitPointerLock();
 };
 function openMap(){
-  document.getElementById('mapBody').innerHTML = renderMap();
+  // The M-key sheet is the whole screen: give the map most of it.
+  document.getElementById('mapBody').innerHTML = renderMap({
+    maxW: Math.min(1100, innerWidth - 120), maxH: Math.min(760, innerHeight - 190),
+  });
   sheet('mapOverlay', true);
 }
 document.getElementById('mapBtn').addEventListener('click', openMap);

@@ -59,14 +59,15 @@ export default {
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
 
-  // The title card. Two or three paragraphs: what the player is, what is at
-  // stake, and how a day works. Nothing here is generated.
+  // The title card: ONE paragraph. What the player is, where they are, and what
+  // happens if the work is not done — the situation, and nothing else. The
+  // rules of a day (order, clock, the price of a wrong call) used to be a
+  // second paragraph here and in every game, and it was the part nobody read:
+  // four sentences of mechanics standing between the player and the game, all
+  // of it discoverable in the first minute of play or from the plan card.
   opening: [
     'Say what the player is, where they are, and what happens if the work is not done. '
     + 'This paragraph is the only place the game explains itself.',
-    'Each mission is one working day. The calls are shown before it starts and taken in any order; '
-    + 'the clock runs while you walk and at a quarter rate while a panel is open. A wrong call costs '
-    + '$5 to answer again or $10 to leave open, and running out of either means standing the day again.',
   ],
 
   look: {

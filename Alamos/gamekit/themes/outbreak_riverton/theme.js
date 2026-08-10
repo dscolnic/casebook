@@ -59,20 +59,20 @@ export default {
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
 
-  // The title card. Two or three paragraphs: what the player is, what is at
-  // stake, and how a day works. Nothing here is generated.
+  // The title card: ONE paragraph. What the player is, where they are, and what
+  // happens if the work is not done — the situation, and nothing else. The
+  // rules of a day (order, clock, the price of a wrong call) used to be a
+  // second paragraph here and in every game, and it was the part nobody read:
+  // four sentences of mechanics standing between the player and the game, all
+  // of it discoverable in the first minute of play or from the plan card.
   opening: [
     'Three hospitals in one river city reported the same unusual illness within a day of each other, and '
-    + 'nobody can yet say whether that is an outbreak or three coincidences seen by three anxious clinicians. '
-    + 'You are the scientific response director, which means you decide what gets measured while people are '
-    + 'still arriving at emergency departments. Six teams work for you — clinical, cellular, molecular, '
-    + 'immunological, epidemiological and field — and each of them can answer one kind of question well and '
-    + 'every other kind badly. Fifteen days stand between the first cluster and the briefing where the city '
-    + 'is told what happened and what is still unknown.',
-    'Each day opens with its calls and you take them in any order. The clock runs while you cross the campus '
-    + 'and at a quarter rate while you are reading a panel. A wrong call costs $5 to work again or $10 to '
-    + 'leave open; run out of either and you take the day again. Whatever time is left when the calls are '
-    + 'made is yours — people here will tell you things if you ask them.',
+    + 'ambulances are still arriving. You are the scientific response director: you decide what gets '
+    + 'measured, and the city acts on what you find. Six teams are yours — clinical, cellular, molecular, '
+    + 'immunological, epidemiological and field — and each can answer one kind of question brilliantly and '
+    + 'every other kind badly, so which one you send matters as much as what you ask. Fifteen days stand '
+    + 'between the first cluster and the briefing where you tell the city what happened, and the outbreak '
+    + 'gets a head start on every one of them.',
   ],
 
   look: {

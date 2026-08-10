@@ -50,7 +50,7 @@ const day = createDay({
   },
   // The department's own start, not wherever the player is standing.
   spawn: () => themeManifest.start ?? { x: 0, z: 14 },
-  mapHTML: () => renderMap(),
+  mapHTML: () => renderMap({ maxW: 660, maxH: 340 }),
   // A quarter rate while a panel is up — reading is the game, and at full rate
   // an instrument panel costs more of the shift than the walk to reach it.
   pace: () => (document.getElementById('overlay')?.classList.contains('show') ? PANEL_PACE : 1),
@@ -252,7 +252,10 @@ try{
 
 // ——— People ———
 function ensurePeople(){
-  try{ spawnNPCs(26); }catch(e){ console.warn('NPC spawn failed', e); }
+  // Half the unnamed crowd. A ward corridor with twenty-six extras in it reads
+  // as a crowd to push through, and each one is somebody the player has to
+  // check is not the patient or colleague they were sent to find.
+  try{ spawnNPCs(13); }catch(e){ console.warn('NPC spawn failed', e); }
 }
 // ——— Game loop ———
 

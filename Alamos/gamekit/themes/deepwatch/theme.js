@@ -44,15 +44,10 @@ export default {
     'You have the watch on a submarine at ninety metres, and the boat has been submerged long '
     + 'enough that nobody aboard has seen daylight or a horizon. Everything you know about the world '
     + 'outside this hull arrives as sound, and everything you know about the boat arrives as a gauge '
-    + 'somebody else is reading. There are fifteen watches between here and the end of the patrol. '
-    + 'The clock at the top of the screen is what is left of this watch, and it does not stop while '
-    + 'you think: a contact you have not resolved keeps closing, water already aboard keeps rising, and '
-    + 'a plot nobody has corrected gets further from the truth every minute. Six departments will '
-    + 'each ask you for something, and there are not enough of you to give all of them an answer.',
-    'You are shown the watch\'s calls before it starts and take them in any order. A wrong call costs '
-    + '$5 to answer again or $10 to leave unresolved; run out of either money or watch with a call '
-    + 'still open and you stand the watch again. Whatever is left once the calls are made is yours '
-    + 'to walk the boat with — the crew will sign off expenses for a conversation.',
+    + 'somebody else is reading. There are fifteen watches between here and the end of the patrol, and '
+    + 'nothing aboard waits for you: a contact you have not resolved keeps closing, water already aboard '
+    + 'keeps rising, and a plot nobody has corrected gets further from the truth every minute. Six '
+    + 'departments will each ask you for something, and there are not enough of you to answer all of them.',
   ],
 
   look: {

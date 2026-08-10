@@ -192,7 +192,10 @@ function parseMapping(lines, i, indent){
 
     if(rest === '|' || rest === '>' || rest === '|-' || rest === '>-'){
       const [text, next] = readBlockScalar(lines, i + 1, indent, rest[0] === '>');
-      out[key] = rest.endsWith('-') ? text.replace(/\n+$/, '') : text;
+      // A `|` or `>` block keeps exactly one trailing newline (YAML calls it
+      // clipping); `|-` and `>-` strip it. Dropping it entirely was invisible
+      // in the game and made the parser disagree with every other reader.
+      out[key] = rest.endsWith('-') ? text.replace(/\n+$/, '') : text.replace(/\n*$/, '\n');
       i = next;
       continue;
     }

@@ -61,20 +61,20 @@ export default {
   // to preserve night vision, and it looks like nowhere else in this set.
   interiorStyle: 'observatory',
 
-  // The title card. Two or three paragraphs: what the player is, what is at
-  // stake, and how a day works. Nothing here is generated.
+  // The title card: ONE paragraph. What the player is, where they are, and what
+  // happens if the work is not done — the situation, and nothing else. The
+  // rules of a day (order, clock, the price of a wrong call) used to be a
+  // second paragraph here and in every game, and it was the part nobody read:
+  // four sentences of mechanics standing between the player and the game, all
+  // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'A survey telescope flagged a faint moving point near the ecliptic, and the arc is four hours long. '
-    + 'You direct the campaign that decides what that point is: whether it is a real object, where it is '
-    + 'going, how big it is, what it is made of, what it would do if it arrived, and whether anything can '
-    + 'be done about it. Six groups work for you and none of them can settle it alone — an orbit without a '
-    + 'size is not a consequence, and a size without a reflectivity is not a size. The hardest part is not '
-    + 'the arithmetic. It is that the answer changes as observations arrive, in public, while people are '
-    + 'asking whether to leave their homes.',
-    'Each day opens with its calls and you take them in any order. The clock runs while you cross the '
-    + 'campus and at a quarter rate while you are reading a panel. A wrong call costs $5 to work again or '
-    + '$10 to leave open; run out of either and you take the day again. Whatever time is left when the '
-    + 'calls are made is yours — people here will tell you things if you ask them.',
+    'A survey telescope flagged a faint moving point near the ecliptic four hours ago, and every orbit '
+    + 'that fits it is still on the table — including the ones that end here. You direct the campaign: '
+    + 'the telescopes that chase it, the radar window that opens once in eleven years, and the spacecraft '
+    + 'that could be built to move it. Six groups work through the night on the mountain and none of them '
+    + 'can settle it alone — an orbit without a size is not a consequence, and a size without a '
+    + 'reflectivity is not a size. The probability changes every time an observation lands, in public, '
+    + 'while two coastal regions wait to hear whether they should leave.',
   ],
 
   look: {

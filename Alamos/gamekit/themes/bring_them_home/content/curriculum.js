@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Which measurement constrains what?",
-      "scene": "Match each observation to its strongest direct constraint.",
+      "scene": "The onboard computer has restarted and the tracking is intermittent, so the state has to be rebuilt from whatever measurements exist. Each type constrains a different thing: two-way signal travel time fixes how far away the spacecraft is and says nothing about direction; Doppler shift measures the rate at which that distance is changing; an angular position against background stars fixes direction and not distance; repeated positions at known times give velocity by differencing. Navigation is reconstruction from partial projections — no single measurement type gives the full six-dimensional state, and knowing which is which decides what to schedule next.",
       "takeaway": "Navigation is a reconstruction from partial projections.",
       "place": "Deep-Space Tracking Station",
-      "story": "Match each observation to its strongest direct constraint.",
+      "story": "The onboard computer has restarted and the tracking is intermittent, so the state has to be rebuilt from whatever measurements exist. Each type constrains a different thing: two-way signal travel time fixes how far away the spacecraft is and says nothing about direction; Doppler shift measures the rate at which that distance is changing; an angular position against background stars fixes direction and not distance; repeated positions at known times give velocity by differencing. Navigation is reconstruction from partial projections — no single measurement type gives the full six-dimensional state, and knowing which is which decides what to schedule next.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which measurement constrains what?",
@@ -43,10 +43,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Reconstruct the state vector",
-      "scene": "The onboard computer restarted and lost its alignment. What is left is a range measurement from one station, two bearing angles taken ninety minutes apart, and a Doppler trace in a different time standard from either of them. The burn that gets the crew home has to be planned from those three.",
+      "scene": "The onboard computer restarted and lost its alignment. What is left is a range measurement from one station, two bearing angles taken ninety minutes apart, and a Doppler trace recorded in a different time standard from either. The burn that gets the crew home is planned from those three. A state estimate is only worth having if it predicts the next observation: transform everything into one coordinate and time system, fit a trajectory that reproduces range, angle and Doppler together, look at what the fit got wrong for structure that indicates an unmodelled force, and propagate both state and uncertainty forward to the moment the decision has to be made.",
       "takeaway": "A useful state estimate predicts future observations and exposes its own failures.",
       "place": "Guidance Room",
-      "story": "The onboard computer restarted and lost its alignment. What is left is a range measurement from one station, two bearing angles taken ninety minutes apart, and a Doppler trace in a different time standard from either of them. The burn that gets the crew home has to be planned from those three.",
+      "story": "The onboard computer restarted and lost its alignment. What is left is a range measurement from one station, two bearing angles taken ninety minutes apart, and a Doppler trace recorded in a different time standard from either. The burn that gets the crew home is planned from those three. A state estimate is only worth having if it predicts the next observation: transform everything into one coordinate and time system, fit a trajectory that reproduces range, angle and Doppler together, look at what the fit got wrong for structure that indicates an unmodelled force, and propagate both state and uncertainty forward to the moment the decision has to be made.",
       "game": {
         "type": "SEQUENCE",
         "title": "Reconstruct the state vector",
@@ -73,10 +73,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Distance from signal delay",
-      "scene": "A tracking pulse returns 2.6 seconds after transmission.",
+      "scene": "A tracking pulse leaves the dish and the echo returns 2.6 seconds later. Radio travels at the speed of light and the pulse makes the trip twice, which is the only subtlety in the arithmetic and the one people drop. This single number is worth more than an hour of angular measurements right now, because range is exactly the quantity the restarted computer lost, and it is measured directly rather than inferred from a fit.",
       "takeaway": "Travel time converts directly into range when the propagation speed is known.",
       "place": "Navigation Computation Lab",
-      "story": "A tracking pulse returns 2.6 seconds after transmission.",
+      "story": "A tracking pulse leaves the dish and the echo returns 2.6 seconds later. Radio travels at the speed of light and the pulse makes the trip twice, which is the only subtlety in the arithmetic and the one people drop. This single number is worth more than an hour of angular measurements right now, because range is exactly the quantity the restarted computer lost, and it is measured directly rather than inferred from a fit.",
       "game": {
         "type": "BALLPARK",
         "title": "Distance from signal delay",
@@ -94,10 +94,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Small burn, large consequence",
-      "scene": "A 30,000 kg spacecraft receives a 6,000 N thrust for 20 s.",
+      "scene": "A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds, and the flight dynamics officer wants the resulting change in speed on the loop before the burn is approved. Force applied over time is impulse; impulse divided by mass is the velocity change. The number will look absurdly small next to an orbital speed measured in kilometres per second — and that is the point being taught, because a velocity change of a few metres per second applied days out moves the arrival point by hundreds of kilometres.",
       "takeaway": "Orbital corrections often rely on small velocity changes applied early.",
       "place": "Guidance Console",
-      "story": "A 30,000 kg spacecraft receives a 6,000 N thrust for 20 s.",
+      "story": "A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds, and the flight dynamics officer wants the resulting change in speed on the loop before the burn is approved. Force applied over time is impulse; impulse divided by mass is the velocity change. The number will look absurdly small next to an orbital speed measured in kilometres per second — and that is the point being taught, because a velocity change of a few metres per second applied days out moves the arrival point by hundreds of kilometres.",
       "game": {
         "type": "BALLPARK",
         "title": "Small burn, large consequence",
@@ -115,10 +115,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Choose the correction strategy",
-      "scene": "The drift is real but the tracking is thin, and the propellant is not replaceable. Correcting now costs little and risks correcting toward a state you have measured badly; waiting buys a better measurement and a much larger burn.",
+      "scene": "The drift is real but the tracking is thin, and the propellant is not replaceable. Correcting now costs little and risks correcting toward a state that has been measured badly; waiting buys a better measurement and a much larger burn, because the same positional error costs more velocity to fix the closer you are to arrival. Preserving a backup engine and an alternate attitude plan costs capability that could have gone into the burn itself. The plan that wins is not the one that is cheapest against the current best estimate but the one that still works if that estimate is wrong.",
       "takeaway": "The best trajectory plan balances efficiency with robustness to model and hardware uncertainty.",
       "place": "Propulsion Desk",
-      "story": "The drift is real but the tracking is thin, and the propellant is not replaceable. Correcting now costs little and risks correcting toward a state you have measured badly; waiting buys a better measurement and a much larger burn.",
+      "story": "The drift is real but the tracking is thin, and the propellant is not replaceable. Correcting now costs little and risks correcting toward a state that has been measured badly; waiting buys a better measurement and a much larger burn, because the same positional error costs more velocity to fix the closer you are to arrival. Preserving a backup engine and an alternate attitude plan costs capability that could have gone into the burn itself. The plan that wins is not the one that is cheapest against the current best estimate but the one that still works if that estimate is wrong.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Choose the correction strategy",
@@ -158,10 +158,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Torque from a thruster",
-      "scene": "A 200 N thruster acts 3 m from the center of mass at right angles.",
+      "scene": "A 200 N thruster fires at right angles, three metres from the centre of mass, and the crew needs the torque before they can predict how fast the vehicle will start to turn. Torque is force times lever arm times the sine of the angle between them, which at ninety degrees is one. The same thruster mounted closer in would produce proportionally less turn for the same propellant — location matters as much as magnitude, and on a vehicle this size the lever arm is the term the crew can actually choose.",
       "takeaway": "Force location matters as much as force magnitude in rotational control.",
       "place": "Guidance Console",
-      "story": "A 200 N thruster acts 3 m from the center of mass at right angles.",
+      "story": "A 200 N thruster fires at right angles, three metres from the centre of mass, and the crew needs the torque before they can predict how fast the vehicle will start to turn. Torque is force times lever arm times the sine of the angle between them, which at ninety degrees is one. The same thruster mounted closer in would produce proportionally less turn for the same propellant — location matters as much as magnitude, and on a vehicle this size the lever arm is the term the crew can actually choose.",
       "game": {
         "type": "BALLPARK",
         "title": "Torque from a thruster",
@@ -179,10 +179,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Angular error to position error",
-      "scene": "A pointing error is 0.1° at a distance of 400,000 km.",
+      "scene": "A pointing error of 0.1 degrees at a range of 400,000 kilometres, and the guidance officer wants it in metres rather than degrees. Small angles convert to transverse distance by multiplying the angle in radians by the range, and 0.1 degrees is about 1.75 milliradians. The number that comes out is the reason a hand-held sighting is discussed so carefully: angular precision becomes position precision through geometry, and at lunar distances a fraction of a degree is hundreds of kilometres.",
       "takeaway": "Angle precision becomes position precision through geometry.",
       "place": "Crew Navigation Trainer",
-      "story": "A pointing error is 0.1° at a distance of 400,000 km.",
+      "story": "A pointing error of 0.1 degrees at a range of 400,000 kilometres, and the guidance officer wants it in metres rather than degrees. Small angles convert to transverse distance by multiplying the angle in radians by the range, and 0.1 degrees is about 1.75 milliradians. The number that comes out is the reason a hand-held sighting is discussed so carefully: angular precision becomes position precision through geometry, and at lunar distances a fraction of a degree is hundreds of kilometres.",
       "game": {
         "type": "BALLPARK",
         "title": "Angular error to position error",
@@ -200,10 +200,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Bound the manual alignment",
-      "scene": "The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to check them against. Nobody has yet measured how repeatable that is, and the burn is scheduled either way.",
+      "scene": "The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to check them against, and nobody has measured how repeatable that is. Calibrating reticle and eye position in the simulator quantifies the systematic part; using multiple stars and repeated measurements quantifies the random part and averages it down; a timed attitude-rate check before ignition catches a vehicle that is still drifting when the sighting was taken. A manual procedure is not unreliable by nature — it is unreliable until its geometry and its repeatability have been measured.",
       "takeaway": "A manual procedure becomes reliable when its geometry and repeatability are measured.",
       "place": "Guidance Review Board",
-      "story": "The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to check them against. Nobody has yet measured how repeatable that is, and the burn is scheduled either way.",
+      "story": "The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to check them against, and nobody has measured how repeatable that is. Calibrating reticle and eye position in the simulator quantifies the systematic part; using multiple stars and repeated measurements quantifies the random part and averages it down; a timed attitude-rate check before ignition catches a vehicle that is still drifting when the sighting was taken. A manual procedure is not unreliable by nature — it is unreliable until its geometry and its repeatability have been measured.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Bound the manual alignment",
@@ -243,10 +243,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Real trajectory error or common clock drift?",
-      "scene": "Several ground measurements suddenly place the spacecraft ahead of its predicted path. Before commanding a correction, guidance asks whether the apparent motion could come from a shared timing reference.",
+      "scene": "Several ground measurements suddenly place the spacecraft ahead of its predicted path. Range and Doppler residuals shift together; star-angle navigation, which uses no ground clock at all, matches the prediction; a ground timing reference is found to be offset; reprocessing with the corrected time makes most of the residual disappear; onboard dynamics show no unmodelled acceleration. When several measurements agree, the question is whether they agree independently or merely inherit the same clock, the same calibration and the same software. Correlated errors look exactly like a real signal until something outside the chain is consulted.",
       "takeaway": "When several measurements agree, ask whether they agree independently or merely inherit the same clock, calibration, or model.",
       "place": "Global Tracking Network",
-      "story": "Several ground measurements suddenly place the spacecraft ahead of its predicted path. Before commanding a correction, guidance asks whether the apparent motion could come from a shared timing reference.",
+      "story": "Several ground measurements suddenly place the spacecraft ahead of its predicted path. Range and Doppler residuals shift together; star-angle navigation, which uses no ground clock at all, matches the prediction; a ground timing reference is found to be offset; reprocessing with the corrected time makes most of the residual disappear; onboard dynamics show no unmodelled acceleration. When several measurements agree, the question is whether they agree independently or merely inherit the same clock, the same calibration and the same software. Correlated errors look exactly like a real signal until something outside the chain is consulted.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Real trajectory error or common clock drift?",
@@ -318,10 +318,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Combine independent uncertainties",
-      "scene": "Two independent one-sigma position errors are 6 km and 8 km along perpendicular directions.",
+      "scene": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions, and the navigation team needs a single number for the entry brief. Independent uncertainties along orthogonal axes combine in quadrature rather than by addition, which is why the combined figure is smaller than the sum and larger than either term. Getting this wrong in either direction matters here: overstated uncertainty argues for a burn that is not needed, and understated uncertainty hides a corridor violation.",
       "takeaway": "Independent orthogonal uncertainties combine in quadrature.",
       "place": "Navigation Covariance Room",
-      "story": "Two independent one-sigma position errors are 6 km and 8 km along perpendicular directions.",
+      "story": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions, and the navigation team needs a single number for the entry brief. Independent uncertainties along orthogonal axes combine in quadrature rather than by addition, which is why the combined figure is smaller than the sum and larger than either term. Getting this wrong in either direction matters here: overstated uncertainty argues for a burn that is not needed, and understated uncertainty hides a corridor violation.",
       "game": {
         "type": "BALLPARK",
         "title": "Combine independent uncertainties",
@@ -339,10 +339,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Fund the mission legacy",
-      "scene": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals compete for what the programme does with what it just learned, and one of them is to declare every anomaly a one-off and move on.",
+      "scene": "The crew is aboard the recovery ship and the review board convenes on Monday. Preserving complete telemetry, configuration and decision logs is what makes the reconstruction possible at all; redesigning the common-mode electrical and sensor dependencies addresses the failure that started this; improving simulation and crew rehearsal for degraded modes addresses how it was survived. The fourth proposal is to celebrate the outcome and treat every anomaly as a one-off. A programme learns from the discrepancies it recorded, and only from those.",
       "takeaway": "The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.",
       "place": "Entry Tracking Network",
-      "story": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals compete for what the programme does with what it just learned, and one of them is to declare every anomaly a one-off and move on.",
+      "story": "The crew is aboard the recovery ship and the review board convenes on Monday. Preserving complete telemetry, configuration and decision logs is what makes the reconstruction possible at all; redesigning the common-mode electrical and sensor dependencies addresses the failure that started this; improving simulation and crew rehearsal for degraded modes addresses how it was survived. The fourth proposal is to celebrate the outcome and treat every anomaly as a one-off. A programme learns from the discrepancies it recorded, and only from those.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Fund the mission legacy",
@@ -384,10 +384,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How long can the battery last?",
-      "scene": "The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. Flight surgeons want an endurance number before the next powerdown decision, and the only figures anybody trusts are the usable energy left and what the essential loads are drawing.",
+      "scene": "The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. The flight surgeon wants an endurance number before the next powerdown decision. Energy and power are different quantities: the batteries hold about 18 kilowatt-hours of usable energy, and the essential loads draw about 3 kilowatts. Endurance is inventory divided by rate, and it is an ideal figure — it assumes the load stays flat and every last watt-hour is available, neither of which is true. It is still the number every other decision this shift will be argued against.",
       "takeaway": "Power is the rate of energy use; endurance depends on both energy inventory and load.",
       "place": "Electrical Systems Room",
-      "story": "The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. Flight surgeons want an endurance number before the next powerdown decision, and the only figures anybody trusts are the usable energy left and what the essential loads are drawing.",
+      "story": "The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for. The flight surgeon wants an endurance number before the next powerdown decision. Energy and power are different quantities: the batteries hold about 18 kilowatt-hours of usable energy, and the essential loads draw about 3 kilowatts. Endurance is inventory divided by rate, and it is an ideal figure — it assumes the load stays flat and every last watt-hour is available, neither of which is true. It is still the number every other decision this shift will be argued against.",
       "game": {
         "type": "BALLPARK",
         "title": "How long can the battery last?",
@@ -405,10 +405,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Series or parallel?",
-      "scene": "Match each configuration change to its electrical consequence.",
+      "scene": "Engineers want to reconnect battery modules and the room needs the electrical consequences agreed before anything is wired. Equal cells in series add their voltages while carrying the same current; the same cells in parallel hold the voltage and share the current. A parallel branch that gains resistance stops carrying its share, and the other branches pick it up. A single open cell in a series string stops the whole string. Redundancy is only redundancy when the connection topology and the protection behaviour are both explicit — otherwise adding a module can remove capability.",
       "takeaway": "Redundancy is useful only when connection and protection behavior are explicit.",
       "place": "Battery Test Bench",
-      "story": "Match each configuration change to its electrical consequence.",
+      "story": "Engineers want to reconnect battery modules and the room needs the electrical consequences agreed before anything is wired. Equal cells in series add their voltages while carrying the same current; the same cells in parallel hold the voltage and share the current. A parallel branch that gains resistance stops carrying its share, and the other branches pick it up. A single open cell in a series string stops the whole string. Redundancy is only redundancy when the connection topology and the protection behaviour are both explicit — otherwise adding a module can remove capability.",
       "game": {
         "type": "PROTOCOL",
         "title": "Series or parallel?",
@@ -441,10 +441,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Heating at a bad connection",
-      "scene": "A connector develops 0.05 Ω resistance while carrying 20 A.",
+      "scene": "A connector in the improvised path develops 0.05 ohms while carrying 20 amps, and somebody has to say whether that matters before it is bolted up inside a sealed cabin. Resistive heating is current squared times resistance, which means the current term dominates: the same connector at half the current would dissipate a quarter of the power. The resistance sounds negligible written down and the wattage it produces at this current is what decides whether the junction runs warm or starts a fire.",
       "takeaway": "Small resistances matter when current is large because heating scales with current squared.",
       "place": "Electrical Integration Room",
-      "story": "A connector develops 0.05 Ω resistance while carrying 20 A.",
+      "story": "A connector in the improvised path develops 0.05 ohms while carrying 20 amps, and somebody has to say whether that matters before it is bolted up inside a sealed cabin. Resistive heating is current squared times resistance, which means the current term dominates: the same connector at half the current would dissipate a quarter of the power. The resistance sounds negligible written down and the wattage it produces at this current is what decides whether the junction runs warm or starts a fire.",
       "game": {
         "type": "BALLPARK",
         "title": "Heating at a bad connection",
@@ -464,10 +464,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "How much does the cabin cool?",
-      "scene": "Use a lumped thermal estimate for a simplified cabin and contents.",
+      "scene": "With the systems powered down the cabin is losing about a kilowatt more than it generates, and the flight surgeon wants to know how long the crew has before the temperature becomes a medical problem. A lumped estimate treats the cabin and its contents as one thermal mass of about 12 million joules per kelvin: energy lost divided by heat capacity gives the temperature drop over three hours. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes — and also why reheating it later is expensive.",
       "takeaway": "Thermal inertia can make temperature change slowly even when power is lost.",
       "place": "Thermal Control Lab",
-      "story": "Use a lumped thermal estimate for a simplified cabin and contents.",
+      "story": "With the systems powered down the cabin is losing about a kilowatt more than it generates, and the flight surgeon wants to know how long the crew has before the temperature becomes a medical problem. A lumped estimate treats the cabin and its contents as one thermal mass of about 12 million joules per kelvin: energy lost divided by heat capacity gives the temperature drop over three hours. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes — and also why reheating it later is expensive.",
       "game": {
         "type": "BALLPARK",
         "title": "How much does the cabin cool?",
@@ -485,10 +485,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Choose the heat-transfer mechanism",
-      "scene": "Match each observation to the dominant mechanism.",
+      "scene": "The cabin is cooling and the crew is looking for what to do about it, which means first identifying how the heat is actually leaving. Crew huddling and sharing direct contact is conduction between bodies; air circulation moving warmth around the cabin is convection; a cold wall receiving infrared from warmer objects is radiation; a metal strut carrying heat to external structure is conduction to a sink. Each pathway has a different countermeasure — insulation, circulation, surface treatment, thermal isolation — so naming the dominant one is what makes an intervention more than a guess.",
       "takeaway": "Identifying the pathway reveals which intervention can reduce loss.",
       "place": "Cabin Environment Console",
-      "story": "Match each observation to the dominant mechanism.",
+      "story": "The cabin is cooling and the crew is looking for what to do about it, which means first identifying how the heat is actually leaving. Crew huddling and sharing direct contact is conduction between bodies; air circulation moving warmth around the cabin is convection; a cold wall receiving infrared from warmer objects is radiation; a metal strut carrying heat to external structure is conduction to a sink. Each pathway has a different countermeasure — insulation, circulation, surface treatment, thermal isolation — so naming the dominant one is what makes an intervention more than a guess.",
       "game": {
         "type": "PROTOCOL",
         "title": "Choose the heat-transfer mechanism",
@@ -521,10 +521,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "CO2 production scale",
-      "scene": "Three crew members each produce about 20 L of CO2 per hour in a simplified estimate.",
+      "scene": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the workshop needs to know what the improvised scrubber has to keep up with over the next six hours. Source rate sets the minimum removal requirement — a fix that removes CO2 more slowly than the crew produces it only changes how fast the concentration climbs, not whether it does. The estimate is crude and it is the number that decides whether the tape-and-hose solution is worth building at all.",
       "takeaway": "Source rate sets the minimum removal requirement.",
       "place": "Cabin Air Console",
-      "story": "Three crew members each produce about 20 L of CO2 per hour in a simplified estimate.",
+      "story": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the workshop needs to know what the improvised scrubber has to keep up with over the next six hours. Source rate sets the minimum removal requirement — a fix that removes CO2 more slowly than the crew produces it only changes how fast the concentration climbs, not whether it does. The estimate is crude and it is the number that decides whether the tape-and-hose solution is worth building at all.",
       "game": {
         "type": "BALLPARK",
         "title": "CO2 production scale",
@@ -542,10 +542,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Kinetic-energy scale",
-      "scene": "A 5,000 kg return capsule moves at 11,000 m/s.",
+      "scene": "A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second, and the thermal protection team needs the kinetic energy before it can argue about heat load. Kinetic energy is half the mass times the speed squared, and the squared term is why lunar return is a categorically harder problem than return from low orbit: an entry speed about 40 per cent higher carries roughly twice the energy to dispose of, through the same heat shield.",
       "takeaway": "Speed dominates kinetic energy because it enters squared.",
       "place": "Thermal Protection Lab",
-      "story": "A 5,000 kg return capsule moves at 11,000 m/s.",
+      "story": "A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second, and the thermal protection team needs the kinetic energy before it can argue about heat load. Kinetic energy is half the mass times the speed squared, and the squared term is why lunar return is a categorically harder problem than return from low orbit: an entry speed about 40 per cent higher carries roughly twice the energy to dispose of, through the same heat shield.",
       "game": {
         "type": "BALLPARK",
         "title": "Kinetic-energy scale",
@@ -563,10 +563,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Commit to the path",
-      "scene": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. What is not yet written down is which observations, at which times, would tell you the choice was wrong while there is still propellant to change it.",
+      "scene": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. What is not yet written down is which observations, at which times, would show the choice was wrong while there is still propellant to change it. A plan is a hypothesis about future physical states: list the hard constraints and quantify the margins now, compare the candidates under off- nominal as well as nominal conditions, define the abort and correction triggers before committing, and keep updating the margins as the vehicle flies.",
       "takeaway": "A mission plan is a monitored hypothesis about future physical states.",
       "place": "Thermal and Entry Review",
-      "story": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. What is not yet written down is which observations, at which times, would tell you the choice was wrong while there is still propellant to change it.",
+      "story": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. What is not yet written down is which observations, at which times, would show the choice was wrong while there is still propellant to change it. A plan is a hypothesis about future physical states: list the hard constraints and quantify the margins now, compare the candidates under off- nominal as well as nominal conditions, define the abort and correction triggers before committing, and keep updating the margins as the vehicle flies.",
       "game": {
         "type": "SEQUENCE",
         "title": "Commit to the path",
@@ -595,10 +595,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why did the signal fade?",
-      "scene": "Voice and telemetry suddenly become weak. The transmitter reports normal output, and the spacecraft is not much farther away than an hour ago. The communications team must identify the physical cause.",
+      "scene": "Voice and telemetry both go weak. Received power is down about 12 decibels, the transmitter reports normal output, the change in range would account for roughly 1 decibel, the antenna is off-point by about 6 degrees, and a second ground station on another continent sees the same weak signal. A link budget is a sum of gains and losses, and diagnosis means comparing the size of each proposed effect with the size of the loss actually observed. Two stations seeing it rules out something local to one dish; the arithmetic decides the rest.",
       "takeaway": "A link-budget diagnosis should compare the size of every proposed effect with the size of the observed loss.",
       "place": "Deep-Space Antenna",
-      "story": "Voice and telemetry suddenly become weak. The transmitter reports normal output, and the spacecraft is not much farther away than an hour ago. The communications team must identify the physical cause.",
+      "story": "Voice and telemetry both go weak. Received power is down about 12 decibels, the transmitter reports normal output, the change in range would account for roughly 1 decibel, the antenna is off-point by about 6 degrees, and a second ground station on another continent sees the same weak signal. A link budget is a sum of gains and losses, and diagnosis means comparing the size of each proposed effect with the size of the loss actually observed. Two stations seeing it rules out something local to one dish; the arithmetic decides the rest.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why did the signal fade?",
@@ -670,10 +670,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Wavelength of the radio link",
-      "scene": "The link is fading and the antenna team needs to know how far the vehicle may be off-pointed before the signal goes. That starts with the physical size of the wave the antenna is trying to catch, from the carrier frequency the transmitter is using.",
+      "scene": "The link is fading and the antenna team needs to know how far the vehicle can be off-pointed before the signal is lost. That calculation starts with the physical size of the wave the antenna is working with: wavelength is the speed of light divided by frequency, and the carrier is at 2.0 gigahertz. Beam width scales with wavelength over aperture, so this number is the first term in every pointing tolerance the team will quote for the rest of the shift.",
       "takeaway": "Frequency and wavelength are reciprocal descriptions of the same propagating wave.",
       "place": "Communications Analysis Room",
-      "story": "The link is fading and the antenna team needs to know how far the vehicle may be off-pointed before the signal goes. That starts with the physical size of the wave the antenna is trying to catch, from the carrier frequency the transmitter is using.",
+      "story": "The link is fading and the antenna team needs to know how far the vehicle can be off-pointed before the signal is lost. That calculation starts with the physical size of the wave the antenna is working with: wavelength is the speed of light divided by frequency, and the carrier is at 2.0 gigahertz. Beam width scales with wavelength over aperture, so this number is the first term in every pointing tolerance the team will quote for the rest of the shift.",
       "game": {
         "type": "BALLPARK",
         "title": "Wavelength of the radio link",
@@ -691,10 +691,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What shifts the apparent direction?",
-      "scene": "Match each effect to its optical or geometric cause.",
+      "scene": "The crew will aim the burn by eye, so the room has to separate what the instrument does from what the spacecraft does. An eye moving relative to a nearby reticle shifts the apparent line of sight by parallax, and it is entirely an artefact of the observer; a changed focal setting alters sharpness and not direction; a nearby object shifting against distant stars as the viewpoint moves is real parallax carrying real distance information; the spacecraft rotating while the star field stays fixed is vehicle motion. Manual navigation is only trustworthy when instrument geometry and spacecraft motion are told apart.",
       "takeaway": "Manual navigation requires separating instrument geometry from spacecraft motion.",
       "place": "Optics Test Room",
-      "story": "Match each effect to its optical or geometric cause.",
+      "story": "The crew will aim the burn by eye, so the room has to separate what the instrument does from what the spacecraft does. An eye moving relative to a nearby reticle shifts the apparent line of sight by parallax, and it is entirely an artefact of the observer; a changed focal setting alters sharpness and not direction; a nearby object shifting against distant stars as the viewpoint moves is real parallax carrying real distance information; the spacecraft rotating while the star field stays fixed is vehicle motion. Manual navigation is only trustworthy when instrument geometry and spacecraft motion are told apart.",
       "game": {
         "type": "PROTOCOL",
         "title": "What shifts the apparent direction?",
@@ -729,10 +729,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read rotational motion",
-      "scene": "Match each change to its first-order effect.",
+      "scene": "The main guidance platform is unavailable and the crew is about to fly the vehicle by hand, so the room needs the rotational mechanics stated plainly. Applying the same force farther from the centre of mass increases the torque; increasing the moment of inertia with the same torque reduces the angular acceleration; equal and opposite torques applied for equal times leave the angular momentum where it started; moving internal masses with no external torque acting changes the shape of the vehicle but not its total angular momentum. Attitude control is Newtonian mechanics about a centre of mass, and each of these has a consequence the crew will feel.",
       "takeaway": "Attitude control is Newtonian mechanics around a center of mass.",
       "place": "Attitude Dynamics Lab",
-      "story": "Match each change to its first-order effect.",
+      "story": "The main guidance platform is unavailable and the crew is about to fly the vehicle by hand, so the room needs the rotational mechanics stated plainly. Applying the same force farther from the centre of mass increases the torque; increasing the moment of inertia with the same torque reduces the angular acceleration; equal and opposite torques applied for equal times leave the angular momentum where it started; moving internal masses with no external torque acting changes the shape of the vehicle but not its total angular momentum. Attitude control is Newtonian mechanics about a centre of mass, and each of these has a consequence the crew will feel.",
       "game": {
         "type": "PROTOCOL",
         "title": "Read rotational motion",
@@ -765,10 +765,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Recover the weak link",
-      "scene": "The carrier is down twelve decibels and drifting in frequency, and the crew is answering calls they can barely hear. Attitude, range and the ground antenna schedule have all changed since the fault, and any one of them could account for it.",
+      "scene": "The carrier is down twelve decibels and drifting in frequency, and the crew is answering calls they can barely hear. Recovery combines three different disciplines in a fixed order: check attitude and antenna geometry, because pointing is the largest and cheapest term to fix; reduce the data rate and narrow the receiver bandwidth, because a slower signal needs less power to be read; coordinate the large ground antennas with predicted Doppler so the receiver is listening at the right frequency. The range and Doppler recovered in the process then feed straight back into navigation.",
       "takeaway": "Communication recovery joins wave physics, control, and estimation.",
       "place": "Spacecraft Attitude Console",
-      "story": "The carrier is down twelve decibels and drifting in frequency, and the crew is answering calls they can barely hear. Attitude, range and the ground antenna schedule have all changed since the fault, and any one of them could account for it.",
+      "story": "The carrier is down twelve decibels and drifting in frequency, and the crew is answering calls they can barely hear. Recovery combines three different disciplines in a fixed order: check attitude and antenna geometry, because pointing is the largest and cheapest term to fix; reduce the data rate and narrow the receiver bandwidth, because a slower signal needs less power to be read; coordinate the large ground antennas with predicted Doppler so the receiver is listening at the right frequency. The range and Doppler recovered in the process then feed straight back into navigation.",
       "game": {
         "type": "SEQUENCE",
         "title": "Recover the weak link",
@@ -795,10 +795,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Spring-mass period",
-      "scene": "A simplified mounted component has m = 4 kg and k = 400 N/m.",
+      "scene": "A mounted component is modelled as a 4 kg mass on a 400 N/m spring, and the analyst wants its natural period before the pump speeds are set. Natural frequency comes out of inertia and stiffness alone — heavier is slower, stiffer is faster — and the period follows from it. The point of the calculation is what it lets you avoid: knowing where a structure's natural frequency sits tells you which operating speeds will drive it, before the hardware tells you the same thing much more expensively.",
       "takeaway": "Natural frequency emerges from inertia and stiffness.",
       "place": "Spacecraft Vibration Console",
-      "story": "A simplified mounted component has m = 4 kg and k = 400 N/m.",
+      "story": "A mounted component is modelled as a 4 kg mass on a 400 N/m spring, and the analyst wants its natural period before the pump speeds are set. Natural frequency comes out of inertia and stiffness alone — heavier is slower, stiffer is faster — and the period follows from it. The point of the calculation is what it lets you avoid: knowing where a structure's natural frequency sits tells you which operating speeds will drive it, before the hardware tells you the same thing much more expensively.",
       "game": {
         "type": "BALLPARK",
         "title": "Spring-mass period",
@@ -818,10 +818,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What failed: the spacecraft or the sensors?",
-      "scene": "Mission Control receives a sudden cabin-pressure warning on several digital channels. Before the crew spends scarce time searching for a leak, the flight director checks whether the measurements are independent.",
+      "scene": "Nine minutes after the bang, several digital cabin-pressure channels drop together within the same second. The crew's mechanical gauge, which is plumbed to the cabin and needs no electronics, is steady. The acoustic leak monitor is quiet, the sensor reference voltage has shifted low, and the radio link is normal. Three readouts are not three independent measurements when they share a reference circuit — a shift in that one voltage moves all of them at once, in step, and that is what a genuine common-mode failure looks like as well. Before the crew spends scarce oxygen and time hunting a leak, the panel has to be read as one system.",
       "takeaway": "Three readouts are not three independent measurements when they share the same electronics.",
       "place": "Mission Control",
-      "story": "Mission Control receives a sudden cabin-pressure warning on several digital channels. Before the crew spends scarce time searching for a leak, the flight director checks whether the measurements are independent.",
+      "story": "Nine minutes after the bang, several digital cabin-pressure channels drop together within the same second. The crew's mechanical gauge, which is plumbed to the cabin and needs no electronics, is steady. The acoustic leak monitor is quiet, the sensor reference voltage has shifted low, and the radio link is normal. Three readouts are not three independent measurements when they share a reference circuit — a shift in that one voltage moves all of them at once, in step, and that is what a genuine common-mode failure looks like as well. Before the crew spends scarce oxygen and time hunting a leak, the panel has to be read as one system.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "What failed: the spacecraft or the sensors?",
@@ -893,10 +893,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Build the first state estimate",
-      "scene": "Nine minutes after the bang, three consoles hold contradictory numbers. The pressure channels disagree with the mechanical gauge, one bus is reading zero and the guidance platform has restarted with no record of what it saw. Nothing has been written down in an order anybody can reconstruct, and a command issued now cannot be taken back.",
+      "scene": "Nine minutes in, three consoles hold contradictory numbers. Pressure channels disagree with the mechanical gauge, one bus reads zero, the guidance platform has restarted with no record of what it saw, and nothing has been written down in an order anyone can reconstruct. The work now is producing a state estimate that survives being wrong: preserve the telemetry across the failure before it is overwritten, check that units, timestamps and calibration states agree, build position, velocity, attitude, power and pressure with uncertainties attached, and issue only commands whose benefit holds across the whole range of states still consistent with the data.",
       "takeaway": "A good emergency command works across uncertainty rather than assuming it away.",
       "place": "Telemetry Analysis Room",
-      "story": "Nine minutes after the bang, three consoles hold contradictory numbers. The pressure channels disagree with the mechanical gauge, one bus is reading zero and the guidance platform has restarted with no record of what it saw. Nothing has been written down in an order anybody can reconstruct, and a command issued now cannot be taken back.",
+      "story": "Nine minutes in, three consoles hold contradictory numbers. Pressure channels disagree with the mechanical gauge, one bus reads zero, the guidance platform has restarted with no record of what it saw, and nothing has been written down in an order anyone can reconstruct. The work now is producing a state estimate that survives being wrong: preserve the telemetry across the failure before it is overwritten, check that units, timestamps and calibration states agree, build position, velocity, attitude, power and pressure with uncertainties attached, and issue only commands whose benefit holds across the whole range of states still consistent with the data.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the first state estimate",
@@ -923,10 +923,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Spend the first ten minutes",
-      "scene": "You have four controllers, a crew flying an aircraft that is venting, and ten minutes before the next tracking pass. Every subsystem wants the loop and each of them believes their own problem is the one that kills the crew.",
+      "scene": "Four controllers, a crew flying a vehicle that is venting something, and ten minutes before the next tracking pass. Every subsystem wants the loop and each believes their own problem is the one that kills the crew. Attention is a physical resource here in the same way propellant is: reconstructing the electrical and pressure timeline tells you what happened, verifying trajectory independently tells you whether the vehicle can still come home, and a single anomaly log with one command authority is what stops two rooms acting on different versions of the same number. Asking all six subsystems for complete reports at once spends the ten minutes and returns nothing usable.",
       "takeaway": "Attention is a scarce physical resource during a fast-moving systems failure.",
       "place": "Spacecraft Systems Console",
-      "story": "You have four controllers, a crew flying an aircraft that is venting, and ten minutes before the next tracking pass. Every subsystem wants the loop and each of them believes their own problem is the one that kills the crew.",
+      "story": "Four controllers, a crew flying a vehicle that is venting something, and ten minutes before the next tracking pass. Every subsystem wants the loop and each believes their own problem is the one that kills the crew. Attention is a physical resource here in the same way propellant is: reconstructing the electrical and pressure timeline tells you what happened, verifying trajectory independently tells you whether the vehicle can still come home, and a single anomaly log with one command authority is what stops two rooms acting on different versions of the same number. Asking all six subsystems for complete reports at once spends the ten minutes and returns nothing usable.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Spend the first ten minutes",
@@ -966,10 +966,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "From force to trajectory change",
-      "scene": "The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The engine can be fired for a few seconds, and the crew wants to know why seconds of thrust now matter more than minutes of thrust tomorrow.",
+      "scene": "The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The crew wants to know why a few seconds of thrust now matters more than minutes of thrust tomorrow. The chain is Newtonian and worth stating in order: an engine produces a force for a measured time, the force gives the vehicle an acceleration set by its mass, that acceleration changes velocity by an amount proportional to the impulse, and the new velocity changes where the vehicle is hours later. Trajectory control acts on velocity now to move position much later — which is also why an early correction is cheap.",
       "takeaway": "Trajectory control acts on velocity now to change position much later.",
       "place": "Orbital Analysis Room",
-      "story": "The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The engine can be fired for a few seconds, and the crew wants to know why seconds of thrust now matter more than minutes of thrust tomorrow.",
+      "story": "The spacecraft is drifting off the free-return path by an amount that is small today and fatal at the atmosphere. The crew wants to know why a few seconds of thrust now matters more than minutes of thrust tomorrow. The chain is Newtonian and worth stating in order: an engine produces a force for a measured time, the force gives the vehicle an acceleration set by its mass, that acceleration changes velocity by an amount proportional to the impulse, and the new velocity changes where the vehicle is hours later. Trajectory control acts on velocity now to move position much later — which is also why an early correction is cheap.",
       "game": {
         "type": "SEQUENCE",
         "title": "From force to trajectory change",
@@ -996,10 +996,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Execute a manual attitude maneuver",
-      "scene": "The guidance platform is off and the crew must turn the spacecraft ninety degrees using two thruster pairs and a window. There is no rate display, no automatic hold, and every pulse spends propellant that the entry burn is counting on.",
+      "scene": "The guidance platform is off and the crew must turn the spacecraft ninety degrees using two thruster pairs and a window. There is no rate display, no automatic attitude hold, and every pulse spends propellant the entry burn is counting on. In space nothing damps the rotation: a torque that starts the turn will keep it turning until an equal and opposite one stops it, which means the braking pulse has to be planned before the target attitude arrives, not when it does. Overshoot is paid for twice — once to stop and once to come back.",
       "takeaway": "Rotational maneuvers require planning the braking phase before the target is reached.",
       "place": "Crew Procedures Room",
-      "story": "The guidance platform is off and the crew must turn the spacecraft ninety degrees using two thruster pairs and a window. There is no rate display, no automatic hold, and every pulse spends propellant that the entry burn is counting on.",
+      "story": "The guidance platform is off and the crew must turn the spacecraft ninety degrees using two thruster pairs and a window. There is no rate display, no automatic attitude hold, and every pulse spends propellant the entry burn is counting on. In space nothing damps the rotation: a torque that starts the turn will keep it turning until an equal and opposite one stops it, which means the braking pulse has to be planned before the target attitude arrives, not when it does. Overshoot is paid for twice — once to stop and once to come back.",
       "game": {
         "type": "SEQUENCE",
         "title": "Execute a manual attitude maneuver",
@@ -1026,10 +1026,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Why is bus voltage collapsing?",
-      "scene": "The spacecraft power bus sags under a normal load. Generation looks healthy, so the team must find where electrical energy is being lost before shutting down additional systems.",
+      "scene": "The power bus is sagging at 24 volts instead of 28 while the total load current sits near its planned value. Solar-array current is normal, so generation is healthy; battery current is higher than expected, and there is a hot spot at one junction. Voltage, current and heat are three views of one energy picture — a resistance somewhere in the path drops voltage in proportion to the current through it and dissipates that lost power as heat, exactly where the resistance is. The panel has enough in it to locate the fault rather than guess at it.",
       "takeaway": "Electrical faults are easier to localize when voltage, current, and heat are treated as parts of one energy picture.",
       "place": "Spacecraft Load Panel",
-      "story": "The spacecraft power bus sags under a normal load. Generation looks healthy, so the team must find where electrical energy is being lost before shutting down additional systems.",
+      "story": "The power bus is sagging at 24 volts instead of 28 while the total load current sits near its planned value. Solar-array current is normal, so generation is healthy; battery current is higher than expected, and there is a hot spot at one junction. Voltage, current and heat are three views of one energy picture — a resistance somewhere in the path drops voltage in proportion to the current through it and dissipates that lost power as heat, exactly where the resistance is. The panel has enough in it to locate the fault rather than guess at it.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why is bus voltage collapsing?",
@@ -1101,10 +1101,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Shed load without losing the mission",
-      "scene": "The energy inventory is fixed and the loads are not. Guidance needs power at known times, communications wants it continuously, thermal control wants it before the cabin gets cold rather than after, and life support cannot be switched off at all.",
+      "scene": "The energy inventory is fixed and the loads are not. Guidance needs power at known times and is useless outside them; communications wants it continuously and degrades gracefully; thermal control wants it before the cabin is cold rather than after, because reheating a cold cabin costs far more than holding a warm one; life support cannot be switched off at all. A power plan is an allocation across time as well as across systems, and the loads that look cheapest to shed are often the ones whose consequences arrive later and cost more.",
       "takeaway": "A power plan matches load timing and consequence to a finite energy inventory.",
       "place": "Mission Planning Desk",
-      "story": "The energy inventory is fixed and the loads are not. Guidance needs power at known times, communications wants it continuously, thermal control wants it before the cabin gets cold rather than after, and life support cannot be switched off at all.",
+      "story": "The energy inventory is fixed and the loads are not. Guidance needs power at known times and is useless outside them; communications wants it continuously and degrades gracefully; thermal control wants it before the cabin is cold rather than after, because reheating a cold cabin costs far more than holding a warm one; life support cannot be switched off at all. A power plan is an allocation across time as well as across systems, and the loads that look cheapest to shed are often the ones whose consequences arrive later and cost more.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Shed load without losing the mission",
@@ -1144,10 +1144,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Qualify the emergency battery plan",
-      "scene": "Engineers want to reconnect a module from the damaged bus to buy hours of endurance. Nobody knows the module's state of charge, the connector was never designed for this current, and the crew is inside a sealed cabin with the hardware.",
+      "scene": "Engineers want to reconnect a module from the damaged bus to buy hours of endurance. Nobody knows the module's state of charge, the connector was never designed for this current, and the crew is inside a sealed cabin with the hardware. A mismatched module connected in parallel with a charged one will equalise through whatever resistance lies between them, which can mean a large current through a connector chosen for a much smaller one. Improvisation in an emergency is legitimate; what makes it survivable is measuring the quantities that decide the outcome first, and providing protection that acts before anybody smells anything.",
       "takeaway": "Emergency electrical improvisation should still be bounded by measurements and protection.",
       "place": "Crew Procedure Simulator",
-      "story": "Engineers want to reconnect a module from the damaged bus to buy hours of endurance. Nobody knows the module's state of charge, the connector was never designed for this current, and the crew is inside a sealed cabin with the hardware.",
+      "story": "Engineers want to reconnect a module from the damaged bus to buy hours of endurance. Nobody knows the module's state of charge, the connector was never designed for this current, and the crew is inside a sealed cabin with the hardware. A mismatched module connected in parallel with a charged one will equalise through whatever resistance lies between them, which can mean a large current through a connector chosen for a much smaller one. Improvisation in an emergency is legitimate; what makes it survivable is measuring the quantities that decide the outcome first, and providing protection that acts before anybody smells anything.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Qualify the emergency battery plan",
@@ -1187,10 +1187,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Keep the cabin survivable",
-      "scene": "With the systems powered down the cabin is at 4 degrees and falling, condensation is forming on the walls and the crew is sleeping in their suits. Heating everything is not affordable; the question is what gets heated and when.",
+      "scene": "With the systems powered down the cabin is at 4 degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Heating everything is not affordable on the remaining energy, so the question is what gets heated and when: insulating the crew zone and the critical batteries concentrates a fixed budget where the consequences are worst, short circulation periods limit the temperature gradients that drive the condensation, and monitoring several locations is what tells you whether either is working. Thermal survival is an allocation problem across space, time and consequence.",
       "takeaway": "Thermal survival is an allocation problem across space, time, and consequence.",
       "place": "Materials and Insulation Shop",
-      "story": "With the systems powered down the cabin is at 4 degrees and falling, condensation is forming on the walls and the crew is sleeping in their suits. Heating everything is not affordable; the question is what gets heated and when.",
+      "story": "With the systems powered down the cabin is at 4 degrees and falling, condensation is forming on the walls, and the crew is sleeping in their suits. Heating everything is not affordable on the remaining energy, so the question is what gets heated and when: insulating the crew zone and the critical batteries concentrates a fixed budget where the consequences are worst, short circulation periods limit the temperature gradients that drive the condensation, and monitoring several locations is what tells you whether either is working. Thermal survival is an allocation problem across space, time and consequence.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Keep the cabin survivable",
@@ -1230,10 +1230,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Diagnose the air system",
-      "scene": "Cabin carbon dioxide rises even though the scrubber fan still draws power. The team needs to determine whether air is failing to move through the removal path or whether the warning is only a sensor problem.",
+      "scene": "Cabin carbon dioxide is rising even though the scrubber fan still draws normal current. Total cabin pressure is stable, so nothing is leaking. Airflow through the scrubber is low and the pressure drop across the filter is high. Powering a machine is not the same as achieving its function: a fan spinning against a blocked path draws its current and moves almost no air, and the CO2 it fails to carry to the sorbent goes on accumulating in the cabin regardless. The panel measures both the machine and the quantity it is supposed to transport, which is what makes the diagnosis possible.",
       "takeaway": "Powering a machine is not the same as achieving its function; measure the transported quantity as well as the motor.",
       "place": "Life-Support Laboratory",
-      "story": "Cabin carbon dioxide rises even though the scrubber fan still draws power. The team needs to determine whether air is failing to move through the removal path or whether the warning is only a sensor problem.",
+      "story": "Cabin carbon dioxide is rising even though the scrubber fan still draws normal current. Total cabin pressure is stable, so nothing is leaking. Airflow through the scrubber is low and the pressure drop across the filter is high. Powering a machine is not the same as achieving its function: a fan spinning against a blocked path draws its current and moves almost no air, and the CO2 it fails to carry to the sorbent goes on accumulating in the cabin regardless. The panel measures both the machine and the quantity it is supposed to transport, which is what makes the diagnosis possible.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Diagnose the air system",
@@ -1305,10 +1305,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Restore breathable air",
-      "scene": "Carbon dioxide is climbing on the cabin sensor and the spare canisters are the wrong shape for the sockets in this module. There is tape, a suit hose, a sock and a flight plan cover, and the fix has to work on the first attempt.",
+      "scene": "Carbon dioxide is climbing on the cabin sensor and the spare canisters are the wrong shape for the sockets in this module. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time. Two things have to be true at once: enough sorbent surface exposed to take the CO2 chemically, and a sealed flow path that actually forces cabin air through it rather than around it. Bypass is the failure mode that looks like success — the fan runs, the crew hears it, and the concentration keeps rising.",
       "takeaway": "A life-support fix must manage both chemical uptake and fluid flow.",
       "place": "Crew Hardware Workshop",
-      "story": "Carbon dioxide is climbing on the cabin sensor and the spare canisters are the wrong shape for the sockets in this module. There is tape, a suit hose, a sock and a flight plan cover, and the fix has to work on the first attempt.",
+      "story": "Carbon dioxide is climbing on the cabin sensor and the spare canisters are the wrong shape for the sockets in this module. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time. Two things have to be true at once: enough sorbent surface exposed to take the CO2 chemically, and a sealed flow path that actually forces cabin air through it rather than around it. Bypass is the failure mode that looks like success — the fan runs, the crew hears it, and the concentration keeps rising.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Restore breathable air",
@@ -1348,10 +1348,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Where orbital energy goes",
-      "scene": "The capsule arrives at the atmosphere carrying the energy of a hundred-tonne truck at orbital speed, and it has to arrive at the ocean carrying almost none of it. The crew wants to understand what removes it, and where it goes.",
+      "scene": "The capsule arrives at the atmosphere carrying the kinetic energy of a hundred-tonne truck at orbital speed, and it has to arrive at the ocean carrying almost none of it. The chain is worth stating: the vehicle enters with large kinetic and gravitational energy, atmospheric drag does negative work on it, that energy becomes heat in the shocked gas ahead of the heat shield and in the wake behind it, and velocity and altitude fall while the thermal protection and the trajectory shape control how fast. Reentry is energy dissipation constrained by what the crew and the materials can take.",
       "takeaway": "Reentry is an energy-dissipation problem constrained by human and material limits.",
       "place": "Entry Dynamics Room",
-      "story": "The capsule arrives at the atmosphere carrying the energy of a hundred-tonne truck at orbital speed, and it has to arrive at the ocean carrying almost none of it. The crew wants to understand what removes it, and where it goes.",
+      "story": "The capsule arrives at the atmosphere carrying the kinetic energy of a hundred-tonne truck at orbital speed, and it has to arrive at the ocean carrying almost none of it. The chain is worth stating: the vehicle enters with large kinetic and gravitational energy, atmospheric drag does negative work on it, that energy becomes heat in the shocked gas ahead of the heat shield and in the wake behind it, and velocity and altitude fall while the thermal protection and the trajectory shape control how fast. Reentry is energy dissipation constrained by what the crew and the materials can take.",
       "game": {
         "type": "SEQUENCE",
         "title": "Where orbital energy goes",
@@ -1378,10 +1378,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Protect the entry corridor",
-      "scene": "The corridor is about a degree wide. Too steep and the deceleration exceeds what the crew and the structure survive; too shallow and the capsule skips back out with no propellant to return. The state estimate going into it has real uncertainty in both directions.",
+      "scene": "The corridor is about a degree wide. Too steep and the deceleration and heating exceed what the crew and the structure survive; too shallow and the capsule skips back out with no propellant left to return. The state estimate going into it carries real uncertainty in both directions, and the atmosphere itself varies from the model. Safety here does not come from optimising the nominal trajectory — it comes from checking that the plan still works across the range of atmospheres, entry angles and vehicle configurations that are actually consistent with what is known.",
       "takeaway": "Entry safety comes from margins across plausible conditions, not perfection at one nominal point.",
       "place": "Crew G-Load Console",
-      "story": "The corridor is about a degree wide. Too steep and the deceleration exceeds what the crew and the structure survive; too shallow and the capsule skips back out with no propellant to return. The state estimate going into it has real uncertainty in both directions.",
+      "story": "The corridor is about a degree wide. Too steep and the deceleration and heating exceed what the crew and the structure survive; too shallow and the capsule skips back out with no propellant left to return. The state estimate going into it carries real uncertainty in both directions, and the atmosphere itself varies from the model. Safety here does not come from optimising the nominal trajectory — it comes from checking that the plan still works across the range of atmospheres, entry angles and vehicle configurations that are actually consistent with what is known.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Protect the entry corridor",
@@ -1421,10 +1421,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "What is driving the vibration?",
-      "scene": "A structural vibration becomes severe only during a narrow band of reaction-wheel speed. The team must decide whether the spacecraft has been struck, a sensor is loose, or a forcing frequency is exciting a structural mode.",
+      "scene": "A structural vibration becomes severe only in a narrow band of reaction-wheel speed. Amplitude peaks sharply near 3,200 rpm, the measured vibration frequency matches a known structural mode, moving the wheel speed away from that band reduces it, a second accelerometer in a different location sees the same mode, and the impact monitor has recorded no impulse. Resonance is diagnosed by the relationships among forcing frequency, natural frequency and response — not by how large the amplitude is. A structure perfectly strong at rest can fail when driven at a frequency it happens to like.",
       "takeaway": "Resonance is diagnosed by relationships among forcing frequency, natural frequency, and response - not by amplitude alone.",
       "place": "Structural Dynamics Lab",
-      "story": "A structural vibration becomes severe only during a narrow band of reaction-wheel speed. The team must decide whether the spacecraft has been struck, a sensor is loose, or a forcing frequency is exciting a structural mode.",
+      "story": "A structural vibration becomes severe only in a narrow band of reaction-wheel speed. Amplitude peaks sharply near 3,200 rpm, the measured vibration frequency matches a known structural mode, moving the wheel speed away from that band reduces it, a second accelerometer in a different location sees the same mode, and the impact monitor has recorded no impulse. Resonance is diagnosed by the relationships among forcing frequency, natural frequency and response — not by how large the amplitude is. A structure perfectly strong at rest can fail when driven at a frequency it happens to like.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "What is driving the vibration?",
@@ -1496,10 +1496,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Stop the resonance",
-      "scene": "A panel is oscillating whenever the pump runs near one particular speed, and the amplitude has grown across three cycles. The pump is needed, the panel is structural, and nobody has yet measured the response anywhere but the one accelerometer that noticed.",
+      "scene": "A panel oscillates whenever the pump runs near one particular speed, and the amplitude has grown across three cycles. The pump is needed, the panel is structural, and nobody has measured the response anywhere except the one accelerometer that noticed. Shifting the operating speed moves the forcing away from the mode; adding damping bleeds energy out of it; measuring at several locations and configurations establishes whether the fix worked or merely moved the problem. Driving harder to pass through the resonance faster is a plan that depends on the structure surviving the passage.",
       "takeaway": "A structural fix should change the dynamics and then demonstrate that the dangerous mode is controlled.",
       "place": "Operations Planning Room",
-      "story": "A panel is oscillating whenever the pump runs near one particular speed, and the amplitude has grown across three cycles. The pump is needed, the panel is structural, and nobody has yet measured the response anywhere but the one accelerometer that noticed.",
+      "story": "A panel oscillates whenever the pump runs near one particular speed, and the amplitude has grown across three cycles. The pump is needed, the panel is structural, and nobody has measured the response anywhere except the one accelerometer that noticed. Shifting the operating speed moves the forcing away from the mode; adding damping bleeds energy out of it; measuring at several locations and configurations establishes whether the fix worked or merely moved the problem. Driving harder to pass through the resonance faster is a plan that depends on the structure surviving the passage.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Stop the resonance",
@@ -1539,10 +1539,10 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Name the binding constraint",
-      "scene": "Match each trajectory consequence to the subsystem it most directly stresses.",
+      "scene": "Four return paths are on the board and each stresses a different subsystem, which is why the room cannot simply pick the fastest. A longer return time consumes consumables — oxygen, lithium hydroxide, water, power. A larger correction burn spends propellant and adds burn-execution uncertainty. A steeper entry raises peak heating and deceleration on the shield and the crew. A long communications blackout removes ground support at the moment it is most useful. The best physical solution is the one whose binding constraint the vehicle can actually meet.",
       "takeaway": "The best physical solution is not necessarily the shortest or lowest-fuel solution.",
       "place": "Mission Design Center",
-      "story": "Match each trajectory consequence to the subsystem it most directly stresses.",
+      "story": "Four return paths are on the board and each stresses a different subsystem, which is why the room cannot simply pick the fastest. A longer return time consumes consumables — oxygen, lithium hydroxide, water, power. A larger correction burn spends propellant and adds burn-execution uncertainty. A steeper entry raises peak heating and deceleration on the shield and the crew. A long communications blackout removes ground support at the moment it is most useful. The best physical solution is the one whose binding constraint the vehicle can actually meet.",
       "game": {
         "type": "PROTOCOL",
         "title": "Name the binding constraint",
@@ -1575,10 +1575,10 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Select the robust trajectory",
-      "scene": "Four return paths are on the board and each one is best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it are known only to within a day.",
+      "scene": "Four return paths, each best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it — carbon dioxide removal capacity, water, power — are known only to within about a day, and that uncertainty is larger than the differences between two of the options. Robust choice values margin and the ability to change your mind later, not nominal efficiency: a path that is optimal against the current best estimate and infeasible if that estimate is off by a day is not the safest thing on the board.",
       "takeaway": "Robust optimization values margin and adaptability, not only nominal efficiency.",
       "place": "Life-Support Desk",
-      "story": "Four return paths are on the board and each one is best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it are known only to within a day.",
+      "story": "Four return paths, each best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it — carbon dioxide removal capacity, water, power — are known only to within about a day, and that uncertainty is larger than the differences between two of the options. Robust choice values margin and the ability to change your mind later, not nominal efficiency: a path that is optimal against the current best estimate and infeasible if that estimate is off by a day is not the safest thing on the board.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Select the robust trajectory",
@@ -1618,10 +1618,10 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "Burn or observe?",
-      "scene": "Two tracking stations disagree by slightly more than either one's stated error, and the errors are not independent — both use the same station clock model. A correction burn carries its own uncertainty, roughly the size of the disagreement being corrected.",
+      "scene": "Two tracking stations disagree by slightly more than either one's stated error, and the errors are not independent — both use the same station clock model. A correction burn carries its own execution uncertainty, roughly the size of the disagreement being corrected, so a burn commanded on this data could move the vehicle by about as much as it might be wrong. One more high-leverage observation would separate the hypotheses; preserving propulsion keeps a later correction possible. A correction is worth making when it reduces total risk, not when it merely moves the nominal point.",
       "takeaway": "Corrections should reduce total uncertainty and risk, not merely move the nominal trajectory.",
       "place": "Flight Director Console",
-      "story": "Two tracking stations disagree by slightly more than either one's stated error, and the errors are not independent — both use the same station clock model. A correction burn carries its own uncertainty, roughly the size of the disagreement being corrected.",
+      "story": "Two tracking stations disagree by slightly more than either one's stated error, and the errors are not independent — both use the same station clock model. A correction burn carries its own execution uncertainty, roughly the size of the disagreement being corrected, so a burn commanded on this data could move the vehicle by about as much as it might be wrong. One more high-leverage observation would separate the hypotheses; preserving propulsion keeps a later correction possible. A correction is worth making when it reduces total risk, not when it merely moves the nominal point.",
       "game": {
         "type": "SCIENCETANK",
         "title": "Burn or observe?",
@@ -1661,10 +1661,10 @@ export const CURRICULUM = {
     {
       "day": 19,
       "title": "Disposition final readiness",
-      "scene": "Match each evidence state to the correct decision.",
+      "scene": "The final go/no-go, and the room has four claims of different quality in front of it. Each has to be dispositioned against pre-agreed criteria rather than against how confident the person presenting it sounds, because in the next eleven minutes nothing can be revisited: the vehicle enters, communications black out, and the crew is committed. Final authority follows traceable evidence and criteria written down before the pressure arrived — which is the only arrangement that survives a room where everyone wants to say yes.",
       "takeaway": "Final authority should follow traceable evidence and pre-agreed criteria.",
       "place": "Integrated Flight Room",
-      "story": "Match each evidence state to the correct decision.",
+      "story": "The final go/no-go, and the room has four claims of different quality in front of it. Each has to be dispositioned against pre-agreed criteria rather than against how confident the person presenting it sounds, because in the next eleven minutes nothing can be revisited: the vehicle enters, communications black out, and the crew is committed. Final authority follows traceable evidence and criteria written down before the pressure arrived — which is the only arrangement that survives a room where everyone wants to say yes.",
       "game": {
         "type": "PROTOCOL",
         "title": "Disposition final readiness",
@@ -1697,10 +1697,10 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Execute the final physical chain",
-      "scene": "Everything the last five days established comes down to the next eleven minutes, in an order that cannot be repeated. Attitude, configuration and state estimate all have to be right before the interface, because there is no communication through the blackout to fix any of them.",
+      "scene": "Everything the last five days established comes down to the next eleven minutes, in an order that cannot be repeated. The approved attitude, configuration and state estimate all have to be established before the atmospheric interface, because there is no communication through the blackout to fix any of them; the roles of the onboard system and the ground have to be unambiguous before the vehicle is committed; deceleration, heating proxies and communications are then monitored against expected envelopes; and the transition to descent and recovery has to preserve the data the debrief will need.",
       "takeaway": "Execution is the final experiment of the integrated physical model.",
       "place": "Crew Capsule",
-      "story": "Everything the last five days established comes down to the next eleven minutes, in an order that cannot be repeated. Attitude, configuration and state estimate all have to be right before the interface, because there is no communication through the blackout to fix any of them.",
+      "story": "Everything the last five days established comes down to the next eleven minutes, in an order that cannot be repeated. The approved attitude, configuration and state estimate all have to be established before the atmospheric interface, because there is no communication through the blackout to fix any of them; the roles of the onboard system and the ground have to be unambiguous before the vehicle is committed; deceleration, heating proxies and communications are then monitored against expected envelopes; and the transition to descent and recovery has to preserve the data the debrief will need.",
       "game": {
         "type": "SEQUENCE",
         "title": "Execute the final physical chain",

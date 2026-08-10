@@ -67,22 +67,39 @@ function bounds(site){
  * The map, as SVG. North (-Z) is up, which is how the site comment in site.js
  * describes the place, so the two never disagree.
  */
-export function renderMap(){
+/**
+ * @param opts.maxW, opts.maxH  the box the map has to fit, in CSS pixels.
+ *
+ * The map is drawn at the size it will be *seen* at. It used to be 720 px wide
+ * whatever the site was, with the height following the aspect — so a place
+ * longer than it is wide came out 1791 px tall, and the stylesheet then scaled
+ * it to 340 px to fit the card. Everything on it shrank with it: 11 px labels
+ * rendered at two pixels, which is the "zoomed out so I cannot see it" this
+ * fixes. Fitting the box here keeps text at its own size.
+ */
+export function renderMap(opts = {}){
   const site = theme.site ?? {};
   const state = getState();
   const b = bounds(site);
+  const maxW = opts.maxW ?? 720;
+  const maxH = opts.maxH ?? 420;
   // A submarine is fifty-five metres long and four and a half wide. Drawn with
   // north up it is a strip four compartments tall in a panel that shows two, so
   // a place much longer than it is wide is turned on its side: its length runs
   // across the map and the bow is on the left.
   const spanX = b.x1 - b.x0, spanZ = b.z1 - b.z0;
-  const sideways = spanZ > spanX * 2.5;
-  // A sideways plan is very wide and very short; the height is padded so the
-  // rotated names and the target's marker have somewhere to go.
-  const W = 720;
-  const H = sideways
-    ? Math.max(260, Math.round(W * spanX / spanZ))
-    : Math.round(W * spanZ / spanX);
+  // Turn the plan on its side when that fits the box better. A submarine is
+  // fifty-five metres long and four wide; drawn north-up it is a strip four
+  // compartments tall in a panel that shows two. The test used to be a fixed
+  // ratio (longer than 2.5× wide), which left a ridge 400 m long and 160 m wide
+  // upright and therefore tiny. Now it is simply whichever way round shows the
+  // place larger.
+  const fitUpright = Math.min(maxW / spanX, maxH / spanZ);
+  const fitSideways = Math.min(maxW / spanZ, maxH / spanX);
+  const sideways = fitSideways > fitUpright * 1.02;
+  const scale = sideways ? fitSideways : fitUpright;
+  const W = Math.round((sideways ? spanZ : spanX) * scale);
+  const H = Math.round((sideways ? spanX : spanZ) * scale);
   const sx = sideways ? (x, z) => ((z - b.z0) / spanZ) * W
                       : (x) => ((x - b.x0) / spanX) * W;
   const sz = sideways ? (z, x) => ((x - b.x0) / spanX) * H
@@ -260,7 +277,7 @@ export function renderMap(){
     .concat(wantedPeople.length
       ? [`ringed dots are people you owe a call: ${wantedPeople.map(w => w.char?.name ?? 'a colleague').join(', ')}`]
       : []);
-  return `<div class="mapWrap"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" `
+  return `<div class="mapWrap"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" `
        + `aria-label="Map of the site"><rect width="${W}" height="${H}" fill="#efeade"/>${g}</svg>`
        + `<div class="mapLegend">${esc(legend.join(' · '))}</div></div>`;
 }

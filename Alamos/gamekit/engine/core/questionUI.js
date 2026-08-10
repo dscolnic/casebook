@@ -1003,10 +1003,14 @@ function finishVisit(ok){
          projDelta > 0.5 ? 'gain' : projDelta < -0.5 ? 'cost' : '',
          projDelta === 0 ? 'unchanged' : `${projDelta > 0 ? '+' : ''}${fmt(projDelta)} from this call`);
 
-  const headline = ok
+  // Say whether the answer was right before saying anything about the world.
+  // "Evidence accepted" / "The call holds" is how the response would describe
+  // it, and it is one inference away from what the player asked, which is
+  // whether they got it right.
+  const headline = ok ? 'Correct' : 'Incorrect';
+  const kicker = ok
     ? (ledger.milestoneDone ? 'Milestone cleared' : 'The call holds')
-    : (ledger.closes ? 'The call does not hold' : 'The call does not hold');
-  const kicker = ok ? 'Evidence accepted' : 'Evidence rejected';
+    : 'The call does not hold';
   const colour = ok ? '#0ca30c' : '#c0392b';
 
   const consequence = ok
@@ -1251,23 +1255,35 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   bindVisitAssist();
   bindTerms(body);
 }
+/**
+ * Talking to somebody the day wants: ask them their call's question.
+ *
+ * Any call still open, not only the first one. This was written around
+ * `nextMissionStopIndex` — the first stop not yet made — so on a day with two
+ * person stops the *second* person was not recognised as a call at all: their
+ * marker was over their head, and walking up to them opened their passage
+ * chat, until the other person had been dealt with and the index moved on. The
+ * day is take-them-in-any-order everywhere else; it is here too now.
+ *
+ * Returns quietly when this is nobody today wants, which is the signal the
+ * entry points use to fall back to the person's passage.
+ */
 export function openPersonVisit(npc, isRetry=false){
   const state=getState();
   if(!state || !npc) return;
   const division=npc.division || CHARACTER_DIVISION[npc.char.id] || 'TRI';
-  const nextIdx=nextMissionStopIndex(state);
-  const next=getNextMissionStop();
-  const isPerson = isPersonStopForIdx(state, nextIdx);
-  if(!next || !isPerson || next.group!==division){
-    const expectedPid=getPersonIdForStop(state, nextIdx);
-    if(!expectedPid || npc.char.id!==expectedPid) return;
+  const m=getCurrentMission(state);
+  if(!m) return;
+  let idx=-1;
+  for(const i of openStopIndices(state)){
+    if(!isPersonStopForIdx(state, i)) continue;
+    if(getPersonIdForStop(state, i) !== npc.char.id) continue;
+    idx=i; break;
   }
-  const stop=missionStopForGroup(state, division);
-  if(!stop || stop.index!==nextIdx){
-    renderMissionLock(division, `Find ${npc.char.name} [${division}] walking near ${def(division).name}.`);
-    return;
-  }
-  // Person asks the same science question as if it were in a building — show that person, not the division leader
+  if(idx < 0) return;
+  const stop={ ...m.stops[idx], index: idx };
+  // The person asks the same science question a room would, and the panel
+  // shows them rather than the area's leader.
   showChallengeForStop(division, stop, isRetry, npc.char);
 }
 function renderSpecialFundingModal(req, onFund, onDecline){

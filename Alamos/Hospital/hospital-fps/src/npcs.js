@@ -14,6 +14,7 @@ import { camera } from './player.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { CHARACTER_DIVISION } from './simulation.js';
 import { getState } from './gameState.js';
+import { openStopIndices, isPersonStopForIdx, getPersonIdForStop } from './simulation.js';
 import { srand, srandRange } from './interiorEnv.js';
 import { CORRIDOR, WAITING_CHAIRS } from './plan.js';
 import { occupantSpots, caseFor } from './instruments.js';
@@ -763,7 +764,70 @@ function yieldToPlayer(n, px, pz){
   return false;
 }
 
+
+/**
+ * The marker over the head of somebody this day's calls want.
+ *
+ * A person stop is answered by finding a named person in a crowd who are all
+ * dressed like them, and the only aids were a nameplate you have to be close to
+ * and looking straight at, and a dot on the map. This is the third: a cone the
+ * size of a road sign over their head, bobbing.
+ *
+ * A cone rather than a billboarded chevron, so it reads the same from every
+ * angle with no per-frame rotation, and `depthTest: false` so it shows through
+ * walls and through other people — the whole point of it is finding somebody
+ * you cannot see. It is the one thing in these games allowed to draw over
+ * everything.
+ *
+ * Shared with engine/people/crowd.js. This game keeps its own crowd, so the
+ * marker is here too; a feature added to one crowd reaches one game.
+ */
+const FIND_LIFT = 2.35;
+function findMarker(colour){
+  const g = new THREE.Group();
+  const cone = new THREE.Mesh(
+    new THREE.ConeGeometry(0.28, 0.62, 4),
+    new THREE.MeshBasicMaterial({ color: colour, depthTest: false, transparent: true, opacity: 0.95 }));
+  cone.rotation.x = Math.PI;
+  cone.rotation.y = Math.PI / 4;
+  const halo = new THREE.Mesh(
+    new THREE.ConeGeometry(0.36, 0.78, 4),
+    new THREE.MeshBasicMaterial({ color: 0xffffff, depthTest: false, transparent: true, opacity: 0.35 }));
+  halo.rotation.copy(cone.rotation);
+  halo.position.y = 0.02;
+  g.add(halo, cone);
+  g.renderOrder = 9000;
+  return g;
+}
+
+/**
+ * Who the day still wants. Refreshed a few times a second rather than per
+ * frame; more than one at once is normal, and two of them can be in the same
+ * room.
+ */
+let wantedIds = new Set();
+let sinceWanted = 1;
+function refreshWanted(delta){
+  sinceWanted += delta;
+  if(sinceWanted < 0.4) return;
+  sinceWanted = 0;
+  const state = getState?.();
+  if(!state){ wantedIds = new Set(); return; }
+  const next = new Set();
+  try{
+    for(const i of openStopIndices(state)){
+      if(!isPersonStopForIdx(state, i)) continue;
+      const id = getPersonIdForStop(state, i);
+      if(id) next.add(id);
+    }
+  }catch{ /* a mission that has not started has nobody to find */ }
+  wantedIds = next;
+}
+let markerClock = 0;
+
 export function updateNPCs(delta, playerPos){
+  markerClock += delta;
+  refreshWanted(delta);
   if(!npcs.length && !extras.length) return;
   if(camera) camera.getWorldDirection(camForward);
 
@@ -785,6 +849,22 @@ export function updateNPCs(delta, playerPos){
       }
       n.plate.material.opacity += (opacity - n.plate.material.opacity) * Math.min(1, delta * 9);
       n.plate.visible = n.plate.material.opacity > 0.01;
+      // The marker over the head of anybody today still owes a call to.
+      {
+        const wantedNow = wantedIds.has(n.char?.id ?? n.id);
+        if(wantedNow && !n.findMark){
+          n.findMark = findMarker(n.char?.color ?? 0xf2c14e);
+          scene.add(n.findMark);
+        }
+        if(n.findMark){
+          n.findMark.visible = wantedNow;
+          if(wantedNow){
+            n.findMark.position.set(n.pos.x, 0 + FIND_LIFT
+              + Math.sin(markerClock * 2.2) * 0.09, n.pos.z);
+            n.findMark.rotation.y = markerClock * 1.1;
+          }
+        }
+      }
       if(n.plate.visible){
         // Sit it in front of the chest, on the line to the player, so it never
         // clips into the torso however the person is facing.
