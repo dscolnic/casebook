@@ -82,11 +82,8 @@ export function initCrowd(opts){
     // — every direction out is blocked, so they never get a target they can
     // walk to.
     if(opts.blocked){
-      for(const nudge of [0, 0.6, -0.6, 1.2, -1.2, 1.8, -1.8]){
-        const tx = x + Math.cos(station.facing) * nudge;
-        const tz = z - Math.sin(station.facing) * nudge;
-        if(!opts.blocked(tx, tz, 0.4)){ x = tx; z = tz; break; }
-      }
+      const found = settle(x, z, opts.blocked, station.facing);
+      x = found[0]; z = found[1];
     }
 
     const outfitKey = opts.roleToOutfit(person.role, (n2) => Math.floor(srand() * n2));
@@ -141,9 +138,16 @@ export function initCrowd(opts){
   const spots = opts.extraSpots ?? [];
   for(let i = 0; i < (opts.extras ?? 0) && spots.length; i++){
     const s = spots[i % spots.length];
-    const x = s.x + srandRange(-3.5, 3.5);
-    const z = s.z + srandRange(-3.5, 3.5);
-    if(opts.blocked?.(x, z)) continue;
+    let x = s.x + srandRange(-3.5, 3.5);
+    let z = s.z + srandRange(-3.5, 3.5);
+    // Nudge rather than skip. Skipping quietly reduced the crowd whenever the
+    // jitter landed in a wall, which is the same bug as standing in one, only
+    // invisible.
+    if(opts.blocked){
+      const found = settle(x, z, opts.blocked);
+      x = found[0]; z = found[1];
+      if(opts.blocked(x, z, 0.4)) continue;
+    }
     const look = pickLook(opts.outfits[opts.roleToOutfit('', (n) => Math.floor(srand() * n))]
                           ?? Object.values(opts.outfits)[0]);
     // The cheap merged rig, which is what this tier is for: four meshes instead
@@ -279,6 +283,32 @@ function findMarker(colour){
   g.renderOrder = 9000;                // over everything, including the halo's own siblings
   g.userData.cone = cone;
   return g;
+}
+
+/**
+ * The nearest spot to (x, z) that is not inside something.
+ *
+ * Along the frontage first, because a person outside a building should stay
+ * on its frontage, then rings outward. A line search along one axis was not
+ * enough: it leaves anybody whose only clear direction is sideways standing in
+ * the wall, and once they are in it the walker cannot get them out — every step
+ * from inside a collider is itself blocked.
+ */
+function settle(x, z, blocked, facing = 0){
+  if(!blocked(x, z, 0.4)) return [x, z];
+  for(const nudge of [0.6, -0.6, 1.2, -1.2, 1.8, -1.8]){
+    const tx = x + Math.cos(facing) * nudge;
+    const tz = z - Math.sin(facing) * nudge;
+    if(!blocked(tx, tz, 0.4)) return [tx, tz];
+  }
+  for(let r = 0.8; r <= 4.0; r += 0.8){
+    for(let i = 0; i < 12; i++){
+      const a = (i / 12) * Math.PI * 2;
+      const tx = x + Math.cos(a) * r, tz = z + Math.sin(a) * r;
+      if(!blocked(tx, tz, 0.4)) return [tx, tz];
+    }
+  }
+  return [x, z];
 }
 
 const plateLocal = new THREE.Vector3();
@@ -460,6 +490,14 @@ export function updateCrowd(delta, t){
  * where it is going before the legs are asked to take it there.
  */
 function walk(n, delta, t){
+  // Somebody standing inside a collider cannot walk out of it: every step from
+  // in there is blocked too. Check where they are, not only where they head.
+  if(ctx.blocked?.(n.pos.x, n.pos.z, 0.15)){
+    const [rx, rz] = settle(n.pos.x, n.pos.z, ctx.blocked, n.facing ?? 0);
+    n.pos.set(rx, n.pos.y, rz);
+    n.body.position.set(rx, ctx.groundHeight(rx, rz), rz);
+    if(n.soft){ n.soft.x = rx; n.soft.z = rz; }
+  }
   if(n.pause > 0){
     n.pause -= delta;
     idleSway(n.body, Math.sin(t * 0.9 + n.phase) * 0.03);

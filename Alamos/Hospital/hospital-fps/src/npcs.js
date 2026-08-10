@@ -407,6 +407,33 @@ function isClear(x, z, pad = 0.9){
   }
   return true;
 }
+/**
+ * The nearest place to (x, z) that is not inside a wall.
+ *
+ * Three of the four spawn paths placed people without asking: staff were dealt
+ * down the corridor at a spot plus up to 2.5 m of jitter, and extras were
+ * fanned around a cluster centre. Anything that landed in a wall stayed there
+ * for the whole game — `stepWalker` refuses to move into a blocked point, and
+ * from inside a wall every neighbouring point is blocked too, so the walker
+ * could not walk them out. The symptom is a person standing half inside the
+ * plaster, permanently.
+ *
+ * Rings outward at increasing radius, and gives up gracefully: a corridor this
+ * narrow can have a genuinely blocked centre, and returning the original point
+ * is no worse than what it replaced.
+ */
+function settle(x, z, pad = 0.6){
+  if(isClear(x, z, pad)) return [x, z];
+  for(let r = 0.4; r <= 3.2; r += 0.4){
+    for(let i = 0; i < 12; i++){
+      const a = (i / 12) * Math.PI * 2;
+      const cx = x + Math.cos(a) * r, cz = z + Math.sin(a) * r;
+      if(isClear(cx, cz, pad)) return [cx, cz];
+    }
+  }
+  return [x, z];
+}
+
 function scheduledTarget(n){
   const state = getState();
   const h = ((((state?.timeHours ?? 8) % 24) + 24) % 24) + n.chrono;
@@ -530,7 +557,11 @@ export function spawnNPCs(count = 40){
 
     let pos;
     if(posted){
-      pos = new THREE.Vector3(posted.spot[0], 0, posted.spot[1]);
+      // A patient in a bed is legitimately close to a wall, so this uses a
+      // body-width pad rather than the walking one: it moves somebody who is
+      // *inside* the wall and leaves everybody else where the plan put them.
+      const [px, pz] = settle(posted.spot[0], posted.spot[1], 0.3);
+      pos = new THREE.Vector3(px, 0, pz);
       body.position.set(pos.x, body.position.y + (posted.lift || 0), pos.z);
       body.rotation.y = posted.spot[2];
     } else if(seat){
@@ -541,7 +572,8 @@ export function spawnNPCs(count = 40){
       // Deal staff down the whole corridor rather than round-robin over a
       // short spot list, which stacked several people on the same few metres.
       const s = SPOTS.corridor[(i * 7) % SPOTS.corridor.length];
-      pos = new THREE.Vector3(s[0] + srandRange(-0.3, 0.3), 0, s[1] + srandRange(-2.5, 2.5));
+      const [px, pz] = settle(s[0] + srandRange(-0.3, 0.3), s[1] + srandRange(-2.5, 2.5));
+      pos = new THREE.Vector3(px, 0, pz);
       body.position.set(pos.x, 0, pos.z);
     }
 
@@ -591,7 +623,7 @@ export function spawnNPCs(count = 40){
     for(let k = 0; k < size && made < EXTRA_COUNT; k++){
       const a = (k / size) * Math.PI * 2 + srandRange(-0.3, 0.3);
       const r = 0.62 + srandRange(0, 0.25);
-      const x = cx + Math.cos(a) * r, z = cz + Math.sin(a) * r;
+      const [x, z] = settle(cx + Math.cos(a) * r, cz + Math.sin(a) * r);
       const look = pickLook('');
       const body = buildExtraBody(look);
       body.position.set(x, 0, z);
@@ -618,7 +650,7 @@ export function spawnNPCs(count = 40){
   // The rest walk the corridor on the same schedule as everyone else.
   while(made < EXTRA_COUNT){
     const s = pick(SPOTS.corridor);
-    const x = s[0] + srandRange(-0.4, 0.4), z = s[1] + srandRange(-2, 2);
+    const [x, z] = settle(s[0] + srandRange(-0.4, 0.4), s[1] + srandRange(-2, 2));
     const look = pickLook('');
     const body = buildExtraBody(look);
     body.position.set(x, 0, z);
@@ -665,6 +697,16 @@ function separate(n){
 }
 
 function stepWalker(n, delta){
+  // Standing inside a wall is a trap the walker cannot get out of on its own:
+  // every step from in there is blocked. Check where they *are*, not only
+  // where they are going.
+  if(!isClear(n.pos.x, n.pos.z, 0.2)){
+    const [rx, rz] = settle(n.pos.x, n.pos.z);
+    n.pos.set(rx, 0, rz);
+    n.body.position.set(rx, n.body.position.y, rz);
+    if(n.hit) n.hit.position.set(rx, 0.95, rz);
+    if(n.soft){ n.soft.x = rx; n.soft.z = rz; }
+  }
   if(n.pause > 0){ n.pause -= delta; animateIdle(n, delta); return; }
   tmpDir.subVectors(n.target, n.pos);
   tmpDir.y = 0;

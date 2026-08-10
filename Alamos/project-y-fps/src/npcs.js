@@ -393,6 +393,25 @@ function isClear(x, z, pad = 1.0){
   return true;
 }
 /** Chooses the destination appropriate to the hour, with per-person jitter. */
+/**
+ * The nearest spot to (x, z) that is not inside a building.
+ *
+ * Placement without this leaves people standing in walls for the whole game:
+ * `stepWalker` refuses to step into a blocked point, and from inside one every
+ * neighbouring point is blocked as well, so nobody can walk themselves out.
+ */
+function settle(x, z, pad = 1.0){
+  if(isClear(x, z, pad)) return [x, z];
+  for(let r = 0.6; r <= 4.0; r += 0.6){
+    for(let i = 0; i < 12; i++){
+      const a = (i / 12) * Math.PI * 2;
+      const cx = x + Math.cos(a) * r, cz = z + Math.sin(a) * r;
+      if(isClear(cx, cz, pad)) return [cx, cz];
+    }
+  }
+  return [x, z];
+}
+
 function scheduledTarget(n){
   const state = getState();
   const h = ((((state?.timeHours ?? 8) % 24) + 24) % 24) + n.chrono;
@@ -607,6 +626,15 @@ const tmpDir = new THREE.Vector3();
 
 /** Advances one walker. Shared by historic figures and extras. */
 function stepWalker(n, delta){
+  // Rescue anybody already inside something — including from a save written
+  // before this existed.
+  if(!isClear(n.pos.x, n.pos.z, 0.2)){
+    const [rx, rz] = settle(n.pos.x, n.pos.z, 0.7);
+    n.pos.set(rx, n.pos.y ?? 0, rz);
+    if(n.body) n.body.position.set(rx, n.body.position.y, rz);
+    if(n.hit) n.hit.position.set(rx, n.hit.position.y, rz);
+    if(n.soft){ n.soft.x = rx; n.soft.z = rz; }
+  }
   if(n.pause > 0){
     n.pause -= delta;
     animateIdle(n, delta);
