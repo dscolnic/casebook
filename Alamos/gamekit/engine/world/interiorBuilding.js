@@ -37,7 +37,7 @@ import {
   mat, paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture, grainTexture,
   boardTexture,
 } from './materials.js';
-import { instrumentScreen, printedSheet } from './screens.js';
+import { instrumentScreen, printedSheet, chalkboard } from './screens.js';
 import { addCaseBeacon } from './caseBeacon.js';
 
 /** Far enough along +x that the town is past the camera's far plane. */
@@ -62,6 +62,7 @@ const STYLES = {
     floor: 'sheet', floorTint: [206, 202, 192],
     ceiling: 'tiles', ceilingLight: 0xffffff,
     skirt: 0x5d6169, bench: 0xdedbd2, worktop: '#9aa0a6',
+    instrument: 'screen',
   },
   // Board walls, a plank floor, open rafters and a hanging bulb: a wartime
   // building put up in a hurry, which is what every one of these was.
@@ -70,6 +71,7 @@ const STYLES = {
     floor: 'plank', floorTint: '#8d6f4a',
     ceiling: 'rafters', ceilingLight: 0xffd9a0,
     skirt: 0x6b5334, bench: 0xa98b63, worktop: '#7d6242',
+    instrument: 'chalk',
   },
   // Painted steel, deck matting, a low deckhead with strip lighting.
   steel: {
@@ -77,6 +79,7 @@ const STYLES = {
     floor: 'sheet', floorTint: [92, 104, 100],
     ceiling: 'tiles', ceilingLight: 0xdfe9ff,
     skirt: 0x3c4a46, bench: 0x7c8a86, worktop: '#6b7772',
+    instrument: 'screen',
   },
 };
 
@@ -271,20 +274,47 @@ export function buildInteriorBuilding(scene, spec){
 
   // ------------------------------------------------------- the instrument
   // On the back wall above the bench: the first thing in view from the door.
-  const screen = instrumentScreen({ ...(spec.station ?? {}), patient: spec.caseName }, { w: 512, h: 320 });
-  const SW = 1.9, SH = SW * (320 / 512);
+  // What it *is* depends on the theme. A laboratory or a submarine gets a lit
+  // panel; a 1943 building gets a blackboard, because there was nothing else to
+  // put a number on and a glowing display would be the loudest anachronism in
+  // the game.
+  const isChalk = S.instrument === 'chalk';
+  const screen = isChalk
+    ? chalkboard({ ...(spec.station ?? {}), patient: spec.caseName }, { w: 512, h: 320 })
+    : instrumentScreen({ ...(spec.station ?? {}), patient: spec.caseName }, { w: 512, h: 320 });
+  const SW = isChalk ? 2.6 : 1.9, SH = SW * (320 / 512);
   const face = add(new THREE.Mesh(
     new THREE.PlaneGeometry(SW, SH),
-    new THREE.MeshStandardMaterial({
-      map: screen.texture, emissive: 0xffffff, emissiveMap: screen.texture,
-      emissiveIntensity: 0.6, roughness: 0.28, envMapIntensity: 0.25,
-    })));
+    isChalk
+      ? new THREE.MeshStandardMaterial({ map: screen.texture, roughness: 0.96, metalness: 0.0,
+                                         envMapIntensity: 0.18 })
+      : new THREE.MeshStandardMaterial({
+          map: screen.texture, emissive: 0xffffff, emissiveMap: screen.texture,
+          emissiveIntensity: 0.6, roughness: 0.28, envMapIntensity: 0.25,
+        })));
   face.position.set(0, 1.95, z1 - P.wall / 2 - 0.06);
   face.rotation.y = Math.PI;                 // faces -z, into the room
   const bezel = add(new THREE.Mesh(
-    new THREE.BoxGeometry(SW + 0.09, SH + 0.09, 0.06),
-    new THREE.MeshStandardMaterial({ color: 0x20262b, roughness: 0.5, metalness: 0.3 })));
+    new THREE.BoxGeometry(SW + (isChalk ? 0.16 : 0.09), SH + (isChalk ? 0.16 : 0.09), 0.06),
+    new THREE.MeshStandardMaterial({
+      color: isChalk ? 0x6b4f30 : 0x20262b,
+      roughness: isChalk ? 0.85 : 0.5, metalness: isChalk ? 0.0 : 0.3 })));
   bezel.position.set(0, 1.95, z1 - P.wall / 2 - 0.02);
+  if(isChalk){
+    // A chalk rail, with chalk on it. Nothing else says blackboard so quickly.
+    const rail = add(new THREE.Mesh(new THREE.BoxGeometry(SW + 0.16, 0.05, 0.1),
+      new THREE.MeshStandardMaterial({ color: 0x6b4f30, roughness: 0.85 })));
+    rail.position.set(0, 1.95 - SH / 2 - 0.07, z1 - P.wall / 2 - 0.08);
+    for(let i = 0; i < 3; i++){
+      const stick = add(new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.08, 6),
+        new THREE.MeshStandardMaterial({ color: 0xf2f0e6, roughness: 0.95 })));
+      stick.rotation.z = Math.PI / 2;
+      stick.position.set(-0.35 + i * 0.28, 1.95 - SH / 2 - 0.03, z1 - P.wall / 2 - 0.1);
+    }
+    const duster = add(new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.05, 0.07),
+      new THREE.MeshStandardMaterial({ color: 0x4a4038, roughness: 0.95 })));
+    duster.position.set(SW / 2 - 0.24, 1.95 - SH / 2 - 0.02, z1 - P.wall / 2 - 0.1);
+  }
 
   // The case plate, under the screen. Paper, because it is the one thing in
   // the room about a situation rather than a measurement.
@@ -307,11 +337,12 @@ export function buildInteriorBuilding(scene, spec){
   // 2.6 m off centre it sat outside a 66° field and nobody ever saw it — and
   // far enough across not to stand between the player and the screen.
   const standX = 2.3, standZ = 0.4;
-  const foot = add(new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.26, 0.04, 14),
-    new THREE.MeshStandardMaterial({ color: 0x8d9299, roughness: 0.5, metalness: 0.3 })));
+  const standMat = () => isChalk
+    ? new THREE.MeshStandardMaterial({ color: 0x6b4f30, roughness: 0.86, metalness: 0.0 })
+    : new THREE.MeshStandardMaterial({ color: 0x8d9299, roughness: 0.5, metalness: 0.3 });
+  const foot = add(new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.26, 0.04, 14), standMat()));
   foot.position.set(standX, 0.02, standZ);
-  const post = add(new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.034, 1.05, 10),
-    new THREE.MeshStandardMaterial({ color: 0x8d9299, roughness: 0.5, metalness: 0.3 })));
+  const post = add(new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.034, 1.05, 10), standMat()));
   post.position.set(standX, 0.53, standZ);
   const chart = printedSheet({
     accent: '#' + accent.getHexString(), tag: spec.code ?? '', title: 'Notes',

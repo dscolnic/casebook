@@ -296,3 +296,112 @@ function wrap(ctx, text, maxW){
   if(line) lines.push(line);
   return lines;
 }
+
+/**
+ * A blackboard, in chalk.
+ *
+ * Project Y is 1943. There is no CRT on that mesa, no seven-segment display and
+ * nothing back-lit: the computing group is women with Marchant calculators, and
+ * a result is a number somebody wrote on a board in chalk and somebody else
+ * checked. Hanging a glowing instrument panel in a wartime building is the same
+ * mistake as putting a laboratory floor in it.
+ *
+ * Returns the same handle as `instrumentScreen`, so the room builder hangs it
+ * the same way. It does not animate — chalk does not — and `update` is a no-op
+ * kept for that reason.
+ */
+/** Trim a chalk string to the width it has, with the ellipsis a person leaves. */
+function clipTo(ctx, text, size, maxW){
+  ctx.save();
+  ctx.font = `${size}px "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive`;
+  let out = String(text);
+  if(ctx.measureText(out).width > maxW){
+    while(out.length > 3 && ctx.measureText(out + '…').width > maxW) out = out.slice(0, -1);
+    out += '…';
+  }
+  ctx.restore();
+  return out;
+}
+
+export function chalkboard(spec = {}, { w = 512, h = 320 } = {}){
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.anisotropy = 4;
+
+  // Slate, with the ghost of everything wiped off it this week.
+  ctx.fillStyle = '#26302b';
+  ctx.fillRect(0, 0, w, h);
+  for(let i = 0; i < 90; i++){
+    ctx.globalAlpha = 0.03 + Math.random() * 0.05;
+    ctx.fillStyle = '#dfe6df';
+    const bw = 40 + Math.random() * 220, bh = 6 + Math.random() * 26;
+    ctx.fillRect(Math.random() * w, Math.random() * h, bw, bh);
+  }
+  ctx.globalAlpha = 1;
+
+  const chalk = '#eef3ea';
+  const faint = 'rgba(238,243,234,0.62)';
+  /** Chalk is not a printer: every stroke sits a little off the line. */
+  const jitter = () => (Math.random() - 0.5) * 1.6;
+  const write = (text, x, y, size, colour = chalk, weight = 400) => {
+    ctx.save();
+    ctx.font = `${weight} ${size}px "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive`;
+    ctx.fillStyle = colour;
+    ctx.translate(x + jitter(), y + jitter());
+    ctx.rotate((Math.random() - 0.5) * 0.012);
+    ctx.fillText(text, 0, 0);
+    ctx.restore();
+  };
+
+  // Chalk on a board of this size fits about twenty capitals across; anything
+  // longer is shrunk rather than run off the edge, and the name underneath it
+  // rather than into it.
+  const title = spec.title ?? spec.name ?? '';
+  const titleSize = title.length > 22 ? 22 : title.length > 16 ? 26 : 30;
+  write(title.toUpperCase(), 26, 46, titleSize, chalk, 700);
+  // The underline a person draws under a heading, twice, not quite level.
+  ctx.strokeStyle = faint;
+  ctx.lineWidth = 2;
+  const rule = Math.min(w - 52, title.length * titleSize * 0.58);
+  for(const dy of [0, 3]){
+    ctx.beginPath();
+    ctx.moveTo(24 + jitter(), 56 + dy + jitter());
+    ctx.lineTo(24 + rule + jitter(), 58 + dy + jitter());
+    ctx.stroke();
+  }
+  // Whoever the board belongs to, written under the rule — it used to be set
+  // from the right edge and ran straight through the heading.
+  if(spec.patient) write(String(spec.patient), 28, 80, 18, faint);
+
+  const rows = (spec.rows ?? []).slice(0, 5);
+  const valueX = Math.round(w * 0.56);
+  let y = spec.patient ? 122 : 104;
+  for(const r of rows){
+    write(clipTo(ctx, String(r.label ?? ''), 22, valueX - 44), 30, y, 22, faint);
+    const value = `${r.value ?? ''}${r.unit ? ' ' + r.unit : ''}`;
+    write(clipTo(ctx, value, 24, w - valueX - 26), valueX, y, 24, chalk, 700);
+    // Anything the watch flagged gets ringed, the way a person rings it.
+    if(r.status === 'alarm' || r.status === 'high'){
+      ctx.save();
+      ctx.strokeStyle = faint;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.ellipse(Math.round(w * 0.56) + value.length * 6, y - 8,
+                  value.length * 8 + 14, 20, (Math.random() - 0.5) * 0.06, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+    y += 44;
+  }
+  if(spec.footer) write(clipTo(ctx, String(spec.footer), 19, w - 56), 30, h - 26, 19, faint);
+
+  texture.needsUpdate = true;
+  return {
+    canvas, texture,
+    update(){ /* chalk does not animate */ },
+    repaint(){ texture.needsUpdate = true; },
+  };
+}
