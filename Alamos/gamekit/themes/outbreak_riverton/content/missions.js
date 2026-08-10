@@ -354,7 +354,7 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 21,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Order the briefing by how much weight each claim can carry."
       },
       {
         "group": "POP",

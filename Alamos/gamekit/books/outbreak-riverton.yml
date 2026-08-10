@@ -1844,8 +1844,7 @@ missions:
     - 3
     why: Integrated review distinguishes established findings, conditional findings, and unresolved hypotheses.
   - group: POP
-    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
-      placed cards after each check.
+    task: Order the briefing by how much weight each claim can carry.
     title: Build the public explanation
     place: City Command
     scene: >-
@@ -1855,19 +1854,26 @@ missions:
       what is still unknown. A briefing that survives the next revision states what is known and how it
       was learned, what remains uncertain and why, what is being done and at what cost, and how the
       account will be updated when the evidence changes.
-    takeaway: Uncertainty is not a failure of science when it is bounded and connected to a plan for learning.
+    takeaway: >-
+      A public account is ordered by the strength of its evidence, not by the
+      order the work happened in.
     format: SEQUENCE
     cards:
-    - State what is known and how it was learned.
-    - State what remains uncertain and why.
-    - Explain current actions, benefits, burdens, and decision triggers.
-    - Describe how evidence and policy will be updated.
+    - The transmission route, which three independent data streams agree on.
+    - The severe-risk subgroup, which one small observational sample suggests.
+    - The animal reservoir, which remains plausible and unconfirmed.
+    - What each of those would take to settle, and when it will be revisited.
     order:
     - 0
     - 1
     - 2
     - 3
-    why: Trustworthy communication joins evidence, uncertainty, action, and revision.
+    why: >-
+      The briefing is ordered by how much the evidence will carry, strongest
+      first, because that is the order in which a listener can tell one claim
+      from another. Publishing the reservoir with the confidence of the
+      transmission route is what makes the whole document unbelievable when the
+      reservoir turns out to be somewhere else.
   - group: POP
     task: The emergency budget closes this month. What does the city commit it to?
     title: Fund the post-crisis legacy

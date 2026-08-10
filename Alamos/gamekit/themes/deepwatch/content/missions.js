@@ -13,7 +13,7 @@ export const MISSIONS = [
       {
         "group": "DC",
         "lesson": 0,
-        "task": "Learn a compartment properly"
+        "task": "Learn a compartment in the order the facts depend on each other"
       },
       {
         "group": "ENG",

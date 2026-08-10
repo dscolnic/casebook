@@ -1254,25 +1254,25 @@ Explanation shown: Only inertia and stiffness set the natural frequency — heav
 
 > The decision has to be made this shift, and once the burn is executed most of the alternatives close. What is not yet written down is which observations, at which times, would show the choice was wrong while there is still propellant to change it. A plan is a hypothesis about future physical states: list the hard constraints and quantify the margins now, compare the candidates under off- nominal as well as nominal conditions, define the abort and correction triggers before committing, and keep updating the margins as the vehicle flies.
 
-**Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
+**Question**  Order the commitment so the abort trigger still has something to act on.
 
 **Cards to order** (presented shuffled)
 
-- List hard constraints and quantify current margins.
-- Compare candidate trajectories under nominal and off-nominal cases.
-- Choose the plan and define observable abort or correction triggers.
-- Execute, track, and update the remaining margins.
+- [object Object]
+- Compare the candidates under the off-nominal cases, not the nominal one.
+- Name the observation that would show the choice was wrong, and the time it arrives.
+- Burn, and keep updating the margins against what the tracking returns.
 
 **Correct answer**
 
-1. **List hard constraints and quantify current margins.**
-2. **Compare candidate trajectories under nominal and off-nominal cases.**
-3. **Choose the plan and define observable abort or correction triggers.**
-4. **Execute, track, and update the remaining margins.**
+1. **[object Object]**
+2. **Compare the candidates under the off-nominal cases, not the nominal one.**
+3. **Name the observation that would show the choice was wrong, and the time it arrives.**
+4. **Burn, and keep updating the margins against what the tracking returns.**
 
-**Why (shown in verdict):** Constraints and sensitivity analysis precede commitment; tracking keeps the decision alive.
+**Why (shown in verdict):** The third card is the one that has to happen before the burn rather than after it: once the burn is executed most alternatives close, so an abort trigger defined afterwards is a trigger with nothing left to trigger. And the comparison has to be under off-nominal conditions, because the margins are what the decision is made of.
 
-**Takeaway:** A mission plan is a monitored hypothesis about future physical states.
+**Takeaway:** An abort trigger has to be defined while there is still propellant to act on it.
 
 ---
 
@@ -1425,25 +1425,25 @@ Explanation shown: Independent errors along perpendicular axes combine in quadra
 
 > Everything the last five days established comes down to the next eleven minutes, in an order that cannot be repeated. The approved attitude, configuration and state estimate all have to be established before the atmospheric interface, because there is no communication through the blackout to fix any of them; the roles of the onboard system and the ground have to be unambiguous before the vehicle is committed; deceleration, heating proxies and communications are then monitored against expected envelopes; and the transition to descent and recovery has to preserve the data the debrief will need.
 
-**Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
+**Question**  Order the entry around the four minutes with no communications.
 
 **Cards to order** (presented shuffled)
 
-- Establish the approved attitude, configuration, and state estimate.
-- Commit to the atmospheric interface with autonomous and ground roles clear.
-- Monitor deceleration, heating proxies, and communications against expected envelopes.
-- Transition to descent and recovery while preserving data for debrief.
+- Set the approved attitude and configuration, because nothing can be changed through the blackout.
+- Commit to the interface with the onboard and ground roles already unambiguous.
+- Monitor deceleration and heating against the predicted envelope.
+- Transition to descent, preserving the record of what the envelope actually did.
 
 **Correct answer**
 
-1. **Establish the approved attitude, configuration, and state estimate.**
-2. **Commit to the atmospheric interface with autonomous and ground roles clear.**
-3. **Monitor deceleration, heating proxies, and communications against expected envelopes.**
-4. **Transition to descent and recovery while preserving data for debrief.**
+1. **Set the approved attitude and configuration, because nothing can be changed through the blackout.**
+2. **Commit to the interface with the onboard and ground roles already unambiguous.**
+3. **Monitor deceleration and heating against the predicted envelope.**
+4. **Transition to descent, preserving the record of what the envelope actually did.**
 
-**Why (shown in verdict):** Configuration and authority precede commitment; monitoring and evidence preservation continue through recovery.
+**Why (shown in verdict):** The order is forced by the communications blackout: everything that needs a decision from the ground has to be finished before the interface, because for the next four minutes there is no ground. Monitoring cannot begin earlier — there is nothing to monitor — and the record matters because this is the only flight that will ever produce it.
 
-**Takeaway:** Execution is the final experiment of the integrated physical model.
+**Takeaway:** Entry is ordered by the blackout: whatever needs the ground has to be settled before it starts.
 
 ### M15.3 — Fund the mission legacy
 
@@ -1480,11 +1480,11 @@ Explanation shown: Independent errors along perpendicular axes combine in quadra
 
 ## Grading
 
-Scored after the March of fixes described in `README.md`. Three axes, 1–5 each; the rubric is identical across all seven games and is stated in full in `README.md`. Rows marked **Fixed**, **Rebuilt** or **Correction** changed in this pass.
+Three axes, 1–5 each; the rubric is in `README.md`. Rows marked **Fixed**, **Rebuilt**, **Rewritten** or **Correction** changed after the first audit.
 
-- **Solv** — *solvability*: can a prepared student reach the keyed answer from the scene and panel alone, by reasoning rather than by eliminating an absurdity or recalling something never shown?
-- **Edu** — *educational value*: does getting it right require and build transferable subject knowledge?
-- **Fit** — *general-curriculum fit* for the stated audience.
+- **Solv** — can a prepared student reach the keyed answer from the scene and panel alone?
+- **Edu** — does getting it right require and build transferable subject knowledge?
+- **Fit** — does it map onto a named topic in a standard course for the stated audience?
 
 | ID | Format | Topic | Solv | Edu | Fit | Note |
 | --- | --- | --- | :-: | :-: | :-: | --- |
@@ -1526,28 +1526,18 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M12.3 | CHOICE | Detune, damp, verify | 4 | 4 | 4 | Shift the operating speed: the only change that can be made now, reversibly, without touching the structure. |
 | M13.1 | PROTOCOL | Which subsystem each choice stresses | 5 | 3 | 2 | Systems trade-off mapping; correct but not physics content. |
 | M13.2 | CHOICE | Robust vs nominal-optimal | 4 | 4 | 3 | The moderate return, because the consumable uncertainty is larger than the difference between the two fastest options. |
-| M13.3 | SEQUENCE | Commit to a plan with triggers | 3 | 2 | 1 | Decision procedure. |
+| M13.3 | SEQUENCE | Commit to a plan with triggers | 4 | 4 | 3 | **Rewritten.** The abort trigger now has to be defined before the burn, because afterwards there is nothing left to trigger. |
 | M14.1 | DIAGNOSIS | Common timing reference | 5 | 5 | 4 | Star-angle navigation uses no ground clock and agrees with prediction — a properly independent check. Pays off M1.1. |
 | M14.2 | BALLPARK | Uncertainties in quadrature | 4 | 5 | 5 | The sum of the two errors offered as a tile. Adding rather than combining in quadrature overstates this by forty per cent. |
 | M14.3 | CHOICE | Burn only if it reduces total risk | 4 | 5 | 4 | Do not burn — get an observation that cannot fail the way both stations already do. The campaign's independence thread, closed. |
 | M15.1 | PROTOCOL | Readiness disposition | 4 | 3 | 2 | Claim-by-claim judgement, no physics. |
-| M15.2 | SEQUENCE | Entry execution | 3 | 2 | 1 | Procedure ordering. |
+| M15.2 | SEQUENCE | Entry execution | 4 | 4 | 3 | **Rewritten.** Ordered by the blackout: everything needing a decision from the ground has to be settled before the interface, because for four minutes there is no ground. |
 | M15.3 | CHOICE | Programme legacy | 4 | 4 | 2 | Redesign the common-mode dependencies, because it is the only item that removes a cause rather than improving the response. |
 
-### Summary — Bring Them Home
+### Summary
 
-**Averages: Solvability 4.3 · Educational value 4.2 · Curriculum fit 3.8**
-*Before this pass: 4.2 · 3.8 · 3.6*
+**Averages: Solvability 4.3 · Educational value 4.3 · Curriculum fit 3.8**
 
-Twenty-four of forty-five rows changed, the most of any of the college games, and almost all of it is in the estimates. **All twelve BALLPARK specs had zero decoy tiles** — every number offered belonged in the answer, so the item was an arrangement exercise. All twelve now carry two or three plausible wrong quantities, chosen to be the ones a first-year student actually reaches for: surface gravity in an impulse problem, bus voltage in a joint-heating problem, three hours expressed in hours next to a wattage, the sum of two errors beside a quadrature template.
+Educational value 3.8 → 4.2 → **4.3**, on the back of twelve estimates that had no distractor tiles and two orderings that had no forced order. The commitment sequence now puts the abort trigger before the burn — because afterwards there is nothing left to trigger — and the entry sequence is ordered by the communications blackout.
 
-Two went further and had the taught step pre-computed into a tile:
-
-- **M4.3** offered "sin 90° = 1" for a torque problem about the sine of the angle. Gone; the decoys are now a second distance and the vehicle mass, so the lever arm has to be measured to the right point.
-- **M10.2** offered "1.75e-3 rad" for a problem about converting 0.1°. It now offers the conversion factor and its reciprocal, which is the error the item exists to catch.
-
-The estimates are now this game's strongest block: Edu 4.8, Fit 4.8 across twelve items.
-
-Also fixed: **M3.3 was recommending fifteen credits for "use one trajectory solution without independent verification"** — an anti-pattern funded inside a mission whose entire subject is independent verification.
-
-What has not moved is the last third. Missions 13 to 15 are still readiness process, and the six SEQUENCE stops across them still average Fit 3.0.
+The twelve estimates are the strongest block in the game at Edu 4.8 / Fit 4.8. The remaining Fit 2s are the readiness and legacy stops in the last third, which is where every college game here loses its subject.

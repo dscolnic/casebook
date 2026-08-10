@@ -148,7 +148,7 @@ export const CURRICULUM = {
       "day": 4,
       "title": "What has to be true before the boat commits",
       "scene": "Rask lays out what the sonar room needs before the boat enters the narrows: the picture built, the layer known, the own-noise baseline taken, and an agreement about what happens if contact is lost. A passage plan is not a list of jobs for later. It is a set of conditions that have to be true at the moment the boat commits, because inside a constrained channel there is no room to go back and collect one you skipped. Some of these are measurements and some are agreements, and Rask wants them in the order they have to happen in.",
-      "takeaway": "A passage plan is a list of things that must already be true, not a list of things to do later.",
+      "takeaway": "A passage plan is ordered by what each measurement needs in order to mean anything.",
       "place": "Sonar Room",
       "story": "Rask lays out what the sonar room needs before the boat enters the narrows: the picture built, the layer known, the own-noise baseline taken, and an agreement about what happens if contact is lost. A passage plan is not a list of jobs for later. It is a set of conditions that have to be true at the moment the boat commits, because inside a constrained channel there is no room to go back and collect one you skipped. Some of these are measurements and some are agreements, and Rask wants them in the order they have to happen in.",
       "game": {
@@ -159,12 +159,12 @@ export const CURRICULUM = {
         "task": "Order the passage",
         "question": "Order the passage",
         "answer": "",
-        "why": "The baseline has to come first because everything after it is measured against it; the plan for losing contact has to be agreed before you are busy losing it.\n",
+        "why": "Each card is a prerequisite for reading the next one. Without the baseline a new sound is just a sound; without the layer a missing narrowband line looks like an absent contact rather than a bent path; and bearing rates take time, which is why they cannot be the thing you start collecting at the entrance. The last is agreed early for a different reason — afterwards, everybody is busy.",
         "cards": [
-          "Take the own-noise baseline, so a new sound can be recognised as new.",
-          "Find the layer depth, so you know where sound will and will not reach.",
-          "Build the contact picture, and hold it long enough to have bearing rates.",
-          "Agree what the boat does if contact is lost in the narrows."
+          "Take the own-noise baseline, because nothing new can be recognised as new without it.",
+          "Find the layer depth, because it decides which of the missing lines are missing for a reason.",
+          "Hold the contacts long enough to have bearing rates, which the baseline and the layer let you interpret.",
+          "Agree what the boat does if contact is lost, while there is still contact to lose."
         ],
         "order": [
           0,
@@ -374,7 +374,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "The trip back without a waypoint",
       "scene": "The navigator hands you a written message for machinery control and tells you the marker will be switched off for the walk back. You have been through the boat once. Submerged there are no windows and no landmarks: everything anybody aboard knows about where they are comes from keeping track since the last thing they were sure of. That is dead reckoning, and it is exactly what the boat does with its own position between fixes. Whatever you decide to carry in your head has to work on a real boat — somebody stopping you in a passage, a hatch shut, the lights out.",
-      "takeaway": "Knowing where you are is the same skill submerged as it is in a passage.",
+      "takeaway": "Dead reckoning fails at the interruption, so carry the thing that survives one.",
       "place": "Control Room",
       "story": "The navigator hands you a written message for machinery control and tells you the marker will be switched off for the walk back. You have been through the boat once. Submerged there are no windows and no landmarks: everything anybody aboard knows about where they are comes from keeping track since the last thing they were sure of. That is dead reckoning, and it is exactly what the boat does with its own position between fixes. Whatever you decide to carry in your head has to work on a real boat — somebody stopping you in a passage, a hatch shut, the lights out.",
       "game": {
@@ -384,20 +384,20 @@ export const CURRICULUM = {
         "play": "Carry a message without a marker",
         "task": "Carry a message without a marker",
         "question": "What should you fix in your head before you set off?",
-        "answer": "The order of the compartments, so you always know which one you are in.",
-        "why": "A sequence survives being interrupted. A count of paces does not survive stepping round a person, and neither does a colour in the dark.\n",
+        "answer": "The order of the compartments, because a sequence survives being interrupted.",
+        "why": "Dead reckoning fails at the interruption, and a boat is full of interruptions. A pace count does not survive stepping round somebody; a list of turns does not survive taking one extra; a stencilled number cannot be read with the lighting gone. An ordered list of spaces survives all three, because you can rejoin it anywhere.",
         "rebuttals": [
           "Paces stop being useful the moment you have to step around somebody.",
           "Deck colours vanish with the lighting, which is exactly when you need this.",
           "Wandering works until the boat is dark or on fire, which is when it is asked for."
         ],
         "choices": [
-          "The order of the compartments, so you always know which one you are in.",
-          "The exact number of paces between hatches.",
-          "The colour of each compartment's deck.",
-          "Nothing — the boat is small enough to wander until it looks familiar."
+          "The order of the compartments, because a sequence survives being interrupted.",
+          "The number of paces between each hatch, counted on the way forward.",
+          "The route as a series of turns, memorised in order.",
+          "The compartment numbers stencilled on each bulkhead, read as you pass."
         ],
-        "correctChoice": "The order of the compartments, so you always know which one you are in."
+        "correctChoice": "The order of the compartments, because a sequence survives being interrupted."
       }
     },
     {
@@ -757,23 +757,23 @@ export const CURRICULUM = {
       "day": 1,
       "title": "What a walkdown is for",
       "scene": "Chief Ferro walks you into the forward space and asks you to learn it. There is equipment down both sides, deck plates over a recess, a hose reel on the bulkhead and two ways out. A submarine survives casualties by being divided: watertight bulkheads keep a fire or a flood inside one compartment instead of letting it have the whole boat, and every space is stored so the people already in it can fight what happens there. Learning a compartment is not sightseeing. It is building the map you will be using by feel, in the dark, with the lighting gone and somebody shouting. Ferro is not telling you what to take in first — that is what he is asking.",
-      "takeaway": "You learn a space in the order you would need it, not in the order you see it.",
+      "takeaway": "A compartment is a pressure boundary first; everything you learn about it hangs off that.",
       "place": "Forward Equipment & Handling",
       "story": "Chief Ferro walks you into the forward space and asks you to learn it. There is equipment down both sides, deck plates over a recess, a hose reel on the bulkhead and two ways out. A submarine survives casualties by being divided: watertight bulkheads keep a fire or a flood inside one compartment instead of letting it have the whole boat, and every space is stored so the people already in it can fight what happens there. Learning a compartment is not sightseeing. It is building the map you will be using by feel, in the dark, with the lighting gone and somebody shouting. Ferro is not telling you what to take in first — that is what he is asking.",
       "game": {
         "type": "SEQUENCE",
         "title": "What a walkdown is for",
         "setup": "Forward Equipment & Handling",
-        "play": "Learn a compartment properly",
-        "task": "Learn a compartment properly",
-        "question": "Learn a compartment properly",
+        "play": "Learn a compartment in the order the facts depend on each other",
+        "task": "Learn a compartment in the order the facts depend on each other",
+        "question": "Learn a compartment in the order the facts depend on each other",
         "answer": "",
-        "why": "Boundaries first because they decide whether a casualty is yours; exits second because they are the thing you need when you can no longer see.\n",
+        "why": "The last card depends on the third: a locker is only the right locker once you know what this compartment can do to you. And the boundary comes first because it is what makes the space a space — at ninety metres it is the difference between a flooded compartment and a flooded boat.",
         "cards": [
-          "Find the boundaries — where this compartment ends and the next begins.",
-          "Find the ways out, and check both are clear.",
-          "Find what is in here that fights a casualty — lockers, reels, isolation valves.",
-          "Learn what the space holds that could cause one — sea connections, cables, stores."
+          "Find where the pressure boundary runs, because that is what decides whether a casualty is yours or the next compartment's.",
+          "Find both ways out through that boundary, and prove they still open.",
+          "Find what in here could start a casualty — sea connections, cables, stores.",
+          "Judge whether what is in here can fight the casualty those things would start."
         ],
         "order": [
           0,
@@ -970,7 +970,7 @@ export const CURRICULUM = {
       "day": 7,
       "title": "Everything you are not doing yourself",
       "scene": "You are taking the plot yourself. Four other things need somebody, and Whitfield is waiting with the watch bill. This is the last watch of the patrol and there is more happening than one person can hold in their head: what you assign now is what will actually get done, and an assignment that does not say who has it, what they do first and when they come back is a wish rather than an order. Everything you keep for yourself is attention taken away from the plot you just decided was the priority.",
-      "takeaway": "Delegation is a name, a first action and a time to report back.",
+      "takeaway": "An assignment that names a threshold can be acted on alone; one that says watch it cannot.",
       "place": "Forward Equipment & Handling",
       "story": "You are taking the plot yourself. Four other things need somebody, and Whitfield is waiting with the watch bill. This is the last watch of the patrol and there is more happening than one person can hold in their head: what you assign now is what will actually get done, and an assignment that does not say who has it, what they do first and when they come back is a wish rather than an order. Everything you keep for yourself is attention taken away from the plot you just decided was the priority.",
       "game": {
@@ -981,18 +981,18 @@ export const CURRICULUM = {
         "task": "Match each item to the assignment that fits it.",
         "question": "Match each item to the assignment that fits it.",
         "answer": "",
-        "why": "Each assignment names a person, a first action and what \"report back\" means. None of them asks anybody to watch something.\n",
+        "why": "Every one of these asks for a threshold rather than a watch. \"Report a change\" and \"name the hour\" are instructions somebody can act on alone; \"keep an eye on it\" is how four things get watched and none of them gets decided.",
         "scenarios": [
-          "The wet forward bilge.",
-          "The unresolved contact.",
+          "The forward bilge, wet but not rising.",
+          "The faint contact nobody has resolved.",
           "The scrubber train that is down.",
           "The bearing running warm."
         ],
         "choices": [
-          "Hallam — read and log the level every ten minutes and report a change, not a number.",
-          "Dunne — hold it, get a bearing rate, and report before it resolves rather than after.",
-          "Lindqvist — restore the train or tell me the hour at which it stops being optional.",
-          "Haruki — restore the second cooling pump and tell me what that costs acoustically."
+          "Log the level every ten minutes and report a change, not a number.",
+          "Hold it and get a bearing rate, and report before it resolves rather than after.",
+          "Restore it, or name the hour at which the air stops being optional.",
+          "Restore the second cooling pump, and say what that costs acoustically."
         ],
         "mapping": [
           0,
@@ -1076,7 +1076,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Who does the things you are not doing",
       "scene": "You have the flooding. Whitfield is waiting for the rest of the casualty organisation and he will not invent it for you. The watch bill exists so that one person's attention is never the thing that limits the boat: every casualty aboard has somebody qualified who can start on it inside the next minute. What that person needs from you is not a description of the problem — a problem handed to a volunteer is a problem nobody owns. Get this wrong and you will spend the next twenty minutes supervising four things and completing none of them, with the water still coming in.",
-      "takeaway": "Delegation is naming a person and a first action, not describing a problem.",
+      "takeaway": "Delegation is a person and a first action, and the first action is rarely the obvious one.",
       "place": "Electrical Distribution",
       "story": "You have the flooding. Whitfield is waiting for the rest of the casualty organisation and he will not invent it for you. The watch bill exists so that one person's attention is never the thing that limits the boat: every casualty aboard has somebody qualified who can start on it inside the next minute. What that person needs from you is not a description of the problem — a problem handed to a volunteer is a problem nobody owns. Get this wrong and you will spend the next twenty minutes supervising four things and completing none of them, with the water still coming in.",
       "game": {
@@ -1087,18 +1087,18 @@ export const CURRICULUM = {
         "task": "Match each remaining casualty to the right assignment.",
         "question": "Match each remaining casualty to the right assignment.",
         "answer": "",
-        "why": "Each of these has one person aboard who can start it in the next minute. Naming them is the job; supervising all four of them is not.\n",
+        "why": "Each assignment is a first action rather than a subject. The pairings are not obvious from the department: the plot is fixed by slowing down before anybody plots anything, and the injured man is moved because the passage is a route, not because he is uncomfortable.",
         "scenarios": [
-          "The lost bus and everything it fed.",
-          "The injured crewman in the passage.",
-          "The plot, degraded since the power loss.",
-          "The boundaries around the flooded space."
+          "The lost bus, and everything that was fed from it.",
+          "The crewman with a broken wrist, in the passage.",
+          "The plot, degraded since the power went.",
+          "The bulkheads either side of the flooded space."
         ],
         "choices": [
-          "Okonkwo, with a meter — find what is dead and what is only reported dead.",
-          "Navarro, who can treat him where he is and clear the passage.",
-          "Petrov, to slow the boat and re-establish a sounding line before anything else.",
-          "The after damage-control party, reading temperatures and levels either side."
+          "Prove what is actually dead with a meter, because the switchboard only reports what it believes.",
+          "Treat him where he lies and clear the passage, because the passage is a damage-control route.",
+          "Slow the boat first, which freezes the error before anybody tries to rebuild the position.",
+          "Read temperature and level on both sides, because that is how you learn the boundary is holding."
         ],
         "mapping": [
           0,
@@ -1123,7 +1123,7 @@ export const CURRICULUM = {
         "task": "Find out why the pump is off",
         "question": "What does this say about the quiet-running lineup?",
         "answer": "Securing a machine needs a record of what it was cooling and when it must come back.",
-        "why": "The trade was reasonable and the record was not made, which is why it survived two watch changes and turned into a hot bearing.\n",
+        "why": "The trade was reasonable and the record was not made, which is why it survived two watch changes. An automatic restore and a temperature alarm are both real engineering answers and both arrive after the heat has: an alarm tells you a bearing is already hot, and neither tells the next watch why the pump was off.",
         "rebuttals": [
           "Quiet running is a legitimate reason to secure a pump; the fault is in the handover.",
           "An automatic restart would defeat the point of a deliberately quiet lineup.",
@@ -1131,8 +1131,8 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Securing a machine needs a record of what it was cooling and when it must come back.",
-          "The breaker should never have been opened for a quiet run.",
-          "The pump should restart automatically on high temperature.",
+          "The quiet-running lineup should be restored automatically when the transit ends.",
+          "The bearing should have a high-temperature alarm that trips the pump back on.",
           "Nothing — the watch that secured it made a reasonable trade at the time."
         ],
         "correctChoice": "Securing a machine needs a record of what it was cooling and when it must come back."
@@ -1358,7 +1358,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Every fitting is an argument",
       "scene": "Chief Haruki stops beside four fittings on the same bulkhead and asks you what each one is for. None of them is labelled with its purpose, only with its number. That is normal: the tag says which valve it is, not what happens when you turn it. What a fitting does comes from what it is connected to, and the shape of it — a wheel, a manifold, a locker, a reel — is most of the clue you get when there is no time to trace a line. At depth the sea is on the other side of some of these, at several atmospheres, and opening one you meant to shut is a casualty you created yourself.",
-      "takeaway": "A fitting you cannot explain is a fitting you will use wrongly under pressure.",
+      "takeaway": "What a fitting is for is decided by what is on the other side of it, and at what pressure.",
       "place": "Propulsion Machinery",
       "story": "Chief Haruki stops beside four fittings on the same bulkhead and asks you what each one is for. None of them is labelled with its purpose, only with its number. That is normal: the tag says which valve it is, not what happens when you turn it. What a fitting does comes from what it is connected to, and the shape of it — a wheel, a manifold, a locker, a reel — is most of the clue you get when there is no time to trace a line. At depth the sea is on the other side of some of these, at several atmospheres, and opening one you meant to shut is a casualty you created yourself.",
       "game": {
@@ -1369,18 +1369,18 @@ export const CURRICULUM = {
         "task": "Match each fitting to what it is there to do.",
         "question": "Match each fitting to what it is there to do.",
         "answer": "",
-        "why": "A hull valve, a breathing manifold, a damage-control locker and a hose reel are four different decisions.",
+        "why": "Each fitting is defined by what happens when it is wrong. The hull valve is the only one with the sea behind it, and the pressure behind it is set by depth — ten atmospheres at ninety metres, which is what makes it the one you never open to find out.",
         "scenarios": [
-          "A red wheel valve on a pipe that goes through the hull.",
-          "A manifold with hose connections at head height.",
-          "A steel locker with a strap and a quick-release catch.",
-          "A reel of flat hose beside a small isolating valve."
+          "A wheel valve on a line that passes through the pressure hull.",
+          "A manifold at head height with quick-connect couplings.",
+          "A strapped steel locker with a quick-release catch.",
+          "A flat-folded hose on a reel, beside a small isolating valve."
         ],
         "choices": [
-          "Shuts the sea off from a system inboard of it.",
-          "Supplies air to a breathing mask so a space can be entered.",
-          "Holds the tools and shoring for a casualty in this compartment.",
-          "Puts water where a fire is, once the power is proved gone."
+          "Opening it at ninety metres admits the sea at ten atmospheres.",
+          "It supplies breathing air, so a space can be entered before its atmosphere is fit to breathe.",
+          "It holds the shoring and plugs that let this compartment fight its own casualty.",
+          "It puts water on a fire, and only once the circuit has been proved dead."
         ],
         "mapping": [
           0,

@@ -306,7 +306,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 19,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Order the design backwards from the effect it has to produce."
       },
       {
         "group": "OPS",
@@ -354,7 +354,7 @@ export const MISSIONS = [
       {
         "group": "ORBIT",
         "lesson": 6,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Order the record so each claim can be checked against the one before it."
       },
       {
         "group": "OPS",

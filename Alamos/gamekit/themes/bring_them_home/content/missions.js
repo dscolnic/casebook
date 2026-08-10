@@ -311,7 +311,7 @@ export const MISSIONS = [
       {
         "group": "THERM",
         "lesson": 4,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Order the commitment so the abort trigger still has something to act on."
       }
     ]
   },
@@ -354,7 +354,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 19,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Order the entry around the four minutes with no communications."
       },
       {
         "group": "NAV",

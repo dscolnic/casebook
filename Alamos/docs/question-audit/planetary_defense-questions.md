@@ -1257,25 +1257,25 @@ Explanation shown: Conservation of momentum needs the impactor's mass and speed,
 
 > The launch window is nineteen days wide, the target is irregular and rotating, and the light-time at encounter means the ground can watch but cannot steer. The architecture has to be traced backwards from the outcome: define the encounter geometry and the effect required, choose launch, cruise and navigation to deliver it, design the autonomous terminal guidance and the measurements that will verify what happened, and test the integrated design against off-nominal target states rather than the one in the brochure.
 
-**Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
+**Question**  Order the design backwards from the effect it has to produce.
 
 **Cards to order** (presented shuffled)
 
-- Define encounter geometry and required effect.
-- Choose launch, cruise, and navigation strategy.
-- Design autonomous terminal guidance and verification measurements.
-- Test the integrated mission against off-nominal target states.
+- Fix the encounter geometry and the velocity change it has to deliver.
+- Choose launch energy and cruise to reach that geometry inside the window.
+- Design terminal guidance to close the ephemeris error that is left at arrival.
+- Test the whole chain against target states nobody has ruled out.
 
 **Correct answer**
 
-1. **Define encounter geometry and required effect.**
-2. **Choose launch, cruise, and navigation strategy.**
-3. **Design autonomous terminal guidance and verification measurements.**
-4. **Test the integrated mission against off-nominal target states.**
+1. **Fix the encounter geometry and the velocity change it has to deliver.**
+2. **Choose launch energy and cruise to reach that geometry inside the window.**
+3. **Design terminal guidance to close the ephemeris error that is left at arrival.**
+4. **Test the whole chain against target states nobody has ruled out.**
 
-**Why (shown in verdict):** The desired physical effect determines trajectory and guidance, which must then survive uncertainty.
+**Why (shown in verdict):** Each stage is sized by the one above it: the required velocity change sets the impactor mass and therefore the launch energy, and what the launch and cruise cannot deliver in accuracy is exactly what terminal guidance has to close. Designing the guidance first means designing it to a miss distance nobody has computed.
 
-**Takeaway:** Mission architecture should be traced from outcome to testable requirements.
+**Takeaway:** An intercept is designed backwards from the effect it has to produce.
 
 ### M13.3 — Spend mission margin
 
@@ -1457,25 +1457,25 @@ Explanation shown: A probability written as a percentage has to be converted bef
 
 > The board has to publish one account of a campaign in which the object was found late, characterised in stages, deflected by a measured but imprecise amount, and left with residual risk that is small rather than zero. The order that survives scrutiny is discovery history and how the uncertainty evolved, then the physical characterisation and the range of consequences it implied, then the intervention with the orbit change actually measured against the one predicted, and finally the monitoring, survey and governance responsibilities that continue after everyone stops paying attention.
 
-**Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
+**Question**  Order the record so each claim can be checked against the one before it.
 
 **Cards to order** (presented shuffled)
 
-- State the discovery history and evolving uncertainty.
-- Explain physical characterization and consequence ranges.
-- Document intervention, measured orbit change, and residual risk.
-- Publish long-term monitoring, survey, and governance responsibilities.
+- The discovery, and how wide the uncertainty was at each stage of narrowing it.
+- The physical characterisation, and the consequence range it implied.
+- The intervention, and the orbit change measured against the one predicted.
+- The residual risk, and who is funded to keep watching it.
 
 **Correct answer**
 
-1. **State the discovery history and evolving uncertainty.**
-2. **Explain physical characterization and consequence ranges.**
-3. **Document intervention, measured orbit change, and residual risk.**
-4. **Publish long-term monitoring, survey, and governance responsibilities.**
+1. **The discovery, and how wide the uncertainty was at each stage of narrowing it.**
+2. **The physical characterisation, and the consequence range it implied.**
+3. **The intervention, and the orbit change measured against the one predicted.**
+4. **The residual risk, and who is funded to keep watching it.**
 
-**Why (shown in verdict):** The record follows the chain from detection through stewardship.
+**Why (shown in verdict):** The record is ordered so that each claim can be checked against the one before it: the consequence range only means something beside the diameter it came from, and the measured deflection only means something beside the prediction it was tested against. Ending on residual risk and its owner is what stops the document reading as a conclusion.
 
-**Takeaway:** Public accountability should preserve both technical reasoning and decision authority.
+**Takeaway:** A record is ordered so each claim can be checked against the one before it.
 
 ### M15.3 — Fund the planetary-defense legacy
 
@@ -1512,11 +1512,11 @@ Explanation shown: A probability written as a percentage has to be converted bef
 
 ## Grading
 
-Scored after the March of fixes described in `README.md`. Three axes, 1–5 each; the rubric is identical across all seven games and is stated in full in `README.md`. Rows marked **Fixed**, **Rebuilt** or **Correction** changed in this pass.
+Three axes, 1–5 each; the rubric is in `README.md`. Rows marked **Fixed**, **Rebuilt**, **Rewritten** or **Correction** changed after the first audit.
 
-- **Solv** — *solvability*: can a prepared student reach the keyed answer from the scene and panel alone, by reasoning rather than by eliminating an absurdity or recalling something never shown?
-- **Edu** — *educational value*: does getting it right require and build transferable subject knowledge?
-- **Fit** — *general-curriculum fit* for the stated audience.
+- **Solv** — can a prepared student reach the keyed answer from the scene and panel alone?
+- **Edu** — does getting it right require and build transferable subject knowledge?
+- **Fit** — does it map onto a named topic in a standard course for the stated audience?
 
 | ID | Format | Topic | Solv | Edu | Fit | Note |
 | --- | --- | --- | :-: | :-: | :-: | --- |
@@ -1557,28 +1557,19 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M12.2 | PROTOCOL | What determines deflection success | 5 | 5 | 4 | Lead time, unknown mass, ejecta enhancement, post-impact tracking. Correctly frames deflection as an experiment with a measured dependent variable. |
 | M12.3 | CHOICE | Reconnaissance vs lead time | 4 | 5 | 4 | Long-term tracking, because the dependent variable of a deflection is the orbit. Matches the takeaway the funding round never reached. |
 | M13.1 | PROTOCOL | Mapping constraints to subsystems | 4 | 3 | 2 | Mission engineering, not astronomy. |
-| M13.2 | SEQUENCE | Intercept architecture | 3 | 2 | 2 | Generic systems-engineering recipe. |
+| M13.2 | SEQUENCE | Intercept architecture | 4 | 4 | 3 | **Rewritten.** The architecture is now sized backwards from the velocity change it must deliver, so terminal guidance closes exactly the error launch and cruise leave behind. |
 | M13.3 | CHOICE | Where margin buys most | 4 | 4 | 3 | Ephemeris and optical navigation, because the accuracy is lost at the encounter rather than at launch. |
 | M14.1 | PROTOCOL | Action proportional to evidence state | 4 | 4 | 3 | Escalation tied to probability, lead time and reversibility. Sound, mostly policy. |
 | M14.2 | BALLPARK | Expectation vs distribution | 4 | 5 | 4 | A probability offered as a percentage as well as a fraction, which is a factor of a hundred in the answer. |
 | M14.3 | CHOICE | Preparing without spending credibility | 4 | 4 | 3 | Publish the uncertainty with the triggers, so a later change reads as the system working rather than as a reversal. |
 | M15.1 | PROTOCOL | Final claim disposition | 4 | 3 | 2 | Good habit; no astronomy decided. |
-| M15.2 | SEQUENCE | Public record | 3 | 2 | 1 | Narrative ordering. |
+| M15.2 | SEQUENCE | Public record | 4 | 3 | 3 | **Rewritten.** Ordered so each claim can be checked against the one before it — the consequence range beside the diameter it came from, the measured deflection beside the prediction. |
 | M15.3 | CHOICE | Programme legacy | 4 | 4 | 2 | Survey completeness, because everything else in planetary defence is a function of warning time. |
 
-### Summary — Planetary Defense
+### Summary
 
-**Averages: Solvability 4.2 · Educational value 4.4 · Curriculum fit 4.0**
-*Before this pass: 4.1 · 4.2 · 3.9*
+**Averages: Solvability 4.3 · Educational value 4.4 · Curriculum fit 4.0**
 
-Highest educational value of the seven, on the back of twenty-three changed rows.
+Highest educational value of the seven at **4.4**. All nine estimates gained distractors, three of them excellent — a diameter offered to a formula that takes a radius, a probability offered as a percentage as well as a fraction, an albedo ratio beside its own square root.
 
-**All nine estimates had zero decoys**; all nine now have them, and three of the new tiles are the best traps in the repository:
-
-- **M9.1** offers a *diameter* to a formula that takes a *radius*. The factor of eight that produces is the same factor of eight that makes the diameter measurement worth more than any other, which the very next stop is about.
-- **M12.1** no longer hands over the transferred momentum; the impactor's mass and speed are the inputs and the encounter speed is the decoy.
-- **M5.2** was the most opaque item here — tiles reading "4 x albedo" and "1 x reference brightness" against a √(b/a) template. They now name what they are, and the already-square-rooted value sits beside them.
-
-The fourteen conversions inherit this game's real strength, which is that its subject is observation strategy: M4.3 (point where the solutions disagree), M8.3 (what a four-hour radar window buys), M12.3 (what the campaign must add that the impactor does not) are all decisions an astronomer actually makes.
-
-**Every one of its eleven funding decoys used to be listed at zero credits, which the grader treated as "supported at zero" and did not penalise.** That whole class of hole is gone with the format — and the engine now treats a zero weight as unsupported anyway, for any book written later.
+The intercept architecture is now sized backwards from the velocity change it has to deliver, so terminal guidance closes exactly the error that launch and cruise leave behind; and the final record is ordered so each claim can be checked against the one before it.

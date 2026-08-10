@@ -85,21 +85,21 @@
 
 **Cards to order** (presented shuffled)
 
-- Clean your hands before the exam.
-- Ask Ben what happened and where it hurts.
-- Look carefully and let the clinician check the ankle.
-- Write down the important clues for the team.
+- Clean your hands, so nothing from the last patient travels to Ben.
+- Ask Ben what happened, and where it hurts most.
+- Look at the ankle, using what Ben said to know where to look.
+- Write down the clues, so the next person sees what you saw.
 
 **Correct answer**
 
-1. **Clean your hands before the exam.**
-2. **Ask Ben what happened and where it hurts.**
-3. **Look carefully and let the clinician check the ankle.**
-4. **Write down the important clues for the team.**
+1. **Clean your hands, so nothing from the last patient travels to Ben.**
+2. **Ask Ben what happened, and where it hurts most.**
+3. **Look at the ankle, using what Ben said to know where to look.**
+4. **Write down the clues, so the next person sees what you saw.**
 
-**Why (shown in verdict):** A good hospital routine protects the patient first, then gathers the story and exam clues, then records what was learned.
+**Why (shown in verdict):** Each step makes the next one work. Hands first, because whatever is on them goes onto Ben. His story before the exam, because it tells you where to look — an exam with no story is a search. Writing last, because it records the other three.
 
-**Takeaway:** Good care depends on a repeatable process, not guessing.
+**Takeaway:** Each step in a hospital routine is there to make the next one work.
 
 ---
 
@@ -454,9 +454,9 @@ Book's worked answer: 72
 
 **Scene shown to the player**
 
-> Mrs. Lee has a drink tracker by her bed. It shows 2 cups in the morning. It shows 1 cup with lunch. It shows 3 cups later. The nurse asks you to add them up. Hospitals write things down when they happen. Nobody remembers a whole day at the end of it. This is a math problem, not drinking advice.
+> Mrs. Lee has a drink tracker by her bed. It shows 2 cups in the morning, 1 cup with lunch and 3 cups later. On the wall is a chart saying a body her size loses about 8 cups of water a day — through breathing, through sweat, and into urine. That loss happens whether or not anybody is drinking. This is a maths problem, not drinking advice.
 
-**Question**  How many cups are shown on the tracker altogether?
+**Question**  How many cups short of what her body lost is she?
 
 **Givens**
 
@@ -471,16 +471,16 @@ Book's worked answer: 72
 
 **Correct answer**
 
-Equation shown: `{0} + {1} + {2}`
-Tiles offered: `2 cups  (morning)`, `1 cup  (with lunch)`, `3 cups  (later)`, `8 cups  (the empty row on the sheet)`, `3 rows  (how many entries)`
-Tiles that belong: `2 cups  (morning)`, `1 cup  (with lunch)`, `3 cups  (later)`
-Decoy tiles: `8 cups  (the empty row on the sheet)`, `3 rows  (how many entries)`
-Formula: `a+b+c`
-**Target: 6 cups** (tolerance ±0.5)
-Explanation shown: Reading a chart means totalling what is written on it, including the small entries. The blank row is not a zero and not an eight — it is a row nobody has filled in yet.
+Equation shown: `{3} − ( {0} + {1} + {2} )`
+Tiles offered: `2 cups  (morning)`, `1 cup  (with lunch)`, `3 cups  (later)`, `8 cups  (what her body loses in a day)`, `10 cups  (what the jug holds)`, `3 rows  (how many entries)`
+Tiles that belong: `2 cups  (morning)`, `1 cup  (with lunch)`, `3 cups  (later)`, `8 cups  (what her body loses in a day)`
+Decoy tiles: `10 cups  (what the jug holds)`, `3 rows  (how many entries)`
+Formula: `d - (a + b + c)`
+**Target: 2 cups** (tolerance ±0.5)
+Explanation shown: Water going in has to keep up with water going out, and the tracker only shows one side of that. The jug is how much she could drink, not how much she did.
 Book's worked answer: 6
 
-**Why (shown in verdict):** 2 + 1 + 3 = 6.
+**Why (shown in verdict):** Six cups in against about eight cups out leaves her two short. The body loses water all day without being asked, which is why the amount that goes in has to be counted against it rather than on its own.
 
 **Why the others do not hold**
 
@@ -488,7 +488,7 @@ Book's worked answer: 6
 - B. 5 — 5 is one cup too few.
 - D. 7 — 7 is one cup too many.
 
-**Takeaway:** Hospital teams often add measurements from different times to understand a whole day.
+**Takeaway:** Water balance is what goes in measured against what goes out, not either one alone.
 
 ### M5.3 — What the Kidneys Do
 
@@ -598,21 +598,21 @@ Book's worked answer: 6
 
 **Cards to order** (presented shuffled)
 
-- Stop the activity and keep Eli from using the hurt wrist.
-- Tell the nurse or doctor right away.
-- Let the trained team examine the wrist and order any needed image.
+- Stop Eli using the wrist, because moving a broken bone can damage what is around it.
+- Tell the nurse or doctor, so trained help is already coming.
+- Let the trained team examine the wrist and decide about an image.
 - Record what happened and what the team found.
 
 **Correct answer**
 
-1. **Stop the activity and keep Eli from using the hurt wrist.**
-2. **Tell the nurse or doctor right away.**
-3. **Let the trained team examine the wrist and order any needed image.**
+1. **Stop Eli using the wrist, because moving a broken bone can damage what is around it.**
+2. **Tell the nurse or doctor, so trained help is already coming.**
+3. **Let the trained team examine the wrist and decide about an image.**
 4. **Record what happened and what the team found.**
 
-**Why (shown in verdict):** A junior player should never try to set or treat a bone. The safe job is to stop, alert trained adults, and help gather information.
+**Why (shown in verdict):** Keeping the wrist still comes first because it is the only step that prevents more damage; every later step can happen while it is being kept still. Telling an adult is next because help takes time to arrive, and the record comes last because it records everything before it.
 
-**Takeaway:** In real life, injuries are handled by trained adults and medical professionals.
+**Takeaway:** The first action is the one that stops things getting worse; the rest can happen while it holds.
 
 ---
 
@@ -959,21 +959,21 @@ Book's worked answer: 15
 
 **Cards to order** (presented shuffled)
 
-- Tell the nurse or doctor about the injury.
-- Clean your own hands before helping with supplies.
-- Let the trained adult examine and care for the scrape.
-- Record the important facts and watch for instructions.
+- Tell the nurse or doctor, so trained help starts on its way.
+- Clean your own hands, because hands carry germs better than anything else you touch with.
+- Let the trained adult clean and cover the scrape.
+- Record what happened, and watch for instructions.
 
 **Correct answer**
 
-1. **Tell the nurse or doctor about the injury.**
-2. **Clean your own hands before helping with supplies.**
-3. **Let the trained adult examine and care for the scrape.**
-4. **Record the important facts and watch for instructions.**
+1. **Tell the nurse or doctor, so trained help starts on its way.**
+2. **Clean your own hands, because hands carry germs better than anything else you touch with.**
+3. **Let the trained adult clean and cover the scrape.**
+4. **Record what happened, and watch for instructions.**
 
-**Why (shown in verdict):** The player helps by alerting adults, using clean habits, and supporting the professional care process.
+**Why (shown in verdict):** Telling an adult is first because help takes time to arrive and nothing else is delayed by it. Hands come before supplies, because a break in the skin is a way in and hands are how germs travel. The trained adult does the wound; you do the record.
 
-**Takeaway:** When someone is hurt, children should get a trusted adult rather than trying to act as a real doctor.
+**Takeaway:** A scrape is a break in the barrier, so everything that touches it has to be clean.
 
 ### M10.3 — What Job Did the Skin Lose?
 
@@ -1179,21 +1179,21 @@ Book's worked answer: 15
 
 **Cards to order** (presented shuffled)
 
-- The trained adult checks Mae’s identity and the planned vaccine with her parent.
-- The nurse explains what will happen and answers questions.
+- Check Mae’s name and the planned vaccine with her parent.
+- Explain what will happen, so Mae can hold still.
 - The trained clinician gives the vaccine.
-- The clinic records the visit and gives the family instructions.
+- Record it, and wait a short while before leaving.
 
 **Correct answer**
 
-1. **The trained adult checks Mae’s identity and the planned vaccine with her parent.**
-2. **The nurse explains what will happen and answers questions.**
+1. **Check Mae’s name and the planned vaccine with her parent.**
+2. **Explain what will happen, so Mae can hold still.**
 3. **The trained clinician gives the vaccine.**
-4. **The clinic records the visit and gives the family instructions.**
+4. **Record it, and wait a short while before leaving.**
 
-**Why (shown in verdict):** Medical procedures use identity checks, explanation, trained administration, and documentation.
+**Why (shown in verdict):** The identity check is first because a vaccine cannot be taken back once it is given. The explanation comes before the injection because a child who knows what is coming holds still. And the short wait afterwards is not politeness — the rare fast reactions show themselves in the first few minutes, which is exactly when somebody trained should still be looking.
 
-**Takeaway:** Vaccines are medical tools used by trained professionals to help immune memory.
+**Takeaway:** The wait at the end of a vaccine visit is part of the visit: fast reactions show up in the first few minutes.
 
 ---
 
@@ -1238,9 +1238,9 @@ Book's worked answer: 15
 
 **Scene shown to the player**
 
-> A chart shows two temperatures for one patient. The earlier one is 98°F. The later one is 101°F. One temperature alone is just a number. What helps a team is the comparison. Same measurement, taken twice, with time in between. That is why charts keep the old readings. Work out the difference. The care team decides what it means.
+> A chart shows two temperatures for Ms. Kim. The earlier one is 98°F. The later one is 101°F, and the times beside them are three hours apart. One temperature alone is just a number. Two of them make a change, and the times make that change a speed. That is why charts keep the old readings and the clock beside them. The care team decides what it means.
 
-**Question**  How many degrees higher is 101°F than 98°F?
+**Question**  How fast is her temperature rising, in degrees per hour?
 
 **Givens**
 
@@ -1255,16 +1255,16 @@ Book's worked answer: 15
 
 **Correct answer**
 
-Equation shown: `{0} − {1}`
-Tiles offered: `101 °F  (later reading)`, `98 °F  (earlier reading)`, `100 °F  (the round number on the scale)`, `2 readings  (how many are charted)`, `3 hours  (between the two)`
-Tiles that belong: `101 °F  (later reading)`, `98 °F  (earlier reading)`
-Decoy tiles: `100 °F  (the round number on the scale)`, `2 readings  (how many are charted)`, `3 hours  (between the two)`
-Formula: `a-b`
-**Target: 3 °F** (tolerance ±0.5)
-Explanation shown: A difference is a subtraction, and the order matters: later minus earlier says how much it rose. Adding them gives 199, which is not a temperature anything has.
+Equation shown: `( {0} − {1} ) ÷ {2}`
+Tiles offered: `101 °F  (later reading)`, `98 °F  (earlier reading)`, `3 hours  (between the two readings)`, `100 °F  (the round number on the scale)`, `2 readings  (how many are charted)`
+Tiles that belong: `101 °F  (later reading)`, `98 °F  (earlier reading)`, `3 hours  (between the two readings)`
+Decoy tiles: `100 °F  (the round number on the scale)`, `2 readings  (how many are charted)`
+Formula: `(a - b) / c`
+**Target: 1 °F per hour** (tolerance ±0.2)
+Explanation shown: A rise of 3 degrees means one thing over three hours and something quite different over twenty minutes. A rate needs both the change and the time it took, which is why the chart records when each reading was taken.
 Book's worked answer: 3°F
 
-**Why (shown in verdict):** 101 − 98 = 3.
+**Why (shown in verdict):** 101 − 98 is a rise of 3 °F, and it took 3 hours, so it is rising about 1 °F an hour. The same 3 degrees in twenty minutes would be a much more worrying chart.
 
 **Why the others do not hold**
 
@@ -1272,7 +1272,7 @@ Book's worked answer: 3°F
 - B. 2°F — 101 is three, not two, above 98.
 - D. 199°F — 199 comes from adding, but the question asks for the difference.
 
-**Takeaway:** Doctors often compare a new measurement with an earlier one to see how something changed.
+**Takeaway:** A change on its own is not enough; how long it took is what says whether it is fast.
 
 ### M13.3 — How Sweat Helps Cool
 
@@ -1382,21 +1382,21 @@ Book's worked answer: 3°F
 
 **Cards to order** (presented shuffled)
 
-- Call or alert the emergency medical team immediately.
-- Stay with the patient and follow the trained team’s directions.
-- Tell the team what exposure happened and when the symptoms started.
-- Record the important information for the handoff.
+- Call the emergency team, because everything else can happen while they come.
+- Stay with Chloe and watch her breathing, which is what can change fastest.
+- Tell the team what she was exposed to and when it started.
+- Write down what you saw, in the order it happened.
 
 **Correct answer**
 
-1. **Call or alert the emergency medical team immediately.**
-2. **Stay with the patient and follow the trained team’s directions.**
-3. **Tell the team what exposure happened and when the symptoms started.**
-4. **Record the important information for the handoff.**
+1. **Call the emergency team, because everything else can happen while they come.**
+2. **Stay with Chloe and watch her breathing, which is what can change fastest.**
+3. **Tell the team what she was exposed to and when it started.**
+4. **Write down what you saw, in the order it happened.**
 
-**Why (shown in verdict):** Urgent problems require rapid professional help and clear information.
+**Why (shown in verdict):** Calling is first because it is the only step whose clock is running whether or not you do anything else. Watching breathing comes next because it is the fastest-changing thing about her. The exposure and its timing are what the team needs before they act, and the written record is what stops the order of events being remembered wrong.
 
-**Takeaway:** Good emergency care depends on fast escalation and accurate communication.
+**Takeaway:** In an emergency the first action is the one with a clock on it, and the last is the one that protects the record.
 
 ---
 
@@ -1498,17 +1498,17 @@ Book's worked answer: 3°F
 
 ## Grading
 
-Scored after the March of fixes described in `README.md`. Three axes, 1–5 each; the rubric is identical across all seven games and is stated in full in `README.md`. Rows marked **Fixed**, **Rebuilt** or **Correction** changed in this pass.
+Three axes, 1–5 each; the rubric is in `README.md`. Rows marked **Fixed**, **Rebuilt**, **Rewritten** or **Correction** changed after the first audit.
 
-- **Solv** — *solvability*: can a prepared student reach the keyed answer from the scene and panel alone, by reasoning rather than by eliminating an absurdity or recalling something never shown?
-- **Edu** — *educational value*: does getting it right require and build transferable subject knowledge?
-- **Fit** — *general-curriculum fit* for the stated audience.
+- **Solv** — can a prepared student reach the keyed answer from the scene and panel alone?
+- **Edu** — does getting it right require and build transferable subject knowledge?
+- **Fit** — does it map onto a named topic in a standard course for the stated audience?
 
 | ID | Format | Topic | Solv | Edu | Fit | Note |
 | --- | --- | --- | :-: | :-: | :-: | --- |
 | M1.1 | TRIAGE | Urgency vs arrival order | 4 | 4 | 4 | Distractors rebuilt: a visible injury, a rash somebody might want moved, and first-come-first-served. All three are things a nine-year-old would actually say. |
 | M1.2 | CHOICE | Observation vs measurement | 5 | 4 | 5 | The clearest science-practice item in the game: a number from a tool, against a report, an appearance and a history. |
-| M1.3 | SEQUENCE | Exam-room order | 5 | 2 | 2 | **Retyped to SEQUENCE.** It was a step ordering rendered as a matching panel whose four choices were the strings "Step 1" to "Step 4". |
+| M1.3 | SEQUENCE | Exam-room order | 5 | 3 | 2 | **Rewritten.** Each card now carries the consequence that fixes its place — hands first because whatever is on them goes onto Ben, his story before the exam because it tells you where to look. |
 | M2.1 | SEQUENCE | Path of a breath | 5 | 4 | 5 | Anatomically forced; core body-systems content. |
 | M2.2 | CHOICE | Wheeze points to the airways | 4 | 4 | 4 | Distractors rebuilt around the throat, the heart and swallowed dust — each a plausible source of a whistling sound. |
 | M2.3 | BALLPARK | 5 breaths in 15 s → per minute | 5 | 3 | 5 | 5 × 4. Real grade-3 multiplication and a real rate concept, with proper decoy tiles (15 s, 60 s, 2). |
@@ -1519,11 +1519,11 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M4.2 | CHOICE | Small intestine absorbs | 4 | 4 | 5 | **Fixed.** A specific organ against three system names is answerable by category alone. Now four parts of the same tract, and the stomach is the real misconception. |
 | M4.3 | CHOICE | Three jobs, three organs | 4 | 4 | 5 | Distractors are now single swaps within the right organ set rather than scrambles across the body. |
 | M5.1 | CHOICE | Reading hydration signals | 4 | 3 | 3 | Distractors rebuilt around food, sleep and overheating — all real reasons a child feels bad after sport. |
-| M5.2 | BALLPARK | 2 + 1 + 3 cups | 5 | 2 | 4 | Grade-appropriate addition with two decoys. Very little health content. |
+| M5.2 | BALLPARK | 2 + 1 + 3 cups | 5 | 4 | 4 | **Rewritten.** Adding three numbers became water balance: six cups in against about eight cups out, with the jug capacity offered as a decoy. In and out, not either alone. |
 | M5.3 | SEQUENCE | Kidneys filter, bladder stores | 5 | 4 | 5 | Forced order, clean structure-and-function content. |
 | M6.1 | CHOICE | Choosing the right imaging tool | 4 | 4 | 4 | **Fixed.** Same category mismatch as M4.2. Now four hospital tools, and choosing between them requires knowing what each one shows. |
 | M6.2 | CHOICE | Rib cage / spine / joint | 4 | 4 | 5 | Distractors are now swaps between rib cage, spine and joint, plus the skull. |
-| M6.3 | SEQUENCE | Response to a possible fracture | 5 | 2 | 2 | **Retyped to SEQUENCE.** |
+| M6.3 | SEQUENCE | Response to a possible fracture | 5 | 3 | 2 | **Rewritten.** Keeping the wrist still is first because it is the only step that prevents further damage; everything else can happen while it holds. |
 | M7.1 | SEQUENCE | Brain → nerves → muscles → bones | 5 | 4 | 5 | Forced; exactly NGSS 4-LS1-2 information processing. |
 | M7.2 | CHOICE | Muscle fatigue vs injury | 4 | 4 | 4 | Distractors rebuilt: injury, muscle growth, and a therapy that is not working. |
 | M7.3 | BALLPARK | 3 sets of 5 | 5 | 3 | 5 | Multiplication as repeated groups, with three decoys. Grade-appropriate. |
@@ -1534,38 +1534,30 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M9.2 | CHOICE | Eyes, ears, and inner-ear balance | 4 | 4 | 5 | The strongest new distractor in the game: hearing and balance swapped between the ear's two jobs. |
 | M9.3 | SEQUENCE | Light → retina → nerve → brain | 5 | 4 | 5 | Forced; the "the brain makes the picture" point is the good one. |
 | M10.1 | SEQUENCE | Stages of healing | 5 | 4 | 4 | Biologically forced order. |
-| M10.2 | SEQUENCE | Wound-care order | 5 | 2 | 2 | **Fixed and retyped.** The scene taught "hands first" and the key rewarded telling an adult first. The scene now teaches what the key rewards. |
+| M10.2 | SEQUENCE | Wound-care order | 5 | 3 | 3 | **Rewritten.** Hands come before supplies because a break in the skin is a way in and hands are how germs travel — a mechanism, where before it was an order to remember. |
 | M10.3 | CHOICE | Skin as a barrier | 4 | 4 | 4 | All four options are now real jobs of the skin, so the question discriminates rather than eliminates. |
 | M11.1 | CHOICE | Three transmission routes | 5 | 4 | 4 | Droplets / food / hands-and-surfaces, each tied to a story. Good. |
 | M11.2 | SEQUENCE | Handwashing steps | 5 | 3 | 4 | **Retyped to SEQUENCE.** |
 | M11.3 | CHOICE | One shared symptom is weak evidence | 4 | 4 | 5 | Distractors rebuilt, including over-reading a negative: "their other clues are different, so it must be a different germ". |
 | M12.1 | SEQUENCE | Barrier → detect → attack → remember | 5 | 4 | 4 | Forced; immune memory is the payoff card. |
 | M12.2 | CHOICE | Barriers, cells, antibodies | 4 | 4 | 4 | Distractors are permutations of barrier, patrol and specific recognition. |
-| M12.3 | SEQUENCE | Vaccine-visit process | 5 | 2 | 2 | **Retyped to SEQUENCE.** |
+| M12.3 | SEQUENCE | Vaccine-visit process | 5 | 3 | 3 | **Rewritten.** The short wait at the end is now explained: fast reactions appear in the first few minutes, which is why somebody trained is still watching. |
 | M13.1 | CHOICE | Sweating cools, shivering warms | 4 | 4 | 4 | Distractors rebuilt, including sweating and shivering both read as warming. |
-| M13.2 | BALLPARK | 101 − 98 | 5 | 2 | 5 | Grade-appropriate subtraction with three decoys; the comparison-over-time idea is in the prose. |
+| M13.2 | BALLPARK | 101 − 98 | 5 | 4 | 5 | **Rewritten.** A subtraction became a rate — three degrees over three hours is one degree an hour, and the hours tile stops being a decoy. |
 | M13.3 | SEQUENCE | Evaporative cooling | 5 | 4 | 4 | Forced, and it is real physics (evaporation takes energy from the skin) at a level a nine-year-old can hold. |
 | M14.1 | TRIAGE | Airway swelling first | 4 | 4 | 3 | Distractors rebuilt: treating the first symptom, the largest rash, and the fair queue. |
 | M14.2 | CHOICE | Allergy pattern vs infection pattern | 4 | 4 | 4 | Distractors rebuilt around season, itch-from-germs, and waiting for a blood test. |
-| M14.3 | SEQUENCE | Emergency handoff | 5 | 2 | 2 | **Retyped to SEQUENCE.** |
+| M14.3 | SEQUENCE | Emergency handoff | 5 | 3 | 2 | **Rewritten.** Calling is first because it is the only step with a clock already running; breathing is watched next because it is the fastest-changing thing about her. |
 | M15.1 | TRIAGE | Six patients, one room | 4 | 3 | 3 | Distractors rebuilt: lightheadedness, an infectious fever, and the longest wait — the second of which is a genuinely defensible second priority. |
 | M15.2 | CHOICE | Routing patients to the right place | 4 | 3 | 3 | Distractors are now plausible mis-routings rather than jokes. |
 | M15.3 | SEQUENCE | End-of-day handoff | 5 | 3 | 3 | **Retyped to SEQUENCE.** |
 
-### Summary — Hospital Heroes
+### Summary
 
-**Averages: Solvability 4.5 · Educational value 3.5 · Curriculum fit 4.0**
-*Before this pass: 4.8 · 3.3 · 4.0*
+**Averages: Solvability 4.5 · Educational value 3.7 · Curriculum fit 4.1**
 
-**The only game whose solvability went down, and that is the point.** Twenty-two option sets were rebuilt because their wrong answers were impossible rather than tempting — "the stomach stops existing while a person runs", "rest makes bones disappear", "no illness can ever make two people feel the same symptom". A nine-year-old could score full marks on those by elimination without engaging any science, which is why solvability sat at 4.8 while educational value sat a point and a half below it.
+Solvability fell from 4.8 to **4.5** on purpose — twenty-two option sets had wrong answers that were impossible rather than tempting, so the science could be skipped. Educational value went 3.3 → 3.5 → **3.7**.
 
-The new distractors are built from things children actually believe: that the stomach absorbs food, that a visible injury is more urgent than a quiet one, that hearing and balance are separate organs, that different clues mean different germs. Solvability drops to 4.5 because the questions now require knowing something. That is the trade the game wanted.
+The five procedure orderings now carry the mechanism that fixes each step's position: hands before supplies because a break in the skin is a way in, the first action being the one that stops further damage, the wait at the end of a vaccine visit because fast reactions show in the first few minutes. And the two estimates that were bare arithmetic became water balance and a rate — six cups in against eight out, and three degrees over three hours.
 
-Two clean bugs:
-
-- **M4.2 and M6.1 offered one specific answer against three system names** ("Small intestine" against "the digestive system", "the skeleton", "the urinary system"), so both were answerable by category mismatch alone. They now offer four parts of the same tract, and four hospital tools.
-- **M10.2 taught one order and rewarded another.** The scene said "Hands first, then supplies, then the wound, then the notes"; the key put "tell the nurse" first. A child who followed the scene got it wrong. The scene now teaches what the key rewards, which for this audience is also the right safety message.
-
-**Seven stops typed PROTOCOL were step orderings** rendered as a matching panel whose four choices were the strings "Step 1" to "Step 4". They are SEQUENCE now — nineteen lessons in all once the review variants are counted.
-
-The body-systems coverage is unchanged and remains a complete elementary unit. What has not improved is the seven procedure stops: alerting adults, washing hands, handing over. They are appropriate, they are well written, and they are not science; they still average Edu 2.4.
+The body-systems coverage remains a complete elementary unit.

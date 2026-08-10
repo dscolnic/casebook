@@ -525,23 +525,25 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Commit to the path",
       "scene": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. What is not yet written down is which observations, at which times, would show the choice was wrong while there is still propellant to change it. A plan is a hypothesis about future physical states: list the hard constraints and quantify the margins now, compare the candidates under off- nominal as well as nominal conditions, define the abort and correction triggers before committing, and keep updating the margins as the vehicle flies.",
-      "takeaway": "A mission plan is a monitored hypothesis about future physical states.",
+      "takeaway": "An abort trigger has to be defined while there is still propellant to act on it.",
       "place": "Thermal and Entry Review",
       "story": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. What is not yet written down is which observations, at which times, would show the choice was wrong while there is still propellant to change it. A plan is a hypothesis about future physical states: list the hard constraints and quantify the margins now, compare the candidates under off- nominal as well as nominal conditions, define the abort and correction triggers before committing, and keep updating the margins as the vehicle flies.",
       "game": {
         "type": "SEQUENCE",
         "title": "Commit to the path",
         "setup": "Thermal and Entry Review",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "play": "Order the commitment so the abort trigger still has something to act on.",
+        "task": "Order the commitment so the abort trigger still has something to act on.",
+        "question": "Order the commitment so the abort trigger still has something to act on.",
         "answer": "",
-        "why": "Constraints and sensitivity analysis precede commitment; tracking keeps the decision alive.",
+        "why": "The third card is the one that has to happen before the burn rather than after it: once the burn is executed most alternatives close, so an abort trigger defined afterwards is a trigger with nothing left to trigger. And the comparison has to be under off-nominal conditions, because the margins are what the decision is made of.",
         "cards": [
-          "List hard constraints and quantify current margins.",
-          "Compare candidate trajectories under nominal and off-nominal cases.",
-          "Choose the plan and define observable abort or correction triggers.",
-          "Execute, track, and update the remaining margins."
+          {
+            "'Quantify the margins": "propellant, consumables, thermal, and the corridor width.'"
+          },
+          "Compare the candidates under the off-nominal cases, not the nominal one.",
+          "Name the observation that would show the choice was wrong, and the time it arrives.",
+          "Burn, and keep updating the margins against what the tracking returns."
         ],
         "order": [
           0,
@@ -1544,23 +1546,23 @@ export const CURRICULUM = {
       "day": 20,
       "title": "Execute the final physical chain",
       "scene": "Everything the last five days established comes down to the next eleven minutes, in an order that cannot be repeated. The approved attitude, configuration and state estimate all have to be established before the atmospheric interface, because there is no communication through the blackout to fix any of them; the roles of the onboard system and the ground have to be unambiguous before the vehicle is committed; deceleration, heating proxies and communications are then monitored against expected envelopes; and the transition to descent and recovery has to preserve the data the debrief will need.",
-      "takeaway": "Execution is the final experiment of the integrated physical model.",
+      "takeaway": "Entry is ordered by the blackout: whatever needs the ground has to be settled before it starts.",
       "place": "Crew Capsule",
       "story": "Everything the last five days established comes down to the next eleven minutes, in an order that cannot be repeated. The approved attitude, configuration and state estimate all have to be established before the atmospheric interface, because there is no communication through the blackout to fix any of them; the roles of the onboard system and the ground have to be unambiguous before the vehicle is committed; deceleration, heating proxies and communications are then monitored against expected envelopes; and the transition to descent and recovery has to preserve the data the debrief will need.",
       "game": {
         "type": "SEQUENCE",
         "title": "Execute the final physical chain",
         "setup": "Crew Capsule",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "play": "Order the entry around the four minutes with no communications.",
+        "task": "Order the entry around the four minutes with no communications.",
+        "question": "Order the entry around the four minutes with no communications.",
         "answer": "",
-        "why": "Configuration and authority precede commitment; monitoring and evidence preservation continue through recovery.",
+        "why": "The order is forced by the communications blackout: everything that needs a decision from the ground has to be finished before the interface, because for the next four minutes there is no ground. Monitoring cannot begin earlier — there is nothing to monitor — and the record matters because this is the only flight that will ever produce it.",
         "cards": [
-          "Establish the approved attitude, configuration, and state estimate.",
-          "Commit to the atmospheric interface with autonomous and ground roles clear.",
-          "Monitor deceleration, heating proxies, and communications against expected envelopes.",
-          "Transition to descent and recovery while preserving data for debrief."
+          "Set the approved attitude and configuration, because nothing can be changed through the blackout.",
+          "Commit to the interface with the onboard and ground roles already unambiguous.",
+          "Monitor deceleration and heating against the predicted envelope.",
+          "Transition to descent, preserving the record of what the envelope actually did."
         ],
         "order": [
           0,

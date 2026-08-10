@@ -2,49 +2,59 @@
 
 One document per game, holding **every mission question with its correct answer written out**, followed by a graded assessment of each question on three axes. Generated from the shipped content (`CURRICULUM` + `MISSIONS` + `BALLPARK_CALCS` + the diagnosis packs, run through `engine/content/normalize.js` exactly as the engine does at load), then read and graded by hand.
 
-**This is the second pass.** The first audit found a set of defects; those have been fixed, the questions regenerated, and every row regraded. What changed is listed under [What was fixed](#what-was-fixed), including two findings from the first pass that turned out to be wrong.
+**This is the third pass.** The first audit found a set of defects; the second fixed them and regraded; the third went back through every row scoring 1 or 2 and rewrote the ones that were genuinely weak. **No question now scores below 3 for educational value.** What changed is listed under [What was fixed](#what-was-fixed), including two findings from the first pass that turned out to be wrong.
 
 ## Scores
 
 | Game | Document | Stops | Solvability | Educational value | Curriculum fit |
 | --- | --- | :-: | :-: | :-: | :-: |
-| The Contaminated City | [contamcity-questions.md](contamcity-questions.md) | 45 | 4.3 | 3.8 | 4.0 |
-| Deep Watch | [deepwatch-questions.md](deepwatch-questions.md) | 45 | 4.4 | 3.5 | 2.3 |
-| Outbreak: Riverton | [outbreak_riverton-questions.md](outbreak_riverton-questions.md) | 45 | 4.4 | **4.3** | **4.4** |
-| Bring Them Home | [bring_them_home-questions.md](bring_them_home-questions.md) | 45 | 4.3 | 4.2 | 3.8 |
-| Planetary Defense | [planetary_defense-questions.md](planetary_defense-questions.md) | 45 | 4.2 | **4.4** | 4.0 |
-| Project Y | [projecty-questions.md](projecty-questions.md) | **49** | **4.5** | 4.0 | 3.4 |
-| Hospital Heroes | [hospital-questions.md](hospital-questions.md) | 45 | 4.5 | 3.5 | 4.0 |
-| **All** | | **319** | **4.4** | **4.0** | **3.7** |
+| The Contaminated City | [contamcity-questions.md](contamcity-questions.md) | 45 | 4.3 | 4.0 | 4.1 |
+| Deep Watch | [deepwatch-questions.md](deepwatch-questions.md) | 45 | 4.5 | 3.7 | 2.4 |
+| Outbreak: Riverton | [outbreak_riverton-questions.md](outbreak_riverton-questions.md) | 45 | 4.4 | **4.4** | **4.4** |
+| Bring Them Home | [bring_them_home-questions.md](bring_them_home-questions.md) | 45 | 4.3 | 4.3 | 3.8 |
+| Planetary Defense | [planetary_defense-questions.md](planetary_defense-questions.md) | 45 | 4.3 | **4.4** | 4.0 |
+| Project Y | [projecty-questions.md](projecty-questions.md) | **49** | **4.5** | 4.1 | 3.4 |
+| Hospital Heroes | [hospital-questions.md](hospital-questions.md) | 45 | 4.5 | 3.7 | 4.1 |
+| **All** | | **319** | **4.4** | **4.1** | **3.8** |
 
 ### What moved
 
-| Game | Solvability | Educational value | Curriculum fit | Rows changed |
-| --- | :-: | :-: | :-: | :-: |
-| The Contaminated City | 4.2 → **4.3** | 3.4 → **3.8** | 3.4 → **4.0** | 16 |
-| Deep Watch | 4.3 → **4.4** | 3.4 → **3.5** | 2.3 → 2.3 | 8 |
-| Outbreak: Riverton | 4.2 → **4.4** | 4.0 → **4.3** | 4.2 → **4.4** | 19 |
-| Bring Them Home | 4.2 → **4.3** | 3.8 → **4.2** | 3.6 → **3.8** | 24 |
-| Planetary Defense | 4.1 → **4.2** | 4.2 → **4.4** | 3.9 → **4.0** | 23 |
-| Project Y | 4.2 → **4.5** | 4.0 → 4.0 | 3.4 → 3.4 | 11 |
-| Hospital Heroes | 4.8 → **4.5** | 3.3 → **3.5** | 4.0 → 4.0 | 28 |
+First audit → after the fixes → after the pass over every 1 and 2.
 
-Hospital Heroes is the only game whose solvability fell, deliberately: its wrong answers used to be impossible rather than tempting, so a child could score full marks by elimination. See its summary.
+| Game | Solvability | Educational value | Curriculum fit |
+| --- | :-: | :-: | :-: |
+| The Contaminated City | 4.2 → 4.3 → **4.3** | 3.4 → 3.8 → **4.0** | 3.4 → 4.0 → **4.1** |
+| Deep Watch | 4.3 → 4.4 → **4.5** | 3.4 → 3.5 → **3.7** | 2.3 → 2.3 → **2.4** |
+| Outbreak: Riverton | 4.2 → 4.4 → **4.4** | 4.0 → 4.3 → **4.4** | 4.2 → 4.4 → **4.4** |
+| Bring Them Home | 4.2 → 4.3 → **4.3** | 3.8 → 4.2 → **4.3** | 3.6 → 3.8 → **3.8** |
+| Planetary Defense | 4.1 → 4.2 → **4.3** | 4.2 → 4.4 → **4.4** | 3.9 → 4.0 → **4.0** |
+| Project Y | 4.2 → 4.5 → **4.5** | 4.0 → 4.0 → **4.1** | 3.4 → 3.4 → **3.4** |
+| Hospital Heroes | 4.8 → 4.5 → **4.5** | 3.3 → 3.5 → **3.7** | 4.0 → 4.0 → **4.1** |
+
+Hospital Heroes is the only game whose solvability fell, deliberately: its wrong answers used to be impossible rather than tempting.
+
+### The pass over every 1 and 2
+
+Sixty-eight rows carried a 1 or a 2 on some axis. **None was a 1 or 2 for solvability** — nothing was broken. Twenty-six scored 2 for educational value, and those were the real targets: orderings whose sequence was a convention to memorise, matchings whose answers were readable off the card text, and two estimates that were bare arithmetic. All twenty-six were rewritten to turn on something the subject constrains, and **no question now scores below 3 for educational value.**
+
+The remaining forty-two carried a low curriculum fit only, and most of them were left alone on purpose. Deep Watch M6.2 and M12.1 score 5 and 4 for educational value inside a game whose subject — reasoning under instrument uncertainty — is not a course. Fifty-five rows still score 2 or below for fit, forty of them in Deep Watch and the hospital's safety procedures. Forcing a syllabus topic into a damage-control locker or a handwashing routine would have made both games worse.
 
 ### By format
 
 | Format | n | Solvability | Educational value | Curriculum fit |
 | --- | :-: | :-: | :-: | :-: |
 | DIAGNOSIS | 41 | 4.7 | 4.8 | 4.0 |
-| BALLPARK | 63 | 4.7 | 4.2 | 4.4 |
-| PROTOCOL | 48 | 4.4 | 3.9 | 3.6 |
-| SEQUENCE | 70 | 4.3 | 3.4 | 3.3 |
+| BALLPARK | 63 | 4.7 | 4.3 | 4.4 |
+| SEQUENCE | 70 | 4.4 | 3.8 | 3.6 |
+| PROTOCOL | 48 | 4.4 | 4.0 | 3.6 |
 | TRIAGE | 5 | 4.2 | 3.6 | 2.8 |
-| CHOICE | 92 | 4.1 | 4.0 | 3.4 |
+| CHOICE | 92 | 4.1 | 4.0 | 3.5 |
 
 **SCIENCETANK no longer appears: all 61 reachable funding rounds are now decisions.** In the first pass that format averaged 3.9 / 3.3 / 2.8 and occupied 19% of every campaign. As CHOICE questions the same 61 stops average **4.1 / 4.1 / 3.4** — a full point of educational value and half a point of curriculum fit, from asking "what should we do?" instead of "how would you spread a hundred credits?".
 
-BALLPARK is the other big mover: 4.3 / 4.0 / 4.4 to **4.7 / 4.2 / 4.4**, because 29 estimate items had no decoy tiles at all and now do.
+BALLPARK is the other big mover: 4.3 / 4.0 / 4.4 to **4.7 / 4.3 / 4.4**, because 29 estimate items had no decoy tiles at all and now do.
+
+SEQUENCE gained the most in the last pass — 3.4 to **3.8** for educational value — because fifteen of the orderings had no forced order at all, and now state what each step leaves the next one to work with.
 
 ## The rubric
 

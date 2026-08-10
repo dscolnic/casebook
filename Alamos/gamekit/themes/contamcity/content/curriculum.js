@@ -60,9 +60,9 @@ export const CURRICULUM = {
       "place": "Molecular Identification Lab",
       "progress": "Create a provisional identity list and choose the next discriminating measurements.",
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
-      "takeaway": "Identity is an evidence package, not a guess from color or odor.",
-      "story": "The containers are now evidence as well as hazard. Every analysis that happens later — the chromatogram, the spectrum, the concentration the city will act on — inherits whatever was done to the sample before it reached an instrument, so identification work runs in a fixed order for reasons that are chemical rather than bureaucratic. Non-destructive observations survive being wrong; destructive ones consume the material and cannot be repeated. Provenance decides whether a result can be defended at all. You are building the first entry in a chain that has to hold for weeks.",
-      "scene": "The containers are now evidence as well as hazard. Every analysis that happens later — the chromatogram, the spectrum, the concentration the city will act on — inherits whatever was done to the sample before it reached an instrument, so identification work runs in a fixed order for reasons that are chemical rather than bureaucratic. Non-destructive observations survive being wrong; destructive ones consume the material and cannot be repeated. Provenance decides whether a result can be defended at all. You are building the first entry in a chain that has to hold for weeks.",
+      "takeaway": "Analytical work runs from what costs nothing to what cannot be undone.",
+      "story": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.",
+      "scene": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -76,16 +76,16 @@ export const CURRICULUM = {
         "setup": "Order the non-destructive evidence workflow.",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "Secure and inventory containers without opening them unnecessarily. → Reconcile markings, manifests, and chain-of-custody records. → Use validated remote or small-sample analytical methods. → Integrate records and measurements into a confidence-ranked identity list.",
-        "why": "Physical control and records preserve safety and provenance before analytical evidence is interpreted.",
+        "answer": "1. Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened. 2. Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid. 3. Draw a small aliquot and run a non-destructive spectrum on it. 4. Commit part of that aliquot to a method that destroys it to identify it.",
+        "why": "The order is set by what each step costs you. Everything before the last one leaves the sample intact and can be repeated if it goes wrong; the destructive method consumes what it measures, so it is the last thing you spend and the first thing you would regret. The markings in particular exist only until somebody opens the drum.",
         "rebuttals": [
           "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
         ],
         "cards": [
-          "Secure and inventory containers without opening them unnecessarily.",
-          "Reconcile markings, manifests, and chain-of-custody records.",
-          "Use validated remote or small-sample analytical methods.",
-          "Integrate records and measurements into a confidence-ranked identity list."
+          "Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened.",
+          "Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid.",
+          "Draw a small aliquot and run a non-destructive spectrum on it.",
+          "Commit part of that aliquot to a method that destroys it to identify it."
         ],
         "order": [
           0,
@@ -2318,7 +2318,7 @@ export const CURRICULUM = {
       "place": "Electrochemistry Lab",
       "progress": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
-      "takeaway": "System risk depends on where corrosion occurs, not only total mass loss.",
+      "takeaway": "A corrosion rate becomes a decision only once it is a depth compared against a wall.",
       "story": "An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.",
       "scene": "An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.",
       "notes": [
@@ -2332,10 +2332,10 @@ export const CURRICULUM = {
         "type": "Ballpark",
         "title": "How fast can material disappear?",
         "setup": "Use a simplified mass-loss estimate.",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the average rate per square meter.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the average rate per square meter.",
+        "play": "Estimate the uniform penetration rate, in millimetres per year.",
+        "task": "Estimate the uniform penetration rate, in millimetres per year.",
         "answer": "0.50 kg m^-2 year^-1.",
-        "why": "Average loss can hide dangerous localization such as pitting at a coating defect.",
+        "why": "Two kilograms a year spread over four square metres of steel is about sixty microns of depth a year, which would take a century to reach through a six-millimetre wall. That is the number that says uniform corrosion is not the problem here — and it is the same number that makes localised attack so much worse, because all of it arrives in one place.",
         "rebuttals": [
           "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
         ],
@@ -2344,7 +2344,7 @@ export const CURRICULUM = {
           "affected area = 4.0 m²"
         ],
         "relationship": "average loss rate per area = mass loss / area.",
-        "question": "Estimate the average rate per square meter.",
+        "question": "Estimate the uniform penetration rate, in millimetres per year.",
         "calcKey": "TREAT-2"
       }
     },
@@ -2529,9 +2529,9 @@ export const CURRICULUM = {
       "place": "Byproduct Analysis Lab",
       "progress": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
-      "takeaway": "A treatment train is a coupled chemical and operational system.",
-      "story": "A treatment train is a sequence of unit processes, and the chemistry of each one changes what arrives at the next. Selecting one is therefore not a matter of picking the best single step: it is a coupled decision about mechanism, byproducts, and where the residuals end up, made before anything is built at full scale. The waste a process produces is part of the process. Riverton has one intake and cannot run this experiment twice while the water is off.",
-      "scene": "A treatment train is a sequence of unit processes, and the chemistry of each one changes what arrives at the next. Selecting one is therefore not a matter of picking the best single step: it is a coupled decision about mechanism, byproducts, and where the residuals end up, made before anything is built at full scale. The waste a process produces is part of the process. Riverton has one intake and cannot run this experiment twice while the water is off.",
+      "takeaway": "A treatment train is ordered by what each stage leaves the next one to work with.",
+      "story": "Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off.",
+      "scene": "Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2545,16 +2545,16 @@ export const CURRICULUM = {
         "setup": "Order the decision workflow.",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "Define target contaminants, matrix conditions, and discharge goals. → Screen mechanisms and predict major byproducts or waste streams. → Pilot promising combinations with full analytical monitoring. → Select the train and specify media, sludge, and failure management.",
-        "why": "Chemistry and waste fate must be evaluated before full-scale selection.",
+        "answer": "1. Oxidise the dissolved metal to the valence that forms an insoluble hydroxide. 2. Raise the pH to the window where that hydroxide is least soluble. 3. Settle and filter, taking the solid out of the water. 4. Polish the filtrate on activated carbon for what stayed dissolved.",
+        "why": "Each stage can only act on what the stage before it produced. Precipitation has nothing to work with until the metal is in the oxidised form, the solid cannot be filtered until the pH has actually made it, and carbon is a polishing step — send solids to it and the bed blinds within hours. Order the train wrongly and every unit downstream is doing nothing.",
         "rebuttals": [
           "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
         ],
         "cards": [
-          "Define target contaminants, matrix conditions, and discharge goals.",
-          "Screen mechanisms and predict major byproducts or waste streams.",
-          "Pilot promising combinations with full analytical monitoring.",
-          "Select the train and specify media, sludge, and failure management."
+          "Oxidise the dissolved metal to the valence that forms an insoluble hydroxide.",
+          "Raise the pH to the window where that hydroxide is least soluble.",
+          "Settle and filter, taking the solid out of the water.",
+          "Polish the filtrate on activated carbon for what stayed dissolved."
         ],
         "order": [
           0,
@@ -2659,9 +2659,9 @@ export const CURRICULUM = {
       "place": "City Command",
       "progress": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
-      "takeaway": "Trust depends on showing where the chemical went, not merely that one measurement fell.",
-      "story": "Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but a followable account: what was released, where it went, what it turned into, what was done about it, and what remains and where. That is the same mass balance the technical work has been building, told in the order the contaminant actually travelled. A narrative that starts from the reassuring measurement and works backwards is the one people notice has a gap in it.",
-      "scene": "Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but a followable account: what was released, where it went, what it turned into, what was done about it, and what remains and where. That is the same mass balance the technical work has been building, told in the order the contaminant actually travelled. A narrative that starts from the reassuring measurement and works backwards is the one people notice has a gap in it.",
+      "takeaway": "A public account that follows the mass is one the public can check.",
+      "story": "Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but an account that adds up: how much was released, where it went, what treatment moved rather than destroyed, and how much is still unplaced. That is the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. An account that starts from the reassuring measurement is the one people notice has a gap in it.",
+      "scene": "Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but an account that adds up: how much was released, where it went, what treatment moved rather than destroyed, and how much is still unplaced. That is the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. An account that starts from the reassuring measurement is the one people notice has a gap in it.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2675,16 +2675,16 @@ export const CURRICULUM = {
         "setup": "Order the explanation.",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "Describe the release and initial uncertainties. → Explain transport, partitioning, and transformation. → Show how treatment changed contaminant and byproduct inventories. → State residual reservoirs, monitoring triggers, and responsibilities.",
-        "why": "The narrative follows the contaminant through the complete system.",
+        "answer": "1. A hundred kilograms left the yard, and here is how we know. 2. Seventy-one reached the sediment and three left as vapour, because of what the compound does in water. 3. Treatment moved the sediment fraction into sludge; it did not destroy it. 4. Twenty kilograms are still unaccounted for, and this is the monitoring that would find them.",
+        "why": "The account the city can follow is the mass balance, told in the order the contaminant actually travelled. Every number in it has to add up to the one before, which is exactly what makes it checkable — and it is why the twenty kilograms nobody can place has to appear in the story rather than at the end of it.",
         "rebuttals": [
           "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
         ],
         "cards": [
-          "Describe the release and initial uncertainties.",
-          "Explain transport, partitioning, and transformation.",
-          "Show how treatment changed contaminant and byproduct inventories.",
-          "State residual reservoirs, monitoring triggers, and responsibilities."
+          "A hundred kilograms left the yard, and here is how we know.",
+          "Seventy-one reached the sediment and three left as vapour, because of what the compound does in water.",
+          "Treatment moved the sediment fraction into sludge; it did not destroy it.",
+          "Twenty kilograms are still unaccounted for, and this is the monitoring that would find them."
         ],
         "order": [
           0,
@@ -2890,32 +2890,38 @@ export const BALLPARK_CALCS = {
     "explanation": "This is the free hydrogen ion only. Weak acids and buffers release more H⁺ as neutralisation proceeds, so a titration measures the real base demand far better than pH does."
   },
   "TREAT-2": {
-    "prompt": "The intake pipeline is losing metal. Maintenance wants a rate it can compare against the wall thickness it has left.",
-    "question": "Estimate the average mass loss per square metre per year.",
+    "prompt": "The gallery loses about 2.0 kg of steel a year over 4.0 m² of pipe wall. Steel runs about 7,900 kg per cubic metre, and the wall is 6 mm thick.",
+    "question": "Estimate the uniform penetration rate, in millimetres per year.",
     "labels": [
-      "2.0 kg/year  (total mass loss)",
-      "4.0 m²  (affected area)",
-      "7.9 g cm⁻³  (density of the steel)",
-      "6.0 mm  (remaining wall thickness)"
+      "2.0 kg/year  (mass lost)",
+      "4.0 m²  (area affected)",
+      "7,900 kg/m³  (density of the steel)",
+      "1,000 mm per metre",
+      "6 mm  (remaining wall thickness)",
+      "1,000 kg/m³  (density of water)"
     ],
     "values": [
       2,
       4,
-      7.9,
-      6
+      7900,
+      1000,
+      6,
+      1000
     ],
-    "slots": 2,
-    "template": "{0} ÷ {1}",
-    "formula": "a/b",
+    "slots": 4,
+    "template": "{0} ÷ ( {1} × {2} ) × {3}",
+    "formula": "a / (b * c) * d",
     "correct": [
       0,
-      1
+      1,
+      2,
+      3
     ],
-    "target": 0.5,
-    "tolerance": 0.05,
-    "units": "kg m⁻² year⁻¹",
-    "solution": "average loss rate = 2.0 kg/year ÷ 4.0 m² = 0.50 kg m⁻² year⁻¹.",
-    "explanation": "The average is real but it is not where the pipe fails. Corrosion localises — pitting at a coating defect can remove the same mass from a hundredth of the area, and perforate long before the average predicts it."
+    "target": 0.0633,
+    "tolerance": 0.008,
+    "units": "mm per year",
+    "solution": "About 0.063 mm a year — roughly a century to eat a 6 mm wall, if it were uniform.",
+    "explanation": "A mass loss per unit area is not a depth until it is divided by a density; the two densities offered differ by a factor of eight, and only one of them is the metal. The answer matters because it is survivable: at this rate the wall lasts a working lifetime. The same total loss concentrated at a coating defect perforates it in a season, which is why the average is a bound and not a forecast."
   },
   "QUANT-4": {
     "prompt": "The release limit is 10 units. The final verification result is 9.0 units, with an uncertainty interval spanning roughly 7 to 11. The board wants a yes or a no.",

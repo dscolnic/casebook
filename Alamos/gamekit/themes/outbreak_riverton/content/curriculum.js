@@ -1485,23 +1485,23 @@ export const CURRICULUM = {
       "day": 22,
       "title": "Build the public explanation",
       "scene": "The mayor is on air in an hour. The transmission route is settled across three independent data streams, the animal reservoir is still unconfirmed, and the treatment works under conditions nobody has tested beyond eight weeks. The draft in front of you opens with the actions and never reaches what is still unknown. A briefing that survives the next revision states what is known and how it was learned, what remains uncertain and why, what is being done and at what cost, and how the account will be updated when the evidence changes.",
-      "takeaway": "Uncertainty is not a failure of science when it is bounded and connected to a plan for learning.",
+      "takeaway": "A public account is ordered by the strength of its evidence, not by the order the work happened in.",
       "place": "City Command",
       "story": "The mayor is on air in an hour. The transmission route is settled across three independent data streams, the animal reservoir is still unconfirmed, and the treatment works under conditions nobody has tested beyond eight weeks. The draft in front of you opens with the actions and never reaches what is still unknown. A briefing that survives the next revision states what is known and how it was learned, what remains uncertain and why, what is being done and at what cost, and how the account will be updated when the evidence changes.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the public explanation",
         "setup": "City Command",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "play": "Order the briefing by how much weight each claim can carry.",
+        "task": "Order the briefing by how much weight each claim can carry.",
+        "question": "Order the briefing by how much weight each claim can carry.",
         "answer": "",
-        "why": "Trustworthy communication joins evidence, uncertainty, action, and revision.",
+        "why": "The briefing is ordered by how much the evidence will carry, strongest first, because that is the order in which a listener can tell one claim from another. Publishing the reservoir with the confidence of the transmission route is what makes the whole document unbelievable when the reservoir turns out to be somewhere else.",
         "cards": [
-          "State what is known and how it was learned.",
-          "State what remains uncertain and why.",
-          "Explain current actions, benefits, burdens, and decision triggers.",
-          "Describe how evidence and policy will be updated."
+          "The transmission route, which three independent data streams agree on.",
+          "The severe-risk subgroup, which one small observational sample suggests.",
+          "The animal reservoir, which remains plausible and unconfirmed.",
+          "What each of those would take to settle, and when it will be revisited."
         ],
         "order": [
           0,

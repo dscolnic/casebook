@@ -63,31 +63,31 @@
 
 **Scene shown to the player**
 
-> The containers are now evidence as well as hazard. Every analysis that happens later — the chromatogram, the spectrum, the concentration the city will act on — inherits whatever was done to the sample before it reached an instrument, so identification work runs in a fixed order for reasons that are chemical rather than bureaucratic. Non-destructive observations survive being wrong; destructive ones consume the material and cannot be repeated. Provenance decides whether a result can be defended at all. You are building the first entry in a chain that has to hold for weeks.
+> The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.
 
 **Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
 
 **Cards to order** (presented shuffled)
 
-- Secure and inventory containers without opening them unnecessarily.
-- Reconcile markings, manifests, and chain-of-custody records.
-- Use validated remote or small-sample analytical methods.
-- Integrate records and measurements into a confidence-ranked identity list.
+- Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened.
+- Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid.
+- Draw a small aliquot and run a non-destructive spectrum on it.
+- Commit part of that aliquot to a method that destroys it to identify it.
 
 **Correct answer**
 
-1. **Secure and inventory containers without opening them unnecessarily.**
-2. **Reconcile markings, manifests, and chain-of-custody records.**
-3. **Use validated remote or small-sample analytical methods.**
-4. **Integrate records and measurements into a confidence-ranked identity list.**
+1. **Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened.**
+2. **Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid.**
+3. **Draw a small aliquot and run a non-destructive spectrum on it.**
+4. **Commit part of that aliquot to a method that destroys it to identify it.**
 
-**Why (shown in verdict):** Physical control and records preserve safety and provenance before analytical evidence is interpreted.
+**Why (shown in verdict):** The order is set by what each step costs you. Everything before the last one leaves the sample intact and can be repeated if it goes wrong; the destructive method consumes what it measures, so it is the last thing you spend and the first thing you would regret. The markings in particular exist only until somebody opens the drum.
 
 **Why the others do not hold**
 
 - Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next.
 
-**Takeaway:** Identity is an evidence package, not a guess from color or odor.
+**Takeaway:** Analytical work runs from what costs nothing to what cannot be undone.
 
 ### M1.3 — Spend the first analytical reserve
 
@@ -1263,7 +1263,7 @@ Book's worked answer: 0.10 mol H+ in the measured free pool.
 
 > An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.
 
-**Question**  Estimate the average rate per square meter.
+**Question**  Estimate the uniform penetration rate, in millimetres per year.
 
 **Givens**
 
@@ -1274,22 +1274,22 @@ Book's worked answer: 0.10 mol H+ in the measured free pool.
 
 **Correct answer**
 
-Equation shown: `{0} ÷ {1}`
-Tiles offered: `2.0 kg/year  (total mass loss)`, `4.0 m²  (affected area)`, `7.9 g cm⁻³  (density of the steel)`, `6.0 mm  (remaining wall thickness)`
-Tiles that belong: `2.0 kg/year  (total mass loss)`, `4.0 m²  (affected area)`
-Decoy tiles: `7.9 g cm⁻³  (density of the steel)`, `6.0 mm  (remaining wall thickness)`
-Formula: `a/b`
-**Target: 0.5 kg m⁻² year⁻¹** (tolerance ±0.05)
-Explanation shown: The average is real but it is not where the pipe fails. Corrosion localises — pitting at a coating defect can remove the same mass from a hundredth of the area, and perforate long before the average predicts it.
+Equation shown: `{0} ÷ ( {1} × {2} ) × {3}`
+Tiles offered: `2.0 kg/year  (mass lost)`, `4.0 m²  (area affected)`, `7,900 kg/m³  (density of the steel)`, `1,000 mm per metre`, `6 mm  (remaining wall thickness)`, `1,000 kg/m³  (density of water)`
+Tiles that belong: `2.0 kg/year  (mass lost)`, `4.0 m²  (area affected)`, `7,900 kg/m³  (density of the steel)`, `1,000 mm per metre`
+Decoy tiles: `6 mm  (remaining wall thickness)`, `1,000 kg/m³  (density of water)`
+Formula: `a / (b * c) * d`
+**Target: 0.0633 mm per year** (tolerance ±0.008)
+Explanation shown: A mass loss per unit area is not a depth until it is divided by a density; the two densities offered differ by a factor of eight, and only one of them is the metal. The answer matters because it is survivable: at this rate the wall lasts a working lifetime. The same total loss concentrated at a coating defect perforates it in a season, which is why the average is a bound and not a forecast.
 Book's worked answer: 0.50 kg m^-2 year^-1.
 
-**Why (shown in verdict):** Average loss can hide dangerous localization such as pitting at a coating defect.
+**Why (shown in verdict):** Two kilograms a year spread over four square metres of steel is about sixty microns of depth a year, which would take a century to reach through a six-millimetre wall. That is the number that says uniform corrosion is not the problem here — and it is the same number that makes localised attack so much worse, because all of it arrives in one place.
 
 **Why the others do not hold**
 
 - A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should.
 
-**Takeaway:** System risk depends on where corrosion occurs, not only total mass loss.
+**Takeaway:** A corrosion rate becomes a decision only once it is a depth compared against a wall.
 
 ### M11.3 — Protect the pipeline
 
@@ -1386,31 +1386,31 @@ Book's worked answer: 0.50 kg m^-2 year^-1.
 
 **Scene shown to the player**
 
-> A treatment train is a sequence of unit processes, and the chemistry of each one changes what arrives at the next. Selecting one is therefore not a matter of picking the best single step: it is a coupled decision about mechanism, byproducts, and where the residuals end up, made before anything is built at full scale. The waste a process produces is part of the process. Riverton has one intake and cannot run this experiment twice while the water is off.
+> Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off.
 
 **Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
 
 **Cards to order** (presented shuffled)
 
-- Define target contaminants, matrix conditions, and discharge goals.
-- Screen mechanisms and predict major byproducts or waste streams.
-- Pilot promising combinations with full analytical monitoring.
-- Select the train and specify media, sludge, and failure management.
+- Oxidise the dissolved metal to the valence that forms an insoluble hydroxide.
+- Raise the pH to the window where that hydroxide is least soluble.
+- Settle and filter, taking the solid out of the water.
+- Polish the filtrate on activated carbon for what stayed dissolved.
 
 **Correct answer**
 
-1. **Define target contaminants, matrix conditions, and discharge goals.**
-2. **Screen mechanisms and predict major byproducts or waste streams.**
-3. **Pilot promising combinations with full analytical monitoring.**
-4. **Select the train and specify media, sludge, and failure management.**
+1. **Oxidise the dissolved metal to the valence that forms an insoluble hydroxide.**
+2. **Raise the pH to the window where that hydroxide is least soluble.**
+3. **Settle and filter, taking the solid out of the water.**
+4. **Polish the filtrate on activated carbon for what stayed dissolved.**
 
-**Why (shown in verdict):** Chemistry and waste fate must be evaluated before full-scale selection.
+**Why (shown in verdict):** Each stage can only act on what the stage before it produced. Precipitation has nothing to work with until the metal is in the oxidised form, the solid cannot be filtered until the pH has actually made it, and carbon is a polishing step — send solids to it and the bed blinds within hours. Order the train wrongly and every unit downstream is doing nothing.
 
 **Why the others do not hold**
 
 - Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next.
 
-**Takeaway:** A treatment train is a coupled chemical and operational system.
+**Takeaway:** A treatment train is ordered by what each stage leaves the next one to work with.
 
 ### M12.3 — Choose the safest pilot program
 
@@ -1741,31 +1741,31 @@ Book's worked answer: No. The uncertainty range crosses the limit.
 
 **Scene shown to the player**
 
-> Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but a followable account: what was released, where it went, what it turned into, what was done about it, and what remains and where. That is the same mass balance the technical work has been building, told in the order the contaminant actually travelled. A narrative that starts from the reassuring measurement and works backwards is the one people notice has a gap in it.
+> Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but an account that adds up: how much was released, where it went, what treatment moved rather than destroyed, and how much is still unplaced. That is the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. An account that starts from the reassuring measurement is the one people notice has a gap in it.
 
 **Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
 
 **Cards to order** (presented shuffled)
 
-- Describe the release and initial uncertainties.
-- Explain transport, partitioning, and transformation.
-- Show how treatment changed contaminant and byproduct inventories.
-- State residual reservoirs, monitoring triggers, and responsibilities.
+- A hundred kilograms left the yard, and here is how we know.
+- Seventy-one reached the sediment and three left as vapour, because of what the compound does in water.
+- Treatment moved the sediment fraction into sludge; it did not destroy it.
+- Twenty kilograms are still unaccounted for, and this is the monitoring that would find them.
 
 **Correct answer**
 
-1. **Describe the release and initial uncertainties.**
-2. **Explain transport, partitioning, and transformation.**
-3. **Show how treatment changed contaminant and byproduct inventories.**
-4. **State residual reservoirs, monitoring triggers, and responsibilities.**
+1. **A hundred kilograms left the yard, and here is how we know.**
+2. **Seventy-one reached the sediment and three left as vapour, because of what the compound does in water.**
+3. **Treatment moved the sediment fraction into sludge; it did not destroy it.**
+4. **Twenty kilograms are still unaccounted for, and this is the monitoring that would find them.**
 
-**Why (shown in verdict):** The narrative follows the contaminant through the complete system.
+**Why (shown in verdict):** The account the city can follow is the mass balance, told in the order the contaminant actually travelled. Every number in it has to add up to the one before, which is exactly what makes it checkable — and it is why the twenty kilograms nobody can place has to appear in the story rather than at the end of it.
 
 **Why the others do not hold**
 
 - Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next.
 
-**Takeaway:** Trust depends on showing where the chemical went, not merely that one measurement fell.
+**Takeaway:** A public account that follows the mass is one the public can check.
 
 ### M15.3 — Fund the chemical legacy
 
@@ -1802,16 +1802,16 @@ Book's worked answer: No. The uncertainty range crosses the limit.
 
 ## Grading
 
-Scored after the March of fixes described in `README.md`. Three axes, 1–5 each; the rubric is identical across all seven games and is stated in full in `README.md`. Rows marked **Fixed**, **Rebuilt** or **Correction** changed in this pass.
+Three axes, 1–5 each; the rubric is in `README.md`. Rows marked **Fixed**, **Rebuilt**, **Rewritten** or **Correction** changed after the first audit.
 
-- **Solv** — *solvability*: can a prepared student reach the keyed answer from the scene and panel alone, by reasoning rather than by eliminating an absurdity or recalling something never shown?
-- **Edu** — *educational value*: does getting it right require and build transferable subject knowledge?
-- **Fit** — *general-curriculum fit* for the stated audience.
+- **Solv** — can a prepared student reach the keyed answer from the scene and panel alone?
+- **Edu** — does getting it right require and build transferable subject knowledge?
+- **Fit** — does it map onto a named topic in a standard course for the stated audience?
 
 | ID | Format | Topic | Solv | Edu | Fit | Note |
 | --- | --- | --- | :-: | :-: | :-: | --- |
 | M1.1 | PROTOCOL | Ionic compounds, charge, nomenclature | 4 | 3 | 5 | Four independent definitional recalls; nothing has to be ruled out. Item 4 is records policy, not chemistry. |
-| M1.2 | SEQUENCE | Chain of custody | 4 | 2 | 2 | Defensible order, but the ordering principle is administrative, not chemical. Not a gen-chem topic. |
+| M1.2 | SEQUENCE | Chain of custody | 4 | 4 | 3 | **Rewritten.** The order is no longer chain-of-custody paperwork but what each observation costs the sample: markings survive only until the drum is opened, and the destructive method is spent once. |
 | M1.3 | CHOICE | Analytical strategy | 4 | 4 | 4 | Now a decision — which analytical route runs first. It turns on orthogonality: two methods that can be fooled by different things. The old funding round gestured at that; the question now depends on it. |
 | M2.1 | BALLPARK | Ideal gas law, V = nRT/P | 5 | 4 | 5 | Best kind of estimate item here: real decoys (22.4 L/mol, 273 K) test whether the student knows which constants apply at 300 K. |
 | M2.2 | PROTOCOL | Gas laws + dispersion | 5 | 4 | 5 | **Fixed.** The two duplicate choices are now Charles's law and Boyle's law stated separately, so the item discriminates a proportional from an inverse relationship. |
@@ -1841,10 +1841,10 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M10.2 | PROTOCOL | Le Châtelier, complexation, remobilisation | 4 | 5 | 5 | "Complexation can *increase* total dissolved concentration" is the counter-intuitive item that earns the format. |
 | M10.3 | CHOICE | Sediment stewardship | 4 | 4 | 4 | Stability under next season's chemistry rather than this month's — equilibrium applied to a decision with a date on it. |
 | M11.1 | PROTOCOL | Redox, galvanic cells, pitting | 5 | 4 | 5 | Four crisply distinct electrochemical facts. |
-| M11.2 | BALLPARK | Rate per unit area | 5 | 2 | 3 | 2.0 ÷ 4.0. The actual lesson — that an average hides pitting — is in the prose and is never computed or tested. |
+| M11.2 | BALLPARK | Rate per unit area | 5 | 5 | 4 | **Rewritten.** A mass divided by an area became a penetration depth — 0.063 mm a year against a 6 mm wall — with two densities offered that differ by a factor of eight. |
 | M11.3 | CHOICE | Corrosion control | 4 | 4 | 4 | Break the circuit where breaking it does not depend on a coating holding or on the plant changing its dosing. Electrochemistry choosing between real controls. |
 | M12.1 | DIAGNOSIS | Mass balance across a treatment train | 5 | 5 | 4 | "Removed" vs "destroyed" is the whole point, and the 20 kg gap plus the unquantified transformation product make it inescapable. |
-| M12.2 | SEQUENCE | Unit-process selection | 3 | 2 | 2 | Generic engineering procedure. |
+| M12.2 | SEQUENCE | Unit-process selection | 4 | 5 | 4 | **Rewritten.** The train is now ordered by chemistry: nothing precipitates until the metal is oxidised, nothing filters until the pH has made the solid, and carbon blinds if solids reach it. |
 | M12.3 | CHOICE | Pilot design | 4 | 4 | 4 | Byproducts are what separate three methods that all claim removal, which is exactly what the M12.1 mass balance showed. |
 | M13.1 | SEQUENCE | Photochemistry: emission → radicals → products | 5 | 4 | 4 | Causally forced, and the timing lesson is real. Atmospheric chemistry is elective in most gen-chem sequences. |
 | M13.2 | DIAGNOSIS | Secondary-pollutant diurnal signature | 5 | 5 | 4 | The inert tracer flat all day is a proper control that kills the wind-shift rival outright. |
@@ -1853,16 +1853,13 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M14.2 | PROTOCOL | Representativeness, detection limit, independence | 4 | 3 | 3 | Sound QA content; belongs to analytical methods rather than gen chem. |
 | M14.3 | CHOICE | Conditional release | 4 | 4 | 3 | Conditional release with triggers, because the interval crosses the limit and neither a pass nor a hold is supported by it. |
 | M15.1 | PROTOCOL | Claim-by-claim disposition | 4 | 3 | 2 | Good habit of mind, no chemical content decided. |
-| M15.2 | SEQUENCE | Risk communication order | 3 | 2 | 1 | Narrative ordering; not curriculum. |
+| M15.2 | SEQUENCE | Risk communication order | 4 | 3 | 3 | **Rewritten.** Told as the mass balance it already was — 100 kg out, 71 to sediment, 3 as vapour, 20 unplaced — so each number has to add up to the one before it. |
 | M15.3 | CHOICE | Long-term monitoring | 4 | 3 | 2 | What the city keeps when the money moves. Stewardship, argued from the mass balance rather than from sentiment. |
 
-### Summary — The Contaminated City
+### Summary
 
-**Averages: Solvability 4.3 · Educational value 3.8 · Curriculum fit 4.0**
-*Before this pass: 4.2 · 3.4 · 3.4*
+**Averages: Solvability 4.3 · Educational value 4.0 · Curriculum fit 4.1**
 
-The fourteen funding rounds are now decisions, and that is where the movement is: educational value across those fourteen went from 2.5 to 3.9 and curriculum fit from 2.1 to 3.6, because the question is no longer "spread a hundred credits sensibly" but "which analytical route, and why". The best of them — M9.3, where the choice is between dosing from pH and titrating for total demand — is now carrying the weak-acid lesson itself rather than sitting beside it.
+No question in this game now scores below 3 on any axis. The four that had — a chain-of-custody ordering, a mass-over-area division, a generic treatment-train recipe and a narrative ordering — were rewritten to turn on chemistry the game already contains: what an observation costs the sample, what a penetration depth is against a wall thickness, what each unit process leaves the next one to work with, and the mass balance the campaign has been building for a fortnight. Educational value went 3.4 → 3.8 → **4.0**, curriculum fit 3.4 → 4.0 → **4.1**.
 
-Its two hard bugs are gone: M2.2 no longer offers the same sentence twice as two different answers, and M14.1 no longer asks a yes/no question of a panel that computes a number.
-
-What is unchanged is what was already good. The six DIAGNOSIS panels still score a clean 5/5, the seven estimates still carry the best decoy tiles in the repository, and the last two missions still leave chemistry for decision science. There is still no organic content anywhere in the game.
+The six DIAGNOSIS panels still score a clean 5/5 and remain the template worth copying. There is still no organic content anywhere in the game.

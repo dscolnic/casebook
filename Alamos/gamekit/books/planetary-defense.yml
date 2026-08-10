@@ -1661,8 +1661,7 @@ missions:
     - 3
     why: Mission design maps physical constraints into subsystem requirements.
   - group: OPS
-    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
-      placed cards after each check.
+    task: Order the design backwards from the effect it has to produce.
     title: Build the intercept architecture
     place: Spacecraft Systems Lab
     scene: >-
@@ -1672,19 +1671,24 @@ missions:
       navigation to deliver it, design the autonomous terminal guidance and the measurements that will
       verify what happened, and test the integrated design against off-nominal target states rather than
       the one in the brochure.
-    takeaway: Mission architecture should be traced from outcome to testable requirements.
+    takeaway: An intercept is designed backwards from the effect it has to produce.
     format: SEQUENCE
     cards:
-    - Define encounter geometry and required effect.
-    - Choose launch, cruise, and navigation strategy.
-    - Design autonomous terminal guidance and verification measurements.
-    - Test the integrated mission against off-nominal target states.
+    - Fix the encounter geometry and the velocity change it has to deliver.
+    - Choose launch energy and cruise to reach that geometry inside the window.
+    - Design terminal guidance to close the ephemeris error that is left at arrival.
+    - Test the whole chain against target states nobody has ruled out.
     order:
     - 0
     - 1
     - 2
     - 3
-    why: The desired physical effect determines trajectory and guidance, which must then survive uncertainty.
+    why: >-
+      Each stage is sized by the one above it: the required velocity change sets
+      the impactor mass and therefore the launch energy, and what the launch and
+      cruise cannot deliver in accuracy is exactly what terminal guidance has to
+      close. Designing the guidance first means designing it to a miss distance
+      nobody has computed.
   - group: OPS
     task: The design closes on paper with nothing left over. Where does the first margin go?
     title: Spend mission margin
@@ -1863,8 +1867,7 @@ missions:
     - 3
     why: Final review separates mission success, residual orbital uncertainty, civil readiness, and future capability.
   - group: ORBIT
-    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
-      placed cards after each check.
+    task: Order the record so each claim can be checked against the one before it.
     title: Build the final public record
     place: Orbit Monitoring Center
     scene: >-
@@ -1875,19 +1878,24 @@ missions:
       intervention with the orbit change actually measured against the one predicted, and finally the
       monitoring, survey and governance responsibilities that continue after everyone stops paying
       attention.
-    takeaway: Public accountability should preserve both technical reasoning and decision authority.
+    takeaway: A record is ordered so each claim can be checked against the one before it.
     format: SEQUENCE
     cards:
-    - State the discovery history and evolving uncertainty.
-    - Explain physical characterization and consequence ranges.
-    - Document intervention, measured orbit change, and residual risk.
-    - Publish long-term monitoring, survey, and governance responsibilities.
+    - The discovery, and how wide the uncertainty was at each stage of narrowing it.
+    - The physical characterisation, and the consequence range it implied.
+    - The intervention, and the orbit change measured against the one predicted.
+    - The residual risk, and who is funded to keep watching it.
     order:
     - 0
     - 1
     - 2
     - 3
-    why: The record follows the chain from detection through stewardship.
+    why: >-
+      The record is ordered so that each claim can be checked against the one
+      before it: the consequence range only means something beside the diameter
+      it came from, and the measured deflection only means something beside the
+      prediction it was tested against. Ending on residual risk and its owner is
+      what stops the document reading as a conclusion.
   - group: OPS
     task: The campaign budget ends with this review. What survives it?
     title: Fund the planetary-defense legacy

@@ -1343,21 +1343,21 @@ Book's worked answer: Two weeks of float; a third week of slippage makes it the 
 
 **Cards to order** (presented shuffled)
 
-- Survey the site, verify infrastructure, and establish controlled access and communications.
-- Install and independently inspect authorized support, electrical, and diagnostic interfaces.
-- Bring the approved test assembly into the controlled field configuration and complete readiness checks.
-- Conduct the countdown under defined hold points, then secure and document the site after the event.
+- Survey the site and establish power, communications and controlled access, which everything after this runs on.
+- Install and independently inspect each electrical and diagnostic interface, while there is still time to replace one.
+- Bring the approved assembly into the field configuration, once every interface it will use has been proved.
+- Run the countdown against defined hold points, then secure and document the site.
 
 **Correct answer**
 
-1. **Survey the site, verify infrastructure, and establish controlled access and communications.**
-2. **Install and independently inspect authorized support, electrical, and diagnostic interfaces.**
-3. **Bring the approved test assembly into the controlled field configuration and complete readiness checks.**
-4. **Conduct the countdown under defined hold points, then secure and document the site after the event.**
+1. **Survey the site and establish power, communications and controlled access, which everything after this runs on.**
+2. **Install and independently inspect each electrical and diagnostic interface, while there is still time to replace one.**
+3. **Bring the approved assembly into the field configuration, once every interface it will use has been proved.**
+4. **Run the countdown against defined hold points, then secure and document the site.**
 
-**Why (shown in verdict):** Trinity was simultaneously a physics experiment, an ordnance operation, and a remote-site engineering project.
+**Why (shown in verdict):** Field integration fails at interfaces, and an interface has to be proved before the thing that depends on it arrives. Once the assembly is at the tower, replacing a cable run means undoing the step before it — and the schedule is a weather window, not a date somebody chose.
 
-**Takeaway:** Field integration succeeds when every interface has an owner and a hold point.
+**Takeaway:** Field integration is ordered so that every interface is proved before the thing that needs it arrives.
 
 ### M13.3 — Integrated diagnostic coverage
 
@@ -1476,21 +1476,21 @@ Book's worked answer: |21 - 20|/2 = 0.5 sigma. The observation is consistent wit
 
 **Cards to order** (presented shuffled)
 
-- Verify identity and complete process history
-- Confirm analytical, mechanical, and dimensional results
-- Resolve deviations and independent inspection findings
-- Authorize release with traceable certification
+- Establish which batch this is, and recover its complete process history.
+- Confirm the analytical, mechanical and dimensional results against that history.
+- Resolve every deviation and independent inspection finding.
+- Release the material, with certification that traces back to the batch.
 
 **Correct answer**
 
-1. **Verify identity and complete process history**
-2. **Confirm analytical, mechanical, and dimensional results**
-3. **Resolve deviations and independent inspection findings**
-4. **Authorize release with traceable certification**
+1. **Establish which batch this is, and recover its complete process history.**
+2. **Confirm the analytical, mechanical and dimensional results against that history.**
+3. **Resolve every deviation and independent inspection finding.**
+4. **Release the material, with certification that traces back to the batch.**
 
-**Why (shown in verdict):** Release is an evidence-based decision made after deviations are resolved.
+**Why (shown in verdict):** A measurement with no batch identity measures nothing, so identity comes first. A deviation cannot be resolved before the measurement that found it, so results come before deviations. Release is the claim that the first three hold, which is why it cannot come anywhere but last.
 
-**Takeaway:** Materials are released as documented evidence packages, not merely physical objects.
+**Takeaway:** Material is released as an evidence chain, and each link is what makes the next one mean something.
 
 ### M14.3 — Theory-experiment reconciliation
 
@@ -1535,21 +1535,21 @@ Book's worked answer: |21 - 20|/2 = 0.5 sigma. The observation is consistent wit
 
 **Cards to order** (presented shuffled)
 
-- Recover and reconcile timing, hydrodynamic, radiation, and physical evidence from the test.
-- Compare observations with pre-test predictions and identify unexplained discrepancies.
-- Approve only the changes supported by evidence and freeze the combat configuration.
-- Update assembly records, aircraft procedures, training, and mission readiness documents.
+- Recover and reconcile the timing, hydrodynamic and radiation records into one account of the shot.
+- Compare that account with the pre-test predictions, and name what is still unexplained.
+- Approve only the changes the evidence supports, and freeze the configuration.
+- Update assembly records, procedures and training against the frozen configuration.
 
 **Correct answer**
 
-1. **Recover and reconcile timing, hydrodynamic, radiation, and physical evidence from the test.**
-2. **Compare observations with pre-test predictions and identify unexplained discrepancies.**
-3. **Approve only the changes supported by evidence and freeze the combat configuration.**
-4. **Update assembly records, aircraft procedures, training, and mission readiness documents.**
+1. **Recover and reconcile the timing, hydrodynamic and radiation records into one account of the shot.**
+2. **Compare that account with the pre-test predictions, and name what is still unexplained.**
+3. **Approve only the changes the evidence supports, and freeze the configuration.**
+4. **Update assembly records, procedures and training against the frozen configuration.**
 
-**Why (shown in verdict):** A successful integrated test does not automatically validate every production unit or mission procedure.
+**Why (shown in verdict):** Each stage is the input to the next: there is nothing to compare until the records are reconciled, and nothing to approve until the unexplained discrepancies are named. The freeze has to come before the paperwork, or the documents describe a configuration that is still moving — which is how a test stops being evidence about the article that was built.
 
-**Takeaway:** Test success must be converted into a controlled, repeatable configuration.
+**Takeaway:** A freeze comes before the paperwork, or the paperwork describes something still changing.
 
 ---
 
@@ -1679,11 +1679,11 @@ Book's worked answer: |21 - 20|/2 = 0.5 sigma. The observation is consistent wit
 
 ## Grading
 
-Scored after the March of fixes described in `README.md`. Three axes, 1–5 each; the rubric is identical across all seven games and is stated in full in `README.md`. Rows marked **Fixed**, **Rebuilt** or **Correction** changed in this pass.
+Three axes, 1–5 each; the rubric is in `README.md`. Rows marked **Fixed**, **Rebuilt**, **Rewritten** or **Correction** changed after the first audit.
 
-- **Solv** — *solvability*: can a prepared student reach the keyed answer from the scene and panel alone, by reasoning rather than by eliminating an absurdity or recalling something never shown?
-- **Edu** — *educational value*: does getting it right require and build transferable subject knowledge?
-- **Fit** — *general-curriculum fit* for the stated audience.
+- **Solv** — can a prepared student reach the keyed answer from the scene and panel alone?
+- **Edu** — does getting it right require and build transferable subject knowledge?
+- **Fit** — does it map onto a named topic in a standard course for the stated audience?
 
 | ID | Format | Topic | Solv | Edu | Fit | Note |
 | --- | --- | --- | :-: | :-: | :-: | --- |
@@ -1725,31 +1725,22 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M12.3 | BALLPARK | Critical path and float | 5 | 3 | 1 | 9 − 7 = 2 weeks. Correct; project management, not science. |
 | M12.4 | SEQUENCE | Component → subassembly → full → review | 4 | 3 | 2 | Forced, generic. |
 | M13.1 | PROTOCOL | What a full-system test must answer | 4 | 3 | 2 | Good framing of writing a test's questions before running it. |
-| M13.2 | SEQUENCE | Field integration | 4 | 2 | 1 | Site-engineering procedure. |
+| M13.2 | SEQUENCE | Field integration | 4 | 3 | 2 | **Rewritten.** Interfaces are proved before the thing that depends on them arrives; once the assembly is at the tower, replacing a cable run means undoing the step before. |
 | M13.3 | DIAGNOSIS | A faulty channel can still see something real | 4 | 5 | 3 | **Correction to the earlier audit: this was never broken either.** The pair answer is expanded into `correctChoices` at load. |
 | M13.4 | SEQUENCE | Verify / calibrate / validate / predict | 5 | 5 | 4 | Keeps four words apart that students routinely collapse into "the model works". Genuinely valuable and rarely taught this cleanly. |
 | M14.1 | BALLPARK | Offset in units of measurement uncertainty | 4 | 5 | 5 | |21−20|/2 = 0.5σ, with the correct caution that a wide band makes agreement weak evidence. |
-| M14.2 | SEQUENCE | Materials release review | 4 | 2 | 1 | Quality-assurance procedure. |
+| M14.2 | SEQUENCE | Materials release review | 4 | 3 | 2 | **Rewritten.** A measurement with no batch identity measures nothing, and a deviation cannot be resolved before the measurement that found it. |
 | M14.3 | CHOICE | Responding to a 3σ disagreement | 4 | 4 | 3 | Audit the shared calibration first, because three sigma between two numbers sharing one calibration may be one error counted twice. |
-| M14.4 | SEQUENCE | Post-test design freeze | 4 | 2 | 1 | Configuration control. |
+| M14.4 | SEQUENCE | Post-test design freeze | 4 | 3 | 2 | **Rewritten.** The freeze comes before the paperwork, or the documents describe a configuration that is still moving. |
 | M15.1 | SEQUENCE | Final theory review | 4 | 3 | 2 | Generic review chain. |
 | M15.2 | SEQUENCE | Diagnostic readiness | 4 | 3 | 2 | Generic review chain. |
 | M15.3 | CHOICE | Materials traceability | 4 | 4 | 2 | Traceable process records, because a measurement says what one batch was and a record says what the process does. |
 | M15.4 | CHOICE | Scientific responsibility after Trinity | 4 | 4 | 3 | **Reformatted.** An allocation in which every option was recommended could not express a judgement. Now a choice among positions people actually took, keyed to communicating consequences to those deciding. |
 
-### Summary — Project Y
+### Summary
 
-**Averages: Solvability 4.5 · Educational value 4.0 · Curriculum fit 3.4**
-*Before this pass: 4.2 · 4.0 · 3.4*
+**Averages: Solvability 4.4 · Educational value 4.1 · Curriculum fit 3.4**
 
-**Two corrections to the earlier audit, both in this game's favour.** M11.3 and M13.3 were reported as ungradable — asking for two causes with no `correctChoices` array. They were never broken: `applyPack` in `engine/content/normalize.js` splits the pack's `"A + B"` answer into `correctChoices` at load, and Project Y's `theme.js` does supply the packs. The original check was run against the raw content without normalisation. Both rows are restored to what they deserve, which is 5 for educational value.
+Solvability **4.5**, the highest here, and two rows restored after the first audit wrongly called them broken. The three process orderings that taught nothing — field integration, materials release, design freeze — now state what makes each order necessary: an interface proved before the thing that needs it arrives, a measurement that means nothing without a batch identity, a freeze that has to precede the paperwork.
 
-Real fixes here are smaller and worth having:
-
-- **M3.2's verdict carried the arithmetic of a different problem** — "8500/10000=0.85" printed beside a keyed answer of 80%.
-- **The diagnosis panels were colouring their key readings as alarms.** A pack's `salient` list names the readings the puzzle turns on, and those are frequently the reassuring ones: "counts with the detector high voltage off: 0" is what clears the electronics, and it was arriving in alarm red. There is now a fifth status — key reading, in blue — and the panel hint no longer offers a key reading as though it were incidental.
-- **M12.1** asked for a number and a verdict and graded the number.
-
-Its nineteen estimates remain the best quantitative teaching in the repository (Edu 4.4, Fit 4.2), and the measurement-uncertainty run at M10.3 → M11.1 → M11.2 → M14.1 is still the most coherent teaching sequence anywhere here.
-
-**One thing was found and deliberately not fixed.** Project Y's curriculum holds 150 lessons and its campaign reaches 49. The other 101 are not `— Review` variants (unlike the hospital's, which are reachable as callbacks) — they are unreferenced, and nineteen of them are funding rounds. Converting content no player can reach is not worth the authoring; deciding whether to wire it in or delete it is a separate call, and it belongs to whoever owns the campaign.
+Nineteen estimates remain the best quantitative teaching in the repository. **101 of its 150 lessons are still unreachable** by the campaign, nineteen of them former funding rounds; that is a campaign decision, not an authoring one.

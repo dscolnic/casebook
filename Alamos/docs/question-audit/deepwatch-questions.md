@@ -21,25 +21,25 @@
 
 > Chief Ferro walks you into the forward space and asks you to learn it. There is equipment down both sides, deck plates over a recess, a hose reel on the bulkhead and two ways out. A submarine survives casualties by being divided: watertight bulkheads keep a fire or a flood inside one compartment instead of letting it have the whole boat, and every space is stored so the people already in it can fight what happens there. Learning a compartment is not sightseeing. It is building the map you will be using by feel, in the dark, with the lighting gone and somebody shouting. Ferro is not telling you what to take in first — that is what he is asking.
 
-**Question**  Learn a compartment properly
+**Question**  Learn a compartment in the order the facts depend on each other
 
 **Cards to order** (presented shuffled)
 
-- Find the boundaries — where this compartment ends and the next begins.
-- Find the ways out, and check both are clear.
-- Find what is in here that fights a casualty — lockers, reels, isolation valves.
-- Learn what the space holds that could cause one — sea connections, cables, stores.
+- Find where the pressure boundary runs, because that is what decides whether a casualty is yours or the next compartment's.
+- Find both ways out through that boundary, and prove they still open.
+- Find what in here could start a casualty — sea connections, cables, stores.
+- Judge whether what is in here can fight the casualty those things would start.
 
 **Correct answer**
 
-1. **Find the boundaries — where this compartment ends and the next begins.**
-2. **Find the ways out, and check both are clear.**
-3. **Find what is in here that fights a casualty — lockers, reels, isolation valves.**
-4. **Learn what the space holds that could cause one — sea connections, cables, stores.**
+1. **Find where the pressure boundary runs, because that is what decides whether a casualty is yours or the next compartment's.**
+2. **Find both ways out through that boundary, and prove they still open.**
+3. **Find what in here could start a casualty — sea connections, cables, stores.**
+4. **Judge whether what is in here can fight the casualty those things would start.**
 
-**Why (shown in verdict):** Boundaries first because they decide whether a casualty is yours; exits second because they are the thing you need when you can no longer see.
+**Why (shown in verdict):** The last card depends on the third: a locker is only the right locker once you know what this compartment can do to you. And the boundary comes first because it is what makes the space a space — at ninety metres it is the difference between a flooded compartment and a flooded boat.
 
-**Takeaway:** You learn a space in the order you would need it, not in the order you see it.
+**Takeaway:** A compartment is a pressure boundary first; everything you learn about it hangs off that.
 
 ### M1.2 — Every fitting is an argument
 
@@ -53,28 +53,28 @@
 
 **Situations to match**
 
-- A red wheel valve on a pipe that goes through the hull.
-- A manifold with hose connections at head height.
-- A steel locker with a strap and a quick-release catch.
-- A reel of flat hose beside a small isolating valve.
+- A wheel valve on a line that passes through the pressure hull.
+- A manifold at head height with quick-connect couplings.
+- A strapped steel locker with a quick-release catch.
+- A flat-folded hose on a reel, beside a small isolating valve.
 
 **Choices offered**
 
-- Shuts the sea off from a system inboard of it.
-- Supplies air to a breathing mask so a space can be entered.
-- Holds the tools and shoring for a casualty in this compartment.
-- Puts water where a fire is, once the power is proved gone.
+- Opening it at ninety metres admits the sea at ten atmospheres.
+- It supplies breathing air, so a space can be entered before its atmosphere is fit to breathe.
+- It holds the shoring and plugs that let this compartment fight its own casualty.
+- It puts water on a fire, and only once the circuit has been proved dead.
 
 **Correct answer**
 
-1. A red wheel valve on a pipe that goes through the hull.  →  **Shuts the sea off from a system inboard of it.**
-2. A manifold with hose connections at head height.  →  **Supplies air to a breathing mask so a space can be entered.**
-3. A steel locker with a strap and a quick-release catch.  →  **Holds the tools and shoring for a casualty in this compartment.**
-4. A reel of flat hose beside a small isolating valve.  →  **Puts water where a fire is, once the power is proved gone.**
+1. A wheel valve on a line that passes through the pressure hull.  →  **Opening it at ninety metres admits the sea at ten atmospheres.**
+2. A manifold at head height with quick-connect couplings.  →  **It supplies breathing air, so a space can be entered before its atmosphere is fit to breathe.**
+3. A strapped steel locker with a quick-release catch.  →  **It holds the shoring and plugs that let this compartment fight its own casualty.**
+4. A flat-folded hose on a reel, beside a small isolating valve.  →  **It puts water on a fire, and only once the circuit has been proved dead.**
 
-**Why (shown in verdict):** A hull valve, a breathing manifold, a damage-control locker and a hose reel are four different decisions.
+**Why (shown in verdict):** Each fitting is defined by what happens when it is wrong. The hull valve is the only one with the sea behind it, and the pressure behind it is set by depth — ten atmospheres at ninety metres, which is what makes it the one you never open to find out.
 
-**Takeaway:** A fitting you cannot explain is a fitting you will use wrongly under pressure.
+**Takeaway:** What a fitting is for is decided by what is on the other side of it, and at what pressure.
 
 ### M1.3 — The trip back without a waypoint
 
@@ -88,16 +88,16 @@
 
 **Choices offered**
 
-- The order of the compartments, so you always know which one you are in.
-- The exact number of paces between hatches.
-- The colour of each compartment's deck.
-- Nothing — the boat is small enough to wander until it looks familiar.
+- The order of the compartments, because a sequence survives being interrupted.
+- The number of paces between each hatch, counted on the way forward.
+- The route as a series of turns, memorised in order.
+- The compartment numbers stencilled on each bulkhead, read as you pass.
 
 **Correct answer**
 
-**The order of the compartments, so you always know which one you are in.**
+**The order of the compartments, because a sequence survives being interrupted.**
 
-**Why (shown in verdict):** A sequence survives being interrupted. A count of paces does not survive stepping round a person, and neither does a colour in the dark.
+**Why (shown in verdict):** Dead reckoning fails at the interruption, and a boat is full of interruptions. A pace count does not survive stepping round somebody; a list of turns does not survive taking one extra; a stencilled number cannot be read with the lighting gone. An ordered list of spaces survives all three, because you can rejoin it anywhere.
 
 **Why the others do not hold**
 
@@ -105,7 +105,7 @@
 - Deck colours vanish with the lighting, which is exactly when you need this.
 - Wandering works until the boat is dark or on fire, which is when it is asked for.
 
-**Takeaway:** Knowing where you are is the same skill submerged as it is in a passage.
+**Takeaway:** Dead reckoning fails at the interruption, so carry the thing that survives one.
 
 ---
 
@@ -340,21 +340,21 @@ Explanation shown: Distance is rate times time, and the rate here is the water, 
 
 **Cards to order** (presented shuffled)
 
-- Take the own-noise baseline, so a new sound can be recognised as new.
-- Find the layer depth, so you know where sound will and will not reach.
-- Build the contact picture, and hold it long enough to have bearing rates.
-- Agree what the boat does if contact is lost in the narrows.
+- Take the own-noise baseline, because nothing new can be recognised as new without it.
+- Find the layer depth, because it decides which of the missing lines are missing for a reason.
+- Hold the contacts long enough to have bearing rates, which the baseline and the layer let you interpret.
+- Agree what the boat does if contact is lost, while there is still contact to lose.
 
 **Correct answer**
 
-1. **Take the own-noise baseline, so a new sound can be recognised as new.**
-2. **Find the layer depth, so you know where sound will and will not reach.**
-3. **Build the contact picture, and hold it long enough to have bearing rates.**
-4. **Agree what the boat does if contact is lost in the narrows.**
+1. **Take the own-noise baseline, because nothing new can be recognised as new without it.**
+2. **Find the layer depth, because it decides which of the missing lines are missing for a reason.**
+3. **Hold the contacts long enough to have bearing rates, which the baseline and the layer let you interpret.**
+4. **Agree what the boat does if contact is lost, while there is still contact to lose.**
 
-**Why (shown in verdict):** The baseline has to come first because everything after it is measured against it; the plan for losing contact has to be agreed before you are busy losing it.
+**Why (shown in verdict):** Each card is a prerequisite for reading the next one. Without the baseline a new sound is just a sound; without the layer a missing narrowband line looks like an absent contact rather than a bent path; and bearing rates take time, which is why they cannot be the thing you start collecting at the entrance. The last is agreed early for a different reason — afterwards, everybody is busy.
 
-**Takeaway:** A passage plan is a list of things that must already be true, not a list of things to do later.
+**Takeaway:** A passage plan is ordered by what each measurement needs in order to mean anything.
 
 ### M4.2 — The margin that survives being wrong
 
@@ -768,28 +768,28 @@ Explanation shown: The volume and the target concentration give how much gas it 
 
 **Situations to match**
 
-- The lost bus and everything it fed.
-- The injured crewman in the passage.
-- The plot, degraded since the power loss.
-- The boundaries around the flooded space.
+- The lost bus, and everything that was fed from it.
+- The crewman with a broken wrist, in the passage.
+- The plot, degraded since the power went.
+- The bulkheads either side of the flooded space.
 
 **Choices offered**
 
-- Okonkwo, with a meter — find what is dead and what is only reported dead.
-- Navarro, who can treat him where he is and clear the passage.
-- Petrov, to slow the boat and re-establish a sounding line before anything else.
-- The after damage-control party, reading temperatures and levels either side.
+- Prove what is actually dead with a meter, because the switchboard only reports what it believes.
+- Treat him where he lies and clear the passage, because the passage is a damage-control route.
+- Slow the boat first, which freezes the error before anybody tries to rebuild the position.
+- Read temperature and level on both sides, because that is how you learn the boundary is holding.
 
 **Correct answer**
 
-1. The lost bus and everything it fed.  →  **Okonkwo, with a meter — find what is dead and what is only reported dead.**
-2. The injured crewman in the passage.  →  **Navarro, who can treat him where he is and clear the passage.**
-3. The plot, degraded since the power loss.  →  **Petrov, to slow the boat and re-establish a sounding line before anything else.**
-4. The boundaries around the flooded space.  →  **The after damage-control party, reading temperatures and levels either side.**
+1. The lost bus, and everything that was fed from it.  →  **Prove what is actually dead with a meter, because the switchboard only reports what it believes.**
+2. The crewman with a broken wrist, in the passage.  →  **Treat him where he lies and clear the passage, because the passage is a damage-control route.**
+3. The plot, degraded since the power went.  →  **Slow the boat first, which freezes the error before anybody tries to rebuild the position.**
+4. The bulkheads either side of the flooded space.  →  **Read temperature and level on both sides, because that is how you learn the boundary is holding.**
 
-**Why (shown in verdict):** Each of these has one person aboard who can start it in the next minute. Naming them is the job; supervising all four of them is not.
+**Why (shown in verdict):** Each assignment is a first action rather than a subject. The pairings are not obvious from the department: the plot is fixed by slowing down before anybody plots anything, and the injured man is moved because the passage is a route, not because he is uncomfortable.
 
-**Takeaway:** Delegation is naming a person and a first action, not describing a problem.
+**Takeaway:** Delegation is a person and a first action, and the first action is rarely the obvious one.
 
 ### M8.3 — Slowing down as a decision
 
@@ -1113,15 +1113,15 @@ Explanation shown: Six tonnes is inside what the drain pump can handle if the so
 **Choices offered**
 
 - Securing a machine needs a record of what it was cooling and when it must come back.
-- The breaker should never have been opened for a quiet run.
-- The pump should restart automatically on high temperature.
+- The quiet-running lineup should be restored automatically when the transit ends.
+- The bearing should have a high-temperature alarm that trips the pump back on.
 - Nothing — the watch that secured it made a reasonable trade at the time.
 
 **Correct answer**
 
 **Securing a machine needs a record of what it was cooling and when it must come back.**
 
-**Why (shown in verdict):** The trade was reasonable and the record was not made, which is why it survived two watch changes and turned into a hot bearing.
+**Why (shown in verdict):** The trade was reasonable and the record was not made, which is why it survived two watch changes. An automatic restore and a temperature alarm are both real engineering answers and both arrive after the heat has: an alarm tells you a bearing is already hot, and neither tells the next watch why the pump was off.
 
 **Why the others do not hold**
 
@@ -1486,28 +1486,28 @@ Explanation shown: Twenty hours against a four-hour transit is a comfortable mar
 
 **Situations to match**
 
-- The wet forward bilge.
-- The unresolved contact.
+- The forward bilge, wet but not rising.
+- The faint contact nobody has resolved.
 - The scrubber train that is down.
 - The bearing running warm.
 
 **Choices offered**
 
-- Hallam — read and log the level every ten minutes and report a change, not a number.
-- Dunne — hold it, get a bearing rate, and report before it resolves rather than after.
-- Lindqvist — restore the train or tell me the hour at which it stops being optional.
-- Haruki — restore the second cooling pump and tell me what that costs acoustically.
+- Log the level every ten minutes and report a change, not a number.
+- Hold it and get a bearing rate, and report before it resolves rather than after.
+- Restore it, or name the hour at which the air stops being optional.
+- Restore the second cooling pump, and say what that costs acoustically.
 
 **Correct answer**
 
-1. The wet forward bilge.  →  **Hallam — read and log the level every ten minutes and report a change, not a number.**
-2. The unresolved contact.  →  **Dunne — hold it, get a bearing rate, and report before it resolves rather than after.**
-3. The scrubber train that is down.  →  **Lindqvist — restore the train or tell me the hour at which it stops being optional.**
-4. The bearing running warm.  →  **Haruki — restore the second cooling pump and tell me what that costs acoustically.**
+1. The forward bilge, wet but not rising.  →  **Log the level every ten minutes and report a change, not a number.**
+2. The faint contact nobody has resolved.  →  **Hold it and get a bearing rate, and report before it resolves rather than after.**
+3. The scrubber train that is down.  →  **Restore it, or name the hour at which the air stops being optional.**
+4. The bearing running warm.  →  **Restore the second cooling pump, and say what that costs acoustically.**
 
-**Why (shown in verdict):** Each assignment names a person, a first action and what "report back" means. None of them asks anybody to watch something.
+**Why (shown in verdict):** Every one of these asks for a threshold rather than a watch. "Report a change" and "name the hour" are instructions somebody can act on alone; "keep an eye on it" is how four things get watched and none of them gets decided.
 
-**Takeaway:** Delegation is a name, a first action and a time to report back.
+**Takeaway:** An assignment that names a threshold can be acted on alone; one that says watch it cannot.
 
 ### M15.3 — The report the captain asked for
 
@@ -1544,24 +1544,24 @@ Explanation shown: Twenty hours against a four-hour transit is a comfortable mar
 
 ## Grading
 
-Scored after the March of fixes described in `README.md`. Three axes, 1–5 each; the rubric is identical across all seven games and is stated in full in `README.md`. Rows marked **Fixed**, **Rebuilt** or **Correction** changed in this pass.
+Three axes, 1–5 each; the rubric is in `README.md`. Rows marked **Fixed**, **Rebuilt**, **Rewritten** or **Correction** changed after the first audit.
 
-- **Solv** — *solvability*: can a prepared student reach the keyed answer from the scene and panel alone, by reasoning rather than by eliminating an absurdity or recalling something never shown?
-- **Edu** — *educational value*: does getting it right require and build transferable subject knowledge?
-- **Fit** — *general-curriculum fit* for the stated audience.
+- **Solv** — can a prepared student reach the keyed answer from the scene and panel alone?
+- **Edu** — does getting it right require and build transferable subject knowledge?
+- **Fit** — does it map onto a named topic in a standard course for the stated audience?
 
 | ID | Format | Topic | Solv | Edu | Fit | Note |
 | --- | --- | --- | :-: | :-: | :-: | --- |
-| M1.1 | SEQUENCE | Compartment familiarisation | 3 | 2 | 1 | Cards 3 and 4 (what fights a casualty / what causes one) have no forced order. Doctrine, not science. |
-| M1.2 | PROTOCOL | Reading hardware from its form | 4 | 2 | 1 | Each fitting's description contains its own answer. |
-| M1.3 | CHOICE | Dead reckoning as a memory task | 5 | 2 | 1 | The three wrong options are transparently weak. Good scene-setting for M3.1 though. |
+| M1.1 | SEQUENCE | Compartment familiarisation | 4 | 4 | 2 | **Rewritten.** The last card now depends on the third: a locker is only the right locker once you know what this compartment can do to you. The boundary comes first because it is a pressure boundary. |
+| M1.2 | PROTOCOL | Reading hardware from its form | 4 | 3 | 2 | **Rewritten.** Each fitting is now identified by what happens when it is wrong, and the hull valve by the ten atmospheres behind it at ninety metres. |
+| M1.3 | CHOICE | Dead reckoning as a memory task | 5 | 3 | 2 | **Rewritten.** The distractors are now three things that genuinely fail at an interruption — a pace count, a list of turns, a stencil you cannot read in the dark. |
 | M2.1 | PROTOCOL | Passive sonar source identification | 4 | 3 | 2 | The discriminators (tracks own throttle / fixed line / no bearing rate) are all supplied in the scene, so it is inference rather than recall. |
 | M2.2 | DIAGNOSIS | Sound refraction across a layer | 4 | 4 | 3 | Teaches "a missing narrowband line is evidence, not an absence of evidence" — genuinely transferable. Requires accepting the scene's statement about layer refraction. |
 | M2.3 | CHOICE | Constant bearing, decreasing range | 5 | 4 | 3 | Real relative-motion physics, and the classic seamanship rule. Solvable from the scene. |
 | M3.1 | BALLPARK | Set × elapsed time | 5 | 3 | 3 | Decoys (own speed, depth, course) are present and appropriate. Arithmetic is one multiplication; the drift is treated as a scalar rather than a vector. |
 | M3.2 | DIAGNOSIS | Common-mode failure, independence | 5 | 5 | 3 | The single best idea in the game: two displays fed by one navigator agree *by construction*. Reappears at M14.3 and pays off. |
 | M3.3 | CHOICE | Bathymetric line of position | 4 | 3 | 2 | Distractors are weak but the concept (a profile is a shape; shapes can be matched) is real. |
-| M4.1 | SEQUENCE | Passage prerequisites | 3 | 2 | 1 | Only "baseline first" is forced; the rest is a plausible ordering among several. |
+| M4.1 | SEQUENCE | Passage prerequisites | 4 | 4 | 2 | **Rewritten.** Each card states what the next one needs: without the baseline a new sound is just a sound, without the layer a missing line looks like an absent contact. |
 | M4.2 | BALLPARK | Uncertainty against a channel width | 5 | 4 | 3 | **Fixed.** The template referenced a slot the player could not fill and the panel returned NaN. Now three slots, three tiles, and a speed decoy. |
 | M4.3 | CHOICE | Acoustic vs capability trade | 4 | 4 | 2 | One change before the narrows. Cavitation dominates, so turns are the answer, and each rebuttal concedes what the rival buys. |
 | M5.1 | DIAGNOSIS | Source identification by fluid properties | 5 | 4 | 2 | Salinity kills the fresh-water line, unchanged cooling flow kills the sonar return. Cleanly determined. |
@@ -1574,7 +1574,7 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M7.2 | BALLPARK | CO₂ production rate → time to a limit | 4 | 4 | 4 | Decoy tiles added: one per cent written as a percentage rather than a fraction, and the depth. The unit trap is the error this problem invites. |
 | M7.3 | CHOICE | A path needs an opening and a driver | 5 | 3 | 2 | Solvable directly from the scene. |
 | M8.1 | TRIAGE | Prioritise by rate of deterioration | 5 | 3 | 1 | The principle is good and it is stated in the scene, so nothing has to be worked out. |
-| M8.2 | PROTOCOL | Delegation | 3 | 2 | 1 | Each assignment names the specialist whose department the casualty belongs to; the mapping is given, not reasoned. |
+| M8.2 | PROTOCOL | Delegation | 4 | 3 | 1 | **Rewritten.** The pairings are no longer readable off the department — the plot is fixed by slowing the boat before anybody plots anything. |
 | M8.3 | BALLPARK | Distance ÷ speed | 5 | 4 | 3 | **Fixed.** Now computes what slowing actually buys — three hours against one — rather than the time at present speed alone. |
 | M9.1 | DIAGNOSIS | Own-noise vs a contact (bearing independence) | 5 | 4 | 3 | "A source everywhere at once is a source you are carrying" — a real localisation principle, fully determined by the panel. |
 | M9.2 | SEQUENCE | Change one thing; confirm by restoring | 4 | 5 | 4 | The best methodology item in the game: the fourth card (restore the suspect and hear it return) is what turns correlation into cause. |
@@ -1584,7 +1584,7 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M10.3 | PROTOCOL | Dynamic lift vs buoyancy, and their costs | 4 | 4 | 3 | Each of the four is right in some situation, which is exactly what makes it worth asking. |
 | M11.1 | SEQUENCE | Heat-transfer chain to the sink | 5 | 4 | 4 | Physically forced order; a genuine thermal-resistance-in-series model. |
 | M11.2 | DIAGNOSIS | Where the ΔT disappears | 5 | 5 | 4 | The best physics item in the game. Seawater leaving 2 °C warmer while everything upstream heats proves the flow, not the exchangers, is the broken link. |
-| M11.3 | CHOICE | Configuration control | 5 | 2 | 1 | Operations discipline. |
+| M11.3 | CHOICE | Configuration control | 5 | 3 | 1 | **Rewritten.** The rivals are now real engineering answers — an automatic restore, a high-temperature trip — that both arrive after the heat has. |
 | M12.1 | CHOICE | Reversible vs irreversible savings | 5 | 4 | 2 | "Which do you refuse?" — and the criterion is reversibility, which is the takeaway. The cleanest of the three conversions. |
 | M12.2 | BALLPARK | Net rate against a limit | 5 | 4 | 4 | 6.0 ÷ (1.4 − 1.1). A genuine production-minus-removal problem with a decoy. |
 | M12.3 | CHOICE | Quiet costs bearing rate | 4 | 3 | 2 | A real trade-off with a non-obvious answer. |
@@ -1595,19 +1595,13 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M14.2 | CHOICE | Noise floor vs sensitivity | 4 | 5 | 4 | Genuinely good measurement physics: a more sensitive instrument in a noisier system hears the noise better. Transfers to every lab course. |
 | M14.3 | CHOICE | Independent failure modes | 5 | 5 | 3 | The campaign's central idea, asked cleanly at the end. |
 | M15.1 | DIAGNOSIS | Which problem degrades on its own | 4 | 3 | 1 | Judgement rather than deduction, but the rivals are each killed by a stated reading. |
-| M15.2 | PROTOCOL | Delegation, again | 3 | 2 | 1 | Same weakness as M8.2 and a near-duplicate of it. |
+| M15.2 | PROTOCOL | Delegation, again | 4 | 3 | 1 | **Rewritten.** Every assignment now names a threshold rather than a subject: "report a change", "name the hour it stops being optional". |
 | M15.3 | CHOICE | What belongs in a report | 5 | 3 | 2 | Sound; the game's thesis stated plainly. |
 
-### Summary — Deep Watch
+### Summary
 
-**Averages: Solvability 4.4 · Educational value 3.5 · Curriculum fit 2.3**
-*Before this pass: 4.3 · 3.4 · 2.3*
+**Averages: Solvability 4.5 · Educational value 3.7 · Curriculum fit 2.4**
 
-Only eight rows moved, because Deep Watch had the fewest funding rounds and the best-authored ones. What it did have was three broken or half-broken estimates, and those are the fixes worth having:
+Seven stops taught nothing; none does now. The walkdown, the fittings, the passage prerequisites and both delegation stops were orderings and matchings whose answers were readable off the card text. Each now turns on a dependency: the last card of the walkdown cannot be judged until the third is known, a hull valve is defined by the ten atmospheres behind it at ninety metres, and every delegation names a threshold instead of a subject.
 
-- **M4.2 was returning NaN.** Its template referenced a slot the player could not fill, so the equation rendered with an empty box and no possible answer landed in tolerance. Nothing in the checks could see it, because the checks never evaluate a formula.
-- **M5.2 asked "is the pump winning, and by how much?" and computed the inflow only.** It now computes what the scene's own explanation always said: the sea is putting in the rise *plus* what the pump is already removing, 143 gallons a minute against a 55-gallon pump.
-- **M8.3 asked what slowing buys and computed the time at present speed.** It now computes the difference.
-- **M9.3 needed a rotordynamics fact the scene never supplied**, so a careful reader still could not derive it. The scene now states that imbalance pulls once per revolution and misalignment twice.
-
-Curriculum fit has not moved and will not: what this game teaches — reasoning under instrument uncertainty, independence of failure modes, the cost of a configuration nobody logged — is not a course. Fourteen of its stops still score 1 on that axis. It remains the best-written game here and the one hardest to attach to a syllabus.
+**Curriculum fit stays at 2.4, and that is the game rather than a defect.** Ten stops still score 1 — walkdowns, checklists, watch handover, configuration control. What Deep Watch teaches is reasoning under instrument uncertainty and the cost of a configuration nobody logged. It is the best-written game here and the one hardest to attach to a syllabus, and forcing chemistry into a damage-control locker would have damaged both.

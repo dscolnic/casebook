@@ -1459,25 +1459,25 @@ Explanation shown: Total beds is the wrong numerator, because ninety of them are
 
 > The mayor is on air in an hour. The transmission route is settled across three independent data streams, the animal reservoir is still unconfirmed, and the treatment works under conditions nobody has tested beyond eight weeks. The draft in front of you opens with the actions and never reaches what is still unknown. A briefing that survives the next revision states what is known and how it was learned, what remains uncertain and why, what is being done and at what cost, and how the account will be updated when the evidence changes.
 
-**Question**  Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
+**Question**  Order the briefing by how much weight each claim can carry.
 
 **Cards to order** (presented shuffled)
 
-- State what is known and how it was learned.
-- State what remains uncertain and why.
-- Explain current actions, benefits, burdens, and decision triggers.
-- Describe how evidence and policy will be updated.
+- The transmission route, which three independent data streams agree on.
+- The severe-risk subgroup, which one small observational sample suggests.
+- The animal reservoir, which remains plausible and unconfirmed.
+- What each of those would take to settle, and when it will be revisited.
 
 **Correct answer**
 
-1. **State what is known and how it was learned.**
-2. **State what remains uncertain and why.**
-3. **Explain current actions, benefits, burdens, and decision triggers.**
-4. **Describe how evidence and policy will be updated.**
+1. **The transmission route, which three independent data streams agree on.**
+2. **The severe-risk subgroup, which one small observational sample suggests.**
+3. **The animal reservoir, which remains plausible and unconfirmed.**
+4. **What each of those would take to settle, and when it will be revisited.**
 
-**Why (shown in verdict):** Trustworthy communication joins evidence, uncertainty, action, and revision.
+**Why (shown in verdict):** The briefing is ordered by how much the evidence will carry, strongest first, because that is the order in which a listener can tell one claim from another. Publishing the reservoir with the confidence of the transmission route is what makes the whole document unbelievable when the reservoir turns out to be somewhere else.
 
-**Takeaway:** Uncertainty is not a failure of science when it is bounded and connected to a plan for learning.
+**Takeaway:** A public account is ordered by the strength of its evidence, not by the order the work happened in.
 
 ### M15.3 — Fund the post-crisis legacy
 
@@ -1514,11 +1514,11 @@ Explanation shown: Total beds is the wrong numerator, because ninety of them are
 
 ## Grading
 
-Scored after the March of fixes described in `README.md`. Three axes, 1–5 each; the rubric is identical across all seven games and is stated in full in `README.md`. Rows marked **Fixed**, **Rebuilt** or **Correction** changed in this pass.
+Three axes, 1–5 each; the rubric is in `README.md`. Rows marked **Fixed**, **Rebuilt**, **Rewritten** or **Correction** changed after the first audit.
 
-- **Solv** — *solvability*: can a prepared student reach the keyed answer from the scene and panel alone, by reasoning rather than by eliminating an absurdity or recalling something never shown?
-- **Edu** — *educational value*: does getting it right require and build transferable subject knowledge?
-- **Fit** — *general-curriculum fit* for the stated audience.
+- **Solv** — can a prepared student reach the keyed answer from the scene and panel alone?
+- **Edu** — does getting it right require and build transferable subject knowledge?
+- **Fit** — does it map onto a named topic in a standard course for the stated audience?
 
 | ID | Format | Topic | Solv | Edu | Fit | Note |
 | --- | --- | --- | :-: | :-: | :-: | --- |
@@ -1565,22 +1565,13 @@ Scored after the March of fixes described in `README.md`. Three axes, 1–5 each
 | M14.2 | BALLPARK | Time to capacity as an upper bound | 5 | 4 | 4 | Decoys added — total beds, occupied beds, average stay — so the student has to notice that ninety of the beds are full. |
 | M14.3 | CHOICE | Adaptive policy | 4 | 4 | 3 | A policy tied to observable triggers, because it can change without anybody having to have been wrong. |
 | M15.1 | PROTOCOL | Claim-by-claim disposition | 4 | 3 | 3 | Good habit, little biology. |
-| M15.2 | SEQUENCE | Public explanation | 3 | 2 | 2 | Communication ordering; not curriculum. |
+| M15.2 | SEQUENCE | Public explanation | 4 | 4 | 4 | **Rewritten.** The briefing is ordered by how much weight each claim can carry, which is the disposition idea from M15.1 applied to what gets said out loud. |
 | M15.3 | CHOICE | Post-crisis legacy | 4 | 3 | 2 | Surveillance, because it is the item that has to run continuously to be worth anything. The zero-credit decoy problem is gone with the format. |
 
-### Summary — Outbreak: Riverton
+### Summary
 
-**Averages: Solvability 4.4 · Educational value 4.3 · Curriculum fit 4.4**
-*Before this pass: 4.2 · 4.0 · 4.2*
+**Averages: Solvability 4.4 · Educational value 4.4 · Curriculum fit 4.4**
 
-Still the best curriculum coverage in the repository, and now the highest educational value as well. Nineteen of its forty-five rows changed.
+Still the best curriculum coverage in the repository, and now the highest fit as well at **4.4**. Its one weak stop — the public briefing — is ordered by how much weight each claim can carry, which applies the disposition idea from the stop before it rather than restating a communications convention.
 
-The biggest single win is invisible in the averages: **all nineteen stops that shipped with an empty "Why:" line now explain themselves.** For a game whose whole method is differential reasoning, a verdict card that named the answer and said nothing about it was throwing away the teaching moment the player had just paid for.
-
-The three quantitative items that mattered most were also the three most compromised, and all three are rebuilt:
-
-- **M5.3 (PPV)** handed over "90 true positives, 99 false positives". It now supplies prevalence, sensitivity, specificity and the size of the screened population, with the affected ward's prevalence sitting there as a decoy. The student does the epidemiology.
-- **M13.2 (NNT)** handed over the two risks. It now supplies raw event counts and arm sizes, with pooled totals as decoys.
-- **M6.2 (oxygen delivery)** asked for both patients and a bottleneck and graded one product.
-
-The thirteen converted decisions are the strongest set of conversions in any of the seven games, because this game's subject matter *is* deciding which measurement to make: M3.3 (find the earliest divergent step), M4.3 (which stage of expression moved), M7.3 (measure both curves before suppressing anything) all now turn on biology rather than on portfolio sense.
+Everything else about this game was already working: nineteen empty verdict cards now explain themselves, and the three quantitative items that matter most (PPV, oxygen delivery, NNT) supply their inputs instead of their answers.
