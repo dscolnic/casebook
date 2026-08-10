@@ -1,0 +1,500 @@
+# book.yml — the starter book. Replace it; do not extend it.
+#
+# `npm run new-theme <name>` copies this in and imports it, so a brand new theme
+# is a complete, playable, green game from the first command — three areas, four
+# days, one worked example of every question format. That baseline is the point:
+# when a check goes red after you start writing, the thing you just wrote is
+# what broke it.
+#
+# The format is tools/BOOK_TEMPLATE.md. Write the real book in books/<name>.yml
+# and import over the top:
+#
+#   node tools/import-book.mjs books/<name>.yml <name> --verify
+#
+# What is NOT here, because it is geometry rather than content: site.js (or
+# plan.js) and props.js.
+
+theme:
+  id: outbreak_riverton
+  title: outbreak_riverton
+  subtitle: Replace this with the player's role and the place
+
+# ---------------------------------------------------------------- the areas
+# A design decision. No design document contains it: the book teaches topics,
+# and this is the choice of which topics are *places* the player walks to.
+groups:
+  - id: G1
+    code: G1
+    name: Field Station
+    color: '#2980b9'
+    desc: What an instrument can measure, and what it cannot.
+    defaultLeader: lead1
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+  - id: G2
+    code: G2
+    name: Sample Room
+    color: '#27ae60'
+    desc: Getting a number that means something.
+    defaultLeader: lead2
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+  - id: G3
+    code: G3
+    name: Records Office
+    color: '#c0392b'
+    desc: What was written down, and what it leaves out.
+    defaultLeader: lead3
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+  - id: G4
+    code: G4
+    name: Response Desk
+    color: '#d35400'
+    desc: Deciding what to do while the evidence is still incomplete.
+    defaultLeader: lead4
+    milestones: [Set up the notebook, Connect the evidence, Check it holds, Ready to hand over]
+
+# ------------------------------------------------------------------ the cast
+# Books name functions — "the local expert", "the skeptical reviewer". People
+# are yours to invent. EVERY entry needs a `division` or that area's person
+# stops are unreachable, and nothing says so until somebody walks the whole map.
+roster:
+  - id: lead1
+    name: Ada Merrick
+    role: Station Lead
+    division: G1
+    bio: |
+      Runs the field station, which is two instruments and a rule. The rule is
+      that a reading is a claim, and a claim needs evidence that could have come
+      out differently.
+
+      Every instrument here answers one narrow question well and every other
+      question badly. Knowing which question an instrument is answering is most
+      of the job.
+
+      Her limit is calibration: an instrument that has drifted is confident and
+      wrong, and it will not tell you which.
+    quiz:
+      - q: Why does Merrick distrust a single confident reading?
+        a: An instrument that has drifted reports the same certainty as one that has not
+        wrong:
+          - Field instruments cannot measure below one part per million
+          - Readings taken outdoors are always too low
+          - Any measurement needs a second one the following week
+  - id: lead2
+    name: Tomas Oyelaran
+    role: Sample Room Lead
+    division: G2
+    bio: |
+      Keeps the sample room, where every container is a record of where it has
+      been. A sample with no history is a sample about nothing.
+
+      He measures twice and writes down both, because two numbers that disagree
+      are information and one number that agrees with itself is not.
+
+      His limit is time: some things change in the container, and the answer he
+      gets is the answer at the moment he asks.
+  - id: lead3
+    name: Priya Naidoo
+    role: Records Officer
+    division: G3
+    bio: |
+      Holds the paperwork, which is the only part of this work that outlasts the
+      people doing it. She reads a form for what it does not have room to say.
+
+      A gap in a record is not the same as a zero, and she will not let anybody
+      treat it as one.
+
+      Her limit is that she was not there. Everything she has is somebody else's
+      account of the day.
+  - id: lead4
+    name: Ruth Calderón
+    role: Response Desk Lead
+    division: G4
+    bio: |
+      Sits at the desk that has to decide before the evidence is finished. Every
+      hour spent making a number better is an hour the decision is not made in.
+
+      She asks one question of any proposed piece of work: if it comes back the
+      other way, does anybody do anything differently? Work that fails that test
+      is work for the report, not for the response.
+
+      Her limit is that she is paying for information with time, and the clock
+      belongs to the people out at the site.
+    quiz:
+      - q: What does Calderón ask before funding a measurement?
+        a: Whether the decision would change if the result came back the other way
+        wrong:
+          - Whether the instrument has been calibrated this month
+          - Whether the result can be obtained before the end of the day
+          - Whether anybody has measured it before
+  - id: helper1
+    name: Ben Achterberg
+    role: Field Assistant
+    division: G1
+    bio: |
+      Carries the kit, sets the stakes out and writes the times down. Has read
+      every log in the station and remembers which ones disagree.
+  - id: helper2
+    name: Kit Sorensen
+    role: Laboratory Assistant
+    division: G2
+    bio: |
+      Runs the routine measurements, which means they see every result before
+      anybody else and notice when a run stops looking like the last one.
+
+glossary:
+  - name: Calibration
+    aliases: [calibrate, calibrated]
+    def: Checking an instrument against something already known, so its numbers mean something.
+  - name: Blank
+    aliases: [blank run]
+    def: A run with no sample in it. Anything it shows came from the process, not the thing measured.
+
+# ---------------------------------------------------------------- the days
+# Each mission is one working day: three stops, taken in whatever order the
+# player likes. From day 3 the engine adds a fourth call revisiting an earlier
+# area — you do not author that.
+#
+# Do not send a day into the same area twice: normalize.js turns the repeat into
+# a person stop, which works, but the day reads better if you chose it.
+missions:
+  - title: Read the instrument, not the rumour
+    objective: Establish what was actually measured before anybody acts on it.
+    briefing: Three readings came in overnight and no two of them agree.
+    stake: A number nobody can trace is a number the team will act on anyway.
+    takeaway: A reading is a claim, and a claim carries its conditions with it.
+    stops:
+      - group: G1
+        task: From raw reading to something you can defend
+        title: What the instrument is actually answering
+        place: Field Station
+        scene: >
+          Three readings arrived overnight from the same site. Two are close
+          together, one is far off, and the log shows the odd one was taken
+          before the morning calibration.
+        takeaway: An uncalibrated instrument is confident and wrong, and says nothing about which.
+        format: CHOICE
+        question: Which of these is a measurement?
+        choices:
+          - The site smelled strong when the team arrived.
+          - The meter read 0.42 units after calibration.
+          - The reading looked higher than usual.
+          - Somebody said the wind had picked up.
+        answer: The meter read 0.42 units after calibration.
+        why: A measurement is a number produced by a tool under stated conditions.
+        rebuttals:
+          - An odour is an observation, and a useful one, but it is not a number.
+          - "\"Higher than usual\" is a comparison with something nobody wrote down."
+          - Wind matters, but reported weather is context rather than measurement.
+      - group: G2
+        task: Match what you see to what it means
+        title: Reading the sample room
+        place: Sample Room
+        scene: >
+          Four containers are on the bench, each with something odd about it,
+          and the team wants to know which ones can still be used.
+        takeaway: What a sample can tell you is fixed the moment it is collected.
+        format: PROTOCOL
+        task: Match each observation to what it means for the sample.
+        scenarios:
+          - The container has no collection time on it.
+          - The seal was found broken.
+          - The blank run shows the same peak as the sample.
+          - Two runs of the same sample agree to within one percent.
+        choices:
+          - The result cannot be placed in the sequence of events.
+          - Anything measured now may have entered after collection.
+          - The signal came from the process, not from the sample.
+          - The measurement is repeatable, whatever else is true of it.
+        mapping: [0, 1, 2, 3]
+        why: Each observation limits a different thing — timing, integrity, source or precision.
+      - group: G3
+        task: Put the day's paperwork in the order it happened
+        title: The order a record has to be made in
+        place: Records Office
+        scene: >
+          The day's forms are in a pile and two of them contradict each other.
+          Naidoo wants them back in the order the work actually happened.
+        takeaway: A record made after the fact is a memory, not a record.
+        format: SEQUENCE
+        task: Order the steps as they have to happen.
+        cards:
+          - Label the container before anything goes in it.
+          - Record the time and conditions at collection.
+          - Run the measurement and write down what the instrument said.
+          - Sign the result across to whoever acts on it.
+        order: [0, 1, 2, 3]
+        why: Every later step depends on the one before it being unambiguous.
+
+  - title: How much, and how sure
+    objective: Turn a rough situation into a number with a range on it.
+    briefing: Command wants a scale before it decides anything, and wants it this hour.
+    stake: A decision made on the wrong order of magnitude is the wrong decision.
+    takeaway: An estimate with its assumptions written down beats a precise number without them.
+    stops:
+      - group: G2
+        task: Assemble an estimate from what is actually known
+        title: A number you can show your working for
+        place: Sample Room
+        scene: >
+          A tank of unknown contents drained for about forty minutes into a
+          catchment of known size. Nobody measured the flow, but the catchment
+          depth was read before and after.
+        takeaway: An estimate is a claim about size, and it carries the quantities it was built from.
+        format: BALLPARK
+        question: Estimate the volume that reached the catchment.
+        estimate:
+          prompt: The catchment is 12 m by 8 m and rose 0.15 m while the tank drained.
+          question: Estimate the volume that reached the catchment.
+          labels:
+            - 12 m  (length)
+            - 8 m  (width)
+            - 0.15 m  (rise in depth)
+            - 40 min  (how long it drained)
+            - 1000 kg/m³  (density of water)
+          values: [12, 8, 0.15, 40, 1000]
+          slots: 3
+          template: '{0} × {1} × {2}'
+          formula: a*b*c
+          correct: [0, 1, 2]
+          target: 14.4
+          tolerance: 2
+          units: m³
+          solution: V = 12 × 8 × 0.15 ≈ 14 m³.
+          explanation: Depth times area is volume; the duration and the density do not enter it.
+      - group: G1
+        task: Decide which explanation fits every reading
+        title: The panel that rules things out
+        place: Field Station
+        scene: >
+          The station's panel is showing one alarm and three quiet readings, and
+          the quiet ones are the reason most of the obvious explanations do not
+          survive.
+        takeaway: The readings that are normal are what rule an explanation out.
+        format: DIAGNOSIS
+        headline: One channel is alarming and everything around it looks ordinary.
+        task: Which explanation fits every reading, not just the loudest one?
+        readings:
+          - { zone: Channel A, label: Signal, value: high, status: alarm }
+          - { zone: Channel B, label: Signal, value: normal, status: normal, note: same sample line }
+          - { zone: Blank, label: Signal, value: high, status: alarm }
+          - { zone: Pump, label: Pressure, value: steady, status: normal, note: rules out a leak }
+        choices:
+          - { label: The site concentration really has risen, mechanism: Channel A is reading a real change at the site. }
+          - { label: Something in the instrument is contributing signal, mechanism: The blank sees it too, so it is not coming from the sample. }
+          - { label: The sample line is leaking, mechanism: Air drawn in would dilute what reaches the detector. }
+          - { label: Nothing to explain, mechanism: Ordinary variation, no cause needed. }
+        answer: Something in the instrument is contributing signal
+        why: A signal that appears in the blank was never evidence about the site.
+      - group: G4
+        task: Spend the budget on the evidence that changes a decision
+        title: What is worth paying to find out
+        place: Response Desk
+        scene: >
+          There is money for roughly two more pieces of work this week, and four
+          things the team would like to know.
+        takeaway: Evidence is worth what the decision it changes is worth.
+        format: SCIENCETANK
+        task: Fund the work that would change what the team does next.
+        proposals:
+          - { label: A, text: Confirm the odd reading with a second, independent instrument. }
+          - { label: B, text: Reconstruct the collection times from the site log. }
+          - { label: C, text: Repeat the same run on the same instrument for precision. }
+          - { label: D, text: Photograph the site for the report. }
+        recommended: { A: 45, B: 35 }
+        evidence: |
+          The team already has three readings, one of them uncalibrated, and a
+          set of forms with two contradictions in them.
+
+  - title: What the record does not say
+    objective: Work out what happened from an account written by somebody who was not there.
+    briefing: The only description of the first hour is a form filled in afterwards.
+    stake: A gap treated as a zero becomes a fact nobody can trace back.
+    takeaway: A missing entry is not a measurement of nothing.
+    stops:
+      - group: G3
+        task: Read a form for what it leaves out
+        title: A gap is not a zero
+        place: Records Office
+        scene: >
+          The first-hour form has three fields filled in and two left blank, and
+          the summary written from it reports those two as zero.
+        takeaway: Absence of a record is absence of evidence, not evidence of absence.
+        format: CHOICE
+        question: The form leaves the wind field blank. What does that tell you?
+        choices:
+          - There was no wind.
+          - The wind was too low to matter.
+          - Nobody recorded the wind, and it is unknown.
+          - The instrument failed.
+        answer: Nobody recorded the wind, and it is unknown.
+        why: A blank field records who wrote the form, not what the world was doing.
+        rebuttals:
+          - Reading a blank as zero is exactly the mistake that put the wrong number in the summary.
+          - "\"Too low to matter\" is a judgement nobody made at the time."
+          - An instrument failure would itself be an entry somebody wrote.
+      - group: G1
+        task: Reconstruct the morning from what the station logged
+        title: Putting an unwatched hour back together
+        place: Field Station
+        scene: >
+          The station logs automatically every ten minutes, and the log covers
+          the hour nobody was present for.
+        takeaway: An automatic record is a witness that does not get tired, and does not interpret either.
+        format: SEQUENCE
+        task: Order the evidence from most direct to most inferred.
+        cards:
+          - The instrument's own timestamped log.
+          - A photograph taken during the hour.
+          - The form filled in that afternoon from memory.
+          - A colleague's account of what they were told later.
+        order: [0, 1, 2, 3]
+        why: Every step away from the moment adds somebody's reconstruction to it.
+      - group: G2
+        task: Match a container's history to what it can still support
+        title: What a sample can still be asked
+        place: Sample Room
+        scene: >
+          Four containers from that morning are on the bench with different
+          things wrong with each of their histories.
+        takeaway: What a sample can answer shrinks as its history gets thinner.
+        format: CASEBOOK
+        task: Match each container's history to what it can still support.
+        scenarios:
+          - Collected, sealed and logged with a time.
+          - Collected and sealed, no time recorded.
+          - Seal broken in transit.
+          - Collected after the event had been cleared.
+        choices:
+          - Usable for anything the study needs.
+          - Usable for composition, not for anything about timing.
+          - Usable only as an indication that something was there.
+          - Describes a different situation than the one being investigated.
+        mapping: [0, 1, 2, 3]
+        why: Every defect in the history removes one class of question, not all of them.
+
+  - title: Handing it to somebody who acts on it
+    objective: Turn a week of evidence into something another team can use without you.
+    briefing: The response team takes over tomorrow and will not have you to ask.
+    stake: Work nobody else can follow is work that gets repeated.
+    takeaway: A handover states what is known, how well, and what was never established.
+    stops:
+      - group: G2
+        task: Say how sure you are, in a way that survives being repeated
+        title: Stating the uncertainty on purpose
+        place: Sample Room
+        scene: >
+          The summary reads "0.42 units". Oyelaran wants the sentence that goes
+          with it written before anybody outside the room reads the number.
+        takeaway: A number without its conditions will be quoted without them.
+        format: CHOICE
+        question: Which sentence is safe to hand over?
+        choices:
+          - The site reads 0.42 units.
+          - The site reads 0.42 units, measured after calibration, at one location, at 09:10.
+          - The site is around 0.4, give or take.
+          - The site is within limits.
+        answer: The site reads 0.42 units, measured after calibration, at one location, at 09:10.
+        why: The conditions travel with the number, so the next reader cannot drop them.
+        rebuttals:
+          - A bare number invites being applied to the whole site and every hour of it.
+          - A rounded number with no conditions is less traceable, not more honest.
+          - "\"Within limits\" is a conclusion, and it hides the measurement it came from."
+      - group: G4
+        task: Choose what the receiving team needs first
+        title: What goes at the top of the handover
+        place: Response Desk
+        scene: >
+          The response team has ten minutes to read what took a week to gather.
+        takeaway: A handover is ordered by what the next decision needs, not by what happened first.
+        format: TRIAGE
+        question: What belongs at the top of the handover?
+        choices:
+          - The full instrument logs.
+          - What is known, how confidently, and what was never established.
+          - A chronological account of the week.
+          - The list of everyone who worked on it.
+        answer: What is known, how confidently, and what was never established.
+        why: The receiving team acts first and reads the detail afterwards.
+        rebuttals:
+          - Logs are the evidence behind the summary, not a substitute for it.
+          - A chronology makes the reader do the summarising under time pressure.
+          - Attribution matters for the record and not for the first decision.
+      - group: G3
+        task: File it so it can be found by somebody who was not here
+        title: Filing for a stranger
+        place: Records Office
+        scene: >
+          Naidoo files the week. In two years somebody who has never met this
+          team will need to find one number in it.
+        takeaway: A record is written for the person who has no context at all.
+        format: SEQUENCE
+        task: Order the handover file.
+        cards:
+          - What was asked, in one sentence.
+          - What was found, with its uncertainty.
+          - How it was measured, in enough detail to repeat.
+          - The raw logs and the forms.
+        order: [0, 1, 2, 3]
+        why: Each layer lets a reader stop as soon as they have what they came for.
+
+# --------------------------------------------------------------- the rooms
+# Optional. What is inside each room the player can walk into, and what the
+# instrument on the wall reads. Written to themes/<name>/interiors.js.
+interiors:
+  G1:
+    caption: A reading is a claim, and a claim carries its conditions with it.
+    standLine: Three overnight readings, one taken before calibration.
+    station:
+      kind: panel
+      title: Field bench
+      rows:
+        - { label: Channel A, value: 0.42 units, status: normal }
+        - { label: Last calibration, value: 09:05, status: normal }
+        - { label: Blank, value: not yet run, status: low }
+  G2:
+    caption: What a sample can tell you is fixed the moment it is collected.
+    standLine: Four containers from the same morning, three with gaps in their history.
+    station:
+      kind: panel
+      title: Sample bench
+      rows:
+        - { label: Containers logged, value: 4, status: normal }
+        - { label: With collection time, value: 2, status: low }
+        - { label: Seals intact, value: 3, status: high }
+  G4:
+    caption: Evidence is worth what the decision it changes is worth.
+    standLine: Two pieces of work fundable this week, four things worth knowing.
+    station:
+      kind: panel
+      title: Response desk
+      rows:
+        - { label: Open decisions, value: 3, status: alarm }
+        - { label: Work funded, value: 2, status: normal }
+        - { label: Hours to handover, value: 19, status: low }
+  G3:
+    caption: A gap in a record is not a zero.
+    standLine: The first-hour form, two fields blank, summarised as zero.
+    station:
+      kind: panel
+      title: Records desk
+      rows:
+        - { label: Forms filed, value: 11, status: normal }
+        - { label: Contradictions, value: 2, status: alarm }
+        - { label: Fields left blank, value: 5, status: low }
+
+# What each place says when the player reads its sign.
+copy:
+  # Keyed by whatever the place data calls a place: group ids for the rooms and
+  # buildings that carry a lesson, and the plain ids of everything else.
+  ARRIVE: <p>Sign-in. Everybody who comes through this floor is on the sheet by the door.</p>
+  WAIT: <p>Where people wait to be seen, and where they talk to each other while they do.</p>
+  QUIET: <p>A room with a door that shuts. There is one of these in every building that works.</p>
+  STORE: <p>Supplies. Nothing here is interesting until the day something has run out.</p>
+  LABX: <p>The analysis bench. Shared, booked by the hour, and always behind.</p>
+  DESK: <p>The team desk. Every argument about the week has happened at it.</p>
+  BACK: <p>Back of house. Deliveries, spares, and the boxes nobody has opened.</p>
+  GATE: <p>The gatehouse. Sign in, take the day's calls, and start walking.</p>
+  G1: <p>The field station. Two instruments, and a rule about what they are each answering.</p>
+  G2: <p>The sample room. Every container here is a record of where it has been.</p>
+  G4: <p>The response desk. Where somebody has to decide before the evidence is finished.</p>
+  G3: <p>The records office. The only part of this work that outlasts the people doing it.</p>

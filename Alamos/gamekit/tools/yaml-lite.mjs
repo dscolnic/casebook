@@ -19,6 +19,9 @@
 //   - { a: 1, b: two }    a sequence of them, which is how readings are written
 //   key: |                a literal block: newlines kept
 //   key: >                a folded block: newlines become spaces
+//   key: a long value     a plain scalar continued on the following, more
+//     continued here      indented lines — which is what every YAML writer
+//                         emits for a sentence that does not fit a line
 //   # comment             to end of line, outside quotes
 //
 // What it deliberately does not support: anchors, aliases, tags, multiple
@@ -58,6 +61,58 @@ function content(line){
     out += c;
   }
   return out.trim() ? out.replace(/\s+$/, '') : null;
+}
+
+/**
+ * A plain or quoted scalar continued on the following lines.
+ *
+ * YAML wraps a long sentence by indenting the rest of it, and every writer
+ * emits that. This read only the first line, so a book full of wrapped
+ * `briefing`, `scene` and `why` fields lost the second half of each of them
+ * mid-sentence — no error, and no way to see it except by reading the game.
+ *
+ * A continuation is any deeper line that is not itself a `key:` or a `- item`.
+ * Inside quotes it is simpler: everything up to the closing quote continues.
+ */
+function continueScalar(lines, i, indent, first){
+  let text = first;
+  const q = /^["']/.test(first) ? first[0] : null;
+  const closed = () => {
+    if(!q) return false;
+    const body = text.slice(1);
+    // Doubled quotes inside a single-quoted scalar are an escape, not the end.
+    return q === "'" ? /'$/.test(body) && !/''$/.test(body) : /(^|[^\\])"$/.test(body);
+  };
+  if(q && closed()) return [text, i];
+  while(i < lines.length){
+    const c = content(lines[i]);
+    if(c === null){ if(q){ i++; continue; } break; }
+    const here = indentOf(lines[i]);
+    if(here <= indent) break;
+    const t = c.trim();
+    if(!q){
+      if(t.startsWith('- ') || t === '-') break;
+      if(/^("[^"]*"|'[^']*'|[^:#]+):(\s|$)/.test(t)) break;
+    }
+    // Inside double quotes a line break folds to a space, and a trailing `\`
+    // says "no space here" while a leading `\ ` says "a literal space here".
+    // Writers emit both when a wrapped line would otherwise lose a space, and
+    // left in they read as `protect\ \ the city` in the middle of a sentence.
+    if(q === '"' && /(^|[^\\])\\$/.test(text)){
+      text = text.slice(0, -1) + t.replace(/^\\/, '');
+    } else {
+      text += ' ' + (q === '"' ? t.replace(/^\\(?=\s|$)/, '') : t);
+    }
+    i++;
+    if(q && closed()) break;
+  }
+  return [text, i];
+}
+
+/** The next line that carries anything, or the end. */
+function skipBlank(lines, i){
+  while(i < lines.length && content(lines[i]) === null) i++;
+  return i;
 }
 
 /**
@@ -112,8 +167,9 @@ function parseSequence(lines, i, indent){
       i = next === 0 ? i + 1 : i + next;                      // next is relative to `synthetic`
       continue;
     }
-    out.push(scalar(rest));
-    i++;
+    const [full, after] = continueScalar(lines, i + 1, indent, rest);
+    out.push(scalar(full));
+    i = after;
   }
   return [out, i];
 }
@@ -141,13 +197,28 @@ function parseMapping(lines, i, indent){
       continue;
     }
     if(rest === ''){
-      const [v, next] = parseBlock(lines, i + 1, indent + 1);
+      // A sequence may sit at the *same* indent as its key — YAML allows it and
+      // most writers emit it:
+      //
+      //   groups:
+      //   - id: CLIN
+      //
+      // Read as a nested block that has to be deeper, this returned nothing and
+      // the next line ended the mapping, so a whole book parsed as `{}` and the
+      // importer reported "no groups, no missions" on a file that had both.
+      const j = skipBlank(lines, i + 1);
+      const flush = j < lines.length && indentOf(lines[j]) === indent
+                    && /^-(\s|$)/.test(content(lines[j]).trim());
+      const [v, next] = flush
+        ? parseSequence(lines, j, indent)
+        : parseBlock(lines, i + 1, indent + 1);
       out[key] = v ?? null;
       i = next;
       continue;
     }
-    out[key] = scalar(rest);
-    i++;
+    const [full, after] = continueScalar(lines, i + 1, indent, rest);
+    out[key] = scalar(full);
+    i = after;
   }
   return [out, i];
 }
@@ -174,7 +245,13 @@ function readBlockScalar(lines, i, parentIndent, folded){
 function scalar(raw){
   const s = String(raw).trim();
   if(s.startsWith('"') && s.endsWith('"') && s.length > 1){
-    return s.slice(1, -1).replace(/\\"/g, '"').replace(/\\n/g, '\n');
+    // `’` and `\xB7` are how most writers emit a curly quote, a middle dot
+    // or a Greek letter. Left undecoded they reach the game as those six
+    // literal characters, in the middle of a sentence.
+    return s.slice(1, -1)
+      .replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+      .replace(/\\x([0-9a-fA-F]{2})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+      .replace(/\\"/g, '"').replace(/\\n/g, '\n').replace(/\\t/g, '\t').replace(/\\\\/g, '\\');
   }
   if(s.startsWith("'") && s.endsWith("'") && s.length > 1) return s.slice(1, -1).replace(/''/g, "'");
   if(s.startsWith('[') && s.endsWith(']')){

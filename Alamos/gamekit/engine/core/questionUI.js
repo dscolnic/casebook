@@ -101,11 +101,15 @@ function hashOf(str){
 }
 export function portraitSvg(person, accent){
   const h = hashOf(person?.id || person?.name);
+  // Unsigned shifts throughout. `hashOf` returns a full 32-bit value, and a
+  // signed `>>` on anything above 2^31 goes negative — which indexes a style
+  // array at -1 and puts the literal text "undefined" in the middle of the
+  // portrait, for about half of all ids.
   const skin = SKINS[h % SKINS.length];
-  const hair = HAIRS[(h >> 3) % HAIRS.length];
+  const hair = HAIRS[(h >>> 3) % HAIRS.length];
   const col = accent || person?.color || '#3b566b';
-  const style = (h >> 6) % 4;                      // cropped, swept, tied back, bald
-  const glasses = ((h >> 9) % 4) === 0;
+  const style = (h >>> 6) % 4;                     // cropped, swept, tied back, bald
+  const glasses = ((h >>> 9) % 4) === 0;
   const W = 132, H = 148, cx = W / 2, cy = 58;
   const rx = 25, ry = 29;
   const hairShape = [

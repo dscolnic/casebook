@@ -138,12 +138,16 @@ export function getPersonIdForStop(state, stopIdx){
   const stop=m.stops[stopIdx];
   const list=PERSONS_BY_DIVISION[stop.group] || [];
   if(!list.length) return null;
-  const gi=globalStopIndex(state, stopIdx);
   // Two person stops on the same area in one day must be two different people,
   // or the day sends the player back to the same shoulder twice.
   const earlier = m.stops.slice(0, stopIdx)
     .filter((s, i) => s.group === stop.group && isPersonStopForIdx(state, i)).length;
-  return list[(gi + earlier) % list.length];
+  // The day is the base, not the stop: `globalStopIndex` already grows from one
+  // stop to the next, so adding `earlier` on top of it advanced twice and the
+  // two could land back on the same person — with a cast of two per area, they
+  // reliably did, and the objective line named one person twice.
+  const base = Math.max(0, (state.week ?? 1) - 1);
+  return list[(base + earlier) % list.length];
 }
 // An optional between-mission meeting: a named person asks for funding and
 // justifies it. Content, so it comes from the theme; a theme that supplies none

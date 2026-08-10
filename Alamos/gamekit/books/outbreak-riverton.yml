@@ -1,0 +1,1665 @@
+# Claude-ready mission book. Follows BOOK_TEMPLATE.md conventions.
+# Exactly 15 missions, 3 stops per mission. Formats use exact importer names.
+# Diagnosis is a first-class format: the full evidence panel is visible and quiet readings matter.
+theme:
+  id: outbreak_riverton
+  title: 'Outbreak: Riverton'
+  subtitle: "Scientific Response Director \xB7 Riverton"
+groups:
+- id: CLIN
+  code: CLIN
+  name: Clinical Physiology
+  color: '#315c78'
+  desc: Patient physiology, organ systems, and bedside evidence.
+  defaultLeader: ortiz
+  milestones:
+  - Observe the patient
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: CELL
+  code: CELL
+  name: Cell & Membrane Biology
+  color: '#4b775f'
+  desc: Cells, membranes, receptors, transport, and host interactions.
+  defaultLeader: chen
+  milestones:
+  - Build the cell model
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: MOL
+  code: MOL
+  name: Molecular Diagnostics
+  color: '#704f88'
+  desc: DNA, RNA, gene expression, sequencing, and diagnostic controls.
+  defaultLeader: patel
+  milestones:
+  - Validate the molecular evidence
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: IMM
+  code: IMM
+  name: Immunology & Treatment
+  color: '#9a3f36'
+  desc: Immune mechanisms, treatment response, and intervention evidence.
+  defaultLeader: okafor
+  milestones:
+  - Separate response from damage
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: POP
+  code: POP
+  name: Epidemiology & Evolution
+  color: '#9a741d'
+  desc: Population patterns, surveillance, trials, and evolutionary change.
+  defaultLeader: morales
+  milestones:
+  - Connect cases to populations
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: FIELD
+  code: FIELD
+  name: Ecology & One Health
+  color: '#3d6f52'
+  desc: Environmental surveillance, animal reservoirs, and ecosystem connections.
+  defaultLeader: singh
+  milestones:
+  - Connect hosts and environment
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+roster:
+- id: ortiz
+  name: Dr. Lena Ortiz
+  role: Clinical Physiology Lead
+  division: CLIN
+  bio: Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and
+    heat through the body.
+- id: chen
+  name: Dr. Maya Chen
+  role: Cell Biology Lead
+  division: CELL
+  bio: Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.
+- id: patel
+  name: Dr. Ravi Patel
+  role: Molecular Diagnostics Lead
+  division: MOL
+  bio: Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.
+- id: okafor
+  name: Dr. Nia Okafor
+  role: Immunology Lead
+  division: IMM
+  bio: Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention
+    decision.
+- id: morales
+  name: Dr. Sofia Morales
+  role: Epidemiology Lead
+  division: POP
+  bio: Builds comparisons that distinguish real population change from sampling, bias, and coincidence.
+- id: singh
+  name: Dr. Arjun Singh
+  role: One Health Lead
+  division: FIELD
+  bio: Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.
+- id: nakamura
+  name: Rin Nakamura
+  role: Critical Care Physician
+  division: CLIN
+  bio: |
+    Runs the intensive care unit, where the outbreak stops being a case count and
+    becomes four people whose oxygen is falling for reasons nobody has settled.
+
+    She reads a patient as a set of coupled systems. A falling oxygen saturation
+    can come from the lung, the blood that carries the oxygen or the circulation
+    that moves it, and the treatment for each of those is different.
+
+    Her limit is that the sickest patients are the least representative. What is
+    happening in her unit is real and it is also the tail of the distribution.
+  quiz:
+    - q: Why does Nakamura warn against describing the disease from her unit alone?
+      a: The sickest patients are the tail of the distribution, not a sample of it
+      wrong:
+        - Intensive care records are less accurate than ward records
+        - Severe cases are treated before they can be measured
+        - Her unit only admits patients with confirmed tests
+- id: adeyemi
+  name: Funke Adeyemi
+  role: Cell Biologist
+  division: CELL
+  bio: |
+    Works out which cells the pathogen can enter and what it does once inside,
+    because that constrains everything downstream — which tissues are damaged,
+    which drugs could plausibly work, and which route of transmission is possible.
+
+    She runs a negative control on every plate as a matter of habit. A culture
+    that shows an effect without a control showing nothing is a result about the
+    laboratory as much as about the pathogen.
+  quiz:
+    - q: Why does Adeyemi run a negative control on every plate?
+      a: Without it, an effect from the laboratory itself is indistinguishable from an effect of the pathogen
+      wrong:
+        - Controls make the cultures grow at a reproducible rate
+        - A control converts a qualitative result into a quantitative one
+        - Controls are required only when the sample is from a patient
+- id: bergstrom
+  name: Lena Bergström
+  role: Genomic Epidemiologist
+  division: MOL
+  bio: |
+    Reads sequences for what they say about transmission — who infected whom,
+    how long the chain has been running, and whether two clusters are one
+    outbreak or two.
+
+    Genetic distance is her main tool and her main trap. Two sequences being
+    close is evidence of a recent common ancestor, not evidence that one patient
+    infected the other, and the difference matters for every control decision.
+  quiz:
+    - q: What does Bergström say two nearly identical sequences establish?
+      a: A recent common ancestor, which is not the same as one patient infecting the other
+      wrong:
+        - The direction of transmission between the two patients
+        - That both patients were infected on the same day
+        - That the pathogen is not mutating
+- id: haddad
+  name: Yusuf Haddad
+  role: Clinical Immunologist
+  division: IMM
+  bio: |
+    Separates the damage a pathogen does from the damage the immune response does
+    while clearing it, which sounds academic until a treatment has to be chosen.
+
+    Suppressing inflammation helps a patient whose injury is immune-driven and
+    harms one who is still fighting the infection. The same drug, the same dose,
+    opposite outcomes, decided by where the patient is in their course.
+  quiz:
+    - q: Why can the same anti-inflammatory treatment help one patient and harm another?
+      a: It depends whether the damage is now immune-driven or the infection is still being fought
+      wrong:
+        - Doses are calculated from weight and vary between patients
+        - Some patients absorb the drug and others do not
+        - The drug expires quickly once a vial is opened
+- id: oduya
+  name: Grace Oduya
+  role: Field Epidemiologist
+  division: POP
+  bio: |
+    Builds the case definition, which decides what counts as a case and therefore
+    what every curve in the response is a curve of.
+
+    A definition too narrow misses the spread and one too wide fills the count
+    with other illnesses. She changes it when she has to and records the change,
+    because a curve that bends on the day the definition moved is not evidence
+    about the disease.
+  quiz:
+    - q: Why does Oduya document every change to the case definition?
+      a: A bend in the curve on the day the definition changed is an artefact, not a change in the disease
+      wrong:
+        - Definitions must be approved by the hospitals before use
+        - Changing a definition invalidates all earlier laboratory results
+        - The definition determines which treatment a patient receives
+- id: castellanos
+  name: Mateo Castellanos
+  role: Wildlife Veterinarian
+  division: FIELD
+  bio: |
+    Samples the animals people live alongside, which is where most new human
+    pathogens were living before they were human pathogens.
+
+    Finding the organism in a species proves that species can carry it. Showing
+    it is a reservoir needs prevalence, the exposure pattern of the human cases,
+    and comparison sites where the illness never appeared — otherwise a bystander
+    that caught it from people gets blamed and culled.
+  quiz:
+    - q: Why is finding the pathogen in an animal not enough to declare a reservoir?
+      a: The animal may have caught it from people; prevalence, exposure and comparison sites are what separate the two
+      wrong:
+        - Field samples are always contaminated by human handling
+        - A reservoir must contain a higher viral load than any patient
+        - The organism has to be found in more than one individual animal
+glossary:
+- name: Homeostasis
+  aliases:
+  - homeostasis
+  def: The regulation that keeps internal conditions within workable ranges.
+- name: Control
+  aliases:
+  - control
+  def: A comparison designed to reveal whether a signal could arise without the proposed cause.
+- name: Sensitivity
+  aliases:
+  - sensitivity
+  def: The fraction of true cases a test detects.
+- name: Specificity
+  aliases:
+  - specificity
+  def: The fraction of unaffected cases a test correctly leaves negative.
+- name: Selection
+  aliases:
+  - selection
+  def: A process in which variants differ in reproductive success, changing frequencies over generations.
+- name: Reservoir
+  aliases:
+  - reservoir
+  def: A host population or environment in which an infectious agent can persist.
+missions:
+- title: The First Cluster
+  objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
+  briefing: Three Riverton hospitals report an unusual combination of fever, dry cough, severe headache, and profound fatigue.
+    The player must decide whether the pattern is a true outbreak signal before scarce emergency resources are committed.
+  stake: A false alarm could disrupt the city, but a delayed investigation could cost the only window for early containment.
+  takeaway: Use baseline variation, case definition, controls, correlation versus coincidence, measurement bias as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: POP
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Signal or noise?
+    place: Emergency Department Network
+    scene: Match each early observation to the analysis that makes it informative.
+    takeaway: Biological investigation begins by defining what would count as evidence that the system has changed.
+    format: PROTOCOL
+    scenarios:
+    - Seven similar cases appear across three hospitals in forty-eight hours.
+    - The same symptom combination is rare in the previous three summers.
+    - "One clinic reports \u201Cmany sick people\u201D but supplies no dates or denominator."
+    - All first reports came from the same electronic alert rule.
+    choices:
+    - Compare counts with seasonal and weekday baselines.
+    - Check geographic and institutional clustering.
+    - Request a line list with dates, symptoms, and population served.
+    - Audit the shared alert rule for common-mode bias.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: An outbreak signal is not merely a large number. It is a pattern that differs from expectation and survives checks
+      for shared reporting artifacts.
+  - group: POP
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build the provisional case definition
+    place: Epidemiology Operations Room
+    scene: Order the work so that clinicians can identify comparable patients without pretending the first definition is final.
+    takeaway: Operational definitions convert vague concern into reproducible observation.
+    format: SEQUENCE
+    cards:
+    - Specify observable symptoms, timing, and location.
+    - Review the first patient records for common features.
+    - Test the definition on known cases and obvious non-cases.
+    - Publish the provisional definition with a revision date and uncertainty notes.
+    order:
+    - 1
+    - 0
+    - 2
+    - 3
+    why: The first records suggest the shared features; the definition is then tested before it is distributed.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Spend the first response reserve
+    place: Clinical Data Office
+    scene: Allocate 100 response credits among the first three evidence sources.
+    takeaway: The best first portfolio combines comparable clinical observations with an independent population-level signal.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Interview every hospital director for an expert impression.
+    - label: B
+      text: Build a standardized line list across all hospitals.
+    - label: C
+      text: Add wastewater sampling in affected and comparison neighborhoods.
+    - label: D
+      text: Launch a citywide warning before transmission is understood.
+    recommended:
+      A: 10
+      B: 50
+      C: 35
+      D: 5
+    evidence: Allocate 100 response credits among the first three evidence sources.
+- title: What Kind of Agent?
+  objective: Classify the broad agent category and identify the next discriminating test.
+  briefing: Initial samples contain biological material, but microscopy and routine tests disagree. The team must distinguish
+    a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.
+  stake: The wrong classification sends every later diagnostic and treatment effort down the wrong path.
+  takeaway: Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: CLIN
+    task: Which explanation fits every reading, including the quiet negative controls?
+    title: What kind of agent fits the whole panel?
+    place: Hospital Pathology Suite
+    scene: Pathology has several clues from the same positive specimens. No single image is decisive, so the team must classify
+      the agent from the complete pattern before choosing the next laboratory strategy.
+    takeaway: Agent classification should combine cellular structure, host dependence, molecular evidence, and controls rather
+      than rely on one striking image.
+    format: DIAGNOSIS
+    headline: Pathology has several clues from the same positive specimens.
+    readings:
+    - zone: Microscopy
+      label: Microscopy
+      value: No intact cellular forms seen
+      status: normal
+      note: Several fields examined; image quality is good
+    - zone: Host-cell dependence
+      label: Host-cell dependence
+      value: Signal rises only when living host cells are present
+      status: alarm
+      note: Acellular control shows no increase
+    - zone: Bacterial marker
+      label: Bacterial marker
+      value: Not detected
+      status: normal
+      note: Control bacterial sample is detected normally
+    - zone: Fungal cell-wall stain
+      label: Fungal cell-wall stain
+      value: Negative
+      status: normal
+      note: Positive stain control is normal
+    - zone: Extraction blank
+      label: Extraction blank
+      value: Negative
+      status: normal
+      note: No target signal in the blank
+    choices:
+    - label: RNA virus-like agent
+      mechanism: A noncellular infectious agent depends on host cells for replication and would not carry bacterial or fungal
+        cellular markers.
+    - label: Bacterium
+      mechanism: A cellular prokaryote should provide bacterial cellular or molecular evidence and should not require living
+        host cells simply to exist.
+    - label: Fungus
+      mechanism: A fungal agent should provide cellular structures or cell-wall evidence that is absent here.
+    - label: Laboratory contamination
+      mechanism: Contamination should be suspected when blanks or controls carry the target signal; the blank is clean.
+    answer: RNA virus-like agent
+    why: The agent is host-cell dependent, while bacterial and fungal cellular markers are absent and the blank is clean.
+      The full panel supports a virus-like agent rather than a cellular pathogen or contamination.
+  - group: POP
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: From specimen to broad classification
+    place: Microscopy Core
+    scene: Order a safe, non-operational identification workflow.
+    takeaway: A good classification is an evidence synthesis, not a label generated by one instrument.
+    format: SEQUENCE
+    cards:
+    - Compare patient material with negative and healthy controls.
+    - Characterize size, cellular structures, and nucleic-acid signature.
+    - Ask whether the candidate reproduces independently or requires host cells.
+    - Integrate the independent observations into a provisional classification.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Controls establish what is truly associated with the specimen; structural and molecular evidence then support a biological
+      classification.
+  - group: MOL
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Choose the next discriminating evidence
+    place: Molecular Identification Lab
+    scene: Allocate 100 credits to distinguish the leading hypotheses.
+    takeaway: Independent failure modes matter more than prestige or repeated views of the same evidence.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Repeat the same microscope image at higher magnification.
+    - label: B
+      text: Obtain a molecular signature using a validated broad panel.
+    - label: C
+      text: Compare growth or replication behavior in approved diagnostic systems.
+    - label: D
+      text: Ask a famous scientist to choose the most likely answer.
+    recommended:
+      A: 15
+      B: 45
+      C: 35
+      D: 5
+    evidence: Allocate 100 credits to distinguish the leading hypotheses.
+- title: The Point of Entry
+  objective: Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream
+    replication.
+  briefing: The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine
+    how membrane structure, receptors, and transport explain this selectivity.
+  stake: A mistaken entry model could lead to a therapy that blocks the wrong stage while vulnerable cells continue to fail.
+  takeaway: Use phospholipid bilayer, receptors, diffusion, facilitated transport, endocytosis, cell specificity as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: CELL
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Crossing the cellular boundary
+    place: Cell Culture Wing
+    scene: Order a generic receptor-mediated entry process.
+    takeaway: Membranes are selective interfaces whose proteins can determine cell vulnerability.
+    format: SEQUENCE
+    cards:
+    - A surface molecule binds a compatible receptor.
+    - The membrane bends or a fusion process begins.
+    - The biological material enters the cell or an intracellular compartment.
+    - Cellular machinery is redirected after entry.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Specific recognition precedes membrane rearrangement and entry; downstream effects occur only after the barrier is
+      crossed.
+  - group: CELL
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Choose the membrane mechanism
+    place: Membrane Biology Lab
+    scene: Match each transport observation to the best mechanism.
+    takeaway: Transport mechanisms are inferred from constraints, not memorized from molecule names alone.
+    format: PROTOCOL
+    scenarios:
+    - A small nonpolar molecule moves down its concentration gradient.
+    - An ion moves down its gradient through a selective protein pore.
+    - A solute moves uphill while ATP is consumed.
+    - A large bound particle is enclosed by the membrane.
+    choices:
+    - Simple diffusion.
+    - Facilitated diffusion through a channel.
+    - Active transport.
+    - Endocytosis.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: The direction of movement, need for a protein, energy use, and cargo size distinguish the mechanisms.
+  - group: CELL
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Separate binding from entry
+    place: Structural Biology Room
+    scene: Allocate 100 credits among experiments designed to locate the first failed step in resistant cells.
+    takeaway: Mechanistic experiments should identify the earliest point at which two conditions diverge.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Measure receptor abundance on vulnerable and resistant cells.
+    - label: B
+      text: Track whether bound material is internalized.
+    - label: C
+      text: Measure a late cellular response only.
+    - label: D
+      text: Increase the exposure until every cell shows damage.
+    recommended:
+      A: 40
+      B: 40
+      C: 15
+      D: 5
+    evidence: Allocate 100 credits among experiments designed to locate the first failed step in resistant cells.
+- title: Hijacked Cells
+  objective: Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.
+  briefing: Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct
+    how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.
+  stake: A rushed interpretation could make the team target a gene whose RNA is merely a consequence rather than the cause
+    of cell damage.
+  takeaway: Use DNA and RNA, transcription, translation, codons, protein function, gene regulation as an evidence chain rather
+    than as isolated facts.
+  stops:
+  - group: MOL
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: From genetic information to protein
+    place: Sequencing Center
+    scene: Order the information flow for expression of a protein-coding gene.
+    takeaway: Changes in protein abundance can arise at several distinct stages of gene expression.
+    format: SEQUENCE
+    cards:
+    - A DNA template is made accessible.
+    - RNA polymerase produces an RNA transcript.
+    - A ribosome reads codons in the messenger RNA.
+    - The amino-acid chain folds and performs a cellular function.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Transcription produces the message; translation converts the message into a polypeptide that must fold before function.
+  - group: MOL
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Locate the molecular change
+    place: Gene Expression Lab
+    scene: Match each observation to the most direct interpretation.
+    takeaway: The central dogma is a chain of measurable transformations, not a claim that every stage changes together.
+    format: PROTOCOL
+    scenarios:
+    - RNA rises while protein stays constant.
+    - RNA is unchanged while protein rises.
+    - A codon changes and one amino acid is substituted.
+    - Protein amount is normal but activity is low.
+    choices:
+    - Possible translation limit or rapid protein turnover.
+    - Possible increased translation efficiency or reduced protein degradation.
+    - A missense sequence change.
+    - Possible folding, modification, or active-site defect.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: RNA abundance, protein abundance, sequence, and activity are related but non-equivalent measurements.
+  - group: MOL
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Find the controlling stage
+    place: Protein Analysis Core
+    scene: Allocate 100 credits among measurements of an unfamiliar protein that is abundant in affected cells.
+    takeaway: Mechanism requires measurements that span the full causal chain.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Quantify its messenger RNA across time.
+    - label: B
+      text: Measure ribosome association with that RNA.
+    - label: C
+      text: Measure protein half-life and degradation.
+    - label: D
+      text: Sequence only the neighboring chromosome region and stop.
+    recommended:
+      A: 35
+      B: 35
+      C: 25
+      D: 5
+    evidence: Allocate 100 credits among measurements of an unfamiliar protein that is abundant in affected cells.
+- title: A Test Before Morning
+  objective: Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.
+  briefing: Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives,
+    and prevalence could make a technically impressive test clinically misleading.
+  stake: An unreliable test could either miss contagious patients or isolate thousands of healthy people.
+  takeaway: Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than
+    as isolated facts.
+  stops:
+  - group: MOL
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build a trustworthy amplification run
+    place: Sample Processing Room
+    scene: Order the logic of a diagnostic amplification workflow.
+    takeaway: A diagnostic result is the output of a controlled process, not simply a machine reading.
+    format: SEQUENCE
+    cards:
+    - Extract material while preserving sample identity.
+    - Include positive, negative, and no-template controls.
+    - Amplify the target with validated primers and cycling conditions.
+    - Interpret the patient signal only if all controls behave as expected.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Identity and controls are prerequisites; a numerical signal is uninterpretable when controls fail.
+  - group: MOL
+    task: Which explanation best fits the patient results and all of the controls?
+    title: Why did the assay turn positive?
+    place: PCR Diagnostics Lab
+    scene: The overnight amplification run flags several patient samples as positive, but one control is also behaving strangely.
+      Hospitals want an answer before using the result to sort patients.
+    takeaway: 'A control is part of the evidence, not a decoration: a positive blank can overturn an apparently impressive
+      patient signal.'
+    format: DIAGNOSIS
+    headline: The overnight amplification run flags several patient samples as positive, but one control is also behaving
+      strangely.
+    readings:
+    - zone: Patient wells
+      label: Patient wells
+      value: Target signal detected
+      status: alarm
+      note: Several patient samples cross the detection threshold
+    - zone: No-template control
+      label: No-template control
+      value: Target signal detected
+      status: alarm
+      note: This control should contain no target material
+    - zone: Positive control
+      label: Positive control
+      value: Detected at expected level
+      status: alarm
+      note: Core amplification chemistry is functioning
+    - zone: Independent platform
+      label: Independent platform
+      value: Patient target not detected
+      status: normal
+      note: Uses a different detection method
+    - zone: Instrument baseline
+      label: Instrument baseline
+      value: Stable
+      status: normal
+      note: No broad detector drift is present
+    choices:
+    - label: True patient positives
+      mechanism: The patient samples contain the target and the controls are behaving normally.
+    - label: Carryover contamination
+      mechanism: Target material entered part of the amplification workflow, making samples and the no-template control positive.
+    - label: Reagent failure
+      mechanism: The reaction chemistry failed, so true target should not amplify reliably.
+    - label: Sample inhibition
+      mechanism: Something in patient material suppresses amplification and tends to create false negatives.
+    answer: Carryover contamination
+    why: The no-template control contains the same target signal while the positive control works and an independent method
+      does not confirm the patient result. That pattern points to contamination in the assay workflow rather than true infection.
+  - group: POP
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: What does a positive mean?
+    place: Clinical Statistics Desk
+    scene: In a low-prevalence screening group, even a specific test can produce a meaningful fraction of false positives.
+    takeaway: Clinical meaning depends on both test performance and the population being tested.
+    format: BALLPARK
+    question: Estimate the chance that a positive result represents a true case.
+    estimate:
+      labels:
+      - 90 true positives
+      - 99 false positives
+      values:
+      - 90
+      - 99
+      slots: 2
+      template: '{0} / ({0} + {1}) x 100'
+      formula: a/(a+b)*100
+      correct:
+      - 0
+      - 1
+      target: 47.62
+      tolerance: 2
+      units: '%'
+      solution: 90/(90+99) is about 48%.
+      prompt: In a low-prevalence screening group, even a specific test can produce a meaningful fraction of false positives.
+      question: Estimate the chance that a positive result represents a true case.
+- title: Why Are Some Patients Sicker?
+  objective: Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation,
+    and cellular oxygen use.
+  briefing: Patients with similar test results have radically different oxygen levels and recovery times. The team must connect
+    cellular damage to organ-system physiology and homeostatic failure.
+  stake: The wrong physiological diagnosis could intensify a treatment that cannot reach the true failing organ system.
+  takeaway: Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: CLIN
+    task: Which bottleneck fits the entire cardiopulmonary panel?
+    title: Locate the oxygen-delivery failure
+    place: Intensive Care Unit
+    scene: Two patients have severe fatigue and low tissue oxygen delivery. The bedside team needs to know which link in the
+      oxygen chain is failing before it interprets the rest of the physiology.
+    takeaway: Oxygen delivery is a chain. Normal measurements at one link can be powerful evidence that the failure lies somewhere
+      else.
+    format: DIAGNOSIS
+    headline: Two patients have severe fatigue and low tissue oxygen delivery.
+    readings:
+    - zone: Arterial oxygen saturation
+      label: Arterial oxygen saturation
+      value: 86%
+      status: alarm
+      note: Lower than expected
+    - zone: End-tidal carbon dioxide
+      label: End-tidal carbon dioxide
+      value: 39 mmHg
+      status: normal
+      note: Near the expected resting range
+    - zone: Cardiac output
+      label: Cardiac output
+      value: 5.2 L/min
+      status: normal
+      note: Near the expected adult resting range
+    - zone: Hemoglobin
+      label: Hemoglobin
+      value: 14 g/dL
+      status: normal
+      note: Near the expected adult range
+    - zone: Lung imaging
+      label: Lung imaging
+      value: Diffuse gas-exchange abnormality
+      status: normal
+      note: No evidence of a primary pump failure
+    choices:
+    - label: Ventilation failure
+      mechanism: Too little fresh air reaches the alveoli; carbon dioxide would often rise along with falling oxygen.
+    - label: Gas-exchange failure
+      mechanism: Air reaches the lungs, but oxygen transfer from alveoli into blood is impaired.
+    - label: Circulatory delivery failure
+      mechanism: Oxygenated blood is present but cardiac output is too low to deliver it to tissues.
+    - label: Anemia
+      mechanism: Blood flow and lung exchange may be adequate, but too little hemoglobin limits oxygen carriage.
+    answer: Gas-exchange failure
+    why: Oxygen saturation is low despite near-normal carbon dioxide, cardiac output, and hemoglobin. The abnormal lung evidence
+      localizes the problem to transfer of oxygen from air into blood.
+  - group: POP
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Estimate oxygen delivery
+    place: Cardiopulmonary Physiology Lab
+    scene: Use a simplified relationship to compare two patients.
+    takeaway: A normal concentration does not guarantee a normal delivery rate; flow matters.
+    format: BALLPARK
+    question: Estimate oxygen delivery for each patient and identify the larger bottleneck.
+    estimate:
+      labels:
+      - 3 L/min cardiac output
+      - 0.20 L O2/L blood
+      - 5 L/min (comparison patient)
+      values:
+      - 3
+      - 0.2
+      - 5
+      slots: 2
+      template: '{0} x {1}'
+      formula: a*b
+      correct:
+      - 0
+      - 1
+      target: 0.6
+      tolerance: 0.06
+      units: L O2/min
+      solution: 'Patient B: 3 x 0.20 = 0.6 L O2/min; Patient A is 1.0 L O2/min.'
+      prompt: Use a simplified relationship to compare two patients.
+      question: Estimate oxygen delivery for each patient and identify the larger bottleneck.
+  - group: CLIN
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Measure the failing link
+    place: Clinical Chemistry Bench
+    scene: Allocate 100 credits among bedside measurements for a deteriorating patient.
+    takeaway: Integrated physiology requires evidence from multiple points along the transport chain.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Measure arterial oxygenation and carbon dioxide.
+    - label: B
+      text: Measure cardiac output or a validated flow surrogate.
+    - label: C
+      text: Measure tissue lactate and acid-base status.
+    - label: D
+      text: Repeat the same pulse-oximeter reading on three identical devices.
+    recommended:
+      A: 35
+      B: 30
+      C: 30
+      D: 5
+    evidence: Allocate 100 credits among bedside measurements for a deteriorating patient.
+- title: The Immune System Turns
+  objective: Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed
+    adaptive response, or excessive inflammation.
+  briefing: Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish
+    protective immune responses from damaging dysregulation.
+  stake: Suppressing a protective response or ignoring immune-mediated injury can both be fatal.
+  takeaway: Use innate immunity, adaptive immunity, antibodies, T cells, inflammation, immune regulation as an evidence chain
+    rather than as isolated facts.
+  stops:
+  - group: IMM
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build the immune response timeline
+    place: Immunology Lab
+    scene: Order a simplified response from first recognition to immune memory.
+    takeaway: Innate and adaptive immunity are coordinated phases, not competing systems.
+    format: SEQUENCE
+    cards:
+    - Innate sensors recognize damage or unfamiliar molecular patterns.
+    - Local signals recruit and activate immune cells.
+    - Antigen-specific lymphocytes expand and act.
+    - A smaller memory population persists after resolution.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Fast nonspecific recognition precedes slower clonal expansion and durable memory.
+  - group: CLIN
+    task: Which mechanism best explains the reversal in the full panel?
+    title: Protective response or runaway inflammation?
+    place: Intensive Care Unit
+    scene: Several patients begin to worsen after the amount of detectable pathogen has started to fall. The team must decide
+      whether the new damage is being driven mainly by the agent or by the host response.
+    takeaway: A biological response can become part of the problem. The strongest explanation must account for timing as well
+      as the direction of each measurement.
+    format: DIAGNOSIS
+    headline: Several patients begin to worsen after the amount of detectable pathogen has started to fall.
+    readings:
+    - zone: Pathogen signal
+      label: Pathogen signal
+      value: Falling over 48 hours
+      status: alarm
+      note: Lower than at admission
+    - zone: Inflammatory cytokine panel
+      label: Inflammatory cytokine panel
+      value: Rising sharply
+      status: alarm
+      note: Multiple inflammatory signals increase together
+    - zone: Neutralizing antibody
+      label: Neutralizing antibody
+      value: Present
+      status: alarm
+      note: Adaptive response is active
+    - zone: Oxygenation
+      label: Oxygenation
+      value: Worsening
+      status: alarm
+      note: Physiology deteriorates despite lower pathogen signal
+    - zone: Bacterial cultures
+      label: Bacterial cultures
+      value: No growth
+      status: normal
+      note: No evidence for a new bacterial infection
+    choices:
+    - label: Uncontrolled pathogen replication
+      mechanism: The agent is multiplying faster and directly increasing tissue injury.
+    - label: Dysregulated inflammatory injury
+      mechanism: The immune response remains strongly activated and damages tissue even as pathogen burden falls.
+    - label: New bacterial superinfection
+      mechanism: A second bacterial infection is now driving the decline.
+    - label: Measurement noise
+      mechanism: The apparent changes are unrelated fluctuations without a shared mechanism.
+    answer: Dysregulated inflammatory injury
+    why: The pathogen signal is falling while inflammatory signals rise and physiology worsens. The negative bacterial cultures
+      remove an important rival. The host response now best explains the damage.
+  - group: CLIN
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Treat the mechanism, not the marker
+    place: Pathology Archive
+    scene: Allocate 100 credits to resolve why late deterioration occurs.
+    takeaway: Intervention should follow evidence about what the immune system is doing, where, and when.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Measure agent burden and inflammatory markers together over time.
+    - label: B
+      text: Compare immune-cell states in improving and worsening patients.
+    - label: C
+      text: Suppress the entire immune system immediately in everyone.
+    - label: D
+      text: Use pathology to identify which tissues are being damaged.
+    recommended:
+      A: 35
+      B: 30
+      C: 5
+      D: 30
+    evidence: Allocate 100 credits to resolve why late deterioration occurs.
+- title: The Hidden Transmission Route
+  objective: Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.
+  briefing: Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring
+    before severe symptoms appear.
+  stake: If transmission begins before severe symptoms, a hospital-only response will always be late.
+  takeaway: Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain
+    rather than as isolated facts.
+  stops:
+  - group: IMM
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Match the surveillance signal
+    place: Wastewater Treatment Plant
+    scene: Match each data stream to what it can and cannot reveal.
+    takeaway: Transmission inference depends on who is observed, when, and through which sampling process.
+    format: PROTOCOL
+    scenarios:
+    - Wastewater concentration rises before hospital admissions.
+    - Household interviews show several exposures before symptoms.
+    - A transit survey samples only volunteers at one station.
+    - Hospital prevalence remains high after new admissions decline.
+    choices:
+    - Possible early population-level signal, but not individual diagnosis.
+    - Evidence that infectious contact may precede symptoms.
+    - Potentially biased sample that may not represent riders.
+    - Long illness duration can keep prevalence high after incidence falls.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Each surveillance system measures a different population and time window.
+  - group: FIELD
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Can the cluster grow?
+    place: Field Epidemiology Office
+    scene: Use a simple reproduction estimate to interpret early growth.
+    takeaway: A threshold near one can determine whether small changes produce growth or decline.
+    format: BALLPARK
+    question: Estimate the next generation and state whether the chain is growing.
+    estimate:
+      labels:
+      - 20 infectious people
+      - 1.4 new infections/person/generation
+      values:
+      - 20
+      - 1.4
+      slots: 2
+      template: '{0} x {1}'
+      formula: a*b
+      correct:
+      - 0
+      - 1
+      target: 28
+      tolerance: 2
+      units: new infections
+      solution: 20 x 1.4 is about 28; an average above one means growth.
+      prompt: Use a simple reproduction estimate to interpret early growth.
+      question: Estimate the next generation and state whether the chain is growing.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Find transmission before the hospital
+    place: Transit and Mobility Center
+    scene: >-
+      Hospital isolation has held for nine days and new cases keep appearing in neighbourhoods with nobody
+      admitted from them. Wastewater upstream of the hospital catchment has been rising for a week, and the
+      transit authority holds trip counts nobody has matched against the case map. There is enough money this
+      week for about two of the four proposals.
+    takeaway: The most useful surveillance reaches upstream of the outcome it is trying to prevent.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Expand wastewater sampling across connected sewersheds.
+    - label: B
+      text: Conduct structured household and workplace contact studies.
+    - label: C
+      text: Add more hospital bed counts only.
+    - label: D
+      text: Sample a comparison neighborhood with no reported cases.
+    recommended:
+      A: 35
+      B: 35
+      C: 10
+      D: 20
+    evidence: Allocate 100 surveillance credits.
+- title: The Animal Connection
+  objective: Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.
+  briefing: Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must
+    investigate without assuming that the most visible species is the source.
+  stake: A mistaken reservoir declaration could trigger ecological damage while the true source continues seeding cases.
+  takeaway: Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than
+    as isolated facts.
+  stops:
+  - group: FIELD
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Reservoir, vector, or incidental host?
+    place: One Health Field Station
+    scene: Match each ecological pattern to the best role.
+    takeaway: Ecological roles are inferred from dynamics, not appearance or proximity alone.
+    format: PROTOCOL
+    scenarios:
+    - A species carries the agent persistently with little disease.
+    - A biting organism transfers the agent between hosts.
+    - A species becomes ill but rarely transmits onward.
+    - A species is common near cases but consistently tests negative.
+    choices:
+    - Potential reservoir host.
+    - Potential biological or mechanical vector.
+    - Incidental or dead-end host.
+    - Ecological association without evidence of infection.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Presence near patients does not define a reservoir. Persistence and contribution to transmission are load-bearing.
+  - group: FIELD
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Test the reservoir hypothesis
+    place: Wildlife Ecology Site
+    scene: >-
+      Sequences from three patients sit close to a virus recovered from animals along the river corridor, and
+      trappers report sick animals on the flood plain. Nobody has yet sampled the candidate species in a way
+      that could show it is a reservoir rather than a bystander that caught the same thing people did.
+    takeaway: A reservoir claim requires population and evolutionary evidence together.
+    format: SEQUENCE
+    cards:
+    - Map human cases against habitat and exposure patterns.
+    - Sample candidate species using an unbiased design and comparison sites.
+    - Compare prevalence and genetic signatures across hosts.
+    - Test whether the combined evidence explains repeated spillover.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Exposure patterns guide sampling; prevalence and relatedness then test whether the candidate participates in the
+      transmission cycle.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Choose the One Health campaign
+    place: Comparative Genomics Lab
+    scene: Allocate 100 credits among field studies.
+    takeaway: One Health decisions should connect human, animal, and environmental evidence before intervention.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Sample only the most feared species near one case household.
+    - label: B
+      text: Stratify sampling across species, habitat, season, and comparison sites.
+    - label: C
+      text: Sequence positive samples from humans and animals.
+    - label: D
+      text: Remove wildlife before determining whether it is involved.
+    recommended:
+      A: 5
+      B: 50
+      C: 40
+      D: 5
+    evidence: Allocate 100 credits among field studies.
+- title: The Mutation
+  objective: Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary
+    explanations.
+  briefing: A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects
+    natural selection, random founder effects, or biased sampling.
+  stake: Misreading drift as selection can produce unnecessary alarm; missing a genuine advantage can leave the response behind
+    the evolving population.
+  takeaway: Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather
+    than as isolated facts.
+  stops:
+  - group: MOL
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: From variation to evolutionary change
+    place: Sequencing Center
+    scene: Order a natural-selection chain without assuming every mutation is beneficial.
+    takeaway: Natural selection changes frequencies through heritable differences in reproductive success.
+    format: SEQUENCE
+    cards:
+    - Heritable variants arise through mutation or existing diversity.
+    - Environmental conditions cause variants to differ in reproductive success.
+    - Successful variants contribute disproportionately to later generations.
+    - Population frequencies change over generations.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Variation must exist before differential success can change the population.
+  - group: POP
+    task: Which explanation best fits the frequency trend and the independent checks?
+    title: Selection or sampling artifact?
+    place: Evolutionary Dynamics Group
+    scene: A genetic variant rises quickly in the city data. Before calling it evolutionary change, the team has to rule out
+      the possibility that a changing sample or laboratory artifact merely made the variant look more common.
+    takeaway: A frequency change is an observation; selection is an explanation that requires controls against sampling, founder
+      effects, and technical drift.
+    format: DIAGNOSIS
+    headline: A genetic variant rises quickly in the city data.
+    readings:
+    - zone: Variant frequency
+      label: Variant frequency
+      value: 8% -> 31% in four weeks
+      status: alarm
+      note: Rise appears in the combined dataset
+    - zone: Independent hospitals
+      label: Independent hospitals
+      value: Same upward trend in three systems
+      status: alarm
+      note: Different collection teams reproduce the pattern
+    - zone: Sequencing depth
+      label: Sequencing depth
+      value: Stable
+      status: normal
+      note: No systematic loss of low-count samples
+    - zone: Neutral control variants
+      label: Neutral control variants
+      value: No coordinated rise
+      status: normal
+      note: Background frequencies remain stable
+    - zone: Adjusted growth estimate
+      label: Adjusted growth estimate
+      value: Variant lineages grow faster after place and date are controlled
+      status: alarm
+      note: Comparison reduces a major sampling confounder
+    choices:
+    - label: Real selective advantage
+      mechanism: The variant has a reproducible growth advantage and increases in frequency across independent populations.
+    - label: Changing sampling mix
+      mechanism: The apparent rise is created because later samples come from different places or patient groups.
+    - label: Sequencing artifact
+      mechanism: A technical change makes the variant easier to detect over time.
+    - label: Single founder event only
+      mechanism: One early cluster happens to contain the variant, with no broader growth advantage.
+    answer: Real selective advantage
+    why: The rise repeats across independent hospitals, technical depth is stable, neutral variants do not show the same shift,
+      and the adjusted lineage comparison still shows faster growth. Together those checks support selection rather than a
+      sampling or laboratory artifact.
+  - group: POP
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Track a rising variant
+    place: Regional Surveillance Hub
+    scene: Estimate a frequency change from representative samples.
+    takeaway: Evolutionary inference begins with accurate frequencies and then tests causal explanations.
+    format: BALLPARK
+    question: Compute both frequencies and the percentage-point increase.
+    estimate:
+      labels:
+      - 40 variant, week 1
+      - 400 total, week 1
+      - 180 variant, week 3
+      - 600 total, week 3
+      values:
+      - 40
+      - 400
+      - 180
+      - 600
+      slots: 4
+      template: (({2}/{3}) - ({0}/{1})) x 100
+      formula: (c/d-a/b)*100
+      correct:
+      - 0
+      - 1
+      - 2
+      - 3
+      target: 20
+      tolerance: 1
+      units: percentage points
+      solution: Week 1 is 10%, week 3 is 30%, so the increase is 20 percentage points.
+      prompt: Estimate a frequency change from representative samples.
+      question: Compute both frequencies and the percentage-point increase.
+- title: Treatment Failure
+  objective: Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective
+    advantage without undertreating patients.
+  briefing: A therapy that initially helped is failing in a growing subset of patients. The player must determine whether
+    the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.
+  stake: A blunt response could expose patients to toxicity while strengthening the very resistant population the therapy
+    is meant to suppress.
+  takeaway: Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain
+    rather than as isolated facts.
+  stops:
+  - group: POP
+    task: Which explanation fits the complete treatment-response panel?
+    title: Why did the therapy fail?
+    place: Clinical Ward
+    scene: A treatment initially suppresses the infectious agent, but the signal rebounds while the patient is still receiving
+      therapy. The team must distinguish poor delivery from evolutionary resistance.
+    takeaway: Evolution can be observed in real time when a treatment changes which variants are most successful.
+    format: DIAGNOSIS
+    headline: A treatment initially suppresses the infectious agent, but the signal rebounds while the patient is still receiving
+      therapy.
+    readings:
+    - zone: Drug concentration
+      label: Drug concentration
+      value: Within expected therapeutic range
+      status: normal
+      note: Measured repeatedly during treatment
+    - zone: Agent burden
+      label: Agent burden
+      value: Falls, then rebounds
+      status: alarm
+      note: Initial response is followed by renewed growth
+    - zone: Target-site sequence
+      label: Target-site sequence
+      value: Resistance-associated variant becomes dominant
+      status: alarm
+      note: Frequency rises after treatment begins
+    - zone: Reference isolate
+      label: Reference isolate
+      value: Remains drug-sensitive
+      status: alarm
+      note: The assay can still detect drug activity
+    - zone: Administration record
+      label: Administration record
+      value: Doses documented
+      status: alarm
+      note: No major missed-dose pattern
+    choices:
+    - label: Poor drug delivery
+      mechanism: The drug never reaches an effective concentration in the patient.
+    - label: Evolved resistance
+      mechanism: Treatment favors a resistant subpopulation that later dominates and restores growth.
+    - label: Wrong infectious agent
+      mechanism: The original identification was incorrect, so treatment never targeted the cause.
+    - label: Assay contamination
+      mechanism: The rebound is an artificial laboratory signal unrelated to the patient.
+    answer: Evolved resistance
+    why: Drug exposure is adequate and produces an initial response, but a resistance-associated variant rises as the agent
+      rebounds. The control isolate remains sensitive, making a general assay or drug failure less likely.
+  - group: POP
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: How resistance spreads
+    place: Microbiology and Evolution Lab
+    scene: >-
+      The therapy worked for six weeks and now fails in one patient in four. Isolates from the failures grow
+      at drug concentrations that stopped the same organism in March, and the failures cluster on the wards
+      where the treatment has been in use longest.
+    takeaway: Selection acts on existing or newly arising variation by differential survival and reproduction.
+    format: SEQUENCE
+    cards:
+    - A population contains rare variants with differing susceptibility.
+    - Treatment removes susceptible individuals more effectively.
+    - Less-susceptible variants survive and reproduce.
+    - The treated population becomes enriched for resistance.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Treatment does not create the needed mutation on demand; it changes which variants leave descendants.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Recover treatment effectiveness
+    place: Pharmacology Unit
+    scene: Allocate 100 research credits among response options.
+    takeaway: A resistance response should combine evolutionary evidence with pharmacology and patient safety.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Sequence failures and matched successful cases.
+    - label: B
+      text: Measure drug exposure and adherence objectively.
+    - label: C
+      text: Increase dose for every patient without safety evidence.
+    - label: D
+      text: Test combinations or alternative targets under controlled clinical protocols.
+    recommended:
+      A: 30
+      B: 30
+      C: 5
+      D: 35
+    evidence: Allocate 100 research credits among response options.
+- title: Design the Intervention
+  objective: Select a layered intervention portfolio and identify the evidence required before deployment.
+  briefing: The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines,
+    targeted therapies, and nonpharmaceutical measures using mechanistic and population evidence.
+  stake: Choosing one glamorous intervention and neglecting all others could leave the city unprotected during development
+    or against biological change.
+  takeaway: Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain
+    rather than as isolated facts.
+  stops:
+  - group: POP
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Choose the intervention layer
+    place: Vaccine Design Lab
+    scene: Match each goal to the most direct intervention class.
+    takeaway: A layered strategy is stronger when each intervention has a defined mechanism and failure mode.
+    format: PROTOCOL
+    scenarios:
+    - Prevent initial cell entry.
+    - Shorten severe inflammatory disease after infection.
+    - Create immune memory before exposure.
+    - Reduce opportunities for transmission while biomedical tools are limited.
+    choices:
+    - Entry-blocking antibody or receptor-targeted strategy.
+    - Stage-specific anti-inflammatory treatment with monitoring.
+    - Vaccination.
+    - Ventilation, isolation, masking, or contact reduction as appropriate.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Different tools act at different points in the biological and transmission chain.
+  - group: POP
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: From candidate to justified trial
+    place: Therapeutics Group
+    scene: >-
+      Two compounds show activity in cell culture and the city wants one of them in patients within the month.
+      Neither has been through an animal model, the manufacturer can supply a few hundred doses, and the
+      protocol on the table names no endpoint and no stopping rule.
+    takeaway: Urgency changes speed and coordination, not the need for interpretable evidence and participant protection.
+    format: SEQUENCE
+    cards:
+    - Define the biological target and intended mechanism.
+    - Demonstrate relevant activity and identify major safety concerns in preclinical evidence.
+    - Specify trial population, endpoints, controls, and stopping rules.
+    - Begin a monitored clinical trial with independent oversight.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Mechanistic promise must be translated into a testable and ethically governed clinical question.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Build a layered intervention portfolio
+    place: Public Health Strategy Room
+    scene: Allocate 100 credits across complementary strategies.
+    takeaway: Portfolio design should diversify mechanisms while preserving the ability to learn which layer works.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: A vaccine candidate targeting a conserved surface feature.
+    - label: B
+      text: A therapeutic aimed at a validated host or agent pathway.
+    - label: C
+      text: Ventilation and rapid-isolation improvements.
+    - label: D
+      text: A publicity campaign claiming the crisis is already solved.
+    recommended:
+      A: 35
+      B: 30
+      C: 30
+      D: 5
+    evidence: Allocate 100 credits across complementary strategies.
+- title: The Trial Signal
+  objective: Make a conditional trial decision that weighs benefit, uncertainty, and safety rather than relying on one p-value
+    or headline percentage.
+  briefing: Early trial results appear encouraging, but enrollment is small and adverse events are uneven. The player must
+    distinguish a real effect from random variation and decide whether the trial should expand.
+  stake: Expanding an unsafe intervention harms participants; stopping too early can discard the only effective tool.
+  takeaway: Use randomization, control groups, effect size, confidence intervals, adverse events, stopping rules as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: CLIN
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Protect the comparison
+    place: Clinical Trial Center
+    scene: Match each trial threat to the appropriate design control.
+    takeaway: A credible effect depends on how the comparison was produced, not only the final number.
+    format: PROTOCOL
+    scenarios:
+    - Sicker patients preferentially receive the candidate.
+    - Outcome assessors know who received treatment.
+    - Many outcomes are tested and only the best is reported.
+    - Participants leave the study at different rates by group.
+    choices:
+    - Randomization or careful allocation procedures.
+    - Blinding where feasible.
+    - Pre-specified primary outcomes and multiplicity control.
+    - Track attrition and analyze its potential bias.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: 'Trial design protects the counterfactual comparison: what would have happened without the intervention.'
+  - group: POP
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Read effect size and uncertainty
+    place: Biostatistics Office
+    scene: A trial reports hospitalization in 20 of 200 control participants and 10 of 200 treated participants.
+    takeaway: Relative and absolute effects answer different decision questions and should be reported together.
+    format: BALLPARK
+    question: Compute the absolute risk reduction, relative risk, and number needed to treat using 1/absolute reduction.
+    estimate:
+      labels:
+      - 0.10 control risk
+      - 0.05 treatment risk
+      values:
+      - 0.1
+      - 0.05
+      slots: 2
+      template: 1 / ({0} - {1})
+      formula: 1/(a-b)
+      correct:
+      - 0
+      - 1
+      target: 20
+      tolerance: 1
+      units: people per additional benefit
+      solution: Absolute risk reduction is 0.05, so NNT is about 20.
+      prompt: A trial reports hospitalization in 20 of 200 control participants and 10 of 200 treated participants.
+      question: Compute the absolute risk reduction, relative risk, and number needed to treat using 1/absolute reduction.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Continue, expand, or pause?
+    place: Independent Safety Board
+    scene: Allocate 100 decision credits across next steps after a promising but imprecise result.
+    takeaway: A mature trial decision can be encouraging and cautious at the same time.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Expand enrollment with the same pre-specified outcomes.
+    - label: B
+      text: Intensify independent safety monitoring.
+    - label: C
+      text: Declare success and stop collecting data.
+    - label: D
+      text: Add targeted mechanistic measurements that do not compromise the trial.
+    recommended:
+      A: 45
+      B: 30
+      C: 5
+      D: 20
+    evidence: Allocate 100 decision credits across next steps after a promising but imprecise result.
+- title: Containment or Adaptation?
+  objective: Use scenarios and trigger-based policies instead of pretending one forecast is certain.
+  briefing: The outbreak is geographically uneven. Leaders must choose between aggressive local containment, broader mitigation,
+    and long-term adaptation while the biological parameters remain uncertain.
+  stake: An inflexible choice can either impose unnecessary costs or allow the health system to collapse.
+  takeaway: Use population growth, feedback, capacity thresholds, model assumptions, scenario analysis, tradeoffs as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: POP
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build a decision model
+    place: Population Modeling Group
+    scene: >-
+      Three districts are on visibly different trajectories and the council wants one city-wide policy by
+      Friday. The team has nine days of case data, a dozen parameters they can only bound rather than measure,
+      and no agreement yet about which decision the model is supposed to inform.
+    takeaway: Models are structured arguments whose assumptions should remain visible.
+    format: SEQUENCE
+    cards:
+    - State the decision, time horizon, and outcomes that matter.
+    - Choose a transparent model structure and estimate inputs from data.
+    - Run multiple plausible scenarios and sensitivity tests.
+    - Link observable triggers to pre-agreed policy changes.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: The model serves a decision; uncertainty is explored before policies are tied to observable triggers.
+  - group: CLIN
+    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
+    title: Hospital capacity threshold
+    place: Hospital Capacity Center
+    scene: A region has 120 staffed critical-care beds, 90 are already occupied, and severe cases are arriving at 8 per day
+      with average stays of 6 days.
+    takeaway: Simple bounds can reveal which missing data are decision-critical.
+    format: BALLPARK
+    question: Estimate the no-discharge upper-bound time to capacity and explain why it is only a bound.
+    estimate:
+      labels:
+      - 30 open beds
+      - 8 admissions/day
+      values:
+      - 30
+      - 8
+      slots: 2
+      template: '{0} / {1}'
+      formula: a/b
+      correct:
+      - 0
+      - 1
+      target: 3.75
+      tolerance: 0.3
+      units: days
+      solution: 30/8 is about 3.75 days without discharges.
+      prompt: A region has 120 staffed critical-care beds, 90 are already occupied, and severe cases are arriving at 8 per
+        day with average stays of 6 days.
+      question: Estimate the no-discharge upper-bound time to capacity and explain why it is only a bound.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Choose an adaptive policy
+    place: City Command
+    scene: Allocate 100 policy credits across a trigger-based plan.
+    takeaway: Good policy is a feedback system, not a one-time guess.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Targeted containment where transmission chains are traceable.
+    - label: B
+      text: Citywide measures tied to hospital and growth thresholds.
+    - label: C
+      text: Capacity expansion and protection of vulnerable populations.
+    - label: D
+      text: Commit permanently to one policy regardless of new evidence.
+    recommended:
+      A: 30
+      B: 30
+      C: 35
+      D: 5
+    evidence: Allocate 100 policy credits across a trigger-based plan.
+- title: The Final Briefing
+  objective: Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.
+  briefing: The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain,
+    and which actions should continue.
+  stake: A technically correct response can still fail if uncertainty, burdens, and continuing responsibilities are hidden
+    from the people affected.
+  takeaway: Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: POP
+    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
+      once.
+    title: Disposition the final claims
+    place: Scientific Review Hall
+    scene: Match each evidence state to the appropriate recommendation.
+    takeaway: Scientific conclusions should carry the strength and limits of their supporting evidence.
+    format: PROTOCOL
+    scenarios:
+    - Multiple independent data streams support the transmission route.
+    - A severe-risk subgroup is suggested by one small observational sample.
+    - An intervention lowers hospitalization with monitored safety but long-term duration is unknown.
+    - An animal reservoir remains plausible but unconfirmed.
+    choices:
+    - Treat as established enough for operational planning while continuing surveillance.
+    - Label as provisional and collect representative confirmatory data.
+    - Use conditionally with follow-up and duration studies.
+    - Avoid destructive ecological action; continue targeted One Health investigation.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Integrated review distinguishes established findings, conditional findings, and unresolved hypotheses.
+  - group: POP
+    task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
+      placed cards after each check.
+    title: Build the public explanation
+    place: City Command
+    scene: >-
+      The mayor is on air in an hour. The transmission route is settled across three independent data streams,
+      the animal reservoir is still unconfirmed, and the treatment works under conditions nobody has tested
+      beyond eight weeks. The draft in front of you opens with the actions and never reaches what is still
+      unknown.
+    takeaway: Uncertainty is not a failure of science when it is bounded and connected to a plan for learning.
+    format: SEQUENCE
+    cards:
+    - State what is known and how it was learned.
+    - State what remains uncertain and why.
+    - Explain current actions, benefits, burdens, and decision triggers.
+    - Describe how evidence and policy will be updated.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Trustworthy communication joins evidence, uncertainty, action, and revision.
+  - group: POP
+    task: Allocate 100 research or response credits across the four proposals. The interface may allow a short written criterion
+      before submission.
+    title: Fund the post-crisis legacy
+    place: Public Briefing Room
+    scene: >-
+      The emergency budget closes at the end of the month and anything uncommitted returns to the state. Four
+      proposals are on the table for what outlives the outbreak, and one of them is a request to delete the
+      response records before they can be used against the city.
+    takeaway: The final responsibility is to convert crisis knowledge into durable public capability.
+    format: SCIENCETANK
+    proposals:
+    - label: A
+      text: Maintain integrated clinical, environmental, and genomic surveillance.
+    - label: B
+      text: Invest in health-system resilience and workforce training.
+    - label: C
+      text: Preserve transparent data, methods, and after-action lessons.
+    - label: D
+      text: Erase records to avoid future criticism.
+    recommended:
+      A: 35
+      B: 30
+      C: 35
+      D: 0
+    evidence: Allocate 100 long-term credits.
+
+# --------------------------------------------------------------- the rooms
+interiors:
+  CLIN:
+    caption: A patient is the only instrument that reports everything at once, and none of it precisely.
+    standLine: Four admissions with the same combination of signs, and three different working diagnoses.
+    station:
+      kind: vitals
+      title: Bedside monitor
+      rows:
+        - { label: Oxygen saturation, value: 88 %, status: alarm }
+        - { label: Temperature, value: 39.1 C, status: high }
+        - { label: Chest imaging, value: bilateral, status: alarm }
+        - { label: Blood pressure, value: 118/72, status: normal }
+  CELL:
+    caption: What a pathogen does to a cell constrains what it can do to a person.
+    standLine: Culture flasks from four patients, two of them showing something the others do not.
+    station:
+      kind: panel
+      title: Culture bench
+      rows:
+        - { label: Cytopathic effect, value: 48 h, status: high }
+        - { label: Receptor assay, value: pending, status: low }
+        - { label: Negative control, value: clean, status: normal }
+  MOL:
+    caption: A test result is a claim about the sample, not about the patient.
+    standLine: A positive with no negative control run beside it, and a sequencing run half finished.
+    station:
+      kind: panel
+      title: Sequencing run
+      rows:
+        - { label: Cycle threshold, value: 22, status: high }
+        - { label: Negative control, value: not run, status: alarm }
+        - { label: Genome coverage, value: 94 %, status: normal }
+  IMM:
+    caption: The damage a patient shows can come from the pathogen or from the response to it.
+    standLine: Inflammatory markers rising in patients whose viral load is already falling.
+    station:
+      kind: vitals
+      title: Immunology bench
+      rows:
+        - { label: Inflammatory marker, value: 210 mg/L, status: alarm }
+        - { label: Viral load, value: falling, status: normal }
+        - { label: Antibody titre, value: day 6, status: high }
+  POP:
+    caption: A case count without a denominator is a number about testing, not about disease.
+    standLine: Case curves from three districts, each on a different testing regime.
+    station:
+      kind: panel
+      title: Operations board
+      rows:
+        - { label: Cases today, value: 61, status: alarm }
+        - { label: Tests today, value: 940, status: high }
+        - { label: Baseline expectation, value: 8 per week, status: normal }
+  FIELD:
+    caption: A reservoir claim needs the animal, the exposure and the genome to agree.
+    standLine: Trapping records from the flood plain, and sequences that are close but not identical.
+    station:
+      kind: panel
+      title: Field station
+      rows:
+        - { label: Species sampled, value: 3, status: high }
+        - { label: Comparison sites, value: 0, status: alarm }
+        - { label: Genetic distance, value: 4.1 %, status: normal }
+
+copy:
+  CLIN: <p>The clinical wing. Every hypothesis in this outbreak has to survive contact with an actual patient.</p>
+  CELL: <p>Cell and membrane biology. What the pathogen does to a cell, and what that rules out.</p>
+  MOL: <p>Molecular diagnostics. Two instruments, a library, and a rule about controls.</p>
+  IMM: <p>Immunology and treatment. Where protection and damage are told apart.</p>
+  POP: <p>Epidemiology operations. Counts, denominators, and the difference between them.</p>
+  FIELD: <p>The One Health field station. The outbreak did not start in a hospital.</p>
+  CMD: <p>City Health Command. Decisions are made here whether or not the evidence has arrived.</p>
+  TRANSIT: <p>The transit and mobility centre. Trip counts nobody has yet matched to the case map.</p>
+  BRIEF: <p>The public briefing room. What the city is told, and how much of it is hedged.</p>
+  WASTE: <p>The wastewater plant. Surveillance that sees the city before the city sees a doctor.</p>
