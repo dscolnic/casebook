@@ -18,6 +18,7 @@ import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, get
 import { getWaypointMesh, setWaypointPosition, getRoomEntry } from './world.js';
 import { facingArrowHTML, renderMap } from '../../../gamekit/engine/core/map.js';
 import { exposeDebug, createDay } from '../../../gamekit/engine/core/app.js';
+import { PANEL_PACE } from '../../../gamekit/engine/core/day.js';
 import themeManifest from '../theme.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { getPersonIdForStop } from './simulation.js';
@@ -49,6 +50,9 @@ const day = createDay({
   },
   spawn: () => { const p = getPosition(); return { x: p.x, z: p.z }; },
   mapHTML: () => renderMap(),
+  // A quarter rate while a panel is up — reading is the game, and at full rate
+  // an instrument panel costs more of the shift than the walk to reach it.
+  pace: () => (document.getElementById('overlay')?.classList.contains('show') ? PANEL_PACE : 1),
   ui: {
     open(title, html, actions){
       document.getElementById('modalTitle').textContent = title;

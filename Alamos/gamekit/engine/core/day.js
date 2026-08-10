@@ -36,6 +36,17 @@
  */
 export const MINUTES_PER_SECOND = 1;
 
+/**
+ * How fast the day runs while a panel is open — a quarter.
+ *
+ * Reading the evidence and working the instrument is the part of this the games
+ * are actually about, and at full rate a Diagnosis panel with six readings and
+ * five candidates costs more of the day than walking across town to reach it.
+ * It is not free, because thinking is not free; it is cheap enough that nobody
+ * answers fast to save the clock.
+ */
+export const PANEL_PACE = 0.25;
+
 /** Player walking speed, m/s — `player.js` moves at 4.2 and sprints at 8.5. */
 const WALK_SPEED = 4.2;
 

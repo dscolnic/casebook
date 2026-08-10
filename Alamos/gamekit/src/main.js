@@ -21,6 +21,7 @@ import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug, createDay } from '../engine/core/app.js';
+import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
 
 const canvas = document.getElementById('canvas');
@@ -160,6 +161,9 @@ const day = createDay({
     return { x: p.x, z: p.z };
   },
   mapHTML: () => renderMap(),
+  // A quarter rate while any panel is up: reading the evidence is the game, and
+  // at full rate a Diagnosis costs more of the day than the walk to reach it.
+  pace: () => (overlay.classList.contains('show') ? PANEL_PACE : 1),
   ui: {
     open(title, html, actions){
       document.getElementById('modalTitle').textContent = title;

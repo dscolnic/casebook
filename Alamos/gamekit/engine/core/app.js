@@ -210,7 +210,7 @@ export function exposeDebug(theme, parts){
  *   onPlanShown/onDayStart/onDayEnd  hooks for pointer lock and HUD
  */
 export function createDay({
-  theme, def, positionOf, spawn, onDayStart, onDayEnd, mapHTML, ui,
+  theme, def, positionOf, spawn, onDayStart, onDayEnd, mapHTML, ui, pace,
 }){
   let planOpen = false;
 
@@ -272,10 +272,16 @@ export function createDay({
       planOpen = false;
       this.showPlan();
     },
-    /** Per frame, in real seconds. Returns 'expired' once, when it runs out. */
+    /**
+     * Per frame, in real seconds. Returns 'expired' once, when it runs out.
+     *
+     * `pace()` is the entry point's answer to "is the player reading rather
+     * than walking?" — a quarter rate while a panel is up. The plan itself is
+     * not paced, it is paused: nothing has started yet.
+     */
     tick(delta){
       if(planOpen) return null;
-      return tickDay(delta);
+      return tickDay(delta, pace ? pace() : 1);
     },
     /** The day ran out or the player closed it. */
     close(){

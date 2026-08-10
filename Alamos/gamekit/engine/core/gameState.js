@@ -181,11 +181,14 @@ export function dayRunning(){
 /**
  * Spend real seconds. Returns 'expired' on the frame the day runs out, so the
  * caller can put the day-over card up exactly once.
+ *
+ * `pace` scales the rate: 1 walking about, a quarter while a panel is open.
  */
-export function tickDay(realSeconds){
+export function tickDay(realSeconds, pace = 1){
   if(!dayRunning()) return null;
   if(!Number.isFinite(realSeconds) || realSeconds <= 0) return null;
-  _state.dayLeft = Math.max(0, _state.dayLeft - realSeconds * MINUTES_PER_SECOND);
+  const rate = Number.isFinite(pace) && pace > 0 ? pace : 1;
+  _state.dayLeft = Math.max(0, _state.dayLeft - realSeconds * MINUTES_PER_SECOND * rate);
   // The world's light follows the countdown rather than a second clock.
   _state.timeHours = hourOfDay(_state);
   if(_state.dayLeft <= 0){

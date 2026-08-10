@@ -12,6 +12,7 @@ import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
 import { createInteriors, exposeDebug, createDay } from '../../gamekit/engine/core/app.js';
+import { PANEL_PACE } from '../../gamekit/engine/core/day.js';
 import { createDriving } from '../../gamekit/engine/world/driving.js';
 import { updateHUD, updateDayClock, renderEndScreen, renderStats } from './dashboard.js';
 import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
@@ -77,6 +78,9 @@ const day = createDay({
   },
   spawn: () => { const p = getPosition(); return { x: p.x, z: p.z }; },
   mapHTML: () => renderMap(),
+  // A quarter rate while a panel is up — reading is the game, and at full rate
+  // an instrument panel costs more of the day than the walk to reach it.
+  pace: () => (document.getElementById('overlay')?.classList.contains('show') ? PANEL_PACE : 1),
   ui: {
     open(title, html, actions){
       document.getElementById('modalTitle').textContent = title;
