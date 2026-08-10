@@ -242,9 +242,10 @@ window.addEventListener('projecty:restartday', () => day.restart());
 document.getElementById('startBtn').addEventListener('click', () => {
   blocker.classList.add('hidden');
   // The day is planned before it is walked: the calls, where they are, and how
-  // far apart. Nothing moves until the player accepts it.
+  // far apart. Nothing moves until the player accepts it — and grabbing the
+  // pointer while that card is up only takes it away again.
   if(!getState()?.dayStarted) day.showPlan();
-  controls.lock();
+  else controls.lock();
 });
 // ---- map and settings
 const sheet = (id, on) => {

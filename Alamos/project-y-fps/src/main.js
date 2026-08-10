@@ -273,8 +273,7 @@ function startGameLoop(){
   // position player at plaza
   teleport(new THREE.Vector3(0,1.7,14));
   if(!rafId) animate();
-  // The day is planned before it is walked.
-  if(!getState()?.dayStarted) day.showPlan();
+
   // A handle on the running game, as gamekit and the hospital both expose. A
   // dynamic import() from the console resolves to a *second* copy of the module
   // graph with its own empty world, so without this there is no way to inspect
@@ -485,13 +484,21 @@ window.addEventListener('keydown', (e)=>{
 });
 
 // Blocker enter
-document.getElementById('enterTownBtn').onclick=()=>{
+/**
+ * Leaving the title card is what opens the day's plan.
+ *
+ * It used to be raised inside `startGameLoop`, which runs before the player has
+ * read anything — so the plan opened *underneath* the opening card and was the
+ * first thing they saw when they dismissed it. The order is: read why you are
+ * here, then see what the day asks, then start the clock.
+ */
+function leaveTitleCard(){
   showBlocker(false);
-  controls.lock();
-};
-document.getElementById('blocker').onclick=(e)=>{
-  if(e.target===blocker) { showBlocker(false); controls.lock(); }
-};
+  if(!getState()?.dayStarted) day.showPlan();
+  else controls.lock();
+}
+document.getElementById('enterTownBtn').onclick=leaveTitleCard;
+document.getElementById('blocker').onclick=(e)=>{ if(e.target===blocker) leaveTitleCard(); };
 
 // ——— Dashboard ———
 function openDashboard(){

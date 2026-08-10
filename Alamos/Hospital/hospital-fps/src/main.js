@@ -251,8 +251,7 @@ function startGameLoop(){
   // position player at plaza
   teleport(new THREE.Vector3(0,1.7,14));
   if(!rafId) animate();
-  // The shift is planned before it is walked.
-  if(!getState()?.dayStarted) day.showPlan();
+
   // A handle on the running game, the same one gamekit's own build exposes. A
   // background tab gets no requestAnimationFrame, so without this there is no
   // way to step the world by hand and check what a room actually looks like.
@@ -520,13 +519,21 @@ window.addEventListener('keydown', (e)=>{
 });
 
 // Blocker enter
-document.getElementById('enterTownBtn').onclick=()=>{
+/**
+ * Leaving the title card is what opens the shift's plan.
+ *
+ * It used to be raised inside `startGameLoop`, which runs before the player has
+ * read anything — so the plan opened *underneath* the opening card and was the
+ * first thing they saw when they dismissed it. The order is: read why you are
+ * here, then see what the shift asks, then start the clock.
+ */
+function leaveTitleCard(){
   showBlocker(false);
-  controls.lock();
-};
-document.getElementById('blocker').onclick=(e)=>{
-  if(e.target===blocker) { showBlocker(false); controls.lock(); }
-};
+  if(!getState()?.dayStarted) day.showPlan();
+  else controls.lock();
+}
+document.getElementById('enterTownBtn').onclick=leaveTitleCard;
+document.getElementById('blocker').onclick=(e)=>{ if(e.target===blocker) leaveTitleCard(); };
 
 // ——— Dashboard ———
 function openDashboard(){
