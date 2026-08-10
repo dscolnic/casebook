@@ -284,6 +284,73 @@ export function printedSheet(spec = {}, { w = 512, h = 320 } = {}){
   return { canvas, texture, update(){}, set(next){ Object.assign(spec, next); paint(); } };
 }
 
+/**
+ * A typed sheet: carbon paper out of a Royal, on a clipboard on the Hill.
+ *
+ * `printedSheet` is a modern form — a coloured header bar, a sans-serif face,
+ * white paper. On a mesa in 1943 the same information is a typewritten page
+ * with a rubber stamp on it, and the printed one is as much of an anachronism
+ * as a glowing screen.
+ *
+ * Same handle as `printedSheet`, so a caller swaps one for the other.
+ */
+export function typedSheet(spec = {}, { w = 512, h = 320 } = {}){
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.anisotropy = 8;
+  const TYPE = '17px "Courier New", Courier, monospace';
+  const paint = () => {
+    // Cheap wartime paper: warm, uneven, and a little foxed at the edges.
+    ctx.fillStyle = '#efe7d2'; ctx.fillRect(0, 0, w, h);
+    for(let i = 0; i < 220; i++){
+      ctx.globalAlpha = 0.03 + Math.random() * 0.05;
+      ctx.fillStyle = Math.random() > 0.5 ? '#c9b38a' : '#fffaf0';
+      ctx.fillRect(Math.random() * w, Math.random() * h, 2 + Math.random() * 26, 2);
+    }
+    ctx.globalAlpha = 1;
+
+    // The header a typist would have typed, not a printed band.
+    ctx.fillStyle = '#2a2418';
+    ctx.textBaseline = 'middle';
+    ctx.font = `bold ${TYPE}`;
+    const tag = String(spec.tag || '').toUpperCase();
+    if(tag) ctx.fillText(tag + (spec.title ? '  \u2014  ' + String(spec.title).toUpperCase() : ''), 22, 34);
+    ctx.strokeStyle = 'rgba(42,36,24,0.45)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(20, 50); ctx.lineTo(w - 20, 52); ctx.stroke();
+
+    ctx.font = `bold 19px "Courier New", Courier, monospace`;
+    let y = 84;
+    for(const line of wrap(ctx, String(spec.heading || '').toUpperCase(), w - 44)){
+      ctx.fillText(line, 22, y); y += 26;
+    }
+    ctx.fillStyle = '#3a3226';
+    ctx.font = TYPE;
+    y += 8;
+    for(const line of wrap(ctx, spec.body || '', w - 44)){ ctx.fillText(line, 22, y); y += 23; }
+
+    // A rubber stamp, off square, because nobody ever put one on straight.
+    if(spec.footer){
+      ctx.save();
+      ctx.translate(w - 150, h - 54);
+      ctx.rotate(-0.09);
+      ctx.strokeStyle = 'rgba(120,44,38,0.72)';
+      ctx.lineWidth = 2.5;
+      ctx.strokeRect(-8, -22, 150, 40);
+      ctx.fillStyle = 'rgba(120,44,38,0.82)';
+      ctx.font = 'bold 15px "Courier New", Courier, monospace';
+      ctx.fillText(clipTo(ctx, String(spec.footer).toUpperCase(), 15, 138), 2, 0);
+      ctx.restore();
+    }
+    texture.needsUpdate = true;
+  };
+  paint();
+  return { canvas, texture, update(){}, set(next){ Object.assign(spec, next); paint(); } };
+}
+
 function wrap(ctx, text, maxW){
   const words = String(text || '').split(/\s+/).filter(Boolean);
   const lines = [];

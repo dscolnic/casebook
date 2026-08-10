@@ -37,7 +37,7 @@ import {
   mat, paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture, grainTexture,
   boardTexture,
 } from './materials.js';
-import { instrumentScreen, printedSheet, chalkboard } from './screens.js';
+import { instrumentScreen, printedSheet, chalkboard, typedSheet } from './screens.js';
 import { addCaseBeacon } from './caseBeacon.js';
 
 /** Far enough along +x that the town is past the camera's far plane. */
@@ -100,6 +100,9 @@ const DEFAULTS = {
 export function buildInteriorBuilding(scene, spec){
   const P = { ...DEFAULTS, ...spec.metrics };
   const S = { ...STYLES.lab, ...(STYLES[spec.style] ?? {}), ...(spec.styleOverrides ?? {}) };
+  // Declared here because the fit-out is built before the instrument is, and
+  // every fitting in the room asks the same question: chalk, or a screen?
+  const isChalk = S.instrument === 'chalk';
   const index = spec.index ?? 0;
   const ox = DISTRICT_X + index * GAP;      // room origin, x
   const oz = 0;
@@ -237,9 +240,15 @@ export function buildInteriorBuilding(scene, spec){
     new THREE.BoxGeometry(P.w - 2.3, 0.06, 0.8),
     new THREE.MeshStandardMaterial({ map: grainTexture(S.worktop), roughness: 0.45, envMapIntensity: 0.4 })));
   top.position.set(0, 0.89, benchZ);
+  // The area's colour, as a painted band along the bench, so a room is
+  // placeable at a glance. Knocked back toward the timber where the room is
+  // 1943: a saturated stripe reads as modern colour-coding.
+  const bandColour = isChalk
+    ? accent.clone().lerp(new THREE.Color(0x6b4f30), 0.5)
+    : accent;
   const band = add(new THREE.Mesh(
     new THREE.BoxGeometry(P.w - 2.4, 0.07, 0.02),
-    new THREE.MeshStandardMaterial({ color: accent, roughness: 0.6 })));
+    new THREE.MeshStandardMaterial({ color: bandColour, roughness: isChalk ? 0.85 : 0.6 })));
   band.position.set(0, 0.80, benchZ - 0.37);
   colliders.push(new THREE.Box3().setFromCenterAndSize(
     new THREE.Vector3(ox, 0.45, oz + benchZ), new THREE.Vector3(P.w - 2.3, 0.9, 0.9)));
@@ -248,27 +257,43 @@ export function buildInteriorBuilding(scene, spec){
   for(let i = 0; i < 3; i++){
     const c = add(new THREE.Mesh(
       new THREE.BoxGeometry(0.5, 0.36, 0.42),
-      new THREE.MeshStandardMaterial({ color: i % 2 ? 0xb4b8bd : 0xa4aab0, roughness: 0.8 })));
+      new THREE.MeshStandardMaterial({
+        color: isChalk ? (i % 2 ? 0x8a6a44 : 0x74563a) : (i % 2 ? 0xb4b8bd : 0xa4aab0),
+        map: isChalk ? grainTexture('#8a6a44') : null,
+        roughness: isChalk ? 0.9 : 0.8 })));
     c.position.set(x0 + 0.9, 0.18 + (i % 2) * 0.37, z1 - 1.9 - i * 0.55);
     c.castShadow = true;
   }
   for(let i = 0; i < 6; i++){
     const v = add(new THREE.Mesh(
       new THREE.CylinderGeometry(0.035, 0.035, 0.13, 8),
-      new THREE.MeshStandardMaterial({ color: i % 3 ? 0xc2434b : 0xd8c94a, roughness: 0.4 })));
+      new THREE.MeshStandardMaterial({
+        color: isChalk ? (i % 3 ? 0xd8cfae : 0xbfae86) : (i % 3 ? 0xc2434b : 0xd8c94a),
+        roughness: isChalk ? 0.6 : 0.4 })));
     v.position.set(-1.4 + i * 0.17, 0.985, benchZ - 0.1);
   }
 
   for(const sx of [-2.1, -3.2]){
     const seat = add(new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.15, 0.06, 12),
-      new THREE.MeshStandardMaterial({ color: 0x3f4b55, roughness: 0.6 })));
+      new THREE.MeshStandardMaterial({ color: isChalk ? 0x8a6a44 : 0x3f4b55, roughness: isChalk ? 0.88 : 0.6 })));
     seat.position.set(sx, 0.62, benchZ - 1.0);
-    const stem = add(new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.032, 0.6, 8),
-      new THREE.MeshStandardMaterial({ color: 0x8d9299, roughness: 0.5, metalness: 0.3 })));
-    stem.position.set(sx, 0.31, benchZ - 1.0);
+    // A wooden stool has legs, not a chromed column.
+    if(isChalk){
+      for(const [lx, lz] of [[-0.12, -0.12], [0.12, -0.12], [-0.12, 0.12], [0.12, 0.12]]){
+        const leg = add(new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.022, 0.6, 6),
+          new THREE.MeshStandardMaterial({ color: 0x6b4f30, roughness: 0.88 })));
+        leg.position.set(sx + lx, 0.31, benchZ - 1.0 + lz);
+      }
+    } else {
+      const stem = add(new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.032, 0.6, 8),
+        new THREE.MeshStandardMaterial({ color: 0x8d9299, roughness: 0.5, metalness: 0.3 })));
+      stem.position.set(sx, 0.31, benchZ - 1.0);
+    }
   }
   const cart = add(new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.9, 0.46),
-    new THREE.MeshStandardMaterial({ color: 0xcfd3d6, roughness: 0.55, metalness: 0.15 })));
+    isChalk
+      ? new THREE.MeshStandardMaterial({ map: grainTexture('#7a5c3c'), roughness: 0.9 })
+      : new THREE.MeshStandardMaterial({ color: 0xcfd3d6, roughness: 0.55, metalness: 0.15 })));
   cart.position.set(x0 + 1.5, 0.45, -1.4);
   cart.castShadow = true;
 
@@ -278,7 +303,6 @@ export function buildInteriorBuilding(scene, spec){
   // panel; a 1943 building gets a blackboard, because there was nothing else to
   // put a number on and a glowing display would be the loudest anachronism in
   // the game.
-  const isChalk = S.instrument === 'chalk';
   const screen = isChalk
     ? chalkboard({ ...(spec.station ?? {}), patient: spec.caseName }, { w: 512, h: 320 })
     : instrumentScreen({ ...(spec.station ?? {}), patient: spec.caseName }, { w: 512, h: 320 });
@@ -318,7 +342,8 @@ export function buildInteriorBuilding(scene, spec){
 
   // The case plate, under the screen. Paper, because it is the one thing in
   // the room about a situation rather than a measurement.
-  const plate = printedSheet({
+  const sheet_ = isChalk ? typedSheet : printedSheet;
+  const plate = sheet_({
     accent: '#' + accent.getHexString(), tag: spec.code ?? '', title: 'Case',
     heading: spec.caseName ?? spec.name ?? '', body: spec.caseLine ?? '',
     footer: spec.caption ?? '',
@@ -344,7 +369,7 @@ export function buildInteriorBuilding(scene, spec){
   foot.position.set(standX, 0.02, standZ);
   const post = add(new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.034, 1.05, 10), standMat()));
   post.position.set(standX, 0.53, standZ);
-  const chart = printedSheet({
+  const chart = sheet_({
     accent: '#' + accent.getHexString(), tag: spec.code ?? '', title: 'Notes',
     heading: spec.name ?? '', body: spec.standLine ?? 'Waiting for a call on this one.',
     footer: 'Press E to take the case',
