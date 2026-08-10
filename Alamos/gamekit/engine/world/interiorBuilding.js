@@ -73,6 +73,17 @@ const STYLES = {
     skirt: 0x6b5334, bench: 0xa98b63, worktop: '#7d6242',
     instrument: 'chalk',
   },
+  // A control room that has to preserve night vision: dark surfaces, red
+  // service lighting, and screens as the only bright thing in the room. An
+  // observatory is lit this way for a reason — white light at the eyepiece
+  // costs twenty minutes of dark adaptation — and it looks like nowhere else.
+  observatory: {
+    wall: '#2c2a30', wallKind: 'paint',
+    floor: 'sheet', floorTint: [38, 36, 42],
+    ceiling: 'tiles', ceilingLight: 0xff3b24,
+    skirt: 0x1c1a20, bench: 0x35323a, worktop: '#43404a',
+    instrument: 'screen',
+  },
   // Painted steel, deck matting, a low deckhead with strip lighting.
   steel: {
     wall: '#8d9a94', wallKind: 'paint',

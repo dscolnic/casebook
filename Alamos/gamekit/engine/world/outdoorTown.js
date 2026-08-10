@@ -142,6 +142,8 @@ export function initWorld(canvas, activeTheme){
   // 3. Sky and light. The contract's ceiling is six real lights; buildSunRig
   //    creates three of them (ambient, sun, hemisphere) and nothing below adds
   //    another — lit surfaces are emissive instead.
+  // The sky guard in buildSky needs to know how far the camera can see.
+  scene.userData.cameraFar = look.far ?? 900;
   buildSky(scene, renderer, site.atmosphere ?? {});
   buildSunRig(scene, renderer, look.lighting ?? {});
   if(site.horizon) buildHorizon(scene, site.horizon);
@@ -268,7 +270,10 @@ export function updateWorldFromState(state, nextStopId = null, pct = () => 0){
 
 export function updateTimeOfDay(hours){
   if(!scene || !renderer) return null;
-  const info = updateOutdoorTimeOfDay(scene, renderer, hours);
+  const look = theme?.look ?? {};
+  const info = updateOutdoorTimeOfDay(scene, renderer, hours, {
+    exposure: look.exposure, nightLift: look.nightLift,
+  });
   // Emissive panels carry the night, since the light budget cannot.
   const night = info ? 1 - info.dayBlend : 0;
   for(const p of lightPanels){

@@ -82,9 +82,10 @@ export default {
     // interior's 160 the dome is clipped away entirely and the sky renders
     // black, in broad daylight, with no error anywhere.
     far: 900,
-    fog: { colour: 0xb9c4c8, near: 150, far: 460 },
+    fog: { colour: 0xaebac0, near: 90, far: 300 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
-    exposure: 0.95,
+    // A paved campus of pale tents under a bright sky blows out fast.
+    exposure: 0.86,
     // How wide the player is, for collision. 0.45 suits a street; a place with
     // metre-wide doorways needs 0.3 or the player gets stuck in them.
     playerRadius: 0.45,

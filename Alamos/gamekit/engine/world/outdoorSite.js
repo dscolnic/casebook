@@ -408,6 +408,16 @@ export function buildSky(scene, renderer, atmosphere = {}){
   };
   sky = new Sky();
   sky.scale.setScalar(A.scale);
+  // The dome has to be inside the camera's far plane or it is simply not drawn,
+  // and what shows instead is the page behind the canvas — a flat grey sky with
+  // the horizon ranks still in front of it. No error, and it looks like a
+  // lighting problem rather than a clipped object, so it is worth saying out
+  // loud in dev.
+  if(typeof console !== 'undefined' && scene.userData.cameraFar && scene.userData.cameraFar < A.scale){
+    console.warn(`[outdoorSite] sky scale ${A.scale} is beyond the camera far plane `
+      + `${scene.userData.cameraFar} — the dome will be clipped and the sky will render `
+      + `as the page background. Raise look.far above ${A.scale}.`);
+  }
   sky.material.fog = false;
   sky.userData.ignoreAudit = true;
   scene.add(sky);
@@ -484,8 +494,14 @@ export function updateSky(scene, direction, dayBlend){
   // Scattering falls off with the sun; daytime rayleigh after dark leaves a lit
   // teal dome overhead instead of a night sky.
   const A = scene.userData.atmosphere;
-  const turb = 0.35 + (A.turbidity - 0.35) * dayBlend;
-  const rayl = 0.30 + (A.rayleigh - 0.30) * dayBlend;
+  // The night floor. 0.35/0.30 keeps a daytime game's sky from going flat black
+  // at 3 a.m., which is right when night is a passing state — and wrong when the
+  // whole campaign is played under it: at those values the dome renders grey and
+  // the stars sit on a pale field. A high, dry site sets its own.
+  const nt = A.nightTurbidity ?? 0.35;
+  const nr = A.nightRayleigh ?? 0.30;
+  const turb = nt + (A.turbidity - nt) * dayBlend;
+  const rayl = nr + (A.rayleigh - nr) * dayBlend;
   sky.material.uniforms.turbidity.value = turb;
   sky.material.uniforms.rayleigh.value = rayl;
 
@@ -502,6 +518,23 @@ export function updateSky(scene, direction, dayBlend){
     if(old) old.dispose();
   }
   if(starField) starField.material.opacity = Math.max(0, 1 - dayBlend * 1.6) * 0.95;
+
+  // Deep night: put the dome away and paint the sky instead.
+  //
+  // The physical sky has a radiance floor. With the sun well below the horizon
+  // and both scattering terms at zero it still renders around 0.03 linear,
+  // which ACES at exposure 1.0 lifts to a flat grey — no uniform reaches it
+  // (turbidity, rayleigh and mieCoefficient were each taken to zero and the
+  // pixel did not move). For a game that is *played* after dark that grey is
+  // the whole sky, so below a threshold the dome is simply hidden and the
+  // scene background carries it, with the star field in front. A daytime game
+  // never reaches this: its shift ends at 19:00, well above the threshold.
+  const night = scene.userData.atmosphere?.nightSky;
+  if(night !== undefined){
+    const deep = dayBlend < 0.06;
+    sky.visible = !deep;
+    scene.background = deep ? (scene.userData.nightColour ??= new THREE.Color(night)) : null;
+  }
 
   const horizon = new THREE.Color().setHSL(
     0.58 - 0.05 * dayBlend, 0.10 + 0.22 * dayBlend, 0.035 + 0.72 * dayBlend);
@@ -545,7 +578,13 @@ export function updateOutdoorTimeOfDay(scene, renderer, hours, extras = {}){
     scene.fog.near = 150 + 60 * dayBlend;
     scene.fog.far = 420 + 240 * dayBlend;
   }
-  renderer.toneMappingExposure = 0.95 + (1 - dayBlend) * 0.55;
+  // Night lifts the exposure so a daytime game's dusk stays readable. A game
+  // that is *played* at night wants the opposite — at 1.5 the residual sky
+  // luminance comes up grey and the stars sit on a pale field — so the base and
+  // the lift are the theme's to set.
+  const baseExp = extras.exposure ?? 0.95;
+  const lift = extras.nightLift ?? 0.55;
+  renderer.toneMappingExposure = baseExp + (1 - dayBlend) * lift;
   return { isNight, dayBlend, direction: dir, horizon };
 }
 

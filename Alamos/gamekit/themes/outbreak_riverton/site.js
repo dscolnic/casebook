@@ -1,110 +1,126 @@
-// site.js — Riverton during the outbreak, as data.
+// site.js — Riverton General under an outbreak, as data.
 //
-// The book names forty hospital rooms and laboratories but never says what kind
-// of place they sit in. This is a mid-sized river city with its medical campus
-// on one side of a boulevard and its public-health and field services on the
-// other — close enough to walk between in a working day, far enough apart that
-// choosing an order matters.
+// Deliberately NOT a city. The Contaminated City is a river town with wide
+// streets and buildings spaced apart; this is the same river, twelve blocks
+// away, and it is a hospital campus that has been improvised on top of for
+// three weeks. The difference the player should feel in the first ten seconds:
 //
-// Looking down, -Z is north, toward the river and the field stations:
+//   · you move through COURTYARDS, not streets — buildings are pushed close
+//     enough that the gaps between them are rooms with sky, and the sight lines
+//     are short everywhere except one;
+//   · the campus is FULL. Triage marquees in the courtyards, container labs in
+//     the car park, crate stacks against every wall, floodlight masts because
+//     the response does not stop at night;
+//   · there is exactly one long view, north out of the gate to the field
+//     station on the flood plain, and it is the one call that takes real time
+//     to reach.
 //
-//        ~~~~~~~~~~~~~~~ RIVER ~~~~~~~~~~~~~~~          z = -118
-//     [ One Health Field Station ]                      z = -60
-//                [ City Health Command ]                z = -44
-//   [ Immunology & Treatment ]   [ Molecular Diagnostics ]  z = -20
-//        ------------- campus boulevard ------------    z =   0
-//   [ Clinical Physiology  ]     [ Cell & Membrane Lab ]    z =  20
-//              [ Epidemiology Operations ]              z =  50
-//                     ¤ spawn ¤                         z =  64
-//        ------------- transit plaza ---------------    z =  78
+// Looking down, -Z is north toward the river:
 //
-// Two things here are load-bearing rather than decorative: the spawn at (0, 64)
-// has nothing within ten metres of it — a prop over the spawn welds the player
-// in place — and every `group` below must exist in content/groups.js or that
-// area's calls are unreachable.
+//              [ One Health Field Station ]              z = -190   ← the hike
+//        · · · · · · perimeter fence · · · · · ·         z =  -70
+//   [ Immunology ]  ¤ north court ¤  [ Molecular Dx ]    z =  -44
+//        [ Epidemiology Operations · the hub ]           z =  -12
+//   [ Clinical Wing ]  ¤ south court ¤  [ Cell Biology ] z =   22
+//                    ¤ spawn ¤                           z =   44
+//        [ Ambulance ramp ]   [ Container labs ]         z =   62
+//
+// Every `group` must exist in content/groups.js. The spawn has ten clear metres
+// around it — a prop over the spawn welds the player in place and the scene
+// still renders perfectly.
 
 const PI = Math.PI;
 
-/** One per area of study. Ids match content/groups.js. */
+/**
+ * One per area of study, packed tight. Four of them face each other across two
+ * courtyards; the operations room sits between the courts because everything
+ * routes through it; the field station is 190 m north, outside the fence.
+ */
 const AREA_BUILDINGS = [
+  { id: 'IMM', group: 'IMM', name: 'Immunology & Treatment',
+    x: -28, z: -44, w: 26, d: 15, h: 8.4, facing: 0, colour: 0x9e9a90 },
+  { id: 'MOL', group: 'MOL', name: 'Molecular Diagnostics',
+    x: 28, z: -44, w: 26, d: 15, h: 8.4, facing: 0, colour: 0x99a0a6 },
+  { id: 'POP', group: 'POP', name: 'Epidemiology Operations',
+    x: 0, z: -12, w: 34, d: 13, h: 6.6, facing: 0, colour: 0xa8a08c, accent: 0x1f5c4d },
   { id: 'CLIN', group: 'CLIN', name: 'Riverton General — Clinical Wing',
-    x: -52, z: 20, w: 30, d: 18, h: 9.6, facing: 0, colour: 0x9aa3a8 },
-  { id: 'CELL', group: 'CELL', name: 'Cell & Membrane Biology Building',
-    x: 52, z: 20, w: 24, d: 15, h: 7.6, facing: 0, colour: 0x93a29c },
-  { id: 'IMM', group: 'IMM', name: 'Immunology & Treatment Centre',
-    x: -50, z: -20, w: 26, d: 16, h: 8.2, facing: 0, colour: 0xa197ab },
-  { id: 'MOL', group: 'MOL', name: 'Molecular Diagnostics Laboratory',
-    x: 52, z: -20, w: 26, d: 16, h: 8.0, facing: 0, colour: 0x8f9aa2 },
-  { id: 'POP', group: 'POP', name: 'Epidemiology Operations Room',
-    x: 0, z: 50, w: 28, d: 16, h: 7.4, facing: PI, colour: 0xaea089 },
+    x: -30, z: 22, w: 30, d: 17, h: 10.5, facing: PI, colour: 0xa6a49c },
+  { id: 'CELL', group: 'CELL', name: 'Cell & Membrane Biology',
+    x: 30, z: 22, w: 26, d: 15, h: 8.0, facing: PI, colour: 0x93a29c },
+  // The one that is not on the campus at all.
   { id: 'FIELD', group: 'FIELD', name: 'One Health Field Station',
-    x: -34, z: -60, w: 22, d: 14, h: 6.6, facing: 0, colour: 0x8d9b7f },
+    x: -14, z: -190, w: 20, d: 13, h: 5.6, facing: 0, colour: 0x8d9b7f },
 ];
 
-/** Places that carry the story and the wayfinding rather than a lesson. */
 const LANDMARKS = [
   { id: 'CMD', name: 'City Health Command', sub: 'Incident command · Riverton',
-    x: 30, z: -44, w: 22, d: 14, h: 8.4, facing: 0, colour: 0x8b94a0, accent: 0x1f3b4d },
-  { id: 'TRANSIT', name: 'Transit and Mobility Centre', sub: 'Where the city moves',
-    x: -62, z: 78, w: 20, d: 13, h: 6.4, facing: PI, colour: 0xa79f90 },
+    x: 62, z: -12, w: 18, d: 12, h: 7.0, facing: -PI / 2, colour: 0x8b94a0, accent: 0x1f3b4d },
   { id: 'BRIEF', name: 'Public Briefing Room', sub: 'What the city is told',
-    x: 62, z: 78, w: 20, d: 13, h: 6.4, facing: PI, colour: 0xa79f90 },
-  { id: 'WASTE', name: 'Wastewater Treatment Plant', sub: 'Surveillance upstream of the hospital',
-    x: 66, z: -62, w: 26, d: 16, h: 7.0, facing: 0, colour: 0x8fa0a4 },
+    x: -62, z: -12, w: 18, d: 12, h: 6.4, facing: PI / 2, colour: 0xa79f90 },
+  { id: 'TRANSIT', name: 'Transit & Mobility Centre', sub: 'Where the city moves',
+    x: 58, z: 62, w: 20, d: 12, h: 6.0, facing: PI, colour: 0xa79f90 },
+  { id: 'WASTE', name: 'Wastewater Sampling Station', sub: 'The city, before it sees a doctor',
+    x: 56, z: -120, w: 18, d: 12, h: 6.2, facing: 0, colour: 0x8fa0a4 },
 ];
 
 export const site = {
   kind: 'outdoor',
-  name: 'Riverton',
+  name: 'Riverton General',
 
   terrain: {
-    size: 780, segments: 300, playerLimit: 118,
-    profile: 'flat', relief: 0.7,
-    // Darker and more saturated than looks right written down: under a bright
-    // sky IBL with ACES a mid albedo renders close to white.
-    ground: { base: [74, 76, 66], spread: [38, 40, 32], repeat: 14, normalRepeat: 150 },
+    size: 780, segments: 300, playerLimit: 210,
+    profile: 'flat', relief: 0.5,
+    // Tarmac and hardstanding rather than ground: this is a paved campus, so
+    // the surface is grey-brown and nearly uniform.
+    ground: { base: [66, 64, 60], spread: [26, 25, 23], repeat: 18, normalRepeat: 170 },
   },
 
-  atmosphere: { turbidity: 3.2, rayleigh: 2.6, mie: 0.004, mieG: 0.78, scale: 850, stars: 900 },
+  atmosphere: { turbidity: 4.2, rayleigh: 2.8, mie: 0.005, mieG: 0.76, scale: 850, stars: 700 },
 
-  water: { cx: 0, cz: -118, width: 440, depth: 92, level: -0.8 },
+  // The river is a long way north, past the field station, and mostly out of
+  // sight — this game is not about the river, it is about the campus.
+  water: { cx: 0, cz: -300, width: 520, depth: 120, level: -1.0 },
 
   paths: [
-    { cx: 0, cz: 0,   w: 240, d: 11, worn: 6 },    // campus boulevard
-    { cx: 0, cz: -44, w: 200, d: 9,  worn: 5 },    // command row
-    { cx: 0, cz: 30,  w: 10,  d: 150, worn: 6 },   // the walk, north-south
-    { cx: 0, cz: 78,  w: 220, d: 9,  worn: 5 },    // transit plaza
+    { cx: 0, cz: 34, w: 120, d: 8, worn: 7 },      // the ambulance apron
+    { cx: 0, cz: 5, w: 8, d: 90, worn: 7 },        // the spine between courts
+    { cx: 0, cz: -60, w: 100, d: 7, worn: 5 },     // north court walk
+    { cx: -14, cz: -130, w: 8, d: 130, worn: 4 },  // the track out to the field station
   ],
 
   buildings: [...AREA_BUILDINGS, ...LANDMARKS],
 
-  board: { x: 10, z: 58, facing: PI, title: 'Outbreak Status' },
+  board: { x: 12, z: 36, facing: PI, title: 'Outbreak Status' },
 
-  // Kept off the walk (|x| < 5) so nothing narrows the main route.
+  // Dense. A campus in its third week of an emergency is not tidy, and the
+  // clutter is what makes the courtyards read as rooms.
   furniture: [
-    { kind: 'bench', x: -9, z: 40, facing: PI / 2 },
-    { kind: 'bench', x: -9, z: 12, facing: PI / 2 },
-    { kind: 'bench', x: 9, z: 68, facing: -PI / 2 },
-    { kind: 'bin', x: 8, z: 36 },
-    { kind: 'bin', x: -8, z: 70 },
-    { kind: 'post', x: 6, z: 6, height: 3.4, r: 0.11 },
-    { kind: 'post', x: -6, z: 6, height: 3.4, r: 0.11 },
-    { kind: 'post', x: 6, z: 74, height: 3.4, r: 0.11 },
-    { kind: 'post', x: -6, z: 74, height: 3.4, r: 0.11 },
+    { kind: 'bench', x: -10, z: 8, facing: PI / 2 },
+    { kind: 'bench', x: 10, z: 8, facing: -PI / 2 },
+    { kind: 'bench', x: -10, z: -34, facing: PI / 2 },
+    { kind: 'bin', x: 9, z: 30 },
+    { kind: 'bin', x: -9, z: -28 },
+    { kind: 'bin', x: 13, z: -56 },
+    { kind: 'post', x: 6, z: 40, height: 3.0, r: 0.1 },
+    { kind: 'post', x: -6, z: 40, height: 3.0, r: 0.1 },
+    { kind: 'post', x: 6, z: -66, height: 3.0, r: 0.1 },
+    { kind: 'post', x: -6, z: -66, height: 3.0, r: 0.1 },
   ],
 
-  scrubCount: 300,
-  scrubColour: 0x5c6b46,
-  scrubBand: [30, 250],
+  // Almost none on the campus; it starts once you are through the gate and on
+  // the track to the field station.
+  scrubCount: 240,
+  scrubColour: 0x53603c,
+  scrubBand: [110, 300],
 
   horizon: [
-    { radius: 520, height: 40, colour: 0x4c5b63, haze: 0.42 },
-    { radius: 690, height: 66, colour: 0x5d6b74, haze: 0.62 },
+    { radius: 480, height: 34, colour: 0x51606a, haze: 0.45 },
+    { radius: 660, height: 56, colour: 0x62707a, haze: 0.66 },
   ],
 
-  // On the walk, ten metres clear of everything, facing north up the campus
-  // toward the hospital. yaw 0 is -Z, the camera's default direction.
-  spawn: { x: 0, z: 64, yaw: 0 },
+  // In the middle of the south court, facing north up the spine at the
+  // operations room. yaw 0 is -Z.
+  spawn: { x: 0, z: 44, yaw: 0 },
 };
 
 export default site;

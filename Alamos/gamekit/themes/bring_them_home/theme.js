@@ -10,7 +10,7 @@
 // before you have written a word. Then replace book.yml with the real book.
 //
 // Every key below is read by the engine. Nothing else in here is.
-import { plan } from './plan.js';
+import { site } from './site.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { GROUPS } from './content/groups.js';
 import { MISSIONS } from './content/missions.js';
@@ -32,11 +32,11 @@ export default {
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   // A theme whose place already exists may declare its own instead, with
   // `world: 'themes/<name>/world.js'` inside plan.js. Deep Watch does.
-  site: { kind: 'interior', name: 'Mission Control', plan },
+  site,
 
   // Where the player starts the day, and which way they face. The day's budget
   // is measured from here, not from wherever the player is standing.
-  start: { x: 0, z: 12, yaw: 0 },
+  start: site.spawn,
 
   content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY },
 
@@ -79,15 +79,17 @@ export default {
   look: {
     fov: 66,            // a 72° field distorts badly in a corridor
     near: 0.08,
-    far: 160,
-    fog: { colour: 0xdfe4e6, near: 26, far: 96 },
+    far: 220,
+    // A dim room. The fog is the room's own darkness at the far wall.
+    fog: { colour: 0x0d1116, near: 26, far: 88 },
     exposure: 1.0,
     // How wide the player is, for collision. 0.45 suits a street; a place with
     // metre-wide doorways needs 0.3 or the player gets stuck in them.
     playerRadius: 0.38,
     // Six real lights is the ceiling. A light per ceiling fixture took one
     // build from 118 fps to 20; ambient plus emissive panels looks the same.
-    lighting: { ambient: 0.55, hemi: 0.6 },
+    // Three real lights, and every bright surface in the room is emissive.
+    lighting: { ambient: 0.42, hemi: 0.5, key: 0.85 },
   },
 
   // Theme hooks. `decorate` is called by the outdoor world, the two fit-out

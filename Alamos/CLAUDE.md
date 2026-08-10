@@ -1,21 +1,31 @@
 # Alamos — mission-based learning games
 
-Three first-person, mission-driven educational games on three.js, plus the
-shared engine they now run on. Each is the same loop in a different setting:
+Seven first-person, mission-driven educational games on three.js, plus the
+shared engine they run on. Each is the same loop in a different setting:
 15 missions × 3 stops, walk to a place, answer a science question, hand off.
 No combat, no weapons.
 
 **Read `gamekit/THEME_CONTRACT.md` before touching world code.** It is short and
 every rule in it cost hours to learn.
 
-## The three games
+## The seven games
 
-| Game | Where | Setting | Run it |
+| Game | Where | The place, and why it looks unlike the others | Run it |
 | --- | --- | --- | --- |
-| The Contaminated City | `gamekit/themes/contamcity/` | Riverton, college chemistry, outdoor | `cd gamekit && THEME=contamcity npm run dev` |
-| Deep Watch | `gamekit/themes/deepwatch/` | A submarine, reasoning under pressure | `cd gamekit && THEME=deepwatch npm run dev` |
+| The Contaminated City | `gamekit/themes/contamcity/` | Riverton: a wide, bright river city. College chemistry | `THEME=contamcity npm run dev` |
+| Deep Watch | `gamekit/themes/deepwatch/` | A submarine — its own world, one line of compartments | `THEME=deepwatch npm run dev` |
+| Outbreak: Riverton | `gamekit/themes/outbreak_riverton/` | A hospital campus in week three: courtyards, triage marquees, container labs, a decon tunnel on the main route, a fence with one gate | `THEME=outbreak_riverton npm run dev` |
+| Bring Them Home | `gamekit/themes/bring_them_home/` | Mission Control — its own world. One room, four tiers stepping down to a wall of plot boards; the teams are rows, not rooms | `THEME=bring_them_home npm run dev` |
+| Planetary Defense | `gamekit/themes/planetary_defense/` | A mountain ridge, played entirely at night: one dark road, domes, a radar dish, red service lamps | `THEME=planetary_defense npm run dev` |
 | Project Y | `project-y-fps/` | Los Alamos 1943–45, outdoor | `cd project-y-fps && npx vite` |
 | Hospital Heroes | `Hospital/hospital-fps/` | Children's hospital, interior, ~grades 3–4 | `cd Hospital/hospital-fps && npx vite` |
+
+**A game's silhouette comes from its world module.** Two themes on the same
+world look like each other however the palette differs, which is why three of
+the five here either bring their own world (`themes/<name>/world.js`) or carry a
+props layer heavy enough to change the shape of the space. Worlds:
+`engine/world/outdoorTown.js`, `engine/world/interiorFloor.js`, and a theme's
+own. Nocturnal games set `look.dayWindow` and `atmosphere.nightSky`.
 
 **Deep Watch is the first game built the way the rest are supposed to be built.**
 It came from `deep_watch/`, which was its own engine — a persistent boat, five

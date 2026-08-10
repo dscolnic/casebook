@@ -23,6 +23,8 @@
 // This means a theme gets a sensible day without writing a number, and a theme
 // that moves a building gets a day that adjusts itself.
 
+import theme from './theme.js';
+
 /**
  * Game minutes per real second — one, so the countdown ticks once a second and
  * reads as a clock rather than a blur. At 2.5 the minutes field moved two and a
@@ -119,9 +121,23 @@ export function dayProgress(state){
  * moves with the countdown rather than with a separate clock. The two used to
  * be able to disagree, and a player watching the light has to be watching the
  * same thing the HUD is counting.
+ *
+ * A theme may set its own window with `look.dayWindow: [from, to]`. An
+ * observatory works nights: `[19, 31]` runs 19:00 through to 07:00 the next
+ * morning, so the campaign is played under stars and the sun never rises. The
+ * hour is returned unwrapped and the callers take it modulo 24, because a
+ * window that crosses midnight has to stay monotonic to interpolate across.
  */
 export const DAY_STARTS = 7;
 export const DAY_ENDS = 19;
+export function dayWindow(){
+  const w = theme?.look?.dayWindow;
+  if(Array.isArray(w) && w.length === 2 && Number.isFinite(w[0]) && Number.isFinite(w[1])){
+    return [w[0], w[1]];
+  }
+  return [DAY_STARTS, DAY_ENDS];
+}
 export function hourOfDay(state){
-  return DAY_STARTS + dayProgress(state) * (DAY_ENDS - DAY_STARTS);
+  const [from, to] = dayWindow();
+  return from + dayProgress(state) * (to - from);
 }

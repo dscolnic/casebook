@@ -57,7 +57,9 @@ export default {
   interiors: INTERIORS,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
-  interiorStyle: 'lab',
+  // Dark surfaces and red service lighting: an observatory control room is lit
+  // to preserve night vision, and it looks like nowhere else in this set.
+  interiorStyle: 'observatory',
 
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
@@ -76,20 +78,34 @@ export default {
   ],
 
   look: {
-    fov: 66,            // a 72° field distorts badly down a straight street
+    // The campaign is played at night, 19:00 through to 07:00. `day.js` reads
+    // this and the sun angle follows the countdown, so the sky darkens toward
+    // midnight and greys at the end of a shift — and never rises.
+    dayWindow: [19, 31],
+    fov: 66,
     near: 0.1,
-    // Outdoors this has to reach past the horizon ranks and the sky dome. At an
-    // interior's 160 the dome is clipped away entirely and the sky renders
-    // black, in broad daylight, with no error anywhere.
-    far: 900,
-    fog: { colour: 0xb9c4c8, near: 150, far: 460 },
+    // Must clear the sky dome, which this site scales to 950, and the farthest
+    // horizon rank at 820. At 900 the dome fell outside the frustum and was not
+    // drawn at all: the page background showed through as a flat grey sky, with
+    // the ranks and the stars still rendered in front of it. It reads as a
+    // lighting problem and is a clipped object. `buildSky` now warns.
+    far: 1400,
+    // Thin cold air. The fog colour is nearly black; at night it is the sky.
+    fog: { colour: 0x121721, near: 180, far: 620 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
-    exposure: 0.95,
+    // A night scene has no sun to blow out, but it must not be lifted either:
+    // `nightLift: 0` keeps the engine from raising exposure after dark, which
+    // is what a daytime game wants at dusk and what turns this sky grey.
+    exposure: 1.0,
+    nightLift: 0,
     // How wide the player is, for collision. 0.45 suits a street; a place with
     // metre-wide doorways needs 0.3 or the player gets stuck in them.
     playerRadius: 0.45,
     // Six real lights is the ceiling. buildSunRig makes three of them.
-    lighting: { ambient: 0.08, sun: 3.0, hemi: 0.22, shadowExtent: 110 },
+    // Starlight and a moon: a little ambient, a weak cold key, and hemisphere
+    // light doing most of the work. Six real lights is the ceiling and the sun
+    // rig already makes three; every lamp on the mountain is emissive.
+    lighting: { ambient: 0.30, sun: 0.9, hemi: 0.55, shadowExtent: 140 },
   },
 
   // Theme hooks. `decorate` is called by the outdoor world, the two fit-out
