@@ -772,7 +772,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the asteroid's change in speed.",
         "answer": "",
-        "why": "A centimetre and a half per second sounds like nothing. Applied eight years before encounter it accumulates into about four thousand kilometres, and ejecta thrown off the far side can double that. Half an Earth diameter, bought with one launch, is the whole basis of deflection — and it only works because it was applied early.",
+        "why": "A centimetre and a half per second sounds like nothing. Applied five years before the encounter it accumulates into about two and a half thousand kilometres, and ejecta thrown off the far side can double that. Most of an Earth radius, bought with one launch, is the whole basis of deflection — and it only works because it was applied early.",
         "givens": [],
         "relationship": "Momentum = mass × speed, and it is conserved. Velocity change = momentum transferred ÷ the mass it is given to.",
         "calcKey": "IMPACT-4"
