@@ -25,6 +25,11 @@ export default {
   // type sized for each. Undergraduate: no scaling.
   audience: { grade: 12 },
 
+  // Fifteen working days across seven weeks of one response. They really are
+  // days, so the label stays — but the cards say which day, because they are
+  // not consecutive.
+  dayNoun: 'Day',
+
   id: 'contamcity',
   title: 'The Contaminated City',
   subtitle: 'Chief Scientific Officer · Riverton Contamination Response',
