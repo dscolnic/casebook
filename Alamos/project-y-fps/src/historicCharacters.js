@@ -1,28 +1,522 @@
 export const HISTORIC_CHARACTERS=[
-  {id:'oppenheimer', name:'J. Robert Oppenheimer', role:'Laboratory Director', division:'T', bio:`<p><b>J. Robert Oppenheimer (1904–1967)</b> was an American theoretical physicist educated at Harvard and Göttingen, where he studied quantum mechanics under Max Born. By the early 1930s he was a leading figure at Berkeley and Caltech, known for work on the Born–Oppenheimer approximation, electron-positron theory, and neutron stars. His charisma as a teacher and his breadth across theory and experimental intuition made him a central node in American physics despite having no prior administrative experience running a laboratory.</p><p>As director of Los Alamos from 1942 to 1945 he selected the mesa after a horseback reconnaissance, insisted on a civilian laboratory under military contract, and organized the site into divisions (T, P, CM, O, X, G). He chaired the weekly colloquia, mediated between Groves’ schedule and scientific caution, and made the pivotal decisions to pursue both gun and implosion and then to prioritize implosion after the plutonium spontaneous-fission crisis. He observed Trinity on 16 July 1945 from the control bunker and later recalled the Bhagavad Gita line “Now I am become Death, the destroyer of worlds.”</p><p>After the war he chaired the Atomic Energy Commission’s General Advisory Committee, advocated international control via the Acheson–Lilienthal Report, and opposed the crash program for the hydrogen bomb. His 1954 security hearing, driven by Lewis Strauss, stripped his clearance and became a symbol of McCarthy-era science politics. President Kennedy intended to rehabilitate him; President Johnson presented the Enrico Fermi Award in 1963. He died of throat cancer in Princeton in 1967; his Bathtub Row house (V-17) and Fuller Lodge podium remain Los Alamos landmarks.</p>`, color:'#1a2e4a', hat:'fedora'},
-  {id:'groves', name:'Leslie R. Groves', role:'Commanding General, Manhattan Engineer District', division:'E', bio:`<p><b>Leslie R. Groves (1896–1970)</b> was a United States Army Corps of Engineers officer who had just overseen construction of the Pentagon when he was assigned to the Manhattan Engineer District in September 1942. An engineer by training at West Point and MIT, he combined blunt administrative force with an understanding of how to shield scientists from bureaucratic delay. He controlled the project’s $2 billion budget and its industrial sites at Oak Ridge and Hanford.</p><p>Groves selected the Los Alamos site after rejecting Jemez Springs, chose Oppenheimer as director over strong security objections, and enforced a brutal schedule that moved the laboratory from empty mesa to working town in five months via M. M. Sundt Construction. He negotiated with Vannevar Bush and James Conant for resources, secured the Sundt housing program, and mediated between military secrecy and scientific openness. He presented the Army-Navy E Award to Los Alamos at Fuller Lodge on 16 October 1945.</p><p>After the war he oversaw the Bikini tests and briefly headed Army Special Weapons. He retired in 1948, wrote <i>Now It Can Be Told</i> (1962), and defended his management as necessary to end the war. Historians credit his Groves–Oppenheimer partnership as the organizational engine that made Los Alamos function despite competing scientific and military cultures.</p>`, color:'#3a3a2a', hat:'peaked'},
-  {id:'fermi', name:'Enrico Fermi', role:'Nobel 1938 — Chicago Pile & F Division', division:'T', bio:`<p><b>Enrico Fermi (1901–1954)</b> was an Italian physicist awarded the 1938 Nobel Prize in Physics for work on slow neutrons and artificial radioactivity. After receiving the prize he emigrated to the United States, joining Columbia and then the University of Chicago. His systematic measurements of neutron moderation and absorption laid the quantitative foundation for chain reactions.</p><p>On 2 December 1942 his team achieved the first self-sustaining chain reaction in Chicago Pile-1 beneath Stagg Field, with Leona Woods operating the boron-trifluoride counters that confirmed criticality. At Los Alamos he led F Division, advised on critical mass, designed the water-tank “Fermi method” for yield estimation, and during Trinity famously dropped shredded paper to estimate the blast wave at roughly 10 kilotons. He lectured almost every young theorist on the mesa and was known for back-of-the-envelope estimates that cut through complexity.</p><p>Post-war he returned to Chicago’s Institute for Nuclear Studies and became a leading figure in particle physics, lending his name to fermions, Fermi statistics, and Fermilab. He advocated for civilian nuclear power while cautioning about weapons. He died of stomach cancer in 1954, likely related to radiation exposure, and remains one of the most cited experimental-theoretical physicists of the twentieth century.</p>`, color:'#2c4a3a', hat:'none'},
-  {id:'bethe', name:'Hans Bethe', role:'Head, Theoretical Division T — Nobel 1967', division:'T', bio:`<p><b>Hans Bethe (1906–2005)</b> was a German-American theoretical physicist who emigrated in 1933 after the Nazi dismissal of Jewish academics. Trained in Munich and Cambridge, he was already renowned for work on quantum electrodynamics and nuclear reactions. His clear, rigorous calculation style earned him the role of arbiter of what could be trusted on paper.</p><p>As head of Los Alamos Theoretical Division (T) with about 40 theorists including Feynman, Peierls, Teller, and von Neumann, he oversaw calculations of critical mass, tamped implosion compression, and the opacity of bomb materials. He instituted weekly T Division talks and a practice of independent recalculation of every important number. He supervised the T-1 hydrodynamics and T-2 diffusion work that made Fat Man’s lens design credible, and he personally corrected several early overestimates of efficiency that could have misled engineering.</p><p>After the war he returned to Cornell, won the 1967 Nobel Prize for the theory of stellar nucleosynthesis, and became a senior voice for arms control, test-ban verification, and eventually opposition to the Strategic Defense Initiative. He served as a Los Alamos consultant into his nineties and was regarded as the laboratory’s conscience on technical honesty.</p>`, color:'#4a3a6a', hat:'none'},
-  {id:'bacher', name:'Robert Bacher', role:'Head, Physics (G) Division — Gadget', division:'P', bio:`<p><b>Robert Bacher (1905–2004)</b> was an American experimental nuclear physicist trained at Michigan and Caltech, a student of Robert Millikan. Before Los Alamos he worked on cosmic rays and at Cornell, and he was one of the few physicists trusted by both Ernest Lawrence and James Conant for experimental judgment.</p><p>At Los Alamos he first headed Experimental Physics and then G (Gadget) Division, responsible for the assembly and testing of the Trinity device and the physics of the pit. He organized the “cowpuncher” committees that forced interfaces between gun and implosion work, managed the RaLa (radio-lanthanum) implosion diagnostics, and ultimately oversaw the final assembly of the Gadget in the Trinity tower. Anecdotally, he personally drove the plutonium core by car from Los Alamos to the tower for security.</p><p>After the war he became the first civilian member of the Atomic Energy Commission, later provost of Caltech and a founder of Los Alamos County government. His insistence on measurable, instrumented tests became a lasting Los Alamos culture of “no test without diagnostics.”</p>`, color:'#5a4a3a', hat:'none'},
-  {id:'kistiakowsky', name:'George Kistiakowsky', role:'Head, Explosives Division X', division:'X', bio:`<p><b>George Kistiakowsky (1900–1982)</b> was a Ukrainian-born American physical chemist who earned his doctorate in Berlin and joined Harvard in 1930. An authority on thermochemistry and explosives, he had served in World War I and understood both laboratory chemistry and large-scale detonation.</p><p>At Los Alamos he led X Division, which at its peak employed about 600 people casting and machining Composition B and Baratol lenses to tolerances of ±0.01 inch. His teams used flash X-ray, high-speed photography, and pin diagnostics to detect jets and asymmetries in implosion and iteratively corrected lens shapes. He personally bet Oppenheimer ten dollars that implosion would fail, later paying with champagne after Trinity succeeded.</p><p>After the war he served as President Eisenhower’s science adviser, advocated for the Limited Test Ban Treaty, and became a prominent voice for arms control while continuing research on chemical kinetics at Harvard.</p>`, color:'#6a4a3a', hat:'none'},
-  {id:'parsons', name:'William “Deak” Parsons', role:'Ordnance Division O — Weaponeer, Little Boy', division:'E', bio:`<p><b>William Sterling Parsons (1901–1953)</b> was a United States Naval Academy graduate and ordnance officer who pioneered radar proximity fuses before the war. His experience bridging laboratory science and fleet ordnance made him Groves’ choice to ensure weapons could actually be delivered.</p><p>As head of Ordnance (O/E) Division at Los Alamos he was responsible for gun assembly, fuzing, ballistics, and the logistics of moving weapons to Tinian. He designed the safety/arming architecture for Little Boy and, as weaponeer aboard the Enola Gay on 6 August 1945, armed the weapon in flight — a safety decision he personally insisted upon. He also coordinated the engineering of the Fat Man tail and release mechanisms.</p><p>After the war he continued as a rear admiral in naval nuclear matters and participated in Operation Crossroads at Bikini. He died suddenly of a heart attack at the Pentagon in 1953 while still on active duty. Yosemite’s Parsons Memorial Lodge honors him.</p>`, color:'#2f3a4a', hat:'cap'},
-  {id:'szilard', name:'Leo Szilard', role:'Chain reaction patent; Einstein letter; dissent', division:'T', bio:`<p><b>Leo Szilard (1898–1964)</b> was a Hungarian physicist who studied in Berlin under Einstein and, while living in London in 1933, conceived and patented the idea of a neutron-driven chain reaction. He recognized that beryllium + alpha particles could produce neutrons and that a properly arranged lattice might multiply them.</p><p>In August 1939, with Eugene Wigner, he drafted the letter that Albert Einstein sent to President Roosevelt warning that Germany might develop atomic weapons, an act that helped launch the Advisory Committee on Uranium and later the Manhattan Project. At the Metallurgical Laboratory in Chicago he co-designed the lattice pile with Fermi and pushed for information sharing among scientists, clashing with Groves over compartmentalization.</p><p>Troubled by the military use of the bomb, he circulated the Szilard Petition in July 1945, signed by 155 Manhattan scientists, urging that Japan be warned before a combat use. After the war he moved into biology, invented the chemostat, and became a founder of the Salk Institute and a founding voice of the arms-control movement and the Pugwash Conferences.</p>`, color:'#3a2e2e', hat:'none'},
-  {id:'lawrence', name:'Ernest Lawrence', role:'Berkeley Rad Lab — Calutrons', division:'CM', bio:`<p><b>Ernest Lawrence (1901–1958)</b> was an American physicist who invented the cyclotron at Berkeley in 1930, for which he received the 1939 Nobel Prize. His Radiation Laboratory pioneered the “big science” model of large accelerator teams, graduate students, and industrial-scale magnets.</p><p>During the war his laboratory was converted to electromagnetic separation of uranium isotopes. His 184-inch magnet design became the calutrons (California University Cyclotrons) built at Oak Ridge’s Y-12 plant, which enriched the uranium used in Little Boy. He recruited Oppenheimer to Berkeley in 1929, and the Berkeley-to-Los Alamos pipeline delivered much of the project’s talent and isotope chemistry.</p><p>After the war he continued to expand Berkeley’s accelerators (Bevatron) and advocated for continued nuclear weapons development, including the hydrogen bomb. His brother John Lawrence, a physician, pioneered radiation biology and medical isotope work. The Lawrence Berkeley and Lawrence Livermore laboratories are named for him.</p>`, color:'#3a4a2e', hat:'none'},
-  {id:'seaborg', name:'Glenn Seaborg', role:'Chemistry — plutonium isolation', division:'CM', bio:`<p><b>Glenn Seaborg (1912–1999)</b> was an American chemist at Berkeley who, as a graduate student with Edwin McMillan, co-discovered plutonium in 1941. His expertise in actinide chemistry made him central to the question of whether plutonium could be produced and isolated in usable quantities.</p><p>At the Metallurgical Laboratory in Chicago he led the chemical team that developed the bismuth-phosphate precipitation process that first isolated microgram quantities of plutonium from irradiated uranium. That chemistry was scaled at scale to the massive Queen Mary separation canyons at Hanford. He advised Los Alamos on plutonium metallurgy, in particular the stabilization of the δ-phase for pit fabrication.</p><p>He received the 1951 Nobel Prize in Chemistry for the discovery and chemistry of transuranium elements, later served as UC Berkeley chancellor and chair of the Atomic Energy Commission (1961-71), and championed science education. Element 106, seaborgium, is named for him.</p>`, color:'#2e3a4a', hat:'none'},
-  {id:'chadwick', name:'James Chadwick', role:'British Mission head — neutron', division:'P', bio:`<p><b>James Chadwick (1891–1974)</b> was an English physicist who discovered the neutron in 1932 at the Cavendish Laboratory, work for which he received the 1935 Nobel Prize. As a protégé of Rutherford, he was the leading authority on neutron properties at the start of the war.</p><p>He headed the 20-member British Mission to Los Alamos from 1943 to 1945, which included Rudolf Peierls, Otto Frisch, William Penney, and Klaus Fuchs. The Mission settled critical-mass calculations, tamp efficiency, and the hydrodynamics of implosion, providing independent checks that convinced Groves to back implosion. Chadwick’s authority in British and American councils made the technical Anglo-American alliance function.</p><p>After the war he returned to Cambridge as Master of Gonville and Caius College and advised the British atomic energy program, though he was excluded from its weapons decisions. He was knighted in 1945 and remains a central figure in the institutional history of nuclear physics.</p>`, color:'#4a3a4a', hat:'none'},
-  {id:'ulm', name:'Stanisław Ulam', role:'Mathematics — Monte Carlo & staging', division:'X', bio:`<p><b>Stanisław Ulam (1909–1984)</b> was a Polish mathematician from Lwów who emigrated to the United States in the late 1930s and collaborated with John von Neumann at Princeton and Los Alamos. His work in set theory and number theory turned toward applied hydrodynamics during the war.</p><p>At Los Alamos with Nicholas Metropolis, he co-invented the Monte Carlo method — using random sampling on the new ENIAC computer to simulate neutron histories through imploding matter, a technique named for Monte Carlo’s casinos. With Edward Teller he proposed the 1951 Ulam–Teller radiation implosion scheme for the hydrogen bomb, staging a fission primary to compress a fusion secondary.</p><p>He remained at Los Alamos until 1965, later at the University of Colorado, and wrote the memoir <i>Adventures of a Mathematician</i>. His influence spans modern computing, combinatorics, and the design of thermonuclear weapons.</p>`, color:'#3a3a5a', hat:'none'},
-  {id:'vonneumann', name:'John von Neumann', role:'Mathematics & computing — implosion', division:'X', bio:`<p><b>John von Neumann (1903–1957)</b> was a Hungarian-American polymath active in set theory, game theory, and computer architecture. His ability to formalize physical intuition into rigorous mathematics made him Groves’ most trusted consultant on explosive design.</p><p>At Los Alamos he formalized the mathematics of shaped lenses (fast Composition B and slow Baratol) to convert a divergent detonation into a convergent spherical shock, computed Hugoniot shock tables, and derived the blast height and scaling laws used to choose Hiroshima’s detonation altitude. He championed the use of IBM punched-card machines and ENIAC for hydrodynamics and was a key proponent of the stored-program computer concept (von Neumann architecture).</p><p>After the war he joined the Institute for Advanced Study, developed game theory and cellular automata, and advised on ICBM and nuclear policy. He died of cancer in 1957 at age 53; his Los Alamos computing legacy underpins modern simulation.</p>`, color:'#2a2a4a', hat:'none'},
-  {id:'meitner', name:'Lise Meitner', role:'Fission discovery 1938 — refused bomb work', division:'T', bio:`<p><b>Lise Meitner (1878–1968)</b> was an Austrian-Swedish physicist who, with Otto Hahn and Fritz Strassmann in Berlin, identified nuclear fission on 19 December 1938, and with her nephew Otto Frisch coined the term “fission” in January 1939. She had fled Nazi Germany via the Netherlands to Stockholm in July 1938 after the Anschluss.</p><p>Despite personal invitations, she refused to join the Manhattan Project, stating “I will have nothing to do with a bomb.” From Sweden she followed the Los Alamos work with anguish, corresponding with Hahn about moral responsibility while recognizing that fission had made weapons inevitable. She was excluded from the 1944 Nobel Prize awarded to Hahn, a lasting controversy over credit for fission.</p><p>Post-war she became a prominent voice for women in science and for the peaceful use of nuclear energy, receiving the Enrico Fermi Award in 1966. Element 109, meitnerium, and the Hahn-Meitner Institute honor her. She died in Cambridge in 1968 and is regarded as one of the most significant physicists denied a Nobel for her central discovery.</p>`, color:'#5a3a3a', hat:'none'},
-  {id:'woods', name:'Leona Woods (Marshall Libby)', role:'Youngest CP-1, 23 — detectors', division:'P', bio:`<p><b>Leona Woods Marshall Libby (1919–1986)</b> earned a PhD in physics at Chicago at age 21 under Robert Mulliken. At 23 she was the only woman and youngest member of Enrico Fermi’s Chicago Pile-1 team on 2 December 1942. She built and monitored the boron-trifluoride counters that proved the pile had gone critical, a moment Fermi acknowledged by saying “the pile has gone critical — withdraw the rods.”</p><p>At Los Alamos from 1943, aged 24-25, she worked on the RaLa (radio-lanthanum) implosion diagnostics and fission cross-section measurements while pregnant — famously hiding the pregnancy under a baggy lab coat and using her husband John Marshall’s badge to access the Tech Area. She witnessed the transition from pile physics to implosion hydrodynamics firsthand.</p><p>After the war she became a professor at NYU, worked on environmental science and tree-ring dating, and wrote the memoir <i>The Uranium People</i> (1979). Her account remains a rare first-person female perspective on the birth of the atomic age and on balancing motherhood with wartime physics.</p>`, color:'#4a4a6a', hat:'none'},
-  {id:'wu', name:'Chien-Shiung Wu', role:'Columbia — fission, xenon, parity', division:'P', bio:`<p><b>Chien-Shiung Wu (1912–1997)</b> was a Chinese-American experimental physicist who earned her PhD at Berkeley in 1940 under Ernest Lawrence. At Columbia’s Division of War Research she became the authority on gaseous diffusion and radiation detectors, skills that fed directly into Manhattan needs.</p><p>For the Manhattan Project she measured precise fission cross sections required for Fermi’s piles and solved the xenon-135 poisoning that had unexpectedly shut down the Hanford B Reactor in fall 1944 — her 1940 work on xenon’s neutron absorption was decisive. Her contributions were classified for nearly two decades, delaying public recognition. Columbia’s wartime work under Harold Urey also drew on her expertise.</p><p>Post-war she disproved parity conservation in beta decay (1956, with Lee and Yang, who received the Nobel), an omission still debated. She later received the 1978 Wolf Prize and was lauded as the “First Lady of Physics.” She advocated for women in science and for arms control, and her Columbia laboratory became a training ground for generations of experimentalists.</p>`, color:'#3a4a5a', hat:'none'},
-  {id:'mayer', name:'Maria Goeppert Mayer', role:'Teller group — opacity, Nobel 1963', division:'T', bio:`<p><b>Maria Goeppert Mayer (1906–1972)</b> was a German-American theoretical physicist who earned her doctorate in Göttingen under Max Born in 1930. Emigrating in 1930, she held a series of unpaid or part-time positions while raising a family, including at Sarah Lawrence College and Columbia.</p><p>At Los Alamos on a part-time basis in Edward Teller’s group, commuting from New York, she worked on the opacity of uranium at high temperatures and the equation-of-state of bomb materials — calculations of how photons diffuse through exploded matter. While classified, the work required juggling family life with periodic travel to the mesa, a pattern common for senior women scientists whose appointments were marginal.</p><p>After the war, at Argonne and the University of Chicago, she developed the nuclear shell model that explained “magic numbers” of nucleons, receiving the 1963 Nobel Prize in Physics — the second woman after Marie Curie. She became a professor at UC San Diego and a symbol for later efforts to recognize women in physics.</p>`, color:'#4a5a6a', hat:'none'},
-  {id:'fuchs', name:'Klaus Fuchs', role:'T Division — spy', division:'T', bio:`<p><b>Klaus Fuchs (1911–1988)</b> was a German émigré theoretical physicist who fled Nazism in 1933, earned a doctorate in Bristol, and joined the British Mission. Interned as an enemy alien in 1940, he was recruited to Tube Alloys and then to Los Alamos in 1943 via Rudolf Peierls, where his calculations on implosion were rated excellent.</p><p>From February 1944 he passed detailed core design, initiator, lens and Trinity data to the Soviet Union via courier Harry Gold, meeting in Santa Fe. The information, including the Fuchs–Peierls method and plutonium pit dimensions, accelerated the Soviet Joe-1 test by an estimated year. He continued at Harwell after the war until decrypted Venona traffic exposed him; he confessed in January 1950 and served nine years in Wakefield Prison.</p><p>He returned to East Germany in 1959, led the Rossendorf research center, and received state honors. His case prompted the creation of the Q clearance system, stricter compartmentalization, and a lasting crisis of trust between scientists and security at Los Alamos.</p>`, color:'#3a3a3a', hat:'none'},
-  {id:'hall', name:'Theodore Hall', role:'Youngest physicist, 19 — spy', division:'P', bio:`<p><b>Theodore Hall (1925–1999)</b> was an American physicist who entered Harvard at 14, earned a physics degree at 18, and was recruited to Los Alamos in 1944 at age 19 — the youngest physicist on the mesa. Assigned to implosion critical-mass experiments, he impressed seniors with rapid analytical skill despite his youth.</p><p>Motivated by anti-fascist idealism and fear of a U.S. monopoly, he volunteered as a Soviet source in October 1944, passing a report on plutonium purification and the dimensions of the Fat Man pit via college friend Saville Sax. He later also shared information on the 1946 Bikini tests. Unlike Fuchs, he was never prosecuted; FBI identified him via Venona in 1950 but the case stalled and he was not formally charged until a 1990s re-investigation, by which time prosecution was moot.</p><p>After the war he earned a Chicago PhD in biology and became a biophysicist and professor at Cambridge, expressing late ambivalence about his wartime choices while defending the need to balance Soviet power. His story only became widely known after his death.</p>`, color:'#3a2e2e', hat:'none'},
-  {id:'greenglass', name:'David Greenglass', role:'Machinist — spy', division:'E', bio:`<p><b>David Greenglass (1922–2014)</b> was a Bronx-born U.S. Army machinist assigned to Project Y’s Special Engineer Detachment (SED) at Los Alamos. He worked in the shops machining precision molds for the high-explosive lenses that shaped the implosion wave, giving him visual access to lens geometry.</p><p>Recruited by his brother-in-law Julius Rosenberg, he sketched the lens cross-section on rough paper and, during a furlough in November 1944, passed it to Harry Gold in Albuquerque. In June 1945 he provided a second sketch while on leave in New York. Though less precise than Fuchs, his data corroborated the implosion design for Soviet scientists.</p><p>He testified against the Rosenbergs at their 1951 trial (later admitting he had minimized his wife’s role), received a 15-year sentence at Lewisburg and was released in 1960. He later recanted aspects of his testimony and lived quietly in New York. Historians estimate his information hastened the Soviet Joe-1 test by about a year.</p>`, color:'#4a3a3a', hat:'cap'},
-  {id:'hinton', name:'Joan Hinton', role:'Experimental, 22 — youngest woman', division:'P', bio:`<p><b>Joan Hinton (1921–2010)</b> was an American physicist who earned her degree at Bennington and Wisconsin, working under Elmer Hutchison. She joined the Metallurgical Laboratory in Chicago, where she worked on Enrico Fermi’s pile and on the gaseous diffusion problem, and then was invited to Los Alamos at age 22 as one of the youngest women in Experimental Physics.</p><p>At Los Alamos she worked on reactor construction and on the Trinity cloud-tracking team, calibrating detectors that measured the radioactive plume. She witnessed the July 1945 test and was deeply unsettled by the August uses. She refused the post-war secrecy oath required for Bikini Atoll tests and left Los Alamos in 1946, disillusioned with weapons work.</p><p>After the war she became a political activist, moving to Yan’an, China in 1948 with her husband Sid Engst to work on dairy farming and agriculture through the Great Leap Forward and Cultural Revolution. She lived on a farm near Beijing for the rest of her life, remaining a committed socialist critic of American nuclear policy.</p>`, color:'#5a4a4a', hat:'none'},
-  {id:'hornig', name:'Lilli Hornig', role:'Chemist — lenses & plutonium', division:'CM', bio:`<p><b>Lilli Hornig (1921–2017)</b> was a Czech-American chemist who earned her doctorate in chemistry at Harvard after fleeing Nazism. She joined George Kistiakowsky’s Explosives Division (X) at Los Alamos in 1944 after her husband, chemist Donald Hornig, was recruited.</p><p>She worked on the purification and casting of plutonium and on the high-explosive lenses, including the task of proving that plutonium inhalation hazards were low — an assignment she later described as being given because she was a woman. She faced overt sexism, being told she was “taking a man’s job,” and had to request transfer to more technical work. Her lens work contributed directly to Trinity’s symmetric implosion.</p><p>After the war she became a professor at Brown and Trinity Washington University and chaired the National Research Council committee that produced the landmark 1979 report on women in science, becoming a national advocate for equity in STEM and for arms control.</p>`, color:'#6a4a6a', hat:'none'},
-  {id:'graves', name:'Elizabeth “Diz” Graves', role:'Critical assemblies — physicist', division:'P', bio:`<p><b>Elizabeth Rona Graves (1917–1972)</b> — often recorded as Elizabeth Graves — was an English-born physicist who came to the United States as a child. She studied physics at the University of Chicago and joined Los Alamos in Robert Wilson’s cyclotron group, one of the few Black women scientists on the mesa.</p><p>She performed measurements of neutron multiplication in subcritical assemblies, work essential to predicting how close a pit was to criticality without assembling a full core. The mesa’s unusual lack of segregation meant she lived and worked alongside white colleagues, a contrast to her previous experience, though she remained rarely credited in group photos and official reports.</p><p>After the war she taught physics at Dillard University and Fisk University, historically Black institutions, and continued research on neutron scattering. Her post-war teaching career expanded access to physics for Black students, while her wartime contributions remained largely unrecognized in official histories until decades later.</p>`, color:'#5a3a4a', hat:'none'},
-  {id:'bradbury', name:'Norris Bradbury', role:'Trinity assembly → 2nd director', division:'E', bio:`<p><b>Norris Bradbury (1909–1997)</b> was an American physicist who earned his PhD at Berkeley under Ernest Lawrence and served as a naval reserve officer. Recruited to Los Alamos in 1944, he was noted for meticulous experimental technique and calm under pressure.</p><p>He led the Trinity assembly team that assembled the Gadget in the 100-foot tower at Jornada del Muerto and checked the final high-explosive assembly in the New Mexico summer heat. His careful procedures were credited with avoiding a pre-test accident. In the fall of 1945 Groves and Oppenheimer selected him to succeed Oppenheimer as laboratory director.</p><p>As director from 1945 to 1970 he transformed the wartime camp into the Los Alamos National Laboratory, building the permanent technical areas (including TA-3), managing the transition to Castle and Bravo thermonuclear tests, and establishing the laboratory’s post-war culture of large-scale computing and stockpile stewardship. He remained low-key, preferring to keep the laboratory small and focused.</p>`, color:'#2e4a3a', hat:'none'},
-  {id:'mckibbin', name:'Dorothy McKibbin', role:'109 East Palace — Gatekeeper', division:'E', bio:`<p><b>Dorothy McKibbin (1897–1985)</b> was a Santa Fe widow and former Chandler’s shop employee who was hired in March 1943 to run the Los Alamos Project’s Santa Fe Hill Office at 109 East Palace Avenue. She had no scientific training but became the human face of the secret city.</p><p>Every arrival to Los Alamos — some 2,000 scientists, families, and workers — first reported to her office, where she issued passes, arranged housing assignments from Bathtub Row to hutment, found dentists and babysitters, and calmed terrified wives who had not been told where they were going. She memorized the classified directory and never disclosed names or locations. Oppenheimer considered her indispensable.</p><p>After the war she remained at 109 East Palace as a Los Alamos institution, known to all as “Mrs. McKibbin.” An oral-history subject and friend to many scientists, her house on Old Santa Fe Trail is now part of the Manhattan Project National Historical Park. The phrase “Everyone met Dorothy first” is still quoted by survivors.</p>`, color:'#6a5a3a', hat:'hat'},
-  {id:'kitty', name:'Katherine “Kitty” Oppenheimer', role:'Botanist — community voice', division:'CM', bio:`<p><b>Katherine “Kitty” Oppenheimer (1910–1972)</b> was an American botanist and biologist who had studied at the University of Pittsburgh and Berkeley, where she met Robert Oppenheimer. Well-educated and outspoken, she arrived on the mesa with their young children Peter and Katherine (Toni) and lived at Bathtub Row house V-17.</p><p>She became an informal leader on community issues: protesting erratic housing assignments, commissary shortages, and the harassment of wives by military security. She organized the Los Alamos community garden, censored mail as part of security duties, and hosted salon-like discussions that mixed science, politics, and personal strain. The isolation, surveillance, and drinking culture weighed heavily on her.</p><p>After the war the family moved to Princeton’s Institute for Advanced Study; her later years were marked by depression and alcoholism and periodic separations. She died of an embolism in Panama in 1972 while traveling. Recent biographies have re-evaluated her as more than “the director’s wife” — as a scientifically trained interlocutor whose critiques of security reflected broader tensions on the hill.</p>`, color:'#6a5a6a', hat:'hat'},
+  {
+    "id": "oppenheimer",
+    "name": "J. Robert Oppenheimer",
+    "role": "Laboratory Director",
+    "division": "T",
+    "bio": "<p><b>J. Robert Oppenheimer (1904–1967)</b> was an American theoretical physicist educated at Harvard and Göttingen, where he studied quantum mechanics under Max Born. By the early 1930s he was a leading figure at Berkeley and Caltech, known for work on the Born–Oppenheimer approximation, electron-positron theory, and neutron stars. His charisma as a teacher and his breadth across theory and experimental intuition made him a central node in American physics despite having no prior administrative experience running a laboratory.</p><p>As director of Los Alamos from 1942 to 1945 he selected the mesa after a horseback reconnaissance, insisted on a civilian laboratory under military contract, and organized the site into divisions (T, P, CM, O, X, G). He chaired the weekly colloquia, mediated between Groves’ schedule and scientific caution, and made the pivotal decisions to pursue both gun and implosion and then to prioritize implosion after the plutonium spontaneous-fission crisis. He observed Trinity on 16 July 1945 from the control bunker and later recalled the Bhagavad Gita line “Now I am become Death, the destroyer of worlds.”</p><p>After the war he chaired the Atomic Energy Commission’s General Advisory Committee, advocated international control via the Acheson–Lilienthal Report, and opposed the crash program for the hydrogen bomb. His 1954 security hearing, driven by Lewis Strauss, stripped his clearance and became a symbol of McCarthy-era science politics. President Kennedy intended to rehabilitate him; President Johnson presented the Enrico Fermi Award in 1963. He died of throat cancer in Princeton in 1967; his Bathtub Row house (V-17) and Fuller Lodge podium remain Los Alamos landmarks.</p>",
+    "color": "#1a2e4a",
+    "hat": "fedora",
+    "quiz": [
+      {
+        "q": "What did Oppenheimer decide once plutonium turned out to fission spontaneously?",
+        "a": "To keep both the gun and implosion programmes, and then put implosion first",
+        "wrong": [
+          "To stop implosion work altogether and concentrate the mesa on the gun design",
+          "To hold the two programmes at equal priority until Trinity settled it",
+          "To hand the choice to the Army rather than make it inside the laboratory"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "groves",
+    "name": "Leslie R. Groves",
+    "role": "Commanding General, Manhattan Engineer District",
+    "division": "E",
+    "bio": "<p><b>Leslie R. Groves (1896–1970)</b> was a United States Army Corps of Engineers officer who had just overseen construction of the Pentagon when he was assigned to the Manhattan Engineer District in September 1942. An engineer by training at West Point and MIT, he combined blunt administrative force with an understanding of how to shield scientists from bureaucratic delay. He controlled the project’s $2 billion budget and its industrial sites at Oak Ridge and Hanford.</p><p>Groves selected the Los Alamos site after rejecting Jemez Springs, chose Oppenheimer as director over strong security objections, and enforced a brutal schedule that moved the laboratory from empty mesa to working town in five months via M. M. Sundt Construction. He negotiated with Vannevar Bush and James Conant for resources, secured the Sundt housing program, and mediated between military secrecy and scientific openness. He presented the Army-Navy E Award to Los Alamos at Fuller Lodge on 16 October 1945.</p><p>After the war he oversaw the Bikini tests and briefly headed Army Special Weapons. He retired in 1948, wrote <i>Now It Can Be Told</i> (1962), and defended his management as necessary to end the war. Historians credit his Groves–Oppenheimer partnership as the organizational engine that made Los Alamos function despite competing scientific and military cultures.</p>",
+    "color": "#3a3a2a",
+    "hat": "peaked",
+    "quiz": [
+      {
+        "q": "What appointment did Groves make over strong objections from his own security people?",
+        "a": "Oppenheimer as director of the laboratory",
+        "wrong": [
+          "A civilian contract rather than a military one for the whole site",
+          "Jemez Springs as the site, against his engineers’ advice",
+          "A scientific committee to control the project’s budget"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fermi",
+    "name": "Enrico Fermi",
+    "role": "Nobel 1938 — Chicago Pile & F Division",
+    "division": "T",
+    "bio": "<p><b>Enrico Fermi (1901–1954)</b> was an Italian physicist awarded the 1938 Nobel Prize in Physics for work on slow neutrons and artificial radioactivity. After receiving the prize he emigrated to the United States, joining Columbia and then the University of Chicago. His systematic measurements of neutron moderation and absorption laid the quantitative foundation for chain reactions.</p><p>On 2 December 1942 his team achieved the first self-sustaining chain reaction in Chicago Pile-1 beneath Stagg Field, with Leona Woods operating the boron-trifluoride counters that confirmed criticality. At Los Alamos he led F Division, advised on critical mass, designed the water-tank “Fermi method” for yield estimation, and during Trinity famously dropped shredded paper to estimate the blast wave at roughly 10 kilotons. He lectured almost every young theorist on the mesa and was known for back-of-the-envelope estimates that cut through complexity.</p><p>Post-war he returned to Chicago’s Institute for Nuclear Studies and became a leading figure in particle physics, lending his name to fermions, Fermi statistics, and Fermilab. He advocated for civilian nuclear power while cautioning about weapons. He died of stomach cancer in 1954, likely related to radiation exposure, and remains one of the most cited experimental-theoretical physicists of the twentieth century.</p>",
+    "color": "#2c4a3a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "How did Fermi estimate the Trinity yield where he stood?",
+        "a": "He dropped shredded paper and measured how far the blast wave carried it",
+        "wrong": [
+          "He timed the flash against the arrival of the sound at the bunker",
+          "He read a pressure gauge mounted on a post outside the bunker",
+          "He counted the seconds the cloud took to reach its full height"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bethe",
+    "name": "Hans Bethe",
+    "role": "Head, Theoretical Division T — Nobel 1967",
+    "division": "T",
+    "bio": "<p><b>Hans Bethe (1906–2005)</b> was a German-American theoretical physicist who emigrated in 1933 after the Nazi dismissal of Jewish academics. Trained in Munich and Cambridge, he was already renowned for work on quantum electrodynamics and nuclear reactions. His clear, rigorous calculation style earned him the role of arbiter of what could be trusted on paper.</p><p>As head of Los Alamos Theoretical Division (T) with about 40 theorists including Feynman, Peierls, Teller, and von Neumann, he oversaw calculations of critical mass, tamped implosion compression, and the opacity of bomb materials. He instituted weekly T Division talks and a practice of independent recalculation of every important number. He supervised the T-1 hydrodynamics and T-2 diffusion work that made Fat Man’s lens design credible, and he personally corrected several early overestimates of efficiency that could have misled engineering.</p><p>After the war he returned to Cornell, won the 1967 Nobel Prize for the theory of stellar nucleosynthesis, and became a senior voice for arms control, test-ban verification, and eventually opposition to the Strategic Defense Initiative. He served as a Los Alamos consultant into his nineties and was regarded as the laboratory’s conscience on technical honesty.</p>",
+    "color": "#4a3a6a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What practice did Bethe institute in the Theoretical Division?",
+        "a": "Independent recalculation of every important number",
+        "wrong": [
+          "One approved calculation method that the whole division had to use",
+          "A rule that no number was used until an experiment had confirmed it",
+          "Review of every calculation by the Ordnance engineers who would build it"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bacher",
+    "name": "Robert Bacher",
+    "role": "Head, Physics (G) Division — Gadget",
+    "division": "P",
+    "bio": "<p><b>Robert Bacher (1905–2004)</b> was an American experimental nuclear physicist trained at Michigan and Caltech, a student of Robert Millikan. Before Los Alamos he worked on cosmic rays and at Cornell, and he was one of the few physicists trusted by both Ernest Lawrence and James Conant for experimental judgment.</p><p>At Los Alamos he first headed Experimental Physics and then G (Gadget) Division, responsible for the assembly and testing of the Trinity device and the physics of the pit. He organized the “cowpuncher” committees that forced interfaces between gun and implosion work, managed the RaLa (radio-lanthanum) implosion diagnostics, and ultimately oversaw the final assembly of the Gadget in the Trinity tower. Anecdotally, he personally drove the plutonium core by car from Los Alamos to the tower for security.</p><p>After the war he became the first civilian member of the Atomic Energy Commission, later provost of Caltech and a founder of Los Alamos County government. His insistence on measurable, instrumented tests became a lasting Los Alamos culture of “no test without diagnostics.”</p>",
+    "color": "#5a4a3a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What rule of Los Alamos culture is credited to Bacher’s insistence?",
+        "a": "No test without diagnostics",
+        "wrong": [
+          "No calculation without an independent recalculation",
+          "No assembly without a written procedure signed by two people",
+          "No design change accepted after a full-scale test"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kistiakowsky",
+    "name": "George Kistiakowsky",
+    "role": "Head, Explosives Division X",
+    "division": "X",
+    "bio": "<p><b>George Kistiakowsky (1900–1982)</b> was a Ukrainian-born American physical chemist who earned his doctorate in Berlin and joined Harvard in 1930. An authority on thermochemistry and explosives, he had served in World War I and understood both laboratory chemistry and large-scale detonation.</p><p>At Los Alamos he led X Division, which at its peak employed about 600 people casting and machining Composition B and Baratol lenses to tolerances of ±0.01 inch. His teams used flash X-ray, high-speed photography, and pin diagnostics to detect jets and asymmetries in implosion and iteratively corrected lens shapes. He personally bet Oppenheimer ten dollars that implosion would fail, later paying with champagne after Trinity succeeded.</p><p>After the war he served as President Eisenhower’s science adviser, advocated for the Limited Test Ban Treaty, and became a prominent voice for arms control while continuing research on chemical kinetics at Harvard.</p>",
+    "color": "#6a4a3a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "How did Kistiakowsky’s division find asymmetries in an implosion?",
+        "a": "By instrumenting the event — flash X-ray, high-speed photography and pin timing",
+        "wrong": [
+          "By weighing and measuring each lens casting before and after it was fired",
+          "By recording the detonation from three widely separated sound stations",
+          "By calculating the wave shape beforehand and accepting the computed result"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "parsons",
+    "name": "William “Deak” Parsons",
+    "role": "Ordnance Division O — Weaponeer, Little Boy",
+    "division": "E",
+    "bio": "<p><b>William Sterling Parsons (1901–1953)</b> was a United States Naval Academy graduate and ordnance officer who pioneered radar proximity fuses before the war. His experience bridging laboratory science and fleet ordnance made him Groves’ choice to ensure weapons could actually be delivered.</p><p>As head of Ordnance (O/E) Division at Los Alamos he was responsible for gun assembly, fuzing, ballistics, and the logistics of moving weapons to Tinian. He designed the safety/arming architecture for Little Boy and, as weaponeer aboard the Enola Gay on 6 August 1945, armed the weapon in flight — a safety decision he personally insisted upon. He also coordinated the engineering of the Fat Man tail and release mechanisms.</p><p>After the war he continued as a rear admiral in naval nuclear matters and participated in Operation Crossroads at Bikini. He died suddenly of a heart attack at the Pentagon in 1953 while still on active duty. Yosemite’s Parsons Memorial Lodge honors him.</p>",
+    "color": "#2f3a4a",
+    "hat": "cap",
+    "quiz": [
+      {
+        "q": "What safety decision did Parsons insist on personally?",
+        "a": "Arming the weapon in flight rather than before the aircraft took off",
+        "wrong": [
+          "Carrying a second weaponeer in case the first was incapacitated in flight",
+          "Testing the fuzing system over open water before the mission was flown",
+          "Flying the assembly and its initiator out on separate aircraft"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "szilard",
+    "name": "Leo Szilard",
+    "role": "Chain reaction patent; Einstein letter; dissent",
+    "division": "T",
+    "bio": "<p><b>Leo Szilard (1898–1964)</b> was a Hungarian physicist who studied in Berlin under Einstein and, while living in London in 1933, conceived and patented the idea of a neutron-driven chain reaction. He recognized that beryllium + alpha particles could produce neutrons and that a properly arranged lattice might multiply them.</p><p>In August 1939, with Eugene Wigner, he drafted the letter that Albert Einstein sent to President Roosevelt warning that Germany might develop atomic weapons, an act that helped launch the Advisory Committee on Uranium and later the Manhattan Project. At the Metallurgical Laboratory in Chicago he co-designed the lattice pile with Fermi and pushed for information sharing among scientists, clashing with Groves over compartmentalization.</p><p>Troubled by the military use of the bomb, he circulated the Szilard Petition in July 1945, signed by 155 Manhattan scientists, urging that Japan be warned before a combat use. After the war he moved into biology, invented the chemostat, and became a founder of the Salk Institute and a founding voice of the arms-control movement and the Pugwash Conferences.</p>",
+    "color": "#3a2e2e",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What did Szilard do in July 1945, having helped start the project in 1939?",
+        "a": "Circulated a petition of 155 scientists urging that Japan be warned first",
+        "wrong": [
+          "Resigned from the project and asked for his chain-reaction patent back",
+          "Asked Einstein to send a second letter to the President, as in 1939",
+          "Published the Chicago pile results in order to force a public debate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lawrence",
+    "name": "Ernest Lawrence",
+    "role": "Berkeley Rad Lab — Calutrons",
+    "division": "CM",
+    "bio": "<p><b>Ernest Lawrence (1901–1958)</b> was an American physicist who invented the cyclotron at Berkeley in 1930, for which he received the 1939 Nobel Prize. His Radiation Laboratory pioneered the “big science” model of large accelerator teams, graduate students, and industrial-scale magnets.</p><p>During the war his laboratory was converted to electromagnetic separation of uranium isotopes. His 184-inch magnet design became the calutrons (California University Cyclotrons) built at Oak Ridge’s Y-12 plant, which enriched the uranium used in Little Boy. He recruited Oppenheimer to Berkeley in 1929, and the Berkeley-to-Los Alamos pipeline delivered much of the project’s talent and isotope chemistry.</p><p>After the war he continued to expand Berkeley’s accelerators (Bevatron) and advocated for continued nuclear weapons development, including the hydrogen bomb. His brother John Lawrence, a physician, pioneered radiation biology and medical isotope work. The Lawrence Berkeley and Lawrence Livermore laboratories are named for him.</p>",
+    "color": "#3a4a2e",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What was Lawrence’s Berkeley laboratory turned to during the war?",
+        "a": "Electromagnetic separation of uranium isotopes, scaled up as the Y-12 calutrons",
+        "wrong": [
+          "Gaseous diffusion of uranium, scaled up as the K-25 plant at Oak Ridge",
+          "Production of plutonium in the water-cooled reactors at Hanford",
+          "Machining and proof-testing the explosive components at Los Alamos"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "seaborg",
+    "name": "Glenn Seaborg",
+    "role": "Chemistry — plutonium isolation",
+    "division": "CM",
+    "bio": "<p><b>Glenn Seaborg (1912–1999)</b> was an American chemist at Berkeley who, as a graduate student with Edwin McMillan, co-discovered plutonium in 1941. His expertise in actinide chemistry made him central to the question of whether plutonium could be produced and isolated in usable quantities.</p><p>At the Metallurgical Laboratory in Chicago he led the chemical team that developed the bismuth-phosphate precipitation process that first isolated microgram quantities of plutonium from irradiated uranium. That chemistry was scaled at scale to the massive Queen Mary separation canyons at Hanford. He advised Los Alamos on plutonium metallurgy, in particular the stabilization of the δ-phase for pit fabrication.</p><p>He received the 1951 Nobel Prize in Chemistry for the discovery and chemistry of transuranium elements, later served as UC Berkeley chancellor and chair of the Atomic Energy Commission (1961-71), and championed science education. Element 106, seaborgium, is named for him.</p>",
+    "color": "#2e3a4a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What did the bismuth-phosphate process Seaborg’s team developed actually do?",
+        "a": "Separated the first microgram quantities of plutonium out of irradiated uranium",
+        "wrong": [
+          "Separated uranium isotopes from each other by their small difference in mass",
+          "Stabilised plutonium in its δ phase so that a pit could be machined from it",
+          "Purified the graphite that moderated the neutrons in the Chicago pile"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chadwick",
+    "name": "James Chadwick",
+    "role": "British Mission head — neutron",
+    "division": "P",
+    "bio": "<p><b>James Chadwick (1891–1974)</b> was an English physicist who discovered the neutron in 1932 at the Cavendish Laboratory, work for which he received the 1935 Nobel Prize. As a protégé of Rutherford, he was the leading authority on neutron properties at the start of the war.</p><p>He headed the 20-member British Mission to Los Alamos from 1943 to 1945, which included Rudolf Peierls, Otto Frisch, William Penney, and Klaus Fuchs. The Mission settled critical-mass calculations, tamp efficiency, and the hydrodynamics of implosion, providing independent checks that convinced Groves to back implosion. Chadwick’s authority in British and American councils made the technical Anglo-American alliance function.</p><p>After the war he returned to Cambridge as Master of Gonville and Caius College and advised the British atomic energy program, though he was excluded from its weapons decisions. He was knighted in 1945 and remains a central figure in the institutional history of nuclear physics.</p>",
+    "color": "#4a3a4a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What did the British Mission contribute that changed Groves’ mind?",
+        "a": "Independent checks on critical mass, tamper efficiency and implosion hydrodynamics",
+        "wrong": [
+          "The casting and machining of the explosive lenses that the design needed",
+          "The design of the gaseous-diffusion plant that enriched the uranium",
+          "The neutron cross-section measurements that set the lattice of the pile"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ulm",
+    "name": "Stanisław Ulam",
+    "role": "Mathematics — Monte Carlo & staging",
+    "division": "X",
+    "bio": "<p><b>Stanisław Ulam (1909–1984)</b> was a Polish mathematician from Lwów who emigrated to the United States in the late 1930s and collaborated with John von Neumann at Princeton and Los Alamos. His work in set theory and number theory turned toward applied hydrodynamics during the war.</p><p>At Los Alamos with Nicholas Metropolis, he co-invented the Monte Carlo method — using random sampling on the new ENIAC computer to simulate neutron histories through imploding matter, a technique named for Monte Carlo’s casinos. With Edward Teller he proposed the 1951 Ulam–Teller radiation implosion scheme for the hydrogen bomb, staging a fission primary to compress a fusion secondary.</p><p>He remained at Los Alamos until 1965, later at the University of Colorado, and wrote the memoir <i>Adventures of a Mathematician</i>. His influence spans modern computing, combinatorics, and the design of thermonuclear weapons.</p>",
+    "color": "#3a3a5a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What is the Monte Carlo method that Ulam and Metropolis invented?",
+        "a": "Simulating neutron histories by random sampling, on a computer",
+        "wrong": [
+          "Averaging many repeated experimental runs to remove random error",
+          "Solving the hydrodynamic equations exactly, one shell at a time",
+          "Estimating a result from the spread of independent hand calculations"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vonneumann",
+    "name": "John von Neumann",
+    "role": "Mathematics & computing — implosion",
+    "division": "X",
+    "bio": "<p><b>John von Neumann (1903–1957)</b> was a Hungarian-American polymath active in set theory, game theory, and computer architecture. His ability to formalize physical intuition into rigorous mathematics made him Groves’ most trusted consultant on explosive design.</p><p>At Los Alamos he formalized the mathematics of shaped lenses (fast Composition B and slow Baratol) to convert a divergent detonation into a convergent spherical shock, computed Hugoniot shock tables, and derived the blast height and scaling laws used to choose Hiroshima’s detonation altitude. He championed the use of IBM punched-card machines and ENIAC for hydrodynamics and was a key proponent of the stored-program computer concept (von Neumann architecture).</p><p>After the war he joined the Institute for Advanced Study, developed game theory and cellular automata, and advised on ICBM and nuclear policy. He died of cancer in 1957 at age 53; his Los Alamos computing legacy underpins modern simulation.</p>",
+    "color": "#2a2a4a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What did von Neumann’s mathematics of shaped charges accomplish?",
+        "a": "Turning a detonation spreading outward into a shock converging inward",
+        "wrong": [
+          "Making the detonation reach every point of the surface at full pressure",
+          "Slowing the detonation so that the assembly had time to compress",
+          "Removing the need for more than one detonation point"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "meitner",
+    "name": "Lise Meitner",
+    "role": "Fission discovery 1938 — refused bomb work",
+    "division": "T",
+    "bio": "<p><b>Lise Meitner (1878–1968)</b> was an Austrian-Swedish physicist who, with Otto Hahn and Fritz Strassmann in Berlin, identified nuclear fission on 19 December 1938, and with her nephew Otto Frisch coined the term “fission” in January 1939. She had fled Nazi Germany via the Netherlands to Stockholm in July 1938 after the Anschluss.</p><p>Despite personal invitations, she refused to join the Manhattan Project, stating “I will have nothing to do with a bomb.” From Sweden she followed the Los Alamos work with anguish, corresponding with Hahn about moral responsibility while recognizing that fission had made weapons inevitable. She was excluded from the 1944 Nobel Prize awarded to Hahn, a lasting controversy over credit for fission.</p><p>Post-war she became a prominent voice for women in science and for the peaceful use of nuclear energy, receiving the Enrico Fermi Award in 1966. Element 109, meitnerium, and the Hahn-Meitner Institute honor her. She died in Cambridge in 1968 and is regarded as one of the most significant physicists denied a Nobel for her central discovery.</p>",
+    "color": "#5a3a3a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What did Meitner do when the Manhattan Project invited her personally?",
+        "a": "Refused outright — \"I will have nothing to do with a bomb\"",
+        "wrong": [
+          "Agreed to consult on the theory only, and only from Stockholm",
+          "Accepted, and was then refused entry to the United States",
+          "Asked to be put on reactor physics rather than on weapons work"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "woods",
+    "name": "Leona Woods (Marshall Libby)",
+    "role": "Youngest CP-1, 23 — detectors",
+    "division": "P",
+    "bio": "<p><b>Leona Woods Marshall Libby (1919–1986)</b> earned a PhD in physics at Chicago at age 21 under Robert Mulliken. At 23 she was the only woman and youngest member of Enrico Fermi’s Chicago Pile-1 team on 2 December 1942. She built and monitored the boron-trifluoride counters that proved the pile had gone critical, a moment Fermi acknowledged by saying “the pile has gone critical — withdraw the rods.”</p><p>At Los Alamos from 1943, aged 24-25, she worked on the RaLa (radio-lanthanum) implosion diagnostics and fission cross-section measurements while pregnant — famously hiding the pregnancy under a baggy lab coat and using her husband John Marshall’s badge to access the Tech Area. She witnessed the transition from pile physics to implosion hydrodynamics firsthand.</p><p>After the war she became a professor at NYU, worked on environmental science and tree-ring dating, and wrote the memoir <i>The Uranium People</i> (1979). Her account remains a rare first-person female perspective on the birth of the atomic age and on balancing motherhood with wartime physics.</p>",
+    "color": "#4a4a6a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What was Leona Woods responsible for under Stagg Field on 2 December 1942?",
+        "a": "The boron-trifluoride counters that showed the pile had gone critical",
+        "wrong": [
+          "The control rods, and withdrawing them on Fermi’s word",
+          "The graphite lattice, and the purity of the blocks it was built from",
+          "The cadmium sheets that would have shut the pile down in an emergency"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wu",
+    "name": "Chien-Shiung Wu",
+    "role": "Columbia — fission, xenon, parity",
+    "division": "P",
+    "bio": "<p><b>Chien-Shiung Wu (1912–1997)</b> was a Chinese-American experimental physicist who earned her PhD at Berkeley in 1940 under Ernest Lawrence. At Columbia’s Division of War Research she became the authority on gaseous diffusion and radiation detectors, skills that fed directly into Manhattan needs.</p><p>For the Manhattan Project she measured precise fission cross sections required for Fermi’s piles and solved the xenon-135 poisoning that had unexpectedly shut down the Hanford B Reactor in fall 1944 — her 1940 work on xenon’s neutron absorption was decisive. Her contributions were classified for nearly two decades, delaying public recognition. Columbia’s wartime work under Harold Urey also drew on her expertise.</p><p>Post-war she disproved parity conservation in beta decay (1956, with Lee and Yang, who received the Nobel), an omission still debated. She later received the 1978 Wolf Prize and was lauded as the “First Lady of Physics.” She advocated for women in science and for arms control, and her Columbia laboratory became a training ground for generations of experimentalists.</p>",
+    "color": "#3a4a5a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What had shut down the Hanford B Reactor, and what did Wu’s earlier work explain?",
+        "a": "Xenon-135 poisoning — her 1940 work on how strongly xenon absorbs neutrons",
+        "wrong": [
+          "Corrosion in the cooling channels — her earlier work on metals in hot water",
+          "Graphite too impure to moderate — her work on the purity a pile demands",
+          "Fuel jammed by thermal expansion — her work on materials under heat"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mayer",
+    "name": "Maria Goeppert Mayer",
+    "role": "Teller group — opacity, Nobel 1963",
+    "division": "T",
+    "bio": "<p><b>Maria Goeppert Mayer (1906–1972)</b> was a German-American theoretical physicist who earned her doctorate in Göttingen under Max Born in 1930. Emigrating in 1930, she held a series of unpaid or part-time positions while raising a family, including at Sarah Lawrence College and Columbia.</p><p>At Los Alamos on a part-time basis in Edward Teller’s group, commuting from New York, she worked on the opacity of uranium at high temperatures and the equation-of-state of bomb materials — calculations of how photons diffuse through exploded matter. While classified, the work required juggling family life with periodic travel to the mesa, a pattern common for senior women scientists whose appointments were marginal.</p><p>After the war, at Argonne and the University of Chicago, she developed the nuclear shell model that explained “magic numbers” of nucleons, receiving the 1963 Nobel Prize in Physics — the second woman after Marie Curie. She became a professor at UC San Diego and a symbol for later efforts to recognize women in physics.</p>",
+    "color": "#4a5a6a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What was Maria Goeppert Mayer calculating for Teller’s group?",
+        "a": "Opacity — how photons diffuse through matter at very high temperature",
+        "wrong": [
+          "Critical mass, and how much a tamper around the core changes it",
+          "The shell structure of the nucleus and its magic numbers of nucleons",
+          "The neutron cross sections that the pile calculations were built on"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fuchs",
+    "name": "Klaus Fuchs",
+    "role": "T Division — spy",
+    "division": "T",
+    "bio": "<p><b>Klaus Fuchs (1911–1988)</b> was a German émigré theoretical physicist who fled Nazism in 1933, earned a doctorate in Bristol, and joined the British Mission. Interned as an enemy alien in 1940, he was recruited to Tube Alloys and then to Los Alamos in 1943 via Rudolf Peierls, where his calculations on implosion were rated excellent.</p><p>From February 1944 he passed detailed core design, initiator, lens and Trinity data to the Soviet Union via courier Harry Gold, meeting in Santa Fe. The information, including the Fuchs–Peierls method and plutonium pit dimensions, accelerated the Soviet Joe-1 test by an estimated year. He continued at Harwell after the war until decrypted Venona traffic exposed him; he confessed in January 1950 and served nine years in Wakefield Prison.</p><p>He returned to East Germany in 1959, led the Rossendorf research center, and received state honors. His case prompted the creation of the Q clearance system, stricter compartmentalization, and a lasting crisis of trust between scientists and security at Los Alamos.</p>",
+    "color": "#3a3a3a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What did the Fuchs case leave behind at Los Alamos?",
+        "a": "The Q clearance system, tighter compartmentalisation and a lasting distrust",
+        "wrong": [
+          "The expulsion of the whole British Mission from the laboratory",
+          "The transfer of the theoretical work to Britain under Peierls",
+          "The end of the weekly colloquium where everything had been discussed"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hall",
+    "name": "Theodore Hall",
+    "role": "Youngest physicist, 19 — spy",
+    "division": "P",
+    "bio": "<p><b>Theodore Hall (1925–1999)</b> was an American physicist who entered Harvard at 14, earned a physics degree at 18, and was recruited to Los Alamos in 1944 at age 19 — the youngest physicist on the mesa. Assigned to implosion critical-mass experiments, he impressed seniors with rapid analytical skill despite his youth.</p><p>Motivated by anti-fascist idealism and fear of a U.S. monopoly, he volunteered as a Soviet source in October 1944, passing a report on plutonium purification and the dimensions of the Fat Man pit via college friend Saville Sax. He later also shared information on the 1946 Bikini tests. Unlike Fuchs, he was never prosecuted; FBI identified him via Venona in 1950 but the case stalled and he was not formally charged until a 1990s re-investigation, by which time prosecution was moot.</p><p>After the war he earned a Chicago PhD in biology and became a biophysicist and professor at Cambridge, expressing late ambivalence about his wartime choices while defending the need to balance Soviet power. His story only became widely known after his death.</p>",
+    "color": "#3a2e2e",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "How did Hall’s case end, unlike Fuchs’s?",
+        "a": "He was identified through Venona and never prosecuted",
+        "wrong": [
+          "He confessed in 1950 and served nine years in an English prison",
+          "He was never identified by any investigation, then or afterwards",
+          "He was tried alongside the Rosenbergs in 1951 and acquitted"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "greenglass",
+    "name": "David Greenglass",
+    "role": "Machinist — spy",
+    "division": "E",
+    "bio": "<p><b>David Greenglass (1922–2014)</b> was a Bronx-born U.S. Army machinist assigned to Project Y’s Special Engineer Detachment (SED) at Los Alamos. He worked in the shops machining precision molds for the high-explosive lenses that shaped the implosion wave, giving him visual access to lens geometry.</p><p>Recruited by his brother-in-law Julius Rosenberg, he sketched the lens cross-section on rough paper and, during a furlough in November 1944, passed it to Harry Gold in Albuquerque. In June 1945 he provided a second sketch while on leave in New York. Though less precise than Fuchs, his data corroborated the implosion design for Soviet scientists.</p><p>He testified against the Rosenbergs at their 1951 trial (later admitting he had minimized his wife’s role), received a 15-year sentence at Lewisburg and was released in 1960. He later recanted aspects of his testimony and lived quietly in New York. Historians estimate his information hastened the Soviet Joe-1 test by about a year.</p>",
+    "color": "#4a3a3a",
+    "hat": "cap",
+    "quiz": [
+      {
+        "q": "What gave a machinist access to the implosion design?",
+        "a": "He machined the precision molds for the lenses, so he saw their geometry",
+        "wrong": [
+          "He had the run of the Theoretical Division’s calculation reports",
+          "He assembled the core itself and drove it out to the Trinity tower",
+          "He photographed the drawings held in the ordnance division’s vault"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hinton",
+    "name": "Joan Hinton",
+    "role": "Experimental, 22 — youngest woman",
+    "division": "P",
+    "bio": "<p><b>Joan Hinton (1921–2010)</b> was an American physicist who earned her degree at Bennington and Wisconsin, working under Elmer Hutchison. She joined the Metallurgical Laboratory in Chicago, where she worked on Enrico Fermi’s pile and on the gaseous diffusion problem, and then was invited to Los Alamos at age 22 as one of the youngest women in Experimental Physics.</p><p>At Los Alamos she worked on reactor construction and on the Trinity cloud-tracking team, calibrating detectors that measured the radioactive plume. She witnessed the July 1945 test and was deeply unsettled by the August uses. She refused the post-war secrecy oath required for Bikini Atoll tests and left Los Alamos in 1946, disillusioned with weapons work.</p><p>After the war she became a political activist, moving to Yan’an, China in 1948 with her husband Sid Engst to work on dairy farming and agriculture through the Great Leap Forward and Cultural Revolution. She lived on a farm near Beijing for the rest of her life, remaining a committed socialist critic of American nuclear policy.</p>",
+    "color": "#5a4a4a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "Why did Joan Hinton leave Los Alamos in 1946?",
+        "a": "She refused the secrecy oath required to work on the Bikini tests",
+        "wrong": [
+          "She was dismissed once the Trinity cloud-tracking work had ended",
+          "She left in order to finish the doctorate the war had interrupted",
+          "Her clearance was withdrawn over her politics after the war"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hornig",
+    "name": "Lilli Hornig",
+    "role": "Chemist — lenses & plutonium",
+    "division": "CM",
+    "bio": "<p><b>Lilli Hornig (1921–2017)</b> was a Czech-American chemist who earned her doctorate in chemistry at Harvard after fleeing Nazism. She joined George Kistiakowsky’s Explosives Division (X) at Los Alamos in 1944 after her husband, chemist Donald Hornig, was recruited.</p><p>She worked on the purification and casting of plutonium and on the high-explosive lenses, including the task of proving that plutonium inhalation hazards were low — an assignment she later described as being given because she was a woman. She faced overt sexism, being told she was “taking a man’s job,” and had to request transfer to more technical work. Her lens work contributed directly to Trinity’s symmetric implosion.</p><p>After the war she became a professor at Brown and Trinity Washington University and chaired the National Research Council committee that produced the landmark 1979 report on women in science, becoming a national advocate for equity in STEM and for arms control.</p>",
+    "color": "#6a4a6a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What assignment did Hornig say she was given because she was a woman?",
+        "a": "Establishing that the inhalation hazard from plutonium was low",
+        "wrong": [
+          "Typing and filing the specifications for the explosive lenses",
+          "Running the chemistry stockroom rather than a laboratory bench",
+          "Escorting visiting families around the technical area"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "graves",
+    "name": "Elizabeth “Diz” Graves",
+    "role": "Critical assemblies — physicist",
+    "division": "P",
+    "bio": "<p><b>Elizabeth Rona Graves (1917–1972)</b> — often recorded as Elizabeth Graves — was an English-born physicist who came to the United States as a child. She studied physics at the University of Chicago and joined Los Alamos in Robert Wilson’s cyclotron group, one of the few Black women scientists on the mesa.</p><p>She performed measurements of neutron multiplication in subcritical assemblies, work essential to predicting how close a pit was to criticality without assembling a full core. The mesa’s unusual lack of segregation meant she lived and worked alongside white colleagues, a contrast to her previous experience, though she remained rarely credited in group photos and official reports.</p><p>After the war she taught physics at Dillard University and Fisk University, historically Black institutions, and continued research on neutron scattering. Her post-war teaching career expanded access to physics for Black students, while her wartime contributions remained largely unrecognized in official histories until decades later.</p>",
+    "color": "#5a3a4a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What did Elizabeth Graves measure, and what did it let the laboratory avoid?",
+        "a": "Neutron multiplication in subcritical assemblies — how near criticality a pit was",
+        "wrong": [
+          "The energy of the cyclotron beam — so that the accelerator could be calibrated",
+          "The purity of plutonium metal — so that a pit could be cast without voids",
+          "The timing of the detonators — so that the lenses could be fired together"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bradbury",
+    "name": "Norris Bradbury",
+    "role": "Trinity assembly → 2nd director",
+    "division": "E",
+    "bio": "<p><b>Norris Bradbury (1909–1997)</b> was an American physicist who earned his PhD at Berkeley under Ernest Lawrence and served as a naval reserve officer. Recruited to Los Alamos in 1944, he was noted for meticulous experimental technique and calm under pressure.</p><p>He led the Trinity assembly team that assembled the Gadget in the 100-foot tower at Jornada del Muerto and checked the final high-explosive assembly in the New Mexico summer heat. His careful procedures were credited with avoiding a pre-test accident. In the fall of 1945 Groves and Oppenheimer selected him to succeed Oppenheimer as laboratory director.</p><p>As director from 1945 to 1970 he transformed the wartime camp into the Los Alamos National Laboratory, building the permanent technical areas (including TA-3), managing the transition to Castle and Bravo thermonuclear tests, and establishing the laboratory’s post-war culture of large-scale computing and stockpile stewardship. He remained low-key, preferring to keep the laboratory small and focused.</p>",
+    "color": "#2e4a3a",
+    "hat": "none",
+    "quiz": [
+      {
+        "q": "What was Bradbury’s job at Trinity, before he became director?",
+        "a": "He led the assembly team and checked the final explosive assembly in the tower",
+        "wrong": [
+          "He ran the diagnostic instrumentation laid out on the desert around the tower",
+          "He commanded the base camp and the evacuation arrangements for the test",
+          "He calculated the expected yield against which the test would be judged"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mckibbin",
+    "name": "Dorothy McKibbin",
+    "role": "109 East Palace — Gatekeeper",
+    "division": "E",
+    "bio": "<p><b>Dorothy McKibbin (1897–1985)</b> was a Santa Fe widow and former Chandler’s shop employee who was hired in March 1943 to run the Los Alamos Project’s Santa Fe Hill Office at 109 East Palace Avenue. She had no scientific training but became the human face of the secret city.</p><p>Every arrival to Los Alamos — some 2,000 scientists, families, and workers — first reported to her office, where she issued passes, arranged housing assignments from Bathtub Row to hutment, found dentists and babysitters, and calmed terrified wives who had not been told where they were going. She memorized the classified directory and never disclosed names or locations. Oppenheimer considered her indispensable.</p><p>After the war she remained at 109 East Palace as a Los Alamos institution, known to all as “Mrs. McKibbin.” An oral-history subject and friend to many scientists, her house on Old Santa Fe Trail is now part of the Manhattan Project National Historical Park. The phrase “Everyone met Dorothy first” is still quoted by survivors.</p>",
+    "color": "#6a5a3a",
+    "hat": "hat",
+    "quiz": [
+      {
+        "q": "What happened at 109 East Palace Avenue in Santa Fe?",
+        "a": "Every arrival reported there first, and left with a pass and somewhere to live",
+        "wrong": [
+          "The project’s mail was censored there before it went down the hill",
+          "It was the Army office that vetted scientists before they were hired",
+          "It held the classified directory the whole laboratory worked from"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kitty",
+    "name": "Katherine “Kitty” Oppenheimer",
+    "role": "Botanist — community voice",
+    "division": "CM",
+    "bio": "<p><b>Katherine “Kitty” Oppenheimer (1910–1972)</b> was an American botanist and biologist who had studied at the University of Pittsburgh and Berkeley, where she met Robert Oppenheimer. Well-educated and outspoken, she arrived on the mesa with their young children Peter and Katherine (Toni) and lived at Bathtub Row house V-17.</p><p>She became an informal leader on community issues: protesting erratic housing assignments, commissary shortages, and the harassment of wives by military security. She organized the Los Alamos community garden, censored mail as part of security duties, and hosted salon-like discussions that mixed science, politics, and personal strain. The isolation, surveillance, and drinking culture weighed heavily on her.</p><p>After the war the family moved to Princeton’s Institute for Advanced Study; her later years were marked by depression and alcoholism and periodic separations. She died of an embolism in Panama in 1972 while traveling. Recent biographies have re-evaluated her as more than “the director’s wife” — as a scientifically trained interlocutor whose critiques of security reflected broader tensions on the hill.</p>",
+    "color": "#6a5a6a",
+    "hat": "hat",
+    "quiz": [
+      {
+        "q": "What did Kitty Oppenheimer take on beyond her own household on the mesa?",
+        "a": "Community grievances — housing, the commissary, how security treated the wives",
+        "wrong": [
+          "The mesa’s school, which she ran through the first two years of the site",
+          "Botanical survey work along the canyons for the Army’s engineers",
+          "The hospital laboratory, where her scientific training was put to use"
+        ]
+      }
+    ]
+  }
 ];
