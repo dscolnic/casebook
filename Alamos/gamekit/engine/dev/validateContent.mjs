@@ -28,6 +28,8 @@ const problems = [];
 const notes = [];
 const fail = (m) => problems.push(m);
 const note = (m) => notes.push(m);
+/** Comparable text: case, punctuation and curly quotes all stop mattering. */
+const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
 
 async function load(rel){
   try{
@@ -261,6 +263,26 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
       }
       if(!(g.readings || []).some(r => r.status !== 'alarm')){
         fail(`${at}: every reading is an alarm — the quiet readings are what rule explanations out`);
+      }
+    }
+    // A rebuttal written "B. <the option> — <why it does not hold>" names the
+    // option it argues against. When the options are rewritten and the
+    // rebuttals are not, the verdict explains away answers that are not on the
+    // screen — the hospital shipped 74 lessons like that, telling a player who
+    // chose "the heart beats faster to help the body cool down" why "the bones
+    // need to become heavier during exercise" is wrong.
+    const rebuttals = Array.isArray(g.rebuttals) ? g.rebuttals : [];
+    if(rebuttals.length){
+      const flat = (g.choices || []).map(c => plain(c?.label ?? c)).filter(Boolean);
+      if(flat.length >= 2){
+        for(const r of rebuttals){
+          const m = /^\s*[A-D][.)]\s*(.+?)\s+—/.exec(String(r));
+          if(!m) continue;                       // bare-reason style, nothing to match
+          const claim = plain(m[1]);
+          if(!flat.some(l => l.includes(claim) || claim.includes(l))){
+            fail(`${at}: a rebuttal argues against "${m[1].slice(0, 48)}…", which is not one of the options`);
+          }
+        }
       }
     }
     if(kind === 'PROTOCOL' && g.mapping && new Set(g.mapping).size !== g.mapping.length){
