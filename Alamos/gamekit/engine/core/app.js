@@ -337,6 +337,32 @@ export function createDay({
     return m.stops.map(s => positionOf?.(s.group) ?? null);
   };
 
+  /**
+   * What yesterday left behind.
+   *
+   * Fifteen days of a campaign in which day 7's card reads the same whether
+   * day 4 held or fell over is not a story, it is fifteen first days. The
+   * results are already stored — `missionResults` is keyed `${week}-${stop}` —
+   * and nothing ever asked. One line, and it is the *engine* that says it,
+   * because a day card written to assume success would be lying to half the
+   * players who read it.
+   */
+  function continuityHTML(state){
+    const week = state?.week ?? 1;
+    if(week < 2) return '';
+    const rows = Object.entries(state.missionResults ?? {})
+      .filter(([k]) => k.startsWith(`${week - 1}-`))
+      .map(([, v]) => v);
+    if(!rows.length) return '';
+    const bad = rows.filter(r => !r.correct).length;
+    const text = bad === 0
+      ? `Everything you called on day ${week - 1} held overnight.`
+      : bad === rows.length
+        ? `None of day ${week - 1}'s calls held. Everything built on them is being worked again from the start.`
+        : `${bad} of day ${week - 1}'s ${rows.length} calls did not hold. What was built on them is being checked again while you work.`;
+    return `<div class="planSince ${bad ? 'planSinceBad' : ''}">${esc(text)}</div>`;
+  }
+
   function planHTML(resuming = false){
     const state = getState();
     const m = getCurrentMission(state);
@@ -361,6 +387,7 @@ export function createDay({
     // plan drawn to the site's own aspect can be seventeen hundred pixels tall,
     // so under a table in a 70vh card it is a map nobody ever sees.
     return `<div class="planCard">`
+      + continuityHTML(state)
       + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`
       + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
       + `<table class="planTable"><thead><tr><th></th><th>Call</th><th></th></tr></thead>`

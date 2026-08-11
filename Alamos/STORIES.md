@@ -97,31 +97,37 @@ delegate to.
 
 ---
 
-## Bring Them Home — *the room stops fixing and starts counting*
+## Bring Them Home — *two arguments, and both sides are right once*
 
-Something exploded four minutes ago, a quarter of a million miles away, and
-three consoles hold numbers that contradict each other. The first days are pure
-diagnosis under a clock: decide what the vehicle is actually doing as opposed to
-what the instruments say, rebuild where it is from a range, two angles and the
-travel time of a radio pulse, and correct a drift that is small today and fatal
-at the atmosphere — before the tracking station carrying the whole solution sets
-in forty minutes. Then the crew has to turn the spacecraft by hand with the
-guidance platform off and a thruster quad dead, and the story changes character.
-Nothing is being repaired any more. Everything is being rationed.
+Something exploded four minutes ago, a quarter of a million miles away.
+Commander Hale reported it before any instrument did, and now three consoles
+hold numbers that contradict each other. The first days are diagnosis under a
+clock — decide what the vehicle is doing as opposed to what the instruments say,
+rebuild where it is from a range, two angles and the travel time of a radio
+pulse, correct a drift that is small today and fatal at the atmosphere. Two
+arguments start here and run the length of the campaign. Whitaker, on
+trajectory, wants to act on the numbers in front of him; Carter, on integration,
+will hold any decision for one measurement taken outside the chain. Whitaker is
+right on day three, when waiting costs propellant nobody has. Then Shah, on
+power, and Brooks, on heat and air, start competing for the same reserve — the
+scrubber fan and the cabin heaters are the two loads left to cut, and Brooks's
+crew are already sleeping in everything they own.
 
-The middle third is a consumables campaign: batteries days earlier than any plan
-allowed, a bus sagging while current looks normal, a proposal to parallel two
-modules at unknown states of charge inside a sealed cabin, a cabin at four
-degrees with condensation running down the walls, and carbon dioxide rising past
-a scrubber whose fan draws its rated current while moving almost no air. Then a
-twelve-decibel fade takes the voice loop and the navigation measurement in the
-same minute, and a burn has to be aimed by eye through a window reticle. The
-ending returns to where it started, deliberately: several ground stations
-suddenly agree that the trajectory has moved, and they are all fed from the same
-clock — the same common-mode failure that opened day one. The final review has
-to say how strongly each claim is held before eleven minutes of entry, four of
-them without communications, and the legacy the board funds afterwards is
-redesigning the shared dependencies that fooled the room twice.
+The middle third is rationing rather than repair: a battery module that would
+buy eleven hours if anybody knew its state of charge, a cabin at four degrees
+with condensation on the walls, carbon dioxide climbing past a fan that draws
+its rated current while moving almost no air — and Hale starting to make small
+mistakes reading numbers back, which is the first symptom and one he cannot
+notice himself. The rhythm breaks deliberately twice: day ten is quiet and
+exacting, with Ruiz aiming a burn by eye through a window reticle at twenty
+minutes of cold per sighting; day twelve is a clean win, a resonance found early
+by Okoye and fixed by changing a pump speed. Then the campaign closes on the
+argument it opened with. Several ground stations suddenly agree that the
+trajectory has moved, and they are all fed from the same clock — which is
+Carter's case, held for a fortnight, arriving on the one day it is correct.
+Eleven minutes of entry, four of them without communications, and a room that
+has to say how strongly each claim is held. Hale, Ruiz and Sato have heard every
+word of it for five days, and today they say very little.
 
 ---
 
