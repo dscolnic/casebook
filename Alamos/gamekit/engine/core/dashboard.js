@@ -259,7 +259,11 @@ export function updateHUD(){
     whereEl.textContent = open.length === 1
       ? `Still open: ${label(open[0])}`
       : `Still open: ${open.map(label).join('  ·  ')}`;
-    whyEl.textContent = mission.stake || mission.objective || '';
+    // Not the day's briefing. It is a hundred and fifty words, it was read on
+    // the plan card two minutes ago, and while walking around what the player
+    // needs from this banner is where to go. The briefing is a button away —
+    // `briefingBtn`, installed by createDay.
+    whyEl.textContent = '';
   }
 
   const statsBody=document.getElementById('statsBody');

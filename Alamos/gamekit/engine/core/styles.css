@@ -423,3 +423,11 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .missionJump select{max-width:230px;min-width:120px;padding:5px 6px;font:600 .76rem/1.2 Inter,system-ui;
   border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
 .settingRow.missionJumpRow{align-items:center;flex-wrap:wrap}
+
+/* The briefing button, appended to the objective banner by createDay. The
+   banner itself is styled per game (it is in each index.html), so this only
+   sizes and colours the button and leaves the layout to the host. */
+#briefingBtn{margin-top:6px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.10);
+  color:#fff;font:700 .72rem/1 Inter,system-ui;letter-spacing:.02em;
+  padding:5px 10px;border-radius:999px;cursor:pointer}
+#briefingBtn:hover{background:rgba(255,255,255,.20);border-color:rgba(255,255,255,.6)}

@@ -257,6 +257,28 @@ export function createDay({
     el.classList.toggle('hidden', !want);
   }
 
+  // ——— reading the briefing again ————————————————————————————————————
+  //
+  // The day's briefing is a hundred and fifty words and it used to sit under
+  // the objective banner for the whole day, so the thing a walking player
+  // actually needs from that banner — who is still to see — was buried under
+  // prose they read two minutes ago. The banner is now just the calls, and the
+  // briefing is one button away.
+  function installBriefingButton(){
+    if(typeof document === 'undefined') return;
+    const host = document.getElementById('objective');
+    if(!host || document.getElementById('briefingBtn')) return;
+    const b = document.createElement('button');
+    b.id = 'briefingBtn';
+    b.type = 'button';
+    b.textContent = 'Why today matters';
+    // Reopening the plan is a briefing, not a restart: `showPlan` puts the day
+    // card up with "Back to it" on it and the countdown stops while it is open.
+    b.onclick = () => api.showPlan();
+    host.appendChild(b);
+  }
+  installBriefingButton();
+
   window.addEventListener('keydown', (e) => {
     if(e.code !== 'Enter' && e.code !== 'NumpadEnter') return;
     if(panelUp() || !canSleep()) return;
