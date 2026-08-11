@@ -250,7 +250,11 @@ missions:
   objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
   briefing: Three Riverton hospitals report an unusual combination of fever, dry cough, severe headache, and profound fatigue.
     The player must decide whether the pattern is a true outbreak signal before scarce emergency resources are committed.
-  stake: A false alarm could disrupt the city, but a delayed investigation could cost the only window for early containment.
+  stake: >-
+    Seven charts, three hospitals, four days — and a reporter downstairs already has the number. Before the
+    emergency reserve is spent somebody has to say whether seven is a lot, and that means knowing what the
+    city normally sees, how these seven came to be found, and how many people they were found among. Call it
+    noise and the containment window closes tonight.
   takeaway: Use baseline variation, case definition, controls, correlation versus coincidence, measurement bias as an evidence
     chain rather than as isolated facts.
   stops:
@@ -370,7 +374,11 @@ missions:
   objective: Classify the broad agent category and identify the next discriminating test.
   briefing: Initial samples contain biological material, but microscopy and routine tests disagree. The team must distinguish
     a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.
-  stake: The wrong classification sends every later diagnostic and treatment effort down the wrong path.
+  stake: >-
+    The first microscope image is the most persuasive thing anyone has seen all week, and the water bath it
+    came out of has been open since Tuesday. Culture, drug class and tomorrow's assay are all chosen off
+    this one call, so it has to come from the whole panel — what the thing is built from, whether it can
+    copy itself alone, what the controls did. Misfiled tonight is misfiled for a fortnight.
   takeaway: Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence
     chain rather than as isolated facts.
   stops:
@@ -502,7 +510,11 @@ missions:
     replication.
   briefing: The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine
     how membrane structure, receptors, and transport explain this selectivity.
-  stake: A mistaken entry model could lead to a therapy that blocks the wrong stage while vulnerable cells continue to fail.
+  stake: >-
+    The receptor turns up on tissue all over the body, and exactly one kind of cell is failing. That gap is
+    the day. A membrane is a selective interface, entry takes more than a docking site, and binding and
+    replication are separate events that one badly built experiment will merge. Get the entry model wrong
+    and the therapy your teams start drawing tonight blocks a step the agent does not need.
   takeaway: Use phospholipid bilayer, receptors, diffusion, facilitated transport, endocytosis, cell specificity as an evidence
     chain rather than as isolated facts.
   stops:
@@ -617,8 +629,11 @@ missions:
   objective: Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.
   briefing: Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct
     how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.
-  stake: A rushed interpretation could make the team target a gene whose RNA is merely a consequence rather than the cause
-    of cell damage.
+  stake: >-
+    Infected cells are full of an unfamiliar RNA — forty times the level of anything beside it — and in the
+    samples failing fastest, the protein it codes for is barely raised at all. Transcription, message
+    stability and translation are separate stages, and abundance at one says very little about the next.
+    Chase the loudest molecule instead of the controlling stage and the whole programme goes to a bystander.
   takeaway: Use DNA and RNA, transcription, translation, codons, protein function, gene regulation as an evidence chain rather
     than as isolated facts.
   stops:
@@ -731,7 +746,11 @@ missions:
   objective: Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.
   briefing: Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives,
     and prevalence could make a technically impressive test clinically misleading.
-  stake: An unreliable test could either miss contagious patients or isolate thousands of healthy people.
+  stake: >-
+    The assay ran all night and the sunrise bulletin is already written. Then the blank — the well with
+    nothing in it — came back positive, and three thousand people have been told to isolate on the strength
+    of that run. An amplification result is the output of a controlled process, and what a positive means to
+    a patient depends on prevalence as much as on the machine.
   takeaway: Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than
     as isolated facts.
   stops:
@@ -890,7 +909,12 @@ missions:
     and cellular oxygen use.
   briefing: Patients with similar test results have radically different oxygen levels and recovery times. The team must connect
     cellular damage to organ-system physiology and homeostatic failure.
-  stake: The wrong physiological diagnosis could intensify a treatment that cannot reach the true failing organ system.
+  stake: >-
+    Two patients, the same viral load, the same chest film: one is walking to the bathroom, one is failing,
+    and the failing one's oxygen saturation reads normal. Delivery is a chain — ventilation, diffusion,
+    carrying capacity, flow, and what the cell does with the oxygen when it finally arrives. A normal number
+    at one link is evidence about the others. Escalate the wrong link and the treatment never reaches the
+    failure.
   takeaway: Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence
     chain rather than as isolated facts.
   stops:
@@ -1032,7 +1056,11 @@ missions:
     adaptive response, or excessive inflammation.
   briefing: Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish
     protective immune responses from damaging dysregulation.
-  stake: Suppressing a protective response or ignoring immune-mediated injury can both be fatal.
+  stake: >-
+    The patients crashing tonight are the ones who looked better on Tuesday, and one of them is the
+    paramedic who drove the first case in. Two consultants want the inflammation suppressed before midnight.
+    Innate and adaptive responses run to a timetable, and the same molecule can mark a body clearing the
+    agent or a body injuring itself — the difference is when it rises, not how high.
   takeaway: Use innate immunity, adaptive immunity, antibodies, T cells, inflammation, immune regulation as an evidence chain
     rather than as isolated facts.
   stops:
@@ -1167,7 +1195,12 @@ missions:
   objective: Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.
   briefing: Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring
     before severe symptoms appear.
-  stake: If transmission begins before severe symptoms, a hospital-only response will always be late.
+  stake: >-
+    Ward isolation is holding and the city's curve is still climbing, so the chain is not running through
+    the hospital. A wastewater sample from the northern district, retained by chance and tested this
+    morning, was positive four days before the first patient presented. The curve may start in the wrong
+    place. Whether a cluster grows turns on a number near one, and surveillance only ever sees what it looks
+    at.
   takeaway: Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain
     rather than as isolated facts.
   stops:
@@ -1287,7 +1320,11 @@ missions:
   objective: Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.
   briefing: Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must
     investigate without assuming that the most visible species is the source.
-  stake: A mistaken reservoir declaration could trigger ecological damage while the true source continues seeding cases.
+  stake: >-
+    The sequences point out of the city and up the river corridor, and the council has already signed an
+    order to clear the heron colony by Saturday. Reservoir, vector and incidental host are ecological roles
+    defined by dynamics — who carries the agent long enough to seed new infections — not by which animal is
+    easiest to see. Clear the wrong species and the source keeps seeding from behind a solved problem.
   takeaway: Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than
     as isolated facts.
   stops:
@@ -1401,8 +1438,11 @@ missions:
     explanations.
   briefing: A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects
     natural selection, random founder effects, or biased sampling.
-  stake: Misreading drift as selection can produce unnecessary alarm; missing a genuine advantage can leave the response behind
-    the evolving population.
+  stake: >-
+    A variant carrying three changes in the entry protein has gone from 8% to 31% in one district in
+    four weeks, and that district is where sampling changed last month. Selection, founder effects and biased
+    ascertainment all draw a rising line. Only one of them is a biological warning, and telling them apart
+    takes frequencies measured the same way twice rather than a steeper curve.
   takeaway: Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather
     than as isolated facts.
   stops:
@@ -1556,8 +1596,12 @@ missions:
     advantage without undertreating patients.
   briefing: A therapy that initially helped is failing in a growing subset of patients. The player must determine whether
     the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.
-  stake: A blunt response could expose patients to toxicity while strengthening the very resistant population the therapy
-    is meant to suppress.
+  stake: >-
+    The therapy that bought the city a fortnight is failing in a fifth of patients — and a resistant
+    sequence has surfaced in a river sample banked a month before the first dose was given anywhere.
+    Variation a drug did not create is still variation a drug can select. Bedside failure can also be dose,
+    delivery or the patient rather than the pathogen, and the response has to separate them without
+    undertreating anybody.
   takeaway: Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain
     rather than as isolated facts.
   stops:
@@ -1693,8 +1737,12 @@ missions:
   objective: Select a layered intervention portfolio and identify the evidence required before deployment.
   briefing: The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines,
     targeted therapies, and nonpharmaceutical measures using mechanistic and population evidence.
-  stake: Choosing one glamorous intervention and neglecting all others could leave the city unprotected during development
-    or against biological change.
+  stake: >-
+    The monoclonal everyone in the room wants binds the exact stretch of protein that mutated in the
+    northern district, and the plant can commit to one production line this quarter. Vaccines, targeted
+    therapies and nonpharmaceutical measures fail in different ways and act on different timescales, which
+    is the whole argument for layering them. One glamorous choice leaves a city with a single point of
+    failure.
   takeaway: Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain
     rather than as isolated facts.
   stops:
@@ -1807,7 +1855,13 @@ missions:
     or headline percentage.
   briefing: Early trial results appear encouraging, but enrollment is small and adverse events are uneven. The player must
     distinguish a real effect from random variation and decide whether the trial should expand.
-  stake: Expanding an unsafe intervention harms participants; stopping too early can discard the only effective tool.
+  stake: >-
+    The headline is a halving — ten hospitalisations in the treated arm against twenty in the control,
+    out of four hundred people. Most of that benefit sits at the one
+    site that enrolled the youngest patients, and the serious adverse events are not spread evenly either.
+    Relative and absolute effects answer different questions, and an interval is a range of futures rather
+    than a verdict. Expand an unsafe arm and volunteers are harmed; stop early and the only working tool is
+    gone.
   takeaway: Use randomization, control groups, effect size, confidence intervals, adverse events, stopping rules as an evidence
     chain rather than as isolated facts.
   stops:
@@ -1938,7 +1992,11 @@ missions:
   objective: Use scenarios and trigger-based policies instead of pretending one forecast is certain.
   briefing: The outbreak is geographically uneven. Leaders must choose between aggressive local containment, broader mitigation,
     and long-term adaptation while the biological parameters remain uncertain.
-  stake: An inflexible choice can either impose unnecessary costs or allow the health system to collapse.
+  stake: >-
+    The east bank is doubling weekly, the west bank is flat, and the bridge carrying every critical transfer
+    closes for emergency repair on Thursday. A capacity threshold is arithmetic — beds, admissions, length
+    of stay — and a forecast is an argument whose assumptions should stay visible. What the city needs is
+    not one policy but a set of triggers, because the parameter that decides this is one nobody has yet.
   takeaway: Use population growth, feedback, capacity thresholds, model assumptions, scenario analysis, tradeoffs as an evidence
     chain rather than as isolated facts.
   stops:
@@ -2052,8 +2110,12 @@ missions:
   objective: Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.
   briefing: The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain,
     and which actions should continue.
-  stake: A technically correct response can still fail if uncertainty, burdens, and continuing responsibilities are hidden
-    from the people affected.
+  stake: >-
+    The room holds the mayor, three hospital directors and the reporter who has had your day-one number
+    since the first morning. One claim made in public — that this began with the hospital cluster — did not
+    survive the wastewater, and the correction is yours to make out loud. Every sentence tonight carries its
+    own strength: what the evidence supports, what is still open, and what the city keeps paying for after
+    the cameras leave.
   takeaway: Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence
     chain rather than as isolated facts.
   stops:

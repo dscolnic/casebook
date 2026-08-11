@@ -11,7 +11,7 @@
 // works whether the game reaches the world through the engine's module or
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
-import { getState, getNextMissionStop, startDay, restartDay, tickDay } from './gameState.js';
+import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow } from './gameState.js';
 import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops } from './simulation.js';
 import { esc } from './utils.js';
 
@@ -214,6 +214,60 @@ export function createDay({
 }){
   let planOpen = false;
 
+  // ——— turning in for the night ————————————————————————————————————
+  //
+  // The last call of the day does not end the day: whatever is left on the
+  // clock is the player's to walk the town with. That left no way *out* of an
+  // evening except waiting for the light to go, which on a day with three
+  // hours spare is three minutes of standing still.
+  //
+  // So once every call is made there is a button. It lives here rather than in
+  // a game's HUD because `main.js` and `index.html` are forked three ways and
+  // this is exactly the kind of thing that ships in one game of three.
+  let bar = null;
+  const canSleep = () => {
+    const state = getState();
+    return !!state && state.status === 'playing' && state.dayStarted && !state.dayEnded
+      && !planOpen && openStopIndices(state).length === 0;
+  };
+  const panelUp = () =>
+    ['overlay', 'verdictOverlay', 'statsOverlay', 'mapOverlay', 'settingsOverlay']
+      .some(id => document.getElementById(id)?.classList.contains('show'));
+
+  function ensureBar(){
+    if(bar) return bar;
+    bar = document.createElement('div');
+    bar.id = 'turnInBar';
+    bar.className = 'hidden';
+    // The keyboard hint is not decoration. While the pointer is locked the
+    // mouse belongs to the camera and no DOM click can land, so Enter is the
+    // path most players will actually take; the button is what they see.
+    bar.innerHTML = '<button class="btn primary" id="turnInBtn" type="button">'
+      + 'Go to sleep, wake up tomorrow.<small>Enter</small></button>';
+    document.body.appendChild(bar);
+    bar.querySelector('#turnInBtn').onclick = () => api.sleep();
+    return bar;
+  }
+
+  /** Show or hide the button. Called every frame; touches the DOM only on a change. */
+  function refreshBar(){
+    const want = canSleep() && !panelUp();
+    const el = want ? ensureBar() : bar;
+    if(!el) return;
+    el.classList.toggle('hidden', !want);
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if(e.code !== 'Enter' && e.code !== 'NumpadEnter') return;
+    if(panelUp() || !canSleep()) return;
+    e.preventDefault();
+    api.sleep();
+  });
+  // The verdict card offers the same thing at the moment the last call closes,
+  // where the player is already looking. It has no handle on the day, so it
+  // asks for one.
+  window.addEventListener('projecty:sleep', () => api.sleep());
+
   const stopPositions = () => {
     const state = getState();
     const m = getCurrentMission(state);
@@ -258,7 +312,7 @@ export function createDay({
       + `</div>`;
   }
 
-  return {
+  const api = {
     get planOpen(){ return planOpen; },
     // The entry point's own end-of-day card uses the same overlay this does.
     ui,
@@ -309,8 +363,24 @@ export function createDay({
      * not paced, it is paused: nothing has started yet.
      */
     tick(delta){
+      refreshBar();
       if(planOpen) return null;
       return tickDay(delta, pace ? pace() : 1);
+    },
+    /**
+     * Turn in early. Only legal with every call made — the day is retaken when
+     * one is still open, so a sleep button that worked then would be a button
+     * for throwing the day away.
+     *
+     * Ends the same way the clock running out ends it, so a game has one
+     * end-of-day card rather than two.
+     */
+    sleep(){
+      if(!canSleep()) return false;
+      endDayNow();
+      refreshBar();
+      onDayEnd?.(0);
+      return true;
     },
     /** The day ran out or the player closed it. */
     close(){
@@ -320,6 +390,7 @@ export function createDay({
       return outstanding;
     },
   };
+  return api;
 }
 
 /**

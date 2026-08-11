@@ -73,11 +73,7 @@ export default {
   opening: [
     'Three hospitals in one river city reported the same unusual illness within a day of each other, and '
     + 'ambulances are still arriving. You are the scientific response director: you decide what gets '
-    + 'measured, and the city acts on what you find. Six teams are yours — clinical, cellular, molecular, '
-    + 'immunological, epidemiological and field — and each can answer one kind of question brilliantly and '
-    + 'every other kind badly, so which one you send matters as much as what you ask. Fifteen days stand '
-    + 'between the first cluster and the briefing where you tell the city what happened, and the outbreak '
-    + 'gets a head start on every one of them.',
+    + 'measured, and the city acts on what you find.',
   ],
 
   look: {

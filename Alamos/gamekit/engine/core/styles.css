@@ -372,7 +372,7 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    Shown before the countdown starts: what the day's calls are, where they
    are, and how far apart. The player chooses the order from this. */
 .planCard{display:grid;gap:12px}
-.planStake{font:600 .92rem/1.5 Inter,system-ui;color:#6b4b12;background:#fdf6e8;
+.planStake{font:600 .84rem/1.5 Inter,system-ui;color:#6b4b12;background:#fdf6e8;
   border:1px solid #e6d5b0;border-left:4px solid #b0762a;border-radius:8px;padding:10px 12px}
 .planTable{width:100%;border-collapse:collapse;font-size:.84rem}
 .planTable th{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
@@ -383,11 +383,11 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .planKind{font-size:.74rem;color:var(--muted);white-space:nowrap}
 .planNote{font:500 .78rem/1.5 Inter,system-ui;color:#4e4a43}
 .planMap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#efeade;
-  display:flex;justify-content:center;max-height:min(46vh,340px)}
+  display:flex;justify-content:center;max-height:min(34vh,280px)}
 /* The site plan is drawn to the site's own aspect — a long hospital corridor
    comes out 1700px tall. Constrain by height and let the width follow, or the
    map sits far below the fold of the card it is supposed to inform. */
-.planMap svg{max-width:100%;max-height:min(46vh,360px);width:auto;height:auto;display:block}
+.planMap svg{max-width:100%;max-height:min(34vh,280px);width:auto;height:auto;display:block}
 .planMap .mapWrap{max-width:100%;display:flex;flex-direction:column;align-items:center}
 .planMap .mapLegend{display:none}
 
@@ -401,3 +401,16 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 #hudClock.urgent ~ .hudBar .hudBarFill{background:var(--red)}
 .planTable tr.planDone td{opacity:.55}
 .planTable tr.planDone .planNum{color:#3d6f52}
+
+/* ——— Turning in for the night ——————————————————————————————————————
+   Shown by createDay once every call of the day is made. Bottom centre, above
+   the world and under every panel, because a panel that opens over it means
+   the player is doing something else. `.hidden` is the engine's own class. */
+#turnInBar{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:60;
+  pointer-events:auto}
+#turnInBar.hidden{display:none}
+#turnInBar .btn{display:inline-flex;align-items:center;gap:10px;
+  font-size:.9rem;padding:11px 16px;border-radius:11px;
+  box-shadow:0 6px 20px rgba(0,0,0,.28)}
+#turnInBar .btn small{font:800 .68rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.42);border-radius:5px;padding:2px 6px;opacity:.85}

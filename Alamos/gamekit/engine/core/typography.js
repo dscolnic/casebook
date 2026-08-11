@@ -22,8 +22,15 @@
 // whose timing happens to work is a cycle that breaks the first time somebody
 // reorders two lines.
 
-/** The root size everything else is relative to. Matches index.html. */
-export const BASE_PX = 16;
+/**
+ * The root size everything else is relative to.
+ *
+ * 16 is the browser default and what index.html declares; 18.4 is that at 115%,
+ * which is where the type reads comfortably in a first-person game — the panels
+ * are read at arm's length over a moving world, not on a document page. Every
+ * edition scale below multiplies this, so the whole ladder moved with it.
+ */
+export const BASE_PX = 18.4;
 
 /** What the reader chose, on top of whatever the edition says. */
 const READER_KEY = 'gamekit_textScale_v1';

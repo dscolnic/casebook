@@ -1083,9 +1083,12 @@ function finishVisit(ok){
         + priced('skipMoney', 'Move on without it', SKIP_COST) + '</div>');
   // The last call of the day no longer ends the day. Whatever is left on the
   // countdown is the player's: walk the town, talk to people, get paid.
+  // ...and the evening has to have a way out of it, or a day with three hours
+  // spare is three minutes of standing still waiting for the light to go.
   const actions =
     (isLastStop && ledger.closes
       ? '<button class="btn primary" id="dayIsYours" type="button">Every call made — take the rest of the day</button>'
+        + '<button class="btn" id="sleepNow" type="button">Go to sleep, wake up tomorrow.</button>'
       : '') +
     '<button class="btn ' + (ok ? 'primary' : 'ghost') + '" id="visitClose" type="button">' +
     (ok ? 'Return' : 'Decide later') + '</button>';
@@ -1130,6 +1133,19 @@ function finishVisit(ok){
       closeModal();
       window.dispatchEvent(new CustomEvent('projecty:statechange'));
       window.dispatchEvent(new CustomEvent('projecty:visitdone'));
+    };
+  }
+  const sleepBtn=document.getElementById('sleepNow');
+  if(sleepBtn){
+    sleepBtn.onclick=()=>{
+      // Both overlays first: the day controller puts its end-of-day card up in
+      // the same overlay this modal is using, and closing afterwards would
+      // close the card instead.
+      closeVerdict();
+      closeModal();
+      window.dispatchEvent(new CustomEvent('projecty:statechange'));
+      window.dispatchEvent(new CustomEvent('projecty:visitdone'));
+      window.dispatchEvent(new CustomEvent('projecty:sleep'));
     };
   }
   // The four ways out of a wrong call. Each spends exactly what its button
