@@ -76,10 +76,9 @@ export default {
     'A survey telescope flagged a faint moving point near the ecliptic four hours ago, and every orbit '
     + 'that fits it is still on the table — including the ones that end here. You direct the campaign: '
     + 'the telescopes that chase it, the radar window that opens once in eleven years, and the spacecraft '
-    + 'that could be built to move it. Six groups work through the night on the mountain and none of them '
-    + 'can settle it alone — an orbit without a size is not a consequence, and a size without a '
-    + 'reflectivity is not a size. The probability changes every time an observation lands, in public, '
-    + 'while two coastal regions wait to hear whether they should leave.',
+    + 'that could be built to move it. An orbit without a size is not a consequence, and a size without '
+    + 'a reflectivity is not a size. The probability changes every time an observation lands, in '
+    + 'public, while two coastal regions wait to hear whether they should leave.',
   ],
 
   look: {

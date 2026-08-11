@@ -45,9 +45,7 @@ export default {
     + 'Two neighbourhoods are downwind of a plume nobody has identified. The drinking-water intake '
     + 'for a hundred and forty thousand people sits nine hundred metres downstream of the outfall, '
     + 'and the utility has closed it — which means the city is drinking its reserves, and the '
-    + 'reserves are measured in days. You are the Chief Scientific Officer. Every hour you spend '
-    + 'getting an answer right is an hour the intake stays shut; every hour you save by guessing is '
-    + 'an hour a wrong answer spreads through the mains.',
+    + 'reserves are measured in days. You are the Chief Scientific Officer.',
   ],
 
   people: {

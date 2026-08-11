@@ -49,10 +49,9 @@ export default {
     'You have the watch on a submarine at ninety metres, and the boat has been submerged long '
     + 'enough that nobody aboard has seen daylight or a horizon. Everything you know about the world '
     + 'outside this hull arrives as sound, and everything you know about the boat arrives as a gauge '
-    + 'somebody else is reading. There are fifteen watches between here and the end of the patrol, and '
-    + 'nothing aboard waits for you: a contact you have not resolved keeps closing, water already aboard '
-    + 'keeps rising, and a plot nobody has corrected gets further from the truth every minute. Six '
-    + 'departments will each ask you for something, and there are not enough of you to answer all of them.',
+    + 'somebody else is reading. Nothing aboard waits for you: a contact you have not resolved keeps '
+    + 'closing, water already aboard keeps rising, and a plot nobody has corrected gets further from '
+    + 'the truth every minute.',
   ],
 
   look: {

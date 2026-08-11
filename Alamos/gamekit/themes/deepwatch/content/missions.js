@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Boat Walkdown",
     "objective": "Learn the boat as a system of spaces, not a list of names.",
     "briefing": "You have the watch for the first time. Before anything else happens, you have to be able to find your way around this hull in the dark, and know what is in each space and how you would get out of it.\n",
-    "stake": "A watchstander who has to think about where the locker is has already lost the minutes that mattered.",
+    "stake": "Two hours to sailing and the fire main isolation valve in the forward compartment is chained shut, with nobody aboard willing to say who chained it. Tonight you will find the same valve in the dark, in smoke, by feel. A submarine is not a list of compartment names — it is a set of systems that run through them, and the boundaries that hold when one of those systems fails.",
     "takeaway": "A compartment is defined by its boundaries, what it holds, and how you leave it.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Contact in the Noise",
     "objective": "Work out what is out there before the boat commits to anything.",
     "briefing": "Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.\n",
-    "stake": "A contact called wrong is a boat that manoeuvres into the thing it was avoiding.",
+    "stake": "The trace the sonar operator has been calling one merchant has just resolved into two, and the second one is not making merchant noise. A contact is a hypothesis built from bearing rate, frequency and how the sound reached you — never from a single sweep of the display. Manoeuvre on the wrong one and the boat closes the thing it was avoiding.",
     "takeaway": "A bearing is a measurement; a track is an argument built from several of them.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Position Without a Trusted Fix",
     "objective": "Work out not where the boat is, but how well that is known.",
     "briefing": "The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.\n",
-    "stake": "A route chosen from a plot that is two miles wrong is a route into the bottom.",
+    "stake": "The plot and the inertial system agree to within four hundred yards, and they have been taking their heading from the same gyro since Tuesday. Position is not a point but an error that grows with every minute run on dead reckoning, and two instruments sharing an input can only agree. The chart shows sixty fathoms half a mile off the track.",
     "takeaway": "Precision is not accuracy, and two displays sharing a source are one measurement.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Silent Passage",
     "objective": "Cross a constrained area without losing contact awareness or making unnecessary noise.",
     "briefing": "The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.\n",
-    "stake": "Every machine running is a sentence the boat is saying out loud to anybody listening.",
+    "stake": "The transit runs between two shoals for eleven hours and everything the boat does mechanically is a sentence spoken out loud. Radiated noise comes from machines with rotating parts, from flow over the hull, and from the crew's own habits, and each is bought back at a price in capability. Secure the wrong machine and something aboard runs hot for eleven hours.",
     "takeaway": "Quiet costs capability, and the trade has to be made deliberately rather than by default.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "Forward Flooding",
     "objective": "Find the water, decide whether pumping can win, and stop the source.",
     "briefing": "The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at ninety metres, which is what makes it a hole worth respecting.\n",
-    "stake": "Pumping is a way of buying minutes, and the minutes are worth nothing if they are not spent finding the source.",
+    "stake": "The pumps are holding — the level in the forward compartment has been steady for eight minutes, and the watch has stopped looking for the hole. Flooding rate rises with depth, and pump capacity does not; a steady level means only that today's two rates are equal. Minutes bought by pumping are worth nothing unless they are spent finding the source.",
     "takeaway": "Flooding is stopped at the hull fitting; everything else is delay.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "Electrical Fire",
     "objective": "Put out a fire whose ignition source is electrical, in the order that makes it stay out.",
     "briefing": "Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.\n",
-    "stake": "A fire that is fought without removing its source is a fire you will fight twice.",
+    "stake": "Smoke from a breaker panel, and the breaker that should isolate it is fed from two directions. A fire needs fuel, oxygen and heat, and an electrical one keeps making its own heat until the supply is dead — which is why the order of the actions matters more than the speed of any one of them. Fought without removing its source, it is a fire you fight twice.",
     "takeaway": "An electrical fire is put out by de-energizing it; the agent only finishes the job.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "Atmosphere Degradation",
     "objective": "Tell a failing sensor from failing air, and find where the air stopped moving.",
     "briefing": "Two of the crew in berthing have headaches. The atmosphere plant says everything is normal. Both of those statements can be true at once, and working out how is the whole of this watch.\n",
-    "stake": "The air is the one system where the crew notices the problem before the instruments do.",
+    "stake": "Three men in the machinery space have headaches and the carbon dioxide panel reads normal. Atmosphere is a transport problem before it is a chemistry problem: a scrubber only treats the air that reaches it, and a sensor only reports the corner it sits in. This is the one system where the crew notice before the instruments do, and they have.",
     "takeaway": "A plant reading is a report about the plant, not about the compartment you are standing in.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "Compound Casualty",
     "objective": "Prioritise and delegate when there are more casualties than there are people.",
     "briefing": "Flooding forward, a partial power loss, a degraded plot and one injured crewman, all inside four minutes. There are not enough people to do everything, so the first decision is which things do not get done yet.\n",
-    "stake": "A boat that fights every casualty at once is a boat with nobody watching where it is going.",
+    "stake": "Two casualties, eleven minutes apart, and one crew. The loud one has half the boat's attention and the quiet one is the one on a clock. Priority is set by how fast a thing gets worse and what it takes with it, not by how much noise it makes — and every person assigned to one casualty is a person not watching where the boat is going.",
     "takeaway": "Command is deciding what you do, and who does the rest.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Sonar Blinded by the Boat",
     "objective": "Find the noise the boat is making about itself, and prove which machine it is.",
     "briefing": "Sonar has lost the picture. There is a broadband rise across every bearing and a new narrowband line, and the ocean has not changed. The problem is aboard, which makes it the engineers' problem and sonar's evidence.\n",
-    "stake": "A boat that cannot hear is a boat that is being heard.",
+    "stake": "The broadband noise floor rose eleven decibels overnight, and the boat is now easier to hear than to hear with. Self-noise is proved the way any mechanical cause is proved: it correlates with a machine state — a shaft speed, a pump, a depth — and stops when that state does. A boat that cannot hear is a boat that is being heard.",
     "takeaway": "Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "Uncontrolled Depth Change",
     "objective": "Tell a symptom from a cause when the boat is going somewhere you did not order.",
     "briefing": "The boat is heavier than it was an hour ago and it is going down. The depth gauge, the trim state and the planes all have something to say and only one of them is the cause.\n",
-    "stake": "A boat that treats a symptom keeps sinking while everybody watches the wrong gauge.",
+    "stake": "The boat is thirty feet deeper than ordered and going, and the depth gauge is the calmest instrument in the control room. Depth is the symptom. The cause is a mass or a force — water aboard, a trim error, a control surface, a flooded space — and each of them is corrected differently. Treat the symptom and the boat keeps sinking while everybody watches the right gauge for the wrong reason.",
     "takeaway": "Depth is the outcome of weight, angle and speed, and each of those has its own cause.",
     "stops": [
       {
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "The Cooling Path",
     "objective": "Trace one cooling path end to end and find where it stopped.",
     "briefing": "Lube oil temperature is rising on the main bearing and nothing has changed on the throttle. Somewhere between the sea and that bearing there is a chain of things that carry heat away, and one of them is not.\n",
-    "stake": "A bearing that runs hot for an hour is a bearing that will be replaced in a shipyard.",
+    "stake": "A main bearing is running forty degrees hot and the cooling pump's amps are exactly where they should be. Current proves the motor is turning; it says nothing about how much water is arriving. A cooling path is a chain — supply, pump, strainer, heat exchanger, return — and a hot bearing at the end of it is evidence about every link, not just the last.",
     "takeaway": "A cooling system is a chain, and a chain is diagnosed link by link.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "Silent-Running Configuration",
     "objective": "Decide what may be secured, reduced or rescheduled while keeping the boat alive.",
     "briefing": "The boat has to be quiet for four hours. Everything aboard that makes noise also does something, and the ones that keep people breathing and bearings cool are not on the table.\n",
-    "stake": "Quiet is bought with capability, and the bill arrives after the transit.",
+    "stake": "The quietest configuration anybody has drawn secures the plant that keeps the atmosphere breathable. Quiet is bought with capability, and the bill arrives hours later, in a different department, on a system nobody was thinking about. What can be secured, reduced or merely rescheduled is a question about constraints, and about which of them are hard.",
     "takeaway": "A silent lineup is a set of deadlines, not a set of switches.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Rig for Dive",
     "objective": "Prove the boat is ready before the last patrol, rather than assuming it.",
     "briefing": "The boat sails in an hour. Every check on the rig-for-dive list exists because somebody once did not do it, and each one proves a different thing.\n",
-    "stake": "A check skipped alongside is a casualty at depth.",
+    "stake": "Every valve on the rig is signed off, and one of the two names against the forward group belonged to a man who was ashore that morning. A check is not a signature but a physical claim about a physical thing, and a boat is ready when the claims are all true at once. A check skipped alongside is a casualty at depth.",
     "takeaway": "A check is a measurement that proves a specific claim, not a box beside a word.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "Refit Decision",
     "objective": "Choose what to improve before the last patrol, on evidence rather than preference.",
     "briefing": "There is money and yard time for some of what the boat wants and not all of it. Every proposal has a cost, an uncertain benefit, and an effect on the patrol that follows.\n",
-    "stake": "The wrong refit is a patrol spent wishing for the thing you did not buy.",
+    "stake": "The yard will fund one item, and the department heads have all asked for the thing that would have fixed last patrol. Choosing on evidence means asking which failures actually cost the boat time, which are getting more frequent, and which of them the next patrol will meet — not which is most vividly remembered. The wrong refit is a patrol spent wishing.",
     "takeaway": "An upgrade is worth what it changes about the decisions you will actually face.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "Deep Watch",
     "objective": "Run the whole boat at once, with everything degraded a little and nothing decided for you.",
     "briefing": "An uncertain contact, a plot four hours old, water in the forward bilge, a scrubber train down and a bearing running warm. None of them is an emergency. Together they are the patrol.\n",
-    "stake": "This is the watch the whole campaign has been for, and every department will ask you for something at once.",
+    "stake": "Everything at once, everything degraded a little, and the officer you would have delegated half of it to is in the wardroom with a broken wrist. This is the watch the whole patrol has been for: a contact that has not been resolved, a plot that is aging, a system nobody has looked at since Tuesday, and six departments all asking at the same time. Nothing here is decided for you.",
     "takeaway": "Command is choosing which uncertainty you can live with, and saying so out loud.",
     "stops": [
       {

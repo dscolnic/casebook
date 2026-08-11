@@ -83,9 +83,8 @@ export default {
     'Three people are in a spacecraft on the far side of a quarter-million miles, and something aboard '
     + 'has just exploded. You are the flight director, and the calls are yours to make. Power is '
     + 'falling. The cabin is cooling. The trajectory is drifting off the one path that gets them back, '
-    + 'and the air they are breathing is already on a countdown. Six teams work the problem from the '
-    + 'consoles in front of you, the crew can hear every word on the loop, and fifteen shifts stand '
-    + 'between the bang and the water.',
+    + 'and the air they are breathing is already on a countdown. The crew can hear every word said on '
+    + 'the loop.',
   ],
 
   look: {

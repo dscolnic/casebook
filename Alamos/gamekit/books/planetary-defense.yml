@@ -251,7 +251,11 @@ missions:
   objective: Validate a new-object candidate and preserve the measurements needed for follow-up.
   briefing: A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real
     Solar System object, an image artifact, or a known source.
-  stake: If the candidate is real and close, every hour of delay expands the region where it may be lost.
+  stake: >-
+    Four frames, three dots, and the fourth frame has a cosmic-ray hit sitting exactly where the object
+    should be. A moving point is a candidate, not a discovery: what separates one from a detector artifact
+    is that it moves consistently, in the right direction, across images that do not share a defect. Every
+    hour of delay widens the sky region where it can be lost.
   takeaway: Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather
     than as isolated facts.
   stops:
@@ -404,7 +408,11 @@ missions:
   objective: Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.
   briefing: Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry
     without creating a false trajectory from inconsistent reference frames.
-  stake: A weak orbit can either lose the object or falsely place Earth in its path.
+  stake: >-
+    One observatory's positions are drifting a consistent arcsecond and a half to the east, and it is the
+    same observatory that contributed the longest arc in the file. An astrometric fit is only as good as the
+    residuals it leaves behind, and the correct answer to a bad dataset is to weight it down rather than to
+    average it in. A weak orbit can lose the object or falsely put Earth in its path.
   takeaway: Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather
     than as isolated facts.
   stops:
@@ -540,7 +548,11 @@ missions:
   objective: Construct a family of allowed orbits and choose observations that collapse the dangerous dimensions.
   briefing: Only a short arc is available, and many three-dimensional orbits project to nearly the same sky motion. The player
     must reason with Keplerian motion and orbit families rather than report one overconfident solution.
-  stake: An overconfident nominal orbit can hide impact solutions that remain inside the uncertainty region.
+  stake: >-
+    The best-fit orbit misses the Earth by four million kilometres. The family of orbits still allowed by
+    the same observations does not. A short arc constrains some parameters tightly and others hardly at all,
+    and it is the loose ones that decide this — which is why the next observation should be chosen for what
+    it collapses rather than for how good it looks.
   takeaway: Use Keplerian orbits, state vectors, degeneracy, orbital elements, prediction as an evidence chain rather than
     as isolated facts.
   stops:
@@ -652,8 +664,11 @@ missions:
   objective: Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.
   briefing: The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret
     probability, covariance, and nonlinear propagation without confusing low probability with zero consequence.
-  stake: Poor communication can either create panic or delay preparations for a genuine low-probability, high-consequence
-    threat.
+  stake: >-
+    The impact probability went up this morning, from 1 in 12,000 to about 1 in 2,700, and the number is on the wire
+    before you have explained it. That rise is exactly what a shrinking uncertainty region does while Earth
+    is still inside it, and it will keep rising until the moment it collapses to zero. Get the language
+    wrong and you buy a panic or a shrug, and neither can be taken back.
   takeaway: Use probability distributions, covariance, nonlinear propagation, risk corridors, decision thresholds as an evidence
     chain rather than as isolated facts.
   stops:
@@ -774,7 +789,11 @@ missions:
   objective: Produce a diameter range rather than a single unsupported value.
   briefing: "The object\u2019s brightness is known, but size depends strongly on reflectivity. The player must combine photometry,\
     \ albedo, and thermal evidence to bound diameter."
-  stake: Impact energy depends strongly on size, so a factor-of-two diameter error becomes a much larger mass and energy error.
+  stake: >-
+    Brightness alone allows anything from ninety metres to three hundred, and the consequence models
+    downstream scale with the cube of it. What a telescope measures is sunlight reflected, which is size and
+    reflectivity multiplied together — one number carrying two unknowns. The honest output is a range with
+    its assumptions attached, and the thermal measurement that would separate them.
   takeaway: Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than
     as isolated facts.
   stops:
@@ -901,8 +920,11 @@ missions:
   objective: Assign a composition class with explicit alternatives and confidence.
   briefing: Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player
     must avoid turning a taxonomic resemblance into an exact material claim.
-  stake: Composition affects density, fragmentation, and deflection response, so an unsupported label can distort every later
-    model.
+  stake: >-
+    The absorption feature that would make this a carbonaceous body sits within a few nanometres of a water
+    line in our own atmosphere. Composition is inferred from where light goes missing, and an instrument and
+    an atmosphere both remove light too. Density, strength and how the object answers a deflection all
+    follow from this label, so a class assigned without alternatives distorts everything after it.
   takeaway: Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated
     facts.
   stops:
@@ -1039,7 +1061,11 @@ missions:
   objective: Produce a rotation-state range suitable for imaging and deflection planning.
   briefing: Brightness varies dramatically over hours, suggesting rotation and an elongated shape. The player must derive
     a period, identify aliases, and determine whether the body may be tumbling.
-  stake: A mistimed encounter can image or strike the wrong face of the asteroid.
+  stake: >-
+    A clean 4.8-hour repetition has appeared in the light curve, and one site’s observing window repeats
+    on very nearly the same interval. A rotation period is read from repeating structure in brightness,
+    so a periodicity in the observing — or in the shape of the body itself — can manufacture one. Imaging and any intercept are
+    timed off this number, and both would arrive at the wrong face.
   takeaway: Use periodic signals, light curves, aliasing, rotation, shape inference as an evidence chain rather than as isolated
     facts.
   stops:
@@ -1177,7 +1203,11 @@ missions:
   objective: Design a radar sequence that improves both orbit and physical characterization.
   briefing: A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and
     reveal shape, but only if the observation plan uses the limited signal effectively.
-  stake: Missing the radar window can leave years of orbit and size uncertainty unresolved.
+  stake: >-
+    The radar window opens for nine days and does not open again for eleven years, and another campaign has
+    the dish. Radar is a different kind of measurement, not a better telescope: it returns range and
+    range-rate directly, which is what an orbit is starved of, and it resolves shape at a scale no optical
+    instrument here can reach. Miss it and the uncertainties stay for a decade.
   takeaway: Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than
     as isolated facts.
   stops:
@@ -1298,7 +1328,11 @@ missions:
   objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
   briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity
     spans a wide range. The player must compute scales without presenting a false point estimate.
-  stake: An exaggerated point estimate can create panic; an understated one can leave emergency planning unprepared.
+  stake: >-
+    The number that goes to the governor's office changes by a factor of thirty depending on a density
+    nobody has measured. Kinetic energy goes as mass times the square of speed, and mass comes from the
+    diameter you bounded on Tuesday and the composition you argued about on Wednesday. The useful product is
+    low, central and high scenarios with the dominant uncertainty named.
   takeaway: Use mass and density, kinetic energy, scaling, uncertainty propagation, orders of magnitude as an evidence chain
     rather than as isolated facts.
   stops:
@@ -1427,7 +1461,11 @@ missions:
   objective: Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.
   briefing: Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging
     airburst. The player must reason about drag, strength, heating, and uncertain structure.
-  stake: Evacuation distance and shelter guidance can change dramatically between airburst and ground-impact scenarios.
+  stake: >-
+    A solid rock and a loosely bound rubble pile produce identical telescope data and different disasters —
+    one detonates high and flattens windows, the other reaches the ground. Entry is a contest between ram
+    pressure and the object's own strength, and strength is the property we can least observe from here.
+    Evacuation distance and shelter guidance depend on which one this is.
   takeaway: Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated
     facts.
   stops:
@@ -1563,7 +1601,11 @@ missions:
   objective: Design a survey strategy that improves detection and accurately reports what remains unseen.
   briefing: The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player
     must quantify selection effects and improve future completeness.
-  stake: The next dangerous object may occupy exactly the region the current survey systematically neglects.
+  stake: >-
+    This object approached from the sunward direction the survey has never covered, and it was found on the
+    way out. Completeness is not how many objects you have found but how many you would have found — a
+    statement about the sky you looked at, the depth you reached and the times you were open. The next one
+    will come from wherever the current strategy neglects.
   takeaway: Use selection effects, survey completeness, limiting magnitude, cadence, population inference as an evidence chain
     rather than as isolated facts.
   stops:
@@ -1705,8 +1747,11 @@ missions:
   objective: Choose a deflection demonstration and define how success will be measured.
   briefing: Impact probability remains significant, and a reconnaissance mission could arrive years before encounter. The
     player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.
-  stake: A poorly characterized intervention could fragment the object, miss the target, or fail to produce enough orbital
-    change.
+  stake: >-
+    The impactor everyone favours has never been flown against a body of this type, and the momentum it
+    actually transfers depends on the debris thrown off the far side — a factor that can double the effect
+    or fragment the target. A deflection is a small velocity change applied early, multiplied by years of
+    travel. Success has to be defined as a measurable quantity before anything launches.
   takeaway: Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.
   stops:
   - group: IMPACT
@@ -1830,7 +1875,11 @@ missions:
   objective: Select an intercept architecture with enough margin to reach and accurately target the asteroid.
   briefing: The mission must launch within a narrow window and encounter a rotating, irregular target with limited communications
     delay. The player must integrate orbital mechanics, navigation, power, and autonomy.
-  stake: Missing the launch window or target can consume the only remaining lead time.
+  stake: >-
+    The launch window closes eight days before the composition result comes back. An architecture is limited
+    by whichever subsystem runs out first — launch energy, mass, power, communications, guidance — and
+    margin is the only part of a design that can absorb an answer you do not have yet. Spend it in the wrong
+    place and the lead time this campaign has been buying is gone.
   takeaway: Use launch windows, relative motion, guidance, power, communications delay as an evidence chain rather than as
     isolated facts.
   stops:
@@ -1934,7 +1983,11 @@ missions:
   objective: Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.
   briefing: The impact corridor crosses populated regions, but the probability is still changing. The player must connect
     scientific uncertainty to staged civil decisions and avoid both complacency and panic.
-  stake: Bad communication can create casualties during an unnecessary evacuation or leave people unprepared for a real impact.
+  stake: >-
+    The evacuation order is drafted, two coastal counties have seen the draft, and this morning's
+    observations have cut the probability by a factor of five. Action should scale with probability,
+    consequence, lead time and how reversible each step is, which is why preparations are staged behind
+    triggers rather than announced as one decision. An unnecessary evacuation kills people too.
   takeaway: Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence
     chain rather than as isolated facts.
   stops:
@@ -2055,7 +2108,11 @@ missions:
     passes.
   briefing: The international board must decide whether the object is sufficiently characterized, whether the deflection worked,
     and which civil preparations remain necessary.
-  stake: Success against one object can create dangerous complacency about the larger unseen population.
+  stake: >-
+    It misses by two Earth radii, the story ends, and the survey funding line that found it expires in
+    eleven months. Every claim in the package has to carry its own strength — what the evidence supports,
+    what was assumed, what stayed open — because the next object is already in the sky and unfound. Success
+    against one is the most reliable way to become complacent about the rest.
   takeaway: Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence
     chain rather than as isolated facts.
   stops:

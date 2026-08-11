@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Failure",
     "objective": "Create a trusted state vector and a prioritized anomaly list before commanding the crew.",
     "briefing": "A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player takes the flight-director console and must first determine what can still be measured reliably.",
-    "stake": "A wrong early state estimate can turn a survivable failure into a fatal command sequence.",
+    "stake": "The bang was four minutes ago. The master alarm, two quantity gauges and the crew's own ears disagree about what just happened, and a command sent on a wrong picture cannot be taken back. The first job is not a fix but a state estimate: what the vehicle is actually doing, told apart from what the instruments say it is doing, with the difference written down.",
     "takeaway": "Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Find the Spacecraft",
     "objective": "Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.",
     "briefing": "Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.",
-    "stake": "Losing the spacecraft’s state by even a small amount can make a later engine burn miss the safe return corridor.",
+    "stake": "The station that anchors the whole solution drops below the horizon in forty minutes and the next one does not rise for two hours. Every measurement constrains something different — a range says how far, a Doppler shift says how fast, an angle says which way — and the signal's own travel time is a measurement too. Lose the state now and the burn that brings them home aims at nothing.",
     "takeaway": "Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The Wrong Trajectory",
     "objective": "Choose a correction that restores a safe return while preserving fuel and engine options.",
     "briefing": "The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse to determine whether a small correction now can prevent a large correction later.",
-    "stake": "A failed correction can leave the crew without enough fuel or geometry to reenter Earth’s atmosphere.",
+    "stake": "The path they are on misses the corridor by four hundred kilometres, and the window to correct it opens before the next tracking pass closes. A burn is a force applied for a time: it changes velocity, and velocity is what a trajectory is made of, so a small push now is worth an enormous one later. Fuel spent early is fuel not available for the last correction.",
     "takeaway": "Use Newton’s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Turn Without Wasting Fuel",
     "objective": "Develop a controlled reorientation procedure that stops the rotation at the required attitude.",
     "briefing": "The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and visible reference objects.",
-    "stake": "An uncontrolled tumble can eliminate communications, solar power, and the precise attitude needed for a return burn.",
+    "stake": "The vehicle is tumbling, one thruster quad is dead, and the crew are flying by hand with the guidance computer powered down to save amps. Rotation obeys the same bookkeeping as motion in a line — a torque starts it and only an equal torque stops it — so every degree is paid for twice. An uncontrolled tumble costs the antenna, the solar array and the burn attitude together.",
     "takeaway": "Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "The Power Budget",
     "objective": "Build a load-shedding plan that preserves essential functions through the next critical maneuver.",
     "briefing": "Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.",
-    "stake": "An apparently minor load can consume the reserve needed for the only safe course correction.",
+    "stake": "A heater nobody had on the list has been drawing current for six hours, and the reserve is now measured in ampere-hours rather than in days. Power is voltage times current, energy is power times time, and the only honest budget is one that names every load and what happens without it. Shed the wrong one and the reserve survives to the correction the crew cannot make.",
     "takeaway": "Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "A Dangerous Battery Configuration",
     "objective": "Approve only a configuration whose voltage, current sharing, and failure behavior are understood.",
     "briefing": "Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The player must reason through series, parallel, internal resistance, and fault isolation.",
-    "stake": "A battery intended to save the spacecraft can become a fire source in a sealed cabin.",
+    "stake": "The plan that saves the mission puts two batteries at different states of charge on the same bus. Series adds voltage and parallel shares current — and paralleled cells at different voltages will move current between themselves whatever the load does, into whatever resistance is in the path. In a sealed cabin, the battery brought in to save the spacecraft is the one that can burn it.",
     "takeaway": "Use series circuits, parallel circuits, internal resistance, Joule heating, fault isolation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The Cabin Is Cooling",
     "objective": "Create a thermal survival plan that protects crew, electronics, and batteries with minimal power.",
     "briefing": "With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction, convection, radiation, metabolic heat, and battery performance.",
-    "stake": "Cold can disable batteries and electronics before average cabin temperature appears immediately dangerous.",
+    "stake": "The mean cabin temperature is 11°C, which is survivable, and the wall behind the battery pack is at 4°C, which is not — batteries and electronics fail at local temperatures, not at averages. Heat leaves by conduction, convection and radiation, and each is fought with a different and differently expensive measure. There is not enough power for all three.",
     "takeaway": "Use heat capacity, conduction, convection, radiation, energy balance as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "The Air Problem",
     "objective": "Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.",
     "briefing": "Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.",
-    "stake": "A poorly designed improvised filter can reduce circulation enough to make the cabin less safe.",
+    "stake": "Carbon dioxide is climbing in a cabin built for two people and holding three, and the canisters that fit the scrubber are aboard the vehicle they cannot use. Production is a rate set by metabolism; removal is a rate set by chemistry and by airflow, and a filter with no flow through it removes nothing. An improvised fix that throttles circulation can leave the cabin worse than it found it.",
     "takeaway": "Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Communication Fades",
     "objective": "Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.",
     "briefing": "The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.",
-    "stake": "Without communications, the crew may have to execute critical maneuvers with stale navigation and no ground support.",
+    "stake": "The downlink dropped nine decibels at the moment the crew turned the vehicle for the burn, and the voice loop is now unusable at the exact hour it is needed most. A link budget is a sum: transmitter power, antenna gain, range, pointing, receiver sensitivity — and any one term can account for a fade, if it is large enough to. The signal is also a navigation measurement, and losing it loses both.",
     "takeaway": "Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "A Blind Maneuver",
     "objective": "Design a manual alignment procedure whose dominant angular errors are bounded.",
     "briefing": "The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player must connect optics, angular measurement, and reference frames.",
-    "stake": "A visually small pointing error can produce a trajectory miss too large to correct later.",
+    "stake": "No guidance platform, no star tracker, and an alignment to be flown by eye against the Earth's terminator through a scratched window. A pointing error is an angle, and an angle becomes a distance when you multiply it by how far you are going — which is why an error too small to see becomes a miss too large to fix. The error budget has to be bounded before the burn, not after.",
     "takeaway": "Use lenses, angular measurement, parallax, reference frames, error propagation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "Crossing the Atmosphere",
     "objective": "Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.",
     "briefing": "The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping back into space. The player must integrate drag, energy conversion, and atmospheric density.",
-    "stake": "A small trajectory error can exchange recoverable energy dissipation for lethal heating or a missed Earth encounter.",
+    "stake": "The entry corridor is about a degree wide and the last tracking solution puts them near its edge. Entry is a controlled disposal of energy: too shallow and the atmosphere does not take enough, too steep and it takes it all in seconds. The physics that keeps them alive is the same physics that would kill them, and the difference is measured in fractions of a degree.",
     "takeaway": "Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "The Structure Is Vibrating",
     "objective": "Move the system away from resonance and verify that the mitigation works across operating conditions.",
     "briefing": "A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.",
-    "stake": "A resonant vibration can fatigue a line or electrical connection that appears safe under static load.",
+    "stake": "A line behind the panel has been chafing for an hour, and the vibration that is doing it appears only in a narrow band of wheel speed. Every structure has frequencies it prefers, and near one of them a small repeated force produces a large motion — so hardware that is strong at rest can fail when driven at a rate it happens to like. Amplitude alone does not tell you which case this is.",
     "takeaway": "Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Choose the Return Path",
     "objective": "Select a return plan with explicit margins and contingencies for the dominant uncertainties.",
     "briefing": "Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player must make a multi-constraint physical decision rather than optimize one variable.",
-    "stake": "A locally optimal trajectory can fail the mission by consuming a different subsystem’s last margin.",
+    "stake": "Three return paths, and the fastest one spends the propellant the entry needs to stay in the corridor. A plan is limited by one binding constraint at a time — consumables, fuel, thermal, geometry — and optimising against any of the others just moves the failure somewhere less visible. What matters now is not the best path but the one with margin left when something else goes wrong.",
     "takeaway": "Use optimization, constraints, trade spaces, margins, critical path as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "The Last Correction",
     "objective": "Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.",
     "briefing": "Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.",
-    "stake": "An unnecessary last burn can push a safe but uncertain trajectory into a genuinely unsafe one.",
+    "stake": "Two independent-looking displays agree that the trajectory has drifted, and both of them are fed from the same ground clock. Uncertainties from separate sources combine in a way that shrinks with independence and not at all without it, so the size of the correction has to be compared against the size of the error in knowing it. An unnecessary burn can push a safe trajectory into an unsafe one.",
     "takeaway": "Use random and systematic error, weighted averages, covariance, propagation, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "Reentry",
     "objective": "Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.",
     "briefing": "The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere, thermal shield, communications, and recovery.",
-    "stake": "The crew’s survival depends on hundreds of physical claims remaining true together during an irreversible sequence.",
+    "stake": "The sequence starts in ninety minutes and nothing in it can be undone. Hundreds of physical claims — a heat shield that has been cold for four days, a battery charged through an improvised path, an alignment flown by hand — all have to be true at the same time, and the review's job is to say how strongly each one is held and by what evidence. After the first event, there is no decision left to make.",
     "takeaway": "Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather than as isolated facts.",
     "stops": [
       {
