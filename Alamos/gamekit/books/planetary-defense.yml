@@ -372,6 +372,9 @@ missions:
       like a main-belt object rather than something close.
     question: Estimate the apparent motion in arcseconds per hour.
     estimate:
+      relationship: >-
+        Rate = distance moved ÷ time taken. Multiply by 60 to go from per minute
+        to per hour.
       prompt: The object shifts 12 arcseconds in 20 minutes, and the desk needs a rate before it can predict where to look next.
       question: Estimate the apparent motion in arcseconds per hour.
       labels:
@@ -711,6 +714,9 @@ missions:
     why: The figure is only as good as the sampling behind it, and it will be quoted in public long after the assumptions are forgotten.
     question: Estimate the impact probability, as a percentage.
     estimate:
+      relationship: >-
+        Probability = impacting samples ÷ total samples. Multiply by 100 for a
+        percentage.
       prompt: In a simplified Monte Carlo set, 37 of 100,000 sampled trajectories consistent with the observations strike Earth.
       question: Estimate the impact probability, as a percentage.
       labels:
@@ -835,6 +841,9 @@ missions:
       inside it.
     question: How does the higher-albedo object's diameter compare?
     estimate:
+      relationship: >-
+        At the same brightness, reflecting area varies inversely with albedo — and
+        diameter is the square root of area.
       prompt: Two objects show the same reflected brightness and one has four times the albedo of the other. Reflected flux scales with cross-sectional area times reflectivity.
       question: How does the higher-albedo object's diameter compare?
       labels:
@@ -1110,6 +1119,8 @@ missions:
     why: A spacecraft arriving at the wrong rotational phase meets a different face of the target than the one it was designed for, and the factor of two is where that error comes from.
     question: Estimate the candidate rotation period.
     estimate:
+      relationship: >-
+        Period = time between maxima × the number of maxima in one full turn.
       prompt: Similar maxima in the light curve are separated by 3.5 hours, and an elongated body presents its long profile twice per rotation.
       question: Estimate the candidate rotation period.
       labels:
@@ -1227,6 +1238,8 @@ missions:
     why: Optical astrometry constrains direction and leaves distance to be inferred from the fit. This measures the distance itself, to metres, in four seconds.
     question: Estimate the range to the object.
     estimate:
+      relationship: >-
+        Distance = speed of light × time, and the signal covers the range twice.
       prompt: The dish transmits and the echo returns four seconds later. The signal covers the distance twice.
       question: Estimate the range to the object.
       labels:
@@ -1311,6 +1324,9 @@ missions:
       about.
     question: Estimate the impact kinetic energy.
     estimate:
+      relationship: >-
+        Mass = density × volume, and the volume of a sphere is (4π/3) × radius³.
+        Kinetic energy = ½ × mass × speed².
       prompt: The best current estimates are a radius near 50 metres, a density around 3,000 kg per cubic metre, and an approach speed of about 20 kilometres a second.
       question: Estimate the impact kinetic energy.
       labels:
@@ -1632,6 +1648,9 @@ missions:
       volume, not a patch of sky.
     question: Estimate the factor by which the searchable volume grows.
     estimate:
+      relationship: >-
+        A searchable region is roughly a sphere, so volume goes as the cube of the
+        distance limit.
       prompt: A survey upgrade lets it detect a standard object twice as far away. The searchable region is roughly a sphere.
       question: Estimate the factor by which the searchable volume grows.
       labels:
@@ -1705,6 +1724,9 @@ missions:
     why: A centimetre per second sounds like nothing. Applied years before encounter it accumulates into a displacement measured in Earth radii, which is the whole basis of deflection.
     question: Estimate the asteroid's change in speed.
     estimate:
+      relationship: >-
+        Momentum = mass × speed, and it is conserved. Velocity change = momentum
+        transferred ÷ the mass it is given to.
       prompt: A 1,000 kg impactor strikes a 1.0 × 10⁹ kg asteroid at 10,000 metres per second, in a perfectly inelastic lower-bound estimate.
       question: Estimate the asteroid's change in speed.
       labels:
@@ -1974,6 +1996,8 @@ missions:
     why: The same expectation arises from a small chance of a very large displacement and a near-certainty of a small one, and those call for entirely different preparations. The summary is only usable alongside the distribution it summarises.
     question: Estimate the expected displaced population.
     estimate:
+      relationship: >-
+        An expectation = the consequence × the probability of it happening.
       prompt: A simplified corridor contains 2 million people and the current impact probability is 0.5 per cent.
       question: Estimate the expected displaced population.
       labels:

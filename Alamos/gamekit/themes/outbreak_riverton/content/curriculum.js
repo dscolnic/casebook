@@ -382,7 +382,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Time to fill = beds free ÷ arrivals per day.",
         "calcKey": "CLIN-7"
       },
       "assumes": [
@@ -1125,7 +1125,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Specificity is a property of the test; the fraction of positives that are real is a property of the test and the population together. Moving this assay from the ward to the city changes nothing about the chemistry and almost everything about what a positive means.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Of everyone tested, the true positives are prevalence × sensitivity; the false positives are (1 − prevalence) × (1 − specificity). The answer is true positives as a share of all positives.",
         "calcKey": "POP-5"
       },
       "assumes": [
@@ -1150,7 +1150,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Two patients with identical saturations can differ by a factor of two in delivery, because the flow term is doing the work. A concentration is not a rate.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Oxygen delivered = blood flow × oxygen carried per unit of blood.",
         "calcKey": "POP-6"
       },
       "assumes": [
@@ -1323,7 +1323,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.",
         "givens": [],
-        "relationship": "",
+        "relationship": "A share = the count ÷ the number sequenced. Take the share in each week, then the difference.",
         "calcKey": "POP-10"
       },
       "assumes": [
@@ -1619,7 +1619,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. Twenty patients treated for one to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Risk = events ÷ people at risk. The number needed to treat is 1 ÷ (control risk − treated risk).",
         "calcKey": "POP-17"
       },
       "assumes": [
@@ -1861,7 +1861,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Twenty-eight against twenty is growth, and the fact that it is growth — not the size of the number — is what decides whether the chain burns out or doubles every fortnight.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Next generation = current cases × the average number each one infects.",
         "calcKey": "FIELD-1"
       },
       "assumes": [

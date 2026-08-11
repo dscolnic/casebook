@@ -876,6 +876,8 @@ missions:
         question: Estimate how far the boat could be from where the plot says it is.
         why: The water has been carrying the boat sideways the whole time, and a plot drawn from course and speed cannot see it.
         estimate:
+          relationship: >-
+            Distance = speed × time. A knot is one nautical mile per hour.
           prompt: The set has been running about half a knot since the last trusted fix.
           question: Estimate how far the boat could be from the plotted position.
           labels:
@@ -1020,6 +1022,8 @@ missions:
         question: How much clear water is left if the boat runs the middle of the channel?
         why: The uncertainty is not a decoration on the plot; it is the width of the boat's real position.
         estimate:
+          relationship: >-
+            Margin = half the channel width − half the position uncertainty.
           prompt: Four miles of channel, and a position that could be a mile out either way.
           question: Estimate the clear water on the bank side if the boat runs the centre.
           labels:
@@ -1138,6 +1142,9 @@ missions:
         question: How fast is the sea actually coming in?
         why: A rate you have not measured is a hope, and hoping is not a damage control action.
         estimate:
+          relationship: >-
+            Water in = the rate the level rises (converted to gallons) + the rate the
+            pump takes out.
           prompt: The level went from 31 cm to 39 cm in one minute in a space this wide, with the drain pump already running.
           question: Estimate the rate the sea is actually coming in at.
           labels:
@@ -1356,6 +1363,9 @@ missions:
         question: Roughly how long until berthing doubles its carbon dioxide?
         why: A deadline turns an argument about whether to act into a decision about when.
         estimate:
+          relationship: >-
+            Time to the limit = the volume of CO₂ the space can hold ÷ the rate the
+            crew produces it.
           prompt: Nine people, each producing about 0.04 cubic metres of CO₂ an hour, in a sealed space.
           question: Estimate how long to add another one per cent of CO₂ to the compartment.
           labels:
@@ -1504,6 +1514,9 @@ missions:
         question: How much time does coming down to three knots buy?
         why: Time is the only resource in a casualty that can be manufactured, and speed is how you buy it.
         estimate:
+          relationship: >-
+            Time = distance ÷ speed. The gain is the time at the slower speed minus
+            the time at the faster one.
           prompt: Nine miles to the bank at eight knots, with the option of coming down to three.
           question: Estimate the extra time coming down to three knots buys.
           labels:
@@ -1693,6 +1706,8 @@ missions:
         question: About how much water has come aboard?
         why: How much is aboard decides whether pumping is enough or the boat has to blow.
         estimate:
+          relationship: >-
+            Mass aboard = depth × tonnes per metre of depth.
           prompt: The boat has gone four metres deeper at unchanged speed and planes.
           question: Estimate the weight of water aboard.
           labels:
@@ -1910,6 +1925,9 @@ missions:
         question: How long can the boat run on one scrubber train?
         why: A rate and a limit give an hour, and an hour is something command can plan a transit around.
         estimate:
+          relationship: >-
+            Time = the headroom left ÷ the net rate of gain, which is production minus
+            removal.
           prompt: The crew makes more carbon dioxide than one train removes, and the limit is a rise of one per cent.
           question: Estimate how long until the boat reaches the limit.
           labels:

@@ -12,7 +12,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Chemical identity begins with explicit composition and charge.",
       "story": "A freight-yard fire has damaged several unlabelled containers eighty metres from the river, and the shift supervisor's radio traffic is already carrying three different guesses about what is in them. A chemical formula is not a name: it states which elements are present, in what whole-number ratio, and what charge the unit carries, and each of those constrains what the substance can do. A subscript or a charge changed makes a different compound with different reactivity, different solubility and a different hazard class. Firefighters are choosing a suppression agent from whatever identity you give them, and some of the wrong answers react with water.",
-      "scene": "A freight-yard fire has damaged several unlabelled containers eighty metres from the river, and the shift supervisor's radio traffic is already carrying three different guesses about what is in them. A chemical formula is not a name: it states which elements are present, in what whole-number ratio, and what charge the unit carries, and each of those constrains what the substance can do. A subscript or a charge changed makes a different compound with different reactivity, different solubility and a different hazard class. Firefighters are choosing a suppression agent from whatever identity you give them, and some of the wrong answers react with water.",
+      "scene": "A freight-yard fire has damaged several unlabelled containers, eighty metres from the river. Three different guesses about what is in them are already on the radio. Firefighters are picking a suppression agent from whatever identity you give them.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -27,12 +27,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. The formula contains a metal cation and a polyatomic anion. → Likely an ionic compound. 2. Two substances share the same elements but different ratios. → They are distinct compounds, not interchangeable names. 3. An ion has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no composition or concentration. → The record is insufficient for hazard prediction.",
-        "why": "Composition, ratio, and charge constrain identity; an informal name may hide crucial differences.",
+        "why": "A formula is not a name. It states which elements are present, in what whole-number ratio, and what charge the unit carries — and each of those constrains what the substance can do. Change a subscript or a charge and you have a different compound with different reactivity, different solubility and a different hazard class. A common name carries none of that, which is why a label reading only a trade name cannot support a hazard prediction. Some of the wrong answers here react with water.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Likely an ionic compound.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"They are distinct compounds, not interchangeable names.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"It is negatively charged.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"The record is insufficient for hazard prediction.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "A metal cation with a polyatomic anion is the standard signature of an ionic compound — a charged pair held together electrostatically rather than shared electrons.",
+          "Same elements in different ratios is a different compound, not a different name for one. The ratio is part of the identity.",
+          "More electrons than protons means surplus negative charge. Counting the two is the whole test.",
+          "A common name with no composition and no concentration constrains nothing. It is a label, and hazard prediction needs the formula behind it."
         ],
         "scenarios": [
           "The formula contains a metal cation and a polyatomic anion.",
@@ -52,7 +52,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a chemical formula lists which elements are present and in what ratio"
+      ]
     },
     {
       "day": 2,
@@ -62,7 +65,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "Analytical work runs from what costs nothing to what cannot be undone.",
       "story": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.",
-      "scene": "The containers are now evidence as well as hazard. Identification runs in a fixed order for reasons that are chemical rather than bureaucratic: some observations leave the sample exactly as they found it and can be repeated all week, and some consume the material to produce their answer. A destructive method gives the best identification and gives it once. What is on the outside of the drum survives only until somebody opens it. You are choosing the order in which to spend a sample nobody can go back for.",
+      "scene": "The containers are now evidence as well as hazard. You are choosing the order in which to spend a sample nobody can go back for.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -77,9 +80,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "1. Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened. 2. Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid. 3. Draw a small aliquot and run a non-destructive spectrum on it. 4. Commit part of that aliquot to a method that destroys it to identify it.",
-        "why": "The order is set by what each step costs you. Everything before the last one leaves the sample intact and can be repeated if it goes wrong; the destructive method consumes what it measures, so it is the last thing you spend and the first thing you would regret. The markings in particular exist only until somebody opens the drum.",
+        "why": "The order is set by what each step costs. The markings on the outside of the drum survive only until somebody opens it, so they are recorded first and consume nothing. Headspace vapour samples what has already escaped, without breaching the bulk liquid. A non-destructive spectrum on a small aliquot can be repeated all week if it goes wrong. The destructive method gives the best identification and gives it once, so it is the last thing you spend and the first thing you would regret.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Photograph the markings first. It costs nothing and it is the only evidence that stops existing the moment the drum is opened.",
+          "Headspace vapour second: it samples what has already left the liquid, without breaching the container.",
+          "A non-destructive spectrum third. It uses an aliquot and gives it back, so a mistake here costs nothing.",
+          "The destructive method last. It answers best and it answers once, which makes it the thing you spend when you know what to ask."
         ],
         "cards": [
           "Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened.",
@@ -93,7 +99,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "some measurements leave the sample as they found it and some use it up"
+      ]
     },
     {
       "day": 3,
@@ -103,7 +112,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Early chemistry should reduce uncertainty without creating new exposure.",
       "story": "You have a limited analytical reserve and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns.",
-      "scene": "You have a limited analytical reserve and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns.",
+      "scene": "A limited analytical reserve, four ways to spend it, and firefighters waiting on whatever comes back. The first hours of a release are when uncertainty is most expensive.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -118,7 +127,7 @@ export const CURRICULUM = {
         "play": "What does the response run first?",
         "task": "What does the response run first?",
         "answer": "Two analytical methods with different selectivity, on the same sample.",
-        "why": "An identity is worth what the chance it had to be wrong is worth. Two methods that can be fooled by different things is the smallest evidence package that supports a name, and the firefighters are choosing a suppression agent from that name.",
+        "why": "Analytical methods are not interchangeable. Each answers a different question, carries its own way of being fooled, and costs sample, time and exposure. An identity is worth what the chance it had to be wrong is worth — so two methods with different selectivity, run on the same sample, is the smallest evidence package that supports a name. Anything that can fool one of them has to also fool the other, and that is a much harder coincidence than fooling either alone.",
         "rebuttals": [
           "Shipping records are fast and say what was supposed to be in the container. After a fire in a freight yard, that is a hypothesis rather than an observation.",
           "Blanks and reference samples are required and answer whether the laboratory contributed the signal. That question only arises once there is a signal.",
@@ -132,7 +141,10 @@ export const CURRICULUM = {
           "A trained responder identifying the containers by odour."
         ],
         "correctChoice": "Two analytical methods with different selectivity, on the same sample."
-      }
+      },
+      "assumes": [
+        "a method that can be fooled will not tell you it has been"
+      ]
     },
     {
       "day": 4,
@@ -142,7 +154,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "Orthogonal evidence protects against coincidental matches.",
       "story": "The chromatogram has more peaks than the team has names, and the spectra suggest functional groups that overlap between candidates. Identification of a mixture is a two-part problem: separation, which spreads the components out in time so they can be examined one at a time, and structural evidence, which says what a separated component is. Neither does the other's job. A retention time that matches a standard is a coincidence waiting to happen unless something independent agrees with it, and the treatment plant is about to choose chemistry based on this list.",
-      "scene": "The chromatogram has more peaks than the team has names, and the spectra suggest functional groups that overlap between candidates. Identification of a mixture is a two-part problem: separation, which spreads the components out in time so they can be examined one at a time, and structural evidence, which says what a separated component is. Neither does the other's job. A retention time that matches a standard is a coincidence waiting to happen unless something independent agrees with it, and the treatment plant is about to choose chemistry based on this list.",
+      "scene": "The chromatogram has more peaks than the team has names, and the spectra suggest functional groups that overlap between candidates. The treatment plant is about to choose chemistry from this list.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -157,9 +169,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "Separate mixture components under a validated method. → Measure detector response and retention relative to standards. → Collect or compare structural spectral information. → Require agreement across methods before high-confidence identification.",
-        "why": "Separation reduces overlap; standards and structural evidence then support identity.",
+        "why": "Identifying a mixture is two problems, and neither method does the other's job. Separation spreads the components out in time so they can be examined one at a time. Structural evidence says what a separated component actually is. A retention time that matches a standard is a coincidence waiting to happen — plenty of compounds travel at the same speed — so the identification only becomes solid when something with different selectivity agrees with it. Orthogonal evidence is what protects against a coincidental match.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Separate first, under a validated method. Nothing downstream can examine a component that is still mixed with three others.",
+          "Retention and detector response second, against standards. This is a screening match, and it is where the coincidence lives.",
+          "Structural spectral information third — evidence that does not depend on how fast the compound travelled.",
+          "Require agreement across methods last. One method matching is a hypothesis; two with different selectivity agreeing is an identification."
         ],
         "cards": [
           "Separate mixture components under a validated method.",
@@ -173,7 +188,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "two different compounds can arrive at a detector at the same moment"
+      ]
     },
     {
       "day": 5,
@@ -183,7 +201,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Analytical confidence rises when independent selectivity points to the same compound.",
       "story": "Two methods have been run on the same extract and they do not tell the same story. Every analytical run carries controls for exactly this moment: a blank, which is everything except the sample and therefore answers whether a signal could have come from the laboratory itself, and a second method with different selectivity, which answers whether the first method was fooled by something that merely resembles the target. Reading them together is the skill. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
-      "scene": "Two methods have been run on the same extract and they do not tell the same story. Every analytical run carries controls for exactly this moment: a blank, which is everything except the sample and therefore answers whether a signal could have come from the laboratory itself, and a second method with different selectivity, which answers whether the first method was fooled by something that merely resembles the target. Reading them together is the skill. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
+      "scene": "Two methods have been run on the same extract and they do not tell the same story. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -322,7 +340,7 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "The 3.1-minute peak is laboratory contamination",
-        "why": "A blank exists to answer exactly one question: did this signal come from the sample? Here it did not — the blank carries the same peak at nearly the same height, so the 3.1-minute response is contamination introduced during preparation. Retention time alone never confirms identity, and the spectrum at 3.1 minutes does not match the standard either. The one peak that survives every check is at 7.9 minutes: absent from the blank, with a matching spectrum.",
+        "why": "Every analytical run carries controls for exactly this moment. A blank contains everything except the sample, so it answers one question: could this signal have come from the laboratory rather than the river? Here it did — the blank carries the same peak at nearly the same height. A second method with different selectivity answers whether the first was fooled by something that merely resembles the target, and the spectrum at 3.1 minutes does not match. Retention time alone never confirms identity.",
         "rebuttals": [
           "Reporting 62 units treats a retention-time match as an identification. It is a screening match at best, and the blank has already shown where this peak came from.",
           "Detector drift would raise the whole baseline and every peak with it. The 7.9-minute peak is unaffected and the calibration check is within limits, so the instrument is not the problem.",
@@ -331,7 +349,10 @@ export const CURRICULUM = {
         ],
         "task": "One explanation has to fit the sample, the blank and the second-method result together. Which is it?",
         "answer": "The 3.1-minute peak is laboratory contamination"
-      }
+      },
+      "assumes": [
+        "a blank is everything except the sample"
+      ]
     },
     {
       "day": 6,
@@ -341,7 +362,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Better presentation cannot repair missing selectivity or validation.",
       "story": "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop sharing a retention window, or bring in evidence with a different selectivity so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention.",
-      "scene": "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop sharing a retention window, or bring in evidence with a different selectivity so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention.",
+      "scene": "One peak is still ambiguous and the review board wants it settled. The river is not clean solvent, and everything in it is competing for the instrument's attention.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -356,7 +377,7 @@ export const CURRICULUM = {
         "play": "One peak is still ambiguous and the review board wants it settled. What settles it?",
         "task": "One peak is still ambiguous and the review board wants it settled. What settles it?",
         "answer": "A second structural method, with different selectivity.",
-        "why": "The ambiguity is an overlap in retention time, so the fastest way out is evidence that does not depend on retention time at all. A method with different selectivity cannot inherit the overlap that produced the problem.",
+        "why": "There are two honest ways out of an overlap. Improve the separation until the components stop sharing a retention window, or bring in evidence of a different kind so the answer no longer depends on the separation at all. The second is faster, and it cannot inherit the problem: a method that identifies by structure does not care that two compounds travelled at the same speed. The third way is to present the same weak data more attractively, and it adds no measurement.",
         "rebuttals": [
           "Improving the separation is the other honest route, and it is method development — days the review board does not have. Worth doing if the structural method also fails.",
           "Reference material and matrix spikes say whether the river is suppressing or enhancing the response. They cannot say which compound the peak belongs to.",
@@ -370,7 +391,10 @@ export const CURRICULUM = {
           "The same data, presented more clearly in the report."
         ],
         "correctChoice": "A second structural method, with different selectivity."
-      }
+      },
+      "assumes": [
+        "two compounds that overlap in one method may not overlap in another"
+      ]
     }
   ],
   "GASES": [
@@ -382,7 +406,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
       "takeaway": "Simple gas laws provide scale while atmospheric transport determines exposure.",
       "story": "A colourless plume is drifting toward two neighbourhoods and the incident commander wants a number before the wind shifts. The ideal gas law relates the amount of substance to the volume it occupies at a given temperature and pressure — at ordinary conditions about twenty-four litres per mole — which turns a mass in a tank into a scale you can reason about. It is a first-order tool and nothing more: it says how big the release is, not where it goes. Evacuating too little exposes people; evacuating too much blocks the roads the response needs.",
-      "scene": "A colourless plume is drifting toward two neighbourhoods and the incident commander wants a number before the wind shifts. The ideal gas law relates the amount of substance to the volume it occupies at a given temperature and pressure — at ordinary conditions about twenty-four litres per mole — which turns a mass in a tank into a scale you can reason about. It is a first-order tool and nothing more: it says how big the release is, not where it goes. Evacuating too little exposes people; evacuating too much blocks the roads the response needs.",
+      "scene": "A colourless plume is drifting toward two neighbourhoods and the incident commander wants a number before the wind shifts.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -397,10 +421,8 @@ export const CURRICULUM = {
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the gas volume at ambient conditions.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the gas volume at ambient conditions.",
         "answer": "V ≈ 2.0×10^4×8.31×300/10^5 ≈ 500 m³.",
-        "why": "The estimate gives an equilibrium gas volume, not the final hazardous footprint after mixing, wind, terrain, and chemistry.",
-        "rebuttals": [
-          "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
-        ],
+        "why": "The ideal gas law turns a mass in a tank into a volume you can reason about — about twenty-four litres per mole at ordinary temperature and pressure. It is a first-order tool and nothing more: it says how big the release is, not where it goes. The hazardous footprint depends on mixing, wind, terrain and chemistry, none of which appear in the calculation. The number still has to be right, because evacuating too little exposes people and evacuating too much blocks the roads the response needs.",
+        "rebuttals": [],
         "givens": [
           "n = 2.0×10^4 mol",
           "T = 300 K",
@@ -410,7 +432,10 @@ export const CURRICULUM = {
         "relationship": "V = nRT/P.",
         "question": "Estimate the gas volume at ambient conditions.",
         "calcKey": "GASES-1"
-      }
+      },
+      "assumes": [
+        "a given amount of gas occupies a predictable volume at ordinary conditions"
+      ]
     },
     {
       "day": 2,
@@ -420,7 +445,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "A plume is a coupled thermodynamic and transport problem.",
       "story": "The weather is changing while the plume is still moving. Two different physics are operating at once here: gas-law behaviour, which says how a fixed amount of substance responds to changes in temperature and pressure, and atmospheric transport, which says where the resulting parcel actually goes. Density relative to air decides whether the cloud hugs the ground or lifts; wind and turbulence decide how fast it dilutes; terrain decides where it pools. Each change on the board pushes on one of those and not necessarily the others, and the neighbourhood downwind is where the arithmetic lands.",
-      "scene": "The weather is changing while the plume is still moving. Two different physics are operating at once here: gas-law behaviour, which says how a fixed amount of substance responds to changes in temperature and pressure, and atmospheric transport, which says where the resulting parcel actually goes. Density relative to air decides whether the cloud hugs the ground or lifts; wind and turbulence decide how fast it dilutes; terrain decides where it pools. Each change on the board pushes on one of those and not necessarily the others, and the neighbourhood downwind is where the arithmetic lands.",
+      "scene": "The weather is changing while the plume is still moving, and the neighbourhood downwind is where the arithmetic lands.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -435,12 +460,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Temperature rises at roughly constant pressure. → Volume rises in proportion to the absolute temperature. 2. External pressure falls for the same gas amount and temperature. → Volume rises in inverse proportion to the pressure. 3. A gas has greater molar mass than surrounding air. → It may initially favour lower-level accumulation, though turbulence matters. 4. Wind direction shifts while the source continues. → The downwind risk corridor must be updated.",
-        "why": "Charles and Boyle are different statements about the same gas: heating it at constant pressure expands it in proportion to absolute temperature, and releasing the pressure expands it in inverse proportion. Density and wind belong to the atmosphere rather than to the gas law.",
+        "why": "Two different physics are running at once. Gas-law behaviour says how a fixed amount of substance responds to temperature and pressure — Charles and Boyle are two statements about the same gas, one proportional and one inverse. Atmospheric transport says where the resulting parcel actually goes: density relative to air decides whether the cloud hugs the ground or lifts, wind and turbulence decide how fast it dilutes, terrain decides where it pools. Each change on the board pushes on one of those and not necessarily the others.",
         "rebuttals": [
-          "Situation 1 is a temperature change at roughly constant pressure, which is a proportional relationship — twice the absolute temperature, twice the volume.",
-          "Situation 2 is a pressure change at constant amount and temperature, which is an inverse relationship — half the pressure, twice the volume.",
-          "Situation 3 is about density relative to air, which the gas law does not address: it decides whether the cloud sinks or lifts, and turbulence can override it.",
-          "Situation 4 is transport rather than state. Nothing about the gas changed; where it is going did."
+          "A temperature rise at roughly constant pressure is proportional — twice the absolute temperature, twice the volume.",
+          "A pressure drop at constant amount and temperature is inverse — half the pressure, twice the volume.",
+          "Greater molar mass than air is about density, which the gas law does not address. It decides whether the cloud sinks or lifts, and turbulence can override it.",
+          "A wind shift is transport rather than state. Nothing about the gas changed; where it is going did."
         ],
         "scenarios": [
           "Temperature rises at roughly constant pressure.",
@@ -460,7 +485,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a gas has a state and also a place, and they change for different reasons"
+      ]
     },
     {
       "day": 3,
@@ -470,7 +498,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "High-stakes forecasts should combine measurements with transparent models.",
       "story": "Evacuation Command needs a forecast it can defend to residents who are being told to leave their homes. Models and measurements fail in different ways: a dispersion model extrapolates confidently into places nobody has sampled, while a measurement is true at one point and one time and says nothing about the next street. Meteorology is what connects them, because transport is what turns a source term into an exposure. What Command needs is the evidence that constrains the biggest uncertainty, not the one that produces the most detail.",
-      "scene": "Evacuation Command needs a forecast it can defend to residents who are being told to leave their homes. Models and measurements fail in different ways: a dispersion model extrapolates confidently into places nobody has sampled, while a measurement is true at one point and one time and says nothing about the next street. Meteorology is what connects them, because transport is what turns a source term into an exposure. What Command needs is the evidence that constrains the biggest uncertainty, not the one that produces the most detail.",
+      "scene": "Evacuation Command needs a forecast it can defend to residents who are being told to leave their homes.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -485,7 +513,7 @@ export const CURRICULUM = {
         "play": "Evacuation Command needs a forecast it can defend. What do you deploy?",
         "task": "Evacuation Command needs a forecast it can defend. What do you deploy?",
         "answer": "Calibrated sensors upwind, crosswind and downwind.",
-        "why": "A dispersion model extrapolates confidently into streets nobody has sampled. Sensors on three sides bound the corridor with measurements, and they give the model something it can be caught being wrong about.",
+        "why": "Models and measurements fail in different ways. A dispersion model extrapolates confidently into streets nobody has sampled; a measurement is true at one point and one time and says nothing about the next street. Sensors placed upwind, crosswind and downwind bound the corridor with real numbers and give the model something it can be caught being wrong about. What Command needs is the evidence that constrains the biggest uncertainty, not the evidence that produces the most detail.",
         "rebuttals": [
           "Wind and stability data are what the model needs and they measure the driver rather than the exposure. Run them alongside; they do not tell anybody which street to leave.",
           "Multiple scenarios are cheap and honest, and they are only as good as the meteorology underneath them. They bound the model, not the plume.",
@@ -499,7 +527,10 @@ export const CURRICULUM = {
           "One handheld reading taken at the source, where the signal is strongest."
         ],
         "correctChoice": "Calibrated sensors upwind, crosswind and downwind."
-      }
+      },
+      "assumes": [
+        "a model is only as good as the measurements it can be checked against"
+      ]
     },
     {
       "day": 4,
@@ -509,7 +540,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "Exposure can peak after the original emission begins to decline.",
       "story": "The source has been controlled and the monitors have not settled. Sunlight drives atmospheric chemistry: photons break bonds in molecules that were stable overnight, producing radicals that react with almost everything, and the products of those reactions can be more harmful than what was emitted. The chain runs in a fixed causal order — emission, radical production, reaction, accumulation — and its timing is what makes it dangerous, because exposure downwind can peak hours after the release itself has begun to fall. Residents are asking when they can come home.",
-      "scene": "The source has been controlled and the monitors have not settled. Sunlight drives atmospheric chemistry: photons break bonds in molecules that were stable overnight, producing radicals that react with almost everything, and the products of those reactions can be more harmful than what was emitted. The chain runs in a fixed causal order — emission, radical production, reaction, accumulation — and its timing is what makes it dangerous, because exposure downwind can peak hours after the release itself has begun to fall. Residents are asking when they can come home.",
+      "scene": "The source has been controlled and the monitors have not settled. Residents are asking when they can come home.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -524,9 +555,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "A primary vapor is emitted. → Sunlight or oxidants create reactive intermediates. → Intermediates react through branching pathways. → Secondary products form and are transported.",
-        "why": "Atmospheric chemistry transforms both identity and location over time.",
+        "why": "Sunlight drives atmospheric chemistry: photons break bonds in molecules that were stable overnight, producing radicals that react with almost everything — and the products can be more harmful than what was emitted. The chain runs in a fixed causal order, emission, radical production, reaction, accumulation, and its timing is what makes it dangerous. Each step takes time, so exposure downwind can peak hours after the release itself has begun to fall. Controlling a source ends the release; it does not end the chemistry.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "A primary vapour is emitted first. Everything downstream is made out of it.",
+          "Sunlight or oxidants create reactive intermediates second. This is the step that needs the sun, and it is why the pattern follows the day.",
+          "Intermediates react through branching pathways third — branching, which is why one release can produce several products.",
+          "Secondary products form and are transported last. That delay is why exposure peaks after the emission has fallen."
         ],
         "cards": [
           "A primary vapor is emitted.",
@@ -540,7 +574,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "sunlight carries enough energy to break chemical bonds"
+      ]
     },
     {
       "day": 5,
@@ -550,7 +587,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Atmospheric chemistry must be inferred from coordinated chemical and meteorological patterns.",
       "story": "Two monitors have been running through a full day and the traces do not look like a plume drifting away. Photochemistry has a signature: production requires sunlight, so a compound formed in the atmosphere climbs while the sun is up, lags the solar maximum by the time the chemistry takes, and falls back overnight when the radicals that made it are no longer being produced. A compound merely being blown around has no reason to care what time it is. The health desk is deciding today whether to lift the shelter advice.",
-      "scene": "Two monitors have been running through a full day and the traces do not look like a plume drifting away. Photochemistry has a signature: production requires sunlight, so a compound formed in the atmosphere climbs while the sun is up, lags the solar maximum by the time the chemistry takes, and falls back overnight when the radicals that made it are no longer being produced. A compound merely being blown around has no reason to care what time it is. The health desk is deciding today whether to lift the shelter advice.",
+      "scene": "Two monitors have been running through a full day and the traces do not look like a plume drifting away. The health desk is deciding today whether to lift the shelter advice.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -770,7 +807,7 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "Sunlight is converting the remaining vapour into a secondary product",
-        "why": "The two traces are mirror images with sunlight between them: the product climbs while the primary falls, peaks about two hours after solar maximum, decays overnight and drops again after sunrise. That is formation in the atmosphere, not release from the ground — which is why it is highest downwind rather than at the fence. Controlling a source ends the release; it does not end the chemistry, and the exposure that matters to the neighbourhood arrived after the yard was already sealed.",
+        "why": "Photochemistry has a signature. Production needs sunlight, so a compound formed in the atmosphere climbs while the sun is up, lags the solar maximum by however long the chemistry takes, and falls back overnight when the radicals that made it stop being produced. Formation in the air also puts the peak downwind rather than at the fence, because the reaction runs while the parcel travels. A compound merely being transported shows none of that — which is what makes the daily shape diagnostic rather than incidental.",
         "rebuttals": [
           "A second release would raise the primary vapour at the fence. It fell all day, from 42 ppb to 11.",
           "A shared inlet artefact is a genuine common-mode risk and the reason the inert tracer is on the network. The tracer held flat at 10 ppb all day, so the instruments are reporting real air.",
@@ -779,7 +816,10 @@ export const CURRICULUM = {
         ],
         "task": "The source is controlled and exposure went up. Which explanation fits the whole day, at both monitors?",
         "answer": "Sunlight is converting the remaining vapour into a secondary product"
-      }
+      },
+      "assumes": [
+        "a compound blown around by wind has no reason to care what time it is"
+      ]
     },
     {
       "day": 6,
@@ -789,7 +829,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Invisible secondary chemistry can outlast the visible emergency.",
       "story": "What is in the air now is not what was released, and a monitoring plan built around the original compound will report an improving situation while exposure rises. Designing for transformation means measuring chemical families rather than a single target, measuring the environmental drivers that control the chemistry, and keeping enough temporal resolution to see a pattern instead of a daily average. The invisible half of an air emergency outlasts the visible half, and the neighbourhood's trust does not survive being told twice that it is over.",
-      "scene": "What is in the air now is not what was released, and a monitoring plan built around the original compound will report an improving situation while exposure rises. Designing for transformation means measuring chemical families rather than a single target, measuring the environmental drivers that control the chemistry, and keeping enough temporal resolution to see a pattern instead of a daily average. The invisible half of an air emergency outlasts the visible half, and the neighbourhood's trust does not survive being told twice that it is over.",
+      "scene": "Residents want to come home. What is in the air now is not what was released.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -804,7 +844,7 @@ export const CURRICULUM = {
         "play": "Residents want to come home. What does the monitoring plan measure?",
         "task": "Residents want to come home. What does the monitoring plan measure?",
         "answer": "The predicted secondary products, as well as the compound that was released.",
-        "why": "The source is controlled and the exposure is now being manufactured in the air. A plan built around the released compound will report a steadily improving situation while the concentration the neighbourhood is actually breathing climbs.",
+        "why": "The source is shut and the exposure is now being made in the air. So a plan built around the original compound will report a steadily improving picture while what people are breathing climbs. Designing for transformation means three things: measure the chemical families the mechanism predicts rather than one target, measure the drivers that control the chemistry, and keep enough time resolution to see a pattern instead of a daily average. The invisible half of an air emergency outlasts the visible half.",
         "rebuttals": [
           "More stations measuring the primary vapour measure a quantity that is already falling, more precisely.",
           "Sunlight and oxidant data explain the pattern and are what make the chemistry predictable. They are nobody’s exposure.",
@@ -818,7 +858,10 @@ export const CURRICULUM = {
           "Nothing further — the visible plume has gone and the source is sealed."
         ],
         "correctChoice": "The predicted secondary products, as well as the compound that was released."
-      }
+      },
+      "assumes": [
+        "a monitoring plan can only find what it is looking for"
+      ]
     }
   ],
   "WATER": [
@@ -830,7 +873,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "The absence of a chemical from water does not mean it has disappeared.",
       "story": "Runoff from the accident has reached the river. A chemical released into water does not stay in one place or one phase: polar molecules dissolve readily, non-polar ones partition onto organic carbon in sediment and stay there, volatile ones leave for the atmosphere, and surface-active ones concentrate in the film on top. All of that follows from molecular structure — polarity, hydrogen bonding, and how the compound interacts with water compared with everything else on offer. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.",
-      "scene": "Runoff from the accident has reached the river. A chemical released into water does not stay in one place or one phase: polar molecules dissolve readily, non-polar ones partition onto organic carbon in sediment and stay there, volatile ones leave for the atmosphere, and surface-active ones concentrate in the film on top. All of that follows from molecular structure — polarity, hydrogen bonding, and how the compound interacts with water compared with everything else on offer. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.",
+      "scene": "Runoff from the accident has reached the river. If you predict the wrong phase you will sample the wrong thing, and a clean water result will be read by the city as an all-clear.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -845,12 +888,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Small ionic species in water. → Often dissolves as hydrated ions. 2. Nonpolar organic liquid with low water affinity. → May form a separate phase or surface film. 3. Polar neutral molecule capable of hydrogen bonding. → Often has appreciable water solubility. 4. Hydrophobic compound with strong affinity for organic-rich sediment. → May concentrate in suspended particles or sediment.",
-        "why": "Solubility and partitioning follow interactions among solute, water, and environmental phases.",
+        "why": "A chemical released into water does not stay in one place or one phase, and where it goes follows from molecular structure. Polar molecules that can hydrogen-bond dissolve readily. Ionic species dissolve as hydrated ions, surrounded by water molecules. Non-polar liquids with little affinity for water separate out or spread as a surface film. Hydrophobic compounds partition onto organic carbon in suspended particles and sediment and stay there. Absence from the water column is not absence from the river.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Often dissolves as hydrated ions.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"May form a separate phase or surface film.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Often has appreciable water solubility.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"May concentrate in suspended particles or sediment.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "A small ionic species dissolves as hydrated ions — water molecules surround each ion and hold it in solution.",
+          "A non-polar organic liquid with low water affinity will not mix. It forms its own phase, often as a film on top.",
+          "A polar neutral molecule that hydrogen-bonds behaves like water does, so it dissolves appreciably.",
+          "A hydrophobic compound with affinity for organic carbon leaves the water for the particles, and the particles settle."
         ],
         "scenarios": [
           "Small ionic species in water.",
@@ -870,7 +913,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "like dissolves like — polar mixes with polar, and non-polar does not"
+      ]
     },
     {
       "day": 2,
@@ -880,7 +926,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "Environmental chemistry requires sampling the phases predicted by molecular behavior.",
       "story": "The survey you design now is the one the state will audit later. A river is a moving system with sources upstream of the accident as well as at it, so a concentration on its own means very little without something to compare it against — background matters as much as the peak. A defensible survey covers the phases your partitioning model predicts, not just the ones that are easy to collect, and it collects them in an order that lets each result be interpreted. Riverton's drinking-water intake is downstream of everything you are about to sample.",
-      "scene": "The survey you design now is the one the state will audit later. A river is a moving system with sources upstream of the accident as well as at it, so a concentration on its own means very little without something to compare it against — background matters as much as the peak. A defensible survey covers the phases your partitioning model predicts, not just the ones that are easy to collect, and it collects them in an order that lets each result be interpreted. Riverton's drinking-water intake is downstream of everything you are about to sample.",
+      "scene": "The survey you design now is the one the state will audit later. Riverton's drinking-water intake is downstream of everything you are about to sample.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -895,9 +941,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "Define upstream background and downstream decision points. → Sample water, suspended solids, sediment, and surface films with blanks. → Measure concentrations and flow or phase masses. → Compare recovered mass across locations and phases, including uncertainty.",
-        "why": "A defensible survey starts with comparison sites and includes all plausible reservoirs.",
+        "why": "A river has sources upstream of the accident as well as at it, so background matters as much as the peak. That is why the comparison sites and the decision points are settled before anything is collected. The sampling then covers the phases the model predicts, not the phases that are easy to reach, and it carries blanks. Concentrations and flows come next. Only then can recovered mass be compared across places and phases, with its uncertainty attached.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Define background and decision points first. Without an upstream comparison, a number downstream is unreadable.",
+          "Sample water, solids, sediment and films with blanks second — the phases the model predicts, not the ones that are easy.",
+          "Measure concentrations and flows third. Mass needs both, and a concentration alone is not a quantity of anything.",
+          "Compare recovered mass across locations and phases last, with uncertainty. That comparison is the whole point of the survey."
         ],
         "cards": [
           "Define upstream background and downstream decision points.",
@@ -911,7 +960,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a concentration means nothing without something to compare it against"
+      ]
     },
     {
       "day": 3,
@@ -921,7 +973,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Sampling design should test the partitioning model rather than confirm appearances.",
       "story": "The river survey has a fixed budget and the water utility wants an answer this week. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river.",
-      "scene": "The river survey has a fixed budget and the water utility wants an answer this week. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river.",
+      "scene": "The river survey has a fixed budget and the water utility wants an answer this week.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -936,7 +988,7 @@ export const CURRICULUM = {
         "play": "The utility wants an answer this week. What does the survey sample?",
         "task": "The utility wants an answer this week. What does the survey sample?",
         "answer": "Sediment and suspended solids, alongside the water.",
-        "why": "The partitioning model predicts the hydrophobic fraction is not in the water at all. A survey that samples only water will come back clean, and the city will read a clean water result as an all-clear.",
+        "why": "Sampling design is where environmental chemistry is usually won or lost. Coverage in space, coverage in time and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The partitioning model predicts the hydrophobic fraction is not in the water at all, so a survey that samples only water comes back clean — and the city reads a clean water result as an all-clear. The point is to give the prediction a real chance to be wrong.",
         "rebuttals": [
           "High-frequency sampling at the intake is where the decision gets made, and it measures one phase of a system with four.",
           "Upstream comparison sites are what make any concentration mean something, and they are the next call rather than this one.",
@@ -950,7 +1002,10 @@ export const CURRICULUM = {
           "The bank where the discoloration is visible."
         ],
         "correctChoice": "Sediment and suspended solids, alongside the water."
-      }
+      },
+      "assumes": [
+        "a survey that can only confirm you was not a test"
+      ]
     },
     {
       "day": 4,
@@ -960,7 +1015,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
       "takeaway": "pH is logarithmic and does not by itself equal total acid inventory.",
       "story": "The river intake has turned acidic and the plant needs a neutralisation dose. pH is a logarithmic measure of the hydrogen ion concentration that is free in solution right now — one pH unit is a factor of ten — so a modest-looking change in pH is a large change in concentration, and pH alone tells you nothing about how much acid is waiting undissociated to take its place. Convert to moles first. Dosing on the pH number alone is how a plant overshoots from acidic straight into strongly basic.",
-      "scene": "The river intake has turned acidic and the plant needs a neutralisation dose. pH is a logarithmic measure of the hydrogen ion concentration that is free in solution right now — one pH unit is a factor of ten — so a modest-looking change in pH is a large change in concentration, and pH alone tells you nothing about how much acid is waiting undissociated to take its place. Convert to moles first. Dosing on the pH number alone is how a plant overshoots from acidic straight into strongly basic.",
+      "scene": "The river intake has turned acidic and the plant needs a neutralisation dose.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -975,10 +1030,8 @@ export const CURRICULUM = {
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate moles of hydrogen ion represented by the free concentration.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate moles of hydrogen ion represented by the free concentration.",
         "answer": "0.10 mol H+ in the measured free pool.",
-        "why": "Real water may contain weak acids and buffers that release additional H+ during neutralization; titration measures total demand better than pH alone.",
-        "rebuttals": [
-          "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
-        ],
+        "why": "pH measures the hydrogen ion that is free in solution right now, so a modest-looking change in pH is a large change in concentration. Converting to moles is the first step, and it is not the last one. Real water contains weak acids and buffers holding acidity in reserve, undissociated, ready to release it as base is added — none of which appears in the pH. Titration measures that total demand; pH does not. Dosing on the pH number alone is how a plant overshoots from acidic straight into strongly basic.",
+        "rebuttals": [],
         "givens": [
           "volume = 1,000 L",
           "[H+] = 1.0×10^-4 mol/L"
@@ -986,7 +1039,10 @@ export const CURRICULUM = {
         "relationship": "moles H+ = concentration × volume.",
         "question": "Estimate moles of hydrogen ion represented by the free concentration.",
         "calcKey": "WATER-4"
-      }
+      },
+      "assumes": [
+        "pH is a logarithmic scale — one unit is a factor of ten"
+      ]
     },
     {
       "day": 5,
@@ -996,7 +1052,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Titration is both a quantitative method and a diagnostic fingerprint.",
       "story": "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading.",
-      "scene": "The curve on the screen is the result of adding base slowly and watching what the solution does. A titration is two instruments in one: quantitatively it measures how much base was needed to reach the equivalence point, which is a measure of total acid rather than free acid, and diagnostically its shape identifies the chemistry — the steepness of the rise, the presence or absence of a flat region, and where the equivalence point falls all say something about what kind of acid is in the water. The plant will dose the intake from your reading.",
+      "scene": "The curve on the screen is the result of adding base slowly and watching what the solution does. The plant will dose the intake from your reading.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1174,7 +1230,7 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "The water contains a weak acid and its buffer system",
-        "why": "pH measures the hydrogen ion that is free right now. A weak acid keeps most of its acidity in reserve, undissociated, and releases it as base is added — which is what the sixteen-millilitre plateau is. The equivalence point above pH 7 confirms it: the conjugate base left at the end is itself basic. That is why the water needed five times the base a strong acid at the same pH would, and why a dose calculated from pH alone first under-treats and then, once the buffer is exhausted, overshoots into strongly basic conditions.",
+        "why": "A titration is two instruments in one. Quantitatively it measures how much base was needed to reach the equivalence point, which is total acid rather than free acid. Diagnostically its shape identifies the chemistry: a long plateau is a buffer absorbing base while the pH barely moves, and an equivalence point above pH 7 means the conjugate base left at the end is itself basic. Both are the signature of a weak acid, and both explain why the dose calculated from pH first under-treats and then overshoots.",
         "rebuttals": [
           "A strong acid at pH 4.6 is the reference curve on the same axes, and it reaches equivalence at 5 mL with a sharp rise and no plateau. The intake does neither.",
           "The electrode was calibrated against pH 4 and 7 buffers to within 0.02. The pH reading is correct — it is simply answering a different question from the one the dose needed.",
@@ -1183,7 +1239,10 @@ export const CURRICULUM = {
         ],
         "task": "The titration curve is on screen. Which explanation accounts for the plateau, the equivalence point and the dose the trial actually needed?",
         "answer": "The water contains a weak acid and its buffer system"
-      }
+      },
+      "assumes": [
+        "a weak acid holds most of its acidity undissociated"
+      ]
     },
     {
       "day": 6,
@@ -1193,7 +1252,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Neutralization should be governed by measurement and mixing, not a one-shot calculation.",
       "story": "Neutralisation in a live water system is a control problem, not an arithmetic problem. The dose calculated from one grab sample assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those is true in a treatment train. Overshooting into strongly basic conditions is not a smaller mistake than under-dosing: it can mobilise metals from pipework and sediment that the acidic water was leaving alone. The plant is waiting on a dose, and what it is given first decides whether the correction is a measurement or a guess.",
-      "scene": "Neutralisation in a live water system is a control problem, not an arithmetic problem. The dose calculated from one grab sample assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those is true in a treatment train. Overshooting into strongly basic conditions is not a smaller mistake than under-dosing: it can mobilise metals from pipework and sediment that the acidic water was leaving alone. The plant is waiting on a dose, and what it is given first decides whether the correction is a measurement or a guess.",
+      "scene": "The plant wants a neutralisation dose this morning. Overshoot into strongly basic water and metals can come off the pipework and the sediment that the acid was leaving alone.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1208,7 +1267,7 @@ export const CURRICULUM = {
         "play": "The plant wants a neutralisation dose this morning. What do you give them?",
         "task": "The plant wants a neutralisation dose this morning. What do you give them?",
         "answer": "A bench titration of representative intake water, to measure the demand.",
-        "why": "pH reports the hydrogen ion that is free right now, and a weak acid holds most of its acidity undissociated in reserve. Titration measures the total the base will actually have to neutralise, which is the number a dose has to be computed from.",
+        "why": "Neutralisation in a live water system is a control problem, not an arithmetic problem. A dose calculated from one measurement assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those holds in a treatment train. pH reports the hydrogen ion that is free right now; a bench titration on representative water measures the total the base will actually have to neutralise. That total is the number a dose has to be computed from.",
         "rebuttals": [
           "A dose from pH alone is how the trial batch overshot: it under-treats while the buffer holds, and then runs away once the buffer is exhausted.",
           "Continuous monitoring is how the overshoot is caught. Catching it is not preventing it.",
@@ -1222,7 +1281,10 @@ export const CURRICULUM = {
           "Staged addition with mixing and hold points between each stage."
         ],
         "correctChoice": "A bench titration of representative intake water, to measure the demand."
-      }
+      },
+      "assumes": [
+        "a grab sample assumes the water is the same everywhere"
+      ]
     },
     {
       "day": 7,
@@ -1232,7 +1294,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "A lower dissolved concentration may mean phase transfer, not removal from the system.",
       "story": "After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. A chemical equilibrium shifts in response to changes in conditions, but the total amount of material is conserved throughout — nothing about a shift destroys anything. Predicting where a system lands takes both halves: the equilibrium expressions, which say which direction it moves, and a mass balance, which says how much of what has to be somewhere. Reading only the water is how a reservoir gets declared clean while the contaminant is settling to the bottom of it.",
-      "scene": "After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. A chemical equilibrium shifts in response to changes in conditions, but the total amount of material is conserved throughout — nothing about a shift destroys anything. Predicting where a system lands takes both halves: the equilibrium expressions, which say which direction it moves, and a mass balance, which says how much of what has to be somewhere. Reading only the water is how a reservoir gets declared clean while the contaminant is settling to the bottom of it.",
+      "scene": "After the pH adjustment the dissolved concentration has fallen and the sediment concentration has risen. Reading only the water is how a reservoir gets declared clean while the contaminant settles to the bottom of it.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1247,9 +1309,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "Identify the relevant dissolution, precipitation, or complexation reactions. → Write the equilibrium relationships and mass balance. → Change pH, ligand concentration, or ionic strength in the model. → Predict and then measure redistribution among dissolved and solid forms.",
-        "why": "Equilibrium predictions require both reaction expressions and conservation of total material.",
+        "why": "Predicting where a system lands takes both halves of the problem. The relevant reactions have to be identified first, because you cannot write an equilibrium expression for chemistry you have not named. The expressions and the mass balance come next: the expressions say which direction the system moves, and the mass balance says how much of what has to be somewhere. Only then does changing a condition in the model mean anything, and only then can a prediction be compared against a measurement.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Identify the reactions first. Dissolution, precipitation and complexation are different processes, and the model needs to know which are in play.",
+          "Write the equilibrium relationships and the mass balance second. Direction and conservation are both needed; either alone gives a wrong answer.",
+          "Change pH, ligand or ionic strength third — in the model, where being wrong is cheap.",
+          "Predict, then measure, last. A redistribution predicted and never checked is an assumption with arithmetic attached."
         ],
         "cards": [
           "Identify the relevant dissolution, precipitation, or complexation reactions.",
@@ -1263,7 +1328,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "material is conserved — a shift moves it, it does not destroy it"
+      ]
     },
     {
       "day": 8,
@@ -1273,7 +1341,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Treatment plans must anticipate the next environment, not only the current sample.",
       "story": "A treatment that works today has to keep working when the conditions change, and reservoirs change constantly — pH, temperature, ionic strength, dissolved oxygen and the removal of a solid phase all push on the same equilibria. Le Chatelier's principle gives the direction: a system at equilibrium responds to a change by shifting in the direction that partly offsets it. What this means in practice is that a contaminant locked into a solid under this month's chemistry can be released again under next month's, and nobody will be sampling for it by then.",
-      "scene": "A treatment that works today has to keep working when the conditions change, and reservoirs change constantly — pH, temperature, ionic strength, dissolved oxygen and the removal of a solid phase all push on the same equilibria. Le Chatelier's principle gives the direction: a system at equilibrium responds to a change by shifting in the direction that partly offsets it. What this means in practice is that a contaminant locked into a solid under this month's chemistry can be released again under next month's, and nobody will be sampling for it by then.",
+      "scene": "A treatment that works today has to keep working when the conditions change, and reservoirs change constantly. Nobody will be sampling for a released contaminant next spring.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1288,12 +1356,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. A solid precipitate is removed from contact with water. → Further dissolution pressure is reduced after physical removal. 2. A ligand strongly binds the dissolved metal. → Complexation can increase total dissolved concentration. 3. pH shifts to favor an insoluble hydroxide. → Precipitation is favored. 4. Sediment later encounters acidic water. → Previously precipitated material may remobilize.",
-        "why": "Equilibria respond to chemical conditions and removal of phases.",
+        "why": "Le Chatelier's principle gives the direction, and each condition pushes a different way. Removing a solid phase from contact takes away the source of further dissolution. A ligand that binds the dissolved metal holds it in solution, so total dissolved concentration can rise even as free metal falls. A pH shift that favours an insoluble hydroxide drives precipitation. And a sediment that later meets acidic water can release what it captured — a contaminant locked into a solid this month can come back next month.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Further dissolution pressure is reduced after physical removal.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Complexation can increase total dissolved concentration.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Precipitation is favored.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Previously precipitated material may remobilize.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "Physically removing the precipitate takes the solid out of contact, so there is less driving further dissolution.",
+          "A strong ligand holds the metal in solution as a complex, so the total dissolved concentration can rise rather than fall.",
+          "A pH shift toward an insoluble hydroxide favours precipitation. This is the reaction treatment is usually trying to cause.",
+          "Acidic water meeting old sediment reverses the precipitation that captured it. What was locked away comes back."
         ],
         "scenarios": [
           "A solid precipitate is removed from contact with water.",
@@ -1313,7 +1381,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a system at equilibrium responds to a change by partly offsetting it"
+      ]
     },
     {
       "day": 9,
@@ -1323,7 +1394,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "A treatment endpoint should include the fate of the contaminant mass.",
       "story": "The dissolved concentration is down and seventy per cent of the contaminant is now in sediment at the bottom of the reservoir. A treatment endpoint is not a concentration in one phase; it is an account of where the mass went and what will happen to it there. That takes characterisation of the solid, monitoring under conditions that might release it again, and a decision about disposition that somebody is actually funded to carry out. The contaminant is still yours, and what the city commits to now is what will be running when the conditions change.",
-      "scene": "The dissolved concentration is down and seventy per cent of the contaminant is now in sediment at the bottom of the reservoir. A treatment endpoint is not a concentration in one phase; it is an account of where the mass went and what will happen to it there. That takes characterisation of the solid, monitoring under conditions that might release it again, and a decision about disposition that somebody is actually funded to carry out. The contaminant is still yours, and what the city commits to now is what will be running when the conditions change.",
+      "scene": "The dissolved concentration is down and seventy per cent of the contaminant is now in sediment at the bottom of the reservoir. The contaminant is still yours.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1338,7 +1409,7 @@ export const CURRICULUM = {
         "play": "Seventy per cent of the contaminant is now in the sediment. What does the city commit to?",
         "task": "Seventy per cent of the contaminant is now in the sediment. What does the city commit to?",
         "answer": "Monitoring dissolved and particulate forms across the seasons.",
-        "why": "The sediment is stable under this month’s chemistry. The question the endpoint actually turns on is whether it is still stable next spring, when the pH, the temperature and the flow are different — and only a measurement made then can answer it.",
+        "why": "The sediment is stable under this month's chemistry. What the endpoint actually turns on is whether it is still stable next spring, when the pH, the temperature and the flow are different — and only a measurement made then can answer that. Characterising the solid says what it is, not what it will do when the water above it changes. Monitoring dissolved and particulate forms across the seasons is the only commitment here that would notice the reservoir releasing what it captured.",
         "rebuttals": [
           "Characterising the solid says what it is. It does not say what it will do when the water above it changes, which is the risk.",
           "Removal or isolation is the action monitoring would trigger, and committing to it now spends the budget before anybody knows whether it is needed.",
@@ -1352,7 +1423,10 @@ export const CURRICULUM = {
           "Closing the incident, since the filtered water now meets the criteria."
         ],
         "correctChoice": "Monitoring dissolved and particulate forms across the seasons."
-      }
+      },
+      "assumes": [
+        "a treatment endpoint is an account of where the mass went"
+      ]
     }
   ],
   "QUANT": [
@@ -1364,7 +1438,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
       "takeaway": "Sample preparation is part of the quantitative result.",
       "story": "The instrument reports what was in the vial, not what was in the river. Samples are diluted so that the signal falls inside the range the method can actually measure, and the analyst has to carry that factor back through before the number means anything about the water — a tenfold dilution reported as-is understates the river by a factor of ten. Sample preparation is part of the result, not something that happened to it beforehand. City leaders are comparing the number you hand over against a threshold and closing or opening a water system with it.",
-      "scene": "The instrument reports what was in the vial, not what was in the river. Samples are diluted so that the signal falls inside the range the method can actually measure, and the analyst has to carry that factor back through before the number means anything about the water — a tenfold dilution reported as-is understates the river by a factor of ten. Sample preparation is part of the result, not something that happened to it beforehand. City leaders are comparing the number you hand over against a threshold and closing or opening a water system with it.",
+      "scene": "The instrument reports what was in the vial, not what was in the river. City leaders are comparing your number against a threshold and closing or opening a water system with it.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1379,10 +1453,8 @@ export const CURRICULUM = {
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the original concentration.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the original concentration.",
         "answer": "C_original = 2.5×100/10 = 25 mg/L.",
-        "why": "The factor-of-ten dilution must be restored before comparing with thresholds.",
-        "rebuttals": [
-          "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
-        ],
+        "why": "Samples are diluted so the signal lands inside the range the method can measure. That factor has to be carried back through before the number says anything about the river. A tenfold dilution reported as measured understates the river ten times over — and the report still looks like a valid result, because nothing about the number says it was diluted. Preparation is part of the answer, not something that happened to it first.",
+        "rebuttals": [],
         "givens": [
           "10.0 mL sample diluted to 100.0 mL",
           "Measured diluted concentration = 2.5 mg/L"
@@ -1390,7 +1462,10 @@ export const CURRICULUM = {
         "relationship": "C_original V_sample = C_diluted V_final.",
         "question": "Estimate the original concentration.",
         "calcKey": "QUANT-1"
-      }
+      },
+      "assumes": [
+        "diluting a sample lowers its concentration by a known factor"
+      ]
     },
     {
       "day": 2,
@@ -1400,7 +1475,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "A numerical display does not guarantee a valid concentration.",
       "story": "An instrument will return a number for almost anything you put in front of it, which is why quality control exists. A calibration curve is a claim about a specific range of concentrations, built from standards that bracket that range; a blank says whether the laboratory contributed to the signal; a spike recovery says whether the matrix is suppressing or enhancing the response; replicates say whether the measurement is stable at all. Each of them fails in a distinct way, and the panel in front of you contains everything you need to decide whether this reading can be defended.",
-      "scene": "An instrument will return a number for almost anything you put in front of it, which is why quality control exists. A calibration curve is a claim about a specific range of concentrations, built from standards that bracket that range; a blank says whether the laboratory contributed to the signal; a spike recovery says whether the matrix is suppressing or enhancing the response; replicates say whether the measurement is stable at all. Each of them fails in a distinct way, and the panel in front of you contains everything you need to decide whether this reading can be defended.",
+      "scene": "An instrument will return a number for almost anything you put in front of it. The panel in front of you has everything needed to decide whether this reading can be defended.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1534,7 +1609,7 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "The result is outside the calibrated range",
-        "why": "Every quality control on this panel is clean: the blank is at 0.01, spike recovery is 97%, replicates agree to 1.5%, and the curve is linear across the range it actually covers. Nothing is wrong with the measurement — the problem is that 1.34 lies beyond the last point anyone verified. Detectors saturate, and linearity is a property of a measured interval, not a promise about everything above it. Dilute the sample into the calibrated range and re-run it.",
+        "why": "Each quality control fails in its own distinct way, which is what makes them readable together. A blank says whether the laboratory contributed to the signal. A spike recovery says whether the matrix is suppressing or enhancing the response. Replicates say whether the measurement is stable. And the curve itself is a claim about a specific range of concentrations — linearity is a property of the interval that was measured, not a promise about everything above it. Detectors saturate, and a reading past the top standard extrapolates a relationship nobody verified.",
         "rebuttals": [
           "Matrix interference would show as poor spike recovery. Recovery is 97%, so the river matrix is behaving.",
           "A contaminated blank would read high. This one reads 0.01, and it would in any case lift the standards along with the sample.",
@@ -1543,7 +1618,10 @@ export const CURRICULUM = {
         ],
         "task": "The instrument returned a number. Which explanation fits the calibration, the blank and the spike together?",
         "answer": "The result is outside the calibrated range"
-      }
+      },
+      "assumes": [
+        "a calibration curve is built from standards covering a particular range"
+      ]
     },
     {
       "day": 3,
@@ -1553,7 +1631,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Spatial coverage without analytical validity—or validity without spatial coverage—cannot protect the city.",
       "story": "The city wants a concentration map and you cannot sample every metre of river. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
-      "scene": "The city wants a concentration map and you cannot sample every metre of river. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
+      "scene": "The city wants a concentration map and you cannot sample every metre of river.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1568,7 +1646,7 @@ export const CURRICULUM = {
         "play": "You cannot sample every metre of river. Where do the samples go?",
         "task": "You cannot sample every metre of river. Where do the samples go?",
         "answer": "Densely, around the drinking-water intake.",
-        "why": "A map is worth exactly what the decisions it supports are worth, and every decision the city is about to make is made at the intake. Coverage anywhere else buys resolution nobody will act on.",
+        "why": "A map trades off two things that both cost money. Analytical validity is whether each number can be trusted. Spatial coverage is whether the numbers sit where the decision is made. Neither alone protects anybody: perfect chemistry at the wrong points and dense sampling with an unproven method both produce a confident map that misleads. Every decision the city is about to make happens at the intake, so detail anywhere else is detail nobody acts on.",
         "rebuttals": [
           "Longitudinal sampling captures transport and is the second call. It answers where the contaminant is going rather than what the intake is drawing.",
           "Replicates, blanks and spikes make each number defensible and place none of them. They are how you sample, not where.",
@@ -1582,7 +1660,10 @@ export const CURRICULUM = {
           "Wherever the water is visibly discoloured."
         ],
         "correctChoice": "Densely, around the drinking-water intake."
-      }
+      },
+      "assumes": [
+        "a map is only worth what the decisions it supports are worth"
+      ]
     },
     {
       "day": 4,
@@ -1592,7 +1673,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
       "takeaway": "Decisions should use uncertainty, not only the central value.",
       "story": "The release limit is ten units and the verification sample came back at nine, plus or minus two. A measurement is a distribution rather than a point: the plus-or-minus is not a disclaimer attached to the number, it is part of what the number says, and it exists because instruments, sampling and matrices all contribute scatter. Which is why laboratories agree a decision rule before the result arrives, along with guard bands and repeat measurements, rather than choosing one afterwards. Hospitals and homes are waiting on this water, and so is everyone's confidence in the reopening.",
-      "scene": "The release limit is ten units and the verification sample came back at nine, plus or minus two. A measurement is a distribution rather than a point: the plus-or-minus is not a disclaimer attached to the number, it is part of what the number says, and it exists because instruments, sampling and matrices all contribute scatter. Which is why laboratories agree a decision rule before the result arrives, along with guard bands and repeat measurements, rather than choosing one afterwards. Hospitals and homes are waiting on this water, and so is everyone's confidence in the reopening.",
+      "scene": "The release limit is ten units and the verification sample came back at nine, plus or minus two. Hospitals and homes are waiting on this water.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1607,10 +1688,8 @@ export const CURRICULUM = {
         "play": "Estimate the highest value this result could plausibly take.",
         "task": "Estimate the highest value this result could plausibly take.",
         "answer": "No. The uncertainty range crosses the limit.",
-        "why": "The plausible range runs to 11, which is above the release limit of 10 — so the measurement does not support a pass, whatever its central value says. A guard band, a repeat measurement, or additional evidence is what the pre-agreed decision rule calls for here.",
-        "rebuttals": [
-          "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
-        ],
+        "why": "A measurement is a spread, not a point, and the scatter comes from the instrument, the sampling and the matrix together. The plausible range here reaches eleven, which is over the limit. So the measurement does not support a pass, whatever the middle value says. This is why laboratories agree the decision rule, the guard band and the repeat before the result arrives. A rule written after the number is a rule written to suit it.",
+        "rebuttals": [],
         "givens": [
           "central result = 9.0",
           "uncertainty interval spans roughly 7 to 11"
@@ -1618,7 +1697,10 @@ export const CURRICULUM = {
         "relationship": "Compare the plausible range with the decision limit.",
         "question": "Estimate the highest value this result could plausibly take.",
         "calcKey": "QUANT-4"
-      }
+      },
+      "assumes": [
+        "a plus-or-minus is part of the number, not a disclaimer on it"
+      ]
     },
     {
       "day": 5,
@@ -1628,7 +1710,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "A compliant number is meaningful only if the sampling and method address the actual decision.",
       "story": "A number can be perfectly valid and still fail to answer the question that was asked. Verification has three separate weak points: whether the samples represent the exposure people will actually receive, whether the method's detection limit is low enough to test the standard at all, and whether what was measured is the compound the standard is about. Each weakness has its own remedy and they do not substitute for one another. The distribution network is about to be repressurised on the strength of this evidence package.",
-      "scene": "A number can be perfectly valid and still fail to answer the question that was asked. Verification has three separate weak points: whether the samples represent the exposure people will actually receive, whether the method's detection limit is low enough to test the standard at all, and whether what was measured is the compound the standard is about. Each weakness has its own remedy and they do not substitute for one another. The distribution network is about to be repressurised on the strength of this evidence package.",
+      "scene": "A number can be perfectly valid and still fail to answer the question that was asked. The distribution network is about to be repressurised on the strength of this evidence package.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1643,12 +1725,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Only treatment-plant effluent was sampled. → Sample representative endpoints and vulnerable zones. 2. Distribution-system samples were collected after long flushing. → Document flushing and sample under realistic use conditions. 3. The method detection limit exceeds the release limit. → Use a more sensitive validated method. 4. The same laboratory performed treatment optimization and final verification. → Add independent verification or review.",
-        "why": "Release requires representative exposure data and a method capable of testing the standard.",
+        "why": "Verification has several separate weak points and each has its own remedy. Sampling only the treatment plant leaves the endpoints and vulnerable zones untested, and those are where people actually drink. Sampling after long flushing measures water nobody will receive, so the flushing has to be documented and realistic use conditions sampled. A detection limit above the release limit cannot test the standard at all. And one laboratory doing both the optimisation and the verification has marked its own work.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Sample representative endpoints and vulnerable zones.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Document flushing and sample under realistic use conditions.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Use a more sensitive validated method.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Add independent verification or review.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "Effluent-only sampling misses the endpoints and vulnerable zones where the exposure actually happens. Sample where people drink.",
+          "Samples taken after long flushing describe water nobody receives. Document the flushing and sample under realistic use.",
+          "A detection limit above the release limit cannot test the standard. A more sensitive validated method is the only fix.",
+          "One laboratory optimising and then verifying its own treatment is marking its own work. That gap is closed by independent review, not by better chemistry."
         ],
         "scenarios": [
           "Only treatment-plant effluent was sampled.",
@@ -1668,7 +1750,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a sample tells you about the place and the moment it was taken"
+      ]
     },
     {
       "day": 6,
@@ -1678,7 +1763,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "High-stakes release decisions should be granular, traceable, and reversible.",
       "story": "The review board's decision is not binary, and treating it as though it were is how emergencies end badly in both directions — a premature release exposes the city, an indefinite hold deprives hospitals and homes of water they need now. A conditional approval with monitoring, staged reopening and defined triggers is a way of acting under uncertainty without pretending it has been resolved. What the board decides has to be defensible to a city that has been told several things already.",
-      "scene": "The review board's decision is not binary, and treating it as though it were is how emergencies end badly in both directions — a premature release exposes the city, an indefinite hold deprives hospitals and homes of water they need now. A conditional approval with monitoring, staged reopening and defined triggers is a way of acting under uncertainty without pretending it has been resolved. What the board decides has to be defensible to a city that has been told several things already.",
+      "scene": "The verification result is nine units against a limit of ten, plus or minus two. The board has been asked for one word, and the city has been told several things already.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1693,7 +1778,7 @@ export const CURRICULUM = {
         "play": "The verification result is 9 units against a limit of 10, plus or minus 2. What does the board decide?",
         "task": "The verification result is 9 units against a limit of 10, plus or minus 2. What does the board decide?",
         "answer": "Conditional release, with intensified monitoring and defined triggers.",
-        "why": "The plausible range crosses the limit, so neither an approval nor a refusal is supported by the number. A conditional release is how a decision gets made under uncertainty without pretending it has been resolved, and the triggers are what make it reversible.",
+        "why": "The plausible range crosses the limit, so neither a yes nor a no is supported by the number. Treating the choice as binary fails both ways: release too early and the city is exposed, hold with no end and the hospitals go without water they need now. A conditional release with tighter monitoring and named triggers is how a decision gets made under uncertainty without pretending it is resolved. The triggers are what make it reversible when the next result is worse.",
         "rebuttals": [
           "More representative sampling is exactly what the condition should require, and on its own it holds the water off for days the hospitals do not have.",
           "Independent confirmation answers whether the number is right. It does not answer what to do while the question is open.",
@@ -1707,7 +1792,10 @@ export const CURRICULUM = {
           "Release, since the central value is below the limit."
         ],
         "correctChoice": "Conditional release, with intensified monitoring and defined triggers."
-      }
+      },
+      "assumes": [
+        "a decision can be reversible or irreversible, and that matters"
+      ]
     }
   ],
   "ENERGY": [
@@ -1719,7 +1807,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "Stoichiometry is a conditional prediction based on a specified reaction.",
       "story": "Two drainage streams may be meeting in a confined tunnel, and crews are waiting for permission to enter. Every quantitative prediction about a reaction rests on a balanced chemical equation, because the balanced equation is what supplies the ratios: moles of one reactant to moles of another, and moles of reactant to moles of product. Written the wrong way round it produces confident numbers about a reaction that is not happening. The reason for the order of this work is that each step depends on the one before it being right.",
-      "scene": "Two drainage streams may be meeting in a confined tunnel, and crews are waiting for permission to enter. Every quantitative prediction about a reaction rests on a balanced chemical equation, because the balanced equation is what supplies the ratios: moles of one reactant to moles of another, and moles of reactant to moles of product. Written the wrong way round it produces confident numbers about a reaction that is not happening. The reason for the order of this work is that each step depends on the one before it being right.",
+      "scene": "Two drainage streams may be meeting in a confined tunnel, and crews are waiting for permission to enter.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1734,9 +1822,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "Write and balance the plausible reaction. → Convert measured amounts to moles. → Use mole ratios to identify the limiting reactant. → Calculate theoretical products and compare with observed gas or heat.",
-        "why": "A balanced equation defines the conversion ratios before amounts can be compared.",
+        "why": "Every quantitative prediction about a reaction rests on a balanced equation, because the balanced equation is what supplies the ratios — moles of one reactant to moles of another, and moles of reactant to moles of product. So it is written first. Measured amounts are then converted to moles, because ratios are ratios of moles and not of grams. The mole ratios identify which reactant runs out first. Only then can the products be calculated and checked against the gas and heat anybody actually observes.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Balance the equation first. It is what supplies every ratio used later, and written wrong it gives confident numbers about a reaction that is not happening.",
+          "Convert to moles second. Ratios from a balanced equation are ratios of moles, and comparing grams gives the wrong answer.",
+          "Use the ratios to find the limiting reactant third. That is what sets the maximum extent of reaction.",
+          "Calculate theoretical products and compare with what was observed last. The comparison is the test; the calculation alone is only a prediction."
         ],
         "cards": [
           "Write and balance the plausible reaction.",
@@ -1750,7 +1841,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a balanced equation says how many of one thing react with how many of another"
+      ]
     },
     {
       "day": 2,
@@ -1760,7 +1854,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
       "takeaway": "Limiting-reactant logic prevents impossible product estimates.",
       "story": "A generic reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The limiting reactant is the one that runs out first, and it is what sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. Confined-space entry decisions are being made from this number.",
-      "scene": "A generic reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The limiting reactant is the one that runs out first, and it is what sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. Confined-space entry decisions are being made from this number.",
+      "scene": "A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. Confined-space entry decisions are being made from this number.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1775,10 +1869,8 @@ export const CURRICULUM = {
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Identify the limiting reactant and maximum reaction extent in moles of B consumed.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Identify the limiting reactant and maximum reaction extent in moles of B consumed.",
         "answer": "10 mol A can consume 5 mol B, so A is limiting and at most 5 mol B react.",
-        "why": "Three moles B remain if the reaction goes to completion.",
-        "rebuttals": [
-          "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
-        ],
+        "why": "The limiting reactant is the one that runs out first, and it sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. The comparison has to be made in moles against the ratio in the balanced equation, not by which number is bigger.",
+        "rebuttals": [],
         "givens": [
           "Available A = 10 mol",
           "Available B = 8 mol"
@@ -1786,7 +1878,10 @@ export const CURRICULUM = {
         "relationship": "Two moles A are required per mole B.",
         "question": "Identify the limiting reactant and maximum reaction extent in moles of B consumed.",
         "calcKey": "ENERGY-2"
-      }
+      },
+      "assumes": [
+        "a reaction stops when one ingredient runs out"
+      ]
     },
     {
       "day": 3,
@@ -1796,7 +1891,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "A balanced equation is testable through conserved quantities and product signatures.",
       "story": "The team has a balanced equation and a plausible story. Neither is evidence. A chemical claim becomes testable through conserved quantities — mass in against mass out, elements accounted for on both sides — and through product signatures that would only be present if that particular reaction is what actually occurred. Controls matter as much here as they do in the laboratory, because a confined tunnel supplies plenty of alternative explanations for a temperature rise or a gas reading. Crews go in on the strength of what you conclude here.",
-      "scene": "The team has a balanced equation and a plausible story. Neither is evidence. A chemical claim becomes testable through conserved quantities — mass in against mass out, elements accounted for on both sides — and through product signatures that would only be present if that particular reaction is what actually occurred. Controls matter as much here as they do in the laboratory, because a confined tunnel supplies plenty of alternative explanations for a temperature rise or a gas reading. Crews go in on the strength of what you conclude here.",
+      "scene": "The team has a balanced equation and a plausible story. Neither is evidence, and crews go in on the strength of what you conclude here.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1811,12 +1906,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Expected gas appears with the predicted ratio to reactant loss. → Evidence supports the proposed reaction. 2. Temperature rises but no products are measured. → Heat alone is nonspecific; test alternatives. 3. One reactant disappears in the blank. → The method or container may be consuming the reactant. 4. Observed product exceeds the theoretical maximum. → The reaction model, units, or measurement is wrong.",
-        "why": "Mass balance and controls constrain reaction claims.",
+        "why": "A chemical claim becomes testable two ways. Conserved quantities — mass in against mass out, elements counted on both sides. And products that would only be there if this reaction is the one that ran. Heat on its own proves nothing, because a confined tunnel offers plenty of other reasons for a temperature rise. Controls matter as much here as in the laboratory: a reactant that vanishes in the blank is being eaten by the container, and more product than the theory allows means the model or the arithmetic is wrong.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Evidence supports the proposed reaction.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Heat alone is nonspecific; test alternatives.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"The method or container may be consuming the reactant.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"The reaction model, units, or measurement is wrong.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "Expected gas appearing in the predicted ratio to reactant loss is the signature the equation predicts. Ratio is what makes it evidence rather than coincidence.",
+          "A temperature rise with no products measured is non-specific. Many things warm up; only this reaction makes this product.",
+          "A reactant disappearing in the blank means the method or the container is consuming it. That loss has nothing to do with the reaction.",
+          "More product than the theoretical maximum is impossible, so something upstream is wrong: the model, the units, or the measurement."
         ],
         "scenarios": [
           "Expected gas appears with the predicted ratio to reactant loss.",
@@ -1836,7 +1931,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a temperature rise has more than one possible cause"
+      ]
     },
     {
       "day": 4,
@@ -1846,7 +1944,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
       "takeaway": "Temperature becomes meaningful when connected to mass and heat capacity.",
       "story": "The visible fire has been out for two hours and the storage zone is still warming. The energy needed to change the temperature of a material is its mass times its specific heat capacity times the temperature change, which is why a small rise across a large thermal mass can represent a very large amount of energy — water's high heat capacity is exactly what makes it a good containment bath and also what hides how much energy has gone in. The number decides whether cooling capacity on site is adequate or decorative.",
-      "scene": "The visible fire has been out for two hours and the storage zone is still warming. The energy needed to change the temperature of a material is its mass times its specific heat capacity times the temperature change, which is why a small rise across a large thermal mass can represent a very large amount of energy — water's high heat capacity is exactly what makes it a good containment bath and also what hides how much energy has gone in. The number decides whether cooling capacity on site is adequate or decorative.",
+      "scene": "The visible fire has been out for two hours and the storage zone is still warming. The number decides whether the cooling capacity on site is adequate or decorative.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1861,10 +1959,8 @@ export const CURRICULUM = {
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the absorbed heat.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the absorbed heat.",
         "answer": "q ≈ 2,000×4.2×5 = 42,000 kJ = 42 MJ.",
-        "why": "A modest temperature rise in a large thermal mass can represent substantial energy.",
-        "rebuttals": [
-          "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
-        ],
+        "why": "The energy needed to change a material's temperature is its mass times its specific heat capacity times the temperature change. A small rise across a large thermal mass therefore represents a very large amount of energy — and water's high heat capacity is exactly what makes it a good containment bath and also what hides how much energy has gone in. Temperature on its own says nothing about quantity of energy. It becomes meaningful only once it is connected to a mass and a heat capacity.",
+        "rebuttals": [],
         "givens": [
           "mass = 2,000 kg",
           "specific heat = 4.2 kJ kg^-1 K^-1",
@@ -1873,7 +1969,10 @@ export const CURRICULUM = {
         "relationship": "q = mcΔT.",
         "question": "Estimate the absorbed heat.",
         "calcKey": "ENERGY-4"
-      }
+      },
+      "assumes": [
+        "different materials need different amounts of energy to warm by one degree"
+      ]
     },
     {
       "day": 5,
@@ -1883,7 +1982,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Thermal diagnosis requires an energy balance, not a single temperature threshold.",
       "story": "Two bays are warm and Fire Command wants to know whether to release the site. There are only two ways a mass can be hot: it absorbed energy earlier and has not yet lost it, or it is making energy now. Those behave completely differently over time — anything that is merely storing heat can only cool toward its surroundings once the source is removed, while a self-heating mass can rise on its own and rise faster as it goes. The panel gives you both bays, and getting this wrong sends responders home before a runaway.",
-      "scene": "Two bays are warm and Fire Command wants to know whether to release the site. There are only two ways a mass can be hot: it absorbed energy earlier and has not yet lost it, or it is making energy now. Those behave completely differently over time — anything that is merely storing heat can only cool toward its surroundings once the source is removed, while a self-heating mass can rise on its own and rise faster as it goes. The panel gives you both bays, and getting this wrong sends responders home before a runaway.",
+      "scene": "Two bays are warm and Fire Command wants to know whether to release the site. Getting this wrong sends responders home before a runaway.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2080,7 +2179,7 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "An exothermic reaction is still running in the west bay",
-        "why": "Stored heat can only leave. Once the external source is gone, a hot mass falls toward ambient — which is exactly what the east bay does. The west bay does the opposite, and it does so while producing off-gas from a hot spot that has not moved. Heat that increases with no source is heat being made. The distinction matters because cooling has to out-run generation, not merely carry away a fixed quantity, and the entry limit has already been crossed.",
+        "why": "There are only two ways a mass can be hot: it absorbed energy earlier and has not yet lost it, or it is making energy now. Those behave completely differently over time. Anything merely storing heat can only cool toward its surroundings once the source is removed — that is what the east bay does, and it is why the east bay is the control. A self-heating mass rises on its own and rises faster as it goes. Heat that increases with no source is heat being made.",
         "rebuttals": [
           "Stored heat is the explanation the east bay fits, and it is why the east bay is the control. A stored-heat curve cannot rise after the source is withdrawn.",
           "The shared calibration reference is a real common-mode risk and worth fixing, but it would push both bays the same way. West rises while east falls, so the divergence is physical rather than instrumental.",
@@ -2089,7 +2188,10 @@ export const CURRICULUM = {
         ],
         "task": "Fire Command needs to know whether this is heat left over from the fire or a reaction still running. Which explanation fits every zone?",
         "answer": "An exothermic reaction is still running in the west bay"
-      }
+      },
+      "assumes": [
+        "heat flows from hot to cold and nowhere else on its own"
+      ]
     },
     {
       "day": 6,
@@ -2099,7 +2201,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "High-consequence thermal systems need detection, understanding, and mitigation.",
       "story": "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen.",
-      "scene": "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen.",
+      "scene": "Fire Command wants the site released tonight. A self-heating mass can be lost slowly enough that nobody notices until it cannot be won.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2114,7 +2216,7 @@ export const CURRICULUM = {
         "play": "Fire Command wants the site released tonight. What do you require first?",
         "task": "Fire Command wants the site released tonight. What do you require first?",
         "answer": "Continuous temperature and heat-flow monitoring in the bays.",
-        "why": "Self-heating is a race between what a reaction generates and what the surroundings can carry away, and the only thing that says which is winning is the trend. A site is safe to release when somebody can see the trend, not when one reading is acceptable.",
+        "why": "Self-heating is a race between the energy a reaction makes and the energy the surroundings can carry away. Only the trend says which side is winning, so a site is safe to release when somebody can watch the trend — not when one reading happens to look fine. Controlling it takes three things that do not stand in for each other: detection early enough to act on, the mechanism so the action is the right one, and enough cooling to shift the balance.",
         "rebuttals": [
           "Calorimetry gives the mechanism and the rate, and it takes days. Commission it; it does not decide tonight.",
           "Cooling capacity changes the balance and has to know which way the balance is going before it can be sized.",
@@ -2128,7 +2230,10 @@ export const CURRICULUM = {
           "One more temperature reading at the door before the crews leave."
         ],
         "correctChoice": "Continuous temperature and heat-flow monitoring in the bays."
-      }
+      },
+      "assumes": [
+        "a trend says something a single reading cannot"
+      ]
     },
     {
       "day": 7,
@@ -2138,7 +2243,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "A reaction can be favorable yet slow, or fast only after a barrier is lowered.",
       "story": "The treatment chemical is quiet in the drum and vigorous in the warm vessel. Thermodynamics says whether a reaction can go and how much energy it releases; kinetics says how fast, and the two are independent — a strongly favourable reaction can sit unchanged for years behind a large activation barrier. Temperature, concentration and catalysis each act on the rate through a different mechanism: one supplies more molecules with enough energy to cross the barrier, one changes how often they meet, and one lowers the barrier itself. The pilot vessel is where the difference stops being academic.",
-      "scene": "The treatment chemical is quiet in the drum and vigorous in the warm vessel. Thermodynamics says whether a reaction can go and how much energy it releases; kinetics says how fast, and the two are independent — a strongly favourable reaction can sit unchanged for years behind a large activation barrier. Temperature, concentration and catalysis each act on the rate through a different mechanism: one supplies more molecules with enough energy to cross the barrier, one changes how often they meet, and one lowers the barrier itself. The pilot vessel is where the difference stops being academic.",
+      "scene": "The treatment chemical is quiet in the drum and vigorous in the warm vessel. The pilot vessel is where the difference stops being academic.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2153,12 +2258,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Raise reactant concentration. → Often increases collision frequency and rate. 2. Raise temperature. → Increases the fraction of collisions able to cross the barrier. 3. Add a catalyst. → Provides a lower-activation-energy pathway. 4. Change product energy while leaving the pathway unchanged. → Changes thermodynamic driving force, not necessarily the activation barrier.",
-        "why": "Rate and thermodynamic favorability are related but distinct.",
+        "why": "Thermodynamics says whether a reaction can go and how much energy it releases; kinetics says how fast, and the two are independent — a strongly favourable reaction can sit unchanged for years behind a large activation barrier. Each intervention acts through its own mechanism. More concentration means molecules meet more often. Higher temperature means a larger fraction of those meetings carry enough energy to cross the barrier. A catalyst lowers the barrier itself. Changing product energy changes the driving force and may leave the barrier exactly where it was.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Often increases collision frequency and rate.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Increases the fraction of collisions able to cross the barrier.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Provides a lower-activation-energy pathway.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Changes thermodynamic driving force, not necessarily the activation barrier.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "Raising concentration puts more molecules in the same volume, so they collide more often. The barrier is unchanged; the traffic is not.",
+          "Raising temperature widens the spread of molecular energies, so a larger fraction of collisions can cross the barrier.",
+          "A catalyst offers a different route with a lower activation energy. It is not consumed and it does not change how favourable the reaction is.",
+          "Changing product energy changes the thermodynamic driving force. The barrier between reactants and products can stay exactly where it was."
         ],
         "scenarios": [
           "Raise reactant concentration.",
@@ -2178,7 +2283,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a reaction needs molecules to meet with enough energy to react"
+      ]
     },
     {
       "day": 8,
@@ -2188,7 +2296,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "Runaway risk emerges from coupling reaction rate to imperfect heat removal.",
       "story": "A runaway is not an explosion that comes out of nowhere; it is a feedback loop with an obvious first step. An exothermic reaction releases heat, that heat raises the temperature of the mixture, a higher temperature increases the reaction rate, and a faster reaction releases heat sooner — while the cooling system removes heat at a rate set by fixed geometry and a temperature difference it cannot control. Put the chain in order and it stops being alarming and starts being designable. Get the order wrong and you will engineer against the wrong link.",
-      "scene": "A runaway is not an explosion that comes out of nowhere; it is a feedback loop with an obvious first step. An exothermic reaction releases heat, that heat raises the temperature of the mixture, a higher temperature increases the reaction rate, and a faster reaction releases heat sooner — while the cooling system removes heat at a rate set by fixed geometry and a temperature difference it cannot control. Put the chain in order and it stops being alarming and starts being designable. Get the order wrong and you will engineer against the wrong link.",
+      "scene": "A runaway is not an explosion that comes out of nowhere. Get the order of the chain wrong and you will engineer against the wrong link.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2203,9 +2311,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "Reaction releases heat. → Temperature rises because heat removal lags. → The rate constant increases. → Faster reaction releases heat still more rapidly.",
-        "why": "Exothermic heat and temperature-sensitive kinetics form positive feedback.",
+        "why": "It is a feedback loop with an obvious first step. An exothermic reaction releases heat. That heat raises the temperature, because heat removal always lags — the cooling system takes heat away at a rate set by fixed geometry and a temperature difference it cannot control. A higher temperature raises the rate constant. A faster reaction releases the same heat sooner, and the loop closes. Put the chain in order and it stops being alarming and starts being designable.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Heat release is the first link. Without an exothermic reaction there is no loop at all.",
+          "Temperature rises second, and only because removal lags. Cooling that kept pace would break the loop here.",
+          "The rate constant rises third. This is the step that makes the feedback positive rather than merely warm.",
+          "Faster release last, which feeds back into the first link. The loop closing is what makes it a runaway."
         ],
         "cards": [
           "Reaction releases heat.",
@@ -2219,7 +2330,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a reaction goes faster when it is hotter"
+      ]
     },
     {
       "day": 9,
@@ -2229,7 +2343,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Speed is not safety when the process contains positive thermal feedback.",
       "story": "A safe operating envelope is a set of conditions under which the heat a process generates cannot outrun the heat it can lose. Establishing one takes measured rate data rather than assumed kinetics, honest heat-removal capacity at the worst case rather than the design case, and protection that works when the control system is the thing that has failed. Speed and yield are not safety, and a process that runs beautifully at the intended temperature can be the largest hazard on site fifteen degrees above it. What the vessel needs before it runs at scale is the bound, not the throughput.",
-      "scene": "A safe operating envelope is a set of conditions under which the heat a process generates cannot outrun the heat it can lose. Establishing one takes measured rate data rather than assumed kinetics, honest heat-removal capacity at the worst case rather than the design case, and protection that works when the control system is the thing that has failed. Speed and yield are not safety, and a process that runs beautifully at the intended temperature can be the largest hazard on site fifteen degrees above it. What the vessel needs before it runs at scale is the bound, not the throughput.",
+      "scene": "The treatment vessel is about to run at scale. A process that runs beautifully at the intended temperature can be the largest hazard on site fifteen degrees above it.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2244,7 +2358,7 @@ export const CURRICULUM = {
         "play": "What has to be true before the treatment vessel runs at scale?",
         "task": "What has to be true before the treatment vessel runs at scale?",
         "answer": "Measured reaction rate across the whole expected temperature range.",
-        "why": "The envelope is the set of conditions where generated heat cannot outrun removable heat, and generation is the side that rises steeply with temperature. Assumed kinetics turns the bound into a guess, and the guess is wrong in the direction that matters.",
+        "why": "A safe operating envelope is the set of conditions where the heat a process generates cannot outrun the heat it can lose. Generation is the side that rises steeply with temperature; removal rises only in proportion to a temperature difference. So the envelope cannot be drawn without a measured rate curve across the whole expected temperature range. Assumed kinetics turns the bound into a guess, and the guess is wrong in the direction that matters. Speed and yield are not safety.",
         "rebuttals": [
           "Cooling performance is the other half of the same inequality, and it is uninterpretable without a rate curve to compare it against.",
           "Independent shutdowns protect against the control system being the thing that failed. They are required whatever the envelope turns out to be, and they define nothing.",
@@ -2258,7 +2372,10 @@ export const CURRICULUM = {
           "Enough catalyst to finish each batch inside the shift."
         ],
         "correctChoice": "Measured reaction rate across the whole expected temperature range."
-      }
+      },
+      "assumes": [
+        "heat generation and heat removal do not rise at the same rate"
+      ]
     }
   ],
   "TREAT": [
@@ -2270,7 +2387,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Stopping corrosion requires breaking or controlling the full circuit.",
       "story": "Acidic water and two dissimilar metals in contact are all corrosion needs. Corrosion is an electrochemical circuit with four parts that must all be present: an anode where metal is oxidised and lost, a cathode where a matching reduction occurs, an electron path through the metal, and an ion path through the water. Break any one of them and the circuit stops. That is why treating a corroding pipe as a materials problem alone misses most of the available fixes, and why the intake pipeline for a city's drinking water is a bad place to guess.",
-      "scene": "Acidic water and two dissimilar metals in contact are all corrosion needs. Corrosion is an electrochemical circuit with four parts that must all be present: an anode where metal is oxidised and lost, a cathode where a matching reduction occurs, an electron path through the metal, and an ion path through the water. Break any one of them and the circuit stops. That is why treating a corroding pipe as a materials problem alone misses most of the available fixes, and why the intake pipeline for a city's drinking water is a bad place to guess.",
+      "scene": "Acidic water and two dissimilar metals in contact are all corrosion needs. The intake pipeline for a city's drinking water is a bad place to guess.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2285,12 +2402,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Metal atoms lose electrons and enter solution. → Anodic oxidation site. 2. A surface consumes electrons in a reduction reaction. → Cathodic reduction site. 3. Two dissimilar metals are electrically connected in an electrolyte. → A galvanic cell can form. 4. A protective coating is breached at one small point. → Localized attack may concentrate at the defect.",
-        "why": "Corrosion is an electrochemical circuit involving electron and ion paths.",
+        "why": "Corrosion is an electrochemical circuit with four parts that all have to be present: an anode where metal is oxidised and lost, a cathode where a matching reduction consumes those electrons, an electron path through the metal, and an ion path through the water. Break any one and the circuit stops. Two dissimilar metals connected in an electrolyte supply all four by themselves. And a coating breached at one small point concentrates the whole anodic current into that patch, which is why a pinhole is worse than bare metal.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Anodic oxidation site.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Cathodic reduction site.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"A galvanic cell can form.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Localized attack may concentrate at the defect.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "Metal atoms losing electrons and entering solution is oxidation, and the site where it happens is the anode. This is where the metal is actually lost.",
+          "A surface consuming electrons in a reduction reaction is the cathode. It is the other half of the circuit and it loses no metal.",
+          "Two dissimilar metals connected in an electrolyte supply the anode, the cathode, the electron path and the ion path at once. That is a galvanic cell.",
+          "A coating breached at one point forces the whole anodic current through a small area, so the attack concentrates there and perforates fast."
         ],
         "scenarios": [
           "Metal atoms lose electrons and enter solution.",
@@ -2310,7 +2427,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "oxidation is losing electrons and reduction is gaining them"
+      ]
     },
     {
       "day": 2,
@@ -2320,7 +2440,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
       "takeaway": "A corrosion rate becomes a decision only once it is a depth compared against a wall.",
       "story": "An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.",
-      "scene": "An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges. A uniform rate of a fraction of a millimetre a year sounds survivable; the same total loss concentrated at a defect in a coating perforates the wall in a season, because the entire anodic current is being delivered into a small patch. Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against — but the number to hand over is the one that says where the metal is going, not just how much.",
+      "scene": "An average corrosion rate is a mass loss spread evenly over an area, and metal almost never obliges.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2335,10 +2455,8 @@ export const CURRICULUM = {
         "play": "Estimate the uniform penetration rate, in millimetres per year.",
         "task": "Estimate the uniform penetration rate, in millimetres per year.",
         "answer": "0.50 kg m^-2 year^-1.",
-        "why": "Two kilograms a year spread over four square metres of steel is about sixty microns of depth a year, which would take a century to reach through a six-millimetre wall. That is the number that says uniform corrosion is not the problem here — and it is the same number that makes localised attack so much worse, because all of it arrives in one place.",
-        "rebuttals": [
-          "A numerically precise answer with the wrong governing relationship should not earn full credit. A rounded answer with correct physics and units should."
-        ],
+        "why": "Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against. Two kilograms a year over four square metres of steel is about sixty microns of depth a year, which would take a century to reach through a six-millimetre wall. That is the number saying uniform corrosion is not the problem here. It is also the number that makes localised attack so much worse: the same total loss arriving at one defect perforates the wall in a season.",
+        "rebuttals": [],
         "givens": [
           "corrosion mass loss = 2.0 kg/year",
           "affected area = 4.0 m²"
@@ -2346,7 +2464,10 @@ export const CURRICULUM = {
         "relationship": "average loss rate per area = mass loss / area.",
         "question": "Estimate the uniform penetration rate, in millimetres per year.",
         "calcKey": "TREAT-2"
-      }
+      },
+      "assumes": [
+        "a rate becomes a decision only when it is compared against a thickness"
+      ]
     },
     {
       "day": 3,
@@ -2356,7 +2477,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Corrosion protection is a designed system of materials, environment, and inspection.",
       "story": "Protecting a pipeline means attacking the circuit at whichever point is cheapest to break. Water chemistry changes how aggressive the electrolyte is; coatings interrupt the ion path but concentrate the attack wherever they fail; electrical isolation removes the galvanic couple between dissimilar metals; cathodic protection supplies electrons so that the pipe stops being the anode; inspection tells you which of them is working before a leak does. They are complementary, not alternatives, and the city cannot afford to lose the intake in the middle of the emergency.",
-      "scene": "Protecting a pipeline means attacking the circuit at whichever point is cheapest to break. Water chemistry changes how aggressive the electrolyte is; coatings interrupt the ion path but concentrate the attack wherever they fail; electrical isolation removes the galvanic couple between dissimilar metals; cathodic protection supplies electrons so that the pipe stops being the anode; inspection tells you which of them is working before a leak does. They are complementary, not alternatives, and the city cannot afford to lose the intake in the middle of the emergency.",
+      "scene": "The corrosion cell is running and the city cannot afford to lose the intake in the middle of the emergency.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2371,7 +2492,7 @@ export const CURRICULUM = {
         "play": "The corrosion cell is running. Which control goes in first?",
         "task": "The corrosion cell is running. Which control goes in first?",
         "answer": "Electrically isolate the dissimilar metals where the coupling is.",
-        "why": "Corrosion needs four things at once, and the circuit stops when any one of them is broken. The electron path between two dissimilar metals is the only part of it that can be cut without asking the treatment plant to change what it is dosing or trusting a coating not to fail.",
+        "why": "Protecting a pipeline means attacking the circuit wherever it is cheapest to break. Water chemistry changes how aggressive the electrolyte is, but it is constrained by everything else the treatment train has to achieve. Coatings interrupt the ion path and concentrate the attack wherever they fail. Cathodic protection supplies electrons so the pipe stops being the anode. Electrical isolation cuts the electron path between the two dissimilar metals — the one part of the circuit that can be removed without changing the water or trusting a coating.",
         "rebuttals": [
           "Water chemistry works and is constrained by everything else the treatment train has to achieve, including the neutralisation that started this.",
           "Coatings interrupt the ion path and concentrate the entire anodic current wherever they fail, which is why they cannot be installed without an inspection programme.",
@@ -2385,7 +2506,10 @@ export const CURRICULUM = {
           "Reissue the leak report with the inspection photographs attached."
         ],
         "correctChoice": "Electrically isolate the dissimilar metals where the coupling is."
-      }
+      },
+      "assumes": [
+        "a circuit stops when any one part of it is broken"
+      ]
     },
     {
       "day": 4,
@@ -2395,7 +2519,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Treatment evaluation follows the contaminant and all major byproducts.",
       "story": "The pilot plant has run and the city wants to hear that the contaminant is gone. A mass balance across every stream is what makes that claim checkable: what came in, what left in the treated water, what left in the sludge, what left as off-gas, and what is unaccounted for. Removal from water and destruction are two different claims, and only one of them means the hazard has ended — a contaminant concentrated into a solid is smaller in volume, easier to handle, and still entirely present. Read all the streams, not the one being asked about.",
-      "scene": "The pilot plant has run and the city wants to hear that the contaminant is gone. A mass balance across every stream is what makes that claim checkable: what came in, what left in the treated water, what left in the sludge, what left as off-gas, and what is unaccounted for. Removal from water and destruction are two different claims, and only one of them means the hazard has ended — a contaminant concentrated into a solid is smaller in volume, easier to handle, and still entirely present. Read all the streams, not the one being asked about.",
+      "scene": "The pilot plant has run and the city wants to hear that the contaminant is gone.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2512,7 +2636,7 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "The contaminant was moved, not destroyed",
-        "why": "Removal from water and destruction are different claims, and this balance only supports the first. Seventy-one kilograms are in sludge — a solid that now needs a destination, and that will release the contaminant again if it meets acidic water. A further twenty are unaccounted for, and the byproduct bench has already seen a transformation product it cannot yet quantify, which is the most likely home for them. A treatment is judged on its complete chemical consequences, not on the one stream the public is asking about.",
+        "why": "A mass balance across every stream is what makes the claim checkable: what came in, what left in the treated water, what left in the sludge, what left as off-gas, and what is unaccounted for. Removal from water and destruction are two different claims, and only one means the hazard has ended. A contaminant concentrated into a solid is smaller in volume, easier to handle and entirely present — and it will release again if that solid meets acidic water. Read all the streams, not the one being asked about.",
         "rebuttals": [
           "Ninety-four per cent is a true statement about the water and a false one about the contaminant. Destruction would show as loss to a measured, benign product — not as 71 kg of solids.",
           "Flow and residence time are at design values, so the plant is doing exactly what it was built to do. That is the point: this is the designed outcome, not a malfunction.",
@@ -2521,7 +2645,10 @@ export const CURRICULUM = {
         ],
         "task": "Read the mass balance across every stream, not just the one the city is asking about.",
         "answer": "The contaminant was moved, not destroyed"
-      }
+      },
+      "assumes": [
+        "mass is conserved — what came in has to be somewhere"
+      ]
     },
     {
       "day": 5,
@@ -2531,7 +2658,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "A treatment train is ordered by what each stage leaves the next one to work with.",
       "story": "Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off.",
-      "scene": "Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off.",
+      "scene": "Four unit processes are on the table and the plant wants them in an order. Riverton has one intake and cannot run this experiment twice while the water is off.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2546,9 +2673,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "1. Oxidise the dissolved metal to the valence that forms an insoluble hydroxide. 2. Raise the pH to the window where that hydroxide is least soluble. 3. Settle and filter, taking the solid out of the water. 4. Polish the filtrate on activated carbon for what stayed dissolved.",
-        "why": "Each stage can only act on what the stage before it produced. Precipitation has nothing to work with until the metal is in the oxidised form, the solid cannot be filtered until the pH has actually made it, and carbon is a polishing step — send solids to it and the bed blinds within hours. Order the train wrongly and every unit downstream is doing nothing.",
+        "why": "A treatment train is not four independent machines. Each stage changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing — or worse than nothing. Solubility is the pivot. Precipitation has nothing to work with until the metal is in the oxidised form that makes an insoluble hydroxide, and the solid cannot be filtered until the pH has actually made it. Carbon is a polishing step: send it suspended solids and the bed blinds within hours.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Oxidise first. Precipitation has nothing to work with until the metal is in the valence that forms an insoluble hydroxide.",
+          "Raise the pH second, into the window where that hydroxide is least soluble. This is the step that actually makes the solid.",
+          "Settle and filter third, once there is a solid to remove. Filtering dissolved metal removes nothing.",
+          "Carbon last, as polishing. Send solids to a carbon bed and it blinds within hours, and everything downstream of it stops."
         ],
         "cards": [
           "Oxidise the dissolved metal to the valence that forms an insoluble hydroxide.",
@@ -2562,7 +2692,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a filter can only remove something that is already a solid"
+      ]
     },
     {
       "day": 6,
@@ -2572,7 +2705,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "The best treatment minimizes total hazard, not merely one measured concentration.",
       "story": "The pilot programme is the last point at which being wrong is cheap. What it needs to test is not which method removes the most contaminant — all three claim that — but which one's total hazard is smallest once byproducts, residuals and the lifecycle of the waste are counted. That means comparing mechanisms honestly, analysing for the products a mechanism would predict rather than only for the target, and running long enough for slow effects to show. The pilot has room for one question, and it should be the one that would change the decision.",
-      "scene": "The pilot programme is the last point at which being wrong is cheap. What it needs to test is not which method removes the most contaminant — all three claim that — but which one's total hazard is smallest once byproducts, residuals and the lifecycle of the waste are counted. That means comparing mechanisms honestly, analysing for the products a mechanism would predict rather than only for the target, and running long enough for slow effects to show. The pilot has room for one question, and it should be the one that would change the decision.",
+      "scene": "The pilot programme is the last point at which being wrong is cheap, and it has room for one question.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2587,7 +2720,7 @@ export const CURRICULUM = {
         "play": "All three methods claim removal. What does the pilot have to measure?",
         "task": "All three methods claim removal. What does the pilot have to measure?",
         "answer": "The transformation products and toxicity-relevant surrogates.",
-        "why": "Every method on the table removes the target; that is why they are on the table. What separates them is what they leave behind, and a pilot that measures only the target compound cannot see the difference it was run to find.",
+        "why": "Every method on the table removes the target — that is why they are on the table. What separates them is what they leave behind: transformation products, residuals, and the lifecycle of the waste. A pilot that measures only the target compound cannot see the difference it was run to find, and judged on removal alone it will pick whichever method makes the most byproduct fastest. The right question is the one that would change the decision, and here that means analysing for the products each mechanism predicts.",
         "rebuttals": [
           "Comparing removal under representative chemistry is the comparison, and judged on the target alone it will pick whichever method makes the most byproduct fastest.",
           "Media exhaustion and waste fate matter and come once a method is short-listed. They describe the lifecycle of a choice already made.",
@@ -2601,7 +2734,10 @@ export const CURRICULUM = {
           "The highest achievable removal, at whatever dose it takes."
         ],
         "correctChoice": "The transformation products and toxicity-relevant surrogates."
-      }
+      },
+      "assumes": [
+        "a method that removes a compound has to put it somewhere"
+      ]
     },
     {
       "day": 7,
@@ -2611,7 +2747,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
       "takeaway": "Chemical readiness is claim-by-claim, not a single green light.",
       "story": "The city wants one sentence and the chemistry does not support one. At the end of a release the evidence is in several different states at once: some claims are established and can be closed, some are unresolved and need work, some are managed by a control that has to keep being funded, and some are simply unknown. Each of those calls for a different recommendation, and collapsing them into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
-      "scene": "The city wants one sentence and the chemistry does not support one. At the end of a release the evidence is in several different states at once: some claims are established and can be closed, some are unresolved and need work, some are managed by a control that has to keep being funded, and some are simply unknown. Each of those calls for a different recommendation, and collapsing them into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
+      "scene": "The city wants one sentence and the chemistry does not support one. Collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2626,12 +2762,12 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Identity confirmed by orthogonal methods and controls. → Treat identity as established with documented methods. 2. A transformation product is plausible but lacks a validated standard. → Label provisional and continue method development. 3. Filtered water meets criteria, but sediment remains contaminated. → Maintain sediment management and remobilization monitoring. 4. Pipeline corrosion is controlled only while chemistry remains within a narrow range. → Use conditional operation with chemistry and corrosion triggers.",
-        "why": "The final state contains established facts, unresolved chemistry, and conditional controls.",
+        "why": "At the end of a release the evidence is in several states at once, and each calls for a different recommendation. An identity confirmed by orthogonal methods with controls is established and can be closed. A transformation product that is plausible but has no validated standard is provisional, and saying so is what keeps the record honest. Filtered water meeting criteria over contaminated sediment is a control that has to keep being funded. And corrosion held inside a narrow chemistry window is conditional operation with triggers.",
         "rebuttals": [
-          "Situation 1: The supported response is \"Treat identity as established with documented methods.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 2: The supported response is \"Label provisional and continue method development.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 3: The supported response is \"Maintain sediment management and remobilization monitoring.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports.",
-          "Situation 4: The supported response is \"Use conditional operation with chemistry and corrosion triggers.\" because it directly addresses the evidence in the situation. The other responses may be valid elsewhere, but here they would either test a different failure mode, skip a needed control, or claim more than the observation supports."
+          "Identity confirmed by orthogonal methods with controls is the strongest claim here. Document the methods and treat it as established.",
+          "A plausible transformation product with no validated standard cannot be quantified yet. Label it provisional and keep developing the method.",
+          "Clean filtered water above contaminated sediment is a managed condition, not a resolved one. The management is what has to continue.",
+          "Corrosion controlled only inside a narrow chemistry range is conditional operation. The condition needs triggers, or it is just a hope."
         ],
         "scenarios": [
           "Identity confirmed by orthogonal methods and controls.",
@@ -2651,7 +2787,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "evidence comes in strengths, and a claim inherits the weakest one under it"
+      ]
     },
     {
       "day": 8,
@@ -2661,7 +2800,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
       "takeaway": "A public account that follows the mass is one the public can check.",
       "story": "Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but an account that adds up: how much was released, where it went, what treatment moved rather than destroyed, and how much is still unplaced. That is the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. An account that starts from the reassuring measurement is the one people notice has a gap in it.",
-      "scene": "Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but an account that adds up: how much was released, where it went, what treatment moved rather than destroyed, and how much is still unplaced. That is the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. An account that starts from the reassuring measurement is the one people notice has a gap in it.",
+      "scene": "Riverton has been told several things by several people over fifteen days. An account that starts from the reassuring measurement is the one people notice has a gap in it.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2676,9 +2815,12 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "1. A hundred kilograms left the yard, and here is how we know. 2. Seventy-one reached the sediment and three left as vapour, because of what the compound does in water. 3. Treatment moved the sediment fraction into sludge; it did not destroy it. 4. Twenty kilograms are still unaccounted for, and this is the monitoring that would find them.",
-        "why": "The account the city can follow is the mass balance, told in the order the contaminant actually travelled. Every number in it has to add up to the one before, which is exactly what makes it checkable — and it is why the twenty kilograms nobody can place has to appear in the story rather than at the end of it.",
+        "why": "What earns trust back is not a reassuring conclusion but an account that adds up — the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. How much left the yard, and how it is known. Where it went, and what the compound does in water that put it there. What treatment moved rather than destroyed. And how much is still unplaced, with the monitoring that would find it. Every number has to reach the one before it.",
         "rebuttals": [
-          "Another tempting error is to treat the sequence as administrative rather than physical. The correct order is selected because each step creates the state, evidence, or control needed by the next."
+          "Start with how much was released and how it is known. Everything downstream is a claim about that quantity.",
+          "Then where it went, with the chemistry that explains it — sediment and vapour follow from what the compound does in water.",
+          "Then what treatment actually did: moved the sediment fraction into sludge rather than destroying it. That distinction is the one the public most needs.",
+          "End with what is still unaccounted for and how it would be found. Putting the gap last, and naming it, is what makes the rest checkable."
         ],
         "cards": [
           "A hundred kilograms left the yard, and here is how we know.",
@@ -2692,7 +2834,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "an account people can check is worth more than one they are asked to accept"
+      ]
     },
     {
       "day": 9,
@@ -2702,7 +2847,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Stewardship continues after concentrations fall below the immediate threshold.",
       "story": "The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert fifteen days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.",
-      "scene": "The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert fifteen days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.",
+      "scene": "The immediate emergency is over and the money is about to move somewhere else. What the city keeps is what will still matter when nobody remembers the fire.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2717,7 +2862,7 @@ export const CURRICULUM = {
         "play": "The emergency money is about to move elsewhere. What does the city keep?",
         "task": "The emergency money is about to move elsewhere. What does the city keep?",
         "answer": "Long-term water, sediment and air monitoring.",
-        "why": "Nothing was destroyed. Seventy-one kilograms are in sediment, twenty are unaccounted for, and a transformation product is still being characterised — all of it below a threshold rather than gone. Monitoring is the only item here that would notice any of it coming back.",
+        "why": "Nothing was destroyed. Seventy-one kilograms are in sediment, twenty are unaccounted for, and a transformation product is still being characterised — all of it below a threshold rather than gone. Monitoring across water, sediment and air is the only item on the list that would notice any of it coming back. Corrosion control protects the infrastructure, which is a different hazard. Open records preserve the method and cost almost nothing. What outlasts a release is the part that fell quiet rather than the part that stopped.",
         "rebuttals": [
           "Corrosion control and resilience protect the infrastructure, which is a different hazard from the one still sitting in the reservoir.",
           "Open records and reference materials preserve the method, cost very little, and should be done regardless of what this budget funds.",
@@ -2731,7 +2876,10 @@ export const CURRICULUM = {
           "Nothing — the records can be closed once the review is published."
         ],
         "correctChoice": "Long-term water, sediment and air monitoring."
-      }
+      },
+      "assumes": [
+        "falling below a threshold is not the same as being gone"
+      ]
     }
   ]
 };

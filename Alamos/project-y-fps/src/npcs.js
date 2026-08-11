@@ -15,6 +15,7 @@ import { CHARACTER_DIVISION } from './simulation.js';
 import { getState } from './gameState.js';
 import { openStopIndices, isPersonStopForIdx, getPersonIdForStop } from './simulation.js';
 import { srand, srandRange, terrainHeight } from './env.js';
+import { registerNPCSource } from '../../gamekit/engine/people/registry.js';
 
 let npcs = [];        // historic figures — interactive
 let extras = [];      // anonymous population — decorative
@@ -885,3 +886,5 @@ export function pauseNPC(id, secs = 6){
   if(n){ n.pause = Math.max(n.pause, secs); n.target.copy(n.pos); }
 }
 export function getNPCs(){ return npcs; }
+// The engine draws the map from whichever crowd this game loaded.
+registerNPCSource(getNPCs);

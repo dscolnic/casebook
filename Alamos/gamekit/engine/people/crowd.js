@@ -21,6 +21,7 @@ import { srand, srandRange, resetSeed } from '../world/materials.js';
 // mark them.
 import { getState } from '../core/gameState.js';
 import { openStopIndices, isPersonStopForIdx, getPersonIdForStop } from '../core/simulation.js';
+import { registerNPCSource } from './registry.js';
 
 let ctx = null;
 let group = null;
@@ -545,6 +546,8 @@ function walk(n, delta, t){
 }
 
 export function getNPCs(){ return npcs; }
+// The engine draws the map from whichever crowd this game loaded.
+registerNPCSource(getNPCs);
 export function getNPCByCharId(id){ return npcs.find(n => n.char.id === id) ?? null; }
 export function getNPCForDivision(division){ return npcs.find(n => n.division === division) ?? null; }
 void stepGait;   // for themes that later give the crowd routes to walk

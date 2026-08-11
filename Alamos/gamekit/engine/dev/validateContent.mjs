@@ -321,6 +321,13 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
           fail(`${at}: estimate offers no distractor tiles, so every number given belongs in the answer`);
         }
         if(!spec.units) fail(`${at}: estimate has no units`);
+        // questionUI renders `relationship` above the tiles, under "Governing
+        // relationship". Every book theme emitted it empty — 34 estimates that
+        // showed a bank of numbers and an equation skeleton with no statement of
+        // what law to apply, and the scene is not allowed to carry it either.
+        if(!String(g.relationship ?? '').trim()){
+          fail(`${at}: estimate has no relationship, so the panel shows tiles and no law to apply them with`);
+        }
         if(!String(spec.explanation ?? '').trim()){
           note(`${at}: estimate has no explanation, so the verdict shows a number and no reasoning`);
         }

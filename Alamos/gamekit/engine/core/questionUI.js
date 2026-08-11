@@ -1296,23 +1296,33 @@ function showChallengeForStop(id, stop, isRetry, person=null){
  * Returns quietly when this is nobody today wants, which is the signal the
  * entry points use to fall back to the person's passage.
  */
+/**
+ * Open this person's mission question, if the day still wants one from them.
+ *
+ * Returns whether it did. The caller used to infer that by watching for the
+ * overlay to gain `.show`, which is only true when the overlay was closed
+ * beforehand — so any panel left flagged open turned the *next* mission person
+ * into a character passage, and which person that was depended on the order the
+ * player walked. Saying so directly is the whole fix.
+ */
 export function openPersonVisit(npc, isRetry=false){
   const state=getState();
-  if(!state || !npc) return;
+  if(!state || !npc) return false;
   const division=npc.division || CHARACTER_DIVISION[npc.char.id] || 'TRI';
   const m=getCurrentMission(state);
-  if(!m) return;
+  if(!m) return false;
   let idx=-1;
   for(const i of openStopIndices(state)){
     if(!isPersonStopForIdx(state, i)) continue;
     if(getPersonIdForStop(state, i) !== npc.char.id) continue;
     idx=i; break;
   }
-  if(idx < 0) return;
+  if(idx < 0) return false;
   const stop={ ...m.stops[idx], index: idx };
   // The person asks the same science question a room would, and the panel
   // shows them rather than the area's leader.
   showChallengeForStop(division, stop, isRetry, npc.char);
+  return true;
 }
 function renderSpecialFundingModal(req, onFund, onDecline){
   const state=getState();

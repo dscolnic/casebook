@@ -369,11 +369,18 @@ export function openPersonOrPassage(npc, char, showPassage, opts = {}){
       const opened = openSpecialRequest(person);
       if(opened || (shown() && !before)) return true;
     }
-    // A request is live and this is somebody else: they still talk.
-  } else if(openPersonVisit){
+    // A request is live and this is somebody else. They may still owe the day a
+    // call: this used to be an `else if`, so a live request sent every other
+    // mission person to their passage.
+  }
+  if(openPersonVisit){
+    // Ask, do not infer. `openPersonVisit` reports whether it opened the
+    // question; the overlay test below is only for a caller still passing an
+    // older one, and it is wrong whenever a panel was already open.
     const before = shown();
-    openPersonVisit(person);
-    if(shown() && !before) return true;
+    const opened = openPersonVisit(person);
+    if(opened === true) return true;
+    if(opened === undefined && shown() && !before) return true;
   }
   showPassage?.(char);
   return false;

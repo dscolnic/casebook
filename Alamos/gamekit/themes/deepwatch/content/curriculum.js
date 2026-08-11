@@ -447,7 +447,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The water has been carrying the boat sideways the whole time, and a plot drawn from course and speed cannot see it.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Distance = speed × time. A knot is one nautical mile per hour.",
         "calcKey": "NAV-3"
       }
     },
@@ -542,7 +542,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The uncertainty is not a decoration on the plot; it is the width of the boat's real position.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Margin = half the channel width − half the position uncertainty.",
         "calcKey": "NAV-5"
       }
     },
@@ -563,7 +563,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Time is the only resource in a casualty that can be manufactured, and speed is how you buy it.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Time = distance ÷ speed. The gain is the time at the slower speed minus the time at the faster one.",
         "calcKey": "NAV-6"
       }
     },
@@ -880,7 +880,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A rate you have not measured is a hope, and hoping is not a damage control action.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Water in = the rate the level rises (converted to gallons) + the rate the pump takes out.",
         "calcKey": "DC-3"
       }
     },
@@ -926,7 +926,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "How much is aboard decides whether pumping is enough or the boat has to blow.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Mass aboard = depth × tonnes per metre of depth.",
         "calcKey": "DC-5"
       }
     },
@@ -1297,7 +1297,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A deadline turns an argument about whether to act into a decision about when.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Time to the limit = the volume of CO₂ the space can hold ÷ the rate the crew produces it.",
         "calcKey": "ATMO-3"
       }
     },
@@ -1318,7 +1318,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A rate and a limit give an hour, and an hour is something command can plan a transit around.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Time = the headroom left ÷ the net rate of gain, which is production minus removal.",
         "calcKey": "ATMO-4"
       }
     },

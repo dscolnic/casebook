@@ -18,6 +18,7 @@ import { openStopIndices, isPersonStopForIdx, getPersonIdForStop } from './simul
 import { srand, srandRange } from './interiorEnv.js';
 import { CORRIDOR, WAITING_CHAIRS } from './plan.js';
 import { occupantSpots, caseFor } from './instruments.js';
+import { registerNPCSource } from '../../../gamekit/engine/people/registry.js';
 
 let npcs = [];
 let extras = [];
@@ -946,3 +947,5 @@ export function pauseNPC(id, secs = 6){
   if(n){ n.pause = Math.max(n.pause, secs); if(n.target) n.target.copy(n.pos); }
 }
 export function getNPCs(){ return npcs; }
+// The engine draws the map from whichever crowd this game loaded.
+registerNPCSource(getNPCs);

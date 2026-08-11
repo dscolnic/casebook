@@ -145,7 +145,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Twelve arcseconds in twenty minutes is 0.6 an arcsecond a minute, which is 36 an hour. The 60 in the equation is minutes per hour, so the interval has to be in minutes too. Hand it the same twenty minutes written as 1,200 seconds and the answer comes out sixty times too small — which would look like a main-belt object rather than something close.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Rate = distance moved ÷ time taken. Multiply by 60 to go from per minute to per hour.",
         "calcKey": "ORBIT-1"
       },
       "assumes": [
@@ -247,7 +247,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The figure is only as good as the sampling behind it, and it will be quoted in public long after the assumptions are forgotten.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Probability = impacting samples ÷ total samples. Multiply by 100 for a percentage.",
         "calcKey": "ORBIT-4"
       },
       "assumes": [
@@ -710,7 +710,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Mass is the volume of a sphere times its density, and energy is half that mass times the speed squared. The trap is the first number: the formula takes a radius, and a diameter dropped into it gives an object eight times too heavy. That factor of eight is the same one that makes the size measurement worth more than any other, which is what the next stop is about.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Mass = density × volume, and the volume of a sphere is (4π/3) × radius³. Kinetic energy = ½ × mass × speed².",
         "calcKey": "IMPACT-2"
       },
       "assumes": [
@@ -774,7 +774,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A centimetre per second sounds like nothing. Applied years before encounter it accumulates into a displacement measured in Earth radii, which is the whole basis of deflection.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Momentum = mass × speed, and it is conserved. Velocity change = momentum transferred ÷ the mass it is given to.",
         "calcKey": "IMPACT-4"
       },
       "assumes": [
@@ -1072,7 +1072,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Brightness fixes the product of area and reflectivity. Four times the albedo at the same brightness therefore needs a quarter of the area. But diameter goes as the square root of area, so a quarter of the area is half the diameter, not a quarter of it. That is the whole degeneracy: photometry alone cannot separate a small bright rock from a large dark one, and every size quoted from brightness has an assumed reflectivity inside it.",
         "givens": [],
-        "relationship": "",
+        "relationship": "At the same brightness, reflecting area varies inversely with albedo — and diameter is the square root of area.",
         "calcKey": "OPS-6"
       },
       "assumes": [
@@ -1168,7 +1168,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A spacecraft arriving at the wrong rotational phase meets a different face of the target than the one it was designed for, and the factor of two is where that error comes from.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Period = time between maxima × the number of maxima in one full turn.",
         "calcKey": "OPS-9"
       },
       "assumes": [
@@ -1225,7 +1225,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Optical astrometry constrains direction and leaves distance to be inferred from the fit. This measures the distance itself, to metres, in four seconds.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Distance = speed of light × time, and the signal covers the range twice.",
         "calcKey": "OPS-11"
       },
       "assumes": [
@@ -1526,7 +1526,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The searchable region is roughly a sphere, so its volume goes as the cube of how far the survey can see. Twice the range is eight times the volume, and the number of objects found scales with it. Square the two instead and you get four, which is the answer for an area — but a survey searches a volume, not a patch of sky.",
         "givens": [],
-        "relationship": "",
+        "relationship": "A searchable region is roughly a sphere, so volume goes as the cube of the distance limit.",
         "calcKey": "OPS-17"
       },
       "assumes": [
@@ -1739,7 +1739,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The same expectation arises from a small chance of a very large displacement and a near-certainty of a small one, and those call for entirely different preparations. The summary is only usable alongside the distribution it summarises.",
         "givens": [],
-        "relationship": "",
+        "relationship": "An expectation = the consequence × the probability of it happening.",
         "calcKey": "OPS-23"
       },
       "assumes": [

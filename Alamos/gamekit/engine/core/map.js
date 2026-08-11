@@ -11,7 +11,7 @@ import theme from './theme.js';
 import { getState } from './gameState.js';
 import { def, getCurrentMission, nextMissionStopIndex, openStopIndices, isPersonStopForIdx,
          getPersonIdForStop } from './simulation.js';
-import { getNPCs } from '../people/crowd.js';
+import { npcsForEngine } from '../people/registry.js';
 import { getPosition, camera } from './player.js';
 import { esc } from './utils.js';
 
@@ -148,7 +148,7 @@ export function renderMap(opts = {}){
   for(const i of open){
     if(isPersonStopForIdx(state, i)){
       const pid = getPersonIdForStop(state, i);
-      const npc = pid ? (getNPCs() ?? []).find(n => n.char?.id === pid) : null;
+      const npc = pid ? npcsForEngine().find(n => n.char?.id === pid) : null;
       if(npc) wantedPeople.push(npc);
     } else {
       targetGroups.add(mission.stops[i].group);

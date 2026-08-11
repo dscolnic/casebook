@@ -488,6 +488,9 @@ missions:
       angles — it is measured directly, not inferred from a fit.
     question: Estimate the spacecraft range.
     estimate:
+      relationship: >-
+        Distance = speed × time. Radio travels at the speed of light, and the
+        pulse makes the trip twice.
       prompt: A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The pulse makes the trip twice.
       question: Estimate the spacecraft range.
       labels:
@@ -581,6 +584,8 @@ missions:
       correction made near the atmosphere costs many times as much.
     question: Estimate the change in speed.
     estimate:
+      relationship: >-
+        Impulse = force × time. Velocity change = impulse ÷ mass.
       prompt: A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.
       question: Estimate the change in speed.
       labels:
@@ -747,6 +752,8 @@ missions:
       choose — which pair fires, not how hard.
     question: Estimate the torque about the centre of mass.
     estimate:
+      relationship: >-
+        Torque = force × lever arm, when the force is at right angles to the arm.
       prompt: A 200 N thruster fires at right angles, three metres from the centre of mass.
       question: Estimate the torque about the centre of mass.
       labels:
@@ -802,6 +809,8 @@ missions:
       and worth calling approximate.
     question: Estimate the ideal endurance.
     estimate:
+      relationship: >-
+        Endurance = energy stored ÷ power drawn.
       prompt: The fuel cells are gone. The entry batteries hold about 18 kilowatt-hours of usable energy and the essential loads draw about 3 kilowatts.
       question: Estimate the ideal endurance.
       labels:
@@ -993,6 +1002,8 @@ missions:
       it.
     question: Estimate the heating power at the connection.
     estimate:
+      relationship: >-
+        Power dissipated = current² × resistance.
       prompt: A connector in the improvised path develops 0.05 ohms while carrying 20 amps.
       question: Estimate the heating power at the connection.
       labels:
@@ -1079,6 +1090,9 @@ missions:
       heat capacity has to be filled back up.
     question: Estimate the temperature drop over three hours.
     estimate:
+      relationship: >-
+        Temperature drop = energy lost ÷ heat capacity. Energy lost = power ×
+        time.
       prompt: With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.
       question: Estimate the temperature drop over three hours.
       labels:
@@ -1271,6 +1285,8 @@ missions:
       be when it is finished.
     question: Estimate the carbon dioxide produced in six hours.
     estimate:
+      relationship: >-
+        Total = rate per person × number of people × time.
       prompt: Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.
       question: Estimate the carbon dioxide produced in six hours.
       labels:
@@ -1417,6 +1433,8 @@ missions:
       the team quotes for the rest of the shift starts from this number.
     question: Estimate the wavelength.
     estimate:
+      relationship: >-
+        Wavelength = speed of light ÷ frequency.
       prompt: The carrier is at 2.0 gigahertz, and beam width scales with wavelength over aperture.
       question: Estimate the wavelength.
       labels:
@@ -1551,6 +1569,9 @@ missions:
       degree wide.
     question: Estimate the transverse offset at that range.
     estimate:
+      relationship: >-
+        Sideways offset = angle in radians × range. One degree is about 17.5
+        milliradians.
       prompt: A pointing error of 0.1 degrees at a range of 400,000 kilometres. Small angles convert to transverse distance by multiplying the angle in radians by the range.
       question: Estimate the transverse offset at that range.
       labels:
@@ -1673,6 +1694,8 @@ missions:
       speed did, and speed is the term that enters twice.
     question: Estimate the kinetic energy to be dissipated.
     estimate:
+      relationship: >-
+        Kinetic energy = ½ × mass × speed².
       prompt: A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.
       question: Estimate the kinetic energy to be dissipated.
       labels:
@@ -1821,6 +1844,8 @@ missions:
       while somebody is depending on it.
     question: Estimate the natural period.
     estimate:
+      relationship: >-
+        Period = 2π × the square root of (mass ÷ stiffness).
       prompt: A mounted component is modelled as a 4 kg mass on a 400 N/m spring.
       question: Estimate the natural period.
       labels:
@@ -2085,6 +2110,9 @@ missions:
       and the corridor is about a degree wide.
     question: Estimate the combined two-dimensional uncertainty.
     estimate:
+      relationship: >-
+        Independent errors along perpendicular axes add in quadrature: the root of
+        the sum of the squares.
       prompt: Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.
       question: Estimate the combined two-dimensional uncertainty.
       labels:

@@ -105,7 +105,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Travel time becomes distance once you know the speed. The only subtlety is the one people drop: the pulse goes out and comes back, so the round-trip time is halved before it is multiplied. Range is exactly the quantity the restarted computer lost. It is also the one thing an angle can never give you. That is why a single pulse is worth more this shift than an hour of angles — it is measured directly, not inferred from a fit.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Distance = speed × time. Radio travels at the speed of light, and the pulse makes the trip twice.",
         "calcKey": "NAV-3"
       },
       "assumes": [
@@ -129,7 +129,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Force multiplied by time is impulse, and impulse divided by mass is the change in speed. The number that comes out looks absurd next to an orbital speed measured in kilometres per second, and that is the lesson rather than a problem with the arithmetic. A few metres per second applied days from arrival moves the arrival point by hundreds of kilometres, because the vehicle carries the difference for every one of those hours. The same correction made near the atmosphere costs many times as much.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Impulse = force × time. Velocity change = impulse ÷ mass.",
         "calcKey": "NAV-4"
       },
       "assumes": [
@@ -186,7 +186,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Torque is force times lever arm times the sine of the angle between them, and at right angles that sine is one, which is why this case is the simple one. The same thruster mounted closer in would produce proportionally less turn for the same propellant. Location matters as much as magnitude, and on a vehicle this size the lever arm is the term the crew can actually choose — which pair fires, not how hard.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Torque = force × lever arm, when the force is at right angles to the arm.",
         "calcKey": "NAV-6"
       },
       "assumes": [
@@ -210,7 +210,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Small angles convert to transverse distance by multiplying the angle in radians by the range, and a tenth of a degree is about 1.75 milliradians. The number that comes out is why a hand-held sighting is discussed so carefully: angular precision becomes position precision through geometry alone, with no instrument error involved. At lunar distance a fraction of a degree is hundreds of kilometres, and the entry corridor is about a degree wide.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Sideways offset = angle in radians × range. One degree is about 17.5 milliradians.",
         "calcKey": "NAV-7"
       },
       "assumes": [
@@ -350,7 +350,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Independent uncertainties along perpendicular axes combine in quadrature — each is squared, the squares are added, and the root is taken — so the answer is smaller than the sum and larger than either term on its own. Getting it wrong matters in both directions here. Overstated uncertainty argues for a correction burn that is not needed and spends propellant that cannot be replaced. Understated uncertainty hides a corridor violation, and the corridor is about a degree wide.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Independent errors along perpendicular axes add in quadrature: the root of the sum of the squares.",
         "calcKey": "NAV-10"
       },
       "assumes": [
@@ -409,7 +409,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Energy and power are different things, and the division between them is the whole calculation. An inventory in kilowatt-hours divided by a draw in kilowatts leaves hours. It is an ideal figure. It assumes the load stays flat and that every last watt-hour is available, and neither is true — a cold battery gives less than its rating. It is still the number every other decision this shift gets argued against, so it is worth having early and worth calling approximate.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Endurance = energy stored ÷ power drawn.",
         "calcKey": "ELEC-1"
       },
       "assumes": [
@@ -478,7 +478,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Resistive heating is current squared times resistance, so the current term dominates. The same connector at half the current would give off a quarter of the power. The resistance sounds like nothing written down. The wattage it makes at this current is what decides whether the junction runs warm or starts a fire. Twenty watts is nothing spread over a radiator. It is a great deal in one connector, in a sealed cabin, with no air moving over it.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Power dissipated = current² × resistance.",
         "calcKey": "ELEC-3"
       },
       "assumes": [
@@ -504,7 +504,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A lumped estimate treats the cabin and everything in it as one thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Temperature drop = energy lost ÷ heat capacity. Energy lost = power × time.",
         "calcKey": "THERM-1"
       },
       "assumes": [
@@ -573,7 +573,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Source rate sets the minimum removal requirement, and that is the whole point of doing this before building anything. A fix that removes carbon dioxide more slowly than three people produce it does not solve the problem — it only changes how fast the concentration climbs. The estimate is crude, and crude is enough: it decides whether the tape-and-hose solution is worth the hours it will take to build, and what size it has to be when it is finished.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Total = rate per person × number of people × time.",
         "calcKey": "THERM-3"
       },
       "assumes": [
@@ -597,7 +597,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Kinetic energy is half the mass times the speed squared, and the squared term is the whole story here. An entry speed about forty per cent higher than a return from low orbit carries roughly twice the energy, through the same heat shield. That is why lunar return is a categorically harder problem rather than a slightly harder one: the mass barely changed and the speed did, and speed is the term that enters twice.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Kinetic energy = ½ × mass × speed².",
         "calcKey": "THERM-4"
       },
       "assumes": [
@@ -745,7 +745,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Wavelength is the speed of light divided by frequency, which makes this a single division — and it is the first term in everything that follows. Beam width goes roughly as wavelength divided by aperture, so a longer wave from the same dish gives a wider, more forgiving beam, and a shorter one gives a narrow beam that demands accurate pointing. Every tolerance the team quotes for the rest of the shift starts from this number.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Wavelength = speed of light ÷ frequency.",
         "calcKey": "COMMS-2"
       },
       "assumes": [
@@ -900,7 +900,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Natural frequency comes out of inertia and stiffness alone — heavier is slower, stiffer is faster — and the period is one over that frequency. The point of the calculation is what it lets you avoid. Knowing where a structure's natural frequency sits tells you which operating speeds will drive it, and lets the pump be scheduled around it. The hardware will otherwise deliver the same information much more expensively, and usually while somebody is depending on it.",
         "givens": [],
-        "relationship": "",
+        "relationship": "Period = 2π × the square root of (mass ÷ stiffness).",
         "calcKey": "STRUCT-3"
       },
       "assumes": [
