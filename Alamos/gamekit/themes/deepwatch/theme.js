@@ -21,10 +21,12 @@ export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
   // root font size, so the same game can ship at several reading levels with
   // type sized for each. Undergraduate: no scaling.
+  audience: { grade: 12 },
+
   // What one mission is called here. The engine's model is a working day;
   // this campaign is not one, so the label is not either.
   dayNoun: 'Watch',
-  audience: { grade: 12 },
+
 
   id: 'deepwatch',
   title: 'Deep Watch',

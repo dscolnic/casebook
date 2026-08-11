@@ -25,11 +25,13 @@ export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
   // root font size, so the same game can ship at several reading levels with
   // type sized for each. Undergraduate: no scaling.
+  audience: { grade: 12 },
+
   // Mission Control runs eight-hour shifts with a different flight director on
   // each. Fifteen of them is five days, which is what a lunar return takes —
   // and what this game's own copy already assumed.
   dayNoun: 'Shift',
-  audience: { grade: 12 },
+
 
   id: 'bring_them_home',
   title: 'Bring Them Home',

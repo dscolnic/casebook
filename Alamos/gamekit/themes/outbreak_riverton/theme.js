@@ -28,6 +28,12 @@ export default {
   // type sized for each. Undergraduate: no scaling.
   audience: { grade: 12 },
 
+  // Fifteen sessions across five months of a response: a fortnight of ward
+  // isolation, a variant rising over four weeks, a trial that reports. Not
+  // days.
+  dayNoun: 'Stage',
+
+
   id: 'outbreak_riverton',
   title: 'Outbreak: Riverton',
   subtitle: 'Scientific Response Director · Riverton',
