@@ -122,6 +122,8 @@ Behind `check`:
 ```sh
 node engine/dev/validateContent.mjs <theme>   # content agrees with itself + the contract
 node engine/dev/smokeCampaign.mjs  <theme>    # the engine can reach and grade every stop
+node engine/dev/probeQuestions.mjs <theme>    # no question answerable without the science
+node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data
 ```
@@ -362,10 +364,26 @@ Corollaries:
 - **The verdict says `Correct` / `Incorrect` first.** "Evidence accepted" is the
   response's language, one inference away from what the player asked.
 - **The plan card note is "Take them in whatever order."** Nothing else.
-- **A scene is ~90–100 words.** That is what the first two games carry, and it is
-  the whole teaching surface before a question: situation, mechanism, what is
-  uncertain — never the answer. Three books arrived at 10–36 words a scene and
-  read as instructions; all 135 were rewritten. Measure before believing.
+- **The scene is the situation. The verdict is the teaching.** This is the
+  opposite of how all seven games shipped, and it was the single most expensive
+  content mistake in the repo. A scene of 90–100 words carrying the mechanism
+  means the player reads the answer, answers, and learns nothing from being
+  right — Project Y explained the four rotational rules and then asked the
+  player to match them, against a verdict of nine words. Every game was
+  rewritten: scene **30–45 words** of situation only, `why` **70–90 words** of
+  mechanism (Hospital ~50, because it is written for a second-grade reader), and
+  a rebuttal per wrong option saying why *that* one fails. Measured across the
+  seven, teaching-to-scene went from 0.22–0.52 to 2.7–3.4.
+- **A stop declares what it assumes.** `assumes:` on the lesson — the prior
+  knowledge the question is entitled to expect. It exists because the honest
+  version of "could a student answer this?" is "with what already in their
+  head?", and writing it down is what stops a question quietly requiring a
+  degree.
+- **Reading level is measured, not judged.** `audience.grade` in the manifest is
+  a gate: validateContent notes any passage above it and fails one two grades
+  over. The vocabulary of a subject cannot always be simplified — "spontaneous
+  fission" is the word — so the lever is sentence length, which is the other
+  term in the formula.
 - **`theme.stopNoun`** — what a non-person stop is called. Mission Control has no
   rooms and no doors, and "a room" sent players hunting for one.
 
@@ -417,10 +435,14 @@ you are, never the takeaway.
   and the roads, boardwalks, poles, fences, vehicles and central board have no
   home in the data yet.
 - See `gamekit/FOURTH_GAME.md` for the plan this came from and what is left.
-- **Project Y bios have no authored questions yet.** Hospital and The
-  Contaminated City now carry three-paragraph teaching bios plus a `quiz` array
-  per person, and `personQuiz.js` prefers those; Project Y still falls through
-  to the generated sentence-lift question. Same shape, just unwritten.
+- **Project Y bios have no authored questions yet.** Its 26 bios are long and
+  good (164 words mean) and not one carries a `quiz` array, so every one falls
+  through to the generated sentence-lift question. Hospital, The Contaminated
+  City, Deep Watch and Bring Them Home all author theirs.
+- **Outbreak and Planetary Defense have half a roster each.** Six of twelve
+  people in each carry a real two-paragraph bio and a question; the other six
+  carry one sentence restating their job title and no question at all. Bring
+  Them Home had the same split and has been written; these two have not.
 - **`Hospital/hospital-fps/src/questions.js` is dead Project Y trivia**
   (radioactivity questions). Nothing imports it.
 - `questionUI.js` question renderers should become pluggable per theme.

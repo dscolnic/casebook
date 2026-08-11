@@ -170,8 +170,10 @@ export function passageHTML(person, opts = {}){
 
   return (ownBio ? head + '<div class="passageBody" id="passageText">' + (person.bio || '') + '</div>' : '') +
     '<div class="passageGate" id="passageGate">' +
+      // No note here. It used to say "The passage closes when the question
+      // opens", which is a description of the interface rather than anything
+      // happening in the world \u2014 and the button already says what it does.
       '<button class="btn primary" id="passageAsk" type="button">Ready \u2014 ask me</button>' +
-      '<span class="passageNote">The passage closes when the question opens.</span>' +
     '</div>' +
     '<div class="passageQ hidden" id="passageQ">' +
       '<div class="passageQPrompt">' + esc(q.prompt) + '</div>' +

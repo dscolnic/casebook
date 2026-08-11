@@ -22,10 +22,21 @@ matter are few, and every one of them exists because breaking it shipped a bug:
 - **A `BALLPARK` stop carries an `estimate` block.** Prose carries no
   arithmetic; without it the panel opens with "not yet converted".
 - **`takeaway` never repeats `why`.** The takeaway is shown before the question.
-- **The `scene` is what the player reasons from**, and it is shown before the
-  question, so it must not contain the answer. Neither must `motivation`, the
-  optional line about why this stop matters now — `why` is the answer's
-  reasoning and is only ever shown in the verdict.
+- **The `scene` is the situation, not the teaching.** Thirty to forty-five words
+  of where the player is and what is being asked of them. It must not contain
+  the answer, and it must not contain the mechanism either: put the physics in
+  the scene and the player reads it, answers, and learns nothing from being
+  right. All seven games shipped that way and all seven were rewritten.
+- **`why` is where the teaching goes.** Seventy to ninety words, shown only in
+  the verdict, explaining the mechanism rather than restating the answer. Add a
+  `rebuttals` entry per wrong option saying why *that* one fails — one per
+  option, not a general remark.
+- **`assumes` is a list of what the stop expects the player already knows.**
+  One or two short clauses. It is how "could a student answer this?" gets a
+  checkable answer.
+- **Match the reading level to `audience.grade`.** `validateContent` notes a
+  passage above it and fails one two grades over. When the vocabulary cannot be
+  simplified, shorten the sentences — that is the other term in the formula.
 
 Three stops per mission and every stop's lesson lives at the stop — there is no
 separate curriculum to index into and therefore nothing to drift. **The campaign
@@ -121,8 +132,11 @@ missions:
         title: Read the formula, not the rumour
         place: Molecular Identification Lab
         scene: >
-          Several unlabelled containers were damaged in the fire. The team has
-          the manifests, one chromatogram and a blank run in the same sequence.
+          Several unlabelled containers were damaged in the fire. Firefighters
+          are choosing a suppression agent from whatever identity the lab gives
+          them, and some of the wrong answers react with water.
+        assumes:
+          - a chemical formula lists which elements are present and in what ratio
         takeaway: A name is a claim, and a claim needs evidence that could have come out differently.
         format: PROTOCOL
         # …the format's own fields, below

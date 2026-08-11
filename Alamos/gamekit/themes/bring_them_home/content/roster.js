@@ -9,7 +9,18 @@ export const ROSTER = [
     "role": "Guidance Lead",
     "division": "NAV",
     "color": "#315c78",
-    "bio": "<p>Uses independent tracking and dynamics to decide whether an apparent trajectory change is physical or a measurement artifact.</p>"
+    "bio": "<p>Decides whether the spacecraft has moved or the measurement has. Those two look identical on a plot, and telling them apart is most of navigation: a real trajectory change needs a force behind it, and a measurement error does not.</p><p>Her method is to ask what else would have to be true. A genuine acceleration shows up in the onboard dynamics as well as in the tracking. An error in the ground clock shows up in every channel that shares that clock and in none of the ones that do not, which is why she keeps at least one measurement outside the chain.</p>",
+    "quiz": [
+      {
+        "q": "How does Reyes tell a real trajectory change from a measurement artefact?",
+        "a": "A real change needs a force behind it, so it appears in the onboard dynamics as well as in the tracking",
+        "wrong": [
+          "A real change is always larger than an artefact",
+          "An artefact disappears if the same station measures again",
+          "A real change appears in only one tracking channel at a time"
+        ]
+      }
+    ]
   },
   {
     "id": "shah",
@@ -17,7 +28,18 @@ export const ROSTER = [
     "role": "Power Systems Lead",
     "division": "ELEC",
     "color": "#9a741d",
-    "bio": "<p>Reads voltage, current, power, and heat as one energy system rather than isolated meters.</p>"
+    "bio": "<p>Treats voltage, current and heat as three views of one thing rather than three meters. Power is voltage times current, and any of it that does not reach a load has gone somewhere as heat — usually into whatever part of the path had unwanted resistance.</p><p>That is why a hot connector is a reading and not a nuisance. A resistance in the path drops the bus voltage in proportion to the current through it, and dissipates exactly that lost power at exactly that spot, which makes the temperature a second measurement of the same fault.</p>",
+    "quiz": [
+      {
+        "q": "Why does Shah read a hot connector as evidence about the electrical fault rather than as a separate problem?",
+        "a": "The heat is the power lost in that resistance, so it measures the same fault the voltage drop measures",
+        "wrong": [
+          "Heat always travels toward the fault from elsewhere in the circuit",
+          "A hot connector shows the battery is being overcharged",
+          "Temperature is the only reliable instrument on a sagging bus"
+        ]
+      }
+    ]
   },
   {
     "id": "brooks",
@@ -25,7 +47,18 @@ export const ROSTER = [
     "role": "Thermal and Life Support Lead",
     "division": "THERM",
     "color": "#4b775f",
-    "bio": "<p>Tracks heat and gas through the cabin and asks whether powered hardware is actually transporting what it should.</p>"
+    "bio": "<p>Runs the two things a sealed cabin cannot do without: heat in the right places and gas the crew can breathe. Both are transport problems before they are chemistry problems, because a plant only treats the air that actually reaches it.</p><p>His standing question is whether powered hardware is achieving anything. A fan drawing its rated current against a blocked filter moves almost no air and sounds exactly like a fan that is working, so he measures the quantity being moved rather than the machine moving it.</p>",
+    "quiz": [
+      {
+        "q": "Why is Brooks unsatisfied by a scrubber fan drawing its normal current?",
+        "a": "Normal current only proves the motor is turning, and a blocked path moves almost no air at the same current",
+        "wrong": [
+          "Fan current is measured too far from the fan to be trusted",
+          "A healthy scrubber fan draws more current than its rating",
+          "Current tells you about the sorbent rather than about the airflow"
+        ]
+      }
+    ]
   },
   {
     "id": "ito",
@@ -33,7 +66,18 @@ export const ROSTER = [
     "role": "Communications Lead",
     "division": "COMMS",
     "color": "#704f88",
-    "bio": "<p>Turns wave physics, antenna pointing, range, and receiver measurements into a quantitative link diagnosis.</p>"
+    "bio": "<p>Owns the link budget, which is a sum: every gain and every loss between the spacecraft transmitter and the ground receiver, in decibels, adding up to the power that actually arrives. A fade is one term in that sum having changed.</p><p>She sizes each candidate before believing it. Increased range costs a predictable number of decibels and usually a small one; an antenna a few degrees off a narrow beam costs a great deal. Comparing the size of a proposed cause against the size of the observed loss settles most link arguments before anybody touches the spacecraft.</p>",
+    "quiz": [
+      {
+        "q": "How does Ito decide which term in the link budget caused a fade?",
+        "a": "By comparing how many decibels each candidate would cost against the loss actually measured",
+        "wrong": [
+          "By ruling out every cause except the one the crew reported first",
+          "By assuming the largest physical change is always the cause",
+          "By waiting for a second fade and comparing the two"
+        ]
+      }
+    ]
   },
   {
     "id": "mensah",
@@ -41,7 +85,18 @@ export const ROSTER = [
     "role": "Dynamics and Structures Lead",
     "division": "STRUCT",
     "color": "#9a3f36",
-    "bio": "<p>Connects torque, forcing frequency, natural modes, and measured motion to spacecraft behavior.</p>"
+    "bio": "<p>Works on how a structure answers back when something pushes it repeatedly. Every structure has frequencies it prefers, and at those a small repeated force produces a large motion — so hardware that is entirely strong at rest can fail when driven at a rate it happens to like.</p><p>He looks for the relationship rather than the amplitude. A vibration that peaks in a narrow band of wheel speed, matches a known structural mode, and falls away when the speed moves is resonance. A big number on its own is not, and treating it as one sends people to strengthen the wrong part.</p>",
+    "quiz": [
+      {
+        "q": "What convinces Mensah that a vibration is resonance rather than damage?",
+        "a": "It peaks in a narrow band of forcing speed, matches a known mode, and falls away when the speed moves",
+        "wrong": [
+          "The amplitude is larger than anything recorded before",
+          "It appears on only one accelerometer in the vehicle",
+          "It began immediately after a recorded impact"
+        ]
+      }
+    ]
   },
   {
     "id": "carter",
@@ -49,7 +104,18 @@ export const ROSTER = [
     "role": "Mission Integration Lead",
     "division": "INTEG",
     "color": "#3d6f52",
-    "bio": "<p>Challenges common-mode assumptions and makes the final decision only after independent evidence agrees.</p>"
+    "bio": "<p>Asks the question that costs the most to skip: whether several measurements agree because the world says so, or because they inherit the same clock, the same calibration and the same software. Correlated errors look exactly like a real signal.</p><p>So she spends her authority on independence rather than on precision. A second instrument that fails the same way as the first is not a check on it, and this flight has twice been misled by displays fed from a single source — which is why she will hold a decision for one measurement taken outside the chain.</p>",
+    "quiz": [
+      {
+        "q": "Why does Carter distrust two instruments that agree closely?",
+        "a": "If they share a clock, a calibration or a source, they can only agree, and their agreement measures nothing",
+        "wrong": [
+          "Two instruments that agree have usually both been recalibrated recently",
+          "Close agreement means one of them is copying the other's display",
+          "Agreement is only meaningful when three instruments are used"
+        ]
+      }
+    ]
   },
   {
     "id": "whitaker",
