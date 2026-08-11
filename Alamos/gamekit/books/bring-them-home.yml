@@ -257,15 +257,17 @@ missions:
     title: 'What failed: the spacecraft or the sensors?'
     place: Mission Control
     scene: >-
-      Nine minutes after the bang, several digital cabin-pressure channels drop together within the same
-      second. The crew's mechanical gauge, which is plumbed to the cabin and needs no electronics, is
-      steady. The acoustic leak monitor is quiet, the sensor reference voltage has shifted low, and the
-      radio link is normal. Three readouts are not three independent measurements when they share a
-      reference circuit — a shift in that one voltage moves all of them at once, in step, and that is what
-      a genuine common-mode failure looks like as well. Before the crew spends scarce oxygen and time
+      Nine minutes after the bang, several digital cabin-pressure channels drop
+      together inside the same second. Before the crew spends oxygen and time
       hunting a leak, the panel has to be read as one system.
     takeaway: Three readouts are not three independent measurements when they share the same electronics.
     format: DIAGNOSIS
+    rebuttals:
+    - Escaping gas would move the mechanical gauge too, because that gauge needs no electronics at all. It is steady.
+    - One failed sensor moves one channel. Three channels dropping in the same second is a shared cause, not a coincidence.
+    - Corrupted telemetry would show as bad packets, and the radio link is clean. The numbers are arriving intact and saying something wrong.
+    assumes:
+    - a gauge can fail without the thing it measures changing
     headline: Mission Control receives a sudden cabin-pressure warning on several digital channels.
     readings:
     - zone: Digital pressure channels
@@ -303,23 +305,32 @@ missions:
     - label: Communications corruption
       mechanism: The radio link is scrambling otherwise valid spacecraft data.
     answer: Common reference failure
-    why: The digital channels move together because they share a shifted reference, while the mechanical gauge and leak monitor
-      remain normal and the radio link is clean. The apparent multi-sensor event is actually one common-mode measurement failure.
+    why: >-
+      Three readouts are not three independent measurements when they share a
+      reference circuit. A shift in that one voltage moves all of them at once,
+      in the same direction, in the same second — which is what the panel shows
+      and what a real leak does not do. The evidence that owes nothing to those
+      electronics agrees: the mechanical gauge is plumbed straight to the cabin
+      and is steady, and the acoustic monitor hears nothing. The reference
+      voltage itself has shifted low, which names the fault.
   - group: INTEG
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
       placed cards after each check.
     title: Build the first state estimate
     place: Telemetry Analysis Room
     scene: >-
-      Nine minutes in, three consoles hold contradictory numbers. Pressure channels disagree with the
-      mechanical gauge, one bus reads zero, the guidance platform has restarted with no record of what it
-      saw, and nothing has been written down in an order anyone can reconstruct. The work now is producing
-      a state estimate that survives being wrong: preserve the telemetry across the failure before it is
-      overwritten, check that units, timestamps and calibration states agree, build position, velocity,
-      attitude, power and pressure with uncertainties attached, and issue only commands whose benefit
-      holds across the whole range of states still consistent with the data.
+      Three consoles hold contradictory numbers. One bus reads zero, the
+      guidance platform has restarted with no record of what it saw, and nothing
+      has been written down in an order anyone can reconstruct.
     takeaway: A good emergency command works across uncertainty rather than assuming it away.
     format: SEQUENCE
+    rebuttals:
+    - Preserve the telemetry first. It is the only step with a deadline set by something other than the crew — the buffers overwrite whether or not anybody is ready.
+    - Check units, timestamps and shared dependencies second. This is where a common-mode failure becomes visible instead of being fitted.
+    - Build the estimates third, with uncertainties attached. A state without an uncertainty cannot be argued with or tested.
+    - Command last, and only where the benefit survives the whole range of states still consistent with the data.
+    assumes:
+    - a number without its units and its time is not a measurement
     cards:
     - Freeze and preserve the pre- and post-failure telemetry.
     - Verify units, timestamps, calibration states, and shared dependencies.
@@ -330,21 +341,27 @@ missions:
     - 1
     - 2
     - 3
-    why: Evidence preservation and metadata validation precede state estimation and action.
+    why: >-
+      A state estimate is only worth having if it survives being wrong, and the
+      order is what makes that possible. Telemetry across the failure is
+      overwritten within minutes, so it is frozen before anything is computed
+      from it. Units, timestamps and calibration come next, because a fit across
+      mixed clocks produces a confident answer that is wrong. Estimates then
+      carry uncertainties rather than single values. And the commands that
+      follow are the ones whose benefit holds across every state the data still
+      allows.
   - group: INTEG
     task: Ten minutes to the next tracking pass. What does the flight director do first?
     title: Spend the first ten minutes
     place: Spacecraft Systems Console
     scene: >-
-      Four controllers, a crew flying a vehicle that is venting something, and ten minutes before the next
-      tracking pass. Every subsystem wants the loop and each believes their own problem is the one that
-      kills the crew. Attention is a physical resource here in the same way propellant is: reconstructing
-      the electrical and pressure timeline tells you what happened, verifying trajectory independently
-      tells you whether the vehicle can still come home, and a single anomaly log with one command
-      authority is what stops two rooms acting on different versions of the same number. Asking all six
-      subsystems for complete reports at once spends the ten minutes and returns nothing usable.
+      Four controllers, a crew flying a vehicle that is venting something, and
+      ten minutes to the next tracking pass. Every subsystem wants the loop, and
+      each believes its own problem is the one that kills the crew.
     takeaway: Attention is a scarce physical resource during a fast-moving systems failure.
     format: CHOICE
+    assumes:
+    - two rooms acting on different versions of one number is worse than either acting alone
     question: Ten minutes to the next tracking pass. What does the flight director do first?
     choices:
     - Establish a single anomaly log and one command authority.
@@ -353,10 +370,13 @@ missions:
     - Ask every subsystem for a complete report at once.
     answer: Establish a single anomaly log and one command authority.
     why: >-
-      Four controllers are already working the same failure from four sets of
-      numbers. Until there is one record and one voice, every analysis that
-      follows can be done twice and contradicted once — and the crew executes
-      whichever version reaches them.
+      Attention is a physical resource in an emergency, the same way propellant
+      is, and the first decision is what spends it. Four controllers are already
+      working one failure from four sets of numbers. Until there is a single
+      record and a single command authority, every analysis that follows can be
+      done twice and contradicted once — and the crew executes whichever version
+      reaches them first. Organising the room is not a delay before the work. It
+      is what makes the work count once.
     rebuttals:
     - The electrical and pressure timeline is the first real analysis, and it is exactly what the log exists to hold. Start it second and it survives the shift change.
     - Independent trajectory verification decides whether the vehicle can come home. It is needed before the burn, not before the room is organised.
@@ -375,15 +395,18 @@ missions:
     title: Which measurement constrains what?
     place: Deep-Space Tracking Station
     scene: >-
-      The onboard computer has restarted and the tracking is intermittent, so the state has to be rebuilt
-      from whatever measurements exist. Each type constrains a different thing: two-way signal travel time
-      fixes how far away the spacecraft is and says nothing about direction; Doppler shift measures the
-      rate at which that distance is changing; an angular position against background stars fixes
-      direction and not distance; repeated positions at known times give velocity by differencing.
-      Navigation is reconstruction from partial projections — no single measurement type gives the full
-      six-dimensional state, and knowing which is which decides what to schedule next.
+      The onboard computer has restarted and the tracking is intermittent, so
+      the state has to be rebuilt from whatever measurements can still be taken.
+      The room has to say what each type buys before it schedules any of them.
     takeaway: Navigation is a reconstruction from partial projections.
     format: PROTOCOL
+    rebuttals:
+    - Travel time is a distance along the line of sight. It is measured rather than fitted, and it carries no direction information at all.
+    - Doppler shift is a rate of change of that distance — line-of-sight velocity, and only the line-of-sight part.
+    - An angle against fixed stars says which way, not how far. Two objects on the same bearing at different ranges give the same reading.
+    - Positions repeated at known times give velocity by differencing, and the trend in that velocity is acceleration.
+    assumes:
+    - describing where something is and how it is moving takes six numbers
     scenarios:
     - Two-way signal travel time.
     - Doppler frequency shift.
@@ -399,22 +422,33 @@ missions:
     - 1
     - 2
     - 3
-    why: No single measurement supplies the full state vector; geometry and time combine complementary constraints.
+    why: >-
+      Navigation is reconstruction from partial projections: no single
+      measurement type gives the full state, and each one leaves a different
+      part of it free. Two-way travel time fixes how far away the spacecraft is
+      and says nothing about direction. Doppler shift measures how fast that
+      distance is changing, which is one component of velocity and not the
+      others. An angle against background stars fixes direction and leaves
+      distance free. Repeated positions at known times give velocity by
+      differencing, and differencing again gives acceleration.
   - group: NAV
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
       placed cards after each check.
     title: Reconstruct the state vector
     place: Guidance Room
     scene: >-
-      The onboard computer restarted and lost its alignment. What is left is a range measurement from one
-      station, two bearing angles taken ninety minutes apart, and a Doppler trace recorded in a different
-      time standard from either. The burn that gets the crew home is planned from those three. A state
-      estimate is only worth having if it predicts the next observation: transform everything into one
-      coordinate and time system, fit a trajectory that reproduces range, angle and Doppler together, look
-      at what the fit got wrong for structure that indicates an unmodelled force, and propagate both state
-      and uncertainty forward to the moment the decision has to be made.
+      The computer restarted and lost its alignment. What is left is a range
+      from one station, two bearing angles taken ninety minutes apart, and a
+      Doppler trace recorded in a different time standard from either.
     takeaway: A useful state estimate predicts future observations and exposes its own failures.
     format: SEQUENCE
+    rebuttals:
+    - One coordinate system and one time standard first. Two clocks in a single fit is the error that never shows up in the residuals afterwards.
+    - Fit range, angle and Doppler together second. Fitting them separately gives three answers and no way to choose.
+    - Read the residuals third, for structure rather than size. Scatter is noise; a pattern is a force nobody modelled.
+    - Propagate state and uncertainty to the decision time last. The burn happens later than the data, and the uncertainty grows on the way.
+    assumes:
+    - measurements only combine when they share a frame and a clock
     cards:
     - Transform all observations into one coordinate and time system.
     - Fit a trajectory that predicts range, angle, and Doppler together.
@@ -425,20 +459,33 @@ missions:
     - 1
     - 2
     - 3
-    why: Common coordinates and clocks are prerequisites for a joint fit.
+    why: >-
+      A state estimate is only useful if it predicts the next observation, and
+      everything in this order exists to make that test possible. A joint fit
+      across two time standards produces an orbit nobody can see is wrong, so
+      the transformation comes first. The fit then has to reproduce range, angle
+      and Doppler together rather than each in turn. What the fit got wrong is
+      where the information is: structure in the residuals means an unmodelled
+      force. And state and uncertainty are propagated together, because the
+      decision is made at a later time than the data.
   - group: NAV
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Distance from signal delay
     place: Navigation Computation Lab
     scene: >-
-      A tracking pulse leaves the dish and the echo returns 2.6 seconds later. Radio travels at the speed
-      of light and the pulse makes the trip twice, which is the only subtlety in the arithmetic and the
-      one people drop. This single number is worth more than an hour of angular measurements right now,
-      because range is exactly the quantity the restarted computer lost, and it is measured directly
-      rather than inferred from a fit.
+      A tracking pulse leaves the dish and the echo returns 2.6 seconds later.
+      The navigation room wants the range before the burn is planned.
     takeaway: Travel time converts directly into range when the propagation speed is known.
     format: BALLPARK
-    why: Range is the one quantity the restarted computer lost, and it is measured here directly rather than inferred from a fit — which is why one pulse is worth more than an hour of angles.
+    assumes:
+    - radio travels at the speed of light
+    why: >-
+      Travel time becomes distance once you know the speed. The only subtlety is
+      the one people drop: the pulse goes out and comes back, so the round-trip
+      time is halved before it is multiplied. Range is exactly the quantity the
+      restarted computer lost. It is also the one thing an angle can never give
+      you. That is why a single pulse is worth more this shift than an hour of
+      angles — it is measured directly, not inferred from a fit.
     question: Estimate the spacecraft range.
     estimate:
       prompt: A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The pulse makes the trip twice.
@@ -481,15 +528,18 @@ missions:
     title: From force to trajectory change
     place: Orbital Analysis Room
     scene: >-
-      The spacecraft is drifting off the free-return path by an amount that is small today and fatal at
-      the atmosphere. The crew wants to know why a few seconds of thrust now matters more than minutes of
-      thrust tomorrow. The chain is Newtonian and worth stating in order: an engine produces a force for a
-      measured time, the force gives the vehicle an acceleration set by its mass, that acceleration
-      changes velocity by an amount proportional to the impulse, and the new velocity changes where the
-      vehicle is hours later. Trajectory control acts on velocity now to move position much later — which
-      is also why an early correction is cheap.
+      The spacecraft is drifting off the free-return path by an amount that is
+      small today and fatal at the atmosphere. The crew wants to know why a few
+      seconds of thrust now beats minutes of thrust tomorrow.
     takeaway: Trajectory control acts on velocity now to change position much later.
     format: SEQUENCE
+    rebuttals:
+    - Force for a measured time is where the chain starts. Everything after it is a consequence of that one product.
+    - Force divided by mass is acceleration. The same engine on a heavier vehicle produces less of it.
+    - Acceleration integrated over the burn is the velocity change, and it is proportional to the impulse rather than to the thrust alone.
+    - The new velocity changes position hours later. That delay is not a weakness of the method — it is what makes a small early burn worth a large late one.
+    assumes:
+    - a force acting on a mass produces an acceleration
     cards:
     - An engine produces a force for a measured time.
     - The force gives the spacecraft an acceleration.
@@ -500,21 +550,35 @@ missions:
     - 1
     - 2
     - 3
-    why: A short force changes velocity, and orbital motion amplifies that change over time.
+    why: >-
+      The chain is Newtonian and worth stating in order, because it is the
+      reason an early correction is cheap. An engine produces a force for a
+      measured time. That force gives the vehicle an acceleration set by its
+      mass, so the same engine moves a heavy spacecraft less. The acceleration
+      changes velocity by an amount proportional to the impulse. And the new
+      velocity changes where the vehicle is hours later — trajectory control
+      acts on velocity now to move position much later, which is why time is the
+      term doing the work.
   - group: NAV
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Small burn, large consequence
     place: Guidance Console
     scene: >-
-      A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds, and the flight dynamics officer
-      wants the resulting change in speed on the loop before the burn is approved. Force applied over time
-      is impulse; impulse divided by mass is the velocity change. The number will look absurdly small next
-      to an orbital speed measured in kilometres per second — and that is the point being taught, because
-      a velocity change of a few metres per second applied days out moves the arrival point by hundreds of
-      kilometres.
+      A 30,000 kg spacecraft takes 6,000 N of thrust for 20 seconds. The flight
+      dynamics officer wants the change in speed on the loop before the burn is
+      approved.
     takeaway: Orbital corrections often rely on small velocity changes applied early.
     format: BALLPARK
-    why: Four metres per second looks absurd beside an orbital speed in kilometres per second. Applied days out, it is hundreds of kilometres at arrival — which is why an early correction is cheap and a late one is not.
+    assumes:
+    - force applied over a time is an impulse
+    why: >-
+      Force multiplied by time is impulse, and impulse divided by mass is the
+      change in speed. The number that comes out looks absurd next to an orbital
+      speed measured in kilometres per second, and that is the lesson rather
+      than a problem with the arithmetic. A few metres per second applied days
+      from arrival moves the arrival point by hundreds of kilometres, because
+      the vehicle carries the difference for every one of those hours. The same
+      correction made near the atmosphere costs many times as much.
     question: Estimate the change in speed.
     estimate:
       prompt: A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.
@@ -548,14 +612,13 @@ missions:
     title: Choose the correction strategy
     place: Propulsion Desk
     scene: >-
-      The drift is real but the tracking is thin, and the propellant is not replaceable. Correcting now
-      costs little and risks correcting toward a state that has been measured badly; waiting buys a better
-      measurement and a much larger burn, because the same positional error costs more velocity to fix the
-      closer you are to arrival. Preserving a backup engine and an alternate attitude plan costs
-      capability that could have gone into the burn itself. The plan that wins is not the one that is
-      cheapest against the current best estimate but the one that still works if that estimate is wrong.
+      The drift is real, the tracking is thin, and the propellant is not
+      replaceable. Correcting now means correcting toward a state that has been
+      measured badly; waiting means a better measurement and a much larger burn.
     takeaway: The best trajectory plan balances efficiency with robustness to model and hardware uncertainty.
     format: CHOICE
+    assumes:
+    - a correction is only as good as the state estimate it was computed from
     question: The drift is real and the tracking is thin. What do you do?
     choices:
     - Make an early modest correction, then track it hard.
@@ -568,7 +631,9 @@ missions:
       vehicle is to arrival, so an early burn is cheap. What makes it safe
       rather than merely cheap is the tracking afterwards: a modest correction
       against an uncertain state can be measured and corrected again, and a
-      large one cannot.
+      large one made at the end cannot. The plan that wins is not the one that
+      is cheapest against the current best estimate. It is the one that still
+      works if that estimate turns out to be wrong.
     rebuttals:
     - Waiting buys a better measurement and pays for it in propellant that cannot be replaced, at the point in the trajectory where propellant is worth most.
     - Preserving a backup engine is a constraint on how you burn. It is not an alternative to burning, and the drift does not stop while it is being preserved.
@@ -587,15 +652,19 @@ missions:
     title: Read rotational motion
     place: Attitude Dynamics Lab
     scene: >-
-      The main guidance platform is unavailable and the crew is about to fly the vehicle by hand, so the
-      room needs the rotational mechanics stated plainly. Applying the same force farther from the centre
-      of mass increases the torque; increasing the moment of inertia with the same torque reduces the
-      angular acceleration; equal and opposite torques applied for equal times leave the angular momentum
-      where it started; moving internal masses with no external torque acting changes the shape of the
-      vehicle but not its total angular momentum. Attitude control is Newtonian mechanics about a centre
-      of mass, and each of these has a consequence the crew will feel.
+      The main guidance platform is unavailable and the crew is about to fly the
+      vehicle by hand. Before anybody touches a thruster the room states the
+      rotational mechanics plainly, because each one has a consequence the crew
+      will feel.
     takeaway: Attitude control is Newtonian mechanics around a center of mass.
     format: PROTOCOL
+    rebuttals:
+    - The same force farther from the centre of mass is a longer lever arm and therefore a larger torque. This is the term the crew can actually choose.
+    - The same torque on a larger moment of inertia gives less angular acceleration. Harder to start, and equally hard to stop.
+    - Equal and opposite torques for equal times cancel the net angular impulse, which is what a start pulse and a stop pulse are for.
+    - Moving internal mass with no external torque redistributes the rotation and conserves the total. Nothing inside the vehicle can change it.
+    assumes:
+    - a torque is what makes something start or stop turning
     scenarios:
     - Apply the same force farther from the center of mass.
     - Increase moment of inertia with the same torque.
@@ -611,21 +680,34 @@ missions:
     - 1
     - 2
     - 3
-    why: Rotation depends on lever arm, inertia, and angular impulse.
+    why: >-
+      Attitude control is Newtonian mechanics about a centre of mass, and four
+      rules cover what the crew can do. Torque is force times lever arm, so the
+      same thruster mounted farther out turns the vehicle harder. Angular
+      acceleration is torque divided by moment of inertia, so a vehicle that is
+      harder to turn responds less to the same push. Equal and opposite torques
+      for equal times leave the angular momentum where it started. And with no
+      external torque, moving mass inside the vehicle changes its shape and its
+      spin rate but never its total angular momentum.
   - group: INTEG
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
       placed cards after each check.
     title: Execute a manual attitude maneuver
     place: Crew Procedures Room
     scene: >-
-      The guidance platform is off and the crew must turn the spacecraft ninety degrees using two thruster
-      pairs and a window. There is no rate display, no automatic attitude hold, and every pulse spends
-      propellant the entry burn is counting on. In space nothing damps the rotation: a torque that starts
-      the turn will keep it turning until an equal and opposite one stops it, which means the braking
-      pulse has to be planned before the target attitude arrives, not when it does. Overshoot is paid for
-      twice — once to stop and once to come back.
+      The guidance platform is off and the crew must turn the spacecraft ninety
+      degrees using two thruster pairs and a window. No rate display, no
+      attitude hold, and every pulse spends propellant the entry burn is
+      counting on.
     takeaway: Rotational maneuvers require planning the braking phase before the target is reached.
     format: SEQUENCE
+    rebuttals:
+    - Attitude and rate first, from cues that do not depend on the platform that is off. You cannot aim a turn you cannot measure.
+    - A bounded torque to begin. Bounded, because the pulse that starts the turn sets the rate that has to be cancelled later.
+    - Coast and monitor third. This is the free part of the manoeuvre and the part where the braking point is judged.
+    - Counter-torque last, and applied early. Braking when the target arrives is braking too late, and the overshoot costs two more pulses.
+    assumes:
+    - nothing in space slows a rotation down on its own
     cards:
     - Identify current attitude and angular rate from independent cues.
     - Apply a bounded torque to begin rotation.
@@ -636,21 +718,33 @@ missions:
     - 1
     - 2
     - 3
-    why: Starting and stopping are separate impulse decisions; waiting until the target guarantees overshoot.
+    why: >-
+      Nothing damps the rotation. A torque that starts the turn keeps it turning
+      until an equal and opposite one stops it. So starting and stopping are two
+      decisions, and the second one has to be planned before it is needed. The
+      crew reads attitude and rate from whatever cues still work, applies a
+      bounded torque, coasts while watching the target come round, and brakes
+      early enough to arrive at rest. Wait until the target arrives and you
+      overshoot. Overshoot is paid for twice.
   - group: NAV
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Torque from a thruster
     place: Guidance Console
     scene: >-
-      A 200 N thruster fires at right angles, three metres from the centre of mass, and the crew needs the
-      torque before they can predict how fast the vehicle will start to turn. Torque is force times lever
-      arm times the sine of the angle between them, which at ninety degrees is one. The same thruster
-      mounted closer in would produce proportionally less turn for the same propellant — location matters
-      as much as magnitude, and on a vehicle this size the lever arm is the term the crew can actually
-      choose.
+      A 200 N thruster fires at right angles, three metres from the centre of
+      mass. The crew needs the torque before it can predict how fast the vehicle
+      starts to turn.
     takeaway: Force location matters as much as force magnitude in rotational control.
     format: BALLPARK
-    why: The same thruster mounted closer in produces proportionally less turn for the same propellant. On a vehicle this size the lever arm is the term the crew can actually choose.
+    assumes:
+    - a longer lever arm gives the same force more turning effect
+    why: >-
+      Torque is force times lever arm times the sine of the angle between them,
+      and at right angles that sine is one, which is why this case is the simple
+      one. The same thruster mounted closer in would produce proportionally less
+      turn for the same propellant. Location matters as much as magnitude, and
+      on a vehicle this size the lever arm is the term the crew can actually
+      choose — which pair fires, not how hard.
     question: Estimate the torque about the centre of mass.
     estimate:
       prompt: A 200 N thruster fires at right angles, three metres from the centre of mass.
@@ -691,15 +785,21 @@ missions:
     title: How long can the battery last?
     place: Electrical Systems Room
     scene: >-
-      The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed for.
-      The flight surgeon wants an endurance number before the next powerdown decision. Energy and power
-      are different quantities: the batteries hold about 18 kilowatt-hours of usable energy, and the
-      essential loads draw about 3 kilowatts. Endurance is inventory divided by rate, and it is an ideal
-      figure — it assumes the load stays flat and every last watt-hour is available, neither of which is
-      true. It is still the number every other decision this shift will be argued against.
+      The fuel cells are gone and the crew is on entry batteries days earlier
+      than any plan allowed for. The flight surgeon wants an endurance number
+      before the next powerdown decision.
     takeaway: Power is the rate of energy use; endurance depends on both energy inventory and load.
     format: BALLPARK
-    why: It is an ideal figure — it assumes the load stays flat and every last watt-hour is available, and neither is true. It is still the number every other decision this shift gets argued against.
+    assumes:
+    - energy is a stock, and power is the rate it is drawn at
+    why: >-
+      Energy and power are different things, and the division between them is
+      the whole calculation. An inventory in kilowatt-hours divided by a draw in
+      kilowatts leaves hours. It is an ideal figure. It assumes the load stays
+      flat and that every last watt-hour is available, and neither is true — a
+      cold battery gives less than its rating. It is still the number every
+      other decision this shift gets argued against, so it is worth having early
+      and worth calling approximate.
     question: Estimate the ideal endurance.
     estimate:
       prompt: The fuel cells are gone. The entry batteries hold about 18 kilowatt-hours of usable energy and the essential loads draw about 3 kilowatts.
@@ -732,15 +832,18 @@ missions:
     title: Why is bus voltage collapsing?
     place: Spacecraft Load Panel
     scene: >-
-      The power bus is sagging at 24 volts instead of 28 while the total load current sits near its
-      planned value. Solar-array current is normal, so generation is healthy; battery current is higher
-      than expected, and there is a hot spot at one junction. Voltage, current and heat are three views of
-      one energy picture — a resistance somewhere in the path drops voltage in proportion to the current
-      through it and dissipates that lost power as heat, exactly where the resistance is. The panel has
-      enough in it to locate the fault rather than guess at it.
+      The power bus is sagging at 24 volts instead of 28 while the total load
+      current sits near its planned value. Engineers want to start pulling
+      equipment off the bus.
     takeaway: Electrical faults are easier to localize when voltage, current, and heat are treated as parts of one energy
       picture.
     format: DIAGNOSIS
+    rebuttals:
+    - A hidden load would show as total load current above plan, and the total is where it was expected to be.
+    - A failed array would show as low array current. Generation is normal; the problem is downstream of it.
+    - A bad voltmeter explains the reading and not the hot junction or the extra battery current. Two independent instruments agree that something real is happening.
+    assumes:
+    - current through a resistance drops voltage and makes heat
     headline: The spacecraft power bus sags under a normal load.
     readings:
     - zone: Main bus voltage
@@ -778,21 +881,26 @@ missions:
     - label: Bad voltmeter only
       mechanism: The bus is healthy and the low voltage exists only in one measurement channel.
     answer: High-resistance connection
-    why: Normal array and load currents rule against missing generation or a major new load, while the hot junction supplies
-      the expected signature of resistive voltage drop and heating.
+    why: >-
+      Voltage, current and heat are three views of one energy picture, and
+      reading them together locates the fault instead of guessing at it. A
+      resistance in the path drops voltage in proportion to the current through
+      it, and dissipates the lost power as heat exactly where the resistance is
+      — which is what the hot junction is. Generation is healthy, because array
+      current is normal. Nothing new is being drawn, because the total load is
+      near plan. What is left is the path between them.
   - group: INTEG
     task: Which load comes off the bus first?
     title: Shed load without losing the mission
     place: Mission Planning Desk
     scene: >-
-      The energy inventory is fixed and the loads are not. Guidance needs power at known times and is
-      useless outside them; communications wants it continuously and degrades gracefully; thermal control
-      wants it before the cabin is cold rather than after, because reheating a cold cabin costs far more
-      than holding a warm one; life support cannot be switched off at all. A power plan is an allocation
-      across time as well as across systems, and the loads that look cheapest to shed are often the ones
-      whose consequences arrive later and cost more.
+      The energy inventory is fixed and the loads are not. Guidance,
+      communications, thermal control and life support all want power, and
+      something has to come off the bus in the next few minutes.
     takeaway: A power plan matches load timing and consequence to a finite energy inventory.
     format: CHOICE
+    assumes:
+    - a load that is cheap to switch off is not always cheap to have switched off
     question: Which load comes off the bus first?
     choices:
     - Continuous high-bandwidth communications.
@@ -801,9 +909,14 @@ missions:
     - Thermal survival loads and battery conditioning.
     answer: Continuous high-bandwidth communications.
     why: >-
-      It is the only load on the bus that degrades gracefully. A lower rate and
-      a narrower channel still get the numbers down; everything else on the list
-      either cannot be switched off or costs more to restore than it saved.
+      A power plan is an allocation across time as well as across systems, and
+      the loads that look cheapest to shed are often the ones whose consequences
+      arrive later. Communications is the only load here that degrades
+      gracefully: a lower rate and a narrower channel still get the numbers
+      down. Guidance draws power at known times and none outside them, so it is
+      scheduled rather than shed. Thermal control costs far more to restore than
+      it saves. Life support is not a load at all — it is the reason the rest is
+      powered.
     rebuttals:
     - Life support is not a load that can be traded. It is the reason the rest of the vehicle is powered.
     - Guidance draws power at known times and none outside them, so it is scheduled rather than shed — and the window it needs is the burn that gets the crew home.
@@ -822,14 +935,18 @@ missions:
     title: Series or parallel?
     place: Battery Test Bench
     scene: >-
-      Engineers want to reconnect battery modules and the room needs the electrical consequences agreed
-      before anything is wired. Equal cells in series add their voltages while carrying the same current;
-      the same cells in parallel hold the voltage and share the current. A parallel branch that gains
-      resistance stops carrying its share, and the other branches pick it up. A single open cell in a
-      series string stops the whole string. Redundancy is only redundancy when the connection topology and
-      the protection behaviour are both explicit — otherwise adding a module can remove capability.
+      Engineers want to reconnect battery modules to buy hours of endurance. The
+      room agrees what each wiring choice does before anything is bolted up,
+      because adding a module can also take capability away.
     takeaway: Redundancy is useful only when connection and protection behavior are explicit.
     format: PROTOCOL
+    rebuttals:
+    - Cells in series add their voltages. The current is the same everywhere in the string, so nothing is gained in capacity.
+    - Cells in parallel hold the voltage and add current capacity. This is how you get more amp-hours without changing the bus.
+    - A resistive parallel branch carries less than its share, and the remaining branches carry more than theirs. Unequal sharing is how one branch overheats.
+    - One open cell in series interrupts the entire path. In parallel the same failure loses one branch; in series it loses everything.
+    assumes:
+    - a battery has both a voltage and a current it can supply
     scenarios:
     - Add equal cells in series.
     - Add equal cells in parallel.
@@ -845,21 +962,35 @@ missions:
     - 1
     - 2
     - 3
-    why: Circuit topology controls voltage, current sharing, and failure propagation.
+    why: >-
+      Topology decides voltage, current sharing and how a fault spreads. Equal
+      cells in series add their voltages and carry the same current, so the
+      string is only as good as its worst cell. The same cells in parallel hold
+      the voltage and share the current, which is where extra capacity comes
+      from. A parallel branch that gains resistance stops carrying its share and
+      the others pick it up, unequally. A single open cell in a series string
+      breaks the whole path. Redundancy is only redundancy when the connection
+      and the protection are both explicit.
   - group: ELEC
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Heating at a bad connection
     place: Electrical Integration Room
     scene: >-
-      A connector in the improvised path develops 0.05 ohms while carrying 20 amps, and somebody has to
-      say whether that matters before it is bolted up inside a sealed cabin. Resistive heating is current
-      squared times resistance, which means the current term dominates: the same connector at half the
-      current would dissipate a quarter of the power. The resistance sounds negligible written down and
-      the wattage it produces at this current is what decides whether the junction runs warm or starts a
-      fire.
+      A connector in the improvised path develops 0.05 ohms while carrying 20
+      amps. Somebody has to say whether that matters before it is bolted up
+      inside a sealed cabin.
     takeaway: Small resistances matter when current is large because heating scales with current squared.
     format: BALLPARK
-    why: Twenty watts sounds like nothing until you notice where it is going — into a connector, inside a sealed cabin, with no air moving over it.
+    assumes:
+    - a resistance carrying current turns electrical power into heat
+    why: >-
+      Resistive heating is current squared times resistance, so the current term
+      dominates. The same connector at half the current would give off a quarter
+      of the power. The resistance sounds like nothing written down. The wattage
+      it makes at this current is what decides whether the junction runs warm or
+      starts a fire. Twenty watts is nothing spread over a radiator. It is a
+      great deal in one connector, in a sealed cabin, with no air moving over
+      it.
     question: Estimate the heating power at the connection.
     estimate:
       prompt: A connector in the improvised path develops 0.05 ohms while carrying 20 amps.
@@ -892,15 +1023,13 @@ missions:
     title: Qualify the emergency battery plan
     place: Crew Procedure Simulator
     scene: >-
-      Engineers want to reconnect a module from the damaged bus to buy hours of endurance. Nobody knows
-      the module's state of charge, the connector was never designed for this current, and the crew is
-      inside a sealed cabin with the hardware. A mismatched module connected in parallel with a charged
-      one will equalise through whatever resistance lies between them, which can mean a large current
-      through a connector chosen for a much smaller one. Improvisation in an emergency is legitimate; what
-      makes it survivable is measuring the quantities that decide the outcome first, and providing
-      protection that acts before anybody smells anything.
+      Engineers want to reconnect a module from the damaged bus. Nobody knows
+      its state of charge, the connector was never designed for this current,
+      and the crew is inside a sealed cabin with the hardware.
     takeaway: Emergency electrical improvisation should still be bounded by measurements and protection.
     format: CHOICE
+    assumes:
+    - two batteries wired together will equalise whether or not anybody planned it
     question: Engineers want to bolt the module in now. What has to happen first?
     choices:
     - Verify the module's voltage and state of charge.
@@ -909,11 +1038,13 @@ missions:
     - Connect it and watch for smoke, with the crew standing by.
     answer: Verify the module's voltage and state of charge.
     why: >-
-      A mismatched module connected in parallel equalises through whatever
-      resistance lies between the two, and the current that flows is set by the
-      voltage difference. That difference is the one quantity nobody has
-      measured, and it decides whether the connector runs warm or starts a fire
-      in a sealed cabin.
+      Wire a flat module in parallel with a charged one and the two will
+      equalise through whatever resistance lies between them. The current that
+      flows is set by the difference in voltage. That difference is the one
+      quantity nobody has measured, and it decides whether the connector runs
+      warm or starts a fire. Improvising in an emergency is fine. What makes it
+      survivable is measuring the quantity that decides the outcome first, and
+      fusing it so the protection acts before anybody smells anything.
     rebuttals:
     - Current sharing and connector temperature are measured under load — which is after the connection this decision is about.
     - Independent fusing is required and is protection against being wrong. It is not a substitute for knowing, and a fuse chosen for the wrong current is not protection at all.
@@ -931,15 +1062,21 @@ missions:
     title: How much does the cabin cool?
     place: Thermal Control Lab
     scene: >-
-      With the systems powered down the cabin is losing about a kilowatt more than it generates, and the
-      flight surgeon wants to know how long the crew has before the temperature becomes a medical problem.
-      A lumped estimate treats the cabin and its contents as one thermal mass of about 12 million joules
-      per kelvin: energy lost divided by heat capacity gives the temperature drop over three hours.
-      Thermal inertia is why the cabin cools slowly rather than instantly when the power goes — and also
-      why reheating it later is expensive.
+      With the systems powered down the cabin is losing about a kilowatt more
+      than it generates. The flight surgeon wants to know how long the crew has
+      before the temperature becomes a medical problem.
     takeaway: Thermal inertia can make temperature change slowly even when power is lost.
     format: BALLPARK
-    why: Thermal inertia is why the cabin cools slowly rather than instantly when the power goes — and it is also why reheating it later costs far more than holding it warm.
+    assumes:
+    - it takes energy to warm a mass, and the same energy leaves when it cools
+    why: >-
+      A lumped estimate treats the cabin and everything in it as one thermal
+      mass of about 12 million joules per kelvin. Energy lost divided by heat
+      capacity gives the temperature drop, and over three hours the answer is
+      small — which is the useful part. Thermal inertia is why the cabin cools
+      slowly rather than instantly when the power goes, and it buys the crew
+      hours to decide. It is also why reheating later is expensive: the same
+      heat capacity has to be filled back up.
     question: Estimate the temperature drop over three hours.
     estimate:
       prompt: With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.
@@ -974,14 +1111,18 @@ missions:
     title: Choose the heat-transfer mechanism
     place: Cabin Environment Console
     scene: >-
-      The cabin is cooling and the crew is looking for what to do about it, which means first identifying
-      how the heat is actually leaving. Crew huddling and sharing direct contact is conduction between
-      bodies; air circulation moving warmth around the cabin is convection; a cold wall receiving infrared
-      from warmer objects is radiation; a metal strut carrying heat to external structure is conduction to
-      a sink. Each pathway has a different countermeasure — insulation, circulation, surface treatment,
-      thermal isolation — so naming the dominant one is what makes an intervention more than a guess.
+      The cabin is cooling and the crew wants to do something about it. What can
+      be done depends on how the heat is actually leaving, so the room names the
+      pathway first.
     takeaway: Identifying the pathway reveals which intervention can reduce loss.
     format: PROTOCOL
+    rebuttals:
+    - Bodies in direct contact exchange heat by conduction. It is short-range and it needs touching.
+    - 'Air carrying warmth around the cabin is convection: the heat rides on moving fluid rather than passing through it.'
+    - A cold wall absorbing infrared from warmer objects is radiation. It works across a vacuum and needs nothing in between.
+    - A metal strut to external structure is conduction along a solid path, straight to a sink. It is the leak that never stops.
+    assumes:
+    - heat moves by contact, by moving fluid, or by radiation
     scenarios:
     - Crew huddle and share direct contact.
     - Air circulation moves heat around the cabin.
@@ -997,21 +1138,27 @@ missions:
     - 1
     - 2
     - 3
-    why: Thermal management uses all three transfer modes and heat storage.
+    why: >-
+      Each pathway has a different countermeasure — insulation, circulation,
+      surface treatment, thermal isolation — so naming the dominant one is what
+      makes an intervention more than a guess. Crew in direct contact is
+      conduction between bodies. Air moving warmth around the cabin is
+      convection. A cold wall receiving infrared from warmer objects is
+      radiation, and it needs no medium at all. A metal strut carrying heat out
+      to external structure is conduction along a solid path, and it is the one
+      that runs whether or not anyone is awake.
   - group: INTEG
     task: Four degrees and falling, on a fixed energy budget. What do you spend it on?
     title: Keep the cabin survivable
     place: Materials and Insulation Shop
     scene: >-
-      With the systems powered down the cabin is at 4 degrees and falling, condensation is forming on the
-      walls, and the crew is sleeping in their suits. Heating everything is not affordable on the
-      remaining energy, so the question is what gets heated and when: insulating the crew zone and the
-      critical batteries concentrates a fixed budget where the consequences are worst, short circulation
-      periods limit the temperature gradients that drive the condensation, and monitoring several
-      locations is what tells you whether either is working. Thermal survival is an allocation problem
-      across space, time and consequence.
+      The cabin is at four degrees and falling, condensation is forming on the
+      walls, and the crew is sleeping in their suits. Heating everything is not
+      affordable on the energy that is left.
     takeaway: Thermal survival is an allocation problem across space, time, and consequence.
     format: CHOICE
+    assumes:
+    - slowing a loss and replacing it are different things
     question: Four degrees and falling, on a fixed energy budget. What do you spend it on?
     choices:
     - Insulate the crew zone and the critical batteries.
@@ -1020,10 +1167,13 @@ missions:
     - Monitor temperature at several representative locations.
     answer: Insulate the crew zone and the critical batteries.
     why: >-
-      Insulation changes the rate at which heat leaves rather than replacing the
-      heat that left, so it is the only option whose benefit does not stop when
-      the energy does. Concentrating it on the crew and the batteries puts a
-      fixed budget where the consequences of being cold are worst.
+      Insulation slows the heat leaving. It does not replace the heat that left.
+      That makes it the only option here whose benefit does not stop when the
+      energy does. Putting it on the crew zone and the critical batteries spends
+      a fixed budget where being cold costs most — and cold batteries deliver
+      less than the plan assumes, so the energy problem starts feeding itself.
+      Thermal survival is an allocation across space, time and consequence, not
+      one setting.
     rebuttals:
     - Short circulation periods limit the gradients that drive condensation and cost power every time they run. Worth doing; not what keeps anybody alive.
     - Heating the whole vehicle spends the budget on volume nobody is in, and the loss scales with the surface it is heating.
@@ -1042,15 +1192,18 @@ missions:
     title: Diagnose the air system
     place: Life-Support Laboratory
     scene: >-
-      Cabin carbon dioxide is rising even though the scrubber fan still draws normal current. Total cabin
-      pressure is stable, so nothing is leaking. Airflow through the scrubber is low and the pressure drop
-      across the filter is high. Powering a machine is not the same as achieving its function: a fan
-      spinning against a blocked path draws its current and moves almost no air, and the CO2 it fails to
-      carry to the sorbent goes on accumulating in the cabin regardless. The panel measures both the
-      machine and the quantity it is supposed to transport, which is what makes the diagnosis possible.
+      Cabin carbon dioxide is rising even though the scrubber fan still draws
+      its normal current. The crew can hear the fan running, and the number on
+      the wall keeps climbing.
     takeaway: Powering a machine is not the same as achieving its function; measure the transported quantity as well as the
       motor.
     format: DIAGNOSIS
+    rebuttals:
+    - An unpowered fan would draw no current. This one draws its normal current — the motor is fine and the air still is not moving.
+    - A leak would drop total cabin pressure, and the pressure is stable. Gas is not leaving the spacecraft.
+    - A biased sensor explains the reading and not the low airflow or the high pressure drop across the filter. Three instruments are telling one story.
+    assumes:
+    - a machine can be powered and still not be doing its job
     headline: Cabin carbon dioxide rises even though the scrubber fan still draws power.
     readings:
     - zone: Cabin CO2
@@ -1088,21 +1241,34 @@ missions:
     - label: CO2 sensor bias
       mechanism: The gas is normal and only one concentration measurement is wrong.
     answer: Blocked scrubber flow path
-    why: The fan is powered but airflow is low and filter pressure drop is high. Stable cabin pressure argues against a leak,
-      so a flow restriction best explains the rising CO2.
+    why: >-
+      Powering a machine is not the same as achieving its function, and this
+      panel measures both the machine and the quantity it is supposed to move. A
+      fan spinning against a blocked path draws its current and moves almost no
+      air, so normal current proves the motor is turning and nothing else.
+      Airflow is low and the pressure drop across the filter is high, which is a
+      restriction. Total cabin pressure is stable, so nothing is leaking. The
+      carbon dioxide is being produced and never reaching the sorbent.
   - group: THERM
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: CO2 production scale
     place: Cabin Air Console
     scene: >-
-      Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the workshop needs
-      to know what the improvised scrubber has to keep up with over the next six hours. Source rate sets
-      the minimum removal requirement — a fix that removes CO2 more slowly than the crew produces it only
-      changes how fast the concentration climbs, not whether it does. The estimate is crude and it is the
-      number that decides whether the tape-and-hose solution is worth building at all.
+      Three crew members each exhale roughly 20 litres of carbon dioxide an
+      hour. The workshop needs to know what an improvised scrubber has to keep
+      up with over the next six hours.
     takeaway: Source rate sets the minimum removal requirement.
     format: BALLPARK
-    why: Source rate sets the minimum the fix has to achieve. A scrubber that removes less than this only changes how fast the concentration climbs.
+    assumes:
+    - a rate multiplied by a time is a total
+    why: >-
+      Source rate sets the minimum removal requirement, and that is the whole
+      point of doing this before building anything. A fix that removes carbon
+      dioxide more slowly than three people produce it does not solve the
+      problem — it only changes how fast the concentration climbs. The estimate
+      is crude, and crude is enough: it decides whether the tape-and-hose
+      solution is worth the hours it will take to build, and what size it has to
+      be when it is finished.
     question: Estimate the carbon dioxide produced in six hours.
     estimate:
       prompt: Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.
@@ -1136,14 +1302,13 @@ missions:
     title: Restore breathable air
     place: Crew Hardware Workshop
     scene: >-
-      Carbon dioxide is climbing on the cabin sensor and the spare canisters are the wrong shape for the
-      sockets in this module. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has
-      to work first time. Two things have to be true at once: enough sorbent surface exposed to take the
-      CO2 chemically, and a sealed flow path that actually forces cabin air through it rather than around
-      it. Bypass is the failure mode that looks like success — the fan runs, the crew hears it, and the
-      concentration keeps rising.
+      Carbon dioxide is climbing and the spare canisters are the wrong shape for
+      the sockets in this module. There is tape, a suit hose, a sock and a
+      flight-plan cover, and the fix has to work first time.
     takeaway: A life-support fix must manage both chemical uptake and fluid flow.
     format: CHOICE
+    assumes:
+    - air, like water, takes the easiest path it is offered
     question: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
     choices:
     - A sealed flow path that forces cabin air through the sorbent.
@@ -1152,10 +1317,13 @@ missions:
     - Enough fan speed that the crew can hear it running.
     answer: A sealed flow path that forces cabin air through the sorbent.
     why: >-
-      Bypass is the failure mode that looks like success. The fan runs, the crew
-      hears it, and the concentration keeps climbing — because sorbent only
-      removes carbon dioxide from air that actually crosses it, and air takes
-      the easiest path it is offered.
+      Two things have to be true at once: enough sorbent surface to take the
+      carbon dioxide chemically, and a sealed path that forces cabin air through
+      it rather than around it. Bypass is the failure mode that looks like
+      success. The fan runs, the crew hears it, and the concentration keeps
+      climbing — because sorbent only removes carbon dioxide from air that
+      actually crosses it. A large sorbent bed with a gap around it removes less
+      than a small one with no gap.
     rebuttals:
     - Exposed area helps only for the fraction of the air that reaches it. A large sorbent bed with a gap around it removes less than a small one with none.
     - Measuring in several places is how the crew finds out whether the fix worked, which is necessary and is not the fix.
@@ -1173,14 +1341,16 @@ missions:
     title: Why did the signal fade?
     place: Deep-Space Antenna
     scene: >-
-      Voice and telemetry both go weak. Received power is down about 12 decibels, the transmitter reports
-      normal output, the change in range would account for roughly 1 decibel, the antenna is off-point by
-      about 6 degrees, and a second ground station on another continent sees the same weak signal. A link
-      budget is a sum of gains and losses, and diagnosis means comparing the size of each proposed effect
-      with the size of the loss actually observed. Two stations seeing it rules out something local to one
-      dish; the arithmetic decides the rest.
+      Voice and telemetry both go weak at once. Received power is down about 12
+      decibels, and the crew is answering calls they can barely hear.
     takeaway: A link-budget diagnosis should compare the size of every proposed effect with the size of the observed loss.
     format: DIAGNOSIS
+    rebuttals:
+    - A transmitter fault would show as reduced output, and the spacecraft reports normal power. The loss is happening between the antenna and the ground.
+    - The range change accounts for about one decibel of the twelve. It is real and it is nowhere near large enough.
+    - A faulty ground receiver would affect one station. Two stations on different continents see the same fade.
+    assumes:
+    - a directional antenna is much weaker off to the side
     headline: Voice and telemetry suddenly become weak.
     readings:
     - zone: Received power
@@ -1218,21 +1388,33 @@ missions:
     - label: One bad ground receiver
       mechanism: A local receiver fault weakens the signal at only one station.
     answer: Antenna mispointing
-    why: The transmitter is normal, the range change is far too small, and two stations see the fade. The large pointing error
-      provides the missing loss mechanism.
+    why: >-
+      A link budget is a sum of gains and losses, so diagnosis means comparing
+      the size of each proposed cause against the size of the loss actually
+      seen. Twelve decibels is a factor of about sixteen in power, and the range
+      change accounts for roughly one of them — far too small. The transmitter
+      reports normal output. A second station on another continent sees the same
+      fade, which rules out anything local to one dish. The antenna is six
+      degrees off-point, and on a narrow beam that is enough.
   - group: COMMS
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Wavelength of the radio link
     place: Communications Analysis Room
     scene: >-
-      The link is fading and the antenna team needs to know how far the vehicle can be off-pointed before
-      the signal is lost. That calculation starts with the physical size of the wave the antenna is
-      working with: wavelength is the speed of light divided by frequency, and the carrier is at 2.0
-      gigahertz. Beam width scales with wavelength over aperture, so this number is the first term in
-      every pointing tolerance the team will quote for the rest of the shift.
+      The link is fading and the antenna team needs to know how far the vehicle
+      can be off-pointed before the signal is lost. The carrier is at 2.0
+      gigahertz.
     takeaway: Frequency and wavelength are reciprocal descriptions of the same propagating wave.
     format: BALLPARK
-    why: Every pointing tolerance the team quotes for the rest of the shift starts from this number, because beam width goes as wavelength over aperture.
+    assumes:
+    - frequency and wavelength are two descriptions of one wave
+    why: >-
+      Wavelength is the speed of light divided by frequency, which makes this a
+      single division — and it is the first term in everything that follows.
+      Beam width goes roughly as wavelength divided by aperture, so a longer
+      wave from the same dish gives a wider, more forgiving beam, and a shorter
+      one gives a narrow beam that demands accurate pointing. Every tolerance
+      the team quotes for the rest of the shift starts from this number.
     question: Estimate the wavelength.
     estimate:
       prompt: The carrier is at 2.0 gigahertz, and beam width scales with wavelength over aperture.
@@ -1266,14 +1448,18 @@ missions:
     title: Recover the weak link
     place: Spacecraft Attitude Console
     scene: >-
-      The carrier is down twelve decibels and drifting in frequency, and the crew is answering calls they
-      can barely hear. Recovery combines three different disciplines in a fixed order: check attitude and
-      antenna geometry, because pointing is the largest and cheapest term to fix; reduce the data rate and
-      narrow the receiver bandwidth, because a slower signal needs less power to be read; coordinate the
-      large ground antennas with predicted Doppler so the receiver is listening at the right frequency.
-      The range and Doppler recovered in the process then feed straight back into navigation.
+      The carrier is down twelve decibels and drifting in frequency. The crew is
+      answering calls it can barely hear, and the next navigation update depends
+      on getting the link back.
     takeaway: Communication recovery joins wave physics, control, and estimation.
     format: SEQUENCE
+    rebuttals:
+    - Attitude and antenna geometry first. Pointing is the largest term in the budget and the cheapest one to fix.
+    - 'Lower rate and narrower bandwidth second: less noise in the channel, and a slower signal needs less power to read.'
+    - Large ground antennas with predicted Doppler third. The signal has drifted in frequency, so the receiver has to be told where to listen.
+    - Feed the recovered range and Doppler into navigation last. Getting the link back also produces the measurements the burn needs.
+    assumes:
+    - a slower signal needs less power to be read
     cards:
     - Verify spacecraft attitude and antenna geometry.
     - Reduce data rate and narrow the receiver bandwidth.
@@ -1284,7 +1470,15 @@ missions:
     - 1
     - 2
     - 3
-    why: Geometry is corrected before signal-processing gains are maximized and navigation information is extracted.
+    why: >-
+      Recovery combines three disciplines in a fixed order, cheapest and largest
+      first. Pointing is the biggest term in the link budget and costs nothing
+      but attitude, so geometry is checked before anything else. Reducing the
+      data rate and narrowing the receiver bandwidth buys signal-to-noise
+      without touching the spacecraft. Coordinating the large ground antennas
+      with predicted Doppler puts the receiver where the signal actually is. And
+      the range and Doppler recovered along the way feed straight back into
+      navigation.
 - title: A Blind Maneuver
   objective: Design a manual alignment procedure whose dominant angular errors are bounded.
   briefing: The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player
@@ -1299,15 +1493,18 @@ missions:
     title: What shifts the apparent direction?
     place: Optics Test Room
     scene: >-
-      The crew will aim the burn by eye, so the room has to separate what the instrument does from what
-      the spacecraft does. An eye moving relative to a nearby reticle shifts the apparent line of sight by
-      parallax, and it is entirely an artefact of the observer; a changed focal setting alters sharpness
-      and not direction; a nearby object shifting against distant stars as the viewpoint moves is real
-      parallax carrying real distance information; the spacecraft rotating while the star field stays
-      fixed is vehicle motion. Manual navigation is only trustworthy when instrument geometry and
-      spacecraft motion are told apart.
+      The crew will aim the burn by eye, through a window reticle. Before that
+      is trusted the room separates what the instrument does from what the
+      spacecraft does.
     takeaway: Manual navigation requires separating instrument geometry from spacecraft motion.
     format: PROTOCOL
+    rebuttals:
+    - Eye moving against a nearby reticle is instrument parallax. Nothing outside the window has changed.
+    - A focus change alters how sharp the image is and leaves the direction where it was.
+    - A near object shifting against distant stars as the viewpoint moves is geometric parallax, and the size of the shift carries the distance.
+    - The star field is fixed in inertial space. If it appears to move, the vehicle turned.
+    assumes:
+    - what you see through an eyepiece depends on where your eye is
     scenarios:
     - The eye moves relative to a nearby reticle.
     - A lens focal setting changes image sharpness.
@@ -1323,20 +1520,35 @@ missions:
     - 1
     - 2
     - 3
-    why: Apparent direction depends on optics, viewpoint, and coordinate frame.
+    why: >-
+      Manual navigation is only trustworthy when instrument geometry and
+      spacecraft motion are told apart, because both move the line of sight and
+      only one of them means anything. An eye shifting relative to a nearby
+      reticle is parallax inside the instrument, and it is entirely an artefact
+      of the observer. A focal change alters sharpness and not direction. A
+      nearby object shifting against distant stars is real geometric parallax,
+      carrying real distance information. And the star field staying fixed while
+      the view turns is the vehicle rotating.
   - group: NAV
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Angular error to position error
     place: Crew Navigation Trainer
     scene: >-
-      A pointing error of 0.1 degrees at a range of 400,000 kilometres, and the guidance officer wants it
-      in metres rather than degrees. Small angles convert to transverse distance by multiplying the angle
-      in radians by the range, and 0.1 degrees is about 1.75 milliradians. The number that comes out is
-      the reason a hand-held sighting is discussed so carefully: angular precision becomes position
-      precision through geometry, and at lunar distances a fraction of a degree is hundreds of kilometres.
+      A pointing error of 0.1 degrees at a range of 400,000 kilometres. The
+      guidance officer wants it in metres rather than degrees before the
+      sighting is accepted.
     takeaway: Angle precision becomes position precision through geometry.
     format: BALLPARK
-    why: Angular precision becomes position precision through geometry alone. At lunar distance a tenth of a degree is hundreds of kilometres, which is why a hand-held sighting is discussed so carefully.
+    assumes:
+    - a small angle times a distance gives a sideways offset
+    why: >-
+      Small angles convert to transverse distance by multiplying the angle in
+      radians by the range, and a tenth of a degree is about 1.75 milliradians.
+      The number that comes out is why a hand-held sighting is discussed so
+      carefully: angular precision becomes position precision through geometry
+      alone, with no instrument error involved. At lunar distance a fraction of
+      a degree is hundreds of kilometres, and the entry corridor is about a
+      degree wide.
     question: Estimate the transverse offset at that range.
     estimate:
       prompt: A pointing error of 0.1 degrees at a range of 400,000 kilometres. Small angles convert to transverse distance by multiplying the angle in radians by the range.
@@ -1370,15 +1582,13 @@ missions:
     title: Bound the manual alignment
     place: Guidance Review Board
     scene: >-
-      The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to
-      check them against, and nobody has measured how repeatable that is. Calibrating reticle and eye
-      position in the simulator quantifies the systematic part; using multiple stars and repeated
-      measurements quantifies the random part and averages it down; a timed attitude-rate check before
-      ignition catches a vehicle that is still drifting when the sighting was taken. A manual procedure is
-      not unreliable by nature — it is unreliable until its geometry and its repeatability have been
-      measured.
+      The burn will be aimed by a crew member sighting stars through a window
+      reticle, with no platform to check them against. Nobody has measured how
+      repeatable that is.
     takeaway: A manual procedure becomes reliable when its geometry and repeatability are measured.
     format: CHOICE
+    assumes:
+    - a single measurement has no error bar
     question: Nobody has measured how repeatable a hand sighting is. What do you require before the burn?
     choices:
     - Multiple stars, each sighted more than once.
@@ -1387,10 +1597,14 @@ missions:
     - One careful alignment by the most practised crew member.
     answer: Multiple stars, each sighted more than once.
     why: >-
-      Repetition is the only thing that measures the scatter, and averaging is
-      the only thing that reduces it. A procedure with no repeat has no error
-      bar at all, which is what makes it impossible to say whether the burn is
-      inside the corridor.
+      A manual procedure is not unreliable by nature. It is unreliable until its
+      scatter has been measured, and repetition is the only thing that measures
+      scatter. Averaging several sightings of several stars is also the only
+      thing that reduces it. A procedure with no repeat produces a number and no
+      error bar at all, which makes it impossible to say whether the burn lands
+      inside the corridor. Simulator calibration removes the fixed offset; it
+      says nothing about how much the answer moves from one sighting to the
+      next.
     rebuttals:
     - Simulator calibration removes the systematic part — the fixed offset between eye, reticle and axis — and tells you nothing about how much the answer moves from one sighting to the next.
     - The attitude-rate check catches a vehicle still drifting when the sighting was taken. A real error source, and a different one.
@@ -1408,15 +1622,18 @@ missions:
     title: Where orbital energy goes
     place: Entry Dynamics Room
     scene: >-
-      The capsule arrives at the atmosphere carrying the kinetic energy of a hundred-tonne truck at
-      orbital speed, and it has to arrive at the ocean carrying almost none of it. The chain is worth
-      stating: the vehicle enters with large kinetic and gravitational energy, atmospheric drag does
-      negative work on it, that energy becomes heat in the shocked gas ahead of the heat shield and in the
-      wake behind it, and velocity and altitude fall while the thermal protection and the trajectory shape
-      control how fast. Reentry is energy dissipation constrained by what the crew and the materials can
-      take.
+      The capsule arrives at the atmosphere with the kinetic energy of a
+      hundred-tonne truck at orbital speed. It has to reach the ocean carrying
+      almost none of it.
     takeaway: Reentry is an energy-dissipation problem constrained by human and material limits.
     format: SEQUENCE
+    rebuttals:
+    - The vehicle arrives with the energy. Everything that follows is that energy leaving.
+    - Drag does negative work — it is the mechanism that removes the energy, and it acts along the whole path.
+    - The energy becomes heat in the shocked gas and the wake. A blunt shield is shaped to put it there rather than into the vehicle.
+    - Falling velocity and altitude are the result. How fast they fall is what the shield and the trajectory shape are for.
+    assumes:
+    - energy is not destroyed, it is moved somewhere else
     cards:
     - The spacecraft enters with large kinetic and gravitational energy.
     - Atmospheric drag performs negative work on the spacecraft.
@@ -1427,20 +1644,33 @@ missions:
     - 1
     - 2
     - 3
-    why: Drag converts organized mechanical energy into thermal and atmospheric energy.
+    why: >-
+      Reentry is an energy problem before it is a heat problem, and the chain
+      says where the energy goes. The vehicle arrives with large kinetic and
+      gravitational energy. Drag does negative work on it, taking that energy
+      out. The energy does not vanish: it becomes heat in the shocked gas ahead
+      of the shield and in the wake behind it, which is why most of it never
+      enters the vehicle at all. Velocity and altitude then fall, at a rate the
+      shield and the trajectory shape between them control.
   - group: THERM
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Kinetic-energy scale
     place: Thermal Protection Lab
     scene: >-
-      A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second, and the
-      thermal protection team needs the kinetic energy before it can argue about heat load. Kinetic energy
-      is half the mass times the speed squared, and the squared term is why lunar return is a
-      categorically harder problem than return from low orbit: an entry speed about 40 per cent higher
-      carries roughly twice the energy to dispose of, through the same heat shield.
+      A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres
+      per second. The thermal protection team needs the kinetic energy before it
+      can argue about heat load.
     takeaway: Speed dominates kinetic energy because it enters squared.
     format: BALLPARK
-    why: Speed enters squared, which is why lunar return is a categorically harder problem than return from low orbit rather than a slightly harder one.
+    assumes:
+    - kinetic energy depends on mass and on speed
+    why: >-
+      Kinetic energy is half the mass times the speed squared, and the squared
+      term is the whole story here. An entry speed about forty per cent higher
+      than a return from low orbit carries roughly twice the energy, through the
+      same heat shield. That is why lunar return is a categorically harder
+      problem rather than a slightly harder one: the mass barely changed and the
+      speed did, and speed is the term that enters twice.
     question: Estimate the kinetic energy to be dissipated.
     estimate:
       prompt: A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.
@@ -1473,14 +1703,13 @@ missions:
     title: Protect the entry corridor
     place: Crew G-Load Console
     scene: >-
-      The corridor is about a degree wide. Too steep and the deceleration and heating exceed what the crew
-      and the structure survive; too shallow and the capsule skips back out with no propellant left to
-      return. The state estimate going into it carries real uncertainty in both directions, and the
-      atmosphere itself varies from the model. Safety here does not come from optimising the nominal
-      trajectory — it comes from checking that the plan still works across the range of atmospheres, entry
-      angles and vehicle configurations that are actually consistent with what is known.
+      The corridor is about a degree wide. Too steep and the heating and
+      deceleration exceed what the crew and the structure survive; too shallow
+      and the capsule skips back out with no propellant left to return.
     takeaway: Entry safety comes from margins across plausible conditions, not perfection at one nominal point.
     format: CHOICE
+    assumes:
+    - a plan can be optimal and still miss
     question: The corridor is about a degree wide. What does the room do with the time left?
     choices:
     - Refine the position and velocity uncertainty before entry.
@@ -1489,10 +1718,13 @@ missions:
     - Optimise the nominal entry trajectory as far as it will go.
     answer: Refine the position and velocity uncertainty before entry.
     why: >-
-      The corridor is a constraint on where the vehicle actually is, and the
-      uncertainty is what decides whether the whole distribution fits inside it.
-      Shrinking it is the only action available that makes the same corridor
-      easier to hit.
+      The corridor is a constraint on where the vehicle actually is. So what
+      decides the outcome is the uncertainty, not where the nominal trajectory
+      lands: the whole distribution has to fit inside a gap about a degree wide.
+      Shrinking that uncertainty is the only thing here that makes the same
+      corridor easier to hit. Optimising the nominal makes the best case better
+      and does nothing for the cases that miss, and those are the ones that kill
+      the crew.
     rebuttals:
     - Steep and shallow atmospheres bound a variation nobody can reduce. Worth knowing; it changes what you can survive, not where you are.
     - Verifying the shield and the centre of mass is required before commitment and moves the trajectory not at all.
@@ -1510,16 +1742,18 @@ missions:
     title: What is driving the vibration?
     place: Structural Dynamics Lab
     scene: >-
-      A structural vibration becomes severe only in a narrow band of reaction-wheel speed. Amplitude peaks
-      sharply near 3,200 rpm, the measured vibration frequency matches a known structural mode, moving the
-      wheel speed away from that band reduces it, a second accelerometer in a different location sees the
-      same mode, and the impact monitor has recorded no impulse. Resonance is diagnosed by the
-      relationships among forcing frequency, natural frequency and response — not by how large the
-      amplitude is. A structure perfectly strong at rest can fail when driven at a frequency it happens to
-      like.
+      A structural vibration becomes severe only in a narrow band of
+      reaction-wheel speed. It peaks sharply near 3,200 rpm and falls away above
+      and below.
     takeaway: Resonance is diagnosed by relationships among forcing frequency, natural frequency, and response - not by amplitude
       alone.
     format: DIAGNOSIS
+    rebuttals:
+    - A loose sensor rattles on its own mount. A second accelerometer in a different location sees the same mode.
+    - An impact is a single kick and would not care what speed the wheel is running at. The impact monitor recorded nothing.
+    - Structural breakup gives large vibration across many frequencies and operating states. This is narrow-band, repeatable and reversible.
+    assumes:
+    - every structure has speeds at which it prefers to shake
     headline: A structural vibration becomes severe only during a narrow band of reaction-wheel speed.
     readings:
     - zone: Vibration amplitude
@@ -1557,22 +1791,34 @@ missions:
     - label: Broad structural breakup
       mechanism: Damage creates large vibration across a wide range of frequencies and operating states.
     answer: Resonance driven by wheel forcing
-    why: The vibration is narrow-band, repeatable, tied to wheel speed, matches a known structural mode, and appears on an
-      independent accelerometer. That is the signature of resonance.
+    why: >-
+      Resonance is diagnosed by the relationship between the forcing frequency,
+      the natural frequency and the response — not by how large the amplitude
+      is. A structure perfectly strong at rest can fail when it is driven at a
+      frequency it happens to like. Here the vibration frequency matches a known
+      structural mode, the amplitude peaks in a narrow band of wheel speed, and
+      moving the wheel away reduces it immediately and reversibly. A second
+      accelerometer somewhere else sees the same mode, so it is the structure
+      and not the sensor.
   - group: STRUCT
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Spring-mass period
     place: Spacecraft Vibration Console
     scene: >-
-      A mounted component is modelled as a 4 kg mass on a 400 N/m spring, and the analyst wants its
-      natural period before the pump speeds are set. Natural frequency comes out of inertia and stiffness
-      alone — heavier is slower, stiffer is faster — and the period follows from it. The point of the
-      calculation is what it lets you avoid: knowing where a structure's natural frequency sits tells you
-      which operating speeds will drive it, before the hardware tells you the same thing much more
-      expensively.
+      A mounted component is modelled as a 4 kg mass on a 400 N/m spring. The
+      analyst wants its natural period before the pump speeds are set.
     takeaway: Natural frequency emerges from inertia and stiffness.
     format: BALLPARK
-    why: Knowing where a structure's natural frequency sits tells you which operating speeds will drive it, before the hardware tells you the same thing much more expensively.
+    assumes:
+    - a stiffer spring vibrates faster and a heavier mass vibrates slower
+    why: >-
+      Natural frequency comes out of inertia and stiffness alone — heavier is
+      slower, stiffer is faster — and the period is one over that frequency. The
+      point of the calculation is what it lets you avoid. Knowing where a
+      structure's natural frequency sits tells you which operating speeds will
+      drive it, and lets the pump be scheduled around it. The hardware will
+      otherwise deliver the same information much more expensively, and usually
+      while somebody is depending on it.
     question: Estimate the natural period.
     estimate:
       prompt: A mounted component is modelled as a 4 kg mass on a 400 N/m spring.
@@ -1605,14 +1851,13 @@ missions:
     title: Stop the resonance
     place: Operations Planning Room
     scene: >-
-      A panel oscillates whenever the pump runs near one particular speed, and the amplitude has grown
-      across three cycles. The pump is needed, the panel is structural, and nobody has measured the
-      response anywhere except the one accelerometer that noticed. Shifting the operating speed moves the
-      forcing away from the mode; adding damping bleeds energy out of it; measuring at several locations
-      and configurations establishes whether the fix worked or merely moved the problem. Driving harder to
-      pass through the resonance faster is a plan that depends on the structure surviving the passage.
+      A panel oscillates whenever the pump runs near one particular speed, and
+      the amplitude has grown across three cycles. The pump is needed and the
+      panel is structural.
     takeaway: A structural fix should change the dynamics and then demonstrate that the dangerous mode is controlled.
     format: CHOICE
+    assumes:
+    - a resonance needs both a structure and something driving it
     question: The panel oscillates whenever the pump runs near one speed. What do you do?
     choices:
     - Shift the pump's operating speed away from the measured resonance.
@@ -1622,9 +1867,12 @@ missions:
     answer: Shift the pump's operating speed away from the measured resonance.
     why: >-
       Resonance is a coincidence between a forcing frequency and a natural one,
-      and only two things can change: the structure or the forcing. On a vehicle
-      in flight, the forcing is the one that can be changed now, reversibly,
-      without anybody touching the panel.
+      so only two things can be changed: the structure or the forcing. On a
+      vehicle in flight the forcing is the one that can be changed now,
+      reversibly, with nobody's hands on the panel. Damping is the better
+      permanent fix and needs hardware and access. Passing through the band
+      faster assumes the structure survives the passage, which is exactly the
+      assumption three growing cycles have called into question.
     rebuttals:
     - Damping bleeds energy out of the mode and is the right permanent fix. It needs hardware, access and a crew member with their hands on the structure.
     - Measuring in more places is how you confirm the fix worked or merely moved the problem. It is the check, not the change.
@@ -1643,14 +1891,17 @@ missions:
     title: Name the binding constraint
     place: Mission Design Center
     scene: >-
-      Four return paths are on the board and each stresses a different subsystem, which is why the room
-      cannot simply pick the fastest. A longer return time consumes consumables — oxygen, lithium
-      hydroxide, water, power. A larger correction burn spends propellant and adds burn-execution
-      uncertainty. A steeper entry raises peak heating and deceleration on the shield and the crew. A long
-      communications blackout removes ground support at the moment it is most useful. The best physical
-      solution is the one whose binding constraint the vehicle can actually meet.
+      Four return paths are on the board and each stresses a different
+      subsystem. The room cannot simply take the fastest one.
     takeaway: The best physical solution is not necessarily the shortest or lowest-fuel solution.
     format: PROTOCOL
+    rebuttals:
+    - More days is more oxygen, more water, more scrubber capacity and more power. Consumables are the clock on a long return.
+    - 'A larger burn is propellant, and it is also execution error: a bigger correction can be wrong by more.'
+    - A steeper entry raises peak heating and deceleration together. Both are limits on the shield and on the crew.
+    - A long blackout is time with no ground support, and it lands on crew autonomy and navigation confidence rather than on any hardware.
+    assumes:
+    - a spacecraft carries a fixed amount of everything it needs
     scenarios:
     - Longer return time.
     - Larger correction burn.
@@ -1666,20 +1917,27 @@ missions:
     - 1
     - 2
     - 3
-    why: A trajectory is a system choice whose effects propagate across subsystems.
+    why: >-
+      A trajectory is a system choice, and its effects land on subsystems that
+      have nothing to do with each other. A longer return burns consumables —
+      oxygen, lithium hydroxide, water, power — at a rate nobody can lower much.
+      A larger correction burn spends propellant and adds the uncertainty of
+      executing it. A steeper entry raises peak heating and deceleration on the
+      shield and on the crew. A long blackout removes the ground at the moment
+      it would be most useful. The best path is the one whose binding constraint
+      the vehicle can actually meet.
   - group: INTEG
     task: Consumables are known only to within about a day. Which return do you fly?
     title: Select the robust trajectory
     place: Life-Support Desk
     scene: >-
-      Four return paths, each best at something: fastest, least propellant, coolest entry, best tracking
-      coverage. The consumables that decide it — carbon dioxide removal capacity, water, power — are known
-      only to within about a day, and that uncertainty is larger than the differences between two of the
-      options. Robust choice values margin and the ability to change your mind later, not nominal
-      efficiency: a path that is optimal against the current best estimate and infeasible if that estimate
-      is off by a day is not the safest thing on the board.
+      Four return paths, each best at something: fastest, least propellant,
+      coolest entry, best tracking coverage. The consumables that decide it are
+      known only to within about a day.
     takeaway: Robust optimization values margin and adaptability, not only nominal efficiency.
     format: CHOICE
+    assumes:
+    - choosing between two numbers that differ by less than their error is choosing at random
     question: Consumables are known only to within about a day. Which return do you fly?
     choices:
     - The moderate return, with balanced fuel, thermal and consumable margins.
@@ -1688,10 +1946,13 @@ missions:
     - Defer the choice and hold the propellant for a later correction.
     answer: The moderate return, with balanced fuel, thermal and consumable margins.
     why: >-
-      The uncertainty in the consumables is larger than the difference between
-      the two fastest options, so choosing between them on nominal numbers is
-      choosing on noise. The moderate path is the one that stays feasible across
-      the whole range the crew might actually be in.
+      The uncertainty in the consumables is larger than the gap between the two
+      fastest options. Choosing between them on nominal numbers is choosing on
+      noise. Robust choice values margin and the ability to change your mind
+      later, not efficiency against today's best guess. A path that is optimal
+      against that guess, and infeasible if it is off by a day, is not the
+      safest thing on the board. It is the one that fails first when the
+      estimate moves — and it will move.
     rebuttals:
     - The fast return is optimal against an estimate carrying a day of uncertainty, and its margins are narrowest exactly where that uncertainty lands.
     - The slow return preserves propellant and spends a life-support capacity nobody has bounded. It is optimal against the wrong constraint.
@@ -1701,14 +1962,18 @@ missions:
     title: Commit to the path
     place: Thermal and Entry Review
     scene: >-
-      The decision has to be made this shift, and once the burn is executed most of the alternatives
-      close. What is not yet written down is which observations, at which times, would show the choice was
-      wrong while there is still propellant to change it. A plan is a hypothesis about future physical
-      states: list the hard constraints and quantify the margins now, compare the candidates under off-
-      nominal as well as nominal conditions, define the abort and correction triggers before committing,
-      and keep updating the margins as the vehicle flies.
+      The decision has to be made this shift, and once the burn is executed most
+      of the alternatives close. Nobody has yet written down what would show the
+      choice was wrong.
     takeaway: An abort trigger has to be defined while there is still propellant to act on it.
     format: SEQUENCE
+    rebuttals:
+    - 'Quantify the margins first: propellant, consumables, thermal, corridor width. Everything after this is arithmetic on those numbers.'
+    - Compare under off-nominal conditions second. Comparing nominals ranks the candidates by the case that was never the problem.
+    - Name the abort observation and its time third — before the burn. Afterwards most alternatives have closed and the trigger has nothing to act on.
+    - Burn last, and keep updating the margins. Commitment is not the end of the estimate.
+    assumes:
+    - a decision can only be undone while the means to undo it still exist
     cards:
     - 'Quantify the margins: propellant, consumables, thermal, and the corridor width.'
     - Compare the candidates under the off-nominal cases, not the nominal one.
@@ -1720,11 +1985,13 @@ missions:
     - 2
     - 3
     why: >-
-      The third card is the one that has to happen before the burn rather than
-      after it: once the burn is executed most alternatives close, so an abort
-      trigger defined afterwards is a trigger with nothing left to trigger. And
-      the comparison has to be under off-nominal conditions, because the margins
-      are what the decision is made of.
+      A plan is a hypothesis about future physical states, and it needs a way to
+      be found wrong in time. The margins are quantified first, because they are
+      what the decision is made of. The candidates are compared under
+      off-nominal conditions rather than nominal ones, because the nominal case
+      is the one that was never in doubt. The abort trigger is named before the
+      burn — defined afterwards it is a trigger with nothing left to act on.
+      Then the margins keep being updated against what the tracking returns.
 - title: The Last Correction
   objective: Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.
   briefing: Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated
@@ -1738,16 +2005,18 @@ missions:
     title: Real trajectory error or common clock drift?
     place: Global Tracking Network
     scene: >-
-      Several ground measurements suddenly place the spacecraft ahead of its predicted path. Range and
-      Doppler residuals shift together; star-angle navigation, which uses no ground clock at all, matches
-      the prediction; a ground timing reference is found to be offset; reprocessing with the corrected
-      time makes most of the residual disappear; onboard dynamics show no unmodelled acceleration. When
-      several measurements agree, the question is whether they agree independently or merely inherit the
-      same clock, the same calibration and the same software. Correlated errors look exactly like a real
-      signal until something outside the chain is consulted.
+      Several ground measurements suddenly place the spacecraft ahead of its
+      predicted path. They agree with each other, and the room is being asked to
+      command a correction burn.
     takeaway: When several measurements agree, ask whether they agree independently or merely inherit the same clock, calibration,
       or model.
     format: DIAGNOSIS
+    rebuttals:
+    - A real trajectory change needs a force, and onboard dynamics show no unmodelled acceleration. Nothing pushed the spacecraft.
+    - Independent failures do not drift in the same direction at the same moment. These channels share a clock, which is why they moved together.
+    - A star tracker fault would put the angular solution in the wrong place. The angles are the measurements that agree with the prediction.
+    assumes:
+    - several instruments can be wrong together if they share a part
     headline: Several ground measurements suddenly place the spacecraft ahead of its predicted path.
     readings:
     - zone: Range/Doppler residuals
@@ -1785,22 +2054,35 @@ missions:
     - label: Star tracker failure
       mechanism: The angular navigation system alone is producing the bad state estimate.
     answer: Common timing-reference error
-    why: The discrepant channels share one clock, the independent angular geometry is stable, and correcting the timestamps
-      removes most of the residual without any physical maneuver. The error is common-mode measurement timing.
+    why: >-
+      When several measurements agree, the question is whether they agree
+      independently or merely inherit the same clock, calibration and software.
+      Correlated errors look exactly like a real signal until something outside
+      the chain is consulted. Range and Doppler both use the ground time
+      reference and both shifted. Star-angle navigation uses no ground clock and
+      matches the prediction. The timing reference is found to be offset, and
+      reprocessing the same raw observations with corrected timestamps makes
+      most of the residual disappear — with no manoeuvre.
   - group: NAV
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Combine independent uncertainties
     place: Navigation Covariance Room
     scene: >-
-      Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions, and the
-      navigation team needs a single number for the entry brief. Independent uncertainties along
-      orthogonal axes combine in quadrature rather than by addition, which is why the combined figure is
-      smaller than the sum and larger than either term. Getting this wrong in either direction matters
-      here: overstated uncertainty argues for a burn that is not needed, and understated uncertainty hides
-      a corridor violation.
+      Two independent one-sigma position errors, 6 km and 8 km, along
+      perpendicular directions. The navigation team needs a single number for
+      the entry brief.
     takeaway: Independent orthogonal uncertainties combine in quadrature.
     format: BALLPARK
-    why: Overstated uncertainty argues for a burn that is not needed; understated uncertainty hides a corridor violation. Both directions matter, which is why the combination rule has to be right.
+    assumes:
+    - two errors along different directions do not simply add
+    why: >-
+      Independent uncertainties along perpendicular axes combine in quadrature —
+      each is squared, the squares are added, and the root is taken — so the
+      answer is smaller than the sum and larger than either term on its own.
+      Getting it wrong matters in both directions here. Overstated uncertainty
+      argues for a correction burn that is not needed and spends propellant that
+      cannot be replaced. Understated uncertainty hides a corridor violation,
+      and the corridor is about a degree wide.
     question: Estimate the combined two-dimensional uncertainty.
     estimate:
       prompt: Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.
@@ -1833,14 +2115,13 @@ missions:
     title: Burn or observe?
     place: Flight Director Console
     scene: >-
-      Two tracking stations disagree by slightly more than either one's stated error, and the errors are
-      not independent — both use the same station clock model. A correction burn carries its own execution
-      uncertainty, roughly the size of the disagreement being corrected, so a burn commanded on this data
-      could move the vehicle by about as much as it might be wrong. One more high-leverage observation
-      would separate the hypotheses; preserving propulsion keeps a later correction possible. A correction
-      is worth making when it reduces total risk, not when it merely moves the nominal point.
+      Two tracking stations disagree by slightly more than either one's stated
+      error. Both use the same station clock model, and a correction burn is on
+      the table.
     takeaway: Corrections should reduce total uncertainty and risk, not merely move the nominal trajectory.
     format: CHOICE
+    assumes:
+    - agreement between two measurements means nothing if they can fail the same way
     question: Two stations disagree by more than either one's stated error. Do you burn?
     choices:
     - No — obtain one more independent, high-leverage observation.
@@ -1849,11 +2130,14 @@ missions:
     - No — update the entry predictions across the full covariance first.
     answer: No — obtain one more independent, high-leverage observation.
     why: >-
-      Both stations use the same clock model, so their agreement was never
-      independent and their disagreement does not say which is wrong. Only a
-      measurement that cannot fail the same way can settle it — and the
-      correction being argued about is about the same size as the error it would
-      be correcting.
+      Both stations share a clock model, so their agreement was never
+      independent and their disagreement does not say which one is wrong. Only a
+      measurement that cannot fail the same way can settle it. There is a second
+      reason to wait: a correction burn carries its own execution uncertainty,
+      roughly the size of the disagreement being argued about, so burning now
+      would move the vehicle by about as much as the number might be wrong. A
+      correction is worth making when it reduces risk, not when it moves the
+      nominal.
     rebuttals:
     - A burn whose expected shift is smaller than its own execution uncertainty moves the nominal without reducing the risk, and spends propellant doing it.
     - Preserving propulsion is the consequence of not burning rather than a decision in its own right, and it leaves the disagreement exactly where it was.
@@ -1872,14 +2156,18 @@ missions:
     title: Disposition final readiness
     place: Integrated Flight Room
     scene: >-
-      The final go/no-go, and the room has four claims of different quality in front of it. Each has to be
-      dispositioned against pre-agreed criteria rather than against how confident the person presenting it
-      sounds, because in the next eleven minutes nothing can be revisited: the vehicle enters,
-      communications black out, and the crew is committed. Final authority follows traceable evidence and
-      criteria written down before the pressure arrived — which is the only arrangement that survives a
-      room where everyone wants to say yes.
+      The final go or no-go. Four claims of very different quality are in front
+      of the room, and in eleven minutes the vehicle enters, the radio goes
+      quiet, and nothing can be revisited.
     takeaway: Final authority should follow traceable evidence and pre-agreed criteria.
     format: PROTOCOL
+    rebuttals:
+    - A state inside the corridor across the modelled uncertainty is the one claim that can simply be approved — with tracking continued, because the margin is not infinite.
+    - An undocumented configuration change to the heat shield is held and resolved while there is still time to hold. It is the only item here that cannot be accepted with a caveat.
+    - An expected blackout with verified onboard guidance is accepted, with the procedure written down. It is a known condition, not a surprise.
+    - A known station bias is corrected or excluded under the rule that was validated in advance — not argued about now, when everyone wants to go.
+    assumes:
+    - a decision made under pressure follows whatever rule was agreed before the pressure
     scenarios:
     - Entry state lies inside the robust corridor across modeled uncertainty.
     - Thermal-shield configuration is uncertain after an undocumented change.
@@ -1895,23 +2183,33 @@ missions:
     - 1
     - 2
     - 3
-    why: 'Readiness is granular: some claims can be approved while others require action.'
+    why: >-
+      Readiness is granular. Some claims can be approved and others need action
+      first, and giving them all one answer is how a room that wants to say yes
+      ends up saying yes to everything. A state inside the corridor is approved,
+      with tracking continued. An uncertain shield configuration is held while
+      holding is still possible. An expected blackout with verified onboard
+      guidance is accepted, with the procedure written down. A known station
+      bias is corrected under the rule agreed beforehand.
   - group: INTEG
     task: Order the entry around the four minutes with no communications.
     title: Execute the final physical chain
     place: Crew Capsule
     scene: >-
-      Everything the last five days established comes down to the next eleven minutes, in an order that
-      cannot be repeated. The approved attitude, configuration and state estimate all have to be
-      established before the atmospheric interface, because there is no communication through the blackout
-      to fix any of them; the roles of the onboard system and the ground have to be unambiguous before the
-      vehicle is committed; deceleration, heating proxies and communications are then monitored against
-      expected envelopes; and the transition to descent and recovery has to preserve the data the debrief
-      will need.
+      Everything the last five days established comes down to the next eleven
+      minutes, four of them with no communications at all. The order cannot be
+      repeated.
     takeaway: >-
       Entry is ordered by the blackout: whatever needs the ground has to be
       settled before it starts.
     format: SEQUENCE
+    rebuttals:
+    - Attitude and configuration first, before the interface. Nothing here can be changed through four minutes of silence.
+    - Commit with the onboard and ground roles already unambiguous. Deciding who is flying is not something to work out during the blackout.
+    - Monitor deceleration and heating against the envelope third. It cannot begin before entry, because there is nothing to compare against yet.
+    - Descent and recovery last, preserving the record. It is the only flight that will ever produce this data.
+    assumes:
+    - you cannot fix from the ground what happens while the radio is quiet
     cards:
     - Set the approved attitude and configuration, because nothing can be changed through the blackout.
     - Commit to the interface with the onboard and ground roles already unambiguous.
@@ -1923,24 +2221,25 @@ missions:
     - 2
     - 3
     why: >-
-      The order is forced by the communications blackout: everything that needs
-      a decision from the ground has to be finished before the interface,
-      because for the next four minutes there is no ground. Monitoring cannot
-      begin earlier — there is nothing to monitor — and the record matters
-      because this is the only flight that will ever produce it.
+      The order is forced by the blackout. Attitude, configuration and the
+      approved state estimate are set before the atmospheric interface, because
+      there is no way to change any of them once the radio goes quiet. The roles
+      of the onboard system and the ground are made unambiguous before
+      commitment, for the same reason. Monitoring deceleration and heating
+      against the predicted envelope cannot start earlier, because there is
+      nothing yet to monitor. And the transition to descent preserves the
+      record, because this flight will only happen once.
   - group: NAV
     task: The review board convenes on Monday. What does the programme commit to?
     title: Fund the mission legacy
     place: Entry Tracking Network
     scene: >-
-      The crew is aboard the recovery ship and the review board convenes on Monday. Preserving complete
-      telemetry, configuration and decision logs is what makes the reconstruction possible at all;
-      redesigning the common-mode electrical and sensor dependencies addresses the failure that started
-      this; improving simulation and crew rehearsal for degraded modes addresses how it was survived. The
-      fourth proposal is to celebrate the outcome and treat every anomaly as a one-off. A programme learns
-      from the discrepancies it recorded, and only from those.
+      The crew is aboard the recovery ship and the review board convenes on
+      Monday. Four proposals compete for what the programme commits to next.
     takeaway: The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.
     format: CHOICE
+    assumes:
+    - a fix that removes a cause outlasts a fix that improves the response
     question: The review board convenes on Monday. What does the programme commit to?
     choices:
     - Redesign the common-mode electrical and sensor dependencies.
@@ -1950,9 +2249,12 @@ missions:
     answer: Redesign the common-mode electrical and sensor dependencies.
     why: >-
       The failure that started this was three pressure readouts sharing one
-      reference, and the near-miss at the end was two tracking stations sharing
-      one clock. It is the only item here that removes a cause rather than
-      improving the response to it.
+      reference circuit, and the near-miss at the end was two tracking stations
+      sharing one clock. The same shape twice, five days apart. Redesigning
+      those common-mode dependencies is the only proposal here that removes a
+      cause rather than improving the response to it. A programme learns from
+      the discrepancies it recorded, and closing them as one-offs keeps every
+      dependency that produced them for the next crew to inherit.
     rebuttals:
     - Preserving telemetry and decision logs is what makes any reconstruction possible, and it should be finished before Monday rather than funded after it.
     - Rehearsal for degraded modes improves how the next crew survives the same fault. Valuable, and it accepts the fault.

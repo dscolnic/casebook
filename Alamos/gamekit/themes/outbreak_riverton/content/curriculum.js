@@ -339,9 +339,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Sicker patients receiving the candidate is confounding by indication, and allocation is what stops it — randomisation makes the groups comparable before anything is given.",
           "An assessor who knows the arm is measurement bias, and blinding is the answer to it. Randomising will not help once the outcome is being judged.",
-          {
-            "'Many outcomes tested and the best reported is multiplicity": "with enough outcomes something is always significant, and pre-specification is what closes it.'"
-          },
+          "Many outcomes tested and the best reported is multiplicity: with enough outcomes something is always significant, and pre-specification is what closes it.",
           "Uneven attrition changes who remains to be measured, so it is tracked and analysed rather than designed away."
         ],
         "scenarios": [
@@ -410,9 +408,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The order is physical, and it is why the tissue pattern is predictable. Nothing enters until something on the surface is recognised, and a cell without the right protein cannot be infected however much material reaches it. Recognition comes first, the membrane rearranges second because that is what binding triggers, material crosses third, and everything the cell then does wrongly is downstream of a barrier that has already been crossed.",
         "rebuttals": [
-          {
-            "'Binding first": "it is the step that decides which cells are even candidates, which is what makes some cell types vulnerable and others not.'"
-          },
+          "Binding first: it is the step that decides which cells are even candidates, which is what makes some cell types vulnerable and others not.",
           "The membrane bends because something bound to it. Fusion is a consequence of recognition, not a step that happens on its own.",
           "Material crosses only after the membrane has rearranged — that is what the rearrangement is for.",
           "The hijacked machinery is last because it is an effect. A cell whose machinery is redirected has already been entered."
@@ -565,14 +561,10 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Abundance can change at any one of these stages independently, which is exactly why the chain is worth stating rather than treating expression as one event. The template has to be reachable before anything transcribes it; a transcript has to exist before a ribosome can read it; and a chain of amino acids does nothing at all until it folds. Each stage is a separate place for the answer to be hiding.",
         "rebuttals": [
-          {
-            "'Access first": "a template nothing can reach is transcribed by nothing, whatever else is true of the cell.'"
-          },
+          "Access first: a template nothing can reach is transcribed by nothing, whatever else is true of the cell.",
           "Transcription second, because the message is what the next stage reads.",
           "Translation third — a ribosome needs a transcript, and codons are read only once there is something to read them from.",
-          {
-            "'Folding last, and it is not a formality": "an unfolded chain is present, measurable, and useless.'"
-          }
+          "Folding last, and it is not a formality: an unfolded chain is present, measurable, and useless."
         ],
         "cards": [
           "A DNA template is made accessible.",
@@ -810,9 +802,7 @@ export const CURRICULUM = {
         "why": "Nothing in this chain says a rising variant must be advantageous, and that is the point of laying it out. Variation has to exist before anything can act on it — selection does not create the variant it needs when it needs one. Conditions then make some variants reproduce more than others, those variants leave more descendants, and the frequency moves. Take away the middle step and frequencies still move, for reasons that have nothing to do with fitness.",
         "rebuttals": [
           "Variation first, and it arises independently of whether it is useful. This is the step people reverse.",
-          {
-            "'Differential reproductive success second": "the environment does the selecting, on variation that was already there.'"
-          },
+          "Differential reproductive success second: the environment does the selecting, on variation that was already there.",
           "Successful variants leaving more descendants is the mechanism, and it happens over generations rather than within one.",
           "Changed frequencies last. They are the observation, and every other card is the explanation for it."
         ],
@@ -852,9 +842,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The phases are ordered by speed and by specificity, and that ordering is what makes a clinical measurement interpretable. Innate sensors fire within hours because they recognise patterns rather than a particular agent. Local signals then recruit cells to where the damage is. Antigen-specific lymphocytes take days because they have to find the right clone and expand it. Memory is what persists after — a smaller population, kept.",
         "rebuttals": [
-          {
-            "'Innate recognition first": "it needs no prior exposure, which is exactly why it can be the fastest.'"
-          },
+          "Innate recognition first: it needs no prior exposure, which is exactly why it can be the fastest.",
           "Recruitment second — signals bring cells to the place, and nothing specific can act until cells are there.",
           "Clonal expansion third, and it is slow because finding and multiplying the right lymphocyte takes days.",
           "Memory last. It is what is left after resolution, and it is the reason a second exposure goes differently."
@@ -1099,9 +1087,7 @@ export const CURRICULUM = {
         "why": "Each step is only interpretable if the one before it held. Comparing against controls first is what separates the agent from the specimen it arrived in — measure a structure in a contaminated preparation and you have measured the contamination, at high magnification. Size and structure then say whether this is cellular at all, and only once you know that does asking whether it copies itself alone mean anything.",
         "rebuttals": [
           "Controls first, because everything after them is a claim about the patient rather than about the tube.",
-          {
-            "'Structure before behaviour": "whether something needs a host cell is a question about an organism, and you do not have an organism until you know it is one.'"
-          },
+          "Structure before behaviour: whether something needs a host cell is a question about an organism, and you do not have an organism until you know it is one.",
           "The replication question comes third because it is the slowest and the most specific — it is worth running only on a candidate the first two steps survived.",
           "Integration last. A provisional classification is what the other three produce, not a step you can take on its own."
         ],
@@ -1222,9 +1208,7 @@ export const CURRICULUM = {
         "why": "A reservoir claim is a claim about prevalence, and prevalence only means something against a design that could have found the agent somewhere else. Comparison sites are what separate a reservoir from a bystander that caught it from people.",
         "rebuttals": [
           "Sampling hard around one household guarantees a positive that cannot be generalised, and it will be the species people were already afraid of.",
-          {
-            "'Sequencing is essential and comes second": "you can only sequence what the sampling design found, and a biased design produces a confident tree of the wrong animals.'"
-          },
+          "Sequencing is essential and comes second: you can only sequence what the sampling design found, and a biased design produces a confident tree of the wrong animals.",
           "Removing wildlife before involvement is established destroys the evidence, and does nothing at all if the reservoir is a species nobody removed."
         ],
         "choices": [
@@ -1449,9 +1433,7 @@ export const CURRICULUM = {
           "Rare variants exist first. This is the step that separates an evolutionary explanation from a story about the drug teaching the organism.",
           "Treatment removes the susceptible preferentially — that is what selection is, and it acts on what is already present.",
           "The survivors reproduce, which is how a rare variant stops being rare.",
-          {
-            "'Enrichment last": "it is the outcome, and it is what the ward is now measuring.'"
-          }
+          "Enrichment last: it is the outcome, and it is what the ward is now measuring."
         ],
         "cards": [
           "A population contains rare variants with differing susceptibility.",
@@ -1565,9 +1547,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; preclinical evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.",
         "rebuttals": [
-          {
-            "'Target and mechanism first": "without them there is nothing to test a compound against except hope.'"
-          },
+          "Target and mechanism first: without them there is nothing to test a compound against except hope.",
           "Preclinical activity and safety second, because a compound that harms an animal has told you something you needed before a person took it.",
           "Endpoints, controls and stopping rules third — they are what make the result interpretable, and they cannot be chosen after the data arrives.",
           "The monitored trial last, with oversight. It is the step everything before it exists to make defensible."
@@ -1698,9 +1678,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "The decision, the horizon and the outcomes come first, or the model answers the question that was easiest to model.",
           "Structure and inputs second, and transparent, because a structure nobody can inspect cannot be argued with.",
-          {
-            "'Scenarios and sensitivity third": "the point is the spread across plausible worlds, not the middle of it.'"
-          },
+          "Scenarios and sensitivity third: the point is the spread across plausible worlds, not the middle of it.",
           "Triggers last, tying a scenario to something observable. Without them the model produces a graph and no decision."
         ],
         "cards": [
@@ -1954,9 +1932,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Human cases against habitat first — that is what tells you which species and which places are even candidates.",
           "Unbiased sampling with comparison sites second. Find the agent only where you looked hardest and you have measured your own search.",
-          {
-            "'Prevalence and genetic relatedness third": "they connect the two populations, and they need samples from both to compare.'"
-          },
+          "Prevalence and genetic relatedness third: they connect the two populations, and they need samples from both to compare.",
           "Repeated spillover last. One event can be a coincidence; a reservoir claim is a claim about a process that keeps happening."
         ],
         "cards": [

@@ -105,9 +105,7 @@ export const CURRICULUM = {
         "why": "Rejection has to come after calibration and before measurement, or every step measures the wrong thing. An uncalibrated frame gives positions that are wrong for instrumental reasons. Measuring before rejecting means astrometry on satellite trails and known asteroids. And the last step is what makes this a discovery rather than a claim: a predicted region hands somebody else a place to point and a way to prove you wrong.",
         "rebuttals": [
           "Calibrate first — positions from an uncalibrated frame are wrong in a way no later step recovers.",
-          {
-            "'Reject the known second": "stars, satellites, defects and catalogued objects, or you will measure them very precisely.'"
-          },
+          "Reject the known second: stars, satellites, defects and catalogued objects, or you will measure them very precisely.",
           "Measure third, with uncertainties, because a position without one cannot be fitted to anything.",
           "Submit last, with a predicted region. That is the step that makes it falsifiable by somebody who is not you."
         ],
@@ -171,9 +169,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Nothing can be fitted across six observatories until every measurement is in one frame and one clock. Mix two time standards and the fit still converges — it just converges on the wrong orbit, and nothing in the residuals says so. Then read the residuals for structure rather than size: scatter is noise, but a pattern that follows one station or one part of a detector is a fault in the instrument. And the output that counts is where the object will be next, because that is the only claim the sky can refute.",
         "rebuttals": [
-          {
-            "'Common frame and clock first": "two time standards in one fit is an error nobody sees in the residuals afterwards.'"
-          },
+          "Common frame and clock first: two time standards in one fit is an error nobody sees in the residuals afterwards.",
           "A preliminary motion model second — you need something to take residuals against.",
           "Residuals third, and read for structure. Scatter is noise; a pattern following one station is a fault.",
           "Predict last. The test of an astrometric model is where the object turns up next, not how well it fits where it has been."
@@ -212,9 +208,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Sparse angular data define a region of state space rather than a single orbit, and the honest procedure is to keep the whole family. Combining the timed directions with any range comes first because range is what angles cannot supply. Generating the states consistent with the observations *and their uncertainties* is what makes it a family rather than a best fit. Each is then propagated under gravity, and the spread in where they end up is the answer — not the middle of it.",
         "rebuttals": [
-          {
-            "'Directions and any range first": "a set of angles alone leaves the distance free, which is the dimension the whole problem turns on.'"
-          },
+          "Directions and any range first: a set of angles alone leaves the distance free, which is the dimension the whole problem turns on.",
           "Generate states consistent with the uncertainties, not just the best fit. The best fit is one member of the family and has no special status.",
           "Propagate each under gravity — the family has to be carried forward, not the average of it.",
           "Compare the approach distances last. The spread across the family is the result; collapsing it to one number throws the question away."
@@ -626,9 +620,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Delay is time of flight and therefore range — the quantity optical astrometry can only infer from a fit.",
           "Doppler spread is a spread of velocities across the body, which is what a rotating object produces.",
-          {
-            "'Echo power against delay maps reflecting area by distance": "shape and scattering, not position.'"
-          },
+          "Echo power against delay maps reflecting area by distance: shape and scattering, not position.",
           "Repeated delay-Doppler images across a turn are what build a shape model, which no single image contains."
         ],
         "scenarios": [
@@ -743,9 +735,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Trajectory and materials are coupled the whole way down, which is why the chain runs in this order. The initial properties and the atmosphere set the loads, because drag and dynamic pressure depend on speed, density and shape. The loads are then compared with what the material can take, which is where fragmentation happens. And only after breakup is decided can the fragments and their energy be propagated into a consequence — a body that broke at thirty kilometres deposits its energy somewhere entirely different from one that did not.",
         "rebuttals": [
-          {
-            "'Properties and atmosphere first": "they are the inputs everything downstream is computed from.'"
-          },
+          "Properties and atmosphere first: they are the inputs everything downstream is computed from.",
           "Loads second — drag, heating and dynamic pressure along the path, which the properties determine.",
           "Fragmentation third, by comparing those loads against what the material can survive.",
           "Energy deposition last. Where the energy goes follows from whether and when the object came apart."
@@ -1106,9 +1096,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Calibration has to come before interpretation because the Sun, the atmosphere and the instrument are all in the recorded signal, and a feature identified before they are removed may belong to any of them. Reflectance against wavelength is then a property of the object. Only then is it worth asking which features are robust — and comparing several physical models rather than one is what stops space weathering being read as composition. The report keeps the alternatives, because three models still fit.",
         "rebuttals": [
-          {
-            "'Calibrate first": "the Sun''s own spectrum and the atmosphere''s are in the recording, and a band found before they are removed may be theirs.'"
-          },
+          "Calibrate first: the Sun's own spectrum and the atmosphere's are in the recording, and a band found before they are removed may be theirs.",
           "Reflectance second — it is the quantity that belongs to the object rather than to the observation.",
           "Robust features and several models third, because weathering, grain size and geometry all mimic a compositional difference.",
           "Report the alternatives last. A class stated without them is a claim the data cannot support."
@@ -1206,9 +1194,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "High cadence through one night refines a curve that may be the wrong curve, at higher precision.",
           "Combining light curves across changing geometry is what tests whether one period explains all of them, and it needs a gap-free curve to combine.",
-          {
-            "'Adopting a provisional period is the failure this stop exists to prevent": "the spacecraft arrives at a rotational phase chosen by an assumption.'"
-          }
+          "Adopting a provisional period is the failure this stop exists to prevent: the spacecraft arrives at a rotational phase chosen by an assumption."
         ],
         "choices": [
           "Continuous longitude coverage across several observatories.",
@@ -1426,9 +1412,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Analogue fireballs calibrate the models against events that actually happened, and they are the right check on the ensemble once it exists.",
           "Entry angle and speed are genuinely measurable and are not what the three models disagree about.",
-          {
-            "'One agreed answer is what the planning office wants and the least defensible thing to give it": "the disagreement is the finding.'"
-          }
+          "One agreed answer is what the planning office wants and the least defensible thing to give it: the disagreement is the finding."
         ],
         "choices": [
           "Strength and density ensembles rather than one model run.",
@@ -1710,9 +1694,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Action thresholds depend on consequence, lead time and reversibility rather than on probability alone. A very low probability with years in hand justifies tracking and cheap preparation, because there is time to learn more. A rising probability with a stable corridor justifies pre-positioning, which is reversible. High probability with days left justifies protective action under emergency authority, because the time to learn more has gone. And a probability that falls justifies standing down publicly and saying why — which is what makes the next escalation believable.",
         "rebuttals": [
-          {
-            "'Very low probability with years of lead time buys the cheapest thing": "keep watching, and prepare in ways that cost nothing if it comes to nothing.'"
-          },
+          "Very low probability with years of lead time buys the cheapest thing: keep watching, and prepare in ways that cost nothing if it comes to nothing.",
           "A rising probability over a stable corridor justifies pre-positioning, precisely because pre-positioning can be undone.",
           "High probability with days left is when reversibility stops being the deciding factor and consequence takes over.",
           "A falling probability is stood down in public, with the reason. Quietly dropping it is how the next warning is disbelieved."

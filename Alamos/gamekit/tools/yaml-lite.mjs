@@ -159,6 +159,18 @@ function parseSequence(lines, i, indent){
       i++;
       continue;
     }
+    // A quoted scalar on the dash is a scalar even when it contains a colon.
+    // The mapping test below only knows "something, a colon, a space", which a
+    // sentence in quotes satisfies — one rebuttal reading "…the most expensive:
+    // reheating a cold cabin…" was imported as a single-key object and rendered
+    // as [object Object] in the verdict. A quoted key is still a key, so this
+    // only claims the item when nothing follows the closing quote.
+    const quoted = /^('([^']|'')*'|"(\\.|[^"\\])*")\s*$/.exec(rest);
+    if(quoted){
+      out.push(scalar(rest.trim()));
+      i++;
+      continue;
+    }
     if(/^[^:\s][^:]*:(\s|$)/.test(rest)){
       // "- key: value" — the item is a mapping whose first key is on this line.
       const synthetic = [' '.repeat(indent + 2) + rest, ...lines.slice(i + 1)];
