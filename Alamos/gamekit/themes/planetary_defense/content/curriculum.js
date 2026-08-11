@@ -403,10 +403,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Bound the diameter",
-      "scene": "The consequence estimate scales with diameter cubed, and the diameter currently rests on a reflectivity borrowed from a different class of asteroid. The characterisation group has time for one measurement.",
+      "scene": "Reflectivity alone allows anything from 120 metres to 600 metres, and the consequence scales with the cube of it. One end of that range is a city. The other is a country. The characterisation group has time for one measurement.",
       "takeaway": "Physical characterization improves when methods break the same degeneracy in independent ways.",
       "place": "Physical Characterization Group",
-      "story": "The consequence estimate scales with diameter cubed, and the diameter currently rests on a reflectivity borrowed from a different class of asteroid. The characterisation group has time for one measurement.",
+      "story": "Reflectivity alone allows anything from 120 metres to 600 metres, and the consequence scales with the cube of it. One end of that range is a city. The other is a country. The characterisation group has time for one measurement.",
       "game": {
         "type": "CHOICE",
         "title": "Bound the diameter",
@@ -772,7 +772,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the asteroid's change in speed.",
         "answer": "",
-        "why": "A centimetre per second sounds like nothing. Applied years before encounter it accumulates into a displacement measured in Earth radii, which is the whole basis of deflection.",
+        "why": "A centimetre and a half per second sounds like nothing. Applied eight years before encounter it accumulates into about four thousand kilometres, and ejecta thrown off the far side can double that. Half an Earth diameter, bought with one launch, is the whole basis of deflection — and it only works because it was applied early.",
         "givens": [],
         "relationship": "Momentum = mass × speed, and it is conserved. Velocity change = momentum transferred ÷ the mass it is given to.",
         "calcKey": "IMPACT-4"
@@ -1280,10 +1280,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Reduce consequence uncertainty",
-      "scene": "The consequence range spans two orders of magnitude, and every part of it traces back to a physical measurement. The emergency planning office can improve one of them before the region has to be told anything.",
+      "scene": "The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.",
       "takeaway": "Risk communication should show how physical uncertainty maps into consequence uncertainty.",
       "place": "Emergency Planning Office",
-      "story": "The consequence range spans two orders of magnitude, and every part of it traces back to a physical measurement. The emergency planning office can improve one of them before the region has to be told anything.",
+      "story": "The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.",
       "game": {
         "type": "CHOICE",
         "title": "Reduce consequence uncertainty",
@@ -1749,10 +1749,10 @@ export const CURRICULUM = {
     {
       "day": 24,
       "title": "Prepare without panic",
-      "scene": "The corridor crosses two coastal regions, the probability has moved twice this month and both times downward, and regional authorities want something they can act on.",
+      "scene": "The corridor crosses nine million people and a coastline. The probability has moved twice this month, both times downward. Regional authorities want something they can act on.",
       "takeaway": "Public trust is protected when uncertainty is paired with concrete decision rules.",
       "place": "Scientific Advisory Board",
-      "story": "The corridor crosses two coastal regions, the probability has moved twice this month and both times downward, and regional authorities want something they can act on.",
+      "story": "The corridor crosses nine million people and a coastline. The probability has moved twice this month, both times downward. Regional authorities want something they can act on.",
       "game": {
         "type": "CHOICE",
         "title": "Prepare without panic",
@@ -2013,20 +2013,20 @@ export const BALLPARK_CALCS = {
     "explanation": "The factor of two can be taken out of the time or out of the speed, but not out of both — the two tiles that have already halved something are there to be noticed and left alone."
   },
   "IMPACT-2": {
-    "prompt": "The best current estimates are a radius near 50 metres, a density around 3,000 kg per cubic metre, and an approach speed of about 20 kilometres a second.",
+    "prompt": "The best current estimates are a radius near 90 metres, a density around 2,600 kg per cubic metre, and an approach speed of about 20 kilometres a second.",
     "question": "Estimate the impact kinetic energy.",
     "labels": [
-      "50 m (radius)",
-      "3,000 kg/m³ (density)",
+      "90 m (radius)",
+      "2,600 kg/m³ (density)",
       "20,000 m/s (approach speed)",
-      "100 m (diameter)",
+      "180 m (diameter)",
       "11,000 m/s (Earth escape velocity)"
     ],
     "values": [
-      50,
-      3000,
+      90,
+      2600,
       20000,
-      100,
+      180,
       11000
     ],
     "slots": 3,
@@ -2037,10 +2037,10 @@ export const BALLPARK_CALCS = {
       1,
       2
     ],
-    "target": 314160000000000000,
-    "tolerance": 40000000000000000,
+    "target": 1588000000000000000,
+    "tolerance": 200000000000000000,
     "units": "J",
-    "solution": "Mass about 1.6 × 10⁹ kg, kinetic energy about 3 × 10¹⁷ J.",
+    "solution": "Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly four hundred megatons.",
     "explanation": "The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other."
   },
   "OPS-17": {
@@ -2071,21 +2071,21 @@ export const BALLPARK_CALCS = {
     "explanation": "The exponent is in the template because it comes from the geometry rather than from a measurement; what the player supplies is the distance gain. Doubling the range and squaring it is the area answer, and the survey searches a volume."
   },
   "IMPACT-4": {
-    "prompt": "A 1,000 kg impactor strikes a 1.0 × 10⁹ kg asteroid at 10,000 metres per second, in a perfectly inelastic lower-bound estimate.",
+    "prompt": "A 10,000 kg impactor strikes the 7.9 × 10⁹ kg asteroid at 12,000 metres per second, in a perfectly inelastic lower-bound estimate.",
     "question": "Estimate the asteroid's change in speed.",
     "labels": [
-      "1,000 kg (impactor mass)",
-      "10,000 m/s (impact speed)",
-      "1.0e9 kg (asteroid mass)",
+      "10,000 kg (impactor mass)",
+      "12,000 m/s (impact speed)",
+      "7.9e9 kg (asteroid mass)",
       "20,000 m/s (the encounter speed with Earth)",
-      "3.0 (momentum enhancement from ejecta)"
+      "2.0 (momentum enhancement from ejecta)"
     ],
     "values": [
-      1000,
       10000,
-      1000000000,
+      12000,
+      7900000000,
       20000,
-      3
+      2
     ],
     "slots": 3,
     "template": "{0} × {1} ÷ {2}",
@@ -2095,26 +2095,26 @@ export const BALLPARK_CALCS = {
       1,
       2
     ],
-    "target": 0.01,
-    "tolerance": 0.001,
+    "target": 0.0152,
+    "tolerance": 0.0015,
     "units": "m/s",
-    "solution": "Momentum transferred is 10⁷ kg m/s; divided by 10⁹ kg, Δv ≈ 0.01 m/s.",
+    "solution": "Momentum transferred is 1.2 × 10⁸ kg m/s; divided by 7.9 × 10⁹ kg, Δv ≈ 0.015 m/s.",
     "explanation": "Conservation of momentum needs the impactor's mass and speed, not the asteroid's encounter speed with Earth. The ejecta enhancement is real and would raise this figure — it is left out because nobody can predict it, which is exactly why the mission has to measure it."
   },
   "OPS-23": {
-    "prompt": "A simplified corridor contains 2 million people and the current impact probability is 0.5 per cent.",
+    "prompt": "A simplified corridor contains 9 million people and the current impact probability is 0.5 per cent.",
     "question": "Estimate the expected displaced population.",
     "labels": [
-      "2.0e6 people (in the corridor)",
+      "9.0e6 people (in the corridor)",
       "0.005 (impact probability)",
-      "2.0e5 people (in the largest corridor town)",
+      "2.0e6 people (in the largest corridor city)",
       "0.05 (an earlier probability estimate)",
       "0.037 % (the ensemble figure)"
     ],
     "values": [
-      2000000,
+      9000000,
       0.005,
-      200000,
+      2000000,
       0.05,
       0.037
     ],
@@ -2125,10 +2125,10 @@ export const BALLPARK_CALCS = {
       0,
       1
     ],
-    "target": 10000,
-    "tolerance": 800,
+    "target": 45000,
+    "tolerance": 3600,
     "units": "people (expectation)",
-    "solution": "2 × 10⁶ × 0.005 = 10,000 people, as an expectation.",
+    "solution": "9 × 10⁶ × 0.005 = 45,000 people, as an expectation.",
     "explanation": "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of a hundred."
   }
 };

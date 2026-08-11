@@ -74,11 +74,11 @@ export default {
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
     'A survey telescope flagged a faint moving point near the ecliptic four hours ago, and every orbit '
-    + 'that fits it is still on the table — including the ones that end here. You direct the campaign: '
-    + 'the telescopes that chase it, the radar window that opens once in eleven years, and the spacecraft '
-    + 'that could be built to move it. An orbit without a size is not a consequence, and a size without '
-    + 'a reflectivity is not a size. The probability changes every time an observation lands, in '
-    + 'public, while two coastal regions wait to hear whether they should leave.',
+    + 'that fits it is still on the table — including the ones that end here. Nobody can yet say whether '
+    + 'it is a hundred metres across or six hundred, which is the difference between losing a city and '
+    + 'losing a country. You direct the campaign: the telescopes that chase it, the radar window that '
+    + 'opens once in eleven years, and the spacecraft that would have to launch years before anyone is '
+    + 'certain, because after the window closes nothing can be done at all.',
   ],
 
   look: {

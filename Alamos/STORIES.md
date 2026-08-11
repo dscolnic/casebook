@@ -125,31 +125,39 @@ redesigning the shared dependencies that fooled the room twice.
 
 ---
 
-## Planetary Defense — *the uncertainty is the antagonist*
+## Planetary Defense — *nobody can tell you how bad this is*
 
 A survey pipeline flags a faint point that moved between three exposures, in a
 field with forty thousand stars, two satellite trails and a column of hot
 pixels. The first four nights are about not fooling yourself: prove there is an
 object, notice that one observatory's positions curve away from the fit in a
-pattern, discover that every orbit fitting the arc draws almost the same track
-across the sky while some of them pass a million kilometres away and some do
-not — and then explain to the public why the impact probability went *up* this
-morning, which is exactly what a shrinking uncertainty does while Earth is still
-inside it. Nothing about the object is known yet except that it exists.
+pattern, and discover that every orbit fitting the arc draws almost the same
+line across the sky while some of them pass a million kilometres away and some
+do not — and then explain in public why the impact probability went *up* this
+morning, which is exactly what a shrinking uncertainty does while Earth is
+still inside it. Then day five, which is the day the campaign has been dreading.
+Reflected brightness is size multiplied by reflectivity, and reflectivity varies
+by a factor of ten across known asteroids, so brightness alone allows anything
+from 120 metres to 600. The low end is a city and an evacuation. The high end is
+a country, and a decade of bad harvests for everybody else. Nobody can say
+which, and no amount of looking at the discovery image ever will.
 
-The middle third makes it physical, and each answer costs another: brightness is
-size and reflectivity multiplied together, so the diameter is a range; the
-absorption feature that would fix the composition sits where our own atmosphere
-absorbs; the light curve repeats on almost the same interval as one
-observatory's nightly window. A four-hour radar window that will not return for
-eleven years arrives while the composition is still open. Then the consequences
-land: an energy figure spanning two orders of magnitude because diameter enters
-as a cube, three groups modelling the same entry and getting a ground impact, an
-airburst and something between, and the discovery that this object came from the
-sunward direction the survey never covers. It ends with a miss by two Earth
-radii, an evacuation order that was drafted and never needed, and a survey
-funding line expiring in eleven months — the most reliable consequence of a near
-miss handled well.
+The middle third buys the relief, one measurement at a time: heat rather than
+reflected light, a spectrum with our own atmosphere sitting in the same
+wavelength, a light curve that repeats on almost the same interval as one
+telescope's night, and a four-hour radar window whose geometry does not return
+for eleven years. It closes at about 180 metres and four hundred megatons — one
+metropolitan region, or a wave arriving on an inhabited coast. Then the campaign
+runs into the thing it cannot buy back. The launch window for a deflection is
+nineteen days wide and closes eight days before the composition result that
+would say what you are aiming at; a nudge of a centimetre and a half per second
+only works because it is applied eight years early; and on a weak body the same
+impact can break it into several pieces on the same path. The object was found
+eleven days before a close approach, from the sunward direction the survey never
+covers, which is enough time to warn a region and nowhere near enough to move
+anything. It ends four years after the impactor struck: the encounter comes out
+at about two Earth radii, roughly half of that bought by the launch, and the
+survey line that found it expires in eleven months.
 
 ---
 
