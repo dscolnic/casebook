@@ -18,7 +18,7 @@ export const CURRICULUM = {
         "play": "Which explanation fits every reading, including the quiet negative controls?",
         "task": "Which explanation fits every reading, including the quiet negative controls?",
         "question": "Which explanation fits every reading, including the quiet negative controls?",
-        "answer": "RNA virus-like agent",
+        "answer": "An RNA virus-like agent",
         "why": "The negatives are doing the work here. No cellular forms under the microscope, no bacterial marker, no fungal cell wall — three ways of being a cell, all absent. What is present is dependence: signal rises only where living host cells are, which is what an agent that cannot copy itself alone looks like. And the clean extraction blank is what stops the whole panel being about the laboratory instead of the patient.",
         "rebuttals": [
           "A bacterium is a cell and would leave cellular evidence — a marker, a wall, something under the microscope. Three separate looks for that came back empty.",
@@ -65,23 +65,23 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "RNA virus-like agent",
-            "mechanism": "A noncellular infectious agent depends on host cells for replication and would not carry bacterial or fungal cellular markers."
+            "label": "An RNA virus-like agent",
+            "mechanism": "Not a cell of its own, and it can only copy itself inside a living host cell."
           },
           {
-            "label": "Bacterium",
-            "mechanism": "A cellular prokaryote should provide bacterial cellular or molecular evidence and should not require living host cells simply to exist."
+            "label": "A bacterium of some kind",
+            "mechanism": "A cellular organism, which would leave bacterial markers and structures behind."
           },
           {
-            "label": "Fungus",
-            "mechanism": "A fungal agent should provide cellular structures or cell-wall evidence that is absent here."
+            "label": "A fungus of some kind",
+            "mechanism": "A cellular organism with a cell wall the stain is built to find."
           },
           {
             "label": "Laboratory contamination",
-            "mechanism": "Contamination should be suspected when blanks or controls carry the target signal; the blank is clean."
+            "mechanism": "Target material loose in the workflow rather than anything in the patients."
           }
         ],
-        "correctChoice": "RNA virus-like agent"
+        "correctChoice": "An RNA virus-like agent"
       },
       "assumes": [
         "cells and viruses differ in whether they can copy themselves alone",
@@ -174,10 +174,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Measure the failing link",
-      "scene": "A patient is deteriorating and there is time and money for a few bedside measurements before the team commits to a treatment. Arterial oxygenation and carbon dioxide report the lung; a cardiac output or validated flow surrogate reports the pump; tissue lactate and acid-base status report whether delivery is actually failing to meet demand at the far end of the chain. Repeating the pulse oximeter gives you the number you already have. Integrated physiology is diagnosed by sampling several points along the transport chain, not by trusting the loudest one.",
+      "scene": "A patient is deteriorating and the team wants to commit to a treatment. There is time and money for one more measurement at the bedside before it does.",
       "takeaway": "Integrated physiology requires evidence from multiple points along the transport chain.",
       "place": "Clinical Chemistry Bench",
-      "story": "A patient is deteriorating and there is time and money for a few bedside measurements before the team commits to a treatment. Arterial oxygenation and carbon dioxide report the lung; a cardiac output or validated flow surrogate reports the pump; tissue lactate and acid-base status report whether delivery is actually failing to meet demand at the far end of the chain. Repeating the pulse oximeter gives you the number you already have. Integrated physiology is diagnosed by sampling several points along the transport chain, not by trusting the loudest one.",
+      "story": "A patient is deteriorating and the team wants to commit to a treatment. There is time and money for one more measurement at the bedside before it does.",
       "game": {
         "type": "CHOICE",
         "title": "Measure the failing link",
@@ -199,7 +199,10 @@ export const CURRICULUM = {
           "The same pulse oximeter reading, repeated on three devices."
         ],
         "correctChoice": "Tissue lactate and acid-base status."
-      }
+      },
+      "assumes": [
+        "a failure shows itself at the point in a chain where the numbers stop matching"
+      ]
     },
     {
       "day": 4,
@@ -287,10 +290,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Treat the mechanism, not the marker",
-      "scene": "Late deterioration is killing patients and the ward wants to act tonight. Measuring agent burden alongside inflammatory markers separates the two candidate drivers; comparing immune-cell states in improving and deteriorating patients asks which response differs; pathology on affected tissue asks where the damage actually is. Suppressing the immune system immediately treats one hypothesis as settled and, if the infection is still active, removes the response that is clearing it. The intervention should follow evidence about what the immune system is doing, where, and when.",
+      "scene": "Late deterioration is killing patients and the ward wants to start immunosuppression tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.",
       "takeaway": "Intervention should follow evidence about what the immune system is doing, where, and when.",
       "place": "Pathology Archive",
-      "story": "Late deterioration is killing patients and the ward wants to act tonight. Measuring agent burden alongside inflammatory markers separates the two candidate drivers; comparing immune-cell states in improving and deteriorating patients asks which response differs; pathology on affected tissue asks where the damage actually is. Suppressing the immune system immediately treats one hypothesis as settled and, if the infection is still active, removes the response that is clearing it. The intervention should follow evidence about what the immune system is doing, where, and when.",
+      "story": "Late deterioration is killing patients and the ward wants to start immunosuppression tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.",
       "game": {
         "type": "CHOICE",
         "title": "Treat the mechanism, not the marker",
@@ -312,15 +315,18 @@ export const CURRICULUM = {
           "Send pathology on affected tissue to identify what is being damaged."
         ],
         "correctChoice": "Measure agent burden and inflammatory markers together over time first."
-      }
+      },
+      "assumes": [
+        "suppressing a response removes it whether or not it is the thing causing harm"
+      ]
     },
     {
       "day": 6,
       "title": "Protect the comparison",
-      "scene": "Early trial results look encouraging, and the design is where an encouraging number either earns belief or does not. Four threats are on the table: sicker patients preferentially receiving the candidate, outcome assessors knowing who was treated, many outcomes tested with only the best reported, and participants leaving the study at different rates by group. Each of these produces an apparent effect in the absence of a real one, and each has a specific design control that neutralises it. A credible effect depends on how the comparison was produced, not only on the size of the difference.",
+      "scene": "Early trial results look encouraging. Four things about how the trial was run are on the table at the clinical trial centre, and each of them could produce an encouraging number on its own.",
       "takeaway": "A credible effect depends on how the comparison was produced, not only the final number.",
       "place": "Clinical Trial Center",
-      "story": "Early trial results look encouraging, and the design is where an encouraging number either earns belief or does not. Four threats are on the table: sicker patients preferentially receiving the candidate, outcome assessors knowing who was treated, many outcomes tested with only the best reported, and participants leaving the study at different rates by group. Each of these produces an apparent effect in the absence of a real one, and each has a specific design control that neutralises it. A credible effect depends on how the comparison was produced, not only on the size of the difference.",
+      "story": "Early trial results look encouraging. Four things about how the trial was run are on the table at the clinical trial centre, and each of them could produce an encouraging number on its own.",
       "game": {
         "type": "PROTOCOL",
         "title": "Protect the comparison",
@@ -329,7 +335,15 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Trial design protects the counterfactual comparison: what would have happened without the intervention.",
+        "why": "A trial is a machine for producing one comparison — what happened, against what would have happened otherwise — and each of these four threatens that comparison in its own way. Sicker patients getting the candidate makes the groups different before treatment starts. An assessor who knows the arm reads outcomes differently. Testing many outcomes and reporting the best finds a difference by looking often enough. And patients leaving unevenly changes who is left to measure. Each has a specific design control, and none substitutes for another.",
+        "rebuttals": [
+          "Sicker patients receiving the candidate is confounding by indication, and allocation is what stops it — randomisation makes the groups comparable before anything is given.",
+          "An assessor who knows the arm is measurement bias, and blinding is the answer to it. Randomising will not help once the outcome is being judged.",
+          {
+            "'Many outcomes tested and the best reported is multiplicity": "with enough outcomes something is always significant, and pre-specification is what closes it.'"
+          },
+          "Uneven attrition changes who remains to be measured, so it is tracked and analysed rather than designed away."
+        ],
         "scenarios": [
           "Sicker patients preferentially receive the candidate.",
           "Outcome assessors know who received treatment.",
@@ -348,15 +362,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a treated group is only informative next to a group that was not treated"
+      ]
     },
     {
       "day": 7,
       "title": "Hospital capacity threshold",
-      "scene": "A region has 120 staffed critical-care beds, 90 already occupied, and severe cases arriving at about eight a day. Thirty free beds against eight admissions a day gives a first bound on how long capacity lasts — and it is an upper bound only if nobody is discharged, which is why it is a bound and not a forecast. Crude arithmetic like this is worth doing early because it shows which missing quantity actually drives the decision: here, the discharge rate nobody has measured.",
+      "scene": "The region has 120 staffed critical-care beds. Ninety are already full. Severe cases are arriving at about eight a day, and the average stay is somewhere near six days — a figure nobody has actually checked.",
       "takeaway": "Simple bounds can reveal which missing data are decision-critical.",
       "place": "Hospital Capacity Center",
-      "story": "A region has 120 staffed critical-care beds, 90 already occupied, and severe cases arriving at about eight a day. Thirty free beds against eight admissions a day gives a first bound on how long capacity lasts — and it is an upper bound only if nobody is discharged, which is why it is a bound and not a forecast. Crude arithmetic like this is worth doing early because it shows which missing quantity actually drives the decision: here, the discharge rate nobody has measured.",
+      "story": "The region has 120 staffed critical-care beds. Ninety are already full. Severe cases are arriving at about eight a day, and the average stay is somewhere near six days — a figure nobody has actually checked.",
       "game": {
         "type": "BALLPARK",
         "title": "Hospital capacity threshold",
@@ -369,7 +386,10 @@ export const CURRICULUM = {
         "givens": [],
         "relationship": "",
         "calcKey": "CLIN-7"
-      }
+      },
+      "assumes": [
+        "a bound is what you can say before the missing number arrives"
+      ]
     }
   ],
   "CELL": [
@@ -775,10 +795,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "From variation to evolutionary change",
-      "scene": "A genetic variant is rising in one part of the city and the word 'evolution' is being used in the briefing room. Selection is a specific chain, and it is worth writing out: heritable variants arise by mutation or already exist in the population, conditions cause those variants to differ in survival or reproduction, the successful ones contribute disproportionately to the next generation, and frequencies change over generations as a result. Nothing in that chain says a rising variant must be advantageous — frequencies also move for reasons that have nothing to do with fitness.",
+      "scene": "A genetic variant is rising in one part of the city and the word evolution is being used in the briefing room. Four cards describe how a population changes. Nobody has put them in order.",
       "takeaway": "Natural selection changes frequencies through heritable differences in reproductive success.",
       "place": "Sequencing Center",
-      "story": "A genetic variant is rising in one part of the city and the word 'evolution' is being used in the briefing room. Selection is a specific chain, and it is worth writing out: heritable variants arise by mutation or already exist in the population, conditions cause those variants to differ in survival or reproduction, the successful ones contribute disproportionately to the next generation, and frequencies change over generations as a result. Nothing in that chain says a rising variant must be advantageous — frequencies also move for reasons that have nothing to do with fitness.",
+      "story": "A genetic variant is rising in one part of the city and the word evolution is being used in the briefing room. Four cards describe how a population changes. Nobody has put them in order.",
       "game": {
         "type": "SEQUENCE",
         "title": "From variation to evolutionary change",
@@ -787,7 +807,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Variation must exist before differential success can change the population.",
+        "why": "Nothing in this chain says a rising variant must be advantageous, and that is the point of laying it out. Variation has to exist before anything can act on it — selection does not create the variant it needs when it needs one. Conditions then make some variants reproduce more than others, those variants leave more descendants, and the frequency moves. Take away the middle step and frequencies still move, for reasons that have nothing to do with fitness.",
+        "rebuttals": [
+          "Variation first, and it arises independently of whether it is useful. This is the step people reverse.",
+          {
+            "'Differential reproductive success second": "the environment does the selecting, on variation that was already there.'"
+          },
+          "Successful variants leaving more descendants is the mechanism, and it happens over generations rather than within one.",
+          "Changed frequencies last. They are the observation, and every other card is the explanation for it."
+        ],
         "cards": [
           "Heritable variants arise through mutation or existing diversity.",
           "Environmental conditions cause variants to differ in reproductive success.",
@@ -800,7 +828,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "offspring inherit traits from their parents"
+      ]
     }
   ],
   "IMM": [
@@ -1143,10 +1174,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Find transmission before the hospital",
-      "scene": "Hospital isolation has held for nine days and new cases keep appearing in neighbourhoods with nobody admitted from them. Wastewater upstream of the hospital catchment has been rising for a week, the transit authority holds trip counts nobody has matched to the case map, and there is enough money this week for one of the four things the room has proposed. Surveillance is useful in proportion to how far upstream of the outcome it sits: a stream that reports what already happened cannot inform a decision about what is happening now.",
+      "scene": "Nine days of hospital isolation, and cases keep appearing in neighbourhoods with nobody admitted from them. There is enough money this week for one of the four things the room has proposed.",
       "takeaway": "The most useful surveillance reaches upstream of the outcome it is trying to prevent.",
       "place": "Transit and Mobility Center",
-      "story": "Hospital isolation has held for nine days and new cases keep appearing in neighbourhoods with nobody admitted from them. Wastewater upstream of the hospital catchment has been rising for a week, the transit authority holds trip counts nobody has matched to the case map, and there is enough money this week for one of the four things the room has proposed. Surveillance is useful in proportion to how far upstream of the outcome it sits: a stream that reports what already happened cannot inform a decision about what is happening now.",
+      "story": "Nine days of hospital isolation, and cases keep appearing in neighbourhoods with nobody admitted from them. There is enough money this week for one of the four things the room has proposed.",
       "game": {
         "type": "CHOICE",
         "title": "Find transmission before the hospital",
@@ -1168,15 +1199,18 @@ export const CURRICULUM = {
           "Sample one comparison neighbourhood with no reported cases."
         ],
         "correctChoice": "Expand wastewater sampling across the connected sewersheds."
-      }
+      },
+      "assumes": [
+        "a measurement taken downstream of a process reports it after it has happened"
+      ]
     },
     {
       "day": 8,
       "title": "Choose the One Health campaign",
-      "scene": "There is one field campaign to fund, and its design decides what can be concluded from it. Sampling only the most feared species near one village guarantees a result that cannot be generalised; stratifying across species, habitat and season makes prevalence comparable; sequencing positives from both humans and animals is what connects the two populations evolutionarily. Removing wildlife before establishing whether it is the reservoir is an intervention that also destroys the evidence. One Health decisions have to connect human, animal and environmental evidence before anything irreversible happens.",
+      "scene": "There is one field campaign to fund and its design decides what can be concluded from it. Trappers, a genomics bench and a nervous agriculture department are all waiting on the answer.",
       "takeaway": "One Health decisions should connect human, animal, and environmental evidence before intervention.",
       "place": "Comparative Genomics Lab",
-      "story": "There is one field campaign to fund, and its design decides what can be concluded from it. Sampling only the most feared species near one village guarantees a result that cannot be generalised; stratifying across species, habitat and season makes prevalence comparable; sequencing positives from both humans and animals is what connects the two populations evolutionarily. Removing wildlife before establishing whether it is the reservoir is an intervention that also destroys the evidence. One Health decisions have to connect human, animal and environmental evidence before anything irreversible happens.",
+      "story": "There is one field campaign to fund and its design decides what can be concluded from it. Trappers, a genomics bench and a nervous agriculture department are all waiting on the answer.",
       "game": {
         "type": "CHOICE",
         "title": "Choose the One Health campaign",
@@ -1200,15 +1234,18 @@ export const CURRICULUM = {
           "Remove wildlife from the flood plain while the investigation continues."
         ],
         "correctChoice": "Stratify sampling across species, habitat, season and comparison sites."
-      }
+      },
+      "assumes": [
+        "a sample tells you about the population it was drawn from and no other"
+      ]
     },
     {
       "day": 9,
       "title": "Selection or sampling artifact?",
-      "scene": "A variant goes from 8 to 31 per cent of sequences in four weeks. Three independent hospital systems show the same upward trend, sequencing depth is stable, neutral control variants show no coordinated rise, and after adjusting for place and date the variant lineages are still growing faster. A frequency change is an observation; selection is an explanation for it, and it competes with founder effects, changes in who is being sampled, and geographic clustering. The controls are what separate the two, and they have to be read before the conclusion is written.",
+      "scene": "A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "takeaway": "A frequency change is an observation; selection is an explanation that requires controls against sampling, founder effects, and technical drift.",
       "place": "Evolutionary Dynamics Group",
-      "story": "A variant goes from 8 to 31 per cent of sequences in four weeks. Three independent hospital systems show the same upward trend, sequencing depth is stable, neutral control variants show no coordinated rise, and after adjusting for place and date the variant lineages are still growing faster. A frequency change is an observation; selection is an explanation for it, and it competes with founder effects, changes in who is being sampled, and geographic clustering. The controls are what separate the two, and they have to be read before the conclusion is written.",
+      "story": "A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Selection or sampling artifact?",
@@ -1217,7 +1254,12 @@ export const CURRICULUM = {
         "task": "Which explanation best fits the frequency trend and the independent checks?",
         "question": "Which explanation best fits the frequency trend and the independent checks?",
         "answer": "Real selective advantage",
-        "why": "The rise repeats across independent hospitals, technical depth is stable, neutral variants do not show the same shift, and the adjusted lineage comparison still shows faster growth. Together those checks support selection rather than a sampling or laboratory artifact.",
+        "why": "A frequency change is an observation; selection is one explanation for it, and it competes with founder effects, with a change in who is being sampled, and with a technical shift. Each of those is ruled out by a specific check here. Three independent hospital systems showing the same rise is not one cluster. Stable sequencing depth is not a technical change. Neutral variants staying flat means the whole population was not resampled. And the rise survives adjustment for place and date.",
+        "rebuttals": [
+          "A changing sampling mix would move the neutral control variants too, because they ride on the same samples. Those are flat.",
+          "A sequencing artefact would show as changing depth or coverage, and the depth is stable across the four weeks.",
+          "A single founder cluster would not repeat across three independent hospital systems, and it would not survive adjusting for place."
+        ],
         "headline": "A genetic variant rises quickly in the city data.",
         "readings": [
           {
@@ -1275,15 +1317,18 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "Real selective advantage"
-      }
+      },
+      "assumes": [
+        "a change in who gets tested changes what the tests find"
+      ]
     },
     {
       "day": 10,
       "title": "Track a rising variant",
-      "scene": "Before anybody argues about why a variant is rising, the frequency itself has to be right. In week one, 40 of 400 sequenced samples carried the variant; in week three, 180 of 600 did. Frequencies are ratios and only mean something if the denominators are comparable — a change in who gets sequenced moves the numerator without anything happening in the population. Compute both frequencies and the change between them, and keep the two questions separate: how much it moved, and afterwards, why.",
+      "scene": "Before anybody argues about why the variant is rising, the surveillance hub needs the rise itself. Week one and week three sequenced different numbers of samples.",
       "takeaway": "Evolutionary inference begins with accurate frequencies and then tests causal explanations.",
       "place": "Regional Surveillance Hub",
-      "story": "Before anybody argues about why a variant is rising, the frequency itself has to be right. In week one, 40 of 400 sequenced samples carried the variant; in week three, 180 of 600 did. Frequencies are ratios and only mean something if the denominators are comparable — a change in who gets sequenced moves the numerator without anything happening in the population. Compute both frequencies and the change between them, and keep the two questions separate: how much it moved, and afterwards, why.",
+      "story": "Before anybody argues about why the variant is rising, the surveillance hub needs the rise itself. Week one and week three sequenced different numbers of samples.",
       "game": {
         "type": "BALLPARK",
         "title": "Track a rising variant",
@@ -1296,15 +1341,18 @@ export const CURRICULUM = {
         "givens": [],
         "relationship": "",
         "calcKey": "POP-10"
-      }
+      },
+      "assumes": [
+        "a fraction needs both a numerator and the denominator it came from"
+      ]
     },
     {
       "day": 11,
       "title": "Why did the therapy fail?",
-      "scene": "A therapy that worked is failing. The panel shows drug concentration within the expected therapeutic range, agent burden falling and then rebounding, a resistance-associated variant at the target site becoming dominant, a reference isolate that remains drug-sensitive, and doses documented as administered. Treatment failure has several possible causes — the drug never reached the target, the dose was wrong, the patient population differs, or the pathogen population changed under selection — and they are distinguished by which measurements are normal. Evolution is observable here on the timescale of a ward round.",
+      "scene": "A therapy that worked is failing. The ward has the drug levels, the agent burden over time, the sequence at the target site and a reference isolate, and it wants to change everybody's prescription this afternoon.",
       "takeaway": "Evolution can be observed in real time when a treatment changes which variants are most successful.",
       "place": "Clinical Ward",
-      "story": "A therapy that worked is failing. The panel shows drug concentration within the expected therapeutic range, agent burden falling and then rebounding, a resistance-associated variant at the target site becoming dominant, a reference isolate that remains drug-sensitive, and doses documented as administered. Treatment failure has several possible causes — the drug never reached the target, the dose was wrong, the patient population differs, or the pathogen population changed under selection — and they are distinguished by which measurements are normal. Evolution is observable here on the timescale of a ward round.",
+      "story": "A therapy that worked is failing. The ward has the drug levels, the agent burden over time, the sequence at the target site and a reference isolate, and it wants to change everybody's prescription this afternoon.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why did the therapy fail?",
@@ -1313,7 +1361,12 @@ export const CURRICULUM = {
         "task": "Which explanation fits the complete treatment-response panel?",
         "question": "Which explanation fits the complete treatment-response panel?",
         "answer": "Evolved resistance",
-        "why": "Drug exposure is adequate and produces an initial response, but a resistance-associated variant rises as the agent rebounds. The control isolate remains sensitive, making a general assay or drug failure less likely.",
+        "why": "Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached therapeutic concentration and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.",
+        "rebuttals": [
+          "Poor delivery means the drug never arrives, and the concentration is inside the therapeutic range with an initial response to prove it.",
+          "A misidentified agent would not have responded at all, and this one fell before it came back.",
+          "Assay contamination would not spare the reference isolate, which was run alongside and remains sensitive."
+        ],
         "headline": "A treatment initially suppresses the infectious agent, but the signal rebounds while the patient is still receiving therapy.",
         "readings": [
           {
@@ -1371,15 +1424,18 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "Evolved resistance"
-      }
+      },
+      "assumes": [
+        "a drug only works if it reaches the target at a high enough concentration"
+      ]
     },
     {
       "day": 12,
       "title": "How resistance spreads",
-      "scene": "The therapy worked for six weeks and now fails in one patient in four. Isolates from the failures grow at drug concentrations that stopped the same organism in March, and the failures cluster on the wards where the treatment has been in use longest. Selection does not create the variant it needs when it needs it: variation is present or arises independently of the treatment, and what treatment changes is which variants leave descendants. Getting that order right is what separates an evolutionary explanation from a story about the drug teaching the organism to resist.",
+      "scene": "The therapy worked for six weeks and now fails in one patient in four. Failures cluster on the wards where it has been in use longest, and somebody in the meeting has said the organism learned to resist it.",
       "takeaway": "Selection acts on existing or newly arising variation by differential survival and reproduction.",
       "place": "Microbiology and Evolution Lab",
-      "story": "The therapy worked for six weeks and now fails in one patient in four. Isolates from the failures grow at drug concentrations that stopped the same organism in March, and the failures cluster on the wards where the treatment has been in use longest. Selection does not create the variant it needs when it needs it: variation is present or arises independently of the treatment, and what treatment changes is which variants leave descendants. Getting that order right is what separates an evolutionary explanation from a story about the drug teaching the organism to resist.",
+      "story": "The therapy worked for six weeks and now fails in one patient in four. Failures cluster on the wards where it has been in use longest, and somebody in the meeting has said the organism learned to resist it.",
       "game": {
         "type": "SEQUENCE",
         "title": "How resistance spreads",
@@ -1388,7 +1444,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Treatment does not create the needed mutation on demand; it changes which variants leave descendants.",
+        "why": "Treatment does not teach an organism anything, and it does not create the variant it needs. The variation is already there, rare, before the drug arrives. What the drug changes is which variants leave descendants: it removes the susceptible ones more effectively, the less susceptible survive and reproduce, and the treated population ends up enriched for resistance. The clustering on long-treated wards is that process having run longer, not the organism having learned faster.",
+        "rebuttals": [
+          "Rare variants exist first. This is the step that separates an evolutionary explanation from a story about the drug teaching the organism.",
+          "Treatment removes the susceptible preferentially — that is what selection is, and it acts on what is already present.",
+          "The survivors reproduce, which is how a rare variant stops being rare.",
+          {
+            "'Enrichment last": "it is the outcome, and it is what the ward is now measuring.'"
+          }
+        ],
         "cards": [
           "A population contains rare variants with differing susceptibility.",
           "Treatment removes susceptible individuals more effectively.",
@@ -1401,15 +1465,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a population contains variation before anything acts on it"
+      ]
     },
     {
       "day": 13,
       "title": "Recover treatment effectiveness",
-      "scene": "Effectiveness is falling and the pharmacology unit has a limited budget. Sequencing failures alongside matched successes asks whether the target site has changed; measuring drug exposure and adherence objectively asks whether the drug ever reached therapeutic concentration; testing combinations or alternative targets asks what would still work. Raising the dose for everyone without safety data treats one hypothesis as established and exposes patients who never had a resistance problem to toxicity. A resistance response has to combine the evolutionary evidence with pharmacology and with what is safe.",
+      "scene": "Effectiveness is falling and the pharmacology unit has a limited budget. Every failure so far happened on documented dosing with concentrations inside the therapeutic range.",
       "takeaway": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
       "place": "Pharmacology Unit",
-      "story": "Effectiveness is falling and the pharmacology unit has a limited budget. Sequencing failures alongside matched successes asks whether the target site has changed; measuring drug exposure and adherence objectively asks whether the drug ever reached therapeutic concentration; testing combinations or alternative targets asks what would still work. Raising the dose for everyone without safety data treats one hypothesis as established and exposes patients who never had a resistance problem to toxicity. A resistance response has to combine the evolutionary evidence with pharmacology and with what is safe.",
+      "story": "Effectiveness is falling and the pharmacology unit has a limited budget. Every failure so far happened on documented dosing with concentrations inside the therapeutic range.",
       "game": {
         "type": "CHOICE",
         "title": "Recover treatment effectiveness",
@@ -1431,15 +1498,18 @@ export const CURRICULUM = {
           "Test combinations and alternative targets under a clinical protocol."
         ],
         "correctChoice": "Sequence the failures alongside matched successful cases."
-      }
+      },
+      "assumes": [
+        "a matched comparison is what turns a finding into evidence"
+      ]
     },
     {
       "day": 14,
       "title": "Choose the intervention layer",
-      "scene": "The city wants an intervention and the room is arguing about which one, as though only one can be chosen. Each class acts at a different point: something that prevents initial cell entry acts before infection is established; a therapy that shortens severe inflammatory disease acts after it; immune memory created before exposure changes who can be infected at all; reducing opportunities for transmission works on the population rather than the patient. A layered strategy is stronger precisely because the layers have different mechanisms and therefore different failure modes.",
+      "scene": "The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.",
       "takeaway": "A layered strategy is stronger when each intervention has a defined mechanism and failure mode.",
       "place": "Vaccine Design Lab",
-      "story": "The city wants an intervention and the room is arguing about which one, as though only one can be chosen. Each class acts at a different point: something that prevents initial cell entry acts before infection is established; a therapy that shortens severe inflammatory disease acts after it; immune memory created before exposure changes who can be infected at all; reducing opportunities for transmission works on the population rather than the patient. A layered strategy is stronger precisely because the layers have different mechanisms and therefore different failure modes.",
+      "story": "The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.",
       "game": {
         "type": "PROTOCOL",
         "title": "Choose the intervention layer",
@@ -1448,7 +1518,13 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Different tools act at different points in the biological and transmission chain.",
+        "why": "Each class acts at a different point, which is why a layered strategy is stronger than a bigger version of any one of them. Blocking entry acts before infection is established. An anti-inflammatory acts after it is, on the damage rather than the agent. Immune memory created before exposure changes who can be infected at all. And reducing contact works on the population rather than the patient, which is why it keeps working while the biology is still unknown. Different mechanisms means different failure modes.",
+        "rebuttals": [
+          "Preventing entry is a job for something that blocks the receptor interaction, and it has to be there before the agent is.",
+          "Shortening severe inflammatory disease is treatment after infection, and it is staged — given at the wrong moment it suppresses a response that is still needed.",
+          "Immune memory before exposure is vaccination, and its whole value is that it arrives first.",
+          "Ventilation, isolation and contact reduction act on transmission rather than on any patient, which is why they work whatever the agent turns out to be."
+        ],
         "scenarios": [
           "Prevent initial cell entry.",
           "Shorten severe inflammatory disease after infection.",
@@ -1467,15 +1543,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "an infection has a before, a during and an after, and different tools act at each"
+      ]
     },
     {
       "day": 15,
       "title": "From candidate to justified trial",
-      "scene": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, the manufacturer can supply a few hundred doses, and the protocol on the table names no endpoint and no stopping rule. The path from mechanistic promise to a defensible clinical claim exists because activity in a dish predicts very little on its own — it has to become a testable question with a defined population, an endpoint, a control group and rules for when to stop. Urgency changes the speed of that path, not its structure.",
+      "scene": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol on the table names no endpoint and no stopping rule.",
       "takeaway": "Urgency changes speed and coordination, not the need for interpretable evidence and participant protection.",
       "place": "Therapeutics Group",
-      "story": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, the manufacturer can supply a few hundred doses, and the protocol on the table names no endpoint and no stopping rule. The path from mechanistic promise to a defensible clinical claim exists because activity in a dish predicts very little on its own — it has to become a testable question with a defined population, an endpoint, a control group and rules for when to stop. Urgency changes the speed of that path, not its structure.",
+      "story": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol on the table names no endpoint and no stopping rule.",
       "game": {
         "type": "SEQUENCE",
         "title": "From candidate to justified trial",
@@ -1484,7 +1563,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Mechanistic promise must be translated into a testable and ethically governed clinical question.",
+        "why": "Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; preclinical evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.",
+        "rebuttals": [
+          {
+            "'Target and mechanism first": "without them there is nothing to test a compound against except hope.'"
+          },
+          "Preclinical activity and safety second, because a compound that harms an animal has told you something you needed before a person took it.",
+          "Endpoints, controls and stopping rules third — they are what make the result interpretable, and they cannot be chosen after the data arrives.",
+          "The monitored trial last, with oversight. It is the step everything before it exists to make defensible."
+        ],
         "cards": [
           "Define the biological target and intended mechanism.",
           "Demonstrate relevant activity and identify major safety concerns in preclinical evidence.",
@@ -1497,15 +1584,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "activity in a dish is not evidence of benefit in a person"
+      ]
     },
     {
       "day": 16,
       "title": "Build a layered intervention portfolio",
-      "scene": "Several plausible layers are competing for the one the city can start now: a vaccine candidate against a conserved surface target, a therapeutic aimed at a validated host or agent process, and ventilation and rapid-isolation improvements that work regardless of what the biology turns out to be. A publicity campaign declaring the crisis over is not a layer. A strategy is stronger when the mechanisms are genuinely different, and it is only useful afterwards if the design still allows the team to learn which layer did the work.",
+      "scene": "One portfolio to fund, several plausible layers competing for it, and a city that would like to be told the crisis is under control.",
       "takeaway": "Layers are chosen for different mechanisms and different timescales, not for how promising each one sounds.",
       "place": "Public Health Strategy Room",
-      "story": "Several plausible layers are competing for the one the city can start now: a vaccine candidate against a conserved surface target, a therapeutic aimed at a validated host or agent process, and ventilation and rapid-isolation improvements that work regardless of what the biology turns out to be. A publicity campaign declaring the crisis over is not a layer. A strategy is stronger when the mechanisms are genuinely different, and it is only useful afterwards if the design still allows the team to learn which layer did the work.",
+      "story": "One portfolio to fund, several plausible layers competing for it, and a city that would like to be told the crisis is under control.",
       "game": {
         "type": "CHOICE",
         "title": "Build a layered intervention portfolio",
@@ -1527,15 +1617,18 @@ export const CURRICULUM = {
           "A publicity campaign stating that the crisis is under control."
         ],
         "correctChoice": "Ventilation and rapid-isolation improvements."
-      }
+      },
+      "assumes": [
+        "two tools that fail for the same reason fail at the same time"
+      ]
     },
     {
       "day": 17,
       "title": "Read effect size and uncertainty",
-      "scene": "The trial reports hospitalisation in 20 of 200 control participants and 10 of 200 treated. That single comparison can be expressed as a halving of risk, as a five-percentage-point reduction, or as the number of patients who must be treated for one to benefit — and the three sound very different to a health minister deciding whether to buy it. Relative and absolute effects answer different decision questions, and reporting only the one that sounds largest is the most common way a real but modest effect is oversold.",
+      "scene": "The trial has reported, and the health minister wants a number before deciding how much to buy. The biostatistics office has the event counts for both arms and nothing has been converted yet.",
       "takeaway": "Relative and absolute effects answer different decision questions and should be reported together.",
       "place": "Biostatistics Office",
-      "story": "The trial reports hospitalisation in 20 of 200 control participants and 10 of 200 treated. That single comparison can be expressed as a halving of risk, as a five-percentage-point reduction, or as the number of patients who must be treated for one to benefit — and the three sound very different to a health minister deciding whether to buy it. Relative and absolute effects answer different decision questions, and reporting only the one that sounds largest is the most common way a real but modest effect is oversold.",
+      "story": "The trial has reported, and the health minister wants a number before deciding how much to buy. The biostatistics office has the event counts for both arms and nothing has been converted yet.",
       "game": {
         "type": "BALLPARK",
         "title": "Read effect size and uncertainty",
@@ -1544,19 +1637,22 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the number of patients who must be treated for one to benefit.",
         "answer": "",
-        "why": "Relative and absolute effects answer different questions, and reporting only the one that sounds biggest is the most common way a real but modest effect is oversold.",
+        "why": "The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. Twenty patients treated for one to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.",
         "givens": [],
         "relationship": "",
         "calcKey": "POP-17"
-      }
+      },
+      "assumes": [
+        "a risk is events divided by the people who could have had them"
+      ]
     },
     {
       "day": 18,
       "title": "Continue, expand, or pause?",
-      "scene": "The result is promising and imprecise, and the safety board has to decide what happens next. Expanding enrolment under the same pre-specified analysis buys precision; intensifying independent safety monitoring buys confidence about the uneven adverse events; adding targeted mechanistic measurements asks why it works, which decides whether the effect will generalise. Declaring success and stopping data collection converts an imprecise estimate into a permanent one. A mature decision here is encouraging and cautious at the same time, and the allocation is where that shows.",
+      "scene": "The result is promising and imprecise, and the adverse events are uneven across the arms. The safety board has to say what happens next, and enrolment is paused until it does.",
       "takeaway": "A mature trial decision can be encouraging and cautious at the same time.",
       "place": "Independent Safety Board",
-      "story": "The result is promising and imprecise, and the safety board has to decide what happens next. Expanding enrolment under the same pre-specified analysis buys precision; intensifying independent safety monitoring buys confidence about the uneven adverse events; adding targeted mechanistic measurements asks why it works, which decides whether the effect will generalise. Declaring success and stopping data collection converts an imprecise estimate into a permanent one. A mature decision here is encouraging and cautious at the same time, and the allocation is where that shows.",
+      "story": "The result is promising and imprecise, and the adverse events are uneven across the arms. The safety board has to say what happens next, and enrolment is paused until it does.",
       "game": {
         "type": "CHOICE",
         "title": "Continue, expand, or pause?",
@@ -1578,15 +1674,18 @@ export const CURRICULUM = {
           "Pause the trial until the adverse events are fully investigated."
         ],
         "correctChoice": "Expand enrolment under the same pre-specified analysis."
-      }
+      },
+      "assumes": [
+        "a wider interval means less is known, not that the effect is smaller"
+      ]
     },
     {
       "day": 19,
       "title": "Build a decision model",
-      "scene": "Three districts are on visibly different trajectories and the council wants one city-wide policy by Friday. The modelling team has nine days of case data, a dozen parameters they can only bound rather than measure, and no agreement yet about which decision the model is supposed to inform. A model is a structured argument: it states a decision, a time horizon and the outcomes that matter, picks a transparent structure, estimates inputs from data, and explores the range of plausible worlds rather than asserting one. Its assumptions are the output as much as its numbers are.",
+      "scene": "Three districts are on visibly different trajectories and the council wants one citywide policy by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
       "takeaway": "Models are structured arguments whose assumptions should remain visible.",
       "place": "Population Modeling Group",
-      "story": "Three districts are on visibly different trajectories and the council wants one city-wide policy by Friday. The modelling team has nine days of case data, a dozen parameters they can only bound rather than measure, and no agreement yet about which decision the model is supposed to inform. A model is a structured argument: it states a decision, a time horizon and the outcomes that matter, picks a transparent structure, estimates inputs from data, and explores the range of plausible worlds rather than asserting one. Its assumptions are the output as much as its numbers are.",
+      "story": "Three districts are on visibly different trajectories and the council wants one citywide policy by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build a decision model",
@@ -1595,7 +1694,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "The model serves a decision; uncertainty is explored before policies are tied to observable triggers.",
+        "why": "A model is a structured argument, not an oracle, and its assumptions are as much of the output as its numbers. Stating the decision first is what stops it modelling something nobody asked about — a model built without a decision answers whatever question was easiest. The structure and the inputs come next, then the range of plausible worlds rather than one, and finally the triggers, because a scenario that is not tied to an observable is a scenario nobody will ever act on.",
+        "rebuttals": [
+          "The decision, the horizon and the outcomes come first, or the model answers the question that was easiest to model.",
+          "Structure and inputs second, and transparent, because a structure nobody can inspect cannot be argued with.",
+          {
+            "'Scenarios and sensitivity third": "the point is the spread across plausible worlds, not the middle of it.'"
+          },
+          "Triggers last, tying a scenario to something observable. Without them the model produces a graph and no decision."
+        ],
         "cards": [
           "State the decision, time horizon, and outcomes that matter.",
           "Choose a transparent model structure and estimate inputs from data.",
@@ -1608,15 +1715,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a model's output is only as good as the assumptions it was given"
+      ]
     },
     {
       "day": 20,
       "title": "Choose an adaptive policy",
-      "scene": "The outbreak is geographically uneven and the council wants a policy it can defend for a month. Targeted containment where transmission chains are traceable is cheap and fails silently if chains are missed; city-wide measures tied to hospital and growth indicators are costly and self- correcting; capacity expansion protects the outcome that matters without touching transmission. Committing permanently to one option regardless of what is observed is the only choice on the table that cannot learn. Policy under uncertainty works as a feedback system with observable triggers agreed in advance.",
+      "scene": "The outbreak is geographically uneven and the council wants a policy it can defend for a month. Three districts, three different trajectories, and one decision.",
       "takeaway": "Good policy is a feedback system, not a one-time guess.",
       "place": "City Command",
-      "story": "The outbreak is geographically uneven and the council wants a policy it can defend for a month. Targeted containment where transmission chains are traceable is cheap and fails silently if chains are missed; city-wide measures tied to hospital and growth indicators are costly and self- correcting; capacity expansion protects the outcome that matters without touching transmission. Committing permanently to one option regardless of what is observed is the only choice on the table that cannot learn. Policy under uncertainty works as a feedback system with observable triggers agreed in advance.",
+      "story": "The outbreak is geographically uneven and the council wants a policy it can defend for a month. Three districts, three different trajectories, and one decision.",
       "game": {
         "type": "CHOICE",
         "title": "Choose an adaptive policy",
@@ -1638,15 +1748,18 @@ export const CURRICULUM = {
           "Commit to one policy now and hold it whatever the data show."
         ],
         "correctChoice": "Citywide measures tied to hospital and growth thresholds."
-      }
+      },
+      "assumes": [
+        "a policy tied to an observable can change without anybody having been wrong"
+      ]
     },
     {
       "day": 21,
       "title": "Disposition the final claims",
-      "scene": "The board has to disposition four claims of very different strength: a transmission route supported by multiple independent data streams, a severe-risk subgroup suggested by one small observational sample, an intervention that lowers hospitalisation under monitored safety but with unknown duration, and an animal reservoir that remains plausible and unconfirmed. Each deserves a different recommendation, and the failure mode is uniform treatment — publishing the weakest claim with the confidence of the strongest, or holding back the strongest because the weakest is unresolved.",
+      "scene": "Four claims are going into the final report and they are not equally well supported. The review board has to decide what to say about each, and the document will outlive everybody in the room.",
       "takeaway": "Scientific conclusions should carry the strength and limits of their supporting evidence.",
       "place": "Scientific Review Hall",
-      "story": "The board has to disposition four claims of very different strength: a transmission route supported by multiple independent data streams, a severe-risk subgroup suggested by one small observational sample, an intervention that lowers hospitalisation under monitored safety but with unknown duration, and an animal reservoir that remains plausible and unconfirmed. Each deserves a different recommendation, and the failure mode is uniform treatment — publishing the weakest claim with the confidence of the strongest, or holding back the strongest because the weakest is unresolved.",
+      "story": "Four claims are going into the final report and they are not equally well supported. The review board has to decide what to say about each, and the document will outlive everybody in the room.",
       "game": {
         "type": "PROTOCOL",
         "title": "Disposition the final claims",
@@ -1655,7 +1768,13 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Integrated review distinguishes established findings, conditional findings, and unresolved hypotheses.",
+        "why": "The failure mode here is uniform treatment — publishing the weakest claim with the confidence of the strongest, or holding back the strongest because the weakest is unresolved. Multiple independent data streams agreeing is the strongest thing on the list and can carry operational planning. One small observational sample is a hypothesis worth collecting data on. A benefit shown with unknown duration can be used with follow-up attached. And a plausible unconfirmed reservoir is a reason to keep investigating, not a reason to destroy anything.",
+        "rebuttals": [
+          "Independent streams agreeing is the strongest evidence in the report, and treating it as provisional wastes the only thing the response can plan on.",
+          "One small observational sample identifies a subgroup worth confirming. Published as established, it becomes policy about people nobody measured properly.",
+          "A benefit whose duration is unknown is used conditionally, with follow-up — the uncertainty is about how long, not about whether.",
+          "A plausible unconfirmed reservoir justifies more investigation. Acting on it destroys the evidence and may not touch the actual source."
+        ],
         "scenarios": [
           "Multiple independent data streams support the transmission route.",
           "A severe-risk subgroup is suggested by one small observational sample.",
@@ -1674,15 +1793,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "evidence comes in strengths, and a conclusion inherits the weakest one it rests on"
+      ]
     },
     {
       "day": 22,
       "title": "Build the public explanation",
-      "scene": "The mayor is on air in an hour. The transmission route is settled across three independent data streams, the animal reservoir is still unconfirmed, and the treatment works under conditions nobody has tested beyond eight weeks. The draft in front of you opens with the actions and never reaches what is still unknown. A briefing that survives the next revision states what is known and how it was learned, what remains uncertain and why, what is being done and at what cost, and how the account will be updated when the evidence changes.",
+      "scene": "The mayor is on air in an hour. The transmission route is settled, the animal reservoir is not, and the treatment works under conditions nobody has tested past eight weeks. The draft opens with the actions.",
       "takeaway": "A public account is ordered by the strength of its evidence, not by the order the work happened in.",
       "place": "City Command",
-      "story": "The mayor is on air in an hour. The transmission route is settled across three independent data streams, the animal reservoir is still unconfirmed, and the treatment works under conditions nobody has tested beyond eight weeks. The draft in front of you opens with the actions and never reaches what is still unknown. A briefing that survives the next revision states what is known and how it was learned, what remains uncertain and why, what is being done and at what cost, and how the account will be updated when the evidence changes.",
+      "story": "The mayor is on air in an hour. The transmission route is settled, the animal reservoir is not, and the treatment works under conditions nobody has tested past eight weeks. The draft opens with the actions.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the public explanation",
@@ -1704,15 +1826,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "an audience judges a claim by how it was supported, once it knows"
+      ]
     },
     {
       "day": 23,
       "title": "Fund the post-crisis legacy",
-      "scene": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Integrated clinical, environmental and genomic surveillance is what would detect the next event early; health-system resilience and workforce training is what determines whether detection helps; preserving transparent data, methods and after-action lessons is what makes the next response start from this one rather than from nothing. The fourth proposal is a request to delete the records before they can be used against the city. Crisis knowledge only becomes capability if something is funded to carry it.",
+      "scene": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Four proposals, and the room has stopped pretending all of them survive.",
       "takeaway": "The final responsibility is to convert crisis knowledge into durable public capability.",
       "place": "Public Briefing Room",
-      "story": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Integrated clinical, environmental and genomic surveillance is what would detect the next event early; health-system resilience and workforce training is what determines whether detection helps; preserving transparent data, methods and after-action lessons is what makes the next response start from this one rather than from nothing. The fourth proposal is a request to delete the records before they can be used against the city. Crisis knowledge only becomes capability if something is funded to carry it.",
+      "story": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Four proposals, and the room has stopped pretending all of them survive.",
       "game": {
         "type": "CHOICE",
         "title": "Fund the post-crisis legacy",
@@ -1734,7 +1859,10 @@ export const CURRICULUM = {
           "Closing the records once the review is published."
         ],
         "correctChoice": "Integrated clinical, environmental and genomic surveillance."
-      }
+      },
+      "assumes": [
+        "capability that is not funded to continue stops when the emergency does"
+      ]
     }
   ],
   "FIELD": [
@@ -1765,10 +1893,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Reservoir, vector, or incidental host?",
-      "scene": "Genetic similarities point toward an animal reservoir along the river corridor, and four ecological patterns are on the board. A species carrying the agent persistently with little illness behaves differently from a biting organism that transfers it between hosts; a species that becomes ill but rarely transmits onward is a dead end; a species common near cases but consistently negative is a coincidence of habitat. Ecological role is inferred from dynamics — persistence, transmission, prevalence — rather than from proximity or from which animal people are most afraid of.",
+      "scene": "Sequences from three patients sit close to a virus found in animals along the river corridor. The field station has four ecological patterns on the board and a trapper waiting outside with more animals.",
       "takeaway": "Ecological roles are inferred from dynamics, not appearance or proximity alone.",
       "place": "One Health Field Station",
-      "story": "Genetic similarities point toward an animal reservoir along the river corridor, and four ecological patterns are on the board. A species carrying the agent persistently with little illness behaves differently from a biting organism that transfers it between hosts; a species that becomes ill but rarely transmits onward is a dead end; a species common near cases but consistently negative is a coincidence of habitat. Ecological role is inferred from dynamics — persistence, transmission, prevalence — rather than from proximity or from which animal people are most afraid of.",
+      "story": "Sequences from three patients sit close to a virus found in animals along the river corridor. The field station has four ecological patterns on the board and a trapper waiting outside with more animals.",
       "game": {
         "type": "PROTOCOL",
         "title": "Reservoir, vector, or incidental host?",
@@ -1777,7 +1905,13 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Presence near patients does not define a reservoir. Persistence and contribution to transmission are load-bearing.",
+        "why": "Ecological role is a claim about dynamics, not about proximity or about which animal people are frightened of. A reservoir carries the agent persistently and stays well enough to keep carrying it. A vector moves it between hosts without being the place it persists. A species that sickens and dies without passing it on is where transmission stops. And a species that is simply common near cases and never tests positive shares a habitat with people, which is not the same as sharing an infection.",
+        "rebuttals": [
+          "Persistent carriage with little disease is what a reservoir looks like — it has to survive the infection to maintain it.",
+          "A biting organism that moves the agent between hosts is a vector whether or not it is ever the place the agent persists.",
+          "A species that becomes ill and rarely transmits is a dead end. The chain reaches it and stops.",
+          "Common near cases and consistently negative is a shared habitat, not a shared infection. Proximity is the weakest evidence on the board."
+        ],
         "scenarios": [
           "A species carries the agent persistently with little disease.",
           "A biting organism transfers the agent between hosts.",
@@ -1796,15 +1930,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a species can carry an agent, spread it, or merely be near it"
+      ]
     },
     {
       "day": 3,
       "title": "Test the reservoir hypothesis",
-      "scene": "Sequences from three patients sit close to a virus recovered from animals along the river corridor, and trappers report sick animals on the flood plain. A reservoir claim needs more than a positive animal: it needs human cases mapped against habitat and exposure, sampling designed so that finding the agent is not an artefact of where you looked, prevalence and genetic signatures compared across hosts, and a test of whether the combined evidence explains repeated spillover rather than one event. Nobody has yet sampled in a way that could distinguish a reservoir from a bystander that caught it from people.",
+      "scene": "Trappers report sick animals on the flood plain, and nobody has yet sampled in a way that could tell a reservoir from a bystander that caught it from people. Four steps, and the campaign gets funded once.",
       "takeaway": "A reservoir claim requires population and evolutionary evidence together.",
       "place": "Wildlife Ecology Site",
-      "story": "Sequences from three patients sit close to a virus recovered from animals along the river corridor, and trappers report sick animals on the flood plain. A reservoir claim needs more than a positive animal: it needs human cases mapped against habitat and exposure, sampling designed so that finding the agent is not an artefact of where you looked, prevalence and genetic signatures compared across hosts, and a test of whether the combined evidence explains repeated spillover rather than one event. Nobody has yet sampled in a way that could distinguish a reservoir from a bystander that caught it from people.",
+      "story": "Trappers report sick animals on the flood plain, and nobody has yet sampled in a way that could tell a reservoir from a bystander that caught it from people. Four steps, and the campaign gets funded once.",
       "game": {
         "type": "SEQUENCE",
         "title": "Test the reservoir hypothesis",
@@ -1813,7 +1950,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Exposure patterns guide sampling; prevalence and relatedness then test whether the candidate participates in the transmission cycle.",
+        "why": "A positive animal is not a reservoir. What turns it into one is a design that could have found the agent somewhere else and did not, which is why the order matters: exposure patterns say where to sample, and sampling built around comparison sites is what makes a prevalence figure mean anything. Only then do prevalence and genetic relatedness across hosts say whether this species is in the transmission cycle, and only then can repeated spillover be tested rather than assumed.",
+        "rebuttals": [
+          "Human cases against habitat first — that is what tells you which species and which places are even candidates.",
+          "Unbiased sampling with comparison sites second. Find the agent only where you looked hardest and you have measured your own search.",
+          {
+            "'Prevalence and genetic relatedness third": "they connect the two populations, and they need samples from both to compare.'"
+          },
+          "Repeated spillover last. One event can be a coincidence; a reservoir claim is a claim about a process that keeps happening."
+        ],
         "cards": [
           "Map human cases against habitat and exposure patterns.",
           "Sample candidate species using an unbiased design and comparison sites.",
@@ -1826,7 +1971,10 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "where you look decides what you can find"
+      ]
     }
   ]
 };
