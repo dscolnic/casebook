@@ -25,6 +25,7 @@ import { facingArrowHTML, renderMap } from '../../gamekit/engine/core/map.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import themeManifest from '../theme.js';
 import { getPersonIdForStop } from './simulation.js';
+import { DAY_NOUN } from './constants.js';
 
 const canvas=document.getElementById('canvas');
 const promptEl=document.getElementById('prompt');
@@ -113,7 +114,7 @@ function showDayOver(outstanding){
       [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => retakeDay() }]);
     return;
   }
-  day.ui.open(`Day ${state.week} closed`,
+  day.ui.open(`${DAY_NOUN} ${state.week} closed`,
     '<div class="briefBox"><p>Every call made. The divisions write it up overnight.</p></div>',
     [{ id: 'dayNext', label: 'Start the next day', primary: true, onClick: () => {
       const res = completeMission();

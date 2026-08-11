@@ -14,6 +14,7 @@ import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js'
 import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission } from './gameState.js';
 import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops } from './simulation.js';
 import { esc } from './utils.js';
+import { DAY_NOUN } from './constants.js';
 
 /**
  * Which area has a case open right now, or null.
@@ -242,8 +243,13 @@ export function createDay({
     // The keyboard hint is not decoration. While the pointer is locked the
     // mouse belongs to the camera and no DOM click can land, so Enter is the
     // path most players will actually take; the button is what they see.
+    // A submarine runs watches and a hospital runs shifts, so the wording
+    // follows whatever the theme calls a mission.
+    const label = DAY_NOUN === 'Day'
+      ? 'Go to sleep, wake up tomorrow.'
+      : `Finish this ${DAY_NOUN.toLowerCase()} and move on.`;
     bar.innerHTML = '<button class="btn primary" id="turnInBtn" type="button">'
-      + 'Go to sleep, wake up tomorrow.<small>Enter</small></button>';
+      + esc(label) + '<small>Enter</small></button>';
     document.body.appendChild(bar);
     bar.querySelector('#turnInBtn').onclick = () => api.sleep();
     return bar;
@@ -355,11 +361,12 @@ export function createDay({
       .map(([, v]) => v);
     if(!rows.length) return '';
     const bad = rows.filter(r => !r.correct).length;
+    const noun = DAY_NOUN.toLowerCase();
     const text = bad === 0
-      ? `Everything you called on day ${week - 1} held overnight.`
+      ? `Everything you called in ${noun} ${week - 1} has held since.`
       : bad === rows.length
-        ? `None of day ${week - 1}'s calls held. Everything built on them is being worked again from the start.`
-        : `${bad} of day ${week - 1}'s ${rows.length} calls did not hold. What was built on them is being checked again while you work.`;
+        ? `Nothing you called in ${noun} ${week - 1} held. All of it is being worked again from the start.`
+        : `${bad} of ${noun} ${week - 1}'s ${rows.length} calls did not hold. What was built on them is being checked again while you work.`;
     return `<div class="planSince ${bad ? 'planSinceBad' : ''}">${esc(text)}</div>`;
   }
 
@@ -419,7 +426,7 @@ export function createDay({
       if(!m) return;
       const resuming = !!state.dayStarted && !state.dayEnded;
       planOpen = true;
-      ui.open(`Day ${state.week} — ${m.title}`, planHTML(resuming), [
+      ui.open(`${DAY_NOUN} ${state.week} — ${m.title}`, planHTML(resuming), [
         resuming
           ? { id: 'planStart', label: 'Back to it', primary: true, onClick: () => this.resume() }
           : { id: 'planStart', label: 'Start the day', primary: true, onClick: () => this.start() },

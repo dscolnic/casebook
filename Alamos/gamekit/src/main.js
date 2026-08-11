@@ -23,6 +23,7 @@ import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage } from '../engine/core/app.js';
 import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
+import { DAY_NOUN } from '../engine/core/constants.js';
 
 const canvas = document.getElementById('canvas');
 const promptEl = document.getElementById('prompt');
@@ -204,7 +205,7 @@ function showDayOver(outstanding){
       [{ id: 'dayRetry', label: 'Take the day again', primary: true, onClick: () => retakeDay() }]);
     return;
   }
-  day.ui.open(`Day ${state.week} closed`,
+  day.ui.open(`${DAY_NOUN} ${state.week} closed`,
     `<div class="briefBox"><p>Every call made. ${COPY.dayEnd ?? 'The team writes it up overnight.'}</p></div>`,
     [{ id: 'dayNext', label: 'Start the next day', primary: true, onClick: () => {
       const res = completeMission();

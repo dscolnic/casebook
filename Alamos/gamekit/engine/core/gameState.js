@@ -1,4 +1,4 @@
-import { WEEKS, WEEKLY_APPROPRIATION, DAILY_STIPEND } from './constants.js';
+import { WEEKS, DAY_NOUN, WEEKLY_APPROPRIATION, DAILY_STIPEND } from './constants.js';
 import { def, currentMilestone, completeMilestoneIfReady, readiness, baseWork, leader, getCurrentMission, getNextStop, missionStopDone, nextMissionStopIndex, completedMissionStops, missionComplete, missionStopForGroup, plannedWeeklySpend } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { saveState, loadState } from './save.js';
@@ -190,7 +190,7 @@ export function startDay(positions, spawn){
   if(!_state.stipendPaid || _state.stipendPaid !== _state.week){
     _state.reserve += DAILY_STIPEND;
     _state.stipendPaid = _state.week;
-    _state.log.push({ week: _state.week, text: `Day ${_state.week} opened with a $${DAILY_STIPEND} allowance.` });
+    _state.log.push({ week: _state.week, text: `${DAY_NOUN} ${_state.week} opened with a $${DAILY_STIPEND} allowance.` });
   }
   save();
   return _state.dayBudget;
@@ -238,7 +238,7 @@ export function restartDay(positions, spawn){
   _state.specialRequestsCompleted = (_state.specialRequestsCompleted || []).filter(w => w !== week);
   _state.dayStarted = false;
   _state.dayEnded = false;
-  _state.log.push({ week, text: `Day ${week} restarted. The calls are open again.` });
+  _state.log.push({ week, text: `${DAY_NOUN} ${week} restarted. The calls are open again.` });
   save();
   startDay(positions, spawn);
   return _state.dayBudget;

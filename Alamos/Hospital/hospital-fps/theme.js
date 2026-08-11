@@ -23,6 +23,9 @@ export default {
   // size from it, so the whole interface comes up larger for a nine-year-old
   // than for an undergraduate reading the same layout. It is a property of the
   // edition, not a setting the player should have to find.
+  // The game already calls these shifts in its own copy; the plan card was
+  // the one place still saying Day.
+  dayNoun: 'Shift',
   audience: { grade: 2 },
 
   id: 'hospital',
