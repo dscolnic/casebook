@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Outbreak: Riverton — questions and answers</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 16mm; }
+  :root { --ink:#1a1a18; --soft:#57544d; --rule:#d8d4ca; --key:#1c6b45; --keybg:#eef6f1; --accent:#7a3b12; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:11.5pt/1.55 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; color:var(--ink); }
+  .sheet { max-width: 175mm; margin: 0 auto; padding: 12mm 0 18mm; }
+  h1 { font-size: 26pt; line-height:1.15; margin:0 0 2mm; letter-spacing:-.01em; }
+  .sub { color:var(--accent); font-size:11pt; margin:0 0 1mm; }
+  .sub2 { color:var(--soft); font-size:11pt; margin:0 0 6mm; }
+  .meta { display:flex; flex-wrap:wrap; gap:3mm 6mm; border-top:1px solid var(--rule);
+          border-bottom:1px solid var(--rule); padding:3mm 0; margin:0 0 8mm;
+          font:9.5pt/1.4 ui-sans-serif,-apple-system,Segoe UI,sans-serif; color:var(--soft); }
+  .meta b { color:var(--ink); font-weight:600; }
+  .lede { font-size:11pt; color:var(--soft); margin:0 0 4mm; }
+
+  .mission { break-before: page; }
+  .mission:first-of-type { break-before: auto; }
+  .mhead { border-left:3px solid var(--accent); padding-left:5mm; margin:0 0 7mm; break-after: avoid; }
+  .mnum { font:600 9pt/1 ui-sans-serif,-apple-system,Segoe UI,sans-serif; letter-spacing:.1em;
+          text-transform:uppercase; color:var(--accent); margin:0 0 2mm; }
+  .mhead h2 { font-size:17pt; line-height:1.2; margin:0 0 2mm; }
+  .mobj { margin:0; color:var(--soft); font-size:10.5pt; }
+  .mstake { margin:1.5mm 0 0; color:var(--soft); font-size:10pt; font-style:italic; }
+
+  /* A stop is often most of a page, so keeping the whole thing together leaves
+     a mission header alone on one — fifteen times. Instead the stop may break,
+     and the pieces that must not are marked individually. */
+  .stop { padding:0 0 6mm; margin:0 0 6mm; border-bottom:1px solid var(--rule); }
+  .stop h3, .place, .callback, .q, .assumes, .law { break-after: avoid; }
+  .answer, .why, .rebs, .take, .pairs, .readings, .seq, .opts, .tiles { break-inside: avoid; }
+  .mhead { break-after: avoid; }
+  .stop:last-child { border-bottom:0; }
+  .stop h3 { font-size:12.5pt; line-height:1.3; margin:0 0 1.5mm; }
+  .ref { color:var(--accent); font-variant-numeric: tabular-nums; margin-right:1.5mm; }
+  .tags { white-space:nowrap; }
+  .tag { display:inline-block; font:600 7.5pt/1.5 ui-sans-serif,-apple-system,Segoe UI,sans-serif;
+         letter-spacing:.06em; text-transform:uppercase; background:#efece5; color:var(--soft);
+         border-radius:2px; padding:0 1.5mm; margin-left:1.5mm; vertical-align:1.5pt; }
+  .tag.alt { background:transparent; border:1px solid var(--rule); }
+  .place { margin:0 0 3mm; font:9.5pt/1.4 ui-sans-serif,-apple-system,Segoe UI,sans-serif; color:var(--soft); }
+  .callback { margin:0 0 3mm; font:600 8.5pt/1.4 ui-sans-serif,-apple-system,Segoe UI,sans-serif;
+              color:var(--accent); }
+  .scene { margin:0 0 3mm; }
+  .scene p { margin:0 0 2mm; }
+  .assumes, .law { font:9.5pt/1.45 ui-sans-serif,-apple-system,Segoe UI,sans-serif; color:var(--soft);
+                   margin:0 0 3mm; }
+  .assumes span, .law span { display:inline-block; font-weight:600; color:var(--ink);
+                             letter-spacing:.05em; text-transform:uppercase; font-size:7.5pt; margin-right:2mm; }
+  .q { font-weight:600; margin:0 0 3mm; }
+
+  ul, ol { margin:0 0 3mm; padding:0; list-style:none; }
+  .opts li { display:flex; gap:2.5mm; padding:1.2mm 2mm; border-radius:2px; }
+  .opt.is-answer { background:var(--keybg); }
+  .mark { flex:0 0 4mm; color:var(--key); font-weight:700; }
+  .optText { flex:1; }
+  .opt.is-answer .optText { font-weight:600; }
+  .mech { display:block; color:var(--soft); font-size:10pt; font-weight:400; }
+  .seq li { display:flex; gap:2.5mm; padding:1mm 0; }
+  .step { flex:0 0 5mm; height:5mm; border-radius:50%; background:var(--accent); color:#fff;
+          font:600 8pt/5mm ui-sans-serif,sans-serif; text-align:center; }
+  .tiles { display:flex; flex-wrap:wrap; gap:1.5mm; }
+  .tiles .tile { font:9.5pt/1.4 ui-sans-serif,-apple-system,Segoe UI,sans-serif; border:1px solid var(--rule);
+                 border-radius:2px; padding:.8mm 2mm; color:var(--soft); }
+  .tiles .tile.is-answer { border-color:var(--key); color:var(--key); font-weight:600; background:var(--keybg); }
+  .calc { font:10.5pt/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--ink);
+          background:#f6f4ee; border-radius:2px; padding:1.5mm 2.5mm; margin:0 0 3mm; }
+
+  table { width:100%; border-collapse:collapse; margin:0 0 3mm; font-size:10.5pt; }
+  .pairs td { padding:1.2mm 0; vertical-align:top; border-bottom:1px solid #efece5; }
+  .pairs .lhs { width:47%; padding-right:3mm; }
+  .pairs .arrow { width:6mm; color:var(--accent); text-align:center; }
+  .pairs .rhs { color:var(--key); }
+  .readings { font:9.5pt/1.4 ui-sans-serif,-apple-system,Segoe UI,sans-serif; }
+  .readings td { padding:1mm 2mm 1mm 0; vertical-align:top; border-bottom:1px solid #efece5; }
+  .readings .zone { color:var(--soft); width:24%; }
+  .readings .rlabel { width:26%; }
+  .readings .rval { font-weight:600; width:22%; }
+  .readings .rnote { color:var(--soft); }
+
+  .answer { border-left:3px solid var(--key); background:var(--keybg); padding:2mm 3mm; margin:0 0 3mm; }
+  .alabel, .wlabel { display:block; font:600 7.5pt/1.4 ui-sans-serif,-apple-system,Segoe UI,sans-serif;
+                     letter-spacing:.08em; text-transform:uppercase; color:var(--soft); margin-bottom:.8mm; }
+  .alabel { color:var(--key); }
+  .alabel.keyed { margin:0 0 1.5mm; }
+  .why { margin:0 0 3mm; }
+  .rebs ul { margin:0; }
+  .rebs li { position:relative; padding-left:4mm; margin:0 0 1.2mm; color:var(--soft); font-size:10.5pt; }
+  .rebs li::before { content:"✕"; position:absolute; left:0; color:#a8493a; font-size:8.5pt; top:.5mm; }
+  .take { margin:2mm 0 0; padding-top:2mm; border-top:1px dotted var(--rule);
+          font-size:10pt; font-style:italic; color:var(--soft); }
+
+  @media screen { body { background:#f4f2ec; } .sheet { background:#fff; padding:16mm 14mm;
+    margin:8mm auto; box-shadow:0 1px 3px rgba(0,0,0,.12); } }
+</style></head><body><div class="sheet">
+<h1>Outbreak: Riverton</h1>
+<p class="sub">Scientific Response Director · Riverton</p>
+<p class="sub2">Every question in the campaign, with its answer.</p>
+<div class="meta">
+  <span><b>15</b> missions</span>
+  <span><b>45</b> questions</span>
+  <span><b>13</b> callbacks</span>
+  <span><b>13</b> choice</span><span><b>12</b> sequence</span><span><b>7</b> diagnosis</span><span><b>7</b> protocol</span><span><b>6</b> ballpark</span>
+  <span>written for <b>grade 12</b></span>
+</div>
+<p class="lede">The scene is what the player reads before answering. <em>Why</em> and the rebuttals
+appear only afterwards, in the verdict — so the answer is never in the scene.</p>
+<article class="mission">
+    <header class="mhead"><p class="mnum">Mission 1</p><h2>The First Cluster</h2>
+      <p class="mobj">Open an investigation using a defensible provisional case definition and an explicit comparison baseline.</p>
+      <p class="mstake">A false alarm could disrupt the city, but a delayed investigation could cost the only window for early containment.</p></header>
+    <section class="stop">
+      <h3><span class="ref">1.1</span> Signal or noise?
+        <span class="tags"><span class="tag">DIAGNOSIS</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      <p class="callback">Returns as a callback on day 3</p>
+      <p class="place">Emergency Department Network</p>
+      <div class="scene">Seven patients across three hospitals, four days, and the same four symptoms in every one of them. Morales has the surveillance printout, the reporting routes and the catchment figures spread out on the desk. The press office has asked twice whether it should say anything. Nothing goes out until somebody calls this.</div>
+      <p class="assumes"><span>Assumes</span>a rate is a count measured against a population and a length of time · surveillance only sees the patients who reached it</p>
+      <p class="q">Is this a signal, and what on the desk decides it?</p>
+      <table class="readings"><tbody><tr><td class="zone">Count</td><td class="rlabel">Cases meeting the syndrome</td><td class="rval">7 in four days</td><td class="rnote"></td></tr><tr><td class="zone">Baseline</td><td class="rlabel">Same syndrome</td><td class="rval">about 2 a year</td><td class="rnote"></td></tr><tr><td class="zone">Reporting</td><td class="rlabel">How the cases were found</td><td class="rval">5 by one alert rule</td><td class="rnote"></td></tr><tr><td class="zone">Denominator</td><td class="rlabel">Catchment population</td><td class="rval">supplied by all three hospitals</td><td class="rnote"></td></tr><tr><td class="zone">Season</td><td class="rlabel">Other respiratory syndromes this week</td><td class="rval">flat</td><td class="rnote"></td></tr><tr><td class="zone">Geography</td><td class="rlabel">Shared address</td><td class="rval">none found</td><td class="rnote"></td></tr></tbody></table><ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">A real departure from the baseline<span class="mech">Seven in four days against two a year is far outside what the system usually does.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">An artifact of the shared alert rule<span class="mech">Every case was found the same way</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Ordinary autumn respiratory illness<span class="mech">This syndrome is common in autumn and the count is within normal seasonal movement.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Impossible to say — there is no denominator<span class="mech">Seven is a numerator</span></span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>A real departure from the baseline</div>
+      <div class="why"><span class="wlabel">Why</span>A count is not a signal. What makes it one is a comparison against something written down beforehand, and the baseline here is about two a year — so seven in four days is a departure of a couple of hundredfold, not a busy week. The reading that matters most is the quiet one: two of the seven were found on manual chart review, outside the alert rule. Had every case arrived through that one rule, the cluster could have belonged to the rule. Two found another way is what makes it real.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>The alert rule is the right worry, and it is the one this panel rules out. Five cases came through it and two did not, so the pattern survives being looked for a second way.</li><li>Autumn respiratory illness would lift the other syndromes with it. The panel shows those flat, so whatever this is, it is not the season.</li><li>The denominator is on the desk — all three hospitals supplied their catchment. That objection is the correct instinct and it has already been answered.</li></ul></div>
+      <p class="take">A count becomes a signal only when something says what was expected instead.</p>
+    </section><section class="stop">
+      <h3><span class="ref">1.2</span> Build the provisional case definition
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      <p class="callback">Returns as a callback on day 4</p>
+      <p class="place">Epidemiology Operations Room</p>
+      <div class="scene">Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Ortiz wants one definition, built in the right order.</div>
+      <p class="assumes"><span>Assumes</span>a curve is only meaningful if every hospital counted the same thing · a test can be wrong by missing cases or by counting the wrong ones</p>
+      <p class="q">Order the build so each step can be checked before the next one depends on it.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>Review the first patient records for common features.</span></li><li><span class="step">2</span><span>Specify observable symptoms, timing, and location.</span></li><li><span class="step">3</span><span>Test the definition on known cases and obvious non-cases.</span></li><li><span class="step">4</span><span>Publish the provisional definition with a revision date and uncertainty notes.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>A case definition is an instrument, and like any instrument it is wrong in a known direction. Too narrow and the spread is invisible; too wide and the count fills with the ordinary respiratory illness of a city in autumn. That is why it is tested twice before it is issued — against patients already known to be cases, which catches a definition that is too narrow, and against obvious non-cases, which catches one that is too wide. A definition nobody tested is a curve nobody can interpret.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Records first, because the shared features have to come out of the patients rather than out of the drafting. Specifying symptoms before reading the notes is writing down what you expected to find.</li><li>Symptoms, timing and geography next, because those three are what a clinician at four in the morning actually applies. A definition that cannot be applied at speed is not an operational definition.</li><li>Testing before publication, not after. Known cases catch a definition that is too narrow; obvious non-cases catch one that is too wide. Skip this and the first curve is uninterpretable in a direction nobody can name.</li><li>The revision date goes out with the definition. Without it, three hospitals keep counting to a definition everybody knows is provisional and nobody is authorised to change.</li></ul></div>
+      <p class="take">Operational definitions convert vague concern into reproducible observation.</p>
+    </section><section class="stop">
+      <h3><span class="ref">1.3</span> Spend the first response reserve
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      <p class="callback">Returns as a callback on day 7</p>
+      <p class="place">Clinical Data Office</p>
+      <div class="scene">One reserve of response money, and three things the room wants to spend it on. Ortiz needs one of them started this afternoon; the other two wait until tomorrow at the earliest. Nothing measured so far would change a decision.</div>
+      <p class="assumes"><span>Assumes</span>two sources can agree and still be wrong together if they were collected the same way</p>
+      <p class="q">What does the office start this afternoon?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">A standardised line list across all three hospitals.</span></li><li class="opt"><span class="mark"></span><span class="optText">Interviews with every hospital director for an expert impression.</span></li><li class="opt"><span class="mark"></span><span class="optText">Wastewater sampling in the affected and comparison neighbourhoods.</span></li><li class="opt"><span class="mark"></span><span class="optText">A citywide warning, before transmission is understood.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>A standardised line list across all three hospitals.</div>
+      <div class="why"><span class="wlabel">Why</span>Three hospitals are about to produce three curves, and curves only add up if the same definition made them. The line list is what turns three sets of impressions into one set of observations with dates and denominators — and every later stream, the wastewater included, gets read against it. Start anywhere else and the first thing tomorrow's data has to be compared with does not exist yet.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Interviews are fast and return impressions. An impression has no denominator, so it cannot say whether seven in four days is a departure from anything.</li><li>Wastewater is the right second stream, and it is valuable precisely because it does not depend on who chose to seek care. It cannot name a patient or define a case, which is what this week needs.</li><li>A warning issued before transmission is understood spends credibility on a hypothesis, and credibility is what every later message depends on.</li></ul></div>
+      <p class="take">Comparable observations come before independent ones, because everything else is read against them.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 2</p><h2>What Kind of Agent?</h2>
+      <p class="mobj">Classify the broad agent category and identify the next discriminating test.</p>
+      <p class="mstake">The wrong classification sends every later diagnostic and treatment effort down the wrong path.</p></header>
+    <section class="stop">
+      <h3><span class="ref">2.1</span> What kind of agent fits the whole panel?
+        <span class="tags"><span class="tag">DIAGNOSIS</span>
+        <span class="tag alt">Clinical Physiology</span>
+        </span></h3>
+      <p class="callback">Returns as a callback on day 5</p>
+      <p class="place">Hospital Pathology Suite</p>
+      <div class="scene">Pathology has four results from the same positive specimens and will not put a name to any of it. The four are on the light box in front of you. Ortiz needs a class of agent before the diagnostic bench can choose a method at all.</div>
+      <p class="assumes"><span>Assumes</span>cells and viruses differ in whether they can copy themselves alone · a negative control is a result, not an absence of one</p>
+      <p class="q">Which explanation fits every reading, including the quiet negative controls?</p>
+      <table class="readings"><tbody><tr><td class="zone">Microscopy</td><td class="rlabel">Microscopy</td><td class="rval">No intact cellular forms seen</td><td class="rnote">Several fields examined; image quality is good</td></tr><tr><td class="zone">Host-cell dependence</td><td class="rlabel">Host-cell dependence</td><td class="rval">Signal rises only when living host cells are present</td><td class="rnote">Acellular control shows no increase</td></tr><tr><td class="zone">Bacterial marker</td><td class="rlabel">Bacterial marker</td><td class="rval">Not detected</td><td class="rnote">Control bacterial sample is detected normally</td></tr><tr><td class="zone">Fungal cell-wall stain</td><td class="rlabel">Fungal cell-wall stain</td><td class="rval">Negative</td><td class="rnote">Positive stain control is normal</td></tr><tr><td class="zone">Extraction blank</td><td class="rlabel">Extraction blank</td><td class="rval">Negative</td><td class="rnote">No target signal in the blank</td></tr></tbody></table><ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">An RNA virus-like agent<span class="mech">Not a cell of its own, and it can only copy itself inside a living host cell.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">A bacterium of some kind<span class="mech">A cellular organism, which would leave bacterial markers and structures behind.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">A fungus of some kind<span class="mech">A cellular organism with a cell wall the stain is built to find.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Laboratory contamination<span class="mech">Target material loose in the workflow rather than anything in the patients.</span></span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>An RNA virus-like agent</div>
+      <div class="why"><span class="wlabel">Why</span>The negatives are doing the work here. No cellular forms under the microscope, no bacterial marker, no fungal cell wall — three ways of being a cell, all absent. What is present is dependence: signal rises only where living host cells are, which is what an agent that cannot copy itself alone looks like. And the clean extraction blank is what stops the whole panel being about the laboratory instead of the patient.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>A bacterium is a cell and would leave cellular evidence — a marker, a wall, something under the microscope. Three separate looks for that came back empty.</li><li>A fungus would show cell-wall material on the stain built to find it. That stain is negative, and it is a stain that rarely misses.</li><li>Contamination is the right suspicion whenever a signal appears from nowhere, and it is checked by the blank. This blank is clean, so the signal came in with the specimens.</li></ul></div>
+      <p class="take">Agent classification should combine cellular structure, host dependence, molecular evidence, and controls rather than rely on one striking image.</p>
+    </section><section class="stop">
+      <h3><span class="ref">2.2</span> From specimen to broad classification
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Microscopy Core</p>
+      <div class="scene">The microscopy core has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.</div>
+      <p class="assumes"><span>Assumes</span>a measurement of a contaminated preparation measures the contamination</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>Compare patient material with negative and healthy controls.</span></li><li><span class="step">2</span><span>Characterize size, cellular structures, and nucleic-acid signature.</span></li><li><span class="step">3</span><span>Ask whether the candidate reproduces independently or requires host cells.</span></li><li><span class="step">4</span><span>Integrate the independent observations into a provisional classification.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>Each step is only interpretable if the one before it held. Comparing against controls first is what separates the agent from the specimen it arrived in — measure a structure in a contaminated preparation and you have measured the contamination, at high magnification. Size and structure then say whether this is cellular at all, and only once you know that does asking whether it copies itself alone mean anything.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Controls first, because everything after them is a claim about the patient rather than about the tube.</li><li>Structure before behaviour: whether something needs a host cell is a question about an organism, and you do not have an organism until you know it is one.</li><li>The replication question comes third because it is the slowest and the most specific — it is worth running only on a candidate the first two steps survived.</li><li>Integration last. A provisional classification is what the other three produce, not a step you can take on its own.</li></ul></div>
+      <p class="take">A good classification is an evidence synthesis, not a label generated by one instrument.</p>
+    </section><section class="stop">
+      <h3><span class="ref">2.3</span> Choose the next discriminating evidence
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Molecular Diagnostics</span>
+        </span></h3>
+      <p class="callback">Returns as a callback on day 6</p>
+      <p class="place">Molecular Identification Lab</p>
+      <div class="scene">Two hypotheses about the agent are still open and there is money for one more piece of work before the diagnostic bench has to commit. Three of the four things on the table would produce a result by tonight.</div>
+      <p class="assumes"><span>Assumes</span>two methods that can fail the same way do not confirm each other</p>
+      <p class="q">One experiment separates the two remaining hypotheses. Which?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Obtain a molecular signature using a validated broad panel.</span></li><li class="opt"><span class="mark"></span><span class="optText">Repeat the same microscope image at higher magnification.</span></li><li class="opt"><span class="mark"></span><span class="optText">Compare growth in permissive and non-permissive cell systems.</span></li><li class="opt"><span class="mark"></span><span class="optText">Ask a recognised authority which answer is most likely.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Obtain a molecular signature using a validated broad panel.</div>
+      <div class="why"><span class="wlabel">Why</span>The evidence so far is morphological, and the two candidates differ in their genome rather than their appearance. A molecular panel fails in a different way from microscopy, so agreement between the two would mean something; more microscopy could only agree with itself.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Higher magnification is more of the evidence already held. If the first image could be misread, so can a sharper one taken the same way.</li><li>The replication comparison is a real and independent test and it is what you run next. It answers whether the agent needs host cells — which the panel has already shown — rather than which candidate it is.</li><li>An authority's opinion carries the authority's failure modes and adds no measurement at all.</li></ul></div>
+      <p class="take">Independent failure modes matter more than prestige or repeated views of the same evidence.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 3</p><h2>The Point of Entry</h2>
+      <p class="mobj">Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream replication.</p>
+      <p class="mstake">A mistaken entry model could lead to a therapy that blocks the wrong stage while vulnerable cells continue to fail.</p></header>
+    <section class="stop">
+      <h3><span class="ref">3.1</span> Crossing the cellular boundary
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Cell &amp; Membrane Biology</span>
+        </span></h3>
+      <p class="callback">Returns as a callback on day 8</p>
+      <p class="place">Cell Culture Wing</p>
+      <div class="scene">Only some cell types in the respiratory tissue are affected, and the culture wing has four cards describing what happens when something crosses into a cell. Nobody has put them in order yet, and the therapy meeting is at four.</div>
+      <p class="assumes"><span>Assumes</span>a cell membrane is a selective barrier, not a wall</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>A surface molecule binds a compatible receptor.</span></li><li><span class="step">2</span><span>The membrane bends or a fusion process begins.</span></li><li><span class="step">3</span><span>The biological material enters the cell or an intracellular compartment.</span></li><li><span class="step">4</span><span>Cellular machinery is redirected after entry.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>The order is physical, and it is why the tissue pattern is predictable. Nothing enters until something on the surface is recognised, and a cell without the right protein cannot be infected however much material reaches it. Recognition comes first, the membrane rearranges second because that is what binding triggers, material crosses third, and everything the cell then does wrongly is downstream of a barrier that has already been crossed.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Binding first: it is the step that decides which cells are even candidates, which is what makes some cell types vulnerable and others not.</li><li>The membrane bends because something bound to it. Fusion is a consequence of recognition, not a step that happens on its own.</li><li>Material crosses only after the membrane has rearranged — that is what the rearrangement is for.</li><li>The hijacked machinery is last because it is an effect. A cell whose machinery is redirected has already been entered.</li></ul></div>
+      <p class="take">Membranes are selective interfaces whose proteins can determine cell vulnerability.</p>
+    </section><section class="stop">
+      <h3><span class="ref">3.2</span> Choose the membrane mechanism
+        <span class="tags"><span class="tag">PROTOCOL</span>
+        <span class="tag alt">Cell &amp; Membrane Biology</span>
+        <span class="tag alt">person stop</span></span></h3>
+      <p class="callback">Returns as a callback on day 9</p>
+      <p class="place">Membrane Biology Lab</p>
+      <div class="scene">Four observations from the culture bench, each describing something moving across a membrane. Adeyemi wants each one named by its mechanism before the entry model goes any further, and she does not want the names guessed from the molecules.</div>
+      <p class="assumes"><span>Assumes</span>a concentration gradient has a direction · ATP is the cell's energy currency</p>
+      <p class="q">Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.</p>
+      <p class="alabel keyed">Correct matching</p><table class="pairs"><tbody><tr><td class="lhs">A small nonpolar molecule moves down its concentration gradient.</td><td class="arrow">→</td><td class="rhs">Simple diffusion.</td></tr><tr><td class="lhs">An ion moves down its gradient through a selective protein pore.</td><td class="arrow">→</td><td class="rhs">Facilitated diffusion through a channel.</td></tr><tr><td class="lhs">A solute moves uphill while ATP is consumed.</td><td class="arrow">→</td><td class="rhs">Active transport.</td></tr><tr><td class="lhs">A large bound particle is enclosed by the membrane.</td><td class="arrow">→</td><td class="rhs">Endocytosis.</td></tr></tbody></table>
+      
+      <div class="why"><span class="wlabel">Why</span>Three constraints tell these apart and none of them is the name of the molecule. Which way it goes: downhill needs no energy, uphill does, and the ATP consumption is the receipt. Whether a protein is involved: a small nonpolar molecule crosses the lipid directly, an ion cannot and needs a pore. And how big it is: a bound particle too large for any channel is taken in by the membrane wrapping it.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Downhill and needing no protein is simple diffusion — the molecule is small and nonpolar enough to cross the lipid itself.</li><li>Downhill but through a selective pore is facilitated diffusion. Still no energy spent; the protein supplies the selectivity, not the push.</li><li>Uphill with ATP consumed is active transport, and the energy cost is the thing that identifies it.</li><li>A large bound particle enclosed by the membrane is endocytosis — a different process from anything crossing the bilayer.</li></ul></div>
+      <p class="take">Transport mechanisms are inferred from constraints, not memorized from molecule names alone.</p>
+    </section><section class="stop">
+      <h3><span class="ref">3.3</span> Separate binding from entry
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Cell &amp; Membrane Biology</span>
+        <span class="tag alt">person stop</span></span></h3>
+      <p class="callback">Returns as a callback on day 10</p>
+      <p class="place">Structural Biology Room</p>
+      <div class="scene">Some cell types are infected and some are not, and nobody can say at which step the resistant ones stop the process. Structural biology has bench time for one experiment before the therapy target is chosen.</div>
+      <p class="assumes"><span>Assumes</span>a chain of steps fails at its earliest broken link</p>
+      <p class="q">Which experiment locates the step where resistant cells stop the process?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Measure receptor abundance on vulnerable and resistant cells.</span></li><li class="opt"><span class="mark"></span><span class="optText">Track whether bound material is internalised.</span></li><li class="opt"><span class="mark"></span><span class="optText">Measure a late cellular response in both cell types.</span></li><li class="opt"><span class="mark"></span><span class="optText">Increase the exposure until every cell shows damage.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Measure receptor abundance on vulnerable and resistant cells.</div>
+      <div class="why"><span class="wlabel">Why</span>Entry is a chain and the earliest divergence is the cause; everything after it is a consequence. Receptor abundance tests the first step, and it is the only measurement whose result changes what the next experiment should be.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Internalisation is the right second experiment and it is only interpretable once you know both cell types can bind. Run it after, not instead.</li><li>A late response tells you something already went wrong upstream, which is what you knew before you started.</li><li>Flooding the system until everything is damaged destroys the difference between the two cell types, which is the entire measurement.</li></ul></div>
+      <p class="take">Mechanistic experiments should identify the earliest point at which two conditions diverge.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 4</p><h2>Hijacked Cells</h2>
+      <p class="mobj">Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.</p>
+      <p class="mstake">A rushed interpretation could make the team target a gene whose RNA is merely a consequence rather than the cause of cell damage.</p></header>
+    <section class="stop">
+      <h3><span class="ref">4.1</span> From genetic information to protein
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Molecular Diagnostics</span>
+        </span></h3>
+      <p class="callback">Returns as a callback on day 11</p>
+      <p class="place">Sequencing Center</p>
+      <div class="scene">Affected cells are making RNA and proteins the sequencing centre does not recognise. Four cards describe how a cell gets from a gene to something that does a job. Nobody can say where the change is until the chain is on the board in order.</div>
+      <p class="assumes"><span>Assumes</span>genes are read into RNA and RNA is read into protein</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>A DNA template is made accessible.</span></li><li><span class="step">2</span><span>RNA polymerase produces an RNA transcript.</span></li><li><span class="step">3</span><span>A ribosome reads codons in the messenger RNA.</span></li><li><span class="step">4</span><span>The amino-acid chain folds and performs a cellular function.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>Abundance can change at any one of these stages independently, which is exactly why the chain is worth stating rather than treating expression as one event. The template has to be reachable before anything transcribes it; a transcript has to exist before a ribosome can read it; and a chain of amino acids does nothing at all until it folds. Each stage is a separate place for the answer to be hiding.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Access first: a template nothing can reach is transcribed by nothing, whatever else is true of the cell.</li><li>Transcription second, because the message is what the next stage reads.</li><li>Translation third — a ribosome needs a transcript, and codons are read only once there is something to read them from.</li><li>Folding last, and it is not a formality: an unfolded chain is present, measurable, and useless.</li></ul></div>
+      <p class="take">Changes in protein abundance can arise at several distinct stages of gene expression.</p>
+    </section><section class="stop">
+      <h3><span class="ref">4.2</span> Locate the molecular change
+        <span class="tags"><span class="tag">PROTOCOL</span>
+        <span class="tag alt">Molecular Diagnostics</span>
+        <span class="tag alt">person stop</span></span></h3>
+      <p class="callback">Returns as a callback on day 12</p>
+      <p class="place">Gene Expression Lab</p>
+      <div class="scene">Four patterns from the gene-expression bench, each pairing a measurement with another measurement. Adeyemi wants each one placed at the stage it reports on, before anybody proposes a gene worth targeting.</div>
+      <p class="assumes"><span>Assumes</span>the amount of a protein and the amount of its message are measured separately</p>
+      <p class="q">Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.</p>
+      <p class="alabel keyed">Correct matching</p><table class="pairs"><tbody><tr><td class="lhs">RNA rises while protein stays constant.</td><td class="arrow">→</td><td class="rhs">Possible translation limit or rapid protein turnover.</td></tr><tr><td class="lhs">RNA is unchanged while protein rises.</td><td class="arrow">→</td><td class="rhs">Possible increased translation efficiency or reduced protein degradation.</td></tr><tr><td class="lhs">A codon changes and one amino acid is substituted.</td><td class="arrow">→</td><td class="rhs">A missense sequence change.</td></tr><tr><td class="lhs">Protein amount is normal but activity is low.</td><td class="arrow">→</td><td class="rhs">Possible folding, modification, or active-site defect.</td></tr></tbody></table>
+      
+      <div class="why"><span class="wlabel">Why</span>RNA abundance, protein abundance, sequence and activity are four different measurements, and the central dogma is a chain of transformations rather than a promise that they move together. Message up with protein flat means the message is not being turned into protein, or the protein is being destroyed as fast as it is made. Protein up with message unchanged means the opposite end. And a protein present in normal amounts but not working is a claim about the molecule, not about how much of it there is.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>RNA rising while protein stays flat points downstream of transcription — a translation limit, or rapid turnover of the protein once made.</li><li>Protein rising on unchanged RNA points to more efficient translation or slower degradation. Nothing about the gene has changed.</li><li>One codon changed and one amino acid substituted is a sequence change, and it is visible only in the sequence.</li><li>Normal amount with low activity is about folding, modification or the active site — the molecule is there and cannot do the job.</li></ul></div>
+      <p class="take">The central dogma is a chain of measurable transformations, not a claim that every stage changes together.</p>
+    </section><section class="stop">
+      <h3><span class="ref">4.3</span> Find the controlling stage
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Molecular Diagnostics</span>
+        <span class="tag alt">person stop</span></span></h3>
+      <p class="callback">Returns as a callback on day 13</p>
+      <p class="place">Protein Analysis Core</p>
+      <div class="scene">An unfamiliar protein is abundant in affected cells. The protein analysis core has money for a few measurements, and the team is already arguing about which gene to target.</div>
+      <p class="assumes"><span>Assumes</span>a protein's abundance is set by how fast it is made and how fast it is destroyed</p>
+      <p class="q">Abundance alone fits every mechanism. Which measurement do you make first?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Quantify the protein's messenger RNA across time.</span></li><li class="opt"><span class="mark"></span><span class="optText">Measure ribosome association with that RNA.</span></li><li class="opt"><span class="mark"></span><span class="optText">Measure the protein's half-life and degradation rate.</span></li><li class="opt"><span class="mark"></span><span class="optText">Sequence the neighbouring chromosomal region.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Quantify the protein's messenger RNA across time.</div>
+      <div class="why"><span class="wlabel">Why</span>An abundant protein is consistent with more transcript, more efficient translation, or slower destruction. Transcript abundance is the one measurement that splits the three: if the message did not move, transcription is out and the cause is downstream of it.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Ribosome association asks whether translation changed, and it only means something once you know whether the amount of message changed underneath it.</li><li>Half-life asks whether the protein is simply being destroyed more slowly. A real possibility, and the third measurement rather than the first.</li><li>The neighbouring region answers a question nobody has asked about a protein whose gene is already identified.</li></ul></div>
+      <p class="take">Mechanism requires measurements that span the full causal chain.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 5</p><h2>A Test Before Morning</h2>
+      <p class="mobj">Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.</p>
+      <p class="mstake">An unreliable test could either miss contagious patients or isolate thousands of healthy people.</p></header>
+    <section class="stop">
+      <h3><span class="ref">5.1</span> Build a trustworthy amplification run
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Molecular Diagnostics</span>
+        </span></h3>
+      <p class="callback">Returns as a callback on day 14</p>
+      <p class="place">Sample Processing Room</p>
+      <div class="scene">Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of a billion, which is the reason this order is argued about at all.</div>
+      <p class="assumes"><span>Assumes</span>amplification copies whatever template is present, wanted or not</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>Extract material while preserving sample identity.</span></li><li><span class="step">2</span><span>Include positive, negative, and no-template controls.</span></li><li><span class="step">3</span><span>Amplify the target with validated primers and cycling conditions.</span></li><li><span class="step">4</span><span>Interpret the patient signal only if all controls behave as expected.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>A patient result is the output of a controlled process, and read before the controls are read it is an instrument reading rather than evidence. Identity has to survive extraction or the result belongs to no one. The controls have to be in the run, not added afterwards — a positive control shows the chemistry worked, and a no-template control shows the signal did not come from the room. Only when they behave is the patient well worth interpreting.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Extraction first, with identity preserved. A result that cannot be tied to a patient is not a diagnosis of anybody.</li><li>Controls go into the run alongside the samples. Added later they test a different run from the one that produced the result.</li><li>Amplification third, with validated primers — the step everything else exists to make interpretable.</li><li>Interpretation last and conditional. If a control misbehaved, the patient wells are uninterpretable no matter how clean they look.</li></ul></div>
+      <p class="take">A diagnostic result is the output of a controlled process, not simply a machine reading.</p>
+    </section><section class="stop">
+      <h3><span class="ref">5.2</span> Why did the assay turn positive?
+        <span class="tags"><span class="tag">DIAGNOSIS</span>
+        <span class="tag alt">Molecular Diagnostics</span>
+        <span class="tag alt">person stop</span></span></h3>
+      <p class="callback">Returns as a callback on day 15</p>
+      <p class="place">PCR Diagnostics Lab</p>
+      <div class="scene">The overnight run flagged several patients positive. The controls and a second platform ran alongside them, and all of it is on the screen in front of you. Hospitals are waiting to isolate on this result.</div>
+      <p class="assumes"><span>Assumes</span>a no-template control contains water and no sample · two methods with different chemistry fail in different ways</p>
+      <p class="q">Which explanation best fits the patient results and all of the controls?</p>
+      <table class="readings"><tbody><tr><td class="zone">Patient wells</td><td class="rlabel">Patient wells</td><td class="rval">Target signal detected</td><td class="rnote">Several patient samples cross the detection threshold</td></tr><tr><td class="zone">No-template control</td><td class="rlabel">No-template control</td><td class="rval">Target signal detected</td><td class="rnote">This control should contain no target material</td></tr><tr><td class="zone">Positive control</td><td class="rlabel">Positive control</td><td class="rval">Detected at expected level</td><td class="rnote">Core amplification chemistry is functioning</td></tr><tr><td class="zone">Independent platform</td><td class="rlabel">Independent platform</td><td class="rval">Patient target not detected</td><td class="rnote">Uses a different detection method</td></tr><tr><td class="zone">Instrument baseline</td><td class="rlabel">Instrument baseline</td><td class="rval">Stable</td><td class="rnote">No broad detector drift is present</td></tr></tbody></table><ul class="opts"><li class="opt"><span class="mark"></span><span class="optText">True patient positives<span class="mech">The patient samples contain the target and the controls are behaving normally.</span></span></li><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Carryover contamination<span class="mech">Target material entered part of the amplification workflow, making samples and the no-template control positive.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Reagent failure<span class="mech">The reaction chemistry failed, so true target should not amplify reliably.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Sample inhibition<span class="mech">Something in patient material suppresses amplification and tends to create false negatives.</span></span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Carryover contamination</div>
+      <div class="why"><span class="wlabel">Why</span>A control is part of the evidence, not a decoration on it. The no-template control is water — there is nothing in it to amplify — so a target signal there means target material is loose in the workflow, and anything the workflow touched is suspect. The positive control working rules out failed chemistry, and an independent platform not finding the target in the same patients rules out the patients. One quiet well overturns an impressive-looking plate.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>True positives would not put a signal in a tube containing no sample. That well is the one reading that cannot be explained by infected patients.</li><li>Reagent failure would stop true target amplifying, and the positive control amplified exactly as expected.</li><li>Inhibition suppresses amplification and produces false negatives. This plate has the opposite problem.</li></ul></div>
+      <p class="take">A control is part of the evidence, not a decoration: a positive blank can overturn an apparently impressive patient signal.</p>
+    </section><section class="stop">
+      <h3><span class="ref">5.3</span> What does a positive mean?
+        <span class="tags"><span class="tag">BALLPARK</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Clinical Statistics Desk</p>
+      <div class="scene">The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The clinical statistics desk has the assay's performance figures and the size of the group in front of it.</div>
+      <p class="assumes"><span>Assumes</span>prevalence is the share of a population that has the condition · sensitivity and specificity are properties of a test, not of a population</p>
+      <p class="q">Estimate the chance that a positive result is a true case.</p>
+      <p class="law"><span>Governing relationship</span>Of everyone tested, the true positives are prevalence × sensitivity; the false positives are (1 − prevalence) × (1 − specificity). The answer is true positives as a share of all positives.</p><ul class="tiles"><li class="tile is-answer">10,000 people screened</li><li class="tile is-answer">0.01 (prevalence in the screening group)</li><li class="tile is-answer">0.90 (sensitivity)</li><li class="tile is-answer">0.99 (specificity)</li><li class="tile">0.30 (prevalence on the affected ward)</li><li class="tile">0.10 (the fraction reporting symptoms)</li></ul><p class="calc">10,000 people screened×0.01×0.90 ÷ ( 10,000 people screened×0.01×0.90 + 10,000 people screened×(1−0.01)×(1−0.99) ) × 100</p>
+      <div class="answer"><span class="alabel">Answer</span>90 true positives against 99 false ones, so about 48% of positives are real.</div>
+      <div class="why"><span class="wlabel">Why</span>Specificity is a property of the test; the fraction of positives that are real is a property of the test and the population together. Moving this assay from the ward to the city changes nothing about the chemistry and almost everything about what a positive means.</div>
+      
+      <p class="take">Clinical meaning depends on both test performance and the population being tested.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 6</p><h2>Why Are Some Patients Sicker?</h2>
+      <p class="mobj">Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.</p>
+      <p class="mstake">The wrong physiological diagnosis could intensify a treatment that cannot reach the true failing organ system.</p></header>
+    <section class="stop">
+      <h3><span class="ref">6.1</span> Locate the oxygen-delivery failure
+        <span class="tags"><span class="tag">DIAGNOSIS</span>
+        <span class="tag alt">Clinical Physiology</span>
+        </span></h3>
+      
+      <p class="place">Intensive Care Unit</p>
+      <div class="scene">Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full cardiopulmonary panel on one of them, and the team is about to escalate a treatment on the strength of it.</div>
+      <p class="assumes"><span>Assumes</span>oxygen travels air to lung to blood to tissue, and each handover can fail separately</p>
+      <p class="q">Which bottleneck fits the entire cardiopulmonary panel?</p>
+      <table class="readings"><tbody><tr><td class="zone">Arterial oxygen saturation</td><td class="rlabel">Arterial oxygen saturation</td><td class="rval">86%</td><td class="rnote">Lower than expected</td></tr><tr><td class="zone">End-tidal carbon dioxide</td><td class="rlabel">End-tidal carbon dioxide</td><td class="rval">39 mmHg</td><td class="rnote">Near the expected resting range</td></tr><tr><td class="zone">Cardiac output</td><td class="rlabel">Cardiac output</td><td class="rval">5.2 L/min</td><td class="rnote">Near the expected adult resting range</td></tr><tr><td class="zone">Hemoglobin</td><td class="rlabel">Hemoglobin</td><td class="rval">14 g/dL</td><td class="rnote">Near the expected adult range</td></tr><tr><td class="zone">Lung imaging</td><td class="rlabel">Lung imaging</td><td class="rval">Diffuse gas-exchange abnormality</td><td class="rnote">No evidence of a primary pump failure</td></tr></tbody></table><ul class="opts"><li class="opt"><span class="mark"></span><span class="optText">Ventilation failure<span class="mech">Too little fresh air reaches the alveoli; carbon dioxide would often rise along with falling oxygen.</span></span></li><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Gas-exchange failure<span class="mech">Air reaches the lungs, but oxygen transfer from alveoli into blood is impaired.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Circulatory delivery failure<span class="mech">Oxygenated blood is present but cardiac output is too low to deliver it to tissues.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Anemia<span class="mech">Blood flow and lung exchange may be adequate, but too little hemoglobin limits oxygen carriage.</span></span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Gas-exchange failure</div>
+      <div class="why"><span class="wlabel">Why</span>Oxygen delivery is a chain, and normal values at one link are not reassurance — they are evidence that the failure is elsewhere. Carbon dioxide near normal says air is reaching the alveoli, so ventilation is working. Cardiac output normal says the pump is moving blood. Haemoglobin normal says the blood can carry oxygen. What is left is the handover between air and blood, and the imaging says the same thing.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Ventilation failure would usually push carbon dioxide up as oxygen falls, because the same failing airflow carries both. This carbon dioxide is near normal.</li><li>Circulatory failure means oxygenated blood that never arrives, and cardiac output here is 5.2 L/min. The blood is moving.</li><li>Anaemia limits how much oxygen each litre can carry, and haemoglobin is 14 g/dL. The carriage is not the problem.</li></ul></div>
+      <p class="take">Oxygen delivery is a chain. Normal measurements at one link can be powerful evidence that the failure lies somewhere else.</p>
+    </section><section class="stop">
+      <h3><span class="ref">6.2</span> Estimate oxygen delivery
+        <span class="tags"><span class="tag">BALLPARK</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Cardiopulmonary Physiology Lab</p>
+      <div class="scene">The bedside argument has stalled on which of two patients is worse off. Both have the same oxygen content per litre of blood; one moves three litres a minute and the other five.</div>
+      <p class="assumes"><span>Assumes</span>a rate is an amount multiplied by how fast it is delivered</p>
+      <p class="q">Estimate oxygen delivery for the patient with the lower cardiac output.</p>
+      <p class="law"><span>Governing relationship</span>Oxygen delivered = blood flow × oxygen carried per unit of blood.</p><ul class="tiles"><li class="tile is-answer">3 L/min (cardiac output, first patient)</li><li class="tile is-answer">0.20 L O₂/L (oxygen content of the blood)</li><li class="tile">5 L/min (cardiac output, comparison patient)</li><li class="tile">86 % (arterial saturation)</li><li class="tile">14 g/dL (haemoglobin)</li></ul><p class="calc">3 L/min × 0.20 L O₂/L</p>
+      <div class="answer"><span class="alabel">Answer</span>3 × 0.20 = 0.6 L O₂/min, against 1.0 for the comparison patient.</div>
+      <div class="why"><span class="wlabel">Why</span>Two patients with identical saturations can differ by a factor of two in delivery, because the flow term is doing the work. A concentration is not a rate.</div>
+      
+      <p class="take">A normal concentration does not guarantee a normal delivery rate; flow matters.</p>
+    </section><section class="stop">
+      <h3><span class="ref">6.3</span> Measure the failing link
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Clinical Physiology</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Clinical Chemistry Bench</p>
+      <div class="scene">A patient is deteriorating and the team wants to commit to a treatment. There is time and money for one more measurement at the bedside before it does.</div>
+      <p class="assumes"><span>Assumes</span>a failure shows itself at the point in a chain where the numbers stop matching</p>
+      <p class="q">One bedside measurement before the team commits to a treatment. Which?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Tissue lactate and acid-base status.</span></li><li class="opt"><span class="mark"></span><span class="optText">Arterial oxygenation and carbon dioxide.</span></li><li class="opt"><span class="mark"></span><span class="optText">Cardiac output or a validated flow surrogate.</span></li><li class="opt"><span class="mark"></span><span class="optText">The same pulse oximeter reading, repeated on three devices.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Tissue lactate and acid-base status.</div>
+      <div class="why"><span class="wlabel">Why</span>Oxygen delivery is a chain and the panel has already measured its top: saturation is low, carbon dioxide and cardiac output are not. What nobody has measured is the far end — whether delivery is actually failing to meet demand in the tissues, which is the thing the treatment is meant to change.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Arterial oxygenation and carbon dioxide are already on the chart from the earlier panel. Measuring them again is precision about a number that is not in dispute.</li><li>Cardiac output reports the pump, and the pump has already read normal. Worth repeating if the patient changes; not the missing measurement now.</li><li>Three identical devices agreeing tells you the devices agree. It does not add an independent observation.</li></ul></div>
+      <p class="take">Integrated physiology requires evidence from multiple points along the transport chain.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 7</p><h2>The Immune System Turns</h2>
+      <p class="mobj">Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed adaptive response, or excessive inflammation.</p>
+      <p class="mstake">Suppressing a protective response or ignoring immune-mediated injury can both be fatal.</p></header>
+    <section class="stop">
+      <h3><span class="ref">7.1</span> Build the immune response timeline
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Immunology &amp; Treatment</span>
+        </span></h3>
+      
+      <p class="place">Immunology Lab</p>
+      <div class="scene">Patients are improving and then getting worse again, and the immunology lab wants the normal response on the board before it says which part has gone wrong. Four cards, no order yet.</div>
+      <p class="assumes"><span>Assumes</span>the immune system has a fast general response and a slower specific one</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>Innate sensors recognize damage or unfamiliar molecular patterns.</span></li><li><span class="step">2</span><span>Local signals recruit and activate immune cells.</span></li><li><span class="step">3</span><span>Antigen-specific lymphocytes expand and act.</span></li><li><span class="step">4</span><span>A smaller memory population persists after resolution.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>The phases are ordered by speed and by specificity, and that ordering is what makes a clinical measurement interpretable. Innate sensors fire within hours because they recognise patterns rather than a particular agent. Local signals then recruit cells to where the damage is. Antigen-specific lymphocytes take days because they have to find the right clone and expand it. Memory is what persists after — a smaller population, kept.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Innate recognition first: it needs no prior exposure, which is exactly why it can be the fastest.</li><li>Recruitment second — signals bring cells to the place, and nothing specific can act until cells are there.</li><li>Clonal expansion third, and it is slow because finding and multiplying the right lymphocyte takes days.</li><li>Memory last. It is what is left after resolution, and it is the reason a second exposure goes differently.</li></ul></div>
+      <p class="take">Innate and adaptive immunity are coordinated phases, not competing systems.</p>
+    </section><section class="stop">
+      <h3><span class="ref">7.2</span> Protective response or runaway inflammation?
+        <span class="tags"><span class="tag">DIAGNOSIS</span>
+        <span class="tag alt">Clinical Physiology</span>
+        </span></h3>
+      
+      <p class="place">Intensive Care Unit</p>
+      <div class="scene">Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last forty-eight hours is on the screen, and the ward wants to know what it is treating.</div>
+      <p class="assumes"><span>Assumes</span>the immune response can damage tissue while it clears an infection</p>
+      <p class="q">Which mechanism best explains the reversal in the full panel?</p>
+      <table class="readings"><tbody><tr><td class="zone">Pathogen signal</td><td class="rlabel">Pathogen signal</td><td class="rval">Falling over 48 hours</td><td class="rnote">Lower than at admission</td></tr><tr><td class="zone">Inflammatory cytokine panel</td><td class="rlabel">Inflammatory cytokine panel</td><td class="rval">Rising sharply</td><td class="rnote">Multiple inflammatory signals increase together</td></tr><tr><td class="zone">Neutralizing antibody</td><td class="rlabel">Neutralizing antibody</td><td class="rval">Present</td><td class="rnote">Adaptive response is active</td></tr><tr><td class="zone">Oxygenation</td><td class="rlabel">Oxygenation</td><td class="rval">Worsening</td><td class="rnote">Physiology deteriorates despite lower pathogen signal</td></tr><tr><td class="zone">Bacterial cultures</td><td class="rlabel">Bacterial cultures</td><td class="rval">No growth</td><td class="rnote">No evidence for a new bacterial infection</td></tr></tbody></table><ul class="opts"><li class="opt"><span class="mark"></span><span class="optText">Uncontrolled pathogen replication<span class="mech">The agent is multiplying faster and directly increasing tissue injury.</span></span></li><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Dysregulated inflammatory injury<span class="mech">The immune response remains strongly activated and damages tissue even as pathogen burden falls.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">New bacterial superinfection<span class="mech">A second bacterial infection is now driving the decline.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Measurement noise<span class="mech">The apparent changes are unrelated fluctuations without a shared mechanism.</span></span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Dysregulated inflammatory injury</div>
+      <div class="why"><span class="wlabel">Why</span>Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Uncontrolled replication would show a rising pathogen signal. This one is falling, over forty-eight hours, while the patient declines.</li><li>A bacterial superinfection is the classic late deterioration, and it is the reason cultures were sent. They are negative.</li><li>Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise.</li></ul></div>
+      <p class="take">A biological response can become part of the problem. The strongest explanation must account for timing as well as the direction of each measurement.</p>
+    </section><section class="stop">
+      <h3><span class="ref">7.3</span> Treat the mechanism, not the marker
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Clinical Physiology</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Pathology Archive</p>
+      <div class="scene">Late deterioration is killing patients and the ward wants to start immunosuppression tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.</div>
+      <p class="assumes"><span>Assumes</span>suppressing a response removes it whether or not it is the thing causing harm</p>
+      <p class="q">The ward wants to start immunosuppression tonight. What do you do?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Measure agent burden and inflammatory markers together over time first.</span></li><li class="opt"><span class="mark"></span><span class="optText">Suppress the immune response immediately in everyone deteriorating.</span></li><li class="opt"><span class="mark"></span><span class="optText">Compare immune-cell states in improving and worsening patients.</span></li><li class="opt"><span class="mark"></span><span class="optText">Send pathology on affected tissue to identify what is being damaged.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Measure agent burden and inflammatory markers together over time first.</div>
+      <div class="why"><span class="wlabel">Why</span>The two candidate drivers — a pathogen still replicating and a host response that has become the injury — are distinguished by which curve is rising while the other falls. Paired measurements over time separate them within hours, and the answer decides whether suppression helps or removes the thing that is clearing the infection.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Suppressing now treats one hypothesis as settled. If agent burden is still rising in some of these patients, it removes their only defence.</li><li>Comparing immune-cell states is the right study and returns in days. The ward is asking about tonight.</li><li>Pathology says where the damage is. It does not say whether the pathogen is still driving it, which is the question the treatment turns on.</li></ul></div>
+      <p class="take">Intervention should follow evidence about what the immune system is doing, where, and when.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 8</p><h2>The Hidden Transmission Route</h2>
+      <p class="mobj">Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.</p>
+      <p class="mstake">If transmission begins before severe symptoms, a hospital-only response will always be late.</p></header>
+    <section class="stop">
+      <h3><span class="ref">8.1</span> Match the surveillance signal
+        <span class="tags"><span class="tag">PROTOCOL</span>
+        <span class="tag alt">Immunology &amp; Treatment</span>
+        </span></h3>
+      
+      <p class="place">Wastewater Treatment Plant</p>
+      <div class="scene">Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table at the wastewater plant, and each one saw a different slice of the city.</div>
+      <p class="assumes"><span>Assumes</span>who ends up in a dataset is decided by how the data was collected</p>
+      <p class="q">Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.</p>
+      <p class="alabel keyed">Correct matching</p><table class="pairs"><tbody><tr><td class="lhs">Wastewater concentration rises before hospital admissions.</td><td class="arrow">→</td><td class="rhs">Possible early population-level signal, but not individual diagnosis.</td></tr><tr><td class="lhs">Household interviews show several exposures before symptoms.</td><td class="arrow">→</td><td class="rhs">Evidence that infectious contact may precede symptoms.</td></tr><tr><td class="lhs">A transit survey samples only volunteers at one station.</td><td class="arrow">→</td><td class="rhs">Potentially biased sample that may not represent riders.</td></tr><tr><td class="lhs">Hospital prevalence remains high after new admissions decline.</td><td class="arrow">→</td><td class="rhs">Long illness duration can keep prevalence high after incidence falls.</td></tr></tbody></table>
+      
+      <div class="why"><span class="wlabel">Why</span>What a stream can reveal is fixed by who is observed, when, and how they came to be observed. Wastewater sees everyone connected to the sewer whether or not they sought care, which makes it early and anonymous at the same time. Household interviews reach only households that agreed. A volunteer survey at one station samples volunteers at one station. And prevalence counts everybody currently ill, so it stays high while people are still ill even after new cases stop.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Wastewater rising before admissions is a population signal that arrives early and can never name a patient.</li><li>Exposures found before symptom onset are evidence about when transmission happens, from the only stream that asks people directly.</li><li>A volunteer sample at one station is a sample of volunteers at one station — the bias is in who agreed, not in the measurement.</li><li>Prevalence stays high after incidence falls when the illness lasts a long time. The two are different quantities and this is how they come apart.</li></ul></div>
+      <p class="take">Transmission inference depends on who is observed, when, and through which sampling process.</p>
+    </section><section class="stop">
+      <h3><span class="ref">8.2</span> Can the cluster grow?
+        <span class="tags"><span class="tag">BALLPARK</span>
+        <span class="tag alt">Ecology &amp; One Health</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Field Epidemiology Office</p>
+      <div class="scene">About twenty people are infectious now, and the field office's best estimate is that each is producing roughly 1.4 more. Nobody has written down what that means for next week.</div>
+      <p class="assumes"><span>Assumes</span>a chain grows when each case produces more than one new case</p>
+      <p class="q">Estimate how many infections the next generation produces.</p>
+      <p class="law"><span>Governing relationship</span>Next generation = current cases × the average number each one infects.</p><ul class="tiles"><li class="tile is-answer">20 people currently infectious</li><li class="tile is-answer">1.4 new infections per person per generation</li><li class="tile">5 days (the serial interval)</li><li class="tile">140 cases reported so far</li><li class="tile">0.7 new infections per person, after control</li></ul><p class="calc">20 people currently infectious × 1.4 new infections per person per generation</p>
+      <div class="answer"><span class="alabel">Answer</span>20 × 1.4 ≈ 28, so the chain grows.</div>
+      <div class="why"><span class="wlabel">Why</span>Twenty-eight against twenty is growth, and the fact that it is growth — not the size of the number — is what decides whether the chain burns out or doubles every fortnight.</div>
+      
+      <p class="take">A threshold near one can determine whether small changes produce growth or decline.</p>
+    </section><section class="stop">
+      <h3><span class="ref">8.3</span> Find transmission before the hospital
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Transit and Mobility Center</p>
+      <div class="scene">Nine days of hospital isolation, and cases keep appearing in neighbourhoods with nobody admitted from them. There is enough money this week for one of the four things the room has proposed.</div>
+      <p class="assumes"><span>Assumes</span>a measurement taken downstream of a process reports it after it has happened</p>
+      <p class="q">Cases appear in neighbourhoods with nobody admitted. What do you commission?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Expand wastewater sampling across the connected sewersheds.</span></li><li class="opt"><span class="mark"></span><span class="optText">Conduct structured household and workplace contact studies.</span></li><li class="opt"><span class="mark"></span><span class="optText">Add more hospital bed and admission counts.</span></li><li class="opt"><span class="mark"></span><span class="optText">Sample one comparison neighbourhood with no reported cases.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Expand wastewater sampling across the connected sewersheds.</div>
+      <div class="why"><span class="wlabel">Why</span>Hospital isolation has held for nine days, so the chain is running somewhere the hospital cannot see. Wastewater reports the population rather than the patients who reached care, and sampling it by sewershed turns 'somewhere' into a map — which is the thing every other option needs and none of them supplies.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Contact studies are how presymptomatic transmission is established, and they need a place to start. Which households, in which neighbourhoods, is what the sewershed map is for.</li><li>More bed counts measure the outcome you are trying to get ahead of. They will confirm the problem after it arrives.</li><li>A comparison neighbourhood is worth sampling and is part of the same programme, not a substitute for finding where transmission is happening.</li></ul></div>
+      <p class="take">The most useful surveillance reaches upstream of the outcome it is trying to prevent.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 9</p><h2>The Animal Connection</h2>
+      <p class="mobj">Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.</p>
+      <p class="mstake">A mistaken reservoir declaration could trigger ecological damage while the true source continues seeding cases.</p></header>
+    <section class="stop">
+      <h3><span class="ref">9.1</span> Reservoir, vector, or incidental host?
+        <span class="tags"><span class="tag">PROTOCOL</span>
+        <span class="tag alt">Ecology &amp; One Health</span>
+        </span></h3>
+      
+      <p class="place">One Health Field Station</p>
+      <div class="scene">Sequences from three patients sit close to a virus found in animals along the river corridor. The field station has four ecological patterns on the board and a trapper waiting outside with more animals.</div>
+      <p class="assumes"><span>Assumes</span>a species can carry an agent, spread it, or merely be near it</p>
+      <p class="q">Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.</p>
+      <p class="alabel keyed">Correct matching</p><table class="pairs"><tbody><tr><td class="lhs">A species carries the agent persistently with little disease.</td><td class="arrow">→</td><td class="rhs">Potential reservoir host.</td></tr><tr><td class="lhs">A biting organism transfers the agent between hosts.</td><td class="arrow">→</td><td class="rhs">Potential biological or mechanical vector.</td></tr><tr><td class="lhs">A species becomes ill but rarely transmits onward.</td><td class="arrow">→</td><td class="rhs">Incidental or dead-end host.</td></tr><tr><td class="lhs">A species is common near cases but consistently tests negative.</td><td class="arrow">→</td><td class="rhs">Ecological association without evidence of infection.</td></tr></tbody></table>
+      
+      <div class="why"><span class="wlabel">Why</span>Ecological role is a claim about dynamics, not about proximity or about which animal people are frightened of. A reservoir carries the agent persistently and stays well enough to keep carrying it. A vector moves it between hosts without being the place it persists. A species that sickens and dies without passing it on is where transmission stops. And a species that is simply common near cases and never tests positive shares a habitat with people, which is not the same as sharing an infection.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Persistent carriage with little disease is what a reservoir looks like — it has to survive the infection to maintain it.</li><li>A biting organism that moves the agent between hosts is a vector whether or not it is ever the place the agent persists.</li><li>A species that becomes ill and rarely transmits is a dead end. The chain reaches it and stops.</li><li>Common near cases and consistently negative is a shared habitat, not a shared infection. Proximity is the weakest evidence on the board.</li></ul></div>
+      <p class="take">Ecological roles are inferred from dynamics, not appearance or proximity alone.</p>
+    </section><section class="stop">
+      <h3><span class="ref">9.2</span> Test the reservoir hypothesis
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Ecology &amp; One Health</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Wildlife Ecology Site</p>
+      <div class="scene">Trappers report sick animals on the flood plain, and nobody has yet sampled in a way that could tell a reservoir from a bystander that caught it from people. Four steps, and the campaign gets funded once.</div>
+      <p class="assumes"><span>Assumes</span>where you look decides what you can find</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>Map human cases against habitat and exposure patterns.</span></li><li><span class="step">2</span><span>Sample candidate species using an unbiased design and comparison sites.</span></li><li><span class="step">3</span><span>Compare prevalence and genetic signatures across hosts.</span></li><li><span class="step">4</span><span>Test whether the combined evidence explains repeated spillover.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>A positive animal is not a reservoir. What turns it into one is a design that could have found the agent somewhere else and did not, which is why the order matters: exposure patterns say where to sample, and sampling built around comparison sites is what makes a prevalence figure mean anything. Only then do prevalence and genetic relatedness across hosts say whether this species is in the transmission cycle, and only then can repeated spillover be tested rather than assumed.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Human cases against habitat first — that is what tells you which species and which places are even candidates.</li><li>Unbiased sampling with comparison sites second. Find the agent only where you looked hardest and you have measured your own search.</li><li>Prevalence and genetic relatedness third: they connect the two populations, and they need samples from both to compare.</li><li>Repeated spillover last. One event can be a coincidence; a reservoir claim is a claim about a process that keeps happening.</li></ul></div>
+      <p class="take">A reservoir claim requires population and evolutionary evidence together.</p>
+    </section><section class="stop">
+      <h3><span class="ref">9.3</span> Choose the One Health campaign
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Comparative Genomics Lab</p>
+      <div class="scene">There is one field campaign to fund and its design decides what can be concluded from it. Trappers, a genomics bench and a nervous agriculture department are all waiting on the answer.</div>
+      <p class="assumes"><span>Assumes</span>a sample tells you about the population it was drawn from and no other</p>
+      <p class="q">One field campaign. What is its design?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Stratify sampling across species, habitat, season and comparison sites.</span></li><li class="opt"><span class="mark"></span><span class="optText">Sample the most feared species intensively near one case household.</span></li><li class="opt"><span class="mark"></span><span class="optText">Sequence every positive sample from humans and animals.</span></li><li class="opt"><span class="mark"></span><span class="optText">Remove wildlife from the flood plain while the investigation continues.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Stratify sampling across species, habitat, season and comparison sites.</div>
+      <div class="why"><span class="wlabel">Why</span>A reservoir claim is a claim about prevalence, and prevalence only means something against a design that could have found the agent somewhere else. Comparison sites are what separate a reservoir from a bystander that caught it from people.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Sampling hard around one household guarantees a positive that cannot be generalised, and it will be the species people were already afraid of.</li><li>Sequencing is essential and comes second: you can only sequence what the sampling design found, and a biased design produces a confident tree of the wrong animals.</li><li>Removing wildlife before involvement is established destroys the evidence, and does nothing at all if the reservoir is a species nobody removed.</li></ul></div>
+      <p class="take">One Health decisions should connect human, animal, and environmental evidence before intervention.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 10</p><h2>The Mutation</h2>
+      <p class="mobj">Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.</p>
+      <p class="mstake">Misreading drift as selection can produce unnecessary alarm; missing a genuine advantage can leave the response behind the evolving population.</p></header>
+    <section class="stop">
+      <h3><span class="ref">10.1</span> From variation to evolutionary change
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Molecular Diagnostics</span>
+        </span></h3>
+      
+      <p class="place">Sequencing Center</p>
+      <div class="scene">A genetic variant is rising in one part of the city and the word evolution is being used in the briefing room. Four cards describe how a population changes. Nobody has put them in order.</div>
+      <p class="assumes"><span>Assumes</span>offspring inherit traits from their parents</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>Heritable variants arise through mutation or existing diversity.</span></li><li><span class="step">2</span><span>Environmental conditions cause variants to differ in reproductive success.</span></li><li><span class="step">3</span><span>Successful variants contribute disproportionately to later generations.</span></li><li><span class="step">4</span><span>Population frequencies change over generations.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>Nothing in this chain says a rising variant must be advantageous, and that is the point of laying it out. Variation has to exist before anything can act on it — selection does not create the variant it needs when it needs one. Conditions then make some variants reproduce more than others, those variants leave more descendants, and the frequency moves. Take away the middle step and frequencies still move, for reasons that have nothing to do with fitness.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Variation first, and it arises independently of whether it is useful. This is the step people reverse.</li><li>Differential reproductive success second: the environment does the selecting, on variation that was already there.</li><li>Successful variants leaving more descendants is the mechanism, and it happens over generations rather than within one.</li><li>Changed frequencies last. They are the observation, and every other card is the explanation for it.</li></ul></div>
+      <p class="take">Natural selection changes frequencies through heritable differences in reproductive success.</p>
+    </section><section class="stop">
+      <h3><span class="ref">10.2</span> Selection or sampling artifact?
+        <span class="tags"><span class="tag">DIAGNOSIS</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Evolutionary Dynamics Group</p>
+      <div class="scene">A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.</div>
+      <p class="assumes"><span>Assumes</span>a change in who gets tested changes what the tests find</p>
+      <p class="q">Which explanation best fits the frequency trend and the independent checks?</p>
+      <table class="readings"><tbody><tr><td class="zone">Variant frequency</td><td class="rlabel">Variant frequency</td><td class="rval">8% -&gt; 31% in four weeks</td><td class="rnote">Rise appears in the combined dataset</td></tr><tr><td class="zone">Independent hospitals</td><td class="rlabel">Independent hospitals</td><td class="rval">Same upward trend in three systems</td><td class="rnote">Different collection teams reproduce the pattern</td></tr><tr><td class="zone">Sequencing depth</td><td class="rlabel">Sequencing depth</td><td class="rval">Stable</td><td class="rnote">No systematic loss of low-count samples</td></tr><tr><td class="zone">Neutral control variants</td><td class="rlabel">Neutral control variants</td><td class="rval">No coordinated rise</td><td class="rnote">Background frequencies remain stable</td></tr><tr><td class="zone">Adjusted growth estimate</td><td class="rlabel">Adjusted growth estimate</td><td class="rval">Variant lineages grow faster after place and date are controlled</td><td class="rnote">Comparison reduces a major sampling confounder</td></tr></tbody></table><ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Real selective advantage<span class="mech">The variant has a reproducible growth advantage and increases in frequency across independent populations.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Changing sampling mix<span class="mech">The apparent rise is created because later samples come from different places or patient groups.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Sequencing artifact<span class="mech">A technical change makes the variant easier to detect over time.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Single founder event only<span class="mech">One early cluster happens to contain the variant, with no broader growth advantage.</span></span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Real selective advantage</div>
+      <div class="why"><span class="wlabel">Why</span>A frequency change is an observation; selection is one explanation for it, and it competes with founder effects, with a change in who is being sampled, and with a technical shift. Each of those is ruled out by a specific check here. Three independent hospital systems showing the same rise is not one cluster. Stable sequencing depth is not a technical change. Neutral variants staying flat means the whole population was not resampled. And the rise survives adjustment for place and date.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>A changing sampling mix would move the neutral control variants too, because they ride on the same samples. Those are flat.</li><li>A sequencing artefact would show as changing depth or coverage, and the depth is stable across the four weeks.</li><li>A single founder cluster would not repeat across three independent hospital systems, and it would not survive adjusting for place.</li></ul></div>
+      <p class="take">A frequency change is an observation; selection is an explanation that requires controls against sampling, founder effects, and technical drift.</p>
+    </section><section class="stop">
+      <h3><span class="ref">10.3</span> Track a rising variant
+        <span class="tags"><span class="tag">BALLPARK</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Regional Surveillance Hub</p>
+      <div class="scene">Before anybody argues about why the variant is rising, the surveillance hub needs the rise itself. Week one and week three sequenced different numbers of samples.</div>
+      <p class="assumes"><span>Assumes</span>a fraction needs both a numerator and the denominator it came from</p>
+      <p class="q">Estimate the change in variant frequency, in percentage points.</p>
+      <p class="law"><span>Governing relationship</span>A share = the count ÷ the number sequenced. Take the share in each week, then the difference.</p><ul class="tiles"><li class="tile is-answer">40 variant, week 1</li><li class="tile is-answer">400 sequenced, week 1</li><li class="tile is-answer">180 variant, week 3</li><li class="tile is-answer">600 sequenced, week 3</li><li class="tile">220 variant, weeks 1 and 3 together</li><li class="tile">1,000 sequenced across both weeks</li></ul><p class="calc">( 180 variant, week 3 ÷ 600 sequenced, week 3 − 40 variant, week 1 ÷ 400 sequenced, week 1 ) × 100</p>
+      <div class="answer"><span class="alabel">Answer</span>10% in week one, 30% in week three: an increase of 20 percentage points.</div>
+      <div class="why"><span class="wlabel">Why</span>A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.</div>
+      
+      <p class="take">Evolutionary inference begins with accurate frequencies and then tests causal explanations.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 11</p><h2>Treatment Failure</h2>
+      <p class="mobj">Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective advantage without undertreating patients.</p>
+      <p class="mstake">A blunt response could expose patients to toxicity while strengthening the very resistant population the therapy is meant to suppress.</p></header>
+    <section class="stop">
+      <h3><span class="ref">11.1</span> Why did the therapy fail?
+        <span class="tags"><span class="tag">DIAGNOSIS</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Clinical Ward</p>
+      <div class="scene">A therapy that worked is failing. The ward has the drug levels, the agent burden over time, the sequence at the target site and a reference isolate, and it wants to change everybody's prescription this afternoon.</div>
+      <p class="assumes"><span>Assumes</span>a drug only works if it reaches the target at a high enough concentration</p>
+      <p class="q">Which explanation fits the complete treatment-response panel?</p>
+      <table class="readings"><tbody><tr><td class="zone">Drug concentration</td><td class="rlabel">Drug concentration</td><td class="rval">Within expected therapeutic range</td><td class="rnote">Measured repeatedly during treatment</td></tr><tr><td class="zone">Agent burden</td><td class="rlabel">Agent burden</td><td class="rval">Falls, then rebounds</td><td class="rnote">Initial response is followed by renewed growth</td></tr><tr><td class="zone">Target-site sequence</td><td class="rlabel">Target-site sequence</td><td class="rval">Resistance-associated variant becomes dominant</td><td class="rnote">Frequency rises after treatment begins</td></tr><tr><td class="zone">Reference isolate</td><td class="rlabel">Reference isolate</td><td class="rval">Remains drug-sensitive</td><td class="rnote">The assay can still detect drug activity</td></tr><tr><td class="zone">Administration record</td><td class="rlabel">Administration record</td><td class="rval">Doses documented</td><td class="rnote">No major missed-dose pattern</td></tr></tbody></table><ul class="opts"><li class="opt"><span class="mark"></span><span class="optText">Poor drug delivery<span class="mech">The drug never reaches an effective concentration in the patient.</span></span></li><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Evolved resistance<span class="mech">Treatment favors a resistant subpopulation that later dominates and restores growth.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Wrong infectious agent<span class="mech">The original identification was incorrect, so treatment never targeted the cause.</span></span></li><li class="opt"><span class="mark"></span><span class="optText">Assay contamination<span class="mech">The rebound is an artificial laboratory signal unrelated to the patient.</span></span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Evolved resistance</div>
+      <div class="why"><span class="wlabel">Why</span>Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached therapeutic concentration and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Poor delivery means the drug never arrives, and the concentration is inside the therapeutic range with an initial response to prove it.</li><li>A misidentified agent would not have responded at all, and this one fell before it came back.</li><li>Assay contamination would not spare the reference isolate, which was run alongside and remains sensitive.</li></ul></div>
+      <p class="take">Evolution can be observed in real time when a treatment changes which variants are most successful.</p>
+    </section><section class="stop">
+      <h3><span class="ref">11.2</span> How resistance spreads
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Microbiology and Evolution Lab</p>
+      <div class="scene">The therapy worked for six weeks and now fails in one patient in four. Failures cluster on the wards where it has been in use longest, and somebody in the meeting has said the organism learned to resist it.</div>
+      <p class="assumes"><span>Assumes</span>a population contains variation before anything acts on it</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>A population contains rare variants with differing susceptibility.</span></li><li><span class="step">2</span><span>Treatment removes susceptible individuals more effectively.</span></li><li><span class="step">3</span><span>Less-susceptible variants survive and reproduce.</span></li><li><span class="step">4</span><span>The treated population becomes enriched for resistance.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>Treatment does not teach an organism anything, and it does not create the variant it needs. The variation is already there, rare, before the drug arrives. What the drug changes is which variants leave descendants: it removes the susceptible ones more effectively, the less susceptible survive and reproduce, and the treated population ends up enriched for resistance. The clustering on long-treated wards is that process having run longer, not the organism having learned faster.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Rare variants exist first. This is the step that separates an evolutionary explanation from a story about the drug teaching the organism.</li><li>Treatment removes the susceptible preferentially — that is what selection is, and it acts on what is already present.</li><li>The survivors reproduce, which is how a rare variant stops being rare.</li><li>Enrichment last: it is the outcome, and it is what the ward is now measuring.</li></ul></div>
+      <p class="take">Selection acts on existing or newly arising variation by differential survival and reproduction.</p>
+    </section><section class="stop">
+      <h3><span class="ref">11.3</span> Recover treatment effectiveness
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Pharmacology Unit</p>
+      <div class="scene">Effectiveness is falling and the pharmacology unit has a limited budget. Every failure so far happened on documented dosing with concentrations inside the therapeutic range.</div>
+      <p class="assumes"><span>Assumes</span>a matched comparison is what turns a finding into evidence</p>
+      <p class="q">One thing before anybody's prescription changes. Which?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Sequence the failures alongside matched successful cases.</span></li><li class="opt"><span class="mark"></span><span class="optText">Measure drug exposure and adherence objectively.</span></li><li class="opt"><span class="mark"></span><span class="optText">Increase the dose for every patient on the ward.</span></li><li class="opt"><span class="mark"></span><span class="optText">Test combinations and alternative targets under a clinical protocol.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Sequence the failures alongside matched successful cases.</div>
+      <div class="why"><span class="wlabel">Why</span>Every failure here occurred on documented dosing with drug concentrations inside the therapeutic range, so the drug arrived. What is in question is whether the target site changed — and the matched successes are the control that turns a resistance-associated variant into evidence rather than a coincidence.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.</li><li>Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.</li><li>Combinations and alternative targets are the response once you know what changed. Chosen now, they are a guess with a protocol attached.</li></ul></div>
+      <p class="take">A resistance response should combine evolutionary evidence with pharmacology and patient safety.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 12</p><h2>Design the Intervention</h2>
+      <p class="mobj">Select a layered intervention portfolio and identify the evidence required before deployment.</p>
+      <p class="mstake">Choosing one glamorous intervention and neglecting all others could leave the city unprotected during development or against biological change.</p></header>
+    <section class="stop">
+      <h3><span class="ref">12.1</span> Choose the intervention layer
+        <span class="tags"><span class="tag">PROTOCOL</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Vaccine Design Lab</p>
+      <div class="scene">The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.</div>
+      <p class="assumes"><span>Assumes</span>an infection has a before, a during and an after, and different tools act at each</p>
+      <p class="q">Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.</p>
+      <p class="alabel keyed">Correct matching</p><table class="pairs"><tbody><tr><td class="lhs">Prevent initial cell entry.</td><td class="arrow">→</td><td class="rhs">Entry-blocking antibody or receptor-targeted strategy.</td></tr><tr><td class="lhs">Shorten severe inflammatory disease after infection.</td><td class="arrow">→</td><td class="rhs">Stage-specific anti-inflammatory treatment with monitoring.</td></tr><tr><td class="lhs">Create immune memory before exposure.</td><td class="arrow">→</td><td class="rhs">Vaccination.</td></tr><tr><td class="lhs">Reduce opportunities for transmission while biomedical tools are limited.</td><td class="arrow">→</td><td class="rhs">Ventilation, isolation, masking, or contact reduction as appropriate.</td></tr></tbody></table>
+      
+      <div class="why"><span class="wlabel">Why</span>Each class acts at a different point, which is why a layered strategy is stronger than a bigger version of any one of them. Blocking entry acts before infection is established. An anti-inflammatory acts after it is, on the damage rather than the agent. Immune memory created before exposure changes who can be infected at all. And reducing contact works on the population rather than the patient, which is why it keeps working while the biology is still unknown. Different mechanisms means different failure modes.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Preventing entry is a job for something that blocks the receptor interaction, and it has to be there before the agent is.</li><li>Shortening severe inflammatory disease is treatment after infection, and it is staged — given at the wrong moment it suppresses a response that is still needed.</li><li>Immune memory before exposure is vaccination, and its whole value is that it arrives first.</li><li>Ventilation, isolation and contact reduction act on transmission rather than on any patient, which is why they work whatever the agent turns out to be.</li></ul></div>
+      <p class="take">A layered strategy is stronger when each intervention has a defined mechanism and failure mode.</p>
+    </section><section class="stop">
+      <h3><span class="ref">12.2</span> From candidate to justified trial
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Therapeutics Group</p>
+      <div class="scene">Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol on the table names no endpoint and no stopping rule.</div>
+      <p class="assumes"><span>Assumes</span>activity in a dish is not evidence of benefit in a person</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>Define the biological target and intended mechanism.</span></li><li><span class="step">2</span><span>Demonstrate relevant activity and identify major safety concerns in preclinical evidence.</span></li><li><span class="step">3</span><span>Specify trial population, endpoints, controls, and stopping rules.</span></li><li><span class="step">4</span><span>Begin a monitored clinical trial with independent oversight.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; preclinical evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Target and mechanism first: without them there is nothing to test a compound against except hope.</li><li>Preclinical activity and safety second, because a compound that harms an animal has told you something you needed before a person took it.</li><li>Endpoints, controls and stopping rules third — they are what make the result interpretable, and they cannot be chosen after the data arrives.</li><li>The monitored trial last, with oversight. It is the step everything before it exists to make defensible.</li></ul></div>
+      <p class="take">Urgency changes speed and coordination, not the need for interpretable evidence and participant protection.</p>
+    </section><section class="stop">
+      <h3><span class="ref">12.3</span> Build a layered intervention portfolio
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Public Health Strategy Room</p>
+      <div class="scene">One portfolio to fund, several plausible layers competing for it, and a city that would like to be told the crisis is under control.</div>
+      <p class="assumes"><span>Assumes</span>two tools that fail for the same reason fail at the same time</p>
+      <p class="q">The city can start one layer this month. Which?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Ventilation and rapid-isolation improvements.</span></li><li class="opt"><span class="mark"></span><span class="optText">A vaccine candidate against a conserved surface feature.</span></li><li class="opt"><span class="mark"></span><span class="optText">A therapeutic aimed at a validated host or agent pathway.</span></li><li class="opt"><span class="mark"></span><span class="optText">A publicity campaign stating that the crisis is under control.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Ventilation and rapid-isolation improvements.</div>
+      <div class="why"><span class="wlabel">Why</span>Layers are chosen for mechanism and for timing. Ventilation and isolation reduce transmission opportunities whatever the biology turns out to be, and they work this month — which is the month the other two spend in development.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>The vaccine is the strongest long-run layer and protects nobody during the months it takes to make. Start it too; it is not what this month buys.</li><li>A therapeutic depends on a pathway that is still being validated, and it acts after infection rather than reducing how much of it there is.</li><li>A campaign announcing control is not a layer. It has no mechanism, and it fails in exactly the way that costs the most.</li></ul></div>
+      <p class="take">Layers are chosen for different mechanisms and different timescales, not for how promising each one sounds.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 13</p><h2>The Trial Signal</h2>
+      <p class="mobj">Make a conditional trial decision that weighs benefit, uncertainty, and safety rather than relying on one p-value or headline percentage.</p>
+      <p class="mstake">Expanding an unsafe intervention harms participants; stopping too early can discard the only effective tool.</p></header>
+    <section class="stop">
+      <h3><span class="ref">13.1</span> Protect the comparison
+        <span class="tags"><span class="tag">PROTOCOL</span>
+        <span class="tag alt">Clinical Physiology</span>
+        </span></h3>
+      
+      <p class="place">Clinical Trial Center</p>
+      <div class="scene">Early trial results look encouraging. Four things about how the trial was run are on the table at the clinical trial centre, and each of them could produce an encouraging number on its own.</div>
+      <p class="assumes"><span>Assumes</span>a treated group is only informative next to a group that was not treated</p>
+      <p class="q">Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.</p>
+      <p class="alabel keyed">Correct matching</p><table class="pairs"><tbody><tr><td class="lhs">Sicker patients preferentially receive the candidate.</td><td class="arrow">→</td><td class="rhs">Randomization or careful allocation procedures.</td></tr><tr><td class="lhs">Outcome assessors know who received treatment.</td><td class="arrow">→</td><td class="rhs">Blinding where feasible.</td></tr><tr><td class="lhs">Many outcomes are tested and only the best is reported.</td><td class="arrow">→</td><td class="rhs">Pre-specified primary outcomes and multiplicity control.</td></tr><tr><td class="lhs">Participants leave the study at different rates by group.</td><td class="arrow">→</td><td class="rhs">Track attrition and analyze its potential bias.</td></tr></tbody></table>
+      
+      <div class="why"><span class="wlabel">Why</span>A trial is a machine for producing one comparison — what happened, against what would have happened otherwise — and each of these four threatens that comparison in its own way. Sicker patients getting the candidate makes the groups different before treatment starts. An assessor who knows the arm reads outcomes differently. Testing many outcomes and reporting the best finds a difference by looking often enough. And patients leaving unevenly changes who is left to measure. Each has a specific design control, and none substitutes for another.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Sicker patients receiving the candidate is confounding by indication, and allocation is what stops it — randomisation makes the groups comparable before anything is given.</li><li>An assessor who knows the arm is measurement bias, and blinding is the answer to it. Randomising will not help once the outcome is being judged.</li><li>Many outcomes tested and the best reported is multiplicity: with enough outcomes something is always significant, and pre-specification is what closes it.</li><li>Uneven attrition changes who remains to be measured, so it is tracked and analysed rather than designed away.</li></ul></div>
+      <p class="take">A credible effect depends on how the comparison was produced, not only the final number.</p>
+    </section><section class="stop">
+      <h3><span class="ref">13.2</span> Read effect size and uncertainty
+        <span class="tags"><span class="tag">BALLPARK</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Biostatistics Office</p>
+      <div class="scene">The trial has reported, and the health minister wants a number before deciding how much to buy. The biostatistics office has the event counts for both arms and nothing has been converted yet.</div>
+      <p class="assumes"><span>Assumes</span>a risk is events divided by the people who could have had them</p>
+      <p class="q">Estimate the number of patients who must be treated for one to benefit.</p>
+      <p class="law"><span>Governing relationship</span>Risk = events ÷ people at risk. The number needed to treat is 1 ÷ (control risk − treated risk).</p><ul class="tiles"><li class="tile is-answer">20 hospitalised, control arm</li><li class="tile is-answer">200 participants, control arm</li><li class="tile is-answer">10 hospitalised, treated arm</li><li class="tile is-answer">200 participants, treated arm</li><li class="tile">30 hospitalised in the trial</li><li class="tile">400 participants in the trial</li></ul><p class="calc">1 ÷ ( 20 hospitalised, control arm ÷ 200 participants, control arm − 10 hospitalised, treated arm ÷ 200 participants, treated arm )</p>
+      <div class="answer"><span class="alabel">Answer</span>Risks of 0.10 and 0.05, an absolute reduction of 0.05, so about 20.</div>
+      <div class="why"><span class="wlabel">Why</span>The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. Twenty patients treated for one to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.</div>
+      
+      <p class="take">Relative and absolute effects answer different decision questions and should be reported together.</p>
+    </section><section class="stop">
+      <h3><span class="ref">13.3</span> Continue, expand, or pause?
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Independent Safety Board</p>
+      <div class="scene">The result is promising and imprecise, and the adverse events are uneven across the arms. The safety board has to say what happens next, and enrolment is paused until it does.</div>
+      <p class="assumes"><span>Assumes</span>a wider interval means less is known, not that the effect is smaller</p>
+      <p class="q">Promising, imprecise, and the adverse events are uneven. What does the board decide?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Expand enrolment under the same pre-specified analysis.</span></li><li class="opt"><span class="mark"></span><span class="optText">Declare success and stop collecting data.</span></li><li class="opt"><span class="mark"></span><span class="optText">Add mechanistic measurements to explain why it works.</span></li><li class="opt"><span class="mark"></span><span class="optText">Pause the trial until the adverse events are fully investigated.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Expand enrolment under the same pre-specified analysis.</div>
+      <div class="why"><span class="wlabel">Why</span>The estimate is real and too wide to act on, and width is fixed by numbers rather than by argument. Keeping the pre-specified analysis is what makes the extra participants add precision instead of adding a second chance to find a positive result.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Stopping now converts an imprecise estimate into a permanent one, and the imprecision is the whole reason the board was convened.</li><li>Mechanism is worth knowing and does not narrow the interval the decision turns on.</li><li>Pausing is right if the safety signal is real, and the safety board's monitoring is what establishes that — it runs alongside enrolment rather than instead of it.</li></ul></div>
+      <p class="take">A mature trial decision can be encouraging and cautious at the same time.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 14</p><h2>Containment or Adaptation?</h2>
+      <p class="mobj">Use scenarios and trigger-based policies instead of pretending one forecast is certain.</p>
+      <p class="mstake">An inflexible choice can either impose unnecessary costs or allow the health system to collapse.</p></header>
+    <section class="stop">
+      <h3><span class="ref">14.1</span> Build a decision model
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Population Modeling Group</p>
+      <div class="scene">Three districts are on visibly different trajectories and the council wants one citywide policy by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.</div>
+      <p class="assumes"><span>Assumes</span>a model's output is only as good as the assumptions it was given</p>
+      <p class="q">Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>State the decision, time horizon, and outcomes that matter.</span></li><li><span class="step">2</span><span>Choose a transparent model structure and estimate inputs from data.</span></li><li><span class="step">3</span><span>Run multiple plausible scenarios and sensitivity tests.</span></li><li><span class="step">4</span><span>Link observable triggers to pre-agreed policy changes.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>A model is a structured argument, not an oracle, and its assumptions are as much of the output as its numbers. Stating the decision first is what stops it modelling something nobody asked about — a model built without a decision answers whatever question was easiest. The structure and the inputs come next, then the range of plausible worlds rather than one, and finally the triggers, because a scenario that is not tied to an observable is a scenario nobody will ever act on.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>The decision, the horizon and the outcomes come first, or the model answers the question that was easiest to model.</li><li>Structure and inputs second, and transparent, because a structure nobody can inspect cannot be argued with.</li><li>Scenarios and sensitivity third: the point is the spread across plausible worlds, not the middle of it.</li><li>Triggers last, tying a scenario to something observable. Without them the model produces a graph and no decision.</li></ul></div>
+      <p class="take">Models are structured arguments whose assumptions should remain visible.</p>
+    </section><section class="stop">
+      <h3><span class="ref">14.2</span> Hospital capacity threshold
+        <span class="tags"><span class="tag">BALLPARK</span>
+        <span class="tag alt">Clinical Physiology</span>
+        </span></h3>
+      
+      <p class="place">Hospital Capacity Center</p>
+      <div class="scene">The region has 120 staffed critical-care beds. Ninety are already full. Severe cases are arriving at about eight a day, and the average stay is somewhere near six days — a figure nobody has actually checked.</div>
+      <p class="assumes"><span>Assumes</span>a bound is what you can say before the missing number arrives</p>
+      <p class="q">Estimate the upper bound on time to capacity, assuming nobody is discharged.</p>
+      <p class="law"><span>Governing relationship</span>Time to fill = beds free ÷ arrivals per day.</p><ul class="tiles"><li class="tile is-answer">30 open beds</li><li class="tile is-answer">8 admissions/day</li><li class="tile">120 staffed beds</li><li class="tile">90 beds occupied</li><li class="tile">6 days (average stay)</li></ul><p class="calc">30 open beds ÷ 8 admissions/day</p>
+      <div class="answer"><span class="alabel">Answer</span>30 ÷ 8 ≈ 3.75 days, if nobody leaves.</div>
+      <div class="why"><span class="wlabel">Why</span>A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.</div>
+      
+      <p class="take">Simple bounds can reveal which missing data are decision-critical.</p>
+    </section><section class="stop">
+      <h3><span class="ref">14.3</span> Choose an adaptive policy
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">City Command</p>
+      <div class="scene">The outbreak is geographically uneven and the council wants a policy it can defend for a month. Three districts, three different trajectories, and one decision.</div>
+      <p class="assumes"><span>Assumes</span>a policy tied to an observable can change without anybody having been wrong</p>
+      <p class="q">A policy the council can defend for a month. Which?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Citywide measures tied to hospital and growth thresholds.</span></li><li class="opt"><span class="mark"></span><span class="optText">Targeted containment wherever transmission chains are traceable.</span></li><li class="opt"><span class="mark"></span><span class="optText">Capacity expansion and protection of vulnerable populations.</span></li><li class="opt"><span class="mark"></span><span class="optText">Commit to one policy now and hold it whatever the data show.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Citywide measures tied to hospital and growth thresholds.</div>
+      <div class="why"><span class="wlabel">Why</span>Uncertainty is not resolved by choosing more confidently. A policy tied to observable triggers agreed in advance changes when the outbreak changes, and it can be relaxed without anybody having to admit they were wrong — which is what keeps it defensible for a month.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Targeted containment is cheap and effective where chains are traceable, and it fails silently where they are not. Nothing in it tells you it has stopped working.</li><li>Capacity expansion protects the outcome that matters and does nothing about transmission, so it raises the ceiling without slowing the climb.</li><li>Committing regardless of new evidence is the only option here that cannot learn, which in a month of an uneven outbreak is the one guaranteed to be wrong somewhere.</li></ul></div>
+      <p class="take">Good policy is a feedback system, not a one-time guess.</p>
+    </section></article><article class="mission">
+    <header class="mhead"><p class="mnum">Mission 15</p><h2>The Final Briefing</h2>
+      <p class="mobj">Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.</p>
+      <p class="mstake">A technically correct response can still fail if uncertainty, burdens, and continuing responsibilities are hidden from the people affected.</p></header>
+    <section class="stop">
+      <h3><span class="ref">15.1</span> Disposition the final claims
+        <span class="tags"><span class="tag">PROTOCOL</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        </span></h3>
+      
+      <p class="place">Scientific Review Hall</p>
+      <div class="scene">Four claims are going into the final report and they are not equally well supported. The review board has to decide what to say about each, and the document will outlive everybody in the room.</div>
+      <p class="assumes"><span>Assumes</span>evidence comes in strengths, and a conclusion inherits the weakest one it rests on</p>
+      <p class="q">Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.</p>
+      <p class="alabel keyed">Correct matching</p><table class="pairs"><tbody><tr><td class="lhs">Multiple independent data streams support the transmission route.</td><td class="arrow">→</td><td class="rhs">Treat as established enough for operational planning while continuing surveillance.</td></tr><tr><td class="lhs">A severe-risk subgroup is suggested by one small observational sample.</td><td class="arrow">→</td><td class="rhs">Label as provisional and collect representative confirmatory data.</td></tr><tr><td class="lhs">An intervention lowers hospitalization with monitored safety but long-term duration is unknown.</td><td class="arrow">→</td><td class="rhs">Use conditionally with follow-up and duration studies.</td></tr><tr><td class="lhs">An animal reservoir remains plausible but unconfirmed.</td><td class="arrow">→</td><td class="rhs">Avoid destructive ecological action; continue targeted One Health investigation.</td></tr></tbody></table>
+      
+      <div class="why"><span class="wlabel">Why</span>The failure mode here is uniform treatment — publishing the weakest claim with the confidence of the strongest, or holding back the strongest because the weakest is unresolved. Multiple independent data streams agreeing is the strongest thing on the list and can carry operational planning. One small observational sample is a hypothesis worth collecting data on. A benefit shown with unknown duration can be used with follow-up attached. And a plausible unconfirmed reservoir is a reason to keep investigating, not a reason to destroy anything.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Independent streams agreeing is the strongest evidence in the report, and treating it as provisional wastes the only thing the response can plan on.</li><li>One small observational sample identifies a subgroup worth confirming. Published as established, it becomes policy about people nobody measured properly.</li><li>A benefit whose duration is unknown is used conditionally, with follow-up — the uncertainty is about how long, not about whether.</li><li>A plausible unconfirmed reservoir justifies more investigation. Acting on it destroys the evidence and may not touch the actual source.</li></ul></div>
+      <p class="take">Scientific conclusions should carry the strength and limits of their supporting evidence.</p>
+    </section><section class="stop">
+      <h3><span class="ref">15.2</span> Build the public explanation
+        <span class="tags"><span class="tag">SEQUENCE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">City Command</p>
+      <div class="scene">The mayor is on air in an hour. The transmission route is settled, the animal reservoir is not, and the treatment works under conditions nobody has tested past eight weeks. The draft opens with the actions.</div>
+      <p class="assumes"><span>Assumes</span>an audience judges a claim by how it was supported, once it knows</p>
+      <p class="q">Order the briefing by how much weight each claim can carry.</p>
+      <p class="alabel keyed">Correct order</p><ol class="seq"><li><span class="step">1</span><span>The transmission route, which three independent data streams agree on.</span></li><li><span class="step">2</span><span>The severe-risk subgroup, which one small observational sample suggests.</span></li><li><span class="step">3</span><span>The animal reservoir, which remains plausible and unconfirmed.</span></li><li><span class="step">4</span><span>What each of those would take to settle, and when it will be revisited.</span></li></ol>
+      
+      <div class="why"><span class="wlabel">Why</span>The briefing is ordered by how much the evidence will carry, strongest first, because that is the order in which a listener can tell one claim from another. Publishing the reservoir with the confidence of the transmission route is what makes the whole document unbelievable when the reservoir turns out to be somewhere else.</div>
+      
+      <p class="take">A public account is ordered by the strength of its evidence, not by the order the work happened in.</p>
+    </section><section class="stop">
+      <h3><span class="ref">15.3</span> Fund the post-crisis legacy
+        <span class="tags"><span class="tag">CHOICE</span>
+        <span class="tag alt">Epidemiology &amp; Evolution</span>
+        <span class="tag alt">person stop</span></span></h3>
+      
+      <p class="place">Public Briefing Room</p>
+      <div class="scene">The emergency budget closes at the end of the month and anything uncommitted returns to the state. Four proposals, and the room has stopped pretending all of them survive.</div>
+      <p class="assumes"><span>Assumes</span>capability that is not funded to continue stops when the emergency does</p>
+      <p class="q">The emergency budget closes this month. What does the city commit it to?</p>
+      <ul class="opts"><li class="opt is-answer"><span class="mark">✔</span><span class="optText">Integrated clinical, environmental and genomic surveillance.</span></li><li class="opt"><span class="mark"></span><span class="optText">Health-system resilience and workforce training.</span></li><li class="opt"><span class="mark"></span><span class="optText">Preserving the data, methods and after-action record.</span></li><li class="opt"><span class="mark"></span><span class="optText">Closing the records once the review is published.</span></li></ul>
+      <div class="answer"><span class="alabel">Answer</span>Integrated clinical, environmental and genomic surveillance.</div>
+      <div class="why"><span class="wlabel">Why</span>Every week of warning this outbreak got came from a signal somebody was already collecting. Surveillance is the one item here that has to run continuously to be worth anything, so it is the one a closing budget should endow rather than leave to next year's argument.</div>
+      <div class="rebs"><span class="wlabel">Why the others do not hold</span><ul><li>Resilience and training decide whether detection helps, and they are the next call. They do nothing if nothing detects the next event.</li><li>Preserving the record costs very little and should happen regardless. It is a filing decision, not what an emergency budget is for.</li><li>Closing the records removes the only account of how any of this was measured, and the next response would start from nothing.</li></ul></div>
+      <p class="take">The final responsibility is to convert crisis knowledge into durable public capability.</p>
+    </section></article>
+</div></body></html>
