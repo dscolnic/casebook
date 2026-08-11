@@ -638,14 +638,14 @@ missions:
       have to be able to find your way around this hull in the dark, and know
       what is in each space and how you would get out of it.
     stake: >-
-      You have the watch tonight and you have been aboard four days. Chief Ferro wants to walk you through the
-      boat before that watch starts. Today you learn the forward spaces, what the fittings on a bulkhead are
-      actually for, and how to get from one end of the boat to the other without looking at anything. A
+      Two hours to sailing, alongside, and the fire main isolation valve in the forward compartment is chained
+      shut with nobody willing to say who chained it. Chief Ferro wants to walk you through the boat before
+      you take your first watch tonight. This watch you learn the forward spaces, what the fittings on a
+      bulkhead are for, and how to get from one end of the boat to the other without looking at anything. A
       submarine is not a list of compartment names. It is a set of systems running through those compartments
       — water, air, power, cooling — and a set of boundaries that hold when one of them fails. Learning it as
       a sequence matters, because a sequence survives being interrupted and a mental picture does not. Tonight
-      you may have to find a valve in the dark, in smoke, by feel. Anybody still working out where the locker
-      is has already lost the minutes that mattered.
+      you may have to find that valve in the dark, in smoke, by feel.
     takeaway: A compartment is defined by its boundaries, what it holds, and how you leave it.
     stops:
       - group: DC
@@ -759,14 +759,14 @@ missions:
       since before the boat slowed, one came with the turn, and one comes and
       goes. The captain wants to know which of them she has to care about.
     stake: >-
-      Four traces on the broadband display, and one of them has held almost the same bearing for eleven
-      minutes while getting louder. The officer of the watch wants a call before the boat commits to anything.
-      Today you sort out what is out there, decide what the faint one is, and say what a steady bearing means.
-      Sound is all you have. What it tells you comes from how the bearing changes over time, what frequencies
-      are in it, and how the water itself carries it — a layer of different temperature can hide a close
-      contact and pass a distant one. And a bearing that does not change is not a quiet situation. It is the
-      signature of two ships on converging courses. Call the wrong trace and you manoeuvre into the thing you
-      were avoiding.
+      Second day out, forenoon watch. Four traces on the broadband display, and Rask has been arguing with
+      Dunne about the fourth for eleven minutes: it holds almost the same bearing and it is getting louder.
+      Commander Vance wants a classification before the boat commits to the track she has been ordered onto.
+      This watch you sort out what is out there and say what a steady bearing means. Sound is all you have.
+      What it tells you comes from how the bearing changes over time, what frequencies are in it, and how the
+      water itself carries it — a layer of different temperature can hide a close contact and pass a distant
+      one. And a bearing that does not change is not a quiet situation. It is the signature of two ships on
+      converging courses.
     takeaway: A bearing is a measurement; a track is an argument built from several of them.
     stops:
       - group: SONAR
@@ -887,14 +887,14 @@ missions:
       about the water that has been setting the boat sideways the whole time.
       Ahead is a bank.
     stake: >-
-      The last trusted fix was three and a half hours ago. Since then the plot has been built from course,
-      speed and time, and there is a current here of about half a knot that nobody has measured today. Today
-      you work out how far the water has carried the boat, decide which instrument to believe when two
-      disagree, and get a position that does not depend on the plot at all. Dead reckoning is honest
-      arithmetic with a growing error: every minute since the last fix adds uncertainty, and a current adds it
-      in a direction you cannot see. Worse, two displays can agree beautifully because they are fed from the
-      same source, and agreement like that measures nothing. The depth under the keel is an independent check.
-      Sixty fathoms of water and a bank half a mile off the track make it worth taking.
+      Third day, middle watch, and the last trusted fix was three and a half hours ago. Sowande has the plot
+      built from course, speed and time, Petrov has been reading the fathometer, and the two of them do not
+      agree. There is a current here of about half a knot that nobody has measured today. This watch you work
+      out how far the water has carried the boat, decide which instrument to believe, and get a position that
+      does not depend on the plot at all. Dead reckoning is honest arithmetic with a growing error: every
+      minute since the last fix adds uncertainty, and a current adds it in a direction you cannot see. Worse,
+      two displays can agree beautifully because they take their heading from the same gyro, and agreement
+      like that measures nothing. Sixty fathoms, and a bank half a mile off the track.
     takeaway: Precision is not accuracy, and two displays sharing a source are one measurement.
     stops:
       - group: NAV
@@ -1021,14 +1021,14 @@ missions:
       wants the boat through it with contact held throughout and as little
       acoustic exposure as the plant allows.
     stake: >-
-      The narrows are four miles across, the transit takes eleven hours, and the plot's uncertainty is a
-      circle about two miles wide. Today you decide what has to be true before the boat commits, how much
-      margin the passage really has, and what the boat can afford to shut down to stay quiet. Everything
-      mechanical aboard makes noise: rotating machinery, water flowing over the hull, people. Quiet is bought
-      by switching things off or slowing them down, and every one of those costs something else — cooling, air
-      treatment, the speed you would need to get out of trouble. Margin is the number that matters. A plan
-      that works if the plot is right is not a plan. It has to survive the plot being wrong by the amount you
-      already know it could be wrong by.
+      Fifth day, first watch. The narrows are four miles across, the transit takes eleven hours, and the
+      plot's uncertainty is a circle two miles wide. Whitfield wants to wait for a better fix. Vance points
+      out that waiting puts the boat in the middle of the strait at first light, which is worse than any
+      argument about the plot — and this time she is right. This watch you decide what has to be true before
+      the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for
+      Rask. Everything mechanical aboard makes noise: rotating machinery, water over the hull, people. Quiet
+      is bought by switching things off, and each one costs cooling, air treatment, or the speed you would
+      want if this goes wrong. Margin is the number that matters.
     takeaway: Quiet costs capability, and the trade has to be made deliberately rather than by default.
     stops:
       - group: SONAR
@@ -1145,13 +1145,14 @@ missions:
       is still rising. Somewhere under those deck plates is a hole, and the boat
       is at ninety metres, which is what makes it a hole worth respecting.
     stake: >-
-      Water is over the bilge in the forward space and the level is still rising with the drain pump running.
-      Two valves will stop it, and the pipe they sit on feeds other things. Today you find where the water is
-      coming in, work out whether pumping can win, and decide what shutting that supply costs elsewhere.
-      Flooding is a race between two rates. Water comes in faster the deeper the boat is, because pressure
-      drives it, and the pump's rate does not improve to match. So a steady level means only that today's two
-      rates happen to be equal, and it will not stay steady if the boat goes deeper. Pumping buys minutes.
-      Those minutes are worth nothing unless somebody spends them finding the hole and shutting it.
+      Sixth day, morning watch, and water is over the bilge in the forward space with the drain pump running.
+      Hallam has the level and reports it steady. Ferro does not believe steady means anything and is looking
+      for the hole. This watch you find where the water is coming in, work out whether pumping can win, and
+      decide what shutting that supply costs elsewhere — the two valves that stop it sit on a header that
+      feeds other things. Flooding is a race between two rates. Water comes in faster the deeper the boat is,
+      because pressure drives it, and a pump's rate does not improve to match. So a steady level means only
+      that today's two rates happen to be equal, and it will not stay steady if the boat goes deeper. Pumping
+      buys minutes. They are worth nothing unless somebody spends them finding the source.
     takeaway: Flooding is stopped at the hull fitting; everything else is delay.
     stops:
       - group: DC
@@ -1285,14 +1286,14 @@ missions:
       the affected bus is open, and the fire is behind a panel where nobody can
       see the seat of it.
     stake: >-
-      Smoke in the compartment, the switchboard indicator showing the bus open, and a meter on the cable
-      inside reading four hundred and forty volts. Nobody can see the far bulkhead. Today you take the fire
-      apart into the things keeping it alive, decide what that meter is telling you, and work out how to fight
-      a space you cannot see into. A fire needs three things: something to burn, oxygen, and heat. An
-      electrical fire makes its own heat continuously, so it stays lit until the supply feeding it is dead —
-      which is why the order of your actions matters more than the speed of any one of them. And an indicator
-      lamp is a claim about a switch, not a measurement of a cable. Fight this without killing the source and
-      you will be fighting it again in twenty minutes.
+      Same day, afternoon watch, eight hours after the flooding and nobody has slept. Smoke from a switchboard
+      in the electrical space. The indicator shows the bus open and Mbeki's meter on the cable inside reads
+      four hundred and forty volts. Okonkwo will not send anybody in on the strength of a lamp. This watch you
+      take the fire apart into the things keeping it alive, decide what that meter is telling you, and work
+      out how to fight a space nobody can see into. A fire needs fuel, oxygen and heat. An electrical one
+      makes its own heat continuously and stays lit until the supply is dead, which is why the order of your
+      actions matters more than the speed of any one of them. And an indicator lamp is a claim about a switch,
+      not a measurement of a cable.
     takeaway: An electrical fire is put out by de-energizing it; the agent only finishes the job.
     stops:
       - group: FIRE
@@ -1405,14 +1406,14 @@ missions:
       everything is normal. Both of those statements can be true at once, and
       working out how is the whole of this watch.
     stake: >-
-      The scrubber plant is running and its outlet reads clean. A handheld meter in berthing reads far higher
-      than the sensor mounted on that bulkhead, and nine people sleep in there. Today you decide whether it is
-      the air or the instrument that is wrong, work out how long that space is safe, and fix the circulation.
-      Air treatment is a transport problem before it is a chemistry problem. A scrubber can only clean the air
-      that reaches it, so a shut damper or a stopped fan will leave one space filling up while every panel in
-      the control room reads normal. A fixed sensor reports its own corner. This is the one system where the
-      crew notice before the instruments do — headaches, short tempers, people falling asleep on watch — and
-      they already have.
+      Eighth day, middle watch. The scrubber plant is running and its outlet reads clean. Navarro has been
+      round berthing with a handheld meter and it reads far higher than the sensor on that bulkhead, where
+      nine people are asleep. Lindqvist has to decide whether to wake them. This watch you decide whether it
+      is the air or the instrument that is wrong, work out how long that space is safe, and fix the
+      circulation. Air treatment is a transport problem before it is a chemistry problem. A scrubber cleans
+      only the air that reaches it, so a shut damper leaves one space filling while every panel in control
+      reads normal, and a fixed sensor reports its own corner. This is the one system where the crew notice
+      before the instruments do — headaches, short tempers, people asleep on watch — and they already have.
     takeaway: A plant reading is a report about the plant, not about the compartment you are standing in.
     stops:
       - group: ATMO
@@ -1543,14 +1544,14 @@ missions:
       crewman, all inside four minutes. There are not enough people to do
       everything, so the first decision is which things do not get done yet.
     stake: >-
-      Four things at once: water forward, a bus lost aft, the plot degraded by that power loss, and a crewman
-      with a broken wrist in the passage. There are not enough people to work all four. Today you decide what
-      you take, what you hand to whom, and whether the boat should slow down. Priority is not about which is
-      loudest. It is about which gets worse on its own and what each one can take with it: a broken wrist
-      stays a broken wrist, and water coming aboard does not. Delegation is the other half. Everything you
-      personally hold is a thing nobody else is working, and the officer waiting for orders will not invent
-      the organisation for you. Meanwhile the boat is making eight knots at a bank nine miles away, on a plot
-      that has been wrong for six minutes.
+      Ninth day, forenoon watch, and four things at once: water forward, a bus lost aft, the plot degraded by
+      that power loss, and Adeyemi with a broken wrist in the passage. Vance wants to hold the ordered speed.
+      Whitfield says a boat with four casualties making eight knots at a bank nine miles away is about to have
+      five, and this time he is the one who is right. This watch you decide what you take, what you hand to
+      whom, and whether the boat slows down. Priority is not about which casualty is loudest. It is which gets
+      worse on its own, and what each takes with it: a broken wrist stays a broken wrist, and water coming
+      aboard does not. Everything you hold personally is something nobody else is working, and Whitfield will
+      not invent the organisation for you.
     takeaway: Command is deciding what you do, and who does the rest.
     stops:
       - group: DC
@@ -1679,14 +1680,14 @@ missions:
       and a new narrowband line, and the ocean has not changed. The problem is
       aboard, which makes it the engineers' problem and sonar's evidence.
     stake: >-
-      The broadband noise floor is up across every bearing rather than in one sector, and a new narrowband
-      line has appeared at a hundred and thirteen hertz. That is roughly twice the shaft rate, and it grows
-      with turns. Today you decide whether the noise is outside the boat or inside it, narrow it to one
-      machine, and say what kind of fault makes a line like that. Noise up on every bearing at once is not how
-      the sea behaves; it is how a boat behaves when it is shouting into its own array. Proving which machine
-      is a matter of correlation: it starts when something starts, changes when that thing changes, and stops
-      when it stops. A frequency that is a multiple of shaft rate points at something rotating with the shaft.
-      A boat that cannot hear is a boat that is only being heard.
+      Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and Dunne
+      has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the
+      boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This
+      watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say
+      what kind of fault makes a line like that. Noise up on every bearing at once is not how the sea behaves.
+      Proving which machine is a matter of correlation: it starts when something starts, changes when that
+      changes, and stops when it stops. A frequency at twice shaft rate points at something rotating with the
+      shaft. A boat that cannot hear is a boat that is only being heard.
     takeaway: Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.
     stops:
       - group: SONAR
@@ -1799,13 +1800,14 @@ missions:
       depth gauge, the trim state and the planes all have something to say and
       only one of them is the cause.
     stake: >-
-      The boat is going deeper with the planes already at rise. The trim shows heavy forward, speed is
-      unchanged, and the depth gauge is the calmest instrument in the control room. Today you decide what is
-      actually causing it, work out how much weight is aboard, and choose which control to use — knowing that
-      two of the four are hard to undo at this depth. Depth is the symptom. The cause is either weight the
-      boat has taken on or a force acting on it, and those are corrected in completely different ways.
-      Tonnes-per-metre is the conversion that turns a depth change into an amount of water. Treat the symptom
-      and the boat keeps going down while everybody watches the right gauge for entirely the wrong reason.
+      Twelfth day, middle watch. The boat is going deeper with the planes already at rise, the trim shows
+      heavy forward, speed is unchanged, and the depth gauge is the calmest instrument in the control room.
+      Ferro is on his way forward without being asked, which tells you what he thinks it is. This watch you
+      decide what is actually causing it, work out how much weight is aboard, and choose which control to use
+      — knowing two of the four are hard to undo at this depth. Depth is the symptom. The cause is either
+      weight the boat has taken on or a force acting on it, and those are corrected in completely different
+      ways. Tonnes-per-metre is what turns a depth change into an amount of water. Treat the symptom and the
+      boat keeps going down while everybody watches the right gauge for the wrong reason.
     takeaway: Depth is the outcome of weight, angle and speed, and each of those has its own cause.
     stops:
       - group: NAV
@@ -1936,14 +1938,14 @@ missions:
       changed on the throttle. Somewhere between the sea and that bearing there
       is a chain of things that carry heat away, and one of them is not.
     stake: >-
-      A main bearing is running hot. The oil is hot, the fresh water loop is hot, and the seawater leaving the
-      heat exchanger is barely warmer than the seawater going in. Today you write the cooling path down in
-      order, decide which link has stopped handing the heat on, and deal with what you find at the
-      switchboard. Cooling is a chain: the sea, a pump, a strainer, a heat exchanger, and the loop that
-      actually touches the machine. Heat has to be handed along all of it. Seawater that comes out cold is not
-      good news — it means the heat is not getting into it. And a pump drawing its rated current only proves
-      the motor is turning, not that anything is moving. A bearing run hot for an hour is a bearing replaced
-      in a shipyard.
+      Thirteenth day, and this one was bought two watches ago. A main bearing is running hot: the oil is hot,
+      the fresh water loop is hot, and the seawater leaving the heat exchanger is barely warmer than the
+      seawater going in. The second cooling pump is still secured from the quiet lineup Rask asked for, and
+      its breaker is open at the switchboard with nothing in the log. This watch you write the cooling path
+      down in order and decide which link stopped handing the heat on. Cooling is a chain: the sea, a pump, a
+      strainer, a heat exchanger, the loop that touches the machine. Seawater coming out cold is not good news
+      — it means the heat is not getting into it. A bearing run hot for an hour is a bearing replaced in a
+      shipyard.
     takeaway: A cooling system is a chain, and a chain is diagnosed link by link.
     stops:
       - group: ENG
@@ -2058,14 +2060,14 @@ missions:
       noise also does something, and the ones that keep people breathing and
       bearings cool are not on the table.
     stake: >-
-      Four hours of quiet running, and Chief Haruki intends to secure everything on his list to get it. One of
-      those items is the second seawater cooling pump. Another is half the carbon dioxide scrubbing. Today you
-      decide what may be shut down, what may only be slowed, and what the whole configuration costs the boat.
-      Quiet is bought with capability, and the bill arrives late and in another department. A scrubber train
-      secured means the remaining one removes less than the crew produces, so the air is on a clock from the
-      moment you agree. A cooling pump secured means a temperature that climbs slowly for four hours. And a
-      quiet boat is a slow boat, which takes longer to work out what a contact is doing. None of these appears
-      on the same gauge as the decision.
+      Fifteenth day, and the argument that has been running all patrol comes due. Four hours of quiet running,
+      and Haruki intends to secure everything on Rask's list to get it — including the second seawater pump
+      and half the carbon dioxide scrubbing. Lindqvist has done the arithmetic on the second one and is not
+      happy. This watch you decide what may be shut down, what may only be slowed, and what the whole
+      configuration costs the boat. Quiet is bought with capability, and the bill arrives late, in another
+      department. One scrubber train means the remaining one removes less than the crew produces, so the air
+      is on a clock from the moment you agree. A quiet boat is also a slow boat, which takes longer to work
+      out what a contact is doing. None of that appears on the same gauge as the decision.
     takeaway: A silent lineup is a set of deadlines, not a set of switches.
     stops:
       - group: ENG
@@ -2185,14 +2187,14 @@ missions:
       because somebody once did not do it, and each one proves a different
       thing.
     stake: >-
-      The boat has been open to the surface all week and dives in the morning. The switchboard shows two
-      breakers open from maintenance, the log says one was restored, and every valve on the rig sheet has
-      signatures against it. Today you work out what each checklist line is really asking, close the boat up
-      in the right order, and decide what to do about a record that does not match. A checklist item is a
-      physical claim about a physical thing, not a signature. The boat is ready when all of those claims are
-      true at the same time — and the way to know is to go and meter the circuit rather than read the line
-      again. This is the cheapest hour of the patrol. A check skipped alongside is a casualty at depth, with
-      the whole crew inside it.
+      Nineteenth day. The boat has been open to the surface since Tuesday for work on the mast and dives at
+      dawn. The switchboard shows two breakers open from that work, the log says one was restored, and every
+      valve on the rig sheet has signatures against it — including one from a man who was ashore that morning.
+      This watch you work out what each checklist line is really asking, close the boat up in the right order,
+      and decide what to do about a record that does not match. A checklist item is a physical claim about a
+      physical thing, not a signature. The boat is ready when all of those claims are true at once, and the
+      way to know is to go and meter the circuit rather than read the line again. This is the cheapest hour of
+      the patrol.
     takeaway: A check is a measurement that proves a specific claim, not a box beside a word.
     stops:
       - group: DC
@@ -2303,14 +2305,14 @@ missions:
       of it. Every proposal has a cost, an uncertain benefit, and an effect on
       the patrol that follows.
     stake: >-
-      The yard will fund one item and every department head has asked for the thing that would have fixed last
-      patrol. Today you decide what the boat actually buys. The evidence is unglamorous: which failures cost
-      real time, which are becoming more frequent, and which of them the next patrol is likely to meet,
-      against what each fix would remove. Memory is the trap. A dramatic failure that happened once is
-      remembered vividly and argued for loudly. A small fault that has cost an hour a week for a year goes
-      unmentioned, because everybody has learned to work around it. The wrong refit is a patrol spent wishing
-      for the thing you did not buy — and the department that shouted loudest is not evidence about anything
-      except who shouts.
+      Twenty-first day, and the refit list goes off the boat in tomorrow's message window. The yard will fund
+      one item. Haruki wants the cooling pump that has cost him two watches this patrol, Rask wants the mounts
+      that would have prevented the noise line, Lindqvist wants a second scrubber train, and Whitfield wants
+      to know which of them the next patrol is most likely to need. This watch you decide. The evidence is
+      unglamorous: which failures cost real time, which are becoming more frequent, and what each fix would
+      actually remove. Memory is the trap. A dramatic failure that happened once is remembered vividly and
+      argued for loudly; a small fault that has cost an hour a week for a year goes unmentioned because
+      everybody has learned to work around it.
     takeaway: An upgrade is worth what it changes about the decisions you will actually face.
     stops:
       - group: ENG
@@ -2412,14 +2414,14 @@ missions:
       scrubber train down and a bearing running warm. None of them is an
       emergency. Together they are the patrol.
     stake: >-
-      Everything at once, everything degraded a little, and the officer you would have handed half of it to is
-      in the wardroom with a broken wrist. A contact that has not been resolved, a plot that is aging, a
-      system nobody has looked at since Tuesday, and six departments who all need an answer now. Today is the
-      watch the whole patrol has been for, and nothing on it has been decided for you. Everything you have
-      been taught turns up in a different order than it was taught in: what the sound means, where the boat
-      really is, which casualty gets worse by itself, what the gauges are and are not saying. Nobody will tell
-      you which problem is the important one. Getting that ranking right is the job, and it is the only part
-      of it that cannot be delegated.
+      Twenty-second day, the last full watch of the patrol, and everything is degraded a little. A contact
+      Rask has not resolved. A plot Sowande has not been able to fix since the forenoon. A machine Haruki has
+      not looked at since Tuesday. Whitfield is in the wardroom with the corpsman and a fractured wrist of his
+      own, so the officer you would have handed half of this to is not available. Everything you have been
+      taught turns up tonight in a different order than it was taught in: what the sound means, where the boat
+      really is, which casualty gets worse by itself, what a gauge is and is not saying. Nobody will tell you
+      which problem is the important one. Getting that ranking right is the job, and it is the only part of it
+      that cannot be delegated.
     takeaway: Command is choosing which uncertainty you can live with, and saying so out loud.
     stops:
       - group: NAV
