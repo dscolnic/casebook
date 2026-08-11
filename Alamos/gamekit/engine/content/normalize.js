@@ -165,6 +165,18 @@ function applyPack(ch, pack){
   const answers = String(ch.answer ?? '').split(' + ').map(a => a.trim()).filter(Boolean);
   if(answers.length > 1) ch.correctChoices = answers;
   else ch.correctChoice = answers[0] ?? ch.answer;
+  // A pack's `reasons` say why each hypothesis that is not the answer fails,
+  // keyed the same way as `hypotheses`. Nothing read them. They are exactly what
+  // the verdict's rebuttal list is for, and Project Y authored nine packs' worth
+  // — every one of them written, shipped, and never once shown to a player.
+  if(pack.reasons && !ch.rebuttals){
+    const keyed = new Set(answers);
+    const rebuttals = Object.entries(pack.hypotheses ?? {})
+      .filter(([, h]) => !keyed.has(h.label))
+      .map(([id]) => pack.reasons[id])
+      .filter(r => typeof r === 'string' && r.trim());
+    if(rebuttals.length) ch.rebuttals = rebuttals;
+  }
 }
 
 /**
