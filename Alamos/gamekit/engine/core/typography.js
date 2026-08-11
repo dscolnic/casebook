@@ -23,7 +23,18 @@
 // reorders two lines.
 
 /** The root size everything else is relative to. Matches index.html. */
-export const BASE_PX = 15;
+export const BASE_PX = 16;
+
+/** What the reader chose, on top of whatever the edition says. */
+const READER_KEY = 'gamekit_textScale_v1';
+const READER_STEPS = [0.9, 1, 1.15, 1.3, 1.5];
+
+export function readerScale(){
+  try{
+    const v = Number(localStorage.getItem(READER_KEY));
+    return READER_STEPS.includes(v) ? v : 1;
+  }catch{ return 1; }
+}
 
 /**
  * Grade to scale.
@@ -34,7 +45,8 @@ export const BASE_PX = 15;
  */
 export function textScaleForGrade(grade){
   if(!Number.isFinite(grade)) return 1;
-  if(grade <= 5) return 1.18;      // primary: the hospital
+  if(grade <= 3) return 1.30;      // early primary: a seven-year-old reading a panel
+  if(grade <= 5) return 1.18;      // upper primary
   if(grade <= 8) return 1.10;      // middle school
   if(grade <= 12) return 1.04;     // high school
   return 1;                        // undergraduate and up
@@ -53,13 +65,46 @@ export function textScale(theme){
  */
 export function applyTypography(theme){
   if(typeof document === 'undefined') return 1;
-  const scale = textScale(theme);
+  // The edition scale says who the game is written for; the reader scale is the
+  // player saying the type is too small anyway. They multiply, so a grade-4
+  // edition read by somebody who wants it larger still gets both.
+  const scale = textScale(theme) * readerScale();
   const root = document.documentElement;
   root.style.fontSize = `${(BASE_PX * scale).toFixed(2)}px`;
+  installTextSizeControl(theme);
   // Exposed so a stylesheet can scale something that is not in rem, and so the
   // value is visible in the inspector rather than inferred from a font size.
   root.style.setProperty('--textScale', String(scale));
   root.dataset.audienceGrade = Number.isFinite(theme?.audience?.grade)
     ? String(theme.audience.grade) : '';
   return scale;
+}
+
+/**
+ * The reader's own size control, installed into whatever settings sheet the
+ * game has.
+ *
+ * It lives here rather than in each index.html because there are three entry
+ * points and a control added to one of them reaches one game. This runs from
+ * theme.js, which every game goes through.
+ */
+function installTextSizeControl(theme){
+  const body = document.querySelector('#settingsOverlay .sheetBody');
+  if(!body || document.getElementById('setTextSize')) return;
+  const current = readerScale();
+  const row = document.createElement('div');
+  row.className = 'settingRow';
+  row.innerHTML = '<span><b>Text size</b><small>Applies to every panel, card and question.</small></span>'
+    + `<div id="setTextSize" class="textSizeSteps">${READER_STEPS.map(v =>
+        `<button class="btn small${v === current ? ' on' : ''}" type="button" data-scale="${v}">`
+        + `${v === 1 ? 'Normal' : Math.round(v * 100) + '%'}</button>`).join('')}</div>`;
+  // Above the restart row, which should stay last.
+  const danger = body.querySelector('.settingRow.danger');
+  body.insertBefore(row, danger ?? null);
+  row.querySelectorAll('[data-scale]').forEach(b => b.onclick = () => {
+    try{ localStorage.setItem(READER_KEY, b.dataset.scale); }catch{ /* private mode */ }
+    row.querySelectorAll('[data-scale]').forEach(x => x.classList.toggle('on', x === b));
+    document.documentElement.style.fontSize =
+      `${(BASE_PX * textScale(theme) * Number(b.dataset.scale)).toFixed(2)}px`;
+  });
 }

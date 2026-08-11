@@ -321,3 +321,60 @@ export function createDay({
     },
   };
 }
+
+/**
+ * Walking up to somebody, in one place.
+ *
+ * This is the fourth fork bug of its kind. The rule is simple — a person the
+ * day wants asks their call's question, anybody else talks — and each entry
+ * point implemented it separately. Two of the three decided it themselves,
+ * against `nextMissionStopIndex`, which is the FIRST stop not yet made: if the
+ * day's first open call was a room, the mission's own person was not recognised
+ * at all, and walking up to them opened their biography while the call stayed
+ * open with a marker over their head.
+ *
+ * The decision belongs to `openPersonVisit`, which checks every open call and
+ * returns quietly when this is nobody today wants. That quiet return is the
+ * whole protocol, and the only thing a caller has to do is notice it.
+ *
+ * The DOM stays with the game: `showPassage` is called only when neither a
+ * funding request nor a call claimed this person.
+ *
+ * @param npc          the crowd member, if the game found one
+ * @param char         their roster entry
+ * @param showPassage  (char) => void — open this person's biography and quiz
+ * @param opts.openPersonVisit    required; the engine's, or the game's re-export
+ * @param opts.openSpecialRequest optional; games with a funding meeting
+ * @param opts.isSpecialRequestActive, opts.getSpecialRequest  same
+ * @param opts.division  fallback division id when the roster entry has none
+ * @returns true when a panel opened, false when the passage was shown
+ */
+export function openPersonOrPassage(npc, char, showPassage, opts = {}){
+  const {
+    openPersonVisit, openSpecialRequest,
+    isSpecialRequestActive, getSpecialRequest,
+    division = 'TRI',
+  } = opts;
+  const overlay = typeof document !== 'undefined' ? document.getElementById('overlay') : null;
+  const shown = () => !!overlay?.classList.contains('show');
+  const state = getState();
+  const person = npc ?? (char ? { char, division: char.division ?? division } : null);
+  if(!person) return false;
+
+  // A funding meeting takes the person for that day, and only that person.
+  if(state && isSpecialRequestActive?.(state) && openSpecialRequest){
+    const req = getSpecialRequest?.(state.week);
+    if(req && char?.id === req.personId){
+      const before = shown();
+      const opened = openSpecialRequest(person);
+      if(opened || (shown() && !before)) return true;
+    }
+    // A request is live and this is somebody else: they still talk.
+  } else if(openPersonVisit){
+    const before = shown();
+    openPersonVisit(person);
+    if(shown() && !before) return true;
+  }
+  showPassage?.(char);
+  return false;
+}

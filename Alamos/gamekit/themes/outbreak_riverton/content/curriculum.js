@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What kind of agent fits the whole panel?",
-      "scene": "Pathology has four kinds of evidence from the same positive specimens and no single one settles what the agent is. Microscopy shows no intact cellular forms; a bacterial marker and a fungal cell-wall stain are both negative; signal rises only in preparations containing living host cells; and the extraction blank is clean. The classification that matters is not a name but a set of properties — whether the agent has cellular structure of its own, whether it can replicate without borrowing a host's machinery, and whether the molecular signal survives controls. Read the panel as a whole: the negatives constrain it as much as the positives.",
+      "scene": "Pathology has four results from the same positive specimens and will not put a name to any of it. The four are on the light box in front of you. Ortiz needs a class of agent before the diagnostic bench can choose a method at all.",
       "takeaway": "Agent classification should combine cellular structure, host dependence, molecular evidence, and controls rather than rely on one striking image.",
       "place": "Hospital Pathology Suite",
-      "story": "Pathology has four kinds of evidence from the same positive specimens and no single one settles what the agent is. Microscopy shows no intact cellular forms; a bacterial marker and a fungal cell-wall stain are both negative; signal rises only in preparations containing living host cells; and the extraction blank is clean. The classification that matters is not a name but a set of properties — whether the agent has cellular structure of its own, whether it can replicate without borrowing a host's machinery, and whether the molecular signal survives controls. Read the panel as a whole: the negatives constrain it as much as the positives.",
+      "story": "Pathology has four results from the same positive specimens and will not put a name to any of it. The four are on the light box in front of you. Ortiz needs a class of agent before the diagnostic bench can choose a method at all.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "What kind of agent fits the whole panel?",
@@ -19,7 +19,12 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading, including the quiet negative controls?",
         "question": "Which explanation fits every reading, including the quiet negative controls?",
         "answer": "RNA virus-like agent",
-        "why": "The agent is host-cell dependent, while bacterial and fungal cellular markers are absent and the blank is clean. The full panel supports a virus-like agent rather than a cellular pathogen or contamination.",
+        "why": "The negatives are doing the work here. No cellular forms under the microscope, no bacterial marker, no fungal cell wall — three ways of being a cell, all absent. What is present is dependence: signal rises only where living host cells are, which is what an agent that cannot copy itself alone looks like. And the clean extraction blank is what stops the whole panel being about the laboratory instead of the patient.",
+        "rebuttals": [
+          "A bacterium is a cell and would leave cellular evidence — a marker, a wall, something under the microscope. Three separate looks for that came back empty.",
+          "A fungus would show cell-wall material on the stain built to find it. That stain is negative, and it is a stain that rarely misses.",
+          "Contamination is the right suspicion whenever a signal appears from nowhere, and it is checked by the blank. This blank is clean, so the signal came in with the specimens."
+        ],
         "headline": "Pathology has several clues from the same positive specimens.",
         "readings": [
           {
@@ -77,15 +82,19 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "RNA virus-like agent"
-      }
+      },
+      "assumes": [
+        "cells and viruses differ in whether they can copy themselves alone",
+        "a negative control is a result, not an absence of one"
+      ]
     },
     {
       "day": 2,
       "title": "Locate the oxygen-delivery failure",
-      "scene": "Two patients have the same test result and very different clinical courses. One shows arterial oxygen saturation of 86 per cent, end-tidal carbon dioxide of 39 mmHg, cardiac output of 5.2 L/min, haemoglobin of 14 g/dL, and diffuse gas-exchange abnormality on imaging. Oxygen delivery is a chain — gas into the lung, transfer across the alveolar membrane, carriage on haemoglobin, and flow to the tissues — and each link has its own measurement here. Normal values at one link are not reassurance; they are evidence that the failure is somewhere else in the chain.",
+      "scene": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full cardiopulmonary panel on one of them, and the team is about to escalate a treatment on the strength of it.",
       "takeaway": "Oxygen delivery is a chain. Normal measurements at one link can be powerful evidence that the failure lies somewhere else.",
       "place": "Intensive Care Unit",
-      "story": "Two patients have the same test result and very different clinical courses. One shows arterial oxygen saturation of 86 per cent, end-tidal carbon dioxide of 39 mmHg, cardiac output of 5.2 L/min, haemoglobin of 14 g/dL, and diffuse gas-exchange abnormality on imaging. Oxygen delivery is a chain — gas into the lung, transfer across the alveolar membrane, carriage on haemoglobin, and flow to the tissues — and each link has its own measurement here. Normal values at one link are not reassurance; they are evidence that the failure is somewhere else in the chain.",
+      "story": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full cardiopulmonary panel on one of them, and the team is about to escalate a treatment on the strength of it.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Locate the oxygen-delivery failure",
@@ -94,7 +103,12 @@ export const CURRICULUM = {
         "task": "Which bottleneck fits the entire cardiopulmonary panel?",
         "question": "Which bottleneck fits the entire cardiopulmonary panel?",
         "answer": "Gas-exchange failure",
-        "why": "Oxygen saturation is low despite near-normal carbon dioxide, cardiac output, and hemoglobin. The abnormal lung evidence localizes the problem to transfer of oxygen from air into blood.",
+        "why": "Oxygen delivery is a chain, and normal values at one link are not reassurance — they are evidence that the failure is elsewhere. Carbon dioxide near normal says air is reaching the alveoli, so ventilation is working. Cardiac output normal says the pump is moving blood. Haemoglobin normal says the blood can carry oxygen. What is left is the handover between air and blood, and the imaging says the same thing.",
+        "rebuttals": [
+          "Ventilation failure would usually push carbon dioxide up as oxygen falls, because the same failing airflow carries both. This carbon dioxide is near normal.",
+          "Circulatory failure means oxygenated blood that never arrives, and cardiac output here is 5.2 L/min. The blood is moving.",
+          "Anaemia limits how much oxygen each litre can carry, and haemoglobin is 14 g/dL. The carriage is not the problem."
+        ],
         "headline": "Two patients have severe fatigue and low tissue oxygen delivery.",
         "readings": [
           {
@@ -152,7 +166,10 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "Gas-exchange failure"
-      }
+      },
+      "assumes": [
+        "oxygen travels air to lung to blood to tissue, and each handover can fail separately"
+      ]
     },
     {
       "day": 3,
@@ -187,10 +204,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Protective response or runaway inflammation?",
-      "scene": "Several patients worsen after the detectable pathogen has already started to fall. The panel shows pathogen signal falling over 48 hours, inflammatory cytokines rising sharply, neutralising antibody present, oxygenation worsening, and bacterial cultures with no growth. The immune response is not only the solution here — the same mechanisms that clear an infection damage tissue while doing it, and the timing of the deterioration relative to the pathogen curve is what separates ongoing infection from an immune response that has become the problem. A candidate explanation has to fit the timing as well as the values.",
+      "scene": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last forty-eight hours is on the screen, and the ward wants to know what it is treating.",
       "takeaway": "A biological response can become part of the problem. The strongest explanation must account for timing as well as the direction of each measurement.",
       "place": "Intensive Care Unit",
-      "story": "Several patients worsen after the detectable pathogen has already started to fall. The panel shows pathogen signal falling over 48 hours, inflammatory cytokines rising sharply, neutralising antibody present, oxygenation worsening, and bacterial cultures with no growth. The immune response is not only the solution here — the same mechanisms that clear an infection damage tissue while doing it, and the timing of the deterioration relative to the pathogen curve is what separates ongoing infection from an immune response that has become the problem. A candidate explanation has to fit the timing as well as the values.",
+      "story": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last forty-eight hours is on the screen, and the ward wants to know what it is treating.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Protective response or runaway inflammation?",
@@ -199,7 +216,12 @@ export const CURRICULUM = {
         "task": "Which mechanism best explains the reversal in the full panel?",
         "question": "Which mechanism best explains the reversal in the full panel?",
         "answer": "Dysregulated inflammatory injury",
-        "why": "The pathogen signal is falling while inflammatory signals rise and physiology worsens. The negative bacterial cultures remove an important rival. The host response now best explains the damage.",
+        "why": "Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.",
+        "rebuttals": [
+          "Uncontrolled replication would show a rising pathogen signal. This one is falling, over forty-eight hours, while the patient declines.",
+          "A bacterial superinfection is the classic late deterioration, and it is the reason cultures were sent. They are negative.",
+          "Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise."
+        ],
         "headline": "Several patients begin to worsen after the amount of detectable pathogen has started to fall.",
         "readings": [
           {
@@ -257,7 +279,10 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "Dysregulated inflammatory injury"
-      }
+      },
+      "assumes": [
+        "the immune response can damage tissue while it clears an infection"
+      ]
     },
     {
       "day": 5,
@@ -351,10 +376,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Crossing the cellular boundary",
-      "scene": "The agent reaches respiratory tissue, but only some cell types are affected — which is a clue about mechanism rather than an accident of exposure. Cell entry is a sequence of physical events: a surface molecule binds a compatible receptor, the membrane deforms or a fusion process begins, material crosses into the cytoplasm, and the cell's own machinery is redirected afterwards. Each step depends on the one before it, and each is a place where a cell without the right protein simply cannot be infected. The order is what makes the tissue pattern predictable.",
+      "scene": "Only some cell types in the respiratory tissue are affected, and the culture wing has four cards describing what happens when something crosses into a cell. Nobody has put them in order yet, and the therapy meeting is at four.",
       "takeaway": "Membranes are selective interfaces whose proteins can determine cell vulnerability.",
       "place": "Cell Culture Wing",
-      "story": "The agent reaches respiratory tissue, but only some cell types are affected — which is a clue about mechanism rather than an accident of exposure. Cell entry is a sequence of physical events: a surface molecule binds a compatible receptor, the membrane deforms or a fusion process begins, material crosses into the cytoplasm, and the cell's own machinery is redirected afterwards. Each step depends on the one before it, and each is a place where a cell without the right protein simply cannot be infected. The order is what makes the tissue pattern predictable.",
+      "story": "Only some cell types in the respiratory tissue are affected, and the culture wing has four cards describing what happens when something crosses into a cell. Nobody has put them in order yet, and the therapy meeting is at four.",
       "game": {
         "type": "SEQUENCE",
         "title": "Crossing the cellular boundary",
@@ -363,7 +388,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Specific recognition precedes membrane rearrangement and entry; downstream effects occur only after the barrier is crossed.",
+        "why": "The order is physical, and it is why the tissue pattern is predictable. Nothing enters until something on the surface is recognised, and a cell without the right protein cannot be infected however much material reaches it. Recognition comes first, the membrane rearranges second because that is what binding triggers, material crosses third, and everything the cell then does wrongly is downstream of a barrier that has already been crossed.",
+        "rebuttals": [
+          {
+            "'Binding first": "it is the step that decides which cells are even candidates, which is what makes some cell types vulnerable and others not.'"
+          },
+          "The membrane bends because something bound to it. Fusion is a consequence of recognition, not a step that happens on its own.",
+          "Material crosses only after the membrane has rearranged — that is what the rearrangement is for.",
+          "The hijacked machinery is last because it is an effect. A cell whose machinery is redirected has already been entered."
+        ],
         "cards": [
           "A surface molecule binds a compatible receptor.",
           "The membrane bends or a fusion process begins.",
@@ -376,15 +409,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a cell membrane is a selective barrier, not a wall"
+      ]
     },
     {
       "day": 2,
       "title": "Choose the membrane mechanism",
-      "scene": "A membrane is a selective interface, not a wall, and four observations from the culture bench each describe a different way something crosses one. A small nonpolar molecule moving down its concentration gradient needs no protein at all; an ion moving down its gradient through a selective pore does; a solute moving uphill against its gradient must be paid for, and the ATP consumption is the receipt; a large bound particle enclosed by the membrane is a different process again. The mechanism is inferred from the constraints — direction, size, energy cost — rather than recalled from the name of the molecule.",
+      "scene": "Four observations from the culture bench, each describing something moving across a membrane. Adeyemi wants each one named by its mechanism before the entry model goes any further, and she does not want the names guessed from the molecules.",
       "takeaway": "Transport mechanisms are inferred from constraints, not memorized from molecule names alone.",
       "place": "Membrane Biology Lab",
-      "story": "A membrane is a selective interface, not a wall, and four observations from the culture bench each describe a different way something crosses one. A small nonpolar molecule moving down its concentration gradient needs no protein at all; an ion moving down its gradient through a selective pore does; a solute moving uphill against its gradient must be paid for, and the ATP consumption is the receipt; a large bound particle enclosed by the membrane is a different process again. The mechanism is inferred from the constraints — direction, size, energy cost — rather than recalled from the name of the molecule.",
+      "story": "Four observations from the culture bench, each describing something moving across a membrane. Adeyemi wants each one named by its mechanism before the entry model goes any further, and she does not want the names guessed from the molecules.",
       "game": {
         "type": "PROTOCOL",
         "title": "Choose the membrane mechanism",
@@ -393,7 +429,13 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "The direction of movement, need for a protein, energy use, and cargo size distinguish the mechanisms.",
+        "why": "Three constraints tell these apart and none of them is the name of the molecule. Which way it goes: downhill needs no energy, uphill does, and the ATP consumption is the receipt. Whether a protein is involved: a small nonpolar molecule crosses the lipid directly, an ion cannot and needs a pore. And how big it is: a bound particle too large for any channel is taken in by the membrane wrapping it.",
+        "rebuttals": [
+          "Downhill and needing no protein is simple diffusion — the molecule is small and nonpolar enough to cross the lipid itself.",
+          "Downhill but through a selective pore is facilitated diffusion. Still no energy spent; the protein supplies the selectivity, not the push.",
+          "Uphill with ATP consumed is active transport, and the energy cost is the thing that identifies it.",
+          "A large bound particle enclosed by the membrane is endocytosis — a different process from anything crossing the bilayer."
+        ],
         "scenarios": [
           "A small nonpolar molecule moves down its concentration gradient.",
           "An ion moves down its gradient through a selective protein pore.",
@@ -412,15 +454,19 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a concentration gradient has a direction",
+        "ATP is the cell's energy currency"
+      ]
     },
     {
       "day": 3,
       "title": "Separate binding from entry",
-      "scene": "Some cells are vulnerable and some are not, and the team wants to know at which step the resistant ones stop the process. Receptor abundance on both cell types tests whether binding is possible; tracking whether bound material is internalised tests whether entry follows binding; measuring a late cellular response tells you only that something already went wrong upstream. A mechanistic experiment earns its cost by identifying the earliest point at which the two conditions diverge — everything after that point is a consequence, not a cause.",
+      "scene": "Some cell types are infected and some are not, and nobody can say at which step the resistant ones stop the process. Structural biology has bench time for one experiment before the therapy target is chosen.",
       "takeaway": "Mechanistic experiments should identify the earliest point at which two conditions diverge.",
       "place": "Structural Biology Room",
-      "story": "Some cells are vulnerable and some are not, and the team wants to know at which step the resistant ones stop the process. Receptor abundance on both cell types tests whether binding is possible; tracking whether bound material is internalised tests whether entry follows binding; measuring a late cellular response tells you only that something already went wrong upstream. A mechanistic experiment earns its cost by identifying the earliest point at which the two conditions diverge — everything after that point is a consequence, not a cause.",
+      "story": "Some cell types are infected and some are not, and nobody can say at which step the resistant ones stop the process. Structural biology has bench time for one experiment before the therapy target is chosen.",
       "game": {
         "type": "CHOICE",
         "title": "Separate binding from entry",
@@ -442,17 +488,20 @@ export const CURRICULUM = {
           "Increase the exposure until every cell shows damage."
         ],
         "correctChoice": "Measure receptor abundance on vulnerable and resistant cells."
-      }
+      },
+      "assumes": [
+        "a chain of steps fails at its earliest broken link"
+      ]
     }
   ],
   "MOL": [
     {
       "day": 1,
       "title": "Choose the next discriminating evidence",
-      "scene": "Two hypotheses about the agent's identity remain open, and there is money for roughly two more pieces of work. A higher magnification of the same image is more of the evidence you already have; a validated molecular signature interrogates the genome rather than the appearance; a replication assay in permissive and non-permissive cells asks the mechanistic question directly. What separates useful evidence from expensive reassurance is independence of failure mode: if two methods can fail for the same reason, agreement between them is not confirmation.",
+      "scene": "Two hypotheses about the agent are still open and there is money for one more piece of work before the diagnostic bench has to commit. Three of the four things on the table would produce a result by tonight.",
       "takeaway": "Independent failure modes matter more than prestige or repeated views of the same evidence.",
       "place": "Molecular Identification Lab",
-      "story": "Two hypotheses about the agent's identity remain open, and there is money for roughly two more pieces of work. A higher magnification of the same image is more of the evidence you already have; a validated molecular signature interrogates the genome rather than the appearance; a replication assay in permissive and non-permissive cells asks the mechanistic question directly. What separates useful evidence from expensive reassurance is independence of failure mode: if two methods can fail for the same reason, agreement between them is not confirmation.",
+      "story": "Two hypotheses about the agent are still open and there is money for one more piece of work before the diagnostic bench has to commit. Three of the four things on the table would produce a result by tonight.",
       "game": {
         "type": "CHOICE",
         "title": "Choose the next discriminating evidence",
@@ -474,15 +523,18 @@ export const CURRICULUM = {
           "Ask a recognised authority which answer is most likely."
         ],
         "correctChoice": "Obtain a molecular signature using a validated broad panel."
-      }
+      },
+      "assumes": [
+        "two methods that can fail the same way do not confirm each other"
+      ]
     },
     {
       "day": 2,
       "title": "From genetic information to protein",
-      "scene": "Affected cells are producing unfamiliar RNA and proteins, and the team needs the causal chain written down before it can say where the change is. Gene expression is a sequence of measurable transformations: a DNA template is made accessible, RNA polymerase produces a transcript, a ribosome reads codons and builds an amino-acid chain, and the chain folds into something that does a job. Abundance can change at any one of those stages independently, which is exactly why the chain is worth stating explicitly rather than treating expression as a single event.",
+      "scene": "Affected cells are making RNA and proteins the sequencing centre does not recognise. Four cards describe how a cell gets from a gene to something that does a job. Nobody can say where the change is until the chain is on the board in order.",
       "takeaway": "Changes in protein abundance can arise at several distinct stages of gene expression.",
       "place": "Sequencing Center",
-      "story": "Affected cells are producing unfamiliar RNA and proteins, and the team needs the causal chain written down before it can say where the change is. Gene expression is a sequence of measurable transformations: a DNA template is made accessible, RNA polymerase produces a transcript, a ribosome reads codons and builds an amino-acid chain, and the chain folds into something that does a job. Abundance can change at any one of those stages independently, which is exactly why the chain is worth stating explicitly rather than treating expression as a single event.",
+      "story": "Affected cells are making RNA and proteins the sequencing centre does not recognise. Four cards describe how a cell gets from a gene to something that does a job. Nobody can say where the change is until the chain is on the board in order.",
       "game": {
         "type": "SEQUENCE",
         "title": "From genetic information to protein",
@@ -491,7 +543,17 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Transcription produces the message; translation converts the message into a polypeptide that must fold before function.",
+        "why": "Abundance can change at any one of these stages independently, which is exactly why the chain is worth stating rather than treating expression as one event. The template has to be reachable before anything transcribes it; a transcript has to exist before a ribosome can read it; and a chain of amino acids does nothing at all until it folds. Each stage is a separate place for the answer to be hiding.",
+        "rebuttals": [
+          {
+            "'Access first": "a template nothing can reach is transcribed by nothing, whatever else is true of the cell.'"
+          },
+          "Transcription second, because the message is what the next stage reads.",
+          "Translation third — a ribosome needs a transcript, and codons are read only once there is something to read them from.",
+          {
+            "'Folding last, and it is not a formality": "an unfolded chain is present, measurable, and useless.'"
+          }
+        ],
         "cards": [
           "A DNA template is made accessible.",
           "RNA polymerase produces an RNA transcript.",
@@ -504,15 +566,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "genes are read into RNA and RNA is read into protein"
+      ]
     },
     {
       "day": 3,
       "title": "Locate the molecular change",
-      "scene": "Four observations from the gene-expression bench, each pointing at a different stage of the same chain. RNA rising while protein stays flat is not the same failure as protein rising while RNA is unchanged; a single codon change substituting one amino acid is a different thing again from a protein present at normal abundance but with low activity. The central dogma is a chain of transformations, not a promise that every stage moves together — and each of these patterns is only interpretable if you know which stage it is reporting on.",
+      "scene": "Four patterns from the gene-expression bench, each pairing a measurement with another measurement. Adeyemi wants each one placed at the stage it reports on, before anybody proposes a gene worth targeting.",
       "takeaway": "The central dogma is a chain of measurable transformations, not a claim that every stage changes together.",
       "place": "Gene Expression Lab",
-      "story": "Four observations from the gene-expression bench, each pointing at a different stage of the same chain. RNA rising while protein stays flat is not the same failure as protein rising while RNA is unchanged; a single codon change substituting one amino acid is a different thing again from a protein present at normal abundance but with low activity. The central dogma is a chain of transformations, not a promise that every stage moves together — and each of these patterns is only interpretable if you know which stage it is reporting on.",
+      "story": "Four patterns from the gene-expression bench, each pairing a measurement with another measurement. Adeyemi wants each one placed at the stage it reports on, before anybody proposes a gene worth targeting.",
       "game": {
         "type": "PROTOCOL",
         "title": "Locate the molecular change",
@@ -521,7 +586,13 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "RNA abundance, protein abundance, sequence, and activity are related but non-equivalent measurements.",
+        "why": "RNA abundance, protein abundance, sequence and activity are four different measurements, and the central dogma is a chain of transformations rather than a promise that they move together. Message up with protein flat means the message is not being turned into protein, or the protein is being destroyed as fast as it is made. Protein up with message unchanged means the opposite end. And a protein present in normal amounts but not working is a claim about the molecule, not about how much of it there is.",
+        "rebuttals": [
+          "RNA rising while protein stays flat points downstream of transcription — a translation limit, or rapid turnover of the protein once made.",
+          "Protein rising on unchanged RNA points to more efficient translation or slower degradation. Nothing about the gene has changed.",
+          "One codon changed and one amino acid substituted is a sequence change, and it is visible only in the sequence.",
+          "Normal amount with low activity is about folding, modification or the active site — the molecule is there and cannot do the job."
+        ],
         "scenarios": [
           "RNA rises while protein stays constant.",
           "RNA is unchanged while protein rises.",
@@ -540,15 +611,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "the amount of a protein and the amount of its message are measured separately"
+      ]
     },
     {
       "day": 4,
       "title": "Find the controlling stage",
-      "scene": "An unfamiliar protein is abundant in affected cells and the team has money for a few measurements. Quantifying its messenger RNA across time asks whether transcription changed; measuring ribosome association with that RNA asks whether translation did; measuring protein half-life asks whether the protein is simply being destroyed more slowly, which produces abundance with no change in production at all. Sequencing a neighbouring chromosomal region answers a question nobody has asked. Mechanism needs measurements that span the whole causal chain, because abundance alone is consistent with all of them.",
+      "scene": "An unfamiliar protein is abundant in affected cells. The protein analysis core has money for a few measurements, and the team is already arguing about which gene to target.",
       "takeaway": "Mechanism requires measurements that span the full causal chain.",
       "place": "Protein Analysis Core",
-      "story": "An unfamiliar protein is abundant in affected cells and the team has money for a few measurements. Quantifying its messenger RNA across time asks whether transcription changed; measuring ribosome association with that RNA asks whether translation did; measuring protein half-life asks whether the protein is simply being destroyed more slowly, which produces abundance with no change in production at all. Sequencing a neighbouring chromosomal region answers a question nobody has asked. Mechanism needs measurements that span the whole causal chain, because abundance alone is consistent with all of them.",
+      "story": "An unfamiliar protein is abundant in affected cells. The protein analysis core has money for a few measurements, and the team is already arguing about which gene to target.",
       "game": {
         "type": "CHOICE",
         "title": "Find the controlling stage",
@@ -570,15 +644,18 @@ export const CURRICULUM = {
           "Sequence the neighbouring chromosomal region."
         ],
         "correctChoice": "Quantify the protein's messenger RNA across time."
-      }
+      },
+      "assumes": [
+        "a protein's abundance is set by how fast it is made and how fast it is destroyed"
+      ]
     },
     {
       "day": 5,
       "title": "Build a trustworthy amplification run",
-      "scene": "Hospitals need a diagnostic by sunrise, and an amplification assay run in a hurry is the easiest way in this outbreak to produce confident nonsense. The workflow exists to make the patient signal interpretable: extraction preserves sample identity, a positive control shows the chemistry worked, a negative and a no-template control show the signal did not come from the laboratory, and validated primers and cycling make the target specific. A patient result is the output of a controlled process — read before the controls are read, it is an instrument reading rather than evidence.",
+      "scene": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of a billion, which is the reason this order is argued about at all.",
       "takeaway": "A diagnostic result is the output of a controlled process, not simply a machine reading.",
       "place": "Sample Processing Room",
-      "story": "Hospitals need a diagnostic by sunrise, and an amplification assay run in a hurry is the easiest way in this outbreak to produce confident nonsense. The workflow exists to make the patient signal interpretable: extraction preserves sample identity, a positive control shows the chemistry worked, a negative and a no-template control show the signal did not come from the laboratory, and validated primers and cycling make the target specific. A patient result is the output of a controlled process — read before the controls are read, it is an instrument reading rather than evidence.",
+      "story": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of a billion, which is the reason this order is argued about at all.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build a trustworthy amplification run",
@@ -587,7 +664,13 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Identity and controls are prerequisites; a numerical signal is uninterpretable when controls fail.",
+        "why": "A patient result is the output of a controlled process, and read before the controls are read it is an instrument reading rather than evidence. Identity has to survive extraction or the result belongs to no one. The controls have to be in the run, not added afterwards — a positive control shows the chemistry worked, and a no-template control shows the signal did not come from the room. Only when they behave is the patient well worth interpreting.",
+        "rebuttals": [
+          "Extraction first, with identity preserved. A result that cannot be tied to a patient is not a diagnosis of anybody.",
+          "Controls go into the run alongside the samples. Added later they test a different run from the one that produced the result.",
+          "Amplification third, with validated primers — the step everything else exists to make interpretable.",
+          "Interpretation last and conditional. If a control misbehaved, the patient wells are uninterpretable no matter how clean they look."
+        ],
         "cards": [
           "Extract material while preserving sample identity.",
           "Include positive, negative, and no-template controls.",
@@ -600,15 +683,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "amplification copies whatever template is present, wanted or not"
+      ]
     },
     {
       "day": 6,
       "title": "Why did the assay turn positive?",
-      "scene": "The overnight run flags several patient samples positive. The positive control is detected at the expected level, so the chemistry worked. The no-template control — water, no sample, run alongside — is also positive. An independent platform, testing the same patients with different chemistry, does not detect the target, and the instrument baseline is stable. Amplification multiplies whatever template is present by a factor of a billion, which makes it exquisitely sensitive both to the thing you are looking for and to a trace of it loose in the room. Every explanation has to account for the control, not only the patients.",
+      "scene": "The overnight run flagged several patients positive. The controls and a second platform ran alongside them, and all of it is on the screen in front of you. Hospitals are waiting to isolate on this result.",
       "takeaway": "A control is part of the evidence, not a decoration: a positive blank can overturn an apparently impressive patient signal.",
       "place": "PCR Diagnostics Lab",
-      "story": "The overnight run flags several patient samples positive. The positive control is detected at the expected level, so the chemistry worked. The no-template control — water, no sample, run alongside — is also positive. An independent platform, testing the same patients with different chemistry, does not detect the target, and the instrument baseline is stable. Amplification multiplies whatever template is present by a factor of a billion, which makes it exquisitely sensitive both to the thing you are looking for and to a trace of it loose in the room. Every explanation has to account for the control, not only the patients.",
+      "story": "The overnight run flagged several patients positive. The controls and a second platform ran alongside them, and all of it is on the screen in front of you. Hospitals are waiting to isolate on this result.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why did the assay turn positive?",
@@ -617,7 +703,12 @@ export const CURRICULUM = {
         "task": "Which explanation best fits the patient results and all of the controls?",
         "question": "Which explanation best fits the patient results and all of the controls?",
         "answer": "Carryover contamination",
-        "why": "The no-template control contains the same target signal while the positive control works and an independent method does not confirm the patient result. That pattern points to contamination in the assay workflow rather than true infection.",
+        "why": "A control is part of the evidence, not a decoration on it. The no-template control is water — there is nothing in it to amplify — so a target signal there means target material is loose in the workflow, and anything the workflow touched is suspect. The positive control working rules out failed chemistry, and an independent platform not finding the target in the same patients rules out the patients. One quiet well overturns an impressive-looking plate.",
+        "rebuttals": [
+          "True positives would not put a signal in a tube containing no sample. That well is the one reading that cannot be explained by infected patients.",
+          "Reagent failure would stop true target amplifying, and the positive control amplified exactly as expected.",
+          "Inhibition suppresses amplification and produces false negatives. This plate has the opposite problem."
+        ],
         "headline": "The overnight amplification run flags several patient samples as positive, but one control is also behaving strangely.",
         "readings": [
           {
@@ -675,7 +766,11 @@ export const CURRICULUM = {
           }
         ],
         "correctChoice": "Carryover contamination"
-      }
+      },
+      "assumes": [
+        "a no-template control contains water and no sample",
+        "two methods with different chemistry fail in different ways"
+      ]
     },
     {
       "day": 7,
@@ -712,10 +807,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Build the immune response timeline",
-      "scene": "Patients are improving and then deteriorating, and the team needs the normal immune timeline on the board before it can say which part has gone wrong. The response is phased: innate sensors recognise damage or unfamiliar molecular patterns within hours, local signals recruit and activate immune cells, antigen-specific lymphocytes expand over days and act, and a smaller memory population persists after resolution. Innate and adaptive immunity are coordinated stages of one response rather than competing systems, and knowing which stage a patient is in is what makes a clinical measurement interpretable.",
+      "scene": "Patients are improving and then getting worse again, and the immunology lab wants the normal response on the board before it says which part has gone wrong. Four cards, no order yet.",
       "takeaway": "Innate and adaptive immunity are coordinated phases, not competing systems.",
       "place": "Immunology Lab",
-      "story": "Patients are improving and then deteriorating, and the team needs the normal immune timeline on the board before it can say which part has gone wrong. The response is phased: innate sensors recognise damage or unfamiliar molecular patterns within hours, local signals recruit and activate immune cells, antigen-specific lymphocytes expand over days and act, and a smaller memory population persists after resolution. Innate and adaptive immunity are coordinated stages of one response rather than competing systems, and knowing which stage a patient is in is what makes a clinical measurement interpretable.",
+      "story": "Patients are improving and then getting worse again, and the immunology lab wants the normal response on the board before it says which part has gone wrong. Four cards, no order yet.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the immune response timeline",
@@ -724,7 +819,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Fast nonspecific recognition precedes slower clonal expansion and durable memory.",
+        "why": "The phases are ordered by speed and by specificity, and that ordering is what makes a clinical measurement interpretable. Innate sensors fire within hours because they recognise patterns rather than a particular agent. Local signals then recruit cells to where the damage is. Antigen-specific lymphocytes take days because they have to find the right clone and expand it. Memory is what persists after — a smaller population, kept.",
+        "rebuttals": [
+          {
+            "'Innate recognition first": "it needs no prior exposure, which is exactly why it can be the fastest.'"
+          },
+          "Recruitment second — signals bring cells to the place, and nothing specific can act until cells are there.",
+          "Clonal expansion third, and it is slow because finding and multiplying the right lymphocyte takes days.",
+          "Memory last. It is what is left after resolution, and it is the reason a second exposure goes differently."
+        ],
         "cards": [
           "Innate sensors recognize damage or unfamiliar molecular patterns.",
           "Local signals recruit and activate immune cells.",
@@ -737,15 +840,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "the immune system has a fast general response and a slower specific one"
+      ]
     },
     {
       "day": 2,
       "title": "Match the surveillance signal",
-      "scene": "Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table and each sees the outbreak through its own selection process: wastewater concentration rises before hospital admissions but cannot name a person; household interviews find exposures before symptom onset but only among households that agreed to be interviewed; a transit survey samples volunteers at one station; hospital prevalence counts people already sick enough to attend. What a stream can reveal is fixed by who is observed, when, and how they came to be observed.",
+      "scene": "Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table at the wastewater plant, and each one saw a different slice of the city.",
       "takeaway": "Transmission inference depends on who is observed, when, and through which sampling process.",
       "place": "Wastewater Treatment Plant",
-      "story": "Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table and each sees the outbreak through its own selection process: wastewater concentration rises before hospital admissions but cannot name a person; household interviews find exposures before symptom onset but only among households that agreed to be interviewed; a transit survey samples volunteers at one station; hospital prevalence counts people already sick enough to attend. What a stream can reveal is fixed by who is observed, when, and how they came to be observed.",
+      "story": "Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table at the wastewater plant, and each one saw a different slice of the city.",
       "game": {
         "type": "PROTOCOL",
         "title": "Match the surveillance signal",
@@ -754,7 +860,13 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Each surveillance system measures a different population and time window.",
+        "why": "What a stream can reveal is fixed by who is observed, when, and how they came to be observed. Wastewater sees everyone connected to the sewer whether or not they sought care, which makes it early and anonymous at the same time. Household interviews reach only households that agreed. A volunteer survey at one station samples volunteers at one station. And prevalence counts everybody currently ill, so it stays high while people are still ill even after new cases stop.",
+        "rebuttals": [
+          "Wastewater rising before admissions is a population signal that arrives early and can never name a patient.",
+          "Exposures found before symptom onset are evidence about when transmission happens, from the only stream that asks people directly.",
+          "A volunteer sample at one station is a sample of volunteers at one station — the bias is in who agreed, not in the measurement.",
+          "Prevalence stays high after incidence falls when the illness lasts a long time. The two are different quantities and this is how they come apart."
+        ],
         "scenarios": [
           "Wastewater concentration rises before hospital admissions.",
           "Household interviews show several exposures before symptoms.",
@@ -773,62 +885,120 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "who ends up in a dataset is decided by how the data was collected"
+      ]
     }
   ],
   "POP": [
     {
       "day": 1,
       "title": "Signal or noise?",
-      "scene": "Seven patients across three hospitals share fever, dry cough, severe headache and profound fatigue — a combination the city's syndromic surveillance has logged roughly twice a year for the last five years. Whether seven in four days is a signal depends entirely on what the system usually does, and on how these seven came to your attention: all four of the first reports arrived through the same electronic alert, one clinic reports only that there are 'many sick people', and none of the reports carries a denominator. An outbreak signal is a departure from an expectation somebody wrote down beforehand, so the work now is deciding what each of these observations can actually support.",
-      "takeaway": "Biological investigation begins by defining what would count as evidence that the system has changed.",
+      "scene": "Seven patients across three hospitals, four days, and the same four symptoms in every one of them. Morales has the surveillance printout, the reporting routes and the catchment figures spread out on the desk. The press office has asked twice whether it should say anything. Nothing goes out until somebody calls this.",
+      "takeaway": "A count becomes a signal only when something says what was expected instead.",
       "place": "Emergency Department Network",
-      "story": "Seven patients across three hospitals share fever, dry cough, severe headache and profound fatigue — a combination the city's syndromic surveillance has logged roughly twice a year for the last five years. Whether seven in four days is a signal depends entirely on what the system usually does, and on how these seven came to your attention: all four of the first reports arrived through the same electronic alert, one clinic reports only that there are 'many sick people', and none of the reports carries a denominator. An outbreak signal is a departure from an expectation somebody wrote down beforehand, so the work now is deciding what each of these observations can actually support.",
+      "story": "Seven patients across three hospitals, four days, and the same four symptoms in every one of them. Morales has the surveillance printout, the reporting routes and the catchment figures spread out on the desk. The press office has asked twice whether it should say anything. Nothing goes out until somebody calls this.",
       "game": {
-        "type": "PROTOCOL",
+        "type": "DIAGNOSIS",
         "title": "Signal or noise?",
         "setup": "Emergency Department Network",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "",
-        "why": "An outbreak signal is not merely a large number. It is a pattern that differs from expectation and survives checks for shared reporting artifacts.",
-        "scenarios": [
-          "Seven similar cases appear across three hospitals in forty-eight hours.",
-          "The same symptom combination is rare in the previous three summers.",
-          "One clinic reports “many sick people” but supplies no dates or denominator.",
-          "All first reports came from the same electronic alert rule."
+        "play": "Is this a signal, and what on the desk decides it?",
+        "task": "Is this a signal, and what on the desk decides it?",
+        "question": "Is this a signal, and what on the desk decides it?",
+        "answer": "A real departure from the baseline",
+        "why": "A count is not a signal. What makes it one is a comparison against something written down beforehand, and the baseline here is about two a year — so seven in four days is a departure of a couple of hundredfold, not a busy week. The reading that matters most is the quiet one: two of the seven were found on manual chart review, outside the alert rule. Had every case arrived through that one rule, the cluster could have belonged to the rule. Two found another way is what makes it real.",
+        "rebuttals": [
+          "The alert rule is the right worry, and it is the one this panel rules out. Five cases came through it and two did not, so the pattern survives being looked for a second way.",
+          "Autumn respiratory illness would lift the other syndromes with it. The panel shows those flat, so whatever this is, it is not the season.",
+          "The denominator is on the desk — all three hospitals supplied their catchment. That objection is the correct instinct and it has already been answered."
+        ],
+        "headline": "Seven cases in four days, against a syndrome the city logs about twice a year.",
+        "readings": [
+          {
+            "zone": "Count",
+            "label": "Cases meeting the syndrome",
+            "value": "7 in four days",
+            "status": "alarm"
+          },
+          {
+            "zone": "Baseline",
+            "label": "Same syndrome",
+            "value": "about 2 a year",
+            "status": "key"
+          },
+          {
+            "zone": "Reporting",
+            "label": "How the cases were found",
+            "value": "5 by one alert rule",
+            "status": "key"
+          },
+          {
+            "zone": "Denominator",
+            "label": "Catchment population",
+            "value": "supplied by all three hospitals",
+            "status": "normal"
+          },
+          {
+            "zone": "Season",
+            "label": "Other respiratory syndromes this week",
+            "value": "flat",
+            "status": "normal"
+          },
+          {
+            "zone": "Geography",
+            "label": "Shared address",
+            "value": "none found",
+            "status": "normal"
+          }
         ],
         "choices": [
-          "Compare counts with seasonal and weekday baselines.",
-          "Check geographic and institutional clustering.",
-          "Request a line list with dates, symptoms, and population served.",
-          "Audit the shared alert rule for common-mode bias."
+          {
+            "label": "A real departure from the baseline",
+            "mechanism": "Seven in four days against two a year is far outside what the system usually does."
+          },
+          {
+            "label": "An artifact of the shared alert rule",
+            "mechanism": "Every case was found the same way"
+          },
+          {
+            "label": "Ordinary autumn respiratory illness",
+            "mechanism": "This syndrome is common in autumn and the count is within normal seasonal movement."
+          },
+          {
+            "label": "Impossible to say — there is no denominator",
+            "mechanism": "Seven is a numerator"
+          }
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
-      }
+        "correctChoice": "A real departure from the baseline"
+      },
+      "assumes": [
+        "a rate is a count measured against a population and a length of time",
+        "surveillance only sees the patients who reached it"
+      ]
     },
     {
       "day": 2,
       "title": "Build the provisional case definition",
-      "scene": "Clinicians in three hospitals are about to start counting cases, and unless they count the same thing the curves they produce cannot be added together. A case definition is an operational instrument: it fixes the observable symptoms, the timing window and the geography that qualify a patient, and it will be wrong in a known direction — too narrow and the spread is invisible, too wide and the count fills with the ordinary respiratory illness of a city in autumn. It has to be testable against patients already known to be cases and against obvious non-cases, and it has to say when it will be revised.",
+      "scene": "Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Ortiz wants one definition, built in the right order.",
       "takeaway": "Operational definitions convert vague concern into reproducible observation.",
       "place": "Epidemiology Operations Room",
-      "story": "Clinicians in three hospitals are about to start counting cases, and unless they count the same thing the curves they produce cannot be added together. A case definition is an operational instrument: it fixes the observable symptoms, the timing window and the geography that qualify a patient, and it will be wrong in a known direction — too narrow and the spread is invisible, too wide and the count fills with the ordinary respiratory illness of a city in autumn. It has to be testable against patients already known to be cases and against obvious non-cases, and it has to say when it will be revised.",
+      "story": "Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Ortiz wants one definition, built in the right order.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the provisional case definition",
         "setup": "Epidemiology Operations Room",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "play": "Order the build so each step can be checked before the next one depends on it.",
+        "task": "Order the build so each step can be checked before the next one depends on it.",
+        "question": "Order the build so each step can be checked before the next one depends on it.",
         "answer": "",
-        "why": "The first records suggest the shared features; the definition is then tested before it is distributed.",
+        "why": "A case definition is an instrument, and like any instrument it is wrong in a known direction. Too narrow and the spread is invisible; too wide and the count fills with the ordinary respiratory illness of a city in autumn. That is why it is tested twice before it is issued — against patients already known to be cases, which catches a definition that is too narrow, and against obvious non-cases, which catches one that is too wide. A definition nobody tested is a curve nobody can interpret.",
+        "rebuttals": [
+          "Records first, because the shared features have to come out of the patients rather than out of the drafting. Specifying symptoms before reading the notes is writing down what you expected to find.",
+          "Symptoms, timing and geography next, because those three are what a clinician at four in the morning actually applies. A definition that cannot be applied at speed is not an operational definition.",
+          "Testing before publication, not after. Known cases catch a definition that is too narrow; obvious non-cases catch one that is too wide. Skip this and the first curve is uninterpretable in a direction nobody can name.",
+          "The revision date goes out with the definition. Without it, three hospitals keep counting to a definition everybody knows is provisional and nobody is authorised to change."
+        ],
         "cards": [
           "Specify observable symptoms, timing, and location.",
           "Review the first patient records for common features.",
@@ -841,15 +1011,19 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a curve is only meaningful if every hospital counted the same thing",
+        "a test can be wrong by missing cases or by counting the wrong ones"
+      ]
     },
     {
       "day": 3,
       "title": "Spend the first response reserve",
-      "scene": "There is one reserve of response money and it will not stretch across everything the room wants. Interviews with hospital directors are fast and produce impressions; a standardised line list across all three hospitals produces comparable clinical observations but takes days of staff time; wastewater sampling sees the population rather than the patients who reached a hospital, and is independent of who chose to seek care. Independence is the property that matters here — two data streams sharing the same selection process can agree with each other and be wrong together. Nothing has yet been measured in a way that would change a decision.",
+      "scene": "One reserve of response money, and three things the room wants to spend it on. Ortiz needs one of them started this afternoon; the other two wait until tomorrow at the earliest. Nothing measured so far would change a decision.",
       "takeaway": "Comparable observations come before independent ones, because everything else is read against them.",
       "place": "Clinical Data Office",
-      "story": "There is one reserve of response money and it will not stretch across everything the room wants. Interviews with hospital directors are fast and produce impressions; a standardised line list across all three hospitals produces comparable clinical observations but takes days of staff time; wastewater sampling sees the population rather than the patients who reached a hospital, and is independent of who chose to seek care. Independence is the property that matters here — two data streams sharing the same selection process can agree with each other and be wrong together. Nothing has yet been measured in a way that would change a decision.",
+      "story": "One reserve of response money, and three things the room wants to spend it on. Ortiz needs one of them started this afternoon; the other two wait until tomorrow at the earliest. Nothing measured so far would change a decision.",
       "game": {
         "type": "CHOICE",
         "title": "Spend the first response reserve",
@@ -858,10 +1032,10 @@ export const CURRICULUM = {
         "task": "What does the office start this afternoon?",
         "question": "What does the office start this afternoon?",
         "answer": "A standardised line list across all three hospitals.",
-        "why": "Nothing can be counted until the three hospitals are counting the same thing. The line list is what turns three sets of impressions into one comparable set of observations with dates and denominators, and every later stream — including the wastewater — is interpreted against it.",
+        "why": "Three hospitals are about to produce three curves, and curves only add up if the same definition made them. The line list is what turns three sets of impressions into one set of observations with dates and denominators — and every later stream, the wastewater included, gets read against it. Start anywhere else and the first thing tomorrow's data has to be compared with does not exist yet.",
         "rebuttals": [
-          "Interviews are fast and produce impressions. An impression has no denominator, so it cannot say whether seven cases in four days is a departure from anything.",
-          "Wastewater is the right second stream, and it is valuable precisely because it is independent of who chose to seek care. It cannot name a patient or define a case, which is what this week's decisions need.",
+          "Interviews are fast and return impressions. An impression has no denominator, so it cannot say whether seven in four days is a departure from anything.",
+          "Wastewater is the right second stream, and it is valuable precisely because it does not depend on who chose to seek care. It cannot name a patient or define a case, which is what this week needs.",
           "A warning issued before transmission is understood spends credibility on a hypothesis, and credibility is what every later message depends on."
         ],
         "choices": [
@@ -871,15 +1045,18 @@ export const CURRICULUM = {
           "A citywide warning, before transmission is understood."
         ],
         "correctChoice": "A standardised line list across all three hospitals."
-      }
+      },
+      "assumes": [
+        "two sources can agree and still be wrong together if they were collected the same way"
+      ]
     },
     {
       "day": 4,
       "title": "From specimen to broad classification",
-      "scene": "The team is building the classification workflow it will defend in public. Every step exists to rule something out: comparing patient material against healthy and negative controls separates the agent from the specimen; characterising size and internal structure separates cellular life from something that has none; asking whether the candidate replicates on its own separates an organism from an obligate parasite of a host cell. Order matters because each step is only interpretable if the one before it held — a structure measured in a contaminated preparation is a measurement of the contamination.",
+      "scene": "The microscopy core has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
       "takeaway": "A good classification is an evidence synthesis, not a label generated by one instrument.",
       "place": "Microscopy Core",
-      "story": "The team is building the classification workflow it will defend in public. Every step exists to rule something out: comparing patient material against healthy and negative controls separates the agent from the specimen; characterising size and internal structure separates cellular life from something that has none; asking whether the candidate replicates on its own separates an organism from an obligate parasite of a host cell. Order matters because each step is only interpretable if the one before it held — a structure measured in a contaminated preparation is a measurement of the contamination.",
+      "story": "The microscopy core has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
       "game": {
         "type": "SEQUENCE",
         "title": "From specimen to broad classification",
@@ -888,7 +1065,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Controls establish what is truly associated with the specimen; structural and molecular evidence then support a biological classification.",
+        "why": "Each step is only interpretable if the one before it held. Comparing against controls first is what separates the agent from the specimen it arrived in — measure a structure in a contaminated preparation and you have measured the contamination, at high magnification. Size and structure then say whether this is cellular at all, and only once you know that does asking whether it copies itself alone mean anything.",
+        "rebuttals": [
+          "Controls first, because everything after them is a claim about the patient rather than about the tube.",
+          {
+            "'Structure before behaviour": "whether something needs a host cell is a question about an organism, and you do not have an organism until you know it is one.'"
+          },
+          "The replication question comes third because it is the slowest and the most specific — it is worth running only on a candidate the first two steps survived.",
+          "Integration last. A provisional classification is what the other three produce, not a step you can take on its own."
+        ],
         "cards": [
           "Compare patient material with negative and healthy controls.",
           "Characterize size, cellular structures, and nucleic-acid signature.",
@@ -901,15 +1086,18 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "assumes": [
+        "a measurement of a contaminated preparation measures the contamination"
+      ]
     },
     {
       "day": 5,
       "title": "What does a positive mean?",
-      "scene": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. Test performance and population prevalence are different quantities and they interact: in a group where few people are infected, even a highly specific test generates false positives from the large uninfected majority, and those can rival or exceed the true positives drawn from the small infected minority. The number that matters clinically is not the test's specificity but the fraction of positives that are real, and that fraction changes when the same test is moved to a different population.",
+      "scene": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The clinical statistics desk has the assay's performance figures and the size of the group in front of it.",
       "takeaway": "Clinical meaning depends on both test performance and the population being tested.",
       "place": "Clinical Statistics Desk",
-      "story": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. Test performance and population prevalence are different quantities and they interact: in a group where few people are infected, even a highly specific test generates false positives from the large uninfected majority, and those can rival or exceed the true positives drawn from the small infected minority. The number that matters clinically is not the test's specificity but the fraction of positives that are real, and that fraction changes when the same test is moved to a different population.",
+      "story": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The clinical statistics desk has the assay's performance figures and the size of the group in front of it.",
       "game": {
         "type": "BALLPARK",
         "title": "What does a positive mean?",
@@ -922,15 +1110,19 @@ export const CURRICULUM = {
         "givens": [],
         "relationship": "",
         "calcKey": "POP-5"
-      }
+      },
+      "assumes": [
+        "prevalence is the share of a population that has the condition",
+        "sensitivity and specificity are properties of a test, not of a population"
+      ]
     },
     {
       "day": 6,
       "title": "Estimate oxygen delivery",
-      "scene": "Two patients need comparing and the bedside argument has stalled on which is worse off. Oxygen delivery is a rate, not a concentration: it is the product of how much oxygen each litre of blood carries and how many litres per minute the heart moves. One patient has a cardiac output of 3 L/min against a comparison patient's 5, with blood carrying about 0.20 litres of oxygen per litre. Two patients can have identical arterial saturation and very different delivery, and the arithmetic is what tells you which term is the bottleneck.",
+      "scene": "The bedside argument has stalled on which of two patients is worse off. Both have the same oxygen content per litre of blood; one moves three litres a minute and the other five.",
       "takeaway": "A normal concentration does not guarantee a normal delivery rate; flow matters.",
       "place": "Cardiopulmonary Physiology Lab",
-      "story": "Two patients need comparing and the bedside argument has stalled on which is worse off. Oxygen delivery is a rate, not a concentration: it is the product of how much oxygen each litre of blood carries and how many litres per minute the heart moves. One patient has a cardiac output of 3 L/min against a comparison patient's 5, with blood carrying about 0.20 litres of oxygen per litre. Two patients can have identical arterial saturation and very different delivery, and the arithmetic is what tells you which term is the bottleneck.",
+      "story": "The bedside argument has stalled on which of two patients is worse off. Both have the same oxygen content per litre of blood; one moves three litres a minute and the other five.",
       "game": {
         "type": "BALLPARK",
         "title": "Estimate oxygen delivery",
@@ -943,7 +1135,10 @@ export const CURRICULUM = {
         "givens": [],
         "relationship": "",
         "calcKey": "POP-6"
-      }
+      },
+      "assumes": [
+        "a rate is an amount multiplied by how fast it is delivered"
+      ]
     },
     {
       "day": 7,
@@ -1546,10 +1741,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Can the cluster grow?",
-      "scene": "The chain has to be characterised while it is small, because the difference between growth and decline is decided by a quantity near one. About 20 people are currently infectious and each is producing roughly 1.4 new infections in the next generation of transmission. Whether that is an outbreak that burns out or one that doubles every fortnight is arithmetic, and the same arithmetic says which control measures would have to change to cross the threshold. The estimate is crude and the conclusion it supports is not.",
+      "scene": "About twenty people are infectious now, and the field office's best estimate is that each is producing roughly 1.4 more. Nobody has written down what that means for next week.",
       "takeaway": "A threshold near one can determine whether small changes produce growth or decline.",
       "place": "Field Epidemiology Office",
-      "story": "The chain has to be characterised while it is small, because the difference between growth and decline is decided by a quantity near one. About 20 people are currently infectious and each is producing roughly 1.4 new infections in the next generation of transmission. Whether that is an outbreak that burns out or one that doubles every fortnight is arithmetic, and the same arithmetic says which control measures would have to change to cross the threshold. The estimate is crude and the conclusion it supports is not.",
+      "story": "About twenty people are infectious now, and the field office's best estimate is that each is producing roughly 1.4 more. Nobody has written down what that means for next week.",
       "game": {
         "type": "BALLPARK",
         "title": "Can the cluster grow?",
@@ -1562,7 +1757,10 @@ export const CURRICULUM = {
         "givens": [],
         "relationship": "",
         "calcKey": "FIELD-1"
-      }
+      },
+      "assumes": [
+        "a chain grows when each case produces more than one new case"
+      ]
     },
     {
       "day": 2,

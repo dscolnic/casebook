@@ -20,7 +20,7 @@ import { renderMap } from '../engine/core/map.js';
 import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
-import { createInteriors, makeActivate, exposeDebug, createDay } from '../engine/core/app.js';
+import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage } from '../engine/core/app.js';
 import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
 
@@ -228,18 +228,10 @@ const activate = makeActivate({
   case: (t) => openVisit(t.id),
   roomexit: () => interiors.exit(),
   vehicle: (t) => driving.enter(t.vehicle),
-  npc: (t) => {
-    // A person stop asks the same science question a building would; anyone
-    // else just talks. openPersonVisit decides which, and returns quietly when
-    // this is not the person the mission wants.
-    const before = overlay.classList.contains('show');
-    openPersonVisit(t.npc);
-    if(!before && !overlay.classList.contains('show')){
-      const person = t.char;
-      showInfo(person?.name ?? 'Someone', passageHTML(person));
-      bindPassage(document.getElementById('modalBody'), person, () => refreshWorld());
-    }
-  },
+  npc: (t) => openPersonOrPassage(t.npc, t.char, (person) => {
+    showInfo(person?.name ?? 'Someone', passageHTML(person));
+    bindPassage(document.getElementById('modalBody'), person, () => refreshWorld());
+  }, { openPersonVisit }),
 });
 
 // The verdict card raises this when a wrong call leaves the player unable to

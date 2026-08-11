@@ -277,13 +277,30 @@ export function renderMap(opts = {}){
           + `font-weight="800">◀ go here</text>`;
     }
   }
+  // A footprint, wherever the map decided to put it. Everything below used to
+  // call `sx(x)` and `sz(z)` directly, which is correct upright and wrong the
+  // moment the plan is turned on its side: the rotated `sx` takes (x, z) and
+  // reads the z, so a one-argument call passed `undefined` and produced NaN.
+  // The browser drops a NaN x/y to zero, which is why every building, road and
+  // river piled into the top-left corner of any map drawn sideways — and why
+  // the player dot and the target markers, which went through `px`/`py`, were
+  // the only things in the right place.
+  //
+  // The extents swap with the axes too: turned sideways, a footprint's screen
+  // width comes from its depth and its screen height from its width.
+  const plotRect = (cx, cz, w, d) => ({
+    x: px(cx - w / 2, cz - d / 2),
+    y: py(cx - w / 2, cz - d / 2),
+    w: sw(sideways ? d : w),
+    h: sd(sideways ? w : d),
+  });
   if(site.water){
-    g += `<rect x="${sx(site.water.cx - site.water.width / 2)}" y="${sz(site.water.cz - site.water.depth / 2)}" `
-       + `width="${sw(site.water.width)}" height="${sd(site.water.depth)}" fill="#2c4a52" opacity="0.55"/>`;
+    const r = plotRect(site.water.cx, site.water.cz, site.water.width, site.water.depth);
+    g += `<rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" fill="#2c4a52" opacity="0.55"/>`;
   }
   for(const p of site.paths ?? []){
-    g += `<rect x="${sx(p.cx - p.w / 2)}" y="${sz(p.cz - p.d / 2)}" width="${sw(p.w)}" height="${sd(p.d)}" `
-       + `fill="#cfc9bb"/>`;
+    const r = plotRect(p.cx, p.cz, p.w, p.d);
+    g += `<rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" fill="#cfc9bb"/>`;
   }
   // Pass one: the footprints, which are also the obstacles the labels avoid.
   const plots = [];
@@ -291,8 +308,8 @@ export function renderMap(opts = {}){
     const area = bl.group ? def(bl.group) : null;
     const isTarget = bl.group && targetGroups.has(bl.group);
     const fill = area ? area.color : '#9a958a';
-    const x = sx(bl.x - bl.w / 2), y = sz(bl.z - bl.d / 2);
-    const w = sw(bl.w), h = sd(bl.d);
+    const r = plotRect(bl.x, bl.z, bl.w, bl.d);
+    const x = r.x, y = r.y, w = r.w, h = r.h;
     g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="${fill}" `
        + `opacity="${area ? 0.92 : 0.55}" stroke="${isTarget ? '#f2c14e' : 'rgba(0,0,0,.25)'}" `
        + `stroke-width="${isTarget ? 3 : 1}"/>`;

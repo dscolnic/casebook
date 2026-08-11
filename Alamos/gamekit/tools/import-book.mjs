@@ -133,8 +133,16 @@ missions.forEach((m, mi) => {
     if(takeaway && game.why && takeaway === String(game.why).trim()){
       fail(`${at}: the takeaway repeats the "why", so the intro gives the answer away`);
     }
+    // `assumes` is the prior knowledge the question expects the player to bring.
+    // It exists because the alternative — inferring it from the text — does not
+    // work: a question can turn on a fact whose every word is already on screen
+    // (a shaft harmonic "twice per revolution") and no lexical check can see the
+    // gap. Declared, it can be checked against the glossary and the stops before
+    // it, and a reviewer can read it.
+    const assumes = Array.isArray(s.assumes) ? s.assumes.map(a => String(a).trim()).filter(Boolean) : [];
     lessons.push({ day, title: s.title ?? s.task ?? `${s.group} ${day}`, scene, takeaway,
-                   place: s.place ?? '', story: scene, game });
+                   place: s.place ?? '', story: scene, game,
+                   ...(assumes.length ? { assumes } : {}) });
     CURRICULUM[s.group] = lessons;
     // `why` is the answer's reasoning and belongs in the verdict. The engine's
     // `stop.why` is something else entirely — the line shown ABOVE the question

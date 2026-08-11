@@ -230,7 +230,18 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .tlBankLabel{font:800 .62rem/1 Inter,system-ui;letter-spacing:.1em;text-transform:uppercase;color:#8a8172;margin:14px 0 6px}
 /* The cards waiting to be placed: physical chips with a grip, laid out two up
    where there is room, so a four-card bank is not a column of grey bars. */
-.orderBank{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}
+.orderBank{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+/* The ordering task and the cards waiting to be placed, side by side. Stacked,
+   the panel was two full screens tall and the player scrolled between the card
+   and the slot it was going into. Falls back to one column under 720px. */
+.orderSplit{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px;align-items:start}
+.orderSplit .timelineTask{margin:10px 0 0}
+.orderSplit .orderBank{grid-template-columns:1fr}
+.orderSplit .tlBankLabel{margin-top:12px}
+@media (max-width:720px){ .orderSplit{grid-template-columns:1fr;gap:6px} }
+/* The reader's text-size control in the settings sheet. */
+.textSizeSteps{display:flex;gap:6px;flex-wrap:wrap}
+.textSizeSteps .btn.on{background:#2a78d6;border-color:#2a78d6;color:#fff}
 .tlBankCard{position:relative;cursor:pointer;background:#fff;border:1px solid #d9d2c5;
   border-radius:10px;padding:12px 12px 12px 26px;text-align:left;font:inherit;font-size:.82rem;line-height:1.4;
   box-shadow:0 1px 2px rgba(40,32,18,.06)}

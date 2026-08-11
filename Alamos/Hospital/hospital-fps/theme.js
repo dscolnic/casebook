@@ -23,7 +23,7 @@ export default {
   // size from it, so the whole interface comes up larger for a nine-year-old
   // than for an undergraduate reading the same layout. It is a property of the
   // edition, not a setting the player should have to find.
-  audience: { grade: 4 },
+  audience: { grade: 2 },
 
   id: 'hospital',
   title: 'Hospital Heroes',

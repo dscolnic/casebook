@@ -230,9 +230,15 @@ function orderHTML(ch){
   const bank = ((activeOrder && activeOrder.bank) || []).map(i =>
     `<button class="orderItem tlBankCard" data-add="${i}" type="button">${esc(ch.cards[i])}</button>`).join('')
     || '<div class="compactInstruction">All cards placed.</div>';
+  // Stacked, this ran the full height of the panel twice over — the ordered
+  // slots, then the bank of cards below them — so on anything but a tall window
+  // the player was scrolling between the card they were placing and the place
+  // they were putting it. Side by side, both are on screen at once.
   return `<div class="compactInstruction">Put the ${ch.cards.length} steps in order, earliest first.</div>`
-    + `<div class="timelineTask"><div class="tlEnd">Earliest</div><ol class="timelineSlots">${slots}</ol><div class="tlEnd">Latest</div></div>`
-    + `<div class="tlBankLabel">Steps to place</div><div class="orderBank">${bank}</div>`
+    + `<div class="orderSplit">`
+    +   `<div class="timelineTask"><div class="tlEnd">Earliest</div><ol class="timelineSlots">${slots}</ol><div class="tlEnd">Latest</div></div>`
+    +   `<div class="orderBankSide"><div class="tlBankLabel">Steps to place</div><div class="orderBank">${bank}</div></div>`
+    + `</div>`
     + `<div id="visitFeedback"></div>`
     + `<div class="modalActions"><button class="btn" id="orderReset" type="button">Reset</button><button class="btn primary" id="orderCheck" type="button">Check</button></div>`;
 }
@@ -698,7 +704,17 @@ function challengePrefix(gs, lesson, ch, person){
 function withAssist(html){
   const assist = visitAssistHTML();
   const at = html.lastIndexOf('<div class="modalActions"');
-  return at < 0 ? html + assist : html.slice(0, at) + assist + html.slice(at);
+  if(at < 0) return html + assist;
+  // Every format's Check refuses a part-finished answer — a protocol with one
+  // situation unmatched, a diagnosis with one candidate picked, an estimate
+  // with an empty slot — and until this there was no other control on the
+  // panel. A player who opened a question and did not yet know the answer had
+  // no way out of it, which is the one thing the day model promises never
+  // happens. Leaving costs nothing and leaves the call open: the room is still
+  // there, and so is the question.
+  const withLeave = html.slice(at).replace('<div class="modalActions">',
+    '<div class="modalActions"><button class="btn" id="visitLeave" type="button">Leave it for now</button>');
+  return html.slice(0, at) + assist + withLeave;
 }
 function visitAssistHTML(){
   const state=getState();
@@ -708,6 +724,10 @@ function visitAssistHTML(){
   return `<div class="visitAssist"><div class="visitAssistRow"><button class="btn small" id="visitHintBtn" type="button" ${used||state.reserve<HINT_COST?'disabled':''}>Scientific hint · $${HINT_COST}</button><span class="moneyRule">Director funds: $${fmt(state.reserve)}</span></div><div id="visitHintText" class="visitHintText ${used?'':'hidden'}">${used?esc(text):''}</div></div>`;
 }
 function bindVisitAssist(){
+  // Leaving is not answering: the stop is not marked, nothing is charged, and
+  // the case is still open when the player comes back to it.
+  const leave=document.getElementById('visitLeave');
+  if(leave) leave.onclick=()=> closeModal();
   const btn=document.getElementById('visitHintBtn');
   if(!btn) return;
   btn.onclick=()=>{

@@ -71,7 +71,10 @@ export const site = {
     profile: 'flat', relief: 2.4,
     // Volcanic scree under starlight. Almost no colour, and dark: at night the
     // ground is lit by the sky and a few red lamps, nothing else.
-    ground: { base: [46, 43, 40], spread: [18, 17, 16], repeat: 16, normalRepeat: 150 },
+    // Night values were [46, 43, 40] — under a daytime sun that reads as
+    // near-black asphalt across the whole ridge. Lifted to a dry mountain
+    // gravel; put the darker pair back with the nocturnal dayWindow.
+    ground: { base: [96, 90, 82], spread: [22, 20, 18], repeat: 16, normalRepeat: 150 },
   },
 
   // Thin, dry, high air — which is why an observatory is here at all. Low
@@ -88,6 +91,8 @@ export const site = {
     // has a radiance floor that tone mapping lifts to grey, and no uniform
     // reaches it. Not pure black: a mountain sky under starlight is a very dark
     // blue, and pure black makes the horizon ranks disappear.
+    // Only used below deep night, which a daytime window never reaches. Left in
+    // place so restoring dayWindow: [19, 31] restores the night sky with it.
     nightSky: 0x05070d,
   },
 

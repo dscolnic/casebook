@@ -13,12 +13,12 @@ export const MISSIONS = [
       {
         "group": "POP",
         "lesson": 0,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Is this a signal, and what on the desk decides it?"
       },
       {
         "group": "POP",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Order the build so each step can be checked before the next one depends on it."
       },
       {
         "group": "POP",

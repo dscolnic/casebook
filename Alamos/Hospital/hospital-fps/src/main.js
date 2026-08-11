@@ -9,7 +9,7 @@ import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
 import { updateHUD, updateDayClock, renderEndScreen, renderStats } from './dashboard.js';
-import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
+import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, openStopIndices, missionComplete, isPersonStopForIdx, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
 import { esc, fmt } from './utils.js';
 import { formatTime, timeToDay, TOTAL_DAYS, TOTAL_HOURS } from './time.js';
 import { updateDayNight } from './world.js';
@@ -17,7 +17,7 @@ import { updateInstruments } from './instruments.js';
 import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, getNPCs } from './npcs.js';
 import { getWaypointMesh, setWaypointPosition, getRoomEntry } from './world.js';
 import { facingArrowHTML, renderMap } from '../../../gamekit/engine/core/map.js';
-import { exposeDebug, createDay } from '../../../gamekit/engine/core/app.js';
+import { exposeDebug, createDay, openPersonOrPassage } from '../../../gamekit/engine/core/app.js';
 import { PANEL_PACE } from '../../../gamekit/engine/core/day.js';
 import themeManifest from '../theme.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
@@ -413,10 +413,15 @@ function updateMiniMap(){
     target=req ? getNPCByCharId(req.personId) : null;
     isSpecial=true;
   } else {
-    const nextIdx=state?nextMissionStopIndex(state):-1;
-    const isPersonNext = state && nextIdx>=0 && isPersonStopForIdx(state, nextIdx);
-    const targetPid = isPersonNext ? getPersonIdForStop(state, nextIdx) : null;
-    target = targetPid ? getNPCByCharId(targetPid) : null;
+    // Every person the day still wants, not only the first. Same gate as the
+    // interaction had: computed from `nextMissionStopIndex`, the minimap marked
+    // the second person stop only after the first was cleared, so a call the
+    // player was free to take had nothing pointing at it.
+    const wanted = state ? openStopIndices(state)
+      .filter(i => isPersonStopForIdx(state, i))
+      .map(i => getPersonIdForStop(state, i))
+      .filter(Boolean) : [];
+    target = wanted.map(pid => getNPCByCharId(pid)).find(Boolean) || null;
     isSpecial=false;
   }
   if(target){
@@ -473,33 +478,15 @@ window.addEventListener('keydown', (e)=>{
     } else if(target.type==='info' || target.type==='npc'){
       if(target.type==='npc'){
         pauseNPC(target.char.id, 8);
-        const st=getState();
-        // Special fourth meeting takes priority — must match that exact person
-        if(st && isSpecialRequestActive(st)){
-          const req=getSpecialRequest(st.week);
-          if(req && target.char.id===req.personId){
-            const npcObj=getNPCByCharId(req.personId) || {char:target.char, division: req.division};
-            const before=document.getElementById('overlay')?.classList.contains('show');
-            const opened=openSpecialRequest(npcObj);
-            const after=document.getElementById('overlay')?.classList.contains('show');
-            if(opened || (after && !before)) return;
-          }
-          // if special active but wrong person, fall through to bio
-        } else {
-          const nextIdx=st?nextMissionStopIndex(st):-1;
-          const isPerson = st && nextIdx>=0 && isPersonStopForIdx(st, nextIdx);
-          const pid = isPerson ? getPersonIdForStop(st, nextIdx) : null;
-          const expectedDiv = isPerson ? getCurrentMission(st)?.stops[nextIdx]?.group : null;
-          const npcDiv = target.char.division || CHARACTER_DIVISION[target.char.id] || 'TRI';
-          const isCorrectPerson = isPerson && (target.char.id===pid || npcDiv===expectedDiv);
-          if(isCorrectPerson){
-            const npcObj=getNPCByCharId(target.char.id) || getNPCs().find(n=>n.char.id===target.char.id);
-            const before=document.getElementById('overlay')?.classList.contains('show');
-            openPersonVisit(npcObj || {char:target.char, division: npcDiv});
-            const after=document.getElementById('overlay')?.classList.contains('show');
-            if(after && !before) return;
-          }
-        }
+        // One copy of this decision now lives in the engine. Every game had
+        // its own, and two of them gated on the first open call, so the
+        // mission's person opened their biography instead of their question.
+        const npcObj = getNPCByCharId(target.char.id) || getNPCs().find(n => n.char.id === target.char.id);
+        const handled = openPersonOrPassage(npcObj, target.char, null, {
+          openPersonVisit, openSpecialRequest, isSpecialRequestActive, getSpecialRequest,
+          division: 'TRI',
+        });
+        if(handled) return;
       }
       const isNpc=target.type==='npc';
       const info=target.info || 'Part of the hospital. Nothing to do here yet.';

@@ -20,7 +20,7 @@ if(!wanted.length){
 
 let failed = 0;
 for(const theme of wanted){
-  for(const tool of ['validateContent.mjs', 'smokeCampaign.mjs']){
+  for(const tool of ['validateContent.mjs', 'smokeCampaign.mjs', 'probeQuestions.mjs']){
     const res = spawnSync(process.execPath, [resolve(here, tool), theme],
       { stdio: 'inherit', cwd: resolve(here, '../..') });
     if(res.status !== 0) failed++;

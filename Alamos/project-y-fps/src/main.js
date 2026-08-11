@@ -11,11 +11,11 @@ import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
-import { createInteriors, exposeDebug, createDay } from '../../gamekit/engine/core/app.js';
+import { createInteriors, exposeDebug, createDay, openPersonOrPassage } from '../../gamekit/engine/core/app.js';
 import { PANEL_PACE } from '../../gamekit/engine/core/day.js';
 import { createDriving } from '../../gamekit/engine/world/driving.js';
 import { updateHUD, updateDayClock, renderEndScreen, renderStats } from './dashboard.js';
-import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, CHARACTER_DIVISION, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
+import { readiness, forecastReadiness, forecastMoney, getCurrentMission, missionStopForGroup, completedMissionStops, nextMissionStopIndex, missionComplete, isPersonStopForIdx, isSpecialRequestActive, getSpecialRequest } from './simulation.js';
 import { esc, fmt } from './utils.js';
 import { formatTime, timeToDay, TOTAL_DAYS, TOTAL_HOURS } from './time.js';
 import { updateDayNight } from './world.js';
@@ -436,33 +436,15 @@ window.addEventListener('keydown', (e)=>{
     } else if(target.type==='info' || target.type==='npc'){
       if(target.type==='npc'){
         pauseNPC(target.char.id, 8);
-        const st=getState();
-        // Special fourth meeting takes priority — must match that exact person
-        if(st && isSpecialRequestActive(st)){
-          const req=getSpecialRequest(st.week);
-          if(req && target.char.id===req.personId){
-            const npcObj=getNPCByCharId(req.personId) || {char:target.char, division: req.division};
-            const before=document.getElementById('overlay')?.classList.contains('show');
-            const opened=openSpecialRequest(npcObj);
-            const after=document.getElementById('overlay')?.classList.contains('show');
-            if(opened || (after && !before)) return;
-          }
-          // if special active but wrong person, fall through to bio
-        } else {
-          const nextIdx=st?nextMissionStopIndex(st):-1;
-          const isPerson = st && nextIdx>=0 && isPersonStopForIdx(st, nextIdx);
-          const pid = isPerson ? getPersonIdForStop(st, nextIdx) : null;
-          const expectedDiv = isPerson ? getCurrentMission(st)?.stops[nextIdx]?.group : null;
-          const npcDiv = target.char.division || CHARACTER_DIVISION[target.char.id] || 'T';
-          const isCorrectPerson = isPerson && (target.char.id===pid || npcDiv===expectedDiv);
-          if(isCorrectPerson){
-            const npcObj=getNPCByCharId(target.char.id) || getNPCs().find(n=>n.char.id===target.char.id);
-            const before=document.getElementById('overlay')?.classList.contains('show');
-            openPersonVisit(npcObj || {char:target.char, division: npcDiv});
-            const after=document.getElementById('overlay')?.classList.contains('show');
-            if(after && !before) return;
-          }
-        }
+        // One copy of this decision now lives in the engine. Every game had
+        // its own, and two of them gated on the first open call, so the
+        // mission's person opened their biography instead of their question.
+        const npcObj = getNPCByCharId(target.char.id) || getNPCs().find(n => n.char.id === target.char.id);
+        const handled = openPersonOrPassage(npcObj, target.char, null, {
+          openPersonVisit, openSpecialRequest, isSpecialRequestActive, getSpecialRequest,
+          division: 'T',
+        });
+        if(handled) return;
       }
       const isNpc=target.type==='npc';
       const info=target.info || 'Historic Los Alamos.';

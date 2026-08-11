@@ -329,6 +329,53 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
   });
 }
 
+
+// ---- reading level
+//
+// "Measure the reading level, do not judge it." The hospital's opening card
+// once shipped at Flesch–Kincaid 7.7 for an audience whose lessons sit at 2.7,
+// and nothing caught it because nothing was counting. A theme declares who it
+// is for; this checks that its prose is actually written for them.
+//
+// The grade the theme declares is the target. Two grades above it is a hard
+// ceiling and fails; anything between is reported so it can be brought down.
+const SYL = (w) => {
+  w = w.toLowerCase().replace(/[^a-z]/g, '');
+  if(w.length <= 3) return 1;
+  w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '');
+  return (w.match(/[aeiouy]{1,2}/g) || ['x']).length;
+};
+function fleschKincaid(text){
+  const t = String(text ?? '').trim();
+  const words = t.split(/\s+/).filter(Boolean);
+  if(words.length < 25) return null;   // too short for the formula to mean anything
+  const sentences = (t.match(/[.!?]+/g) || []).length || 1;
+  const syllables = words.reduce((n, w) => n + SYL(w), 0);
+  return 0.39 * (words.length / sentences) + 11.8 * (syllables / words.length) - 15.59;
+}
+
+
+// Every scene and every verdict, against the audience the theme declares.
+{
+  const target = Number(T.audience?.grade);
+  if(Number.isFinite(target)){
+    const over = [];
+    for(const m of MISSIONS){
+      for(const st of m.stops ?? []){
+        const l = CURRICULUM[st.group]?.[st.lesson];
+        if(!l) continue;
+        for(const [what, text] of [['scene', l.scene || l.story], ['verdict', l.game?.why]]){
+          const fk = fleschKincaid(text);
+          if(fk == null) continue;
+          if(fk > target + 2) fail(`${l.title}: ${what} reads at grade ${fk.toFixed(1)}, and the theme is written for grade ${target}`);
+          else if(fk > target) over.push(`${l.title} (${what} ${fk.toFixed(1)})`);
+        }
+      }
+    }
+    if(over.length) note(`${over.length} passage(s) above the declared grade ${target}: ${over.slice(0, 4).join(', ')}${over.length > 4 ? ', …' : ''}`);
+  }
+}
+
 function report(){
   if(notes.length){
     console.log(`\n${notes.length} note(s):`);

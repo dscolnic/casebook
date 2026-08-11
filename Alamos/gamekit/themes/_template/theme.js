@@ -26,7 +26,7 @@ export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
   // root font size, so the same game can ship at several reading levels.
   // grade 4 scales 1.18x, 7 scales 1.10x, 13 and up not at all.
-  audience: { grade: 13 },
+  audience: { grade: 12 },
 
   id: '_template',
   title: 'Template',
