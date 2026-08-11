@@ -11,7 +11,7 @@
 // works whether the game reaches the world through the engine's module or
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
-import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow } from './gameState.js';
+import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission } from './gameState.js';
 import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops } from './simulation.js';
 import { esc } from './utils.js';
 
@@ -268,6 +268,46 @@ export function createDay({
   // asks for one.
   window.addEventListener('projecty:sleep', () => api.sleep());
 
+  // ——— jumping to a mission —————————————————————————————————————————
+  //
+  // Project Y and the hospital each had this in their own settings panel, with
+  // their own fifteen <option> tags typed into index.html — which had already
+  // drifted from the real mission titles — and the four themes served from
+  // gamekit had it in no form at all. Fifth fork bug of the same shape.
+  //
+  // It belongs to the day controller because a jump is a day operation: the
+  // week changes, so the clock, the budget and the plan all have to be rebuilt,
+  // and this is the object that knows how to do that.
+  function installMissionJump(){
+    if(typeof document === 'undefined') return;
+    // Two shapes of settings panel across the three entry points.
+    const body = document.querySelector('#settingsOverlay .sheetBody')
+      || document.getElementById('settingsPanel');
+    if(!body || document.getElementById('missionJump')) return;
+    const missions = theme?.content?.MISSIONS ?? [];
+    if(missions.length < 2) return;
+    const row = document.createElement('div');
+    row.className = 'settingRow missionJumpRow';
+    row.innerHTML =
+      '<span><b>Jump to a day</b><small>Opens that day fresh. Anything already answered '
+      + 'in it is cleared.</small></span>'
+      + '<div class="missionJump" id="missionJump">'
+      + '<select id="missionJumpSelect">'
+      + missions.map((m, i) =>
+          `<option value="${i + 1}">${i + 1} — ${esc(m.title ?? '')}</option>`).join('')
+      + '</select>'
+      + '<button class="btn small" id="missionJumpBtn" type="button">Go</button></div>';
+    // Above the restart row, which should stay last where there is one.
+    body.insertBefore(row, body.querySelector('.settingRow.danger') ?? null);
+    const sel = row.querySelector('#missionJumpSelect');
+    // The open panel should show where the player actually is.
+    const sync = () => { const s = getState(); if(s) sel.value = String(s.week); };
+    sync();
+    document.getElementById('settingsBtn')?.addEventListener('click', sync);
+    row.querySelector('#missionJumpBtn').onclick = () => api.jumpTo(+sel.value);
+  }
+  installMissionJump();
+
   const stopPositions = () => {
     const state = getState();
     const m = getCurrentMission(state);
@@ -348,6 +388,24 @@ export function createDay({
       planOpen = false;
       ui.close();
       onDayStart?.(budget);
+    },
+    /**
+     * Go to another day. Debug affordance, and the only way to see the back
+     * half of a fifteen-day campaign without playing to it.
+     *
+     * `jumpToMission` clears that day's progress and puts the day back in its
+     * unopened state, so what the player gets is the plan card for the new day
+     * with a budget measured from its own route.
+     */
+    jumpTo(week){
+      if(!jumpToMission(week)) return false;
+      planOpen = false;
+      refreshBar();
+      // Close whatever settings panel the game has — the two shapes again.
+      document.getElementById('settingsOverlay')?.classList.remove('show');
+      document.getElementById('settingsPanel')?.classList.add('hidden');
+      this.showPlan();
+      return true;
     },
     /** Same day again, from the top. */
     restart(){

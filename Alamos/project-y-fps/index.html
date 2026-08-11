@@ -174,28 +174,6 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
   <label><span>Volume</span><input type="range" id="volRange" min="0" max="1" step="0.05" value="0.6"></label>
   <label><span>Reduced motion</span><input type="checkbox" id="reducedMotion"></label>
   <label><span>High contrast</span><input type="checkbox" id="highContrast"></label>
-  <div style="margin-top:12px;padding:10px;border:1px solid #d9d2c5;border-radius:10px;background:#faf8f2">
-    <div style="font:800 .82rem Georgia,serif">Mission jump (debug)</div>
-    <div style="font-size:.7rem;color:#666158;margin-bottom:6px">Jump to any mission. Current progress for that mission will reset.</div>
-    <select id="missionJumpSelect" style="width:100%;padding:6px;border:1px solid #d9d2c5;border-radius:8px;background:#fff">
-      <option value="1">1 — Read the atomic world</option>
-      <option value="2">2 — Account for nuclear energy</option>
-      <option value="3">3 — Follow radioactivity</option>
-      <option value="4">4 — Measure interactions</option>
-      <option value="5">5 — Track neutrons</option>
-      <option value="6">6 — Recognize the design pivot</option>
-      <option value="7">7 — Understand compression</option>
-      <option value="8">8 — Make symmetry measurable</option>
-      <option value="9">9 — Build evidence with real materials</option>
-      <option value="10">10 — Synchronize many channels</option>
-      <option value="11">11 — Build an uncertainty budget</option>
-      <option value="12">12 — Design integrated campaign</option>
-      <option value="13">13 — Treat Trinity as experiment</option>
-      <option value="14">14 — Reconcile evidence</option>
-      <option value="15">15 — Complete evidence chain</option>
-    </select>
-    <button class="btn small" id="missionJumpBtn" type="button" style="margin-top:6px;width:100%">Jump to mission</button>
-  </div>
   <div style="display:grid;gap:6px;margin-top:10px">
     <button class="btn small ghost" id="fallbackBtn" type="button">2D Fallback</button>
     <button class="btn small ghost" id="resetBtn" type="button">Reset progress</button>

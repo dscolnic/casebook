@@ -9,7 +9,7 @@ import { updateInteractions, getCurrentTarget } from './interactions.js';
 import { LEADERS } from './leaders.js';
 import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
-import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, jumpToMission, completeSpecialRequest, completeMission } from './gameState.js';
+import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
 import { createInteriors, exposeDebug, createDay, openPersonOrPassage } from '../../gamekit/engine/core/app.js';
 import { PANEL_PACE } from '../../gamekit/engine/core/day.js';
@@ -692,25 +692,11 @@ document.getElementById('tabBtn').onclick=toggleTab;
 // Settings
 const settingsPanel=document.getElementById('settingsPanel');
 document.getElementById('settingsBtn').onclick=()=>{
-  const sel=document.getElementById('missionJumpSelect');
-  if(sel){
-    const st=getState();
-    if(st) sel.value=String(st.week);
-  }
+  // The mission-jump control inside the panel is installed by createDay, in the
+  // engine, so that all seven games have one implementation of it.
   settingsPanel.classList.toggle('hidden');
 };
 document.getElementById('closeSettingsBtn').onclick=()=> settingsPanel.classList.add('hidden');
-const missionJumpBtn=document.getElementById('missionJumpBtn');
-if(missionJumpBtn){
-  missionJumpBtn.onclick=()=>{
-    const sel=document.getElementById('missionJumpSelect');
-    const v=parseInt(sel?.value||'1',10);
-    if(jumpToMission(v)){
-      updateHUD(); updateWorldFromState(); updateDayNight();
-      settingsPanel.classList.add('hidden');
-    }
-  };
-}
 document.getElementById('sensRange').oninput=(e)=>{
   // PointerLockControls sensitivity via look speed is not directly configurable; we store and apply on mousemove
   // For simplicity, adjust controls via custom factor (not needed for MVP)

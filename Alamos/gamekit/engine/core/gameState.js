@@ -386,6 +386,12 @@ export function jumpToMission(targetWeek){
   // don't clear specialRequestsCompleted — preserves history across jumps
   _state.selectedGroup=null;
   _state.visitOutcome=null;
+  // A day's budget is measured from that day's own route, so a jump has to put
+  // the day back in its unopened state and let the plan card open it. Without
+  // this the new mission inherited the old one's countdown — and a jump made
+  // from a finished day arrived with a clock already at zero.
+  _state.dayStarted=false;
+  _state.dayEnded=false;
   _state.log.push({week:w, text:`Jumped to Mission ${w}: ${getCurrentMission(_state)?.title || ''}`});
   if(_state.log.length>100) _state.log=_state.log.slice(-100);
   save();

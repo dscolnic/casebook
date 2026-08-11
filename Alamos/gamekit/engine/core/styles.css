@@ -414,3 +414,12 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
   box-shadow:0 6px 20px rgba(0,0,0,.28)}
 #turnInBar .btn small{font:800 .68rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
   border:1px solid rgba(255,255,255,.42);border-radius:5px;padding:2px 6px;opacity:.85}
+
+/* ——— Jump to a day ————————————————————————————————————————————————
+   Installed into whatever settings panel the game has by createDay. The two
+   entry-point shapes lay their rows out differently, so this sizes itself
+   rather than assuming a grid. */
+.missionJump{display:flex;gap:6px;align-items:center;min-width:0}
+.missionJump select{max-width:230px;min-width:120px;padding:5px 6px;font:600 .76rem/1.2 Inter,system-ui;
+  border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
+.settingRow.missionJumpRow{align-items:center;flex-wrap:wrap}
