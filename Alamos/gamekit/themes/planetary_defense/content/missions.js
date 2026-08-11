@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Discovery Image",
     "objective": "Validate a new-object candidate and preserve the measurements needed for follow-up.",
     "briefing": "A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.",
-    "stake": "Four frames, three dots, and the fourth frame has a cosmic-ray hit sitting exactly where the object should be. A moving point is a candidate, not a discovery: what separates one from a detector artifact is that it moves consistently, in the right direction, across images that do not share a defect. Every hour of delay widens the sky region where it can be lost.",
+    "stake": "The survey pipeline has flagged a faint point that moved between three exposures. The same field holds forty thousand catalogued stars, two satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Telling an object from a defect is about consistency. A real body moves smoothly, in one direction, at a speed that makes sense for something in the Solar System, and it appears in images that do not share a fault. A hot pixel sits still. A satellite streaks. Whatever moved here is drifting away from where anyone knows to look, and it is faint. Every hour of hesitation widens the patch of sky it could be in, and objects that are lost this way are lost for years.",
     "takeaway": "Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Confirm the Motion",
     "objective": "Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.",
     "briefing": "Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry without creating a false trajectory from inconsistent reference frames.",
-    "stake": "One observatory's positions are drifting a consistent arcsecond and a half to the east, and it is the same observatory that contributed the longest arc in the file. An astrometric fit is only as good as the residuals it leaves behind, and the correct answer to a bad dataset is to weight it down rather than to average it in. A weak orbit can lose the object or falsely put Earth in its path.",
+    "stake": "Six observatories have reported positions. Two used a different time standard, one recorded no plate solution at all, and one camera's measurements curve away from the orbit fit in a way that looks systematic. Today you build one clean track from all of it and buy the next observation. Positions are not equally good, and the way you find out is the leftovers: fit an orbit, then look at how far each measurement sits from it. Random scatter is normal. A pattern in those leftovers means an instrument problem, and the honest response is to weight that data down rather than average it in and hope. A weak track can lose the object entirely. It can also put Earth in its path when nothing is there — and either way the correction is public.",
     "takeaway": "Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "An Orbit from Sparse Data",
     "objective": "Construct a family of allowed orbits and choose observations that collapse the dangerous dimensions.",
     "briefing": "Only a short arc is available, and many three-dimensional orbits project to nearly the same sky motion. The player must reason with Keplerian motion and orbit families rather than report one overconfident solution.",
-    "stake": "The best-fit orbit misses the Earth by four million kilometres. The family of orbits still allowed by the same observations does not. A short arc constrains some parameters tightly and others hardly at all, and it is the loose ones that decide this — which is why the next observation should be chosen for what it collapses rather than for how good it looks.",
+    "stake": "Every orbit that fits the observations so far projects to almost the same track across the sky. Some of those orbits pass a million kilometres away. Some do not. Today you work out what the data actually pins down and choose the observations that would collapse the rest. A short arc of observations constrains some parts of an orbit tightly and others hardly at all, and it is the loose parts that decide whether this matters. So the answer is not one best-fit orbit but a family of them, all consistent with what you have. The single line through the middle is the most dangerous object in this campaign, because it looks like knowledge. What you need next is not more data but the right data: the observation that makes members of that family disagree.",
     "takeaway": "Use Keplerian orbits, state vectors, degeneracy, orbital elements, prediction as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The Uncertainty Corridor",
     "objective": "Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.",
     "briefing": "The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and nonlinear propagation without confusing low probability with zero consequence.",
-    "stake": "The impact probability went up this morning, from 1 in 12,000 to about 1 in 2,700, and the number is on the wire before you have explained it. That rise is exactly what a shrinking uncertainty region does while Earth is still inside it, and it will keep rising until the moment it collapses to zero. Get the language wrong and you buy a panic or a shrug, and neither can be taken back.",
+    "stake": "The best-fit orbit misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and this morning's numbers moved the impact probability up. It is already on the wire. Today you work out the probability properly and decide which observation reduces the part that matters. Impact probability is a counting job: out of all the orbits consistent with the data, what fraction hit. As observations come in, that set shrinks — and while Earth is still inside it, the fraction goes up. A rising number is the expected behaviour of a shrinking uncertainty, right up until it collapses to zero. Explaining that badly buys you a panic or a shrug, and you only get one chance at it. Two coastal regions are waiting to hear whether they should be doing anything.",
     "takeaway": "Use probability distributions, covariance, nonlinear propagation, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "How Large Is It?",
     "objective": "Produce a diameter range rather than a single unsupported value.",
     "briefing": "The object’s brightness is known, but size depends strongly on reflectivity. The player must combine photometry, albedo, and thermal evidence to bound diameter.",
-    "stake": "Brightness alone allows anything from ninety metres to three hundred, and the consequence models downstream scale with the cube of it. What a telescope measures is sunlight reflected, which is size and reflectivity multiplied together — one number carrying two unknowns. The honest output is a range with its assumptions attached, and the thermal measurement that would separate them.",
+    "stake": "Everything the civil defence people want to know scales with size — and the size currently rests on how bright the object looked in a survey image. Today you work out what that brightness can and cannot tell you, and buy the measurement that pins it down. Reflected brightness is size and reflectivity multiplied together, so one number carries two unknowns. A small mirror and a large lump of coal look identical from here. Reflectivity varies by more than a factor of ten across known asteroids. So brightness alone allows a wide range of sizes. And consequences scale with the cube of diameter: a factor of two in size is a factor of eight in energy. The honest product today is a range with its assumptions attached, not a number somebody will quote for a decade.",
     "takeaway": "Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "What Is It Made Of?",
     "objective": "Assign a composition class with explicit alternatives and confidence.",
     "briefing": "Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player must avoid turning a taxonomic resemblance into an exact material claim.",
-    "stake": "The absorption feature that would make this a carbonaceous body sits within a few nanometres of a water line in our own atmosphere. Composition is inferred from where light goes missing, and an instrument and an atmosphere both remove light too. Density, strength and how the object answers a deflection all follow from this label, so a class assigned without alternatives distorts everything after it.",
+    "stake": "A broad dip has appeared near 1.4 microns in the spectrum. If it is real it changes the composition class, and the draft circular already names one. Today you decide whether the feature belongs to the asteroid, and what would make the claim solid. A spectrum is a record of which colours of light came back and which went missing, and different minerals take out different colours. The trouble is that our own atmosphere and the instrument also remove light, and water vapour above the telescope absorbs strongly in exactly this region. Composition is not a label for its own sake: density, strength and how the object would answer a nudge all follow from it. Publish a class with no alternatives and every model built afterwards inherits the mistake quietly.",
     "takeaway": "Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The Spinning Target",
     "objective": "Produce a rotation-state range suitable for imaging and deflection planning.",
     "briefing": "Brightness varies dramatically over hours, suggesting rotation and an elongated shape. The player must derive a period, identify aliases, and determine whether the body may be tumbling.",
-    "stake": "A clean 4.8-hour repetition has appeared in the light curve, and one site’s observing window repeats on very nearly the same interval. A rotation period is read from repeating structure in brightness, so a periodicity in the observing — or in the shape of the body itself — can manufacture one. Imaging and any intercept are timed off this number, and both would arrive at the wrong face.",
+    "stake": "The asteroid brightens and fades by a few tenths of a magnitude, repeating near 4.8 hours, and one observatory's nightly window repeats on almost the same interval. Today you decide whether you are watching the object turn or watching your own schedule, and get a spin state good enough to plan around. A light curve shows brightness against time, and a rotating body that is not round shows more of itself at some angles than others. But an elongated object usually presents its long side twice per turn, so the gap between similar peaks is often half the rotation period rather than the whole of it. Any imaging or intercept is timed off this number. Get it wrong and a spacecraft arrives, correctly, at the wrong face of the asteroid.",
     "takeaway": "Use periodic signals, light curves, aliasing, rotation, shape inference as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "Radar Contact",
     "objective": "Design a radar sequence that improves both orbit and physical characterization.",
     "briefing": "A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and reveal shape, but only if the observation plan uses the limited signal effectively.",
-    "stake": "The radar window opens for nine days and does not open again for eleven years, and another campaign has the dish. Radar is a different kind of measurement, not a better telescope: it returns range and range-rate directly, which is what an orbit is starved of, and it resolves shape at a scale no optical instrument here can reach. Miss it and the uncertainties stay for a decade.",
+    "stake": "The radar window opens in hours, lasts four, and this geometry does not repeat for eleven years. Three of the four things the room wants can be done another way. Today you decide what radar is uniquely for and write the sequence. Radar is not a better telescope. A telescope measures where something is on the sky. Radar sends a pulse and times the echo, which gives distance directly, and reads the shift in the returned signal, which gives how fast the object is approaching. Those two are exactly what an orbit built from angles is starved of. It also resolves shape at a scale nothing optical here can reach. Miss this window and the uncertainties you are living with stay with you until the twenty-thirties.",
     "takeaway": "Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Impact Energy",
     "objective": "Provide low, central, and high impact-energy scenarios with transparent assumptions.",
     "briefing": "The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.",
-    "stake": "The number that goes to the governor's office changes by a factor of thirty depending on a density nobody has measured. Kinetic energy goes as mass times the square of speed, and mass comes from the diameter you bounded on Tuesday and the composition you argued about on Wednesday. The useful product is low, central and high scenarios with the dominant uncertainty named.",
+    "stake": "Civil defence will not convene anybody without an energy figure, and the range you can currently defend spans two orders of magnitude. Today you produce low, central and high scenarios and say which unknown is doing the damage. Impact energy comes from mass and speed: it rises with mass, and with the square of speed. Speed is known reasonably well. Mass is not. It comes from the diameter you bounded on Tuesday, and from a density that follows from a composition still being argued about. Diameter enters as a cube. So one input is quietly deciding the answer. A point estimate given to a governor's office becomes the number in every plan that follows it, whether or not anybody remembers what it was built on.",
     "takeaway": "Use mass and density, kinetic energy, scaling, uncertainty propagation, orders of magnitude as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "Through the Atmosphere",
     "objective": "Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.",
     "briefing": "Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging airburst. The player must reason about drag, strength, heating, and uncertain structure.",
-    "stake": "A solid rock and a loosely bound rubble pile produce identical telescope data and different disasters — one detonates high and flattens windows, the other reaches the ground. Entry is a contest between ram pressure and the object's own strength, and strength is the property we can least observe from here. Evacuation distance and shelter guidance depend on which one this is.",
+    "stake": "Three groups modelled the same object. One has it reaching the ground, one has it breaking up thirty kilometres up, and one is somewhere in between. Evacuation distances differ by a factor of five across those three. Today you build the entry scenarios properly and say what would tell them apart. What happens on the way in is a contest between the pressure the atmosphere puts on the object and the object's own strength. A solid rock arrives. A weakly bound pile of rubble comes apart high up and releases its energy as a blast in the air, which breaks windows across a city and leaves no crater. Strength is the property we can least measure from here, and it is the one that decides what people are told to do.",
     "takeaway": "Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "What Have We Failed to See?",
     "objective": "Design a survey strategy that improves detection and accurately reports what remains unseen.",
     "briefing": "The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.",
-    "stake": "This object approached from the sunward direction the survey has never covered, and it was found on the way out. Completeness is not how many objects you have found but how many you would have found — a statement about the sky you looked at, the depth you reached and the times you were open. The next one will come from wherever the current strategy neglects.",
+    "stake": "This object was found eleven days before its closest approach, from the direction of the Sun, and it was brighter than the survey's own limit for weeks before anybody saw it. Today you work out why it was missed and design the improvement worth paying for. Completeness is not how many objects you have found. It is how many you would have found — a statement about the sky you covered, how faint you could go, and when you were open. Sunward is a permanent hole, because you cannot point a telescope at the day sky. And going deeper is worth more than it sounds, since detecting things twice as far away means searching eight times the volume. The next dangerous object will come from wherever this strategy is still not looking.",
     "takeaway": "Use selection effects, survey completeness, limiting magnitude, cadence, population inference as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "Can We Move It?",
     "objective": "Choose a deflection demonstration and define how success will be measured.",
     "briefing": "Impact probability remains significant, and a reconnaissance mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.",
-    "stake": "The impactor everyone favours has never been flown against a body of this type, and the momentum it actually transfers depends on the debris thrown off the far side — a factor that can double the effect or fragment the target. A deflection is a small velocity change applied early, multiplied by years of travel. Success has to be defined as a measurable quantity before anything launches.",
+    "stake": "The impactor is funded and the launch date is fixed. What the campaign contains beyond that is still open, and the room is treating the impact itself as the whole mission. Today you size the nudge and decide how success will be measured. A deflection is a small change in speed applied years early, so that the object arrives somewhere else. The push comes from the spacecraft's own momentum plus the debris thrown off the far side, and that second part can double the effect — or, on a weak body, break it up. Which means the number that matters is not what you launched but what actually happened, and that can only come from tracking the object carefully before the impact and for a long time afterwards.",
     "takeaway": "Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Design the Intercept",
     "objective": "Select an intercept architecture with enough margin to reach and accurately target the asteroid.",
     "briefing": "The mission must launch within a narrow window and encounter a rotating, irregular target with limited communications delay. The player must integrate orbital mechanics, navigation, power, and autonomy.",
-    "stake": "The launch window closes eight days before the composition result comes back. An architecture is limited by whichever subsystem runs out first — launch energy, mass, power, communications, guidance — and margin is the only part of a design that can absorb an answer you do not have yet. Spend it in the wrong place and the lead time this campaign has been buying is gone.",
+    "stake": "The launch window is nineteen days wide, the target is irregular and rotating, and at encounter the signal takes minutes each way — so nobody on the ground can fly the last approach. The design closes on paper with nothing left over. Today you find which subsystem is really setting the limit and decide where to spend margin. Every architecture is held back by one thing first. It might be how much mass the rocket can send, or the power aboard, or how well the spacecraft can see the target, or how fast it can decide for itself. Fixing anything else is decoration. Margin is the part of a design that absorbs an answer you do not have yet — and the composition result, which changes what you are aiming at, will not be back before the window closes.",
     "takeaway": "Use launch windows, relative motion, guidance, power, communications delay as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "Evacuate or Wait?",
     "objective": "Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.",
     "briefing": "The impact corridor crosses populated regions, but the probability is still changing. The player must connect scientific uncertainty to staged civil decisions and avoid both complacency and panic.",
-    "stake": "The evacuation order is drafted, two coastal counties have seen the draft, and this morning's observations have cut the probability by a factor of five. Action should scale with probability, consequence, lead time and how reversible each step is, which is why preparations are staged behind triggers rather than announced as one decision. An unnecessary evacuation kills people too.",
+    "stake": "The evacuation order is drafted, two coastal counties have seen the draft, and this morning's observations cut the probability by a factor of five. Today you match what gets done to what is actually known, and decide what to tell people. Preparations should scale with four things: how likely it is, how bad it would be, how much time there is, and how easily each step can be undone. Stockpiling and planning are cheap and reversible. Moving a hundred thousand people is neither, and it hurts people directly — traffic, hospitals, the elderly moved out of care. That is why serious action is staged behind triggers rather than announced as a single decision. Both mistakes here kill somebody, and only one of them will ever be reported as your fault.",
     "takeaway": "Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "The Final Defense Review",
     "objective": "Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.",
     "briefing": "The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.",
-    "stake": "It misses by two Earth radii, the story ends, and the survey funding line that found it expires in eleven months. Every claim in the package has to carry its own strength — what the evidence supports, what was assumed, what stayed open — because the next object is already in the sky and unfound. Success against one is the most reliable way to become complacent about the rest.",
+    "stake": "It misses, by two Earth radii. The story ends this week, and the survey funding that found it expires in eleven months. Today you go through the claims one at a time, write the public record, and decide what stays funded once nobody is frightened. Every claim in the package has to carry its own strength — what was measured, what was assumed, what stayed open — because in ten years somebody will build on this file without knowing which parts were solid. And the population this object came from has not changed. The next one is already up there, unfound, and the most reliable consequence of a near miss handled well is that everybody stops paying for the telescopes that made it a near miss instead of a surprise.",
     "takeaway": "Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.",
     "stops": [
       {

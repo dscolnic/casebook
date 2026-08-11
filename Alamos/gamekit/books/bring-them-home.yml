@@ -249,10 +249,14 @@ missions:
   briefing: A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player
     takes the flight-director console and must first determine what can still be measured reliably.
   stake: >-
-    The bang was four minutes ago. The master alarm, two quantity gauges and the crew's own ears
-    disagree about what just happened, and a command sent on a wrong picture cannot be taken back. The first
-    job is not a fix but a state estimate: what the vehicle is actually doing, told apart from what the
-    instruments say it is doing, with the difference written down.
+    The bang was four minutes ago. Three consoles are holding numbers that contradict each other: one bus
+    reads zero, the guidance computer has restarted with nothing loaded, and several cabin-pressure channels
+    dropped together inside the same second. Today you decide what is actually happening to the vehicle, get
+    one agreed picture of it, and set up how this room will work for the next five days. Before you can fix
+    anything you need a state estimate: what the spacecraft is really doing, told apart from what the
+    instruments say it is doing. Those two are not the same, and instruments that share a power supply, a
+    clock or a box can all be wrong together in a way that looks like agreement. Commands sent on a wrong
+    picture cannot be recalled. Four controllers are talking at once and the crew can hear all of it.
   takeaway: Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated
     facts.
   stops:
@@ -390,10 +394,14 @@ missions:
   briefing: Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and
     velocity from range, bearing, and timed observations.
   stake: >-
-    The station that anchors the whole solution drops below the horizon in forty minutes and the next one
-    does not rise for two hours. Every measurement constrains something different — a range says how far, a
-    Doppler shift says how fast, an angle says which way — and the signal's own travel time is a measurement
-    too. Lose the state now and the burn that brings them home aims at nothing.
+    The onboard computer restarted and lost its alignment, tracking is intermittent, and the station
+    carrying the solution drops below the horizon in forty minutes. Today you rebuild where the spacecraft
+    is and how fast it is going, and decide which measurement to buy next. Different measurements tell you
+    different things, and none of them tells you everything. A radar echo gives distance, because the pulse
+    takes a known time to travel out and back. A shift in the returning frequency gives speed along the line
+    of sight. Antenna angles give direction, and badly. Fitting them together is the whole job, and the
+    signal's own travel time is one of your instruments. Lose the state now and the burn that brings them
+    home is aimed with numbers nobody can defend.
   takeaway: Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as
     isolated facts.
   stops:
@@ -530,10 +538,14 @@ missions:
   briefing: The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse
     to determine whether a small correction now can prevent a large correction later.
   stake: >-
-    The path they are on misses the corridor by four hundred kilometres, and the window to correct it opens
-    before the next tracking pass closes. A burn is a force applied for a time: it changes velocity, and
-    velocity is what a trajectory is made of, so a small push now is worth an enormous one later. Fuel spent
-    early is fuel not available for the last correction.
+    The spacecraft is drifting off the path that would carry it around the Moon and back to Earth. Today the
+    drift is small. At the atmosphere it is fatal, and the window to correct it opens before the next
+    tracking pass. Today you work out what a burn actually does and decide whether to correct now or wait
+    for better tracking. A burn is a force applied for a time. That changes velocity, and velocity is what a
+    trajectory is made of, so the earlier you push the less push you need — a small correction now is worth
+    an enormous one later. But correcting on thin tracking means correcting an error you have not measured
+    properly. There is no more propellant coming. Whatever you spend today is not available for the last
+    correction before entry.
   takeaway: "Use Newton\u2019s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence chain rather than as\
     \ isolated facts."
   stops:
@@ -660,10 +672,14 @@ missions:
   briefing: The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and
     visible reference objects.
   stake: >-
-    The vehicle is tumbling, one thruster quad is dead, and the crew are flying by hand with the guidance
-    computer powered down to save amps. Rotation obeys the same bookkeeping as motion in a line — a torque
-    starts it and only an equal torque stops it — so every degree is paid for twice. An uncontrolled tumble
-    costs the antenna, the solar array and the burn attitude together.
+    The guidance platform is off to save power, one thruster quad is dead, and the crew has to turn the
+    spacecraft ninety degrees by hand. Today you agree what the rotation numbers actually mean, write the
+    procedure, and work out what a thruster does when it fires. Turning obeys the same bookkeeping as moving
+    in a line, with rotation in place of speed. A thruster firing off to one side produces a twisting force,
+    and how much twist you get depends on how far it is from the vehicle's balance point. Starting a
+    rotation is only half of it. Nothing stops on its own out here. An equal twist has to be applied the
+    other way, so every degree costs propellant twice. Let it tumble and you lose the antenna, the solar
+    array and the burn attitude together.
   takeaway: Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather
     than as isolated facts.
   stops:
@@ -800,10 +816,14 @@ missions:
   briefing: Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal
     control, and life support.
   stake: >-
-    A heater nobody had on the list has been drawing current for six hours, and the reserve is now measured
-    in ampere-hours rather than in days. Power is voltage times current, energy is power times time, and the
-    only honest budget is one that names every load and what happens without it. Shed the wrong one and the
-    reserve survives to the correction the crew cannot make.
+    The fuel cells are gone and the crew is on entry batteries days earlier than any plan allowed. The bus
+    is sagging at 24 volts instead of 28 while the total current sits near where it should be. Today you
+    work out how long the batteries last, decide why the voltage is low, and choose what to switch off.
+    Power is voltage times current, and energy is power multiplied by time — so an honest budget is a list
+    of every load and how long each one runs. Voltage sagging while current looks normal points at
+    resistance somewhere in the path, quietly eating the difference and turning it into heat. Every load
+    shed costs something: guidance, communications, heat, or the air. Shed the wrong one and there is still
+    power at the end, and nobody able to use it.
   takeaway: Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated
     facts.
   stops:
@@ -955,10 +975,14 @@ missions:
   briefing: Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The
     player must reason through series, parallel, internal resistance, and fault isolation.
   stake: >-
-    The plan that saves the mission puts two batteries at different states of charge on the same bus. Series
-    adds voltage and parallel shares current — and paralleled cells at different voltages will move current
-    between themselves whatever the load does, into whatever resistance is in the path. In a sealed cabin,
-    the battery brought in to save the spacecraft is the one that can burn it.
+    Engineers want to reconnect a battery module from the damaged bus to buy hours of endurance. Nobody
+    knows its state of charge, and the connectors were never designed for this. Today you decide whether
+    that configuration is safe, and what has to be measured before anyone touches it. Two batteries wired
+    one after another add their voltages. Wired side by side they share the load — but only if they start at
+    the same voltage. If they do not, the higher one drives current into the lower one, through whatever
+    resistance is in the path, and a bad joint carrying twenty amps turns that into heat exactly where
+    nobody can reach it. This is a sealed cabin with three people in it. The battery brought in to save the
+    spacecraft is the one that can burn it.
   takeaway: Use series circuits, parallel circuits, internal resistance, Joule heating, fault isolation as an evidence chain
     rather than as isolated facts.
   stops:
@@ -1089,10 +1113,14 @@ missions:
   briefing: With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction,
     convection, radiation, metabolic heat, and battery performance.
   stake: >-
-    The mean cabin temperature is 11°C, which is survivable, and the wall behind the battery pack is at 4°C,
-    which is not — batteries and electronics fail at local temperatures, not at averages. Heat leaves by
-    conduction, convection and radiation, and each is fought with a different and differently expensive
-    measure. There is not enough power for all three.
+    The vehicle has been powered down for two days. The cabin is at four degrees and falling, condensation
+    is running down the walls, and the crew are sleeping in everything they own. Today you work out how fast
+    it is losing heat, decide which way the heat is actually leaving, and choose what to insulate. Heat
+    leaves three ways: by conduction through whatever touches something colder, by air carrying it away, and
+    by radiation into space, which needs no contact at all. Each is fought differently, and there is not
+    enough power for all three. Average temperature is also the wrong number to watch. Batteries and
+    electronics fail at their own local temperature, and the coldest spot in the cabin is behind the battery
+    pack that the entry sequence depends on.
   takeaway: Use heat capacity, conduction, convection, radiation, energy balance as an evidence chain rather than as isolated
     facts.
   stops:
@@ -1226,10 +1254,14 @@ missions:
   briefing: Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect
     gas laws, partial pressure, fluid flow, and filter resistance.
   stake: >-
-    Carbon dioxide is climbing in a cabin built for two people and holding three, and the canisters that fit
-    the scrubber are aboard the vehicle they cannot use. Production is a rate set by metabolism; removal is
-    a rate set by chemistry and by airflow, and a filter with no flow through it removes nothing. An
-    improvised fix that throttles circulation can leave the cabin worse than it found it.
+    Carbon dioxide is climbing in a cabin built for two people and holding three. The scrubber fan still
+    draws its normal current, and the spare canisters are the wrong shape for the sockets in this module.
+    Today you find out why the air is not being cleaned, work out how fast three people fill a cabin, and
+    build something out of what is aboard. Removal is a rate, and it depends on two things: the chemistry
+    that takes the gas up, and the air actually reaching it. A fan at rated current only proves the motor is
+    turning. Push against a blocked path and it moves almost nothing while sounding exactly right. Every
+    hour of argument is a rising number the crew can feel — headache first, judgement second, and they still
+    have a burn to fly.
   takeaway: Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather
     than as isolated facts.
   stops:
@@ -1381,10 +1413,13 @@ missions:
   briefing: The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter
     failure from antenna pointing, range loss, and Doppler effects.
   stake: >-
-    The downlink dropped nine decibels at the moment the crew turned the vehicle for the burn, and the voice
-    loop is now unusable at the exact hour it is needed most. A link budget is a sum: transmitter power,
-    antenna gain, range, pointing, receiver sensitivity — and any one term can account for a fade, if it is
-    large enough to. The signal is also a navigation measurement, and losing it loses both.
+    Voice and telemetry both went weak at once, down about twelve decibels, at the moment the crew turned
+    the vehicle. They are answering calls they can barely hear. Today you find the cause of the fade and get
+    the link back. A radio link is a budget: transmitter power, antenna gain, distance, pointing, receiver
+    sensitivity, all added up in decibels — and any one term can account for the loss if it is large enough.
+    That is what makes the size worth checking before the story. Distance changes slowly and costs little. A
+    narrow beam a few degrees off costs a great deal. Losing this link loses two things at once, because the
+    signal is also a navigation measurement — so the room goes deaf and half blind in the same minute.
   takeaway: Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as
     isolated facts.
   stops:
@@ -1538,10 +1573,14 @@ missions:
   briefing: The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player
     must connect optics, angular measurement, and reference frames.
   stake: >-
-    No guidance platform, no star tracker, and an alignment to be flown by eye against the Earth's
-    terminator through a scratched window. A pointing error is an angle, and an angle becomes a distance
-    when you multiply it by how far you are going — which is why an error too small to see becomes a miss
-    too large to fix. The error budget has to be bounded before the burn, not after.
+    No guidance platform and no star tracker. The crew will aim the burn by eye, sighting through a window
+    reticle. Today you separate what genuinely moves the spacecraft's aim from what only appears to, and
+    decide how many sightings make the alignment trustworthy. An aiming error is an angle, and an angle
+    becomes a distance when you multiply it by how far you are going. A tenth of a degree is invisible in
+    the window and is hundreds of kilometres at the end of the trip. Some of what the crew sees through that
+    reticle is real motion and some is the window, the lighting or their own eye, and only repeated
+    sightings on several stars separate them. The error has to be bounded before the burn. Afterwards it is
+    just where they are going.
   takeaway: Use lenses, angular measurement, parallax, reference frames, error propagation as an evidence chain rather than
     as isolated facts.
   stops:
@@ -1675,10 +1714,14 @@ missions:
   briefing: 'The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping
     back into space. The player must integrate drag, energy conversion, and atmospheric density.'
   stake: >-
-    The entry corridor is about a degree wide and the last tracking solution puts them near its edge.
-    Entry is a controlled disposal of energy: too shallow and the atmosphere does not take enough, too steep
-    and it takes it all in seconds. The physics that keeps them alive is the same physics that would kill
-    them, and the difference is measured in fractions of a degree.
+    The capsule arrives at the atmosphere at about eleven kilometres a second, and the corridor it has to
+    hit is roughly a degree wide. The last tracking solution puts them near the edge of it. Today you follow
+    where all that energy goes, work out the scale of it, and decide how to protect the corridor. Entry is a
+    controlled disposal of energy. A returning capsule carries an enormous amount of it, and the only way to
+    lose it is to give it to the air as heat. Too shallow and the atmosphere does not take enough, so the
+    capsule skips back out. Too steep and it takes it all in seconds, faster than the shield or the crew can
+    survive. The physics keeping them alive and the physics that would kill them are the same physics,
+    separated by a fraction of a degree.
   takeaway: Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain rather than as isolated facts.
   stops:
   - group: INTEG
@@ -1801,10 +1844,13 @@ missions:
   briefing: A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance
     and protect the structure without disabling life support.
   stake: >-
-    A line behind the panel has been chafing for an hour, and the vibration that is doing it appears only in
-    a narrow band of wheel speed. Every structure has frequencies it prefers, and near one of them a small
-    repeated force produces a large motion — so hardware that is strong at rest can fail when driven at a
-    rate it happens to like. Amplitude alone does not tell you which case this is.
+    A panel starts shaking whenever a pump runs near one particular speed, and the amplitude has grown
+    across the last three days. A line behind that panel has been rubbing for an hour. Today you decide what
+    is driving it, work out the structure's own natural rhythm, and stop it. Every structure has speeds it
+    prefers, set by how stiff it is and how heavy. Drive it near one of those and small repeated pushes add
+    up into large motion, the way a swing responds to small pushes at the right moment. That is why the sign
+    is not the size of the shaking but its narrowness: it peaks in a narrow band of pump speed and dies away
+    outside it. Read a big number as damage and you will strengthen a part that was never the problem.
   takeaway: Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather
     than as isolated facts.
   stops:
@@ -1955,10 +2001,14 @@ missions:
   briefing: Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player
     must make a multi-constraint physical decision rather than optimize one variable.
   stake: >-
-    Three return paths, and the fastest one spends the propellant the entry needs to stay in the corridor. A
-    plan is limited by one binding constraint at a time — consumables, fuel, thermal, geometry — and
-    optimising against any of the others just moves the failure somewhere less visible. What matters now is
-    not the best path but the one with margin left when something else goes wrong.
+    Four return paths on the board, each best at something: fastest, least propellant, coolest entry, best
+    tracking coverage. The decision has to be made this shift, and once the burn is flown most of the others
+    close. Today you find what actually limits this vehicle and pick the path that survives being wrong. A
+    plan is limited by one thing at a time — propellant, power, air, heat, or where the tracking stations
+    happen to be — and optimising for any of the others simply moves the failure somewhere less visible. The
+    fastest route home spends the propellant the entry needs to stay in its corridor. What you want is not
+    the best path but the one with something left over when the next thing goes wrong, because on this
+    flight it has every day so far.
   takeaway: Use optimization, constraints, trade spaces, margins, critical path as an evidence chain rather than as isolated
     facts.
   stops:
@@ -2074,10 +2124,14 @@ missions:
   briefing: Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated
     errors and decide whether another burn reduces or increases total risk.
   stake: >-
-    Two independent-looking displays agree that the trajectory has drifted, and both of them are fed from
-    the same ground clock. Uncertainties from separate sources combine in a way that shrinks with
-    independence and not at all without it, so the size of the correction has to be compared against the
-    size of the error in knowing it. An unnecessary burn can push a safe trajectory into an unsafe one.
+    Several ground measurements have suddenly put the spacecraft ahead of its predicted path. They agree
+    closely with each other, and they are all fed from the same timing reference. Today you decide whether
+    the trajectory really moved, and whether to burn. Uncertainties add up in a particular way: two
+    independent errors combine to less than their sum, which is why independence is worth more than
+    precision. Measurements sharing a clock, a calibration or a piece of software are not independent, so
+    their agreement measures nothing at all. And a correction is only worth making if it is larger than the
+    error in knowing it. Burn on a false signal and a trajectory that was safe but uncertain becomes
+    certainly wrong. There is almost nothing left to fix it with.
   takeaway: Use random and systematic error, weighted averages, covariance, propagation, decision thresholds as an evidence
     chain rather than as isolated facts.
   stops:
@@ -2231,10 +2285,14 @@ missions:
   briefing: 'The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere,
     thermal shield, communications, and recovery.'
   stake: >-
-    The sequence starts in ninety minutes and nothing in it can be undone. Hundreds of physical claims — a
-    heat shield that has been cold for four days, a battery charged through an improvised path, an alignment
-    flown by hand — all have to be true at the same time, and the review's job is to say how strongly each
-    one is held and by what evidence. After the first event, there is no decision left to make.
+    The sequence starts in eleven minutes and four of them are without communications. Today you take the
+    final claims one at a time, decide whether this vehicle is ready, and then execute a chain of events
+    where nothing can be undone. The claims are not equally strong. A heat shield that has been cold for
+    four days, a battery charged through a path somebody invented on Tuesday, an alignment flown by hand
+    against stars — each has to be true at the same moment as all the others, and the room's job is to say
+    how strongly each one is held and on what evidence. After the first event of the sequence there are no
+    decisions left to make, only things to watch. Three people are inside it and they have heard every word
+    of this for five days.
   takeaway: Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather
     than as isolated facts.
   stops:

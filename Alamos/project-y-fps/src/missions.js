@@ -21,7 +21,7 @@ const MISSION_DEFS=[
         "task": "Turn ionization into a signal"
       }
     ],
-    "stake": "Five divisions, one mesa, and three notations for the same nucleus on three blackboards. None of this can be coordinated until the site shares one language. What does a nuclide symbol actually specify? Why do isotopes of an element act alike in a beaker and differently in a counter? And how does ionisation become a number an instrument can report?"
+    "stake": "Five divisions, one mesa, and three different ways of writing the same nucleus on three different blackboards. Nothing here can be coordinated until everybody describes matter the same way. Today you settle three things. What a nuclide symbol actually specifies. Why two isotopes of an element act alike in a beaker and differently in a counter. And how radiation becomes a number an instrument can report. The first is about what a nucleus is made of and how much of each. The second follows from the first. Chemistry is decided by the electrons, and the electrons are set by the protons. So isotopes are the same element chemically, with different weights and different nuclear behaviour. The third is how you know any of it — radiation knocks electrons off atoms in a detector, and that tiny charge becomes a pulse. Every measurement made on this mesa for the next two years rests on these three things."
   },
   {
     "title": "Account for nuclear energy",
@@ -45,7 +45,7 @@ const MISSION_DEFS=[
         "task": "Compare the early architectures"
       }
     ],
-    "stake": "Two architectures are on the table and the site can properly staff one of them. The energy released in a nuclear change comes from mass that is no longer there — binding energy, made visible by the mass defect — and every measured energy on this mesa depends on a calibration somebody has to defend. Choose on preference rather than evidence and a year goes into the wrong programme."
+    "stake": "Two architectures are on the table and the site can properly staff one of them. Today you work out where nuclear energy comes from, check that the instruments reporting it are calibrated, and compare the two paths the programme could take. The energy comes from mass that is no longer there. Weigh a nucleus and it comes out lighter than its parts added up. That missing mass is the energy holding it together. It is why nuclear changes release so much more than chemical ones. But every energy figure quoted here is really a pulse height on an instrument, converted by a calibration somebody had to establish with a known source. An uncalibrated number is a voltage with ambitions. Choose between the two architectures on preference instead of evidence and a year of work goes to the wrong one."
   },
   {
     "title": "Follow radioactivity through the laboratory",
@@ -69,7 +69,7 @@ const MISSION_DEFS=[
         "task": "Measure the background"
       }
     ],
-    "stake": "The sample is decaying while the chemistry is still running, which means the number at the end is not the number at the start. Decay is a rate law with a half-life, tracer chemistry follows an element through steps where nothing else can, and a count means nothing until the background under it is measured. Three groups have already reported yields that cannot all be right."
+    "stake": "A sample decays while the chemistry is still running, so the amount at the end is not the amount you started with. Three groups have reported yields that cannot all be right. Today you handle decay as an arithmetic problem, follow an element through a separation, and measure what the counter reads with nothing there. Decay is a rate: a fixed fraction goes per unit time, which is what a half-life describes, so the answer depends on how long the chemistry took. A tracer is a tiny amount of a radioactive form mixed in, which lets you follow where the bulk of an element goes through steps you cannot see into. And every counter reads something with no sample in it — cosmic rays, contamination, the building. A count with no background under it is not a measurement."
   },
   {
     "title": "Measure interactions, not impressions",
@@ -93,7 +93,7 @@ const MISSION_DEFS=[
         "task": "Verify yield and purity"
       }
     ],
-    "stake": "Two groups have a count difference everybody believes in, and Poisson statistics say it is nothing. A cross section is a probability with an area for units; counting is a random process whose scatter is predictable; a yield is worthless without a purity figure beside it. The programme is about to allocate material on the strength of a difference that may not exist."
+    "stake": "Two groups have a difference in their counts that everybody believes in, and the statistics say it is nothing. Today you work with the number that says how likely an interaction is. You decide when a difference in counts is real. And you check that a chemical yield is what it claims. A cross section is a probability expressed as an area: the bigger it is, the more often a particle interacts. Counting is a random process. Repeat the same measurement and you get different numbers. The spread is predictable, so a difference smaller than the spread is not evidence of anything. And a yield figure means nothing without a purity figure beside it. The programme is about to allocate material on the strength of a difference that may not exist."
   },
   {
     "title": "Track neutrons through matter",
@@ -117,7 +117,7 @@ const MISSION_DEFS=[
         "task": "Explain why plutonium required implosion"
       }
     ],
-    "stake": "The first reactor plutonium has arrived on the mesa and it is not the material the gun design was built around. Neutrons change energy as they scatter, and what they can do and whether they can be detected both depend on that energy — which is why moderation is not a detail. The consequence for the second design path arrives with the sample."
+    "stake": "The first reactor plutonium has arrived on the mesa, and it is not the material the gun design was built around. Today you follow what happens to neutrons as they move through matter. You work out how to detect something with no charge. And you face what this material means for the second design path. A neutron loses energy by bouncing off nuclei. It loses most when it hits something of a similar mass. That is why light elements slow neutrons down and heavy ones barely do. Energy matters because a slow neutron and a fast one behave completely differently. Detection is indirect: a neutron has no charge, so you catch it by the charged particle it produces in a reaction. The consequence for the programme arrived with the sample, and nobody wants to say it out loud yet."
   },
   {
     "title": "Recognize the design pivot",
@@ -141,7 +141,7 @@ const MISSION_DEFS=[
         "task": "Move from outward detonation to inward compression"
       }
     ],
-    "stake": "A background process nobody had to care about last spring is about to end a year of work in a fortnight. Spontaneous fission produces neutrons on its own timetable, and a timetable is exactly what an assembly method has to beat. The evidence is a counting rate; the consequence is that the laboratory reorganises around inward compression instead."
+    "stake": "A process nobody had to care about last spring is about to end a year of work in a fortnight. Today you measure the neutron background the new material produces, follow the argument that killed the earlier design, and take the programme to a different one. Some heavy nuclei split on their own, without being hit by anything, and they do it on their own schedule. That produces a steady trickle of neutrons. Any assembly method has to finish before one of those neutrons arrives at the wrong moment, so a background rate is really a deadline in disguise. That is the entire argument, and it is made of a counting rate on a bench. The consequence is that the laboratory reorganises around compressing material inward instead, and half the site has to be told why."
   },
   {
     "title": "Understand matter under compression",
@@ -165,7 +165,7 @@ const MISSION_DEFS=[
         "task": "Explain what an explosive lens does"
       }
     ],
-    "stake": "Compression is now the whole programme, and the material at the centre of it has phases that change its density under conditions the design will actually meet. An equation of state relates pressure, volume and temperature; a phase diagram says which form exists where; a shaped wave arrives where and when it is meant to. None of the three can be assumed from the others."
+    "stake": "Compression is now the whole programme, and the material at the centre of it changes its density under conditions the design will actually meet. Today you work with the relationship between pressure, volume and temperature, read what a phase diagram is telling you, and understand what shaping a detonation wave achieves. An equation of state is that relationship written down. Squeeze something, and how much it gives depends on how hot it is and what it is made of. A phase diagram says which arrangement of atoms exists under which conditions. Different arrangements have different densities. So a material can rearrange itself part way through and behave like something else. Shaping is a geometry problem: making a wave that spreads outward arrive as one that converges inward. None of the three can be assumed from the other two."
   },
   {
     "title": "Make symmetry measurable",
@@ -189,7 +189,7 @@ const MISSION_DEFS=[
         "task": "Translate simultaneity into engineering"
       }
     ],
-    "stake": "“Nearly simultaneous” has been in every memo for two months. Nobody has written down what it means in microseconds. A requirement is not a requirement until it is a number with a tolerance and an instrument that can see it. So the symmetry metric comes first. Then the timing channels are calibrated. Only then can ordnance be told what to build to."
+    "stake": "“Nearly simultaneous” has been in every memo for two months, and nobody has written down what it means in microseconds. Today you turn that into a number, calibrate the channels that measure it, and give ordnance a requirement they can build to. A requirement is not a requirement until it has a number, a tolerance and an instrument that can see it. So the first job is defining what is being measured. Here it is a spread of arrival times across many points, summarised as one figure. The second is proving the timing channels agree with each other. Measure simultaneity with instruments that disagree and you have measured the instruments. Only then can the engineers be told what to hold to. Until today, every meeting on this has been people using the same word to mean different tolerances."
   },
   {
     "title": "Build evidence with real materials",
@@ -213,7 +213,7 @@ const MISSION_DEFS=[
         "task": "Apply high-speed imaging and radiography"
       }
     ],
-    "stake": "The thing itself cannot be tested, so everything the programme believes has to come from mockups and inert assemblies. Mechanical properties decide how hardware behaves under load, representative parts decide whether a result transfers, and high-speed imaging and radiography are the only witnesses to events too fast for anything else. Choose the wrong diagnostic and the event happens unobserved."
+    "stake": "The thing itself cannot be tested, so everything the programme believes has to come from stand-ins. Today you characterise how the real materials behave under load, decide what a mockup can and cannot tell you, and choose diagnostics for events too fast to watch. Mechanical properties decide how hardware behaves when it is pushed. They belong to a specific material in a specific state, not to a name on a drawing. A mockup transfers only where it matches what matters — get that wrong and you have carefully measured something else. And an event lasting microseconds leaves no witness at all unless the instrument was chosen and placed beforehand. That means high-speed imaging, and radiography, which sees through what light cannot. Choose badly and the event happens perfectly, unobserved."
   },
   {
     "title": "Synchronize many channels",
@@ -237,7 +237,7 @@ const MISSION_DEFS=[
         "task": "Synchronize many channels"
       }
     ],
-    "stake": "Every channel checks out alone and the assembly fails on the bench, twice. Timescales that look comparable on paper differ by orders of magnitude in practice; components come in lots, and a lot is a population with a spread rather than a part number. A system of many channels fails in ways that no single-channel test can show."
+    "stake": "Every channel checks out alone and the assembly fails on the bench, twice. Today you compare the timescales involved, work out what a batch of components actually guarantees, and coordinate many channels as one system. Timescales that look similar on paper differ by factors of a thousand in practice, and only the shortest one sets what has to be controlled. Components come in lots, and a lot is a population with a spread, not a part number. Accepting one means testing enough of it to know that spread. And when the test destroys the part, every test costs a unit. A system of many channels also fails in ways no single channel can show. What matters is not whether each one works. It is whether they work together, on time, on the same signal."
   },
   {
     "title": "Build an uncertainty budget",
@@ -261,7 +261,7 @@ const MISSION_DEFS=[
         "task": "Build the implosion uncertainty budget"
       }
     ],
-    "stake": "More data arrived this month and confidence went down. Independent uncertainties combine one way and correlated ones another, and measurements sharing an instrument, a calibration or an assumption are not independent however many of them there are. The budget the programme decides on has to say which term dominates, and to be honest about the ones that cannot be reduced."
+    "stake": "More data arrived this month and confidence went down. Today you work out how uncertainties combine, recognise when measurements are not telling you separate things, and assign a number to the whole system. Independent errors partly cancel when combined, so several rough measurements can beat one careful one. But measurements sharing an instrument, a calibration or an assumption are not independent. Combine them as if they were and you get a small number that is a lie. The honest budget names which term dominates and which cannot be reduced by working harder. This is where the programme decides how much it actually knows. It is also the number that will be quoted, years later, in a room where nobody remembers what went into it."
   },
   {
     "title": "Design the integrated non-nuclear campaign",
@@ -290,7 +290,7 @@ const MISSION_DEFS=[
         "task": "Plan the integrated campaign"
       }
     ],
-    "stake": "The whole schedule now runs through one machine shop, and nobody had drawn that until this week. Acceptance criteria have to exist before a test, or the result is argued about afterwards. Instrumentation has to survive the event it is measuring. And a test earns its place by telling two explanations apart, not by being impressive."
+    "stake": "The whole schedule now runs through one machine shop, and nobody had drawn that until this week. Today you set what counts as a passing test, instrument it so the result can be interpreted, and find what the schedule really depends on. Acceptance criteria have to exist before the test, or the result gets argued about afterwards by whoever most wants a particular answer. Instrumentation has to survive the event it is measuring, which is a design problem of its own. And a critical path is the chain of things that cannot happen side by side. Everything else has slack. Effort spent there changes nothing at all. A test earns its place by telling two explanations apart, not by being impressive to watch."
   },
   {
     "title": "Treat Trinity as an experiment",
@@ -319,7 +319,7 @@ const MISSION_DEFS=[
         "task": "Validate the model"
       }
     ],
-    "stake": "One shot, weather closing in, and every question it is meant to answer has to be written down before it happens. A dramatic event is not automatically an informative one: the diagnostics have to cover the ways they themselves can fail, and predictions have to be recorded in advance so the comparison means something. There is no second attempt to design around."
+    "stake": "One shot, weather closing in, and everything it is meant to answer has to be written down before it happens. Today you state the questions in advance. You build the field arrangements around the measurements, rather than the other way round. And you cover the ways the instruments themselves can fail. A dramatic event is not automatically an informative one. What makes it an experiment is that the predictions were written down beforehand, so the comparison afterwards means something. And that every instrument was placed to answer a specific question. Redundancy matters because a single instrument that fails takes its question with it, and there is no second attempt to design around. Everything this laboratory has argued about for two years gets one measurement."
   },
   {
     "title": "Reconcile evidence and freeze the design",
@@ -348,7 +348,7 @@ const MISSION_DEFS=[
         "task": "Control the post-Trinity design freeze"
       }
     ],
-    "stake": "The observation has landed outside the prediction band, and either the model or the measurement is wrong. Reconciling them means treating both as claims with uncertainties rather than as a winner and a loser — and the material record has to close as carefully as the physics. A design freeze is an evidence decision that happens to have a date on it."
+    "stake": "The observation has landed outside the prediction band. Either the model is wrong or the measurement is, and both have people attached to them. Today you compare prediction against observation properly, close the materials record, and decide what may still change. Reconciliation means treating both sides as claims with uncertainties rather than as a winner and a loser: a disagreement is only real if it is bigger than the error bars on both. Often it is not, and the argument was about noise. The materials record has to close as carefully as the physics, because a number is only about a thing if you know which thing it was measured on. A design freeze is an evidence decision that happens to have a date on it."
   },
   {
     "title": "Complete the evidence chain—and confront responsibility",
@@ -377,7 +377,7 @@ const MISSION_DEFS=[
         "task": "Examine scientific responsibility after Trinity"
       }
     ],
-    "stake": "The technical questions are closing and the other ones are not. Each line of work states what it knows, what remains uncertain, and how strongly each claim is held — and then the same people have to say what follows from having done the work at all. The scientists who were on this mesa disagreed about that in public for the rest of their lives."
+    "stake": "The technical questions are closing and the other ones are not. Today each line of work states what it knows, what is still uncertain, and how strongly each claim is held. Then the same people have to say what follows from having done the work at all. The first part is ordinary discipline: a conclusion carries the strength of the evidence under it, and a dossier that presents everything at the same confidence is useless to whoever inherits it. The second part has no method. The scientists who were on this mesa disagreed about it in public for the rest of their lives, and the disagreement was not about the physics, which they all agreed on. Being right about the measurement does not settle anything about what was built with it."
   }
 ];
 export { MISSION_DEFS };
