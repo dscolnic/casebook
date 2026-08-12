@@ -23,6 +23,8 @@ export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
   // root font size, so the same game can ship at several reading levels with
   // type sized for each. Undergraduate: no scaling.
+  // 1943 to 1945. Fifteen of these are programme stages, not days.
+  dayNoun: 'Stage',
   audience: { grade: 12 },
 
   id: 'projecty',

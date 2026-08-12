@@ -21,7 +21,7 @@ export const MISSION_DEFS=[
         "task": "Your First Exam Room"
       }
     ],
-    "stake": "Three children arrive at almost the same time. One is quiet and breathing hard. One is crying loudly about her ankle. Today you decide who to see first, and you learn the three kinds of clue. Some clues you see with your own eyes. Some the patient tells you. Some come from a tool, as a number. All three help. Knowing which kind you have tells you how sure you can be. The loudest patient is not always the one in the most trouble. One of these children can get worse while the others wait."
+    "stake": "It is your first shift. Three children come in at once. Ava is quiet and breathing hard. Ben is crying loudly about his ankle. Nurse Alex Lee says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. Some you see with your own eyes. Some the patient tells you. Some come from a tool, as a number. Knowing which kind you have tells you how sure you can be. The loudest patient is not always the one in the most trouble."
   },
   {
     "title": "Breathing Room",
@@ -45,7 +45,7 @@ export const MISSION_DEFS=[
         "task": "Count the Breaths"
       }
     ],
-    "stake": "Noah helped clean a dusty room. Now he makes a whistling sound with every breath. Today you follow the path air takes, work out what that sound means, and count how fast someone is breathing. Air has a journey. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen get into the blood. A whistle happens when air squeezes through a narrow space. So the sound tells you which part of the path got narrower. Breathing is the thing a body cannot wait for."
+    "stake": "Your second shift. Noah helped clean a dusty room and now he makes a whistling sound with every breath. Dr. Luis Reyes wants you to listen before he does. Today you follow the path air takes, work out what that sound means, and count how fast someone is breathing. Air has a journey. In through the nose or mouth. Down the windpipe. Into the lungs. Only then can oxygen get into the blood. A whistle happens when air squeezes through a narrow space. So the sound tells you which part got narrower."
   },
   {
     "title": "Heart on the Move",
@@ -69,7 +69,7 @@ export const MISSION_DEFS=[
         "task": "Why the Faster Pulse?"
       }
     ],
-    "stake": "Jordan came up the stairs and now his heart is racing. His mum is worried. Today you follow blood around the body, count a pulse, and work out why it sped up. Blood does not go one way and stop. It goes in a loop, over and over. The heart pushes it to the lungs to pick up oxygen. Then out to the body. Then back again. When muscles work hard they need more oxygen, so the loop speeds up to bring it. A pulse is not one fixed number for a person. It changes all day."
+    "stake": "Third shift. Jordan came up the stairs and his heart is racing, and his mum looks frightened. Nurse Alex Lee asks you what you saw before she says anything. Today you follow blood around the body, count a pulse, and work out why it sped up. Blood does not go one way and stop. It goes in a loop, over and over. The heart pushes it to the lungs to pick up oxygen. Then out to the body. Then back. When muscles work hard they need more oxygen, so the loop speeds up."
   },
   {
     "title": "Lunch Shift",
@@ -93,7 +93,7 @@ export const MISSION_DEFS=[
         "task": "Three Jobs, Three Organs"
       }
     ],
-    "stake": "Owen ate a sandwich an hour ago and his tummy hurts. Today you follow food through the body and work out which part does which job. Food is far too big for the body to use. So it gets taken apart in steps. The mouth chews it and wets it. The food tube carries it down. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part is built for one job, and the order matters. Miss a step and nothing after it works."
+    "stake": "Fourth shift, just after lunch. Owen ate a sandwich an hour ago and his tummy hurts. Today you follow food through the body and work out which part does which job. Food is far too big for the body to use. So it gets taken apart in steps. The mouth chews it and wets it. The food tube carries it down. The stomach mixes it and breaks it down more. Then the small intestine takes the tiny bits into the blood. Each part is built for one job, and the order matters."
   },
   {
     "title": "Water Watch",
@@ -117,7 +117,7 @@ export const MISSION_DEFS=[
         "task": "What the Kidneys Do"
       }
     ],
-    "stake": "Mateo just finished his soccer match. He says he feels fine. His mouth is dry and his urine looks darker than usual. Today you read two clues together and follow water through the body. Water leaves you all day. In sweat when you are hot. In urine all the time. It has to be put back. The kidneys clean the blood and decide how much water leaves. One clue on its own could mean lots of things. Two clues pointing the same way are much stronger."
+    "stake": "Fifth shift. Mateo finished his soccer match and says he feels fine. His mouth is dry. His urine looks darker than usual. Nurse Alex Lee has written both of those down and wants to know what you make of them together. Today you read two clues at once and follow water through the body. Water leaves you all day, in sweat and in urine, and it has to be put back. The kidneys clean the blood and decide how much water leaves. Two clues pointing the same way are much stronger than one."
   },
   {
     "title": "X-Ray Day",
@@ -141,7 +141,7 @@ export const MISSION_DEFS=[
         "task": "Possible Broken Bone"
       }
     ],
-    "stake": "Eli came off his bike. His wrist hurts and it is swollen. Today you pick the right tool, learn what bones do, and keep Eli safe while the team gets ready. You cannot see a bone by looking at an arm. A thermometer gives you warmth. A stethoscope gives you sounds. Only an X-ray shows the shape of what is under the skin. Bones do more than one job. They hold you up. They guard soft parts inside. And they bend at joints, where two bones meet."
+    "stake": "Sixth shift, and Ben is back — the boy with the sore ankle from your first day. This time it is his wrist, and it is swollen. Dr. Elena Garcia is waiting for you. Today you pick the right tool, learn what bones do, and keep Ben calm while the team gets ready. You cannot see a bone by looking at an arm. A thermometer gives you warmth. A stethoscope gives you sounds. Only an X-ray shows the shape under the skin. Bones hold you up, guard soft parts, and bend at joints."
   },
   {
     "title": "Rehab Race",
@@ -165,7 +165,7 @@ export const MISSION_DEFS=[
         "task": "Therapy Sets"
       }
     ],
-    "stake": "Sophie is doing her hand exercises and her fingers will not close all the way yet. Today you follow how a body moves, learn why muscles get tired, and count out a set of exercises. Moving takes four things in order. The brain decides. Nerves carry the message. Muscles pull. Bones move at the joints. Muscles use energy, so doing the same thing many times uses it up and they feel weak. That is normal. It is not the same as being hurt. Rest is part of the plan, not a sign to stop."
+    "stake": "Seventh shift. Sophie has been doing her hand exercises for a week and her fingers still will not close all the way. She wants to stop. Today you follow how a body moves, learn why muscles get tired, and count out a set of exercises. Moving takes four things in order. The brain decides. Nerves carry the message. Muscles pull. Bones move at the joints. Muscles use energy, so doing the same thing many times uses it up. That is normal, and it is not the same as being hurt."
   },
   {
     "title": "Brain Signal Day",
@@ -189,7 +189,7 @@ export const MISSION_DEFS=[
         "task": "After the Head Bump"
       }
     ],
-    "stake": "Arjun bumped his head at break. Now he seems confused about what day it is. Today you follow signals into the brain and back out, and decide who needs help first. Signals go two ways. Skin senses something and nerves carry that message in. The brain works out what it means. Then a message goes back out to the muscles and you move. Every step has to work, or the whole thing stops. A scrape you can see is not always the clue that matters. When somebody's thinking changes, that is the one to watch."
+    "stake": "Eighth shift. Arjun bumped his head at break. His knee is scraped and you can see it. He is also muddled about what day it is, and you can only see that if you talk to him. Dr. Sam Kim asks which one worries you. Today you follow signals into the brain and back out, and decide who needs help first. Skin senses something. Nerves carry it in. The brain works out what it means. Then a message goes back out and you move. When somebody's thinking changes, that is the clue to watch."
   },
   {
     "title": "Sense Detective",
@@ -213,7 +213,7 @@ export const MISSION_DEFS=[
         "task": "From Light to Picture"
       }
     ],
-    "stake": "Mina says the board looks blurry from far away. Caleb cannot hear a quiet tone. Mrs. Patel feels dizzy. Today you match each clue to the right test and follow how seeing works. Eyes take in light. Ears take in sound. The inner ear does a second job too: it tells your brain which way is up. That is why an ear problem can make somebody dizzy. Seeing is not one step either. Light comes in, the back of the eye picks up the pattern, a nerve carries it, and the brain works out what it is."
+    "stake": "Ninth shift. Mina says the board looks blurry. Caleb cannot hear a quiet tone. Mrs. Patel feels dizzy when she stands. Three people, three clues, three different tools. Today you match each one and follow how seeing works. Eyes take in light. Ears take in sound. The inner ear does a second job too: it tells your brain which way is up. That is why an ear problem can make somebody dizzy. Seeing is not one step either. Light comes in, the eye catches the pattern, a nerve carries it, and the brain works it out."
   },
   {
     "title": "Skin Shield",
@@ -237,7 +237,7 @@ export const MISSION_DEFS=[
         "task": "What Job Did the Skin Lose?"
       }
     ],
-    "stake": "Ella has a scrape on her knee. June has a sunburn. Today you follow how a scrape heals, work out what job the skin lost, and help without doing a grown-up's job. Skin is a wall. Nothing gets through skin that is whole. It also holds water in and cools you with sweat. Healing comes in stages: the blood clots, a scab covers the gap like a lid, and new skin grows underneath. The body shuts the door first and repairs afterwards. Real wound care is for the grown-ups. You keep it clean and write down what you saw."
+    "stake": "Tenth shift. Ella came off her bike and there is gravel in her knee. June was outside too long and has a sunburn. Today you follow how a scrape heals, work out what job the skin lost, and help without doing a grown-up's job. Skin is a wall. Nothing gets through skin that is whole. It also holds water in and cools you with sweat. Healing comes in stages: the blood clots, a scab covers the gap like a lid, and new skin grows underneath. The body shuts the door first and repairs after."
   },
   {
     "title": "Germ Detective Shift",
@@ -261,7 +261,7 @@ export const MISSION_DEFS=[
         "task": "Same Symptom, Same Germ?"
       }
     ],
-    "stake": "Ty and Ana both feel tired today. Everybody is sure it is the same bug going around. Today you work out how germs travel, why washing hands matters, and whether these two really match. Germs do not all travel the same way. Some ride in tiny drops from a cough. Some are in food. Some sit on a door handle until a hand picks them up. So the story matters as much as the symptom. One symptom can have many causes. Saying not enough evidence yet is a real answer, not a dodge."
+    "stake": "Eleventh shift. Ty and Ana are both tired today and they are in the same class, so everybody has already decided it is the same bug. Dr. Amaka Okafor has not. Today you work out how germs travel, why washing hands matters, and whether these two really match. Germs do not all travel the same way. Some ride in drops from a cough. Some are in food. Some sit on a door handle until a hand picks them up. One symptom can have many causes. Saying not enough evidence yet is a real answer."
   },
   {
     "title": "Immune Team",
@@ -285,7 +285,7 @@ export const MISSION_DEFS=[
         "task": "A Vaccine Visit"
       }
     ],
-    "stake": "Ruby is getting better and nobody has given her anything. Mae is here for a shot and she is frightened. Today you follow what a body does when a germ gets in, and learn what a shot is for. Your body has a team. Skin keeps things out. White blood cells find what got in. Antibodies stick to one target and hold on. And some cells remember what that germ looked like, which is why you often do not get the same illness twice. A shot lets the body practise, before the real germ ever turns up."
+    "stake": "Twelfth shift. Ruby is getting better and nobody gave her anything, which puzzles her. Mae is here for a shot and she is frightened of it. Today you follow what a body does when a germ gets in, and learn what a shot is for. Your body has a team. Skin keeps things out. White blood cells find what got in. Antibodies stick to one target. And some cells remember what that germ looked like, which is why you often do not get the same illness twice. A shot lets the body practise first."
   },
   {
     "title": "Temperature Trouble",
@@ -309,7 +309,7 @@ export const MISSION_DEFS=[
         "task": "How Sweat Helps Cool"
       }
     ],
-    "stake": "Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at nine o'clock and 101 at twelve. Today you work out what the body is doing and how fast the fever is climbing. Your body works to stay at about the same temperature all day. Sweat cools you, but only when it dries — drying takes heat away with it. Shivering warms you, because working muscles make heat. One number is just a number. Two numbers and a clock tell you how fast something is changing."
+    "stake": "Thirteenth shift. Jamal is hot and sweating after exercise. Ivy got caught in the rain and is shivering. Ms. Kim was 98 degrees at nine o'clock and 101 at twelve. Today you work out what each body is doing and how fast the fever is climbing. Your body works to stay at about the same temperature all day. Sweat cools you, but only when it dries. Shivering warms you, because working muscles make heat. One number is just a number. Two numbers and a clock tell you how fast."
   },
   {
     "title": "Allergy Alert",
@@ -333,7 +333,7 @@ export const MISSION_DEFS=[
         "task": "Emergency Team Handoff"
       }
     ],
-    "stake": "Chloe's lips are swelling and she says it is hard to breathe. Sofia's eyes have itched every spring for years. Today you decide who cannot wait, tell an allergy from a germ, and hand over to the emergency team. An allergy is your defences fighting something harmless far too hard. Look at the pattern, not just the one symptom. Itchy eyes every spring, when pollen is high, is a different story from a fever after being near people who were ill. Swelling with trouble breathing is the one that cannot wait for anything."
+    "stake": "Fourteenth shift, and this one moves fast. Chloe's lips are swelling and she says it is hard to breathe. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already moving and wants to hear your reason as you go. Today you decide who cannot wait, tell an allergy from a germ, and hand over to the emergency team. An allergy is your defences fighting something harmless far too hard. Look at the pattern, not one symptom. Swelling with trouble breathing cannot wait for anything."
   },
   {
     "title": "The Super Shift",
@@ -357,6 +357,6 @@ export const MISSION_DEFS=[
         "task": "End-of-Day Handoff"
       }
     ],
-    "stake": "Six patients are on the board and one room is free. Everybody thinks theirs should go first. Today you use all of it. Which clue means somebody can get worse quickly. Which tool answers which question. Which part of the hospital each patient needs next. Then you hand over to the evening team, who were not here for any of today. A handoff starts with who and what is wrong. Then the clues. Then what has been done. Then what still needs doing. Get the order wrong and they hear the answer before the question."
+    "stake": "Your last shift. Six children are on the board and one room is free. Dr. Maya Patel is standing next to you and she is not going to say who goes first. Nurse Alex Lee asks you the question this time. Today you use all of it. Which clue means somebody can get worse quickly. Which tool answers which question. Which part of the hospital each child needs next. Then you hand over to the evening team, who were not here for any of today. Start with who, and what is wrong."
   }
 ];
