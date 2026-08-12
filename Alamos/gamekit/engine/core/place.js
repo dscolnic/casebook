@@ -40,6 +40,30 @@ export function destinationLabel(group){
   return `${place.name} — ${subject}`;
 }
 
+/**
+ * What a call tells you to do: go somewhere, or find somebody.
+ *
+ * Every game printed the *subject* of the call — "Discovery & Imaging",
+ * "Astrometry & Orbit", "Damage Control" — in the plan table and the objective
+ * banner. A subject is not an instruction and, on a site whose rooms are named
+ * after their instruments, it is not even a place: nothing on the map or on any
+ * door said "Astrometry & Orbit", so the plan named three things the player then
+ * could not find.
+ *
+ * @param person  the character for a person stop, or null for a room stop
+ * @param group   the area the call is about
+ */
+export function callLabel(person, group){
+  if(person) return `Talk to ${person.name ?? 'your colleague'}`;
+  // The PLACE only. `destinationLabel` appends the subject when the two names
+  // differ, which is right for a line about what a stop is and wrong for an
+  // instruction: "Go to Coordination Office — Survey & Response" names two things
+  // and only one of them is somewhere you can walk. The subject is on the card
+  // under the call, and on the door when you get there.
+  const place = placeForGroup(group);
+  return `Go to ${place?.name || def(group)?.name || group}`;
+}
+
 const NOISE = new Set(['and', 'the', 'of', 'a', '&', '-', '—']);
 const words = (s) => new Set(String(s).toLowerCase().split(/[^a-z0-9]+/i)
   .filter(w => w && !NOISE.has(w)));

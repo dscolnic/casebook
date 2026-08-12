@@ -182,23 +182,69 @@ export function renderMap(opts = {}){
    * Put a label somewhere it can be read, or nowhere.
    * @returns svg text, or '' when there was no room for it at any anchor.
    */
-  function label(cx, cy, halfW, halfH, text, { weight = 600, colour = '#2b2a27', size = 11 } = {}){
-    for(const candidate of [text, shorten(text)]){
+  function label(cx, cy, halfW, halfH, text, { weight = 600, colour = '#2b2a27', size = 11, force = false } = {}){
+    const anchorsFor = (candidate) => {
       const tw = textW(candidate, size);
-      const anchors = [
+      return [
         { x: cx,             y: cy + halfH + size + 1, anchor: 'middle', x0: cx - tw / 2, x1: cx + tw / 2 },
         { x: cx,             y: cy - halfH - 4,        anchor: 'middle', x0: cx - tw / 2, x1: cx + tw / 2 },
         { x: cx + halfW + 5, y: cy + size / 3,         anchor: 'start',  x0: cx + halfW + 5, x1: cx + halfW + 5 + tw },
         { x: cx - halfW - 5, y: cy + size / 3,         anchor: 'end',    x0: cx - halfW - 5 - tw, x1: cx - halfW - 5 },
         { x: cx,             y: cy + halfH + size * 2 + 3, anchor: 'middle', x0: cx - tw / 2, x1: cx + tw / 2 },
       ];
-      for(const a of anchors){
-        const box = { x0: a.x0, x1: a.x1, y0: a.y - size, y1: a.y + 3 };
-        if(box.x0 < 2 || box.x1 > W - 2 || box.y0 < 2 || box.y1 > H - 2) continue;
-        if(overlaps(box)) continue;
+    };
+    const boxOf = (a) => ({ x0: a.x0, x1: a.x1, y0: a.y - size, y1: a.y + 3 });
+    const offMap = (b) => b.x0 < 2 || b.x1 > W - 2 || b.y0 < 2 || b.y1 > H - 2;
+    const draw = (a, candidate, halo) =>
+      `<text x="${a.x}" y="${a.y}" text-anchor="${a.anchor}" font-size="${size}" `
+      + `fill="${colour}" font-weight="${weight}"`
+      + (halo ? ` stroke="#efeade" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke"` : '')
+      + `>${esc(candidate)}</text>`;
+
+    for(const candidate of [text, shorten(text)]){
+      for(const a of anchorsFor(candidate)){
+        const box = boxOf(a);
+        if(offMap(box) || overlaps(box)) continue;
         taken.push(box);
-        return `<text x="${a.x}" y="${a.y}" text-anchor="${a.anchor}" font-size="${size}" `
-             + `fill="${colour}" font-weight="${weight}">${esc(candidate)}</text>`;
+        return draw(a, candidate, false);
+      }
+    }
+    // Nowhere clear. For anything optional that is the right answer — a crowded
+    // corner of the map is better unlabelled than illegible. For the place the
+    // day is sending the player to it is not: the HUD names it ("Still open:
+    // Survey Telescope"), and a map that then does not say which shape that is
+    // cannot be read at all.
+    //
+    // So a forced label takes the anchor it collides with LEAST rather than the
+    // first one, and carries a halo so it stays readable on top of whatever it
+    // landed on. It claims its box too, so it is the only thing overlapping
+    // anything instead of the seed of a pile.
+    if(force){
+      const area = (b) => {
+        let a = 0;
+        for(const t of taken){
+          const w = Math.min(b.x1, t.x1) - Math.max(b.x0, t.x0);
+          const h = Math.min(b.y1, t.y1) - Math.max(b.y0, t.y0);
+          if(w > 0 && h > 0) a += w * h;
+        }
+        return a;
+      };
+      // Full text only. The shortened form is always the cheaper fit, so scoring
+      // both picked it every time — and "Survey" is not what the plan card and
+      // the banner call the place ("Go to Survey Telescope"). The halo is what
+      // makes the long one readable where it lands.
+      let best = null;
+      for(const candidate of [text]){
+        for(const a of anchorsFor(candidate)){
+          const box = boxOf(a);
+          if(offMap(box)) continue;
+          const cost = area(box);
+          if(!best || cost < best.cost) best = { a, candidate, box, cost };
+        }
+      }
+      if(best){
+        taken.push(best.box);
+        return draw(best.a, best.candidate, true);
       }
     }
     return '';
@@ -336,12 +382,15 @@ export function renderMap(opts = {}){
     g += label(mx, mz, 13, 13, name, { weight: 800 });
   }
   for(const p of plots){
-    if(p.isTarget){
-      g += label(p.x + p.w / 2, p.y - p.h / 2 - 2, p.w / 2, 4, '▼ open',
-                 { weight: 800, colour: '#8a6410' });
-    }
+    // No "▼ open" marker. It was a third label competing for the same corner of
+    // the map with the building's name and the name of the person standing there,
+    // and it says nothing the gold outline round the footprint and the bold name
+    // do not already say.
+    // An open call's building is named come what may; everything else gives way.
+    // The name is the one the HUD uses, so "Still open: Survey Telescope" and the
+    // shape on the map are the same words.
     g += label(p.x + p.w / 2, p.y + p.h / 2, p.w / 2, p.h / 2, p.bl.name,
-               { weight: p.isTarget ? 800 : 600 });
+               { weight: p.isTarget ? 800 : 600, force: p.isTarget });
   }
 
   // The person the mission wants, where they are standing right now, and which

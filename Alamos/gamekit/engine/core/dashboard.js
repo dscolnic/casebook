@@ -5,7 +5,7 @@ import { esc, fmt, clamp } from './utils.js';
 import { formatCountdown } from './day.js';
 import { GROUP_DEFS } from './divisions.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
-import { destinationLabel } from './place.js';
+import { callLabel } from './place.js';
 import { WEEKS } from './constants.js';
 import { TOTAL_DAYS } from './time.js';
 
@@ -254,7 +254,10 @@ export function updateHUD(){
       const stop = mission.stops[i];
       const personId = isPersonStopForIdx(state, i) ? getPersonIdForStop(state, i) : null;
       const person = personId ? HISTORIC_CHARACTERS.find(c => c.id === personId) : null;
-      return person ? person.name : destinationLabel(stop.group);
+      // "Go to the Survey Telescope" / "Talk to Dr. Nguyen" — an instruction, and
+      // the same words the plan card and the map use. It used to print the area's
+      // subject name, which is on no door and no map label.
+      return callLabel(person, stop.group);
     };
     whereEl.textContent = open.length === 1
       ? `Still open: ${label(open[0])}`

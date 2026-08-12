@@ -12,7 +12,10 @@
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
 import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission } from './gameState.js';
-import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops } from './simulation.js';
+import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops,
+         getPersonIdForStop } from './simulation.js';
+import { HISTORIC_CHARACTERS } from './historicCharacters.js';
+import { callLabel } from './place.js';
 import { esc } from './utils.js';
 import { DAY_NOUN } from './constants.js';
 
@@ -96,9 +99,17 @@ export function createInteriors({
     const d = def?.(id);
     const order = (theme.content?.GROUPS ?? []).findIndex(g => g.id === id);
     const who = caseFor(id);
+    // The name on the door, which is not the area's name: the area is "Discovery
+    // & Imaging" and the building is the Survey Telescope. The room builder reads
+    // it to decide what KIND of room to build, so the layout matches the place the
+    // player walked into.
+    const site = theme.site ?? {};
+    const place = (site.buildings ?? []).find(b => b.group === id)
+               ?? (site.plan?.rooms ?? []).find(r => r.group === id);
     const room = buildInteriorBuilding(live(scene), {
       id, index: Math.max(0, order),
       name: d?.name ?? id, code: d?.code ?? '',
+      placeName: place?.name ?? '',
       colour: d?.color,
       // How the room is *built* is the theme's, not the area's: a wartime
       // building on a mesa should not be a Riverton laboratory with different
@@ -277,13 +288,23 @@ export function createDay({
     const b = document.createElement('button');
     b.id = 'briefingBtn';
     b.type = 'button';
-    b.textContent = 'Why today matters';
+    // A key as well as a click, and the key is on the button. Clicking it means
+    // releasing the pointer first, which is two deliberate actions to re-read a
+    // paragraph — and the button spent its whole life inside a
+    // `pointer-events:none` banner, where the click did nothing at all.
+    b.innerHTML = 'Why today matters<small>B</small>';
     // Reopening the plan is a briefing, not a restart: `showPlan` puts the day
     // card up with "Back to it" on it and the countdown stops while it is open.
     b.onclick = () => api.showPlan();
     host.appendChild(b);
   }
   installBriefingButton();
+
+  window.addEventListener('keydown', (e) => {
+    if(e.code !== 'KeyB' || panelUp()) return;
+    e.preventDefault();
+    api.showPlan();
+  });
 
   window.addEventListener('keydown', (e) => {
     if(e.code !== 'Enter' && e.code !== 'NumpadEnter') return;
@@ -379,16 +400,20 @@ export function createDay({
     // printing metres beside each one turns choosing a route into arithmetic,
     // and reads as though the game is telling you how long each will take.
     const rows = m.stops.map((s, i) => {
-      const person = isPersonStopForIdx(state, i);
-      const d = def?.(s.group);
+      const isPerson = isPersonStopForIdx(state, i);
       const made = done.has(i);
+      // A call is an instruction — "Go to the Spectroscopy Dome", "Talk to Dr.
+      // Nguyen" — not the subject it is about. The subject was all this printed,
+      // and "Astrometry & Orbit" is the name of no room the player can find.
+      const personId = isPerson ? getPersonIdForStop(state, i) : null;
+      const person = personId ? HISTORIC_CHARACTERS.find(c => c.id === personId) : null;
       return `<tr class="${made ? 'planDone' : ''}"><td class="planNum">${made ? '✓' : i + 1}</td>`
-        + `<td><b>${esc(d?.name ?? s.group)}</b><div class="planTask">${esc(s.task ?? '')}</div></td>`
+        + `<td><b>${esc(callLabel(person, s.group))}</b><div class="planTask">${esc(s.task ?? '')}</div></td>`
         // What a non-person stop *is* depends on the game. In a town it is a
         // room you walk into; in Mission Control it is a console on the floor
         // you are already standing on, and calling that "a room" sent players
         // looking for a door that does not exist.
-        + `<td class="planKind">${made ? 'made' : person ? 'a person' : (theme.stopNoun ?? 'a room')}</td></tr>`;
+        + `<td class="planKind">${made ? 'made' : isPerson ? 'a person' : (theme.stopNoun ?? 'a room')}</td></tr>`;
     }).join('');
     // The map first: it is what the player is choosing an order from, and a
     // plan drawn to the site's own aspect can be seventeen hundred pixels tall,

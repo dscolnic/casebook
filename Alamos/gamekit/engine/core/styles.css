@@ -426,10 +426,18 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 
 /* The briefing button, appended to the objective banner by createDay. The
    banner itself is styled per game (it is in each index.html), so this only
-   sizes and colours the button and leaves the layout to the host. */
+   sizes and colours the button and leaves the layout to the host.
+
+   The banner is `pointer-events:none` in all three entry points — it sits under
+   the crosshair and must not eat a click meant for the world — and that applies
+   to everything inside it, so this button was unclickable in every game from the
+   day it was added. It opts itself back in. */
 #briefingBtn{margin-top:6px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.10);
   color:#fff;font:700 .72rem/1 Inter,system-ui;letter-spacing:.02em;
-  padding:5px 10px;border-radius:999px;cursor:pointer}
+  padding:5px 10px;border-radius:999px;cursor:pointer;pointer-events:auto;
+  display:inline-flex;align-items:center;gap:7px}
+#briefingBtn small{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.42);border-radius:5px;padding:2px 5px;opacity:.85}
 #briefingBtn:hover{background:rgba(255,255,255,.20);border-color:rgba(255,255,255,.6)}
 
 /* What yesterday left behind — one line above the day's briefing, written by
