@@ -759,9 +759,8 @@ missions:
       since before the boat slowed, one came with the turn, and one comes and
       goes. The captain wants to know which of them she has to care about.
     stake: >-
-      Second day out, forenoon watch. Four traces on the broadband display, and Rask has been arguing with
-      Dunne about the fourth for eleven minutes: it holds almost the same bearing and it is getting louder.
-      Commander Vance wants a classification before the boat commits to the track she has been ordered onto.
+      Second day out, forenoon watch. Four traces on the broadband display, and the sonar supervisor, Nils Rask, has been arguing with his own operator about the fourth for eleven minutes: it holds almost the same bearing and it is getting louder.
+      The captain, Commander Iris Vance, wants a classification before the boat commits to the track she has been ordered onto.
       This watch you sort out what is out there and say what a steady bearing means. Sound is all you have.
       What it tells you comes from how the bearing changes over time, what frequencies are in it, and how the
       water itself carries it — a layer of different temperature can hide a close contact and pass a distant
@@ -887,8 +886,7 @@ missions:
       about the water that has been setting the boat sideways the whole time.
       Ahead is a bank.
     stake: >-
-      Third day, middle watch, and the last trusted fix was three and a half hours ago. Sowande has the plot
-      built from course, speed and time, Petrov has been reading the fathometer, and the two of them do not
+      Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya her assistant Anya Petrov has been reading the fathometer, and the two of them do not
       agree. There is a current here of about half a knot that nobody has measured today. This watch you work
       out how far the water has carried the boat, decide which instrument to believe, and get a position that
       does not depend on the plot at all. Dead reckoning is honest arithmetic with a growing error: every
@@ -1022,7 +1020,7 @@ missions:
       acoustic exposure as the plant allows.
     stake: >-
       Fifth day, first watch. The narrows are four miles across, the transit takes eleven hours, and the
-      plot's uncertainty is a circle two miles wide. Whitfield wants to wait for a better fix. Vance points
+      plot's uncertainty is a circle two miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points
       out that waiting puts the boat in the middle of the strait at first light, which is worse than any
       argument about the plot — and this time she is right. This watch you decide what has to be true before
       the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for
@@ -1146,7 +1144,7 @@ missions:
       is at ninety metres, which is what makes it a hole worth respecting.
     stake: >-
       Sixth day, morning watch, and water is over the bilge in the forward space with the drain pump running.
-      Hallam has the level and reports it steady. Ferro does not believe steady means anything and is looking
+      Ruth Hallam, on the pumps, has the level and reports it steady. Ferro does not believe steady means anything and is looking
       for the hole. This watch you find where the water is coming in, work out whether pumping can win, and
       decide what shutting that supply costs elsewhere — the two valves that stop it sit on a header that
       feeds other things. Flooding is a race between two rates. Water comes in faster the deeper the boat is,
@@ -1287,8 +1285,7 @@ missions:
       see the seat of it.
     stake: >-
       Same day, afternoon watch, eight hours after the flooding and nobody has slept. Smoke from a switchboard
-      in the electrical space. The indicator shows the bus open and Mbeki's meter on the cable inside reads
-      four hundred and forty volts. Okonkwo will not send anybody in on the strength of a lamp. This watch you
+      in the electrical space. The indicator shows the bus open and a meter his own electrician's mate put on the cable inside reads four hundred and forty volts. The chief electrician, Bede Okonkwo, will not send anybody in on the strength of a lamp. This watch you
       take the fire apart into the things keeping it alive, decide what that meter is telling you, and work
       out how to fight a space nobody can see into. A fire needs fuel, oxygen and heat. An electrical one
       makes its own heat continuously and stays lit until the supply is dead, which is why the order of your
@@ -1406,9 +1403,8 @@ missions:
       everything is normal. Both of those statements can be true at once, and
       working out how is the whole of this watch.
     stake: >-
-      Eighth day, middle watch. The scrubber plant is running and its outlet reads clean. Navarro has been
-      round berthing with a handheld meter and it reads far higher than the sensor on that bulkhead, where
-      nine people are asleep. Lindqvist has to decide whether to wake them. This watch you decide whether it
+      Eighth day, middle watch. The scrubber plant is running and its outlet reads clean. The corpsman, Elena Navarro, has been round berthing with a handheld meter and it reads far higher than the sensor on that bulkhead, where
+      nine people are asleep. The atmosphere control officer, Ana Lindqvist, has to decide whether to wake them. This watch you decide whether it
       is the air or the instrument that is wrong, work out how long that space is safe, and fix the
       circulation. Air treatment is a transport problem before it is a chemistry problem. A scrubber cleans
       only the air that reaches it, so a shut damper leaves one space filling while every panel in control
@@ -1680,8 +1676,7 @@ missions:
       and a new narrowband line, and the ocean has not changed. The problem is
       aboard, which makes it the engineers' problem and sonar's evidence.
     stake: >-
-      Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and Dunne
-      has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the
+      Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and the broadband operator, Kes Dunne, has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the
       boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This
       watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say
       what kind of fault makes a line like that. Noise up on every bearing at once is not how the sea behaves.

@@ -62,6 +62,15 @@ export default {
     extras: 26,
   },
 
+  // How it ends. Shown when the campaign closes and printed as the book's last page.
+  ending: [
+    'The plant came back online on day sixty-one, and the city has been drinking its own water '
+    + 'since. Every claim in the package held: the compound identified by two methods, the plume '
+    + 'mapped, the sediment reservoir bounded, and ten years of monitoring funded before the '
+    + 'emergency budget closed.',
+    'The fence came down on a Thursday. Both neighbourhoods were home by the weekend, and the '
+    + 'river survey still samples the same four stations every month.',
+  ],
   look: {
     // 66° rather than 72°: a wider field distorts badly down a straight street.
     fov: 66, near: 0.1, far: 900,

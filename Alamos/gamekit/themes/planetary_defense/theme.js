@@ -105,6 +105,17 @@ export default {
     + 'certain, because after the window closes nothing can be done at all.',
   ],
 
+  // How it ends. Printed on the last page of the book and shown when the campaign
+  // closes — the campaign used to end by putting "Campaign complete" in the HUD and
+  // nothing else, after fifteen phases of work.
+  ending: [
+    'The object passed eleven days ago, two Earth radii out and falling further behind every hour. '
+    + 'Most of that margin was bought by an impactor that hit five years earlier, and the radar '
+    + 'window is what proved it had worked. Nobody evacuated Valle Seco. The school there reopened '
+    + 'on the Monday.',
+    'The survey that found it is still running tonight, and the file stays open — this one is '
+    + 'settled, and the next one has not been found yet.',
+  ],
   look: {
     // DAYLIGHT OVERRIDE. The campaign is written for night — 19:00 through to
     // 07:00 — and `atmosphere.nightSky`, the fog colour and the light rig were

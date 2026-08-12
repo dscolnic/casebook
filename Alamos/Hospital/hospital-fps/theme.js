@@ -41,6 +41,15 @@ export default {
     spawn: { x: 0, z: 14, yaw: 0 },
   },
   start: { x: 0, z: 14, yaw: 0 },
+  // How it ends. Shown when the campaign closes and printed as the book's last page.
+  // Fifteen shifts used to finish with the words "Campaign complete" in the corner of
+  // the screen, which is no ending for a nine-year-old.
+  ending: [
+    'All six children were seen, and every one of them went home. Ava is breathing easily. Ben is '
+    + 'walking on his ankle. The boy with the fever is asleep, with his mum in the chair next to him.',
+    'Nurse Alex Lee says you can read the clues now, and the team wants you back tomorrow.',
+  ],
+
   content: {
     CURRICULUM, BALLPARK_CALCS, JARGON,
     // Applied across each lesson and its reviews by engine/content/normalize.js.

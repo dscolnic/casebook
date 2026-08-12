@@ -17,7 +17,7 @@ import { updateInstruments } from './instruments.js';
 import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, getNPCs } from './npcs.js';
 import { getWaypointMesh, setWaypointPosition, getRoomEntry } from './world.js';
 import { facingArrowHTML, renderMap } from '../../../gamekit/engine/core/map.js';
-import { exposeDebug, createDay, openPersonOrPassage } from '../../../gamekit/engine/core/app.js';
+import { exposeDebug, createDay, openPersonOrPassage, showEnding } from '../../../gamekit/engine/core/app.js';
 import { PANEL_PACE } from '../../../gamekit/engine/core/day.js';
 import themeManifest from '../theme.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
@@ -90,7 +90,9 @@ function showDayOver(outstanding){
       const res = completeMission();
       document.getElementById('overlay').classList.remove('show');
       updateHUD(); updateWorldFromState();
-      if(res !== 'won') day.showPlan();
+      // A campaign that ends with a HUD label is not an ending.
+      if(res === 'won') showEnding(themeManifest, day.ui);
+      else day.showPlan();
     } }]);
 }
 

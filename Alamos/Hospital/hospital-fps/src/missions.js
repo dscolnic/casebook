@@ -21,7 +21,7 @@ export const MISSION_DEFS=[
         "task": "Your First Exam Room"
       }
     ],
-    "stake": "It is your first shift. Three children come in at once. Ava is quiet and breathing hard. Ben is crying loudly about his ankle. Nurse Alex Lee says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. Some you see with your own eyes. Some the patient tells you. Some come from a tool, as a number. Knowing which kind you have tells you how sure you can be. The loudest patient is not always the one in the most trouble."
+    "stake": "It is your first shift. Three children come in at once. Ava is quiet and breathing hard. Ben is crying loudly about his ankle. Nurse Alex Lee, who is showing you the ward today, says to watch all three before you choose. Today you decide who to see first, and you learn the three kinds of clue. Some you see with your own eyes. Some the patient tells you. Some come from a tool, as a number. Knowing which kind you have tells you how sure you can be. The loudest patient is not always the one in the most trouble."
   },
   {
     "title": "Breathing Room",
@@ -213,7 +213,7 @@ export const MISSION_DEFS=[
         "task": "From Light to Picture"
       }
     ],
-    "stake": "Ninth shift. Mina says the board looks blurry. Caleb cannot hear a quiet tone. Mrs. Patel feels dizzy when she stands. Three people, three clues, three different tools. Today you match each one and follow how seeing works. Eyes take in light. Ears take in sound. The inner ear does a second job too: it tells your brain which way is up. That is why an ear problem can make somebody dizzy. Seeing is not one step either. Light comes in, the eye catches the pattern, a nerve carries it, and the brain works it out."
+    "stake": "Ninth shift. Mina says the board looks blurry. Caleb cannot hear a quiet tone. Mrs. Ruiz feels dizzy when she stands. Three people, three clues, three different tools. Today you match each one and follow how seeing works. Eyes take in light. Ears take in sound. The inner ear does a second job too: it tells your brain which way is up. That is why an ear problem can make somebody dizzy. Seeing is not one step either. Light comes in, the eye catches the pattern, a nerve carries it, and the brain works it out."
   },
   {
     "title": "Skin Shield",
@@ -357,6 +357,6 @@ export const MISSION_DEFS=[
         "task": "End-of-Day Handoff"
       }
     ],
-    "stake": "Your last shift. Six children are on the board and one room is free. Dr. Maya Patel is standing next to you and she is not going to say who goes first. Nurse Alex Lee asks you the question this time. Today you use all of it. Which clue means somebody can get worse quickly. Which tool answers which question. Which part of the hospital each child needs next. Then you hand over to the evening team, who were not here for any of today. Start with who, and what is wrong."
+    "stake": "Your last shift. Six children are on the board and one room is free. Dr. Maya Patel, who runs the emergency department, is standing next to you and she is not going to say who goes first. Nurse Alex Lee asks you the question this time. Today you use all of it. Which clue means somebody can get worse quickly. Which tool answers which question. Which part of the hospital each child needs next. Then you hand over to the evening team, who were not here for any of today. Start with who, and what is wrong."
   }
 ];

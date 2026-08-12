@@ -60,8 +60,16 @@ function bounds(site){
   // an empty rectangle with the player dot in the middle of it.
   for(const r of site.plan?.rooms ?? []){
     const half = site.plan.halfWidth ?? 4;
-    xs.push(-half, half);
+    // A room may give its own footprint. A plan drawn as a corridor with rooms
+    // either side cannot describe a building with a courtyard in it, and the map
+    // of one showed six consoles floating in a rectangle with no building.
+    if(Number.isFinite(r.x0) && Number.isFinite(r.x1)) xs.push(r.x0, r.x1);
+    else xs.push(-half, half);
     zs.push(r.z0, r.z1);
+  }
+  for(const s of site.plan?.shapes ?? []){
+    xs.push(s.x0, s.x1);
+    zs.push(s.z0, s.z1);
   }
   for(const b of site.buildings ?? []){
     xs.push(b.x - b.w / 2, b.x + b.w / 2);
@@ -249,19 +257,46 @@ export function renderMap(opts = {}){
     }
     return '';
   }
+  // ---- an interior: the building itself, if the theme describes one
+  //
+  // `plan.shapes` is for a theme that brings its own world and whose place is not
+  // a corridor with rooms off it — Mission Control is one wing of a building with
+  // a ring corridor round a courtyard, and none of that can be said in rooms with
+  // a `side` of 'w' or 'e'. Drawn first, so the rooms and the people sit on top.
+  const SHAPE = {
+    floor: { fill: '#d8d2c4', stroke: 'rgba(0,0,0,.28)', dash: '' },
+    court: { fill: '#c3cbb4', stroke: 'rgba(0,0,0,.28)', dash: '' },
+    wall:  { fill: '#8d867a', stroke: 'rgba(0,0,0,.35)', dash: '' },
+    open:  { fill: 'none',    stroke: 'rgba(0,0,0,.45)', dash: '4 3' },
+  };
+  for(const s of site.plan?.shapes ?? []){
+    const kind = SHAPE[s.kind] ?? SHAPE.floor;
+    const x = sideways ? sx(0, s.z0) : sx(s.x0);
+    const y = sideways ? sz(0, s.x0) : sz(s.z0);
+    const w = sideways ? sw(s.z1 - s.z0) : sw(s.x1 - s.x0);
+    const h = sideways ? sd(s.x1 - s.x0) : sd(s.z1 - s.z0);
+    g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${s.fill ?? kind.fill}" `
+       + `stroke="${kind.stroke}" stroke-width="1"`
+       + (kind.dash ? ` stroke-dasharray="${kind.dash}"` : '') + `/>`;
+    if(s.name){
+      g += label(x + w / 2, y + h / 2, w / 2, h / 2, s.name,
+                 { weight: 600, colour: '#4a463d', size: 10 });
+    }
+  }
   // ---- an interior: the rooms in order along the plan
   for(const r of site.plan?.rooms ?? []){
     const area = r.group ? def(r.group) : null;
     const isTarget = r.group && targetGroups.has(r.group);
     const half = site.plan.halfWidth ?? 4;
+    const own = Number.isFinite(r.x0) && Number.isFinite(r.x1);
     // Rooms sit on a side of the corridor, and the map has to say so. Every
     // room was drawn spanning the full width, so a room on the west and a room
     // on the east covering the same stretch of corridor were painted on top of
     // one another — two fills and two labels in the same rectangle, which is
     // exactly as readable as it sounds. A plan with a spine is drawn as a plan.
     const side = r.side === 'w' ? -1 : r.side === 'e' ? 1 : 0;
-    const x0 = side === 0 ? -half : side < 0 ? -half : 0;
-    const x1 = side === 0 ? half : side < 0 ? 0 : half;
+    const x0 = own ? r.x0 : side === 0 ? -half : side < 0 ? -half : 0;
+    const x1 = own ? r.x1 : side === 0 ? half : side < 0 ? 0 : half;
     const x = sideways ? sx(0, r.z0) : sx(x0);
     const y = sideways ? sz(0, x0) : sz(r.z0);
     const w = sideways ? sw(r.z1 - r.z0) : sw(x1 - x0);
@@ -315,13 +350,9 @@ export function renderMap(opts = {}){
            + `stroke-linejoin="round" paint-order="stroke" fill="#1c1b19">${esc(name)}</text>`;
       }
     }
-    if(isTarget){
-      g += sideways
-        ? `<text x="${cx}" y="${y - 8}" text-anchor="middle" font-size="10" fill="#8a6410" `
-          + `font-weight="800">▼ go here</text>`
-        : `<text x="${cx}" y="${cy + 18}" text-anchor="middle" font-size="10" fill="#8a6410" `
-          + `font-weight="800">◀ go here</text>`;
-    }
+    // No "go here" arrow. Same reason the outdoor map's "▼ open" flag went: it is
+    // a third label in the same few pixels as the room's name and the name of
+    // whoever is standing in it, and the gold outline already says it.
   }
   // A footprint, wherever the map decided to put it. Everything below used to
   // call `sx(x)` and `sz(z)` directly, which is correct upright and wrong the

@@ -19,7 +19,7 @@
 //     bright surface is emissive.
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { site, CONSOLES, BOARDS } from './site.js';
+import { site, CONSOLES, BOARDS, WORKROOMS } from './site.js';
 import { openCaseGroups } from '../../engine/core/app.js';
 // The beacon's label billboards toward whoever is looking at it.
 import { camera } from '../../engine/core/player.js';
@@ -45,6 +45,9 @@ let theme = null;
 let waypointMesh = null;
 let peopleStations = [];
 const R = site.room;
+const B = site.building;
+/** The floor level of the back of the room, the ring and the courtyard. */
+const ENTRY_Y = (R.rowZ.length - 1) * R.rowStep;
 const boardScreens = [];
 const consoleScreens = [];
 /** groupId -> the beacon over that console, lit while its call is open. */
@@ -58,8 +61,11 @@ const beacons = new Map();
  * the player, the crowd, a desk, a chair — asks this and nothing else.
  */
 export function groundHeight(x, z){
-  void x;
   const { rowZ, rowStep } = R;
+  // Outside the control room — the ring corridor and the courtyard — the floor is
+  // flat, and level with the back of the room, so the doors are step-free. The
+  // staircase belongs to the room and only to the room.
+  if(z > R.back || Math.abs(x) > R.halfWidth) return ENTRY_Y;
   // Behind the last row, the floor is flat at the back of the room.
   if(z >= rowZ[rowZ.length - 1]) return (rowZ.length - 1) * rowStep;
   // In front of the first row, flat at the board wall.
@@ -94,6 +100,33 @@ function buildMaterials(){
   M.ceilingPanel = new THREE.MeshStandardMaterial({
     color: 0xdfe6ea, emissive: 0xcfe0e8, emissiveIntensity: 0.55, roughness: 0.7,
   });
+  // ---- the building outside the room
+  // The corridor is a public space rather than a darkened control room: paler
+  // walls, a hard floor, and the courtyard visible through glass down one side.
+  M.corridorWall = new THREE.MeshStandardMaterial({ color: 0x3c434c, roughness: 0.9, envMapIntensity: 0.4 });
+  M.corridorFloor = new THREE.MeshStandardMaterial({ color: 0x2c3138, roughness: 0.78, envMapIntensity: 0.35 });
+  M.paving = new THREE.MeshStandardMaterial({ color: 0x33383d, roughness: 0.95, envMapIntensity: 0.3 });
+  M.planter = new THREE.MeshStandardMaterial({ color: 0x4a4b48, roughness: 0.95 });
+  M.soil = new THREE.MeshStandardMaterial({ color: 0x2a241d, roughness: 1.0 });
+  M.foliage = new THREE.MeshStandardMaterial({ color: 0x2f4230, roughness: 0.95 });
+  M.trunk = new THREE.MeshStandardMaterial({ color: 0x3a2f26, roughness: 0.95 });
+  M.grass = new THREE.MeshStandardMaterial({ color: 0x27331f, roughness: 1.0 });
+  // Emissive, never a real light: the ceiling-fixture-per-lamp mistake is
+  // recorded twice in this repo and it costs 100 fps.
+  M.pathLamp = new THREE.MeshStandardMaterial({
+    color: 0xf6e6c0, emissive: 0xffd79a, emissiveIntensity: 1.8, roughness: 0.5 });
+  // The gallery's glass is milky on purpose — it is a viewing window into a lit
+  // room. Courtyard glazing is the opposite: you are meant to see the night
+  // through it, and at opacity 0.35 with transmission it read as a frosted wall
+  // with a garden rumoured behind it.
+  M.window = new THREE.MeshPhysicalMaterial({
+    color: 0xcfe0ea, roughness: 0.03, metalness: 0, transmission: 0.95,
+    transparent: true, opacity: 0.12, thickness: 0.02, envMapIntensity: 0.6,
+  });
+  // Brighter than the control room's, because a corridor is lit to be walked
+  // down rather than to keep anybody's night vision.
+  M.corridorPanel = new THREE.MeshStandardMaterial({
+    color: 0xe8eef2, emissive: 0xdceaf2, emissiveIntensity: 0.95, roughness: 0.65 });
 }
 
 function box(w, h, d, x, y, z, mat, ry = 0){
@@ -130,11 +163,26 @@ function buildRoom(){
   // Walls.
   for(const s of [-1, 1]) box(0.3, ceiling, back - front, s * HW, ceiling / 2, (front + back) / 2, M.wall);
   box(HW * 2, ceiling, 0.3, 0, ceiling / 2, front, M.wall);              // board wall
-  box(HW * 2, ceiling, 0.3, 0, ceiling / 2, back, M.wall);               // back wall
   collide(-HW, (front + back) / 2, 0.6, back - front, 0, ceiling);
   collide(HW, (front + back) / 2, 0.6, back - front, 0, ceiling);
   collide(0, front, HW * 2, 0.6, 0, ceiling);
-  collide(0, back, HW * 2, 0.6, 0, ceiling);
+
+  // The back wall, in two halves with the doors between them. This used to be one
+  // slab across the room; the corridor is on the other side of it now, and a
+  // control room you cannot walk out of is the thing this building fixes.
+  const dw = B.doorW / 2;
+  const half = HW - dw;
+  for(const s of [-1, 1]){
+    box(half, ceiling, 0.3, s * (dw + half / 2), ceiling / 2, back, M.wall);
+    collide(s * (dw + half / 2), back, half, 0.6, 0, ceiling);
+  }
+  // A header over the opening, so the doors read as doors rather than as a hole,
+  // and the corridor light does not spill in over the boards. The opening starts
+  // at the FLOOR of the back tier, not at zero: measured from zero it would have
+  // been a 0.95 m gap in a wall, which is a cat flap.
+  const lintel = ENTRY_Y + 2.2;
+  box(B.doorW, ceiling - lintel, 0.3, 0, lintel + (ceiling - lintel) / 2, back, M.wall);
+  collide(0, back, B.doorW, 0.6, lintel, ceiling - lintel);
 
   // Ceiling, with lit panels down the two aisles. Emissive only — a fixture
   // per panel is how a floor goes from 118 fps to 20.
@@ -146,6 +194,382 @@ function buildRoom(){
       p.castShadow = false;
     }
   }
+}
+
+// ---------------------------------------------------------------- the building
+//
+// The ring corridor and the courtyard. Everything here is at ENTRY_Y, so nothing
+// in this section asks `groundHeight` — it is a flat floor by construction, and a
+// second description of the height would be a second source of truth for it.
+
+/**
+ * A straight run of wall along x or z, with gaps left for openings and an
+ * optional glazed band at eye height.
+ *
+ * Every wall in the ring is axis-aligned, so this is all the geometry needed —
+ * and doing gaps here rather than by hand is what stops a doorway and its
+ * collider drifting apart, which is how you get a door you can see through and
+ * cannot walk through.
+ *
+ * @param gaps  [[from, to]] along the run's own axis
+ */
+function wallRun(a, b, { height, glaze = false, gaps = [], material = M.corridorWall } = {}){
+  const alongX = a.z === b.z;
+  const from = Math.min(alongX ? a.x : a.z, alongX ? b.x : b.z);
+  const to = Math.max(alongX ? a.x : a.z, alongX ? b.x : b.z);
+  const fixed = alongX ? a.z : a.x;
+  const T = 0.3;                                  // wall thickness
+
+  // The run minus the gaps, as a list of [from, to] segments.
+  const cuts = gaps.slice().sort((p, q) => p[0] - q[0]);
+  const segments = [];
+  let at = from;
+  for(const [g0, g1] of cuts){
+    if(g0 > at) segments.push([at, Math.min(g0, to)]);
+    at = Math.max(at, g1);
+  }
+  if(at < to) segments.push([at, to]);
+
+  for(const [s0, s1] of segments){
+    const len = s1 - s0;
+    if(len <= 0.01) continue;
+    const mid = (s0 + s1) / 2;
+    const x = alongX ? mid : fixed;
+    const z = alongX ? fixed : mid;
+    const w = alongX ? len : T;
+    const d = alongX ? T : len;
+    if(glaze){
+      // Sill, glass, head. The glass is a thin box rather than a plane so it has
+      // a visible edge in the mullions and reads as glazing from both sides.
+      box(w, 1.0, d, x, ENTRY_Y + 0.5, z, material);
+      box(w, height - 2.8, d, x, ENTRY_Y + 2.8 + (height - 2.8) / 2, z, material);
+      const glass = new THREE.Mesh(new THREE.BoxGeometry(alongX ? len : 0.06, 1.8, alongX ? 0.06 : len), M.window);
+      glass.position.set(x, ENTRY_Y + 1.9, z);
+      scene.add(glass);
+      // Mullions every two and a half metres, or a nine-metre pane reads as a gap.
+      //
+      // A mullion is as THICK as the wall and as thin as a post: the two size
+      // arguments are (wall thickness, post thickness) whichever way the wall
+      // runs. Written as `d` on a run along z — where `d` is the run's whole
+      // length — every mullion came out as a 28-metre slab straight across the
+      // corridor, which is what "weird walls cutting through the hallway" was.
+      const n = Math.max(1, Math.round(len / 2.5));
+      for(let i = 1; i < n; i++){
+        const u = s0 + (i / n) * len;
+        box(alongX ? 0.1 : w, 1.8, alongX ? d : 0.1,
+            alongX ? u : x, ENTRY_Y + 1.9, alongX ? z : u, M.frame).castShadow = false;
+      }
+    } else {
+      box(w, height, d, x, ENTRY_Y + height / 2, z, material);
+    }
+    // Solid either way. Glass you can walk through is a bug report.
+    collide(x, z, alongX ? len : 0.6, alongX ? 0.6 : len, ENTRY_Y, height);
+  }
+}
+
+/** Floor and ceiling for one leg of the ring. */
+function legSlab(x0, x1, z0, z1){
+  const w = x1 - x0, d = z1 - z0;
+  const cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
+  box(w, 0.3, d, cx, ENTRY_Y - 0.15, cz, M.corridorFloor).castShadow = false;
+  box(w, 0.2, d, cx, ENTRY_Y + B.ceiling, cz, M.corridorWall).castShadow = false;
+  // Lit panels down the middle of the leg, one every four metres. Emissive.
+  const along = Math.max(w, d);
+  const n = Math.max(1, Math.round(along / 4.5));
+  for(let i = 0; i < n; i++){
+    const t = (i + 0.5) / n;
+    const px = w > d ? x0 + t * w : cx;
+    const pz = w > d ? cz : z0 + t * d;
+    box(w > d ? 2.6 : 1.0, 0.08, w > d ? 1.0 : 2.6, px, ENTRY_Y + B.ceiling - 0.14, pz, M.corridorPanel)
+      .castShadow = false;
+  }
+}
+
+/**
+ * The ring: four legs of corridor round the courtyard, glazed on the inside.
+ *
+ * The room's own back wall is the south boundary, so this builds three outer
+ * walls and four inner ones. The inner walls have the courtyard openings in them.
+ */
+function buildRing(){
+  const HW = B.halfWidth;
+  const C = B.courtyard;
+  const [s0, s1] = B.southLeg;
+  const [n0, n1] = B.northLeg;
+
+  legSlab(-HW, HW, s0, s1);              // south leg, along the control room
+  legSlab(-HW, C.x0, s1, n0);            // west leg
+  legSlab(C.x1, HW, s1, n0);             // east leg
+  legSlab(-HW, HW, n0, n1);              // north leg
+
+  // The ring's own side walls, with a doorway for each room in the wings. One
+  // description of each opening: the room builder does not cut its own door, so
+  // the hole and the collider cannot end up in different places.
+  const doorFor = (r) => {
+    const c = (r.z0 + r.z1) / 2, h = B.roomDoorW / 2;
+    return [c - h, c + h];
+  };
+  for(const side of ['w', 'e']){
+    const x = side === 'w' ? -HW : HW;
+    wallRun({ x, z: s0 }, { x, z: n1 },
+      { height: B.ceiling, gaps: WORKROOMS.filter(r => r.side === side).map(doorFor) });
+  }
+  // The far end of the ring. Nothing beyond it.
+  wallRun({ x: -HW, z: n1 }, { x: HW, z: n1 }, { height: B.ceiling });
+
+  // Inner walls, glazed, with the ways out into the courtyard: two doors off the
+  // south leg where the traffic from the control room is, and one at the far end.
+  wallRun({ x: C.x0, z: C.z0 }, { x: C.x1, z: C.z0 },
+    { height: B.ceiling, glaze: true, gaps: [[-9, -5], [5, 9]] });
+  wallRun({ x: C.x0, z: C.z1 }, { x: C.x1, z: C.z1 },
+    { height: B.ceiling, glaze: true, gaps: [[-2, 2]] });
+  wallRun({ x: C.x0, z: C.z0 }, { x: C.x0, z: C.z1 }, { height: B.ceiling, glaze: true });
+  wallRun({ x: C.x1, z: C.z0 }, { x: C.x1, z: C.z1 }, { height: B.ceiling, glaze: true });
+}
+
+/**
+ * One room in a wing: four areas of study work in these rather than on the
+ * console floor.
+ *
+ * The desk is against the outer wall facing the door, with the area's screens
+ * above it — so the room reads from the doorway the way an interior does in the
+ * other games, and the case is on the desk the same way it is on a console.
+ */
+function buildWorkroom(spec, def){
+  const HW = B.halfWidth, WG = B.wing;
+  const f = spec.side === 'w' ? -1 : 1;              // which way is "out"
+  const xIn = f * HW, xOut = f * (HW + WG);          // corridor wall, outer wall
+  const cx = (xIn + xOut) / 2, cz = (spec.z0 + spec.z1) / 2;
+  const colour = def?.color ? new THREE.Color(def.color) : new THREE.Color(0x4d5a66);
+  const y = ENTRY_Y;
+  const H = B.ceiling;
+
+  // Floor and ceiling.
+  box(WG, 0.3, spec.z1 - spec.z0, cx, y - 0.15, cz, M.corridorFloor).castShadow = false;
+  box(WG, 0.2, spec.z1 - spec.z0, cx, y + H, cz, M.corridorWall).castShadow = false;
+  for(const t of [-1, 1]){
+    box(WG - 1.6, 0.08, 1.1, cx, y + H - 0.14, cz + t * (spec.z1 - spec.z0) / 4, M.corridorPanel)
+      .castShadow = false;
+  }
+
+  // The outer wall and the two end walls. The corridor wall is built by the ring,
+  // which leaves this room's doorway in it — one description of that opening, so
+  // the hole and the collider cannot drift apart.
+  wallRun({ x: xOut, z: spec.z0 }, { x: xOut, z: spec.z1 }, { height: H });
+  for(const z of [spec.z0, spec.z1]){
+    wallRun({ x: xIn, z }, { x: xOut, z }, { height: H });
+  }
+
+  // The desk, against the outer wall, and its instrument panel above it.
+  const deskZ = cz;
+  const desk = box(1.5, 0.78, 5.2, xOut - f * 1.1, y + 0.39, deskZ, M.desk);
+  box(1.62, 0.06, 5.3, xOut - f * 1.1, y + 0.8, deskZ, M.top).castShadow = false;
+  collide(xOut - f * 1.1, deskZ, 1.7, 5.4, y, 0.85);
+
+  const screen = instrumentScreen({
+    kind: 'panel', title: spec.name,
+    rows: [
+      { label: 'CALL', value: 'OPEN', status: 'alarm' },
+      { label: 'LAST', value: '—', status: 'normal' },
+    ],
+  }, { w: 384, h: 256 });
+  const panel = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.72),
+    new THREE.MeshStandardMaterial({
+      map: screen.texture, emissive: 0xffffff, emissiveMap: screen.texture,
+      emissiveIntensity: 0.7, roughness: 0.85,
+    }));
+  panel.position.set(xOut - f * 0.32, y + 1.75, deskZ);
+  panel.rotation.y = -f * Math.PI / 2;
+  scene.add(panel);
+  areaScreens.set(spec.group, panel);
+  consoleScreens.push({ panel, screen, group: spec.group, name: spec.name });
+
+  // The area's colour on the desk front, and the nameplate by the door, which is
+  // what tells the player they are in the right room before they read the screen.
+  box(0.06, 0.09, 5.2, xOut - f * 1.86, y + 0.72, deskZ,
+    new THREE.MeshStandardMaterial({ color: colour, emissive: colour, emissiveIntensity: 0.5, roughness: 0.6 }))
+    .castShadow = false;
+  const plate = instrumentScreen({ kind: 'panel', title: spec.name, rows: [] }, { w: 384, h: 96 });
+  const plateMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 0.46),
+    new THREE.MeshStandardMaterial({
+      map: plate.texture, emissive: 0xffffff, emissiveMap: plate.texture,
+      emissiveIntensity: 0.5, roughness: 0.9, side: THREE.FrontSide,
+    }));
+  plateMesh.position.set(xIn - f * 0.22, y + 2.2, cz + 2.6);
+  plateMesh.rotation.y = f * Math.PI / 2;
+  scene.add(plateMesh);
+
+  // Something to sit on, and the room's own clutter so it is not a desk in a box.
+  for(const t of [-1.5, 1.5]){
+    box(0.62, 0.1, 0.6, xOut - f * 2.3, y + 0.46, deskZ + t, M.frame).castShadow = false;
+    softColliders.push({ x: xOut - f * 2.3, z: deskZ + t, r: 0.42 });
+  }
+  for(const t of [-1, 1]){
+    const rz = cz + t * ((spec.z1 - spec.z0) / 2 - 2.2);
+    box(1.1, 1.9, 2.4, xIn - f * 0.9, y + 0.95, rz, M.desk);
+    collide(xIn - f * 0.9, rz, 1.2, 2.5, y, 1.9);
+  }
+
+  const beacon = addCaseBeacon(scene, {
+    x: xOut - f * 3.2, z: deskZ, y: y + 0.02,
+    colour: def?.color ?? 0xf0b429,
+    label: spec.name, height: 2.15,
+  });
+  beacon.setActive(false);
+  beacons.set(spec.group, beacon);
+
+  stopMeshes.set(spec.group, {
+    id: spec.group, name: spec.name, desk,
+    pos: new THREE.Vector3(xOut - f * 1.1, y, deskZ),
+    // Where the player is put down: inside the room, clear of the desk.
+    entry: new THREE.Vector3(xOut - f * 3.4, y, deskZ),
+  });
+  interactables.push({
+    mesh: desk, type: 'case', id: spec.group,
+    prompt: `E — Take the case in ${spec.name}`,
+  });
+  peopleStations.push({
+    id: spec.group, x: xIn - f * 2.4, z: cz - 1.2,
+    facing: f > 0 ? Math.PI / 2 : -Math.PI / 2,
+  });
+}
+
+/**
+ * The courtyard: paving, a lawn, planted beds, benches, and the flagpole.
+ *
+ * It is open to the sky, and the sky is the only thing in this game that is not
+ * indoors — which is the point of it. The control room has no windows and no
+ * clock; standing in the courtyard is the one place the player can tell it is the
+ * middle of the night.
+ */
+function buildCourtyard(){
+  const C = B.courtyard;
+  const cx = (C.x0 + C.x1) / 2, cz = (C.z0 + C.z1) / 2;
+  const w = C.x1 - C.x0, d = C.z1 - C.z0;
+
+  const paving = box(w, 0.3, d, cx, ENTRY_Y - 0.15, cz, M.paving);
+  paving.castShadow = false;
+
+  // A lawn in the middle, with paving round it and a cross path through it.
+  const lawn = new THREE.Mesh(new THREE.PlaneGeometry(w - 9, d - 9), M.grass);
+  lawn.rotation.x = -Math.PI / 2;
+  lawn.position.set(cx, ENTRY_Y + 0.012, cz);
+  lawn.receiveShadow = true;
+  scene.add(lawn);
+  for(const [pw, pd] of [[w - 9, 2.4], [2.4, d - 9]]){
+    const path = new THREE.Mesh(new THREE.PlaneGeometry(pw, pd), M.paving);
+    path.rotation.x = -Math.PI / 2;
+    path.position.set(cx, ENTRY_Y + 0.02, cz);
+    scene.add(path);
+  }
+
+  // Four planted beds, one to each corner of the lawn, with a tree in each.
+  for(const sx of [-1, 1]){
+    for(const sz of [-1, 1]){
+      const px = cx + sx * (w / 2 - 5.6), pz = cz + sz * (d / 2 - 5.6);
+      box(3.2, 0.5, 3.2, px, ENTRY_Y + 0.25, pz, M.planter);
+      box(2.9, 0.06, 2.9, px, ENTRY_Y + 0.52, pz, M.soil).castShadow = false;
+      const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.19, 3.0, 8), M.trunk);
+      trunk.position.set(px, ENTRY_Y + 2.0, pz);
+      trunk.castShadow = true;
+      scene.add(trunk);
+      for(let i = 0; i < 3; i++){
+        const crown = new THREE.Mesh(new THREE.SphereGeometry(1.5 - i * 0.28, 12, 8), M.foliage);
+        crown.position.set(px, ENTRY_Y + 3.3 + i * 0.85, pz);
+        crown.scale.y = 0.72;
+        crown.castShadow = true;
+        scene.add(crown);
+      }
+      // The bed is a soft collider, not a box: the player walks round it, and a
+      // hard box on a 3 m planter catches a shoulder on the corner.
+      softColliders.push({ x: px, z: pz, r: 2.2 });
+    }
+  }
+
+  // Benches facing the lawn, and the lamps along the cross path. The lamps are
+  // emissive spheres on posts — the light budget is three, and the key light is
+  // pointed at the plot boards.
+  // Four of them, flanking the cross path rather than sitting on it. On the centre
+  // line — where they were first — a bench is a bollard in the middle of the one
+  // route everybody walks, and the walk test found both of them.
+  for(const sx of [-1, 1]){
+    for(const sz of [-1, 1]){
+      // 3.0 m off the centre line, not 5.5: at 5.5 they stood one and a half
+      // metres from the straight line in from the south doors, which is inside a
+      // bench's own radius plus a shoulder.
+      const bx = cx + sx * 3.0, bz = cz + sz * 9.0;
+      box(2.0, 0.1, 0.55, bx, ENTRY_Y + 0.44, bz, M.frame).castShadow = false;
+      box(2.0, 0.55, 0.1, bx, ENTRY_Y + 0.72, bz + sz * 0.28, M.frame).castShadow = false;
+      softColliders.push({ x: bx, z: bz, r: 1.2 });
+    }
+  }
+  for(const sx of [-1, 1]){
+    for(const sz of [-1, 1]){
+      const lx = cx + sx * (w / 2 - 2.4), lz = cz + sz * (d / 2 - 2.4);
+      box(0.16, 3.2, 0.16, lx, ENTRY_Y + 1.6, lz, M.frame).castShadow = false;
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.24, 12, 10), M.pathLamp);
+      head.position.set(lx, ENTRY_Y + 3.3, lz);
+      scene.add(head);
+      softColliders.push({ x: lx, z: lz, r: 0.5 });
+    }
+  }
+
+  // The flagpole, at half-mast. Nobody says why in this game and nobody has to:
+  // it is the fourth day of a mission that may not come back.
+  //
+  // Clear of everything anybody walks along. In the middle of the courtyard it
+  // stood exactly where the two paths cross and split the view down the axis in
+  // two; moved half way to the corner it stood in the doorway from the south leg.
+  // On the lawn, east side, between the cross path and the north planter.
+  const px = cx + 11.4, pz = cz + 4.5;
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.11, 11, 10), M.top);
+  pole.position.set(px, ENTRY_Y + 5.5, pz);
+  pole.castShadow = true;
+  scene.add(pole);
+  const flag = box(1.9, 1.1, 0.04, px + 0.98, ENTRY_Y + 6.4, pz,
+    new THREE.MeshStandardMaterial({ color: 0x9aa4ae, roughness: 0.9 }));
+  flag.castShadow = false;
+  box(1.1, 0.24, 1.1, px, ENTRY_Y + 0.12, pz, M.planter).castShadow = false;   // its base
+  softColliders.push({ x: px, z: pz, r: 0.8 });
+}
+
+/**
+ * The night sky over the courtyard.
+ *
+ * A dome and a star field, both with `fog: false` — the room's fog closes at 88 m
+ * and would otherwise paint the sky the colour of the far wall. No sun rig: there
+ * is no daylight in this game, and `updateTimeOfDay` still returns null.
+ */
+function buildSky(){
+  const geo = new THREE.SphereGeometry(150, 24, 16);
+  const colours = [];
+  const top = new THREE.Color(0x070c16), horizon = new THREE.Color(0x1d2836);
+  const pos = geo.attributes.position;
+  for(let i = 0; i < pos.count; i++){
+    const t = Math.max(0, pos.getY(i) / 150);
+    const c = horizon.clone().lerp(top, Math.pow(t, 0.65));
+    colours.push(c.r, c.g, c.b);
+  }
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(colours, 3));
+  const dome = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
+    vertexColors: true, side: THREE.BackSide, fog: false, depthWrite: false }));
+  dome.position.y = ENTRY_Y;
+  scene.add(dome);
+  scene.background = null;               // the dome is the background now
+
+  const stars = [];
+  for(let i = 0; i < 700; i++){
+    const u = Math.random(), v = Math.random() * 0.5;      // upper hemisphere only
+    const theta = u * Math.PI * 2, phi = Math.acos(1 - 2 * v);
+    stars.push(
+      Math.sin(phi) * Math.cos(theta) * 140,
+      Math.abs(Math.cos(phi)) * 140 + ENTRY_Y,
+      Math.sin(phi) * Math.sin(theta) * 140);
+  }
+  const field = new THREE.Points(
+    new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(stars, 3)),
+    new THREE.PointsMaterial({ color: 0xdce6f2, size: 0.9, sizeAttenuation: true, fog: false }));
+  scene.add(field);
 }
 
 /** The wall of plot boards: the only bright thing in the room. */
@@ -246,6 +670,12 @@ function buildConsole(spec, def){
     box(0.62, 0.7, 0.1, cx, y + 0.8, z + 1.48, M.frame).castShadow = false;
     softColliders.push({ x: cx, z: z + 1.25, r: 0.42 });
   }
+
+  // A console with no `group` is one of the room's other positions — Retrofire,
+  // Booster, Procedures, Public Affairs. It is furniture and crew: no beacon, no
+  // stop, nothing to press E on. Four of the six areas of study work in the wings
+  // now, and their desks are not in here pretending to be empty.
+  if(!spec.group) return;
 
   const beacon = addCaseBeacon(scene, {
     x: spec.x, z: z + 1.9, y: y + 0.02,
@@ -366,12 +796,28 @@ export function initWorld(canvas, activeTheme){
   key.shadow.bias = -0.0005;
   scene.add(key, key.target);
 
+  // One more real light than the room had: a moon over the courtyard, so the
+  // paving, the lawn and the trees read as lit from somewhere rather than as flat
+  // colour. Four of the six-light budget, and it casts no shadows — the key light
+  // over the boards is the only shadow map in this game.
+  const moon = new THREE.DirectionalLight(0xbcd0e8, L.moon ?? 0.5);
+  moon.position.set(-30, 40, 70);
+  moon.target.position.set(0, ENTRY_Y, 40);
+  scene.add(moon, moon.target);
+
   buildRoom();
   buildBoards();
   buildGallery();
+  buildSky();
+  buildRing();
+  buildCourtyard();
 
+  // `groups` first: `const` is not hoisted, and reading it above this line throws
+  // "Cannot access 'groups' before initialization" — the same trap the entry
+  // points hit with `day` and `driving`.
   const groups = theme.content?.GROUPS ?? [];
   for(const c of CONSOLES) buildConsole(c, groups.find(g => g.id === c.group));
+  for(const r of WORKROOMS) buildWorkroom(r, groups.find(g => g.id === r.group));
 
   // The status board, on the back wall by the doors.
   const statusScreen = instrumentScreen({ kind: 'panel', title: 'FLIGHT STATUS', rows: [] }, { w: 512, h: 256 });
@@ -449,6 +895,16 @@ export function getExtraSpots(){
     out.push({ x: -19, z: row + 1.5 }, { x: 19, z: row + 1.5 });
   }
   for(let i = -2; i <= 2; i++) out.push({ x: i * 6, z: R.back - 3 });
+  // And the building outside it. A ring corridor with nobody in it reads as a
+  // service passage rather than as the place the shift walks through, so a few of
+  // the extras stand out here: along the glazing, and out in the courtyard.
+  const C = B.courtyard;
+  const mid = (x0, x1) => (x0 + x1) / 2;
+  for(let i = -2; i <= 2; i++) out.push({ x: i * 7, z: mid(...B.southLeg) });
+  out.push({ x: mid(-B.halfWidth, C.x0), z: 34 }, { x: mid(-B.halfWidth, C.x0), z: 46 });
+  out.push({ x: mid(C.x1, B.halfWidth), z: 34 }, { x: mid(C.x1, B.halfWidth), z: 46 });
+  out.push({ x: -6, z: mid(...B.northLeg) }, { x: 6, z: mid(...B.northLeg) });
+  out.push({ x: C.x0 + 4, z: C.z0 + 4 }, { x: C.x1 - 4, z: C.z1 - 4 });
   return out;
 }
 

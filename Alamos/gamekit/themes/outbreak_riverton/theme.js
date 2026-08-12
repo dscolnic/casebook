@@ -82,6 +82,15 @@ export default {
     + 'measured, and the city acts on what you find.',
   ],
 
+  // How it ends. Shown when the campaign closes and printed as the book's last page.
+  ending: [
+    'Forty-two days with no new case, and the outbreak was declared over on a Tuesday afternoon. '
+    + 'The treatment works. The case definition held from the third week to the last. The animal '
+    + 'reservoir was settled in the end — not by the briefing, but by the survey the briefing said '
+    + 'was still needed.',
+    'The clinics stayed open, the surveillance stayed funded, and the curve that made the city '
+    + 'frightened in March is now a figure in a report somebody else will learn from.',
+  ],
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street
     near: 0.1,

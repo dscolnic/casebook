@@ -177,6 +177,26 @@ export function createInteriors({
  * anything the game has not declared, so a new interactable type shows up as
  * one silent no-op rather than three.
  */
+/**
+ * The card that closes a campaign.
+ *
+ * Fifteen missions used to end with the words "Campaign complete" appearing in the
+ * corner of the HUD, and nothing else: no resolution, no ending, no statement of
+ * whether any of it worked. A theme now writes `ending: [...]` in its manifest —
+ * paragraphs in its own voice, the counterpart of `opening` — and this puts them up.
+ *
+ * Shared, because all three entry points need it and the last thing this repo needs
+ * is a fourth copy of the same card.
+ */
+export function showEnding(theme, ui, onClose){
+  const paras = theme?.ending ?? [];
+  if(!paras.length) return false;
+  ui.open(`${theme.title} — how it ends`,
+    `<div class="briefBox endingCard">${paras.map(p => `<p>${p}</p>`).join('')}</div>`,
+    [{ id: 'endingDone', label: 'Close', primary: true, onClick: () => { ui.close(); onClose?.(); } }]);
+  return true;
+}
+
 export function makeActivate(handlers, fallback){
   return function activate(target){
     if(!target) return false;

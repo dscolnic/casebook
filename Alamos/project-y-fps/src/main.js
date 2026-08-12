@@ -11,7 +11,7 @@ import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
-import { createInteriors, exposeDebug, createDay, openPersonOrPassage } from '../../gamekit/engine/core/app.js';
+import { createInteriors, exposeDebug, createDay, openPersonOrPassage, showEnding } from '../../gamekit/engine/core/app.js';
 import { PANEL_PACE } from '../../gamekit/engine/core/day.js';
 import { createDriving } from '../../gamekit/engine/world/driving.js';
 import { updateHUD, updateDayClock, renderEndScreen, renderStats } from './dashboard.js';
@@ -120,7 +120,9 @@ function showDayOver(outstanding){
       const res = completeMission();
       document.getElementById('overlay').classList.remove('show');
       updateHUD(); updateWorldFromState(); updateDayNight();
-      if(res !== 'won') day.showPlan();
+      // A campaign that ends with a HUD label is not an ending.
+      if(res === 'won') showEnding(themeManifest, day.ui);
+      else day.showPlan();
     } }]);
 }
 

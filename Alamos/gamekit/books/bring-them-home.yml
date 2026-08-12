@@ -252,7 +252,7 @@ missions:
     The bang was four minutes ago. Commander Hale reported it before any instrument did, which is the first
     thing that should worry you. Now three consoles hold numbers that contradict each other: one bus reads
     zero, the guidance computer has restarted with nothing loaded, and several cabin-pressure channels
-    dropped together inside the same second. Carter is already saying that channels dropping together are
+    dropped together inside the same second. The integration lead, Evelyn Carter, is already saying that channels dropping together are
     one fault and not three. This shift you decide what is happening to the vehicle, get one agreed picture
     of it, and set how this room will work for the next five days. Before anything is fixed you need a state
     estimate: what the spacecraft is doing, told apart from what the instruments say it is doing. Those are
@@ -395,13 +395,12 @@ missions:
   briefing: Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and
     velocity from range, bearing, and timed observations.
   stake: >-
-    Nine hours after the bang, and the station carrying the whole solution sets in forty minutes. Reyes will
-    not sign the trajectory until she has one measurement that did not come through the same computer. Today
+    Nine hours after the bang, and the station carrying the whole solution sets in forty minutes. The guidance lead, Camila Reyes, will not sign the trajectory until she has one measurement that did not come through the same computer. Today
     you rebuild where the spacecraft is and how fast it is going, and buy the next observation. Different
     measurements answer different questions. A radar echo gives distance, because the pulse takes a known
     time to go out and come back. A shift in the returning frequency gives speed toward or away. Angles give
     direction, and badly. Fitting them together is the job, and the signal's own travel time is one of your
-    instruments. Whitaker wants a number now so the room can start planning the correction. Reyes wants the
+    instruments. Her trajectory officer, Dale Whitaker, wants a number now so the room can start planning the correction. Reyes wants the
     right number. They are both right, and there are forty minutes.
   takeaway: Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as
     isolated facts.
@@ -674,8 +673,7 @@ missions:
     visible reference objects.
   stake: >-
     Twenty-six hours in. The guidance platform is off to save power, one thruster quad is dead, and Hale has
-    to turn the spacecraft ninety degrees by hand while Sato reads angles aloud. Mensah has done the sums
-    and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and
+    to turn the spacecraft ninety degrees by hand while Sato reads angles aloud. Kwame Mensah, who owns the structural dynamics, has done the sums and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and
     work out what a thruster actually does. Turning follows the same bookkeeping as moving in a line, with
     rotation in place of speed. A thruster firing off to one side produces a twisting force, and how much
     twist depends on how far it sits from the balance point. Starting a rotation is only half of it. Nothing
@@ -817,9 +815,8 @@ missions:
   briefing: Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal
     control, and life support.
   stake: >-
-    Thirty-four hours in, and the argument changes shape. Shah has the reserve down to hours and wants
-    everything non-essential off by the end of the shift. Brooks says the two things on her list are the
-    scrubber fan and the cabin heaters, and that his crew are already sleeping in everything they own. The
+    Thirty-four hours in, and the argument changes shape. Priya Shah, who runs the power systems, has the reserve down to hours and wants
+    everything non-essential off by the end of the shift. Aaron Brooks, on thermal and life support, says the two things on his list are the scrubber fan and the cabin heaters, and that his crew are already sleeping in everything they own. The
     bus is sagging at 24 volts instead of 28 while the current sits near where it should be, which is Shah's
     other problem. This shift you work out how long the batteries last, decide why the voltage is low, and
     choose what goes off. Power is voltage times current; energy is power times time; and an honest budget
@@ -976,7 +973,7 @@ missions:
   briefing: Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The
     player must reason through series, parallel, internal resistance, and fault isolation.
   stake: >-
-    Forty-two hours in. Ferreira has found a battery module on the damaged bus that would buy eleven hours,
+    Forty-two hours in. The electrical load officer, Ana Ferreira, has found a battery module on the damaged bus that would buy eleven hours,
     and Shah wants it connected before the next pass. Nobody knows its state of charge, and the connectors
     were never meant for this. This shift you decide whether that configuration is safe and what has to be
     measured first. Two batteries wired one after another add their voltages. Wired side by side they share
@@ -1255,8 +1252,7 @@ missions:
   briefing: Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect
     gas laws, partial pressure, fluid flow, and filter resistance.
   stake: >-
-    Fifty-eight hours in. Carbon dioxide is climbing in a cabin built for two and holding three. Novak has
-    been on the loop with Sato for an hour, and the canisters that fit are aboard the module they cannot
+    Fifty-eight hours in. Carbon dioxide is climbing in a cabin built for two and holding three. The life support engineer, Petra Novak, has been on the loop with the crew for an hour, and the canisters that fit are aboard the module they cannot
     use. The scrubber fan still draws its rated current, which Brooks refuses to accept as good news. Today
     you find out why the air is not being cleaned, work out how fast three people fill a cabin, and build
     something out of what is aboard. Removal is a rate, set by the chemistry that takes the gas up and by
@@ -1415,7 +1411,7 @@ missions:
     failure from antenna pointing, range loss, and Doppler effects.
   stake: >-
     Sixty-six hours in, the link went weak at the moment the vehicle turned — down twelve decibels, and Hale
-    is answering calls he can barely hear. Ito has the link budget open and Haldane is arguing for a
+    is answering calls he can barely hear. The communications lead, Naomi Ito, has the link budget open and her network officer is arguing for a
     different term in it. This shift you find the cause and get the link back. A radio link is a sum:
     transmitter power, antenna gain, distance, pointing, receiver sensitivity, all in decibels, and any
     single term can account for the loss if it is large enough. That is what makes size worth checking
@@ -1717,8 +1713,7 @@ missions:
     back into space. The player must integrate drag, energy conversion, and atmospheric density.'
   stake: >-
     Eighty-two hours in, and nothing goes wrong this shift, which is its own kind of unnerving. The capsule
-    will arrive at about eleven kilometres a second into a corridor roughly a degree wide, and Lindqvist
-    wants the whole room to understand what that means before anybody is asked to vote on it. This shift you
+    will arrive at about eleven kilometres a second into a corridor roughly a degree wide, and Erika Lindqvist, integrating the flight dynamics, wants the whole room to understand what that means before anybody is asked to vote on it. This shift you
     follow where the energy goes, put a number on it, and decide how to protect the corridor. Entry is a
     controlled disposal of energy: the only way to lose it is to hand it to the air as heat. Too shallow and
     the atmosphere does not take enough, and the capsule skips back out with no consumables to come round
@@ -1846,7 +1841,7 @@ missions:
   briefing: A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance
     and protect the structure without disabling life support.
   stake: >-
-    Ninety hours in, and Okoye caught this one — worth saying, because nothing else this week has been
+    Ninety hours in, and a structural dynamics engineer, Chidi Okoye, caught this one — worth saying, because nothing else this week has been
     caught early. A panel starts shaking whenever a pump runs near one particular speed, and a line behind
     it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it,
     work out the structure's own natural rhythm, and stop it. Every structure has speeds it prefers, set by

@@ -37,6 +37,22 @@ export default {
   // which is most of what they need to catch an unreachable group.
   site,
   start: site.spawn,
+  // How it ends.
+  //
+  // Not a happy ending, because this one cannot honestly have one — and not a silent
+  // one either, which is what "Campaign complete" in the HUD amounted to after fifteen
+  // stages. The technical work closes, the people go home, the physics stops being
+  // secret, and the argument the scientists themselves started is handed on.
+  ending: [
+    'The technical questions closed in August 1945, and every line of work could finally say what '
+    + 'it knew and how well it knew it. The war ended. The mesa emptied over the following year: '
+    + 'the theorists went back to universities, the metallurgists to industry, and the site to a '
+    + 'laboratory that is still there.',
+    'The physics did not stay secret, because physics does not. What the people here could defend, '
+    + 'claim by claim, is written down — and so is what they argued about once they could argue in '
+    + 'public. That record is the part you inherit.',
+  ],
+
   content: {
     CURRICULUM, BALLPARK_CALCS, JARGON,
     MISSIONS: MISSION_DEFS,

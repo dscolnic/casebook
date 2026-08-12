@@ -20,7 +20,8 @@ import { renderMap } from '../engine/core/map.js';
 import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
-import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage } from '../engine/core/app.js';
+import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage,
+         showEnding } from '../engine/core/app.js';
 import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
 import { createFlying } from '../engine/world/flying.js';
@@ -242,7 +243,10 @@ function showDayOver(outstanding){
       const res = completeMission();
       overlay.classList.remove('show');
       updateHUD(); refreshWorld();
-      if(res !== 'won') day.showPlan();
+      // The last mission ends the campaign, and a campaign that ends without saying
+      // how it turned out is fifteen days of work answered with a HUD label.
+      if(res === 'won') showEnding(theme, day.ui);
+      else day.showPlan();
     } }]);
 }
 

@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Discovery Image",
     "objective": "Validate a new-object candidate and preserve the measurements needed for follow-up.",
     "briefing": "A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.",
-    "stake": "Eleven days before the object passes Earth, Virtanen's survey pipeline has flagged a faint point that moved between three exposures. The same field holds forty thousand catalogued stars, two satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Telling an object from a defect is about consistency. A real body moves smoothly, in one direction, at a speed that makes sense for something in the Solar System, and it appears in frames that do not share a fault. A hot pixel sits still. A satellite streaks. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.",
+    "stake": "Eleven days before the object passes Earth, the survey pipeline run by Aino Virtanen has flagged a faint point that moved between three exposures. The same field holds forty thousand catalogued stars, two satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Telling an object from a defect is about consistency. A real body moves smoothly, in one direction, at a speed that makes sense for something in the Solar System, and it appears in frames that do not share a fault. A hot pixel sits still. A satellite streaks. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.",
     "takeaway": "Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Confirm the Motion",
     "objective": "Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.",
     "briefing": "Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry without creating a false trajectory from inconsistent reference frames.",
-    "stake": "Ten days to the pass, and six observatories have reported positions to Delacroix. Two used a different time standard, one recorded no plate solution at all, and one camera's measurements curve away from the orbit fit in a way that looks systematic rather than random. Today you build one clean track out of all of it and buy the next observation. Positions are not equally good, and the way you find out is the leftovers: fit an orbit, then look at how far each measurement sits from it. Random scatter is normal. A pattern in the leftovers means an instrument problem, and the honest answer is to weight that data down rather than average it in. A weak track loses the object after the pass, when it will be too faint to find again for years.",
+    "stake": "Ten days to the pass, and six observatories have reported positions to Hugo Delacroix, the campaign astrometrist. Two used a different time standard, one recorded no plate solution at all, and one camera's measurements curve away from the orbit fit in a way that looks systematic rather than random. Today you build one clean track out of all of it and buy the next observation. Positions are not equally good, and the way you find out is the leftovers: fit an orbit, then look at how far each measurement sits from it. Random scatter is normal. A pattern in the leftovers means an instrument problem, and the honest answer is to weight that data down rather than average it in. A weak track loses the object after the pass, when it will be too faint to find again for years.",
     "takeaway": "Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "An Orbit from Sparse Data",
     "objective": "Construct a family of allowed orbits and choose observations that collapse the dangerous dimensions.",
     "briefing": "Only a short arc is available, and many three-dimensional orbits project to nearly the same sky motion. The player must reason with Keplerian motion and orbit families rather than report one overconfident solution.",
-    "stake": "Nine days to the pass, and Rossi has stopped quoting a single orbit. Every orbit that fits the observations draws almost the same line across the sky, and they disagree about everything that matters afterwards — this pass is harmless in all of them, and some of them come back in eight years to hit. Today you work out what the data actually pins down and choose the observations that collapse the rest. A short arc constrains some parts of an orbit tightly and others hardly at all, and it is the loose parts that decide this. So the honest product is not one best-fit orbit but a family of them. The single line through the middle is the most dangerous object in this campaign, because it looks like knowledge. What you need is the observation that makes members of that family disagree with each other.",
+    "stake": "Nine days to the pass, and the orbit determination lead, Marco Rossi, has stopped quoting a single orbit. Every orbit that fits the observations draws almost the same line across the sky, and they disagree about everything that matters afterwards — this pass is harmless in all of them, and some of them come back in eight years to hit. Today you work out what the data actually pins down and choose the observations that collapse the rest. A short arc constrains some parts of an orbit tightly and others hardly at all, and it is the loose parts that decide this. So the honest product is not one best-fit orbit but a family of them. The single line through the middle is the most dangerous object in this campaign, because it looks like knowledge. What you need is the observation that makes members of that family disagree with each other.",
     "takeaway": "Use Keplerian orbits, state vectors, degeneracy, orbital elements, prediction as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The Uncertainty Corridor",
     "objective": "Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.",
     "briefing": "The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and nonlinear propagation without confusing low probability with zero consequence.",
-    "stake": "Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Ellery has two counties asking her what to do this week, and she is right: the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the part that matters. Impact probability is a counting job: of all the orbits still consistent with the data, what fraction hit. As observations arrive that set shrinks — and while Earth is still inside it, the fraction goes up. A rising number is the expected behaviour of a shrinking uncertainty, right until it collapses to zero. You get one chance to explain that.",
+    "stake": "Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is being asked what to do this week, and she is right: the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the part that matters. Impact probability is a counting job: of all the orbits still consistent with the data, what fraction hit. As observations arrive that set shrinks — and while Earth is still inside it, the fraction goes up. A rising number is the expected behaviour of a shrinking uncertainty, right until it collapses to zero. You get one chance to explain that.",
     "takeaway": "Use probability distributions, covariance, nonlinear propagation, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "How Large Is It?",
     "objective": "Produce a diameter range rather than a single unsupported value.",
     "briefing": "The object’s brightness is known, but size depends strongly on reflectivity. The player must combine photometry, albedo, and thermal evidence to bound diameter.",
-    "stake": "Six days to the pass, and this is the day the campaign has been dreading. Sorokin has been waiting on infrared time all week. Everything anybody wants to know about the eight-year return scales with size, and the size rests on how bright the object looked in a survey image. Reflected brightness is size and reflectivity multiplied together, and reflectivity varies by more than a factor of ten across known asteroids. So brightness alone allows anything from 120 metres to 600. At the small end this is a city and an evacuation. At the large end it is a country, and a decade of bad harvests for everyone else. Nobody can tell you which, and no amount of staring at the discovery image will. Today you buy the measurement that breaks the tie: heat, which depends on size and temperature rather than on how shiny the surface is.",
+    "stake": "Six days to the pass, and this is the day the campaign has been dreading. Irina Sorokin, who observes in the thermal infrared, has been waiting on telescope time all week. Everything anybody wants to know about the eight-year return scales with size, and the size rests on how bright the object looked in a survey image. Reflected brightness is size and reflectivity multiplied together, and reflectivity varies by more than a factor of ten across known asteroids. So brightness alone allows anything from 120 metres to 600. At the small end this is a city and an evacuation. At the large end it is a country, and a decade of bad harvests for everyone else. Nobody can tell you which, and no amount of staring at the discovery image will. Today you buy the measurement that breaks the tie: heat, which depends on size and temperature rather than on how shiny the surface is.",
     "takeaway": "Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "What Is It Made Of?",
     "objective": "Assign a composition class with explicit alternatives and confidence.",
     "briefing": "Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player must avoid turning a taxonomic resemblance into an exact material claim.",
-    "stake": "Five days out. A broad dip has appeared near 1.4 microns in the spectrum, and if it is real it changes the composition class Adebayo's draft circular already names. Today you decide whether that feature belongs to the asteroid, and what would make the claim solid. A spectrum records which colours of light came back and which went missing, and different minerals remove different colours. The trouble is that our own atmosphere removes light too, and water vapour above the telescope absorbs strongly in exactly this region. This is not a label for a catalogue. Density comes from composition, mass comes from density, and so does strength — which decides whether the body holds together when a spacecraft hits it in three years' time. Every model built after today inherits whatever is written today.",
+    "stake": "Five days out. A broad dip has appeared near 1.4 microns in the spectrum, and if it is real it changes the composition class the characterization lead, Tola Adebayo, has already named in a draft circular. Today you decide whether that feature belongs to the asteroid, and what would make the claim solid. A spectrum records which colours of light came back and which went missing, and different minerals remove different colours. The trouble is that our own atmosphere removes light too, and water vapour above the telescope absorbs strongly in exactly this region. This is not a label for a catalogue. Density comes from composition, mass comes from density, and so does strength — which decides whether the body holds together when a spacecraft hits it in three years' time. Every model built after today inherits whatever is written today.",
     "takeaway": "Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The Spinning Target",
     "objective": "Produce a rotation-state range suitable for imaging and deflection planning.",
     "briefing": "Brightness varies dramatically over hours, suggesting rotation and an elongated shape. The player must derive a period, identify aliases, and determine whether the body may be tumbling.",
-    "stake": "Four days to the pass. The asteroid brightens and fades by a few tenths of a magnitude, repeating near 4.8 hours — and one observatory's nightly window repeats on almost the same interval, which Nguyen noticed and nobody wanted to hear. Today you decide whether you are watching the object turn or watching your own schedule, and pin the spin state down. A light curve is brightness against time, and a body that is not round shows more of itself at some angles than others. But an elongated object usually presents its long side twice per turn, so the gap between similar peaks is often half the period rather than the whole of it. An intercept will be aimed using this number, years from now, at a body it can see for a few hours. Get it wrong and it arrives at the wrong face, or misses.",
+    "stake": "Four days to the pass. The asteroid brightens and fades by a few tenths of a magnitude, repeating near 4.8 hours — and one observatory's nightly window repeats on almost the same interval, which the survey imaging lead, Linh Nguyen, noticed and nobody wanted to hear. Today you decide whether you are watching the object turn or watching your own schedule, and pin the spin state down. A light curve is brightness against time, and a body that is not round shows more of itself at some angles than others. But an elongated object usually presents its long side twice per turn, so the gap between similar peaks is often half the period rather than the whole of it. An intercept will be aimed using this number, years from now, at a body it can see for a few hours. Get it wrong and it arrives at the wrong face, or misses.",
     "takeaway": "Use periodic signals, light curves, aliasing, rotation, shape inference as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -191,7 +191,7 @@ export const MISSIONS = [
       {
         "group": "ORBIT",
         "lesson": 4,
-        "task": "Four hours, and the window does not repeat for eleven years. What comes first?"
+        "task": "Radar has settled this pass. What has to be computed before anybody calls the object safe?"
       }
     ]
   },
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Impact Energy",
     "objective": "Provide low, central, and high impact-energy scenarios with transparent assumptions.",
     "briefing": "The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.",
-    "stake": "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly four hundred megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Banerjee wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage. Impact energy rises with mass and with the square of speed. Speed is known well. Mass is not: it comes from a diameter measured through one instrument and a density inferred from a composition still under argument, and diameter enters as a cube.",
+    "stake": "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly four hundred megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage. Impact energy rises with mass and with the square of speed. Speed is known well. Mass is not: it comes from a diameter measured through one instrument and a density inferred from a composition still under argument, and diameter enters as a cube.",
     "takeaway": "Use mass and density, kinetic energy, scaling, uncertainty propagation, orders of magnitude as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -210,7 +210,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 11,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Civil defence has been given the approach speed as the entry speed. What is wrong with that?"
       },
       {
         "group": "OPS",
@@ -223,13 +223,13 @@ export const MISSIONS = [
     "title": "Through the Atmosphere",
     "objective": "Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.",
     "briefing": "Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging airburst. The player must reason about drag, strength, heating, and uncertain structure.",
-    "stake": "Two weeks after the pass, and Schulz has three groups modelling the same object from the same data. One has it reaching the ground, one has it coming apart thirty kilometres up, one is between. Evacuation distances differ by a factor of five across those three, and a planning office wants a number this week. Today you build the entry scenarios properly and say what would tell them apart. Entry is a contest between the pressure the atmosphere puts on the object and the object's own strength. A solid rock arrives. A weakly bound pile of rubble comes apart high and releases its energy as a blast in the air, which flattens buildings over a wide area and leaves no crater. Strength is the property we can least measure from here, and the one that decides what people are told to do.",
+    "stake": "Two weeks after the pass, and Marta Schulz, who models impact physics, has three groups modelling the same object from the same data. One has it reaching the ground, one has it coming apart thirty kilometres up, one is between. Evacuation distances differ by a factor of five across those three, and a planning office wants a number this week. Today you build the entry scenarios properly and say what would tell them apart. Entry is a contest between the pressure the atmosphere puts on the object and the object's own strength. A solid rock arrives. A weakly bound pile of rubble comes apart high and releases its energy as a blast in the air, which flattens buildings over a wide area and leaves no crater. Strength is the property we can least measure from here, and the one that decides what people are told to do.",
     "takeaway": "Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 2,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
         "group": "OPS",
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "What Have We Failed to See?",
     "objective": "Design a survey strategy that improves detection and accurately reports what remains unseen.",
     "briefing": "The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.",
-    "stake": "A month after the pass, Garcia's review asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Completeness is not how many objects you have found. It is how many you would have found — the sky you covered, how faint you could see, and when you were open. Sunward is a permanent hole. Seeing twice as far means searching eight times the volume.",
+    "stake": "A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Completeness is not how many objects you have found. It is how many you would have found — the sky you covered, how faint you could see, and when you were open. Sunward is a permanent hole. Seeing twice as far means searching eight times the volume.",
     "takeaway": "Use selection effects, survey completeness, limiting magnitude, cadence, population inference as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -306,12 +306,12 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 19,
-        "task": "Order the design backwards from the effect it has to produce."
+        "task": "Match each orbit to the period it must have."
       },
       {
         "group": "OPS",
         "lesson": 20,
-        "task": "The design closes on paper with nothing left over. Where does the first margin go?"
+        "task": "The impactor changes the object's speed by about a centimetre a second. Why is that enough?"
       }
     ]
   },

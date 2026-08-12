@@ -999,10 +999,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Build the provisional case definition",
-      "scene": "Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Ortiz wants one definition, built in the right order.",
+      "scene": "Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Lena Ortiz, who runs clinical physiology, wants one definition, built in the right order.",
       "takeaway": "Operational definitions convert vague concern into reproducible observation.",
       "place": "Epidemiology Operations Room",
-      "story": "Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Ortiz wants one definition, built in the right order.",
+      "story": "Three hospitals start counting tomorrow morning, and each has drafted its own idea of what counts as a case. Whatever is on those three desks by the first shift is what the city's curve will be made of. Lena Ortiz, who runs clinical physiology, wants one definition, built in the right order.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the provisional case definition",

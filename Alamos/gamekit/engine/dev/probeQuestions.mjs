@@ -154,6 +154,19 @@ for(const [mi, m] of MISSIONS.entries()){
 // campaign or a callback can put in front of the player tomorrow. Deduplicated by
 // card set, because a hospital item with four review variants is one thing to fix
 // and would otherwise be five findings.
+// Matching questions carry the same kind of key, and had the same fault: the option
+// order WAS the answer in all 73 of them.
+for(const [group, lessons] of Object.entries(CURRICULUM)){
+  (lessons ?? []).forEach((l, li) => {
+    const ch = l?.game;
+    if(!ch || !Array.isArray(ch.mapping) || ch.mapping.length < 3) return;
+    if(ch.mapping.every((v, i) => v === i)){
+      add('ORDER', `${group}[${li}] "${l.title ?? ''}"`,
+        'the matching key is 1→A, 2→B, 3→C — the answer is the order the options are printed in');
+    }
+  });
+}
+
 const seenCards = new Set();
 for(const [group, lessons] of Object.entries(CURRICULUM)){
   (lessons ?? []).forEach((l, li) => {
@@ -168,6 +181,12 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
     const pinnedLast = TERMINAL.test(last) && !keyed.slice(0, -1).some(c => TERMINAL.test(c));
     const pinnedFirst = OPENER.test(first) && !keyed.slice(1).some(c => OPENER.test(c));
     const arrows = keyed.filter(c => ARROW.test(c));
+    // The answer must not be the order the cards are printed in. `normalize.js`
+    // re-lays any question authored that way, so this only fires if that stops
+    // working — which is exactly when it should.
+    if(ch.order?.every((v, i) => v === i)){
+      add('ORDER', at, 'the keyed order is the order the cards are written in — the answer is the list');
+    }
     if(pinnedFirst && pinnedLast){
       add('ORDER', at, `both endpoints are pinned by wording — card 1 announces the start and card ${keyed.length} hands the work off, leaving ${keyed.length - 2} slot(s) to guess`);
     } else if(pinnedLast && keyed.length <= 4){

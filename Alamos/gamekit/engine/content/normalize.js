@@ -105,6 +105,24 @@ export function normalizeContent(content = {}){
         }
       }
 
+      // ---- 5. an ordering question whose answer is the order it is written in
+      if(ch.type === 'SEQUENCE' && Array.isArray(ch.cards) && Array.isArray(ch.order)
+         && ch.cards.length >= 3 && ch.order.every((v, i) => v === i)){
+        deidentify(ch, `${group}:${lesson.title ?? ''}`);
+        changes.push(`${at}: SEQUENCE keyed A→B→C→D, cards re-laid so the answer is not the printed order`);
+      }
+
+      // ---- 6. a matching question whose answer is 1→A, 2→B, 3→C, 4→D
+      // The same tell as the ordering questions above, in the other format that
+      // carries a keyed permutation: all 73 matching items in the seven games were
+      // authored with the options listed in the order the scenarios need them, so the
+      // printed page — and any UI that does not shuffle — hands the answer over.
+      if(Array.isArray(ch.mapping) && Array.isArray(ch.choices)
+         && ch.mapping.length >= 3 && ch.mapping.every((v, i) => v === i)){
+        deidentifyMapping(ch, `${group}:${lesson.title ?? ''}`);
+        changes.push(`${at}: matching keyed 1→A, options re-laid so the answer is not the printed order`);
+      }
+
       if(!FORMATS.has(ch.type)){
         problems.push(`${at}: format "${ch.type}" has no renderer`);
       }
@@ -131,6 +149,71 @@ export function normalizeContent(content = {}){
   shapeMissions(content.MISSIONS ?? [], curriculum, changes);
 
   return { changes, problems };
+}
+
+/**
+ * Re-lay an ordering question's cards so the correct order is not the order they
+ * are written in.
+ *
+ * 141 of the 142 ordering questions in the seven games were authored with
+ * `order: [0, 1, 2, 3]` — the cards listed in the answer's own sequence. In the
+ * game that was hidden by the bank shuffle in `questionUI.js`; anywhere else the
+ * authored order shows, which is every printed book, it handed over the answer.
+ *
+ * This permutes the CARDS and rewrites `order` to point at their new positions, so
+ * the keyed sequence — the actual answer, and what the rebuttals are indexed
+ * against — is untouched. The permutation is seeded on the lesson, so a card is in
+ * the same place every time the game is loaded and in the book printed from it.
+ *
+ * The rotation is by a stride coprime with the card count, which is a derangement
+ * for any n ≥ 3: no card keeps its position, so the result is never the identity
+ * and never a simple reversal either.
+ */
+function deidentify(ch, seedText){
+  const n = ch.cards.length;
+  let h = 2166136261;
+  for(const c of String(seedText)){ h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); }
+  const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+  // Strides that share a factor with n would leave some cards in place.
+  const strides = [];
+  for(let s = 2; s < n; s++) if(gcd(s, n) === 1) strides.push(s);
+  if(!strides.length) return;                       // n = 3 with no coprime stride
+  const stride = strides[(h >>> 0) % strides.length];
+  const start = (h >>> 8) % n;
+  // `perm[newIndex] = oldIndex`
+  const perm = Array.from({ length: n }, (_, i) => (start + i * stride) % n);
+  const cards = perm.map(i => ch.cards[i]);
+  const order = ch.order.map(oldIx => perm.indexOf(oldIx));
+  if(order.every((v, i) => v === i)) return;        // vanishingly unlikely; leave it
+  ch.cards = cards;
+  ch.order = order;
+}
+
+/**
+ * Re-lay a matching question's OPTIONS so the answer is not option order.
+ *
+ * The scenarios stay put — they are what the rebuttals are written against, one per
+ * scenario, in order — and the choices move. `mapping[i]` is the option that answers
+ * scenario `i`, so it is rewritten to point at the option's new position: the pairing
+ * is identical and only the lettering changes.
+ */
+function deidentifyMapping(ch, seedText){
+  const n = ch.choices.length;
+  if(n !== ch.mapping.length) return;              // a partial key; leave it alone
+  let h = 2166136261;
+  for(const c of String(seedText)){ h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); }
+  const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+  const strides = [];
+  for(let s = 2; s < n; s++) if(gcd(s, n) === 1) strides.push(s);
+  if(!strides.length) return;
+  const stride = strides[(h >>> 0) % strides.length];
+  const start = (h >>> 8) % n;
+  const perm = Array.from({ length: n }, (_, i) => (start + i * stride) % n);
+  const choices = perm.map(i => ch.choices[i]);
+  const mapping = ch.mapping.map(oldIx => perm.indexOf(oldIx));
+  if(mapping.every((v, i) => v === i)) return;
+  ch.choices = choices;
+  ch.mapping = mapping;
 }
 
 /**

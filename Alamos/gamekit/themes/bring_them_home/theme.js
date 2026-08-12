@@ -47,7 +47,11 @@ export default {
   // There are no rooms to walk into here and no doors to find: the whole game
   // is one floor, and a call is a console on it. The plan card asks the theme
   // what to call a non-person stop.
-  stopNoun: 'a console',
+  // Two of the six areas work at a console on the floor; the other four have a
+  // room in the wings. "A console" was right when every call was in this room and
+  // is wrong now, and "a room" was wrong then and is right for four of the six —
+  // so: a place.
+  stopNoun: 'a place',
 
   // Where the player starts the day, and which way they face. The day's budget
   // is measured from here, not from wherever the player is standing.
@@ -93,6 +97,14 @@ export default {
     + 'the loop.',
   ],
 
+  // How it ends. Shown when the campaign closes and printed as the book's last page.
+  ending: [
+    'Splashdown at 12:07, three good parachutes, and four minutes of blackout that ended with a '
+    + 'voice reading its own altitude. The heat shield that had been cold for four days held. The '
+    + 'crew were on the recovery deck inside the hour, all three of them walking.',
+    'Every claim this room made about that vehicle was written down before entry, and every one of '
+    + 'them was still standing afterwards. That is the whole job.',
+  ],
   look: {
     fov: 66,            // a 72° field distorts badly in a corridor
     near: 0.08,

@@ -59,6 +59,15 @@ export default {
     + 'the truth every minute.',
   ],
 
+  // How it ends. Shown when the campaign closes and printed as the book's last page.
+  ending: [
+    'The boat surfaced at dawn on the twenty-third day, into weather nobody had seen for three '
+    + 'weeks. The fractured wrist is in a cast and signed fit for the transit. The contact was '
+    + 'resolved, the plot was fixed, and the machine that had been left since Tuesday was opened '
+    + 'up and found in time.',
+    'Nothing was lost on this patrol that could not be repaired. The whole crew went up the ladder '
+    + 'into daylight, which is the only measure of a watch that matters.',
+  ],
   look: {
     fov: 68,
     near: 0.05,

@@ -256,35 +256,37 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Use the radar window",
-      "scene": "Four hours of radar, and the geometry does not repeat for eleven years. Three of the four things the room could do with it are worth doing and only some of them fit.",
-      "takeaway": "Scarce observing time should target information unavailable from routine methods.",
-      "place": "Orbit Center",
-      "story": "Four hours of radar, and the geometry does not repeat for eleven years. Three of the four things the room could do with it are worth doing and only some of them fit.",
+      "title": "What this pass does to the next one",
+      "scene": "The radar fit puts this pass 2.4 Earth radii out, and the same fit says the object comes back in eleven years. Earth is about to bend its path by far more than the measurement error.",
+      "takeaway": "A close approach rewrites the orbit it happens on, so safety is a claim about the returns after it.",
+      "place": "Orbit Determination",
+      "story": "The radar fit puts this pass 2.4 Earth radii out, and the same fit says the object comes back in eleven years. Earth is about to bend its path by far more than the measurement error.",
       "game": {
         "type": "CHOICE",
-        "title": "Use the radar window",
-        "setup": "Orbit Center",
-        "play": "Four hours, and the window does not repeat for eleven years. What comes first?",
-        "task": "Four hours, and the window does not repeat for eleven years. What comes first?",
-        "question": "Four hours, and the window does not repeat for eleven years. What comes first?",
-        "answer": "High-precision range and range-rate.",
-        "why": "Range collapses the orbit uncertainty in exactly the direction optical astrometry leaves widest, and it is the measurement that decides whether there is a deflection problem to solve at all. Everything else the window could buy is worth less if the orbit stays ambiguous.",
+        "title": "What this pass does to the next one",
+        "setup": "Orbit Determination",
+        "play": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
+        "task": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
+        "question": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
+        "answer": "How this approach changes the orbit, and whether the new path threads a keyhole on the next return.",
+        "why": "Passing 2.4 Earth radii out means passing deep inside Earth's gravity, which changes the object's speed and direction and therefore its period. A different period means a different arrival time at the next return, and small regions of this pass — keyholes — map onto an impact eleven years later. That is why a measured miss is not the end of the calculation: the orbit that matters is the one this encounter creates, not the one that brought it here. The work is a propagation through the encounter, and it needs this pass measured precisely for exactly that reason.",
         "rebuttals": [
-          "Delay-Doppler imaging gives the shape and spin the deflection design needs, and a beautifully imaged asteroid on an unresolved orbit is not a plan.",
-          "Calibration protects both measurements and consumes window. Take the minimum that makes the range defensible.",
-          "Spending planetary radar on a brightness any optical telescope can measure tonight is the one indefensible use of a window eleven years wide."
+          "A measured miss settles this pass and says nothing about the orbit the encounter creates.",
+          "Albedo gives size. Size does not tell you where the object will be in eleven years.",
+          {
+            "A later arc is needed and is not sufficient": "without propagating through the encounter there is nothing to compare it against."
+          }
         ],
         "choices": [
-          "High-precision range and range-rate.",
-          "Delay-Doppler imaging across a full rotation.",
-          "Calibration and background observations.",
-          "A brightness measurement, at higher signal than optical can reach."
+          "How this approach changes the orbit, and whether the new path threads a keyhole on the next return.",
+          "Nothing further. The miss distance is measured and the object is receding.",
+          "The albedo, so the size is known before the object comes back.",
+          "A fresh astrometric arc after the pass, and nothing beyond it."
         ],
-        "correctChoice": "High-precision range and range-rate."
+        "correctChoice": "How this approach changes the orbit, and whether the new path threads a keyhole on the next return."
       },
       "assumes": [
-        "an opportunity that does not repeat has to be spent on what nothing else can supply"
+        "a planet's gravity changes the path of anything that passes close to it"
       ]
     },
     {
@@ -720,41 +722,26 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Build an atmospheric entry model",
-      "scene": "Three groups modelled the same object. One has it reaching the ground, one has it breaking up at thirty kilometres, and one has an airburst low enough to break windows across a city. They differ mainly in an assumed strength nobody has measured.",
-      "takeaway": "Atmospheric outcome is a coupled trajectory and materials problem.",
-      "place": "Atmospheric Entry Lab",
-      "story": "Three groups modelled the same object. One has it reaching the ground, one has it breaking up at thirty kilometres, and one has an airburst low enough to break windows across a city. They differ mainly in an assumed strength nobody has measured.",
+      "title": "From joules to megatons",
+      "scene": "The entry model reports 3.1×10^17 joules. Every emergency manager on the call works in megatons, and the last briefing sent them a number with the exponent copied wrongly.",
+      "takeaway": "A quantity is only communicable once it is in the units the decision is made in.",
+      "place": "Entry and Consequences Lab",
+      "story": "The entry model reports 3.1×10^17 joules. Every emergency manager on the call works in megatons, and the last briefing sent them a number with the exponent copied wrongly.",
       "game": {
-        "type": "SEQUENCE",
-        "title": "Build an atmospheric entry model",
-        "setup": "Atmospheric Entry Lab",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "type": "BALLPARK",
+        "title": "From joules to megatons",
+        "setup": "Entry and Consequences Lab",
+        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "question": "Estimate the energy in megatons of TNT.",
         "answer": "",
-        "why": "Trajectory and materials are coupled the whole way down, which is why the chain runs in this order. The initial properties and the atmosphere set the loads, because drag and dynamic pressure depend on speed, density and shape. The loads are then compared with what the material can take, which is where fragmentation happens. And only after breakup is decided can the fragments and their energy be propagated into a consequence — a body that broke at thirty kilometres deposits its energy somewhere entirely different from one that did not.",
-        "rebuttals": [
-          "Properties and atmosphere first: they are the inputs everything downstream is computed from.",
-          "Loads second — drag, heating and dynamic pressure along the path, which the properties determine.",
-          "Fragmentation third, by comparing those loads against what the material can survive.",
-          "Energy deposition last. Where the energy goes follows from whether and when the object came apart."
-        ],
-        "cards": [
-          "Specify mass, shape, speed, angle, strength, and atmospheric profile.",
-          "Compute drag, heating, and dynamic pressure along the path.",
-          "Compare loads with fragmentation and ablation criteria.",
-          "Propagate fragments and energy deposition to consequence estimates."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "why": "Dividing 3.1×10^17 by 4.184×10^15 means dividing 3.1 by 4.184 and subtracting the exponents: about 0.74×10^2, so roughly 74 megatons. Working in joules with an audience that thinks in megatons is how a factor of a thousand survives a briefing: shift the exponent by one and 74 megatons becomes 7.4, which is the difference between a regional catastrophe and a large conventional explosion. The check is cheap — count the powers of ten before you read the mantissa, and say the unit out loud with the number.",
+        "givens": [],
+        "relationship": "Energy in megatons = energy in joules ÷ 4.184×10^15 joules per megaton.",
+        "calcKey": "IMPACT-3"
       },
       "assumes": [
-        "a body moving fast through air is loaded by the air"
+        "one megaton of TNT is 4.184×10^15 joules"
       ]
     },
     {
@@ -1210,71 +1197,59 @@ export const CURRICULUM = {
     },
     {
       "day": 11,
-      "title": "Range from radar delay",
-      "scene": "The dish transmits and the echo returns four seconds later. The analysis lab wants the range before the orbit group meets, and the signal covers the distance twice.",
-      "takeaway": "The factor of two reflects the outbound and return travel.",
-      "place": "Delay-Doppler Analysis Lab",
-      "story": "The dish transmits and the echo returns four seconds later. The analysis lab wants the range before the orbit group meets, and the signal covers the distance twice.",
+      "title": "Diameter from angular width",
+      "scene": "Radar has the distance to fifteen metres and the east dome measured the object's angular width the same night. Two numbers on two different desks, and no size anywhere.",
+      "takeaway": "An angle becomes a size only when it is multiplied by a distance.",
+      "place": "Coordination Office",
+      "story": "Radar has the distance to fifteen metres and the east dome measured the object's angular width the same night. Two numbers on two different desks, and no size anywhere.",
       "game": {
         "type": "BALLPARK",
-        "title": "Range from radar delay",
-        "setup": "Delay-Doppler Analysis Lab",
+        "title": "Diameter from angular width",
+        "setup": "Coordination Office",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the range to the object.",
+        "question": "Estimate the diameter of the object.",
         "answer": "",
-        "why": "Optical astrometry constrains direction and leaves distance to be inferred from the fit. This measures the distance itself, to metres, in four seconds.",
+        "why": "An angular width is not a size. It is a size divided by a distance, so the same 0.10 arcsec is three hundred metres at the radar distance and forty thousand kilometres at the distance of a star. The 206,265 is how many arcseconds fit in a radian, and the small-angle rule only holds because the angle is tiny: at 0.10 arcsec the difference between the angle and its sine is far below the measurement error. Use the astronomical unit instead of the measured range and the answer comes out 250 times too large, which is the difference between a city and a continent.",
         "givens": [],
-        "relationship": "Distance = speed of light × time, and the signal covers the range twice.",
+        "relationship": "Diameter = angular width in radians × distance. An arcsecond is 1/206,265 of a radian.",
         "calcKey": "OPS-11"
       },
       "assumes": [
-        "radio travels at the speed of light"
+        "an angle on the sky is a size divided by the distance to the thing"
       ]
     },
     {
       "day": 12,
-      "title": "Which uncertainty dominates?",
-      "scene": "The consequence estimate is dominated by whichever input has the steepest scaling, and four candidates are on the board at the risk analysis centre. Only one measurement can be improved before the briefing.",
-      "takeaway": "The most important measurement is often the one attached to the steepest scaling.",
-      "place": "Risk Analysis Center",
-      "story": "The consequence estimate is dominated by whichever input has the steepest scaling, and four candidates are on the board at the risk analysis centre. Only one measurement can be improved before the briefing.",
+      "title": "The speed it actually arrives at",
+      "scene": "The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.",
+      "takeaway": "Earth's gravity adds speed on the way in, and energy goes as the square of it.",
+      "place": "Coordination Office",
+      "story": "The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.",
       "game": {
-        "type": "PROTOCOL",
-        "title": "Which uncertainty dominates?",
-        "setup": "Risk Analysis Center",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "",
-        "why": "The exponent decides where a measurement is worth most. Diameter enters through the volume, so it is cubed: twenty per cent larger is nearly seventy-five per cent more energy. Density enters once, so doubling it doubles the energy. Speed enters squared, so ten per cent faster is about twenty-one per cent more. And an albedo assumption that shifts the inferred diameter by a factor of two moves the energy by a factor of eight, through that same cube — which is why an unmeasured reflectivity is the most expensive assumption in the room.",
+        "type": "CHOICE",
+        "title": "The speed it actually arrives at",
+        "setup": "Coordination Office",
+        "play": "Civil defence has been given the approach speed as the entry speed. What is wrong with that?",
+        "task": "Civil defence has been given the approach speed as the entry speed. What is wrong with that?",
+        "question": "Civil defence has been given the approach speed as the entry speed. What is wrong with that?",
+        "answer": "Earth's gravity accelerates it, so entry is nearer 16 km/s and the energy is roughly 80% higher.",
+        "why": "An object falling towards Earth arrives with its approach speed and the speed Earth's gravity has added, combined in quadrature: the square root of 12² + 11.2², which is about 16.4 km/s. Because kinetic energy goes as the square of speed, that is not a 37% correction to the briefing but an 80% one. Drag matters lower down and cannot be applied before the object reaches the atmosphere. Nothing about this is optional: the same factor turns a survivable airburst into a regional event in the consequence model.",
         "rebuttals": [
-          "Diameter is cubed through the volume, so a modest error in it is a large error in energy.",
-          "Density enters linearly. Doubling it doubles the mass and the energy with it, and no more than that.",
-          "Speed is squared, which is steep but less steep than the diameter's cube.",
-          "An albedo assumption moves the inferred diameter, and then that factor is cubed. It is the diameter's exponent arriving by another route."
-        ],
-        "scenarios": [
-          "Diameter is 20% larger.",
-          "Density doubles.",
-          "Speed is 10% larger.",
-          "Albedo assumption changes inferred diameter by a factor of two."
+          "The two speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.",
+          "The atmosphere decelerates the object after entry, so it cannot lower the speed at which entry begins.",
+          "Energy is proportional to the square of entry speed, so the speed error propagates straight into the energy."
         ],
         "choices": [
-          "Mass and energy rise by about 1.2³ ≈ 1.73.",
-          "Mass and energy double.",
-          "Energy rises by about 1.1² ≈ 1.21.",
-          "Energy can change by about a factor of eight through size alone."
+          "Earth's gravity accelerates it, so entry is nearer 16 km/s and the energy is roughly 80% higher.",
+          "Nothing. Speed far from Earth and speed at the top of the atmosphere are the same.",
+          "The atmosphere slows it first, so entry is lower than 12 km/s.",
+          "It matters only for the crater, not for the energy."
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "Earth's gravity accelerates it, so entry is nearer 16 km/s and the energy is roughly 80% higher."
       },
       "assumes": [
-        "a quantity raised to a power amplifies any error in it"
+        "a falling object speeds up as it falls, and Earth's escape speed is 11.2 km/s"
       ]
     },
     {
@@ -1613,27 +1588,38 @@ export const CURRICULUM = {
     },
     {
       "day": 20,
-      "title": "Build the intercept architecture",
-      "scene": "The launch window is nineteen days wide, the target is irregular and rotating, and at encounter the ground can watch but cannot steer.",
-      "takeaway": "An intercept is designed backwards from the effect it has to produce.",
-      "place": "Spacecraft Systems Lab",
-      "story": "The launch window is nineteen days wide, the target is irregular and rotating, and at encounter the ground can watch but cannot steer.",
+      "title": "When does it come back?",
+      "scene": "Four candidate orbits are still consistent with the arc, and the intercept cannot be designed until somebody says when each one brings the object back. Nobody has turned the distances into times.",
+      "takeaway": "An orbit's size fixes its period, so a launch window is a consequence of the orbit rather than a choice.",
+      "place": "Coordination Office",
+      "story": "Four candidate orbits are still consistent with the arc, and the intercept cannot be designed until somebody says when each one brings the object back. Nobody has turned the distances into times.",
       "game": {
-        "type": "SEQUENCE",
-        "title": "Build the intercept architecture",
-        "setup": "Spacecraft Systems Lab",
-        "play": "Order the design backwards from the effect it has to produce.",
-        "task": "Order the design backwards from the effect it has to produce.",
-        "question": "Order the design backwards from the effect it has to produce.",
+        "type": "PROTOCOL",
+        "title": "When does it come back?",
+        "setup": "Coordination Office",
+        "play": "Match each orbit to the period it must have.",
+        "task": "Match each orbit to the period it must have.",
+        "question": "Match each semi-major axis to the orbital period it implies.",
         "answer": "",
-        "why": "Each stage is sized by the one above it: the required velocity change sets the impactor mass and therefore the launch energy, and what the launch and cruise cannot deliver in accuracy is exactly what terminal guidance has to close. Designing the guidance first means designing it to a miss distance nobody has computed.",
-        "cards": [
-          "Fix the encounter geometry and the velocity change it has to deliver.",
-          "Choose launch energy and cruise to reach that geometry inside the window.",
-          "Design terminal guidance to close the ephemeris error that is left at arrival.",
-          "Test the whole chain against target states nobody has ruled out."
+        "why": "Kepler's third law says the square of the period equals the cube of the semi-major axis, in years and astronomical units: the period is the axis raised to one and a half. At 1.6 AU that is about 2 years, at 2.5 AU about 4, and at 4 AU about 8. Nothing else about the orbit enters — not its shape, not the object's mass — which is why an arc long enough to fix the axis also fixes every launch window that follows from it.",
+        "rebuttals": [
+          "Period is not proportional to the axis. Doubling the axis nearly triples the period.",
+          "The eccentricity changes where the object is in its orbit, not how long the orbit takes.",
+          "The object's mass is negligible against the Sun's, so it does not enter the period at all."
         ],
-        "order": [
+        "scenarios": [
+          "Semi-major axis 1.0 AU",
+          "Semi-major axis 1.6 AU",
+          "Semi-major axis 2.5 AU",
+          "Semi-major axis 4.0 AU"
+        ],
+        "choices": [
+          "About 1.0 year",
+          "About 2.0 years",
+          "About 4.0 years",
+          "About 8.0 years"
+        ],
+        "mapping": [
           0,
           1,
           2,
@@ -1641,40 +1627,40 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a design is sized by the outcome it has to produce"
+        "Kepler's third law relates the size of an orbit to the time it takes"
       ]
     },
     {
       "day": 21,
-      "title": "Spend mission margin",
-      "scene": "The design closes on paper with nothing left over. Whatever margin is bought now comes out of the headline performance figure the programme has been promising.",
-      "takeaway": "A successful planetary-defense mission is robust, not merely impressive at nominal conditions.",
-      "place": "Autonomy Test Range",
-      "story": "The design closes on paper with nothing left over. Whatever margin is bought now comes out of the headline performance figure the programme has been promising.",
+      "title": "Why a centimetre a second is enough",
+      "scene": "The impactor design gives the object a speed change of about one centimetre a second, against an orbital speed near 25 kilometres a second. The room is being asked how that can possibly matter.",
+      "takeaway": "A small change along the orbit moves the arrival time, and the miss distance is bought with years.",
+      "place": "Coordination Office",
+      "story": "The impactor design gives the object a speed change of about one centimetre a second, against an orbital speed near 25 kilometres a second. The room is being asked how that can possibly matter.",
       "game": {
         "type": "CHOICE",
-        "title": "Spend mission margin",
-        "setup": "Autonomy Test Range",
-        "play": "The design closes on paper with nothing left over. Where does the first margin go?",
-        "task": "The design closes on paper with nothing left over. Where does the first margin go?",
-        "question": "The design closes on paper with nothing left over. Where does the first margin go?",
-        "answer": "Better target ephemeris and onboard optical navigation.",
-        "why": "The accuracy is lost at the encounter, not at launch. The target's position is still uncertain when the spacecraft has to steer itself, and this is the only margin that converts directly into hitting the thing it was sent to hit.",
+        "title": "Why a centimetre a second is enough",
+        "setup": "Coordination Office",
+        "play": "The impactor changes the object's speed by about a centimetre a second. Why is that enough?",
+        "task": "The impactor changes the object's speed by about a centimetre a second. Why is that enough?",
+        "question": "The impactor changes the object's speed by about a centimetre a second. Why is that enough?",
+        "answer": "Along the orbit it changes the period, so the arrival-time shift grows with every return.",
+        "why": "Orbital speed here is about 25 km/s, so a centimetre a second is one part in two and a half million — nothing, applied once. What makes it work is that a speed change along the direction of travel changes the orbital period, and a changed period means the object arrives at a slightly different time, every orbit, for as long as you have. Years of that becomes thousands of kilometres of miss distance. Push it sideways instead and you get almost nothing: the orbit tilts and the arrival time barely moves, which is why deflection is planned decades out and along-track.",
         "rebuttals": [
-          "Launch energy buys trajectory flexibility, which does not help a spacecraft aimed accurately at where the asteroid is not.",
-          "Redundancy buys survival of one failure at an encounter that cannot be repeated. It is the right second call.",
-          "Maximising the headline number at the expense of every reserve is how a design closes on paper and fails in flight."
+          "A centimetre a second against 25 kilometres a second is one part in 2.5 million, which does nothing on its own.",
+          "An out-of-plane push tilts the orbit and hardly changes when the object arrives, which is what the miss distance depends on.",
+          "Momentum is conserved. That is exactly why the impactor's momentum, plus the ejecta's, is what moves the object at all."
         ],
         "choices": [
-          "Better target ephemeris and onboard optical navigation.",
-          "Additional launch energy and trajectory flexibility.",
-          "Redundancy in the critical spacecraft functions.",
-          "Into the headline performance number the programme has promised."
+          "Along the orbit it changes the period, so the arrival-time shift grows with every return.",
+          "It is a large fraction of the object's orbital speed, so the path moves immediately.",
+          "The push is sideways, which tilts the orbit out of Earth's plane before the pass.",
+          "Momentum is not conserved in a hypervelocity impact, so the object gains more than it is given."
         ],
-        "correctChoice": "Better target ephemeris and onboard optical navigation."
+        "correctChoice": "Along the orbit it changes the period, so the arrival-time shift grows with every return."
       },
       "assumes": [
-        "a nominal design is the one that works if nothing goes wrong"
+        "an object in orbit is moving at tens of kilometres a second"
       ]
     },
     {
@@ -1982,35 +1968,35 @@ export const BALLPARK_CALCS = {
     "explanation": "The repetition time is not the period. Multiplying rather than dividing is the whole point: a body that shows two maxima per rotation repeats twice as often as it turns, so the period is longer than the spacing, not shorter."
   },
   "OPS-11": {
-    "prompt": "The dish transmits and the echo returns four seconds later. The signal covers the distance twice.",
-    "question": "Estimate the range to the object.",
+    "prompt": "Radar puts the object 6.0×10^8 m away, and the dome measured an angular width of 0.10 arcsec.",
+    "question": "Estimate the diameter of the object.",
     "labels": [
-      "3.0e8 m/s (speed of light)",
-      "4.0 s (round-trip delay)",
-      "2 (out and back)",
-      "2.0 s (half the delay)",
-      "1.5e8 m/s (light speed, halved already)"
+      "0.10 arcsec (measured angular width)",
+      "206,265 (arcsec in one radian)",
+      "6.0e8 m (distance, from radar)",
+      "1.5e11 m (one astronomical unit)",
+      "0.5 arcsec (the seeing that night)"
     ],
     "values": [
-      300000000,
-      4,
-      2,
-      2,
-      150000000
+      0.1,
+      206265,
+      600000000,
+      150000000000,
+      0.5
     ],
     "slots": 3,
-    "template": "{0} × {1} ÷ {2}",
-    "formula": "a*b/c",
+    "template": "{0} ÷ {1} × {2}",
+    "formula": "a/b*c",
     "correct": [
       0,
       1,
       2
     ],
-    "target": 600000000,
-    "tolerance": 50000000,
+    "target": 291,
+    "tolerance": 40,
     "units": "m",
-    "solution": "Range = ct/2 = 6.0 × 10⁸ m.",
-    "explanation": "The factor of two can be taken out of the time or out of the speed, but not out of both — the two tiles that have already halved something are there to be noticed and left alone."
+    "solution": "0.10 ÷ 206,265 = 4.8×10^-7 rad; × 6.0×10^8 m ≈ 290 m.",
+    "explanation": "The distance has to be the measured one. An astronomical unit in that slot gives a diameter of 70 km."
   },
   "IMPACT-2": {
     "prompt": "The best current estimates are a radius near 90 metres, a density around 2,600 kg per cubic metre, and an approach speed of about 20 kilometres a second.",
@@ -2042,6 +2028,34 @@ export const BALLPARK_CALCS = {
     "units": "J",
     "solution": "Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly four hundred megatons.",
     "explanation": "The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other."
+  },
+  "IMPACT-3": {
+    "prompt": "The entry model gives 3.1×10^17 J, and the call is conducted in megatons of TNT.",
+    "question": "Estimate the energy in megatons of TNT.",
+    "labels": [
+      "3.1e17 J (kinetic energy at entry)",
+      "4.184e15 J (one megaton of TNT)",
+      "1.0e6 (joules in a megajoule)",
+      "15 kt (the 1945 test, for scale)"
+    ],
+    "values": [
+      310000000000000000,
+      4184000000000000,
+      1000000,
+      15
+    ],
+    "slots": 2,
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 74,
+    "tolerance": 8,
+    "units": "megatons",
+    "solution": "3.1×10^17 ÷ 4.184×10^15 ≈ 74 megatons.",
+    "explanation": "Subtract the exponents first — 10^17 ÷ 10^15 is 10^2 — then divide 3.1 by 4.184."
   },
   "OPS-17": {
     "prompt": "A survey upgrade lets it detect a standard object twice as far away. The searchable region is roughly a sphere.",
