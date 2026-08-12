@@ -49,6 +49,8 @@ const MISSIONS = content.MISSIONS ?? [];
 
 const words = (s) => String(s ?? '').toLowerCase().match(/[a-z][a-z'-]+/g) ?? [];
 const label = (c) => (typeof c === 'string' ? c : c?.label ?? '');
+/** Canonical challenge kind. The books write "Sequence", "SEQUENCE", "Science Tank". */
+const kindOf = (ch) => String(ch?.type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
 
 /** Longest run of consecutive words shared by two passages. */
 function longestShared(a, b){
@@ -68,6 +70,35 @@ function longestShared(a, b){
 }
 
 const ABSOLUTES = /\b(always|never|only|cannot ever|no illness|nothing at all|every single|entirely impossible|forever)\b/i;
+
+// ---- SEQUENCE: does the card WORDING give the order away?
+//
+// The LEAK probe above only runs on items with `choices`, so no ordering item in
+// any of the seven games had ever been checked — and the first one anybody read
+// closely gave itself away completely. Planetary Defense's "Validate the
+// discovery" listed "identify transient or moving candidates" and "submit the
+// candidate to the tracking network": the first and last slots are pinned by
+// general workflow sense, which leaves one binary decision in a four-card item,
+// and the phrase "for each detection" settles that one too. A player who knows
+// nothing about astrometry scores 4/4 by reading English.
+//
+// Three things pin a slot, all deterministic:
+//
+//   TERMINAL   the last card hands the work to somebody else — submit, report,
+//              publish, hand off. Nothing follows handing over, so that card can
+//              only be last.
+//   OPENER     the first card announces itself as the start — begin, first, set
+//              up, gather, collect.
+//   ARROW      any card points at another card's output: "then", "once", "the
+//              remaining", "the calibrated", "each detection". These are order
+//              arrows written into the prose.
+//
+// An item is flagged when both endpoints are pinned, or when an arrow appears at
+// all. Endpoints pinned is worth a finding on its own because a four-card item
+// with two slots free is a coin flip, and a three-card one is solved.
+const TERMINAL = /\b(submit|submits|hand (?:it |them )?off|handover|hand over|report (?:it |them )?to|publish|release|sign off|brief the|notify|escalate|deliver|file the|record the (?:result|outcome)|close the (?:case|call)|write it up)\b/i;
+const OPENER = /\b(begin|start (?:by|with)|first|before (?:anything|you)|set up|prepare|gather|collect|arrive)\b/i;
+const ARROW = /\b(then|afterwards|once (?:the|you|it)|next|finally|the remaining|the resulting|resulting|the calibrated|the rejected|the measured|the surviving|previously|already (?:rejected|measured|taken)|each (?:detection|sample|patient|candidate|reading|survivor)|these|those)\b/i;
 
 const findings = [];
 const add = (kind, at, msg) => findings.push({ kind, at, msg });
@@ -114,8 +145,42 @@ for(const [mi, m] of MISSIONS.entries()){
   }
 }
 
+// ---- 3. ORDER: can an ordering item be solved from the card wording?
+//
+// Over the CURRICULUM rather than the missions, unlike the two probes above.
+// Those ask about a stop the player will stand in; this asks about an item that
+// exists, and 7 of the 15 leaking card sets found the first time this ran were in
+// lessons no stop reaches today — review variants and spares that a re-shaped
+// campaign or a callback can put in front of the player tomorrow. Deduplicated by
+// card set, because a hospital item with four review variants is one thing to fix
+// and would otherwise be five findings.
+const seenCards = new Set();
+for(const [group, lessons] of Object.entries(CURRICULUM)){
+  (lessons ?? []).forEach((l, li) => {
+    const ch = l?.game;
+    if(!ch || kindOf(ch) !== 'SEQUENCE' || !Array.isArray(ch.cards) || ch.cards.length < 3) return;
+    const keyed = (ch.order ?? ch.cards.map((_, n) => n)).map(ix => String(ch.cards[ix] ?? ''));
+    const sig = keyed.join('|');
+    if(seenCards.has(sig)) return;
+    seenCards.add(sig);
+    const at = `${group}[${li}] "${l.title ?? ''}"`;
+    const first = keyed[0], last = keyed[keyed.length - 1];
+    const pinnedLast = TERMINAL.test(last) && !keyed.slice(0, -1).some(c => TERMINAL.test(c));
+    const pinnedFirst = OPENER.test(first) && !keyed.slice(1).some(c => OPENER.test(c));
+    const arrows = keyed.filter(c => ARROW.test(c));
+    if(pinnedFirst && pinnedLast){
+      add('ORDER', at, `both endpoints are pinned by wording — card 1 announces the start and card ${keyed.length} hands the work off, leaving ${keyed.length - 2} slot(s) to guess`);
+    } else if(pinnedLast && keyed.length <= 4){
+      add('ORDER', at, `the last card hands the work off ("${last.slice(0, 48)}…"), so its slot is fixed without the science`);
+    }
+    if(arrows.length){
+      add('ORDER', at, `${arrows.length} card(s) refer to another card's output ("${(arrows[0].match(ARROW) ?? [''])[0]}") — the order is written into the prose`);
+    }
+  });
+}
+
 const byKind = (k) => findings.filter(f => f.kind === k);
-for(const k of ['LEAK', 'GIVEAWAY']){
+for(const k of ['LEAK', 'GIVEAWAY', 'ORDER']){
   const hits = byKind(k);
   if(!hits.length) continue;
   console.log(`\n${k}: ${hits.length}`);
@@ -124,6 +189,18 @@ for(const k of ['LEAK', 'GIVEAWAY']){
 }
 if(!findings.length) console.log(`\n✓ theme "${themeName}": every question survives all three probes`);
 else console.log(`\n${findings.length} probe finding(s) in theme "${themeName}"`);
-// Advisory: these are smells, not contradictions, and a false positive should
-// not stop a build. validateContent is where a hard failure belongs.
-process.exit(0);
+// This used to exit 0 whatever it found: the findings were smells rather than
+// contradictions, and a false positive should not stop a build. The cost of that
+// was a probe nobody had to answer to — `npm run check` printed the findings and
+// then said "All checks passed", and the ORDER probe went in against 15 leaking
+// card sets that had been in the games for as long as the games had.
+//
+// All seven themes are clean now, so the gate can be a gate. A finding that is
+// genuinely a false positive is answered by rewording the card — which is cheap,
+// and is the same edit the true positives need. `--advisory` restores the old
+// behaviour for anyone who wants the list without the exit code.
+const advisory = process.argv.includes('--advisory');
+if(findings.length && !advisory){
+  console.log(`  (reword the card, or re-run with --advisory to ignore)`);
+}
+process.exit(findings.length && !advisory ? 1 : 0);

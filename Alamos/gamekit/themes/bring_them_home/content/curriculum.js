@@ -75,7 +75,7 @@ export const CURRICULUM = {
           "Transform all observations into one coordinate and time system.",
           "Fit a trajectory that predicts range, angle, and Doppler together.",
           "Examine residuals for bias or unmodeled acceleration.",
-          "Propagate the state and uncertainty to the next decision time."
+          "Propagate the state and its uncertainty forward to the hour the burn is committed."
         ],
         "order": [
           0,

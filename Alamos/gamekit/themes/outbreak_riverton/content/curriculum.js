@@ -1020,9 +1020,9 @@ export const CURRICULUM = {
         ],
         "cards": [
           "Specify observable symptoms, timing, and location.",
-          "Review the first patient records for common features.",
+          "Read the notes of the patients already admitted, for features they share.",
           "Test the definition on known cases and obvious non-cases.",
-          "Publish the provisional definition with a revision date and uncertainty notes."
+          "Attach a revision date and the known uncertainty to the definition the hospitals apply."
         ],
         "order": [
           1,
@@ -1796,7 +1796,7 @@ export const CURRICULUM = {
           "The transmission route, which three independent data streams agree on.",
           "The severe-risk subgroup, which one small observational sample suggests.",
           "The animal reservoir, which remains plausible and unconfirmed.",
-          "What each of those would take to settle, and when it will be revisited."
+          "What it would take to settle each open question, and when the city revisits it."
         ],
         "order": [
           0,

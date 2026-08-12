@@ -332,22 +332,22 @@ missions:
     place: Image Processing Lab
     scene: >-
       Forty thousand catalogued stars, two satellite trails and a hot pixel
-      column, and somewhere in the frames a moving point. Four steps to turn it
-      into something another observatory can act on.
+      column share the frames with the moving point. The pipeline runs tonight in
+      an order somebody will have to defend.
     takeaway: A discovery is useful only when another observer can test it.
     format: SEQUENCE
     rebuttals:
-    - Calibrate first — positions from an uncalibrated frame are wrong in a way no later step recovers.
-    - 'Reject the known second: stars, satellites, defects and catalogued objects, or you will measure them very precisely.'
-    - Measure third, with uncertainties, because a position without one cannot be fitted to anything.
-    - Submit last, with a predicted region. That is the step that makes it falsifiable by somebody who is not you.
+    - Bias, dark and flat first — positions off an uncalibrated frame are wrong in a way no later step recovers.
+    - 'Cross-match second: stars, satellites, defects and catalogued objects, or you will measure them very precisely.'
+    - Centroids and magnitudes third, with uncertainties, because a position without one cannot be fitted to anything.
+    - The ephemeris last, with a region. That is the step that makes this falsifiable by somebody who is not you.
     assumes:
     - a prediction somebody else can test is what makes a claim checkable
     cards:
-    - Calibrate the images and identify transient or moving candidates.
-    - Reject known stars, satellites, detector defects, and catalogued objects.
-    - Measure position, time, brightness, and uncertainty for each detection.
-    - Submit the candidate and predicted follow-up region to the tracking network.
+    - Apply the bias, dark and flat frames, and solve plate constants for each exposure.
+    - Cross-match every source in the field against the star catalogue, the satellite element sets and the defect mask.
+    - Fit centroids, magnitudes and per-measurement uncertainties against the observatory clock.
+    - Post an ephemeris with a predicted uncertainty region where another observatory can check it.
     order:
     - 0
     - 1
@@ -502,14 +502,14 @@ missions:
     - 'Common frame and clock first: two time standards in one fit is an error nobody sees in the residuals afterwards.'
     - A preliminary motion model second — you need something to take residuals against.
     - Residuals third, and read for structure. Scatter is noise; a pattern following one station is a fault.
-    - Predict last. The test of an astrometric model is where the object turns up next, not how well it fits where it has been.
+    - The prediction last. The test of an astrometric model is where the object turns up, not how well it fits where it has been.
     assumes:
     - measurements only combine if they are in the same frame and the same clock
     cards:
     - Place every measurement in a common coordinate and time system.
     - Fit a preliminary sky-plane motion model.
     - Inspect residuals for station, time, or field-dependent structure.
-    - Predict the next uncertainty region and schedule follow-up.
+    - State where the object will be on the following night, to the precision a telescope can be pointed with.
     order:
     - 0
     - 1

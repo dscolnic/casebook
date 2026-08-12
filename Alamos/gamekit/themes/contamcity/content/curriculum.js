@@ -79,7 +79,7 @@ export const CURRICULUM = {
         "setup": "Order the non-destructive evidence workflow.",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "1. Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened. 2. Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid. 3. Draw a small aliquot and run a non-destructive spectrum on it. 4. Commit part of that aliquot to a method that destroys it to identify it.",
+        "answer": "1. Photograph and record the markings on the outside of the drum, which consumes nothing. 2. Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid. 3. Draw a small aliquot and run a non-destructive spectrum on it. 4. Commit part of that aliquot to a method that destroys it to identify it.",
         "why": "The order is set by what each step costs. The markings on the outside of the drum survive only until somebody opens it, so they are recorded first and consume nothing. Headspace vapour samples what has already escaped, without breaching the bulk liquid. A non-destructive spectrum on a small aliquot can be repeated all week if it goes wrong. The destructive method gives the best identification and gives it once, so it is the last thing you spend and the first thing you would regret.",
         "rebuttals": [
           "Photograph the markings first. It costs nothing and it is the only evidence that stops existing the moment the drum is opened.",
@@ -88,7 +88,7 @@ export const CURRICULUM = {
           "The destructive method last. It answers best and it answers once, which makes it the thing you spend when you know what to ask."
         ],
         "cards": [
-          "Photograph and record the markings, which consumes nothing and cannot be redone once the drum is opened.",
+          "Photograph and record the markings on the outside of the drum, which consumes nothing.",
           "Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid.",
           "Draw a small aliquot and run a non-destructive spectrum on it.",
           "Commit part of that aliquot to a method that destroys it to identify it."
@@ -1308,7 +1308,7 @@ export const CURRICULUM = {
         "setup": "Order the reasoning.",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "Identify the relevant dissolution, precipitation, or complexation reactions. → Write the equilibrium relationships and mass balance. → Change pH, ligand concentration, or ionic strength in the model. → Predict and then measure redistribution among dissolved and solid forms.",
+        "answer": "Identify the relevant dissolution, precipitation, or complexation reactions. → Write the equilibrium relationships and mass balance. → Change pH, ligand concentration, or ionic strength in the model. → Predict the redistribution among dissolved and solid forms, and measure it.",
         "why": "Predicting where a system lands takes both halves of the problem. The relevant reactions have to be identified first, because you cannot write an equilibrium expression for chemistry you have not named. The expressions and the mass balance come next: the expressions say which direction the system moves, and the mass balance says how much of what has to be somewhere. Only then does changing a condition in the model mean anything, and only then can a prediction be compared against a measurement.",
         "rebuttals": [
           "Identify the reactions first. Dissolution, precipitation and complexation are different processes, and the model needs to know which are in play.",
@@ -1320,7 +1320,7 @@ export const CURRICULUM = {
           "Identify the relevant dissolution, precipitation, or complexation reactions.",
           "Write the equilibrium relationships and mass balance.",
           "Change pH, ligand concentration, or ionic strength in the model.",
-          "Predict and then measure redistribution among dissolved and solid forms."
+          "Predict the redistribution among dissolved and solid forms, and measure it."
         ],
         "order": [
           0,

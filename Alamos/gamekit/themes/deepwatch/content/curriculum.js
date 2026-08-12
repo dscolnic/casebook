@@ -872,10 +872,10 @@ export const CURRICULUM = {
           "Whether this compartment can fight that casualty, last. It is a judgement about the first three, not a fifth fact."
         ],
         "cards": [
-          "Find where the pressure boundary runs, because that is what decides whether a casualty is yours or the next compartment's.",
-          "Find both ways out through that boundary, and prove they still open.",
+          "Find where the pressure boundary runs, because it decides whether a casualty is this compartment's or the one aft.",
+          "Prove both hatches out of the compartment still open, by trying them.",
           "Find what in here could start a casualty — sea connections, cables, stores.",
-          "Judge whether what is in here can fight the casualty those things would start."
+          "Judge whether the equipment stowed here can fight a fire or a flood in this space."
         ],
         "order": [
           0,
@@ -1222,7 +1222,7 @@ export const CURRICULUM = {
           "Meter the cable in the compartment and confirm it is dead.",
           "Enter with breathing protection and fight the fire.",
           "Set boundaries and read them until the seat is cold.",
-          "Restore loads in dependency order, once the seat is proved cold."
+          "Restore loads in dependency order, vital equipment first."
         ],
         "order": [
           0,
