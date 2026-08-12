@@ -90,26 +90,35 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Distance from signal delay",
-      "scene": "A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The navigation room wants the range before the burn is planned.",
-      "takeaway": "Travel time converts directly into range when the propagation speed is known.",
-      "place": "Navigation Computation Lab",
-      "story": "A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The navigation room wants the range before the burn is planned.",
+      "title": "What holds it in the curve",
+      "scene": "The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and the room owes them an answer.",
+      "takeaway": "A curved path needs a force toward the centre, and orbital motion is that force being exactly enough.",
+      "place": "Guidance Computer Room",
+      "story": "The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and the room owes them an answer.",
       "game": {
-        "type": "BALLPARK",
-        "title": "Distance from signal delay",
-        "setup": "Navigation Computation Lab",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the spacecraft range.",
-        "answer": "",
-        "why": "Travel time becomes distance once you know the speed. The only subtlety is the one people drop: the pulse goes out and comes back, so the round-trip time is halved before it is multiplied. Range is exactly the quantity the restarted computer lost. It is also the one thing an angle can never give you. That is why a single pulse is worth more this shift than an hour of angles — it is measured directly, not inferred from a fit.",
-        "givens": [],
-        "relationship": "Distance = speed × time. Radio travels at the speed of light, and the pulse makes the trip twice.",
-        "calcKey": "NAV-3"
+        "type": "CHOICE",
+        "title": "What holds it in the curve",
+        "setup": "Guidance Computer Room",
+        "play": "Why does the spacecraft need any speed at all to stay in that orbit?",
+        "task": "Why does the spacecraft need any speed at all to stay in that orbit?",
+        "question": "Why does the spacecraft need any speed at all to stay in that orbit?",
+        "answer": "It is falling, and its sideways speed is what makes the fall a curve that misses.",
+        "why": "Circular motion is acceleration toward the centre, and here the whole of that acceleration is gravity: the spacecraft is falling the entire time, and its transverse speed turns the fall into a curve that keeps missing the surface. Get the speed wrong and the curve closes on the Moon or opens away from it. There is no outward force to balance — in the spacecraft's frame the crew feel weightless precisely because nothing is opposing gravity.",
+        "rebuttals": [
+          "Centrifugal force is an artefact of the rotating frame; in the inertial frame there is one force and it points inward.",
+          "Lunar gravity at that altitude is about a fifth of what it is at the surface, which is not negligible at all.",
+          "The engine is off, and it stays off for most of the return."
+        ],
+        "choices": [
+          "It is falling, and its sideways speed is what makes the fall a curve that misses.",
+          "Gravity is balanced by an outward centrifugal force, so nothing accelerates.",
+          "At that altitude the Moon's gravity is too weak to matter.",
+          "The spacecraft's own thrust holds it up against gravity."
+        ],
+        "correctChoice": "It is falling, and its sideways speed is what makes the fall a curve that misses."
       },
       "assumes": [
-        "radio travels at the speed of light"
+        "an object moving in a circle is accelerating even at constant speed"
       ]
     },
     {
@@ -138,39 +147,6 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Choose the correction strategy",
-      "scene": "The drift is real, the tracking is thin, and the propellant is not replaceable. Correcting now means correcting toward a state that has been measured badly; waiting means a better measurement and a much larger burn.",
-      "takeaway": "The best trajectory plan balances efficiency with robustness to model and hardware uncertainty.",
-      "place": "Propulsion Desk",
-      "story": "The drift is real, the tracking is thin, and the propellant is not replaceable. Correcting now means correcting toward a state that has been measured badly; waiting means a better measurement and a much larger burn.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Choose the correction strategy",
-        "setup": "Propulsion Desk",
-        "play": "The drift is real and the tracking is thin. What do you do?",
-        "task": "The drift is real and the tracking is thin. What do you do?",
-        "question": "The drift is real and the tracking is thin. What do you do?",
-        "answer": "Make an early modest correction, then track it hard.",
-        "why": "The same positional error costs more velocity to remove the closer the vehicle is to arrival, so an early burn is cheap. What makes it safe rather than merely cheap is the tracking afterwards: a modest correction against an uncertain state can be measured and corrected again, and a large one made at the end cannot. The plan that wins is not the one that is cheapest against the current best estimate. It is the one that still works if that estimate turns out to be wrong.",
-        "rebuttals": [
-          "Waiting buys a better measurement and pays for it in propellant that cannot be replaced, at the point in the trajectory where propellant is worth most.",
-          "Preserving a backup engine is a constraint on how you burn. It is not an alternative to burning, and the drift does not stop while it is being preserved.",
-          "One unverified solution is how a correction is made confidently toward the wrong place. The burn is only as good as the state it was computed from."
-        ],
-        "choices": [
-          "Make an early modest correction, then track it hard.",
-          "Wait for a better state estimate and accept a larger late burn.",
-          "Preserve the backup engine and an alternate attitude plan instead.",
-          "Correct now against the single best trajectory solution held."
-        ],
-        "correctChoice": "Make an early modest correction, then track it hard."
-      },
-      "assumes": [
-        "a correction is only as good as the state estimate it was computed from"
-      ]
-    },
-    {
-      "day": 6,
       "title": "Torque from a thruster",
       "scene": "A 200 N thruster fires at right angles, three metres from the centre of mass. The crew needs the torque before it can predict how fast the vehicle starts to turn.",
       "takeaway": "Force location matters as much as force magnitude in rotational control.",
@@ -187,71 +163,38 @@ export const CURRICULUM = {
         "why": "Torque is force times lever arm times the sine of the angle between them, and at right angles that sine is one, which is why this case is the simple one. The same thruster mounted closer in would produce proportionally less turn for the same propellant. Location matters as much as magnitude, and on a vehicle this size the lever arm is the term the crew can actually choose — which pair fires, not how hard.",
         "givens": [],
         "relationship": "Torque = force × lever arm, when the force is at right angles to the arm.",
-        "calcKey": "NAV-6"
+        "calcKey": "NAV-5"
       },
       "assumes": [
         "a longer lever arm gives the same force more turning effect"
       ]
     },
     {
-      "day": 7,
-      "title": "Angular error to position error",
-      "scene": "A pointing error of 0.1 degrees at a range of 400,000 kilometres. The guidance officer wants it in metres rather than degrees before the sighting is accepted.",
-      "takeaway": "Angle precision becomes position precision through geometry.",
-      "place": "Crew Navigation Trainer",
-      "story": "A pointing error of 0.1 degrees at a range of 400,000 kilometres. The guidance officer wants it in metres rather than degrees before the sighting is accepted.",
+      "day": 6,
+      "title": "How far it drifts while nobody is steering",
+      "scene": "Between the two burns the spacecraft is unpowered, and a small residual acceleration acts on it for 90 seconds. Nobody has turned that into a distance yet.",
+      "takeaway": "Under a constant acceleration, displacement grows with the square of the time.",
+      "place": "Guidance Computer Room",
+      "story": "Between the two burns the spacecraft is unpowered, and a small residual acceleration acts on it for 90 seconds. Nobody has turned that into a distance yet.",
       "game": {
         "type": "BALLPARK",
-        "title": "Angular error to position error",
-        "setup": "Crew Navigation Trainer",
+        "title": "How far it drifts while nobody is steering",
+        "setup": "Guidance Computer Room",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the transverse offset at that range.",
+        "question": "Estimate the drift over the 90 seconds.",
         "answer": "",
-        "why": "Small angles convert to transverse distance by multiplying the angle in radians by the range, and a tenth of a degree is about 1.75 milliradians. The number that comes out is why a hand-held sighting is discussed so carefully: angular precision becomes position precision through geometry alone, with no instrument error involved. At lunar distance a fraction of a degree is hundreds of kilometres, and the entry corridor is about a degree wide.",
+        "why": "Half of 0.004 metres a second squared, times 90 squared, is about 16 metres. The reason this matters more than it looks is the square: double the coast and the drift quadruples, so the same residual over six minutes is not 32 metres but 260. It is the same relationship as free fall — a projectile with no thrust is under one acceleration and nothing else, and its path is set by that and its initial velocity alone.",
         "givens": [],
-        "relationship": "Sideways offset = angle in radians × range. One degree is about 17.5 milliradians.",
-        "calcKey": "NAV-7"
+        "relationship": "Displacement = ½ × acceleration × time², for a constant acceleration from rest.",
+        "calcKey": "NAV-6"
       },
       "assumes": [
-        "a small angle times a distance gives a sideways offset"
+        "an object under constant acceleration covers half the acceleration times the time squared"
       ]
     },
     {
-      "day": 8,
-      "title": "Bound the manual alignment",
-      "scene": "The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to check them against. Nobody has measured how repeatable that is.",
-      "takeaway": "A manual procedure becomes reliable when its geometry and repeatability are measured.",
-      "place": "Guidance Review Board",
-      "story": "The burn will be aimed by a crew member sighting stars through a window reticle, with no platform to check them against. Nobody has measured how repeatable that is.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Bound the manual alignment",
-        "setup": "Guidance Review Board",
-        "play": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?",
-        "task": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?",
-        "question": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?",
-        "answer": "Multiple stars, each sighted more than once.",
-        "why": "A manual procedure is not unreliable by nature. It is unreliable until its scatter has been measured, and repetition is the only thing that measures scatter. Averaging several sightings of several stars is also the only thing that reduces it. A procedure with no repeat produces a number and no error bar at all, which makes it impossible to say whether the burn lands inside the corridor. Simulator calibration removes the fixed offset; it says nothing about how much the answer moves from one sighting to the next.",
-        "rebuttals": [
-          "Simulator calibration removes the systematic part — the fixed offset between eye, reticle and axis — and tells you nothing about how much the answer moves from one sighting to the next.",
-          "The attitude-rate check catches a vehicle still drifting when the sighting was taken. A real error source, and a different one.",
-          "One alignment by the best crew member is a single sample. It may well be the most accurate one; nobody can demonstrate that it was."
-        ],
-        "choices": [
-          "Multiple stars, each sighted more than once.",
-          "A reticle and eye-position calibration in the simulator.",
-          "A timed attitude-rate check immediately before ignition.",
-          "One careful alignment by the most practised crew member."
-        ],
-        "correctChoice": "Multiple stars, each sighted more than once."
-      },
-      "assumes": [
-        "a single measurement has no error bar"
-      ]
-    },
-    {
-      "day": 9,
+      "day": 7,
       "title": "Real trajectory error or common clock drift?",
       "scene": "Several ground measurements suddenly place the spacecraft ahead of its predicted path. They agree with each other, and the room is being asked to command a correction burn.",
       "takeaway": "When several measurements agree, ask whether they agree independently or merely inherit the same clock, calibration, or model.",
@@ -334,7 +277,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 10,
+      "day": 8,
       "title": "Combine independent uncertainties",
       "scene": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions. The navigation team needs a single number for the entry brief.",
       "takeaway": "Independent orthogonal uncertainties combine in quadrature.",
@@ -351,14 +294,14 @@ export const CURRICULUM = {
         "why": "Independent uncertainties along perpendicular axes combine in quadrature — each is squared, the squares are added, and the root is taken — so the answer is smaller than the sum and larger than either term on its own. Getting it wrong matters in both directions here. Overstated uncertainty argues for a correction burn that is not needed and spends propellant that cannot be replaced. Understated uncertainty hides a corridor violation, and the corridor is about a degree wide.",
         "givens": [],
         "relationship": "Independent errors along perpendicular axes add in quadrature: the root of the sum of the squares.",
-        "calcKey": "NAV-10"
+        "calcKey": "NAV-8"
       },
       "assumes": [
         "two errors along different directions do not simply add"
       ]
     },
     {
-      "day": 11,
+      "day": 9,
       "title": "Fund the mission legacy",
       "scene": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals compete for what the programme commits to next.",
       "takeaway": "The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.",
@@ -489,6 +432,39 @@ export const CURRICULUM = {
   "THERM": [
     {
       "day": 1,
+      "title": "What the pressure difference is for",
+      "scene": "The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.",
+      "takeaway": "Flow is driven by a pressure difference and limited by the restriction in the path.",
+      "place": "Life Support Lab",
+      "story": "The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.",
+      "game": {
+        "type": "CHOICE",
+        "title": "What the pressure difference is for",
+        "setup": "Life Support Lab",
+        "play": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
+        "task": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
+        "question": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
+        "answer": "Flowing on the difference, and the fall means either the difference or the path has changed.",
+        "why": "Gas moves because there is a pressure difference across the path, and how much moves depends on that difference and on how restricted the path is. Twenty-five psi of difference is still there, so a halved flow points at the path — a partly closed valve, ice at an orifice, a filter loading up — or at a reading that is not measuring what the crew think it is. Tank pressure on its own cannot promise a flow rate: the same 40 psi delivers nothing through a blocked line.",
+        "rebuttals": [
+          "A regulator set below tank pressure is the condition for flow, not an obstacle to it.",
+          "Tank pressure sets one end of the difference; the restriction in between sets the rate.",
+          "Temperature changes gas density and pressure a little; it does not reverse a 25 psi gradient."
+        ],
+        "choices": [
+          "Flowing on the difference, and the fall means either the difference or the path has changed.",
+          "Stopped, because the regulator setting is below the tank pressure.",
+          "Set by the tank pressure alone, so 40 psi guarantees the planned flow.",
+          "Reversed, since the cabin is warmer than the tank."
+        ],
+        "correctChoice": "Flowing on the difference, and the fall means either the difference or the path has changed."
+      },
+      "assumes": [
+        "gas flows from higher pressure to lower pressure"
+      ]
+    },
+    {
+      "day": 2,
       "title": "How much does the cabin cool?",
       "scene": "With the systems powered down the cabin is losing about a kilowatt more than it generates. The flight surgeon wants to know how long the crew has before the temperature becomes a medical problem.",
       "takeaway": "Thermal inertia can make temperature change slowly even when power is lost.",
@@ -505,14 +481,14 @@ export const CURRICULUM = {
         "why": "A lumped estimate treats the cabin and everything in it as one thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up.",
         "givens": [],
         "relationship": "Temperature drop = energy lost ÷ heat capacity. Energy lost = power × time.",
-        "calcKey": "THERM-1"
+        "calcKey": "THERM-2"
       },
       "assumes": [
         "it takes energy to warm a mass, and the same energy leaves when it cools"
       ]
     },
     {
-      "day": 2,
+      "day": 3,
       "title": "Choose the heat-transfer mechanism",
       "scene": "The cabin is cooling and the crew wants to do something about it. What can be done depends on how the heat is actually leaving, so the room names the pathway first.",
       "takeaway": "Identifying the pathway reveals which intervention can reduce loss.",
@@ -557,7 +533,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "CO2 production scale",
       "scene": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour. The workshop needs to know what an improvised scrubber has to keep up with over the next six hours.",
       "takeaway": "Source rate sets the minimum removal requirement.",
@@ -574,14 +550,14 @@ export const CURRICULUM = {
         "why": "Source rate sets the minimum removal requirement, and that is the whole point of doing this before building anything. A fix that removes carbon dioxide more slowly than three people produce it does not solve the problem — it only changes how fast the concentration climbs. The estimate is crude, and crude is enough: it decides whether the tape-and-hose solution is worth the hours it will take to build, and what size it has to be when it is finished.",
         "givens": [],
         "relationship": "Total = rate per person × number of people × time.",
-        "calcKey": "THERM-3"
+        "calcKey": "THERM-4"
       },
       "assumes": [
         "a rate multiplied by a time is a total"
       ]
     },
     {
-      "day": 4,
+      "day": 5,
       "title": "Kinetic-energy scale",
       "scene": "A 5,000 kg capsule returning from the Moon arrives at about 11,000 metres per second. The thermal protection team needs the kinetic energy before it can argue about heat load.",
       "takeaway": "Speed dominates kinetic energy because it enters squared.",
@@ -598,14 +574,14 @@ export const CURRICULUM = {
         "why": "Kinetic energy is half the mass times the speed squared, and the squared term is the whole story here. An entry speed about forty per cent higher than a return from low orbit carries roughly twice the energy, through the same heat shield. That is why lunar return is a categorically harder problem rather than a slightly harder one: the mass barely changed and the speed did, and speed is the term that enters twice.",
         "givens": [],
         "relationship": "Kinetic energy = ½ × mass × speed².",
-        "calcKey": "THERM-4"
+        "calcKey": "THERM-5"
       },
       "assumes": [
         "kinetic energy depends on mass and on speed"
       ]
     },
     {
-      "day": 5,
+      "day": 6,
       "title": "Commit to the path",
       "scene": "The decision has to be made this shift, and once the burn is executed most of the alternatives close. Nobody has yet written down what would show the choice was wrong.",
       "takeaway": "An abort trigger has to be defined while there is still propellant to act on it.",
@@ -1442,6 +1418,50 @@ export const CURRICULUM = {
     },
     {
       "day": 12,
+      "title": "Reading the trace instead of the number",
+      "scene": "The plot board has ninety minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
+      "takeaway": "A graph carries rate and change of rate, neither of which is visible in the latest reading.",
+      "place": "Flight Director console",
+      "story": "The plot board has ninety minutes of range against time on it, and the room keeps quoting the latest value out loud. The shape of the line has more in it than the last point does.",
+      "game": {
+        "type": "PROTOCOL",
+        "title": "Reading the trace instead of the number",
+        "setup": "Flight Director console",
+        "play": "Match each feature of the plotted trace to what it tells you about the motion.",
+        "task": "Match each feature of the plotted trace to what it tells you about the motion.",
+        "question": "Match each feature of the plotted trace to what it tells you about the motion.",
+        "answer": "",
+        "why": "A distance-time trace gives the speed in its slope and the acceleration in how that slope changes, and neither is recoverable from the newest number read out loud. The two failure shapes matter as much: scatter around a smooth line is noise, and a step that leaves the slope unchanged is an offset — a recalibrated instrument, a units change, a bookkeeping correction — rather than anything the spacecraft did. Reading the shape first is what stops the room chasing a manoeuvre that never happened.",
+        "rebuttals": [
+          "The slope is the rate; the value is only where the quantity has got to.",
+          "A slope change is the acceleration, which is the only feature that means a force acted.",
+          "Scatter is the instrument. Averaging it improves the estimate; explaining it as motion invents one."
+        ],
+        "scenarios": [
+          "The slope of the line",
+          "A change in the slope",
+          "Scatter about a smooth line",
+          "A step with no slope change after it"
+        ],
+        "choices": [
+          "The rate the quantity is changing at.",
+          "An acceleration, so something acted.",
+          "Measurement noise rather than motion.",
+          "An instrument or bookkeeping offset, not a manoeuvre."
+        ],
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "assumes": [
+        "the slope of a distance-time graph is a speed"
+      ]
+    },
+    {
+      "day": 13,
       "title": "Where orbital energy goes",
       "scene": "The capsule arrives at the atmosphere with the kinetic energy of a hundred-tonne truck at orbital speed. It has to reach the ocean carrying almost none of it.",
       "takeaway": "Reentry is an energy-dissipation problem constrained by human and material limits.",
@@ -1480,7 +1500,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 13,
+      "day": 14,
       "title": "Protect the entry corridor",
       "scene": "The corridor is about a degree wide. Too steep and the heating and deceleration exceed what the crew and the structure survive; too shallow and the capsule skips back out with no propellant left to return.",
       "takeaway": "Entry safety comes from margins across plausible conditions, not perfection at one nominal point.",
@@ -1513,7 +1533,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 14,
+      "day": 15,
       "title": "What is driving the vibration?",
       "scene": "A structural vibration becomes severe only in a narrow band of reaction-wheel speed. It peaks sharply near 3,200 rpm and falls away above and below.",
       "takeaway": "Resonance is diagnosed by relationships among forcing frequency, natural frequency, and response - not by amplitude alone.",
@@ -1596,7 +1616,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 15,
+      "day": 16,
       "title": "Stop the resonance",
       "scene": "A panel oscillates whenever the pump runs near one particular speed, and the amplitude has grown across three cycles. The pump is needed and the panel is structural.",
       "takeaway": "A structural fix should change the dynamics and then demonstrate that the dangerous mode is controlled.",
@@ -1629,7 +1649,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 16,
+      "day": 17,
       "title": "Name the binding constraint",
       "scene": "Four return paths are on the board and each stresses a different subsystem. The room cannot simply take the fastest one.",
       "takeaway": "The best physical solution is not necessarily the shortest or lowest-fuel solution.",
@@ -1674,7 +1694,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 17,
+      "day": 18,
       "title": "Select the robust trajectory",
       "scene": "Four return paths, each best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it are known only to within about a day.",
       "takeaway": "Robust optimization values margin and adaptability, not only nominal efficiency.",
@@ -1707,7 +1727,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 18,
+      "day": 19,
       "title": "Burn or observe?",
       "scene": "Two tracking stations disagree by slightly more than either one's stated error. Both use the same station clock model, and a correction burn is on the table.",
       "takeaway": "Corrections should reduce total uncertainty and risk, not merely move the nominal trajectory.",
@@ -1740,7 +1760,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 19,
+      "day": 20,
       "title": "Disposition final readiness",
       "scene": "The final go or no-go. Four claims of very different quality are in front of the room, and in eleven minutes the vehicle enters, the radio goes quiet, and nothing can be revisited.",
       "takeaway": "Final authority should follow traceable evidence and pre-agreed criteria.",
@@ -1785,7 +1805,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 20,
+      "day": 21,
       "title": "Execute the final physical chain",
       "scene": "Everything the last five days established comes down to the next eleven minutes, four of them with no communications at all. The order cannot be repeated.",
       "takeaway": "Entry is ordered by the blackout: whatever needs the ground has to be settled before it starts.",
@@ -1827,37 +1847,6 @@ export const CURRICULUM = {
 };
 
 export const BALLPARK_CALCS = {
-  "NAV-3": {
-    "prompt": "A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The pulse makes the trip twice.",
-    "question": "Estimate the spacecraft range.",
-    "labels": [
-      "3.0e8 m/s (speed of light)",
-      "2.6 s (round-trip time)",
-      "2 (out and back)",
-      "1.3 s (half the round trip)",
-      "343 m/s (speed of sound in air)"
-    ],
-    "values": [
-      300000000,
-      2.6,
-      2,
-      1.3,
-      343
-    ],
-    "slots": 3,
-    "template": "{0} × {1} ÷ {2}",
-    "formula": "a*b/c",
-    "correct": [
-      0,
-      1,
-      2
-    ],
-    "target": 390000000,
-    "tolerance": 30000000,
-    "units": "m",
-    "solution": "Range = ct/2 ≈ 3.9 × 10⁸ m.",
-    "explanation": "Halving the time and halving the answer come to the same thing, which is why the factor of two is the step people drop rather than get wrong. Sound has no part in it: the measurement is radio, in vacuum."
-  },
   "NAV-4": {
     "prompt": "A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.",
     "question": "Estimate the change in speed.",
@@ -1889,7 +1878,7 @@ export const BALLPARK_CALCS = {
     "solution": "Δv = Ft/m = 4 m/s.",
     "explanation": "Force times time is impulse; impulse divided by mass is the velocity change. Surface gravity has no bearing on a vehicle in free flight, and specific impulse would tell you what the burn costs in propellant rather than what it achieves."
   },
-  "NAV-6": {
+  "NAV-5": {
     "prompt": "A 200 N thruster fires at right angles, three metres from the centre of mass.",
     "question": "Estimate the torque about the centre of mass.",
     "labels": [
@@ -1979,7 +1968,7 @@ export const BALLPARK_CALCS = {
     "solution": "P = I²R = 20 W, in a joint the size of a thumbnail.",
     "explanation": "The bus voltage is the wrong term: the power lost in a series joint depends on the current through it and the voltage across it, not the voltage of the system it sits in. Current enters squared, so the same joint at 10 A would dissipate a quarter as much."
   },
-  "THERM-1": {
+  "THERM-2": {
     "prompt": "With the systems powered down the cabin is losing about a kilowatt more than it generates, over the next three hours. Treat the cabin and its contents as one thermal mass of about 12 million joules per kelvin.",
     "question": "Estimate the temperature drop over three hours.",
     "labels": [
@@ -2010,7 +1999,7 @@ export const BALLPARK_CALCS = {
     "solution": "1 kW for 10,800 s is 10.8 MJ; divided by 12 MJ/K, about 0.9 K.",
     "explanation": "A watt is a joule per second, so the time has to be in seconds or the answer is out by 3,600. That is the arithmetic slip this problem exists to catch."
   },
-  "THERM-3": {
+  "THERM-4": {
     "prompt": "Three crew members each exhale roughly 20 litres of carbon dioxide an hour, and the improvised scrubber has to keep up for the next six hours.",
     "question": "Estimate the carbon dioxide produced in six hours.",
     "labels": [
@@ -2071,38 +2060,36 @@ export const BALLPARK_CALCS = {
     "solution": "λ = c/f = 0.15 m.",
     "explanation": "A factor of a thousand in the frequency is a factor of a thousand in the wavelength, and a 150-metre wave would need an antenna nobody could fly. Reading the exponent is most of this calculation."
   },
-  "NAV-7": {
-    "prompt": "A pointing error of 0.1 degrees at a range of 400,000 kilometres. Small angles convert to transverse distance by multiplying the angle in radians by the range.",
-    "question": "Estimate the transverse offset at that range.",
+  "NAV-6": {
+    "prompt": "A residual acceleration of 0.004 m/s² acts for 90 s with the engine off.",
+    "question": "Estimate the drift over the 90 seconds.",
     "labels": [
-      "4.0e8 m (range)",
-      "0.1 degrees (pointing error)",
-      "0.01745 rad per degree",
-      "57.3 degrees per radian",
-      "1,000 m per km"
+      "0.004 m/s² (residual acceleration)",
+      "90 s (unpowered coast)",
+      "0.5 (the one half in the relationship)",
+      "9.81 m/s² (surface gravity, for scale)"
     ],
     "values": [
-      400000000,
-      0.1,
-      0.01745,
-      57.3,
-      1000
+      0.004,
+      90,
+      0.5,
+      9.81
     ],
     "slots": 3,
-    "template": "{0} × {1} × {2}",
-    "formula": "a*b*c",
+    "template": "{2} × {0} × {1}²",
+    "formula": "c*a*b*b",
     "correct": [
       0,
       1,
       2
     ],
-    "target": 698000,
-    "tolerance": 50000,
+    "target": 16,
+    "tolerance": 3,
     "units": "m",
-    "solution": "0.1° is about 1.75 milliradians; times 4 × 10⁸ m, roughly 700 km.",
-    "explanation": "Radians per degree and degrees per radian are reciprocals, and picking the wrong one puts the answer out by a factor of 3,300. The small-angle relation only holds in radians, which is the whole reason the conversion is here."
+    "solution": "0.5 × 0.004 × 90² = 0.002 × 8,100 ≈ 16 m.",
+    "explanation": "The time is squared. Use it once and the answer is 0.36 m, which would look like nothing worth correcting."
   },
-  "THERM-4": {
+  "THERM-5": {
     "prompt": "A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.",
     "question": "Estimate the kinetic energy to be dissipated.",
     "labels": [
@@ -2162,7 +2149,7 @@ export const BALLPARK_CALCS = {
     "solution": "T = 2π√(m/k) ≈ 0.63 s, about 1.6 Hz.",
     "explanation": "Only inertia and stiffness set the natural frequency — heavier is slower, stiffer is faster. The wheel speed is what might drive this mode, which is the next question and not this one."
   },
-  "NAV-10": {
+  "NAV-8": {
     "prompt": "Two independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.",
     "question": "Estimate the combined two-dimensional uncertainty.",
     "labels": [

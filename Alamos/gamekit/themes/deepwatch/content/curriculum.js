@@ -134,35 +134,35 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "What the bottom is good for",
-      "scene": "Ahead the charted bottom rises steeply toward the bank. Rask offers to run a line of soundings across the contour as the boat closes it, with the plot already in doubt.",
-      "takeaway": "A contour crossing turns a depth into a position line.",
-      "place": "Sonar Room",
-      "story": "Ahead the charted bottom rises steeply toward the bank. Rask offers to run a line of soundings across the contour as the boat closes it, with the plot already in doubt.",
+      "title": "Where the sound will not go",
+      "scene": "Warm water down to sixty metres, colder below it, and the contact held for forty minutes has gone quiet in one sweep. Nothing else on the display changed.",
+      "takeaway": "Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.",
+      "place": "Sonar Shack",
+      "story": "Warm water down to sixty metres, colder below it, and the contact held for forty minutes has gone quiet in one sweep. Nothing else on the display changed.",
       "game": {
         "type": "CHOICE",
-        "title": "What the bottom is good for",
-        "setup": "Sonar Room",
-        "play": "Use the bottom as an instrument",
-        "task": "Use the bottom as an instrument",
-        "question": "What does a run of soundings across a rising contour give you?",
-        "answer": "A line of position, independent of the plot, from where the depths match the chart.",
-        "why": "One sounding is a weak clue, because many places on a chart are twelve metres deep. A profile taken while moving is a shape, and a shape can be matched against the chart — where the measured depths match the printed ones is a line of position. It fails for entirely different reasons than a plot does, which is the whole point of running it. Comparing a measurement against the chart is not circular: the chart is a record of the bottom, and the bottom is out there.",
+        "title": "Where the sound will not go",
+        "setup": "Sonar Shack",
+        "play": "The contact was held on the surface layer and is now lost. Where has it gone?",
+        "task": "The contact was held on the surface layer and is now lost. Where has it gone?",
+        "question": "The contact was held on the surface layer and is now lost. Where has it gone?",
+        "answer": "Below the layer, into a shadow zone the rays from this depth do not reach.",
+        "why": "Sound speed falls with temperature, and a ray bends toward the slower water. A ray leaving this depth is turned downward as it crosses the layer, and the geometry leaves a region below and beyond it that no ray from here enters — a shadow zone. A contact in one does not fade; it disappears between sweeps and comes back the same way. That is the signature to read, and it is the reason boats change depth to search rather than only turning up the gain.",
         "rebuttals": [
-          "A fathometer measures the depth under the keel, not the range to anything ahead.",
-          "The chart is a record of the bottom; comparing a measurement to it is not circular.",
-          "Surfacing for a fix is a decision about exposure, and the bottom is already here."
+          "Range loss is gradual. This went in a single sweep, which is a geometry change and not a range change.",
+          "The baffles are a bearing sector astern. The contact's bearing did not move before it was lost.",
+          "A contact that quiets down fades over minutes. This one was there and then was not."
         ],
         "choices": [
-          "A line of position, independent of the plot, from where the depths match the chart.",
-          "A range to the bank, from how long the sound took to return.",
-          "Confirmation of the plot, since the depths came from the same chart.",
-          "Nothing useful until the boat surfaces for a proper fix."
+          "Below the layer, into a shadow zone the rays from this depth do not reach.",
+          "Out of range, since detection falls off smoothly with distance.",
+          "Astern, into the boat's own baffles behind the propeller.",
+          "Nowhere. It has shut down and is making no noise at all."
         ],
-        "correctChoice": "A line of position, independent of the plot, from where the depths match the chart."
+        "correctChoice": "Below the layer, into a shadow zone the rays from this depth do not reach."
       },
       "assumes": [
-        "the seabed has been surveyed and printed on the chart"
+        "sound travels faster in warmer water"
       ]
     },
     {
@@ -289,134 +289,127 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "A line that is not a round number",
-      "scene": "The line sits at a hundred and thirteen hertz, which is roughly twice the shaft rate, and it grows when turns increase.",
-      "takeaway": "A frequency that is a multiple of a rotation belongs to the thing that rotates.",
-      "place": "Sonar Room",
-      "story": "The line sits at a hundred and thirteen hertz, which is roughly twice the shaft rate, and it grows when turns increase.",
+      "title": "What the shifted line says about speed",
+      "scene": "The narrowband line sits at 149.7 hertz. The machine that makes it runs at 150.0, and every other boat in the class shows it at 150.0 as well.",
+      "takeaway": "A Doppler shift is a speed measurement: the frequency you hear is not the frequency emitted.",
+      "place": "Sonar Shack",
+      "story": "The narrowband line sits at 149.7 hertz. The machine that makes it runs at 150.0, and every other boat in the class shows it at 150.0 as well.",
       "game": {
-        "type": "CHOICE",
-        "title": "A line that is not a round number",
-        "setup": "Sonar Room",
-        "play": "Say what the line means",
-        "task": "Say what the line means",
-        "question": "What does a line at twice shaft rate suggest?",
-        "answer": "Something rotating with the shaft, loaded twice per turn.",
-        "why": "Rotating machinery writes its own rate into the water, and which multiple stands out says something about the fault underneath. A mass out of balance pulls once per revolution, so it shows at shaft rate. A shaft out of line is loaded twice in every turn, once at each extreme of its wobble, so it shows at twice shaft rate. That is the signature here. And it is the uncomfortable half of the trade: the same line is being written into somebody else's display, with our name attached.",
-        "rebuttals": [
-          "A contact's frequency would not follow our own throttle.",
-          "An electrical harmonic sits on a supply frequency and stays there.",
-          "A line that tracks shaft speed is the opposite of a coincidence."
-        ],
-        "choices": [
-          "Something rotating with the shaft, loaded twice per turn.",
-          "A contact whose engine runs at about that frequency.",
-          "An electrical harmonic, unrelated to anything rotating.",
-          "Frequencies drift, so the number is a coincidence."
-        ],
-        "correctChoice": "Something rotating with the shaft, loaded twice per turn."
+        "type": "BALLPARK",
+        "title": "What the shifted line says about speed",
+        "setup": "Sonar Shack",
+        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "question": "Estimate the range rate the shift implies.",
+        "answer": "",
+        "why": "This is Doppler: the fractional shift is 0.3 in 150, one part in five hundred, and the speed is that fraction of the speed of sound: about 3 metres a second, or roughly 6 knots. The line is LOW, so the source is opening — a shift toward higher frequency would mean closing. The size of it matters as much as the sign: a 6-knot opening rate is a boat leaving, not a boat manoeuvring, and it changes what the next sweep should be looking for.",
+        "givens": [],
+        "relationship": "Δf ÷ f = v ÷ c, with c about 1500 m/s in water. Rearranged, v = c × Δf ÷ f.",
+        "calcKey": "SONAR-6"
       },
       "assumes": [
-        "a shaft turning at some rate radiates at that rate and at multiples of it"
+        "sound travels at about 1500 metres a second in sea water"
       ]
     },
     {
       "day": 7,
-      "title": "What you give up by being silent",
-      "scene": "Rask points out that a quiet boat is also a slow boat. He is asking what the same decision costs on the other side of the ledger, before the boat commits to four hours of it.",
-      "takeaway": "Quiet buys concealment and spends time, and time is what a track is made of.",
-      "place": "Sonar Room",
-      "story": "Rask points out that a quiet boat is also a slow boat. He is asking what the same decision costs on the other side of the ledger, before the boat commits to four hours of it.",
+      "title": "What silence buys, term by term",
+      "scene": "Four hours of quiet running is being argued about on the assumption that quiet is always better. The detection budget has four terms in it and only one of them is the boat's own noise.",
+      "takeaway": "Detection is a budget, and each term is bought or lost by a different decision.",
+      "place": "Sonar Shack",
+      "story": "Four hours of quiet running is being argued about on the assumption that quiet is always better. The detection budget has four terms in it and only one of them is the boat's own noise.",
       "game": {
-        "type": "CHOICE",
-        "title": "What you give up by being silent",
-        "setup": "Sonar Room",
-        "play": "Say what quiet costs the picture",
-        "task": "Say what quiet costs the picture",
-        "question": "What does slowing down do to the sonar picture?",
-        "answer": "It makes the boat quieter to listen with, but a track takes longer to develop.",
-        "why": "Everything the room knows about where a contact is and where it is going has to be assembled out of how that bearing changes while your own boat moves. Slowing genuinely helps the array, because much of what it fights is the boat's own machinery — own noise falls and the array hears more. But moving less means the bearing changes less, so the same track takes longer to develop. Quiet buys concealment and spends time, and time is what a track is made of.",
+        "type": "PROTOCOL",
+        "title": "What silence buys, term by term",
+        "setup": "Sonar Shack",
+        "play": "Match each term in the detection budget to what it accounts for.",
+        "task": "Match each term in the detection budget to what it accounts for.",
+        "question": "Match each term in the detection budget to what it accounts for.",
+        "answer": "",
+        "why": "Detection needs source level, minus transmission loss, minus noise, plus array gain, to clear a threshold. Running quiet only reduces the noise WE add, which helps our own listening and does nothing to the other boat's source level or to the water between. Slowing also costs array gain, because a towed array needs way on to stay straight. That is why silence is a trade and not a virtue: it buys one term of four and spends another.",
         "rebuttals": [
-          "Passive sonar hears own-ship noise louder than anything else, so speed matters a great deal.",
-          "More bearings from the same place are not more information about range.",
-          "A slow boat is easier to hit, not harder, because it has fewer options."
+          "Source level belongs to the target, not to us; running quiet does not change it.",
+          "Transmission loss is set by the water and the geometry, and no decision on this boat alters it.",
+          "Array gain is what the array recovers, and it falls off when the array is not straight."
+        ],
+        "scenarios": [
+          "Source level",
+          "Transmission loss",
+          "Noise level",
+          "Array gain"
         ],
         "choices": [
-          "It makes the boat quieter to listen with, but a track takes longer to develop.",
-          "It has no effect; sonar is passive and does not care about own speed.",
-          "It improves the track, because a slower boat gets more bearings.",
-          "It removes the need for a track, since a slow boat cannot be hit."
+          "How loud the thing being hunted is at its own hull.",
+          "What the sea takes out of the signal on the way here.",
+          "Everything else arriving at the same time, including our own machinery.",
+          "What listening with many elements at once recovers."
         ],
-        "correctChoice": "It makes the boat quieter to listen with, but a track takes longer to develop."
+        "mapping": [
+          0,
+          1,
+          2,
+          3
+        ]
       },
       "assumes": [
-        "passive sonar gives bearing and nothing else"
+        "a signal is detected only when it stands above the noise around it"
       ]
     },
     {
       "day": 8,
-      "title": "Why isolators and not a better array",
-      "scene": "The alternative proposal was a more sensitive array. Rask argues for the pump mounts instead, and the reason is not about the array's quality.",
-      "takeaway": "A more sensitive instrument in a noisier boat hears its own boat better.",
-      "place": "Sonar Room",
-      "story": "The alternative proposal was a more sensitive array. Rask argues for the pump mounts instead, and the reason is not about the array's quality.",
+      "title": "What twelve decibels is worth",
+      "scene": "The yard offers mounts that cut the boat's radiated level by 12 decibels. The wardroom has read that as \"about a tenth quieter\" and is weighing it against a new array.",
+      "takeaway": "Decibels are a ratio on a logarithmic scale, so a small number of them is a large factor.",
+      "place": "Sonar Shack",
+      "story": "The yard offers mounts that cut the boat's radiated level by 12 decibels. The wardroom has read that as \"about a tenth quieter\" and is weighing it against a new array.",
       "game": {
-        "type": "CHOICE",
-        "title": "Why isolators and not a better array",
-        "setup": "Sonar Room",
-        "play": "Say what the mounts buy",
-        "task": "Say what the mounts buy",
-        "question": "Why do the mounts beat a better array?",
-        "answer": "The array's limit is our own noise, so removing noise helps more than more sensitivity.",
-        "why": "Sensitivity and noise are separate quantities, and only one of them is what the sonar room has been complaining about since the first transit. On a submarine the array's floor is usually set by the boat's own machinery, conducted into the water through the mountings that hold it down. When the floor is set by the boat itself, a more sensitive ear hears that floor more clearly and nothing else. Removing the noise raises what the existing array can reach; more sensitivity does not.",
-        "rebuttals": [
-          "Fit is an engineering detail, not the reason one buys more than the other.",
-          "No instrument is perfect; this one is limited by its surroundings.",
-          "Cost matters, but it is not why this is the better buy."
-        ],
-        "choices": [
-          "The array's limit is our own noise, so removing noise helps more than more sensitivity.",
-          "A new array would not fit the existing hull opening.",
-          "Sensitivity is already perfect and cannot be improved.",
-          "Mounts are cheaper, and cost is the only criterion."
-        ],
-        "correctChoice": "The array's limit is our own noise, so removing noise helps more than more sensitivity."
+        "type": "BALLPARK",
+        "title": "What twelve decibels is worth",
+        "setup": "Sonar Shack",
+        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "question": "By what factor do the mounts reduce radiated power?",
+        "answer": "",
+        "why": "Every 3 decibels is a factor of two in power, so 12 decibels is four doublings: two to the fourth, a factor of sixteen. Read as a percentage it sounds like a minor refit and it is nothing of the kind — sixteen times less radiated power changes the range at which the boat is detectable. This is why levels are quoted in decibels at all: the quantities span so many orders of magnitude that a linear scale hides the differences that matter.",
+        "givens": [],
+        "relationship": "Each 3 dB is one doubling of power, so the factor is 2 raised to (dB ÷ 3).",
+        "calcKey": "SONAR-8"
       },
       "assumes": [
-        "every instrument has a noise floor below which it hears nothing"
+        "three decibels is a doubling of acoustic power"
       ]
     },
     {
       "day": 9,
-      "title": "The report the captain asked for",
-      "scene": "Commander Vance wants your assessment before the boat enters the passage, and she has been clear all patrol about what she expects in one.",
-      "takeaway": "A report that hides its uncertainty is worse than no report, because it will be acted on.",
-      "place": "Sonar Room",
-      "story": "Commander Vance wants your assessment before the boat enters the passage, and she has been clear all patrol about what she expects in one.",
+      "title": "Why the level pulses three times a second",
+      "scene": "Two narrowband lines, 147 and 150 hertz, and the operator says the level swells and dies three times a second on the audio. The display shows two steady lines and nothing else.",
+      "takeaway": "Two close frequencies add and cancel in turn, and the beat rate is their difference.",
+      "place": "Sonar Shack",
+      "story": "Two narrowband lines, 147 and 150 hertz, and the operator says the level swells and dies three times a second on the audio. The display shows two steady lines and nothing else.",
       "game": {
         "type": "CHOICE",
-        "title": "The report the captain asked for",
-        "setup": "Sonar Room",
-        "play": "Report what you know and what you do not",
-        "task": "Report what you know and what you do not",
-        "question": "What belongs in the assessment?",
-        "answer": "What is known, what is not, and which of the two is about to change.",
-        "why": "Everything known down here arrived through an instrument with a limit on it: a bearing with no range, a plot with an age, a level read four minutes ago. None of those limits is visible to the person acting on your words unless you put them there. A report is not a summary of your evidence — it is the raw material somebody else makes a decision out of, at speed. What is known, what is not, and which of the two is about to change is the only form that lets them do it. A likely case with the uncertainty stripped out is what puts a boat into a bank.",
+        "title": "Why the level pulses three times a second",
+        "setup": "Sonar Shack",
+        "play": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
+        "task": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
+        "question": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
+        "answer": "Two sources beating against each other, at the difference of their frequencies.",
+        "why": "Two tones close in frequency drift in and out of phase with each other, adding where they agree and cancelling where they do not, and they come back into phase at the difference frequency — 150 minus 147, three times a second. So the pulsing is not a third signal and not an artefact: it is evidence that there are exactly two sources, and their spacing is measurable by ear. Two shafts on one hull do this, and so do two boats.",
         "rebuttals": [
-          "A likely case with the uncertainty stripped out is what puts a boat into a bank.",
-          "Everything you know is not a report; it is the raw material for one.",
-          "A recommendation is welcome after the assessment, not instead of it."
+          "A speed change moves a line's frequency. It does not make the level rise and fall on a fixed period.",
+          "Two steady lines pulsing is what interference sounds like; the display is showing the frequencies, not the sum.",
+          "Our own machinery would appear on every bearing. These two lines are on one."
         ],
         "choices": [
-          "What is known, what is not, and which of the two is about to change.",
-          "The most likely case, stated plainly, without hedging it.",
-          "Every reading from every department, so nothing is left out.",
-          "A recommendation, since the captain has to decide anyway."
+          "Two sources beating against each other, at the difference of their frequencies.",
+          "One source whose speed is changing three times a second.",
+          "A fault in the display, since two steady lines cannot pulse.",
+          "The boat's own machinery, aliased into the band."
         ],
-        "correctChoice": "What is known, what is not, and which of the two is about to change."
+        "correctChoice": "Two sources beating against each other, at the difference of their frequencies."
       },
       "assumes": [
-        "the person acting on a report cannot see the instruments behind it"
+        "two waves arriving together add where they are in phase and cancel where they are not"
       ]
     }
   ],
@@ -1606,35 +1599,35 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "What the boat can afford to stop",
-      "scene": "Haruki lists what could be secured or slowed for the passage. He wants one of them, and he wants it before the boat is in the narrows rather than after.",
-      "takeaway": "Silence is not free, and the bill is paid by whatever the machine was doing.",
-      "place": "Machinery Control Room",
-      "story": "Haruki lists what could be secured or slowed for the passage. He wants one of them, and he wants it before the boat is in the narrows rather than after.",
+      "title": "The one shaft speed that rings",
+      "scene": "At 92 revolutions the after compartment rings loudly enough to hear through a bulkhead. At 85 and at 100 it does not. Nothing else about the plant changes between them.",
+      "takeaway": "A compartment has standing-wave frequencies of its own, and forcing it at one of them is what makes it loud.",
+      "place": "Machinery Room",
+      "story": "At 92 revolutions the after compartment rings loudly enough to hear through a bulkhead. At 85 and at 100 it does not. Nothing else about the plant changes between them.",
       "game": {
         "type": "CHOICE",
-        "title": "What the boat can afford to stop",
-        "setup": "Machinery Control Room",
-        "play": "Buy quiet with capability",
-        "task": "Buy quiet with capability",
-        "question": "Haruki can make one change before the narrows. Which?",
-        "answer": "Come down in turns and accept a slower passage.",
-        "why": "Everything aboard radiates, but not equally. Cavitation off the propeller dominates every other source at this depth and speed, so turns are where the whole signature is — and slowing costs only time, which the boat has and can get back. The cooling pump is the one machine on the list whose loss starts a clock on a bearing, and a bearing run hot for an hour is a shipyard visit. The fans cost stale air and are not where the noise is. Unused processors radiate almost nothing.",
+        "title": "The one shaft speed that rings",
+        "setup": "Machinery Room",
+        "play": "The hull rings at one shaft speed and nowhere else. Why that one?",
+        "task": "The hull rings at one shaft speed and nowhere else. Why that one?",
+        "question": "The hull rings at one shaft speed and nowhere else. Why that one?",
+        "answer": "At that speed the blade rate matches a natural frequency of the structure, so the response is amplified.",
+        "why": "A compartment supports standing waves, and a forcing frequency that coincides with one of them is amplified, sometimes by an order of magnitude, and away from it the same forcing is unremarkable. Blade rate is shaft speed times the number of blades, so one particular revolution count lands on the compartment's resonance and its neighbours do not. That is why the fix is a shaft speed to avoid, or a mount that shifts the resonance, rather than more power or a quieter crew.",
         "rebuttals": [
-          "The cooling pump is the one machine on the list whose loss starts a clock on a bearing, and a bearing run hot for an hour is a shipyard visit. It is the worst bargain here.",
-          "The fans are genuinely noisy and stopping them costs only stale air, but they are not where the noise is. Do it as well if you like; it will not change what anybody hears.",
-          "Unused processors radiate almost nothing acoustically, and shutting them down costs the contact picture the passage depends on."
+          "Imbalance rises smoothly with speed and would be worse at 100 than at 92.",
+          "A failing bearing gets worse with load and speed; it does not pick one revolution count and go quiet either side.",
+          "Cavitation increases with speed and does not switch off above a threshold."
         ],
         "choices": [
-          "Come down in turns and accept a slower passage.",
-          "Secure one of the two seawater cooling pumps.",
-          "Stop the ventilation fans in the crew spaces.",
-          "Shut down the sonar processors that are not being used."
+          "At that speed the blade rate matches a natural frequency of the structure, so the response is amplified.",
+          "The shaft is out of balance, and imbalance grows steadily with speed.",
+          "The bearing is failing, and a failing bearing is loudest in the middle of its range.",
+          "Cavitation begins at that speed and stops above it."
         ],
-        "correctChoice": "Come down in turns and accept a slower passage."
+        "correctChoice": "At that speed the blade rate matches a natural frequency of the structure, so the response is amplified."
       },
       "assumes": [
-        "a propeller cavitates, and cavitation is loud"
+        "every structure has frequencies at which it prefers to vibrate"
       ]
     },
     {
@@ -1684,35 +1677,37 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Opening the damper is not the whole job",
-      "scene": "The damper to berthing is shut and can be opened from the machinery space. The ventilation fan that serves that branch was stopped during the last drill and never restarted.",
-      "takeaway": "A path needs both a way through and something moving the air along it.",
-      "place": "Machinery Control Room",
-      "story": "The damper to berthing is shut and can be opened from the machinery space. The ventilation fan that serves that branch was stopped during the last drill and never restarted.",
+      "title": "What one fan takes with it",
+      "scene": "The ventilation drawing shows one fan feeding the scrubber and the after spaces through a common trunk. The watch bill treats them as two independent systems, and the atmosphere plan assumes both.",
+      "takeaway": "Two systems sharing one component are one system for the purpose of a failure.",
+      "place": "Machinery Room",
+      "story": "The ventilation drawing shows one fan feeding the scrubber and the after spaces through a common trunk. The watch bill treats them as two independent systems, and the atmosphere plan assumes both.",
       "game": {
         "type": "CHOICE",
-        "title": "Opening the damper is not the whole job",
-        "setup": "Machinery Control Room",
-        "play": "Put the air back where it belongs",
-        "task": "Put the air back where it belongs",
-        "question": "What restores berthing to the scrubber?",
-        "answer": "Open the damper and start the branch fan, then measure the space again.",
-        "why": "Ventilation is a branched system, and the scrubbers only ever treat air that passes through them. A damper is a hole and a fan is the reason air goes through it — neither on its own moves the compartment's air, and a mechanical damper does not lift with flow. Then it has to be proved with the same handheld that found the problem, because a compartment still outside the loop reads exactly like one inside it until somebody measures. Moving the crew treats the symptom and leaves the space unventilated.",
+        "title": "What one fan takes with it",
+        "setup": "Machinery Room",
+        "play": "One fan feeds both the scrubber and the after spaces. What does that mean for the plan?",
+        "task": "One fan feeds both the scrubber and the after spaces. What does that mean for the plan?",
+        "question": "One fan feeds both the scrubber and the after spaces. What does that mean for the plan?",
+        "answer": "The fan is a single point of failure, and the plan needs a second path or a stated fallback.",
+        "why": "Redundancy is not about how many systems are drawn on the diagram, it is about what they share. Two paths through one fan fail together, and a plan that assumes they are independent has no answer for the case that actually happens. The work is to find the shared component, decide whether a second path exists, and if it does not, write down what the boat will do instead — before the failure, while the decision is still cheap.",
         "rebuttals": [
-          "The plant can only treat air that reaches it, and nothing is pushing this air anywhere.",
-          "A damper is a mechanical valve; flow does not open it.",
-          "Moving the crew treats the symptom and leaves the compartment unventilated."
+          {
+            "Reliability is not independence": "a reliable shared component still takes both systems out when it does fail."
+          },
+          "Running the scrubber harder consumes more of the same air path and shortens the time available.",
+          "Sealing the after spaces removes them from the plan rather than protecting them, and people are berthed there."
         ],
         "choices": [
-          "Open the damper and start the branch fan, then measure the space again.",
-          "Open the damper — the plant will do the rest.",
-          "Start the fan; the damper will lift with the flow.",
-          "Move the crew out and leave the ventilation as it is."
+          "The fan is a single point of failure, and the plan needs a second path or a stated fallback.",
+          "Nothing. Two systems on one fan is normal and the fan is reliable.",
+          "The scrubber should be run harder, so a fan failure leaves more margin.",
+          "The after spaces should be sealed off, since they are downstream."
         ],
-        "correctChoice": "Open the damper and start the branch fan, then measure the space again."
+        "correctChoice": "The fan is a single point of failure, and the plan needs a second path or a stated fallback."
       },
       "assumes": [
-        "air does not move along a path on its own"
+        "a system is only as independent as the things it shares"
       ]
     },
     {
@@ -2146,6 +2141,35 @@ export const BALLPARK_CALCS = {
     "solution": "1.1 hours at eight knots against three at three knots, so slowing buys nearly two more.",
     "explanation": "An hour is not enough time to fight a flooding casualty and rebuild a plot. Three hours is. The boat's speed is the one number on this list that you control, and it is worth two hours.\n"
   },
+  "SONAR-6": {
+    "prompt": "The line is at 149.7 Hz against a rest frequency of 150.0 Hz.",
+    "question": "Estimate the range rate the shift implies.",
+    "labels": [
+      "0.3 Hz (the shift)",
+      "150 Hz (the machine's own frequency)",
+      "1500 m/s (sound speed in water)",
+      "0.5144 (metres a second per knot)"
+    ],
+    "values": [
+      0.3,
+      150,
+      1500,
+      0.5144
+    ],
+    "slots": 3,
+    "template": "{0} ÷ {1} × {2}",
+    "formula": "a/b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 3,
+    "tolerance": 0.6,
+    "units": "m/s",
+    "solution": "0.3 ÷ 150 = 0.002; × 1500 m/s = 3 m/s, about 6 knots, opening.",
+    "explanation": "The sound speed belongs in the numerator. Divide by it instead and the answer is a millionth of the truth."
+  },
   "DC-5": {
     "prompt": "The boat has gone four metres deeper at unchanged speed and planes.",
     "question": "Estimate the weight of water aboard.",
@@ -2202,6 +2226,35 @@ export const BALLPARK_CALCS = {
     "units": "hours",
     "solution": "The net gain is 0.3 m³/h; 6.0 ÷ 0.3 = 20 hours to the limit.",
     "explanation": "Twenty hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless.\n"
+  },
+  "SONAR-8": {
+    "prompt": "The mounts are rated at 12 dB of reduction in radiated level.",
+    "question": "By what factor do the mounts reduce radiated power?",
+    "labels": [
+      "12 dB (the rated reduction)",
+      "3 dB (one doubling of power)",
+      "2 (the factor per doubling)",
+      "10 dB (a factor of ten, for scale)"
+    ],
+    "values": [
+      12,
+      3,
+      2,
+      10
+    ],
+    "slots": 3,
+    "template": "{2} ^ ({0} ÷ {1})",
+    "formula": "Math.pow(c, a/b)",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 16,
+    "tolerance": 2,
+    "units": "× less power",
+    "solution": "12 ÷ 3 = 4 doublings, and 2 to the fourth is 16 times less power.",
+    "explanation": "Decibels add where factors multiply, which is the whole point of the scale."
   }
 };
 

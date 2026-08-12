@@ -322,47 +322,35 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Protect the comparison",
-      "scene": "Early trial results look encouraging. Four things about how the trial was run are on the table at the clinical trial centre, and each of them could produce an encouraging number on its own.",
-      "takeaway": "A credible effect depends on how the comparison was produced, not only the final number.",
-      "place": "Clinical Trial Center",
-      "story": "Early trial results look encouraging. Four things about how the trial was run are on the table at the clinical trial centre, and each of them could produce an encouraging number on its own.",
+      "title": "What the pH is telling you",
+      "scene": "Arterial pH 7.28, bicarbonate low, and the patient is breathing fast. The registrar has read the fast breathing as the problem and wants to sedate it down.",
+      "takeaway": "Blood pH is defended by a buffer system, so a shifted pH means the buffer has been overwhelmed.",
+      "place": "Clinical Physiology Suite",
+      "story": "Arterial pH 7.28, bicarbonate low, and the patient is breathing fast. The registrar has read the fast breathing as the problem and wants to sedate it down.",
       "game": {
-        "type": "PROTOCOL",
-        "title": "Protect the comparison",
-        "setup": "Clinical Trial Center",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "",
-        "why": "A trial is a machine for producing one comparison — what happened, against what would have happened otherwise — and each of these four threatens that comparison in its own way. Sicker patients getting the candidate makes the groups different before treatment starts. An assessor who knows the arm reads outcomes differently. Testing many outcomes and reporting the best finds a difference by looking often enough. And patients leaving unevenly changes who is left to measure. Each has a specific design control, and none substitutes for another.",
+        "type": "CHOICE",
+        "title": "What the pH is telling you",
+        "setup": "Clinical Physiology Suite",
+        "play": "Blood pH is 7.28 with a low bicarbonate. What is that telling you?",
+        "task": "Blood pH is 7.28 with a low bicarbonate. What is that telling you?",
+        "question": "Blood pH is 7.28 with a low bicarbonate. What is that telling you?",
+        "answer": "Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation.",
+        "why": "Bicarbonate is the blood's main buffer: it neutralises added acid and is consumed doing it, so a low bicarbonate with a low pH means acid is being produced faster than it is cleared. Breathing fast blows off carbon dioxide, which pushes the pH back up — it is the compensation, not the cause, and sedating it removes the one mechanism currently holding the pH where it is. Find and treat the acid; the respiratory rate is a symptom being useful.",
         "rebuttals": [
-          "Sicker patients receiving the candidate is confounding by indication, and allocation is what stops it — randomisation makes the groups comparable before anything is given.",
-          "An assessor who knows the arm is measurement bias, and blinding is the answer to it. Randomising will not help once the outcome is being judged.",
-          "Many outcomes tested and the best reported is multiplicity: with enough outcomes something is always significant, and pre-specification is what closes it.",
-          "Uneven attrition changes who remains to be measured, so it is tracked and analysed rather than designed away."
-        ],
-        "scenarios": [
-          "Sicker patients preferentially receive the candidate.",
-          "Outcome assessors know who received treatment.",
-          "Many outcomes are tested and only the best is reported.",
-          "Participants leave the study at different rates by group."
+          "Hyperventilation raises pH. It cannot be the cause of an acidity it is opposing.",
+          "Normal arterial pH is about 7.35 to 7.45, and the body defends it hard; 7.28 is a real derangement.",
+          "Blowing off carbon dioxide lowers carbonic acid, not bicarbonate stores."
         ],
         "choices": [
-          "Randomization or careful allocation procedures.",
-          "Blinding where feasible.",
-          "Pre-specified primary outcomes and multiplicity control.",
-          "Track attrition and analyze its potential bias."
+          "Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation.",
+          "The fast breathing has caused the acidity and slowing it will correct the pH.",
+          "A pH of 7.28 is within the normal range and needs no explanation.",
+          "The bicarbonate is low because the patient is breathing off carbon dioxide."
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
-        ]
+        "correctChoice": "Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation."
       },
       "assumes": [
-        "a treated group is only informative next to a group that was not treated"
+        "blood is buffered, and normal arterial pH sits near 7.4"
       ]
     },
     {
@@ -508,40 +496,97 @@ export const CURRICULUM = {
       "assumes": [
         "a chain of steps fails at its earliest broken link"
       ]
+    },
+    {
+      "day": 4,
+      "title": "How many by morning",
+      "scene": "The culture starts at 500 cells and the line divides every 40 minutes in this medium. The bench needs a number for eight hours from now, before it decides how much medium to prepare.",
+      "takeaway": "Division doubles a population, so growth is exponential and its rate is a doubling time.",
+      "place": "Cell Biology Laboratory",
+      "story": "The culture starts at 500 cells and the line divides every 40 minutes in this medium. The bench needs a number for eight hours from now, before it decides how much medium to prepare.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "How many by morning",
+        "setup": "Cell Biology Laboratory",
+        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "question": "Estimate the number of cells after eight hours.",
+        "answer": "",
+        "why": "Eight hours is 480 minutes. That is twelve doubling times. Twelve doublings is a factor of about 4,100, so 500 cells become about two million. The shape matters more than the number. Add ninety minutes and you add two more doublings, which quadruples the answer. That is why a culture left overnight runs out of medium. It is also why the same arithmetic is frightening when the thing doubling is cases.",
+        "givens": [],
+        "relationship": "Final number = starting number × 2 raised to (time ÷ doubling time).",
+        "calcKey": "CELL-4"
+      },
+      "assumes": [
+        "each division turns one cell into two"
+      ]
+    },
+    {
+      "day": 5,
+      "title": "The same genome, different cells",
+      "scene": "The receptor the agent binds is on airway cells and not on the muscle cells beside them, in the same patient, with the same DNA in every nucleus.",
+      "takeaway": "Gene regulation — which genes are switched on in which cell — is what makes a cell the cell it is.",
+      "place": "Cell Biology Laboratory",
+      "story": "The receptor the agent binds is on airway cells and not on the muscle cells beside them, in the same patient, with the same DNA in every nucleus.",
+      "game": {
+        "type": "CHOICE",
+        "title": "The same genome, different cells",
+        "setup": "Cell Biology Laboratory",
+        "play": "Every cell has the same genome. Why do only some of them make the receptor?",
+        "task": "Every cell has the same genome. Why do only some of them make the receptor?",
+        "question": "Every cell has the same genome. Why do only some of them make the receptor?",
+        "answer": "The gene is expressed in some cell types and switched off in others.",
+        "why": "Every nucleus holds the whole genome, so having a gene explains nothing about where its protein appears. Gene regulation decides it: transcription factors and the state of the chromatin decide which genes are read in which cell type, and that regulation is what makes an airway cell an airway cell. For an outbreak it is the practical point — tissue tropism follows the expression pattern of the receptor, which is why this agent causes a respiratory illness rather than a muscular one.",
+        "rebuttals": [
+          "Cells do not discard genes as they specialise; the genome is the same in both.",
+          "Staining shows the protein absent from the muscle tissue, not merely unreachable.",
+          "The receptor is a human protein. The agent exploits it and does not supply it."
+        ],
+        "choices": [
+          "The gene is expressed in some cell types and switched off in others.",
+          "Only airway cells carry that gene; the muscle cells have lost it.",
+          "The muscle cells make the receptor too, but the antibody cannot reach them.",
+          "The receptor is made by the agent, not by the cell."
+        ],
+        "correctChoice": "The gene is expressed in some cell types and switched off in others."
+      },
+      "assumes": [
+        "every cell in a body carries the same genome"
+      ]
     }
   ],
   "MOL": [
     {
       "day": 1,
-      "title": "Choose the next discriminating evidence",
-      "scene": "Two hypotheses about the agent are still open and there is money for one more piece of work before the diagnostic bench has to commit. Three of the four things on the table would produce a result by tonight.",
-      "takeaway": "Independent failure modes matter more than prestige or repeated views of the same evidence.",
-      "place": "Molecular Identification Lab",
-      "story": "Two hypotheses about the agent are still open and there is money for one more piece of work before the diagnostic bench has to commit. Three of the four things on the table would produce a result by tonight.",
+      "title": "Why the assay stops at fifty-five degrees",
+      "scene": "The amplification runs cleanly in the 37-degree block and produces nothing in the 55-degree one. Same reagents, same sample, same operator, twenty minutes apart.",
+      "takeaway": "An enzyme is a protein with a shape, and the shape is what the reaction depends on.",
+      "place": "Molecular Diagnostics Bench",
+      "story": "The amplification runs cleanly in the 37-degree block and produces nothing in the 55-degree one. Same reagents, same sample, same operator, twenty minutes apart.",
       "game": {
         "type": "CHOICE",
-        "title": "Choose the next discriminating evidence",
-        "setup": "Molecular Identification Lab",
-        "play": "One experiment separates the two remaining hypotheses. Which?",
-        "task": "One experiment separates the two remaining hypotheses. Which?",
-        "question": "One experiment separates the two remaining hypotheses. Which?",
-        "answer": "Obtain a molecular signature using a validated broad panel.",
-        "why": "The evidence so far is morphological, and the two candidates differ in their genome rather than their appearance. A molecular panel fails in a different way from microscopy, so agreement between the two would mean something; more microscopy could only agree with itself.",
+        "title": "Why the assay stops at fifty-five degrees",
+        "setup": "Molecular Diagnostics Bench",
+        "play": "The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?",
+        "task": "The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?",
+        "question": "The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?",
+        "answer": "An enzyme is catalysing it, and above its range the protein denatures and stops working.",
+        "why": "Enzymes are proteins, and a protein's catalytic site is a shape. Warming speeds a reaction until the temperature starts unfolding that shape, after which the rate collapses — which is why enzyme activity has an optimum rather than rising without limit. The two blocks differ in nothing but temperature, so the sample and the target are the same in both; what changed is whether the catalyst was still folded. It is also why the thermostable enzymes this assay uses are worth their cost.",
         "rebuttals": [
-          "Higher magnification is more of the evidence already held. If the first image could be misread, so can a sharper one taken the same way.",
-          "The replication comparison is a real and independent test and it is what you run next. It answers whether the agent needs host cells — which the panel has already shown — rather than which candidate it is.",
-          "An authority's opinion carries the authority's failure modes and adds no measurement at all."
+          "Rate rises with temperature only while the catalyst survives it, and this one did not.",
+          "Both blocks had the same sample, split twenty minutes apart. Degradation would have hit both.",
+          "DNA is stable well above 55 degrees; it separates into strands there and is not destroyed."
         ],
         "choices": [
-          "Obtain a molecular signature using a validated broad panel.",
-          "Repeat the same microscope image at higher magnification.",
-          "Compare growth in permissive and non-permissive cell systems.",
-          "Ask a recognised authority which answer is most likely."
+          "An enzyme is catalysing it, and above its range the protein denatures and stops working.",
+          "The reaction is endothermic, so more heat should always drive it faster.",
+          "The sample degraded, which is why the warmer block produced nothing.",
+          "Heat destroyed the target sequence, so there was nothing left to amplify."
         ],
-        "correctChoice": "Obtain a molecular signature using a validated broad panel."
+        "correctChoice": "An enzyme is catalysing it, and above its range the protein denatures and stops working."
       },
       "assumes": [
-        "two methods that can fail the same way do not confirm each other"
+        "a protein's function depends on it keeping its shape"
       ]
     },
     {
@@ -1159,39 +1204,6 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Find transmission before the hospital",
-      "scene": "Nine days of hospital isolation, and cases keep appearing in neighbourhoods with nobody admitted from them. There is enough money this week for one of the four things the room has proposed.",
-      "takeaway": "The most useful surveillance reaches upstream of the outcome it is trying to prevent.",
-      "place": "Transit and Mobility Center",
-      "story": "Nine days of hospital isolation, and cases keep appearing in neighbourhoods with nobody admitted from them. There is enough money this week for one of the four things the room has proposed.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Find transmission before the hospital",
-        "setup": "Transit and Mobility Center",
-        "play": "Cases appear in neighbourhoods with nobody admitted. What do you commission?",
-        "task": "Cases appear in neighbourhoods with nobody admitted. What do you commission?",
-        "question": "Cases appear in neighbourhoods with nobody admitted. What do you commission?",
-        "answer": "Expand wastewater sampling across the connected sewersheds.",
-        "why": "Hospital isolation has held for nine days, so the chain is running somewhere the hospital cannot see. Wastewater reports the population rather than the patients who reached care, and sampling it by sewershed turns 'somewhere' into a map — which is the thing every other option needs and none of them supplies.",
-        "rebuttals": [
-          "Contact studies are how presymptomatic transmission is established, and they need a place to start. Which households, in which neighbourhoods, is what the sewershed map is for.",
-          "More bed counts measure the outcome you are trying to get ahead of. They will confirm the problem after it arrives.",
-          "A comparison neighbourhood is worth sampling and is part of the same programme, not a substitute for finding where transmission is happening."
-        ],
-        "choices": [
-          "Expand wastewater sampling across the connected sewersheds.",
-          "Conduct structured household and workplace contact studies.",
-          "Add more hospital bed and admission counts.",
-          "Sample one comparison neighbourhood with no reported cases."
-        ],
-        "correctChoice": "Expand wastewater sampling across the connected sewersheds."
-      },
-      "assumes": [
-        "a measurement taken downstream of a process reports it after it has happened"
-      ]
-    },
-    {
-      "day": 8,
       "title": "Choose the One Health campaign",
       "scene": "There is one field campaign to fund and its design decides what can be concluded from it. Trappers, a genomics bench and a nervous agriculture department are all waiting on the answer.",
       "takeaway": "One Health decisions should connect human, animal, and environmental evidence before intervention.",
@@ -1224,7 +1236,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 9,
+      "day": 8,
       "title": "Selection or sampling artifact?",
       "scene": "A variant has gone from 8 to 31 per cent of sequences in four weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "takeaway": "A frequency change is an observation; selection is an explanation that requires controls against sampling, founder effects, and technical drift.",
@@ -1307,7 +1319,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 10,
+      "day": 9,
       "title": "Track a rising variant",
       "scene": "Before anybody argues about why the variant is rising, the surveillance hub needs the rise itself. Week one and week three sequenced different numbers of samples.",
       "takeaway": "Evolutionary inference begins with accurate frequencies and then tests causal explanations.",
@@ -1324,14 +1336,14 @@ export const CURRICULUM = {
         "why": "A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.",
         "givens": [],
         "relationship": "A share = the count ÷ the number sequenced. Take the share in each week, then the difference.",
-        "calcKey": "POP-10"
+        "calcKey": "POP-9"
       },
       "assumes": [
         "a fraction needs both a numerator and the denominator it came from"
       ]
     },
     {
-      "day": 11,
+      "day": 10,
       "title": "Why did the therapy fail?",
       "scene": "A therapy that worked is failing. The ward has the drug levels, the agent burden over time, the sequence at the target site and a reference isolate, and it wants to change everybody's prescription this afternoon.",
       "takeaway": "Evolution can be observed in real time when a treatment changes which variants are most successful.",
@@ -1414,7 +1426,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 12,
+      "day": 11,
       "title": "How resistance spreads",
       "scene": "The therapy worked for six weeks and now fails in one patient in four. Failures cluster on the wards where it has been in use longest, and somebody in the meeting has said the organism learned to resist it.",
       "takeaway": "Selection acts on existing or newly arising variation by differential survival and reproduction.",
@@ -1453,7 +1465,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 13,
+      "day": 12,
       "title": "Recover treatment effectiveness",
       "scene": "Effectiveness is falling and the pharmacology unit has a limited budget. Every failure so far happened on documented dosing with concentrations inside the therapeutic range.",
       "takeaway": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
@@ -1486,7 +1498,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 14,
+      "day": 13,
       "title": "Choose the intervention layer",
       "scene": "The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.",
       "takeaway": "A layered strategy is stronger when each intervention has a defined mechanism and failure mode.",
@@ -1531,7 +1543,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 15,
+      "day": 14,
       "title": "From candidate to justified trial",
       "scene": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol on the table names no endpoint and no stopping rule.",
       "takeaway": "Urgency changes speed and coordination, not the need for interpretable evidence and participant protection.",
@@ -1570,7 +1582,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 16,
+      "day": 15,
       "title": "Build a layered intervention portfolio",
       "scene": "One portfolio to fund, several plausible layers competing for it, and a city that would like to be told the crisis is under control.",
       "takeaway": "Layers are chosen for different mechanisms and different timescales, not for how promising each one sounds.",
@@ -1603,7 +1615,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 17,
+      "day": 16,
       "title": "Read effect size and uncertainty",
       "scene": "The trial has reported, and the health minister wants a number before deciding how much to buy. The biostatistics office has the event counts for both arms and nothing has been converted yet.",
       "takeaway": "Relative and absolute effects answer different decision questions and should be reported together.",
@@ -1620,14 +1632,14 @@ export const CURRICULUM = {
         "why": "The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. Twenty patients treated for one to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.",
         "givens": [],
         "relationship": "Risk = events ÷ people at risk. The number needed to treat is 1 ÷ (control risk − treated risk).",
-        "calcKey": "POP-17"
+        "calcKey": "POP-16"
       },
       "assumes": [
         "a risk is events divided by the people who could have had them"
       ]
     },
     {
-      "day": 18,
+      "day": 17,
       "title": "Continue, expand, or pause?",
       "scene": "The result is promising and imprecise, and the adverse events are uneven across the arms. The safety board has to say what happens next, and enrolment is paused until it does.",
       "takeaway": "A mature trial decision can be encouraging and cautious at the same time.",
@@ -1660,7 +1672,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 19,
+      "day": 18,
       "title": "Build a decision model",
       "scene": "Three districts are on visibly different trajectories and the council wants one citywide policy by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
       "takeaway": "Models are structured arguments whose assumptions should remain visible.",
@@ -1699,7 +1711,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 20,
+      "day": 19,
       "title": "Choose an adaptive policy",
       "scene": "The outbreak is geographically uneven and the council wants a policy it can defend for a month. Three districts, three different trajectories, and one decision.",
       "takeaway": "Good policy is a feedback system, not a one-time guess.",
@@ -1732,7 +1744,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 21,
+      "day": 20,
       "title": "Disposition the final claims",
       "scene": "Four claims are going into the final report and they are not equally well supported. The review board has to decide what to say about each, and the document will outlive everybody in the room.",
       "takeaway": "Scientific conclusions should carry the strength and limits of their supporting evidence.",
@@ -1777,7 +1789,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 22,
+      "day": 21,
       "title": "Build the public explanation",
       "scene": "The mayor is on air in an hour. The transmission route is settled, the animal reservoir is not, and the treatment works under conditions nobody has tested past eight weeks. The draft opens with the actions.",
       "takeaway": "A public account is ordered by the strength of its evidence, not by the order the work happened in.",
@@ -1810,7 +1822,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 23,
+      "day": 22,
       "title": "Fund the post-crisis legacy",
       "scene": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Four proposals, and the room has stopped pretending all of them survive.",
       "takeaway": "The final responsibility is to convert crisis knowledge into durable public capability.",
@@ -1846,30 +1858,6 @@ export const CURRICULUM = {
   "FIELD": [
     {
       "day": 1,
-      "title": "Can the cluster grow?",
-      "scene": "About twenty people are infectious now, and the field office's best estimate is that each is producing roughly 1.4 more. Nobody has written down what that means for next week.",
-      "takeaway": "A threshold near one can determine whether small changes produce growth or decline.",
-      "place": "Field Epidemiology Office",
-      "story": "About twenty people are infectious now, and the field office's best estimate is that each is producing roughly 1.4 more. Nobody has written down what that means for next week.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "Can the cluster grow?",
-        "setup": "Field Epidemiology Office",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate how many infections the next generation produces.",
-        "answer": "",
-        "why": "Twenty-eight against twenty is growth, and the fact that it is growth — not the size of the number — is what decides whether the chain burns out or doubles every fortnight.",
-        "givens": [],
-        "relationship": "Next generation = current cases × the average number each one infects.",
-        "calcKey": "FIELD-1"
-      },
-      "assumes": [
-        "a chain grows when each case produces more than one new case"
-      ]
-    },
-    {
-      "day": 2,
       "title": "Reservoir, vector, or incidental host?",
       "scene": "Sequences from three patients sit close to a virus found in animals along the river corridor. The field station has four ecological patterns on the board and a trapper waiting outside with more animals.",
       "takeaway": "Ecological roles are inferred from dynamics, not appearance or proximity alone.",
@@ -1914,7 +1902,7 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 3,
+      "day": 2,
       "title": "Test the reservoir hypothesis",
       "scene": "Trappers report sick animals on the flood plain, and nobody has yet sampled in a way that could tell a reservoir from a bystander that caught it from people. Four steps, and the campaign gets funded once.",
       "takeaway": "A reservoir claim requires population and evolutionary evidence together.",
@@ -2020,37 +2008,41 @@ export const BALLPARK_CALCS = {
     "solution": "3 × 0.20 = 0.6 L O₂/min, against 1.0 for the comparison patient.",
     "explanation": "Delivery is a rate, and it is the product of what each litre carries and how many litres arrive. Saturation and haemoglobin describe the content term and cannot on their own say how much oxygen reaches anything."
   },
-  "FIELD-1": {
-    "prompt": "About twenty people are currently infectious, and each is producing roughly 1.4 new infections in the next generation of transmission.",
-    "question": "Estimate how many infections the next generation produces.",
+  "CELL-4": {
+    "prompt": "500 cells, a 40-minute doubling time, eight hours to go.",
+    "question": "Estimate the number of cells after eight hours.",
     "labels": [
-      "20 people currently infectious",
-      "1.4 new infections per person per generation",
-      "5 days (the serial interval)",
-      "140 cases reported so far",
-      "0.7 new infections per person, after control"
+      "500 (cells at the start)",
+      "480 min (eight hours)",
+      "40 min (doubling time)",
+      "2 (cells per division)",
+      "8 h (the same interval, in hours)",
+      "60 (minutes in an hour)"
     ],
     "values": [
-      20,
-      1.4,
-      5,
-      140,
-      0.7
+      500,
+      480,
+      40,
+      2,
+      8,
+      60
     ],
-    "slots": 2,
-    "template": "{0} × {1}",
-    "formula": "a*b",
+    "slots": 4,
+    "template": "{0} × {3} ^ ({1} ÷ {2})",
+    "formula": "a*Math.pow(d, b/c)",
     "correct": [
       0,
-      1
+      1,
+      2,
+      3
     ],
-    "target": 28,
-    "tolerance": 2,
-    "units": "new infections",
-    "solution": "20 × 1.4 ≈ 28, so the chain grows.",
-    "explanation": "The serial interval says how fast the generations arrive and not how many there are in each; the cumulative count says what has already happened. Growth or decline is decided by one number, and by whether it is above or below one."
+    "target": 2048000,
+    "tolerance": 400000,
+    "units": "cells",
+    "solution": "480 ÷ 40 = 12 doublings; 2^12 ≈ 4,100; × 500 ≈ 2 million cells.",
+    "explanation": "Twelve doublings, not twelve times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340."
   },
-  "POP-10": {
+  "POP-9": {
     "prompt": "In week one, 40 of 400 sequenced samples carried the variant. In week three, 180 of 600 did. The denominators are what make the two weeks comparable.",
     "question": "Estimate the change in variant frequency, in percentage points.",
     "labels": [
@@ -2084,7 +2076,7 @@ export const BALLPARK_CALCS = {
     "solution": "10% in week one, 30% in week three: an increase of 20 percentage points.",
     "explanation": "Pooling the two weeks throws away the comparison — the whole question is whether the ratio moved, and a combined numerator over a combined denominator cannot say. Each week needs its own denominator."
   },
-  "POP-17": {
+  "POP-16": {
     "prompt": "The trial reports hospitalisation in 20 of 200 control participants and 10 of 200 treated participants.",
     "question": "Estimate the number of patients who must be treated for one to benefit.",
     "labels": [

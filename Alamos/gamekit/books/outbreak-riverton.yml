@@ -484,33 +484,36 @@ missions:
       then say whether this is cellular at all, and only once you know that does
       asking whether it copies itself alone mean anything.
   - group: MOL
-    task: One experiment separates the two remaining hypotheses. Which?
-    title: Choose the next discriminating evidence
-    place: Molecular Identification Lab
+    task: The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?
+    title: Why the assay stops at fifty-five degrees
+    place: Molecular Diagnostics Bench
     scene: >-
-      Two hypotheses about the agent are still open and there is money for one
-      more piece of work before the diagnostic bench has to commit. Three of the
-      four things on the table would produce a result by tonight.
-    takeaway: Independent failure modes matter more than prestige or repeated views of the same evidence.
+      The amplification runs cleanly in the 37-degree block and produces nothing in
+      the 55-degree one. Same reagents, same sample, same operator, twenty minutes
+      apart.
+    takeaway: An enzyme is a protein with a shape, and the shape is what the reaction depends on.
     format: CHOICE
     assumes:
-    - two methods that can fail the same way do not confirm each other
-    question: One experiment separates the two remaining hypotheses. Which?
+    - a protein's function depends on it keeping its shape
+    question: The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?
     choices:
-    - Obtain a molecular signature using a validated broad panel.
-    - Repeat the same microscope image at higher magnification.
-    - Compare growth in permissive and non-permissive cell systems.
-    - Ask a recognised authority which answer is most likely.
-    answer: Obtain a molecular signature using a validated broad panel.
+    - An enzyme is catalysing it, and above its range the protein denatures and stops working.
+    - The reaction is endothermic, so more heat should always drive it faster.
+    - The sample degraded, which is why the warmer block produced nothing.
+    - Heat destroyed the target sequence, so there was nothing left to amplify.
+    answer: An enzyme is catalysing it, and above its range the protein denatures and stops working.
     why: >-
-      The evidence so far is morphological, and the two candidates differ in
-      their genome rather than their appearance. A molecular panel fails in a
-      different way from microscopy, so agreement between the two would mean
-      something; more microscopy could only agree with itself.
+      Enzymes are proteins, and a protein's catalytic site is a shape. Warming speeds
+      a reaction until the temperature starts unfolding that shape, after which the
+      rate collapses — which is why enzyme activity has an optimum rather than rising
+      without limit. The two blocks differ in nothing but temperature, so the sample
+      and the target are the same in both; what changed is whether the catalyst was
+      still folded. It is also why the thermostable enzymes this assay uses are worth
+      their cost.
     rebuttals:
-    - Higher magnification is more of the evidence already held. If the first image could be misread, so can a sharper one taken the same way.
-    - The replication comparison is a real and independent test and it is what you run next. It answers whether the agent needs host cells — which the panel has already shown — rather than which candidate it is.
-    - An authority's opinion carries the authority's failure modes and adds no measurement at all.
+    - Rate rises with temperature only while the catalyst survives it, and this one did not.
+    - Both blocks had the same sample, split twenty minutes apart. Degradation would have hit both.
+    - DNA is stable well above 55 degrees; it separates into strands there and is not destroyed.
 - title: The Point of Entry
   objective: Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream
     replication.
@@ -1270,77 +1273,87 @@ missions:
       volunteer survey at one station samples volunteers at one station. And
       prevalence counts everybody currently ill, so it stays high while people
       are still ill even after new cases stop.
-  - group: FIELD
+  - group: CELL
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
-    title: Can the cluster grow?
-    place: Field Epidemiology Office
+    title: How many by morning
+    place: Cell Biology Laboratory
     scene: >-
-      About twenty people are infectious now, and the field office's best
-      estimate is that each is producing roughly 1.4 more. Nobody has written
-      down what that means for next week.
-    takeaway: A threshold near one can determine whether small changes produce growth or decline.
+      The culture starts at 500 cells and the line divides every 40 minutes in this
+      medium. The bench needs a number for eight hours from now, before it decides
+      how much medium to prepare.
+    takeaway: Division doubles a population, so growth is exponential and its rate is a doubling time.
     format: BALLPARK
     assumes:
-    - a chain grows when each case produces more than one new case
-    why: Twenty-eight against twenty is growth, and the fact that it is growth — not the size of the number — is what decides whether the chain burns out or doubles every fortnight.
-    question: Estimate how many infections the next generation produces.
+    - each division turns one cell into two
+    question: Estimate the number of cells after eight hours.
+    why: >-
+      Eight hours is 480 minutes. That is twelve doubling times. Twelve doublings
+      is a factor of about 4,100, so 500 cells become about two million. The shape
+      matters more than the number. Add ninety minutes and you add two more
+      doublings, which quadruples the answer. That is why a culture left overnight
+      runs out of medium. It is also why the same arithmetic is frightening when the
+      thing doubling is cases.
     estimate:
-      relationship: >-
-        Next generation = current cases × the average number each one infects.
-      prompt: About twenty people are currently infectious, and each is producing roughly 1.4 new infections in the next generation of transmission.
-      question: Estimate how many infections the next generation produces.
+      relationship: Final number = starting number × 2 raised to (time ÷ doubling time).
+      prompt: 500 cells, a 40-minute doubling time, eight hours to go.
+      question: Estimate the number of cells after eight hours.
       labels:
-      - 20 people currently infectious
-      - 1.4 new infections per person per generation
-      - 5 days (the serial interval)
-      - 140 cases reported so far
-      - 0.7 new infections per person, after control
+      - 500 (cells at the start)
+      - 480 min (eight hours)
+      - 40 min (doubling time)
+      - 2 (cells per division)
+      - 8 h (the same interval, in hours)
+      - 60 (minutes in an hour)
       values:
-      - 20
-      - 1.4
-      - 5
-      - 140
-      - 0.7
-      slots: 2
-      template: '{0} × {1}'
-      formula: a*b
+      - 500
+      - 480
+      - 40
+      - 2
+      - 8
+      - 60
+      slots: 4
+      template: '{0} × {3} ^ ({1} ÷ {2})'
+      formula: a*Math.pow(d, b/c)
       correct:
       - 0
       - 1
-      target: 28
-      tolerance: 2
-      units: new infections
-      solution: 20 × 1.4 ≈ 28, so the chain grows.
-      explanation: The serial interval says how fast the generations arrive and not how many there are in each; the cumulative count says what has already happened. Growth or decline is decided by one number, and by whether it is above or below one.
-  - group: POP
-    task: Cases appear in neighbourhoods with nobody admitted. What do you commission?
-    title: Find transmission before the hospital
-    place: Transit and Mobility Center
+      - 2
+      - 3
+      target: 2048000
+      tolerance: 400000
+      units: cells
+      solution: 480 ÷ 40 = 12 doublings; 2^12 ≈ 4,100; × 500 ≈ 2 million cells.
+      explanation: Twelve doublings, not twelve times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340.
+  - group: CELL
+    task: Every cell has the same genome. Why do only some of them make the receptor?
+    title: The same genome, different cells
+    place: Cell Biology Laboratory
     scene: >-
-      Nine days of hospital isolation, and cases keep appearing in
-      neighbourhoods with nobody admitted from them. There is enough money this
-      week for one of the four things the room has proposed.
-    takeaway: The most useful surveillance reaches upstream of the outcome it is trying to prevent.
+      The receptor the agent binds is on airway cells and not on the muscle cells
+      beside them, in the same patient, with the same DNA in every nucleus.
+    takeaway: Gene regulation — which genes are switched on in which cell — is what makes a cell the cell it is.
     format: CHOICE
     assumes:
-    - a measurement taken downstream of a process reports it after it has happened
-    question: Cases appear in neighbourhoods with nobody admitted. What do you commission?
+    - every cell in a body carries the same genome
+    question: Every cell has the same genome. Why do only some of them make the receptor?
     choices:
-    - Expand wastewater sampling across the connected sewersheds.
-    - Conduct structured household and workplace contact studies.
-    - Add more hospital bed and admission counts.
-    - Sample one comparison neighbourhood with no reported cases.
-    answer: Expand wastewater sampling across the connected sewersheds.
+    - The gene is expressed in some cell types and switched off in others.
+    - Only airway cells carry that gene; the muscle cells have lost it.
+    - The muscle cells make the receptor too, but the antibody cannot reach them.
+    - The receptor is made by the agent, not by the cell.
+    answer: The gene is expressed in some cell types and switched off in others.
     why: >-
-      Hospital isolation has held for nine days, so the chain is running
-      somewhere the hospital cannot see. Wastewater reports the population
-      rather than the patients who reached care, and sampling it by sewershed
-      turns 'somewhere' into a map — which is the thing every other option needs
-      and none of them supplies.
+      Every nucleus holds the whole genome, so having a gene explains nothing about
+      where its protein appears. Gene regulation decides it: transcription factors and
+      the state of the chromatin decide which genes are read in which cell type, and
+      that regulation is what makes an airway cell an airway cell. For an outbreak it
+      is the practical point — tissue tropism follows the expression pattern of the
+      receptor, which is why this agent causes a respiratory illness rather than a
+      muscular one.
     rebuttals:
-    - Contact studies are how presymptomatic transmission is established, and they need a place to start. Which households, in which neighbourhoods, is what the sewershed map is for.
-    - More bed counts measure the outcome you are trying to get ahead of. They will confirm the problem after it arrives.
-    - A comparison neighbourhood is worth sampling and is part of the same programme, not a substitute for finding where transmission is happening.
+    - Cells do not discard genes as they specialise; the genome is the same in both.
+    - Staining shows the protein absent from the muscle tissue, not merely unreachable.
+    - The receptor is a human protein. The agent exploits it and does not supply it.
 - title: The Animal Connection
   objective: Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.
   briefing: Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must
@@ -1905,47 +1918,35 @@ missions:
     chain rather than as isolated facts.
   stops:
   - group: CLIN
-    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
-      once.
-    title: Protect the comparison
-    place: Clinical Trial Center
+    task: Blood pH is 7.28 with a low bicarbonate. What is that telling you?
+    title: What the pH is telling you
+    place: Clinical Physiology Suite
     scene: >-
-      Early trial results look encouraging. Four things about how the trial was
-      run are on the table at the clinical trial centre, and each of them could
-      produce an encouraging number on its own.
-    takeaway: A credible effect depends on how the comparison was produced, not only the final number.
-    format: PROTOCOL
-    rebuttals:
-    - Sicker patients receiving the candidate is confounding by indication, and allocation is what stops it — randomisation makes the groups comparable before anything is given.
-    - An assessor who knows the arm is measurement bias, and blinding is the answer to it. Randomising will not help once the outcome is being judged.
-    - 'Many outcomes tested and the best reported is multiplicity: with enough outcomes something is always significant, and pre-specification is what closes it.'
-    - Uneven attrition changes who remains to be measured, so it is tracked and analysed rather than designed away.
+      Arterial pH 7.28, bicarbonate low, and the patient is breathing fast. The
+      registrar has read the fast breathing as the problem and wants to sedate it
+      down.
+    takeaway: Blood pH is defended by a buffer system, so a shifted pH means the buffer has been overwhelmed.
+    format: CHOICE
     assumes:
-    - a treated group is only informative next to a group that was not treated
-    scenarios:
-    - Sicker patients preferentially receive the candidate.
-    - Outcome assessors know who received treatment.
-    - Many outcomes are tested and only the best is reported.
-    - Participants leave the study at different rates by group.
+    - blood is buffered, and normal arterial pH sits near 7.4
+    question: Blood pH is 7.28 with a low bicarbonate. What is that telling you?
     choices:
-    - Randomization or careful allocation procedures.
-    - Blinding where feasible.
-    - Pre-specified primary outcomes and multiplicity control.
-    - Track attrition and analyze its potential bias.
-    mapping:
-    - 0
-    - 1
-    - 2
-    - 3
+    - Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation.
+    - The fast breathing has caused the acidity and slowing it will correct the pH.
+    - A pH of 7.28 is within the normal range and needs no explanation.
+    - The bicarbonate is low because the patient is breathing off carbon dioxide.
+    answer: Acid is accumulating, bicarbonate is being consumed buffering it, and the fast breathing is the compensation.
     why: >-
-      A trial is a machine for producing one comparison — what happened, against
-      what would have happened otherwise — and each of these four threatens that
-      comparison in its own way. Sicker patients getting the candidate makes the
-      groups different before treatment starts. An assessor who knows the arm
-      reads outcomes differently. Testing many outcomes and reporting the best
-      finds a difference by looking often enough. And patients leaving unevenly
-      changes who is left to measure. Each has a specific design control, and
-      none substitutes for another.
+      Bicarbonate is the blood's main buffer: it neutralises added acid and is
+      consumed doing it, so a low bicarbonate with a low pH means acid is being
+      produced faster than it is cleared. Breathing fast blows off carbon dioxide,
+      which pushes the pH back up — it is the compensation, not the cause, and
+      sedating it removes the one mechanism currently holding the pH where it is.
+      Find and treat the acid; the respiratory rate is a symptom being useful.
+    rebuttals:
+    - Hyperventilation raises pH. It cannot be the cause of an acidity it is opposing.
+    - Normal arterial pH is about 7.35 to 7.45, and the body defends it hard; 7.28 is a real derangement.
+    - Blowing off carbon dioxide lowers carbonic acid, not bicarbonate stores.
   - group: POP
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
     title: Read effect size and uncertainty

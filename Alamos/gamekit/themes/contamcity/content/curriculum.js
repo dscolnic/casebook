@@ -148,49 +148,34 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "From mixture to supported identity",
-      "place": "Chromatography Lab",
-      "progress": "Assign confidence-ranked identities to mixture components using orthogonal evidence.",
-      "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
-      "takeaway": "Orthogonal evidence protects against coincidental matches.",
-      "story": "The chromatogram has more peaks than the team has names, and the spectra suggest functional groups that overlap between candidates. Identification of a mixture is a two-part problem: separation, which spreads the components out in time so they can be examined one at a time, and structural evidence, which says what a separated component is. Neither does the other's job. A retention time that matches a standard is a coincidence waiting to happen unless something independent agrees with it, and the treatment plant is about to choose chemistry based on this list.",
-      "scene": "The chromatogram has more peaks than the team has names, and the spectra suggest functional groups that overlap between candidates. The treatment plant is about to choose chemistry from this list.",
-      "notes": [
-        "Place the task at the location whose instruments or displays make the answer visually inspectable.",
-        "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
-        "After an incorrect submission, reveal the full correct answer and keep the scene evidence visible so the explanation can be checked against it.",
-        "Record the misconception category for analytics: wrong mechanism, missing control, unit/scale error, overconfidence, common-mode evidence, or local optimization.",
-        "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
-      ],
+      "title": "What the position in the table tells you",
+      "scene": "Two unlabelled drums, one holding a sodium salt and one a caesium salt of the same anion. The bench has to say which will be the more violent with water before either is opened.",
+      "takeaway": "An element's position in the periodic table predicts how it behaves.",
+      "place": "Molecular Identification Lab",
+      "story": "Two unlabelled drums, one holding a sodium salt and one a caesium salt of the same anion. The bench has to say which will be the more violent with water before either is opened.",
       "game": {
-        "type": "Sequence",
-        "title": "From mixture to supported identity",
-        "setup": "Order the analytical chain.",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "Separate mixture components under a validated method. → Measure detector response and retention relative to standards. → Collect or compare structural spectral information. → Require agreement across methods before high-confidence identification.",
-        "why": "Identifying a mixture is two problems, and neither method does the other's job. Separation spreads the components out in time so they can be examined one at a time. Structural evidence says what a separated component actually is. A retention time that matches a standard is a coincidence waiting to happen — plenty of compounds travel at the same speed — so the identification only becomes solid when something with different selectivity agrees with it. Orthogonal evidence is what protects against a coincidental match.",
+        "type": "CHOICE",
+        "title": "What the position in the table tells you",
+        "setup": "Molecular Identification Lab",
+        "play": "Which drum is the more reactive with water, and on what grounds?",
+        "question": "Which drum is the more reactive with water, and on what grounds?",
+        "choices": [
+          "The caesium salt, because reactivity with water increases down group 1.",
+          "The sodium salt, because sodium is the lighter and lighter elements react faster.",
+          "Neither, because the anion is the same in both drums.",
+          "It cannot be predicted without running both reactions."
+        ],
+        "correctChoice": "The caesium salt, because reactivity with water increases down group 1.",
+        "answer": "The caesium salt, because reactivity with water increases down group 1.",
+        "why": "Group 1 reactivity rises going down: the outer electron sits further from the nucleus and is more shielded, so it is lost more easily. Caesium is below sodium, so the caesium salt is the more energetic with water. The anion is the same in both, which is exactly why the cation decides it. This is what the table is for — it lets a bench rank two substances it has never handled, from position alone, before anything is opened.",
         "rebuttals": [
-          "Separate first, under a validated method. Nothing downstream can examine a component that is still mixed with three others.",
-          "Retention and detector response second, against standards. This is a screening match, and it is where the coincidence lives.",
-          "Structural spectral information third — evidence that does not depend on how fast the compound travelled.",
-          "Require agreement across methods last. One method matching is a hypothesis; two with different selectivity agreeing is an identification."
-        ],
-        "cards": [
-          "Separate mixture components under a validated method.",
-          "Measure detector response and retention relative to standards.",
-          "Collect or compare structural spectral information.",
-          "Require agreement across methods before high-confidence identification."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
+          "Atomic mass is not the trend. What matters is how tightly the outer electron is held, and that weakens down the group.",
+          "A shared anion is the reason the comparison works: it isolates the difference to the metal.",
+          "Ranking two group 1 metals is exactly what periodic trends are for, and running an unknown violent reaction to find out is the wrong order of work."
         ]
       },
       "assumes": [
-        "two different compounds can arrive at a detector at the same moment"
+        "the periodic table groups elements that behave alike"
       ]
     },
     {
@@ -491,45 +476,35 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 3,
-      "title": "Choose the next plume evidence",
-      "place": "Evacuation Command",
-      "progress": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
-      "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
-      "takeaway": "High-stakes forecasts should combine measurements with transparent models.",
-      "story": "Evacuation Command needs a forecast it can defend to residents who are being told to leave their homes. Models and measurements fail in different ways: a dispersion model extrapolates confidently into places nobody has sampled, while a measurement is true at one point and one time and says nothing about the next street. Meteorology is what connects them, because transport is what turns a source term into an exposure. What Command needs is the evidence that constrains the biggest uncertainty, not the one that produces the most detail.",
-      "scene": "Evacuation Command needs a forecast it can defend to residents who are being told to leave their homes.",
-      "notes": [
-        "Place the task at the location whose instruments or displays make the answer visually inspectable.",
-        "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
-        "After an incorrect submission, reveal the full correct answer and keep the scene evidence visible so the explanation can be checked against it.",
-        "Record the misconception category for analytics: wrong mechanism, missing control, unit/scale error, overconfidence, common-mode evidence, or local optimization.",
-        "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
-      ],
+      "day": 2,
+      "title": "Why the drum is worse in the afternoon",
+      "scene": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.",
+      "takeaway": "Vapour pressure rises steeply with temperature, so the same liquid is a different hazard at a different hour.",
+      "place": "Atmospheric Monitoring Post",
+      "story": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.",
       "game": {
         "type": "CHOICE",
-        "title": "Choose the next plume evidence",
-        "setup": "Evacuation Command needs a forecast it can defend. What do you deploy?",
-        "play": "Evacuation Command needs a forecast it can defend. What do you deploy?",
-        "task": "Evacuation Command needs a forecast it can defend. What do you deploy?",
-        "answer": "Calibrated sensors upwind, crosswind and downwind.",
-        "why": "Models and measurements fail in different ways. A dispersion model extrapolates confidently into streets nobody has sampled; a measurement is true at one point and one time and says nothing about the next street. Sensors placed upwind, crosswind and downwind bound the corridor with real numbers and give the model something it can be caught being wrong about. What Command needs is the evidence that constrains the biggest uncertainty, not the evidence that produces the most detail.",
-        "rebuttals": [
-          "Wind and stability data are what the model needs and they measure the driver rather than the exposure. Run them alongside; they do not tell anybody which street to leave.",
-          "Multiple scenarios are cheap and honest, and they are only as good as the meteorology underneath them. They bound the model, not the plume.",
-          "One uncalibrated reading at the source is a number with no traceability, taken at the one place nobody lives."
-        ],
-        "question": "Evacuation Command needs a forecast it can defend. What do you deploy?",
+        "title": "Why the drum is worse in the afternoon",
+        "setup": "Atmospheric Monitoring Post",
+        "play": "Same drum, same liquid, three times the vapour. Why?",
+        "question": "Same drum, same liquid, three times the vapour. Why?",
         "choices": [
-          "Calibrated sensors upwind, crosswind and downwind.",
-          "Better local wind and atmospheric stability measurements.",
-          "Several dispersion scenarios with the assumptions written out.",
-          "One handheld reading taken at the source, where the signal is strongest."
+          "Its vapour pressure rose with temperature, so more of it is in the gas phase.",
+          "The liquid reacted during the day and made a new, more volatile compound.",
+          "The morning reading was wrong, because instruments drift when cold.",
+          "More liquid evaporated overnight, leaving a more concentrated residue."
         ],
-        "correctChoice": "Calibrated sensors upwind, crosswind and downwind."
+        "correctChoice": "Its vapour pressure rose with temperature, so more of it is in the gas phase.",
+        "answer": "Its vapour pressure rose with temperature, so more of it is in the gas phase.",
+        "why": "Vapour pressure is the pressure of gas in equilibrium with its own liquid, and it climbs steeply with temperature — often doubling for every ten or fifteen degrees. Warming the drum from morning to afternoon moves more molecules into the gas phase above the same liquid, so the air above it is more concentrated with no change in what is in the drum. This is why exposure limits are checked at the hottest part of the day, and why a hazard assessment made at dawn understates the afternoon.",
+        "rebuttals": [
+          "A new compound would show a different peak, and the analysis shows the same one.",
+          "Both readings came from the same instrument, and a threefold change is far outside its drift.",
+          "Evaporation removes the volatile fraction, which would lower the vapour above the liquid, not raise it."
+        ]
       },
       "assumes": [
-        "a model is only as good as the measurements it can be checked against"
+        "a liquid and its vapour sit in equilibrium at a temperature"
       ]
     },
     {
@@ -919,50 +894,35 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 2,
-      "title": "Build a river mass-balance survey",
-      "place": "Solutions and Polarity Lab",
-      "progress": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
-      "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
-      "takeaway": "Environmental chemistry requires sampling the phases predicted by molecular behavior.",
-      "story": "The survey you design now is the one the state will audit later. A river is a moving system with sources upstream of the accident as well as at it, so a concentration on its own means very little without something to compare it against — background matters as much as the peak. A defensible survey covers the phases your partitioning model predicts, not just the ones that are easy to collect, and it collects them in an order that lets each result be interpreted. Riverton's drinking-water intake is downstream of everything you are about to sample.",
-      "scene": "The survey you design now is the one the state will audit later. Riverton's drinking-water intake is downstream of everything you are about to sample.",
-      "notes": [
-        "Place the task at the location whose instruments or displays make the answer visually inspectable.",
-        "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
-        "After an incorrect submission, reveal the full correct answer and keep the scene evidence visible so the explanation can be checked against it.",
-        "Record the misconception category for analytics: wrong mechanism, missing control, unit/scale error, overconfidence, common-mode evidence, or local optimization.",
-        "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
-      ],
+      "day": 3,
+      "title": "Why adding the same ion helps",
+      "scene": "The metal is being precipitated as a carbonate and the filtrate still carries more of it than the discharge permit allows. Somebody suggests adding more carbonate.",
+      "takeaway": "A precipitation equilibrium can be pushed by adding an ion it already contains.",
+      "place": "Water and Sediment Laboratory",
+      "story": "The metal is being precipitated as a carbonate and the filtrate still carries more of it than the discharge permit allows. Somebody suggests adding more carbonate.",
       "game": {
-        "type": "Sequence",
-        "title": "Build a river mass-balance survey",
-        "setup": "Order the sampling logic.",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "Define upstream background and downstream decision points. → Sample water, suspended solids, sediment, and surface films with blanks. → Measure concentrations and flow or phase masses. → Compare recovered mass across locations and phases, including uncertainty.",
-        "why": "A river has sources upstream of the accident as well as at it, so background matters as much as the peak. That is why the comparison sites and the decision points are settled before anything is collected. The sampling then covers the phases the model predicts, not the phases that are easy to reach, and it carries blanks. Concentrations and flows come next. Only then can recovered mass be compared across places and phases, with its uncertainty attached.",
+        "type": "CHOICE",
+        "title": "Why adding the same ion helps",
+        "setup": "Water and Sediment Laboratory",
+        "play": "Will extra carbonate lower the dissolved metal, and why?",
+        "question": "Will extra carbonate lower the dissolved metal, and why?",
+        "choices": [
+          "Yes. The ion product must stay at Ksp, so raising carbonate forces the metal down.",
+          "No. Solubility is a fixed property of the salt and cannot be changed.",
+          "Yes, but only because the extra carbonate physically adsorbs the metal.",
+          "No. Adding a shared ion dissolves more of the solid, not less."
+        ],
+        "correctChoice": "Yes. The ion product must stay at Ksp, so raising carbonate forces the metal down.",
+        "answer": "Yes. The ion product must stay at Ksp, so raising carbonate forces the metal down.",
+        "why": "At equilibrium the product of the ion concentrations equals the solubility product, a constant for that salt at that temperature. Raise one ion and the other must fall to keep the product fixed — the common-ion effect — so excess carbonate drives dissolved metal onto the solid. It is quantitative: ten times the carbonate leaves roughly a tenth of the metal in solution for a one-to-one salt, which is how a plant designs to a permit limit rather than hoping to meet it.",
         "rebuttals": [
-          "Define background and decision points first. Without an upstream comparison, a number downstream is unreadable.",
-          "Sample water, solids, sediment and films with blanks second — the phases the model predicts, not the ones that are easy.",
-          "Measure concentrations and flows third. Mass needs both, and a concentration alone is not a quantity of anything.",
-          "Compare recovered mass across locations and phases last, with uncertainty. That comparison is the whole point of the survey."
-        ],
-        "cards": [
-          "Define upstream background and downstream decision points.",
-          "Sample water, suspended solids, sediment, and surface films with blanks.",
-          "Measure concentrations and flow or phase masses.",
-          "Compare recovered mass across locations and phases, including uncertainty."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
+          "Solubility depends on what else is in the water; only Ksp itself is fixed.",
+          "Adsorption is a surface process and is not what the equilibrium calculation describes.",
+          "A shared ion suppresses dissolution. Adding a DIFFERENT, complexing ion is what can increase it."
         ]
       },
       "assumes": [
-        "a concentration means nothing without something to compare it against"
+        "a saturated solution sits in equilibrium with the solid"
       ]
     },
     {
@@ -1387,45 +1347,35 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 9,
-      "title": "Manage the new contaminant reservoir",
-      "place": "Sediment Management Office",
-      "progress": "Predict how pH and ligands shift dissolved concentration and design monitoring for remobilization.",
-      "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
-      "takeaway": "A treatment endpoint should include the fate of the contaminant mass.",
-      "story": "The dissolved concentration is down and seventy per cent of the contaminant is now in sediment at the bottom of the reservoir. A treatment endpoint is not a concentration in one phase; it is an account of where the mass went and what will happen to it there. That takes characterisation of the solid, monitoring under conditions that might release it again, and a decision about disposition that somebody is actually funded to carry out. The contaminant is still yours, and what the city commits to now is what will be running when the conditions change.",
-      "scene": "The dissolved concentration is down and seventy per cent of the contaminant is now in sediment at the bottom of the reservoir. The contaminant is still yours.",
-      "notes": [
-        "Place the task at the location whose instruments or displays make the answer visually inspectable.",
-        "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
-        "After an incorrect submission, reveal the full correct answer and keep the scene evidence visible so the explanation can be checked against it.",
-        "Record the misconception category for analytics: wrong mechanism, missing control, unit/scale error, overconfidence, common-mode evidence, or local optimization.",
-        "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
-      ],
+      "day": 10,
+      "title": "Why the brine has not frozen",
+      "scene": "The holding pond is at minus four degrees and still liquid. The freshwater ditch beside it froze two nights ago, and the plant needs to know whether the pond can be trusted to keep flowing.",
+      "takeaway": "Dissolved solute lowers a freezing point, in proportion to how much of it there is.",
+      "place": "Water and Sediment Laboratory",
+      "story": "The holding pond is at minus four degrees and still liquid. The freshwater ditch beside it froze two nights ago, and the plant needs to know whether the pond can be trusted to keep flowing.",
       "game": {
         "type": "CHOICE",
-        "title": "Manage the new contaminant reservoir",
-        "setup": "Seventy per cent of the contaminant is now in the sediment. What does the city commit to?",
-        "play": "Seventy per cent of the contaminant is now in the sediment. What does the city commit to?",
-        "task": "Seventy per cent of the contaminant is now in the sediment. What does the city commit to?",
-        "answer": "Monitoring dissolved and particulate forms across the seasons.",
-        "why": "The sediment is stable under this month's chemistry. What the endpoint actually turns on is whether it is still stable next spring, when the pH, the temperature and the flow are different — and only a measurement made then can answer that. Characterising the solid says what it is, not what it will do when the water above it changes. Monitoring dissolved and particulate forms across the seasons is the only commitment here that would notice the reservoir releasing what it captured.",
-        "rebuttals": [
-          "Characterising the solid says what it is. It does not say what it will do when the water above it changes, which is the risk.",
-          "Removal or isolation is the action monitoring would trigger, and committing to it now spends the budget before anybody knows whether it is needed.",
-          "Clear filtered water is what the mass balance already contradicts: the contaminant did not leave, it moved."
-        ],
-        "question": "Seventy per cent of the contaminant is now in the sediment. What does the city commit to?",
+        "title": "Why the brine has not frozen",
+        "setup": "Water and Sediment Laboratory",
+        "play": "Minus four degrees, and the pond is liquid while the ditch is ice. Why?",
+        "question": "Minus four degrees, and the pond is liquid while the ditch is ice. Why?",
         "choices": [
-          "Monitoring dissolved and particulate forms across the seasons.",
-          "Characterising the solid phase and its stability.",
-          "Planning secure removal or isolation of the sediment.",
-          "Closing the incident, since the filtered water now meets the criteria."
+          "Dissolved salt depresses the freezing point, and the depression scales with the concentration of particles.",
+          "The pond is larger, and larger bodies of water cannot freeze.",
+          "The salt releases heat as it dissolves, keeping the pond warm.",
+          "Brine is denser, and dense liquids have higher freezing points."
         ],
-        "correctChoice": "Monitoring dissolved and particulate forms across the seasons."
+        "correctChoice": "Dissolved salt depresses the freezing point, and the depression scales with the concentration of particles.",
+        "answer": "Dissolved salt depresses the freezing point, and the depression scales with the concentration of particles.",
+        "why": "Freezing point depression is a colligative property: it depends on how many dissolved particles there are and not on what they are. Solute in the water makes it harder for ice to organise, so the liquid persists below zero, and a salt that gives two ions per formula unit depresses it about twice as much as one that gives one. That is a number the plant can compute in advance from the concentration, which is the point — it does not need to wait and see whether the pond freezes.",
+        "rebuttals": [
+          "Volume changes how long freezing takes, not the temperature at which it happens.",
+          "The heat of solution was released when the salt dissolved, days ago, and has long since gone.",
+          "Density and freezing point are not related in that way; the ordering here comes from the solute concentration."
+        ]
       },
       "assumes": [
-        "a treatment endpoint is an account of where the mass went"
+        "ice forming from a solution has to exclude the dissolved material"
       ]
     }
   ],
@@ -1666,40 +1616,35 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 4,
-      "title": "A borderline result",
-      "place": "Final Verification Lab",
-      "progress": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
-      "whyFormat": "The unit needs a numerical scale or threshold that changes the mission decision.",
-      "takeaway": "Decisions should use uncertainty, not only the central value.",
-      "story": "The release limit is ten units and the verification sample came back at nine, plus or minus two. A measurement is a distribution rather than a point: the plus-or-minus is not a disclaimer attached to the number, it is part of what the number says, and it exists because instruments, sampling and matrices all contribute scatter. Which is why laboratories agree a decision rule before the result arrives, along with guard bands and repeat measurements, rather than choosing one afterwards. Hospitals and homes are waiting on this water, and so is everyone's confidence in the reopening.",
-      "scene": "The release limit is ten units and the verification sample came back at nine, plus or minus two. Hospitals and homes are waiting on this water.",
-      "notes": [
-        "Place the task at the location whose instruments or displays make the answer visually inspectable.",
-        "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
-        "After an incorrect submission, reveal the full correct answer and keep the scene evidence visible so the explanation can be checked against it.",
-        "Record the misconception category for analytics: wrong mechanism, missing control, unit/scale error, overconfidence, common-mode evidence, or local optimization.",
-        "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
-      ],
+      "day": 14,
+      "title": "Reading a mass spectrum",
+      "scene": "Two candidate compounds fit the chromatography equally well. Their formulas differ by one oxygen, and the mass spectrometer has already run the sample.",
+      "takeaway": "A mass spectrum measures mass-to-charge, which distinguishes formulas that other methods cannot.",
+      "place": "Quantitative Analysis Suite",
+      "story": "Two candidate compounds fit the chromatography equally well. Their formulas differ by one oxygen, and the mass spectrometer has already run the sample.",
       "game": {
-        "type": "Ballpark",
-        "title": "A borderline result",
-        "setup": "A release limit is 10 units and the measured value is 9.0 ± 2.0 units.",
-        "play": "Estimate the highest value this result could plausibly take.",
-        "task": "Estimate the highest value this result could plausibly take.",
-        "answer": "No. The uncertainty range crosses the limit.",
-        "why": "A measurement is a spread, not a point, and the scatter comes from the instrument, the sampling and the matrix together. The plausible range here reaches eleven, which is over the limit. So the measurement does not support a pass, whatever the middle value says. This is why laboratories agree the decision rule, the guard band and the repeat before the result arrives. A rule written after the number is a rule written to suit it.",
-        "rebuttals": [],
-        "givens": [
-          "central result = 9.0",
-          "uncertainty interval spans roughly 7 to 11"
+        "type": "CHOICE",
+        "title": "Reading a mass spectrum",
+        "setup": "Quantitative Analysis Suite",
+        "play": "Two candidates differing by one oxygen. What settles it, and how?",
+        "question": "Two candidates differing by one oxygen. What settles it, and how?",
+        "choices": [
+          "The molecular ion's mass-to-charge ratio, which differs by 16 between them.",
+          "The retention time, since the heavier compound always elutes later.",
+          "The peak area, since the heavier compound gives the larger response.",
+          "Neither can be settled by mass, because both are the same class of compound."
         ],
-        "relationship": "Compare the plausible range with the decision limit.",
-        "question": "Estimate the highest value this result could plausibly take.",
-        "calcKey": "QUANT-4"
+        "correctChoice": "The molecular ion's mass-to-charge ratio, which differs by 16 between them.",
+        "answer": "The molecular ion's mass-to-charge ratio, which differs by 16 between them.",
+        "why": "A mass spectrometer sorts ions by mass divided by charge, so the molecular ion tells you the molecular mass directly — and one oxygen is 16 mass units, which is far beyond the instrument's resolution. Retention time is a property of the separation and can coincide for different compounds, which is why the two candidates were still on the table. Peak area is quantity, not identity. This is the step that turns a shortlist into a name, and it is why identification is not left to chromatography alone.",
+        "rebuttals": [
+          "Retention order follows chemistry, not mass; heavier compounds sometimes elute first.",
+          "Response factor varies by compound and says nothing about which compound it is.",
+          "A 16-unit difference is exactly what mass spectrometry resolves easily."
+        ]
       },
       "assumes": [
-        "a plus-or-minus is part of the number, not a disclaimer on it"
+        "a molecule's formula fixes its mass"
       ]
     },
     {
@@ -1884,56 +1829,35 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 3,
-      "title": "Is the assumed reaction happening?",
-      "place": "Confined-Space Safety Command",
-      "progress": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
-      "whyFormat": "The unit requires the player to discriminate among closely related mechanisms or evidence states.",
-      "takeaway": "A balanced equation is testable through conserved quantities and product signatures.",
-      "story": "The team has a balanced equation and a plausible story. Neither is evidence. A chemical claim becomes testable through conserved quantities — mass in against mass out, elements accounted for on both sides — and through product signatures that would only be present if that particular reaction is what actually occurred. Controls matter as much here as they do in the laboratory, because a confined tunnel supplies plenty of alternative explanations for a temperature rise or a gas reading. Crews go in on the strength of what you conclude here.",
-      "scene": "The team has a balanced equation and a plausible story. Neither is evidence, and crews go in on the strength of what you conclude here.",
-      "notes": [
-        "Place the task at the location whose instruments or displays make the answer visually inspectable.",
-        "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
-        "After an incorrect submission, reveal the full correct answer and keep the scene evidence visible so the explanation can be checked against it.",
-        "Record the misconception category for analytics: wrong mechanism, missing control, unit/scale error, overconfidence, common-mode evidence, or local optimization.",
-        "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
-      ],
+      "day": 6,
+      "title": "Why it does not happen on its own",
+      "scene": "The proposed clean-up reaction releases heat on paper and has not started in the tank in six days. The room wants to know whether it will ever go.",
+      "takeaway": "Whether a reaction goes depends on free energy, not on heat alone.",
+      "place": "Reactions and Energy Bay",
+      "story": "The proposed clean-up reaction releases heat on paper and has not started in the tank in six days. The room wants to know whether it will ever go.",
       "game": {
-        "type": "Protocol",
-        "title": "Is the assumed reaction happening?",
-        "setup": "Match each observation to the strongest conclusion.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Expected gas appears with the predicted ratio to reactant loss. → Evidence supports the proposed reaction. 2. Temperature rises but no products are measured. → Heat alone is nonspecific; test alternatives. 3. One reactant disappears in the blank. → The method or container may be consuming the reactant. 4. Observed product exceeds the theoretical maximum. → The reaction model, units, or measurement is wrong.",
-        "why": "A chemical claim becomes testable two ways. Conserved quantities — mass in against mass out, elements counted on both sides. And products that would only be there if this reaction is the one that ran. Heat on its own proves nothing, because a confined tunnel offers plenty of other reasons for a temperature rise. Controls matter as much here as in the laboratory: a reactant that vanishes in the blank is being eaten by the container, and more product than the theory allows means the model or the arithmetic is wrong.",
-        "rebuttals": [
-          "Expected gas appearing in the predicted ratio to reactant loss is the signature the equation predicts. Ratio is what makes it evidence rather than coincidence.",
-          "A temperature rise with no products measured is non-specific. Many things warm up; only this reaction makes this product.",
-          "A reactant disappearing in the blank means the method or the container is consuming it. That loss has nothing to do with the reaction.",
-          "More product than the theoretical maximum is impossible, so something upstream is wrong: the model, the units, or the measurement."
-        ],
-        "scenarios": [
-          "Expected gas appears with the predicted ratio to reactant loss.",
-          "Temperature rises but no products are measured.",
-          "One reactant disappears in the blank.",
-          "Observed product exceeds the theoretical maximum."
-        ],
+        "type": "CHOICE",
+        "title": "Why it does not happen on its own",
+        "setup": "Reactions and Energy Bay",
+        "play": "The reaction is exothermic and has not started. What does that tell you?",
+        "question": "The reaction is exothermic and has not started. What does that tell you?",
         "choices": [
-          "Evidence supports the proposed reaction.",
-          "Heat alone is nonspecific; test alternatives.",
-          "The method or container may be consuming the reactant.",
-          "The reaction model, units, or measurement is wrong."
+          "Releasing heat is not sufficient: the free energy change and the rate both have to be favourable.",
+          "The calculation must be wrong, because exothermic reactions always proceed.",
+          "The tank is too cold, and exothermic reactions need no activation energy.",
+          "It has gone to completion already and there is nothing left to see."
         ],
-        "mapping": [
-          0,
-          1,
-          2,
-          3
+        "correctChoice": "Releasing heat is not sufficient: the free energy change and the rate both have to be favourable.",
+        "answer": "Releasing heat is not sufficient: the free energy change and the rate both have to be favourable.",
+        "why": "Spontaneity is set by free energy, which combines the heat released with the entropy change and the temperature. An exothermic reaction that orders its products can still have an unfavourable free energy, and even a favourable one goes nowhere without a route over its activation barrier. Two different questions are being confused here: whether the reaction can go, and how fast it goes. Diamond turning to graphite is favourable and takes geological time.",
+        "rebuttals": [
+          "Exothermic is about heat, not about direction. Entropy and temperature enter as well.",
+          "Every reaction has an activation barrier, and releasing heat once started says nothing about getting started.",
+          "Nothing in the tank has changed in six days, which is the observation that needs explaining."
         ]
       },
       "assumes": [
-        "a temperature rise has more than one possible cause"
+        "a reaction can be favourable and still be slow"
       ]
     },
     {
@@ -2793,50 +2717,35 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 8,
-      "title": "Build the public chemistry narrative",
-      "place": "City Command",
-      "progress": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
-      "whyFormat": "The unit contains a causal or procedural dependency chain whose order is scientifically load-bearing.",
-      "takeaway": "A public account that follows the mass is one the public can check.",
-      "story": "Riverton has been told several things by several people over fifteen days. What earns trust back is not a reassuring conclusion but an account that adds up: how much was released, where it went, what treatment moved rather than destroyed, and how much is still unplaced. That is the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. An account that starts from the reassuring measurement is the one people notice has a gap in it.",
-      "scene": "Riverton has been told several things by several people over fifteen days. An account that starts from the reassuring measurement is the one people notice has a gap in it.",
-      "notes": [
-        "Place the task at the location whose instruments or displays make the answer visually inspectable.",
-        "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
-        "After an incorrect submission, reveal the full correct answer and keep the scene evidence visible so the explanation can be checked against it.",
-        "Record the misconception category for analytics: wrong mechanism, missing control, unit/scale error, overconfidence, common-mode evidence, or local optimization.",
-        "Award mission progress for completion and an evidence-quality bonus for correct reasoning; never trap the player permanently after a mistake."
-      ],
+      "day": 15,
+      "title": "What the current actually removes",
+      "scene": "The electrochemical polishing cell has run for six hours at forty amperes, and the plant wants to know how much metal that should have taken out before it trusts the effluent number.",
+      "takeaway": "Charge passed and mass deposited are proportional, which makes an electrochemical cell auditable.",
+      "place": "Treatment Plant Gallery",
+      "story": "The electrochemical polishing cell has run for six hours at forty amperes, and the plant wants to know how much metal that should have taken out before it trusts the effluent number.",
       "game": {
-        "type": "Sequence",
-        "title": "Build the public chemistry narrative",
-        "setup": "Order the explanation.",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "1. A hundred kilograms left the yard, and here is how we know. 2. Seventy-one reached the sediment and three left as vapour, because of what the compound does in water. 3. Treatment moved the sediment fraction into sludge; it did not destroy it. 4. Twenty kilograms are still unaccounted for, and this is the monitoring that would find them.",
-        "why": "What earns trust back is not a reassuring conclusion but an account that adds up — the same mass balance the technical work has been building all fortnight, told in the order the contaminant travelled. How much left the yard, and how it is known. Where it went, and what the compound does in water that put it there. What treatment moved rather than destroyed. And how much is still unplaced, with the monitoring that would find it. Every number has to reach the one before it.",
+        "type": "CHOICE",
+        "title": "What the current actually removes",
+        "setup": "Treatment Plant Gallery",
+        "play": "Six hours at forty amperes. What does that fix about the amount of metal removed?",
+        "question": "Six hours at forty amperes. What does that fix about the amount of metal removed?",
+        "choices": [
+          "The charge passed sets an upper bound on the moles deposited, through the electrons each ion needs.",
+          "Nothing. Deposition depends on concentration only, and current is incidental.",
+          "It fixes the mass exactly, because every electron deposits one atom of metal.",
+          "It fixes the mass exactly, and the ion's charge does not enter the calculation."
+        ],
+        "correctChoice": "The charge passed sets an upper bound on the moles deposited, through the electrons each ion needs.",
+        "answer": "The charge passed sets an upper bound on the moles deposited, through the electrons each ion needs.",
+        "why": "Current times time is charge, and charge divided by the Faraday constant is moles of electrons. A metal ion needing two electrons therefore yields at most half that many moles of metal. It is an upper bound rather than an answer because some current goes to side reactions — hydrogen at the cathode, most often — so the measured mass over the theoretical mass is the cell's efficiency. That ratio is what makes the cell auditable: an effluent number inconsistent with the charge passed is wrong somewhere.",
         "rebuttals": [
-          "Start with how much was released and how it is known. Everything downstream is a claim about that quantity.",
-          "Then where it went, with the chemistry that explains it — sediment and vapour follow from what the compound does in water.",
-          "Then what treatment actually did: moved the sediment fraction into sludge rather than destroying it. That distinction is the one the public most needs.",
-          "End with what is still unaccounted for and how it would be found. Putting the gap last, and naming it, is what makes the rest checkable."
-        ],
-        "cards": [
-          "A hundred kilograms left the yard, and here is how we know.",
-          "Seventy-one reached the sediment and three left as vapour, because of what the compound does in water.",
-          "Treatment moved the sediment fraction into sludge; it did not destroy it.",
-          "Twenty kilograms are still unaccounted for, and this is the monitoring that would find them."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
+          "Concentration affects the rate and the efficiency; the charge is what limits the total.",
+          "One electron deposits one atom only for a singly charged ion. A divalent ion needs two.",
+          "The ion's charge is exactly what converts moles of electrons into moles of metal."
         ]
       },
       "assumes": [
-        "an account people can check is worth more than one they are asked to accept"
+        "an electric current is a flow of charge, and charge is countable"
       ]
     },
     {

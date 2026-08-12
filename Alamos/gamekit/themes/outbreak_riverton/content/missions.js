@@ -47,7 +47,7 @@ export const MISSIONS = [
       {
         "group": "MOL",
         "lesson": 0,
-        "task": "One experiment separates the two remaining hypotheses. Which?"
+        "task": "The assay works at 37 degrees and fails at 55. What does that say about what is doing the work?"
       }
     ]
   },
@@ -184,14 +184,14 @@ export const MISSIONS = [
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
-        "group": "FIELD",
-        "lesson": 0,
+        "group": "CELL",
+        "lesson": 3,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
-        "group": "POP",
-        "lesson": 6,
-        "task": "Cases appear in neighbourhoods with nobody admitted. What do you commission?"
+        "group": "CELL",
+        "lesson": 4,
+        "task": "Every cell has the same genome. Why do only some of them make the receptor?"
       }
     ]
   },
@@ -204,17 +204,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "FIELD",
-        "lesson": 1,
+        "lesson": 0,
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
         "group": "FIELD",
-        "lesson": 2,
+        "lesson": 1,
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
       },
       {
         "group": "POP",
-        "lesson": 7,
+        "lesson": 6,
         "task": "One field campaign. What is its design?"
       }
     ]
@@ -233,12 +233,12 @@ export const MISSIONS = [
       },
       {
         "group": "POP",
-        "lesson": 8,
+        "lesson": 7,
         "task": "Which explanation best fits the frequency trend and the independent checks?"
       },
       {
         "group": "POP",
-        "lesson": 9,
+        "lesson": 8,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       }
     ]
@@ -252,17 +252,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "POP",
-        "lesson": 10,
+        "lesson": 9,
         "task": "Which explanation fits the complete treatment-response panel?"
       },
       {
         "group": "POP",
-        "lesson": 11,
+        "lesson": 10,
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
       },
       {
         "group": "POP",
-        "lesson": 12,
+        "lesson": 11,
         "task": "One thing before anybody's prescription changes. Which?"
       }
     ]
@@ -276,17 +276,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "POP",
-        "lesson": 13,
+        "lesson": 12,
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
         "group": "POP",
-        "lesson": 14,
+        "lesson": 13,
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
       },
       {
         "group": "POP",
-        "lesson": 15,
+        "lesson": 14,
         "task": "The city can start one layer this month. Which?"
       }
     ]
@@ -301,16 +301,16 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 5,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Blood pH is 7.28 with a low bicarbonate. What is that telling you?"
       },
       {
         "group": "POP",
-        "lesson": 16,
+        "lesson": 15,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
         "group": "POP",
-        "lesson": 17,
+        "lesson": 16,
         "task": "Promising, imprecise, and the adverse events are uneven. What does the board decide?"
       }
     ]
@@ -324,7 +324,7 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "POP",
-        "lesson": 18,
+        "lesson": 17,
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
       },
       {
@@ -334,7 +334,7 @@ export const MISSIONS = [
       },
       {
         "group": "POP",
-        "lesson": 19,
+        "lesson": 18,
         "task": "A policy the council can defend for a month. Which?"
       }
     ]
@@ -348,17 +348,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "POP",
-        "lesson": 20,
+        "lesson": 19,
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
         "group": "POP",
-        "lesson": 21,
+        "lesson": 20,
         "task": "Order the briefing by how much weight each claim can carry."
       },
       {
         "group": "POP",
-        "lesson": 22,
+        "lesson": 21,
         "task": "The emergency budget closes this month. What does the city commit it to?"
       }
     ]

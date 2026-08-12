@@ -47,7 +47,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 2,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Why does the spacecraft need any speed at all to stay in that orbit?"
       }
     ]
   },
@@ -69,9 +69,9 @@ export const MISSIONS = [
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
-        "group": "NAV",
-        "lesson": 4,
-        "task": "The drift is real and the tracking is thin. What do you do?"
+        "group": "THERM",
+        "lesson": 0,
+        "task": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?"
       }
     ]
   },
@@ -94,7 +94,7 @@ export const MISSIONS = [
       },
       {
         "group": "NAV",
-        "lesson": 5,
+        "lesson": 4,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       }
     ]
@@ -156,12 +156,12 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "THERM",
-        "lesson": 0,
+        "lesson": 1,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
         "group": "THERM",
-        "lesson": 1,
+        "lesson": 2,
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
@@ -185,7 +185,7 @@ export const MISSIONS = [
       },
       {
         "group": "THERM",
-        "lesson": 2,
+        "lesson": 3,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
@@ -232,14 +232,14 @@ export const MISSIONS = [
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
-        "group": "NAV",
-        "lesson": 6,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "group": "INTEG",
+        "lesson": 11,
+        "task": "Match each feature of the plotted trace to what it tells you about the motion."
       },
       {
         "group": "NAV",
-        "lesson": 7,
-        "task": "Nobody has measured how repeatable a hand sighting is. What do you require before the burn?"
+        "lesson": 5,
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       }
     ]
   },
@@ -252,17 +252,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "INTEG",
-        "lesson": 11,
+        "lesson": 12,
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
       },
       {
         "group": "THERM",
-        "lesson": 3,
+        "lesson": 4,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
         "group": "INTEG",
-        "lesson": 12,
+        "lesson": 13,
         "task": "The corridor is about a degree wide. What does the room do with the time left?"
       }
     ]
@@ -276,7 +276,7 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "INTEG",
-        "lesson": 13,
+        "lesson": 14,
         "task": "Which explanation fits the frequency, speed dependence, and independent accelerometers?"
       },
       {
@@ -286,7 +286,7 @@ export const MISSIONS = [
       },
       {
         "group": "INTEG",
-        "lesson": 14,
+        "lesson": 15,
         "task": "The panel oscillates whenever the pump runs near one speed. What do you do?"
       }
     ]
@@ -300,17 +300,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "INTEG",
-        "lesson": 15,
+        "lesson": 16,
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
         "group": "INTEG",
-        "lesson": 16,
+        "lesson": 17,
         "task": "Consumables are known only to within about a day. Which return do you fly?"
       },
       {
         "group": "THERM",
-        "lesson": 4,
+        "lesson": 5,
         "task": "Order the commitment so the abort trigger still has something to act on."
       }
     ]
@@ -324,17 +324,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "NAV",
-        "lesson": 8,
+        "lesson": 6,
         "task": "Which explanation fits the ranging, angle, clock, and independent-time checks?"
       },
       {
         "group": "NAV",
-        "lesson": 9,
+        "lesson": 7,
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
         "group": "INTEG",
-        "lesson": 17,
+        "lesson": 18,
         "task": "Two stations disagree by more than either one's stated error. Do you burn?"
       }
     ]
@@ -348,17 +348,17 @@ export const MISSIONS = [
     "stops": [
       {
         "group": "INTEG",
-        "lesson": 18,
+        "lesson": 19,
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
       },
       {
         "group": "INTEG",
-        "lesson": 19,
+        "lesson": 20,
         "task": "Order the entry around the four minutes with no communications."
       },
       {
         "group": "NAV",
-        "lesson": 10,
+        "lesson": 8,
         "task": "The review board convenes on Monday. What does the programme commit to?"
       }
     ]

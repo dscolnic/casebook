@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Position Without a Trusted Fix",
     "objective": "Work out not where the boat is, but how well that is known.",
     "briefing": "The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.\n",
-    "stake": "Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya her assistant Anya Petrov has been reading the fathometer, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Dead reckoning is honest arithmetic with a growing error: every minute since the last fix adds uncertainty, and a current adds it in a direction you cannot see. Worse, two displays can agree beautifully because they take their heading from the same gyro, and agreement like that measures nothing. Sixty fathoms, and a bank half a mile off the track.",
+    "stake": "Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya her assistant Anya her assistant Anya Petrov has been reading the fathometer, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Dead reckoning is honest arithmetic with a growing error: every minute since the last fix adds uncertainty, and a current adds it in a direction you cannot see. Worse, two displays can agree beautifully because they take their heading from the same gyro, and agreement like that measures nothing. Sixty fathoms, and a bank half a mile off the track.",
     "takeaway": "Precision is not accuracy, and two displays sharing a source are one measurement.",
     "stops": [
       {
@@ -71,7 +71,7 @@ export const MISSIONS = [
       {
         "group": "SONAR",
         "lesson": 2,
-        "task": "Use the bottom as an instrument"
+        "task": "The contact was held on the surface layer and is now lost. Where has it gone?"
       }
     ]
   },
@@ -95,7 +95,7 @@ export const MISSIONS = [
       {
         "group": "ENG",
         "lesson": 1,
-        "task": "Buy quiet with capability"
+        "task": "The hull rings at one shaft speed and nowhere else. Why that one?"
       }
     ]
   },
@@ -167,7 +167,7 @@ export const MISSIONS = [
       {
         "group": "ENG",
         "lesson": 3,
-        "task": "Put the air back where it belongs"
+        "task": "One fan feeds both the scrubber and the after spaces. What does that mean for the plan?"
       }
     ]
   },
@@ -215,7 +215,7 @@ export const MISSIONS = [
       {
         "group": "SONAR",
         "lesson": 5,
-        "task": "Say what the line means"
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       }
     ]
   },
@@ -287,7 +287,7 @@ export const MISSIONS = [
       {
         "group": "SONAR",
         "lesson": 6,
-        "task": "Say what quiet costs the picture"
+        "task": "Match each term in the detection budget to what it accounts for."
       }
     ]
   },
@@ -330,7 +330,7 @@ export const MISSIONS = [
       {
         "group": "SONAR",
         "lesson": 7,
-        "task": "Say what the mounts buy"
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
       },
       {
         "group": "NAV",
@@ -359,7 +359,7 @@ export const MISSIONS = [
       {
         "group": "SONAR",
         "lesson": 8,
-        "task": "Report what you know and what you do not"
+        "task": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?"
       }
     ]
   }

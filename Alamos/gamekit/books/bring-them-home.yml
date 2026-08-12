@@ -485,54 +485,35 @@ missions:
       force. And state and uncertainty are propagated together, because the
       decision is made at a later time than the data.
   - group: NAV
-    task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
-    title: Distance from signal delay
-    place: Navigation Computation Lab
+    task: Why does the spacecraft need any speed at all to stay in that orbit?
+    title: What holds it in the curve
+    place: Guidance Computer Room
     scene: >-
-      A tracking pulse leaves the dish and the echo returns 2.6 seconds later.
-      The navigation room wants the range before the burn is planned.
-    takeaway: Travel time converts directly into range when the propagation speed is known.
-    format: BALLPARK
+      The free-return path swings the spacecraft round the Moon at 2,500 kilometres
+      altitude. Somebody on the loop has asked why it does not simply fall onto the
+      surface, and the room owes them an answer.
+    takeaway: A curved path needs a force toward the centre, and orbital motion is that force being exactly enough.
+    format: CHOICE
     assumes:
-    - radio travels at the speed of light
+    - an object moving in a circle is accelerating even at constant speed
+    question: Why does the spacecraft need any speed at all to stay in that orbit?
+    choices:
+    - It is falling, and its sideways speed is what makes the fall a curve that misses.
+    - Gravity is balanced by an outward centrifugal force, so nothing accelerates.
+    - At that altitude the Moon's gravity is too weak to matter.
+    - The spacecraft's own thrust holds it up against gravity.
+    answer: It is falling, and its sideways speed is what makes the fall a curve that misses.
     why: >-
-      Travel time becomes distance once you know the speed. The only subtlety is
-      the one people drop: the pulse goes out and comes back, so the round-trip
-      time is halved before it is multiplied. Range is exactly the quantity the
-      restarted computer lost. It is also the one thing an angle can never give
-      you. That is why a single pulse is worth more this shift than an hour of
-      angles — it is measured directly, not inferred from a fit.
-    question: Estimate the spacecraft range.
-    estimate:
-      relationship: >-
-        Distance = speed × time. Radio travels at the speed of light, and the
-        pulse makes the trip twice.
-      prompt: A tracking pulse leaves the dish and the echo returns 2.6 seconds later. The pulse makes the trip twice.
-      question: Estimate the spacecraft range.
-      labels:
-      - 3.0e8 m/s (speed of light)
-      - 2.6 s (round-trip time)
-      - 2 (out and back)
-      - 1.3 s (half the round trip)
-      - 343 m/s (speed of sound in air)
-      values:
-      - 300000000.0
-      - 2.6
-      - 2
-      - 1.3
-      - 343
-      slots: 3
-      template: '{0} × {1} ÷ {2}'
-      formula: a*b/c
-      correct:
-      - 0
-      - 1
-      - 2
-      target: 390000000.0
-      tolerance: 30000000.0
-      units: m
-      solution: Range = ct/2 ≈ 3.9 × 10⁸ m.
-      explanation: 'Halving the time and halving the answer come to the same thing, which is why the factor of two is the step people drop rather than get wrong. Sound has no part in it: the measurement is radio, in vacuum.'
+      Circular motion is acceleration toward the centre, and here the whole of that
+      acceleration is gravity: the spacecraft is falling the entire time, and its
+      transverse speed turns the fall into a curve that keeps missing the surface.
+      Get the speed wrong and the curve closes on the Moon or opens away from it.
+      There is no outward force to balance — in the spacecraft's frame the crew feel
+      weightless precisely because nothing is opposing gravity.
+    rebuttals:
+    - Centrifugal force is an artefact of the rotating frame; in the inertial frame there is one force and it points inward.
+    - Lunar gravity at that altitude is about a fifth of what it is at the surface, which is not negligible at all.
+    - The engine is off, and it stays off for most of the return.
 - title: The Wrong Trajectory
   objective: Choose a correction that restores a safe return while preserving fuel and engine options.
   briefing: The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse
@@ -636,37 +617,37 @@ missions:
       units: m/s
       solution: Δv = Ft/m = 4 m/s.
       explanation: Force times time is impulse; impulse divided by mass is the velocity change. Surface gravity has no bearing on a vehicle in free flight, and specific impulse would tell you what the burn costs in propellant rather than what it achieves.
-  - group: NAV
-    task: The drift is real and the tracking is thin. What do you do?
-    title: Choose the correction strategy
-    place: Propulsion Desk
+  - group: THERM
+    task: The tank reads 40 psi and the regulator wants 15. What is the flow doing?
+    title: What the pressure difference is for
+    place: Life Support Lab
     scene: >-
-      The drift is real, the tracking is thin, and the propellant is not
-      replaceable. Correcting now means correcting toward a state that has been
-      measured badly; waiting means a better measurement and a much larger burn.
-    takeaway: The best trajectory plan balances efficiency with robustness to model and hardware uncertainty.
+      The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow
+      has fallen to half of what the plan assumed. The line is the same line it was
+      yesterday.
+    takeaway: Flow is driven by a pressure difference and limited by the restriction in the path.
     format: CHOICE
     assumes:
-    - a correction is only as good as the state estimate it was computed from
-    question: The drift is real and the tracking is thin. What do you do?
+    - gas flows from higher pressure to lower pressure
+    question: The tank reads 40 psi and the regulator wants 15. What is the flow doing?
     choices:
-    - Make an early modest correction, then track it hard.
-    - Wait for a better state estimate and accept a larger late burn.
-    - Preserve the backup engine and an alternate attitude plan instead.
-    - Correct now against the single best trajectory solution held.
-    answer: Make an early modest correction, then track it hard.
+    - Flowing on the difference, and the fall means either the difference or the path has changed.
+    - Stopped, because the regulator setting is below the tank pressure.
+    - Set by the tank pressure alone, so 40 psi guarantees the planned flow.
+    - Reversed, since the cabin is warmer than the tank.
+    answer: Flowing on the difference, and the fall means either the difference or the path has changed.
     why: >-
-      The same positional error costs more velocity to remove the closer the
-      vehicle is to arrival, so an early burn is cheap. What makes it safe
-      rather than merely cheap is the tracking afterwards: a modest correction
-      against an uncertain state can be measured and corrected again, and a
-      large one made at the end cannot. The plan that wins is not the one that
-      is cheapest against the current best estimate. It is the one that still
-      works if that estimate turns out to be wrong.
+      Gas moves because there is a pressure difference across the path, and how much
+      moves depends on that difference and on how restricted the path is. Twenty-five
+      psi of difference is still there, so a halved flow points at the path — a
+      partly closed valve, ice at an orifice, a filter loading up — or at a reading
+      that is not measuring what the crew think it is. Tank pressure on its own
+      cannot promise a flow rate: the same 40 psi delivers nothing through a blocked
+      line.
     rebuttals:
-    - Waiting buys a better measurement and pays for it in propellant that cannot be replaced, at the point in the trajectory where propellant is worth most.
-    - Preserving a backup engine is a constraint on how you burn. It is not an alternative to burning, and the drift does not stop while it is being preserved.
-    - One unverified solution is how a correction is made confidently toward the wrong place. The burn is only as good as the state it was computed from.
+    - A regulator set below tank pressure is the condition for flow, not an obstacle to it.
+    - Tank pressure sets one end of the difference; the restriction in between sets the rate.
+    - Temperature changes gas density and pressure a little; it does not reverse a 25 psi gradient.
 - title: Turn Without Wasting Fuel
   objective: Develop a controlled reorientation procedure that stops the rotation at the required attitude.
   briefing: The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and
@@ -1624,89 +1605,92 @@ missions:
       nearby object shifting against distant stars is real geometric parallax,
       carrying real distance information. And the star field staying fixed while
       the view turns is the vehicle rotating.
+  - group: INTEG
+    task: Match each feature of the plotted trace to what it tells you about the motion.
+    title: Reading the trace instead of the number
+    place: Flight Director console
+    scene: >-
+      The plot board has ninety minutes of range against time on it, and the room
+      keeps quoting the latest value out loud. The shape of the line has more in it
+      than the last point does.
+    takeaway: A graph carries rate and change of rate, neither of which is visible in the latest reading.
+    format: PROTOCOL
+    assumes:
+    - the slope of a distance-time graph is a speed
+    question: Match each feature of the plotted trace to what it tells you about the motion.
+    scenarios:
+    - The slope of the line
+    - A change in the slope
+    - Scatter about a smooth line
+    - A step with no slope change after it
+    choices:
+    - The rate the quantity is changing at.
+    - An acceleration, so something acted.
+    - Measurement noise rather than motion.
+    - An instrument or bookkeeping offset, not a manoeuvre.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: >-
+      A distance-time trace gives the speed in its slope and the acceleration in how
+      that slope changes, and neither is recoverable from the newest number read out
+      loud. The two failure shapes matter as much: scatter around a smooth line is
+      noise, and a step that leaves the slope unchanged is an offset — a recalibrated
+      instrument, a units change, a bookkeeping correction — rather than anything the
+      spacecraft did. Reading the shape first is what stops the room chasing a
+      manoeuvre that never happened.
+    rebuttals:
+    - The slope is the rate; the value is only where the quantity has got to.
+    - A slope change is the acceleration, which is the only feature that means a force acted.
+    - Scatter is the instrument. Averaging it improves the estimate; explaining it as motion invents one.
   - group: NAV
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
-    title: Angular error to position error
-    place: Crew Navigation Trainer
+    title: How far it drifts while nobody is steering
+    place: Guidance Computer Room
     scene: >-
-      A pointing error of 0.1 degrees at a range of 400,000 kilometres. The
-      guidance officer wants it in metres rather than degrees before the
-      sighting is accepted.
-    takeaway: Angle precision becomes position precision through geometry.
+      Between the two burns the spacecraft is unpowered, and a small residual
+      acceleration acts on it for 90 seconds. Nobody has turned that into a
+      distance yet.
+    takeaway: Under a constant acceleration, displacement grows with the square of the time.
     format: BALLPARK
     assumes:
-    - a small angle times a distance gives a sideways offset
+    - an object under constant acceleration covers half the acceleration times the time squared
+    question: Estimate the drift over the 90 seconds.
     why: >-
-      Small angles convert to transverse distance by multiplying the angle in
-      radians by the range, and a tenth of a degree is about 1.75 milliradians.
-      The number that comes out is why a hand-held sighting is discussed so
-      carefully: angular precision becomes position precision through geometry
-      alone, with no instrument error involved. At lunar distance a fraction of
-      a degree is hundreds of kilometres, and the entry corridor is about a
-      degree wide.
-    question: Estimate the transverse offset at that range.
+      Half of 0.004 metres a second squared, times 90 squared, is about 16 metres.
+      The reason this matters more than it looks is the square: double the coast and
+      the drift quadruples, so the same residual over six minutes is not 32 metres
+      but 260. It is the same relationship as free fall — a projectile with no
+      thrust is under one acceleration and nothing else, and its path is set by that
+      and its initial velocity alone.
     estimate:
-      relationship: >-
-        Sideways offset = angle in radians × range. One degree is about 17.5
-        milliradians.
-      prompt: A pointing error of 0.1 degrees at a range of 400,000 kilometres. Small angles convert to transverse distance by multiplying the angle in radians by the range.
-      question: Estimate the transverse offset at that range.
+      relationship: Displacement = ½ × acceleration × time², for a constant acceleration from rest.
+      prompt: A residual acceleration of 0.004 m/s² acts for 90 s with the engine off.
+      question: Estimate the drift over the 90 seconds.
       labels:
-      - 4.0e8 m (range)
-      - 0.1 degrees (pointing error)
-      - 0.01745 rad per degree
-      - 57.3 degrees per radian
-      - 1,000 m per km
+      - 0.004 m/s² (residual acceleration)
+      - 90 s (unpowered coast)
+      - 0.5 (the one half in the relationship)
+      - 9.81 m/s² (surface gravity, for scale)
       values:
-      - 400000000.0
-      - 0.1
-      - 0.01745
-      - 57.3
-      - 1000
+      - 0.004
+      - 90
+      - 0.5
+      - 9.81
       slots: 3
-      template: '{0} × {1} × {2}'
-      formula: a*b*c
+      template: '{2} × {0} × {1}²'
+      formula: c*a*b*b
       correct:
       - 0
       - 1
       - 2
-      target: 698000.0
-      tolerance: 50000.0
+      target: 16
+      tolerance: 3
       units: m
-      solution: 0.1° is about 1.75 milliradians; times 4 × 10⁸ m, roughly 700 km.
-      explanation: Radians per degree and degrees per radian are reciprocals, and picking the wrong one puts the answer out by a factor of 3,300. The small-angle relation only holds in radians, which is the whole reason the conversion is here.
-  - group: NAV
-    task: Nobody has measured how repeatable a hand sighting is. What do you require before the burn?
-    title: Bound the manual alignment
-    place: Guidance Review Board
-    scene: >-
-      The burn will be aimed by a crew member sighting stars through a window
-      reticle, with no platform to check them against. Nobody has measured how
-      repeatable that is.
-    takeaway: A manual procedure becomes reliable when its geometry and repeatability are measured.
-    format: CHOICE
-    assumes:
-    - a single measurement has no error bar
-    question: Nobody has measured how repeatable a hand sighting is. What do you require before the burn?
-    choices:
-    - Multiple stars, each sighted more than once.
-    - A reticle and eye-position calibration in the simulator.
-    - A timed attitude-rate check immediately before ignition.
-    - One careful alignment by the most practised crew member.
-    answer: Multiple stars, each sighted more than once.
-    why: >-
-      A manual procedure is not unreliable by nature. It is unreliable until its
-      scatter has been measured, and repetition is the only thing that measures
-      scatter. Averaging several sightings of several stars is also the only
-      thing that reduces it. A procedure with no repeat produces a number and no
-      error bar at all, which makes it impossible to say whether the burn lands
-      inside the corridor. Simulator calibration removes the fixed offset; it
-      says nothing about how much the answer moves from one sighting to the
-      next.
-    rebuttals:
-    - Simulator calibration removes the systematic part — the fixed offset between eye, reticle and axis — and tells you nothing about how much the answer moves from one sighting to the next.
-    - The attitude-rate check catches a vehicle still drifting when the sighting was taken. A real error source, and a different one.
-    - One alignment by the best crew member is a single sample. It may well be the most accurate one; nobody can demonstrate that it was.
+      solution: 0.5 × 0.004 × 90² = 0.002 × 8,100 ≈ 16 m.
+      explanation: The time is squared. Use it once and the answer is 0.36 m, which would look like nothing worth correcting.
 - title: Crossing the Atmosphere
   objective: Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.
   briefing: 'The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping
