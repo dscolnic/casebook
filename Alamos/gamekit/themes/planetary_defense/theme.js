@@ -32,6 +32,25 @@ export default {
   // this campaign is not one, so the label is not either.
   dayNoun: 'Phase',
 
+  // The sites are hundreds of metres apart and nobody walks between them. The
+  // day's budget is measured at the speed the player actually travels — see
+  // engine/core/day.js. Not the helicopter's cruise of 34: the first three
+  // phases are driven, at 16, and a budget written for the aircraft leaves a
+  // phase that has to be driven with no time to think in.
+  travelSpeed: 16,
+
+  // The survey crew stands at base camp, not on Cerro Alto. Their instrument is
+  // up there and their shift handover is not, and a person stop is a conversation
+  // — the only thing a drive to the summit added to it was the drive. Read by
+  // engine/world/outdoorTown.js when it places the crowd.
+  peopleHome: { DISC: 'OPS' },
+
+  // The first phase the survey helicopter flies. Before it, the machine is on
+  // the pad and says so, and the range is crossed in the site truck — the
+  // aircraft is not the player's to sign out on the first night of a campaign.
+  // Read by src/main.js, which refuses the interaction and rewrites the prompt.
+  aircraftFromDay: 4,
+
 
   id: 'planetary_defense',
   title: 'Planetary Defense',
@@ -100,11 +119,16 @@ export default {
     // drawn at all: the page background showed through as a flat grey sky, with
     // the ranks and the stars still rendered in front of it. It reads as a
     // lighting problem and is a clipped object. `buildSky` now warns.
-    far: 1400,
+    far: 6000,
     // Thin cold air. At night this was nearly black, because at night the fog
     // is the sky; in daylight it has to be the haze instead or the far ranks
     // sit in a dark band under a bright sky.
-    fog: { colour: 0xa8bcd0, near: 220, far: 900 },
+    // Thin, dry, high air, and a two-and-a-half-kilometre site: the next summit
+    // is 950 m away and it is the thing you navigate by, so the haze has to
+    // start beyond it and still give the far ranks some depth. These are the
+    // theme's own distances again — until the sun rig was fixed it overwrote
+    // them every frame with 210/660, and both domes stood in solid white.
+    fog: { colour: 0xa8bcd0, near: 550, far: 2600 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
     // A night scene has no sun to blow out, but it must not be lifted either:
     // `nightLift: 0` keeps the engine from raising exposure after dark, which

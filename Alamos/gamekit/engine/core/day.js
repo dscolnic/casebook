@@ -52,6 +52,16 @@ export const PANEL_PACE = 0.25;
 /** Player walking speed, m/s — `player.js` moves at 4.2 and sprints at 8.5. */
 const WALK_SPEED = 4.2;
 
+/**
+ * How fast the player actually gets between stops, in metres a second.
+ *
+ * A theme whose sites are kilometres apart does not walk between them, and
+ * budgeting its day at walking pace produced a nineteen-hour shift. Planetary
+ * Defense flies; `theme.travelSpeed` is the cruise it flies at. Everything else
+ * walks and is unchanged.
+ */
+const TRAVEL_SPEED = Number.isFinite(theme?.travelSpeed) ? theme.travelSpeed : WALK_SPEED;
+
 /** How much of a day travel should take, at a walk. The rest is the game. */
 const TRAVEL_SHARE = 0.42;
 
@@ -72,7 +82,7 @@ const MIN_DAY_MINUTES = 180;
  * `interiorBuilding.js`). A position out there is not a place in the town, and
  * budgeting a route to it produces a forty-hour day.
  */
-const IN_TOWN = (p) => p && Number.isFinite(p.x) && Number.isFinite(p.z) && Math.abs(p.x) < 1000;
+const IN_TOWN = (p) => p && Number.isFinite(p.x) && Number.isFinite(p.z) && Math.abs(p.x) < 3000;
 
 export function budgetForRoute(spawn, positions){
   const pts = (positions ?? []).filter(IN_TOWN);
@@ -94,7 +104,7 @@ export function budgetForRoute(spawn, positions){
     at = left[best];
     left.splice(best, 1);
   }
-  const travelSeconds = metres / WALK_SPEED;
+  const travelSeconds = metres / TRAVEL_SPEED;
   const travelMinutes = travelSeconds * MINUTES_PER_SECOND;
   const minutes = travelMinutes / TRAVEL_SHARE + MINUTES_PER_STOP * stops;
   // Round to a quarter hour so the HUD reads like a shift and not a stopwatch.

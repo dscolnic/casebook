@@ -12,7 +12,10 @@
 //     point lights is exactly how a floor went from 118 fps to 20. Everything
 //     that glows here is an emissive material.
 import * as THREE from 'three';
-import { MATERIALS, cyl, box, post } from '../../engine/world/kit.js';
+import { MATERIALS, cyl, box, post, vehicle } from '../../engine/world/kit.js';
+import { flyable } from '../../engine/world/flying.js';
+import { driveable } from '../../engine/world/driving.js';
+import { PADS } from './site.js';
 
 /** Red service lighting. Emissive only — never a real light. */
 const RED = 0xd8321c;
@@ -171,42 +174,251 @@ function guardRail(scene, x, z0, z1, y){
  * Called by engine/world/outdoorTown.js once the ground, buildings and street
  * furniture exist.
  */
+
+// --------------------------------------------------------------- landing pads
+/**
+ * A pad: a painted circle, a ring of low blue lights, and a white strobe on a
+ * mast beside it. The strobe is the only thing on this range visible from the
+ * next summit, so it is what the player navigates by.
+ *
+ * Nothing here is a real light. Six point lights is the engine's ceiling and
+ * the sun rig takes three; these are emissive discs, which read as lights at
+ * night and cost nothing.
+ */
+function helipad(scene, x, z, y, { r = 11 } = {}){
+  const g = new THREE.Group();
+  g.position.set(x, y + 0.02, z);
+  scene.add(g);
+
+  const deck = new THREE.Mesh(new THREE.CircleGeometry(r, 40),
+    new THREE.MeshStandardMaterial({ color: 0x1e2126, roughness: 0.95 }));
+  deck.rotation.x = -Math.PI / 2;
+  deck.receiveShadow = true;
+  g.add(deck);
+
+  // The H, in paint that has been rained on for years.
+  const paint = new THREE.MeshStandardMaterial({ color: 0xb9bec4, roughness: 0.85,
+    emissive: 0x2a2f36, emissiveIntensity: 0.35 });
+  const bar = (w, d, ox) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, d), paint);
+    m.rotation.x = -Math.PI / 2;
+    m.position.set(ox, 0.03, 0);
+    g.add(m);
+  };
+  bar(0.9, r * 0.85, -r * 0.28);
+  bar(0.9, r * 0.85, r * 0.28);
+  const cross = new THREE.Mesh(new THREE.PlaneGeometry(r * 0.56, 0.9), paint);
+  cross.rotation.x = -Math.PI / 2;
+  cross.position.y = 0.03;
+  g.add(cross);
+
+  // Perimeter lights. Blue, low, and close together — they only resolve from
+  // inside a couple of hundred metres, which is what makes the final approach
+  // feel like an approach.
+  const lamp = new THREE.MeshStandardMaterial({ color: 0x1b2b46, emissive: 0x2f6fd0,
+    emissiveIntensity: 2.4, roughness: 0.5 });
+  const lamps = [];
+  for(let i = 0; i < 16; i++){
+    const a = (i / 16) * Math.PI * 2;
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), lamp);
+    m.position.set(Math.cos(a) * (r + 0.9), 0.24, Math.sin(a) * (r + 0.9));
+    g.add(m);
+    lamps.push(m);
+  }
+
+  // The strobe, on a mast clear of the rotor disc.
+  // `post` takes its height, radius and colour POSITIONALLY. Called with an
+  // options object it read the object as the height, built a cylinder of NaN
+  // length, and three.js logged "Computed radius is NaN" once per pad — five
+  // masts that were never drawn and five soft colliders that never existed.
+  const mast = post(scene, x + r + 3.4, z, y, 7.5, 0.13, 0x33373d);
+  const strobeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff,
+    emissiveIntensity: 3.2, roughness: 0.3 });
+  const strobe = new THREE.Mesh(new THREE.SphereGeometry(0.42, 10, 8), strobeMat);
+  strobe.position.set(x + r + 3.4, y + 7.7, z);
+  strobe.userData.ignoreAudit = true;
+  scene.add(strobe);
+
+  // `post` returns the soft collider itself — {x, z, r} — not a wrapper with a
+  // `soft` field, so the old `mast?.soft` was always undefined.
+  return { group: g, strobe: strobeMat, lamps: lamp, soft: mast };
+}
+
+// ---------------------------------------------------------------- the aircraft
+/**
+ * A light utility helicopter. Modelled nose-along -z, which is the direction
+ * `flying.js` flies, so no wrapper is needed.
+ */
+function helicopter(scene, x, z, y, { facing = 0 } = {}){
+  const g = new THREE.Group();
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+
+  const shell = new THREE.MeshStandardMaterial({ color: 0x2c3742, roughness: 0.55, metalness: 0.35 });
+  const trim = new THREE.MeshStandardMaterial({ color: 0xb4552a, roughness: 0.6 });
+
+  // Cabin: a rounded body with the nose down the -z axis.
+  const cabin = new THREE.Mesh(new THREE.SphereGeometry(1.55, 16, 12), shell);
+  cabin.scale.set(1.0, 0.92, 1.65);
+  cabin.position.set(0, 1.75, -0.9);
+  cabin.castShadow = true;
+  g.add(cabin);
+
+  // Glass, forward and low, so the pilot is looking down at the ground.
+  const glass = new THREE.Mesh(new THREE.SphereGeometry(1.42, 14, 10,
+    0, Math.PI * 2, 0, Math.PI * 0.55), MATERIALS.glass());
+  glass.scale.set(0.98, 0.9, 1.2);
+  glass.rotation.x = Math.PI * 0.92;
+  glass.position.set(0, 1.62, -2.05);
+  g.add(glass);
+
+  // Tail boom and fin. `cyl` is (scene, r, h, x, y, z, material, rTop) — called
+  // as (r, rTop, h, …) it took the *material* as the z and the taper radius as the
+  // material, and built a cylinder with a NaN radius: three.js logged "Computed
+  // radius is NaN" and the boom and both skid rails were never drawn.
+  const boom = cyl(g, 0.30, 5.4, 0, 2.05, 2.9, shell, 0.18);
+  if(boom) boom.rotation.x = Math.PI / 2;
+  box(g, 0.12, 1.5, 0.9, 0, 2.7, 5.2, trim);
+
+  // Skids.
+  for(const sx of [-1.15, 1.15]){
+    const rail = cyl(g, 0.09, 4.4, sx, 0.22, -0.6, shell);
+    if(rail) rail.rotation.x = Math.PI / 2;
+    box(g, 0.12, 0.9, 0.12, sx, 0.7, -1.9, shell);
+    box(g, 0.12, 0.9, 0.12, sx, 0.7, 0.7, shell);
+  }
+
+  // Rotors. Thin plates rather than blades: at 26 rad/s nobody sees geometry.
+  const mainRotor = new THREE.Group();
+  mainRotor.position.set(0, 3.35, -0.6);
+  for(let i = 0; i < 4; i++){
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.06, 9.2), shell);
+    blade.rotation.y = (i / 4) * Math.PI * 2;
+    mainRotor.add(blade);
+  }
+  g.add(mainRotor);
+  const tailRotor = new THREE.Group();
+  tailRotor.position.set(0.42, 2.7, 5.2);
+  for(let i = 0; i < 3; i++){
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.9, 0.22), shell);
+    blade.rotation.x = (i / 3) * Math.PI * 2;
+    tailRotor.add(blade);
+  }
+  g.add(tailRotor);
+
+  // Landing light: a cone of emissive geometry under the nose, switched on by
+  // `flying.js` when somebody climbs in. Not a real light — the engine's budget
+  // is six and the sun rig has three of them.
+  const beamMat = new THREE.MeshBasicMaterial({ color: 0xffe9c4, transparent: true,
+    opacity: 0.14, depthWrite: false });
+  const beam = new THREE.Mesh(new THREE.ConeGeometry(7.5, 26, 14, 1, true), beamMat);
+  beam.position.set(0, 1.2, -9);
+  beam.rotation.x = -Math.PI / 2.35;
+  beam.visible = false;
+  beam.userData.ignoreAudit = true;
+  g.add(beam);
+
+  // Anti-collision light on the belly, always on: it is how you find the
+  // machine again on a dark pad.
+  const acl = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 6),
+    new THREE.MeshStandardMaterial({ color: 0x3a0d0d, emissive: 0xd8261f, emissiveIntensity: 3.0 }));
+  acl.position.set(0, 0.62, 0.4);
+  g.add(acl);
+
+  return { group: g, rotors: { main: mainRotor, tail: tailRotor }, light: beam };
+}
+
 export function decorate(scene, ctx){
-  const { groundHeight, softColliders, lightPanels } = ctx;
+  const { groundHeight, softColliders, lightPanels, colliders, interactables } = ctx;
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
   const glow = (m) => { if(m) lightPanels.push(m); };
 
   // ------------------------------------------------------------ the domes
-  // Sat on top of the two buildings that carry telescopes, facing the open
-  // sky over the drop rather than back at the ridge.
-  const d1 = dome(scene, -30, -150, y(-30, -150) + 7.0, 12.5, { facing: Math.PI * 0.15 });
-  const d2 = dome(scene, 34, -96, y(34, -96) + 6.0, 9.5, { facing: -Math.PI * 0.2 });
+  // Each on its own summit, thirteen hundred metres apart, which is the whole
+  // reason this site is shaped the way it is: two optical instruments that can
+  // see each other's lights are two instruments working at half sensitivity.
+  // These coordinates are DISC and CHAR in site.js. Move a dome there and it has
+  // to move here, or the shell and the shutter part company.
+  const d1 = dome(scene, -725, -620, y(-725, -620) + 7.0, 12.5, { facing: Math.PI * 0.15 });
+  const d2 = dome(scene, 590, -510, y(590, -510) + 6.0, 9.5, { facing: -Math.PI * 0.2 });
   soft(d1.soft); soft(d2.soft);
-  glow(d1.glow.material ? d1.glow : null);
+  glow(d1.glow?.material ? d1.glow : null);
 
   // ------------------------------------------------------------- the dish
-  // Off the end of the radar spur, well clear of everything optical.
-  soft(dish(scene, 76, 132, y(76, 132), 15));
+  // Out on the basin floor, thirty metres of it, pointed up at nothing yet.
+  soft(dish(scene, -965, 350, y(-965, 350), 15));
 
-  // ------------------------------------------------- red road lighting
-  // Every fifty metres, alternating sides, all the way up the ridge. This is
-  // the only lighting on the road and it is deliberately dim: the whole point
-  // of a mountain site is that nothing here spills light upward.
-  for(let i = 0; i < 8; i++){
-    const z = 100 - i * 46;
+  // -------------------------------------------------- base camp lighting
+  // Red, dim, and only where people walk at night. Nothing on this range
+  // spills light upward if it can be helped.
+  for(let i = 0; i < 6; i++){
+    const z = 96 - i * 40;
     const x = i % 2 ? 8 : -8;
     const l = redLamp(scene, x, z, y(x, z));
     soft(l.soft); glow(l.glow);
   }
 
   // ------------------------------------------------------- infrastructure
-  cableTray(scene, -20, -140, -20, -50, y(-20, -100));
-  cableTray(scene, 22, -86, 22, 0, y(22, -40));
-  cableTray(scene, 22, 30, 40, 118, y(30, 70));
+  cableTray(scene, -22, -30, -22, 60, y(-22, 20));
+  cableTray(scene, 24, -40, 24, 30, y(24, 0));
+  guardRail(scene, 22, -30, 90, y(22, 20));
 
-  // The drop is on the east side all the way down the ridge.
-  guardRail(scene, 13, -170, 100, y(13, 0));
+  // --------------------------------------------------------- landing pads
+  // One per site, lit. These are the navigation system: the strobes are
+  // visible from the next summit and nothing else out there is.
+  for(const p of PADS){
+    const pad = helipad(scene, p.x, p.z, y(p.x, p.z), { r: p.r });
+    glow(pad.strobe); glow(pad.lamps);
+    soft(pad.soft);
+  }
+
+  // --------------------------------------------------------- the site truck
+  // The aircraft is not signed out until the fourth phase (`aircraftFromDay` in
+  // theme.js), and the first phase already sends the player to Cerro Alto — so
+  // there has to be a way across the range on the ground. There is no graded road
+  // up either summit; this is a four-wheel-drive on scree, which is what the
+  // people who work here actually use, and it stays useful after the aircraft
+  // arrives because a 900-metre hop is not worth spinning up a rotor for.
+  //
+  // Parked on the road shoulder fifteen metres from the spawn — in view on the
+  // first frame, because a vehicle the player has to go looking for is a vehicle
+  // they walk the range without. Not closer: a prop within ten metres of the
+  // spawn is how a player ends up welded in place.
+  // West side of the road, not east: the campaign status board stands at (8, 62)
+  // and a truck parked behind it is a truck the player never sees.
+  const truck = vehicle(scene, -14, 46, y(-14, 46), { facing: 0, colour: 0x8a5a2c, box: false });
+  driveable(scene, truck.group, {
+    id: 'site-truck',
+    label: 'site truck',
+    halfWidth: 1.25, halfLength: 2.9, height: 3.0,
+    // In the cab, on the left, looking out over the bonnet — not behind the load,
+    // which puts the whole vehicle between the driver and the road.
+    seat: { x: 0.52, y: 2.18, z: truck.cabZ },
+    wheels: truck.wheels,
+    // Faster than the town trucks in the other games: this is a mountain range
+    // and the shortest leg on it is 780 metres.
+    topSpeed: 16,
+    colliders, interactables,
+  });
+
+  // ----------------------------------------------------------- the aircraft
+  // Parked on the base camp pad at the start of every shift. Without this the
+  // five sites are five hours of walking, which is the version of this game
+  // that existed before the range did.
+  const home = PADS[0];
+  const heli = helicopter(scene, home.x, home.z, y(home.x, home.z), { facing: Math.PI });
+  flyable(scene, heli.group, {
+    id: 'survey-helicopter',
+    label: 'survey helicopter',
+    rotors: heli.rotors,
+    light: heli.light,
+    seat: { x: 0, y: 1.9, z: -1.5 },
+    halfWidth: 1.7, halfLength: 5.4, height: 3.6,
+    cruise: 34, ceiling: 140,
+    colliders, interactables,
+  });
 }
 
 export default decorate;

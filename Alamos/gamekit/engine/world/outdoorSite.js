@@ -19,7 +19,12 @@ export const TERRAIN_DEFAULTS = {
   size: 760,               // extent of the ground mesh
   segments: 300,
   playerLimit: 105,        // keep the player on ground the profile guarantees flat
-  profile: 'mesa',         // 'mesa' | 'rolling' | 'flat'
+  profile: 'mesa',         // 'mesa' | 'rolling' | 'flat' | 'range'
+  // 'range' only: named summits, each a smooth radial rise out of a basin.
+  // A campaign whose sites are kilometres apart needs real landform between
+  // them, or the distance is just a long walk over nothing.
+  summits: [],             // [{ x, z, r, height, sharp }]
+  basin: -40,              // where the ground sits between the summits
   relief: 1.0,             // vertical scale of the surface undulation
   mesa: { rimRadius: 122, rimWobble: [6, 4, 2], dropDepth: 62, dropRun: 52, farRise: 230 },
   ground: {
@@ -58,6 +63,21 @@ function padWeight(x, z){
   }
   return best;
 }
+/** The pad with the strongest claim on this point, and its centre. */
+function nearestPad(x, z){
+  let best = null, bestW = 0;
+  for(const p of PADS){
+    if(x < p.x0 - p.m || x > p.x1 + p.m || z < p.z0 - p.m || z > p.z1 + p.m) continue;
+    const dx = Math.max(0, p.x0 - x, x - p.x1);
+    const dz = Math.max(0, p.z0 - z, z - p.z1);
+    const t = 1 - Math.min(1, Math.max(dx, dz) / p.m);
+    const w = t * t * (3 - 2 * t);            // smooth, so the edge is walkable
+    if(w > bestW){ bestW = w; best = p; }
+  }
+  if(!best) return null;
+  return { w: bestW, cx: (best.x0 + best.x1) / 2, cz: (best.z0 + best.z1) / 2 };
+}
+
 export function onPath(x, z, pad = 1.5){
   for(const p of PATHS){
     if(Math.abs(x - p.cx) < p.w / 2 + pad && Math.abs(z - p.cz) < p.d / 2 + pad) return true;
@@ -70,10 +90,47 @@ function rimRadius(ang){
   return m.rimRadius + Math.sin(ang * 3.1) * a + Math.cos(ang * 5.7) * b + Math.sin(ang * 11.3) * c;
 }
 
+/**
+ * The macro landform for 'range': a basin with summits rising out of it.
+ *
+ * Each summit is a smooth radial rise, so a helicopter crossing between two of
+ * them flies over something rather than across a plain with buildings on it.
+ * Kept separate from `groundHeight` because the pad blending below has to be
+ * able to ask for the height at a pad's centre without recursing.
+ */
+function rangeHeight(x, z){
+  let h = CFG.basin;
+  for(const s of CFG.summits ?? []){
+    const d = Math.hypot(x - s.x, z - s.z);
+    if(d > s.r) continue;
+    const t = 1 - d / s.r;                    // 1 at the peak, 0 at the foot
+    const shaped = s.sharp ? Math.pow(t, 1.6) : t * t * (3 - 2 * t);
+    h += s.height * shaped;
+  }
+  // Ridges and gullies between the summits, at a scale you notice from the air.
+  return h + (fbm(x * 0.0022 + 61, z * 0.0022 + 23, 4) - 0.5) * 26 * CFG.relief;
+}
+
+/** Surface detail, before any pad or path grading. */
+function surfaceNoise(x, z){
+  return ((fbm(x * 0.012 + 11, z * 0.012 + 7, 4) - 0.5) * 1.0
+        + (fbm(x * 0.07 + 3, z * 0.07 + 5, 3) - 0.5) * 0.25) * CFG.relief;
+}
+
 /** THE height function. Everything — mesh, props, people — uses this. */
 export function groundHeight(x, z){
-  let surf = ((fbm(x * 0.012 + 11, z * 0.012 + 7, 4) - 0.5) * 1.0
-            + (fbm(x * 0.07 + 3, z * 0.07 + 5, 3) - 0.5) * 0.25) * CFG.relief;
+  // 'range' grades the *whole* height into a pad, not just the surface noise:
+  // a bench cut into a mountainside has to be level, and damping the ripple on
+  // a 1-in-3 slope leaves a building standing on a hill.
+  if(CFG.profile === 'range'){
+    const raw = (px, pz) => rangeHeight(px, pz) + surfaceNoise(px, pz) * (onPath(px, pz, 3) ? 0.08 : 1);
+    const pad = nearestPad(x, z);
+    const here = raw(x, z);
+    if(!pad || pad.w <= 0) return here;
+    const level = raw(pad.cx, pad.cz);
+    return here + (level - here) * pad.w;
+  }
+  let surf = surfaceNoise(x, z);
   if(onPath(x, z, 3)) surf *= 0.08;
   if(PADS.length) surf *= 1 - padWeight(x, z);
   if(CFG.profile === 'flat') return surf * 0.15;
@@ -574,9 +631,18 @@ export function updateOutdoorTimeOfDay(scene, renderer, hours, extras = {}){
 
   const horizon = updateSky(scene, dir, dayBlend);
   if(horizon && scene.fog){
+    // The colour is the sky's — fog that does not match the horizon it fades
+    // into puts a visible seam along the skyline.
     scene.fog.color.copy(horizon);
-    scene.fog.near = 150 + 60 * dayBlend;
-    scene.fog.far = 420 + 240 * dayBlend;
+    // The distances are the THEME's, and used to be these two constants: a site
+    // built to be read across five kilometres had everything past 660 m in flat
+    // haze, whatever `look.fog` said. The multipliers are what those constants
+    // were as a fraction of the old daylight pair (210 / 660), so a theme that
+    // sets no fog gets exactly the old behaviour and one that does gets closed-in
+    // night air and its own daylight range.
+    const base = extras.fog ?? { near: 210, far: 660 };
+    scene.fog.near = base.near * (0.71 + 0.29 * dayBlend);
+    scene.fog.far = base.far * (0.64 + 0.36 * dayBlend);
   }
   // Night lifts the exposure so a daytime game's dusk stays readable. A game
   // that is *played* at night wants the opposite — at 1.5 the residual sky

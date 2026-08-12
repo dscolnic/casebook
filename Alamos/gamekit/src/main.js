@@ -23,6 +23,7 @@ import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage } from '../engine/core/app.js';
 import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
+import { createFlying } from '../engine/world/flying.js';
 import { DAY_NOUN } from '../engine/core/constants.js';
 
 const canvas = document.getElementById('canvas');
@@ -94,12 +95,28 @@ function nextStopGroup(){
   const stop = getNextMissionStop();
   return stop ? stop.group : null;
 }
+/**
+ * The first day the theme's aircraft flies. 0 — every theme without one, and
+ * every theme whose aircraft is available from the start — is never refused.
+ */
+const AIRCRAFT_FROM_DAY = Number.isFinite(theme.aircraftFromDay) ? theme.aircraftFromDay : 0;
+
 function refreshWorld(){
   const state = getState();
   world.updateWorldFromState(state, nextStopGroup(), (id) => {
     const gs = state.groups?.find(g => g.id === id);
     return gs ? groupPct(gs) : 0;
   });
+  // A grounded aircraft whose prompt still reads "E — Fly" is a prompt that lies.
+  // Rewritten here rather than at registration because it changes with the day.
+  if(AIRCRAFT_FROM_DAY > 0){
+    for(const it of world.interactables){
+      if(it.type !== 'aircraft') continue;
+      it.prompt = state.week < AIRCRAFT_FROM_DAY
+        ? `${it.aircraft.label} — grounded until ${DAY_NOUN.toLowerCase()} ${AIRCRAFT_FROM_DAY}`
+        : `E — Fly the ${it.aircraft.label}`;
+    }
+  }
   updateHUD();
 }
 
@@ -146,6 +163,20 @@ const driving = createDriving({
   groundHeight: world.groundHeight,
   bounds: theme.site?.terrain?.playerLimit ?? 105,
   input: () => moveState,
+  player: { teleport, getPosition },
+});
+
+// A theme whose sites are kilometres apart parks an aircraft instead. `props.js`
+// registers it with `flyable()`; a theme with none never builds one and this
+// controller sits idle. The collective is its own two keys — the walk keys are
+// already spoken for and a helicopter needs a third axis.
+const lift = { up: false, down: false };
+const flying = createFlying({
+  camera,
+  colliders: world.colliders,
+  groundHeight: world.groundHeight,
+  bounds: theme.site?.terrain?.playerLimit ?? 105,
+  input: () => ({ ...moveState, up: lift.up, down: lift.down }),
   player: { teleport, getPosition },
 });
 
@@ -229,6 +260,18 @@ const activate = makeActivate({
   case: (t) => openVisit(t.id),
   roomexit: () => interiors.exit(),
   vehicle: (t) => driving.enter(t.vehicle),
+  // A theme may hold the aircraft on the ground for the opening days:
+  // `aircraftFromDay` is the first day it flies. Refusing has to say why — a key
+  // that does nothing is a key the player decides is broken.
+  aircraft: (t) => {
+    if(getState().week < AIRCRAFT_FROM_DAY){
+      showInfo(`The ${t.aircraft.label} stays on the pad`,
+        `<p>It is not signed out to you yet. The ${t.aircraft.label} flies from `
+        + `${DAY_NOUN.toLowerCase()} ${AIRCRAFT_FROM_DAY}; until then the range is driven.</p>`);
+      return;
+    }
+    flying.enter(t.aircraft);
+  },
   npc: (t) => openPersonOrPassage(t.npc, t.char, (person) => {
     showInfo(person?.name ?? 'Someone', passageHTML(person));
     bindPassage(document.getElementById('modalBody'), person, () => refreshWorld());
@@ -318,8 +361,15 @@ window.addEventListener('keydown', (e) => {
     // Getting out is the same key that got you in. The raycast from a seat
     // rarely finds anything, so this cannot go through the interactables.
     if(driving.active){ driving.exit(); return; }
+    // Refuses in the air, and says so rather than silently doing nothing.
+    if(flying.active){
+      if(!flying.exit()) promptEl.textContent = 'Land first — set it down before you get out.';
+      return;
+    }
     activate(getCurrentTarget());
   }
+  if(e.code === 'KeyR') lift.up = true;
+  if(e.code === 'KeyF') lift.down = true;
   if(e.code === 'Escape'){
     overlay.classList.remove('show');
     document.getElementById('statsOverlay').classList.remove('show');
@@ -327,6 +377,11 @@ window.addEventListener('keydown', (e) => {
     sheet('settingsOverlay', false);
   }
 });
+window.addEventListener('keyup', (e) => {
+  if(e.code === 'KeyR') lift.up = false;
+  if(e.code === 'KeyF') lift.down = false;
+});
+
 // questionUI closes its own modal; the world has to catch up afterwards.
 const observer = new MutationObserver(() => { if(!overlay.classList.contains('show')) refreshWorld(); });
 observer.observe(overlay, { attributes: true, attributeFilter: ['class'] });
@@ -344,11 +399,17 @@ function frame(now){
 
   // Two things must never write the camera position in the same frame. While
   // the player is in a vehicle, the vehicle owns it.
-  if(driving.active) driving.update(delta);
+  if(flying.active) flying.update(delta);
+  else if(driving.active) driving.update(delta);
   else updatePlayer(delta);
-  if(isLocked && !driving.active) updateInteractions(promptEl);
+  if(isLocked && !driving.active && !flying.active) updateInteractions(promptEl);
   else if(driving.active){
     promptEl.textContent = 'W/S drive · A/D steer · Shift faster · E — get out';
+    promptEl.classList.remove('hidden');
+  } else if(flying.active){
+    const alt = Math.round(flying.altitude);
+    promptEl.textContent = `R climb · F descend · W/S · A/D yaw · Shift faster · ${alt} m · `
+      + (flying.airborne ? 'E — land first' : 'E — get out');
     promptEl.classList.remove('hidden');
   } else promptEl.classList.add('hidden');
 
@@ -389,7 +450,7 @@ if(import.meta.env?.DEV){
   // the raycast, so getCurrentTarget is null there and every interaction looks
   // broken whether it is or not.
   exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition,
-                       updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving, day,
+                       updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving, flying, day,
                        interiors });
   console.log(
     `%c${theme.title}%c — theme "${theme.id}", ${theme.content.MISSIONS.length} missions, `

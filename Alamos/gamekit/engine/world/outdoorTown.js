@@ -226,6 +226,19 @@ export function initWorld(canvas, activeTheme){
     // Face back toward the door, so the crew reads as standing outside it.
     facing: Math.atan2(s.pos.x - s.entry.x, s.pos.z - s.entry.z),
   }));
+  // A group whose building is a long way from everything else can still have its
+  // people at base camp. `peopleHome: { DISC: 'OPS' }` in the manifest stands the
+  // survey crew outside the coordination office instead of on the summit their
+  // telescope is on — a night crew briefs where the phones are, and a person stop
+  // is a conversation, not a visit to the instrument.
+  const home = theme.peopleHome ?? {};
+  if(Object.keys(home).length){
+    const byId = new Map(peopleStations.map(st => [st.id, st]));
+    peopleStations = peopleStations.map((st) => {
+      const host = byId.get(home[st.id]);
+      return host ? { ...st, x: host.x, z: host.z, facing: host.facing } : st;
+    });
+  }
 
   getWaypointMesh().visible = false;
   return { scene, renderer };
@@ -273,6 +286,10 @@ export function updateTimeOfDay(hours){
   const look = theme?.look ?? {};
   const info = updateOutdoorTimeOfDay(scene, renderer, hours, {
     exposure: look.exposure, nightLift: look.nightLift,
+    // The theme's own fog distances. Without these the sun rig overwrote them
+    // with its own every frame, so `look.fog` set the colour and nothing else —
+    // a five-kilometre site whose next summit stood in solid haze at 660 m.
+    fog: look.fog,
   });
   // Emissive panels carry the night, since the light budget cannot.
   const night = info ? 1 - info.dayBlend : 0;
