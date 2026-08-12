@@ -30,10 +30,10 @@ export const CURRICULUM = {
           "Direction on the sky.",
           "Line-of-sight velocity.",
           "Range along the line of sight.",
-          "Velocity, and any change in it."
+          "How fast it is going, and whether that is steady."
         ],
         "choices": [
-          "Photograph the spacecraft against catalogued stars. The angle to stars whose directions are already known fixes the line the spacecraft lies along, to the precision of the star positions and the optics.",
+          "Photograph the spacecraft against catalogued stars. The angle between it and stars whose places are already fixed gives the line it lies along, to the precision of the catalogue and the optics.",
           "Compare the frequency that comes back with the frequency that was sent. Motion along the line of sight stretches or compresses the returning wave, and the fractional change in frequency equals the speed as a fraction of the speed of light.",
           "Time a pulse out to the spacecraft and back through its transponder. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the distance.",
           "Repeat the same position measurement at recorded times. Subtracting positions gives velocity, and subtracting those velocities gives acceleration."

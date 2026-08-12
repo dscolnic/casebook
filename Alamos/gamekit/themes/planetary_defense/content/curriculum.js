@@ -630,13 +630,13 @@ export const CURRICULUM = {
         "scenarios": [
           "Distance to the object.",
           "How fast the object is rotating.",
-          "How reflecting area is spread along the line of sight.",
+          "How much of the body sits at each depth.",
           "The three-dimensional shape, and the spin that carries it around."
         ],
         "choices": [
           "Time the echo. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the range, and the clock is good enough to place a body millions of kilometres away to within metres.",
           "Measure how far the returned frequency is spread out. One limb of a rotating body turns toward us while the other turns away, so the echo comes back smeared across a band of Doppler shifts whose width scales with the rotation speed.",
-          "Read echo power against delay. The nearer parts of the surface return their echo first, so the run of power with delay says how much reflecting area sits at each distance along the line of sight.",
+          "Read echo power against delay. The near face answers first, so power arriving later came from further in, and the run of power with time is a profile of the target in depth.",
           "Build delay-Doppler images on successive nights through a full turn. Each image is one projection of the body, and a sequence taken across changing aspect is what a shape model is fitted to."
         ],
         "mapping": [
@@ -974,7 +974,7 @@ export const CURRICULUM = {
           "A distance from geometry alone, with no orbit assumed."
         ],
         "choices": [
-          "Keep observing until the arc is long enough. Over hours the path looks straight, and it is the curvature that appears over weeks that fixes the mean motion and therefore the size of the orbit.",
+          "Keep observing until the arc is long enough. Over hours the path looks straight, and the curvature that only shows over weeks is what fixes the mean motion, from which Kepler's third law gives the rest.",
           "Take a radar range. The delay of the echo is a time of flight, so multiplying half of it by the speed of light gives the line-of-sight distance to within metres.",
           "Take a radar range rate. The returned frequency is shifted in proportion to the line-of-sight speed, so one echo carries the velocity as well as the distance.",
           "Observe from two widely separated places on Earth at once. The direction to the object differs slightly between the sites, and that parallax angle across a known baseline gives the distance by triangle."
@@ -1591,7 +1591,7 @@ export const CURRICULUM = {
           "Protect schedule and launch readiness.",
           "Use optical navigation and late orbit updates.",
           "Provide autonomous guidance and fault response.",
-          "Model rotation and target a robust impact region."
+          "Pin down the spin state in advance and aim where the surface stays presented."
         ],
         "mapping": [
           0,

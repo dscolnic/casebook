@@ -1,4 +1,4 @@
-// probeQuestions.mjs — three checks a question has to survive.
+// probeQuestions.mjs — four checks a question has to survive.
 //
 //   node engine/dev/probeQuestions.mjs <theme>
 //   node engine/dev/probeQuestions.mjs <theme> --verbose
@@ -167,6 +167,46 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
   });
 }
 
+// ---- 4. ECHO: does a matching answer just say the prompt again?
+//
+// A matching question is only worth answering if getting from the left column to
+// the right one takes a step. Half of these were imported from design documents
+// that wrote the pair as one sentence cut in two, so the right-hand option
+// repeated the left-hand prompt in the same words — "Some escaping neutrons are
+// scattered back toward the fissile region" was answered by "Use the layer as a
+// neutron reflector, scattering some escaping neutrons back toward the fissile
+// region", every content word of the prompt included. A student matches those
+// by eye.
+//
+// Content words only, crudely stemmed, and it takes two of them: a two-word
+// prompt sharing one word is a coincidence, and the subject's own vocabulary has
+// to be allowed to appear on both sides. Half the prompt's words is the line —
+// the seven games now run at 0.44 and below, where the shared words are the
+// topic rather than the answer.
+const ECHO_STOP = new Set(('a an the of to in on at for with and or but is are was were be been being it its this that'
+  + ' these those as by from into out up down over under not no nor so than then when while which who whom whose what'
+  + ' where why how each every any all both few more most other some such only own same too very can will just do does'
+  + ' did doing done have has had if because about after before during through against between within without one two'
+  + ' three four you your we our they their he she his her them us me my i also must may might should would could shall').split(' '));
+const stem = (w) => w.replace(/(ings?|ed|es|s|ly)$/, '');
+const content_words = (s) => (words(s).filter(w => w.length > 2 && !ECHO_STOP.has(w)).map(stem));
+for(const [group, lessons] of Object.entries(CURRICULUM)){
+  (lessons ?? []).forEach((l, li) => {
+    const ch = l?.game;
+    if(!ch || !Array.isArray(ch.mapping) || !Array.isArray(ch.scenarios)) return;
+    ch.scenarios.forEach((s, i) => {
+      const prompt = new Set(content_words(label(s)));
+      const answer = new Set(content_words(label(ch.choices?.[ch.mapping[i]])));
+      if(prompt.size < 2) return;
+      const shared = [...prompt].filter(w => answer.has(w));
+      if(shared.length >= 2 && shared.length / prompt.size >= 0.5){
+        add('ECHO', `${group}[${li}] "${l.title ?? ''}"`,
+          `pair ${i + 1} of ${ch.scenarios.length} is answered in its own words — ${shared.length} of the prompt's ${prompt.size} content words reappear in the keyed option (${shared.slice(0, 4).join(', ')})`);
+      }
+    });
+  });
+}
+
 const seenCards = new Set();
 for(const [group, lessons] of Object.entries(CURRICULUM)){
   (lessons ?? []).forEach((l, li) => {
@@ -199,14 +239,14 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
 }
 
 const byKind = (k) => findings.filter(f => f.kind === k);
-for(const k of ['LEAK', 'GIVEAWAY', 'ORDER']){
+for(const k of ['LEAK', 'GIVEAWAY', 'ORDER', 'ECHO']){
   const hits = byKind(k);
   if(!hits.length) continue;
   console.log(`\n${k}: ${hits.length}`);
   for(const f of (verbose ? hits : hits.slice(0, 6))) console.log(`  · ${f.at} — ${f.msg}`);
   if(!verbose && hits.length > 6) console.log(`  … ${hits.length - 6} more (--verbose)`);
 }
-if(!findings.length) console.log(`\n✓ theme "${themeName}": every question survives all three probes`);
+if(!findings.length) console.log(`\n✓ theme "${themeName}": every question survives all four probes`);
 else console.log(`\n${findings.length} probe finding(s) in theme "${themeName}"`);
 // This used to exit 0 whatever it found: the findings were smells rather than
 // contradictions, and a false positive should not stop a build. The cost of that
