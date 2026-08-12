@@ -922,9 +922,7 @@ missions:
     title: Shed load without losing the mission
     place: Mission Planning Desk
     scene: >-
-      The energy inventory is fixed and the loads are not. Guidance,
-      communications, thermal control and life support all want power, and
-      something has to come off the bus in the next few minutes.
+      Forty-one amp-hours left and a draw of 4.2 amps against a return that needs 62 hours. Guidance wants 1.8 amps, communications 0.9, thermal control 1.1, life support 0.4, and something has to come off the bus in the next few minutes.
     takeaway: A power plan matches load timing and consequence to a finite energy inventory.
     format: CHOICE
     assumes:
@@ -1061,9 +1059,7 @@ missions:
     title: Qualify the emergency battery plan
     place: Crew Procedure Simulator
     scene: >-
-      Engineers want to reconnect a module from the damaged bus. Nobody knows
-      its state of charge, the connector was never designed for this current,
-      and the crew is inside a sealed cabin with the hardware.
+      The module reads 31 volts against a nominal 37, its state of charge is unknown, and the connector is rated for 8 amps against the 14 this would draw. The crew is inside a sealed cabin with the hardware.
     takeaway: Emergency electrical improvisation should still be bounded by measurements and protection.
     format: CHOICE
     assumes:
@@ -1360,9 +1356,7 @@ missions:
     title: Restore breathable air
     place: Crew Hardware Workshop
     scene: >-
-      Carbon dioxide is climbing and the spare canisters are the wrong shape for
-      the sockets in this module. There is tape, a suit hose, a sock and a
-      flight-plan cover, and the fix has to work first time.
+      Carbon dioxide is at 13 millimetres of mercury and rising a millimetre every two hours, against a limit of 15. The spare canisters are square and the sockets are round. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time.
     takeaway: A life-support fix must manage both chemical uptake and fluid flow.
     format: CHOICE
     assumes:
@@ -1794,9 +1788,7 @@ missions:
     title: Protect the entry corridor
     place: Crew G-Load Console
     scene: >-
-      The corridor is about a degree wide. Too steep and the heating and
-      deceleration exceed what the crew and the structure survive; too shallow
-      and the capsule skips back out with no propellant left to return.
+      The corridor runs from 5.3 to 7.7 degrees, and the current solution sits at 6.2 with an uncertainty of half a degree. Below 5.3 the capsule skips back out with no propellant to correct with; above 7.7 the heating and deceleration exceed what the crew and the structure survive left to return.
     takeaway: Entry safety comes from margins across plausible conditions, not perfection at one nominal point.
     format: CHOICE
     assumes:
@@ -2040,9 +2032,7 @@ missions:
     title: Select the robust trajectory
     place: Life-Support Desk
     scene: >-
-      Four return paths, each best at something: fastest, least propellant,
-      coolest entry, best tracking coverage. The consumables that decide it are
-      known only to within about a day.
+      Four return paths: 58 hours, 71 hours, 66 hours and 63 hours, each best at something — speed, propellant, entry heating, tracking coverage. The consumables that decide between them are known only to within about a day, and the water margin is the tightest of them.
     takeaway: Robust optimization values margin and adaptability, not only nominal efficiency.
     format: CHOICE
     assumes:
@@ -2362,8 +2352,7 @@ missions:
     title: Fund the mission legacy
     place: Entry Tracking Network
     scene: >-
-      The crew is aboard the recovery ship and the review board convenes on
-      Monday. Four proposals compete for what the programme commits to next.
+      The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals for three funded slots: the tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade built from this flight's own data.
     takeaway: The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.
     format: CHOICE
     assumes:

@@ -292,10 +292,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Build the deflection campaign",
-      "scene": "The impactor is funded and the launch date is fixed. What else the campaign contains is still open, and reconnaissance would cost a year of lead time.",
+      "scene": "The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Reconnaissance first would cost a year of that lead time.",
       "takeaway": "A deflection mission should be designed to learn its actual momentum transfer.",
       "place": "Orbit Monitoring Room",
-      "story": "The impactor is funded and the launch date is fixed. What else the campaign contains is still open, and reconnaissance would cost a year of lead time.",
+      "story": "The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Reconnaissance first would cost a year of that lead time.",
       "game": {
         "type": "CHOICE",
         "title": "Build the deflection campaign",
@@ -417,7 +417,7 @@ export const CURRICULUM = {
         "task": "The diameter rests on an albedo borrowed from another class. What do you measure?",
         "question": "The diameter rests on an albedo borrowed from another class. What do you measure?",
         "answer": "Thermal-infrared emission.",
-        "why": "Emitted heat depends on size and temperature rather than on how reflective the surface is, so it breaks the degeneracy from outside it. Every measurement made in reflected light still carries an albedo assumption inside the answer.",
+        "why": "Brightness in reflected light is size times albedo, so one number cannot separate them — which is why the range runs from 120 to 600 metres and the consequence, going as the cube, from a city to a country. Thermal infrared measures the heat the surface emits, and that depends on size and temperature rather than on reflectivity, so it constrains the size from outside the degeneracy. Any further measurement in reflected light, however precise, still carries an assumed albedo inside it the answer.",
         "rebuttals": [
           "Multi-band photometry and phase behaviour constrain the surface itself, and the size stays entangled with whatever they imply about it.",
           "Radar gives a diameter directly and only when the geometry allows, which it will not for months. Book it; do not wait on it.",
@@ -901,10 +901,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Buy the best next observation",
-      "scene": "Four hours of discretionary telescope time, an object that is faint and setting, and a press office that has been asking since lunchtime whether it can say anything.",
+      "scene": "Four hours of discretionary time on a 2-metre telescope. The object is at magnitude 22.4 and setting two hours after dusk, the arc is four hours long, and the same field is observable again in six nights. A press office has been asking since lunchtime.",
       "takeaway": "The best follow-up is chosen for information gain, not convenience or publicity.",
       "place": "Time Standards Room",
-      "story": "Four hours of discretionary telescope time, an object that is faint and setting, and a press office that has been asking since lunchtime whether it can say anything.",
+      "story": "Four hours of discretionary time on a 2-metre telescope. The object is at magnitude 22.4 and setting two hours after dusk, the arc is four hours long, and the same field is observable again in six nights. A press office has been asking since lunchtime.",
       "game": {
         "type": "CHOICE",
         "title": "Buy the best next observation",
@@ -913,7 +913,7 @@ export const CURRICULUM = {
         "task": "Four hours of discretionary time, and the object is faint and setting. What do you book?",
         "question": "Four hours of discretionary time, and the object is faint and setting. What do you book?",
         "answer": "A later observation that lengthens the time baseline.",
-        "why": "The orbit family is wide because the arc is short, and arc length is the quantity that collapses it. A point taken later changes the geometry the fit is solving; a point taken now barely changes anything the fit already has.",
+        "why": "The orbit family is wide because the arc is short — four hours of a multi-year orbit — and arc length is the quantity that collapses it. Work out what each option adds. A second exposure tonight arrives from nearly the same place in the orbit, so the fit gains a measurement it already effectively has. Parallax constrains distance, which is not what is loose here. Six nights later the object has moved along its path, so the same instrument now measures a genuinely different geometry, and the family of orbits consistent with both points is far narrower. The press release adds no measurement at all.",
         "rebuttals": [
           "Another exposure tonight adds a measurement almost identical to the ones already held, and identical measurements do not narrow an orbit.",
           "A separated observation adds parallax, which constrains distance rather than arc. It is the right second booking and answers a different question.",
@@ -979,10 +979,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Collapse the orbit uncertainty",
-      "scene": "The allowed orbits form a family rather than a line, and the corridor it sweeps across Earth's distance is wide enough to matter. Radar has a window in nine days.",
+      "scene": "The allowed orbits form a family, not a line: at Earth's distance they sweep a corridor 40,000 km wide. The arc is eleven hours long, the object fades below the survey limit in twelve nights, and radar has a window in nine days.",
       "takeaway": "A sharper-looking orbit is not a better orbit unless new evidence narrows the allowed family.",
       "place": "Follow-Up Scheduling Desk",
-      "story": "The allowed orbits form a family rather than a line, and the corridor it sweeps across Earth's distance is wide enough to matter. Radar has a window in nine days.",
+      "story": "The allowed orbits form a family, not a line: at Earth's distance they sweep a corridor 40,000 km wide. The arc is eleven hours long, the object fades below the survey limit in twelve nights, and radar has a window in nine days.",
       "game": {
         "type": "CHOICE",
         "title": "Collapse the orbit uncertainty",
@@ -991,7 +991,7 @@ export const CURRICULUM = {
         "task": "Radar has a window in nine days. What do you do with the nine nights before it?",
         "question": "Radar has a window in nine days. What do you do with the nine nights before it?",
         "answer": "Extend optical tracking over as many of them as the weather allows.",
-        "why": "The object is faint and setting, so every night not taken is arc that cannot be recovered later. Radar will measure a quantity optical work never can, and it will measure it against whatever arc exists by then.",
+        "why": "Two different things are being traded here, and they are not alternatives. Once the object is beyond reach, the geometry it would have shown has moved on and cannot be revisited, so an unused night is arc lost permanently rather than deferred. Radar, when the window opens, measures range and range rate directly, which optical astrometry never does, and it collapses the corridor by orders of magnitude. But radar has to be pointed, and how well it can be pointed depends on the arc that exists by then. So the nine nights are not a substitute for the radar window; they are what makes it usable.",
         "rebuttals": [
           "Waiting for radar makes the whole campaign depend on one window and one weather forecast, and leaves the arc as short as it is tonight.",
           "A second hemisphere adds parallax where the schedule allows it, and it does not replace the nights of arc that are about to be lost.",
@@ -1012,10 +1012,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Reduce the dangerous uncertainty",
-      "scene": "The nominal orbit misses comfortably. A thin set of solutions inside the uncertainty does not, and those solutions predict a sky position a few arcseconds from the rest in about a week.",
+      "scene": "The nominal orbit misses by 4 Earth radii. About 1 in 600 of the solutions inside the uncertainty do not, and next Tuesday those solutions put the object 8 arcseconds from where the rest of the family puts it. Every night after that, the two predictions converge again.",
       "takeaway": "The best observation separates the live hypotheses rather than merely adding another point.",
       "place": "Planetary Defense Coordination Office",
-      "story": "The nominal orbit misses comfortably. A thin set of solutions inside the uncertainty does not, and those solutions predict a sky position a few arcseconds from the rest in about a week.",
+      "story": "The nominal orbit misses by 4 Earth radii. About 1 in 600 of the solutions inside the uncertainty do not, and next Tuesday those solutions put the object 8 arcseconds from where the rest of the family puts it. Every night after that, the two predictions converge again.",
       "game": {
         "type": "CHOICE",
         "title": "Reduce the dangerous uncertainty",
@@ -1024,7 +1024,7 @@ export const CURRICULUM = {
         "task": "A thin set of solutions still hits Earth. Where do you point next week?",
         "question": "A thin set of solutions still hits Earth. Where do you point next week?",
         "answer": "Where the impacting and non-impacting solutions predict different positions.",
-        "why": "A measurement is informative only where the live hypotheses disagree. Everywhere else, both families predict the same thing, so the observation is guaranteed to confirm what nobody was disputing — and that condition is a place and a date rather than a telescope.",
+        "why": "A measurement is only informative where the live hypotheses disagree. Here that is one night. On Tuesday the impacting solutions and the missing ones sit 8 arcseconds apart, which any follow-up telescope resolves. Before and after, the two families predict the same position within the errors. An observation then is certain to confirm what nobody disputed. So the rule for scheduling follow-up is to point where the predictions diverge, not where the object is brightest — and that condition is a place and a date rather than a telescope.",
         "rebuttals": [
           "The brightest field is the easiest measurement and the least informative one; every solution already agrees about where the object will be.",
           "Bias calibration improves every measurement a little and separates the two families not at all.",
@@ -1120,7 +1120,7 @@ export const CURRICULUM = {
         "task": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
         "question": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
         "answer": "Wavelength coverage extended beyond the current range.",
-        "why": "Three mineral models already reproduce every feature in the spectrum within the noise. More wavelengths is what makes those models predict different things — and a claim the current data could not have contradicted is not yet a measurement.",
+        "why": "Three mineral models already reproduce every feature of this spectrum within the noise, so the class in the draft circular is not a measurement — it is one of three readings of the same data. Extending the wavelength coverage is what separates them: the models agree in the visible and diverge in the near infrared, where the absorption bands sit. Note what is being asked of this claim. A density is about to size a spacecraft, so a class assigned from data that could not have contradicted it is not yet a measurement.",
         "rebuttals": [
           "Other phase angles and rotations test whether the surface is uniform, which matters once the candidate classes are narrowed rather than before.",
           "Polarimetry and radar texture constrain grain structure by different physics and are the right independent check on whichever class survives.",
@@ -1177,7 +1177,7 @@ export const CURRICULUM = {
         "task": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
         "question": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
         "answer": "Continuous longitude coverage across several observatories.",
-        "why": "A period hides in the gaps, and the gaps are one site's daylight. Coverage around the Earth removes the aliases before anything is fitted, which is what stops a half-period being adopted as a period.",
+        "why": "A single site sees the object for a few hours a night, so the light curve has gaps the length of its daylight — and a period can hide in a gap. A seven-hour variation observed from one place is consistent with a seven-hour rotation, a fourteen-hour one seen at half phase, or a tumbling body whose aspect is changing. Stations spread round the Earth fill the gaps, which removes the aliases before anything is fitted rather than afterwards. That matters here because the spacecraft's approach geometry is designed against whichever answer is adopted.",
         "rebuttals": [
           "High cadence through one night refines a curve that may be the wrong curve, at higher precision.",
           "Combining light curves across changing geometry is what tests whether one period explains all of them, and it needs a gap-free curve to combine.",
@@ -1267,7 +1267,7 @@ export const CURRICULUM = {
         "task": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
         "question": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
         "answer": "The diameter, from thermal infrared or radar.",
-        "why": "Energy goes as the cube of the diameter and only linearly with density, so a factor of two in size is a factor of eight in consequence. The measurement worth most is always the one attached to the steepest exponent.",
+        "why": "Rank the inputs by the exponent they carry. Kinetic energy goes as mass times speed squared, and mass goes as the cube of the diameter — so a factor of two in size is a factor of eight in energy, while the same factor in density is a factor of two, and entry angle changes the outcome by less again. That is why the size measurement dominates a range spanning two orders of magnitude. The measurement worth buying is always the one attached to the steepest exponent, and that ranking can be done before any of them is made.",
         "rebuttals": [
           "Density enters linearly and is genuinely uncertain. Worth improving, and worth a third as much per factor of error.",
           "Speed enters squared and is already the best determined of the three, so there is least left to win there.",
@@ -1371,10 +1371,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Bound the atmospheric outcome",
-      "scene": "Three groups have modelled the same object and come back with three different answers, and the consequence centre has to hand the planning office something this week.",
+      "scene": "Three groups modelled the same 3.1×10^17 J entry and returned a ground impact, a fragmentation event at 30 km, and an airburst at 12 km. Each assumed a different material strength — 1 MPa, 10 MPa, 50 MPa — because nobody has measured it. The planning office needs something this week.",
       "takeaway": "Consequence models should expose structural uncertainty rather than bury it in one asteroid “type.”",
       "place": "Consequence Modeling Center",
-      "story": "Three groups have modelled the same object and come back with three different answers, and the consequence centre has to hand the planning office something this week.",
+      "story": "Three groups modelled the same 3.1×10^17 J entry and returned a ground impact, a fragmentation event at 30 km, and an airburst at 12 km. Each assumed a different material strength — 1 MPa, 10 MPa, 50 MPa — because nobody has measured it. The planning office needs something this week.",
       "game": {
         "type": "CHOICE",
         "title": "Bound the atmospheric outcome",
@@ -1383,7 +1383,7 @@ export const CURRICULUM = {
         "task": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
         "question": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
         "answer": "Strength and density ensembles rather than one model run.",
-        "why": "The three groups disagree because the object's strength is unknown, not because anybody made an arithmetic error. An ensemble carries that ignorance into the answer, where the planning office can see it, instead of hiding it inside whichever strength each modeller happened to assume.",
+        "why": "The three groups disagree because they assumed 1, 10 and 50 MPa for a strength nobody has measured — not because anybody made an arithmetic error. So a fourth run, or a meeting that picks one, produces a single answer whose confidence is manufactured. An ensemble over the plausible strength and density range carries the ignorance into the output, where the planning office can see which outcomes are robust and which depend entirely on an unmeasured number. That is a usable product: it tells them what to prepare for at every strength, rather than what to prepare for if one guess happens to be right.",
         "rebuttals": [
           "Analogue fireballs calibrate the models against events that actually happened, and they are the right check on the ensemble once it exists.",
           "Entry angle and speed are genuinely measurable and are not what the three models disagree about.",
@@ -1511,10 +1511,10 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "Improve discovery completeness",
-      "scene": "This object was found eleven days before closest approach, from the direction of the Sun, at a brightness the survey reaches only in good conditions. The population lab has one upgrade to propose.",
+      "scene": "This object was found 11 days before closest approach, 28 degrees from the Sun, at magnitude 21.8 against a survey limit of 22.0. It had been above that limit for seven weeks, in a part of the sky the survey does not cover. The population lab has one upgrade to propose.",
       "takeaway": "Completeness is measured by simulated recovery and known biases, not by absence of discoveries.",
       "place": "Population Statistics Lab",
-      "story": "This object was found eleven days before closest approach, from the direction of the Sun, at a brightness the survey reaches only in good conditions. The population lab has one upgrade to propose.",
+      "story": "This object was found 11 days before closest approach, 28 degrees from the Sun, at magnitude 21.8 against a survey limit of 22.0. It had been above that limit for seven weeks, in a part of the sky the survey does not cover. The population lab has one upgrade to propose.",
       "game": {
         "type": "CHOICE",
         "title": "Improve discovery completeness",
@@ -1523,7 +1523,7 @@ export const CURRICULUM = {
         "task": "This object was found eleven days out, from the direction of the Sun. What does the survey change?",
         "question": "This object was found eleven days out, from the direction of the Sun. What does the survey change?",
         "answer": "Wider sky and hemisphere coverage, including low solar elongations.",
-        "why": "This object was bright enough for the survey and geometrically impossible to see. What hid it was where the telescope pointed, not how faint it could go — and depth added to the same sky would have found it on exactly the same night.",
+        "why": "The numbers say which upgrade would have helped. At magnitude 21.8 against a limit of 22.0, this object was bright enough for the survey for seven weeks; what hid it was 28 degrees of solar elongation, in sky the survey does not cover. So depth added to the same sky finds it on exactly the same night it was found anyway, while sky coverage nearer the Sun — or a spacecraft looking from somewhere other than Earth — finds it weeks earlier. Completeness is a function of where you point as much as how faint you reach, and this object was hidden by the first, not the seconde same night.",
         "rebuttals": [
           "Greater depth finds fainter and darker bodies across the sky already covered, and would not have moved this discovery by a day.",
           "A linking cadence turns detections into tracked objects, which requires the detection first.",
@@ -1735,10 +1735,10 @@ export const CURRICULUM = {
     {
       "day": 24,
       "title": "Prepare without panic",
-      "scene": "The corridor crosses nine million people and a coastline. The probability has moved twice this month, both times downward. Regional authorities want something they can act on.",
+      "scene": "The corridor crosses nine million people and 300 km of coastline. The impact probability was 1 in 180 on the 3rd, 1 in 640 on the 11th, and 1 in 900 today, each move following a new observation. Regional authorities want something they can act on.",
       "takeaway": "Public trust is protected when uncertainty is paired with concrete decision rules.",
       "place": "Scientific Advisory Board",
-      "story": "The corridor crosses nine million people and a coastline. The probability has moved twice this month, both times downward. Regional authorities want something they can act on.",
+      "story": "The corridor crosses nine million people and 300 km of coastline. The impact probability was 1 in 180 on the 3rd, 1 in 640 on the 11th, and 1 in 900 today, each move following a new observation. Regional authorities want something they can act on.",
       "game": {
         "type": "CHOICE",
         "title": "Prepare without panic",
@@ -1747,7 +1747,7 @@ export const CURRICULUM = {
         "task": "The probability has moved twice this month, both times downward. What does the board issue?",
         "question": "The probability has moved twice this month, both times downward. What does the board issue?",
         "answer": "The uncertainty, published together with the triggers and protective steps.",
-        "why": "An advisory that says in advance what would change it can change without looking like a reversal. That is the only form that survives a probability which moves twice a month, and it is what keeps the next message believed.",
+        "why": "The probability has gone 1 in 180, 1 in 640, 1 in 900 in eight days, each move following a new observation — and it will move again. A statement of the current number alone has to be withdrawn each time, and three withdrawals is how an authority stops being believed. An advisory that states what is being prepared, at what threshold, and what observation would change it can absorb the next revision without reading as a reversal, because the change was announced in advance as a condition. That is what keeps the next message credible, which is the thing actually at staked.",
         "rebuttals": [
           "Reassurance with no trigger attached has to be withdrawn from scratch if the probability moves back up, and it will be read as the board having been wrong.",
           "Corridor evacuation planning is exactly what the triggers should start. Starting it without them makes it impossible to stop.",
@@ -1813,10 +1813,10 @@ export const CURRICULUM = {
     {
       "day": 26,
       "title": "Fund the planetary-defense legacy",
-      "scene": "The campaign budget ends with this review. What survives it decides whether the next object is found eleven days out or eleven years out.",
+      "scene": "The campaign budget ends with this review. This object was found 11 days before closest approach; the survey that found it reaches magnitude 22 and covers a third of the sky a month, and two of the four follow-up sites are funded only to the end of the year.",
       "takeaway": "The durable defense is an institution that can repeatedly detect, learn, decide, and act.",
       "place": "Mission Operations",
-      "story": "The campaign budget ends with this review. What survives it decides whether the next object is found eleven days out or eleven years out.",
+      "story": "The campaign budget ends with this review. This object was found 11 days before closest approach; the survey that found it reaches magnitude 22 and covers a third of the sky a month, and two of the four follow-up sites are funded only to the end of the year.",
       "game": {
         "type": "CHOICE",
         "title": "Fund the planetary-defense legacy",
@@ -1825,7 +1825,7 @@ export const CURRICULUM = {
         "task": "The campaign budget ends with this review. What survives it?",
         "question": "The campaign budget ends with this review. What survives it?",
         "answer": "Survey completeness and the rapid follow-up network.",
-        "why": "Everything else in planetary defence is a function of warning time, and warning time is produced by finding the object and by nothing else. This one was found eleven days out, and that number is what set every constraint in the campaign that followed.",
+        "why": "Trace the constraints back. Eleven days of warning is why the radar window mattered so much, why the deflection option was never available, and why the consequence work had to run on an unmeasured strength. Every one of those was set by the discovery date, and the discovery date is produced by survey and follow-up capacity and by nothing else. Deflection hardware, consequence models and communications plans all become more effective with more warning and cannot manufacture any. So the thing to protect through the budget is the capability that generates the number every other capability depends on in the campaign that followed.",
         "rebuttals": [
           "Characterisation and deflection demonstrations convert warning time into options, and they need the warning time to exist first.",
           "Protocols and civil preparedness turn options into action, and they inherit the same dependency one step further down.",

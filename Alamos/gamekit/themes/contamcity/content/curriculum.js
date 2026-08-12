@@ -112,7 +112,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Early chemistry should reduce uncertainty without creating new exposure.",
       "story": "You have a limited analytical reserve and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns.",
-      "scene": "A limited analytical reserve, four ways to spend it, and firefighters waiting on whatever comes back. The first hours of a release are when uncertainty is most expensive.",
+      "scene": "Eight hundred pounds of analytical reserve, four ways to spend it, and three drums whose labels are gone. Firefighters are holding at the fence line waiting on whatever comes back, and the first sample went in ninety minutes ago.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -347,7 +347,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Better presentation cannot repair missing selectivity or validation.",
       "story": "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop sharing a retention window, or bring in evidence with a different selectivity so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention.",
-      "scene": "One peak is still ambiguous and the review board wants it settled. The river is not clean solvent, and everything in it is competing for the instrument's attention.",
+      "scene": "One peak at 4.2 minutes matches two candidates to within 0.05 minutes, and both are on the shortlist. The river sample also carries humic matter, chloride at 40 mg/L, and a surfactant from the foam used on the fire.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -804,7 +804,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Invisible secondary chemistry can outlast the visible emergency.",
       "story": "What is in the air now is not what was released, and a monitoring plan built around the original compound will report an improving situation while exposure rises. Designing for transformation means measuring chemical families rather than a single target, measuring the environmental drivers that control the chemistry, and keeping enough temporal resolution to see a pattern instead of a daily average. The invisible half of an air emergency outlasts the visible half, and the neighbourhood's trust does not survive being told twice that it is over.",
-      "scene": "Residents want to come home. What is in the air now is not what was released.",
+      "scene": "Residents want to come home. The released compound is down to 3 parts per billion at both monitors, but total oxidant is up fourfold since Tuesday and the afternoon readings are the high ones. The source has been sealed for six days.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -896,10 +896,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Why adding the same ion helps",
-      "scene": "The metal is being precipitated as a carbonate and the filtrate still carries more of it than the discharge permit allows. Somebody suggests adding more carbonate.",
+      "scene": "The metal is precipitated as a carbonate, and the filtrate still reads 3.1 mg/L against a permit limit of 0.5. The carbonate dose is at the stoichiometric amount, the pH is 8.2, and somebody suggests simply adding more carbonate.",
       "takeaway": "A precipitation equilibrium can be pushed by adding an ion it already contains.",
       "place": "Water and Sediment Laboratory",
-      "story": "The metal is being precipitated as a carbonate and the filtrate still carries more of it than the discharge permit allows. Somebody suggests adding more carbonate.",
+      "story": "The metal is precipitated as a carbonate, and the filtrate still reads 3.1 mg/L against a permit limit of 0.5. The carbonate dose is at the stoichiometric amount, the pH is 8.2, and somebody suggests simply adding more carbonate.",
       "game": {
         "type": "CHOICE",
         "title": "Why adding the same ion helps",
@@ -932,8 +932,8 @@ export const CURRICULUM = {
       "progress": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Sampling design should test the partitioning model rather than confirm appearances.",
-      "story": "The river survey has a fixed budget and the water utility wants an answer this week. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river.",
-      "scene": "The river survey has a fixed budget and the water utility wants an answer this week.",
+      "story": "The survey has twenty samples in the budget. The compound is sparingly soluble, the river is nine hundred metres upstream of the intake, and the two grab samples taken so far disagree by a factor of six. Sampling design is where environmental chemistry is usually won or lost: coverage in space, coverage in time, and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The point of a survey is to test the model you built — to give the partitioning prediction a real chance to be wrong — rather than to collect confirmation from the most visually convincing spot on the river.",
+      "scene": "The survey has twenty samples in the budget. The compound is sparingly soluble, the river is nine hundred metres upstream of the intake, and the two grab samples taken so far disagree by a factor of six.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1212,7 +1212,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Neutralization should be governed by measurement and mixing, not a one-shot calculation.",
       "story": "Neutralisation in a live water system is a control problem, not an arithmetic problem. The dose calculated from one grab sample assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those is true in a treatment train. Overshooting into strongly basic conditions is not a smaller mistake than under-dosing: it can mobilise metals from pipework and sediment that the acidic water was leaving alone. The plant is waiting on a dose, and what it is given first decides whether the correction is a measurement or a guess.",
-      "scene": "The plant wants a neutralisation dose this morning. Overshoot into strongly basic water and metals can come off the pipework and the sediment that the acid was leaving alone.",
+      "scene": "The intake is at pH 4.8 and the plant wants a dose this morning. The line is cast iron, the sediment holds the metal that four days of acid has been mobilising, and the dosing pump's smallest reliable step is a tenth of the calculated requirement.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1580,8 +1580,8 @@ export const CURRICULUM = {
       "progress": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Spatial coverage without analytical validity—or validity without spatial coverage—cannot protect the city.",
-      "story": "The city wants a concentration map and you cannot sample every metre of river. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
-      "scene": "The city wants a concentration map and you cannot sample every metre of river.",
+      "story": "The city wants a concentration map of eleven kilometres of river, and the laboratory can run thirty samples. The two known hot spots are four hundred metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
+      "scene": "The city wants a concentration map of eleven kilometres of river, and the laboratory can run thirty samples. The two known hot spots are four hundred metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -1831,10 +1831,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Why it does not happen on its own",
-      "scene": "The proposed clean-up reaction releases heat on paper and has not started in the tank in six days. The room wants to know whether it will ever go.",
+      "scene": "The proposed clean-up reaction releases 180 kilojoules a mole on paper. The tank has held the reagents at 18 degrees for six days with no measurable product, and the room wants to know whether it will ever go.",
       "takeaway": "Whether a reaction goes depends on free energy, not on heat alone.",
       "place": "Reactions and Energy Bay",
-      "story": "The proposed clean-up reaction releases heat on paper and has not started in the tank in six days. The room wants to know whether it will ever go.",
+      "story": "The proposed clean-up reaction releases 180 kilojoules a mole on paper. The tank has held the reagents at 18 degrees for six days with no measurable product, and the room wants to know whether it will ever go.",
       "game": {
         "type": "CHOICE",
         "title": "Why it does not happen on its own",
@@ -2125,7 +2125,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "High-consequence thermal systems need detection, understanding, and mitigation.",
       "story": "A self-heating mass is a race between the energy a reaction produces and the energy the surroundings can carry away, and that race can be lost slowly enough that nobody notices until it cannot be won. Controlling it takes three separate things that no one of them substitutes for: detection early enough to act, understanding of the mechanism so that the action is the right one, and enough physical cooling or dilution capacity to change the balance. Fire Command wants the site released tonight, and one of the three has to be in place before that can happen.",
-      "scene": "Fire Command wants the site released tonight. A self-heating mass can be lost slowly enough that nobody notices until it cannot be won.",
+      "scene": "Fire Command wants the site released tonight. Bay three has risen from 31 to 44 degrees in eight hours, the rate of rise is itself increasing, and the mass is four tonnes with a two-metre depth.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2267,7 +2267,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Speed is not safety when the process contains positive thermal feedback.",
       "story": "A safe operating envelope is a set of conditions under which the heat a process generates cannot outrun the heat it can lose. Establishing one takes measured rate data rather than assumed kinetics, honest heat-removal capacity at the worst case rather than the design case, and protection that works when the control system is the thing that has failed. Speed and yield are not safety, and a process that runs beautifully at the intended temperature can be the largest hazard on site fifteen degrees above it. What the vessel needs before it runs at scale is the bound, not the throughput.",
-      "scene": "The treatment vessel is about to run at scale. A process that runs beautifully at the intended temperature can be the largest hazard on site fifteen degrees above it.",
+      "scene": "The vessel runs at 60 degrees at scale. The bench work was done at 55, the reaction's rate roughly doubles every ten degrees, and the cooling jacket can remove 40 kilowatts against a heat release nobody has measured above 65.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2401,7 +2401,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Corrosion protection is a designed system of materials, environment, and inspection.",
       "story": "Protecting a pipeline means attacking the circuit at whichever point is cheapest to break. Water chemistry changes how aggressive the electrolyte is; coatings interrupt the ion path but concentrate the attack wherever they fail; electrical isolation removes the galvanic couple between dissimilar metals; cathodic protection supplies electrons so that the pipe stops being the anode; inspection tells you which of them is working before a leak does. They are complementary, not alternatives, and the city cannot afford to lose the intake in the middle of the emergency.",
-      "scene": "The corrosion cell is running and the city cannot afford to lose the intake in the middle of the emergency.",
+      "scene": "The pipeline is losing 0.4 millimetres of wall a year where it was losing 0.05, the water is now at pH 4.8 with chloride at 40 mg/L, and the intake has 3 millimetres of wall left in the worst section.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2629,7 +2629,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "The best treatment minimizes total hazard, not merely one measured concentration.",
       "story": "The pilot programme is the last point at which being wrong is cheap. What it needs to test is not which method removes the most contaminant — all three claim that — but which one's total hazard is smallest once byproducts, residuals and the lifecycle of the waste are counted. That means comparing mechanisms honestly, analysing for the products a mechanism would predict rather than only for the target, and running long enough for slow effects to show. The pilot has room for one question, and it should be the one that would change the decision.",
-      "scene": "The pilot programme is the last point at which being wrong is cheap, and it has room for one question.",
+      "scene": "The pilot has room for one question, four weeks, and a tenth of the full-scale flow. Three of the four proposals depend on the same unmeasured quantity, and the full plant is committed in June whatever the pilot says.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",
@@ -2756,7 +2756,7 @@ export const CURRICULUM = {
       "whyFormat": "The unit presents several plausible investments, and the lesson is how to build a balanced evidence or intervention portfolio.",
       "takeaway": "Stewardship continues after concentrations fall below the immediate threshold.",
       "story": "The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert fifteen days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.",
-      "scene": "The immediate emergency is over and the money is about to move somewhere else. What the city keeps is what will still matter when nobody remembers the fire.",
+      "scene": "The emergency budget closes in three weeks. The plant is back online, the sediment still holds an estimated 40 kilograms of the compound, and of the four monitoring stations set up during the response, one has permanent funding.",
       "notes": [
         "Place the task at the location whose instruments or displays make the answer visually inspectable.",
         "Give one optional hint that identifies the governing distinction without revealing the final mapping, order, calculation, or allocation.",

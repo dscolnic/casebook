@@ -135,10 +135,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Where the sound will not go",
-      "scene": "Warm water down to sixty metres, colder below it, and the contact held for forty minutes has gone quiet in one sweep. Nothing else on the display changed.",
+      "scene": "The bathythermograph shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.",
       "takeaway": "Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.",
       "place": "Sonar Shack",
-      "story": "Warm water down to sixty metres, colder below it, and the contact held for forty minutes has gone quiet in one sweep. Nothing else on the display changed.",
+      "story": "The bathythermograph shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.",
       "game": {
         "type": "CHOICE",
         "title": "Where the sound will not go",
@@ -417,10 +417,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The trip back without a waypoint",
-      "scene": "The navigator hands you a written message for machinery control and says the marker will be switched off for the walk back. You have been through the boat once.",
+      "scene": "Nine compartments in a line, four of them with two doors, and one ladder aft. The navigator hands you a written message for machinery control, says the marker will be switched off for the walk back, and you have been through the boat once.",
       "takeaway": "Dead reckoning fails at the interruption, so carry the thing that survives one.",
       "place": "Control Room",
-      "story": "The navigator hands you a written message for machinery control and says the marker will be switched off for the walk back. You have been through the boat once.",
+      "story": "Nine compartments in a line, four of them with two doors, and one ladder aft. The navigator hands you a written message for machinery control, says the marker will be switched off for the walk back, and you have been through the boat once.",
       "game": {
         "type": "CHOICE",
         "title": "The trip back without a waypoint",
@@ -727,10 +727,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "The value of a different failure",
-      "scene": "The second depth sounder costs as much as the pump mounts and improves no number on the plot. Sowande wants it anyway.",
+      "scene": "The second sounder costs £2.4m, the same as the pump mounts, and quotes the same 0.5-metre accuracy as the one already fitted. Both the plot and the existing sounder take their reference from the same transducer, and the navigator wants it anyway.",
       "takeaway": "A second instrument is worth having when it fails differently, not when it agrees.",
       "place": "Control Room",
-      "story": "The second depth sounder costs as much as the pump mounts and improves no number on the plot. Sowande wants it anyway.",
+      "story": "The second sounder costs £2.4m, the same as the pump mounts, and quotes the same 0.5-metre accuracy as the one already fitted. Both the plot and the existing sounder take their reference from the same transducer, and the navigator wants it anyway.",
       "game": {
         "type": "CHOICE",
         "title": "The value of a different failure",
@@ -1232,10 +1232,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Who does the things you are not doing",
-      "scene": "You have the flooding. Whitfield is waiting for the rest of the casualty organisation and he will not invent it for you.",
+      "scene": "You have the flooding: 40 litres a minute into the forward space, one pump running at 60. Three other things are unattended — the fire boundary aft, the atmosphere readings, and a man with a fractured wrist — and the executive officer is waiting for the rest of the casualty organisation.",
       "takeaway": "Delegation is a person and a first action, and the first action is rarely the obvious one.",
       "place": "Electrical Distribution",
-      "story": "You have the flooding. Whitfield is waiting for the rest of the casualty organisation and he will not invent it for you.",
+      "story": "You have the flooding: 40 litres a minute into the forward space, one pump running at 60. Three other things are unattended — the fire boundary aft, the atmosphere readings, and a man with a fractured wrist — and the executive officer is waiting for the rest of the casualty organisation.",
       "game": {
         "type": "PROTOCOL",
         "title": "Who does the things you are not doing",
@@ -1345,10 +1345,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Smoke is not only a breathing problem",
-      "scene": "The compartment is full of smoke. The team can breathe on air masks, but nobody can see the far bulkhead and the fire is behind a panel.",
+      "scene": "Visibility in the compartment is under half a metre, the far bulkhead is eight metres away, and the temperature at head height reads 60 degrees against 28 at deck level. The team can breathe on air masks and the fire is behind a panel.",
       "takeaway": "Smoke removes the instrument you were relying on, which is your own eyes.",
       "place": "Auxiliary Machinery & Bilge",
-      "story": "The compartment is full of smoke. The team can breathe on air masks, but nobody can see the far bulkhead and the fire is behind a panel.",
+      "story": "Visibility in the compartment is under half a metre, the far bulkhead is eight metres away, and the temperature at head height reads 60 degrees against 28 at deck level. The team can breathe on air masks and the fire is behind a panel.",
       "game": {
         "type": "CHOICE",
         "title": "Smoke is not only a breathing problem",
@@ -1919,10 +1919,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Four hours of quiet",
-      "scene": "Haruki lists what can be secured for the transit and intends to take everything on it. Four hours. He wants to know which item you will strike off.",
+      "scene": "Four hours of quiet running, and eight items on the list that can be secured to get there. Securing the trim pump costs the ability to correct a list; securing the second scrubber halves carbon-dioxide removal with sixty people aboard and the level already at 8 millimetres of mercury. He wants to know which item you strike off the list.",
       "takeaway": "Every quiet decision has an expiry time attached to it.",
       "place": "Machinery Control Room",
-      "story": "Haruki lists what can be secured for the transit and intends to take everything on it. Four hours. He wants to know which item you will strike off.",
+      "story": "Four hours of quiet running, and eight items on the list that can be secured to get there. Securing the trim pump costs the ability to correct a list; securing the second scrubber halves carbon-dioxide removal with sixty people aboard and the level already at 8 millimetres of mercury. He wants to know which item you strike off the list.",
       "game": {
         "type": "CHOICE",
         "title": "Four hours of quiet",
@@ -1952,10 +1952,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "What the boat should buy",
-      "scene": "Four refit proposals, each with a real cost and an honest uncertainty. Ahead is a long transit with a constrained passage in the middle. The yard will fit two, and Sowande wants your first.",
+      "scene": "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a fathometer overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.",
       "takeaway": "You fund what changes a decision, not what improves a number.",
       "place": "Machinery Control Room",
-      "story": "Four refit proposals, each with a real cost and an honest uncertainty. Ahead is a long transit with a constrained passage in the middle. The yard will fit two, and Sowande wants your first.",
+      "story": "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a fathometer overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.",
       "game": {
         "type": "CHOICE",
         "title": "What the boat should buy",

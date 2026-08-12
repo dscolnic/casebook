@@ -174,10 +174,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Measure the failing link",
-      "scene": "A patient is deteriorating and the team wants to commit to a treatment. There is time and money for one more measurement at the bedside before it does.",
+      "scene": "Saturation is 84 per cent, carbon dioxide is normal, cardiac output is normal, and the lactate has not been sent. The patient is deteriorating and there is time for one more measurement at the bedside before the team commits.",
       "takeaway": "Integrated physiology requires evidence from multiple points along the transport chain.",
       "place": "Clinical Chemistry Bench",
-      "story": "A patient is deteriorating and the team wants to commit to a treatment. There is time and money for one more measurement at the bedside before it does.",
+      "story": "Saturation is 84 per cent, carbon dioxide is normal, cardiac output is normal, and the lactate has not been sent. The patient is deteriorating and there is time for one more measurement at the bedside before the team commits.",
       "game": {
         "type": "CHOICE",
         "title": "Measure the failing link",
@@ -186,7 +186,7 @@ export const CURRICULUM = {
         "task": "One bedside measurement before the team commits to a treatment. Which?",
         "question": "One bedside measurement before the team commits to a treatment. Which?",
         "answer": "Tissue lactate and acid-base status.",
-        "why": "Oxygen delivery is a chain and the panel has already measured its top: saturation is low, carbon dioxide and cardiac output are not. What nobody has measured is the far end — whether delivery is actually failing to meet demand in the tissues, which is the thing the treatment is meant to change.",
+        "why": "Oxygen delivery is a chain — lungs, blood, pump, tissue — and the panel has measured the top of it. Saturation is 84 per cent, which is low; carbon dioxide and cardiac output are normal, which rules out ventilation failure and pump failure. Nobody has measured the far end, which is whether the tissue is actually failing to meet demand in the tissues, which is the thing the treatment is meant to change.",
         "rebuttals": [
           "Arterial oxygenation and carbon dioxide are already on the chart from the earlier panel. Measuring them again is precision about a number that is not in dispute.",
           "Cardiac output reports the pump, and the pump has already read normal. Worth repeating if the patient changes; not the missing measurement now.",
@@ -302,7 +302,7 @@ export const CURRICULUM = {
         "task": "The ward wants to start immunosuppression tonight. What do you do?",
         "question": "The ward wants to start immunosuppression tonight. What do you do?",
         "answer": "Measure agent burden and inflammatory markers together over time first.",
-        "why": "The two candidate drivers — a pathogen still replicating and a host response that has become the injury — are distinguished by which curve is rising while the other falls. Paired measurements over time separate them within hours, and the answer decides whether suppression helps or removes the thing that is clearing the infection.",
+        "why": "Two drivers fit the same bedside picture: a pathogen still replicating, and a host response that has itself become the injury. They are distinguished by direction, not by level — in the first, viral load is high or rising while inflammatory markers follow it; in the second, load is falling while the markers keep climbing. A single time point cannot separate them, because both can produce the same numbers on any given morning. Paired measurements over time separate them within hours, and the answer decides whether suppression helps or removes the thing that is clearing the infection.",
         "rebuttals": [
           "Suppressing now treats one hypothesis as settled. If agent burden is still rising in some of these patients, it removes their only defence.",
           "Comparing immune-cell states is the right study and returns in days. The ward is asking about tonight.",
@@ -479,7 +479,7 @@ export const CURRICULUM = {
         "task": "Which experiment locates the step where resistant cells stop the process?",
         "question": "Which experiment locates the step where resistant cells stop the process?",
         "answer": "Measure receptor abundance on vulnerable and resistant cells.",
-        "why": "Entry is a chain and the earliest divergence is the cause; everything after it is a consequence. Receptor abundance tests the first step, and it is the only measurement whose result changes what the next experiment should be.",
+        "why": "Entry is a chain: bind the receptor, be taken in, escape the compartment, release the genome. The earliest step at which two cell types diverge is the cause, and everything downstream of it is a consequence — so measuring a late step on a cell that never bound the agent tells you nothing. Receptor abundance tests the first step, which is why it is the only measurement whose result changes what the next experiment should be.",
         "rebuttals": [
           "Internalisation is the right second experiment and it is only interpretable once you know both cell types can bind. Run it after, not instead.",
           "A late response tells you something already went wrong upstream, which is what you knew before you started.",
@@ -524,10 +524,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The same genome, different cells",
-      "scene": "The receptor the agent binds is on airway cells and not on the muscle cells beside them, in the same patient, with the same DNA in every nucleus.",
+      "scene": "Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.",
       "takeaway": "Gene regulation — which genes are switched on in which cell — is what makes a cell the cell it is.",
       "place": "Cell Biology Laboratory",
-      "story": "The receptor the agent binds is on airway cells and not on the muscle cells beside them, in the same patient, with the same DNA in every nucleus.",
+      "story": "Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.",
       "game": {
         "type": "CHOICE",
         "title": "The same genome, different cells",
@@ -676,10 +676,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Find the controlling stage",
-      "scene": "An unfamiliar protein is abundant in affected cells. The protein analysis core has money for a few measurements, and the team is already arguing about which gene to target.",
+      "scene": "An unfamiliar protein is fortyfold more abundant in affected cells than in controls. The transcript for it has not been quantified, the core has money for two measurements, and the team is already arguing about which gene to target.",
       "takeaway": "Mechanism requires measurements that span the full causal chain.",
       "place": "Protein Analysis Core",
-      "story": "An unfamiliar protein is abundant in affected cells. The protein analysis core has money for a few measurements, and the team is already arguing about which gene to target.",
+      "story": "An unfamiliar protein is fortyfold more abundant in affected cells than in controls. The transcript for it has not been quantified, the core has money for two measurements, and the team is already arguing about which gene to target.",
       "game": {
         "type": "CHOICE",
         "title": "Find the controlling stage",
@@ -688,7 +688,7 @@ export const CURRICULUM = {
         "task": "Abundance alone fits every mechanism. Which measurement do you make first?",
         "question": "Abundance alone fits every mechanism. Which measurement do you make first?",
         "answer": "Quantify the protein's messenger RNA across time.",
-        "why": "An abundant protein is consistent with more transcript, more efficient translation, or slower destruction. Transcript abundance is the one measurement that splits the three: if the message did not move, transcription is out and the cause is downstream of it.",
+        "why": "A fortyfold rise in a protein is consistent with three different stages doing the work: more transcript made, the same transcript translated more efficiently, or the protein destroyed more slowly. Quantifying the transcript splits them, because it is upstream of the other two. If the message rose fortyfold as well, transcription is the controlling stage and the rest is bookkeeping. If it did not move, transcription is out and the cause is downstream of it.",
         "rebuttals": [
           "Ribosome association asks whether translation changed, and it only means something once you know whether the amount of message changed underneath it.",
           "Half-life asks whether the protein is simply being destroyed more slowly. A real possibility, and the third measurement rather than the first.",
@@ -1217,7 +1217,7 @@ export const CURRICULUM = {
         "task": "One field campaign. What is its design?",
         "question": "One field campaign. What is its design?",
         "answer": "Stratify sampling across species, habitat, season and comparison sites.",
-        "why": "A reservoir claim is a claim about prevalence, and prevalence only means something against a design that could have found the agent somewhere else. Comparison sites are what separate a reservoir from a bystander that caught it from people.",
+        "why": "A reservoir claim is a claim about prevalence — this species, in this place, carries the agent more than others do. Prevalence only means something against a design that could have found it somewhere else, so sampling one colony intensively produces a number with nothing to compare it against. Comparison sites and comparison species are what separate a reservoir from a bystander that caught it from people.",
         "rebuttals": [
           "Sampling hard around one household guarantees a positive that cannot be generalised, and it will be the species people were already afraid of.",
           "Sequencing is essential and comes second: you can only sequence what the sampling design found, and a biased design produces a confident tree of the wrong animals.",
@@ -1467,10 +1467,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Recover treatment effectiveness",
-      "scene": "Effectiveness is falling and the pharmacology unit has a limited budget. Every failure so far happened on documented dosing with concentrations inside the therapeutic range.",
+      "scene": "Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had documented dosing and trough concentrations inside the therapeutic range.",
       "takeaway": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
       "place": "Pharmacology Unit",
-      "story": "Effectiveness is falling and the pharmacology unit has a limited budget. Every failure so far happened on documented dosing with concentrations inside the therapeutic range.",
+      "story": "Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had documented dosing and trough concentrations inside the therapeutic range.",
       "game": {
         "type": "CHOICE",
         "title": "Recover treatment effectiveness",
@@ -1479,7 +1479,7 @@ export const CURRICULUM = {
         "task": "One thing before anybody's prescription changes. Which?",
         "question": "One thing before anybody's prescription changes. Which?",
         "answer": "Sequence the failures alongside matched successful cases.",
-        "why": "Every failure here occurred on documented dosing with drug concentrations inside the therapeutic range, so the drug arrived. What is in question is whether the target site changed — and the matched successes are the control that turns a resistance-associated variant into evidence rather than a coincidence.",
+        "why": "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations inside the range close the first two: the drug arrived where it was meant to be. That leaves the target, and a fall from 82 to 51 per cent over nine weeks is the shape of selection rather than the shape of a supply problem. A matched successes are the control that turns a resistance-associated variant into evidence rather than a coincidence.",
         "rebuttals": [
           "Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.",
           "Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.",
@@ -1584,10 +1584,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Build a layered intervention portfolio",
-      "scene": "One portfolio to fund, several plausible layers competing for it, and a city that would like to be told the crisis is under control.",
+      "scene": "One portfolio, six plausible layers, and enough money for three. Each layer is estimated to cut transmission by 15 to 30 per cent on its own, the estimates come from different settings, and the city would like to be told the crisis is under control.",
       "takeaway": "Layers are chosen for different mechanisms and different timescales, not for how promising each one sounds.",
       "place": "Public Health Strategy Room",
-      "story": "One portfolio to fund, several plausible layers competing for it, and a city that would like to be told the crisis is under control.",
+      "story": "One portfolio, six plausible layers, and enough money for three. Each layer is estimated to cut transmission by 15 to 30 per cent on its own, the estimates come from different settings, and the city would like to be told the crisis is under control.",
       "game": {
         "type": "CHOICE",
         "title": "Build a layered intervention portfolio",
@@ -1596,7 +1596,7 @@ export const CURRICULUM = {
         "task": "The city can start one layer this month. Which?",
         "question": "The city can start one layer this month. Which?",
         "answer": "Ventilation and rapid-isolation improvements.",
-        "why": "Layers are chosen for mechanism and for timing. Ventilation and isolation reduce transmission opportunities whatever the biology turns out to be, and they work this month — which is the month the other two spend in development.",
+        "why": "Layers are chosen for mechanism and for timing, not by ranking their headline effects. The six estimates all sit between 15 and 30 per cent and all come from other settings, so the numbers cannot separate them here. Mechanism can: measures sharing one — three that depend on people staying home — fail in the same week, while ventilation and isolation act on transmission opportunity whatever the biology turns out to be. Timing settles the rest, because those two work this month, which is the month the other candidates spend in development.",
         "rebuttals": [
           "The vaccine is the strongest long-run layer and protects nobody during the months it takes to make. Start it too; it is not what this month buys.",
           "A therapeutic depends on a pathway that is still being validated, and it acts after infection rather than reducing how much of it there is.",
@@ -1641,10 +1641,10 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Continue, expand, or pause?",
-      "scene": "The result is promising and imprecise, and the adverse events are uneven across the arms. The safety board has to say what happens next, and enrolment is paused until it does.",
+      "scene": "The effect is 24 per cent with a confidence interval running from 3 to 41, and there are seven adverse events in one arm against two in the other on 180 participants. The safety board has to say what happens next, and enrolment is paused until it does.",
       "takeaway": "A mature trial decision can be encouraging and cautious at the same time.",
       "place": "Independent Safety Board",
-      "story": "The result is promising and imprecise, and the adverse events are uneven across the arms. The safety board has to say what happens next, and enrolment is paused until it does.",
+      "story": "The effect is 24 per cent with a confidence interval running from 3 to 41, and there are seven adverse events in one arm against two in the other on 180 participants. The safety board has to say what happens next, and enrolment is paused until it does.",
       "game": {
         "type": "CHOICE",
         "title": "Continue, expand, or pause?",
@@ -1653,7 +1653,7 @@ export const CURRICULUM = {
         "task": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
         "question": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
         "answer": "Expand enrolment under the same pre-specified analysis.",
-        "why": "The estimate is real and too wide to act on, and width is fixed by numbers rather than by argument. Keeping the pre-specified analysis is what makes the extra participants add precision instead of adding a second chance to find a positive result.",
+        "why": "The effect is real — the interval excludes zero — and it is too wide to act on, since 3 per cent and 41 per cent imply different policies. Width is fixed by the number of participants and by nothing else, so more argument cannot narrow it and more enrolment can. The adverse imbalance, seven against two, is small enough to be chance at this size and is exactly what a pre-specified stopping rule exists to judge. Keeping that analysis is what makes the extra participants add precision instead of adding a second chance to find a positive result.",
         "rebuttals": [
           "Stopping now converts an imprecise estimate into a permanent one, and the imprecision is the whole reason the board was convened.",
           "Mechanism is worth knowing and does not narrow the interval the decision turns on.",
@@ -1725,7 +1725,7 @@ export const CURRICULUM = {
         "task": "A policy the council can defend for a month. Which?",
         "question": "A policy the council can defend for a month. Which?",
         "answer": "Citywide measures tied to hospital and growth thresholds.",
-        "why": "Uncertainty is not resolved by choosing more confidently. A policy tied to observable triggers agreed in advance changes when the outbreak changes, and it can be relaxed without anybody having to admit they were wrong — which is what keeps it defensible for a month.",
+        "why": "Three districts on three trajectories cannot be served by one fixed measure, and uncertainty is not resolved by choosing more confidently. A policy tied to observable triggers — a case rate, a hospital occupancy, a test positivity — changes when the outbreak changes, in a way that was announced before it happened. That is also what lets it be relaxed without anybody having to admit they were wrong — which is what keeps it defensible for a month.",
         "rebuttals": [
           "Targeted containment is cheap and effective where chains are traceable, and it fails silently where they are not. Nothing in it tells you it has stopped working.",
           "Capacity expansion protects the outcome that matters and does nothing about transmission, so it raises the ceiling without slowing the climb.",
@@ -1824,10 +1824,10 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "Fund the post-crisis legacy",
-      "scene": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Four proposals, and the room has stopped pretending all of them survive.",
+      "scene": "The emergency budget closes in three weeks, and anything uncommitted returns to the state. Four proposals against funding for two: the sequencing bench that found the variant, the sewer sampling network, the animal survey, and the clinic that took the first cases.",
       "takeaway": "The final responsibility is to convert crisis knowledge into durable public capability.",
       "place": "Public Briefing Room",
-      "story": "The emergency budget closes at the end of the month and anything uncommitted returns to the state. Four proposals, and the room has stopped pretending all of them survive.",
+      "story": "The emergency budget closes in three weeks, and anything uncommitted returns to the state. Four proposals against funding for two: the sequencing bench that found the variant, the sewer sampling network, the animal survey, and the clinic that took the first cases.",
       "game": {
         "type": "CHOICE",
         "title": "Fund the post-crisis legacy",
@@ -1836,7 +1836,7 @@ export const CURRICULUM = {
         "task": "The emergency budget closes this month. What does the city commit it to?",
         "question": "The emergency budget closes this month. What does the city commit it to?",
         "answer": "Integrated clinical, environmental and genomic surveillance.",
-        "why": "Every week of warning this outbreak got came from a signal somebody was already collecting. Surveillance is the one item here that has to run continuously to be worth anything, so it is the one a closing budget should endow rather than leave to next year's argument.",
+        "why": "Rank the four by what depends on them. Every week of warning this outbreak got came from a signal somebody was already collecting: the sequencing bench found the variant, and the sewer network found transmission before the hospitals did. Every other response, treatment included, is evaluated against what those two report. The clinic matters and can be funded from routine health money; the animal survey answers a question that is no longer urgent. Surveillance is also the only item that has to run continuously to be worth anything, which is exactly what a closing budget should endow rather than leave to next year's argument.",
         "rebuttals": [
           "Resilience and training decide whether detection helps, and they are the next call. They do nothing if nothing detects the next event.",
           "Preserving the record costs very little and should happen regardless. It is a filing decision, not what an emergency budget is for.",

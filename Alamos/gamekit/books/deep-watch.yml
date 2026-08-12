@@ -724,9 +724,7 @@ missions:
         title: The trip back without a waypoint
         place: Control Room
         scene: >-
-          The navigator hands you a written message for machinery control and says
-          the marker will be switched off for the walk back. You have been through
-          the boat once.
+          Nine compartments in a line, four of them with two doors, and one ladder aft. The navigator hands you a written message for machinery control, says the marker will be switched off for the walk back, and you have been through the boat once.
         takeaway: Dead reckoning fails at the interruption, so carry the thing that survives one.
         format: CHOICE
         assumes:
@@ -985,9 +983,7 @@ missions:
         title: Where the sound will not go
         place: Sonar Shack
         scene: >-
-          Warm water down to sixty metres, colder below it, and the contact held for
-          forty minutes has gone quiet in one sweep. Nothing else on the display
-          changed.
+          The bathythermograph shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.
         takeaway: Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.
         format: CHOICE
         assumes:
@@ -1365,8 +1361,7 @@ missions:
         title: Smoke is not only a breathing problem
         place: Auxiliary Machinery & Bilge
         scene: >-
-          The compartment is full of smoke. The team can breathe on air masks, but
-          nobody can see the far bulkhead and the fire is behind a panel.
+          Visibility in the compartment is under half a metre, the far bulkhead is eight metres away, and the temperature at head height reads 60 degrees against 28 at deck level. The team can breathe on air masks and the fire is behind a panel.
         takeaway: Smoke removes the instrument you were relying on, which is your own eyes.
         format: CHOICE
         assumes:
@@ -1579,8 +1574,7 @@ missions:
         title: Who does the things you are not doing
         place: Electrical Distribution
         scene: >-
-          You have the flooding. Whitfield is waiting for the rest of the casualty
-          organisation and he will not invent it for you.
+          You have the flooding: 40 litres a minute into the forward space, one pump running at 60. Three other things are unattended — the fire boundary aft, the atmosphere readings, and a man with a fractured wrist — and the executive officer is waiting for the rest of the casualty organisation.
         takeaway: Delegation is a person and a first action, and the first action is rarely the obvious one.
         format: PROTOCOL
         rebuttals:
@@ -2078,9 +2072,7 @@ missions:
         title: Four hours of quiet
         place: Machinery Control Room
         scene: >-
-          Haruki lists what can be secured for the transit and intends to take
-          everything on it. Four hours. He wants to know which item you will strike
-          off.
+          Four hours of quiet running, and eight items on the list that can be secured to get there. Securing the trim pump costs the ability to correct a list; securing the second scrubber halves carbon-dioxide removal with sixty people aboard and the level already at 8 millimetres of mercury. He wants to know which item you strike off the list.
         takeaway: Every quiet decision has an expiry time attached to it.
         format: CHOICE
         assumes:
@@ -2330,9 +2322,7 @@ missions:
         title: What the boat should buy
         place: Machinery Control Room
         scene: >-
-          Four refit proposals, each with a real cost and an honest uncertainty.
-          Ahead is a long transit with a constrained passage in the middle. The yard
-          will fit two, and Sowande wants your first.
+          Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a fathometer overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.
         takeaway: You fund what changes a decision, not what improves a number.
         format: CHOICE
         assumes:
@@ -2408,8 +2398,7 @@ missions:
         title: The value of a different failure
         place: Control Room
         scene: >-
-          The second depth sounder costs as much as the pump mounts and improves no
-          number on the plot. Sowande wants it anyway.
+          The second sounder costs £2.4m, the same as the pump mounts, and quotes the same 0.5-metre accuracy as the one already fitted. Both the plot and the existing sounder take their reference from the same transducer, and the navigator wants it anyway.
         takeaway: A second instrument is worth having when it fails differently, not when it agrees.
         format: CHOICE
         assumes:

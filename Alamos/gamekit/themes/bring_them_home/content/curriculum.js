@@ -303,10 +303,10 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Fund the mission legacy",
-      "scene": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals compete for what the programme commits to next.",
+      "scene": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals for three funded slots: the tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade built from this flight's own data.",
       "takeaway": "The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.",
       "place": "Entry Tracking Network",
-      "story": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals compete for what the programme commits to next.",
+      "story": "The crew is aboard the recovery ship and the review board convenes on Monday. Four proposals for three funded slots: the tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade built from this flight's own data.",
       "game": {
         "type": "CHOICE",
         "title": "Fund the mission legacy",
@@ -1204,10 +1204,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Shed load without losing the mission",
-      "scene": "The energy inventory is fixed and the loads are not. Guidance, communications, thermal control and life support all want power, and something has to come off the bus in the next few minutes.",
+      "scene": "Forty-one amp-hours left and a draw of 4.2 amps against a return that needs 62 hours. Guidance wants 1.8 amps, communications 0.9, thermal control 1.1, life support 0.4, and something has to come off the bus in the next few minutes.",
       "takeaway": "A power plan matches load timing and consequence to a finite energy inventory.",
       "place": "Mission Planning Desk",
-      "story": "The energy inventory is fixed and the loads are not. Guidance, communications, thermal control and life support all want power, and something has to come off the bus in the next few minutes.",
+      "story": "Forty-one amp-hours left and a draw of 4.2 amps against a return that needs 62 hours. Guidance wants 1.8 amps, communications 0.9, thermal control 1.1, life support 0.4, and something has to come off the bus in the next few minutes.",
       "game": {
         "type": "CHOICE",
         "title": "Shed load without losing the mission",
@@ -1237,10 +1237,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Qualify the emergency battery plan",
-      "scene": "Engineers want to reconnect a module from the damaged bus. Nobody knows its state of charge, the connector was never designed for this current, and the crew is inside a sealed cabin with the hardware.",
+      "scene": "The module reads 31 volts against a nominal 37, its state of charge is unknown, and the connector is rated for 8 amps against the 14 this would draw. The crew is inside a sealed cabin with the hardware.",
       "takeaway": "Emergency electrical improvisation should still be bounded by measurements and protection.",
       "place": "Crew Procedure Simulator",
-      "story": "Engineers want to reconnect a module from the damaged bus. Nobody knows its state of charge, the connector was never designed for this current, and the crew is inside a sealed cabin with the hardware.",
+      "story": "The module reads 31 volts against a nominal 37, its state of charge is unknown, and the connector is rated for 8 amps against the 14 this would draw. The crew is inside a sealed cabin with the hardware.",
       "game": {
         "type": "CHOICE",
         "title": "Qualify the emergency battery plan",
@@ -1386,10 +1386,10 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "Restore breathable air",
-      "scene": "Carbon dioxide is climbing and the spare canisters are the wrong shape for the sockets in this module. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time.",
+      "scene": "Carbon dioxide is at 13 millimetres of mercury and rising a millimetre every two hours, against a limit of 15. The spare canisters are square and the sockets are round. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time.",
       "takeaway": "A life-support fix must manage both chemical uptake and fluid flow.",
       "place": "Crew Hardware Workshop",
-      "story": "Carbon dioxide is climbing and the spare canisters are the wrong shape for the sockets in this module. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time.",
+      "story": "Carbon dioxide is at 13 millimetres of mercury and rising a millimetre every two hours, against a limit of 15. The spare canisters are square and the sockets are round. There is tape, a suit hose, a sock and a flight-plan cover, and the fix has to work first time.",
       "game": {
         "type": "CHOICE",
         "title": "Restore breathable air",
@@ -1502,10 +1502,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Protect the entry corridor",
-      "scene": "The corridor is about a degree wide. Too steep and the heating and deceleration exceed what the crew and the structure survive; too shallow and the capsule skips back out with no propellant left to return.",
+      "scene": "The corridor runs from 5.3 to 7.7 degrees, and the current solution sits at 6.2 with an uncertainty of half a degree. Below 5.3 the capsule skips back out with no propellant to correct with; above 7.7 the heating and deceleration exceed what the crew and the structure survive left to return.",
       "takeaway": "Entry safety comes from margins across plausible conditions, not perfection at one nominal point.",
       "place": "Crew G-Load Console",
-      "story": "The corridor is about a degree wide. Too steep and the heating and deceleration exceed what the crew and the structure survive; too shallow and the capsule skips back out with no propellant left to return.",
+      "story": "The corridor runs from 5.3 to 7.7 degrees, and the current solution sits at 6.2 with an uncertainty of half a degree. Below 5.3 the capsule skips back out with no propellant to correct with; above 7.7 the heating and deceleration exceed what the crew and the structure survive left to return.",
       "game": {
         "type": "CHOICE",
         "title": "Protect the entry corridor",
@@ -1696,10 +1696,10 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "Select the robust trajectory",
-      "scene": "Four return paths, each best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it are known only to within about a day.",
+      "scene": "Four return paths: 58 hours, 71 hours, 66 hours and 63 hours, each best at something — speed, propellant, entry heating, tracking coverage. The consumables that decide between them are known only to within about a day, and the water margin is the tightest of them.",
       "takeaway": "Robust optimization values margin and adaptability, not only nominal efficiency.",
       "place": "Life-Support Desk",
-      "story": "Four return paths, each best at something: fastest, least propellant, coolest entry, best tracking coverage. The consumables that decide it are known only to within about a day.",
+      "story": "Four return paths: 58 hours, 71 hours, 66 hours and 63 hours, each best at something — speed, propellant, entry heating, tracking coverage. The consumables that decide between them are known only to within about a day, and the water margin is the tightest of them.",
       "game": {
         "type": "CHOICE",
         "title": "Select the robust trajectory",
