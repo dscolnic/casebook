@@ -22,6 +22,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "What the record shows",
+          "What you can conclude"
+        ],
         "title": "Read the formula, not the rumor",
         "setup": "Match each formula-level observation to the correct chemical interpretation.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
@@ -440,6 +444,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "What changes in the field",
+          "What happens to the plume"
+        ],
         "title": "Interpret plume behavior",
         "setup": "Match each change to its first-order consequence.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
@@ -858,6 +866,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "What kind of chemical it is",
+          "Where it ends up"
+        ],
         "title": "Where will the chemical go?",
         "setup": "Match each molecular feature to the most likely environmental behavior.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
@@ -1311,6 +1323,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "What changes in the water",
+          "Which way the equilibrium moves"
+        ],
         "title": "Interpret the shift",
         "setup": "Match each change to the likely direction.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
@@ -1665,6 +1681,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "The gap in the evidence",
+          "How you close it"
+        ],
         "title": "Close the verification gaps",
         "setup": "Match each weakness to the needed evidence.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
@@ -2177,6 +2197,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "What you change",
+          "What it does to the rate"
+        ],
         "title": "What changes the rate?",
         "setup": "Match each intervention to its direct kinetic effect.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
@@ -2321,6 +2345,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "What is happening at the metal",
+          "Which half of the circuit that is"
+        ],
         "title": "Find the anode and cathode",
         "setup": "Match each observation to the electrochemical role.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
@@ -2681,6 +2709,10 @@ export const CURRICULUM = {
       ],
       "game": {
         "type": "Protocol",
+        "columns": [
+          "What the evidence supports",
+          "What you do with it"
+        ],
         "title": "Disposition the final chemical claims",
         "setup": "Match each evidence state to the correct recommendation.",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",

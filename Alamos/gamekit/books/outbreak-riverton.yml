@@ -580,6 +580,9 @@ missions:
       from the molecules.
     takeaway: Transport mechanisms are inferred from constraints, not memorized from molecule names alone.
     format: PROTOCOL
+    columns:
+    - What the molecule does
+    - Which mechanism that is
     rebuttals:
     - Downhill and needing no protein is simple diffusion — the molecule is small and nonpolar enough to cross the lipid itself.
     - Downhill but through a selective pore is facilitated diffusion. Still no energy spent; the protein supplies the selectivity, not the push.
@@ -698,6 +701,9 @@ missions:
       reports on, before anybody proposes a gene worth targeting.
     takeaway: The central dogma is a chain of measurable transformations, not a claim that every stage changes together.
     format: PROTOCOL
+    columns:
+    - What the data show
+    - Where the change could be
     rebuttals:
     - RNA rising while protein stays flat points downstream of transcription — a translation limit, or rapid turnover of the protein once made.
     - Protein rising on unchanged RNA points to more efficient translation or slower degradation. Nothing about the gene has changed.
@@ -1231,6 +1237,9 @@ missions:
       different slice of the city.
     takeaway: Transmission inference depends on who is observed, when, and through which sampling process.
     format: PROTOCOL
+    columns:
+    - What the surveillance shows
+    - What it supports
     rebuttals:
     - Wastewater rising before admissions is a population signal that arrives early and can never name a patient.
     - Exposures found before symptom onset are evidence about when transmission happens, from the only stream that asks people directly.
@@ -1366,6 +1375,9 @@ missions:
       board and a trapper waiting outside with more animals.
     takeaway: Ecological roles are inferred from dynamics, not appearance or proximity alone.
     format: PROTOCOL
+    columns:
+    - What the species does
+    - Which role that makes it
     rebuttals:
     - Persistent carriage with little disease is what a reservoir looks like — it has to survive the infection to maintain it.
     - A biting organism that moves the agent between hosts is a vector whether or not it is ever the place the agent persists.
@@ -1788,6 +1800,9 @@ missions:
       different moment in the course of an infection.
     takeaway: A layered strategy is stronger when each intervention has a defined mechanism and failure mode.
     format: PROTOCOL
+    columns:
+    - What you want to do
+    - How you do it
     rebuttals:
     - Preventing entry is a job for something that blocks the receptor interaction, and it has to be there before the agent is.
     - Shortening severe inflammatory disease is treatment after infection, and it is staged — given at the wrong moment it suppresses a response that is still needed.
@@ -2148,6 +2163,9 @@ missions:
       document will outlive everybody in the room.
     takeaway: Scientific conclusions should carry the strength and limits of their supporting evidence.
     format: PROTOCOL
+    columns:
+    - What the evidence supports
+    - What you do with it
     rebuttals:
     - Independent streams agreeing is the strongest evidence in the report, and treating it as provisional wastes the only thing the response can plan on.
     - One small observational sample identifies a subgroup worth confirming. Published as established, it becomes policy about people nobody measured properly.

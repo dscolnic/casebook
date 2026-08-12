@@ -186,7 +186,11 @@ function gameFor(s, at, group, day){
     need((s.choices ?? []).length === n, 'protocol needs one choice per situation');
     need((s.mapping ?? []).length === n, 'protocol mapping does not cover every situation');
     need(new Set(s.mapping ?? []).size === n, 'protocol mapping is not a permutation');
-    return { ...base, scenarios: s.scenarios, choices: s.choices, mapping: s.mapping };
+    // `columns` is optional and names the two sides — "what we want to measure"
+    // against "how we measure it" — which both the game's match board and the printed
+    // book use in place of "situation" and "response".
+    return { ...base, scenarios: s.scenarios, choices: s.choices, mapping: s.mapping,
+             ...(s.columns ? { columns: s.columns } : {}) };
   }
   if(format === 'SEQUENCE'){
     const n = (s.cards ?? []).length;
@@ -240,7 +244,8 @@ function gameFor(s, at, group, day){
   if(format === 'CASEBOOK' && (s.scenarios || s.cards)){
     const rows = s.scenarios ?? s.cards;
     need((s.mapping ?? []).length === rows.length, 'casebook mapping does not cover every clue');
-    return { ...base, scenarios: rows, choices: s.choices, mapping: s.mapping };
+    return { ...base, scenarios: rows, choices: s.choices, mapping: s.mapping,
+             ...(s.columns ? { columns: s.columns } : {}) };
   }
   // CHOICE, TRIAGE, and a casebook that is really a question
   const labels = (s.choices ?? []).map(c => (typeof c === 'string' ? c : c.label));

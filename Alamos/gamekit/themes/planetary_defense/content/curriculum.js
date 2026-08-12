@@ -273,9 +273,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "A measured miss settles this pass and says nothing about the orbit the encounter creates.",
           "Albedo gives size. Size does not tell you where the object will be in eleven years.",
-          {
-            "A later arc is needed and is not sufficient": "without propagating through the encounter there is nothing to compare it against."
-          }
+          "A later arc is needed and is not sufficient — without propagating through the encounter there is nothing to compare it against."
         ],
         "choices": [
           "How this approach changes the orbit, and whether the new path threads a keyhole on the next return.",
@@ -396,6 +394,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What changes",
+          "What happens to the brightness"
         ]
       },
       "assumes": [
@@ -614,34 +616,38 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "What does radar measure?",
         "setup": "Planetary Radar Facility",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Match each quantity to the radar observable that measures it. Each choice is used once.",
+        "task": "Match each quantity to the radar observable that measures it. Each choice is used once.",
+        "question": "Match each quantity to the radar observable that measures it. Each choice is used once.",
         "answer": "",
         "why": "Radar separates dimensions that optical images entangle, and each observable separates a different one. Echo delay is time of flight, so it is a distance, measured rather than fitted. Doppler spread across the echo is the range of line-of-sight velocities across the body, which is rotation. Echo power against delay says how much surface sits at each distance, which is shape and roughness. And repeated delay-Doppler images across a rotation build the three-dimensional model none of the others gives on its own.",
         "rebuttals": [
-          "Delay is time of flight and therefore range — the quantity optical astrometry can only infer from a fit.",
-          "Doppler spread is a spread of velocities across the body, which is what a rotating object produces.",
-          "Echo power against delay maps reflecting area by distance: shape and scattering, not position.",
-          "Repeated delay-Doppler images across a turn are what build a shape model, which no single image contains."
+          "A distance is a time multiplied by a speed, and the delay of the echo is the one timed quantity a radar returns.",
+          "Rotation appears as a spread of line-of-sight velocities across the body, and a spread of velocities is a spread of frequencies.",
+          "Where along the line of sight an echo came from is carried by when it arrives, so power against delay resolves the surface in range.",
+          "A three-dimensional shape needs the body seen from several aspects, which is what repetition through a rotation provides."
         ],
         "scenarios": [
-          "Echo delay.",
-          "Doppler frequency spread.",
-          "Echo power versus delay.",
-          "Repeated delay-Doppler images."
+          "Distance to the object.",
+          "How fast the object is rotating.",
+          "How reflecting area is spread along the line of sight.",
+          "The three-dimensional shape, and the spin that carries it around."
         ],
         "choices": [
-          "Range.",
-          "Distribution of line-of-sight rotational velocities.",
-          "Range-resolved reflecting area and scattering.",
-          "Changing shape and rotation constraints."
+          "Time the echo. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the range, and the clock is good enough to place a body millions of kilometres away to within metres.",
+          "Measure how far the returned frequency is spread out. One limb of a rotating body turns toward us while the other turns away, so the echo comes back smeared across a band of Doppler shifts whose width scales with the rotation speed.",
+          "Read echo power against delay. The nearer parts of the surface return their echo first, so the run of power with delay says how much reflecting area sits at each distance along the line of sight.",
+          "Build delay-Doppler images on successive nights through a full turn. Each image is one projection of the body, and a sequence taken across changing aspect is what a shape model is fitted to."
         ],
         "mapping": [
           0,
           1,
           2,
           3
+        ],
+        "columns": [
+          "What we want to measure",
+          "How the radar measures it"
         ]
       },
       "assumes": [
@@ -689,6 +695,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the numbers say",
+          "How to read it"
         ]
       },
       "assumes": [
@@ -807,6 +817,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What varies",
+          "What it does to the outcome"
         ]
       },
       "assumes": [
@@ -942,34 +956,38 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "Which orbit feature does the data constrain?",
         "setup": "Celestial Mechanics Group",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Match each part of the orbit to the observation that pins it down. Each choice is used once.",
+        "task": "Match each part of the orbit to the observation that pins it down. Each choice is used once.",
+        "question": "Match each part of the orbit to the observation that pins it down. Each choice is used once.",
         "answer": "",
-        "why": "Orbit determination is an information problem before it is an arithmetic one: what to buy next depends on which direction of the uncertainty is widest. Time is what makes curvature visible, so a longer arc constrains the shape. Radar range fixes the distance that optical work can only infer. Range rate fixes how fast that distance changes. And two widely separated observers see the object against different backgrounds, which is distance from geometry alone.",
+        "why": "Orbit determination is an information problem before it is an arithmetic one: what to buy next depends on which direction of the uncertainty is widest. Time is what makes curvature visible, so a longer arc constrains the shape. Radar range fixes that distance directly, as a time of flight. Range rate fixes how fast the distance changes. And two widely separated observers see the object against different backgrounds, which is distance from geometry alone.",
         "rebuttals": [
-          "A longer arc shows curvature, and curvature is what separates orbits that look identical over four hours.",
-          "Radar range is a distance measured rather than inferred — the one thing optical astrometry never gives you.",
-          "Range rate is how fast that distance is changing, which is a different quantity again.",
-          "Widely separated observers give parallax, and parallax is distance from geometry rather than from a fit."
+          "The size and period of an orbit live in how the path curves, and curvature is what time on the sky makes visible.",
+          "A distance along the line of sight is a time of flight, which is what a radar echo delivers directly.",
+          "How fast that distance is changing is a velocity, and the Doppler shift of the echo is proportional to it.",
+          "Two observers far apart see the object against slightly different backgrounds, and that angle with a known baseline is a distance from geometry."
         ],
         "scenarios": [
-          "Longer observation arc.",
-          "Radar range.",
-          "Radar range rate.",
-          "Observations from widely separated Earth locations."
+          "The size and period of the orbit.",
+          "The distance to the object right now.",
+          "How fast that distance is changing.",
+          "A distance from geometry alone, with no orbit assumed."
         ],
         "choices": [
-          "Curvature and mean motion.",
-          "Line-of-sight distance.",
-          "Line-of-sight velocity.",
-          "Parallax and distance geometry."
+          "Keep observing until the arc is long enough. Over hours the path looks straight, and it is the curvature that appears over weeks that fixes the mean motion and therefore the size of the orbit.",
+          "Take a radar range. The delay of the echo is a time of flight, so multiplying half of it by the speed of light gives the line-of-sight distance to within metres.",
+          "Take a radar range rate. The returned frequency is shifted in proportion to the line-of-sight speed, so one echo carries the velocity as well as the distance.",
+          "Observe from two widely separated places on Earth at once. The direction to the object differs slightly between the sites, and that parallax angle across a known baseline gives the distance by triangle."
         ],
         "mapping": [
           0,
           1,
           2,
           3
+        ],
+        "columns": [
+          "What we want to pin down",
+          "Which observation pins it down"
         ]
       },
       "assumes": [
@@ -1580,6 +1598,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "The constraint",
+          "What the mission does about it"
         ]
       },
       "assumes": [
@@ -1624,6 +1646,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "Semi-major axis",
+          "Orbital period"
         ]
       },
       "assumes": [
@@ -1702,6 +1728,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the evidence state is",
+          "What you do"
         ]
       },
       "assumes": [
@@ -1804,6 +1834,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the evidence shows",
+          "What you do with it"
         ]
       },
       "assumes": [

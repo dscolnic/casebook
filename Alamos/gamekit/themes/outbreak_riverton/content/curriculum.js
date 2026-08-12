@@ -457,6 +457,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the molecule does",
+          "Which mechanism that is"
         ]
       },
       "assumes": [
@@ -667,6 +671,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the data show",
+          "Where the change could be"
         ]
       },
       "assumes": [
@@ -948,6 +956,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the surveillance shows",
+          "What it supports"
         ]
       },
       "assumes": [
@@ -1536,6 +1548,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you want to do",
+          "How you do it"
         ]
       },
       "assumes": [
@@ -1782,6 +1798,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the evidence supports",
+          "What you do with it"
         ]
       },
       "assumes": [
@@ -1895,6 +1915,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the species does",
+          "Which role that makes it"
         ]
       },
       "assumes": [

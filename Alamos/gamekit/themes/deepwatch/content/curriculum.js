@@ -43,6 +43,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you hear",
+          "What it is"
         ]
       },
       "assumes": [
@@ -349,6 +353,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "The term in the sonar equation",
+          "What it stands for"
         ]
       },
       "assumes": [
@@ -1090,6 +1098,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the checklist tells you to do",
+          "What it is actually checking"
         ]
       },
       "assumes": [
@@ -1135,6 +1147,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What is going on elsewhere",
+          "What you ask for"
         ]
       },
       "assumes": [
@@ -1182,6 +1198,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What is feeding the fire",
+          "What you do about it"
         ]
       },
       "assumes": [
@@ -1268,6 +1288,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What else needs doing",
+          "What you order, and why"
         ]
       },
       "assumes": [
@@ -1591,6 +1615,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you are looking at",
+          "What it does"
         ]
       },
       "assumes": [
@@ -1669,6 +1697,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you order",
+          "What it actually does"
         ]
       },
       "assumes": [
@@ -1692,9 +1724,7 @@ export const CURRICULUM = {
         "answer": "The fan is a single point of failure, and the plan needs a second path or a stated fallback.",
         "why": "Redundancy is not about how many systems are drawn on the diagram, it is about what they share. Two paths through one fan fail together, and a plan that assumes they are independent has no answer for the case that actually happens. The work is to find the shared component, decide whether a second path exists, and if it does not, write down what the boat will do instead — before the failure, while the decision is still cheap.",
         "rebuttals": [
-          {
-            "Reliability is not independence": "a reliable shared component still takes both systems out when it does fail."
-          },
+          "Reliability is not independence — a reliable shared component still takes both systems out when it does fail.",
           "Running the scrubber harder consumes more of the same air path and shortens the time available.",
           "Sealing the after spaces removes them from the plan rather than protecting them, and people are berthed there."
         ],
@@ -1788,6 +1818,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you do",
+          "What it buys you"
         ]
       },
       "assumes": [

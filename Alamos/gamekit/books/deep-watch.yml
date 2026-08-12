@@ -688,6 +688,9 @@ missions:
           each one is for. None is labelled with its purpose, only with its number.
         takeaway: What a fitting is for is decided by what is on the other side of it, and at what pressure.
         format: PROTOCOL
+        columns:
+        - What you are looking at
+        - What it does
         rebuttals:
         - A wheel valve on a line through the pressure hull is the only one with the ocean on the far side. Depth sets what comes through it.
         - Quick-connect couplings at head height are breathing air — a supply for people, not for a system.
@@ -776,6 +779,9 @@ missions:
           did.
         takeaway: A source that changes when the boat changes belongs to the boat.
         format: PROTOCOL
+        columns:
+        - What you hear
+        - What it is
         rebuttals:
         - A source that follows our own throttle is ours. Nothing out in the water knows what our turn count is doing.
         - A narrow line at a fixed frequency, drifting slowly in bearing, is machinery on a ship holding a course.
@@ -1241,6 +1247,9 @@ missions:
           Haruki wants each action matched to what it actually achieves.
         takeaway: Every isolation stops something else, and the order decides what that is.
         format: PROTOCOL
+        columns:
+        - What you order
+        - What it actually does
         rebuttals:
         - The outboard hull valve is the only cut between the boat and the ocean. Everything else acts on water that is already inside.
         - The inboard supply valve stops flow to the break and leaves the header pressurised from the sea. Useful, and not the end of it.
@@ -1294,6 +1303,9 @@ missions:
           He asks what removes each one.
         takeaway: Each leg of a fire is a different action, and they are not interchangeable.
         format: PROTOCOL
+        columns:
+        - What is feeding the fire
+        - What you do about it
         rebuttals:
         - The energised fault is removed by opening the breaker and then proving the cable dead. Until it is dead, everything else is fighting a symptom.
         - The burning insulation is fuel. You take it below the temperature at which it re-lights, which is what cooling is for.
@@ -1518,7 +1530,7 @@ missions:
           and if it does not, write down what the boat will do instead — before the
           failure, while the decision is still cheap.
         rebuttals:
-        - Reliability is not independence: a reliable shared component still takes both systems out when it does fail.
+        - Reliability is not independence — a reliable shared component still takes both systems out when it does fail.
         - Running the scrubber harder consumes more of the same air path and shortens the time available.
         - Sealing the after spaces removes them from the plan rather than protecting them, and people are berthed there.
   - title: Compound Casualty
@@ -1577,6 +1589,9 @@ missions:
           You have the flooding: 40 litres a minute into the forward space, one pump running at 60. Three other things are unattended — the fire boundary aft, the atmosphere readings, and a man with a fractured wrist — and the executive officer is waiting for the rest of the casualty organisation.
         takeaway: Delegation is a person and a first action, and the first action is rarely the obvious one.
         format: PROTOCOL
+        columns:
+        - What else needs doing
+        - What you order, and why
         rebuttals:
         - The lost bus needs a meter on the conductors, because the switchboard reports what it believes rather than what is there.
         - The injured crewman is treated where he lies and the passage cleared — not for his comfort, but because that passage is a route the teams need.
@@ -1900,6 +1915,9 @@ missions:
           the boat, and two are hard to undo at this depth.
         takeaway: Speed and angle buy time; blowing buys depth and gives away position.
         format: PROTOCOL
+        columns:
+        - What you do
+        - What it buys you
         rebuttals:
         - More speed with the planes at rise means more flow over them, so the same angle lifts harder. It buys minutes and costs nothing you cannot take back.
         - Blowing forward main ballast removes weight fast and is heard for miles. It works, and it spends air and position together.
@@ -2153,6 +2171,9 @@ missions:
           one of them is the boat's own noise.
         takeaway: Detection is a budget, and each term is bought or lost by a different decision.
         format: PROTOCOL
+        columns:
+        - The term in the sonar equation
+        - What it stands for
         assumes:
         - a signal is detected only when it stands above the noise around it
         question: Match each term in the detection budget to what it accounts for.
@@ -2208,6 +2229,9 @@ missions:
           aloud on a busy deck by somebody who already knows what it means.
         takeaway: A checklist item is a claim; the check is the evidence for it.
         format: PROTOCOL
+        columns:
+        - What the checklist tells you to do
+        - What it is actually checking
         rebuttals:
         - Operating a valve through its full travel proves it will move when somebody needs it. A valve that exists and is seized is worse than no valve, because it is on the list.
         - Reading every bilge sets the starting level. Without it the first rise looks like an ordinary number.
@@ -2491,6 +2515,9 @@ missions:
           patrol.
         takeaway: An assignment that names a threshold can be acted on alone; one that says watch it cannot.
         format: PROTOCOL
+        columns:
+        - What is going on elsewhere
+        - What you ask for
         rebuttals:
         - A bilge that is wet and not rising needs a level logged every ten minutes and a change reported — a change, not a number, because the number means nothing on its own.
         - An unresolved contact needs holding for a bearing rate, and a report before it resolves. Waiting until it is certain wastes the geometry.

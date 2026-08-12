@@ -595,8 +595,13 @@ export function matchBoard(spec, { w = 620 } = {}){
 
   const linkOf = (i) => (spec.links ?? []).find(l => l.from === i);
   const rightLinked = new Set((spec.links ?? []).map(l => l.to));
-  let body = `<text x="${x0}" y="14" font-size="10" font-weight="800" fill="${MUTED}">SITUATION</text>`
-    + `<text x="${x1 + colW}" y="14" font-size="10" font-weight="800" text-anchor="end" fill="${MUTED}">RESPONSE</text>`;
+  // The columns are named by the item where it has something better to say than
+  // "situation" and "response" — a matching question is often really "what we want to
+  // measure" against "how we measure it", and saying so is half the teaching.
+  const leftTitle = String(spec.leftTitle ?? 'SITUATION').toUpperCase();
+  const rightTitle = String(spec.rightTitle ?? 'RESPONSE').toUpperCase();
+  let body = `<text x="${x0}" y="14" font-size="10" font-weight="800" fill="${MUTED}">${esc(leftTitle)}</text>`
+    + `<text x="${x1 + colW}" y="14" font-size="10" font-weight="800" text-anchor="end" fill="${MUTED}">${esc(rightTitle)}</text>`;
   // Joins first, so a line never crosses over the text of a box.
   for(const l of spec.links ?? []){
     if(l.from == null || l.to == null || l.to < 0) continue;

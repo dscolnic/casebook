@@ -101,9 +101,11 @@ function materialHTML(ch){
   }
   if(k === 'PROTOCOL' && ch.scenarios){
     const letters = 'ABCDEFGH';
-    section('Match each of these', list(ch.scenarios.map((s, i) =>
+    // An item may name its columns — "what we want to measure" against "how we
+    // measure it" says more than "match each of these" does.
+    section(ch.columns?.[0] ?? 'Match each of these', list(ch.scenarios.map((s, i) =>
       `<b>${i + 1}.</b>&nbsp; ${esc(label(s))}`), 'scenarios'));
-    section('…to one of these', list((ch.choices ?? []).map((c, i) =>
+    section(ch.columns?.[1] ?? '…to one of these', list((ch.choices ?? []).map((c, i) =>
       `<b>${letters[i]}</b>&nbsp; ${esc(label(c))}`), 'choices'));
   } else if(ch.choices && k !== 'SEQUENCE'){
     const letters = 'ABCDEFGH';

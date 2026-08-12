@@ -15,34 +15,38 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "Which measurement constrains what?",
         "setup": "Deep-Space Tracking Station",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Match each quantity the state estimate needs to the measurement that provides it.",
+        "task": "Match each quantity the state estimate needs to the measurement that provides it.",
+        "question": "Match each quantity the state estimate needs to the measurement that provides it.",
         "answer": "",
-        "why": "Navigation is reconstruction from partial projections: no single measurement type gives the full state, and each one leaves a different part of it free. Two-way travel time fixes how far away the spacecraft is and says nothing about direction. Doppler shift measures how fast that distance is changing, which is one component of velocity and not the others. An angle against background stars fixes direction and leaves distance free. Repeated positions at known times give velocity by differencing, and differencing again gives acceleration.",
+        "why": "Navigation is a reconstruction from partial projections. Each measurement type fixes a different part of the state. The six numbers come from combining them, not from any one of them. Two are worth putting numbers to. A Doppler shift is proportional to speed divided by the speed of light. A spacecraft closing at one kilometre a second shifts a 2-gigahertz carrier by about seven kilohertz. That is small, and it is measurable to a fraction of a hertz, which is what makes Doppler the instrument of choice for a rate. Differencing is the other route to a rate. Every differencing step multiplies the measurement noise, so an acceleration recovered from two rounds of subtraction is the least certain number in the set.",
         "rebuttals": [
-          "Travel time is a distance along the line of sight. It is measured rather than fitted, and it carries no direction information at all.",
-          "Doppler shift is a rate of change of that distance — line-of-sight velocity, and only the line-of-sight part.",
-          "An angle against fixed stars says which way, not how far. Two objects on the same bearing at different ranges give the same reading.",
-          "Positions repeated at known times give velocity by differencing, and the trend in that velocity is acceleration."
+          "Direction is an angle, and the star camera is the only instrument here that measures one.",
+          "A velocity along the line of sight is carried by the returned wave itself, in its frequency.",
+          "A distance is a time multiplied by a speed, which is what the round trip provides.",
+          "Rates come from repetition — two positions give a velocity, and two velocities give an acceleration."
         ],
         "scenarios": [
-          "Two-way signal travel time.",
-          "Doppler frequency shift.",
-          "Angular position against background stars.",
-          "Repeated positions at known times."
+          "Direction on the sky.",
+          "Line-of-sight velocity.",
+          "Range along the line of sight.",
+          "Velocity, and any change in it."
         ],
         "choices": [
-          "Range along the line of sight.",
-          "Line-of-sight velocity.",
-          "Direction on the sky.",
-          "Velocity and acceleration trends."
+          "Photograph the spacecraft against catalogued stars. The angle to stars whose directions are already known fixes the line the spacecraft lies along, to the precision of the star positions and the optics.",
+          "Compare the frequency that comes back with the frequency that was sent. Motion along the line of sight stretches or compresses the returning wave, and the fractional change in frequency equals the speed as a fraction of the speed of light.",
+          "Time a pulse out to the spacecraft and back through its transponder. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the distance.",
+          "Repeat the same position measurement at recorded times. Subtracting positions gives velocity, and subtracting those velocities gives acceleration."
         ],
         "mapping": [
           0,
           1,
           2,
           3
+        ],
+        "columns": [
+          "What we want to measure",
+          "How we measure it"
         ]
       },
       "assumes": [
@@ -398,6 +402,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you change",
+          "What happens"
         ]
       },
       "assumes": [
@@ -526,6 +534,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What is happening in the cabin",
+          "Which mechanism that is"
         ]
       },
       "assumes": [
@@ -767,6 +779,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you see change",
+          "What causes the shift"
         ]
       },
       "assumes": [
@@ -814,6 +830,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What you change",
+          "What happens to the rotation"
         ]
       },
       "assumes": [
@@ -1454,6 +1474,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the trace shows",
+          "What it means"
         ]
       },
       "assumes": [
@@ -1687,6 +1711,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the option changes",
+          "What runs out first"
         ]
       },
       "assumes": [
@@ -1798,6 +1826,10 @@ export const CURRICULUM = {
           1,
           2,
           3
+        ],
+        "columns": [
+          "What the evidence shows",
+          "What you do with it"
         ]
       },
       "assumes": [

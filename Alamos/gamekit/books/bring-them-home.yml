@@ -406,8 +406,7 @@ missions:
     isolated facts.
   stops:
   - group: NAV
-    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
-      once.
+    task: Match each quantity the state estimate needs to the measurement that provides it.
     title: Which measurement constrains what?
     place: Deep-Space Tracking Station
     scene: >-
@@ -416,37 +415,47 @@ missions:
       The room has to say what each type buys before it schedules any of them.
     takeaway: Navigation is a reconstruction from partial projections.
     format: PROTOCOL
+    columns:
+    - What we want to measure
+    - How we measure it
     rebuttals:
-    - Travel time is a distance along the line of sight. It is measured rather than fitted, and it carries no direction information at all.
-    - Doppler shift is a rate of change of that distance — line-of-sight velocity, and only the line-of-sight part.
-    - An angle against fixed stars says which way, not how far. Two objects on the same bearing at different ranges give the same reading.
-    - Positions repeated at known times give velocity by differencing, and the trend in that velocity is acceleration.
+    - Direction is an angle, and the star camera is the only instrument here that measures one.
+    - A velocity along the line of sight is carried by the returned wave itself, in its frequency.
+    - A distance is a time multiplied by a speed, which is what the round trip provides.
+    - Rates come from repetition — two positions give a velocity, and two velocities give an acceleration.
     assumes:
     - describing where something is and how it is moving takes six numbers
     scenarios:
-    - Two-way signal travel time.
-    - Doppler frequency shift.
-    - Angular position against background stars.
-    - Repeated positions at known times.
-    choices:
-    - Range along the line of sight.
-    - Line-of-sight velocity.
     - Direction on the sky.
-    - Velocity and acceleration trends.
+    - Line-of-sight velocity.
+    - Range along the line of sight.
+    - Velocity, and any change in it.
+    choices:
+    - Photograph the spacecraft against catalogued stars. The angle to stars whose directions are already known fixes the
+      line the spacecraft lies along, to the precision of the star positions and the optics.
+    - Compare the frequency that comes back with the frequency that was sent. Motion along the line of sight stretches or
+      compresses the returning wave, and the fractional change in frequency equals the speed as a fraction of the speed of
+      light.
+    - Time a pulse out to the spacecraft and back through its transponder. Radio travels at a known speed, so half the
+      round-trip time multiplied by that speed is the distance.
+    - Repeat the same position measurement at recorded times. Subtracting positions gives velocity, and subtracting those
+      velocities gives acceleration.
     mapping:
     - 0
     - 1
     - 2
     - 3
     why: >-
-      Navigation is reconstruction from partial projections: no single
-      measurement type gives the full state, and each one leaves a different
-      part of it free. Two-way travel time fixes how far away the spacecraft is
-      and says nothing about direction. Doppler shift measures how fast that
-      distance is changing, which is one component of velocity and not the
-      others. An angle against background stars fixes direction and leaves
-      distance free. Repeated positions at known times give velocity by
-      differencing, and differencing again gives acceleration.
+      Navigation is a reconstruction from partial projections. Each measurement
+      type fixes a different part of the state. The six numbers come from
+      combining them, not from any one of them. Two are worth putting numbers to.
+      A Doppler shift is proportional to speed divided by the speed of light. A
+      spacecraft closing at one kilometre a second shifts a 2-gigahertz carrier
+      by about seven kilohertz. That is small, and it is measurable to a fraction
+      of a hertz, which is what makes Doppler the instrument of choice for a
+      rate. Differencing is the other route to a rate. Every differencing step
+      multiplies the measurement noise, so an acceleration recovered from two
+      rounds of subtraction is the least certain number in the set.
   - group: NAV
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly
       placed cards after each check.
@@ -675,6 +684,9 @@ missions:
       will feel.
     takeaway: Attitude control is Newtonian mechanics around a center of mass.
     format: PROTOCOL
+    columns:
+    - What you change
+    - What happens to the rotation
     rebuttals:
     - The same force farther from the centre of mass is a longer lever arm and therefore a larger torque. This is the term the crew can actually choose.
     - The same torque on a larger moment of inertia gives less angular acceleration. Harder to start, and equally hard to stop.
@@ -974,6 +986,9 @@ missions:
       because adding a module can also take capability away.
     takeaway: Redundancy is useful only when connection and protection behavior are explicit.
     format: PROTOCOL
+    columns:
+    - What you change
+    - What happens
     rebuttals:
     - Cells in series add their voltages. The current is the same everywhere in the string, so nothing is gained in capacity.
     - Cells in parallel hold the voltage and add current capacity. This is how you get more amp-hours without changing the bus.
@@ -1161,6 +1176,9 @@ missions:
       pathway first.
     takeaway: Identifying the pathway reveals which intervention can reduce loss.
     format: PROTOCOL
+    columns:
+    - What is happening in the cabin
+    - Which mechanism that is
     rebuttals:
     - Bodies in direct contact exchange heat by conduction. It is short-range and it needs touching.
     - 'Air carrying warmth around the cabin is convection: the heat rides on moving fluid rather than passing through it.'
@@ -1568,6 +1586,9 @@ missions:
       spacecraft does.
     takeaway: Manual navigation requires separating instrument geometry from spacecraft motion.
     format: PROTOCOL
+    columns:
+    - What you see change
+    - What causes the shift
     rebuttals:
     - Eye moving against a nearby reticle is instrument parallax. Nothing outside the window has changed.
     - A focus change alters how sharp the image is and leaves the direction where it was.
@@ -1609,6 +1630,9 @@ missions:
       than the last point does.
     takeaway: A graph carries rate and change of rate, neither of which is visible in the latest reading.
     format: PROTOCOL
+    columns:
+    - What the trace shows
+    - What it means
     assumes:
     - the slope of a distance-time graph is a speed
     question: Match each feature of the plotted trace to what it tells you about the motion.
@@ -1996,6 +2020,9 @@ missions:
       subsystem. The room cannot simply take the fastest one.
     takeaway: The best physical solution is not necessarily the shortest or lowest-fuel solution.
     format: PROTOCOL
+    columns:
+    - What the option changes
+    - What runs out first
     rebuttals:
     - More days is more oxygen, more water, more scrubber capacity and more power. Consumables are the clock on a long return.
     - 'A larger burn is propellant, and it is also execution error: a bigger correction can be wrong by more.'
@@ -2279,6 +2306,9 @@ missions:
       quiet, and nothing can be revisited.
     takeaway: Final authority should follow traceable evidence and pre-agreed criteria.
     format: PROTOCOL
+    columns:
+    - What the evidence shows
+    - What you do with it
     rebuttals:
     - A state inside the corridor across the modelled uncertainty is the one claim that can simply be approved — with tracking continued, because the margin is not infinite.
     - An undocumented configuration change to the heat shield is held and resolved while there is still time to hold. It is the only item here that cannot be accepted with a caveat.

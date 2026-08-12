@@ -315,6 +315,24 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
     if(!String(g.why ?? '').trim() && ['CHOICE', 'TRIAGE', 'DIAGNOSIS'].includes(kind)){
       note(`${at}: no "why" — the verdict card names the answer and explains nothing`);
     }
+    // Every label a question renders has to be TEXT. A YAML list item containing a
+    // colon and a space — "Reliability is not independence: a shared component
+    // fails for both" — parses as a MAPPING, and the game prints "[object Object]"
+    // in the middle of a verdict without erroring. Three of those shipped from one
+    // afternoon of editing, and none of the other checks could see them.
+    for(const field of ['rebuttals', 'cards', 'scenarios', 'givens']){
+      (g[field] ?? []).forEach((v, i) => {
+        if(typeof v !== 'string'){
+          fail(`${at}: ${field}[${i}] is not text — it renders as [object Object]`
+             + ` (an unquoted YAML list item with ": " in it becomes a map)`);
+        }
+      });
+    }
+    (g.choices ?? []).forEach((v, i) => {
+      if(typeof v !== 'string' && typeof v?.label !== 'string'){
+        fail(`${at}: choices[${i}] has no label text — it renders as [object Object]`);
+      }
+    });
     if(kind === 'BALLPARK'){
       const spec = content.BALLPARK_CALCS?.[`${group}-${l.day}`];
       if(!spec){
@@ -354,6 +372,7 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
           note(`${at}: estimate has no explanation, so the verdict shows a number and no reasoning`);
         }
       }
+
     }
   });
 }

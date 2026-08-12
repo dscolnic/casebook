@@ -37,7 +37,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 0,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each quantity the state estimate needs to the measurement that provides it."
       },
       {
         "group": "NAV",

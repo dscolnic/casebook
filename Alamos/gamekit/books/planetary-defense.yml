@@ -600,8 +600,7 @@ missions:
       Each is then propagated under gravity, and the spread in where they end up
       is the answer — not the middle of it.
   - group: OPS
-    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
-      once.
+    task: Match each part of the orbit to the observation that pins it down. Each choice is used once.
     title: Which orbit feature does the data constrain?
     place: Celestial Mechanics Group
     scene: >-
@@ -610,23 +609,31 @@ missions:
       direction.
     takeaway: Orbit determination is an information-geometry problem.
     format: PROTOCOL
+    columns:
+    - What we want to pin down
+    - Which observation pins it down
     rebuttals:
-    - A longer arc shows curvature, and curvature is what separates orbits that look identical over four hours.
-    - Radar range is a distance measured rather than inferred — the one thing optical astrometry never gives you.
-    - Range rate is how fast that distance is changing, which is a different quantity again.
-    - Widely separated observers give parallax, and parallax is distance from geometry rather than from a fit.
+    - The size and period of an orbit live in how the path curves, and curvature is what time on the sky makes visible.
+    - A distance along the line of sight is a time of flight, which is what a radar echo delivers directly.
+    - How fast that distance is changing is a velocity, and the Doppler shift of the echo is proportional to it.
+    - Two observers far apart see the object against slightly different backgrounds, and that angle with a known baseline is
+      a distance from geometry.
     assumes:
     - different measurements constrain different parts of an orbit
     scenarios:
-    - Longer observation arc.
-    - Radar range.
-    - Radar range rate.
-    - Observations from widely separated Earth locations.
+    - The size and period of the orbit.
+    - The distance to the object right now.
+    - How fast that distance is changing.
+    - A distance from geometry alone, with no orbit assumed.
     choices:
-    - Curvature and mean motion.
-    - Line-of-sight distance.
-    - Line-of-sight velocity.
-    - Parallax and distance geometry.
+    - Keep observing until the arc is long enough. Over hours the path looks straight, and it is the curvature that appears
+      over weeks that fixes the mean motion and therefore the size of the orbit.
+    - Take a radar range. The delay of the echo is a time of flight, so multiplying half of it by the speed of light gives
+      the line-of-sight distance to within metres.
+    - Take a radar range rate. The returned frequency is shifted in proportion to the line-of-sight speed, so one echo
+      carries the velocity as well as the distance.
+    - Observe from two widely separated places on Earth at once. The direction to the object differs slightly between the
+      sites, and that parallax angle across a known baseline gives the distance by triangle.
     mapping:
     - 0
     - 1
@@ -636,8 +643,8 @@ missions:
       Orbit determination is an information problem before it is an arithmetic
       one: what to buy next depends on which direction of the uncertainty is
       widest. Time is what makes curvature visible, so a longer arc constrains
-      the shape. Radar range fixes the distance that optical work can only
-      infer. Range rate fixes how fast that distance changes. And two widely
+      the shape. Radar range fixes that distance directly, as a time of flight.
+      Range rate fixes how fast the distance changes. And two widely
       separated observers see the object against different backgrounds, which is
       distance from geometry alone.
   - group: OPS
@@ -692,6 +699,9 @@ missions:
       goes out this afternoon.
     takeaway: Planetary-defense risk lives in the distribution, not just the best-fit trajectory.
     format: PROTOCOL
+    columns:
+    - What the numbers say
+    - How to read it
     rebuttals:
     - A nominal miss is the middle of a distribution. It guarantees nothing while the distribution still reaches Earth.
     - A thin set of impacting solutions is a nonzero probability, and small is not the same as absent.
@@ -817,6 +827,9 @@ missions:
       change reflected flux are on the board.
     takeaway: A bright asteroid is not necessarily large.
     format: PROTOCOL
+    columns:
+    - What changes
+    - What happens to the brightness
     rebuttals:
     - A larger cross-section intercepts and returns more light — the term everybody assumes is the only one.
     - Higher reflectivity returns more of what arrives, at the same size. This is the one that makes brightness ambiguous.
@@ -1224,8 +1237,7 @@ missions:
     as isolated facts.
   stops:
   - group: RADAR
-    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used
-      once.
+    task: Match each quantity to the radar observable that measures it. Each choice is used once.
     title: What does radar measure?
     place: Planetary Radar Facility
     scene: >-
@@ -1234,23 +1246,34 @@ missions:
       board.
     takeaway: Active sensing can transform orbit and shape knowledge during a short window.
     format: PROTOCOL
+    columns:
+    - What we want to measure
+    - How the radar measures it
     rebuttals:
-    - Delay is time of flight and therefore range — the quantity optical astrometry can only infer from a fit.
-    - Doppler spread is a spread of velocities across the body, which is what a rotating object produces.
-    - 'Echo power against delay maps reflecting area by distance: shape and scattering, not position.'
-    - Repeated delay-Doppler images across a turn are what build a shape model, which no single image contains.
+    - A distance is a time multiplied by a speed, and the delay of the echo is the one timed quantity a radar returns.
+    - Rotation appears as a spread of line-of-sight velocities across the body, and a spread of velocities is a spread of
+      frequencies.
+    - Where along the line of sight an echo came from is carried by when it arrives, so power against delay resolves the
+      surface in range.
+    - A three-dimensional shape needs the body seen from several aspects, which is what repetition through a rotation
+      provides.
     assumes:
     - radar sends a signal out and measures what comes back
     scenarios:
-    - Echo delay.
-    - Doppler frequency spread.
-    - Echo power versus delay.
-    - Repeated delay-Doppler images.
+    - Distance to the object.
+    - How fast the object is rotating.
+    - How reflecting area is spread along the line of sight.
+    - The three-dimensional shape, and the spin that carries it around.
     choices:
-    - Range.
-    - Distribution of line-of-sight rotational velocities.
-    - Range-resolved reflecting area and scattering.
-    - Changing shape and rotation constraints.
+    - Time the echo. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the range, and
+      the clock is good enough to place a body millions of kilometres away to within metres.
+    - Measure how far the returned frequency is spread out. One limb of a rotating body turns toward us while the other
+      turns away, so the echo comes back smeared across a band of Doppler shifts whose width scales with the rotation
+      speed.
+    - Read echo power against delay. The nearer parts of the surface return their echo first, so the run of power with
+      delay says how much reflecting area sits at each distance along the line of sight.
+    - Build delay-Doppler images on successive nights through a full turn. Each image is one projection of the body, and a
+      sequence taken across changing aspect is what a shape model is fitted to.
     mapping:
     - 0
     - 1
@@ -1348,7 +1371,7 @@ missions:
     rebuttals:
     - A measured miss settles this pass and says nothing about the orbit the encounter creates.
     - Albedo gives size. Size does not tell you where the object will be in eleven years.
-    - A later arc is needed and is not sufficient: without propagating through the encounter there is nothing to compare it against.
+    - A later arc is needed and is not sufficient — without propagating through the encounter there is nothing to compare it against.
 - title: Impact Energy
   objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
   briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity
@@ -1835,6 +1858,9 @@ missions:
       has measured none of them well.
     takeaway: Deflection is an experiment whose dependent variable is the asteroid orbit.
     format: PROTOCOL
+    columns:
+    - What varies
+    - What it does to the outcome
     rebuttals:
     - More lead time multiplies the same velocity change into more displacement. It is the cheapest term in the problem.
     - The asteroid's mass divides the transferred momentum, so an uncertain mass is an uncertain result in direct proportion.
@@ -1921,6 +1947,9 @@ missions:
       and each one is somebody else's problem to solve. Nobody has said which.
     takeaway: An intercept is a coordinated prediction-and-control problem.
     format: PROTOCOL
+    columns:
+    - The constraint
+    - What the mission does about it
     rebuttals:
     - A short geometric window is a schedule and launch-performance problem. It closes whether or not the spacecraft is ready.
     - Ephemeris error growing near encounter is answered by measuring the target from the spacecraft, because that is when the error matters.
@@ -1962,6 +1991,9 @@ missions:
       back. Nobody has turned the distances into times.
     takeaway: An orbit's size fixes its period, so a launch window is a consequence of the orbit rather than a choice.
     format: PROTOCOL
+    columns:
+    - Semi-major axis
+    - Orbital period
     assumes:
     - Kepler's third law relates the size of an orbit to the time it takes
     question: Match each semi-major axis to the orbital period it implies.
@@ -2051,6 +2083,9 @@ missions:
       each needing its own level of response.
     takeaway: Preparedness can escalate in stages without claiming certainty.
     format: PROTOCOL
+    columns:
+    - What the evidence state is
+    - What you do
     rebuttals:
     - 'Very low probability with years of lead time buys the cheapest thing: keep watching, and prepare in ways that cost nothing if it comes to nothing.'
     - A rising probability over a stable corridor justifies pre-positioning, precisely because pre-positioning can be undone.
@@ -2178,6 +2213,9 @@ missions:
       Whatever it writes will be read by whoever runs the next one.
     takeaway: Planetary defense is a continuing evidence system, not a one-time heroic act.
     format: PROTOCOL
+    columns:
+    - What the evidence shows
+    - What you do with it
     rebuttals:
     - An independently confirmed orbit shift is the strongest claim here and can be accepted, with verification continuing.
     - A poorly constrained tail is not a safe nominal. Collapsing the distribution onto its middle is the error the whole campaign was about.

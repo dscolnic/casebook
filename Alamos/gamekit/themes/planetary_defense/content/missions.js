@@ -66,7 +66,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 2,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each part of the orbit to the observation that pins it down. Each choice is used once."
       },
       {
         "group": "OPS",
@@ -181,7 +181,7 @@ export const MISSIONS = [
       {
         "group": "RADAR",
         "lesson": 0,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each quantity to the radar observable that measures it. Each choice is used once."
       },
       {
         "group": "OPS",

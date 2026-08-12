@@ -306,6 +306,7 @@ function protocolHTML(ch){
 function protocolBoardHTML(ch, display){
   const links=Object.entries(activeProtocol?.links ?? {}).map(([from,to])=>({ from:+from, to }));
   return matchBoard({
+    leftTitle: ch.columns?.[0], rightTitle: ch.columns?.[1],
     left: ch.scenarios,
     right: display.map(real=>ch.choices[real]),
     links,
@@ -595,6 +596,7 @@ function casebookHTML(ch){
 function casebookBoardHTML(ch){
   const links=Object.entries(activeProtocol?.links ?? {}).map(([from,to])=>({ from:+from, to }));
   return matchBoard({
+    leftTitle: ch.columns?.[0], rightTitle: ch.columns?.[1],
     left: ch.scenarios||ch.cards||[],
     right: ch.choices||[],
     links,
@@ -813,7 +815,8 @@ function verdictFigureHTML(ch, lesson, ok){
     const wrong=activeChallenge.userLinks.filter(l=>!l.ok);
     // The same board they worked, marked up — not a second, different picture
     // of the same question in the verdict.
-    const board=matchBoard({ left: ch.scenarios, right: activeChallenge.matchRight||[],
+    const board=matchBoard({ leftTitle: ch.columns?.[0], rightTitle: ch.columns?.[1],
+      left: ch.scenarios, right: activeChallenge.matchRight||[],
       links: [...(activeChallenge.rightLinks||[]), ...wrong] });
     const caption = wrong.length ? 'Solid: the joins that hold. Dashed red: where yours went instead'
                                  : 'Every join holds';
