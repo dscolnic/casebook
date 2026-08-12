@@ -1,5 +1,10 @@
 # Runbook: a new game
 
+> Before writing the missions, read **`gamekit/STORY_SPEC.md`** — what a
+> campaign needs beyond correct content (one argument with two sides, a cast in
+> every card, a stated timeline, and the four beats of a day card), and the
+> `checkStory.mjs` that enforces it.
+
 Four games are on this engine. The fifth costs one command plus one book file
 and the place it happens in; everything else is shared. This is the order to do
 it in, and what each step actually costs.

@@ -7,7 +7,8 @@ No combat, no weapons.
 
 **`GAMES.md` is the inventory** — all seven games, what each one is, where its
 content and its place live, and what is still unfinished. Read it first if you
-are picking this up cold.
+are picking this up cold. **`gamekit/STORY_SPEC.md` is the story contract** —
+what a campaign needs beyond correct content, and the checker that enforces it.
 
 **Read `gamekit/THEME_CONTRACT.md` before touching world code.** It is short and
 every rule in it cost hours to learn.

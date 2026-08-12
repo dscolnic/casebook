@@ -253,8 +253,8 @@ missions:
     thing that should worry you. Now three consoles hold numbers that contradict each other: one bus reads
     zero, the guidance computer has restarted with nothing loaded, and several cabin-pressure channels
     dropped together inside the same second. Carter is already saying that channels dropping together are
-    one fault and not three. This shift you decide what is happening to the vehicle, get one agreed picture of
-    it, and set how this room will work for the next five days. Before anything is fixed you need a state
+    one fault and not three. This shift you decide what is happening to the vehicle, get one agreed picture
+    of it, and set how this room will work for the next five days. Before anything is fixed you need a state
     estimate: what the spacecraft is doing, told apart from what the instruments say it is doing. Those are
     not the same, and instruments sharing a box can be wrong together in a way that looks like agreement.
     Hale, Ruiz and Sato can hear every word of this.
@@ -675,8 +675,8 @@ missions:
   stake: >-
     Twenty-six hours in. The guidance platform is off to save power, one thruster quad is dead, and Hale has
     to turn the spacecraft ninety degrees by hand while Sato reads angles aloud. Mensah has done the sums
-    and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and work
-    out what a thruster actually does. Turning follows the same bookkeeping as moving in a line, with
+    and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and
+    work out what a thruster actually does. Turning follows the same bookkeeping as moving in a line, with
     rotation in place of speed. A thruster firing off to one side produces a twisting force, and how much
     twist depends on how far it sits from the balance point. Starting a rotation is only half of it. Nothing
     stops out here on its own — an equal twist has to be applied the other way, so every degree is paid for
@@ -821,10 +821,10 @@ missions:
     everything non-essential off by the end of the shift. Brooks says the two things on her list are the
     scrubber fan and the cabin heaters, and that his crew are already sleeping in everything they own. The
     bus is sagging at 24 volts instead of 28 while the current sits near where it should be, which is Shah's
-    other problem. This shift you work out how long the batteries last, decide why the voltage is low, and choose
-    what goes off. Power is voltage times current; energy is power times time; and an honest budget lists
-    every load and how long it runs. Voltage low while current looks normal points at resistance in the
-    path, eating the difference and turning it into heat somewhere.
+    other problem. This shift you work out how long the batteries last, decide why the voltage is low, and
+    choose what goes off. Power is voltage times current; energy is power times time; and an honest budget
+    lists every load and how long it runs. Voltage low while current looks normal points at resistance in
+    the path, eating the difference and turning it into heat somewhere.
   takeaway: Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated
     facts.
   stops:
@@ -1416,12 +1416,12 @@ missions:
   stake: >-
     Sixty-six hours in, the link went weak at the moment the vehicle turned — down twelve decibels, and Hale
     is answering calls he can barely hear. Ito has the link budget open and Haldane is arguing for a
-    different term in it. This shift you find the cause and get the link back. A radio link is a sum: transmitter
-    power, antenna gain, distance, pointing, receiver sensitivity, all in decibels, and any single term can
-    account for the loss if it is large enough. That is what makes size worth checking before story.
-    Distance changes slowly and costs little. A narrow beam a few degrees off costs a great deal. And losing
-    this costs two things at once, because the signal is also a navigation measurement — the room goes deaf
-    and half blind in the same minute, with a burn still to fly.
+    different term in it. This shift you find the cause and get the link back. A radio link is a sum:
+    transmitter power, antenna gain, distance, pointing, receiver sensitivity, all in decibels, and any
+    single term can account for the loss if it is large enough. That is what makes size worth checking
+    before story. Distance changes slowly and costs little. A narrow beam a few degrees off costs a great
+    deal. And losing this costs two things at once, because the signal is also a navigation measurement —
+    the room goes deaf and half blind in the same minute, with a burn still to fly.
   takeaway: Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as
     isolated facts.
   stops:
@@ -1848,10 +1848,10 @@ missions:
   stake: >-
     Ninety hours in, and Okoye caught this one — worth saying, because nothing else this week has been
     caught early. A panel starts shaking whenever a pump runs near one particular speed, and a line behind
-    it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it, work
-    out the structure's own natural rhythm, and stop it. Every structure has speeds it prefers, set by how
-    stiff it is and how heavy. Drive it near one and small repeated pushes add into large motion, the way a
-    swing answers small pushes at the right moment. So the sign is not how big the shaking is but how
+    it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it,
+    work out the structure's own natural rhythm, and stop it. Every structure has speeds it prefers, set by
+    how stiff it is and how heavy. Drive it near one and small repeated pushes add into large motion, the
+    way a swing answers small pushes at the right moment. So the sign is not how big the shaking is but how
     narrow: it peaks in a narrow band of pump speed and dies outside it. Change the speed and it stops. This
     is a shift where something is simply fixed.
   takeaway: Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather
@@ -2007,8 +2007,8 @@ missions:
     Ninety-eight hours in. The correction Whitaker flew on the third shift has come back with a cost:
     tracking now says the path he chose is the expensive one, and Carter has not said anything about it,
     which is somehow worse. Four routes are on the board — fastest, least propellant, coolest entry, best
-    tracking coverage — and once the burn flies most of them close. This shift you find what actually limits this
-    vehicle and pick the path that survives being wrong. A plan is held back by one thing at a time:
+    tracking coverage — and once the burn flies most of them close. This shift you find what actually limits
+    this vehicle and pick the path that survives being wrong. A plan is held back by one thing at a time:
     propellant, power, air, heat, or where the stations happen to be. Optimising against any of the others
     just moves the failure somewhere less visible. What you want is the path with something left when the
     next thing breaks.
@@ -2130,11 +2130,11 @@ missions:
     A hundred and six hours in, and it is Carter's turn — she has been waiting four days for it. Several
     ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and
     they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was
-    correct on the third shift. This shift you decide whether the trajectory really moved. Uncertainties combine
-    in a particular way: two independent errors add to less than their sum, which is why independence is
-    worth more than precision. Measurements sharing a clock, a calibration or a piece of software are not
-    independent, so their agreement measures nothing. And a correction is only worth making if it is bigger
-    than the error in knowing it.
+    correct on the third shift. This shift you decide whether the trajectory really moved. Uncertainties
+    combine in a particular way: two independent errors add to less than their sum, which is why
+    independence is worth more than precision. Measurements sharing a clock, a calibration or a piece of
+    software are not independent, so their agreement measures nothing. And a correction is only worth making
+    if it is bigger than the error in knowing it.
   takeaway: Use random and systematic error, weighted averages, covariance, propagation, decision thresholds as an evidence
     chain rather than as isolated facts.
   stops:
@@ -2289,7 +2289,7 @@ missions:
     thermal shield, communications, and recovery.'
   stake: >-
     A hundred and eighteen hours in. The sequence starts in eleven minutes, four of them with no
-    communications, and nothing in it can be undone. Today the room takes the claims one at a time and says
+    communications, and nothing in it can be undone. This shift you take the claims one at a time and decide
     whether this vehicle is ready. They are not equally strong: a heat shield cold for four days, a battery
     charged through a path Ferreira invented on the sixth shift, an alignment Ruiz flew by hand against
     stars, a corridor entered on Carter's independent measurement rather than on four instruments that

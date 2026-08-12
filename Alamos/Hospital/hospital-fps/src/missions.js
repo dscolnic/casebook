@@ -333,7 +333,7 @@ export const MISSION_DEFS=[
         "task": "Emergency Team Handoff"
       }
     ],
-    "stake": "Fourteenth shift, and this one moves fast. Chloe's lips are swelling and she says it is hard to breathe. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already moving and wants to hear your reason as you go. Today you decide who cannot wait, tell an allergy from a germ, and hand over to the emergency team. An allergy is your defences fighting something harmless far too hard. Look at the pattern, not one symptom. Swelling with trouble breathing cannot wait for anything."
+    "stake": "Fourteenth shift. This one moves fast. Chloe's lips are swelling. She says it is hard to breathe. Sofia's eyes have itched every spring for years. Nurse Alex Lee is already walking and wants your reason as you go. Today you decide who cannot wait. You tell an allergy from a germ. Then you hand over to the emergency team. An allergy is your defences fighting something harmless far too hard. Look at the pattern, not one clue on its own. Itchy eyes every spring is one story. A fever after being near sick people is another. Swelling with trouble breathing cannot wait for anything."
   },
   {
     "title": "The Super Shift",

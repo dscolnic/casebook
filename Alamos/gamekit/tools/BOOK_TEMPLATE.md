@@ -1,5 +1,10 @@
 # The book format
 
+> Before writing the missions, read **`gamekit/STORY_SPEC.md`** — what a
+> campaign needs beyond correct content (one argument with two sides, a cast in
+> every card, a stated timeline, and the four beats of a day card), and the
+> `checkStory.mjs` that enforces it.
+
 One file describes a game. `tools/import-book.mjs` reads it, checks it, and
 writes the theme's content. Anything it cannot check is stated in the file
 rather than guessed at — that is the whole point of the format.

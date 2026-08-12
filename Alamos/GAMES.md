@@ -4,7 +4,9 @@ Seven playable games, one engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
 **`STORIES.md` is what actually happens in each game** — the fifteen-day arc, so a
-day can be checked against the story it belongs to.
+day can be checked against the story it belongs to. **`gamekit/STORY_SPEC.md` is
+what a new game needs** before it is a game: the argument, the cast, the
+timeline, the four beats of a day card, and how each is checked.
 
 ```sh
 cd gamekit
