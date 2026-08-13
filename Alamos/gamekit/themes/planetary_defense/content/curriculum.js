@@ -2183,20 +2183,6 @@ export const BALLPARK_CALCS = {
 
 export const JARGON = [
   {
-    "name": "Astrometry",
-    "aliases": [
-      "astrometry"
-    ],
-    "def": "Measurement of an object position on the sky."
-  },
-  {
-    "name": "Solar elongation",
-    "aliases": [
-      "solar elongation"
-    ],
-    "def": "The angular separation between an object and the Sun as seen from the observer."
-  },
-  {
     "name": "Albedo",
     "aliases": [
       "albedo"
@@ -2204,11 +2190,28 @@ export const JARGON = [
     "def": "The fraction of incident light a surface reflects."
   },
   {
-    "name": "Light curve",
+    "name": "Astrometry",
     "aliases": [
-      "light curve"
+      "astrometry"
     ],
-    "def": "Brightness measured as a function of time."
+    "def": "Measurement of an object position on the sky."
+  },
+  {
+    "name": "Astronomical unit",
+    "aliases": [
+      "AU",
+      "astronomical unit"
+    ],
+    "def": "The average Earth–Sun distance, about 150 million kilometres. Orbit sizes are quoted in it."
+  },
+  {
+    "name": "Calibration",
+    "aliases": [
+      "calibrate",
+      "calibrated",
+      "calibration"
+    ],
+    "def": "The correction between what an instrument reads and what is true, established against something known."
   },
   {
     "name": "Covariance",
@@ -2218,10 +2221,47 @@ export const JARGON = [
     "def": "A description of how uncertainties in fitted quantities vary together."
   },
   {
+    "name": "Ephemeris",
+    "aliases": [
+      "ephemeris",
+      "ephemerides"
+    ],
+    "def": "A table of where an object will be, night by night, computed from its orbit. Its uncertainty is what a telescope has to search."
+  },
+  {
+    "name": "Light curve",
+    "aliases": [
+      "light curve"
+    ],
+    "def": "Brightness measured as a function of time."
+  },
+  {
+    "name": "Parallax",
+    "aliases": [
+      "parallax"
+    ],
+    "def": "The apparent shift of an object against the background stars when the observer moves. With a known baseline it gives a distance by triangle."
+  },
+  {
+    "name": "Polarimetry",
+    "aliases": [
+      "polarimetry",
+      "polarimetric"
+    ],
+    "def": "Measuring how light is polarised after reflection, which constrains what a surface is made of and how rough it is."
+  },
+  {
     "name": "Radar delay",
     "aliases": [
       "radar delay"
     ],
     "def": "Round-trip travel time of a radar signal, used to infer range."
+  },
+  {
+    "name": "Solar elongation",
+    "aliases": [
+      "solar elongation"
+    ],
+    "def": "The angular separation between an object and the Sun as seen from the observer."
   }
 ];

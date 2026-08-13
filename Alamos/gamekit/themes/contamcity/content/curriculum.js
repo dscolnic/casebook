@@ -2695,6 +2695,13 @@ export const BALLPARK_CALCS = {
 
 export const JARGON = [
   {
+    "name": "Absorbance",
+    "aliases": [
+      "absorbance"
+    ],
+    "def": "How much light a sample takes out of a beam. It rises with concentration, which is what makes a colour reading a measurement."
+  },
+  {
     "name": "Activation Energy",
     "aliases": [
       "activation energy"
@@ -2704,9 +2711,29 @@ export const JARGON = [
   {
     "name": "Adsorption",
     "aliases": [
-      "adsorption"
+      "adsorption",
+      "adsorb",
+      "adsorbs",
+      "adsorbed"
     ],
-    "def": "A course concept used in Mission 12. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "Sticking to a surface rather than dissolving into a liquid. Contaminants adsorb onto sediment and are carried with it."
+  },
+  {
+    "name": "Aliquot",
+    "aliases": [
+      "aliquot",
+      "aliquots"
+    ],
+    "def": "A measured portion taken out of a sample for one test. Taking one uses part of the sample up."
+  },
+  {
+    "name": "Anion",
+    "aliases": [
+      "anion",
+      "anions",
+      "polyatomic anion"
+    ],
+    "def": "A negatively charged ion — an atom or group that has gained electrons. A polyatomic anion is several atoms carrying one charge together, like sulfate or nitrate."
   },
   {
     "name": "Arrhenius Behavior",
@@ -2754,9 +2781,12 @@ export const JARGON = [
   {
     "name": "Calibration",
     "aliases": [
-      "calibration"
+      "calibration",
+      "calibrated",
+      "calibrate",
+      "miscalibrated"
     ],
-    "def": "A course concept used in Mission 4. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "Reading a set of known standards on the instrument first, so an unknown reading can be turned into a concentration."
   },
   {
     "name": "Calibration Curves",
@@ -2773,11 +2803,37 @@ export const JARGON = [
     "def": "A course concept used in Mission 7. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Carbonate",
+    "aliases": [
+      "carbonate",
+      "carbonates"
+    ],
+    "def": "The polyatomic anion CO3 with a charge of minus two, and the compounds it forms. Adding it makes many metals precipitate."
+  },
+  {
     "name": "Catalysis",
     "aliases": [
       "catalysis"
     ],
     "def": "A course concept used in Mission 8. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+  },
+  {
+    "name": "Catalyst",
+    "aliases": [
+      "catalyst",
+      "catalysts",
+      "catalysed",
+      "catalyzed"
+    ],
+    "def": "Something that speeds a reaction by offering an easier path, and is not used up doing it."
+  },
+  {
+    "name": "Cation",
+    "aliases": [
+      "cation",
+      "cations"
+    ],
+    "def": "A positively charged ion — an atom or group that has lost electrons. Metals form them."
   },
   {
     "name": "Chemical Formulas",
@@ -2787,11 +2843,40 @@ export const JARGON = [
     "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Chloride",
+    "aliases": [
+      "chloride",
+      "chlorides"
+    ],
+    "def": "The anion a chlorine atom forms when it gains an electron, and the salts it makes. Common in water and easy to measure."
+  },
+  {
+    "name": "Chromatogram",
+    "aliases": [
+      "chromatogram",
+      "chromatograms",
+      "chromatography",
+      "chromatograph"
+    ],
+    "def": "The output of a chromatograph: a trace with one peak for each component the column managed to separate, spaced by how long each took to come through."
+  },
+  {
     "name": "Complex Ions",
     "aliases": [
       "complex ions"
     ],
     "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+  },
+  {
+    "name": "Concentration units",
+    "aliases": [
+      "mg/L",
+      "mg/l",
+      "mol/L",
+      "mol/l",
+      "kg/year"
+    ],
+    "def": "Milligrams per litre (mg/L) is mass per volume; moles per litre (mol/L) is particles per volume. A limit written in one cannot be compared with a number in the other until they are converted."
   },
   {
     "name": "Corrosion",
@@ -2827,6 +2912,13 @@ export const JARGON = [
       "dilution"
     ],
     "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+  },
+  {
+    "name": "Effluent",
+    "aliases": [
+      "effluent"
+    ],
+    "def": "The treated water leaving a plant, as opposed to the influent going in."
   },
   {
     "name": "Electrode Potential",
@@ -2906,6 +2998,14 @@ export const JARGON = [
     "def": "A course concept used in Mission 14. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Hydroxide",
+    "aliases": [
+      "hydroxide",
+      "hydroxides"
+    ],
+    "def": "The anion OH with a charge of minus one. Metal hydroxides are often insoluble, which is why raising the pH drops metals out of water."
+  },
+  {
     "name": "Ideal Gas Law",
     "aliases": [
       "ideal gas law"
@@ -2927,6 +3027,14 @@ export const JARGON = [
     "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Ligand",
+    "aliases": [
+      "ligand",
+      "ligands"
+    ],
+    "def": "A molecule or ion that binds to a metal ion in solution. A strong ligand can keep a metal dissolved that would otherwise precipitate."
+  },
+  {
     "name": "Limiting Reactant",
     "aliases": [
       "limiting reactant"
@@ -2939,6 +3047,15 @@ export const JARGON = [
       "mass balance"
     ],
     "def": "an accounting that tracks total material across inputs, outputs, reactions, and phases"
+  },
+  {
+    "name": "Mass spectrometer",
+    "aliases": [
+      "mass spectrometer",
+      "spectrometer",
+      "spectrometry"
+    ],
+    "def": "An instrument that sorts fragments of a molecule by mass and charge, giving a pattern specific enough to identify a compound."
   },
   {
     "name": "Measurement Uncertainty",
@@ -2962,11 +3079,19 @@ export const JARGON = [
     "def": "A course concept used in Mission 2. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Molar mass",
+    "aliases": [
+      "molar mass",
+      "molar"
+    ],
+    "def": "The mass of one mole of a substance, in grams. It converts between a mass you can weigh and a number of particles."
+  },
+  {
     "name": "Molarity",
     "aliases": [
       "molarity"
     ],
-    "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "Concentration in moles per litre — how many particles are dissolved, rather than how many grams."
   },
   {
     "name": "Mole Ratios",
@@ -2983,6 +3108,16 @@ export const JARGON = [
     "def": "A course concept used in Mission 2. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Neutralisation",
+    "aliases": [
+      "neutralisation",
+      "neutralization",
+      "neutralise",
+      "neutralize"
+    ],
+    "def": "Adding base to an acid, or acid to a base, until neither is in excess. The dose follows from how much acid is there, not from the pH reading."
+  },
+  {
     "name": "Neutralization",
     "aliases": [
       "neutralization"
@@ -2995,6 +3130,17 @@ export const JARGON = [
       "nomenclature"
     ],
     "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+  },
+  {
+    "name": "Oxidation",
+    "aliases": [
+      "oxidation",
+      "oxidise",
+      "oxidize",
+      "oxidised",
+      "oxidized"
+    ],
+    "def": "Losing electrons. An oxidising treatment turns a contaminant into something else, which is not the same as removing it."
   },
   {
     "name": "Oxidation And Reduction",
@@ -3054,6 +3200,16 @@ export const JARGON = [
     "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Precipitate",
+    "aliases": [
+      "precipitate",
+      "precipitated",
+      "precipitates",
+      "precipitation"
+    ],
+    "def": "A solid that comes out of solution when the dissolved amount exceeds what the water can hold. As a verb, to make that happen."
+  },
+  {
     "name": "Precipitation",
     "aliases": [
       "precipitation"
@@ -3066,6 +3222,23 @@ export const JARGON = [
       "protective strategies"
     ],
     "def": "A course concept used in Mission 11. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+  },
+  {
+    "name": "Proton",
+    "aliases": [
+      "proton",
+      "protons"
+    ],
+    "def": "A positively charged particle in the nucleus. How many there are decides which element an atom is, and therefore how it behaves chemically."
+  },
+  {
+    "name": "Quality control",
+    "aliases": [
+      "quality control",
+      "QC",
+      "qc"
+    ],
+    "def": "The known samples run alongside the real ones — blanks, duplicates and spikes — which is how a run proves itself rather than being trusted. Often written QC."
   },
   {
     "name": "Radicals",
@@ -3089,11 +3262,27 @@ export const JARGON = [
     "def": "A course concept used in Mission 8. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Reagent",
+    "aliases": [
+      "reagent",
+      "reagents"
+    ],
+    "def": "A chemical added to make a reaction happen or a measurement possible, as opposed to the sample being measured."
+  },
+  {
     "name": "Representative Sampling",
     "aliases": [
       "representative sampling"
     ],
     "def": "A course concept used in Mission 14. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+  },
+  {
+    "name": "Reservoir",
+    "aliases": [
+      "reservoir",
+      "reservoirs"
+    ],
+    "def": "Here, the body of water the city draws from — and, in the sediment, the store of contaminant that stays behind after the water clears."
   },
   {
     "name": "Retention",
@@ -3159,11 +3348,28 @@ export const JARGON = [
     "def": "A course concept used in Mission 4. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   },
   {
+    "name": "Spectrum",
+    "aliases": [
+      "spectrum",
+      "spectra",
+      "infrared spectrum"
+    ],
+    "def": "A record of which wavelengths of light a substance absorbed or emitted, read as a pattern of peaks rather than a single number."
+  },
+  {
     "name": "Stewardship",
     "aliases": [
       "stewardship"
     ],
     "def": "A course concept used in Mission 15. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+  },
+  {
+    "name": "Stoichiometry",
+    "aliases": [
+      "stoichiometry",
+      "stoichiometric"
+    ],
+    "def": "The bookkeeping of a reaction: how much of one substance reacts with how much of another, read off the balanced equation."
   },
   {
     "name": "Strong And Weak Acids",
@@ -3200,6 +3406,16 @@ export const JARGON = [
       "uncertainty"
     ],
     "def": "a quantified or explicitly described range of plausible values or explanations"
+  },
+  {
+    "name": "Volatile",
+    "aliases": [
+      "volatile",
+      "volatilised",
+      "volatilized",
+      "volatility"
+    ],
+    "def": "Easily evaporated. A volatile compound leaves the water for the air, which moves the problem rather than removing it."
   },
   {
     "name": "Yield",

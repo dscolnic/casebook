@@ -2048,7 +2048,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.35,
     "units": "nautical miles",
     "solution": "0.55 kn × 3.5 h ≈ 1.9 nautical miles of set nobody has drawn.",
-    "explanation": "Distance is rate times time, and the rate here is the water, not the boat. Own speed is what the plot already knows about; it is not part of the error.\n"
+    "explanation": "Distance is rate times time, and the rate here is the water, not the boat. Own speed is what the plot already knows about; it is not part of the error."
   },
   "NAV-5": {
     "prompt": "Four miles of channel, and a position that could be a mile out either way.",
@@ -2077,7 +2077,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.2,
     "units": "nautical miles",
     "solution": "Half the channel is 2 nm; half the uncertainty is 1 nm; the margin is 1 nm.",
-    "explanation": "Running the centre puts two miles between the plotted position and each side, and the position could be a mile off toward either. What is left is the margin, and it is what the route has to survive on.\n"
+    "explanation": "Running the centre puts two miles between the plotted position and each side, and the position could be a mile off toward either. What is left is the margin, and it is what the route has to survive on."
   },
   "DC-3": {
     "prompt": "The level went from 31 cm to 39 cm in one minute in a space this wide, with the drain pump already running.",
@@ -2108,7 +2108,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 12,
     "units": "gallons per minute",
     "solution": "The level gains 88 gpm while the pump removes 55, so the sea is putting in about 143.",
-    "explanation": "The rise is what is left after the pump has done its work, so the leak is the rise plus the pump — well over a hundred gallons a minute. The pump is not going to win, and knowing that is what sends somebody to the hull valve instead of for another pump.\n"
+    "explanation": "The rise is what is left after the pump has done its work, so the leak is the rise plus the pump — well over a hundred gallons a minute. The pump is not going to win, and knowing that is what sends somebody to the hull valve instead of for another pump."
   },
   "ATMO-3": {
     "prompt": "Nine people, each producing about 0.04 cubic metres of CO₂ an hour, in a sealed space.",
@@ -2142,7 +2142,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.2,
     "units": "hours",
     "solution": "36 m³ × 0.01 = 0.36 m³ of CO₂ needed; nine people make 0.36 m³ in about an hour.",
-    "explanation": "The volume and the target concentration give how much gas it takes; the people and their rate give how fast it arrives. An hour is not an emergency and it is not comfortable either, which is exactly the kind of answer that changes what you do next.\n"
+    "explanation": "The volume and the target concentration give how much gas it takes; the people and their rate give how fast it arrives. An hour is not an emergency and it is not comfortable either, which is exactly the kind of answer that changes what you do next."
   },
   "NAV-6": {
     "prompt": "Nine miles to the bank at eight knots, with the option of coming down to three.",
@@ -2173,7 +2173,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.2,
     "units": "hours",
     "solution": "1.1 hours at eight knots against three at three knots, so slowing buys nearly two more.",
-    "explanation": "An hour is not enough time to fight a flooding casualty and rebuild a plot. Three hours is. The boat's speed is the one number on this list that you control, and it is worth two hours.\n"
+    "explanation": "An hour is not enough time to fight a flooding casualty and rebuild a plot. Three hours is. The boat's speed is the one number on this list that you control, and it is worth two hours."
   },
   "SONAR-6": {
     "prompt": "The line is at 149.7 Hz against a rest frequency of 150.0 Hz.",
@@ -2230,7 +2230,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.8,
     "units": "tonnes",
     "solution": "4 m × 1.6 t/m ≈ 6.4 tonnes of water aboard.",
-    "explanation": "Six tonnes is inside what the drain pump can handle if the source is stopped, and well outside what it can handle if it is not. The number is what turns \"pump or blow\" from an argument into a decision.\n"
+    "explanation": "Six tonnes is inside what the drain pump can handle if the source is stopped, and well outside what it can handle if it is not. The number is what turns \"pump or blow\" from an argument into a decision."
   },
   "ATMO-4": {
     "prompt": "The crew makes more carbon dioxide than one train removes, and the limit is a rise of one per cent.",
@@ -2259,7 +2259,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 2,
     "units": "hours",
     "solution": "The net gain is 0.3 m³/h; 6.0 ÷ 0.3 = 20 hours to the limit.",
-    "explanation": "Twenty hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless.\n"
+    "explanation": "Twenty hours against a four-hour transit is a comfortable margin, and knowing it is what makes securing the train a decision rather than a gamble. Had the answer been three hours, the same action would have been reckless."
   },
   "SONAR-8": {
     "prompt": "The mounts are rated at 12 dB of reduction in radiated level.",
@@ -2309,6 +2309,14 @@ export const JARGON = [
     "def": "How fast a contact's bearing is changing. Near zero on a closing contact is the dangerous case."
   },
   {
+    "name": "Bilge",
+    "aliases": [
+      "bilge",
+      "bilges"
+    ],
+    "def": "The lowest part of a compartment, where water collects. Its level over time is the flooding rate."
+  },
+  {
     "name": "Broadband",
     "aliases": [
       "broadband"
@@ -2316,19 +2324,29 @@ export const JARGON = [
     "def": "Listening across all frequencies at once. Shows a contact as a smear that persists in bearing."
   },
   {
-    "name": "Narrowband",
+    "name": "Carbon dioxide",
     "aliases": [
-      "narrowband"
+      "CO2",
+      "carbon dioxide"
     ],
-    "def": "Listening at one frequency. Machinery makes lines here, and a line can identify what is making it."
+    "def": "The gas the crew breathes out. It has to be removed continuously, because in a sealed boat it only accumulates."
   },
   {
-    "name": "The layer",
+    "name": "Cavitation",
     "aliases": [
-      "the layer",
-      "thermocline"
+      "cavitation",
+      "cavitate",
+      "cavitating"
     ],
-    "def": "The boundary between warm surface water and cold water below. Sound bends at it, making shadow zones."
+    "def": "Bubbles forming and collapsing on a propeller blade. The loudest ordinary thing a submarine does."
+  },
+  {
+    "name": "Damper",
+    "aliases": [
+      "damper",
+      "dampers"
+    ],
+    "def": "A valve in a ventilation duct. Its position decides which compartments share air with the plant."
   },
   {
     "name": "Dead reckoning",
@@ -2338,13 +2356,20 @@ export const JARGON = [
     "def": "Advancing a position from course, speed and time. It knows what the boat did and nothing about the water."
   },
   {
-    "name": "Set and drift",
+    "name": "Dependency",
     "aliases": [
-      "set and drift",
-      "set",
-      "drift"
+      "dependency",
+      "dependencies"
     ],
-    "def": "The direction and speed the water is carrying the boat. Invisible to dead reckoning until measured."
+    "def": "What stops working when you secure or isolate something else. The reason isolation is never free."
+  },
+  {
+    "name": "Direct current",
+    "aliases": [
+      "DC",
+      "dc"
+    ],
+    "def": "The kind of electrical supply a submarine runs on from its batteries: one steady direction, unlike the alternating supply ashore."
   },
   {
     "name": "Fix",
@@ -2355,19 +2380,11 @@ export const JARGON = [
     "def": "A position from a measurement rather than a calculation. Everything after it is dead reckoning again."
   },
   {
-    "name": "Trim",
+    "name": "Narrowband",
     "aliases": [
-      "trim"
+      "narrowband"
     ],
-    "def": "How the boat's weight is balanced fore and aft. Water taken aboard anywhere changes it."
-  },
-  {
-    "name": "Bilge",
-    "aliases": [
-      "bilge",
-      "bilges"
-    ],
-    "def": "The lowest part of a compartment, where water collects. Its level over time is the flooding rate."
+    "def": "Listening at one frequency. Machinery makes lines here, and a line can identify what is making it."
   },
   {
     "name": "Reflash",
@@ -2386,21 +2403,13 @@ export const JARGON = [
     "def": "The plant that removes carbon dioxide from the boat's air. It reaches only where the dampers let it."
   },
   {
-    "name": "Damper",
+    "name": "Set and drift",
     "aliases": [
-      "damper",
-      "dampers"
+      "set and drift",
+      "set",
+      "drift"
     ],
-    "def": "A valve in a ventilation duct. Its position decides which compartments share air with the plant."
-  },
-  {
-    "name": "Cavitation",
-    "aliases": [
-      "cavitation",
-      "cavitate",
-      "cavitating"
-    ],
-    "def": "Bubbles forming and collapsing on a propeller blade. The loudest ordinary thing a submarine does."
+    "def": "The direction and speed the water is carrying the boat. Invisible to dead reckoning until measured."
   },
   {
     "name": "Signature",
@@ -2411,11 +2420,26 @@ export const JARGON = [
     "def": "The sound a boat makes that identifies it. Every machine running adds to it."
   },
   {
-    "name": "Dependency",
+    "name": "The layer",
     "aliases": [
-      "dependency",
-      "dependencies"
+      "the layer",
+      "thermocline"
     ],
-    "def": "What stops working when you secure or isolate something else. The reason isolation is never free."
+    "def": "The boundary between warm surface water and cold water below. Sound bends at it, making shadow zones."
+  },
+  {
+    "name": "Transducer",
+    "aliases": [
+      "transducer",
+      "transducers"
+    ],
+    "def": "The element that turns sound in the water into a voltage, or a voltage into sound. An array is many of them listening together."
+  },
+  {
+    "name": "Trim",
+    "aliases": [
+      "trim"
+    ],
+    "def": "How the boat's weight is balanced fore and aft. Water taken aboard anywhere changes it."
   }
 ];

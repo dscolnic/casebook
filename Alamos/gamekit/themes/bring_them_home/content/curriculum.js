@@ -2215,11 +2215,13 @@ export const BALLPARK_CALCS = {
 
 export const JARGON = [
   {
-    "name": "State vector",
+    "name": "Calibration",
     "aliases": [
-      "state vector"
+      "calibration",
+      "calibrated",
+      "calibrate"
     ],
-    "def": "A compact description of position and velocity at one time."
+    "def": "The correction between what an instrument reads and what is true, established against something known. A shared calibration is why two instruments can be wrong together."
   },
   {
     "name": "Common-mode error",
@@ -2229,18 +2231,18 @@ export const JARGON = [
     "def": "A shared error that makes several measurements agree for the same wrong reason."
   },
   {
-    "name": "Torque",
+    "name": "Doppler shift",
     "aliases": [
-      "torque"
+      "doppler shift"
     ],
-    "def": "The rotational effect of a force applied with a lever arm."
+    "def": "A frequency change caused by relative motion between source and observer."
   },
   {
-    "name": "Resonance",
+    "name": "Parallax",
     "aliases": [
-      "resonance"
+      "parallax"
     ],
-    "def": "Large oscillation produced when forcing is near a system natural frequency."
+    "def": "The apparent shift of a nearby object against a distant background when the viewpoint moves. With a known baseline it gives a distance."
   },
   {
     "name": "Power",
@@ -2250,10 +2252,39 @@ export const JARGON = [
     "def": "The rate at which energy is transferred or used."
   },
   {
-    "name": "Doppler shift",
+    "name": "Resonance",
     "aliases": [
-      "doppler shift"
+      "resonance"
     ],
-    "def": "A frequency change caused by relative motion between source and observer."
+    "def": "Large oscillation produced when forcing is near a system natural frequency."
+  },
+  {
+    "name": "Scrubber",
+    "aliases": [
+      "scrubber",
+      "scrubbers"
+    ],
+    "def": "The unit that removes carbon dioxide from the cabin air. It cleans only the air that reaches it."
+  },
+  {
+    "name": "State vector",
+    "aliases": [
+      "state vector"
+    ],
+    "def": "A compact description of position and velocity at one time."
+  },
+  {
+    "name": "Torque",
+    "aliases": [
+      "torque"
+    ],
+    "def": "The rotational effect of a force applied with a lever arm."
+  },
+  {
+    "name": "Transponder",
+    "aliases": [
+      "transponder"
+    ],
+    "def": "The box aboard the spacecraft that answers a radio pulse from the ground, which is what makes timing the round trip a distance measurement."
   }
 ];

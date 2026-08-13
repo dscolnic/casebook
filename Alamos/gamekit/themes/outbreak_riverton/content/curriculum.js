@@ -2168,11 +2168,30 @@ export const BALLPARK_CALCS = {
 
 export const JARGON = [
   {
-    "name": "Homeostasis",
+    "name": "Antibody",
     "aliases": [
-      "homeostasis"
+      "antibody",
+      "antibodies"
     ],
-    "def": "The regulation that keeps internal conditions within workable ranges."
+    "def": "A protein the immune system makes that binds one specific target."
+  },
+  {
+    "name": "Catalysis",
+    "aliases": [
+      "catalysing",
+      "catalyzing",
+      "catalyse",
+      "catalyze"
+    ],
+    "def": "Speeding a reaction by offering an easier path, without being used up. Enzymes are the biological version."
+  },
+  {
+    "name": "Codon",
+    "aliases": [
+      "codon",
+      "codons"
+    ],
+    "def": "Three letters of genetic code, which together name one amino acid. Change one and the protein may change by one unit."
   },
   {
     "name": "Control",
@@ -2182,18 +2201,96 @@ export const JARGON = [
     "def": "A comparison designed to reveal whether a signal could arise without the proposed cause."
   },
   {
-    "name": "Sensitivity",
+    "name": "Diffusion",
     "aliases": [
-      "sensitivity"
+      "diffusion",
+      "diffuses"
     ],
-    "def": "The fraction of true cases a test detects."
+    "def": "Movement from where there is more to where there is less, with no energy spent. It is why a small molecule crosses a membrane on its own."
   },
   {
-    "name": "Specificity",
+    "name": "Genomic sequencing",
     "aliases": [
-      "specificity"
+      "genomic",
+      "genome",
+      "genomes"
     ],
-    "def": "The fraction of unaffected cases a test correctly leaves negative."
+    "def": "Reading the agent’s genetic code, which shows how closely two cases are related."
+  },
+  {
+    "name": "Homeostasis",
+    "aliases": [
+      "homeostasis"
+    ],
+    "def": "The regulation that keeps internal conditions within workable ranges."
+  },
+  {
+    "name": "Incidence",
+    "aliases": [
+      "incidence"
+    ],
+    "def": "How many new cases appear per unit of time. It is the rate; prevalence is the stock."
+  },
+  {
+    "name": "Neutralising antibody",
+    "aliases": [
+      "neutralizing",
+      "neutralising"
+    ],
+    "def": "An antibody that blocks the agent from entering a cell, rather than merely marking it."
+  },
+  {
+    "name": "Pathogen",
+    "aliases": [
+      "pathogen",
+      "pathogens"
+    ],
+    "def": "An agent that causes disease — a virus, a bacterium, a parasite."
+  },
+  {
+    "name": "Prevalence",
+    "aliases": [
+      "prevalence"
+    ],
+    "def": "How many people have the illness right now. Long illnesses keep it high after new cases fall."
+  },
+  {
+    "name": "Reagent",
+    "aliases": [
+      "reagent",
+      "reagents"
+    ],
+    "def": "A chemical added to make a test work, as opposed to the sample being tested."
+  },
+  {
+    "name": "Reservoir",
+    "aliases": [
+      "reservoir"
+    ],
+    "def": "A host population or environment in which an infectious agent can persist."
+  },
+  {
+    "name": "Ribosome",
+    "aliases": [
+      "ribosome",
+      "ribosomes"
+    ],
+    "def": "The machine in a cell that reads RNA and assembles the protein it specifies."
+  },
+  {
+    "name": "RNA",
+    "aliases": [
+      "RNA"
+    ],
+    "def": "The working copy of a gene, read to make a protein. Many viruses carry their whole genome as RNA."
+  },
+  {
+    "name": "Saturation",
+    "aliases": [
+      "saturation",
+      "saturated"
+    ],
+    "def": "The point at which adding more changes nothing, because every place it could go is taken."
   },
   {
     "name": "Selection",
@@ -2203,10 +2300,33 @@ export const JARGON = [
     "def": "A process in which variants differ in reproductive success, changing frequencies over generations."
   },
   {
-    "name": "Reservoir",
+    "name": "Sensitivity",
     "aliases": [
-      "reservoir"
+      "sensitivity"
     ],
-    "def": "A host population or environment in which an infectious agent can persist."
+    "def": "The fraction of true cases a test detects."
+  },
+  {
+    "name": "Solute",
+    "aliases": [
+      "solute",
+      "solutes"
+    ],
+    "def": "The substance dissolved in a liquid, as opposed to the liquid doing the dissolving."
+  },
+  {
+    "name": "Specificity",
+    "aliases": [
+      "specificity"
+    ],
+    "def": "The fraction of unaffected cases a test correctly leaves negative."
+  },
+  {
+    "name": "Vector",
+    "aliases": [
+      "vector",
+      "vectors"
+    ],
+    "def": "An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives."
   }
 ];

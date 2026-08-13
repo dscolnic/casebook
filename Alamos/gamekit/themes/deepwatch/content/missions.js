@@ -6,7 +6,7 @@ export const MISSIONS = [
   {
     "title": "Boat Walkdown",
     "objective": "Learn the boat as a system of spaces, not a list of names.",
-    "briefing": "You have the watch for the first time. Before anything else happens, you have to be able to find your way around this hull in the dark, and know what is in each space and how you would get out of it.\n",
+    "briefing": "You have the watch for the first time. Before anything else happens, you have to be able to find your way around this hull in the dark, and know what is in each space and how you would get out of it.",
     "stake": "Two hours to sailing, alongside, and the fire main isolation valve in the forward compartment is chained shut with nobody willing to say who chained it. Chief Ferro wants to walk you through the boat before you take your first watch tonight. This watch you learn the forward spaces, what the fittings on a bulkhead are for, and how to get from one end of the boat to the other without looking at anything. Ferro's rule is that a route learned as a sequence survives being interrupted. Tonight you may have to find that valve in the dark, in smoke, by feel.",
     "takeaway": "A compartment is defined by its boundaries, what it holds, and how you leave it.",
     "stops": [
@@ -30,7 +30,7 @@ export const MISSIONS = [
   {
     "title": "Contact in the Noise",
     "objective": "Work out what is out there before the boat commits to anything.",
-    "briefing": "Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.\n",
+    "briefing": "Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.",
     "stake": "Second day out, forenoon watch. Four traces on the broadband display, and the sonar supervisor, Nils Rask, has been arguing with his own operator about the fourth for eleven minutes: it holds almost the same bearing and it is getting louder. The captain, Commander Iris Vance, wants a classification before the boat commits to the track she has been ordered onto. This watch you sort out what is out there and say what a steady bearing means. Sound is all you have. And a bearing that does not change is not a quiet situation — it is the signature of two ships on converging courses.",
     "takeaway": "A bearing is a measurement; a track is an argument built from several of them.",
     "stops": [
@@ -54,7 +54,7 @@ export const MISSIONS = [
   {
     "title": "Position Without a Trusted Fix",
     "objective": "Work out not where the boat is, but how well that is known.",
-    "briefing": "The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.\n",
+    "briefing": "The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.",
     "stake": "Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya Petrov has been reading the fathometer, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Two displays taking their heading from the same gyro will agree beautifully, which is Sowande's whole worry. Sixty fathoms, and a bank half a mile off the track.",
     "takeaway": "Precision is not accuracy, and two displays sharing a source are one measurement.",
     "stops": [
@@ -78,7 +78,7 @@ export const MISSIONS = [
   {
     "title": "Silent Passage",
     "objective": "Cross a constrained area without losing contact awareness or making unnecessary noise.",
-    "briefing": "The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.\n",
+    "briefing": "The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.",
     "stake": "Fifth day, first watch. The narrows are four miles across, the transit takes eleven hours, and the plot's uncertainty is a circle two miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points out that waiting puts the boat in the middle of the strait at first light, which is worse than any argument about the plot — and this time she is right. This watch you decide what has to be true before the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for Rask. Margin is the number that matters.",
     "takeaway": "Quiet costs capability, and the trade has to be made deliberately rather than by default.",
     "stops": [
@@ -102,7 +102,7 @@ export const MISSIONS = [
   {
     "title": "Forward Flooding",
     "objective": "Find the water, decide whether pumping can win, and stop the source.",
-    "briefing": "The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at ninety metres, which is what makes it a hole worth respecting.\n",
+    "briefing": "The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at ninety metres, which is what makes it a hole worth respecting.",
     "stake": "Sixth day, morning watch, and water is over the bilge in the forward space with the drain pump running. Ruth Hallam, on the pumps, has the level and reports it steady. Ferro does not believe steady means anything and is looking for the hole. This watch you find where the water is coming in, work out whether pumping can win, and decide what shutting that supply costs elsewhere — the two valves that stop it sit on a header that feeds other things. Pumping buys minutes. They are worth nothing unless somebody spends them finding the source.",
     "takeaway": "Flooding is stopped at the hull fitting; everything else is delay.",
     "stops": [
@@ -126,7 +126,7 @@ export const MISSIONS = [
   {
     "title": "Electrical Fire",
     "objective": "Put out a fire whose ignition source is electrical, in the order that makes it stay out.",
-    "briefing": "Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.\n",
+    "briefing": "Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.",
     "stake": "Same day, afternoon watch, eight hours after the flooding and nobody has slept. Smoke from a switchboard in the electrical space. The indicator shows the bus open and a meter his own electrician's mate put on the cable inside reads four hundred and forty volts. The chief electrician, Bede Okonkwo, will not send anybody in on the strength of a lamp. This watch you take the fire apart into the things keeping it alive, decide what that meter is telling you, and work out how to fight a space nobody can see into. The order of your actions matters more here than the speed of any one of them.",
     "takeaway": "An electrical fire is put out by de-energizing it; the agent only finishes the job.",
     "stops": [
@@ -150,7 +150,7 @@ export const MISSIONS = [
   {
     "title": "Atmosphere Degradation",
     "objective": "Tell a failing sensor from failing air, and find where the air stopped moving.",
-    "briefing": "Two of the crew in berthing have headaches. The atmosphere plant says everything is normal. Both of those statements can be true at once, and working out how is the whole of this watch.\n",
+    "briefing": "Two of the crew in berthing have headaches. The atmosphere plant says everything is normal. Both of those statements can be true at once, and working out how is the whole of this watch.",
     "stake": "Eighth day, middle watch. The scrubber plant is running and its outlet reads clean. The corpsman, Elena Navarro, has been round berthing with a handheld meter and it reads far higher than the sensor on that bulkhead, where nine people are asleep. The atmosphere control officer, Ana Lindqvist, has to decide whether to wake them. This watch you decide whether it is the air or the instrument that is wrong, work out how long that space is safe, and fix the circulation. This is the one system where the crew notice before the instruments do — headaches, short tempers, people asleep on watch — and they already have.",
     "takeaway": "A plant reading is a report about the plant, not about the compartment you are standing in.",
     "stops": [
@@ -174,7 +174,7 @@ export const MISSIONS = [
   {
     "title": "Compound Casualty",
     "objective": "Prioritise and delegate when there are more casualties than there are people.",
-    "briefing": "Flooding forward, a partial power loss, a degraded plot and one injured crewman, all inside four minutes. There are not enough people to do everything, so the first decision is which things do not get done yet.\n",
+    "briefing": "Flooding forward, a partial power loss, a degraded plot and one injured crewman, all inside four minutes. There are not enough people to do everything, so the first decision is which things do not get done yet.",
     "stake": "Ninth day, forenoon watch, and four things at once: water forward, a bus lost aft, the plot degraded by that power loss, and Adeyemi with a broken wrist in the passage. Vance wants to hold the ordered speed. Whitfield says a boat with four casualties making eight knots at a bank nine miles away is about to have five, and this time he is the one who is right. This watch you decide what you take, what you hand to whom, and whether the boat slows down. Everything you hold personally is something nobody else is working, and Whitfield will not invent the organisation for you.",
     "takeaway": "Command is deciding what you do, and who does the rest.",
     "stops": [
@@ -198,7 +198,7 @@ export const MISSIONS = [
   {
     "title": "Sonar Blinded by the Boat",
     "objective": "Find the noise the boat is making about itself, and prove which machine it is.",
-    "briefing": "Sonar has lost the picture. There is a broadband rise across every bearing and a new narrowband line, and the ocean has not changed. The problem is aboard, which makes it the engineers' problem and sonar's evidence.\n",
+    "briefing": "Sonar has lost the picture. There is a broadband rise across every bearing and a new narrowband line, and the ocean has not changed. The problem is aboard, which makes it the engineers' problem and sonar's evidence.",
     "stake": "Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and the broadband operator, Kes Dunne, has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. A boat that cannot hear is a boat that is only being heard.",
     "takeaway": "Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.",
     "stops": [
@@ -222,7 +222,7 @@ export const MISSIONS = [
   {
     "title": "Uncontrolled Depth Change",
     "objective": "Tell a symptom from a cause when the boat is going somewhere you did not order.",
-    "briefing": "The boat is heavier than it was an hour ago and it is going down. The depth gauge, the trim state and the planes all have something to say and only one of them is the cause.\n",
+    "briefing": "The boat is heavier than it was an hour ago and it is going down. The depth gauge, the trim state and the planes all have something to say and only one of them is the cause.",
     "stake": "Twelfth day, middle watch. The boat is going deeper with the planes already at rise, the trim shows heavy forward, speed is unchanged, and the depth gauge is the calmest instrument in the control room. Ferro is on his way forward without being asked, which tells you what he thinks it is. This watch you decide what is actually causing it, work out how much weight is aboard, and choose which control to use — knowing two of the four are hard to undo at this depth. Treat the symptom and the boat keeps going down while everybody watches the right gauge for the wrong reason.",
     "takeaway": "Depth is the outcome of weight, angle and speed, and each of those has its own cause.",
     "stops": [
@@ -246,7 +246,7 @@ export const MISSIONS = [
   {
     "title": "The Cooling Path",
     "objective": "Trace one cooling path end to end and find where it stopped.",
-    "briefing": "Lube oil temperature is rising on the main bearing and nothing has changed on the throttle. Somewhere between the sea and that bearing there is a chain of things that carry heat away, and one of them is not.\n",
+    "briefing": "Lube oil temperature is rising on the main bearing and nothing has changed on the throttle. Somewhere between the sea and that bearing there is a chain of things that carry heat away, and one of them is not.",
     "stake": "Thirteenth day, and this one was bought two watches ago. A main bearing is running hot: the oil is hot, the fresh water loop is hot, and the seawater leaving the heat exchanger is barely warmer than the seawater going in. The second cooling pump is still secured from the quiet lineup Rask asked for, and its breaker is open at the switchboard with nothing in the log. This watch you write the cooling path down in order and decide which link stopped handing the heat on. A bearing run hot for an hour is a bearing replaced in a shipyard.",
     "takeaway": "A cooling system is a chain, and a chain is diagnosed link by link.",
     "stops": [
@@ -270,7 +270,7 @@ export const MISSIONS = [
   {
     "title": "Silent-Running Configuration",
     "objective": "Decide what may be secured, reduced or rescheduled while keeping the boat alive.",
-    "briefing": "The boat has to be quiet for four hours. Everything aboard that makes noise also does something, and the ones that keep people breathing and bearings cool are not on the table.\n",
+    "briefing": "The boat has to be quiet for four hours. Everything aboard that makes noise also does something, and the ones that keep people breathing and bearings cool are not on the table.",
     "stake": "Fifteenth day, and the argument that has been running all patrol comes due. Four hours of quiet running, and Haruki intends to secure everything on Rask's list to get it — including the second seawater pump and half the carbon dioxide scrubbing. Lindqvist has done the arithmetic on the second one and is not happy. This watch you decide what may be shut down, what may only be slowed, and what the whole configuration costs the boat. Quiet is bought with capability, and the bill arrives late, in another department. None of that appears on the same gauge as the decision.",
     "takeaway": "A silent lineup is a set of deadlines, not a set of switches.",
     "stops": [
@@ -294,7 +294,7 @@ export const MISSIONS = [
   {
     "title": "Rig for Dive",
     "objective": "Prove the boat is ready before the last patrol, rather than assuming it.",
-    "briefing": "The boat sails in an hour. Every check on the rig-for-dive list exists because somebody once did not do it, and each one proves a different thing.\n",
+    "briefing": "The boat sails in an hour. Every check on the rig-for-dive list exists because somebody once did not do it, and each one proves a different thing.",
     "stake": "Nineteenth day. The boat has been open to the surface since Tuesday for work on the mast and dives at dawn. The switchboard shows two breakers open from that work, the log says one was restored, and every valve on the rig sheet has signatures against it — including one from a man who was ashore that morning. This watch you work out what each checklist line is really asking, close the boat up in the right order, and decide what to do about a record that does not match. This is the cheapest hour of the patrol, and the last one before the sea decides.",
     "takeaway": "A check is a measurement that proves a specific claim, not a box beside a word.",
     "stops": [
@@ -318,7 +318,7 @@ export const MISSIONS = [
   {
     "title": "Refit Decision",
     "objective": "Choose what to improve before the last patrol, on evidence rather than preference.",
-    "briefing": "There is money and yard time for some of what the boat wants and not all of it. Every proposal has a cost, an uncertain benefit, and an effect on the patrol that follows.\n",
+    "briefing": "There is money and yard time for some of what the boat wants and not all of it. Every proposal has a cost, an uncertain benefit, and an effect on the patrol that follows.",
     "stake": "Twenty-first day, and the refit list goes off the boat in tomorrow's message window. The yard will fund one item. Haruki wants the cooling pump that has cost him two watches this patrol, Rask wants the mounts that would have prevented the noise line, Lindqvist wants a second scrubber train, and Whitfield wants to know which of them the next patrol is most likely to need. This watch you decide. The evidence is unglamorous: which failures cost real time, which are becoming more frequent, and what each fix would actually remove. Memory is the trap, and every one of them is arguing from it.",
     "takeaway": "An upgrade is worth what it changes about the decisions you will actually face.",
     "stops": [
@@ -342,7 +342,7 @@ export const MISSIONS = [
   {
     "title": "Deep Watch",
     "objective": "Run the whole boat at once, with everything degraded a little and nothing decided for you.",
-    "briefing": "An uncertain contact, a plot four hours old, water in the forward bilge, a scrubber train down and a bearing running warm. None of them is an emergency. Together they are the patrol.\n",
+    "briefing": "An uncertain contact, a plot four hours old, water in the forward bilge, a scrubber train down and a bearing running warm. None of them is an emergency. Together they are the patrol.",
     "stake": "Twenty-second day, the last full watch of the patrol, and everything is degraded a little. A contact Rask has not resolved. A plot Sowande has not been able to fix since the forenoon. A machine Haruki has not looked at since Tuesday. Whitfield is in the wardroom with the corpsman and a fractured wrist of his own, so the officer you would have handed half of this to is not available. This watch you decide the order everything gets worked in, and you do it while it is happening. Nobody will tell you which problem is the important one. Getting that ranking right is the job, and it is the only part of it that cannot be delegated.",
     "takeaway": "Command is choosing which uncertainty you can live with, and saying so out loud.",
     "stops": [

@@ -5992,71 +5992,63 @@ export const BALLPARK_CALCS = {
 
 export const JARGON = [
   {
-    "name": "Nucleus",
+    "name": "Absorption",
     "aliases": [
-      "nucleus",
-      "nuclei"
+      "absorption",
+      "absorbing",
+      "absorbed"
     ],
-    "def": "The tiny central part of an atom that contains protons and neutrons and almost all of the atom’s mass."
+    "def": "An interaction in which the incoming particle is captured or otherwise removed from the outgoing particle population."
   },
   {
-    "name": "Proton",
+    "name": "Acceptance criterion",
     "aliases": [
-      "proton",
-      "protons"
+      "acceptance criteria",
+      "acceptance criterion",
+      "pass/fail criteria"
     ],
-    "def": "A positively charged particle in the nucleus. The number of protons determines which chemical element an atom is."
+    "def": "A measurable rule decided before a test that determines whether the result is acceptable."
   },
   {
-    "name": "Neutron",
+    "name": "Activation",
     "aliases": [
-      "neutron",
-      "neutrons"
+      "activated material",
+      "activation"
     ],
-    "def": "An electrically neutral particle in the nucleus. Neutrons affect nuclear mass, stability, and the ability of some nuclei to sustain fission."
+    "def": "The creation of radioactive nuclei when stable material captures neutrons or undergoes another nuclear reaction."
   },
   {
-    "name": "Nucleon",
+    "name": "Activity",
     "aliases": [
-      "nucleon",
-      "nucleons"
+      "activity a=",
+      "radioactive activity",
+      "activity"
     ],
-    "def": "A collective name for either a proton or a neutron."
+    "def": "The number of nuclear decays occurring per unit time in a sample."
   },
   {
-    "name": "Nuclide",
+    "name": "Adsorption",
     "aliases": [
-      "nuclide",
-      "nuclides"
+      "adsorbed",
+      "adsorb",
+      "adsorption"
     ],
-    "def": "A particular kind of nucleus specified by its numbers of protons and neutrons."
+    "def": "Sticking to a surface rather than mixing in. Contamination adsorbed on a glovebox wall is still there after the air is clean."
   },
   {
-    "name": "Isotope",
+    "name": "Arming",
     "aliases": [
-      "isotope",
-      "isotopes",
-      "isotopic"
+      "arming"
     ],
-    "def": "Atoms of the same element with the same number of protons but different numbers of neutrons."
+    "def": "Changing a system from a safe condition toward a state in which it can function as intended, under controlled authorization."
   },
   {
-    "name": "Atomic number, Z",
+    "name": "Assay",
     "aliases": [
-      "atomic number",
-      "number z",
-      " z "
+      "assay",
+      "assayed"
     ],
-    "def": "The number of protons in a nucleus. It identifies the chemical element."
-  },
-  {
-    "name": "Mass number, A",
-    "aliases": [
-      "mass number",
-      " a - z",
-      "a-z"
-    ],
-    "def": "The total number of protons plus neutrons in a nucleus."
+    "def": "A quantitative measurement of a material’s composition, purity, or amount of a specified isotope."
   },
   {
     "name": "Atomic mass unit, u",
@@ -6069,11 +6061,39 @@ export const JARGON = [
     "def": "A mass unit used for atoms and nuclei. One atomic mass unit is close to the mass of one proton or neutron."
   },
   {
-    "name": "Mass defect",
+    "name": "Atomic number, Z",
     "aliases": [
-      "mass defect"
+      "atomic number",
+      "number z",
+      " z "
     ],
-    "def": "The difference between the summed masses of separate protons and neutrons and the smaller mass of the bound nucleus."
+    "def": "The number of protons in a nucleus. It identifies the chemical element."
+  },
+  {
+    "name": "Background",
+    "aliases": [
+      "background subtraction",
+      "background rate",
+      "background counts",
+      "background"
+    ],
+    "def": "Detector events not produced by the source or process of interest. They must be measured or estimated separately."
+  },
+  {
+    "name": "Bandwidth",
+    "aliases": [
+      "bandwidth"
+    ],
+    "def": "The range of signal frequencies an instrument can reproduce accurately; insufficient bandwidth can distort fast signals."
+  },
+  {
+    "name": "Barn",
+    "aliases": [
+      "barn scale",
+      "barns",
+      "barn"
+    ],
+    "def": "A nuclear cross-section unit equal to 10⁻²⁴ square centimeters."
   },
   {
     "name": "Binding energy",
@@ -6092,22 +6112,294 @@ export const JARGON = [
     "def": "The average binding energy for each proton or neutron. It is a useful broad indicator of how tightly a nucleus is bound."
   },
   {
-    "name": "Rest-mass energy",
+    "name": "Calibration",
     "aliases": [
-      "rest-mass energy",
-      "rest mass energy",
-      "e=mc",
-      "mc²",
-      "mc^2"
+      "calibration",
+      "calibrate",
+      "calibrated"
     ],
-    "def": "The energy associated with mass itself, expressed by E = mc²."
+    "def": "Determining how an instrument’s output corresponds to known physical inputs."
   },
   {
-    "name": "MeV",
+    "name": "Carrier",
     "aliases": [
-      "mev"
+      "carrier material",
+      "carrier"
     ],
-    "def": "Mega-electron-volt, a unit of energy equal to one million electron-volts and commonly used for nuclear processes."
+    "def": "A larger amount of chemically similar material added so a tiny radioactive quantity can be handled or recovered more reliably."
+  },
+  {
+    "name": "Chain of custody",
+    "aliases": [
+      "chain of custody"
+    ],
+    "def": "A documented record of who handled a sample or component and when, preserving identity and traceability."
+  },
+  {
+    "name": "Chain reaction",
+    "aliases": [
+      "chain reaction",
+      "chain-reaction"
+    ],
+    "def": "A process in which neutrons from one fission can cause additional fissions, producing successive generations."
+  },
+  {
+    "name": "Chemical yield",
+    "aliases": [
+      "chemical yield",
+      "recovery fraction",
+      "recovered fraction",
+      "separation yield"
+    ],
+    "def": "The fraction of the desired material recovered after a chemical process."
+  },
+  {
+    "name": "Coincidence",
+    "aliases": [
+      "coincidence window",
+      "coincidence counts",
+      "coincidence"
+    ],
+    "def": "The requirement that signals in two or more detectors occur within a defined short time interval, helping identify correlated events."
+  },
+  {
+    "name": "Compression",
+    "aliases": [
+      "compression",
+      "compress"
+    ],
+    "def": "A reduction in volume that raises material density."
+  },
+  {
+    "name": "Configuration control",
+    "aliases": [
+      "configuration control",
+      "configuration freeze",
+      "freeze the configuration"
+    ],
+    "def": "The formal process for documenting and approving exactly which version of every part and procedure is being used."
+  },
+  {
+    "name": "Contamination",
+    "aliases": [
+      "contamination",
+      "contaminated"
+    ],
+    "def": "Unwanted radioactive or chemical material present in a sample, instrument, or workspace."
+  },
+  {
+    "name": "Converging wave",
+    "aliases": [
+      "converging wave",
+      "converging shock",
+      "convergence"
+    ],
+    "def": "A wave moving inward toward a central region, where its geometry can amplify pressure and sensitivity to imperfections."
+  },
+  {
+    "name": "Corrosion",
+    "aliases": [
+      "corrosion",
+      "corrode",
+      "corrosive"
+    ],
+    "def": "The chemical or electrochemical degradation of a material through reaction with its environment."
+  },
+  {
+    "name": "Count rate",
+    "aliases": [
+      "count rate",
+      "counts/s",
+      "counts per second",
+      "counting rate"
+    ],
+    "def": "The number of events recorded by a detector per unit time. It can differ from the true activity because detection is imperfect and backgrounds are present."
+  },
+  {
+    "name": "Critical",
+    "aliases": [
+      "criticality",
+      "exactly critical",
+      "critical state"
+    ],
+    "def": "A state with multiplication factor equal to one, so the average neutron population remains steady."
+  },
+  {
+    "name": "Cross section",
+    "aliases": [
+      "microscopic cross section",
+      "cross section",
+      "cross-section"
+    ],
+    "def": "A measure of the likelihood that a particle will undergo a particular interaction with a target nucleus. It has units of area."
+  },
+  {
+    "name": "Dead time",
+    "aliases": [
+      "dead time",
+      "dead-time"
+    ],
+    "def": "The short recovery period after an event during which a detector or electronics cannot record another event correctly."
+  },
+  {
+    "name": "Decay constant, λ",
+    "aliases": [
+      "decay constant",
+      "lambda",
+      "λ"
+    ],
+    "def": "The probability per unit time that a radioactive nucleus will decay."
+  },
+  {
+    "name": "Decision gate",
+    "aliases": [
+      "decision gate",
+      "hold point",
+      "final hold"
+    ],
+    "def": "A formally defined point where evidence is reviewed and authority is required before work proceeds."
+  },
+  {
+    "name": "Delayed neutron",
+    "aliases": [
+      "delayed neutron",
+      "delayed-neutron"
+    ],
+    "def": "A neutron emitted later by certain radioactive fission products. Delayed neutrons are important for controllable reactor behavior."
+  },
+  {
+    "name": "Detector efficiency",
+    "aliases": [
+      "detector efficiency",
+      "intrinsic efficiency",
+      "absolute efficiency",
+      "efficiency correction",
+      "efficiency"
+    ],
+    "def": "The fraction of relevant particles or decays that a detector actually records."
+  },
+  {
+    "name": "Detonation wave",
+    "aliases": [
+      "detonation wave",
+      "detonation"
+    ],
+    "def": "A rapidly moving reaction front in high explosive, coupled to a strong shock wave."
+  },
+  {
+    "name": "Detonator",
+    "aliases": [
+      "detonator",
+      "detonators"
+    ],
+    "def": "A device that initiates a high-explosive detonation at a controlled time."
+  },
+  {
+    "name": "Diffusion",
+    "aliases": [
+      "diffusion length",
+      "diffusion"
+    ],
+    "def": "The statistical spreading of particles through many random scattering events."
+  },
+  {
+    "name": "Discriminating test",
+    "aliases": [
+      "discriminating test",
+      "discriminating evidence",
+      "separate competing"
+    ],
+    "def": "A test designed so competing explanations predict measurably different outcomes."
+  },
+  {
+    "name": "Drop time",
+    "aliases": [
+      "drop time",
+      "fall time"
+    ],
+    "def": "The elapsed time between release and impact or another defined point during a drop test."
+  },
+  {
+    "name": "Dynamic range",
+    "aliases": [
+      "dynamic range"
+    ],
+    "def": "The span from the smallest to the largest signal an instrument can measure without losing sensitivity or saturating."
+  },
+  {
+    "name": "Electronvolt",
+    "aliases": [
+      "eV",
+      "keV",
+      "MeV",
+      "GeV"
+    ],
+    "def": "The energy unit of particle physics. A chemical bond is a few eV; a nuclear event is millions of them, which is the whole difference between the two."
+  },
+  {
+    "name": "Energy resolution",
+    "aliases": [
+      "energy resolution",
+      "spectral resolution",
+      "resolution broadening"
+    ],
+    "def": "A detector’s ability to distinguish nearby particle or photon energies."
+  },
+  {
+    "name": "Explosive lens",
+    "aliases": [
+      "explosive lens",
+      "explosive lenses",
+      "lens system"
+    ],
+    "def": "A shaped combination of explosive materials used to transform an outward detonation into a controlled converging shock pattern."
+  },
+  {
+    "name": "Exponential attenuation",
+    "aliases": [
+      "exponential attenuation",
+      "attenuation"
+    ],
+    "def": "The gradual reduction of an uncollided particle beam as particles interact while moving through matter."
+  },
+  {
+    "name": "Fallout",
+    "aliases": [
+      "fallout"
+    ],
+    "def": "Radioactive particles transported through the atmosphere and deposited after a nuclear explosion."
+  },
+  {
+    "name": "Fast neutron",
+    "aliases": [
+      "fast neutron",
+      "fast-neutron"
+    ],
+    "def": "A neutron with relatively high kinetic energy, typically soon after being produced by fission or another nuclear reaction."
+  },
+  {
+    "name": "Fat Man",
+    "aliases": [
+      "fat man"
+    ],
+    "def": "The implosion-type plutonium weapon developed at Los Alamos and used against Nagasaki."
+  },
+  {
+    "name": "Firing chain",
+    "aliases": [
+      "firing chain",
+      "firing system"
+    ],
+    "def": "The ordered set of commands, safety conditions, timing elements, and outputs that leads from authorization to initiation."
+  },
+  {
+    "name": "Fissile material",
+    "aliases": [
+      "fissile material",
+      "fissile isotope",
+      "fissile"
+    ],
+    "def": "A material whose nuclei can sustain a neutron-driven fission chain under suitable conditions."
   },
   {
     "name": "Fission",
@@ -6125,22 +6417,61 @@ export const JARGON = [
     "def": "The joining of light nuclei into a heavier nucleus, which can release energy when the final nucleus is more tightly bound."
   },
   {
-    "name": "Radioactive decay",
+    "name": "Fuzing",
     "aliases": [
-      "radioactive decay",
-      "decay law",
-      "decays"
+      "fuzing",
+      "fuze"
     ],
-    "def": "A spontaneous nuclear transformation. Individual decay times are random, but a large population follows a predictable statistical law."
+    "def": "The sensing and logic used to determine when a weapon or test article should initiate its firing sequence."
   },
   {
-    "name": "Decay constant, λ",
+    "name": "Gadget",
     "aliases": [
-      "decay constant",
-      "lambda",
-      "λ"
+      "the gadget",
+      "gadget"
     ],
-    "def": "The probability per unit time that a radioactive nucleus will decay."
+    "def": "The name commonly used for the implosion test device assembled for Trinity."
+  },
+  {
+    "name": "Gain drift",
+    "aliases": [
+      "gain drift",
+      "drift"
+    ],
+    "def": "A gradual change in the conversion between a physical signal and the instrument’s recorded output."
+  },
+  {
+    "name": "Geiger–Müller counter",
+    "aliases": [
+      "geiger",
+      "geiger–müller",
+      "geiger-müller"
+    ],
+    "def": "A gas detector that produces a large standard pulse for each event; it counts events well but generally does not measure their energy."
+  },
+  {
+    "name": "Generation time",
+    "aliases": [
+      "generation time",
+      "neutron generation"
+    ],
+    "def": "The characteristic time between one neutron generation and the next in a multiplying system."
+  },
+  {
+    "name": "Geometric acceptance",
+    "aliases": [
+      "geometric acceptance",
+      "solid angle"
+    ],
+    "def": "The fraction of particles that travel toward and enter a detector because of its size and position."
+  },
+  {
+    "name": "Grain boundary",
+    "aliases": [
+      "grain boundary",
+      "grain boundaries"
+    ],
+    "def": "The interface between differently oriented crystals in a solid; it can affect strength, corrosion, and diffusion."
   },
   {
     "name": "Half-life",
@@ -6152,70 +6483,110 @@ export const JARGON = [
     "def": "The time required for half of a large radioactive population to decay."
   },
   {
-    "name": "Activity",
+    "name": "Heavy water",
     "aliases": [
-      "activity a=",
-      "radioactive activity",
-      "activity"
+      "heavy water",
+      "deuterium oxide"
     ],
-    "def": "The number of nuclear decays occurring per unit time in a sample."
+    "def": "Water whose hydrogen is mostly deuterium. It can slow neutrons while absorbing fewer of them than ordinary water."
   },
   {
-    "name": "Count rate",
+    "name": "Hydrodynamic test",
     "aliases": [
-      "count rate",
-      "counts/s",
-      "counts per second",
-      "counting rate"
+      "hydrodynamic test",
+      "hydrodynamic testing",
+      "hydrodynamics"
     ],
-    "def": "The number of events recorded by a detector per unit time. It can differ from the true activity because detection is imperfect and backgrounds are present."
+    "def": "A test that studies materials moving under extreme pressure as if they were fluids, often using non-nuclear substitutes and fast diagnostics."
   },
   {
-    "name": "Detector efficiency",
+    "name": "Implosion",
     "aliases": [
-      "detector efficiency",
-      "intrinsic efficiency",
-      "absolute efficiency",
-      "efficiency correction",
-      "efficiency"
+      "implosion",
+      "implosion-development"
     ],
-    "def": "The fraction of relevant particles or decays that a detector actually records."
+    "def": "Compressing material inward from every side at once, with a converging pressure wave."
   },
   {
-    "name": "Geometric acceptance",
+    "name": "Independent diagnostic",
     "aliases": [
-      "geometric acceptance",
-      "solid angle"
+      "independent diagnostic",
+      "independent diagnostics",
+      "independent measurement"
     ],
-    "def": "The fraction of particles that travel toward and enter a detector because of its size and position."
+    "def": "A second measurement method with different failure modes, used to check whether a conclusion depends on one instrument."
   },
   {
-    "name": "Background",
+    "name": "Inspection",
     "aliases": [
-      "background subtraction",
-      "background rate",
-      "background counts",
-      "background"
+      "inspection",
+      "inspect"
     ],
-    "def": "Detector events not produced by the source or process of interest. They must be measured or estimated separately."
+    "def": "A planned examination or measurement used to determine whether a part, material, or process meets documented requirements."
   },
   {
-    "name": "Cross section",
+    "name": "Interface",
     "aliases": [
-      "microscopic cross section",
-      "cross section",
-      "cross-section"
+      "interface requirement",
+      "system interfaces",
+      "interface"
     ],
-    "def": "A measure of the likelihood that a particle will undergo a particular interaction with a target nucleus. It has units of area."
+    "def": "The physical, electrical, timing, or information boundary where two subsystems must work together."
   },
   {
-    "name": "Barn",
+    "name": "Ion exchange",
     "aliases": [
-      "barn scale",
-      "barns",
-      "barn"
+      "ion exchange",
+      "ion-exchange"
     ],
-    "def": "A nuclear cross-section unit equal to 10⁻²⁴ square centimeters."
+    "def": "A separation method in which charged atoms or molecules attach selectively to a solid resin and are later released under different chemical conditions."
+  },
+  {
+    "name": "Ionization chamber",
+    "aliases": [
+      "ionization chamber"
+    ],
+    "def": "A detector that measures electric charge created when radiation ionizes gas."
+  },
+  {
+    "name": "Ionizing radiation",
+    "aliases": [
+      "ionizing radiation"
+    ],
+    "def": "Radiation energetic enough to remove electrons from atoms or molecules, potentially damaging living tissue."
+  },
+  {
+    "name": "Isotope",
+    "aliases": [
+      "isotope",
+      "isotopes",
+      "isotopic"
+    ],
+    "def": "Atoms of the same element with the same number of protons but different numbers of neutrons."
+  },
+  {
+    "name": "Kinetic energy",
+    "aliases": [
+      "kinetic"
+    ],
+    "def": "The energy a moving thing carries: half the mass times the speed squared."
+  },
+  {
+    "name": "Leakage",
+    "aliases": [
+      "neutron leakage",
+      "leakage"
+    ],
+    "def": "Neutrons escaping from the boundary of a system instead of causing further interactions inside it."
+  },
+  {
+    "name": "Lot traceability",
+    "aliases": [
+      "lot traceability",
+      "lot record",
+      "batch traceability"
+    ],
+    "def": "The ability to connect each finished item to its production batch, materials, process history, inspections, and test records."
   },
   {
     "name": "Macroscopic cross section, Σ",
@@ -6228,14 +6599,36 @@ export const JARGON = [
     "def": "The interaction probability per unit path length in a bulk material, found by multiplying microscopic cross section by target number density."
   },
   {
-    "name": "Number density",
+    "name": "Mass balance",
     "aliases": [
-      "number density",
-      "atoms per cubic",
-      "cm⁻³",
-      "cm^-3"
+      "mass balance",
+      "material balance"
     ],
-    "def": "The number of target atoms or nuclei in a unit volume."
+    "def": "An accounting rule stating that material entering a process must equal material leaving, accumulating, or being lost through identified pathways."
+  },
+  {
+    "name": "Mass defect",
+    "aliases": [
+      "mass defect"
+    ],
+    "def": "The difference between the summed masses of separate protons and neutrons and the smaller mass of the bound nucleus."
+  },
+  {
+    "name": "Mass number, A",
+    "aliases": [
+      "mass number",
+      " a - z",
+      "a-z"
+    ],
+    "def": "The total number of protons plus neutrons in a nucleus."
+  },
+  {
+    "name": "Material compatibility",
+    "aliases": [
+      "material compatibility",
+      "compatibility"
+    ],
+    "def": "Whether two materials can remain in contact without unacceptable corrosion, reaction, contamination, swelling, or loss of strength."
   },
   {
     "name": "Mean free path",
@@ -6245,30 +6638,21 @@ export const JARGON = [
     "def": "The average distance a particle travels in a material before the specified interaction occurs."
   },
   {
-    "name": "Exponential attenuation",
+    "name": "Mechanical properties",
     "aliases": [
-      "exponential attenuation",
-      "attenuation"
+      "mechanical properties",
+      "tensile strength",
+      "ductility",
+      "hardness"
     ],
-    "def": "The gradual reduction of an uncollided particle beam as particles interact while moving through matter."
+    "def": "Measurements describing how a material responds to force, including strength, stiffness, hardness, and ability to deform without cracking."
   },
   {
-    "name": "Absorption",
+    "name": "MeV",
     "aliases": [
-      "absorption",
-      "absorbing",
-      "absorbed"
+      "mev"
     ],
-    "def": "An interaction in which the incoming particle is captured or otherwise removed from the outgoing particle population."
-  },
-  {
-    "name": "Scattering",
-    "aliases": [
-      "elastic scattering",
-      "scattering",
-      "scatter"
-    ],
-    "def": "An interaction that changes a particle’s direction and often its energy without necessarily removing the particle."
+    "def": "Mega-electron-volt, a unit of energy equal to one million electron-volts and commonly used for nuclear processes."
   },
   {
     "name": "Moderator",
@@ -6280,54 +6664,6 @@ export const JARGON = [
     "def": "A material used to slow neutrons through repeated scattering while ideally absorbing relatively few of them."
   },
   {
-    "name": "Heavy water",
-    "aliases": [
-      "heavy water",
-      "deuterium oxide"
-    ],
-    "def": "Water whose hydrogen is mostly deuterium. It can slow neutrons while absorbing fewer of them than ordinary water."
-  },
-  {
-    "name": "Fast neutron",
-    "aliases": [
-      "fast neutron",
-      "fast-neutron"
-    ],
-    "def": "A neutron with relatively high kinetic energy, typically soon after being produced by fission or another nuclear reaction."
-  },
-  {
-    "name": "Thermal neutron",
-    "aliases": [
-      "thermal neutron",
-      "thermal-neutron"
-    ],
-    "def": "A neutron slowed until its typical energy is comparable to the thermal motion of surrounding matter."
-  },
-  {
-    "name": "Random walk",
-    "aliases": [
-      "random walk",
-      "random-walk"
-    ],
-    "def": "Motion made of many steps in changing directions. The net displacement grows roughly with the square root of the number of steps."
-  },
-  {
-    "name": "Diffusion",
-    "aliases": [
-      "diffusion length",
-      "diffusion"
-    ],
-    "def": "The statistical spreading of particles through many random scattering events."
-  },
-  {
-    "name": "Leakage",
-    "aliases": [
-      "neutron leakage",
-      "leakage"
-    ],
-    "def": "Neutrons escaping from the boundary of a system instead of causing further interactions inside it."
-  },
-  {
     "name": "Multiplication factor, k",
     "aliases": [
       "multiplication factor",
@@ -6337,61 +6673,12 @@ export const JARGON = [
     "def": "The ratio of neutrons in one chain-reaction generation to the preceding generation."
   },
   {
-    "name": "Subcritical",
+    "name": "Neutron",
     "aliases": [
-      "subcritical",
-      "below critical"
+      "neutron",
+      "neutrons"
     ],
-    "def": "A state with multiplication factor below one, so the neutron population decreases from generation to generation."
-  },
-  {
-    "name": "Critical",
-    "aliases": [
-      "criticality",
-      "exactly critical",
-      "critical state"
-    ],
-    "def": "A state with multiplication factor equal to one, so the average neutron population remains steady."
-  },
-  {
-    "name": "Supercritical",
-    "aliases": [
-      "supercritical",
-      "above critical"
-    ],
-    "def": "A state with multiplication factor above one, so the neutron population grows from generation to generation."
-  },
-  {
-    "name": "Chain reaction",
-    "aliases": [
-      "chain reaction",
-      "chain-reaction"
-    ],
-    "def": "A process in which neutrons from one fission can cause additional fissions, producing successive generations."
-  },
-  {
-    "name": "Prompt neutron",
-    "aliases": [
-      "prompt neutron",
-      "prompt-neutron"
-    ],
-    "def": "A neutron emitted essentially immediately during fission."
-  },
-  {
-    "name": "Delayed neutron",
-    "aliases": [
-      "delayed neutron",
-      "delayed-neutron"
-    ],
-    "def": "A neutron emitted later by certain radioactive fission products. Delayed neutrons are important for controllable reactor behavior."
-  },
-  {
-    "name": "Generation time",
-    "aliases": [
-      "generation time",
-      "neutron generation"
-    ],
-    "def": "The characteristic time between one neutron generation and the next in a multiplying system."
+    "def": "An electrically neutral particle in the nucleus. Neutrons affect nuclear mass, stability, and the ability of some nuclei to sustain fission."
   },
   {
     "name": "Neutron economy",
@@ -6401,265 +6688,46 @@ export const JARGON = [
     "def": "An accounting of where neutrons are produced, absorbed usefully, absorbed parasitically, or lost by leakage."
   },
   {
-    "name": "Spontaneous fission",
+    "name": "Nucleon",
     "aliases": [
-      "spontaneous fission",
-      "spontaneous-fission"
+      "nucleon",
+      "nucleons"
     ],
-    "def": "Fission that occurs without an incoming neutron or other external trigger."
+    "def": "A collective name for either a proton or a neutron."
   },
   {
-    "name": "Preinitiation",
+    "name": "Nucleus",
     "aliases": [
-      "preinitiation",
-      "pre-initiation"
+      "nucleus",
+      "nuclei"
     ],
-    "def": "The start of a neutron chain earlier than intended because a neutron appears before the desired physical state is reached."
+    "def": "The tiny central part of an atom that contains protons and neutrons and almost all of the atom’s mass."
   },
   {
-    "name": "Fissile material",
+    "name": "Nuclide",
     "aliases": [
-      "fissile material",
-      "fissile isotope",
-      "fissile"
+      "nuclide",
+      "nuclides"
     ],
-    "def": "A material whose nuclei can sustain a neutron-driven fission chain under suitable conditions."
+    "def": "A particular kind of nucleus specified by its numbers of protons and neutrons."
   },
   {
-    "name": "Poisson statistics",
+    "name": "Number density",
     "aliases": [
-      "poisson",
-      "counting statistics",
-      "statistical counting"
+      "number density",
+      "atoms per cubic",
+      "cm⁻³",
+      "cm^-3"
     ],
-    "def": "The probability model commonly used for independent counted events. Its standard fluctuation is approximately the square root of the number of counts."
+    "def": "The number of target atoms or nuclei in a unit volume."
   },
   {
-    "name": "Standard deviation, σ",
+    "name": "Observable",
     "aliases": [
-      "standard deviation",
-      "1σ",
-      "sigma_net",
-      "σ"
+      "observable",
+      "observables"
     ],
-    "def": "A measure of the typical spread or uncertainty of repeated measurements."
-  },
-  {
-    "name": "Uncertainty in quadrature",
-    "aliases": [
-      "quadrature",
-      "combine uncertainties"
-    ],
-    "def": "Combining independent uncertainties by taking the square root of the sum of their squares."
-  },
-  {
-    "name": "Random error",
-    "aliases": [
-      "random error",
-      "random uncertainty"
-    ],
-    "def": "Measurement variation that changes unpredictably from one observation to another and can often be reduced by collecting more data."
-  },
-  {
-    "name": "Systematic error",
-    "aliases": [
-      "systematic error",
-      "systematic uncertainty"
-    ],
-    "def": "A consistent bias or calibration problem that does not necessarily shrink when more data are collected."
-  },
-  {
-    "name": "Scintillation detector",
-    "aliases": [
-      "scintillation",
-      "scintillator"
-    ],
-    "def": "A detector in which radiation produces flashes of light that are converted into electrical signals."
-  },
-  {
-    "name": "Photoelectron",
-    "aliases": [
-      "photoelectron",
-      "photoelectrons"
-    ],
-    "def": "An electron released when light transfers energy to a photosensitive surface; photoelectrons form the counted signal in many light-based detectors."
-  },
-  {
-    "name": "Ionization chamber",
-    "aliases": [
-      "ionization chamber"
-    ],
-    "def": "A detector that measures electric charge created when radiation ionizes gas."
-  },
-  {
-    "name": "Proportional counter",
-    "aliases": [
-      "proportional counter"
-    ],
-    "def": "A gas detector whose pulse size is approximately proportional to the energy deposited by the incoming radiation."
-  },
-  {
-    "name": "Geiger–Müller counter",
-    "aliases": [
-      "geiger",
-      "geiger–müller",
-      "geiger-müller"
-    ],
-    "def": "A gas detector that produces a large standard pulse for each event; it counts events well but generally does not measure their energy."
-  },
-  {
-    "name": "Dead time",
-    "aliases": [
-      "dead time",
-      "dead-time"
-    ],
-    "def": "The short recovery period after an event during which a detector or electronics cannot record another event correctly."
-  },
-  {
-    "name": "Saturation",
-    "aliases": [
-      "saturation",
-      "saturated",
-      "clips",
-      "clipping"
-    ],
-    "def": "A condition in which increasing the true signal no longer produces a larger recorded response because the instrument has reached its limit."
-  },
-  {
-    "name": "Gain drift",
-    "aliases": [
-      "gain drift",
-      "drift"
-    ],
-    "def": "A gradual change in the conversion between a physical signal and the instrument’s recorded output."
-  },
-  {
-    "name": "Pulse height",
-    "aliases": [
-      "pulse height",
-      "pulse-height"
-    ],
-    "def": "The amplitude of a detector’s electrical pulse, often related to the energy deposited in the detector."
-  },
-  {
-    "name": "Energy resolution",
-    "aliases": [
-      "energy resolution",
-      "spectral resolution",
-      "resolution broadening"
-    ],
-    "def": "A detector’s ability to distinguish nearby particle or photon energies."
-  },
-  {
-    "name": "Calibration",
-    "aliases": [
-      "calibration",
-      "calibrate",
-      "calibrated"
-    ],
-    "def": "Determining how an instrument’s output corresponds to known physical inputs."
-  },
-  {
-    "name": "Coincidence",
-    "aliases": [
-      "coincidence window",
-      "coincidence counts",
-      "coincidence"
-    ],
-    "def": "The requirement that signals in two or more detectors occur within a defined short time interval, helping identify correlated events."
-  },
-  {
-    "name": "Timing gate",
-    "aliases": [
-      "timing gate",
-      "gate duration",
-      "timing window",
-      "trigger window"
-    ],
-    "def": "A selected time interval during which detector events are accepted for analysis."
-  },
-  {
-    "name": "Time of flight",
-    "aliases": [
-      "time-of-flight",
-      "time of flight"
-    ],
-    "def": "A measurement that infers speed or energy from the time a particle takes to travel a known distance."
-  },
-  {
-    "name": "Trigger",
-    "aliases": [
-      "trigger",
-      "triggering"
-    ],
-    "def": "The electronic condition that tells a measurement system when to begin recording an event."
-  },
-  {
-    "name": "Bandwidth",
-    "aliases": [
-      "bandwidth"
-    ],
-    "def": "The range of signal frequencies an instrument can reproduce accurately; insufficient bandwidth can distort fast signals."
-  },
-  {
-    "name": "Dynamic range",
-    "aliases": [
-      "dynamic range"
-    ],
-    "def": "The span from the smallest to the largest signal an instrument can measure without losing sensitivity or saturating."
-  },
-  {
-    "name": "Signal-to-noise ratio",
-    "aliases": [
-      "signal-to-noise",
-      "signal to noise",
-      "snr"
-    ],
-    "def": "The size of the desired signal compared with fluctuations and unwanted background."
-  },
-  {
-    "name": "Radiography",
-    "aliases": [
-      "radiography",
-      "radiograph",
-      "x-ray image",
-      "flash x-ray"
-    ],
-    "def": "Imaging the interior of an object using penetrating radiation; fast radiography can capture rapidly changing density patterns."
-  },
-  {
-    "name": "Tracer",
-    "aliases": [
-      "radioactive tracer",
-      "tracer"
-    ],
-    "def": "A detectable isotope used to follow material through a chemical, biological, or industrial process."
-  },
-  {
-    "name": "Chemical yield",
-    "aliases": [
-      "chemical yield",
-      "recovery fraction",
-      "recovered fraction",
-      "separation yield"
-    ],
-    "def": "The fraction of the desired material recovered after a chemical process."
-  },
-  {
-    "name": "Carrier",
-    "aliases": [
-      "carrier material",
-      "carrier"
-    ],
-    "def": "A larger amount of chemically similar material added so a tiny radioactive quantity can be handled or recovered more reliably."
-  },
-  {
-    "name": "Precipitation",
-    "aliases": [
-      "precipitation",
-      "precipitate"
-    ],
-    "def": "A chemical process in which dissolved material forms a solid that can be separated from the liquid."
+    "def": "A quantity that can actually be measured and compared with a prediction."
   },
   {
     "name": "Oxidation state",
@@ -6668,30 +6736,6 @@ export const JARGON = [
       "valence state"
     ],
     "def": "A bookkeeping description of how many electrons an atom has effectively lost or gained in a compound; it strongly affects chemical behavior."
-  },
-  {
-    "name": "Assay",
-    "aliases": [
-      "assay",
-      "assayed"
-    ],
-    "def": "A quantitative measurement of a material’s composition, purity, or amount of a specified isotope."
-  },
-  {
-    "name": "Contamination",
-    "aliases": [
-      "contamination",
-      "contaminated"
-    ],
-    "def": "Unwanted radioactive or chemical material present in a sample, instrument, or workspace."
-  },
-  {
-    "name": "Stoichiometry",
-    "aliases": [
-      "stoichiometry",
-      "stoichiometric"
-    ],
-    "def": "The numerical ratios in which chemical elements or compounds react."
   },
   {
     "name": "Phase",
@@ -6705,12 +6749,21 @@ export const JARGON = [
     "def": "A physically distinct form of a material, such as a particular crystal structure, liquid, or gas."
   },
   {
-    "name": "Grain boundary",
+    "name": "Photoelectron",
     "aliases": [
-      "grain boundary",
-      "grain boundaries"
+      "photoelectron",
+      "photoelectrons"
     ],
-    "def": "The interface between differently oriented crystals in a solid; it can affect strength, corrosion, and diffusion."
+    "def": "An electron released when light transfers energy to a photosensitive surface; photoelectrons form the counted signal in many light-based detectors."
+  },
+  {
+    "name": "Poisson statistics",
+    "aliases": [
+      "poisson",
+      "counting statistics",
+      "statistical counting"
+    ],
+    "def": "The probability model commonly used for independent counted events. Its standard fluctuation is approximately the square root of the number of counts."
   },
   {
     "name": "Porosity",
@@ -6721,54 +6774,75 @@ export const JARGON = [
     "def": "The fraction of a material occupied by small empty spaces or pores."
   },
   {
-    "name": "Thermal expansion",
+    "name": "Precipitation",
     "aliases": [
-      "thermal expansion"
+      "precipitation",
+      "precipitate"
     ],
-    "def": "The change in a material’s dimensions as its temperature changes."
+    "def": "A chemical process in which dissolved material forms a solid that can be separated from the liquid."
   },
   {
-    "name": "Tolerance",
+    "name": "Prediction band",
     "aliases": [
-      "tolerance stack",
-      "tolerances",
-      "tolerance"
+      "prediction band",
+      "uncertainty band",
+      "prediction range"
     ],
-    "def": "The permitted variation in a dimension, timing, or property while a part or process remains acceptable."
+    "def": "A range of outcomes considered plausible after accounting for uncertain inputs and model limitations."
   },
   {
-    "name": "Acceptance criterion",
+    "name": "Preinitiation",
     "aliases": [
-      "acceptance criteria",
-      "acceptance criterion",
-      "pass/fail criteria"
+      "preinitiation",
+      "pre-initiation"
     ],
-    "def": "A measurable rule decided before a test that determines whether the result is acceptable."
+    "def": "The start of a neutron chain earlier than intended because a neutron appears before the desired physical state is reached."
   },
   {
-    "name": "Chain of custody",
+    "name": "Process safety",
     "aliases": [
-      "chain of custody"
+      "process safety",
+      "chemical process safety"
     ],
-    "def": "A documented record of who handled a sample or component and when, preserving identity and traceability."
+    "def": "The systematic control of chemical, thermal, pressure, contamination, and equipment hazards during an operation."
   },
   {
-    "name": "Configuration control",
+    "name": "Project Alberta",
     "aliases": [
-      "configuration control",
-      "configuration freeze",
-      "freeze the configuration"
+      "project alberta"
     ],
-    "def": "The formal process for documenting and approving exactly which version of every part and procedure is being used."
+    "def": "The Manhattan Project unit responsible for final weapon assembly, overseas deployment, and aircraft integration."
   },
   {
-    "name": "Interface",
+    "name": "Prompt neutron",
     "aliases": [
-      "interface requirement",
-      "system interfaces",
-      "interface"
+      "prompt neutron",
+      "prompt-neutron"
     ],
-    "def": "The physical, electrical, timing, or information boundary where two subsystems must work together."
+    "def": "A neutron emitted essentially immediately during fission."
+  },
+  {
+    "name": "Prompt radiation",
+    "aliases": [
+      "prompt ionizing radiation",
+      "prompt radiation"
+    ],
+    "def": "Neutrons and gamma rays emitted during and immediately after a nuclear event."
+  },
+  {
+    "name": "Proportional counter",
+    "aliases": [
+      "proportional counter"
+    ],
+    "def": "A gas detector whose pulse size is approximately proportional to the energy deposited by the incoming radiation."
+  },
+  {
+    "name": "Proton",
+    "aliases": [
+      "proton",
+      "protons"
+    ],
+    "def": "A positively charged particle in the nucleus. The number of protons determines which chemical element an atom is."
   },
   {
     "name": "Prototype",
@@ -6776,6 +6850,22 @@ export const JARGON = [
       "prototype"
     ],
     "def": "An early version built to expose design, fit, timing, or manufacturing problems before final production."
+  },
+  {
+    "name": "Pulse height",
+    "aliases": [
+      "pulse height",
+      "pulse-height"
+    ],
+    "def": "The amplitude of a detector’s electrical pulse, often related to the energy deposited in the detector."
+  },
+  {
+    "name": "Pumpkin bomb",
+    "aliases": [
+      "pumpkin bomb",
+      "pumpkin-bomb"
+    ],
+    "def": "An inert or conventionally filled test shape used to practice aircraft handling and bombing behavior similar to the Fat Man external form."
   },
   {
     "name": "Qualification test",
@@ -6787,46 +6877,132 @@ export const JARGON = [
     "def": "A test showing that a component or process meets defined requirements under representative conditions."
   },
   {
-    "name": "Firing chain",
+    "name": "Radioactive decay",
     "aliases": [
-      "firing chain",
-      "firing system"
+      "radioactive decay",
+      "decay law",
+      "decays"
     ],
-    "def": "The ordered set of commands, safety conditions, timing elements, and outputs that leads from authorization to initiation."
+    "def": "A spontaneous nuclear transformation. Individual decay times are random, but a large population follows a predictable statistical law."
   },
   {
-    "name": "Detonator",
+    "name": "Radiography",
     "aliases": [
-      "detonator",
-      "detonators"
+      "radiography",
+      "radiograph",
+      "x-ray image",
+      "flash x-ray"
     ],
-    "def": "A device that initiates a high-explosive detonation at a controlled time."
+    "def": "Imaging the interior of an object using penetrating radiation; fast radiography can capture rapidly changing density patterns."
   },
   {
-    "name": "Simultaneity",
+    "name": "RaLa experiment",
     "aliases": [
-      "simultaneity",
-      "simultaneous initiation",
-      "synchronization"
+      "rala",
+      "ra-la"
     ],
-    "def": "The requirement that multiple events occur within a very small allowed timing difference."
+    "def": "The Los Alamos radiolanthanum method that used gamma radiation to infer changing density during implosion experiments."
   },
   {
-    "name": "Explosive lens",
+    "name": "Random error",
     "aliases": [
-      "explosive lens",
-      "explosive lenses",
-      "lens system"
+      "random error",
+      "random uncertainty"
     ],
-    "def": "A shaped combination of explosive materials used to transform an outward detonation into a controlled converging shock pattern."
+    "def": "Measurement variation that changes unpredictably from one observation to another and can often be reduced by collecting more data."
   },
   {
-    "name": "Detonation wave",
+    "name": "Random walk",
     "aliases": [
-      "detonation wave",
-      "detonation"
+      "random walk",
+      "random-walk"
     ],
-    "def": "A rapidly moving reaction front in high explosive, coupled to a strong shock wave."
+    "def": "Motion made of many steps in changing directions. The net displacement grows roughly with the square root of the number of steps."
+  },
+  {
+    "name": "Readiness review",
+    "aliases": [
+      "readiness review",
+      "review board"
+    ],
+    "def": "A structured assessment of evidence, unresolved risks, interfaces, and contingency plans before proceeding."
+  },
+  {
+    "name": "Redundancy",
+    "aliases": [
+      "redundancy",
+      "redundant"
+    ],
+    "def": "Using more than one component or measurement path so one failure does not erase the needed evidence or function."
+  },
+  {
+    "name": "Reflector",
+    "aliases": [
+      "reflector"
+    ],
+    "def": "A layer around the fissile region that scatters escaping neutrons back into it, so fewer are lost."
+  },
+  {
+    "name": "Residual radiation",
+    "aliases": [
+      "residual radiation",
+      "residual radioactivity"
+    ],
+    "def": "Radiation emitted later by radioactive products and activated materials."
+  },
+  {
+    "name": "Rest-mass energy",
+    "aliases": [
+      "rest-mass energy",
+      "rest mass energy",
+      "e=mc",
+      "mc²",
+      "mc^2"
+    ],
+    "def": "The energy associated with mass itself, expressed by E = mc²."
+  },
+  {
+    "name": "Safety interlock",
+    "aliases": [
+      "safety interlock",
+      "interlock"
+    ],
+    "def": "A device or rule that prevents an action unless specified safety conditions are satisfied."
+  },
+  {
+    "name": "Saturation",
+    "aliases": [
+      "saturation",
+      "saturated",
+      "clips",
+      "clipping"
+    ],
+    "def": "A condition in which increasing the true signal no longer produces a larger recorded response because the instrument has reached its limit."
+  },
+  {
+    "name": "Scattering",
+    "aliases": [
+      "elastic scattering",
+      "scattering",
+      "scatter"
+    ],
+    "def": "An interaction that changes a particle’s direction and often its energy without necessarily removing the particle."
+  },
+  {
+    "name": "Scintillation detector",
+    "aliases": [
+      "scintillation",
+      "scintillator"
+    ],
+    "def": "A detector in which radiation produces flashes of light that are converted into electrical signals."
+  },
+  {
+    "name": "Sensitivity analysis",
+    "aliases": [
+      "sensitivity analysis",
+      "sensitivity"
+    ],
+    "def": "Studying how strongly a prediction changes when an input or assumption is varied."
   },
   {
     "name": "Shock wave",
@@ -6838,21 +7014,88 @@ export const JARGON = [
     "def": "A very abrupt pressure disturbance that moves faster than ordinary sound and strongly compresses material."
   },
   {
-    "name": "Hydrodynamic test",
+    "name": "Signal-to-noise ratio",
     "aliases": [
-      "hydrodynamic test",
-      "hydrodynamic testing",
-      "hydrodynamics"
+      "signal-to-noise",
+      "signal to noise",
+      "snr"
     ],
-    "def": "A test that studies materials moving under extreme pressure as if they were fluids, often using non-nuclear substitutes and fast diagnostics."
+    "def": "The size of the desired signal compared with fluctuations and unwanted background."
   },
   {
-    "name": "Compression",
+    "name": "Silverplate",
     "aliases": [
-      "compression",
-      "compress"
+      "silverplate"
     ],
-    "def": "A reduction in volume that raises material density."
+    "def": "The modification program for B-29 aircraft intended to carry early atomic weapons."
+  },
+  {
+    "name": "Simultaneity",
+    "aliases": [
+      "simultaneity",
+      "simultaneous initiation",
+      "synchronization"
+    ],
+    "def": "The requirement that multiple events occur within a very small allowed timing difference."
+  },
+  {
+    "name": "Single-point failure",
+    "aliases": [
+      "single-point failure",
+      "single point failure"
+    ],
+    "def": "One component or event whose failure would cause the entire system or evidence chain to fail."
+  },
+  {
+    "name": "Spontaneous fission",
+    "aliases": [
+      "spontaneous fission",
+      "spontaneous-fission"
+    ],
+    "def": "Fission that occurs without an incoming neutron or other external trigger."
+  },
+  {
+    "name": "Standard deviation, σ",
+    "aliases": [
+      "standard deviation",
+      "1σ",
+      "sigma_net",
+      "σ"
+    ],
+    "def": "A measure of the typical spread or uncertainty of repeated measurements."
+  },
+  {
+    "name": "Stoichiometry",
+    "aliases": [
+      "stoichiometry",
+      "stoichiometric"
+    ],
+    "def": "The numerical ratios in which chemical elements or compounds react."
+  },
+  {
+    "name": "Subcritical",
+    "aliases": [
+      "subcritical",
+      "below critical"
+    ],
+    "def": "A state with multiplication factor below one, so the neutron population decreases from generation to generation."
+  },
+  {
+    "name": "Supercritical",
+    "aliases": [
+      "supercritical",
+      "above critical"
+    ],
+    "def": "A state with multiplication factor above one, so the neutron population grows from generation to generation."
+  },
+  {
+    "name": "Surrogate material",
+    "aliases": [
+      "surrogate",
+      "non-nuclear substitute",
+      "inert substitute"
+    ],
+    "def": "A safer or more available material used to reproduce selected physical behavior without using the final hazardous material."
   },
   {
     "name": "Symmetry",
@@ -6865,136 +7108,27 @@ export const JARGON = [
     "def": "How uniformly a physical process occurs around a center or axis. In converging systems, small asymmetries can grow and spoil the intended state."
   },
   {
-    "name": "Converging wave",
+    "name": "Systematic error",
     "aliases": [
-      "converging wave",
-      "converging shock",
-      "convergence"
+      "systematic error",
+      "systematic uncertainty"
     ],
-    "def": "A wave moving inward toward a central region, where its geometry can amplify pressure and sensitivity to imperfections."
+    "def": "A consistent bias or calibration problem that does not necessarily shrink when more data are collected."
   },
   {
-    "name": "RaLa experiment",
+    "name": "Thermal expansion",
     "aliases": [
-      "rala",
-      "ra-la"
+      "thermal expansion"
     ],
-    "def": "The Los Alamos radiolanthanum method that used gamma radiation to infer changing density during implosion experiments."
+    "def": "The change in a material’s dimensions as its temperature changes."
   },
   {
-    "name": "Surrogate material",
+    "name": "Thermal neutron",
     "aliases": [
-      "surrogate",
-      "non-nuclear substitute",
-      "inert substitute"
+      "thermal neutron",
+      "thermal-neutron"
     ],
-    "def": "A safer or more available material used to reproduce selected physical behavior without using the final hazardous material."
-  },
-  {
-    "name": "Discriminating test",
-    "aliases": [
-      "discriminating test",
-      "discriminating evidence",
-      "separate competing"
-    ],
-    "def": "A test designed so competing explanations predict measurably different outcomes."
-  },
-  {
-    "name": "Observable",
-    "aliases": [
-      "observable",
-      "observables"
-    ],
-    "def": "A quantity that can actually be measured and compared with a prediction."
-  },
-  {
-    "name": "Sensitivity analysis",
-    "aliases": [
-      "sensitivity analysis",
-      "sensitivity"
-    ],
-    "def": "Studying how strongly a prediction changes when an input or assumption is varied."
-  },
-  {
-    "name": "Prediction band",
-    "aliases": [
-      "prediction band",
-      "uncertainty band",
-      "prediction range"
-    ],
-    "def": "A range of outcomes considered plausible after accounting for uncertain inputs and model limitations."
-  },
-  {
-    "name": "Independent diagnostic",
-    "aliases": [
-      "independent diagnostic",
-      "independent diagnostics",
-      "independent measurement"
-    ],
-    "def": "A second measurement method with different failure modes, used to check whether a conclusion depends on one instrument."
-  },
-  {
-    "name": "Redundancy",
-    "aliases": [
-      "redundancy",
-      "redundant"
-    ],
-    "def": "Using more than one component or measurement path so one failure does not erase the needed evidence or function."
-  },
-  {
-    "name": "Single-point failure",
-    "aliases": [
-      "single-point failure",
-      "single point failure"
-    ],
-    "def": "One component or event whose failure would cause the entire system or evidence chain to fail."
-  },
-  {
-    "name": "Decision gate",
-    "aliases": [
-      "decision gate",
-      "hold point",
-      "final hold"
-    ],
-    "def": "A formally defined point where evidence is reviewed and authority is required before work proceeds."
-  },
-  {
-    "name": "Readiness review",
-    "aliases": [
-      "readiness review",
-      "review board"
-    ],
-    "def": "A structured assessment of evidence, unresolved risks, interfaces, and contingency plans before proceeding."
-  },
-  {
-    "name": "Arming",
-    "aliases": [
-      "arming"
-    ],
-    "def": "Changing a system from a safe condition toward a state in which it can function as intended, under controlled authorization."
-  },
-  {
-    "name": "Fuzing",
-    "aliases": [
-      "fuzing",
-      "fuze"
-    ],
-    "def": "The sensing and logic used to determine when a weapon or test article should initiate its firing sequence."
-  },
-  {
-    "name": "Safety interlock",
-    "aliases": [
-      "safety interlock",
-      "interlock"
-    ],
-    "def": "A device or rule that prevents an action unless specified safety conditions are satisfied."
-  },
-  {
-    "name": "Silverplate",
-    "aliases": [
-      "silverplate"
-    ],
-    "def": "The modification program for B-29 aircraft intended to carry early atomic weapons."
+    "def": "A neutron slowed until its typical energy is comparable to the thermal motion of surrounding matter."
   },
   {
     "name": "Thin Man",
@@ -7004,11 +7138,47 @@ export const JARGON = [
     "def": "An early elongated plutonium gun-type weapon concept abandoned when spontaneous-neutron measurements made premature initiation too likely."
   },
   {
-    "name": "Fat Man",
+    "name": "Time of flight",
     "aliases": [
-      "fat man"
+      "time-of-flight",
+      "time of flight"
     ],
-    "def": "The implosion-type plutonium weapon developed at Los Alamos and used against Nagasaki."
+    "def": "A measurement that infers speed or energy from the time a particle takes to travel a known distance."
+  },
+  {
+    "name": "Timing gate",
+    "aliases": [
+      "timing gate",
+      "gate duration",
+      "timing window",
+      "trigger window"
+    ],
+    "def": "A selected time interval during which detector events are accepted for analysis."
+  },
+  {
+    "name": "Tolerance",
+    "aliases": [
+      "tolerance stack",
+      "tolerances",
+      "tolerance"
+    ],
+    "def": "The permitted variation in a dimension, timing, or property while a part or process remains acceptable."
+  },
+  {
+    "name": "Tracer",
+    "aliases": [
+      "radioactive tracer",
+      "tracer"
+    ],
+    "def": "A detectable isotope used to follow material through a chemical, biological, or industrial process."
+  },
+  {
+    "name": "Trigger",
+    "aliases": [
+      "trigger",
+      "triggering"
+    ],
+    "def": "The electronic condition that tells a measurement system when to begin recording an event."
   },
   {
     "name": "Trinity",
@@ -7018,108 +7188,12 @@ export const JARGON = [
     "def": "The July 1945 test in New Mexico of the plutonium implosion design."
   },
   {
-    "name": "Gadget",
+    "name": "Uncertainty in quadrature",
     "aliases": [
-      "the gadget",
-      "gadget"
+      "quadrature",
+      "combine uncertainties"
     ],
-    "def": "The name commonly used for the implosion test device assembled for Trinity."
-  },
-  {
-    "name": "Project Alberta",
-    "aliases": [
-      "project alberta"
-    ],
-    "def": "The Manhattan Project unit responsible for final weapon assembly, overseas deployment, and aircraft integration."
-  },
-  {
-    "name": "Prompt radiation",
-    "aliases": [
-      "prompt ionizing radiation",
-      "prompt radiation"
-    ],
-    "def": "Neutrons and gamma rays emitted during and immediately after a nuclear event."
-  },
-  {
-    "name": "Residual radiation",
-    "aliases": [
-      "residual radiation",
-      "residual radioactivity"
-    ],
-    "def": "Radiation emitted later by radioactive products and activated materials."
-  },
-  {
-    "name": "Fallout",
-    "aliases": [
-      "fallout"
-    ],
-    "def": "Radioactive particles transported through the atmosphere and deposited after a nuclear explosion."
-  },
-  {
-    "name": "Activation",
-    "aliases": [
-      "activated material",
-      "activation"
-    ],
-    "def": "The creation of radioactive nuclei when stable material captures neutrons or undergoes another nuclear reaction."
-  },
-  {
-    "name": "Ionizing radiation",
-    "aliases": [
-      "ionizing radiation"
-    ],
-    "def": "Radiation energetic enough to remove electrons from atoms or molecules, potentially damaging living tissue."
-  },
-  {
-    "name": "Mass balance",
-    "aliases": [
-      "mass balance",
-      "material balance"
-    ],
-    "def": "An accounting rule stating that material entering a process must equal material leaving, accumulating, or being lost through identified pathways."
-  },
-  {
-    "name": "Ion exchange",
-    "aliases": [
-      "ion exchange",
-      "ion-exchange"
-    ],
-    "def": "A separation method in which charged atoms or molecules attach selectively to a solid resin and are later released under different chemical conditions."
-  },
-  {
-    "name": "Corrosion",
-    "aliases": [
-      "corrosion",
-      "corrode",
-      "corrosive"
-    ],
-    "def": "The chemical or electrochemical degradation of a material through reaction with its environment."
-  },
-  {
-    "name": "Material compatibility",
-    "aliases": [
-      "material compatibility",
-      "compatibility"
-    ],
-    "def": "Whether two materials can remain in contact without unacceptable corrosion, reaction, contamination, swelling, or loss of strength."
-  },
-  {
-    "name": "Mechanical properties",
-    "aliases": [
-      "mechanical properties",
-      "tensile strength",
-      "ductility",
-      "hardness"
-    ],
-    "def": "Measurements describing how a material responds to force, including strength, stiffness, hardness, and ability to deform without cracking."
-  },
-  {
-    "name": "Process safety",
-    "aliases": [
-      "process safety",
-      "chemical process safety"
-    ],
-    "def": "The systematic control of chemical, thermal, pressure, contamination, and equipment hazards during an operation."
+    "def": "Combining independent uncertainties by taking the square root of the sum of their squares."
   },
   {
     "name": "Waste control",
@@ -7129,38 +7203,5 @@ export const JARGON = [
       "environmental control"
     ],
     "def": "Tracking, containing, treating, and monitoring unwanted radioactive or chemical material so it does not spread to workers or the environment."
-  },
-  {
-    "name": "Drop time",
-    "aliases": [
-      "drop time",
-      "fall time"
-    ],
-    "def": "The elapsed time between release and impact or another defined point during a drop test."
-  },
-  {
-    "name": "Pumpkin bomb",
-    "aliases": [
-      "pumpkin bomb",
-      "pumpkin-bomb"
-    ],
-    "def": "An inert or conventionally filled test shape used to practice aircraft handling and bombing behavior similar to the Fat Man external form."
-  },
-  {
-    "name": "Inspection",
-    "aliases": [
-      "inspection",
-      "inspect"
-    ],
-    "def": "A planned examination or measurement used to determine whether a part, material, or process meets documented requirements."
-  },
-  {
-    "name": "Lot traceability",
-    "aliases": [
-      "lot traceability",
-      "lot record",
-      "batch traceability"
-    ],
-    "def": "The ability to connect each finished item to its production batch, materials, process history, inspections, and test records."
   }
 ];

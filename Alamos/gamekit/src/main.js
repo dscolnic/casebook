@@ -453,7 +453,10 @@ if(import.meta.env?.DEV){
   // this?' can be answered without a foreground tab. A throttled tab never runs
   // the raycast, so getCurrentTarget is null there and every interaction looks
   // broken whether it is or not.
-  exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition,
+  // `teleport` is here because a background tab gets no animation frame, so the
+  // player never walks and every interaction test fails for a reason that has
+  // nothing to do with the game. Fourth time that cost an hour.
+  exposeDebug(theme, { theme, world, scene, renderer, camera, getState, getPosition, teleport,
                        updateCrowd, getNPCs, activate, updateInteractions, getCurrentTarget, driving, flying, day,
                        interiors });
   console.log(

@@ -188,13 +188,26 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     // definitions as "a course concept used in Mission 3", which is a note to the
     // author, not something to hand a player.
     const HOLLOW = /course concept used in|should be defined|in the game, the term/i;
-    const terms = [];
+    // Ordered by where the term first appears in the day's own text, so the plan
+    // card names what the first question will ask about rather than whatever the
+    // glossary happens to list first. Three, because two left the hard words of a
+    // chemistry day — cation, anion, aliquot — off the card entirely.
+    const matched = [];
     for(const t of jargon){
       const names = [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String);
-      if(!t?.def || HOLLOW.test(t.def) || !names.some(n => haystack.includes(n.toLowerCase()))) continue;
-      const def = String(t.def).replace(/\s+/g, ' ').trim();
+      if(!t?.def || HOLLOW.test(t.def)) continue;
+      const at = Math.min(...names.map(n => { const i = haystack.indexOf(n.toLowerCase()); return i < 0 ? Infinity : i; }));
+      if(Number.isFinite(at)) matched.push({ t, at });
+    }
+    matched.sort((a, b) => a.at - b.at);
+    const terms = [];
+    for(const { t } of matched){
+      // One sentence. A glossary definition can run to forty words, and the plan
+      // card is reference — checkStory fails a primer line over thirty-four.
+      const full = String(t.def).replace(/\s+/g, ' ').trim();
+      const def = (full.match(/^[^.!?]*[.!?]/)?.[0] ?? full).trim();
       terms.push(`${t.name} — ${def[0].toLowerCase() + def.slice(1)}`);
-      if(terms.length === 2) break;
+      if(terms.length === 3) break;
     }
     // the formulas, verbatim: an estimate's `relationship` is already one line
     const formulas = [...new Set(lessons.map(l => String(l.game?.relationship ?? '').trim()).filter(Boolean))];
@@ -206,7 +219,7 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
       .filter(a => (a.toLowerCase().match(/[a-z]{4,}/g) ?? []).some(w => !said.has(w)
         && !['that', 'this', 'with', 'from', 'when', 'what', 'over', 'into', 'they', 'their'].includes(w)));
 
-    const primer = [...terms, ...formulas.slice(0, 2), ...assumes];
+    const primer = [...terms, ...formulas.slice(0, 2), ...assumes];   // terms first: they are what the questions use
     if(!primer.length) continue;
     m.primer = primer.slice(0, 4);
     derived++;

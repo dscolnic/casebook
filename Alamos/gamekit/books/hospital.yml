@@ -937,22 +937,27 @@ leaders:
 
 # Terms the game may explain in place.
 glossary:
-  - name: Triage
+  - name: Antibody
     aliases:
-      - triage
-    def: Deciding who needs help first based on how urgent the clue is.
-  - name: Observation
-    aliases:
-      - observation
-    def: Something a doctor notices with eyes or ears.
+      - antibody
+      - antibodies
+    def: A tiny helper your body makes that sticks to one kind of germ, so the rest of the team can find it.
   - name: Measurement
     aliases:
       - measurement
     def: A number found with a tool or careful count.
+  - name: Observation
+    aliases:
+      - observation
+    def: Something a doctor notices with eyes or ears.
   - name: Pulse
     aliases:
       - pulse
     def: The beat of the heart felt in the wrist or neck.
+  - name: Triage
+    aliases:
+      - triage
+    def: Deciding who needs help first based on how urgent the clue is.
 
 # The campaign: one working day each, three stops and a callback from day 3.
 missions:
