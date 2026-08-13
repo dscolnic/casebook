@@ -148,6 +148,9 @@ export function normalizeContent(content = {}){
   // ---- last: the shape of the days themselves
   shapeMissions(content.MISSIONS ?? [], curriculum, changes);
   primeMissions(content.MISSIONS ?? [], curriculum, content.JARGON ?? [], changes);
+  // After shaping, because shaping is what decides which day a lesson lands on:
+  // an equation's first day is not knowable until the callbacks exist.
+  primeEquations(content.MISSIONS ?? [], curriculum, changes);
 
   return { changes, problems };
 }
@@ -390,6 +393,38 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     derived++;
   }
   if(derived) changes.push(`${derived} mission primer(s) derived from the day's glossary terms, relationships and assumptions`);
+}
+
+/**
+ * The course's essential equations, on the card of the day that first needs one.
+ *
+ * `import-book` stamps each lesson with the equations it computes or mentions,
+ * from the authored list in `tools/syllabus.js`. This rolls that up to the day:
+ * every equation a day's questions touch, printed on the plan card, and each one
+ * printed once — on the first day that touches it, which is the day before it is
+ * needed, because the card is read before the questions are opened.
+ *
+ * A day that only *mentions* an equation gets it too, and that is the case this
+ * exists for. A question that computes one hands the player the relationship in
+ * the estimate panel; a question that merely reasons around it never shows it at
+ * all, and the player is expected to know the algebra without ever having seen it.
+ */
+export function primeEquations(missions = [], curriculum = {}, changes = []){
+  const seen = new Set();
+  let printed = 0;
+  for(const m of missions){
+    const lessons = (m.stops ?? []).map(s => curriculum[s.group]?.[s.lesson]).filter(Boolean);
+    const rows = [];
+    for(const l of lessons){
+      for(const eq of l.equations ?? []){
+        if(!eq?.e || seen.has(eq.e)) continue;
+        seen.add(eq.e);
+        rows.push({ e: eq.e, c: eq.c ?? '', ...(eq.computed ? { computed: true } : {}) });
+      }
+    }
+    if(rows.length){ m.equations = rows; printed += rows.length; }
+  }
+  if(printed) changes.push(`${printed} course equation(s) placed on the day card that first needs them`);
 }
 
 /**

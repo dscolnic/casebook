@@ -525,6 +525,209 @@ export const SYLLABUS = {
   },
 };
 
+// --------------------------------------------------------------- equations
+//
+// The equations a course cannot be said to have taught without. Same idea as the
+// concepts above and the same matching, but a narrower claim and a stricter test.
+//
+// **Deliberately a separate export, not a field on the entry above.**
+// `claimedWords` walks every string in a `SYLLABUS[theme]` entry and turns it
+// into the allowlist that `jargonSweep` prioritises by and that `import-book`
+// stamps `core` from. Adding equations there would quietly claim "constant",
+// "logarithm", "specificity" and forty more, restamp `core` across the glossary,
+// and reorder every plan card in the game — a syllabus page is not worth that.
+//
+// `e` is the equation as a reader should meet it. `c` is what it is for. `k` are
+// the phrases that say a question is about it, matched exactly as a concept's
+// are. `strong` is the extra test: a question *computes* the equation when its
+// estimate's own `relationship` or worked solution matches, and merely *mentions*
+// it when only the prose does. Both are printed, because they are not the same
+// claim — an estimate that gets a number out of PV = nRT has taught it, and a
+// verdict that says the words has not.
+//
+// The lists are short on purpose. "Absolutely has to be taught" is a much higher
+// bar than "appears in the course", so a topic that a course could reasonably
+// cover qualitatively is not here: the test applied was whether a student could
+// pass the unit without being able to write the thing down.
+export const EQUATIONS = {
+  contamcity: [
+    { e: 'n = m / M', c: 'moles from a mass and a molar mass',
+      k: ['molar mass', 'moles of', 'mole!', 'number of moles'] },
+    { e: 'PV = nRT', c: 'the ideal gas law',
+      k: ['nrt', 'ideal gas', 'gas law'] },
+    { e: 'c = n / V', c: 'molarity as moles per unit volume',
+      k: ['molarity', 'moles per litre', 'moles per liter', 'concentration of the solution'] },
+    { e: 'C₁V₁ = C₂V₂', c: 'dilution, and carrying a dilution factor back',
+      k: ['dilution', 'dilute', 'stock solution', 'aliquot'] },
+    { e: 'q = mcΔT', c: 'calorimetry — heat from a temperature change',
+      k: ['specific heat', 'heat capacity', 'calorimet', 'temperature rise'] },
+    { e: 'pH = −log[H⁺]', c: 'acidity on a logarithmic scale',
+      k: ['ph!', 'hydrogen ion', 'protonat', 'hydroxide'] },
+    { e: 'A = εlc', c: 'Beer–Lambert, and the calibration curve it justifies',
+      k: ['beer-lambert', 'beer–lambert', 'absorbance', 'calibration curve'] },
+    { e: 'Kₛₚ = [Aᵃ][Bᵇ]', c: 'the solubility product and the common-ion effect',
+      k: ['solubility product', 'common-ion', 'common ion', 'ksp'] },
+    { e: 'percent yield = actual ÷ theoretical × 100', c: 'yield against a stoichiometric prediction',
+      k: ['percent yield', 'theoretical yield', 'chemical yield', 'recovery fraction'] },
+    { e: 'rate = k[A]ⁿ', c: 'a rate law, and the order it asserts',
+      k: ['rate law', 'reaction rate', 'arrhenius', 'activation energy'] },
+  ],
+
+  projecty: [
+    { e: 'E = mc²', c: 'mass defect converted to binding energy',
+      k: ['mass defect', 'binding energy', 'mass-energy', 'rest-mass', 'energy equivalent'] },
+    { e: 'B / A', c: 'binding energy per nucleon, and the stability curve it plots',
+      k: ['per nucleon', 'stability curve', 'binding energy per'] },
+    { e: 'N(t) = N₀e^(−λt)', c: 'exponential decay of a population',
+      k: ['exponential decay', 'decay law', 'half-lives', 'what is left'] },
+    { e: 'λ = ln2 / t½', c: 'decay constant from half-life',
+      k: ['decay constant', 'half-life', 'half life'] },
+    { e: 'A = λN', c: 'activity from a decay constant and a population',
+      k: ['activity', 'decays per', 'disintegrations', 'becquerel'] },
+    { e: 'Σ = nσ', c: 'macroscopic cross section from number density',
+      k: ['macroscopic cross section', 'number density', 'cross section'] },
+    { e: 'mfp = 1 / Σ', c: 'mean free path as the inverse of interaction per length',
+      k: ['mean free path'] },
+    { e: 'I = I₀e^(−Σx)', c: 'exponential attenuation through matter',
+      k: ['attenuation', 'shielding', 'half-thickness', 'uncollided'] },
+    { e: 'σ = √N', c: 'Poisson counting uncertainty, and why precision costs time',
+      k: ['counting statistics', 'poisson', 'fractional uncertainty', 'square root of the number'] },
+    { e: 'I ∝ 1 / r²', c: 'inverse-square fall-off of radiation intensity',
+      k: ['inverse-square', 'inverse square'] },
+  ],
+
+  planetary_defense: [
+    { e: 'θ = s / d', c: 'the small-angle formula — angular size to physical size',
+      k: ['small-angle', 'small angle', 'angular width', 'arcsecond', 'angular size'] },
+    { e: 'd = baseline / parallax angle', c: 'distance from a parallax shift',
+      k: ['parallax', 'baseline'] },
+    { e: 'F = L / 4πd²', c: 'inverse-square brightness, and the size–albedo degeneracy',
+      k: ['inverse-square', 'inverse square', 'absolute magnitude', 'apparent magnitude', 'albedo'] },
+    { e: 'KE = ½mv²', c: 'impact energy, and why speed dominates it',
+      k: ['kinetic energy', 'impact energy', 'megaton'] },
+    { e: 'p = mv', c: 'momentum, and momentum transfer in a deflection',
+      k: ['momentum', 'velocity change', 'deflect'] },
+    { e: 'v² = v∞² + v_esc²', c: 'gravitational focusing of impact speed',
+      k: ['gravitational focusing', 'impact velocity', 'escape velocity'] },
+    { e: 'v = √(GM / r)', c: 'orbital speed, and the energy that goes with it',
+      k: ['orbital speed', 'vis-viva', 'orbital energy', 'semi-major'] },
+    { e: 'Δλ / λ = v / c', c: 'Doppler shift as a line-of-sight speed',
+      k: ['doppler', 'radial velocity', 'line-of-sight speed'] },
+    { e: 'E[X] = Σ p·x', c: 'expected value — a consequence weighted by its probability',
+      k: ['expected value', 'expectation', 'probability of impact', 'expected consequence'] },
+    { e: 'λ_max T = b', c: "Wien's law — a temperature read off a thermal spectrum",
+      k: ['thermal emission', 'infrared temperature', 'blackbody', 'wien'] },
+  ],
+
+  outbreak_riverton: [
+    { e: 'Rₑ = R₀ × S', c: 'effective reproduction number against a susceptible fraction',
+      k: ['reproduction number', 'r0', 'effective reproduction', 'secondary cases'] },
+    { e: 'N(t) = N₀ · 2^(t/T_d)', c: 'exponential growth from a doubling time',
+      k: ['doubling time', 'exponential growth', 'doubling'] },
+    { e: 'sensitivity = TP / (TP+FN)', c: 'and specificity = TN / (TN+FP) — what a test misses',
+      k: ['sensitivity', 'specificity', 'false negative', 'false positive'] },
+    { e: 'PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))', c: 'why a good test fails at low prevalence',
+      k: ['predictive value', 'prevalence', 'positive predictive'] },
+    { e: 'risk = events / people at risk', c: 'and NNT = 1 / (control risk − treated risk)',
+      k: ['number needed to treat', 'absolute risk', 'relative risk', 'attack rate', 'people at risk'] },
+    { e: 'CFR = deaths / cases', c: 'case fatality, and what its denominator hides',
+      k: ['case fatality', 'fatality rate'] },
+    { e: 'pH = pKa + log([A⁻]/[HA])', c: 'Henderson–Hasselbalch — buffering in a body',
+      k: ['henderson', 'buffer', 'pka', 'buffering'] },
+  ],
+
+  bring_them_home: [
+    { e: 'v = v₀ + at, x = x₀ + v₀t + ½at²', c: 'kinematics at constant acceleration',
+      k: ['kinematic', 'constant acceleration', 'free fall', 'displacement'] },
+    { e: 'F = ma', c: "Newton's second law",
+      k: ['net force', 'newton', 'force on the'] },
+    { e: 'W = Fd, KE = ½mv²', c: 'work, kinetic energy and conservation of energy',
+      k: ['work done', 'kinetic energy', 'conservation of energy', 'potential energy', 'energy stored'] },
+    { e: 'J = FΔt = Δp', c: 'impulse as the change in momentum',
+      k: ['impulse', 'momentum'] },
+    { e: 'τ = rF', c: 'torque about an axis, and rotational equilibrium',
+      k: ['torque', 'lever arm', 'moment of inertia'] },
+    { e: 'a_c = v² / r', c: 'centripetal acceleration in circular motion',
+      k: ['centripetal', 'circular motion'] },
+    { e: 'T = 2π√(m/k)', c: 'the period of a simple harmonic oscillator, and resonance',
+      k: ['harmonic', 'resonance', 'stiffness'] },
+    { e: 'P = IV = I²R', c: 'electrical power, and an energy budget over time',
+      k: ['power dissipated', 'power drawn', 'resistance', 'current'] },
+    { e: 'Q = mcΔT', c: 'heat against a temperature change and a heat capacity',
+      k: ['heat capacity', 'temperature drop', 'specific heat'] },
+    { e: 'v = fλ', c: 'wave speed, frequency and wavelength',
+      k: ['wavelength', 'frequency'] },
+  ],
+
+  deepwatch: [
+    { e: 'v = fλ', c: 'wave speed, frequency and wavelength',
+      k: ['wavelength', 'frequency', 'speed of sound'] },
+    { e: 'Δf / f = v / c', c: 'Doppler shift as a closing speed',
+      k: ['doppler', 'closing speed', 'frequency shift'] },
+    { e: 'dB = 10·log₁₀(P/P₀)', c: 'the decibel, and why 3 dB is a doubling',
+      k: ['decibel', 'db!', 'logarithmic scale'] },
+    { e: 'SL − 2TL + TS − NL ≥ DT', c: 'the sonar equation as a detection budget',
+      k: ['sonar equation', 'source level', 'transmission loss', 'noise level', 'detection threshold'] },
+    { e: 'sinθ₁ / v₁ = sinθ₂ / v₂', c: "Snell's law — why sound bends at a layer",
+      k: ['refract', 'snell', 'sound speed profile', 'the layer'] },
+    { e: 'd = ½vt', c: 'echo ranging on a two-way travel time',
+      k: ['round trip', 'echo', 'two-way', 'ranging'] },
+    { e: 'p = ρgh', c: 'hydrostatic pressure with depth',
+      k: ['hydrostatic', 'pressure at depth', 'pressure increases with'] },
+    { e: 'F_b = ρVg', c: 'Archimedes — buoyancy from displaced volume',
+      k: ['buoyan', 'archimedes', 'displaced'] },
+    { e: 'f_beat = |f₁ − f₂|', c: 'beats between two close frequencies',
+      k: ['beat frequency', 'beats', 'interference'] },
+    { e: 'PV = nRT', c: 'the gas law behind a life-support margin',
+      k: ['gas law', 'partial pressure', 'nrt'] },
+  ],
+
+  // Written for grade 2, so this list is not the senior-high kind. There is no
+  // equation an eight-year-old has to be able to write down; there are four
+  // arithmetic relationships the questions genuinely turn on, and claiming more
+  // would be inventing a syllabus this game never promised.
+  hospital: [
+    { e: 'beats in a minute = beats in 15 seconds × 4', c: 'scaling a short count up to a rate',
+      k: ['fifteen seconds', 'beats in', 'pulse'] },
+    { e: 'breaths in a minute = breaths in 15 seconds × 4', c: 'the same scaling for breathing',
+      k: ['breaths in', 'breathing rate', 'breaths a minute'] },
+    { e: 'how far behind = what is needed − what was taken', c: 'a running deficit',
+      k: ['how much more', 'needs', 'drank', 'behind'] },
+    { e: 'change each hour = total change ÷ hours taken', c: 'a rate from a change and a time',
+      k: ['each hour', 'per hour', 'how fast it changed'] },
+  ],
+};
+
+/**
+ * Which questions address each equation the course has to teach.
+ *
+ * `pages` is one entry per question: `{ text, formula, group }`, where `text` is
+ * everything the question says and `formula` is only the estimate's own
+ * `relationship`, template and worked solution. The split is the whole point —
+ * `computes` means a question got a number out of it, `mentions` means the words
+ * appeared. A gap is neither.
+ */
+export function equationCoverage(theme, pages = [], hit = defaultHit){
+  const list = EQUATIONS[theme] ?? EQUATIONS[String(theme).replace(/_/g, '-')] ?? [];
+  return list.map((eq, i) => {
+    const computes = [], mentions = [];
+    pages.forEach((p, n) => {
+      const strong = p.formula && eq.k.some(k => hit(p.formula, k));
+      if(strong) computes.push(n + 1);
+      else if(eq.k.some(k => hit(p.text, k))) mentions.push(n + 1);
+    });
+    return { n: i + 1, e: eq.e, c: eq.c, computes, mentions };
+  });
+}
+
+/** The same two-kinds-of-phrase rule the concepts use, so both agree. */
+function defaultHit(hay, phrase){
+  const exact = phrase.endsWith('!') || phrase.replace(/!$/, '').trim().length <= 3;
+  const w = phrase.replace(/!$/, '').toLowerCase().trim();
+  const e = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^a-z0-9])${e}${exact ? '([^a-z0-9]|$)' : ''}`, 'i').test(hay);
+}
+
 // ---------------------------------------------------------------- matching
 //
 // Whether the syllabus claims a word is asked in two places — `jargonSweep`

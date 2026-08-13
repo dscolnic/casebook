@@ -150,6 +150,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a rate is an amount divided by the time it took"
+      ],
+      "equations": [
+        {
+          "e": "θ = s / d",
+          "c": "the small-angle formula — angular size to physical size"
+        }
       ]
     },
     {
@@ -285,6 +291,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a planet's gravity changes the path of anything that passes close to it"
+      ],
+      "equations": [
+        {
+          "e": "F = L / 4πd²",
+          "c": "inverse-square brightness, and the size–albedo degeneracy"
+        }
       ]
     },
     {
@@ -318,6 +330,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an experiment needs a measurement of its own outcome"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection"
+        }
       ]
     },
     {
@@ -351,6 +369,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a record is read by people who were not there"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection"
+        }
       ]
     }
   ],
@@ -435,6 +459,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a quantity inferred through an assumption is only as good as the assumption"
+      ],
+      "equations": [
+        {
+          "e": "F = L / 4πd²",
+          "c": "inverse-square brightness, and the size–albedo degeneracy"
+        }
       ]
     },
     {
@@ -652,6 +682,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "radar sends a signal out and measures what comes back"
+      ],
+      "equations": [
+        {
+          "e": "Δλ / λ = v / c",
+          "c": "Doppler shift as a line-of-sight speed"
+        }
       ]
     }
   ],
@@ -728,6 +764,13 @@ export const CURRICULUM = {
       "assumes": [
         "kinetic energy depends on mass and on speed",
         "the volume of a sphere goes as the cube of its radius"
+      ],
+      "equations": [
+        {
+          "e": "KE = ½mv²",
+          "c": "impact energy, and why speed dominates it",
+          "computed": true
+        }
       ]
     },
     {
@@ -752,6 +795,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "one megaton of TNT is 4.184×10^15 joules"
+      ],
+      "equations": [
+        {
+          "e": "KE = ½mv²",
+          "c": "impact energy, and why speed dominates it",
+          "computed": true
+        }
       ]
     },
     {
@@ -776,6 +826,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "momentum is mass times velocity, and it is conserved in a collision"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection",
+          "computed": true
+        }
       ]
     },
     {
@@ -825,6 +882,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a small velocity change accumulates into a large displacement over time"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection"
+        }
       ]
     }
   ],
@@ -943,6 +1006,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a short arc is consistent with many orbits at once"
+      ],
+      "equations": [
+        {
+          "e": "d = baseline / parallax angle",
+          "c": "distance from a parallax shift"
+        }
       ]
     },
     {
@@ -992,6 +1061,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different measurements constrain different parts of an orbit"
+      ],
+      "equations": [
+        {
+          "e": "d = baseline / parallax angle",
+          "c": "distance from a parallax shift"
+        },
+        {
+          "e": "Δλ / λ = v / c",
+          "c": "Doppler shift as a line-of-sight speed"
+        }
       ]
     },
     {
@@ -1025,6 +1104,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an orbit narrows only when new evidence arrives"
+      ],
+      "equations": [
+        {
+          "e": "d = baseline / parallax angle",
+          "c": "distance from a parallax shift"
+        }
       ]
     },
     {
@@ -1058,6 +1143,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement is informative where the candidate explanations disagree"
+      ],
+      "equations": [
+        {
+          "e": "θ = s / d",
+          "c": "the small-angle formula — angular size to physical size"
+        }
       ]
     },
     {
@@ -1082,6 +1173,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the area of a disc goes as the square of its diameter"
+      ],
+      "equations": [
+        {
+          "e": "F = L / 4πd²",
+          "c": "inverse-square brightness, and the size–albedo degeneracy",
+          "computed": true
+        }
       ]
     },
     {
@@ -1154,6 +1252,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement made one way can be wrong one way"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection"
+        }
       ]
     },
     {
@@ -1235,6 +1339,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an angle on the sky is a size divided by the distance to the thing"
+      ],
+      "equations": [
+        {
+          "e": "θ = s / d",
+          "c": "the small-angle formula — angular size to physical size",
+          "computed": true
+        }
       ]
     },
     {
@@ -1268,6 +1379,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a falling object speeds up as it falls, and Earth's escape speed is 11.2 km/s"
+      ],
+      "equations": [
+        {
+          "e": "KE = ½mv²",
+          "c": "impact energy, and why speed dominates it"
+        }
       ]
     },
     {
@@ -1301,6 +1418,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the widest term in a product dominates the uncertainty of the result"
+      ],
+      "equations": [
+        {
+          "e": "KE = ½mv²",
+          "c": "impact energy, and why speed dominates it"
+        }
       ]
     },
     {
@@ -1654,6 +1777,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "Kepler's third law relates the size of an orbit to the time it takes"
+      ],
+      "equations": [
+        {
+          "e": "v = √(GM / r)",
+          "c": "orbital speed, and the energy that goes with it"
+        }
       ]
     },
     {
@@ -1687,6 +1816,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an object in orbit is moving at tens of kilometres a second"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection"
+        },
+        {
+          "e": "v = √(GM / r)",
+          "c": "orbital speed, and the energy that goes with it"
+        }
       ]
     },
     {
@@ -1760,6 +1899,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an expectation is a probability multiplied by a consequence"
+      ],
+      "equations": [
+        {
+          "e": "E[X] = Σ p·x",
+          "c": "expected value — a consequence weighted by its probability",
+          "computed": true
+        }
       ]
     },
     {
@@ -1842,6 +1988,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a conclusion is only as strong as the evidence under it"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection"
+        }
       ]
     },
     {
@@ -1875,6 +2027,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "warning time is produced by finding things, not by planning for them"
+      ],
+      "equations": [
+        {
+          "e": "p = mv",
+          "c": "momentum, and momentum transfer in a deflection"
+        }
       ]
     }
   ]

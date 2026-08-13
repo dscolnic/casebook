@@ -439,10 +439,27 @@ export function createDay({
     const terms = (m.primerTerms ?? []).filter(t => t?.name && t?.def);
     const rest = lines.slice(terms.length);
     return `<div class="planPrimer"><h4>Worth knowing first</h4>`
+      + equationsHTML(m)
       + (terms.length ? `<dl>${terms.map(t =>
           `<dt>${esc(t.name)}</dt><dd>${esc(t.def)}</dd>`).join('')}</dl>` : '')
       + (rest.length ? `<ul>${rest.map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : '')
       + `</div>`;
+  }
+
+  /**
+   * The course equations this day is the first to need.
+   *
+   * Above the vocabulary, because an equation is the one thing on the card the
+   * player may have to hold in their hand while they work, and `normalize.js`
+   * puts each one on the first day that touches it — so it is on screen before the
+   * question that wants it, rather than assumed by it.
+   */
+  function equationsHTML(m){
+    const eqs = (m.equations ?? []).filter(x => x?.e);
+    if(!eqs.length) return '';
+    return `<div class="planEqs">${eqs.map(x =>
+      `<div class="planEq"><code>${esc(x.e)}</code>`
+      + (x.c ? `<span>${esc(x.c)}</span>` : '') + `</div>`).join('')}</div>`;
   }
 
   function planHTML(resuming = false){

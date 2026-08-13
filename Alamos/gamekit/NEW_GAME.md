@@ -170,12 +170,25 @@ order, composed by `createDay()` in `engine/core/app.js`:
 3. **The calls**: "Go to the Guidance Computer Room", "Talk to Dr. Evelyn
    Carter". The instruction and nothing else — not the question, not a column
    saying whether it is a person or a place.
-4. **The primer**, two to four lines: the terms, formulas and assumptions the
-   day's questions are entitled to expect. It is *derived* in `normalize.js`
-   from the day's own lessons — glossary hits, each estimate's `relationship`,
-   each stop's `assumes` — so it cannot drift when a stop moves. Write
-   `primer:` on the mission only to beat the derived version. Never the
-   takeaway: that is what the day teaches.
+4. **The primer**: the terms, formulas and assumptions the day's questions are
+   entitled to expect. It is *derived* in `normalize.js` from the day's own
+   lessons — glossary hits, each estimate's `relationship`, each stop's
+   `assumes` — so it cannot drift when a stop moves. Write `primer:` on the
+   mission only to beat the derived version. Never the takeaway: that is what
+   the day teaches.
+
+   **A formula on the card says what its variables are.** `V = nRT/P` is five
+   letters, and a card that prints only that has told the player nothing it
+   could not have left out; the line reads `V = nRT/P, with V the volume, n the
+   moles of gas, R the gas constant, T the absolute temperature and P the
+   pressure`. Fix it in the estimate's `relationship` rather than on the card:
+   the same string renders inside the question as the governing relationship, so
+   one edit reaches both places the player meets it. Five lines across three
+   games were bare symbols and the other sixty-eight already named their
+   quantities in words, which is the standard — `Impulse = force × time` needs
+   nothing added. Mind the 34-word cap on a primer line while you do it; on Deep
+   Watch's Doppler line it is what decides whether the solved form and the
+   variable list both fit.
 5. **The map**, last, because it is what the route is chosen from.
 
 **Every stop.** The scene is the situation, 30–45 words. The verdict `why` is
@@ -368,16 +381,26 @@ decision each row is asking for.
 
 ## The plan card is derived, and the rules are in `normalize.js`
 
-`primeMissions()` picks the terms. A term earns a line by appearing in what the
-day *asks* — task, question, every option, card, scenario, given, proposal — and
-then only if the day also reasons with it, or a second stop asks with it too. A
-word that appears only in a scene is set dressing and buys nothing.
+`primeMissions()` picks the terms. A term earns a line by being one of the terms
+the day's questions are *written in* — which is the same test that decides
+whether the player gets a chip to click, field for field: title, takeaway, the
+ask, every option, card, scenario, given, reading and proposal. A word that
+appears only in a scene is set dressing and buys nothing. Matching is at a word
+start with a suffix allowed, and whole-word at three characters or fewer, so
+"solution" is not Ion and "detonators" is Detonator; the same rule lives in
+`questionUI.jargonMatches` and `make-book.mjs`, because a chip the player can
+click has to be a term the card named.
 
 Order is syllabus first (`core`, stamped at import time), then how many days of
-the campaign reason with the term, then how hard this day leans on it. Two terms
-chosen for their own sake, up to three lines, because a prerequisite is not a
-third vocabulary item — it is the first half of the one idea the card is already
-spending a line on. A term is introduced once.
+the campaign reason with the term, then how hard this day leans on it. Every
+qualifying term is printed, prerequisites ahead of the term that leans on them,
+and each term introduced once. The card used to take the best two and let the
+rest go, which turned out to ration the wrong thing: the terms it dropped did not
+stop existing, they arrived inside a question instead, with a definition button
+and no warning. The prose after the terms — a formula, a line of assumed
+knowledge — is what stays capped, and a day that comes out with nine lines is a
+day that introduces nine words. `checkStory` notes a card over six rather than
+failing it, because the finding is about the day, not the card.
 
 ## What a person still has to decide
 

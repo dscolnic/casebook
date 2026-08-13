@@ -51,6 +51,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "describing where something is and how it is moving takes six numbers"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     },
     {
@@ -123,6 +129,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an object moving in a circle is accelerating even at constant speed"
+      ],
+      "equations": [
+        {
+          "e": "a_c = v² / r",
+          "c": "centripetal acceleration in circular motion"
+        }
       ]
     },
     {
@@ -147,6 +159,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "force applied over a time is an impulse"
+      ],
+      "equations": [
+        {
+          "e": "J = FΔt = Δp",
+          "c": "impulse as the change in momentum",
+          "computed": true
+        }
       ]
     },
     {
@@ -171,6 +190,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a longer lever arm gives the same force more turning effect"
+      ],
+      "equations": [
+        {
+          "e": "τ = rF",
+          "c": "torque about an axis, and rotational equilibrium",
+          "computed": true
+        }
       ]
     },
     {
@@ -195,6 +221,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an object under constant acceleration covers half the acceleration times the time squared"
+      ],
+      "equations": [
+        {
+          "e": "v = v₀ + at, x = x₀ + v₀t + ½at²",
+          "c": "kinematics at constant acceleration",
+          "computed": true
+        }
       ]
     },
     {
@@ -361,6 +394,18 @@ export const CURRICULUM = {
       },
       "assumes": [
         "energy is a stock, and power is the rate it is drawn at"
+      ],
+      "equations": [
+        {
+          "e": "W = Fd, KE = ½mv²",
+          "c": "work, kinetic energy and conservation of energy",
+          "computed": true
+        },
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time",
+          "computed": true
+        }
       ]
     },
     {
@@ -410,6 +455,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a battery has both a voltage and a current it can supply"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time"
+        }
       ]
     },
     {
@@ -434,6 +485,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a resistance carrying current turns electrical power into heat"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time",
+          "computed": true
+        }
       ]
     }
   ],
@@ -493,6 +551,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "it takes energy to warm a mass, and the same energy leaves when it cools"
+      ],
+      "equations": [
+        {
+          "e": "Q = mcΔT",
+          "c": "heat against a temperature change and a heat capacity",
+          "computed": true
+        }
       ]
     },
     {
@@ -590,6 +655,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "kinetic energy depends on mass and on speed"
+      ],
+      "equations": [
+        {
+          "e": "W = Fd, KE = ½mv²",
+          "c": "work, kinetic energy and conservation of energy",
+          "computed": true
+        }
       ]
     },
     {
@@ -738,6 +810,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "frequency and wavelength are two descriptions of one wave"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "computed": true
+        }
       ]
     },
     {
@@ -838,6 +917,20 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a torque is what makes something start or stop turning"
+      ],
+      "equations": [
+        {
+          "e": "F = ma",
+          "c": "Newton's second law"
+        },
+        {
+          "e": "J = FΔt = Δp",
+          "c": "impulse as the change in momentum"
+        },
+        {
+          "e": "τ = rF",
+          "c": "torque about an axis, and rotational equilibrium"
+        }
       ]
     },
     {
@@ -877,6 +970,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a slower signal needs less power to be read"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     },
     {
@@ -901,6 +1000,17 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a stiffer spring vibrates faster and a heavier mass vibrates slower"
+      ],
+      "equations": [
+        {
+          "e": "T = 2π√(m/k)",
+          "c": "the period of a simple harmonic oscillator, and resonance",
+          "computed": true
+        },
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     }
   ],
@@ -1097,6 +1207,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a force acting on a mass produces an acceleration"
+      ],
+      "equations": [
+        {
+          "e": "F = ma",
+          "c": "Newton's second law"
+        },
+        {
+          "e": "J = FΔt = Δp",
+          "c": "impulse as the change in momentum"
+        }
       ]
     },
     {
@@ -1136,6 +1256,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "nothing in space slows a rotation down on its own"
+      ],
+      "equations": [
+        {
+          "e": "τ = rF",
+          "c": "torque about an axis, and rotational equilibrium"
+        },
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time"
+        }
       ]
     },
     {
@@ -1219,6 +1349,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "current through a resistance drops voltage and makes heat"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time"
+        }
       ]
     },
     {
@@ -1285,6 +1421,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two batteries wired together will equalise whether or not anybody planned it"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time"
+        }
       ]
     },
     {
@@ -1401,6 +1543,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a machine can be powered and still not be doing its job"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time"
+        }
       ]
     },
     {
@@ -1521,6 +1669,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "energy is not destroyed, it is moved somewhere else"
+      ],
+      "equations": [
+        {
+          "e": "W = Fd, KE = ½mv²",
+          "c": "work, kinetic energy and conservation of energy"
+        }
       ]
     },
     {
@@ -1554,6 +1708,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a plan can be optimal and still miss"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time"
+        }
       ]
     },
     {
@@ -1637,6 +1797,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "every structure has speeds at which it prefers to shake"
+      ],
+      "equations": [
+        {
+          "e": "T = 2π√(m/k)",
+          "c": "the period of a simple harmonic oscillator, and resonance"
+        },
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     },
     {
@@ -1670,6 +1840,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a resonance needs both a structure and something driving it"
+      ],
+      "equations": [
+        {
+          "e": "T = 2π√(m/k)",
+          "c": "the period of a simple harmonic oscillator, and resonance"
+        },
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     },
     {
@@ -1785,6 +1965,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "agreement between two measurements means nothing if they can fail the same way"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time"
+        }
       ]
     },
     {

@@ -78,7 +78,19 @@ export const CURRICULUM = {
         "calcKey": "T-2"
       },
       "assumes": [
-        "mass and energy are related by E = mc²"
+        "mass and energy are related by E = mc², with E the energy, m the mass and c the speed of light"
+      ],
+      "equations": [
+        {
+          "e": "E = mc²",
+          "c": "mass defect converted to binding energy",
+          "computed": true
+        },
+        {
+          "e": "B / A",
+          "c": "binding energy per nucleon, and the stability curve it plots",
+          "computed": true
+        }
       ]
     },
     {
@@ -106,6 +118,18 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a half-life is the time for half of a large population to decay"
+      ],
+      "equations": [
+        {
+          "e": "N(t) = N₀e^(−λt)",
+          "c": "exponential decay of a population",
+          "computed": true
+        },
+        {
+          "e": "λ = ln2 / t½",
+          "c": "decay constant from half-life",
+          "computed": true
+        }
       ]
     },
     {
@@ -133,6 +157,18 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cross section is expressed as an area"
+      ],
+      "equations": [
+        {
+          "e": "Σ = nσ",
+          "c": "macroscopic cross section from number density",
+          "computed": true
+        },
+        {
+          "e": "mfp = 1 / Σ",
+          "c": "mean free path as the inverse of interaction per length",
+          "computed": true
+        }
       ]
     },
     {
@@ -182,6 +218,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a light ball loses more energy hitting something its own size"
+      ],
+      "equations": [
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
       ]
     },
     {
@@ -290,6 +332,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two independent errors are unlikely to be wrong the same way at once"
+      ],
+      "equations": [
+        {
+          "e": "Σ = nσ",
+          "c": "macroscopic cross section from number density"
+        },
+        {
+          "e": "σ = √N",
+          "c": "Poisson counting uncertainty, and why precision costs time"
+        }
       ]
     },
     {
@@ -323,6 +375,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a nucleus is held together by binding energy"
+      ],
+      "equations": [
+        {
+          "e": "E = mc²",
+          "c": "mass defect converted to binding energy"
+        },
+        {
+          "e": "B / A",
+          "c": "binding energy per nucleon, and the stability curve it plots"
+        }
       ]
     },
     {
@@ -389,6 +451,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "like charges repel, and the nuclear force acts only at very short range"
+      ],
+      "equations": [
+        {
+          "e": "B / A",
+          "c": "binding energy per nucleon, and the stability curve it plots"
+        }
       ]
     },
     {
@@ -459,7 +527,17 @@ export const CURRICULUM = {
           "What you want to work out",
           "How you work it out"
         ]
-      }
+      },
+      "equations": [
+        {
+          "e": "λ = ln2 / t½",
+          "c": "decay constant from half-life"
+        },
+        {
+          "e": "A = λN",
+          "c": "activity from a decay constant and a population"
+        }
+      ]
     },
     {
       "day": 15,
@@ -489,7 +567,17 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "equations": [
+        {
+          "e": "mfp = 1 / Σ",
+          "c": "mean free path as the inverse of interaction per length"
+        },
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
+      ]
     },
     {
       "day": 16,
@@ -512,7 +600,14 @@ export const CURRICULUM = {
         ],
         "relationship": "A random walk goes net distance ≈ step length × the square root of the number of steps.",
         "calcKey": "T-16"
-      }
+      },
+      "equations": [
+        {
+          "e": "σ = √N",
+          "c": "Poisson counting uncertainty, and why precision costs time",
+          "computed": true
+        }
+      ]
     },
     {
       "day": 17,
@@ -696,7 +791,13 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "equations": [
+        {
+          "e": "Σ = nσ",
+          "c": "macroscopic cross section from number density"
+        }
+      ]
     },
     {
       "day": 23,
@@ -817,7 +918,13 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "equations": [
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
+      ]
     },
     {
       "day": 27,
@@ -1006,6 +1113,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "radiation deposits energy in whatever it passes through"
+      ],
+      "equations": [
+        {
+          "e": "Σ = nσ",
+          "c": "macroscopic cross section from number density"
+        }
       ]
     },
     {
@@ -1067,6 +1180,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a detector records events even with no sample present"
+      ],
+      "equations": [
+        {
+          "e": "A = λN",
+          "c": "activity from a decay constant and a population"
+        },
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
       ]
     },
     {
@@ -1094,6 +1217,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "radioactive decays arrive at random"
+      ],
+      "equations": [
+        {
+          "e": "σ = √N",
+          "c": "Poisson counting uncertainty, and why precision costs time",
+          "computed": true
+        }
       ]
     },
     {
@@ -1263,6 +1393,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a logarithm turns a constant ratio into a constant difference"
+      ],
+      "equations": [
+        {
+          "e": "λ = ln2 / t½",
+          "c": "decay constant from half-life"
+        }
       ]
     },
     {
@@ -1365,7 +1501,14 @@ export const CURRICULUM = {
         ],
         "relationship": "Counting fluctuation is Poisson: the fractional noise = 1 ÷ the square root of the number counted.",
         "calcKey": "P-13"
-      }
+      },
+      "equations": [
+        {
+          "e": "σ = √N",
+          "c": "Poisson counting uncertainty, and why precision costs time",
+          "computed": true
+        }
+      ]
     },
     {
       "day": 14,
@@ -1442,7 +1585,14 @@ export const CURRICULUM = {
         ],
         "relationship": "Each count has Poisson noise, and the two are independent, so the uncertainty on the difference = √(sample + background).",
         "calcKey": "P-16"
-      }
+      },
+      "equations": [
+        {
+          "e": "σ = √N",
+          "c": "Poisson counting uncertainty, and why precision costs time",
+          "computed": true
+        }
+      ]
     },
     {
       "day": 17,
@@ -1672,7 +1822,13 @@ export const CURRICULUM = {
           "A": 20
         },
         "research": ""
-      }
+      },
+      "equations": [
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
+      ]
     },
     {
       "day": 25,
@@ -1849,7 +2005,13 @@ export const CURRICULUM = {
           "The field problem",
           "How you handle it"
         ]
-      }
+      },
+      "equations": [
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
+      ]
     },
     {
       "day": 30,
@@ -1930,6 +2092,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "chemical bonding is done by electrons"
+      ],
+      "equations": [
+        {
+          "e": "N(t) = N₀e^(−λt)",
+          "c": "exponential decay of a population"
+        },
+        {
+          "e": "λ = ln2 / t½",
+          "c": "decay constant from half-life"
+        }
       ]
     },
     {
@@ -1979,6 +2151,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a report can be accurate and still answer the wrong question"
+      ],
+      "equations": [
+        {
+          "e": "A = λN",
+          "c": "activity from a decay constant and a population"
+        }
       ]
     },
     {
@@ -3041,6 +3219,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "work that can happen in parallel does not add up"
+      ],
+      "equations": [
+        {
+          "e": "A = λN",
+          "c": "activity from a decay constant and a population"
+        }
       ]
     },
     {
@@ -3448,7 +3632,13 @@ export const CURRICULUM = {
         ],
         "relationship": "Allowed length mismatch = timing tolerance × signal speed. Multiply by 100 to turn metres into centimetres.",
         "calcKey": "E-18"
-      }
+      },
+      "equations": [
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
+      ]
     },
     {
       "day": 19,
@@ -4028,6 +4218,17 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a half-life is the time for half of a sample to decay"
+      ],
+      "equations": [
+        {
+          "e": "N(t) = N₀e^(−λt)",
+          "c": "exponential decay of a population"
+        },
+        {
+          "e": "λ = ln2 / t½",
+          "c": "decay constant from half-life",
+          "computed": true
+        }
       ]
     },
     {
@@ -4078,6 +4279,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two problems can have two different causes"
+      ],
+      "equations": [
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
       ]
     },
     {
@@ -4507,7 +4714,13 @@ export const CURRICULUM = {
           2,
           3
         ]
-      }
+      },
+      "equations": [
+        {
+          "e": "I = I₀e^(−Σx)",
+          "c": "exponential attenuation through matter"
+        }
+      ]
     },
     {
       "day": 20,

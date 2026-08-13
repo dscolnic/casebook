@@ -352,6 +352,18 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .askAsks{margin:9px 0 0;font:700 .9rem/1.45 Georgia,serif;color:var(--ink)}
 .termStrip.inline{margin:10px 0 0;padding:0;border:0;background:none}
 .termStrip.inline .termChip{border-color:#ded5c2;background:#fbf7ee;font-size:.66rem;padding:3px 8px}
+/* The course equations this question deals with. Monospaced and squarer than a
+   term chip, because an equation is a thing to read character by character and a
+   rounded pill makes "Σ = nσ" look like a tag. Sits above the terms: it is the
+   reference the player may need in hand while they work, not a gloss. */
+.eqStrip{margin:10px 0 0}
+.eqButtons{display:flex;flex-wrap:wrap;gap:6px}
+.eqChip{border:1px solid #cfd8dd;background:#f6f9fa;padding:3px 8px;border-radius:4px;
+  font:700 .68rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;cursor:pointer}
+.eqChip:hover,.eqChip.active{border-color:#7f9aa8;background:#e8f0f4}
+.eqNote{margin-top:8px;padding:8px 10px;border-left:3px solid #7f9aa8;background:#fff;
+  font-size:.76rem;line-height:1.5;color:#49453e}
+.eqNote b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 /* The hint sits under the controls now: a price tag between the paragraph and
    the question put a shop counter in the middle of the reading. */
 .visitAssist{margin:14px 0 0;padding:0;border:0;background:none;opacity:.85}
@@ -397,6 +409,13 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .planPrimer dt{font:700 .78rem/1.45 Inter,system-ui;color:#3c3830}
 .planPrimer dd{font:500 .78rem/1.45 Inter,system-ui;color:#4e4a43;margin:0}
 .planPrimer dl + ul{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
+/* The equations this day is the first to need, above the vocabulary. Boxed and
+   monospaced so they read as reference to be held onto rather than prose. */
+.planEqs{display:flex;flex-direction:column;gap:4px;margin:0 0 8px}
+.planEq{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;padding:5px 8px;
+  border:1px solid #cfd8dd;border-radius:5px;background:#f6f9fa}
+.planEq code{font:700 .78rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+.planEq span{font:500 .74rem/1.4 Inter,system-ui;color:#5b6a72}
 .planNote{font:500 .78rem/1.5 Inter,system-ui;color:#4e4a43}
 .planMap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#efeade;
   display:flex;justify-content:center;max-height:min(34vh,280px)}

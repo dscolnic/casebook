@@ -1346,7 +1346,7 @@ missions:
             - T = 300 K
             - P = 1.0×10^5 Pa
             - R = 8.31 J mol^-1 K^-1
-          relationship: V = nRT/P.
+          relationship: V = nRT/P, with V the volume, n the moles of gas, R the gas constant, T the absolute temperature and P the pressure.
         answerText: V ≈ 2.0×10^4×8.31×300/10^5 ≈ 500 m³.
       - group: GASES
         call: Interpret plume behavior
@@ -1674,7 +1674,7 @@ missions:
           givens:
             - 10.0 mL sample diluted to 100.0 mL
             - Measured diluted concentration = 2.5 mg/L
-          relationship: C_original V_sample = C_diluted V_final.
+          relationship: C_original V_sample = C_diluted V_final, where every C is a concentration and every V a volume.
         answerText: C_original = 2.5×100/10 = 25 mg/L.
       - group: QUANT
         call: Protect the calibration
@@ -1913,7 +1913,7 @@ missions:
             - mass = 2,000 kg
             - specific heat = 4.2 kJ kg^-1 K^-1
             - temperature rise = 5 K
-          relationship: q = mcΔT.
+          relationship: q = mcΔT, with q the heat, m the mass, c the specific heat capacity and ΔT the temperature change.
         answerText: q ≈ 2,000×4.2×5 = 42,000 kJ = 42 MJ.
       - group: ENERGY
         call: Stored heat or continuing reaction?

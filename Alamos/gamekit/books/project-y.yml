@@ -1622,7 +1622,7 @@ missions:
         setup: A medium-heavy nucleus has about 200 nucleons and a mass defect of about 0.008 atomic mass units per nucleon.
         scene: "A theorist at the blackboard wants a number before lunch: how tightly a medium-heavy nucleus is bound. This arithmetic is the reason the laboratory exists at all."
         assumes:
-          - mass and energy are related by E = mc²
+          - mass and energy are related by E = mc², with E the energy, m the mass and c the speed of light
         takeaway: Tiny changes in mass correspond to large nuclear energies.
         format: BALLPARK
         why: A bound nucleus weighs less than the loose protons and neutrons that went into it. That missing mass is the binding energy holding it together. The conversion factor is the speed of light squared. So a mass difference far too small to weigh becomes an energy larger than any chemical reaction can produce. Work in atomic mass units and one unit is about 931 MeV. That is what turns a defect of eight thousandths of a unit per nucleon into more than a thousand MeV for the whole nucleus.

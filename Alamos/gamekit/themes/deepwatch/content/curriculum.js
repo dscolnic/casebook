@@ -51,6 +51,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "passive sonar listens and does not transmit"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     },
     {
@@ -134,6 +140,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "sound bends when it crosses water of a different temperature"
+      ],
+      "equations": [
+        {
+          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
+          "c": "Snell's law — why sound bends at a layer"
+        }
       ]
     },
     {
@@ -167,6 +179,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "sound travels faster in warmer water"
+      ],
+      "equations": [
+        {
+          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
+          "c": "Snell's law — why sound bends at a layer"
+        }
       ]
     },
     {
@@ -206,6 +224,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement can be meaningless without an earlier one to read it against"
+      ],
+      "equations": [
+        {
+          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
+          "c": "Snell's law — why sound bends at a layer"
+        }
       ]
     },
     {
@@ -289,6 +313,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a contact out in the water lies in some direction"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        },
+        {
+          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
+          "c": "Snell's law — why sound bends at a layer"
+        }
       ]
     },
     {
@@ -308,11 +342,23 @@ export const CURRICULUM = {
         "answer": "",
         "why": "This is Doppler: the fractional shift is 0.3 in 150, one part in five hundred, and the speed is that fraction of the speed of sound: about 3 metres a second, or roughly 6 knots. The line is LOW, so the source is opening — a shift toward higher frequency would mean closing. The size of it matters as much as the sign: a 6-knot opening rate is a boat leaving, not a boat manoeuvring, and it changes what the next sweep should be looking for.",
         "givens": [],
-        "relationship": "Δf ÷ f = v ÷ c, with c about 1500 m/s in water. Rearranged, v = c × Δf ÷ f.",
+        "relationship": "Δf ÷ f = v ÷ c, so v = c × Δf ÷ f: Δf is the frequency shift, f the transmitted frequency, v the closing speed, c 1500 m/s in water.",
         "calcKey": "SONAR-6"
       },
       "assumes": [
         "sound travels at about 1500 metres a second in sea water"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "computed": true
+        },
+        {
+          "e": "Δf / f = v / c",
+          "c": "Doppler shift as a closing speed",
+          "computed": true
+        }
       ]
     },
     {
@@ -361,6 +407,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a signal is detected only when it stands above the noise around it"
+      ],
+      "equations": [
+        {
+          "e": "SL − 2TL + TS − NL ≥ DT",
+          "c": "the sonar equation as a detection budget"
+        }
       ]
     },
     {
@@ -385,6 +437,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "three decibels is a doubling of acoustic power"
+      ],
+      "equations": [
+        {
+          "e": "dB = 10·log₁₀(P/P₀)",
+          "c": "the decibel, and why 3 dB is a doubling",
+          "computed": true
+        }
       ]
     },
     {
@@ -418,6 +477,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "two waves arriving together add where they are in phase and cancel where they are not"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        },
+        {
+          "e": "f_beat = |f₁ − f₂|",
+          "c": "beats between two close frequencies"
+        }
       ]
     }
   ],
@@ -486,6 +555,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "passive sonar gives a direction and no range at all"
+      ],
+      "equations": [
+        {
+          "e": "d = ½vt",
+          "c": "echo ranging on a two-way travel time"
+        }
       ]
     },
     {
@@ -730,6 +805,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a submarine holds depth by buoyancy and by the planes together"
+      ],
+      "equations": [
+        {
+          "e": "F_b = ρVg",
+          "c": "Archimedes — buoyancy from displaced volume"
+        }
       ]
     },
     {
@@ -976,6 +1057,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "sea pressure at depth is far higher than anything inside the boat"
+      ],
+      "equations": [
+        {
+          "e": "p = ρgh",
+          "c": "hydrostatic pressure with depth"
+        }
       ]
     },
     {
@@ -1656,6 +1743,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "every structure has frequencies at which it prefers to vibrate"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     },
     {
@@ -1777,6 +1870,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "changing two things at once tells you nothing about either"
+      ],
+      "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength"
+        }
       ]
     },
     {
@@ -1826,6 +1925,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the planes only work while water is flowing past them"
+      ],
+      "equations": [
+        {
+          "e": "F_b = ρVg",
+          "c": "Archimedes — buoyancy from displaced volume"
+        }
       ]
     },
     {
@@ -2014,6 +2119,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "money spent on a boat is spent on the decisions the boat can make"
+      ],
+      "equations": [
+        {
+          "e": "dB = 10·log₁₀(P/P₀)",
+          "c": "the decibel, and why 3 dB is a doubling"
+        }
       ]
     }
   ]

@@ -1584,7 +1584,7 @@ missions:
         question: Estimate the range rate the shift implies.
         why: "This is Doppler: the fractional shift is 0.3 in 150, one part in five hundred, and the speed is that fraction of the speed of sound: about 3 metres a second, or roughly 6 knots. The line is LOW, so the source is opening — a shift toward higher frequency would mean closing. The size of it matters as much as the sign: a 6-knot opening rate is a boat leaving, not a boat manoeuvring, and it changes what the next sweep should be looking for."
         estimate:
-          relationship: Δf ÷ f = v ÷ c, with c about 1500 m/s in water. Rearranged, v = c × Δf ÷ f.
+          relationship: "Δf ÷ f = v ÷ c, so v = c × Δf ÷ f: Δf is the frequency shift, f the transmitted frequency, v the closing speed, c 1500 m/s in water."
           prompt: The line is at 149.7 Hz against a rest frequency of 150.0 Hz.
           question: Estimate the range rate the shift implies.
           labels:

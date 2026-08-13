@@ -27,7 +27,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { themeDir } from '../engine/dev/registry.mjs';
-import { claimedWords, claimsPhrase } from './syllabus.js';
+import { claimedWords, claimsPhrase, EQUATIONS } from './syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
@@ -138,6 +138,50 @@ const MISSIONS = [];
  * are laid down first and the unattached ones follow — mission indices cannot
  * move when a review variant is added or removed.
  */
+/**
+ * Which of the course's essential equations this question deals with.
+ *
+ * Stamped here, at import, for the same reason `core` is: the list lives in
+ * `tools/syllabus.js`, which is authoring data, and the runtime should read a
+ * lesson rather than reach back into the tools directory for a syllabus.
+ *
+ * `computed` is the distinction the whole equation audit turns on — a question
+ * that gets a number out of an equation has taught it, and one that only says the
+ * words has not. The plan card and the question card both need to know which,
+ * because a mention deserves the equation printed where the player can see it far
+ * more than a computation does.
+ */
+function equationsFor(s, game, assumes){
+  const list = EQUATIONS[themeName] ?? [];
+  if(!list.length) return [];
+  const lbl = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
+  const flat = (parts) => ' ' + parts.filter(Boolean).map(String).join('  ')
+    .toLowerCase().replace(/\s+/g, ' ') + ' ';
+  // The arithmetic on its own: what the player fills in and what the answer is
+  // worked out from.
+  const formula = flat([game.relationship, game.template, game.solution, ...(game.givens ?? [])]);
+  const text = flat([s.title, s.scene, s.story, s.takeaway, game.question, game.task, game.why,
+    game.headline, game.setup, game.prompt, game.explanation, game.answer,
+    ...(game.cards ?? []).map(lbl), ...(game.choices ?? []).map(lbl),
+    ...(game.scenarios ?? []).map(lbl), ...(game.proposals ?? []).map(lbl),
+    ...(game.rebuttals ?? []).map(lbl), ...(game.givens ?? []).map(lbl),
+    ...(game.readings ?? []).flatMap(r => [r?.label, r?.name, r?.note, r?.purpose]),
+    ...assumes]);
+  const hit = (hay, phrase) => {
+    const exact = phrase.endsWith('!') || phrase.replace(/!$/, '').trim().length <= 3;
+    const w = phrase.replace(/!$/, '').toLowerCase().trim();
+    const e = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(^|[^a-z0-9])${e}${exact ? '([^a-z0-9]|$)' : ''}`, 'i').test(hay);
+  };
+  const out = [];
+  for(const eq of list){
+    const computed = eq.k.some(k => hit(formula, k));
+    if(!computed && !eq.k.some(k => hit(text, k))) continue;
+    out.push({ e: eq.e, c: eq.c, ...(computed ? { computed: true } : {}) });
+  }
+  return out;
+}
+
 function addLesson(s, at){
   if(!groupIds.has(s.group)) fail(`${at}: unknown group "${s.group}"`);
   const lessons = CURRICULUM[s.group] ?? [];
@@ -159,6 +203,10 @@ function addLesson(s, at){
     story: String(s.story ?? scene).trim(),
     game,
     ...(assumes.length ? { assumes } : {}),
+    ...(() => {
+      const eqs = equationsFor(s, game, assumes);
+      return eqs.length ? { equations: eqs } : {};
+    })(),
   });
   CURRICULUM[s.group] = lessons;
   return { day, game, scene };

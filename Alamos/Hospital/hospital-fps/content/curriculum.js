@@ -35,6 +35,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -68,6 +74,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a tool can give you a number"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -134,6 +146,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "only one person can go in first"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -167,6 +185,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a hospital has different rooms for different things"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -200,6 +224,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the next person was not there when it happened"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -233,6 +263,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -266,6 +302,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a tool can give you a number"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -299,6 +341,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs can travel on hands"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -332,6 +380,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "only one person can go in first"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -365,6 +419,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a hospital has different rooms for different things"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -398,6 +458,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the next person was not there when it happened"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -431,6 +497,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -464,6 +536,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a tool can give you a number"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -497,6 +575,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs can travel on hands"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -530,6 +614,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "only one person can go in first"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -563,6 +653,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a hospital has different rooms for different things"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -596,6 +692,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the next person was not there when it happened"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -629,6 +731,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -662,6 +770,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a tool can give you a number"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -695,6 +809,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs can travel on hands"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -728,6 +848,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "only one person can go in first"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -761,6 +887,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a hospital has different rooms for different things"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -794,6 +926,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the next person was not there when it happened"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -827,6 +965,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     }
   ],
@@ -862,6 +1006,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "air goes in through your nose and mouth"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -895,6 +1045,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "blowing through a small gap makes a whistle"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -925,6 +1081,18 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        },
+        {
+          "e": "breaths in a minute = breaths in 15 seconds × 4",
+          "c": "the same scaling for breathing",
+          "computed": true
+        }
       ]
     },
     {
@@ -988,6 +1156,17 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        },
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -1021,6 +1200,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "muscles work harder when you climb stairs"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -1087,6 +1272,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "blowing through a small gap makes a whistle"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -1117,6 +1308,18 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        },
+        {
+          "e": "breaths in a minute = breaths in 15 seconds × 4",
+          "c": "the same scaling for breathing",
+          "computed": true
+        }
       ]
     },
     {
@@ -1180,6 +1383,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        }
       ]
     },
     {
@@ -1213,6 +1423,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "muscles work harder when you climb stairs"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -1279,6 +1495,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "blowing through a small gap makes a whistle"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -1309,6 +1531,18 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        },
+        {
+          "e": "breaths in a minute = breaths in 15 seconds × 4",
+          "c": "the same scaling for breathing",
+          "computed": true
+        }
       ]
     },
     {
@@ -1372,6 +1606,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        }
       ]
     },
     {
@@ -1405,6 +1646,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "muscles work harder when you climb stairs"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -1471,6 +1718,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "blowing through a small gap makes a whistle"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -1501,6 +1754,18 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        },
+        {
+          "e": "breaths in a minute = breaths in 15 seconds × 4",
+          "c": "the same scaling for breathing",
+          "computed": true
+        }
       ]
     },
     {
@@ -1564,6 +1829,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a minute has 60 seconds"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate",
+          "computed": true
+        }
       ]
     },
     {
@@ -1597,6 +1869,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "muscles work harder when you climb stairs"
+      ],
+      "equations": [
+        {
+          "e": "beats in a minute = beats in 15 seconds × 4",
+          "c": "scaling a short count up to a rate"
+        }
       ]
     },
     {
@@ -1731,6 +2009,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different body parts do different jobs"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -1794,6 +2078,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you can add up a list of numbers"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit",
+          "computed": true
+        }
       ]
     },
     {
@@ -1827,6 +2118,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body makes waste it has to get rid of"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -1926,6 +2223,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different body parts do different jobs"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -1989,6 +2292,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you can add up a list of numbers"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit",
+          "computed": true
+        }
       ]
     },
     {
@@ -2121,6 +2431,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different body parts do different jobs"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -2184,6 +2500,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you can add up a list of numbers"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit",
+          "computed": true
+        }
       ]
     },
     {
@@ -2316,6 +2639,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different body parts do different jobs"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -2379,6 +2708,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you can add up a list of numbers"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit",
+          "computed": true
+        }
       ]
     },
     {
@@ -2480,6 +2816,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some things are hidden under the skin"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -2513,6 +2855,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "bones are hard and do not bend"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -2741,6 +3089,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "skin covers the whole outside of you"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -2807,6 +3161,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "bones are hard and do not bend"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -3035,6 +3395,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "skin covers the whole outside of you"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -3101,6 +3467,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "bones are hard and do not bend"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -3298,6 +3670,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your blood carries things all around your body"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -3364,6 +3742,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is inside your head"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -3562,6 +3946,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is inside your head"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -3760,6 +4150,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is inside your head"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -3958,6 +4354,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is inside your head"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4158,6 +4560,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "soap and water clean things"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4353,6 +4761,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you can take one number away from another"
+      ],
+      "equations": [
+        {
+          "e": "change each hour = total change ÷ hours taken",
+          "c": "a rate from a change and a time",
+          "computed": true
+        }
       ]
     },
     {
@@ -4386,6 +4801,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "water dries up in the air"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4419,6 +4840,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you cannot go long without breathing"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4485,6 +4912,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "help takes time to arrive"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4551,6 +4984,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "soap and water clean things"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4746,6 +5185,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you can take one number away from another"
+      ],
+      "equations": [
+        {
+          "e": "change each hour = total change ÷ hours taken",
+          "c": "a rate from a change and a time",
+          "computed": true
+        }
       ]
     },
     {
@@ -4779,6 +5225,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "water dries up in the air"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4812,6 +5264,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you cannot go long without breathing"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {
@@ -4878,6 +5336,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "help takes time to arrive"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit"
+        }
       ]
     },
     {

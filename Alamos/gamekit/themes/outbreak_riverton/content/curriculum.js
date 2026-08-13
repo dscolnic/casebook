@@ -351,6 +351,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "blood is buffered, and normal arterial pH sits near 7.4"
+      ],
+      "equations": [
+        {
+          "e": "pH = pKa + log([A⁻]/[HA])",
+          "c": "Henderson–Hasselbalch — buffering in a body"
+        }
       ]
     },
     {
@@ -523,6 +529,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "each division turns one cell into two"
+      ],
+      "equations": [
+        {
+          "e": "N(t) = N₀ · 2^(t/T_d)",
+          "c": "exponential growth from a doubling time",
+          "computed": true
+        }
       ]
     },
     {
@@ -835,6 +848,12 @@ export const CURRICULUM = {
       "assumes": [
         "a no-template control contains water and no sample",
         "two methods with different chemistry fail in different ways"
+      ],
+      "equations": [
+        {
+          "e": "sensitivity = TP / (TP+FN)",
+          "c": "and specificity = TN / (TN+FP) — what a test misses"
+        }
       ]
     },
     {
@@ -915,6 +934,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the immune system has a fast general response and a slower specific one"
+      ],
+      "equations": [
+        {
+          "e": "sensitivity = TP / (TP+FN)",
+          "c": "and specificity = TN / (TN+FP) — what a test misses"
+        }
       ]
     },
     {
@@ -964,6 +989,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "who ends up in a dataset is decided by how the data was collected"
+      ],
+      "equations": [
+        {
+          "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
+          "c": "why a good test fails at low prevalence"
+        }
       ]
     }
   ],
@@ -1188,6 +1219,18 @@ export const CURRICULUM = {
       "assumes": [
         "prevalence is the share of a population that has the condition",
         "sensitivity and specificity are properties of a test, not of a population"
+      ],
+      "equations": [
+        {
+          "e": "sensitivity = TP / (TP+FN)",
+          "c": "and specificity = TN / (TN+FP) — what a test misses",
+          "computed": true
+        },
+        {
+          "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
+          "c": "why a good test fails at low prevalence",
+          "computed": true
+        }
       ]
     },
     {
@@ -1245,6 +1288,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a sample tells you about the population it was drawn from and no other"
+      ],
+      "equations": [
+        {
+          "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
+          "c": "why a good test fails at low prevalence"
+        }
       ]
     },
     {
@@ -1652,6 +1701,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a risk is events divided by the people who could have had them"
+      ],
+      "equations": [
+        {
+          "e": "risk = events / people at risk",
+          "c": "and NNT = 1 / (control risk − treated risk)",
+          "computed": true
+        }
       ]
     },
     {
@@ -1724,6 +1780,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a model's output is only as good as the assumptions it was given"
+      ],
+      "equations": [
+        {
+          "e": "sensitivity = TP / (TP+FN)",
+          "c": "and specificity = TN / (TN+FP) — what a test misses"
+        }
       ]
     },
     {
@@ -1962,6 +2024,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "where you look decides what you can find"
+      ],
+      "equations": [
+        {
+          "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
+          "c": "why a good test fails at low prevalence"
+        }
       ]
     }
   ]

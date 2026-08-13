@@ -90,6 +90,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some measurements leave the sample as they found it and some use it up"
+      ],
+      "equations": [
+        {
+          "e": "C₁V₁ = C₂V₂",
+          "c": "dilution, and carrying a dilution factor back"
+        }
       ]
     },
     {
@@ -368,11 +374,23 @@ export const CURRICULUM = {
           "P = 1.0×10^5 Pa",
           "R = 8.31 J mol^-1 K^-1"
         ],
-        "relationship": "V = nRT/P.",
+        "relationship": "V = nRT/P, with V the volume, n the moles of gas, R the gas constant, T the absolute temperature and P the pressure.",
         "calcKey": "GASES-1"
       },
       "assumes": [
         "a given amount of gas occupies a predictable volume at ordinary conditions"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "computed": true
+        },
+        {
+          "e": "PV = nRT",
+          "c": "the ideal gas law",
+          "computed": true
+        }
       ]
     },
     {
@@ -422,6 +440,24 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a gas has a state and also a place, and they change for different reasons"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass"
+        },
+        {
+          "e": "PV = nRT",
+          "c": "the ideal gas law"
+        },
+        {
+          "e": "C₁V₁ = C₂V₂",
+          "c": "dilution, and carrying a dilution factor back"
+        },
+        {
+          "e": "q = mcΔT",
+          "c": "calorimetry — heat from a temperature change"
+        }
       ]
     },
     {
@@ -845,6 +881,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a saturated solution sits in equilibrium with the solid"
+      ],
+      "equations": [
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        },
+        {
+          "e": "Kₛₚ = [Aᵃ][Bᵇ]",
+          "c": "the solubility product and the common-ion effect"
+        }
       ]
     },
     {
@@ -905,6 +951,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "pH is a logarithmic scale — one unit is a factor of ten"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass"
+        },
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        }
       ]
     },
     {
@@ -1097,6 +1153,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a weak acid holds most of its acidity undissociated"
+      ],
+      "equations": [
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        }
       ]
     },
     {
@@ -1130,6 +1192,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a grab sample assumes the water is the same everywhere"
+      ],
+      "equations": [
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        }
       ]
     },
     {
@@ -1169,6 +1237,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "material is conserved — a shift moves it, it does not destroy it"
+      ],
+      "equations": [
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        }
       ]
     },
     {
@@ -1218,6 +1292,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a system at equilibrium responds to a change by partly offsetting it"
+      ],
+      "equations": [
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        }
       ]
     },
     {
@@ -1275,11 +1355,18 @@ export const CURRICULUM = {
           "10.0 mL sample diluted to 100.0 mL",
           "Measured diluted concentration = 2.5 mg/L"
         ],
-        "relationship": "C_original V_sample = C_diluted V_final.",
+        "relationship": "C_original V_sample = C_diluted V_final, where every C is a concentration and every V a volume.",
         "calcKey": "QUANT-1"
       },
       "assumes": [
         "diluting a sample lowers its concentration by a known factor"
+      ],
+      "equations": [
+        {
+          "e": "C₁V₁ = C₂V₂",
+          "c": "dilution, and carrying a dilution factor back",
+          "computed": true
+        }
       ]
     },
     {
@@ -1428,6 +1515,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a calibration curve is built from standards covering a particular range"
+      ],
+      "equations": [
+        {
+          "e": "A = εlc",
+          "c": "Beer–Lambert, and the calibration curve it justifies"
+        }
       ]
     },
     {
@@ -1617,6 +1710,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a balanced equation says how many of one thing react with how many of another"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass"
+        }
       ]
     },
     {
@@ -1644,6 +1743,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reaction stops when one ingredient runs out"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "computed": true
+        }
       ]
     },
     {
@@ -1677,6 +1783,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reaction can be favourable and still be slow"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass"
+        },
+        {
+          "e": "rate = k[A]ⁿ",
+          "c": "a rate law, and the order it asserts"
+        }
       ]
     },
     {
@@ -1700,11 +1816,18 @@ export const CURRICULUM = {
           "specific heat = 4.2 kJ kg^-1 K^-1",
           "temperature rise = 5 K"
         ],
-        "relationship": "q = mcΔT.",
+        "relationship": "q = mcΔT, with q the heat, m the mass, c the specific heat capacity and ΔT the temperature change.",
         "calcKey": "ENERGY-4"
       },
       "assumes": [
         "different materials need different amounts of energy to warm by one degree"
+      ],
+      "equations": [
+        {
+          "e": "q = mcΔT",
+          "c": "calorimetry — heat from a temperature change",
+          "computed": true
+        }
       ]
     },
     {
@@ -1949,6 +2072,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a trend says something a single reading cannot"
+      ],
+      "equations": [
+        {
+          "e": "C₁V₁ = C₂V₂",
+          "c": "dilution, and carrying a dilution factor back"
+        },
+        {
+          "e": "q = mcΔT",
+          "c": "calorimetry — heat from a temperature change"
+        }
       ]
     },
     {
@@ -1998,6 +2131,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reaction needs molecules to meet with enough energy to react"
+      ],
+      "equations": [
+        {
+          "e": "rate = k[A]ⁿ",
+          "c": "a rate law, and the order it asserts"
+        }
       ]
     },
     {
@@ -2037,6 +2176,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reaction goes faster when it is hotter"
+      ],
+      "equations": [
+        {
+          "e": "q = mcΔT",
+          "c": "calorimetry — heat from a temperature change"
+        },
+        {
+          "e": "rate = k[A]ⁿ",
+          "c": "a rate law, and the order it asserts"
+        }
       ]
     },
     {
@@ -2070,6 +2219,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "heat generation and heat removal do not rise at the same rate"
+      ],
+      "equations": [
+        {
+          "e": "rate = k[A]ⁿ",
+          "c": "a rate law, and the order it asserts"
+        }
       ]
     }
   ],
@@ -2181,6 +2336,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a circuit stops when any one part of it is broken"
+      ],
+      "equations": [
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        }
       ]
     },
     {
@@ -2351,6 +2512,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a filter can only remove something that is already a solid"
+      ],
+      "equations": [
+        {
+          "e": "pH = −log[H⁺]",
+          "c": "acidity on a logarithmic scale"
+        }
       ]
     },
     {
@@ -2466,6 +2633,12 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an electric current is a flow of charge, and charge is countable"
+      ],
+      "equations": [
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass"
+        }
       ]
     },
     {

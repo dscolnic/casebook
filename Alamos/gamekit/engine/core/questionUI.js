@@ -225,6 +225,27 @@ function bindTerms(container){
       panel.classList.remove('hidden');
     });
   });
+  bindEquations(container);
+}
+/** The equation buttons, same toggle behaviour as the term chips. */
+function bindEquations(container){
+  container.querySelectorAll('.eqChip').forEach(btn=>{
+    if(btn.dataset.eqBound) return;
+    btn.dataset.eqBound = '1';
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const wrap=btn.closest('.eqStrip');
+      const panel=wrap?wrap.querySelector('.eqNote'):null;
+      if(!panel) return;
+      const wasActive=btn.classList.contains('active');
+      wrap.querySelectorAll('.eqChip').forEach(x=>x.classList.remove('active'));
+      if(wasActive){ panel.classList.add('hidden'); panel.innerHTML=''; return; }
+      btn.classList.add('active');
+      panel.innerHTML=`<b>${esc(btn.textContent)}</b>`
+        + (btn.dataset.eqfor?`<br>${esc(btn.dataset.eqfor)}`:'');
+      panel.classList.remove('hidden');
+    });
+  });
 }
 
 // ——— Order (Sequence) ———
@@ -679,8 +700,29 @@ function askCard(gs, lesson, ch, person){
     + `<div class="askName">${esc(who.name)}</div><div class="askRole">${esc(role)}</div></div>`
     + `<div class="askBody">`
     + `<p class="askBrief">${esc(brief)}</p>`
+    + equationRow(lesson)
     + termsRow(allChallengeText(lesson, ch, false))
     + `</div></div>`;
+}
+/**
+ * The course equations this question deals with, as buttons beside the terms.
+ *
+ * Stamped per lesson at import from the authored list in `tools/syllabus.js`, so
+ * this is not a guess about what the question is about — it is the same claim the
+ * book's syllabus page audits. A question that *computes* one already shows the
+ * relationship in its estimate panel; the button matters most on the ones that
+ * only reason around an equation, where the algebra was previously assumed and
+ * never shown.
+ */
+function equationRow(lesson){
+  const eqs = (lesson?.equations ?? []).filter(x => x?.e);
+  if(!eqs.length) return '';
+  // What the equation is for rides on the button rather than being looked up: the
+  // lesson is not in scope where the chips are bound, and one attribute is a
+  // smaller thing to carry than module state that has to be kept in step.
+  return `<div class="eqStrip"><div class="eqButtons">${eqs.map(x =>
+    `<button type="button" class="eqChip" data-eqfor="${esc(x.c ?? '')}">${esc(x.e)}</button>`).join('')}</div>`
+    + `<div class="eqNote hidden"></div></div>`;
 }
 /** The glossary, as one quiet line rather than a labelled box of chips. */
 function termsRow(text){
@@ -1145,7 +1187,9 @@ function finishVisit(ok){
     }
   }
   document.getElementById('modalBody').querySelectorAll('button,select,input,textarea').forEach(b=>{
-    if(!b.classList.contains('termChip')) b.disabled=true;
+    // Reference stays live after the answer is locked. A player reading the
+    // verdict is exactly who wants to check the equation or a definition.
+    if(!b.classList.contains('termChip') && !b.classList.contains('eqChip')) b.disabled=true;
   });
   const closeBtn=document.getElementById('visitClose');
   if(closeBtn){ closeBtn.onclick=()=>{ closeVerdict(); closeModal(); window.dispatchEvent(new CustomEvent('projecty:statechange')); window.dispatchEvent(new CustomEvent('projecty:visitdone')); }; }

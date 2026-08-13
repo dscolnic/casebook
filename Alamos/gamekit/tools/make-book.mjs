@@ -35,7 +35,7 @@ import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from '../engine/dev/registry.mjs';
-import { SYLLABUS } from './syllabus.js';
+import { SYLLABUS, EQUATIONS, equationCoverage } from './syllabus.js';
 
 const args = process.argv.slice(2);
 const wanted = args.filter(a => !a.startsWith('--'));
@@ -402,7 +402,14 @@ async function build(themeName){
               const again = rest.filter(j => definedOn.has(j.name));
               fresh.forEach(j => definedOn.set(j.name, sh.shift));
               const freshHtml = fresh.map(j => `<dt>${esc(j.name)}</dt><dd>${rich(j.def ?? '')}</dd>`).join('');
-              return (card ? `<div class="vocab"><h4>Worth knowing first</h4><dl>${card}</dl></div>` : '')
+              // The equations this day is the first to need, printed the same way
+              // the plan card shows them on screen — `normalize.js` puts each on
+              // its first day, so the paper card and the screen card agree.
+              const eqs = (m.equations ?? []).filter(x => x?.e);
+              return (eqs.length ? `<div class="mEqs">${eqs.map(x =>
+                  `<div class="mEq"><code>${esc(x.e)}</code>`
+                  + (x.c ? `<span>${esc(x.c)}</span>` : '') + `</div>`).join('')}</div>` : '')
+                + (card ? `<div class="vocab"><h4>Worth knowing first</h4><dl>${card}</dl></div>` : '')
                 + (freshHtml ? `<div class="vocab"><h4>Also said on this ${dayNoun.toLowerCase()}</h4><dl>${freshHtml}</dl></div>` : '')
                 + (again.length ? `<p class="terms"><span>Already defined</span> ${
                     again.map(j => `${esc(j.name)} (${dayNoun.toLowerCase()} ${definedOn.get(j.name)})`).join(' · ')}</p>` : '');
@@ -490,6 +497,20 @@ async function build(themeName){
       if(!matched.length) teachesNothing.push(n + 1);
       else if(matched.every(con => con.m)) methodOnly.push(n + 1);
     });
+    // The equations, on the stricter test. A concept is touched when a question
+    // talks about it; an equation is TAUGHT only when a question gets a number out
+    // of it, which is why the arithmetic — the authored `relationship`, the
+    // template the player fills, the worked solution and the givens — is searched
+    // on its own and reported apart from the prose.
+    const formulas = pages.map((p) => {
+      const ch = p.ch;
+      return ' ' + [ch.relationship, ch.template, ch.solution, ...(ch.givens ?? [])]
+        .filter(Boolean).join(' ').toLowerCase().replace(/\s+/g, ' ') + ' ';
+    });
+    const eqRows = equationCoverage(themeName,
+      pages.map((p, n) => ({ text: haystacks[n], formula: formulas[n] })), hit);
+    const eqComputed = eqRows.filter(r => r.computes.length).length;
+    const eqAbsent = eqRows.filter(r => !r.computes.length && !r.mentions.length).length;
     return `<section class="page syllabus">
       <div class="fit"FITSIZE>
         <header>
@@ -506,6 +527,24 @@ async function build(themeName){
           + `<span class="cq">${r.which.length
               ? `${r.which.length === 1 ? 'question' : 'questions'} ${r.which.join(', ')}`
               : 'no question'}</span></li>`).join('')}</ol>
+        ${eqRows.length ? `<div class="eqs">
+          <h3>The ${eqRows.length} equations such a course cannot leave out</h3>
+          <p class="eqlede">A question <b>computes</b> an equation when a number comes out of it —
+            the estimate's own relationship, filled in. Anything else is a mention, and a mention
+            is not teaching: ${eqComputed} of ${eqRows.length} are computed here${
+              eqAbsent ? `, and ${eqAbsent} appear in no question at all` : ''}.</p>
+          <ol class="eqlist">${eqRows.map(r => {
+            const cls = r.computes.length ? 'has' : r.mentions.length ? 'weak' : 'gap';
+            const where = r.computes.length
+              ? `computed · question${r.computes.length === 1 ? '' : 's'} ${r.computes.join(', ')}`
+              : r.mentions.length
+                ? `mentioned only · question${r.mentions.length === 1 ? '' : 's'} ${r.mentions.slice(0, 6).join(', ')}${r.mentions.length > 6 ? '…' : ''}`
+                : 'no question';
+            return `<li class="${cls}"><span class="eqe">${esc(r.e)}</span>`
+              + `<span class="eqc">${esc(r.c)}</span>`
+              + `<span class="eqq">${where}</span></li>`;
+          }).join('')}</ol>
+        </div>` : ''}
         <div class="flip">
           <p><span>Teaches nothing on this list</span> ${teachesNothing.length
             ? `question${teachesNothing.length === 1 ? '' : 's'} ${teachesNothing.join(', ')}`
@@ -596,6 +635,24 @@ async function build(themeName){
   .toc .ct { flex: 1; }
   .toc .cs { color: #8a8f97; }
 
+  /* ---- page three: the equations, on the stricter test. The equation itself is
+     set in the serif at the weight of a heading, because it is the thing being
+     looked up; computed is black, mentioned-only is grey, and a gap is the same
+     red the concept list uses so both audits read the same way. */
+  .syllabus .eqs { margin-top: 10pt; padding-top: 8pt; border-top: 1.5pt solid #16181c; }
+  .syllabus .eqs h3 { font: 700 10.5pt/1.3 "Charter", Georgia, serif; margin: 0 0 4pt; }
+  .syllabus .eqlede { font: 400 8.5pt/1.5 "Inter", system-ui, sans-serif; color: #4a4f57;
+                      margin: 0 0 6pt; max-width: 46em; }
+  .syllabus .eqlist { list-style: none; margin: 0; padding: 0; }
+  .syllabus .eqlist li { display: flex; gap: 7pt; align-items: baseline; padding: 2.2pt 0;
+                         border-bottom: 0.4pt solid #e4e1db; break-inside: avoid; }
+  .syllabus .eqe { font: 700 9.5pt/1.4 "Charter", Georgia, serif; min-width: 13em; }
+  .syllabus .eqc { flex: 1; font: 400 8.5pt/1.45 "Inter", system-ui, sans-serif; color: #4a4f57; }
+  .syllabus .eqq { font: 600 8pt/1.45 "Inter", system-ui, sans-serif; color: #4a4f57;
+                   white-space: nowrap; }
+  .syllabus .weak .eqe, .syllabus .weak .eqq { color: #6f747c; }
+  .syllabus .gap .eqe, .syllabus .gap .eqq { color: #8a2d22; }
+
   /* ---- page three: the syllabus map */
   .syllabus .fit { display: flex; flex-direction: column; min-height: ${PAGE_PX - 4}px; }
   .syllabus header { border-top: 3pt solid #16181c; padding-top: 8pt; margin-bottom: 10pt; }
@@ -649,6 +706,15 @@ async function build(themeName){
   .mission .teaches ul { margin: 0; padding-left: 1.1em; }
   .mission .teaches li { margin-bottom: 3pt; }
   .mission .teaches .vocab { margin: 7pt 0 0; }
+  /* The equations this day is the first to need, above the vocabulary — the same
+     order and the same boxed treatment the screen card uses. */
+  .mission .mEqs { margin: 7pt 0 0; display: flex; flex-direction: column; gap: 2.5pt; }
+  .mission .mEq { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6pt;
+                  padding: 3pt 6pt; border: 0.5pt solid #b9c6cd; border-radius: 2pt;
+                  background: #f4f8f9; break-inside: avoid; }
+  .mission .mEq code { font: 700 9pt/1.3 ui-monospace, "SFMono-Regular", Menlo, monospace;
+                       color: #2f4652; }
+  .mission .mEq span { font: 400 8pt/1.4 "Inter", system-ui, sans-serif; color: #55606a; }
   .mission .teaches .vocab h4 { font: 700 8pt/1.4 "Inter", system-ui, sans-serif; letter-spacing: .07em;
     text-transform: uppercase; color: #6b7280; margin: 0 0 3pt; }
   .mission .teaches .vocab dl { margin: 0; font-size: .93rem; color: #35393f; }
