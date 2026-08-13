@@ -139,10 +139,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Where the sound will not go",
-      "scene": "The bathythermograph shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.",
+      "scene": "The temperature-depth trace shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.",
       "takeaway": "Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.",
       "place": "Sonar Shack",
-      "story": "The bathythermograph shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.",
+      "story": "The temperature-depth trace shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.",
       "game": {
         "type": "CHOICE",
         "title": "Where the sound will not go",
@@ -515,10 +515,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Two displays, one source",
-      "scene": "The chart overlay and the electronic repeat agree to within a hundred yards. The fathometer says the water is twelve metres shallower than the chart shows for that position. There is a bank ahead.",
+      "scene": "The chart overlay and the electronic repeat agree to within a hundred yards. The depth sounder says the water is twelve metres shallower than the chart shows for that position. There is a bank ahead.",
       "takeaway": "Independent confirmation only counts when the second source can fail differently.",
       "place": "Control Room",
-      "story": "The chart overlay and the electronic repeat agree to within a hundred yards. The fathometer says the water is twelve metres shallower than the chart shows for that position. There is a bank ahead.",
+      "story": "The chart overlay and the electronic repeat agree to within a hundred yards. The depth sounder says the water is twelve metres shallower than the chart shows for that position. There is a bank ahead.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Two displays, one source",
@@ -527,12 +527,12 @@ export const CURRICULUM = {
         "task": "Which explanation accounts for every reading here?",
         "question": "Which explanation accounts for every reading here?",
         "answer": "The plot is wrong and the sounding is right",
-        "why": "Agreement between instruments feels like confirmation, and it is only worth something when the two could have failed in different ways. These two are fed by one inertial navigator, so they agree by construction — they could not disagree if the navigator were wrong. The fathometer is not part of that arrangement at all: it is looking straight down at something outside the boat. So its disagreement is the only new information on the table, and it points at the plot.",
+        "why": "Agreement between instruments feels like confirmation, and it is only worth something when the two could have failed in different ways. These two are fed by one inertial navigator, so they agree by construction — they could not disagree if the navigator were wrong. The depth sounder is not part of that arrangement at all: it is looking straight down at something outside the boat. So its disagreement is the only new information on the table, and it points at the plot.",
         "rebuttals": [
-          "A failed fathometer is the comfortable answer, and it needs the two agreeing displays to be right. They agree because they share one navigator.",
+          "A failed depth sounder is the comfortable answer, and it needs the two agreeing displays to be right. They agree because they share one navigator.",
           "An out-of-date chart moves the bottom, not the boat. It is possible, and it does not explain three and a half hours with no fix.",
           "Tide and pressure move the surface by a metre or two, not twelve. The bottom is where the bottom is.",
-          "Twelve metres is not sounding scatter. A fathometer that wrong would be failing in a way the sounding itself would show."
+          "Twelve metres is not sounding scatter. A depth sounder that wrong would be failing in a way the sounding itself would show."
         ],
         "headline": "The two navigation displays agree exactly, and the bottom does not agree with either.",
         "readings": [
@@ -573,7 +573,7 @@ export const CURRICULUM = {
             "mechanism": "Both displays repeat one degraded source, so they cannot disagree; the bottom is independent."
           },
           {
-            "label": "The fathometer has failed and the plot is right",
+            "label": "The depth sounder has failed and the plot is right",
             "mechanism": "A single instrument fault, with the two agreeing displays correct."
           },
           {
@@ -1986,10 +1986,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "What the boat should buy",
-      "scene": "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a fathometer overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.",
+      "scene": "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a depth sounder overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.",
       "takeaway": "You fund what changes a decision, not what improves a number.",
       "place": "Machinery Control Room",
-      "story": "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a fathometer overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.",
+      "story": "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a depth sounder overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two.",
       "game": {
         "type": "CHOICE",
         "title": "What the boat should buy",

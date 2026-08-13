@@ -193,7 +193,7 @@ roster:
     role: Assistant Navigator
     division: NAV
     bio: |-
-      Runs the chart table and the fathometer, and is the person who actually
+      Runs the chart table and the depth sounder, and is the person who actually
       writes the time beside a fix. Nine years, four boats, and a handwriting
       that anybody can read at two in the morning, which is not a small thing.
 
@@ -908,7 +908,7 @@ missions:
     objective: Work out not where the boat is, but how well that is known.
     briefing: |-
       The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.
-    stake: Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya Petrov has been reading the fathometer, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Two displays taking their heading from the same gyro will agree beautifully, which is Sowande's whole worry. Sixty fathoms, and a bank half a mile off the track.
+    stake: Third day, middle watch, and the last trusted fix was three and a half hours ago. The navigator, Imani Sowande, has the plot built from course, speed and time, her assistant Anya Petrov has been reading the depth sounder, and the two of them do not agree. There is a current here of about half a knot that nobody has measured today. This watch you work out how far the water has carried the boat, decide which instrument to believe, and get a position that does not depend on the plot at all. Two displays taking their heading from the same gyro will agree beautifully, which is Sowande's whole worry. Sixty fathoms, and a bank half a mile off the track.
     takeaway: Precision is not accuracy, and two displays sharing a source are one measurement.
     stops:
       - group: NAV
@@ -947,14 +947,14 @@ missions:
         task: Which explanation accounts for every reading here?
         title: Two displays, one source
         place: Control Room
-        scene: The chart overlay and the electronic repeat agree to within a hundred yards. The fathometer says the water is twelve metres shallower than the chart shows for that position. There is a bank ahead.
+        scene: The chart overlay and the electronic repeat agree to within a hundred yards. The depth sounder says the water is twelve metres shallower than the chart shows for that position. There is a bank ahead.
         takeaway: Independent confirmation only counts when the second source can fail differently.
         format: DIAGNOSIS
         rebuttals:
-          - A failed fathometer is the comfortable answer, and it needs the two agreeing displays to be right. They agree because they share one navigator.
+          - A failed depth sounder is the comfortable answer, and it needs the two agreeing displays to be right. They agree because they share one navigator.
           - An out-of-date chart moves the bottom, not the boat. It is possible, and it does not explain three and a half hours with no fix.
           - Tide and pressure move the surface by a metre or two, not twelve. The bottom is where the bottom is.
-          - Twelve metres is not sounding scatter. A fathometer that wrong would be failing in a way the sounding itself would show.
+          - Twelve metres is not sounding scatter. A depth sounder that wrong would be failing in a way the sounding itself would show.
         assumes:
           - two instruments can share a source and therefore share its errors
         headline: The two navigation displays agree exactly, and the bottom does not agree with either.
@@ -982,7 +982,7 @@ missions:
         choices:
           - label: The plot is wrong and the sounding is right
             mechanism: Both displays repeat one degraded source, so they cannot disagree; the bottom is independent.
-          - label: The fathometer has failed and the plot is right
+          - label: The depth sounder has failed and the plot is right
             mechanism: A single instrument fault, with the two agreeing displays correct.
           - label: The chart is out of date along this contour
             mechanism: The survey is old and the bottom has changed.
@@ -991,12 +991,12 @@ missions:
           - label: Nothing to explain
             mechanism: Twelve metres is within ordinary sounding scatter.
         answer: The plot is wrong and the sounding is right
-        why: "Agreement between instruments feels like confirmation, and it is only worth something when the two could have failed in different ways. These two are fed by one inertial navigator, so they agree by construction — they could not disagree if the navigator were wrong. The fathometer is not part of that arrangement at all: it is looking straight down at something outside the boat. So its disagreement is the only new information on the table, and it points at the plot."
+        why: "Agreement between instruments feels like confirmation, and it is only worth something when the two could have failed in different ways. These two are fed by one inertial navigator, so they agree by construction — they could not disagree if the navigator were wrong. The depth sounder is not part of that arrangement at all: it is looking straight down at something outside the boat. So its disagreement is the only new information on the table, and it points at the plot."
       - group: SONAR
         task: The contact was held on the surface layer and is now lost. Where has it gone?
         title: Where the sound will not go
         place: Sonar Shack
-        scene: The bathythermograph shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.
+        scene: The temperature-depth trace shows 14 degrees down to 60 metres and 9 below it. The contact was held for forty minutes at 20 metres' depth on this boat, then gone in a single sweep, with every other trace on the display unchanged.
         takeaway: Sound bends toward slower water, which leaves regions a sonar cannot hear into at all.
         format: CHOICE
         assumes:
@@ -1997,7 +1997,7 @@ missions:
         task: Spend the yard time
         title: What the boat should buy
         place: Machinery Control Room
-        scene: "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a fathometer overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two."
+        scene: "Four refit proposals: mounts at 12 dB for £2.4m, a new array at 6 dB for £5m, a depth sounder overhaul, and spare pumps. Ahead is a 3,000-mile transit with a 40-mile passage in the middle where the chart is fifty years old. The yard will fit two."
         takeaway: You fund what changes a decision, not what improves a number.
         format: CHOICE
         assumes:

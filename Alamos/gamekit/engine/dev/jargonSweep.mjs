@@ -146,7 +146,7 @@ radiological saturate stabilise throughput unstable
 affordable atmosphere atmospheric compress condensation consumable contradictory corruption descent
 dissipate distant endurance geometry gradient improvise intermittent moderate orientation perpendicular
 quality reconstruct refine reliability simulation subtract timeline timestamp transition transmit
-accelerometer propel propulsion transmitter unambiguous vibration voltmeter
+accelerometer propel propulsion switchboard thermometer transmitter unambiguous vibration voltmeter
 `.trim().split(/\s+/).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has
@@ -274,7 +274,13 @@ for(const themeName of wanted){
         ...(ch.choices ?? []).map(label), ...(ch.cards ?? []).map(label),
         ...(ch.scenarios ?? []).map(label), ...(ch.givens ?? []).map(label),
         ...(ch.proposals ?? []).map(label)].filter(Boolean).join('  ');
+      // "Mrs. Grant" is a patient, not a hard word. The roster covers the cast a
+      // game ships; the people invented inside a question are known only by the
+      // title in front of them.
+      const surnames = new Set();
+      for(const m of asked.matchAll(/\b(?:Mr|Mrs|Ms|Miss|Dr|Nurse|Captain|Chief|Colonel|General|Professor|Lieutenant|Commander)\.?\s+([A-Z][a-z]+)/g)) surnames.add(norm(m[1]));
       for(const raw of words(asked)){
+        if(surnames.has(norm(raw))) continue;
         if(!candidate(raw)) continue;
         const key = norm(raw);
         if(names.has(key)) continue;

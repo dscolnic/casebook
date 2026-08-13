@@ -3303,10 +3303,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Touch, Think, Move",
-      "scene": "Lily touches something very cold. She pulls her hand back fast. The neurologist shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
+      "scene": "Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "story": "Lily touches something very cold. She pulls her hand back fast. The neurologist shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
+      "story": "Lily touches something very cold. She pulls her hand back fast. The brain doctor shows four cards. It felt like one instant to Lily. It was really a sequence. Something was noticed. A message travelled. The brain understood it. A muscle moved. Each stage takes a tiny bit of time. So the order can be worked out.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move",
@@ -3435,10 +3435,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "From Light to Picture",
-      "scene": "Jules wants to know how light becomes a picture. The neurologist lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
+      "scene": "Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "story": "Jules wants to know how light becomes a picture. The neurologist lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
+      "story": "Jules wants to know how light becomes a picture. The brain doctor lays out four cards. Eyes do not really see on their own. They catch light and turn it into signals. The picture is put together later, in the brain. That is why seeing is a team job. Knowing the stages tells you where a problem could be.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture",
@@ -3501,10 +3501,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Touch, Think, Move — Review 2",
-      "scene": "Lily touches something very cold and quickly moves her hand. The neurologist shows four simplified stages.",
+      "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "story": "Lily touches something very cold and quickly moves her hand. The neurologist shows four simplified stages.",
+      "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move — Review 2",
@@ -3633,10 +3633,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "From Light to Picture — Review 2",
-      "scene": "Jules wants to know how light becomes the picture he experiences. The neurologist uses four large picture cards.",
+      "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "story": "Jules wants to know how light becomes the picture he experiences. The neurologist uses four large picture cards.",
+      "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture — Review 2",
@@ -3699,10 +3699,10 @@ export const CURRICULUM = {
     {
       "day": 14,
       "title": "Touch, Think, Move — Review 3",
-      "scene": "Lily touches something very cold and quickly moves her hand. The neurologist shows four simplified stages.",
+      "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "story": "Lily touches something very cold and quickly moves her hand. The neurologist shows four simplified stages.",
+      "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move — Review 3",
@@ -3831,10 +3831,10 @@ export const CURRICULUM = {
     {
       "day": 18,
       "title": "From Light to Picture — Review 3",
-      "scene": "Jules wants to know how light becomes the picture he experiences. The neurologist uses four large picture cards.",
+      "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "story": "Jules wants to know how light becomes the picture he experiences. The neurologist uses four large picture cards.",
+      "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture — Review 3",
@@ -3897,10 +3897,10 @@ export const CURRICULUM = {
     {
       "day": 20,
       "title": "Touch, Think, Move — Review 4",
-      "scene": "Lily touches something very cold and quickly moves her hand. The neurologist shows four simplified stages.",
+      "scene": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "takeaway": "The nervous system helps the body notice changes and respond.",
       "place": "",
-      "story": "Lily touches something very cold and quickly moves her hand. The neurologist shows four simplified stages.",
+      "story": "Lily touches something very cold and quickly moves her hand. The brain doctor shows four simplified stages.",
       "game": {
         "type": "SEQUENCE",
         "title": "Touch, Think, Move — Review 4",
@@ -4029,10 +4029,10 @@ export const CURRICULUM = {
     {
       "day": 24,
       "title": "From Light to Picture — Review 4",
-      "scene": "Jules wants to know how light becomes the picture he experiences. The neurologist uses four large picture cards.",
+      "scene": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "takeaway": "Seeing is a team job between the eyes, nerves, and brain.",
       "place": "",
-      "story": "Jules wants to know how light becomes the picture he experiences. The neurologist uses four large picture cards.",
+      "story": "Jules wants to know how light becomes the picture he experiences. The brain doctor uses four large picture cards.",
       "game": {
         "type": "SEQUENCE",
         "title": "From Light to Picture — Review 4",
@@ -4163,10 +4163,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Same Symptom, Same Germ?",
-      "scene": "Ty and Ana both feel tired. The rest of their clues are different. So is where each of them had been. A student says they must have the same germ. The microbiologist asks you to judge that. Many different illnesses make people tired. One shared clue is weak proof. Medicine is a puzzle. The pattern across clues is what points to an answer.",
+      "scene": "Ty and Ana both feel tired. The rest of their clues are different. So is where each of them had been. A student says they must have the same germ. The germ scientist asks you to judge that. Many different illnesses make people tired. One shared clue is weak proof. Medicine is a puzzle. The pattern across clues is what points to an answer.",
       "takeaway": "Medicine is an evidence puzzle, not a one-clue guessing game.",
       "place": "",
-      "story": "Ty and Ana both feel tired. The rest of their clues are different. So is where each of them had been. A student says they must have the same germ. The microbiologist asks you to judge that. Many different illnesses make people tired. One shared clue is weak proof. Medicine is a puzzle. The pattern across clues is what points to an answer.",
+      "story": "Ty and Ana both feel tired. The rest of their clues are different. So is where each of them had been. A student says they must have the same germ. The germ scientist asks you to judge that. Many different illnesses make people tired. One shared clue is weak proof. Medicine is a puzzle. The pattern across clues is what points to an answer.",
       "game": {
         "type": "CHOICE",
         "title": "Same Symptom, Same Germ?",
@@ -4391,10 +4391,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Which Allergy Patient First?",
-      "scene": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has hives and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
+      "scene": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
       "takeaway": "When breathing is threatened, urgency rises sharply.",
       "place": "",
-      "story": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has hives and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
+      "story": "Three people come in with allergy signs. Sofia has itchy eyes and breathes normally. Malik has an itchy rash and talks normally. Chloe has swelling around her mouth. She is struggling to breathe. The team needs your call. An allergy is the body's defence going much too far. Most reactions stay about the same for a while. A few change very fast.",
       "game": {
         "type": "TRIAGE",
         "title": "Which Allergy Patient First?",
@@ -4406,13 +4406,13 @@ export const CURRICULUM = {
         "why": "Swelling with trouble breathing can get dangerous in minutes. That is why Chloe goes first. Itchy eyes are horrible and they stay about the same. A big rash looks worse than a small one, but how much skin it covers is not what makes it urgent. You go by what could get worse fastest.",
         "rebuttals": [
           "B. Sofia, because itchy eyes come first and treating them early stops the rest. — Itchy eyes are no fun. They do not get dangerous the way trouble breathing does.",
-          "C. Malik, because his hives cover a large area of skin. — A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
+          "C. Malik, because his rash covers a large area of skin. — A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
           "D. Whoever has been waiting longest, so the queue stays fair. — Waiting your turn is fair most places. Here the fair thing is the sickest person first."
         ],
         "choices": [
           "Chloe, because swelling with trouble breathing can be a medical emergency.",
           "Sofia, because itchy eyes come first and treating them early stops the rest.",
-          "Malik, because his hives cover a large area of skin.",
+          "Malik, because his rash covers a large area of skin.",
           "Whoever has been waiting longest, so the queue stays fair."
         ],
         "correctChoice": "Chloe, because swelling with trouble breathing can be a medical emergency."
@@ -4556,10 +4556,10 @@ export const CURRICULUM = {
     {
       "day": 15,
       "title": "Same Symptom, Same Germ? — Review 2",
-      "scene": "Ty and Ana both feel tired, but their other clues and exposures are different. A student says, “They must have the exact same germ because they are both tired.” The microbiologist asks you to judge that claim.",
+      "scene": "Ty and Ana both feel tired, but their other clues and exposures are different. A student says, “They must have the exact same germ because they are both tired.” The germ scientist asks you to judge that claim.",
       "takeaway": "Medicine is an evidence puzzle, not a one-clue guessing game.",
       "place": "",
-      "story": "Ty and Ana both feel tired, but their other clues and exposures are different. A student says, “They must have the exact same germ because they are both tired.” The microbiologist asks you to judge that claim.",
+      "story": "Ty and Ana both feel tired, but their other clues and exposures are different. A student says, “They must have the exact same germ because they are both tired.” The germ scientist asks you to judge that claim.",
       "game": {
         "type": "CHOICE",
         "title": "Same Symptom, Same Germ? — Review 2",
@@ -4784,10 +4784,10 @@ export const CURRICULUM = {
     {
       "day": 22,
       "title": "Which Allergy Patient First? — Review 2",
-      "scene": "Three people arrive with possible allergy symptoms. Sofia has itchy eyes and is breathing normally. Malik has hives and is talking normally. Chloe has swelling around her mouth and is struggling to breathe. The emergency team is present.",
+      "scene": "Three people arrive with possible allergy symptoms. Sofia has itchy eyes and is breathing normally. Malik has an itchy rash and is talking normally. Chloe has swelling around her mouth and is struggling to breathe. The emergency team is present.",
       "takeaway": "When breathing is threatened, urgency rises sharply.",
       "place": "",
-      "story": "Three people arrive with possible allergy symptoms. Sofia has itchy eyes and is breathing normally. Malik has hives and is talking normally. Chloe has swelling around her mouth and is struggling to breathe. The emergency team is present.",
+      "story": "Three people arrive with possible allergy symptoms. Sofia has itchy eyes and is breathing normally. Malik has an itchy rash and is talking normally. Chloe has swelling around her mouth and is struggling to breathe. The emergency team is present.",
       "game": {
         "type": "TRIAGE",
         "title": "Which Allergy Patient First? — Review 2",
@@ -4799,13 +4799,13 @@ export const CURRICULUM = {
         "why": "Swelling with trouble breathing can get dangerous in minutes. That is why Chloe goes first. Itchy eyes are horrible and they stay about the same. A big rash looks worse than a small one, but how much skin it covers is not what makes it urgent. You go by what could get worse fastest.",
         "rebuttals": [
           "B. Sofia, because itchy eyes come first and treating them early stops the rest. — Itchy eyes are no fun. They do not get dangerous the way trouble breathing does.",
-          "C. Malik, because his hives cover a large area of skin. — A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
+          "C. Malik, because his rash covers a large area of skin. — A big rash looks worse than a small one. How much skin it covers is not what makes it urgent.",
           "D. Whoever has been waiting longest, so the queue stays fair. — Waiting your turn is fair most places. Here the fair thing is the sickest person first."
         ],
         "choices": [
           "Chloe, because swelling with trouble breathing can be a medical emergency.",
           "Sofia, because itchy eyes come first and treating them early stops the rest.",
-          "Malik, because his hives cover a large area of skin.",
+          "Malik, because his rash covers a large area of skin.",
           "Whoever has been waiting longest, so the queue stays fair."
         ],
         "correctChoice": "Chloe, because swelling with trouble breathing can be a medical emergency."

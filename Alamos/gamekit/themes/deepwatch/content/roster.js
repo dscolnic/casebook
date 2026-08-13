@@ -84,7 +84,7 @@ export const ROSTER = [
     "role": "Assistant Navigator",
     "division": "NAV",
     "color": "#3f7fb6",
-    "bio": "<p>Runs the chart table and the fathometer, and is the person who actually writes the time beside a fix. Nine years, four boats, and a handwriting that anybody can read at two in the morning, which is not a small thing.</p><p>Her job is the arithmetic the plot depends on: set and drift, course made good, speed of advance. She is the one who notices that a course steered and a course made good have quietly diverged, because she is the one comparing them.</p><p>What she guards against is the display that looks like a measurement and is not. The chart overlay and the electronic repeat both draw from the inertial navigator, so they agree perfectly and always will. Two displays showing one source is not confirmation, and she will say so out loud.</p>",
+    "bio": "<p>Runs the chart table and the depth sounder, and is the person who actually writes the time beside a fix. Nine years, four boats, and a handwriting that anybody can read at two in the morning, which is not a small thing.</p><p>Her job is the arithmetic the plot depends on: set and drift, course made good, speed of advance. She is the one who notices that a course steered and a course made good have quietly diverged, because she is the one comparing them.</p><p>What she guards against is the display that looks like a measurement and is not. The chart overlay and the electronic repeat both draw from the inertial navigator, so they agree perfectly and always will. Two displays showing one source is not confirmation, and she will say so out loud.</p>",
     "quiz": [
       {
         "q": "Why is Petrov unimpressed when the chart overlay and the plot repeat agree?",
