@@ -172,6 +172,62 @@ is wrong or the file is stale.
 
 ---
 
+## 10. The arc has a shape, and the last day resolves it
+
+Rules 1 to 9 are checkable and checked. This one is judgement, and it is the
+difference between fifteen correct days and a campaign somebody finishes.
+
+**The shape that has worked, four times.** Not a formula — a distribution of
+kinds of day, which is what stops days 4 through 12 reading identically:
+
+| Days | What the day is for |
+| --- | --- |
+| 1 | The thing has already happened. Establish the room, the stakes and the argument; no twist yet |
+| 2–4 | The argument opens. Each side wins one, and the player is told which was right on which day |
+| 5–8 | Escalation by consequence, not by volume: a decision from day 3 comes back with a cost |
+| ~9 | **The reversal.** New evidence reframes what everyone has been working on |
+| ~11 | **The quiet day.** Nothing goes wrong, and it reads as unnerving rather than as filler |
+| 12–13 | The compound day: three things at once, and the job is ranking them |
+| 14 | The last reversible moment. After this the decisions are made |
+| 15 | Disposition: go through the claims, say how strongly each is held, decide what outlives the emergency |
+
+**A twist is evidence, never an event.** Riverton's sewer sample tested positive
+four days before the first patient walked in. Project Y's reactor plutonium
+arrives and ends a year of work in a fortnight. Both reframe what the room has
+been doing, and both are a measurement somebody took — not a fire, not a
+saboteur. An event that could have happened to anybody is not a twist in a game
+about evidence.
+
+**Tension comes from four things, and gore is not one of them.** A clock that is
+running; a named person who is harmed if you are slow; a commitment that cannot
+be undone once made; a number that moved and should not have. Every shipped day
+uses at least two.
+
+**Cash the player's own decisions.** The engine writes one continuity line from
+the stored results, which is the floor, not the ceiling. Day 13 of Bring Them
+Home opens with the correction the player flew on day 3 coming back expensive.
+That is what makes a campaign rather than a series.
+
+**Somebody has to be right, including against the player.** "And this time
+Whitaker is right" appears on four cards across the games. A room where the
+player is always the sensible one is a room with no argument in it.
+
+**The ending resolves, and is earned.** `ending: [...]` in the manifest is the
+last thing anybody reads, and three rules hold:
+
+- **Say what happened, in the world.** The crew came home; the city drank its own
+  water again; the object passed at two Earth radii and five thousand kilometres
+  of that were bought by the impact.
+- **Name what it cost, and what is unfinished.** A resolved ending is not a tidy
+  one. The survey line that caught this object expires in eleven months. The
+  monitoring programme needs funding after the emergency budget closes.
+- **Earn it from the player's own work.** The ending may not introduce a rescue
+  nobody worked for. It reads back what the fifteen days established — which is
+  why day 15 is a disposition of claims rather than a new problem.
+
+And do not end on the mechanics. "Campaign complete" in the HUD corner is what
+all seven games used to do, and it is why this rule is written down.
+
 ## The order that works
 
 1. Timeline and arc → `STORIES.md`.

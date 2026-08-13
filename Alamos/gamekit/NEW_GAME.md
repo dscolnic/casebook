@@ -193,6 +193,13 @@ requiring a degree.
 what happened and whether it worked. Fifteen missions used to end with
 "Campaign complete" in the HUD corner.
 
+**The arc has a shape, and the ending has to be earned.** STORY_SPEC.md § 10 is
+the part no checker can see: which day carries the reversal, which day is quiet,
+which day cashes a decision the player made on day 3, why a twist is evidence
+rather than an event, and the three rules an ending obeys — say what happened,
+name what it cost and what is unfinished, and take it from the player's own work.
+Read it before writing day 2.
+
 **Names.** Nobody is named before they are introduced with a role or a title —
 "the integration lead, Evelyn Carter", then "Carter" for the rest of the
 campaign. `checkNames` fails a first mention that does not.
