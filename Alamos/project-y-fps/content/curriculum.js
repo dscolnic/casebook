@@ -268,14 +268,14 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "Uncertainty propagation",
+      "title": "Carrying uncertainty through",
       "scene": "A predicted reaction rate rests on a cross section known to a few per cent and a flux known to a few more. Theory is being asked how well the prediction is known.",
       "takeaway": "Adding independent uncertainties linearly is usually too pessimistic; ignoring correlation can be too optimistic.",
       "place": "",
       "story": "A predicted reaction rate rests on a cross section known to a few per cent and a flux known to a few more. Theory is being asked how well the prediction is known.",
       "game": {
         "type": "BALLPARK",
-        "title": "Uncertainty propagation",
+        "title": "Carrying uncertainty through",
         "setup": "A predicted reaction rate has an 8% cross-section uncertainty and a 6% flux uncertainty.",
         "play": "Estimate the total fractional uncertainty.",
         "task": "Estimate the total fractional uncertainty.",
@@ -339,7 +339,7 @@ export const CURRICULUM = {
         "play": "Theory and experiment differ by three standard deviations. What does the division do?",
         "task": "Theory and experiment differ by three standard deviations. What does the division do?",
         "question": "Theory and experiment differ by three standard deviations. What does the division do?",
-        "answer": "Audit the shared calibrations and covariance, then design a discriminating measurement.",
+        "answer": "Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.",
         "why": "Two numbers that share a calibration can be three sigma apart because one error was counted twice. The audit is cheap enough to do first. What has to follow it is a measurement whose outcome differs depending on which explanation is true. A detector artefact, a missing physical effect, or an approximation pushed past its range all predict different things. Design the test that separates them, and spend the credits there rather than on the one that reassures.",
         "rebuttals": [
           "Retuning parameters to force agreement hides the discrepancy inside a number and destroys the only evidence that something was wrong.",
@@ -347,12 +347,12 @@ export const CURRICULUM = {
           "Adopting the experimental value settles the disagreement by whoever wrote it down last, and leaves the cause in place for the next comparison."
         ],
         "choices": [
-          "Audit the shared calibrations and covariance, then design a discriminating measurement.",
+          "Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.",
           "Retune the uncertain parameters until the model reproduces the measurement.",
           "Collect more of the same data, to see whether the gap narrows.",
           "Adopt the experimental value and record the disagreement in the report."
         ],
-        "correctChoice": "Audit the shared calibrations and covariance, then design a discriminating measurement."
+        "correctChoice": "Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart."
       },
       "assumes": [
         "three standard deviations is a real disagreement, not noise"
@@ -1022,19 +1022,19 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "2 -> 3 -> 4 -> 5 (Acquire spectra from known reference lines -> Locate peak channel positions -> Fit channel-to-energy relationship -> Apply the calibration to unknown peaks and propagate uncertainty)",
+        "answer": "2 -> 3 -> 4 -> 5 (Acquire spectra from known reference lines -> Locate peak channel positions -> Fit channel-to-energy relationship -> Apply the calibration to unknown peaks and carry the uncertainty with it)",
         "why": "The instrument never measured energy. It measured the size of electrical pulses, and the axis is a claim that a particular pulse size corresponds to a particular deposited energy. That claim has to be established before an unknown spectrum means anything, which fixes the order: spectra from known reference lines first, then the peak channel positions, then a fit that maps channel to energy. Only then can the calibration be applied to unknown peaks — and the uncertainty in the fit has to travel with it.",
         "rebuttals": [
           "Acquire the reference spectra first. Without lines of known energy there is nothing to calibrate against.",
           "Locate the peak channels second. The peak position is the measured quantity; the energy is not, yet.",
           "Fit channel to energy third. This is the mapping, and it is where the uncertainty in the calibration is born.",
-          "Apply it to the unknowns last, and propagate the uncertainty. An uncalibrated axis is a confident-looking way to compare two things that were never comparable."
+          "Apply it to the unknowns last, and carry the uncertainty through. An uncalibrated axis is a confident-looking way to compare two things that were never comparable."
         ],
         "cards": [
           "Acquire spectra from known reference lines",
           "Locate peak channel positions",
           "Fit channel-to-energy relationship",
-          "Apply the calibration to unknown peaks and propagate uncertainty"
+          "Apply the calibration to unknown peaks and carry the uncertainty with it"
         ],
         "order": [
           0,
@@ -1214,7 +1214,7 @@ export const CURRICULUM = {
         "task": "One week of facility time. Which test do you run?",
         "question": "One week of facility time. Which test do you run?",
         "answer": "A small test that cleanly separates the two competing timing hypotheses.",
-        "why": "A test earns its facility time by being able to come out either way and by changing what the programme does next. Work out, before firing, what each possible result would mean: if both hypotheses predict the same trace, the shot cannot discriminate and its cost buys nothing but reassurance. That is why the discriminating quantity is chosen first and the instrumentation designed around it, rather than instrumenting whatever is easy and hoping the record settles something. A result that both hypotheses predict is an expensive way of learning nothing, however large the shot was.",
+        "why": "A test earns its facility time by being able to come out either way and by changing what the programme does next. Work out, before firing, what each possible result would mean: if both hypotheses predict the same trace, the shot cannot tell them apart and its cost buys nothing but reassurance. That is why the quantity that separates them is chosen first and the instrumentation designed around it, rather than instrumenting whatever is easy and hoping the record settles something. A result that both hypotheses predict is an expensive way of learning nothing, however large the shot was.",
         "rebuttals": [
           "A full assembly with limited diagnostics produces a spectacular record with too many possible causes to attribute anything to.",
           "Repeating one condition measures the scatter at a point already known, and separates no hypothesis at all.",
@@ -2101,13 +2101,13 @@ export const CURRICULUM = {
         "answer": "Traceable records linking each batch’s process conditions to its measured properties.",
         "why": "A measurement says what one batch was on one day. A record that links process conditions to measured properties says what the process does. That is a different claim, and a more durable one. It is also the only form that lets somebody a year from now diagnose a batch that came out different — and this metal has several solid phases and very little data behind its diagram.",
         "rebuttals": [
-          "Independent composition and microscopy verify a batch and are already required. They produce more measurements with nothing connecting them.",
+          "Independent composition measurements and microscope work verify a batch and are already required. They produce more measurements with nothing connecting them.",
           "Re-measuring released material improves numbers on parts that are already installed and links none of them to how they were made.",
           "More throughput on the same records makes more material that nobody can characterise afterwards."
         ],
         "choices": [
           "Traceable records linking each batch’s process conditions to its measured properties.",
-          "Independent composition measurements and microscopy on every batch.",
+          "Independent composition measurements and microscope work on every batch.",
           "Re-measurement of the batches already released, to a tighter tolerance.",
           "Higher production throughput, with the measurements and records unchanged."
         ],
@@ -2486,10 +2486,10 @@ export const CURRICULUM = {
     {
       "day": 21,
       "title": "Crystal defects",
-      "scene": "Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscopy to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.",
+      "scene": "Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscope work to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.",
       "takeaway": "Many material properties are controlled by defects rather than the perfect crystal.",
       "place": "",
-      "story": "Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscopy to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.",
+      "story": "Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscope work to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.",
       "game": {
         "type": "SEQUENCE",
         "title": "Crystal defects",
@@ -4583,7 +4583,7 @@ export const CURRICULUM = {
       "day": 22,
       "title": "Control jets and hydrodynamic instabilities",
       "scene": "A narrow jet of material can form when shocks interact with a void, gap, or surface imperfection, while hydrodynamic instabilities can amplify small ripples during acceleration. Such effects break spherical symmetry and mix materials. Fat Man development therefore requires both smooth manufacturing and experiments that can reveal how small defects grew under implosion.",
-      "takeaway": "The correct response to a small anomalous feature is a discriminating experiment, not more energy or less resolution.",
+      "takeaway": "The correct response to a small anomalous feature is an experiment that tells the explanations apart, not more energy or less resolution.",
       "place": "",
       "story": "A narrow jet of material can form when shocks interact with a void, gap, or surface imperfection, while hydrodynamic instabilities can amplify small ripples during acceleration. Such effects break spherical symmetry and mix materials. Fat Man development therefore requires both smooth manufacturing and experiments that can reveal how small defects grew under implosion.",
       "game": {

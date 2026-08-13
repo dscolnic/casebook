@@ -12,7 +12,7 @@ groups:
     color: "#315c78"
     difficulty: 5
     type: ballpark
-    desc: Neutron physics, decay, reaction rates, and uncertainty propagation.
+    desc: Neutron physics, decay, reaction rates, and carrying uncertainty through a calculation.
     defaultLeader: bethe
     budget: 72
     milestones:
@@ -24,7 +24,7 @@ groups:
         cost: 20
         work: 15
         brief: Compare competing assumptions and identify which parameters actually control the answer.
-      - name: Propagate uncertainty through the theory stack
+      - name: Carry uncertainty through the theory stack
         cost: 24
         work: 18
         brief: Carry measurement and model uncertainty all the way to a program-level prediction.
@@ -1665,14 +1665,14 @@ missions:
           - Acquire the reference spectra first. Without lines of known energy there is nothing to calibrate against.
           - Locate the peak channels second. The peak position is the measured quantity; the energy is not, yet.
           - Fit channel to energy third. This is the mapping, and it is where the uncertainty in the calibration is born.
-          - Apply it to the unknowns last, and propagate the uncertainty. An uncalibrated axis is a confident-looking way to compare two things that were never comparable.
+          - Apply it to the unknowns last, and carry the uncertainty through. An uncalibrated axis is a confident-looking way to compare two things that were never comparable.
         cards:
           - Acquire spectra from known reference lines
           - Locate peak channel positions
           - Fit channel-to-energy relationship
-          - Apply the calibration to unknown peaks and propagate uncertainty
+          - Apply the calibration to unknown peaks and carry the uncertainty with it
         order: [0, 1, 2, 3]
-        answerText: 2 -> 3 -> 4 -> 5 (Acquire spectra from known reference lines -> Locate peak channel positions -> Fit channel-to-energy relationship -> Apply the calibration to unknown peaks and propagate uncertainty)
+        answerText: 2 -> 3 -> 4 -> 5 (Acquire spectra from known reference lines -> Locate peak channel positions -> Fit channel-to-energy relationship -> Apply the calibration to unknown peaks and carry the uncertainty with it)
       - group: E
         call: Compare the early architectures
         task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
@@ -2388,15 +2388,15 @@ missions:
           relationship: "Independent timing errors add in quadrature: the root of the sum of the squares. They do not add straight."
         answerText: sigma_total = sqrt(29), about 5.4 ns.
   - title: Build an uncertainty budget
-    objective: Combine theoretical uncertainty, measurement covariance, and system-level evidence into one decision tool.
-    briefing: More data do not automatically produce more confidence. Propagate uncertain inputs, identify correlated measurements, and assign the uncertainty that belongs to the integrated compression claim.
+    objective: Combine theoretical uncertainty, measurements that share an error, and system-level evidence into one decision tool.
+    briefing: More data do not automatically produce more confidence. Carry uncertain inputs through, identify measurements that share an error, and assign the uncertainty that belongs to the integrated compression claim.
     stake: March 1945, and this is where Bethe is right and Groves does not want to hear it. More data arrived this month and confidence went down. Today you work out how uncertainties combine, recognise when measurements are not telling you separate things, and assign a number to the whole system. Three of the four measurements in it came off the same calibration. The honest budget names which term dominates and which cannot be reduced by working harder. This is the figure that will be quoted, years later, in a room where nobody remembers what went into it.
     takeaway: Uncertainties must be traced through the full evidence chain, especially when measurements share hardware or assumptions.
     stops:
       - group: T
-        call: Propagate independent uncertainties
+        call: Carry independent uncertainties through
         task: Estimate the total fractional uncertainty.
-        title: Uncertainty propagation
+        title: Carrying uncertainty through
         setup: A predicted reaction rate has an 8% cross-section uncertainty and a 6% flux uncertainty.
         scene: A predicted reaction rate rests on a cross section known to a few per cent and a flux known to a few more. Theory is being asked how well the prediction is known.
         assumes:
@@ -2427,7 +2427,7 @@ missions:
           relationship: "Independent uncertainties add in quadrature: the root of the sum of the squares."
         answerText: About 10%.
       - group: P
-        call: Recognize measurement covariance
+        call: Recognize measurements that share an error
         task: A nucleus at rest splits into a heavy and a light fragment. Which carries more kinetic energy?
         title: Where the fragments go
         place: Diagnostics Bay
@@ -2509,7 +2509,7 @@ missions:
           - an experiment is worth what it can rule out
         takeaway: A small decisive test can be more valuable than a large ambiguous one.
         format: CHOICE
-        why: "A test earns its facility time by being able to come out either way and by changing what the programme does next. Work out, before firing, what each possible result would mean: if both hypotheses predict the same trace, the shot cannot discriminate and its cost buys nothing but reassurance. That is why the discriminating quantity is chosen first and the instrumentation designed around it, rather than instrumenting whatever is easy and hoping the record settles something. A result that both hypotheses predict is an expensive way of learning nothing, however large the shot was."
+        why: "A test earns its facility time by being able to come out either way and by changing what the programme does next. Work out, before firing, what each possible result would mean: if both hypotheses predict the same trace, the shot cannot tell them apart and its cost buys nothing but reassurance. That is why the quantity that separates them is chosen first and the instrumentation designed around it, rather than instrumenting whatever is easy and hoping the record settles something. A result that both hypotheses predict is an expensive way of learning nothing, however large the shot was."
         rebuttals:
           - A full assembly with limited diagnostics produces a spectacular record with too many possible causes to attribute anything to.
           - Repeating one condition measures the scatter at a point already known, and separates no hypothesis at all.
@@ -2755,11 +2755,11 @@ missions:
           - More of the same data carries the same systematic. It narrows the statistical error around a value that may be biased.
           - Adopting the experimental value settles the disagreement by whoever wrote it down last, and leaves the cause in place for the next comparison.
         choices:
-          - Audit the shared calibrations and covariance, then design a discriminating measurement.
+          - Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.
           - Retune the uncertain parameters until the model reproduces the measurement.
           - Collect more of the same data, to see whether the gap narrows.
           - Adopt the experimental value and record the disagreement in the report.
-        answer: Audit the shared calibrations and covariance, then design a discriminating measurement.
+        answer: Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.
       - group: E
         call: Control the post-Trinity design freeze
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
@@ -2845,12 +2845,12 @@ missions:
         format: CHOICE
         why: A measurement says what one batch was on one day. A record that links process conditions to measured properties says what the process does. That is a different claim, and a more durable one. It is also the only form that lets somebody a year from now diagnose a batch that came out different — and this metal has several solid phases and very little data behind its diagram.
         rebuttals:
-          - Independent composition and microscopy verify a batch and are already required. They produce more measurements with nothing connecting them.
+          - Independent composition measurements and microscope work verify a batch and are already required. They produce more measurements with nothing connecting them.
           - Re-measuring released material improves numbers on parts that are already installed and links none of them to how they were made.
           - More throughput on the same records makes more material that nobody can characterise afterwards.
         choices:
           - Traceable records linking each batch’s process conditions to its measured properties.
-          - Independent composition measurements and microscopy on every batch.
+          - Independent composition measurements and microscope work on every batch.
           - Re-measurement of the batches already released, to a tighter tolerance.
           - Higher production throughput, with the measurements and records unchanged.
         answer: Traceable records linking each batch’s process conditions to its measured properties.
@@ -3936,7 +3936,7 @@ lessons:
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: Crystal defects
     setup: Order a generic strengthening chain.
-    scene: Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscopy to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.
+    scene: Crystals contain defects such as dislocations, vacancies, and grain boundaries. Processing changes how easily those defects move, which changes strength and ductility. Los Alamos uses mechanical tests and microscope work to connect heat treatment and fabrication history to the reliability of nuclear and high-explosive components.
     takeaway: Many material properties are controlled by defects rather than the perfect crystal.
     format: SEQUENCE
     why: Microstructure changes properties by changing how defects move.
@@ -4864,7 +4864,7 @@ lessons:
     title: Control jets and hydrodynamic instabilities
     setup: The group has 100 credits after radiography reveals a narrow high-velocity feature near an interface.
     scene: A narrow jet of material can form when shocks interact with a void, gap, or surface imperfection, while hydrodynamic instabilities can amplify small ripples during acceleration. Such effects break spherical symmetry and mix materials. Fat Man development therefore requires both smooth manufacturing and experiments that can reveal how small defects grew under implosion.
-    takeaway: The correct response to a small anomalous feature is a discriminating experiment, not more energy or less resolution.
+    takeaway: The correct response to a small anomalous feature is an experiment that tells the explanations apart, not more energy or less resolution.
     format: SCIENCETANK
     why: Local defects and interface instabilities can grow into system-level asymmetry.
     proposals:

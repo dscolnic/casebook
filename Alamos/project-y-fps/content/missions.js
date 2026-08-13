@@ -245,20 +245,20 @@ export const MISSIONS = [
   },
   {
     "title": "Build an uncertainty budget",
-    "objective": "Combine theoretical uncertainty, measurement covariance, and system-level evidence into one decision tool.",
-    "briefing": "More data do not automatically produce more confidence. Propagate uncertain inputs, identify correlated measurements, and assign the uncertainty that belongs to the integrated compression claim.",
+    "objective": "Combine theoretical uncertainty, measurements that share an error, and system-level evidence into one decision tool.",
+    "briefing": "More data do not automatically produce more confidence. Carry uncertain inputs through, identify measurements that share an error, and assign the uncertainty that belongs to the integrated compression claim.",
     "stake": "March 1945, and this is where Bethe is right and Groves does not want to hear it. More data arrived this month and confidence went down. Today you work out how uncertainties combine, recognise when measurements are not telling you separate things, and assign a number to the whole system. Three of the four measurements in it came off the same calibration. The honest budget names which term dominates and which cannot be reduced by working harder. This is the figure that will be quoted, years later, in a room where nobody remembers what went into it.",
     "takeaway": "Uncertainties must be traced through the full evidence chain, especially when measurements share hardware or assumptions.",
     "stops": [
       {
         "group": "T",
         "lesson": 8,
-        "task": "Propagate independent uncertainties"
+        "task": "Carry independent uncertainties through"
       },
       {
         "group": "P",
         "lesson": 7,
-        "task": "Recognize measurement covariance"
+        "task": "Recognize measurements that share an error"
       },
       {
         "group": "X",

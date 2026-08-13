@@ -135,6 +135,14 @@ quantify redirect reduction representative resolution sedate standardise substit
 template unfamiliar wastewater whiteboard
 acidity associate association case commit confirmatory degrade degradation demonstrate dioxide
 inhibit inhibition medical biomedical microscope suppress
+assemble assembly capability certificate circulate comparative component configuration contingency
+converge coordinate correspond deployment difficulty disagree disappear disappoint distinguish division
+efficient facility formality genuine government humanitarian hypothesis identical initiate initiation
+intention interface interrupt intuition life manufacture measurable obligation petition possibility
+purity recover reorganise repulsion scientist segment segregate silence stable stability symmetry
+symmetrical temptation theoretical tolerance vary variation blackboard bookkeeping
+accept acceptable background diagnostic hypotheses impurity instability lives measurably prompt
+radiological saturate stabilise throughput unstable
 `.trim().split(/\s+/).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has
@@ -144,6 +152,7 @@ metre meter centimetre centimeter millimetre millimeter kilometre kilometer micr
 litre liter millilitre milliliter microlitre microliter gram kilogram milligram microgram tonne
 joule kilojoule megajoule watt kilowatt kelvin celsius fahrenheit
 pascal kilopascal hectare acre gallon
+nanosecond microsecond millisecond
 `.trim().split(/\s+/).map(norm));
 
 const TECHY = /(?:tion|sion|ment|ance|ence|ity|ology|ography|ometry|meter|metre|ate|ide|ine|ase|osis|emia|itis|ivity|graph|scopy|lysis|genic|phile|phobic|valent|meric|ant|ent|ive|oid|yl)s?$/i;
@@ -212,16 +221,20 @@ function claimedBy(theme){
 // and "spectrometer" all sat in the rewrite pile beside their own syllabus entry.
 // Two words share a root when one starts the other, or when they agree for eight
 // characters — long enough that "electrochemical" finds "electrochemistry" and
-// "electrically" does not find "electrolysis".
+// "detonators" finds "detonation velocity", short enough that "electrically"
+// still does not find "electrolysis".
 function sharesRoot(a, b){
   if(a === b) return true;
   const [s, l] = a.length <= b.length ? [a, b] : [b, a];
   if(s.length >= 5 && l.startsWith(s)) return true;
   let i = 0;
   while(i < s.length && s[i] === l[i]) i++;
-  return i >= 8;
+  return i >= 7;
 }
-const claimCandidates = (key) => [key, key.replace(PREFIXES, '')].filter(w => w.length >= 5);
+// The candidate side needs stemming as much as the syllabus side does:
+// "detonates" and "detonators" are the syllabus's "detonation velocity" with an
+// ending on them, and an unstemmed comparison claims neither.
+const claimCandidates = (key) => [key, key.replace(PREFIXES, ''), ...stems(key)].filter(w => w.length >= 5);
 
 for(const themeName of wanted){
   const dir = resolveTheme(themeName);
@@ -232,6 +245,16 @@ for(const themeName of wanted){
   const CURRICULUM = content.CURRICULUM ?? {};
   const MISSIONS = content.MISSIONS ?? [];
   const claimed = [...claimedBy(themeName)];
+  // A person is not a hard word. Oppenheimer, Trinity and the Ordnance Division
+  // are names — the cast, the areas of study and the places the game is set —
+  // and every one of them was sitting in Project Y's rewrite pile.
+  const names = new Set();
+  for(const p of [...(content.ROSTER ?? []), ...(content.LEADERS ?? [])])
+    for(const w of words(p?.name)) names.add(norm(w));
+  for(const g of content.GROUPS ?? []) for(const w of words(g?.name)) names.add(norm(w));
+  for(const m of content.MISSIONS ?? []){
+    for(const stop of m.stops ?? []) for(const w of words(stop?.person ?? '')) names.add(norm(w));
+  }
   const glossary = new Set();
   for(const t of content.JARGON ?? []){
     for(const n of [t?.name, ...(t?.aliases ?? [])].filter(Boolean)) for(const w of words(n)) glossary.add(norm(w));
@@ -250,6 +273,7 @@ for(const themeName of wanted){
       for(const raw of words(asked)){
         if(!candidate(raw)) continue;
         const key = norm(raw);
+        if(names.has(key)) continue;
         if(!hits.has(key)) hits.set(key, { raw, days: new Set(), stops: [] });
         const h = hits.get(key);
         h.days.add(mi + 1);

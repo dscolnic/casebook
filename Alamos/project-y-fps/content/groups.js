@@ -10,7 +10,7 @@ export const GROUPS = [
     "color": "#315c78",
     "difficulty": 5,
     "type": "ballpark",
-    "desc": "Neutron physics, decay, reaction rates, and uncertainty propagation.",
+    "desc": "Neutron physics, decay, reaction rates, and carrying uncertainty through a calculation.",
     "defaultLeader": "bethe",
     "budget": 72,
     "milestones": [
@@ -27,7 +27,7 @@ export const GROUPS = [
         "brief": "Compare competing assumptions and identify which parameters actually control the answer."
       },
       {
-        "name": "Propagate uncertainty through the theory stack",
+        "name": "Carry uncertainty through the theory stack",
         "cost": 24,
         "work": 18,
         "brief": "Carry measurement and model uncertainty all the way to a program-level prediction."
