@@ -13,11 +13,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Reyes treat frequency differently from voltage?",
-        "a": "Frequency is common to the whole interconnection, so a deviation is a system-wide imbalance",
+        "a": "Frequency is one number for the whole interconnection",
         "wrong": [
-          "Frequency is measured more accurately than voltage",
-          "Voltage cannot be measured during a disturbance",
-          "Frequency only matters at the generators"
+          "Voltage instruments are more accurate than frequency instruments during a disturbance",
+          "Voltage cannot be measured while the system is swinging",
+          "Frequency matters at the generators and nowhere else"
         ]
       }
     ]
@@ -32,11 +32,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Haddad describe a generator as a flywheel first?",
-        "a": "Its stored rotational energy slows the frequency change, buying time for a response",
+        "a": "Its stored rotational energy slows the frequency change",
         "wrong": [
-          "Because turbines are physically shaped like flywheels",
-          "Because a flywheel is more efficient than a boiler",
-          "Because rotational energy is cheaper than fuel"
+          "Because a flywheel stores more energy per tonne than a boiler and its steam plant do",
+          "Because the turbine and the flywheel are the same component",
+          "Because rotational energy costs less per megawatt than fuel"
         ]
       }
     ]
@@ -59,11 +59,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Obi resist reporting restoration purely in megawatts?",
-        "a": "Megawatts restored can be dominated by a few large customers while most households stay dark",
+        "a": "A few large customers can dominate the megawatts restored",
         "wrong": [
-          "Megawatts cannot be measured on a distribution feeder",
+          "Megawatts restored is a settlement quantity and is not available until afterwards",
           "Household supply is not counted in the system total",
-          "Distribution engineers use amperes rather than watts"
+          "Distribution work is measured in amperes rather than in watts"
         ]
       }
     ]
@@ -86,11 +86,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Farrow distrust telemetry during a fast disturbance?",
-        "a": "Scan rates and clock skew can put readings in the wrong order relative to the events",
+        "a": "Scan rates and clock skew can put readings in the wrong order",
         "wrong": [
-          "Telemetry stops working when frequency deviates",
-          "Instrument transformers cannot measure during a fault",
-          "Digital meters are less accurate than analogue ones"
+          "Instrument transformers saturate during a fault and stop reporting altogether",
+          "Telemetry stops being sent once frequency leaves its band",
+          "Digital meters are less accurate than the analogue ones they replaced"
         ]
       }
     ]

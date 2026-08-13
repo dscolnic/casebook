@@ -13,7 +13,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "In Okonjo’s lab, what does the gas chromatograph actually do to a mixture before the mass spectrometer sees it?",
-        "a": "Separates the compounds in time, because each one sticks to the column coating differently",
+        "a": "Separates the compounds in time, since each sticks to the coating differently",
         "wrong": [
           "Breaks the compounds into charged fragments and weighs each one",
           "Concentrates the sample by boiling away the water",
@@ -22,7 +22,7 @@ export const ROSTER = [
       },
       {
         "q": "Why will Okonjo not call an identification confirmed on the mass spectrum alone?",
-        "a": "A library match is a comparison, and related compounds can fragment almost identically",
+        "a": "A library match is a comparison, and relatives fragment alike",
         "wrong": [
           "The mass spectrometer cannot detect compounds below one part per million",
           "Mass spectra change with the weather at the sampling site",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "By Varga’s reasoning, what makes a released vapour pool in basements and trenches instead of lifting away?",
-        "a": "Its molar mass is well above that of air, so it is denser than the air around it",
+        "a": "Its molar mass is well above that of air",
         "wrong": [
           "It is warmer than the surrounding air when it leaves the container",
           "It dissolves readily in water, so it is drawn downwards towards damp ground",
@@ -60,7 +60,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Ferreira takes a sediment core alongside every water sample. What is the reasoning?",
-        "a": "A poorly soluble compound binds to sediment, so the water can read clean while the contaminant is still there",
+        "a": "A poorly soluble compound binds to sediment, so the water reads clean",
         "wrong": [
           "Sediment samples are cheaper to analyse than water samples",
           "Sediment holds a record of the river temperature over the previous week",
@@ -79,7 +79,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Nakamura insist the decision rule be written before the measurement comes back?",
-        "a": "Choosing the threshold after seeing the result lets the answer decide the test",
+        "a": "Choosing it afterwards lets the answer decide the test",
         "wrong": [
           "Calibration curves expire within a few hours of being recorded",
           "The instrument software will not release a result without a threshold entered",
@@ -88,7 +88,7 @@ export const ROSTER = [
       },
       {
         "q": "What is the blank sample for?",
-        "a": "Clean solvent run through the whole procedure, to show the instrument is not reporting its own contamination",
+        "a": "Clean solvent run through the whole procedure, to catch the instrument's own contamination",
         "wrong": [
           "A sample from upstream of the release, to establish the river’s normal level",
           "A known concentration used to convert the signal into a number",
@@ -107,7 +107,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "In Brandt’s account, what makes a reaction run away?",
-        "a": "It releases heat faster than the vessel loses it, and the higher temperature speeds the reaction further",
+        "a": "It makes heat faster than the vessel loses it, and heat speeds it further",
         "wrong": [
           "It runs out of the limiting reactant, so the remaining reactant reacts all at once",
           "The gas produced cools the vessel until the contents freeze and fracture it",
@@ -135,7 +135,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Osei describe activated carbon and air stripping as moving a contaminant rather than removing it?",
-        "a": "Neither breaks the compound down — it ends up in a carbon bed or in the air",
+        "a": "Neither breaks the compound down",
         "wrong": [
           "Both work only on the fraction already bound to sediment",
           "Both return the compound to the river a few kilometres downstream",
@@ -144,7 +144,7 @@ export const ROSTER = [
       },
       {
         "q": "What is Osei’s objection to chemical oxidation, even though it genuinely breaks bonds?",
-        "a": "Partial oxidation leaves fragments, and some are worse than the original compound",
+        "a": "Partial oxidation leaves fragments, some worse than the original",
         "wrong": [
           "It reaches only the fraction of the contaminant that is already volatile",
           "It requires heating the whole stream far above ambient temperature to run",
@@ -163,7 +163,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Haddad mean by a common-mode failure?",
-        "a": "Two apparently independent results share a step — a standard, a sampler, a library — so they fail together",
+        "a": "Two results share a step, so they fail together",
         "wrong": [
           "Two instruments disagree and there is no way to decide between them",
           "A result that cannot be repeated by a second laboratory",
@@ -182,7 +182,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "In Lindqvist’s model, what happens to the downwind concentration if the wind speed doubles?",
-        "a": "It roughly halves, because the same released mass is spread through twice as much air",
+        "a": "It roughly halves, since the same mass is spread through twice the air",
         "wrong": [
           "It roughly doubles, because the plume reaches further before it dilutes",
           "It is unchanged, because wind moves the plume without diluting it",
@@ -191,7 +191,7 @@ export const ROSTER = [
       },
       {
         "q": "Which assumption does Lindqvist say Riverton breaks worst?",
-        "a": "Flat ground and a steady wind — the town sits in a valley with an afternoon wind shift",
+        "a": "Flat ground and a steady wind, neither of which this valley has",
         "wrong": [
           "That the released compound is heavier than air",
           "That the plume is sampled at ground level rather than from a mast",
@@ -210,7 +210,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Ibarra report sediment concentrations on a dry-weight basis?",
-        "a": "A wet core is largely water and the water fraction varies between samples, so wet weights are not comparable",
+        "a": "A wet core is mostly water, and the water fraction varies between samples",
         "wrong": [
           "Drying the sample destroys the contaminant, so the dry weight is the safe measurement",
           "The extraction solvent only works on completely dry material",
@@ -257,7 +257,7 @@ export const ROSTER = [
       },
       {
         "q": "Why does Moreau measure activation energy herself rather than take a published value?",
-        "a": "A catalyst, corrosion metal or a different solvent can lower the barrier and change the rate",
+        "a": "A catalyst or a corrosion metal can lower the barrier",
         "wrong": [
           "Published values are reported in the wrong units for field use",
           "Activation energy changes as a drum ages regardless of its contents",
@@ -276,7 +276,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is it hard to catch the byproducts Delgado worries about?",
-        "a": "The instrument is set up to look for the target compound, not for fragments nobody predicted",
+        "a": "The instrument looks for the target compound, not for fragments",
         "wrong": [
           "Byproducts break down before a sample can reach the laboratory",
           "They are present at concentrations no instrument can reach",
@@ -314,7 +314,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Sørensen care whether heat in a drum is stored or generated?",
-        "a": "Stored heat fades overnight; generated heat means the drum will be hotter in an hour",
+        "a": "Stored heat fades overnight and generated heat does not",
         "wrong": [
           "Stored heat spreads to neighbouring drums and generated heat does not",
           "Only generated heat can be seen on a thermal image",
@@ -352,7 +352,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Oyelaran test at three depths rather than at the entry hatch?",
-        "a": "Dense vapours settle, so the bottom of the space can be lethal while the hatch reads clean",
+        "a": "Dense vapours settle, so the bottom can be lethal",
         "wrong": [
           "The meter needs three readings to average out its own drift",
           "Oxygen is consumed fastest near the entrance where the air is moving",
@@ -361,7 +361,7 @@ export const ROSTER = [
       },
       {
         "q": "Oyelaran treats a chemically harmless gas as dangerous in a confined space. Why?",
-        "a": "It displaces air, and an atmosphere low in oxygen brings people down without warning",
+        "a": "It displaces air, and low oxygen brings people down",
         "wrong": [
           "It condenses on the walls and makes the ladder unsafe",
           "It interferes with the meter’s reading of the toxic gases",
@@ -380,7 +380,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why do Novák’s leaks keep appearing at joints between two different metals?",
-        "a": "In water the more reactive metal corrodes preferentially, with the water completing the circuit",
+        "a": "The more reactive metal corrodes first, with water completing the circuit",
         "wrong": [
           "Joints are thinner than the pipe wall, so they wear through first",
           "Different metals expand at different rates and crack the seal",
@@ -399,7 +399,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is Kaur’s evacuation zone a wedge rather than a circle around the release?",
-        "a": "The plume travels with the wind, so the hazard is long and narrow, not even all round",
+        "a": "The plume travels with the wind, so the hazard is long and narrow",
         "wrong": [
           "A wedge is simply easier to describe over the radio than a circle is",
           "Circles are used for fires; a chemical release always takes a wedge",
@@ -408,7 +408,7 @@ export const ROSTER = [
       },
       {
         "q": "Why does Kaur sometimes tell people to shelter indoors instead of evacuating?",
-        "a": "Moving people takes longer than the plume lasts, and puts them out in the worst minutes",
+        "a": "Moving people takes longer than the plume lasts",
         "wrong": [
           "Most buildings filter the outdoor air through their ventilation systems",
           "The evacuation routes have to be kept clear for emergency vehicles",
@@ -427,7 +427,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Delacroix tell callers who say they cannot smell anything?",
-        "a": "That some compounds are almost odourless well past the point where they are harmful",
+        "a": "That some compounds are odourless well past being harmful",
         "wrong": [
           "That the plume has passed and normal activity can safely resume",
           "That the wind has changed direction and the hazard has moved elsewhere",
@@ -455,7 +455,7 @@ export const ROSTER = [
       },
       {
         "q": "What does a break in the chain of custody cost the team?",
-        "a": "The result can no longer be tied to a place and a time, so the analysis stops being evidence",
+        "a": "It can no longer be tied to a place and a time",
         "wrong": [
           "The sample degrades and has to be re-collected",
           "The laboratory has to repeat the calibration for that batch",
@@ -474,7 +474,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why can Abara’s fish carry far more contaminant than the river water they swim in?",
-        "a": "Some compounds accumulate in fat and build up along a food chain instead of being excreted",
+        "a": "Some compounds build up in fat along a food chain",
         "wrong": [
           "Fish drink far more water for their size than people do",
           "Contaminants are always more concentrated near the riverbed where fish feed",
@@ -493,7 +493,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Stavros refuse to call a single clean sample after treatment good news?",
-        "a": "One point has no direction — rain, season and flow move a number without anything having changed",
+        "a": "One point has no direction, and rain alone moves the number",
         "wrong": [
           "A single sample is always taken at the wrong depth",
           "Post-treatment samples cannot be calibrated against pre-treatment ones",

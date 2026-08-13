@@ -86,11 +86,11 @@ roster:
       operator who waits for certainty is the operator who watches the cascade.
     quiz:
       - q: Why does Reyes treat frequency differently from voltage?
-        a: Frequency is common to the whole interconnection, so a deviation is a system-wide imbalance
+        a: Frequency is one number for the whole interconnection
         wrong:
-          - Frequency is measured more accurately than voltage
-          - Voltage cannot be measured during a disturbance
-          - Frequency only matters at the generators
+          - Voltage instruments are more accurate than frequency instruments during a disturbance
+          - Voltage cannot be measured while the system is swinging
+          - Frequency matters at the generators and nowhere else
   - id: haddad
     name: Nadia Haddad
     role: Generation Lead
@@ -109,11 +109,11 @@ roster:
       wanting changes the thermal gradient in a steam drum.
     quiz:
       - q: Why does Haddad describe a generator as a flywheel first?
-        a: Its stored rotational energy slows the frequency change, buying time for a response
+        a: Its stored rotational energy slows the frequency change
         wrong:
-          - Because turbines are physically shaped like flywheels
-          - Because a flywheel is more efficient than a boiler
-          - Because rotational energy is cheaper than fuel
+          - Because a flywheel stores more energy per tonne than a boiler and its steam plant do
+          - Because the turbine and the flywheel are the same component
+          - Because rotational energy costs less per megawatt than fuel
   - id: novak
     name: Piotr Novak
     role: Protection Engineer
@@ -147,11 +147,11 @@ roster:
       rather than from a reading.
     quiz:
       - q: Why does Obi resist reporting restoration purely in megawatts?
-        a: Megawatts restored can be dominated by a few large customers while most households stay dark
+        a: A few large customers can dominate the megawatts restored
         wrong:
-          - Megawatts cannot be measured on a distribution feeder
+          - Megawatts restored is a settlement quantity and is not available until afterwards
           - Household supply is not counted in the system total
-          - Distribution engineers use amperes rather than watts
+          - Distribution work is measured in amperes rather than in watts
   - id: lindgren
     name: Sten Lindgren
     role: Load Forecasting
@@ -184,11 +184,11 @@ roster:
       the highest-value seconds are the ones with the worst data.
     quiz:
       - q: Why does Farrow distrust telemetry during a fast disturbance?
-        a: Scan rates and clock skew can put readings in the wrong order relative to the events
+        a: Scan rates and clock skew can put readings in the wrong order
         wrong:
-          - Telemetry stops working when frequency deviates
-          - Instrument transformers cannot measure during a fault
-          - Digital meters are less accurate than analogue ones
+          - Instrument transformers saturate during a fault and stop reporting altogether
+          - Telemetry stops being sent once frequency leaves its band
+          - Digital meters are less accurate than the analogue ones they replaced
   - id: whitlock
     name: Aaron Whitlock
     role: Assistant Operator
@@ -675,10 +675,10 @@ missions:
         question: Which feeder should take the first crew?
         choices:
           - The feeder with 4,100 households, faulted at the substation end, four hours' work.
-          - The feeder with the dialysis clinic and 180 homes, faulted at a single pole, one hour's work.
+          - The dialysis clinic feeder — 180 homes, one pole, an hour's work.
           - The feeder with 2,600 households and a fault nobody has located yet.
           - The feeder feeding the water pumping station, already on its standby supply.
-        answer: The feeder with the dialysis clinic and 180 homes, faulted at a single pole, one hour's work.
+        answer: The dialysis clinic feeder — 180 homes, one pole, an hour's work.
         why: >
           Two things decide this, and household count is only one of them. The first is what waiting costs,
           and for a dialysis clinic it is measured in treatments rather than in inconvenience. The second is
@@ -795,10 +795,10 @@ missions:
         question: Which instrument is reporting the wrong voltage?
         choices:
           - The oscilloscope, because 325 volts is not a voltage this system runs at.
-          - Neither, because the scope shows the peak and the meter shows the RMS value.
+          - Neither, since the scope shows peak and the meter shows RMS.
           - The meter, because it is averaging and averaging loses the true value.
           - Both, because two instruments this far apart cannot both be calibrated.
-        answer: Neither, because the scope shows the peak and the meter shows the RMS value.
+        answer: Neither, since the scope shows peak and the meter shows RMS.
         why: >
           An alternating voltage does not have one value, so any single number is a summary and the summary
           has to be named. The peak is the highest the waveform reaches. The RMS value is the steady voltage
@@ -884,10 +884,10 @@ missions:
         question: Why is power sent long distances at high voltage?
         choices:
           - Because high voltage pushes the power along the line faster.
-          - Because for the same power a higher voltage means less current, and loss goes as current squared.
+          - Because higher voltage means less current, and loss goes as current squared.
           - Because insulation is cheaper than conductor, so high voltage costs less to build.
           - Because generators cannot be built to produce power at low voltage.
-        answer: Because for the same power a higher voltage means less current, and loss goes as current squared.
+        answer: Because higher voltage means less current, and loss goes as current squared.
         why: >
           Power is voltage times current, so a given amount of power can be sent as a lot of current at low
           voltage or a little current at high voltage. Loss in the conductor is the current squared times
@@ -1129,11 +1129,11 @@ missions:
         format: CHOICE
         question: How does the current transformer produce its reading?
         choices:
-          - The alternating current makes a changing magnetic field, which induces a current in the second winding.
+          - The changing magnetic field induces a current in the second winding.
           - A small amount of current leaks across the insulation into the meter circuit.
           - The conductor warms the core, and the meter reads the temperature rise.
           - The meter senses the electric field around the conductor and infers the current from it.
-        answer: The alternating current makes a changing magnetic field, which induces a current in the second winding.
+        answer: The changing magnetic field induces a current in the second winding.
         why: >
           A current in a conductor makes a magnetic field around it. If the current alternates, the field
           alternates with it, and a changing field through a coil drives a voltage in that coil. That is
@@ -1405,11 +1405,11 @@ missions:
         format: CHOICE
         question: What should be done with the island?
         choices:
-          - Shed about a fifth of the island's load now, to stop the frequency falling and keep the rest supplied.
+          - Shed about a fifth of the island's load now, to stop the fall and keep the rest supplied.
           - Let it collapse, and restore the whole valley from the main system once the corridor is back.
           - Hold on without shedding, on the chance the rising wind lifts the ridge's output in time.
           - Reconnect it to the main system immediately, before the frequency falls any further.
-        answer: Shed about a fifth of the island's load now, to stop the frequency falling and keep the rest supplied.
+        answer: Shed about a fifth of the island's load now, to stop the fall and keep the rest supplied.
         why: >
           An island with its only dispatchable machine at maximum has one lever left, and that is demand.
           Shedding a fifth stops the fall and keeps four fifths of the valley supplied, which is a far better
@@ -1607,10 +1607,10 @@ missions:
         question: What does the corrected temperature change about that week?
         choices:
           - Nothing important, because the corridor did not actually fail during those six hours.
-          - The corridor was outside its rating, so every decision that treated it as inside one was taken without the margin it assumed.
+          - The corridor was outside its rating, so the decisions that assumed a margin had none.
           - The rating was too conservative, since the corridor survived a temperature above it.
           - The relay must have been miscoordinated, because it should have tripped at 89 degrees.
-        answer: The corridor was outside its rating, so every decision that treated it as inside one was taken without the margin it assumed.
+        answer: The corridor was outside its rating, so the decisions that assumed a margin had none.
         why: >
           A thermal rating is not a fuse setting. It is the current at which the conductor reaches a
           temperature the operator has agreed to accept, chosen so the metal keeps its strength and the span
@@ -1690,10 +1690,10 @@ missions:
         question: What does a clean contingency check tell you tonight?
         choices:
           - That the system is safe, because every failure it considers has been survived on paper.
-          - That any one credible failure leaves the system inside limits, and it says nothing about two at once.
+          - That any single credible failure leaves the system inside limits, and nothing more.
           - That nothing will fail tonight, since the check has found no weaknesses.
           - That the margins are too generous, since everything passes comfortably.
-        answer: That any one credible failure leaves the system inside limits, and it says nothing about two at once.
+        answer: That any single credible failure leaves the system inside limits, and nothing more.
         why: >
           The check is exactly as broad as its list. It takes each credible single failure in turn, works out
           the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong
@@ -1756,10 +1756,10 @@ missions:
         question: Which of tonight's four comforts is the one most worth checking?
         choices:
           - The reserve figure, taken from this evening's own dispatch and metering.
-          - The ridge's contribution to inertia, assumed from a figure written when the fleet was half its size.
+          - The ridge's inertia, from a figure written when the fleet was smaller.
           - The corridor loading, read live off the yard's own instruments an hour ago.
           - The forecast width, held over three winters of outcomes.
-        answer: The ridge's contribution to inertia, assumed from a figure written when the fleet was half its size.
+        answer: The ridge's inertia, from a figure written when the fleet was smaller.
         why: >
           Three of these are current measurements or long-run evidence. The fourth is an inherited number
           about a fleet that has doubled, and inertia is the quantity the whole first week turned on — it
@@ -1919,10 +1919,10 @@ missions:
         question: What do ninety accumulated hours above continuous rating mean for the conductor?
         choices:
           - Nothing, because the conductor cooled fully between every one of those periods.
-          - The aluminium has lost strength that does not come back, and its remaining life is shorter than the design assumed.
+          - The aluminium has lost strength for good, and its life is shorter than designed.
           - The conductor has been proven capable of the higher current and can be re-rated upward.
           - The record is too old to act on, since most of those hours were more than a year ago.
-        answer: The aluminium has lost strength that does not come back, and its remaining life is shorter than the design assumed.
+        answer: The aluminium has lost strength for good, and its life is shorter than designed.
         why: >
           Annealing is not a state the metal comes back from. Above about ninety-five degrees, aluminium's
           grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The
@@ -2066,10 +2066,10 @@ missions:
         question: Why does the winter peak go in as a range rather than as a single figure?
         choices:
           - Because a range is more cautious, and caution is appropriate after an event like this one.
-          - Because the reserve is sized against the width, so a single figure gives the reader nothing to size it with.
+          - Because the reserve is sized against the width, not the centre.
           - Because the model is not accurate enough yet to state a single number honestly.
           - Because a range cannot be shown to be wrong afterwards.
-        answer: Because the reserve is sized against the width, so a single figure gives the reader nothing to size it with.
+        answer: Because the reserve is sized against the width, not the centre.
         why: >
           Reserve is not held against the expected peak. It is held against the amount by which the peak
           might exceed it, which is a property of the width and not of the centre. A report that states a

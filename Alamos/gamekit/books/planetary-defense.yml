@@ -174,11 +174,11 @@ roster:
       and then not at all for years.
     quiz:
       - q: Why is a radar window so short and so valuable?
-        a: Echo strength falls with the fourth power of distance, so it works only near closest approach
+        a: Echo strength falls with the fourth power of distance
         wrong:
           - The transmitter overheats after a few hours of use
           - Radar requires the object to be in the Earth's shadow
-          - Other observatories need the same time for optical work
+          - Other observatories are booked for optical work at exactly the same hours
   - id: schulz
     name: Marta Schulz
     role: Impact Physics Modeller
@@ -194,9 +194,9 @@ roster:
       headline number.
     quiz:
       - q: Why do Schulz's entry models produce a range of outcomes rather than one?
-        a: The body's strength is unmeasured, and it decides whether the object fragments or reaches the ground
+        a: The body's strength is unmeasured, and it decides whether it fragments
         wrong:
-          - Atmospheric density is never known to better than a factor of two
+          - Atmospheric density at those heights is never known to better than a factor of two
           - The models are run on different computers with different rounding
           - Entry angle cannot be determined before impact
   - id: ellery
@@ -212,11 +212,11 @@ roster:
       probability that falls; announced afterwards, it looks like improvisation.
     quiz:
       - q: Why does Ellery agree protective triggers before the probability settles?
-        a: A step tied to a stated observation survives the probability changing; one announced afterwards looks arbitrary
+        a: A step tied to a stated observation survives the probability changing
         wrong:
           - Triggers reduce the uncertainty in the orbit determination
           - Regulations require evacuation plans to be filed in advance
-          - Announcing them early prevents the media from reporting the risk
+          - Announcing them early is what stops the media reporting the risk badly
 
 # Terms the game may explain in place.
 glossary:
@@ -319,7 +319,7 @@ missions:
             status: alarm
             note: Independent hardware confirms motion
         choices:
-          - label: Real moving Solar System object
+          - label: Real Solar System object
             mechanism: A point source changes sky position coherently while stars and detector coordinates remain stable.
           - label: Cosmic-ray hit
             mechanism: A charged particle creates a transient sharp feature in one exposure.
@@ -327,7 +327,7 @@ missions:
             mechanism: A fixed detector location appears bright whenever that pixel is read.
           - label: Frame-alignment artifact
             mechanism: Misalignment makes many fixed stars appear to shift together.
-        answer: Real moving Solar System object
+        answer: Real Solar System object
         why: A real Solar System object moves in the sky, not on the chip. That is the whole test, and four readings apply it. The source is star-like in every frame, so it is not a cosmic ray, which arrives once and sharp. It lands on different pixels while the background stars stay fixed, so it is not a hot pixel. And a second telescope on another mountain found it near the predicted place — an object that exists for instruments that are not this one.
       - group: DISC
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.

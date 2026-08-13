@@ -22,7 +22,7 @@ export const ROSTER = [
       },
       {
         "q": "What clue does Dr. Patel look for before she touches a patient at all?",
-        "a": "Whether they can talk in whole sentences without stopping for breath",
+        "a": "Whether they can talk without stopping for breath",
         "wrong": [
           "Whether their temperature is above normal",
           "Whether they can stand up on their own",
@@ -50,7 +50,7 @@ export const ROSTER = [
       },
       {
         "q": "Why does Dr. Reyes care more about a week of peak flow numbers than about one number?",
-        "a": "One number alone means little; the change over time shows whether the airways are opening up",
+        "a": "One number means little, and the change over time shows more",
         "wrong": [
           "One number is often measured wrong the first time",
           "The meter has to warm up for several days before it is accurate",
@@ -69,7 +69,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is the small intestine lined with tiny folds?",
-        "a": "The folds give it far more surface to soak nutrients up through",
+        "a": "The folds give it more surface to soak food up through",
         "wrong": [
           "The folds squeeze food along so it does not get stuck",
           "The folds trap germs before they reach the blood",
@@ -78,7 +78,7 @@ export const ROSTER = [
       },
       {
         "q": "Why can a day of vomiting leave a child feeling dreadful even after the germ has gone?",
-        "a": "The body cannot store spare water, so what was lost has to be replaced",
+        "a": "The body has no spare water, so what was lost is replaced",
         "wrong": [
           "The stomach needs a full day to grow a new lining",
           "The body stops making energy until it has eaten solid food",
@@ -97,7 +97,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does a cast actually do for a broken bone?",
-        "a": "It holds the two ends still and lined up while the body does the healing",
+        "a": "It holds the two ends still while the body heals",
         "wrong": [
           "It supplies the minerals the bone needs to knit together",
           "It presses the ends of the bone tightly together so they fuse",
@@ -106,7 +106,7 @@ export const ROSTER = [
       },
       {
         "q": "What is a growth plate?",
-        "a": "A band of softer tissue near the end of a child’s bone where new bone is added as they grow",
+        "a": "A band of softer tissue where new bone is added",
         "wrong": [
           "The hard outer shell that protects the middle of the bone",
           "The joint where two bones meet and slide past each other",
@@ -125,7 +125,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why can Dr. Kim learn something from tapping a knee or asking a child to follow his finger?",
-        "a": "He is watching where the nerve signal stops, which shows where the problem is",
+        "a": "He is watching where the nerve signal stops",
         "wrong": [
           "He is measuring how strong the child’s muscles have become",
           "He is checking that the bones in the leg are lined up",
@@ -153,7 +153,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How does soap help against germs?",
-        "a": "It breaks up the greasy coat around them so running water washes them away",
+        "a": "It breaks up the greasy coat so water washes them away",
         "wrong": [
           "It poisons the germs where they sit on the skin",
           "It dries the skin out so germs cannot survive on it",
@@ -162,7 +162,7 @@ export const ROSTER = [
       },
       {
         "q": "Why is the second meeting with a germ usually easier than the first?",
-        "a": "White blood cells remember its shape, so the fight starts straight away",
+        "a": "White blood cells remember its shape",
         "wrong": [
           "The germ becomes weaker each time it enters a body",
           "The body has already used up whatever the germ feeds on",
@@ -181,7 +181,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Nurse Lee insist every handover follows the same order?",
-        "a": "When people improvise, whatever nobody thought to mention is what gets missed",
+        "a": "When people improvise, something goes unmentioned",
         "wrong": [
           "A fixed order makes the handover shorter than a free conversation",
           "The computer system will not save notes entered in a different order",
@@ -209,7 +209,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does the spacer on Amara’s inhaler do?",
-        "a": "It holds the puff of medicine so she can breathe it in slowly and more reaches her airways",
+        "a": "It holds the puff so she can breathe it in slowly",
         "wrong": [
           "It squeezes the medicine into a stronger dose before it is breathed in",
           "It warms the medicine up so that it does not make her cough",
@@ -228,7 +228,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why do bones show up white on Ana’s X-ray?",
-        "a": "Bone is dense and blocks more of the beam, so less reaches the detector there",
+        "a": "Bone is dense and blocks more of the beam",
         "wrong": [
           "Bone glows when the X-ray beam touches it",
           "The machine adds white afterwards to make bones easier to see",
@@ -247,7 +247,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is Arjun’s drip bag salty water rather than plain water?",
-        "a": "Cells sit in a balance with the fluid around them, and plain water would upset it",
+        "a": "Cells sit in a balance with the fluid around them",
         "wrong": [
           "Salt helps the fluid travel up the tube more quickly",
           "Salt stops germs growing inside the bag",
@@ -266,7 +266,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What is actually happening when Ava has an allergic reaction?",
-        "a": "Her immune system is treating a harmless peanut protein as if it were dangerous",
+        "a": "Her immune system treats a harmless protein as dangerous",
         "wrong": [
           "The peanut protein is poisoning her blood",
           "Her stomach cannot break the peanut down and it stays whole",
@@ -285,7 +285,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How does the clip on Ben’s finger measure his oxygen?",
-        "a": "Blood with more oxygen is a brighter red, which changes how much light passes through the finger",
+        "a": "Blood with more oxygen is a brighter red",
         "wrong": [
           "It takes a tiny drop of blood through the fingertip",
           "It measures how warm the finger is when blood flows through it",
@@ -304,7 +304,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Caleb’s hearing test use high and low beeps separately?",
-        "a": "Hearing is not all-or-nothing — someone can hear low notes well and miss high ones",
+        "a": "Someone can hear low notes well and miss high ones",
         "wrong": [
           "Low beeps are used for one ear and high beeps for the other",
           "The high beeps check the ear and the low beeps check the brain",
@@ -323,7 +323,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does sugar build up in Chloe’s blood?",
-        "a": "Without insulin, the sugar cannot get into the cells that would burn it",
+        "a": "Without insulin the sugar cannot get into the cells",
         "wrong": [
           "Her body makes extra sugar that it does not need",
           "Her blood cannot carry the sugar to where it is needed",
@@ -361,7 +361,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why do DeShawn’s stiff red blood cells cause pain?",
-        "a": "They get stuck in narrow vessels, leaving that part of the body short of oxygen",
+        "a": "They get stuck in narrow vessels, short of oxygen",
         "wrong": [
           "They carry a chemical that irritates the muscles",
           "They are larger than normal cells and stretch the vessels",
@@ -380,7 +380,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does pressing on a cut help it stop bleeding?",
-        "a": "It holds the edges close so the clot can bridge the gap instead of being washed away",
+        "a": "It holds the edges close so the clot can bridge the gap",
         "wrong": [
           "It pushes the blood back into the vessel it came from",
           "It warms the blood so it thickens more quickly",
@@ -456,7 +456,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does the doctor look for a small cone of reflected light in Ivy’s ear?",
-        "a": "A healthy eardrum reflects it; when the drum is inflamed and pushed outward it disappears",
+        "a": "A healthy eardrum reflects it and an inflamed one does not",
         "wrong": [
           "The cone shows how deep the ear canal is behind the outer ear",
           "The cone appears only when there is an infection behind the drum",
@@ -494,7 +494,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Jordan’s body raise its own temperature during an infection?",
-        "a": "Many germs do worse when it is warmer, and parts of the immune response work faster",
+        "a": "Many germs do worse when it is warmer",
         "wrong": [
           "The heat burns the germs away where they entered",
           "A high temperature makes the body sleep so it can repair",
@@ -513,7 +513,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why do Jules’s exercises get harder every week?",
-        "a": "The body repairs a worked muscle slightly stronger, so the same exercise stops being enough",
+        "a": "The body repairs a worked muscle slightly stronger",
         "wrong": [
           "The knee gets weaker over time and needs more work to keep up",
           "Harder exercises hurt less than gentle ones after surgery",
@@ -551,7 +551,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does the centrifuge do to Lena’s blood sample?",
-        "a": "Spins it so the heavier cells move to the bottom and the plasma separates on top",
+        "a": "Spins it so the heavier cells move to the bottom",
         "wrong": [
           "Heats it so the cells release what is inside them",
           "Filters out the germs before the sample is measured",
@@ -570,7 +570,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does cool running water help a fresh burn?",
-        "a": "Skin holds heat and keeps burning; the water carries the heat away so the damage stops",
+        "a": "Skin holds heat, and the water carries the heat away",
         "wrong": [
           "It washes the germs out before the skin closes over",
           "It makes the skin contract so the burn covers less area",
@@ -589,7 +589,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does droplet size matter so much in Luis’s nebuliser?",
-        "a": "Too big and they land in the throat, too small and they are breathed straight back out",
+        "a": "Too big and they land in the throat, too small and they blow back out",
         "wrong": [
           "Bigger droplets carry more medicine, so bigger is always better",
           "Small droplets are colder and make the airways tighten",
@@ -646,7 +646,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How is Mateo’s brace meant to work?",
-        "a": "It applies gentle pressure that nudges the spine to grow straighter over months",
+        "a": "Gentle pressure nudges the spine to grow straighter",
         "wrong": [
           "It pushes the spine back into place in a single adjustment",
           "It holds the spine completely still so it cannot bend further",

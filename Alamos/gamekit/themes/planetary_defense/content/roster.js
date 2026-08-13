@@ -118,11 +118,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is a radar window so short and so valuable?",
-        "a": "Echo strength falls with the fourth power of distance, so it works only near closest approach",
+        "a": "Echo strength falls with the fourth power of distance",
         "wrong": [
           "The transmitter overheats after a few hours of use",
           "Radar requires the object to be in the Earth's shadow",
-          "Other observatories need the same time for optical work"
+          "Other observatories are booked for optical work at exactly the same hours"
         ]
       }
     ]
@@ -137,9 +137,9 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why do Schulz's entry models produce a range of outcomes rather than one?",
-        "a": "The body's strength is unmeasured, and it decides whether the object fragments or reaches the ground",
+        "a": "The body's strength is unmeasured, and it decides whether it fragments",
         "wrong": [
-          "Atmospheric density is never known to better than a factor of two",
+          "Atmospheric density at those heights is never known to better than a factor of two",
           "The models are run on different computers with different rounding",
           "Entry angle cannot be determined before impact"
         ]
@@ -156,11 +156,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Ellery agree protective triggers before the probability settles?",
-        "a": "A step tied to a stated observation survives the probability changing; one announced afterwards looks arbitrary",
+        "a": "A step tied to a stated observation survives the probability changing",
         "wrong": [
           "Triggers reduce the uncertainty in the orbit determination",
           "Regulations require evacuation plans to be filed in advance",
-          "Announcing them early prevents the media from reporting the risk"
+          "Announcing them early is what stops the media reporting the risk badly"
         ]
       }
     ]

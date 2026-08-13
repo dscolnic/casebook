@@ -13,7 +13,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why can a contact disappear from Rask's display without going anywhere?",
-        "a": "Sound bends toward colder water, so crossing the layer puts it in a shadow zone",
+        "a": "Sound bends toward colder water, into a shadow zone",
         "wrong": [
           "Passive sonar stops working when a contact slows down",
           "The array can only hold four contacts at a time",
@@ -60,7 +60,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Sowande mean by the age of a position?",
-        "a": "How long since the position last came from a measurement rather than a calculation",
+        "a": "How long since the position came from a measurement",
         "wrong": [
           "How long the chart itself has been aboard",
           "How long the boat has been submerged on this patrol",
@@ -88,7 +88,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is Petrov unimpressed when the chart overlay and the plot repeat agree?",
-        "a": "Both are drawn from the inertial navigator, so their agreement carries no new information",
+        "a": "Both come from the same inertial navigator",
         "wrong": [
           "The overlay updates more slowly than the repeat does",
           "They use different chart datums and should not be compared",
@@ -107,7 +107,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does the same hole flood faster deeper?",
-        "a": "Flow rises with the pressure difference across the hole, and pressure rises with depth",
+        "a": "Flow rises with pressure, and pressure rises with depth",
         "wrong": [
           "Water is denser deeper, so more of it fits through",
           "The hull flexes at depth and enlarges the hole",
@@ -116,7 +116,7 @@ export const ROSTER = [
       },
       {
         "q": "What is Ferro's rule about a bilge level?",
-        "a": "One reading is nothing; two readings a minute apart say whether you are winning",
+        "a": "One reading is nothing; two a minute apart tell you",
         "wrong": [
           "Any reading above the deck plate means abandon the compartment",
           "The level matters less than the temperature of the water",
@@ -135,7 +135,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Hallam object to starting a pump before finding the source?",
-        "a": "It feels like progress and washes away the evidence of where the water is entering",
+        "a": "It washes away the evidence of where the water enters",
         "wrong": [
           "Pumps cannot run while a compartment is still flooding",
           "Starting a pump early floods the bilge main",
@@ -154,7 +154,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is spraying an energized electrical fire not enough?",
-        "a": "The fault keeps re-lighting the insulation, so it reflashes until the power is gone",
+        "a": "The fault keeps re-lighting the insulation",
         "wrong": [
           "The agent cannot reach a fire behind a panel",
           "Electrical fires burn hotter than the agent can absorb",
@@ -163,7 +163,7 @@ export const ROSTER = [
       },
       {
         "q": "What does Okonkwo mean by \"isolation is not isolation until it is measured\"?",
-        "a": "An indicator lamp reports what the switchboard believes; a meter reports what the cable is doing",
+        "a": "A lamp reports a belief, a meter reports the cable",
         "wrong": [
           "Isolation has to be logged before it counts",
           "Two people must witness a breaker being opened",
@@ -201,7 +201,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why can a compartment's air go bad while the scrubber plant reads healthy?",
-        "a": "The scrubber only reaches compartments whose dampers are open to it",
+        "a": "The scrubber only reaches compartments whose dampers are open",
         "wrong": [
           "Scrubbers work more slowly at depth",
           "Carbon dioxide is heavier than air and sinks below the sensors",

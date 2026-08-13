@@ -73,7 +73,7 @@ export const CURRICULUM = {
         "play": "Which explanation fits every reading, not just the loudest one?",
         "task": "Which explanation fits every reading, not just the loudest one?",
         "question": "Which explanation fits every reading, not just the loudest one?",
-        "answer": "A quiet contact beyond the layer",
+        "answer": "A quiet contact past the layer",
         "why": "Broadband hears the total sound a thing makes; narrowband picks out the pure tones machinery produces at fixed frequencies, which is usually how a contact gets a name. So a missing line is evidence, not a blank space where evidence should be. Sound in the ocean does not travel straight — a temperature layer bends it, and a path bent through the layer arrives faint and stripped of its detail. Eleven minutes of persistence rules out noise and biologics, and nothing of ours changed, so it is not ours.",
         "rebuttals": [
           "Something of ours would have changed when we did, and nothing aboard has changed in eleven minutes.",
@@ -116,7 +116,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "A quiet contact beyond the layer",
+            "label": "A quiet contact past the layer",
             "mechanism": "Sound from above the layer bends away, arriving faint and without its machinery lines."
           },
           {
@@ -136,7 +136,7 @@ export const CURRICULUM = {
             "mechanism": "Ordinary noise that happens to look like a line."
           }
         ],
-        "correctChoice": "A quiet contact beyond the layer"
+        "correctChoice": "A quiet contact past the layer"
       },
       "assumes": [
         "sound bends when it crosses water of a different temperature"
@@ -162,7 +162,7 @@ export const CURRICULUM = {
         "play": "The contact was held on the surface layer and is now lost. Where has it gone?",
         "task": "The contact was held on the surface layer and is now lost. Where has it gone?",
         "question": "The contact was held on the surface layer and is now lost. Where has it gone?",
-        "answer": "Below the layer, into a shadow zone the rays from this depth do not reach.",
+        "answer": "Below the layer, where the rays from this depth do not reach.",
         "why": "Sound speed falls with temperature, and a ray bends toward the slower water. A ray leaving this depth is turned downward as it crosses the layer, and the geometry leaves a region below and beyond it that no ray from here enters — a shadow zone. A contact in one does not fade; it disappears between sweeps and comes back the same way. That is the signature to read, and it is the reason boats change depth to search rather than only turning up the gain.",
         "rebuttals": [
           "Range loss is gradual. This went in a single sweep, which is a geometry change and not a range change.",
@@ -170,12 +170,12 @@ export const CURRICULUM = {
           "A contact that quiets down fades over minutes. This one was there and then was not."
         ],
         "choices": [
-          "Below the layer, into a shadow zone the rays from this depth do not reach.",
+          "Below the layer, where the rays from this depth do not reach.",
           "Out of range, since detection falls off smoothly with distance.",
           "Astern, into the boat's own baffles behind the propeller.",
           "Nowhere. It has shut down and is making no noise at all."
         ],
-        "correctChoice": "Below the layer, into a shadow zone the rays from this depth do not reach."
+        "correctChoice": "Below the layer, where the rays from this depth do not reach."
       },
       "assumes": [
         "sound travels faster in warmer water"
@@ -246,7 +246,7 @@ export const CURRICULUM = {
         "play": "Which explanation fits the whole picture?",
         "task": "Which explanation fits the whole picture?",
         "question": "Which explanation fits the whole picture?",
-        "answer": "A machinery fault aboard",
+        "answer": "A machinery fault",
         "why": "Direction is the whole clue. Something out there has a bearing; something the boat is carrying does not, because it radiates into the array from the hull the array is bolted to. That is why a rise on every bearing at once points inboard. Machinery tones sit at frequencies tied to the rate a thing turns, so a line that shifts with shaft speed is tied to our own plant — and a seawater pump was started twenty minutes ago. A boat that cannot hear is also a boat that is being heard.",
         "rebuttals": [
           "A close contact appears in one sector and has its own bearing rate. This is up on every bearing at once.",
@@ -289,7 +289,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "A machinery fault aboard",
+            "label": "A machinery fault",
             "mechanism": "A source we carry radiates in every direction at once, and its line follows our own machinery."
           },
           {
@@ -309,7 +309,7 @@ export const CURRICULUM = {
             "mechanism": "Ordinary variation in a noisy ocean."
           }
         ],
-        "correctChoice": "A machinery fault aboard"
+        "correctChoice": "A machinery fault"
       },
       "assumes": [
         "a contact out in the water lies in some direction"
@@ -460,7 +460,7 @@ export const CURRICULUM = {
         "play": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
         "task": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
         "question": "Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?",
-        "answer": "Two sources beating against each other, at the difference of their frequencies.",
+        "answer": "Two sources beating, at the difference of their frequencies.",
         "why": "Two tones close in frequency drift in and out of phase with each other, adding where they agree and cancelling where they do not, and they come back into phase at the difference frequency — 150 minus 147, three times a second. So the pulsing is not a third signal and not an artefact: it is evidence that there are exactly two sources, and their spacing is measurable by ear. Two shafts on one hull do this, and so do two boats.",
         "rebuttals": [
           "A speed change moves a line's frequency. It does not make the level rise and fall on a fixed period.",
@@ -468,12 +468,12 @@ export const CURRICULUM = {
           "Our own machinery would appear on every bearing. These two lines are on one."
         ],
         "choices": [
-          "Two sources beating against each other, at the difference of their frequencies.",
+          "Two sources beating, at the difference of their frequencies.",
           "One source whose speed is changing three times a second.",
           "A fault in the display, since two steady lines cannot pulse.",
           "The boat's own machinery, aliased into the band."
         ],
-        "correctChoice": "Two sources beating against each other, at the difference of their frequencies."
+        "correctChoice": "Two sources beating, at the difference of their frequencies."
       },
       "assumes": [
         "two waves arriving together add where they are in phase and cancel where they are not"
@@ -505,7 +505,7 @@ export const CURRICULUM = {
         "play": "Carry a message without a marker",
         "task": "Carry a message without a marker",
         "question": "What should you fix in your head before you set off?",
-        "answer": "The order of the compartments, because a sequence survives an interruption.",
+        "answer": "The order of the compartments, since a sequence survives interruption.",
         "why": "Everything anybody aboard knows about where they are comes from keeping track since the last thing they were sure of. That is dead reckoning, and it is what the boat does with its own position between fixes. It fails at the interruption, and a boat is full of interruptions. A pace count does not survive stepping round somebody. A list of turns does not survive taking one extra. A stencilled number cannot be read with the lighting gone. An ordered list of spaces survives all three, because you can rejoin it anywhere.",
         "rebuttals": [
           "Paces stop being useful the moment you have to step around somebody.",
@@ -513,12 +513,12 @@ export const CURRICULUM = {
           "Wandering works until the boat is dark or on fire, which is when it is asked for."
         ],
         "choices": [
-          "The order of the compartments, because a sequence survives an interruption.",
+          "The order of the compartments, since a sequence survives interruption.",
           "The number of paces between hatches, because a count is exact.",
           "The route as a list of turns, because turns are easy to hold.",
           "The stencilled compartment numbers, because they are already written down."
         ],
-        "correctChoice": "The order of the compartments, because a sequence survives an interruption."
+        "correctChoice": "The order of the compartments, since a sequence survives interruption."
       },
       "assumes": [
         "submerged, there are no windows and no landmarks"
@@ -538,7 +538,7 @@ export const CURRICULUM = {
         "play": "Say what a steady bearing means",
         "task": "Say what a steady bearing means",
         "question": "What does a steady bearing and a rising level tell you?",
-        "answer": "We are on a collision course, or close to it, and the range is closing.",
+        "answer": "We are on a collision course, and the range is closing.",
         "why": "A bearing and how it behaves over time is the only ranging instrument a quiet boat has, which makes relative motion the whole trade. Two ships whose relative bearing does not change are closing along a straight line between them — it is the oldest rule at sea and it needs no range. A stopped contact's bearing would swing as we moved past it. An opening contact gets quieter, not louder. Waiting for a range spends the six minutes the geometry has already given you.",
         "rebuttals": [
           "A stopped contact's bearing would change as we moved past it.",
@@ -546,12 +546,12 @@ export const CURRICULUM = {
           "Waiting for a range wastes the six minutes the geometry just gave you."
         ],
         "choices": [
-          "We are on a collision course, or close to it, and the range is closing.",
+          "We are on a collision course, and the range is closing.",
           "The contact is stopped, since its bearing is not changing.",
           "The contact is opening, and the level is rising for another reason.",
           "Nothing until a range is available."
         ],
-        "correctChoice": "We are on a collision course, or close to it, and the range is closing."
+        "correctChoice": "We are on a collision course, and the range is closing."
       },
       "assumes": [
         "passive sonar gives a direction and no range at all"
@@ -827,7 +827,7 @@ export const CURRICULUM = {
         "play": "Say what the second sounder is worth",
         "task": "Say what the second sounder is worth",
         "question": "What does the second sounder actually buy?",
-        "answer": "A measurement that cannot be wrong for the same reason as the plot.",
+        "answer": "A measurement that cannot fail the way the plot fails.",
         "why": "A spare is worth what it costs only when it fails differently from the thing it backs up. Two instruments sharing a sensor, a power supply or a source of data will agree with each other confidently while both are wrong — and this boat has been misled twice this patrol by exactly that. Independence is the entire product. It makes nothing on the chart more precise, and the plot has been precisely wrong before, which is the point.",
         "rebuttals": [
           "Precision is not the problem; the plot has been precisely wrong before.",
@@ -835,12 +835,12 @@ export const CURRICULUM = {
           "Confirmation from a source that fails the same way is not confirmation."
         ],
         "choices": [
-          "A measurement that cannot be wrong for the same reason as the plot.",
+          "A measurement that cannot fail the way the plot fails.",
           "A more precise depth, which improves the plot's accuracy.",
           "A backup for when the first sounder is broken, and nothing more.",
           "Confirmation of the existing sounder, which builds confidence."
         ],
-        "correctChoice": "A measurement that cannot be wrong for the same reason as the plot."
+        "correctChoice": "A measurement that cannot fail the way the plot fails."
       },
       "assumes": [
         "two instruments sharing a source share its mistakes"
@@ -984,7 +984,7 @@ export const CURRICULUM = {
         "play": "Which source fits every reading on the board?",
         "task": "Which source fits every reading on the board?",
         "question": "Which source fits every reading on the board?",
-        "answer": "A hull fitting on the seawater supply header",
+        "answer": "A fitting on the seawater header",
         "why": "Water aboard is not only weight. It is a leak whose behaviour depends on where it came from, and a sea connection at ninety metres is fed by the entire ocean at about ten atmospheres. What the water is, and what has not changed on the systems around it, is the evidence that names the source. Salt rules out the fresh water line, whose tank level is unchanged anyway. Normal cooling flow rules out the sonar return. Only a sea connection puts water in faster than the pump takes it out at this depth.",
         "rebuttals": [
           "A split fresh water line would drop the tank level. The tank is unchanged, and the water is salt.",
@@ -1033,7 +1033,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "A hull fitting on the seawater supply header",
+            "label": "A fitting on the seawater header",
             "mechanism": "Sea pressure driving salt water in at a rate set by depth, taking bow trim as the space fills."
           },
           {
@@ -1053,7 +1053,7 @@ export const CURRICULUM = {
             "mechanism": "The pump running backwards, which would show as a falling discharge pressure."
           }
         ],
-        "correctChoice": "A hull fitting on the seawater supply header"
+        "correctChoice": "A fitting on the seawater header"
       },
       "assumes": [
         "sea pressure at depth is far higher than anything inside the boat"
@@ -1103,7 +1103,7 @@ export const CURRICULUM = {
         "play": "Decide what is first",
         "task": "Decide what is first",
         "question": "What gets the first team?",
-        "answer": "The flooding, because it is the only one that gets worse by itself and can sink the boat.",
+        "answer": "The flooding, because it is the only one that gets worse by itself.",
         "why": "Casualties do not queue by how loudly they are being reported. They queue by how fast they get worse if nobody touches them, and some have already done all the getting worse they are going to do. Water comes in whether or not anybody is watching it, and it is the only one that can sink the boat. The injury is stable. The bus is already lost — it cannot get more lost. And the plot can be frozen by slowing down, which is a decision you can make in four seconds without sending anybody.",
         "rebuttals": [
           "The injured man matters and he is stable. A broken wrist in a passage is treated and cleared, and it is not getting worse while you decide.",
@@ -1111,12 +1111,12 @@ export const CURRICULUM = {
           "The plot degrades every minute, and it can be frozen by slowing the boat — a decision, not a team."
         ],
         "choices": [
-          "The flooding, because it is the only one that gets worse by itself and can sink the boat.",
+          "The flooding, because it is the only one that gets worse by itself.",
           "The injured crewman, because a person comes before equipment.",
           "The lost bus, because everything else depends on power.",
           "The plot, because the boat is still moving toward a bank."
         ],
-        "correctChoice": "The flooding, because it is the only one that gets worse by itself and can sink the boat."
+        "correctChoice": "The flooding, because it is the only one that gets worse by itself."
       },
       "assumes": [
         "some problems get worse on their own and some do not"
@@ -1399,7 +1399,7 @@ export const CURRICULUM = {
         "play": "Find out why the pump is off",
         "task": "Find out why the pump is off",
         "question": "What does this say about the quiet-running lineup?",
-        "answer": "Securing a machine needs a record of what it was cooling and when it must come back.",
+        "answer": "Securing a machine needs a record of what it was cooling.",
         "why": "Every configuration change aboard is a trade somebody made for a reason, and the reason usually expires long before the configuration does. The log is the only thing that carries that reason across a watch change. Without it, three watches later, a perfectly sensible decision is indistinguishable from a fault — and it gets diagnosed as one while a bearing heats up. Securing a machine therefore needs a record of what it was cooling and when it has to come back, which is a different thing from a record that it was secured.",
         "rebuttals": [
           "Quiet running is a legitimate reason to secure a pump; the fault is in the handover.",
@@ -1407,12 +1407,12 @@ export const CURRICULUM = {
           "It was reasonable at the time and stopped being reasonable an hour later, which is the whole problem."
         ],
         "choices": [
-          "Securing a machine needs a record of what it was cooling and when it must come back.",
+          "Securing a machine needs a record of what it was cooling.",
           "The quiet-running lineup should be restored automatically when the transit ends.",
           "The bearing should have a high-temperature alarm that trips the pump back on.",
           "Nothing — the watch that secured it made a reasonable trade at the time."
         ],
-        "correctChoice": "Securing a machine needs a record of what it was cooling and when it must come back."
+        "correctChoice": "Securing a machine needs a record of what it was cooling."
       },
       "assumes": [
         "a watch hands over to a watch that was not there"

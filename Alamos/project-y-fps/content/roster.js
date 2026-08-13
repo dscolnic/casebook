@@ -51,7 +51,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How did Fermi estimate the Trinity yield where he stood?",
-        "a": "He dropped shredded paper and measured how far the blast wave carried it",
+        "a": "He dropped shredded paper and watched how far it blew",
         "wrong": [
           "He timed the flash against the arrival of the sound at the bunker",
           "He read a pressure gauge mounted on a post outside the bunker",
@@ -108,7 +108,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How did Kistiakowsky’s division find asymmetries in an implosion?",
-        "a": "By instrumenting the event — flash X-ray, high-speed photography and pin timing",
+        "a": "By instrumenting the event — flash X-ray, photography and pin timing",
         "wrong": [
           "By weighing and measuring each lens casting before and after it was fired",
           "By recording the detonation from three widely separated sound stations",
@@ -146,7 +146,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What did Szilard do in July 1945, having helped start the project in 1939?",
-        "a": "Circulated a petition of 155 scientists urging that Japan be warned first",
+        "a": "Circulated a petition of 155 scientists urging a warning first",
         "wrong": [
           "Resigned from the project and asked for his chain-reaction patent back",
           "Asked Einstein to send a second letter to the President, as in 1939",

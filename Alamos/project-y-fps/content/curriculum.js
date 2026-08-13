@@ -358,7 +358,7 @@ export const CURRICULUM = {
         "play": "Why does splitting uranium release energy while splitting carbon would absorb it?",
         "task": "Why does splitting uranium release energy while splitting carbon would absorb it?",
         "question": "Why does splitting uranium release energy while splitting carbon would absorb it?",
-        "answer": "Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting and light ones do not.",
+        "answer": "Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting.",
         "why": "Binding energy per nucleon rises steeply from hydrogen, peaks around iron and nickel, and falls slowly to uranium. A reaction releases energy when its products sit HIGHER on that curve than its reactants, because the products are more tightly bound. Uranium splitting into two mid-mass fragments moves up the curve, so energy comes out. Carbon splitting would move down it, so energy would have to go in. The same curve is why fusion of light nuclei also releases energy — from the other side of the peak.",
         "rebuttals": [
           "Instability sets the rate at which something decays, not how much energy the reaction releases.",
@@ -366,12 +366,12 @@ export const CURRICULUM = {
           "Splitting light nuclei costs energy. That is what the left-hand side of the curve means."
         ],
         "choices": [
-          "Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting and light ones do not.",
+          "Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting.",
           "Heavy nuclei are unstable and light nuclei are stable, and instability is itself the energy source.",
           "Uranium has more protons, so electrostatic repulsion supplies the energy directly.",
           "Splitting always releases energy; carbon simply releases less of it."
         ],
-        "correctChoice": "Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting and light ones do not."
+        "correctChoice": "Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting."
       },
       "assumes": [
         "a nucleus is held together by binding energy"
@@ -401,7 +401,7 @@ export const CURRICULUM = {
         "play": "Theory and experiment differ by three standard deviations. What does the division do?",
         "task": "Theory and experiment differ by three standard deviations. What does the division do?",
         "question": "Theory and experiment differ by three standard deviations. What does the division do?",
-        "answer": "Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.",
+        "answer": "Audit the shared calibrations, then design a measurement that tells the explanations apart.",
         "why": "Two numbers that share a calibration can be three sigma apart because one error was counted twice. The audit is cheap enough to do first. What has to follow it is a measurement whose outcome differs depending on which explanation is true. A detector artefact, a missing physical effect, or an approximation pushed past its range all predict different things. Design the test that separates them, and spend the credits there rather than on the one that reassures.",
         "rebuttals": [
           "Retuning parameters to force agreement hides the discrepancy inside a number and destroys the only evidence that something was wrong.",
@@ -409,12 +409,12 @@ export const CURRICULUM = {
           "Adopting the experimental value settles the disagreement by whoever wrote it down last, and leaves the cause in place for the next comparison."
         ],
         "choices": [
-          "Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.",
+          "Audit the shared calibrations, then design a measurement that tells the explanations apart.",
           "Retune the uncertain parameters until the model reproduces the measurement.",
           "Collect more of the same data, to see whether the gap narrows.",
           "Adopt the experimental value and record the disagreement in the report."
         ],
-        "correctChoice": "Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart."
+        "correctChoice": "Audit the shared calibrations, then design a measurement that tells the explanations apart."
       },
       "assumes": [
         "three standard deviations is a real disagreement, not noise"
@@ -434,7 +434,7 @@ export const CURRICULUM = {
         "play": "Fusing hydrogen releases energy. Why is it so much harder to bring about than fission?",
         "task": "Fusing hydrogen releases energy. Why is it so much harder to bring about than fission?",
         "question": "Fusing hydrogen releases energy. Why is it so much harder to bring about than fission?",
-        "answer": "Both nuclei are positive, so they must overcome electrostatic repulsion before the short-range nuclear force can bind them.",
+        "answer": "Both nuclei are positive, so repulsion has to be overcome before the nuclear force can bind them.",
         "why": "Fusion moves up the binding-energy curve from the light end, so it releases energy — more per nucleon than fission does. The difficulty is getting there: two positive nuclei repel, and the nuclear force that binds them only reaches across about a femtometre. Closing that gap needs kinetic energy, which means temperatures of millions of kelvin, whereas fission needs only a slow neutron and no barrier at all. Energy released and ease of ignition are separate questions, and confusing them is the usual error.",
         "rebuttals": [
           "Fusion releases more energy per nucleon than fission, not less.",
@@ -442,12 +442,12 @@ export const CURRICULUM = {
           "A neutron initiates fission. Fusion is initiated by temperature and pressure."
         ],
         "choices": [
-          "Both nuclei are positive, so they must overcome electrostatic repulsion before the short-range nuclear force can bind them.",
+          "Both nuclei are positive, so repulsion has to be overcome before the nuclear force can bind them.",
           "Fusion releases less energy per reaction, so less is available to sustain it.",
           "Light nuclei are more tightly bound already, so there is little to gain.",
           "Fusion requires a neutron to start it, and free neutrons are scarce."
         ],
-        "correctChoice": "Both nuclei are positive, so they must overcome electrostatic repulsion before the short-range nuclear force can bind them."
+        "correctChoice": "Both nuclei are positive, so repulsion has to be overcome before the nuclear force can bind them."
       },
       "assumes": [
         "like charges repel, and the nuclear force acts only at very short range"
@@ -1376,7 +1376,7 @@ export const CURRICULUM = {
         "play": "How should the count-rate data be plotted, and what does the plot then give you?",
         "task": "How should the count-rate data be plotted, and what does the plot then give you?",
         "question": "How should the count-rate data be plotted, and what does the plot then give you?",
-        "answer": "Log of count rate against time: a straight line, whose slope is the decay constant.",
+        "answer": "Log of count rate against time, whose slope is the decay constant.",
         "why": "An exponential plotted on linear axes is a curve, and a curve is hard to read and harder to check. Take the logarithm of the count rate and the same data is a straight line whose slope is minus the decay constant — so the half-life comes out of a ruler rather than a guess. It also makes the failures visible: a second component appears as a break in slope, and background appears as the line flattening onto a floor. Choosing the axes is part of the measurement.",
         "rebuttals": [
           "Curvature on linear axes is not readable in that way; two different processes look similar.",
@@ -1384,12 +1384,12 @@ export const CURRICULUM = {
           "Squaring the time straightens nothing here; the relationship is exponential in time."
         ],
         "choices": [
-          "Log of count rate against time: a straight line, whose slope is the decay constant.",
+          "Log of count rate against time, whose slope is the decay constant.",
           "Count rate against time: the curvature itself gives the half-life directly.",
           "Log of count rate against log of time: a straight line for any decay process.",
           "Count rate against the square of time, which straightens exponential data."
         ],
-        "correctChoice": "Log of count rate against time: a straight line, whose slope is the decay constant."
+        "correctChoice": "Log of count rate against time, whose slope is the decay constant."
       },
       "assumes": [
         "a logarithm turns a constant ratio into a constant difference"
@@ -2243,7 +2243,7 @@ export const CURRICULUM = {
         "play": "Why can the chemists not separate uranium-235 from uranium-238?",
         "task": "Why can the chemists not separate uranium-235 from uranium-238?",
         "question": "Why can the chemists not separate uranium-235 from uranium-238?",
-        "answer": "The two isotopes have the same electron structure, so every chemical method treats them identically; only their mass differs.",
+        "answer": "The two isotopes have the same electron structure, so chemistry treats them identically.",
         "why": "Chemical behaviour is decided by electrons, and the two isotopes have the same number of them in the same arrangement — so a chemical process cannot prefer one. What differs is mass, by about one part in 235, and every enrichment method exploits that: diffusion rates through a barrier, deflection in a magnetic field, centrifugal separation. That factor of 1.004 in the physics is why enrichment plants are the size of towns while the chemistry of uranium fits in a beaker.",
         "rebuttals": [
           "It is not a matter of degree. A chemical route has no property to select on at all.",
@@ -2251,12 +2251,12 @@ export const CURRICULUM = {
           "Radioactivity is a hazard to manage, not the reason chemical separation fails."
         ],
         "choices": [
-          "The two isotopes have the same electron structure, so every chemical method treats them identically; only their mass differs.",
+          "The two isotopes have the same electron structure, so chemistry treats them identically.",
           "The chemistry differs only slightly, so the process would simply take longer.",
           "Uranium is too dense for solution chemistry to work at all.",
           "They can be separated chemically; the difficulty is the radioactivity."
         ],
-        "correctChoice": "The two isotopes have the same electron structure, so every chemical method treats them identically; only their mass differs."
+        "correctChoice": "The two isotopes have the same electron structure, so chemistry treats them identically."
       },
       "assumes": [
         "chemical behaviour is set by electrons, and isotopes differ only in the nucleus"
@@ -2276,7 +2276,7 @@ export const CURRICULUM = {
         "play": "One last improvement to the division’s materials capability. Which?",
         "task": "One last improvement to the division’s materials capability. Which?",
         "question": "One last improvement to the division’s materials capability. Which?",
-        "answer": "Traceable records linking each batch’s process conditions to its measured properties.",
+        "answer": "Records linking each batch’s conditions to its measured properties.",
         "why": "A measurement says what one batch was on one day. A record that links process conditions to measured properties says what the process does. That is a different claim, and a more durable one. It is also the only form that lets somebody a year from now diagnose a batch that came out different — and this metal has several solid phases and very little data behind its diagram.",
         "rebuttals": [
           "Independent composition measurements and microscope work verify a batch and are already required. They produce more measurements with nothing connecting them.",
@@ -2284,12 +2284,12 @@ export const CURRICULUM = {
           "More throughput on the same records makes more material that nobody can characterise afterwards."
         ],
         "choices": [
-          "Traceable records linking each batch’s process conditions to its measured properties.",
+          "Records linking each batch’s conditions to its measured properties.",
           "Independent composition measurements and microscope work on every batch.",
           "Re-measurement of the batches already released, to a tighter tolerance.",
           "Higher production throughput, with the measurements and records unchanged."
         ],
-        "correctChoice": "Traceable records linking each batch’s process conditions to its measured properties."
+        "correctChoice": "Records linking each batch’s conditions to its measured properties."
       },
       "assumes": [
         "somebody will read this after everyone who made it has gone"
@@ -3141,7 +3141,7 @@ export const CURRICULUM = {
         "play": "The written limit is well below the critical mass. What is the argument for keeping it there?",
         "task": "The written limit is well below the critical mass. What is the argument for keeping it there?",
         "question": "The written limit is well below the critical mass. What is the argument for keeping it there?",
-        "answer": "The margin absorbs the mistakes that actually happen — a miscount, a moved reflector, a second piece brought in.",
+        "answer": "The margin absorbs the mistakes that happen — a miscount, a moved reflector.",
         "why": "Criticality depends on mass, geometry, reflection and moderation. Any of those can change by accident. A hand nearby reflects neutrons. A spilled solution moderates them. A second piece on the bench adds mass. The written limit sits far below the physical one, so one human error cannot reach it. It is written down so the margin does not depend on who is on shift. Two of this laboratory's fatal accidents were exactly that error.",
         "rebuttals": [
           "The calculations are good; the limit exists because the inputs to them get changed by accident.",
@@ -3149,12 +3149,12 @@ export const CURRICULUM = {
           "Reflection is possible at any mass, and a hand or a bench is a reflector."
         ],
         "choices": [
-          "The margin absorbs the mistakes that actually happen — a miscount, a moved reflector, a second piece brought in.",
+          "The margin absorbs the mistakes that happen — a miscount, a moved reflector.",
           "The calculation of critical mass is unreliable, so the limit compensates for it.",
           "It is a formality: the physical limit is the only one that matters.",
           "Below the limit the material cannot be reflected, so geometry no longer matters."
         ],
-        "correctChoice": "The margin absorbs the mistakes that actually happen — a miscount, a moved reflector, a second piece brought in."
+        "correctChoice": "The margin absorbs the mistakes that happen — a miscount, a moved reflector."
       },
       "assumes": [
         "criticality depends on geometry and surroundings as well as on mass"
@@ -3174,7 +3174,7 @@ export const CURRICULUM = {
         "play": "The detonator programme can run one of these. Which?",
         "task": "The detonator programme can run one of these. Which?",
         "question": "The detonator programme can run one of these. Which?",
-        "answer": "Sample several production lots and measure the timing distribution of each.",
+        "answer": "Sample several lots and measure the timing spread of each.",
         "why": "Implosion does not need a good detonator. It needs every unit in a lot to fire inside a spread of well under a microsecond, because the symmetry depends on simultaneity and the worst unit sets the result. That is a property of a manufactured population rather than of a design, so the evidence has to be a distribution — mean and spread from a sample large enough to bound the tail. Testing the best units, or a handful chosen by an engineer, measures the way to know it is to sample the population and look at the tail.",
         "rebuttals": [
           "One unit fired repeatedly measures that unit. It says nothing about the next thirty off the line, which is what the device will be built from.",
@@ -3182,12 +3182,12 @@ export const CURRICULUM = {
           "Waiting for the full-system trial makes every component a suspect at once when it disappoints, and there is one trial."
         ],
         "choices": [
-          "Sample several production lots and measure the timing distribution of each.",
+          "Sample several lots and measure the timing spread of each.",
           "Build one unit to the best achievable standard and fire it repeatedly.",
           "Tighten the drawing tolerances and re-inspect the parts dimensionally.",
           "Wait for the first full-system trial and judge the detonators from it."
         ],
-        "correctChoice": "Sample several production lots and measure the timing distribution of each."
+        "correctChoice": "Sample several lots and measure the timing spread of each."
       },
       "assumes": [
         "a sample of a production run says something about the rest of it"
@@ -4301,7 +4301,7 @@ export const CURRICULUM = {
         "play": "A half-scale shot is fired. Which of its results transfer to full scale?",
         "task": "A half-scale shot is fired. Which of its results transfer to full scale?",
         "question": "A half-scale shot is fired. Which of its results transfer to full scale?",
-        "answer": "Anything set by dimensionless ratios transfers; anything set by an absolute length or time does not.",
+        "answer": "Anything set by dimensionless ratios transfers, and anything set by a length does not.",
         "why": "Scaling works through dimensionless groups: reproduce those and the phenomena they govern reproduce too. What does not scale is anything with a dimension of its own — a detonation velocity, a diffusion length, a reaction time — because halving the geometry does not halve them. So a half-scale shot can settle a symmetry question governed by ratios and cannot settle a timing margin measured in microseconds. The discipline is to state, before firing, which quantities the shot is entitled to decide.",
         "rebuttals": [
           "Similar geometry is necessary and not sufficient: the material timescales stay where they are.",
@@ -4309,12 +4309,12 @@ export const CURRICULUM = {
           "Timings are the classic thing that does NOT scale, because they are fixed by material properties."
         ],
         "choices": [
-          "Anything set by dimensionless ratios transfers; anything set by an absolute length or time does not.",
+          "Anything set by dimensionless ratios transfers, and anything set by a length does not.",
           "All of it, since the geometry is similar and physics does not care about size.",
           "None of it, because the materials behave differently at different sizes.",
           "Only the timings, since time is the same at any scale."
         ],
-        "correctChoice": "Anything set by dimensionless ratios transfers; anything set by an absolute length or time does not."
+        "correctChoice": "Anything set by dimensionless ratios transfers, and anything set by a length does not."
       },
       "assumes": [
         "a dimensionless ratio has the same value at any scale"

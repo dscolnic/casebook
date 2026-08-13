@@ -119,7 +119,7 @@ roster:
       gets short with anybody who asks for one.
     quiz:
       - q: Why can a contact disappear from Rask's display without going anywhere?
-        a: Sound bends toward colder water, so crossing the layer puts it in a shadow zone
+        a: Sound bends toward colder water, into a shadow zone
         wrong:
           - Passive sonar stops working when a contact slows down
           - The array can only hold four contacts at a time
@@ -177,7 +177,7 @@ roster:
       the one thing aboard that cannot be wrong for the same reason the plot is.
     quiz:
       - q: What does Sowande mean by the age of a position?
-        a: How long since the position last came from a measurement rather than a calculation
+        a: How long since the position came from a measurement
         wrong:
           - How long the chart itself has been aboard
           - How long the boat has been submerged on this patrol
@@ -208,7 +208,7 @@ roster:
       showing one source is not confirmation, and she will say so out loud.
     quiz:
       - q: Why is Petrov unimpressed when the chart overlay and the plot repeat agree?
-        a: Both are drawn from the inertial navigator, so their agreement carries no new information
+        a: Both come from the same inertial navigator
         wrong:
           - The overlay updates more slowly than the repeat does
           - They use different chart datums and should not be compared
@@ -234,13 +234,13 @@ roster:
       actually asking.
     quiz:
       - q: Why does the same hole flood faster deeper?
-        a: Flow rises with the pressure difference across the hole, and pressure rises with depth
+        a: Flow rises with pressure, and pressure rises with depth
         wrong:
           - Water is denser deeper, so more of it fits through
           - The hull flexes at depth and enlarges the hole
           - Pumps lose suction at depth, which only seems like faster flooding
       - q: What is Ferro's rule about a bilge level?
-        a: One reading is nothing; two readings a minute apart say whether you are winning
+        a: One reading is nothing; two a minute apart tell you
         wrong:
           - Any reading above the deck plate means abandon the compartment
           - The level matters less than the temperature of the water
@@ -266,7 +266,7 @@ roster:
       water was coming in.
     quiz:
       - q: Why does Hallam object to starting a pump before finding the source?
-        a: It feels like progress and washes away the evidence of where the water is entering
+        a: It washes away the evidence of where the water enters
         wrong:
           - Pumps cannot run while a compartment is still flooding
           - Starting a pump early floods the bilge main
@@ -293,13 +293,13 @@ roster:
       until it has been measured.
     quiz:
       - q: Why is spraying an energized electrical fire not enough?
-        a: The fault keeps re-lighting the insulation, so it reflashes until the power is gone
+        a: The fault keeps re-lighting the insulation
         wrong:
           - The agent cannot reach a fire behind a panel
           - Electrical fires burn hotter than the agent can absorb
           - The smoke displaces the agent before it works
       - q: What does Okonkwo mean by "isolation is not isolation until it is measured"?
-        a: An indicator lamp reports what the switchboard believes; a meter reports what the cable is doing
+        a: A lamp reports a belief, a meter reports the cable
         wrong:
           - Isolation has to be logged before it counts
           - Two people must witness a breaker being opened
@@ -350,7 +350,7 @@ roster:
       disagree the answer is not to average them.
     quiz:
       - q: Why can a compartment's air go bad while the scrubber plant reads healthy?
-        a: The scrubber only reaches compartments whose dampers are open to it
+        a: The scrubber only reaches compartments whose dampers are open
         wrong:
           - Scrubbers work more slowly at depth
           - Carbon dioxide is heavier than air and sinks below the sensors
@@ -788,11 +788,11 @@ missions:
           - submerged, there are no windows and no landmarks
         question: What should you fix in your head before you set off?
         choices:
-          - The order of the compartments, because a sequence survives an interruption.
+          - The order of the compartments, since a sequence survives interruption.
           - The number of paces between hatches, because a count is exact.
           - The route as a list of turns, because turns are easy to hold.
           - The stencilled compartment numbers, because they are already written down.
-        answer: The order of the compartments, because a sequence survives an interruption.
+        answer: The order of the compartments, since a sequence survives interruption.
         why: Everything anybody aboard knows about where they are comes from keeping track since the last thing they were sure of. That is dead reckoning, and it is what the boat does with its own position between fixes. It fails at the interruption, and a boat is full of interruptions. A pace count does not survive stepping round somebody. A list of turns does not survive taking one extra. A stencilled number cannot be read with the lighting gone. An ordered list of spaces survives all three, because you can rejoin it anywhere.
         rebuttals:
           - Paces stop being useful the moment you have to step around somebody.
@@ -871,7 +871,7 @@ missions:
             value: 40 m, we are below it
             status: normal
         choices:
-          - label: A quiet contact beyond the layer
+          - label: A quiet contact past the layer
             mechanism: Sound from above the layer bends away, arriving faint and without its machinery lines.
           - label: Own-ship noise
             mechanism: Something aboard is making it, and it would have changed when we did.
@@ -881,7 +881,7 @@ missions:
             mechanism: The processor drawing a line where there is no sound at all.
           - label: Nothing to explain
             mechanism: Ordinary noise that happens to look like a line.
-        answer: A quiet contact beyond the layer
+        answer: A quiet contact past the layer
         why: Broadband hears the total sound a thing makes; narrowband picks out the pure tones machinery produces at fixed frequencies, which is usually how a contact gets a name. So a missing line is evidence, not a blank space where evidence should be. Sound in the ocean does not travel straight — a temperature layer bends it, and a path bent through the layer arrives faint and stripped of its detail. Eleven minutes of persistence rules out noise and biologics, and nothing of ours changed, so it is not ours.
       - group: NAV
         task: Say what a steady bearing means
@@ -894,11 +894,11 @@ missions:
           - passive sonar gives a direction and no range at all
         question: What does a steady bearing and a rising level tell you?
         choices:
-          - We are on a collision course, or close to it, and the range is closing.
+          - We are on a collision course, and the range is closing.
           - The contact is stopped, since its bearing is not changing.
           - The contact is opening, and the level is rising for another reason.
           - Nothing until a range is available.
-        answer: We are on a collision course, or close to it, and the range is closing.
+        answer: We are on a collision course, and the range is closing.
         why: A bearing and how it behaves over time is the only ranging instrument a quiet boat has, which makes relative motion the whole trade. Two ships whose relative bearing does not change are closing along a straight line between them — it is the oldest rule at sea and it needs no range. A stopped contact's bearing would swing as we moved past it. An opening contact gets quieter, not louder. Waiting for a range spends the six minutes the geometry has already given you.
         rebuttals:
           - A stopped contact's bearing would change as we moved past it.
@@ -1003,11 +1003,11 @@ missions:
           - sound travels faster in warmer water
         question: The contact was held on the surface layer and is now lost. Where has it gone?
         choices:
-          - Below the layer, into a shadow zone the rays from this depth do not reach.
+          - Below the layer, where the rays from this depth do not reach.
           - Out of range, since detection falls off smoothly with distance.
           - Astern, into the boat's own baffles behind the propeller.
           - Nowhere. It has shut down and is making no noise at all.
-        answer: Below the layer, into a shadow zone the rays from this depth do not reach.
+        answer: Below the layer, where the rays from this depth do not reach.
         why: Sound speed falls with temperature, and a ray bends toward the slower water. A ray leaving this depth is turned downward as it crosses the layer, and the geometry leaves a region below and beyond it that no ray from here enters — a shadow zone. A contact in one does not fade; it disappears between sweeps and comes back the same way. That is the signature to read, and it is the reason boats change depth to search rather than only turning up the gain.
         rebuttals:
           - Range loss is gradual. This went in a single sweep, which is a geometry change and not a range change.
@@ -1141,7 +1141,7 @@ missions:
             value: 1.4° bow down and increasing
             status: high
         choices:
-          - label: A hull fitting on the seawater supply header
+          - label: A fitting on the seawater header
             mechanism: Sea pressure driving salt water in at a rate set by depth, taking bow trim as the space fills.
           - label: A split in the fresh water line
             mechanism: A domestic line emptying into the bilge; the tank level would fall.
@@ -1151,7 +1151,7 @@ missions:
             mechanism: Ordinary accumulation, which the drain pump would be winning against.
           - label: Back-flooding through the drain pump
             mechanism: The pump running backwards, which would show as a falling discharge pressure.
-        answer: A hull fitting on the seawater supply header
+        answer: A fitting on the seawater header
         why: Water aboard is not only weight. It is a leak whose behaviour depends on where it came from, and a sea connection at ninety metres is fed by the entire ocean at about ten atmospheres. What the water is, and what has not changed on the systems around it, is the evidence that names the source. Salt rules out the fresh water line, whose tank level is unchanged anyway. Normal cooling flow rules out the sonar return. Only a sea connection puts water in faster than the pump takes it out at this depth.
       - group: DC
         task: Decide whether the pump can win
@@ -1428,11 +1428,11 @@ missions:
           - some problems get worse on their own and some do not
         question: What gets the first team?
         choices:
-          - The flooding, because it is the only one that gets worse by itself and can sink the boat.
+          - The flooding, because it is the only one that gets worse by itself.
           - The injured crewman, because a person comes before equipment.
           - The lost bus, because everything else depends on power.
           - The plot, because the boat is still moving toward a bank.
-        answer: The flooding, because it is the only one that gets worse by itself and can sink the boat.
+        answer: The flooding, because it is the only one that gets worse by itself.
         why: Casualties do not queue by how loudly they are being reported. They queue by how fast they get worse if nobody touches them, and some have already done all the getting worse they are going to do. Water comes in whether or not anybody is watching it, and it is the only one that can sink the boat. The injury is stable. The bus is already lost — it cannot get more lost. And the plot can be frozen by slowing down, which is a decision you can make in four seconds without sending anybody.
       - group: FIRE
         task: Match each remaining casualty to the right assignment.
@@ -1539,7 +1539,7 @@ missions:
             value: seawater pump, 20 min ago
             status: high
         choices:
-          - label: A machinery fault aboard
+          - label: A machinery fault
             mechanism: A source we carry radiates in every direction at once, and its line follows our own machinery.
           - label: A close contact
             mechanism: Another vessel nearby, which would appear in one sector and have its own bearing rate.
@@ -1549,7 +1549,7 @@ missions:
             mechanism: A defective element, which would degrade one part of the array rather than all bearings.
           - label: Nothing to explain
             mechanism: Ordinary variation in a noisy ocean.
-        answer: A machinery fault aboard
+        answer: A machinery fault
         why: Direction is the whole clue. Something out there has a bearing; something the boat is carrying does not, because it radiates into the array from the hull the array is bolted to. That is why a rise on every bearing at once points inboard. Machinery tones sit at frequencies tied to the rate a thing turns, so a line that shifts with shaft speed is tied to our own plant — and a seawater pump was started twenty minutes ago. A boat that cannot hear is also a boat that is being heard.
       - group: ENG
         task: Find which machine
@@ -1810,11 +1810,11 @@ missions:
           - a watch hands over to a watch that was not there
         question: What does this say about the quiet-running lineup?
         choices:
-          - Securing a machine needs a record of what it was cooling and when it must come back.
+          - Securing a machine needs a record of what it was cooling.
           - The quiet-running lineup should be restored automatically when the transit ends.
           - The bearing should have a high-temperature alarm that trips the pump back on.
           - Nothing — the watch that secured it made a reasonable trade at the time.
-        answer: Securing a machine needs a record of what it was cooling and when it must come back.
+        answer: Securing a machine needs a record of what it was cooling.
         why: Every configuration change aboard is a trade somebody made for a reason, and the reason usually expires long before the configuration does. The log is the only thing that carries that reason across a watch change. Without it, three watches later, a perfectly sensible decision is indistinguishable from a fault — and it gets diagnosed as one while a bearing heats up. Securing a machine therefore needs a record of what it was cooling and when it has to come back, which is a different thing from a record that it was secured.
         rebuttals:
           - Quiet running is a legitimate reason to secure a pump; the fault is in the handover.
@@ -2055,11 +2055,11 @@ missions:
           - two instruments sharing a source share its mistakes
         question: What does the second sounder actually buy?
         choices:
-          - A measurement that cannot be wrong for the same reason as the plot.
+          - A measurement that cannot fail the way the plot fails.
           - A more precise depth, which improves the plot's accuracy.
           - A backup for when the first sounder is broken, and nothing more.
           - Confirmation of the existing sounder, which builds confidence.
-        answer: A measurement that cannot be wrong for the same reason as the plot.
+        answer: A measurement that cannot fail the way the plot fails.
         why: A spare is worth what it costs only when it fails differently from the thing it backs up. Two instruments sharing a sensor, a power supply or a source of data will agree with each other confidently while both are wrong — and this boat has been misled twice this patrol by exactly that. Independence is the entire product. It makes nothing on the chart more precise, and the plot has been precisely wrong before, which is the point.
         rebuttals:
           - Precision is not the problem; the plot has been precisely wrong before.
@@ -2161,11 +2161,11 @@ missions:
           - two waves arriving together add where they are in phase and cancel where they are not
         question: Two lines three hertz apart, and the amplitude rises and falls three times a second. What is it?
         choices:
-          - Two sources beating against each other, at the difference of their frequencies.
+          - Two sources beating, at the difference of their frequencies.
           - One source whose speed is changing three times a second.
           - A fault in the display, since two steady lines cannot pulse.
           - The boat's own machinery, aliased into the band.
-        answer: Two sources beating against each other, at the difference of their frequencies.
+        answer: Two sources beating, at the difference of their frequencies.
         why: "Two tones close in frequency drift in and out of phase with each other, adding where they agree and cancelling where they do not, and they come back into phase at the difference frequency — 150 minus 147, three times a second. So the pulsing is not a third signal and not an artefact: it is evidence that there are exactly two sources, and their spacing is measurable by ear. Two shafts on one hull do this, and so do two boats."
         rebuttals:
           - A speed change moves a line's frequency. It does not make the level rise and fall on a fixed period.

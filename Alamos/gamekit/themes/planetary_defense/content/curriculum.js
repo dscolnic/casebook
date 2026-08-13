@@ -18,7 +18,7 @@ export const CURRICULUM = {
         "play": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
         "task": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
         "question": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
-        "answer": "Real moving Solar System object",
+        "answer": "Real Solar System object",
         "why": "A real Solar System object moves in the sky, not on the chip. That is the whole test, and four readings apply it. The source is star-like in every frame, so it is not a cosmic ray, which arrives once and sharp. It lands on different pixels while the background stars stay fixed, so it is not a hot pixel. And a second telescope on another mountain found it near the predicted place — an object that exists for instruments that are not this one.",
         "rebuttals": [
           "A cosmic ray is a single sharp hit in one exposure. This source is star-like in all three and keeps moving.",
@@ -65,7 +65,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "Real moving Solar System object",
+            "label": "Real Solar System object",
             "mechanism": "A point source changes sky position coherently while stars and detector coordinates remain stable."
           },
           {
@@ -81,7 +81,7 @@ export const CURRICULUM = {
             "mechanism": "Misalignment makes many fixed stars appear to shift together."
           }
         ],
-        "correctChoice": "Real moving Solar System object"
+        "correctChoice": "Real Solar System object"
       },
       "assumes": [
         "a detector has its own defects, and they sit still in detector coordinates"

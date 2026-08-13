@@ -80,10 +80,10 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Adeyemi run a negative control on every plate?",
-        "a": "Without it, an effect from the laboratory itself is indistinguishable from an effect of the pathogen",
+        "a": "Without it, an effect of the laboratory looks like an effect of the pathogen",
         "wrong": [
           "Controls make the cultures grow at a reproducible rate",
-          "A control converts a qualitative result into a quantitative one",
+          "A control is what converts a qualitative result into a quantitative one",
           "Controls are required only when the sample is from a patient"
         ]
       }
@@ -118,9 +118,9 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why can the same anti-inflammatory treatment help one patient and harm another?",
-        "a": "It depends whether the damage is now immune-driven or the infection is still being fought",
+        "a": "It depends whether the damage is immune-driven or the infection is still winning",
         "wrong": [
-          "Doses are calculated from weight and vary between patients",
+          "Doses are calculated from body weight, so they vary between patients on the ward",
           "Some patients absorb the drug and others do not",
           "The drug expires quickly once a vial is opened"
         ]
@@ -137,10 +137,10 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Oduya document every change to the case definition?",
-        "a": "A bend in the curve on the day the definition changed is an artefact, not a change in the disease",
+        "a": "A bend on the day the definition changed is an artefact",
         "wrong": [
           "Definitions must be approved by the hospitals before use",
-          "Changing a definition invalidates all earlier laboratory results",
+          "Changing a definition invalidates every laboratory result taken before it",
           "The definition determines which treatment a patient receives"
         ]
       }
@@ -156,11 +156,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is finding the pathogen in an animal not enough to declare a reservoir?",
-        "a": "The animal may have caught it from people; prevalence, exposure and comparison sites are what separate the two",
+        "a": "The animal may have caught it from people, and prevalence separates the two",
         "wrong": [
           "Field samples are always contaminated by human handling",
           "A reservoir must contain a higher viral load than any patient",
-          "The organism has to be found in more than one individual animal"
+          "The organism has to be found in more than one individual animal at the site"
         ]
       }
     ]

@@ -112,7 +112,7 @@ export const CURRICULUM = {
         "play": "Why does the spacecraft need any speed at all to stay in that orbit?",
         "task": "Why does the spacecraft need any speed at all to stay in that orbit?",
         "question": "Why does the spacecraft need any speed at all to stay in that orbit?",
-        "answer": "It is falling, and its sideways speed is what makes the fall a curve that misses.",
+        "answer": "It is falling, and its sideways speed makes the fall a curve that misses.",
         "why": "Circular motion is acceleration toward the centre, and here the whole of that acceleration is gravity: the spacecraft is falling the entire time, and its transverse speed turns the fall into a curve that keeps missing the surface. Get the speed wrong and the curve closes on the Moon or opens away from it. There is no outward force to balance — in the spacecraft's frame the crew feel weightless precisely because nothing is opposing gravity.",
         "rebuttals": [
           "Centrifugal force is an artefact of the rotating frame; in the inertial frame there is one force and it points inward.",
@@ -120,12 +120,12 @@ export const CURRICULUM = {
           "The engine is off, and it stays off for most of the return."
         ],
         "choices": [
-          "It is falling, and its sideways speed is what makes the fall a curve that misses.",
+          "It is falling, and its sideways speed makes the fall a curve that misses.",
           "Gravity is balanced by an outward centrifugal force, so nothing accelerates.",
           "At that altitude the Moon's gravity is too weak to matter.",
           "The spacecraft's own thrust holds it up against gravity."
         ],
-        "correctChoice": "It is falling, and its sideways speed is what makes the fall a curve that misses."
+        "correctChoice": "It is falling, and its sideways speed makes the fall a curve that misses."
       },
       "assumes": [
         "an object moving in a circle is accelerating even at constant speed"
@@ -510,7 +510,7 @@ export const CURRICULUM = {
         "play": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
         "task": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
         "question": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
-        "answer": "Flowing on the difference, and the fall means either the difference or the path has changed.",
+        "answer": "Flowing on the difference, so the fall means the difference or the path changed.",
         "why": "Gas moves because there is a pressure difference across the path, and how much moves depends on that difference and on how restricted the path is. Twenty-five psi of difference is still there, so a halved flow points at the path — a partly closed valve, ice at an orifice, a filter loading up — or at a reading that is not measuring what the crew think it is. Tank pressure on its own cannot promise a flow rate: the same 40 psi delivers nothing through a blocked line.",
         "rebuttals": [
           "A regulator set below tank pressure is the condition for flow, not an obstacle to it.",
@@ -518,12 +518,12 @@ export const CURRICULUM = {
           "Temperature changes gas density and pressure a little; it does not reverse a 25 psi gradient."
         ],
         "choices": [
-          "Flowing on the difference, and the fall means either the difference or the path has changed.",
+          "Flowing on the difference, so the fall means the difference or the path changed.",
           "Stopped, because the regulator setting is below the tank pressure.",
-          "Set by the tank pressure alone, so 40 psi guarantees the planned flow.",
+          "Set by the tank pressure alone, so 40 psi guarantees the planned flow rate through the loop.",
           "Reversed, since the cabin is warmer than the tank."
         ],
-        "correctChoice": "Flowing on the difference, and the fall means either the difference or the path has changed."
+        "correctChoice": "Flowing on the difference, so the fall means the difference or the path changed."
       },
       "assumes": [
         "gas flows from higher pressure to lower pressure"
@@ -1151,7 +1151,7 @@ export const CURRICULUM = {
         "play": "Ten minutes to the next tracking pass. What does the flight director do first?",
         "task": "Ten minutes to the next tracking pass. What does the flight director do first?",
         "question": "Ten minutes to the next tracking pass. What does the flight director do first?",
-        "answer": "Establish a single anomaly log and one command authority.",
+        "answer": "Open one anomaly log and one command authority.",
         "why": "Attention is a physical resource in an emergency, the same way propellant is, and the first decision is what spends it. Four controllers are already working one failure from four sets of numbers. Until there is a single record and a single command authority, every analysis that follows can be done twice and contradicted once — and the crew executes whichever version reaches them first. Organising the room is not a delay before the work. It is what makes the work count once.",
         "rebuttals": [
           "The electrical and pressure timeline is the first real analysis, and it is exactly what the log exists to hold. Start it second and it survives the shift change.",
@@ -1159,12 +1159,12 @@ export const CURRICULUM = {
           "Six complete subsystem reports arrive after the tracking pass and consume the ten minutes that were supposed to prepare for it."
         ],
         "choices": [
-          "Establish a single anomaly log and one command authority.",
+          "Open one anomaly log and one command authority.",
           "Reconstruct the electrical and pressure timeline.",
           "Verify the trajectory and attitude independently.",
           "Ask every subsystem for a complete report at once."
         ],
-        "correctChoice": "Establish a single anomaly log and one command authority."
+        "correctChoice": "Open one anomaly log and one command authority."
       },
       "assumes": [
         "two rooms acting on different versions of one number is worse than either acting alone"

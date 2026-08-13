@@ -61,9 +61,9 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Whitaker judge a trajectory fit by its residuals rather than by how closely it matches the tracking?",
-        "a": "Structure in the errors reveals an unmodelled force or a clock problem that a close fit can hide",
+        "a": "Structure in the errors shows a force or a clock the fit is hiding",
         "wrong": [
-          "Residuals are the only quantity the tracking stations report",
+          "Residuals are the only quantity the tracking stations report back to the room",
           "A fit with small residuals always has small uncertainty",
           "Residuals convert range measurements into velocity"
         ]
@@ -99,10 +99,10 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Novak insist on carbon dioxide readings from several cabin locations?",
-        "a": "With poor circulation the gas is not uniform, so one sensor reports only the air beside it",
+        "a": "With poor circulation the gas is not uniform, so a sensor reads its own corner",
         "wrong": [
           "Sensors drift too quickly to be trusted individually",
-          "The crew cannot reach the primary sensor during a powerdown",
+          "The crew cannot reach the primary sensor while the module is powered down for the test",
           "Multiple readings are averaged to remove instrument noise"
         ]
       }
@@ -118,11 +118,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How does Haldane separate a pointing problem from a transmitter failure?",
-        "a": "By what changed alongside the signal — attitude, range and schedule each leave their own trace",
+        "a": "By what changed alongside it — attitude, range and schedule leave traces",
         "wrong": [
           "A transmitter failure always removes the carrier completely",
           "Pointing errors change the frequency and failures do not",
-          "The received power alone identifies the cause"
+          "The received power alone identifies the cause without any other measurement"
         ]
       }
     ]

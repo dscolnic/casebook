@@ -208,7 +208,7 @@ roster:
       Post-war he returned to Chicago’s Institute for Nuclear Studies and became a leading figure in particle physics, lending his name to fermions, Fermi statistics, and Fermilab. He advocated for civilian nuclear power while cautioning about weapons. He died of stomach cancer in 1954, likely related to radiation exposure, and remains one of the most cited experimental-theoretical physicists of the twentieth century.
     quiz:
       - q: How did Fermi estimate the Trinity yield where he stood?
-        a: He dropped shredded paper and measured how far the blast wave carried it
+        a: He dropped shredded paper and watched how far it blew
         wrong:
           - He timed the flash against the arrival of the sound at the bunker
           - He read a pressure gauge mounted on a post outside the bunker
@@ -262,7 +262,7 @@ roster:
       After the war he served as President Eisenhower’s science adviser, advocated for the Limited Test Ban Treaty, and became a prominent voice for arms control while continuing research on chemical kinetics at Harvard.
     quiz:
       - q: How did Kistiakowsky’s division find asymmetries in an implosion?
-        a: By instrumenting the event — flash X-ray, high-speed photography and pin timing
+        a: By instrumenting the event — flash X-ray, photography and pin timing
         wrong:
           - By weighing and measuring each lens casting before and after it was fired
           - By recording the detonation from three widely separated sound stations
@@ -298,7 +298,7 @@ roster:
       Troubled by the military use of the bomb, he circulated the Szilard Petition in July 1945, signed by 155 Manhattan scientists, urging that Japan be warned before a combat use. After the war he moved into biology, invented the chemostat, and became a founder of the Salk Institute and a founding voice of the arms-control movement and the Pugwash Conferences.
     quiz:
       - q: What did Szilard do in July 1945, having helped start the project in 1939?
-        a: Circulated a petition of 155 scientists urging that Japan be warned first
+        a: Circulated a petition of 155 scientists urging a warning first
         wrong:
           - Resigned from the project and asked for his chain-reaction patent back
           - Asked Einstein to send a second letter to the President, as in 1939
@@ -2252,11 +2252,11 @@ missions:
           - A physical limit reached by surprise kills people. The written limit is what keeps distance from it.
           - Reflection is possible at any mass, and a hand or a bench is a reflector.
         choices:
-          - The margin absorbs the mistakes that actually happen — a miscount, a moved reflector, a second piece brought in.
+          - The margin absorbs the mistakes that happen — a miscount, a moved reflector.
           - The calculation of critical mass is unreliable, so the limit compensates for it.
           - "It is a formality: the physical limit is the only one that matters."
           - Below the limit the material cannot be reflected, so geometry no longer matters.
-        answer: The margin absorbs the mistakes that actually happen — a miscount, a moved reflector, a second piece brought in.
+        answer: The margin absorbs the mistakes that happen — a miscount, a moved reflector.
       - group: P
         call: Apply high-speed imaging and radiography
         task: Estimate the blur distance.
@@ -2347,11 +2347,11 @@ missions:
           - Dimensional inspection catches parts outside the drawing. The requirement here is written in nanoseconds, and two parts inside the same tolerance can fire measurably apart.
           - Waiting for the full-system trial makes every component a suspect at once when it disappoints, and there is one trial.
         choices:
-          - Sample several production lots and measure the timing distribution of each.
+          - Sample several lots and measure the timing spread of each.
           - Build one unit to the best achievable standard and fire it repeatedly.
           - Tighten the drawing tolerances and re-inspect the parts dimensionally.
           - Wait for the first full-system trial and judge the detonators from it.
-        answer: Sample several production lots and measure the timing distribution of each.
+        answer: Sample several lots and measure the timing spread of each.
       - group: X
         call: Synchronize many channels
         task: Estimate sigma_total.
@@ -2571,11 +2571,11 @@ missions:
           - Plenty transfers. Ratios and shapes are exactly what a scaled shot is for.
           - Timings are the classic thing that does NOT scale, because they are fixed by material properties.
         choices:
-          - Anything set by dimensionless ratios transfers; anything set by an absolute length or time does not.
+          - Anything set by dimensionless ratios transfers, and anything set by a length does not.
           - All of it, since the geometry is similar and physics does not care about size.
           - None of it, because the materials behave differently at different sizes.
           - Only the timings, since time is the same at any scale.
-        answer: Anything set by dimensionless ratios transfers; anything set by an absolute length or time does not.
+        answer: Anything set by dimensionless ratios transfers, and anything set by a length does not.
   - title: Treat Trinity as an experiment
     objective: Define what the integrated test must answer, align field engineering with diagnostics, and validate predictions against independent evidence.
     briefing: A dramatic event is not automatically a useful experiment. Specify the questions in advance, build the field system around the evidence needs, cover the failure modes with diagnostics, and establish how predictions will be judged.
@@ -2652,11 +2652,11 @@ missions:
           - Log-log straightens power laws, not exponentials.
           - Squaring the time straightens nothing here; the relationship is exponential in time.
         choices:
-          - "Log of count rate against time: a straight line, whose slope is the decay constant."
+          - "Log of count rate against time, whose slope is the decay constant."
           - "Count rate against time: the curvature itself gives the half-life directly."
           - "Log of count rate against log of time: a straight line for any decay process."
           - Count rate against the square of time, which straightens exponential data.
-        answer: "Log of count rate against time: a straight line, whose slope is the decay constant."
+        answer: "Log of count rate against time, whose slope is the decay constant."
       - group: T
         call: Validate the model
         task: Why does splitting uranium release energy while splitting carbon would absorb it?
@@ -2673,11 +2673,11 @@ missions:
           - Repulsion is part of why heavy nuclei are less tightly bound, but the energy released is the change in binding energy of the whole system.
           - Splitting light nuclei costs energy. That is what the left-hand side of the curve means.
         choices:
-          - Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting and light ones do not.
+          - Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting.
           - Heavy nuclei are unstable and light nuclei are stable, and instability is itself the energy source.
           - Uranium has more protons, so electrostatic repulsion supplies the energy directly.
           - Splitting always releases energy; carbon simply releases less of it.
-        answer: Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting and light ones do not.
+        answer: Binding energy per nucleon peaks near iron, so heavy nuclei move up the curve by splitting.
   - title: Reconcile evidence and freeze the design
     objective: Compare prediction bands with observations, release materials, reconcile theory and experiment, and control post-test changes.
     briefing: The test has produced data, but the program still must decide what those data mean. Compare observations with uncertainty bands, verify the material record, resolve disagreements between model and measurement, and freeze only the changes supported by evidence.
@@ -2734,11 +2734,11 @@ missions:
           - Density is irrelevant; both isotopes have essentially the same chemistry in solution.
           - Radioactivity is a hazard to manage, not the reason chemical separation fails.
         choices:
-          - The two isotopes have the same electron structure, so every chemical method treats them identically; only their mass differs.
+          - The two isotopes have the same electron structure, so chemistry treats them identically.
           - The chemistry differs only slightly, so the process would simply take longer.
           - Uranium is too dense for solution chemistry to work at all.
           - They can be separated chemically; the difficulty is the radioactivity.
-        answer: The two isotopes have the same electron structure, so every chemical method treats them identically; only their mass differs.
+        answer: The two isotopes have the same electron structure, so chemistry treats them identically.
       - group: T
         call: Reconcile theory and experiment
         task: Theory and experiment differ by three standard deviations. What does the division do?
@@ -2755,11 +2755,11 @@ missions:
           - More of the same data carries the same systematic. It narrows the statistical error around a value that may be biased.
           - Adopting the experimental value settles the disagreement by whoever wrote it down last, and leaves the cause in place for the next comparison.
         choices:
-          - Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.
+          - Audit the shared calibrations, then design a measurement that tells the explanations apart.
           - Retune the uncertain parameters until the model reproduces the measurement.
           - Collect more of the same data, to see whether the gap narrows.
           - Adopt the experimental value and record the disagreement in the report.
-        answer: Audit the shared calibrations and the errors they share, then design a measurement that tells the explanations apart.
+        answer: Audit the shared calibrations, then design a measurement that tells the explanations apart.
       - group: E
         call: Control the post-Trinity design freeze
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
@@ -2805,11 +2805,11 @@ missions:
           - Light nuclei are LESS tightly bound per nucleon, which is exactly why fusing them gains energy.
           - A neutron initiates fission. Fusion is initiated by temperature and pressure.
         choices:
-          - Both nuclei are positive, so they must overcome electrostatic repulsion before the short-range nuclear force can bind them.
+          - Both nuclei are positive, so repulsion has to be overcome before the nuclear force can bind them.
           - Fusion releases less energy per reaction, so less is available to sustain it.
           - Light nuclei are more tightly bound already, so there is little to gain.
           - Fusion requires a neutron to start it, and free neutrons are scarce.
-        answer: Both nuclei are positive, so they must overcome electrostatic repulsion before the short-range nuclear force can bind them.
+        answer: Both nuclei are positive, so repulsion has to be overcome before the nuclear force can bind them.
       - group: P
         call: Hold the diagnostic readiness review
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
@@ -2849,11 +2849,11 @@ missions:
           - Re-measuring released material improves numbers on parts that are already installed and links none of them to how they were made.
           - More throughput on the same records makes more material that nobody can characterise afterwards.
         choices:
-          - Traceable records linking each batch’s process conditions to its measured properties.
+          - Records linking each batch’s conditions to its measured properties.
           - Independent composition measurements and microscope work on every batch.
           - Re-measurement of the batches already released, to a tighter tolerance.
           - Higher production throughput, with the measurements and records unchanged.
-        answer: Traceable records linking each batch’s process conditions to its measured properties.
+        answer: Records linking each batch’s conditions to its measured properties.
       - group: X
         call: Examine scientific responsibility after Trinity
         task: The physics is settled and the decisions that follow are not physics. What does the laboratory owe?

@@ -108,7 +108,7 @@ export const CURRICULUM = {
         "play": "Decide which circuit gets the crew first",
         "task": "Decide which circuit gets the crew first",
         "question": "Which feeder should take the first crew?",
-        "answer": "The feeder with the dialysis clinic and 180 homes, faulted at a single pole, one hour's work.",
+        "answer": "The dialysis clinic feeder — 180 homes, one pole, an hour's work.",
         "why": "Two things decide this, and household count is only one of them. The first is what waiting costs, and for a dialysis clinic it is measured in treatments rather than in inconvenience. The second is how long the work takes, because a one-hour job frees the crew to take the next fault the same shift. The clinic circuit is worst on the first and best on the second, so it goes first on both counts. The largest feeder is a four-hour job and stays a four-hour job whenever it is started. The unlocated fault cannot be scheduled at all until somebody has found it. The pumping station is already supplied, which is what a standby supply is for.\n",
         "rebuttals": [
           "The biggest count is a four-hour job, and starting it commits a crew for the whole shift.",
@@ -117,11 +117,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "The feeder with 4,100 households, faulted at the substation end, four hours' work.",
-          "The feeder with the dialysis clinic and 180 homes, faulted at a single pole, one hour's work.",
+          "The dialysis clinic feeder — 180 homes, one pole, an hour's work.",
           "The feeder with 2,600 households and a fault nobody has located yet.",
           "The feeder feeding the water pumping station, already on its standby supply."
         ],
-        "correctChoice": "The feeder with the dialysis clinic and 180 homes, faulted at a single pole, one hour's work."
+        "correctChoice": "The dialysis clinic feeder — 180 homes, one pole, an hour's work."
       },
       "assumes": [
         "a crew can only work one fault at a time"
@@ -443,7 +443,7 @@ export const CURRICULUM = {
         "play": "Say what the contingency check is actually asking",
         "task": "Say what the contingency check is actually asking",
         "question": "What does a clean contingency check tell you tonight?",
-        "answer": "That any one credible failure leaves the system inside limits, and it says nothing about two at once.",
+        "answer": "That any single credible failure leaves the system inside limits, and nothing more.",
         "why": "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list, and it says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip. Each alone was survivable. The check had been clean all week.\n",
         "rebuttals": [
           "Safe is a stronger word than the check earns; it clears single failures from a list, not everything.",
@@ -452,11 +452,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "That the system is safe, because every failure it considers has been survived on paper.",
-          "That any one credible failure leaves the system inside limits, and it says nothing about two at once.",
+          "That any single credible failure leaves the system inside limits, and nothing more.",
           "That nothing will fail tonight, since the check has found no weaknesses.",
           "That the margins are too generous, since everything passes comfortably."
         ],
-        "correctChoice": "That any one credible failure leaves the system inside limits, and it says nothing about two at once."
+        "correctChoice": "That any single credible failure leaves the system inside limits, and nothing more."
       },
       "assumes": [
         "a system is required to survive any one credible failure"
@@ -678,7 +678,7 @@ export const CURRICULUM = {
         "play": "Say why the transmission side is at high voltage",
         "task": "Say why the transmission side is at high voltage",
         "question": "Why is power sent long distances at high voltage?",
-        "answer": "Because for the same power a higher voltage means less current, and loss goes as current squared.",
+        "answer": "Because higher voltage means less current, and loss goes as current squared.",
         "why": "Power is voltage times current, so a given amount of power can be sent as a lot of current at low voltage or a little current at high voltage. Loss in the conductor is the current squared times the resistance, and that square is what decides the matter. Halve the current and the loss falls to a quarter. A transformer is what makes the trade available, changing voltage in proportion to its turns while leaving the power almost untouched. This is the whole reason a transmission system exists as a separate voltage level rather than as long extension leads.\n",
         "rebuttals": [
           "Power travels at nearly the speed of light on any line; voltage does not change how fast it arrives.",
@@ -687,11 +687,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Because high voltage pushes the power along the line faster.",
-          "Because for the same power a higher voltage means less current, and loss goes as current squared.",
+          "Because higher voltage means less current, and loss goes as current squared.",
           "Because insulation is cheaper than conductor, so high voltage costs less to build.",
           "Because generators cannot be built to produce power at low voltage."
         ],
-        "correctChoice": "Because for the same power a higher voltage means less current, and loss goes as current squared."
+        "correctChoice": "Because higher voltage means less current, and loss goes as current squared."
       },
       "assumes": [
         "a transformer changes voltage in proportion to its turns"
@@ -814,7 +814,7 @@ export const CURRICULUM = {
         "play": "Separate tonight's measured comforts from its habits",
         "task": "Separate tonight's measured comforts from its habits",
         "question": "Which of tonight's four comforts is the one most worth checking?",
-        "answer": "The ridge's contribution to inertia, assumed from a figure written when the fleet was half its size.",
+        "answer": "The ridge's inertia, from a figure written when the fleet was smaller.",
         "why": "Three of these are current measurements or long-run evidence. The fourth is an inherited number about a fleet that has doubled, and inertia is the quantity the whole first week turned on — it sets how fast frequency moves when something goes. Worse, it is the one figure on the list that has moved in the wrong direction as the fleet grew, because inverter-connected plant supplies power without supplying rotational energy. So the number is old, it is load-bearing, and the change since it was written makes it optimistic rather than merely stale. That combination is what makes it first.\n",
         "rebuttals": [
           "The reserve figure came off tonight's own dispatch and metering, so it is as current as anything here.",
@@ -823,11 +823,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "The reserve figure, taken from this evening's own dispatch and metering.",
-          "The ridge's contribution to inertia, assumed from a figure written when the fleet was half its size.",
+          "The ridge's inertia, from a figure written when the fleet was smaller.",
           "The corridor loading, read live off the yard's own instruments an hour ago.",
           "The forecast width, held over three winters of outcomes."
         ],
-        "correctChoice": "The ridge's contribution to inertia, assumed from a figure written when the fleet was half its size."
+        "correctChoice": "The ridge's inertia, from a figure written when the fleet was smaller."
       },
       "assumes": [
         "a figure can be current, or it can be inherited"
@@ -949,7 +949,7 @@ export const CURRICULUM = {
         "play": "Settle the argument between the meter and the scope",
         "task": "Settle the argument between the meter and the scope",
         "question": "Which instrument is reporting the wrong voltage?",
-        "answer": "Neither, because the scope shows the peak and the meter shows the RMS value.",
+        "answer": "Neither, since the scope shows peak and the meter shows RMS.",
         "why": "An alternating voltage does not have one value, so any single number is a summary and the summary has to be named. The peak is the highest the waveform reaches. The RMS value is the steady voltage that would deliver the same power into a resistance, and for a sine wave it is the peak divided by root two. Divide 325 by 1.414 and the meter's 230 comes straight out. This is why mains voltages are quoted as RMS everywhere: it is the figure that predicts heating and power. The peak still matters, but it matters to insulation rather than to power.\n",
         "rebuttals": [
           "325 volts is exactly what a 230 volt RMS supply peaks at, so it is the expected figure, not an impossible one.",
@@ -958,11 +958,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "The oscilloscope, because 325 volts is not a voltage this system runs at.",
-          "Neither, because the scope shows the peak and the meter shows the RMS value.",
+          "Neither, since the scope shows peak and the meter shows RMS.",
           "The meter, because it is averaging and averaging loses the true value.",
           "Both, because two instruments this far apart cannot both be calibrated."
         ],
-        "correctChoice": "Neither, because the scope shows the peak and the meter shows the RMS value."
+        "correctChoice": "Neither, since the scope shows peak and the meter shows RMS."
       },
       "assumes": [
         "an alternating voltage changes continuously through each cycle"
@@ -1058,7 +1058,7 @@ export const CURRICULUM = {
         "play": "Say what the corrected temperature does to the rating",
         "task": "Say what the corrected temperature does to the rating",
         "question": "What does the corrected temperature change about that week?",
-        "answer": "The corridor was outside its rating, so every decision that treated it as inside one was taken without the margin it assumed.",
+        "answer": "The corridor was outside its rating, so the decisions that assumed a margin had none.",
         "why": "A thermal rating is not a fuse setting. It is the current at which the conductor reaches a temperature the operator has agreed to accept, chosen so the metal keeps its strength and the span keeps its clearance. Surviving a higher temperature does not validate it, because the damage a rating protects against is cumulative: annealing and loss of tensile strength accumulate over hours above limit and show up years later as a span that fails in a wind nobody thought was remarkable. The relay is not the backstop either. Protection watches for faults, not for a conductor slowly cooking.\n",
         "rebuttals": [
           "Not failing is not the same as being inside a limit; the damage a rating prevents is cumulative and invisible at the time.",
@@ -1067,11 +1067,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Nothing important, because the corridor did not actually fail during those six hours.",
-          "The corridor was outside its rating, so every decision that treated it as inside one was taken without the margin it assumed.",
+          "The corridor was outside its rating, so the decisions that assumed a margin had none.",
           "The rating was too conservative, since the corridor survived a temperature above it.",
           "The relay must have been miscoordinated, because it should have tripped at 89 degrees."
         ],
-        "correctChoice": "The corridor was outside its rating, so every decision that treated it as inside one was taken without the margin it assumed."
+        "correctChoice": "The corridor was outside its rating, so the decisions that assumed a margin had none."
       },
       "assumes": [
         "a conductor's rating is a limit on temperature rather than on current"
@@ -1314,7 +1314,7 @@ export const CURRICULUM = {
         "play": "Choose what to do about the island",
         "task": "Choose what to do about the island",
         "question": "What should be done with the island?",
-        "answer": "Shed about a fifth of the island's load now, to stop the frequency falling and keep the rest supplied.",
+        "answer": "Shed about a fifth of the island's load now, to stop the fall and keep the rest supplied.",
         "why": "An island with its only dispatchable machine at maximum has one lever left, and that is demand. Shedding a fifth stops the fall and keeps four fifths of the valley supplied, which is a far better outcome than everybody off. Letting it collapse costs all 26,000 households and buys a restoration measured in hours, because a dead network has to be built back piece by piece. Waiting on wind is betting the island on a forecast. Reconnecting now is the worst of the four: two systems at different frequencies must not be joined, and doing it would trip the machine and take the island down anyway.\n",
         "rebuttals": [
           "Collapsing it loses every customer and turns a shedding problem into a restoration measured in hours.",
@@ -1322,12 +1322,12 @@ export const CURRICULUM = {
           "Two systems at different frequencies cannot be joined; attempting it trips the machine and collapses the island."
         ],
         "choices": [
-          "Shed about a fifth of the island's load now, to stop the frequency falling and keep the rest supplied.",
+          "Shed about a fifth of the island's load now, to stop the fall and keep the rest supplied.",
           "Let it collapse, and restore the whole valley from the main system once the corridor is back.",
           "Hold on without shedding, on the chance the rising wind lifts the ridge's output in time.",
           "Reconnect it to the main system immediately, before the frequency falls any further."
         ],
-        "correctChoice": "Shed about a fifth of the island's load now, to stop the frequency falling and keep the rest supplied."
+        "correctChoice": "Shed about a fifth of the island's load now, to stop the fall and keep the rest supplied."
       },
       "assumes": [
         "restoring a collapsed island takes longer than holding a live one"
@@ -1598,7 +1598,7 @@ export const CURRICULUM = {
         "play": "Put a range on the forecast rather than a number",
         "task": "Put a range on the forecast rather than a number",
         "question": "Why does the winter peak go in as a range rather than as a single figure?",
-        "answer": "Because the reserve is sized against the width, so a single figure gives the reader nothing to size it with.",
+        "answer": "Because the reserve is sized against the width, not the centre.",
         "why": "Reserve is not held against the expected peak. It is held against the amount by which the peak might exceed it, which is a property of the width and not of the centre. A report that states a single megawatt figure has deleted the only quantity a planner needs, and the planner then invents one — usually badly, and usually optimistically. The width is also the honest part: it says which conditions the model was calibrated for and which it was not, so a cold snap outside that range reads as expected rather than as a failure of the method.\n",
         "rebuttals": [
           "Caution is not the reason; the width is a specific quantity the reserve calculation needs as an input.",
@@ -1607,11 +1607,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Because a range is more cautious, and caution is appropriate after an event like this one.",
-          "Because the reserve is sized against the width, so a single figure gives the reader nothing to size it with.",
+          "Because the reserve is sized against the width, not the centre.",
           "Because the model is not accurate enough yet to state a single number honestly.",
           "Because a range cannot be shown to be wrong afterwards."
         ],
-        "correctChoice": "Because the reserve is sized against the width, so a single figure gives the reader nothing to size it with."
+        "correctChoice": "Because the reserve is sized against the width, not the centre."
       },
       "assumes": [
         "a forecast is a distribution rather than a single value"
@@ -1754,7 +1754,7 @@ export const CURRICULUM = {
         "play": "Explain how the instrument reads a wire it never touches",
         "task": "Explain how the instrument reads a wire it never touches",
         "question": "How does the current transformer produce its reading?",
-        "answer": "The alternating current makes a changing magnetic field, which induces a current in the second winding.",
+        "answer": "The changing magnetic field induces a current in the second winding.",
         "why": "A current in a conductor makes a magnetic field around it. If the current alternates, the field alternates with it, and a changing field through a coil drives a voltage in that coil. That is Faraday's law, and it is the whole basis of the instrument: the two circuits share a magnetic path and no electrical one, which is what keeps the meter and the person reading it at low voltage. It is also why a current transformer works only on alternating current. On direct current the field is steady, nothing changes, and the reading is zero.\n",
         "rebuttals": [
           "Leakage across insulation is a fault, not a measuring principle, and it would be far too small and unstable to read.",
@@ -1762,12 +1762,12 @@ export const CURRICULUM = {
           "There is an electric field around the conductor, and it depends on the voltage rather than on the current."
         ],
         "choices": [
-          "The alternating current makes a changing magnetic field, which induces a current in the second winding.",
+          "The changing magnetic field induces a current in the second winding.",
           "A small amount of current leaks across the insulation into the meter circuit.",
           "The conductor warms the core, and the meter reads the temperature rise.",
           "The meter senses the electric field around the conductor and infers the current from it."
         ],
-        "correctChoice": "The alternating current makes a changing magnetic field, which induces a current in the second winding."
+        "correctChoice": "The changing magnetic field induces a current in the second winding."
       },
       "assumes": [
         "a changing magnetic field produces a voltage in a nearby conductor"
@@ -1925,7 +1925,7 @@ export const CURRICULUM = {
         "play": "Say what the corrected hours do to the conductor",
         "task": "Say what the corrected hours do to the conductor",
         "question": "What do ninety accumulated hours above continuous rating mean for the conductor?",
-        "answer": "The aluminium has lost strength that does not come back, and its remaining life is shorter than the design assumed.",
+        "answer": "The aluminium has lost strength for good, and its life is shorter than designed.",
         "why": "Annealing is not a state the metal comes back from. Above about ninety-five degrees, aluminium's grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The effect accumulates in hours-above-temperature, which is why the number is added up over three years rather than judged one event at a time. The consequence is not a failure today. It is a span that fails at a wind loading the design allowed for, some years from now, and a record that explains why only after somebody adds up the hours.\n",
         "rebuttals": [
           "Cooling restores the temperature and not the strength; the loss is in the grain structure, and it is permanent.",
@@ -1934,11 +1934,11 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Nothing, because the conductor cooled fully between every one of those periods.",
-          "The aluminium has lost strength that does not come back, and its remaining life is shorter than the design assumed.",
+          "The aluminium has lost strength for good, and its life is shorter than designed.",
           "The conductor has been proven capable of the higher current and can be re-rated upward.",
           "The record is too old to act on, since most of those hours were more than a year ago."
         ],
-        "correctChoice": "The aluminium has lost strength that does not come back, and its remaining life is shorter than the design assumed."
+        "correctChoice": "The aluminium has lost strength for good, and its life is shorter than designed."
       },
       "assumes": [
         "time spent above a thermal limit accumulates rather than resetting"

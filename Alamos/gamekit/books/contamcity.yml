@@ -202,13 +202,13 @@ roster:
       Her limit is the library. A match is a comparison against a catalogue of patterns somebody else recorded, and two compounds from the same chemical family can fragment almost identically. So she gives you a provisional identity within the hour and refuses to call it confirmed until a method with a different failure mode — infrared, which reads bonds rather than mass — agrees with it.
     quiz:
       - q: In Okonjo’s lab, what does the gas chromatograph actually do to a mixture before the mass spectrometer sees it?
-        a: Separates the compounds in time, because each one sticks to the column coating differently
+        a: Separates the compounds in time, since each sticks to the coating differently
         wrong:
           - Breaks the compounds into charged fragments and weighs each one
           - Concentrates the sample by boiling away the water
           - Reads which chemical bonds are present by how they absorb infrared light
       - q: Why will Okonjo not call an identification confirmed on the mass spectrum alone?
-        a: A library match is a comparison, and related compounds can fragment almost identically
+        a: A library match is a comparison, and relatives fragment alike
         wrong:
           - The mass spectrometer cannot detect compounds below one part per million
           - Mass spectra change with the weather at the sampling site
@@ -226,7 +226,7 @@ roster:
       He gives the ratio of molar masses as the fastest useful calculation on site — a vapour twice the molar mass of air stays low. What he refuses to do is treat any of it as more than a scale estimate. Ask him for a plume forecast and he will tell you which part of the answer is thermodynamics, which part is weather, and which part is going to change when the wind turns.
     quiz:
       - q: By Varga’s reasoning, what makes a released vapour pool in basements and trenches instead of lifting away?
-        a: Its molar mass is well above that of air, so it is denser than the air around it
+        a: Its molar mass is well above that of air
         wrong:
           - It is warmer than the surrounding air when it leaves the container
           - It dissolves readily in water, so it is drawn downwards towards damp ground
@@ -244,7 +244,7 @@ roster:
       Which is why a clean water sample means only that the water is clean. Her sampling plans always pair the water with a sediment core and a measurement of flow, so that a comforting result and a real improvement cannot be confused — and so that nobody reports a disappearance when what happened was a relocation into the mud.
     quiz:
       - q: Ferreira takes a sediment core alongside every water sample. What is the reasoning?
-        a: A poorly soluble compound binds to sediment, so the water can read clean while the contaminant is still there
+        a: A poorly soluble compound binds to sediment, so the water reads clean
         wrong:
           - Sediment samples are cheaper to analyse than water samples
           - Sediment holds a record of the river temperature over the previous week
@@ -262,13 +262,13 @@ roster:
       Her other rule is procedural rather than chemical: the decision rule gets written before the measurement arrives. Choose the threshold after seeing the answer and you have not run a test, you have run an argument, and everybody in the room already knows which way they want it to come out.
     quiz:
       - q: Why does Nakamura insist the decision rule be written before the measurement comes back?
-        a: Choosing the threshold after seeing the result lets the answer decide the test
+        a: Choosing it afterwards lets the answer decide the test
         wrong:
           - Calibration curves expire within a few hours of being recorded
           - The instrument software will not release a result without a threshold entered
           - It is the only way to keep the analysis from taking more than one shift
       - q: What is the blank sample for?
-        a: Clean solvent run through the whole procedure, to show the instrument is not reporting its own contamination
+        a: Clean solvent run through the whole procedure, to catch the instrument's own contamination
         wrong:
           - A sample from upstream of the release, to establish the river’s normal level
           - A known concentration used to convert the signal into a number
@@ -286,7 +286,7 @@ roster:
       He is therefore the reason nobody in this response enters a confined space before a gas-production estimate exists. A slow reaction in a cool drum and the same reaction in a drum standing in afternoon sun are not the same event, and only one of them is safe to stand next to.
     quiz:
       - q: In Brandt’s account, what makes a reaction run away?
-        a: It releases heat faster than the vessel loses it, and the higher temperature speeds the reaction further
+        a: It makes heat faster than the vessel loses it, and heat speeds it further
         wrong:
           - It runs out of the limiting reactant, so the remaining reactant reacts all at once
           - The gas produced cools the vessel until the contents freeze and fracture it
@@ -310,13 +310,13 @@ roster:
       So every option he offers arrives with the byproduct, the sludge and the destination attached. A treatment train that removes ninety-nine per cent of a contaminant and puts the rest through a neighbourhood’s air is not a success; it is a transfer, and he wants it named as one.
     quiz:
       - q: Why does Osei describe activated carbon and air stripping as moving a contaminant rather than removing it?
-        a: Neither breaks the compound down — it ends up in a carbon bed or in the air
+        a: Neither breaks the compound down
         wrong:
           - Both work only on the fraction already bound to sediment
           - Both return the compound to the river a few kilometres downstream
           - Neither can reach more than half of what is present in the water
       - q: What is Osei’s objection to chemical oxidation, even though it genuinely breaks bonds?
-        a: Partial oxidation leaves fragments, and some are worse than the original compound
+        a: Partial oxidation leaves fragments, some worse than the original
         wrong:
           - It reaches only the fraction of the contaminant that is already volatile
           - It requires heating the whole stream far above ambient temperature to run
@@ -334,7 +334,7 @@ roster:
       She is not a sceptic for sport. Her review is a list of what would have to be true for the team to be wrong, ranked by how cheaply each item could be checked — and cheap checks that nobody has run are the ones that keep her at the table past midnight.
     quiz:
       - q: What does Haddad mean by a common-mode failure?
-        a: Two apparently independent results share a step — a standard, a sampler, a library — so they fail together
+        a: Two results share a step, so they fail together
         wrong:
           - Two instruments disagree and there is no way to decide between them
           - A result that cannot be repeated by a second laboratory
@@ -352,13 +352,13 @@ roster:
       The assumptions are where it breaks. Flat ground, steady wind, a release rate somebody had to estimate. Riverton has a valley, an afternoon wind shift and a release rate nobody measured, so he reports his output as a shape and an order of magnitude and gets genuinely angry when it is quoted to three significant figures.
     quiz:
       - q: In Lindqvist’s model, what happens to the downwind concentration if the wind speed doubles?
-        a: It roughly halves, because the same released mass is spread through twice as much air
+        a: It roughly halves, since the same mass is spread through twice the air
         wrong:
           - It roughly doubles, because the plume reaches further before it dilutes
           - It is unchanged, because wind moves the plume without diluting it
           - It falls to near zero, because a fast wind lifts the plume clear of the ground
       - q: Which assumption does Lindqvist say Riverton breaks worst?
-        a: Flat ground and a steady wind — the town sits in a valley with an afternoon wind shift
+        a: Flat ground and a steady wind, neither of which this valley has
         wrong:
           - That the released compound is heavier than air
           - That the plume is sampled at ground level rather than from a mast
@@ -376,7 +376,7 @@ roster:
       The number she cares most about is the organic carbon content of the sediment, since that is what greasy compounds bind to. Two cores from the same river with different organic carbon will hold very different amounts of the same contaminant, and comparing them without that correction produces a hotspot that does not exist.
     quiz:
       - q: Why does Ibarra report sediment concentrations on a dry-weight basis?
-        a: A wet core is largely water and the water fraction varies between samples, so wet weights are not comparable
+        a: A wet core is mostly water, and the water fraction varies between samples
         wrong:
           - Drying the sample destroys the contaminant, so the dry weight is the safe measurement
           - The extraction solvent only works on completely dry material
@@ -418,7 +418,7 @@ roster:
           - Leave it alone — temperature changes yield, not rate
           - Roughly halve it, because warmer solutions hold less dissolved reactant
       - q: Why does Moreau measure activation energy herself rather than take a published value?
-        a: A catalyst, corrosion metal or a different solvent can lower the barrier and change the rate
+        a: A catalyst or a corrosion metal can lower the barrier
         wrong:
           - Published values are reported in the wrong units for field use
           - Activation energy changes as a drum ages regardless of its contents
@@ -436,7 +436,7 @@ roster:
       So he insists on measuring the treated stream for compounds that were not in the untreated one, which is harder than it sounds — an instrument set up to find the target compound is not looking for the fragments. It is the single most-skipped step in a fast response, and the one that turns up in the report six months later.
     quiz:
       - q: Why is it hard to catch the byproducts Delgado worries about?
-        a: The instrument is set up to look for the target compound, not for fragments nobody predicted
+        a: The instrument looks for the target compound, not for fragments
         wrong:
           - Byproducts break down before a sample can reach the laboratory
           - They are present at concentrations no instrument can reach
@@ -472,7 +472,7 @@ roster:
       His crews work on the assumption that the drum they cannot measure is the one that matters, and he will stage them further back than the chemistry strictly requires until the trend in temperature, not the temperature itself, has been established.
     quiz:
       - q: Why does Sørensen care whether heat in a drum is stored or generated?
-        a: Stored heat fades overnight; generated heat means the drum will be hotter in an hour
+        a: Stored heat fades overnight and generated heat does not
         wrong:
           - Stored heat spreads to neighbouring drums and generated heat does not
           - Only generated heat can be seen on a thermal image
@@ -508,13 +508,13 @@ roster:
       What he needs from the chemists is a number: how much gas the reaction can produce, and how fast, against the ventilation rate he can actually deliver. "Probably fine" is not an input to that calculation, and he has turned down people far senior to him for offering it.
     quiz:
       - q: Why does Oyelaran test at three depths rather than at the entry hatch?
-        a: Dense vapours settle, so the bottom of the space can be lethal while the hatch reads clean
+        a: Dense vapours settle, so the bottom can be lethal
         wrong:
           - The meter needs three readings to average out its own drift
           - Oxygen is consumed fastest near the entrance where the air is moving
           - Regulations require one reading for each worker entering
       - q: Oyelaran treats a chemically harmless gas as dangerous in a confined space. Why?
-        a: It displaces air, and an atmosphere low in oxygen brings people down without warning
+        a: It displaces air, and low oxygen brings people down
         wrong:
           - It condenses on the walls and makes the ladder unsafe
           - It interferes with the meter’s reading of the toxic gases
@@ -532,7 +532,7 @@ roster:
       The other half of her job is that corrosion products are chemistry too. Metal leaving a pipe wall arrives somewhere, and a pipeline shedding its lining into the raw-water main is a contamination source that no one upstream released and everyone downstream measures.
     quiz:
       - q: Why do Novák’s leaks keep appearing at joints between two different metals?
-        a: In water the more reactive metal corrodes preferentially, with the water completing the circuit
+        a: The more reactive metal corrodes first, with water completing the circuit
         wrong:
           - Joints are thinner than the pipe wall, so they wear through first
           - Different metals expand at different rates and crack the seal
@@ -550,13 +550,13 @@ roster:
       This is also why her advice is sometimes to stay indoors with the windows shut rather than to leave. Moving a thousand people through a corridor takes longer than a passing plume lasts, and putting them on the street during those minutes exposes exactly the people the evacuation was meant to protect.
     quiz:
       - q: Why is Kaur’s evacuation zone a wedge rather than a circle around the release?
-        a: The plume travels with the wind, so the hazard is long and narrow, not even all round
+        a: The plume travels with the wind, so the hazard is long and narrow
         wrong:
           - A wedge is simply easier to describe over the radio than a circle is
           - Circles are used for fires; a chemical release always takes a wedge
           - The wedge marks the ground the fire crews need kept clear of people
       - q: Why does Kaur sometimes tell people to shelter indoors instead of evacuating?
-        a: Moving people takes longer than the plume lasts, and puts them out in the worst minutes
+        a: Moving people takes longer than the plume lasts
         wrong:
           - Most buildings filter the outdoor air through their ventilation systems
           - The evacuation routes have to be kept clear for emergency vehicles
@@ -574,7 +574,7 @@ roster:
       She will not repeat a number without its unit and its meaning attached, because a figure released without either comes back an hour later as a rumour, and the correction never travels as far as the original.
     quiz:
       - q: What does Delacroix tell callers who say they cannot smell anything?
-        a: That some compounds are almost odourless well past the point where they are harmful
+        a: That some compounds are odourless well past being harmful
         wrong:
           - That the plume has passed and normal activity can safely resume
           - That the wind has changed direction and the hazard has moved elsewhere
@@ -598,7 +598,7 @@ roster:
           - The instrument software will not accept a trade name as an input
           - A CAS number records which supplier shipped that particular drum
       - q: What does a break in the chain of custody cost the team?
-        a: The result can no longer be tied to a place and a time, so the analysis stops being evidence
+        a: It can no longer be tied to a place and a time
         wrong:
           - The sample degrades and has to be re-collected
           - The laboratory has to repeat the calibration for that batch
@@ -616,7 +616,7 @@ roster:
       He is not obstructing anybody. He wants what was released, where it went, and what remains — and he will accept an honest "we do not know yet, here is when we will" far more readily than a reassurance he can tell is being managed.
     quiz:
       - q: Why can Abara’s fish carry far more contaminant than the river water they swim in?
-        a: Some compounds accumulate in fat and build up along a food chain instead of being excreted
+        a: Some compounds build up in fat along a food chain
         wrong:
           - Fish drink far more water for their size than people do
           - Contaminants are always more concentrated near the riverbed where fish feed
@@ -634,7 +634,7 @@ roster:
       The mistake she guards against is stopping too early. Contaminants stored in sediment can be released again when a flood stirs the bed, so a programme that ends at six months can miss the second peak entirely and report a success that the river has not agreed to.
     quiz:
       - q: Why does Stavros refuse to call a single clean sample after treatment good news?
-        a: One point has no direction — rain, season and flow move a number without anything having changed
+        a: One point has no direction, and rain alone moves the number
         wrong:
           - A single sample is always taken at the wrong depth
           - Post-treatment samples cannot be calibrated against pre-treatment ones
