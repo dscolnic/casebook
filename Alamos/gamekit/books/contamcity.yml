@@ -796,7 +796,7 @@ glossary:
       - anions
       - polyatomic anion
       - polyatomic anions
-    def: An ion carrying negative charge, because it has gained electrons. A polyatomic anion is several atoms holding one charge together, like sulfate or nitrate.
+    def: An ion carrying negative charge, because it has gained electrons; when several atoms hold one charge together it is a polyatomic anion, like sulfate or nitrate.
   - name: Ion
     aliases:
       - ion
@@ -1234,7 +1234,7 @@ missions:
         format: PROTOCOL
         why: A formula is not a name. It states which elements are present, in what whole-number ratio, and what charge the unit carries — and each of those constrains what the substance can do. Change a subscript or a charge and you have a different compound with different reactivity, different solubility and a different hazard class. A common name carries none of that, which is why a label reading only a trade name cannot support a hazard prediction. Some of the wrong answers here react with water.
         rebuttals:
-          - A metal cation with a polyatomic anion is the standard signature of an ionic compound — a charged pair held together electrostatically rather than shared electrons.
+          - A metal cation paired with a group of atoms that carries its own charge is the standard signature of an ionic compound — a charged pair held together electrostatically rather than shared electrons.
           - Same elements in different ratios is a different compound, not a different name for one. The ratio is part of the identity.
           - More electrons than protons means surplus negative charge. Counting the two is the whole test.
           - A common name with no composition and no concentration constrains nothing. It is a label, and hazard prediction needs the formula behind it.
@@ -1242,7 +1242,7 @@ missions:
           - What the record shows
           - What you can conclude
         scenarios:
-          - The formula contains a metal cation and a polyatomic anion.
+          - The formula contains a metal cation and a group of atoms carrying one charge.
           - Two substances share the same elements but different ratios.
           - An ion has more electrons than protons.
           - A label gives a common name with no composition or concentration.
@@ -1252,7 +1252,7 @@ missions:
           - It is negatively charged.
           - The record is insufficient for hazard prediction.
         mapping: [0, 1, 2, 3]
-        answerText: 1. The formula contains a metal cation and a polyatomic anion. → Likely an ionic compound. 2. Two substances share the same elements but different ratios. → They are distinct compounds, not interchangeable names. 3. An ion has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no composition or concentration. → The record is insufficient for hazard prediction.
+        answerText: 1. The formula contains a metal cation and a group of atoms carrying one charge. → Likely an ionic compound. 2. Two substances share the same elements but different ratios. → They are distinct compounds, not interchangeable names. 3. An ion has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no composition or concentration. → The record is insufficient for hazard prediction.
       - group: IDENT
         call: From damaged container to provisional identity
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.

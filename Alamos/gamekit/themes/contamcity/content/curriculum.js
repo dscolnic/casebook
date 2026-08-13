@@ -18,16 +18,16 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. The formula contains a metal cation and a polyatomic anion. → Likely an ionic compound. 2. Two substances share the same elements but different ratios. → They are distinct compounds, not interchangeable names. 3. An ion has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no composition or concentration. → The record is insufficient for hazard prediction.",
+        "answer": "1. The formula contains a metal cation and a group of atoms carrying one charge. → Likely an ionic compound. 2. Two substances share the same elements but different ratios. → They are distinct compounds, not interchangeable names. 3. An ion has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no composition or concentration. → The record is insufficient for hazard prediction.",
         "why": "A formula is not a name. It states which elements are present, in what whole-number ratio, and what charge the unit carries — and each of those constrains what the substance can do. Change a subscript or a charge and you have a different compound with different reactivity, different solubility and a different hazard class. A common name carries none of that, which is why a label reading only a trade name cannot support a hazard prediction. Some of the wrong answers here react with water.",
         "rebuttals": [
-          "A metal cation with a polyatomic anion is the standard signature of an ionic compound — a charged pair held together electrostatically rather than shared electrons.",
+          "A metal cation paired with a group of atoms that carries its own charge is the standard signature of an ionic compound — a charged pair held together electrostatically rather than shared electrons.",
           "Same elements in different ratios is a different compound, not a different name for one. The ratio is part of the identity.",
           "More electrons than protons means surplus negative charge. Counting the two is the whole test.",
           "A common name with no composition and no concentration constrains nothing. It is a label, and hazard prediction needs the formula behind it."
         ],
         "scenarios": [
-          "The formula contains a metal cation and a polyatomic anion.",
+          "The formula contains a metal cation and a group of atoms carrying one charge.",
           "Two substances share the same elements but different ratios.",
           "An ion has more electrons than protons.",
           "A label gives a common name with no composition or concentration."
@@ -2735,7 +2735,7 @@ export const JARGON = [
       "polyatomic anion",
       "polyatomic anions"
     ],
-    "def": "An ion carrying negative charge, because it has gained electrons. A polyatomic anion is several atoms holding one charge together, like sulfate or nitrate.",
+    "def": "An ion carrying negative charge, because it has gained electrons; when several atoms hold one charge together it is a polyatomic anion, like sulfate or nitrate.",
     "core": true
   },
   {
@@ -3478,7 +3478,6 @@ export const JARGON = [
     "aliases": [
       "yield"
     ],
-    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
-    "core": true
+    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
   }
 ];

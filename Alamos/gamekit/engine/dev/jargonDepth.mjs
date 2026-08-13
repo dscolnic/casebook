@@ -41,7 +41,15 @@
 //      definition that leans on a later term is the same fault one step softer —
 //      it only bites a player who opens the glossary — and is failed too, now
 //      that every game is clean of both.
-//   3. A DEPTH CEILING THAT RISES. Day one may introduce a term built on one
+//   3. THE CARD HAS TO CARRY IT. The plan card prints the FIRST SENTENCE of a
+//      glossary entry, not the whole thing, and a phrase used in a question is
+//      only as introduced as that sentence makes it. "Polyatomic anion" resolves
+//      to Anion and passed every rule above while the word "polyatomic" was
+//      explained in Anion's second sentence — the one nobody reads before the
+//      day. So: every technical word inside a phrase the questions use must be
+//      ordinary, claimed by the syllabus, a defined term in its own right, or
+//      said in the first sentence of the entry it belongs to.
+//   4. A DEPTH CEILING THAT RISES. Day one may introduce a term built on one
 //      other term and no more: ceiling 2, then one more every two days, to a
 //      cap of 6, which a fifteen-day campaign reaches on day eleven. A stack six
 //      concepts deep is a fair thing to ask in the last week of a campaign and an
@@ -219,6 +227,41 @@ for(const themeName of wanted){
 
   // A gap ranked by how much of the glossary leans on it: "ion" holding up anion
   // and cation is a different problem from one term using one undefined word.
+  // What the plan card actually prints: one sentence, so that is the sentence a
+  // phrase has to be explained by.
+  const firstSentence = (t) => {
+    const full = String(t?.def ?? '').replace(/\s+/g, ' ').trim();
+    return (full.match(/^[^.!?]*[.!?]/)?.[0] ?? full).toLowerCase();
+  };
+  // Every technical word inside a name or alias the questions use, that the entry
+  // does not say in its own first sentence and nothing else defines.
+  const unexplained = [];
+  for(const t of JARGON){
+    if(!defined(t)) continue;
+    const head = firstSentence(t);
+    for(const n of [t?.name, ...(t?.aliases ?? [])].filter(Boolean)){
+      const ws = words(n);
+      if(ws.length < 2) continue;                       // a single word is its own entry
+      if(!firstDay.has(norm(String(n).replace(/\s+/g, ' ').toLowerCase().split(' ')[0]))) { /* still check */ }
+      const usedInGame = String(n).toLowerCase().split(/\s+/).every(w => firstDay.has(norm(w)));
+      if(!usedInGame) continue;
+      const tail = String(t.def).replace(/\s+/g, ' ').trim().slice(head.length).toLowerCase();
+      for(const w of ws.map(norm)){
+        if(!technical(w) || assumed(w) || properNames.has(w)) continue;
+        if(head.includes(w)) continue;                  // the card's own sentence says it
+        const own = byWord.get(w);
+        if(own && own !== t && defined(own)) continue;  // it has an entry of its own
+        // The precise failure: the entry DOES explain the word, further down,
+        // where the plan card has already stopped printing. A word the entry
+        // never mentions at all is a different thing — usually one the first
+        // sentence explains in substance, like "spontaneous" under "happens on
+        // its own" — and this rule does not pretend to judge that.
+        if(!tail.includes(w)) continue;
+        unexplained.push({ t, phrase: String(n), w });
+      }
+    }
+  }
+
   // Ceiling: 2 on day one, one more every three days, capped at 6.
   const ceilingFor = (day) => Math.min(6, 2 + Math.floor((day - 1) / 2));
   const gapWeight = new Map();
@@ -253,6 +296,13 @@ for(const themeName of wanted){
   if(!checkMode && outOfOrder.length > limit) console.log(`    … ${outOfOrder.length - limit} more`);
 
   const overCeiling = rows.filter(r => r.d > ceilingFor(r.day)).sort((a, b) => a.day - b.day || b.d - a.d);
+  if(!checkMode){
+    console.log(`\n  UNEXPLAINED IN THE PHRASE — a word inside a term the questions use that its own first sentence never says:`);
+    if(!unexplained.length) console.log(`    (none)`);
+    for(const u of unexplained.slice(0, limit)) console.log(`    "${u.phrase}" — nothing says what "${u.w}" means`);
+    if(unexplained.length > limit) console.log(`    … ${unexplained.length - limit} more`);
+  }
+
   if(!checkMode) console.log(`\n  OVER THE CEILING — deeper than the day allows (day 1 allows 2, one more every two days):`);
   if(!checkMode && !overCeiling.length) console.log(`    (none)`);
   if(!checkMode) for(const r of overCeiling.slice(0, limit)){
@@ -273,6 +323,7 @@ for(const themeName of wanted){
       ...loadBearing.map(([w, n]) => `"${w}" holds up ${n} defined term(s) and nothing defines it`),
       ...outOfOrder.map(({ r, dep, dd }) => `${r.t.name} (d${r.day}) is named from ${dep.name}, first seen d${dd}`),
       ...lateInDef.map(({ r, dep, dd }) => `${r.t.name} (d${r.day}) is defined with ${dep.name}, first seen d${dd}`),
+      ...unexplained.map(u => `"${u.phrase}" uses "${u.w}", which nothing defines and ${u.t.name}'s first sentence — the line the plan card prints — does not say`),
       ...overCeiling.map(r => `${r.t.name} (d${r.day}) is ${r.d} concepts deep, and day ${r.day} allows ${ceilingFor(r.day)}`),
     ];
     if(problems.length){
