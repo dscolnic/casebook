@@ -19,6 +19,7 @@ import { ROSTER as HISTORIC_CHARACTERS, LEADERS, AVATARS } from './content/roste
 import { DIAGNOSIS_PACKS, SPECIAL_REQUESTS } from './content/shared.js';
 import { INTERIORS } from './interiors.js';
 import { site } from './site.js';
+import { decorate } from './props.js';
 
 
 export default {
@@ -33,11 +34,12 @@ export default {
   title: 'Project Y',
   subtitle: 'Los Alamos · 1943–45',
 
-  // The place, as data. src/world.js still builds the mesa by hand — flipping
-  // it to engine/world/outdoorTown is its own job — but declaring the site here
-  // lets the checks see the buildings, the spawn and the terrain limit now,
-  // which is most of what they need to catch an unreachable group.
+  // The place, as data, and now actually built from it: `src/world.js` is a thin
+  // adapter over engine/world/outdoorTown.js, which reads this. The Los Alamos
+  // objects the engine has no opinion about — the Tech Area wire, the water tank,
+  // the duckboards, the forest — are in props.js beside this file.
   site,
+  decorate,
   start: site.spawn,
   // How it ends.
   //

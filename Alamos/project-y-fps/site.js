@@ -7,10 +7,17 @@
 // world.js's BUILDING_DATA — so this reproduces the town rather than
 // reinterpreting it.
 //
-// NOT YET MIGRATED, and still built by src/world.js: the fifteen filler
-// buildings, Ashley Pond, the roads, boardwalks, power poles, fences, vehicles
-// and the central board. `@world` still points at src/world.js; nothing in this
-// file is wired up yet. It is data waiting for the rest of the town.
+// This file is now wired up: `src/world.js` is a thin adapter over
+// engine/world/outdoorTown.js, which builds the mesa, the roads, the pond, the
+// buildings and the sky from what is here. The Los Alamos-specific objects —
+// boardwalks, power poles, the Tech Area wire, vehicles, the Ponderosa forest —
+// live in props.js beside this file, because they are the place rather than the
+// shape of the ground.
+//
+// The engine's 'mesa' profile was checked against the heightfield env.js used to
+// compute by hand before the switch: mean difference 0.06 m over the town, worst
+// case 0.5 m. Pads now read level where the old surface noise dipped them half a
+// metre, which is what a graded bench is supposed to do.
 //
 // Each building was a `createBuilding` call — 213 lines of shared geometry
 // driven by one row of a table. With kit.building's roof/siding/base/stoop
@@ -116,9 +123,26 @@ export const site = {
     ...FILLER.map(b => ({ ...FILLER_STYLE, ...b })),
   ],
 
+  // The roads, which `env.js` held as ROADS and graded by hand. `worn` is what it
+  // called `rut`: the width of the wheel-polished strip down the middle.
+  paths: [
+    { cx: 0,  cz: 10, w: 240, d: 16,  worn: 10 },   // Trinity Drive
+    { cx: 16, cz: 54, w: 11,  d: 104, worn: 6.5 },  // north to the canyon bridge
+    { cx: -8, cz: 19, w: 11,  d: 22,  worn: 6 },    // the lab access spur
+  ],
+
   // Ashley Pond is not a building. It sat in the same table only because that
   // table was "things to place"; here it is what it actually is.
-  water: { cx: 0, cz: -8, width: 14, depth: 14, level: -0.35 },
+  //
+  // `bed` and `shore` are set explicitly and are much smaller than the engine's
+  // river defaults for a reason: the bed is cut into the terrain, and the default
+  // 14 m shore feather on a 14 m pond would dig a soft two-metre crater across
+  // the middle of town, eight metres from the spawn.
+  water: { cx: 0, cz: -8, width: 14, depth: 14, level: -0.35, bed: 0.8, shore: 4 },
+
+  // The status board on Trinity Drive, which src/world.js drew by hand as
+  // `centralBoardMesh`. Same place, same facing.
+  board: { x: 0, z: 22, facing: 0, title: 'Project Y — Status' },
 
   spawn: { x: 0, z: 14, yaw: 0 },
 };

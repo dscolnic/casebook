@@ -1,8 +1,24 @@
-// env.js — sky, environment lighting, mesa terrain, ridges, ponderosa forest, stars.
+// env.js — the Ponderosa forest, the noise helpers, and the ground function.
+//
+// This file used to build the whole environment: sky, lighting, mesa terrain,
+// ridges, stars. `engine/world/outdoorTown.js` builds all of that now from
+// site.js, so what is still live here is the forest, the seeded random the town
+// is laid out with, and `terrainHeight`, which is a door onto the engine's
+// `groundHeight` so props and people cannot disagree with the visible ground.
+//
+// DEAD as of the world flip, kept only until a cleanup pass removes them — no
+// file imports any of these any more:
+//
+//   buildTerrain, buildRoads, setTerrainPads, buildRidges   -> outdoorSite/outdoorTown
+//   initSky, updateSky, disposeEnv                          -> outdoorTown's sun rig
+//   ROADS, onRoad, MESA_PLAYER_LIMIT                         -> site.paths, site.terrain
+//   legacyTerrainHeight                                      -> the shape site.js was checked against
+//
 // The mesa is a finger of the Pajarito Plateau at ~2200 m: flat top, hard canyon
 // dropoffs, pine forest thinned by the Ranch School, and three ranks of hazed
 // ridges (Jemez close and tall to the west, Sangre de Cristo faint to the east).
 import * as THREE from 'three';
+import { groundHeight as engineGroundHeight } from '../../gamekit/engine/world/outdoorSite.js';
 import { Sky } from 'three/addons/objects/Sky.js';
 import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
 
@@ -79,7 +95,25 @@ function padWeight(x, z){
   return best;
 }
 
+/**
+ * The ground, from the engine.
+ *
+ * This used to be the mesa's own heightfield, and it was the second source of
+ * truth for the surface: the engine graded the visible terrain from
+ * `outdoorSite.groundHeight` while `props.js` and `npcs.js` placed objects from
+ * the function below, which agreed with it to about half a metre. House rule 4
+ * exists because that disagreement has shipped broken twice, so there is one
+ * function now and this is a door onto it.
+ *
+ * The old implementation is kept underneath, unreachable, because it is the
+ * record of the shape the mesa was tuned to and the engine's 'mesa' profile in
+ * site.js was checked against it — mean difference 0.06 m across the town.
+ */
 export function terrainHeight(x, z){
+  return engineGroundHeight(x, z);
+}
+
+function legacyTerrainHeight(x, z){
   const r = Math.hypot(x, z);
   const ang = Math.atan2(z, x);
   const rim = rimRadius(ang);
