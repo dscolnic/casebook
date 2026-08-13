@@ -1,6 +1,6 @@
 # Alamos — mission-based learning games
 
-Seven first-person, mission-driven educational games on three.js, plus the
+Eight first-person, mission-driven educational games on three.js, plus the
 shared engine they run on. Each is the same loop in a different setting:
 15 missions × 3 stops, walk to a place, answer a science question, hand off.
 No combat, no weapons.
@@ -8,10 +8,10 @@ No combat, no weapons.
 **`gamekit/NEW_GAME.md` is how to build one of these** — the whole path in
 order: decide the course, scaffold, write the book, build the place, meet the
 writing bar, meet the question bar, check and print. It carries the bar each step
-has to clear and the checker that enforces it. Read it before starting an eighth
+has to clear and the checker that enforces it. Read it before starting a ninth
 game, and add to it when the next rule turns up.
 
-**`GAMES.md` is the inventory** — all seven games, what each one is, where its
+**`GAMES.md` is the inventory** — all eight games, what each one is, where its
 content and its place live, and what is still unfinished. Read it first if you
 are picking this up cold. **`gamekit/STORY_SPEC.md` is the story contract** —
 what a campaign needs beyond correct content, and the checker that enforces it.
@@ -19,7 +19,7 @@ what a campaign needs beyond correct content, and the checker that enforces it.
 **Read `gamekit/THEME_CONTRACT.md` before touching world code.** It is short and
 every rule in it cost hours to learn.
 
-## The seven games
+## The eight games
 
 | Game | Where | The place, and why it looks unlike the others | Run it |
 | --- | --- | --- | --- |
@@ -28,6 +28,7 @@ every rule in it cost hours to learn.
 | Outbreak: Riverton | `gamekit/themes/outbreak_riverton/` | A hospital campus in week three: courtyards, triage marquees, container labs, a decon tunnel on the main route, a fence with one gate | `THEME=outbreak_riverton npm run dev` |
 | Bring Them Home | `gamekit/themes/bring_them_home/` | Mission Control — its own world. One room, four tiers stepping down to a wall of plot boards; the teams are rows, not rooms | `THEME=bring_them_home npm run dev` |
 | Planetary Defense | `gamekit/themes/planetary_defense/` | A mountain ridge, played entirely at night: one dark road, domes, a radar dish, red service lamps | `THEME=planetary_defense npm run dev` |
+| Blackout | `gamekit/themes/blackout/` | Calder Switching Station: a flat river plain, a switchyard, lattice towers walking off the map. Senior-high electrical engineering | `THEME=blackout npm run dev` |
 | Project Y | `project-y-fps/` | Los Alamos 1943–45, outdoor | `cd project-y-fps && npx vite` |
 | Hospital Heroes | `Hospital/hospital-fps/` | Children's hospital, interior, ~grades 3–4 | `cd Hospital/hospital-fps && npx vite` |
 
@@ -453,9 +454,13 @@ you are, never the takeaway.
   bigger job.
 - **Project Y is not fully declarative yet.** The pine forest, the ground scatter
   and the lamp positions are code in `project-y-fps/props.js` rather than site
-  data, and about 400 lines of `src/env.js` are now dead — sky, terrain, roads and
-  ridges, all taken over by the engine, with no importer left. The file header
-  lists them.
+  data. `src/env.js` is down from 640 lines to 244: the sky, terrain, roads and
+  ridges it used to build are deleted, and what is left is `plantTrees`, the seeded
+  random and `terrainHeight`, which is a door onto the engine's `groundHeight`.
+  **`ROADS`, `onRoad` and `MESA_PLAYER_LIMIT` look dead from outside and are not** —
+  `plantTrees` reads all three to decide where a tree may stand, which is why the
+  roads are declared twice, once as `site.paths` for the engine to grade and once
+  here as the rectangles the forest keeps out of.
 - See `gamekit/FOURTH_GAME.md` for the plan this came from and what is left.
 - **Project Y bios have no authored questions yet.** Its 26 bios are long and
   good (164 words mean) and not one carries a `quiz` array, so every one falls

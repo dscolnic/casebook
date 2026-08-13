@@ -287,6 +287,20 @@ six, Riverton four of ten. The sonar equation, Snell's law, echo ranging,
 Archimedes, pH, Beer–Lambert and rate laws are all discussed and none of them is
 ever calculated. Page three of the printed book carries the same audit.
 
+**Expect a second pass over `k` after the book is written.** The keyword lists are
+authored before the questions, so they encode one phrasing of each idea, and the
+book then says it a different way. Writing Blackout hit this four times: the
+questions computed the swing relation, the volt drop, the energy and the reactive
+support, and all four reported as absent or mention-only because the book said
+"rate of frequency change", "volt drop" and "megawatt-hour" where the list said
+"rate of change of frequency", "voltage drop" and "kilowatt-hour". Coverage that
+looks like missing content is often missing *vocabulary agreement*. Broaden the
+list when the book's wording is just as good — and change the *question* when the
+list is naming something the question genuinely never says, which is the case
+worth catching: Blackout's stored-energy question never used the words inductance
+or capacitance, and a question about stored energy in a power system that never
+says either is under-teaching the concept, not mislabelled.
+
 **The player meets them before the question does.** `import-book` stamps each
 lesson with the equations it touches — the same way it stamps `core`, because the
 list is authoring data and the runtime should read a lesson rather than reach back

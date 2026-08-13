@@ -219,3 +219,33 @@ The last shift is the first one again with everything learned — six patients,
 one free room, and then a handoff to an evening team that was not there for any
 of it, which has to start with who and what is wrong rather than with the
 answer.
+
+---
+
+## Blackout — *the number under the decision*
+
+Something trips at 04:12 and four million people are on a system that is
+suddenly six hundred megawatts short. The whole first week is a control room
+reading numbers fast enough to matter: what a falling frequency is evidence of,
+how much generation went missing, whether three records of the same eight
+seconds can be trusted to say what happened first. Dolores Reyes acts before the
+picture is complete, because a system this far short does not get more certain
+while you read about it. June Farrow will not sign what she cannot trace. Each
+is right on a named day — Reyes on the first morning, when waiting would have
+cost the island; Farrow on the fourth, when the delay she insists on is the
+cheapest thing in the week. On day two the room chooses to hold a corridor
+inside its emergency rating for forty minutes, off a thermal record Farrow says
+nobody has verified.
+
+The reversal is a measurement, not an event. On day eleven Farrow finishes
+tracing the record: the corridor's sensor has read eleven degrees low since a
+firmware update, and the corridor had been above rating for six hours, not
+forty minutes. Every decision since was reasoned well from a wrong number, and
+the work is sorting which conclusions actually rested on it. Then a quiet shift
+where nothing goes wrong and nothing has been fixed; a Thursday where a fault, a
+forecast miss and a fuel limit arrive in the same hour; and a Monday when the
+outage window closes and the corridor decision stops being reversible. The last
+day is the report — what is established, what is inferred, what is still a guess
+— and which of the fortnight's emergency habits is worth its cost on an ordinary
+Monday. Only one of them would have caught the sensor.
+

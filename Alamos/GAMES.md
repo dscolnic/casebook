@@ -1,6 +1,6 @@
 # The games, and how to pick any of them up cold
 
-Seven playable games, one engine. Everything below is current as of the last
+Eight playable games, one engine. Everything below is current as of the last
 commit on `deep-watch-integration`. `CLAUDE.md` is the working manual — house
 rules, the day model, editions and copy conventions. This file is the inventory.
 **`STORIES.md` is what actually happens in each game** — the fifteen-day arc, so a
@@ -10,8 +10,8 @@ timeline, the four beats of a day card, and how each is checked.
 
 ```sh
 cd gamekit
-npm run check                       # all seven: content, reachability, styles, world parity
-THEME=<name> npm run dev            # the five that live in gamekit/themes
+npm run check                       # all eight: content, reachability, styles, world parity
+THEME=<name> npm run dev            # the six that live in gamekit/themes
 ```
 
 | Game | Theme / dir | Subject and audience | The place, and why it looks unlike the others |
@@ -21,7 +21,8 @@ THEME=<name> npm run dev            # the five that live in gamekit/themes
 | **Outbreak: Riverton** | `gamekit/themes/outbreak_riverton` | College biology — clinical, cell, molecular, immunology, epidemiology, One Health | A hospital campus in week three of an emergency: courtyards rather than streets, triage marquees, container labs, floodlight masts, a decon tunnel *on* the main route, a fence with one gate. One long hike north to the field station |
 | **Bring Them Home** | `gamekit/themes/bring_them_home` | College physics — motion, circuits, thermal, waves, rotation, integration | Mission Control, its **own world** (`themes/bring_them_home/world.js`): one room, four tiers stepping down to a wall of plot boards. The teams are *rows*, not rooms. No doors — `stopNoun: 'a console'` |
 | **Planetary Defense** | `gamekit/themes/planetary_defense` | Astronomy — discovery, astrometry, characterisation, radar, impact physics | A mountain ridge played **entirely at night** (`look.dayWindow: [19, 31]`): one dark road, domes with open shutters, a 30 m radar dish, red service lamps. Interiors use the `observatory` style |
-| **Project Y** | `project-y-fps/` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. Still builds its world by hand |
+| **Blackout** | `gamekit/themes/blackout` | Senior-high / first-year electrical engineering — AC power, transmission, protection, load | Calder Switching Station: a flat graded river plain, a switchyard of gantries and transformers, and two circuits of lattice towers walking off the map. Nothing else in the set has a skyline of steel |
+| **Project Y** | `project-y-fps/` | Los Alamos 1943–45, five divisions | Outdoor mesa, timber and gabled, pre-computer — chalkboards and typed sheets, no screens anywhere. `src/world.js` is a 120-line adapter over `outdoorTown` |
 | **Hospital Heroes** | `Hospital/hospital-fps/` | ~grade 3–4. Junior doctor, children's hospital | Interior ward: a spine with rooms off it. `audience: { grade: 4 }`, so its whole interface comes up 1.18× larger |
 
 ## What they all share
@@ -42,7 +43,7 @@ or carry a props layer heavy enough to change the shape of the space.
 
 Every game is **one book file** plus the place. Books are in `gamekit/books/`:
 `deep-watch.yml`, `outbreak-riverton.yml`, `bring-them-home.yml`,
-`planetary-defense.yml`. Re-import after editing:
+`planetary-defense.yml`, `blackout.yml`. Re-import after editing:
 
 ```sh
 node tools/import-book.mjs books/<name>.yml <theme> --verify
@@ -56,7 +57,7 @@ those are code. `tools/BOOK_TEMPLATE.md` is the format.
 The two older games predate this and keep generated `curriculum.js` /
 `missions.js` under `src/`; edit those directly.
 
-## Starting an eighth
+## Starting a ninth
 
 ```sh
 npm run new-theme <name>                 # a town
@@ -73,7 +74,8 @@ anything. Then replace `book.yml`. Full runbook: `gamekit/NEW_GAME.md`.
   declares a site as data. Project Y came across — `src/world.js` is a 120-line
   adapter over `engine/world/outdoorTown.js` and `worldParity` reports its world as
   generated from site data. Its pine forest, ground scatter and lamp positions are
-  still code rather than data, and ~400 lines of `src/env.js` are dead.
+  still code rather than data; `src/env.js` is down from 640 lines to 244, the rest
+  having been the sky, terrain, roads and ridges the engine took over.
 - **Two entry points.** Project Y and the hospital keep their own `main.js`,
   `index.html` and stylesheet fork. A feature added to one reaches one game —
   this has caused real bugs; grep all three before calling a change done.
