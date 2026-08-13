@@ -311,6 +311,52 @@ covers.
 
 ---
 
+# Work still to do: the jargon sweep
+
+`checkJargon` was built the wrong way round and the seven games still carry the
+consequence. Written down here because the next session should start from it
+rather than rediscover it.
+
+**What is wrong.** The check treats an undefined term as a glossary gap, so the
+fix it invites is a definition. That is the wrong fix. "The formula contains a
+metal cation and a polyatomic anion" on day 1 of a chemistry course should read
+"the formula pairs a metal with a group of atoms carrying one charge together" —
+defining a word the question never needed makes the card longer without making
+the question answerable. Sixty glossary definitions were written to satisfy the
+check; most of them are excuses for jargon that should not be in the question.
+
+The detector is also a curated domain lexicon, so its recall is poor: `sorbent`,
+`influent`, `matrix effect` and anything outside its morpheme list pass silently.
+For a *gate* that tradeoff is right — every finding is real. For a *sweep* it is
+backwards: you want over-flagging with a person reading the list.
+
+**The rule that should hold.** A term belongs in a question only if it is on that
+game's syllabus, and only from the mission that teaches it onward. `tools/syllabus.js`
+already holds thirty concepts per game with their phrase lists, so the allowlist
+is a curriculum decision rather than a word list somebody maintains.
+
+**The order to do it in.**
+
+1. **Report mode, deliberately noisy.** Morphology plus length plus rarity, no
+   curated lexicon. For every candidate print the term, every stop that uses it,
+   and whether a syllabus concept claims it. That output is the work queue.
+2. **Classify each term**: on the syllabus (keep, and check the teaching mission
+   comes first), adjacent-but-unnecessary (rewrite in plain words), or notation
+   (units, formulas — leave).
+3. **Rewrite the questions, do not annotate them.** Scene, task, choices, cards.
+   The syllabus term stays where the question is *about* that term.
+4. **Retire the glossary entries** that exist only to explain a word the question
+   should not have used. Keep the ones tied to taught concepts.
+5. **Re-run the probes.** A rewrite in plainer words is exactly how a keyed answer
+   starts echoing its prompt, and ECHO is what catches it. `checkStory` for
+   reading level, `bookParity` because all of this is edited in `books/*.yml`.
+6. **Flip the gate**: no term outside its game's syllabus, and no syllabus term
+   before the mission that teaches it. Then this section can be deleted.
+
+Roughly 350 questions across seven games, plus the checker rewrite. Contamcity is
+the worst and Deep Watch the best, which is the order to work in.
+---
+
 # Runbook: changing something in every game
 
 ## Shared — edit once
