@@ -104,7 +104,12 @@ export default {
     // interior's 160 the dome is clipped away entirely and the sky renders
     // black, in broad daylight, with no error anywhere.
     far: 900,
-    fog: { colour: 0xb9c4c8, near: 150, far: 460 },
+    // Reaches past the horizon ranks, which sit at 520 and 680 in site.js. The
+    // engine's default is 150/460, tuned for a river city where the far bank is
+    // the horizon; copied onto this plain it put both ranks and the whole
+    // switchyard approach behind a wall of flat haze, and the place lost its
+    // skyline — which for a transmission site is the thing worth looking at.
+    fog: { colour: 0xb9c4c8, near: 200, far: 950 },
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
     exposure: 0.86,
     // How wide the player is, for collision. 0.45 suits a street; a place with
