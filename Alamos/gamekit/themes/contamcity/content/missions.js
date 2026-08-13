@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "A Reaction Underground",
     "objective": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
     "briefing": "Two drainage streams may mix in a confined tunnel. The player must determine limiting reactants, plausible products, and gas or heat generation before crews enter. Entering before bounding the chemistry could expose crews to heat, pressure, or oxygen displacement.",
-    "stake": "Day eight. Two drains may be meeting in a closed tunnel under the yard and the confined-space safety officer, Femi Oyelaran, has a crew suited up at the hatch waiting on your word. He will not send them in on a story. Oyelaran has monitors at the hatch and two hours of bottled air per man. Today you work out the largest reaction that could be happening down there, and whether the reaction you assumed is the one really going on. What hurts people in a closed space is ordinary: heat, pressure, and oxygen pushed out.",
+    "stake": "Day eight. Two drains may be meeting in a closed tunnel under the yard and the closed-space safety officer, Femi Oyelaran, has a crew suited up at the hatch waiting on your word. He will not send them in on a story. Oyelaran has monitors at the hatch and two hours of bottled air per man. Today you work out the largest reaction that could be happening down there, and whether the reaction you assumed is the one really going on. What hurts people in a closed space is ordinary: heat, pressure, and oxygen pushed out.",
     "takeaway": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
     "stops": [
       {

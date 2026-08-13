@@ -866,7 +866,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "High-frequency sampling at the intake is where the decision gets made, and it measures one phase of a system with four.",
           "Upstream comparison sites are what make any concentration mean something, and they are the next call rather than this one.",
-          "A sample from the visibly discoloured bank tests the appearance rather than the model, and it will be the photograph that gets published."
+          "A sample from the visibly stained bank tests the appearance rather than the model, and it will be the photograph that gets published."
         ],
         "choices": [
           "Sediment and suspended solids, alongside the water.",
@@ -1222,14 +1222,14 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "Why the brine has not frozen",
+      "title": "Why the salty water has not frozen",
       "scene": "The holding pond is at minus four degrees and still liquid. The freshwater ditch beside it froze two nights ago, and the plant needs to know whether the pond can be trusted to keep flowing.",
       "takeaway": "Dissolved solute lowers a freezing point, in proportion to how much of it there is.",
       "place": "Water and Sediment Laboratory",
       "story": "The holding pond is at minus four degrees and still liquid. The freshwater ditch beside it froze two nights ago, and the plant needs to know whether the pond can be trusted to keep flowing.",
       "game": {
         "type": "CHOICE",
-        "title": "Why the brine has not frozen",
+        "title": "Why the salty water has not frozen",
         "setup": "Water and Sediment Laboratory",
         "play": "Minus four degrees, and the pond is liquid while the ditch is ice. Why?",
         "task": "Minus four degrees, and the pond is liquid while the ditch is ice. Why?",
@@ -1245,7 +1245,7 @@ export const CURRICULUM = {
           "Dissolved salt depresses the freezing point, and the depression scales with the concentration of particles.",
           "The pond is larger, and larger bodies of water cannot freeze.",
           "The salt releases heat as it dissolves, keeping the pond warm.",
-          "Brine is denser, and dense liquids have higher freezing points."
+          "Salty water is denser, and dense liquids have higher freezing points."
         ],
         "correctChoice": "Dissolved salt depresses the freezing point, and the depression scales with the concentration of particles."
       },
@@ -1449,13 +1449,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "Longitudinal sampling captures transport and is the second call. It answers where the contaminant is going rather than what the intake is drawing.",
           "Replicates, blanks and spikes make each number defensible and place none of them. They are how you sample, not where.",
-          "Sampling the discoloured water samples the appearance. The compound that matters here is colourless."
+          "Sampling the stained water samples the appearance. The compound that matters here is colourless."
         ],
         "choices": [
           "Densely, around the drinking-water intake.",
           "Spread along the river, upstream and downstream, over several days.",
           "Into replicates, blanks and spikes at every site already planned.",
-          "Wherever the water is visibly discoloured."
+          "Wherever the water is visibly stained."
         ],
         "correctChoice": "Densely, around the drinking-water intake."
       },
@@ -1622,10 +1622,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which reactant limits?",
-      "scene": "A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. Confined-space entry decisions are being made from this number.",
+      "scene": "A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. Closed-space entry decisions are being made from this number.",
       "takeaway": "Limiting-reactant logic prevents impossible product estimates.",
       "place": "Stoichiometry Lab",
-      "story": "A generic reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The limiting reactant is the one that runs out first, and it is what sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. Confined-space entry decisions are being made from this number.",
+      "story": "A generic reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The limiting reactant is the one that runs out first, and it is what sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. Closed-space entry decisions are being made from this number.",
       "game": {
         "type": "BALLPARK",
         "title": "Which reactant limits?",
@@ -1846,7 +1846,7 @@ export const CURRICULUM = {
             }
           ]
         },
-        "headline": "Ninety minutes after cooling was shut off, the west bay is still climbing — and it has crossed the confined-entry limit.",
+        "headline": "Ninety minutes after cooling was shut off, the west bay is still climbing — and it has crossed the closed-space entry limit.",
         "readings": [
           {
             "zone": "West bay",

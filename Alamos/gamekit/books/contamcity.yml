@@ -1476,7 +1476,7 @@ missions:
         rebuttals:
           - High-frequency sampling at the intake is where the decision gets made, and it measures one phase of a system with four.
           - Upstream comparison sites are what make any concentration mean something, and they are the next call rather than this one.
-          - A sample from the visibly discoloured bank tests the appearance rather than the model, and it will be the photograph that gets published.
+          - A sample from the visibly stained bank tests the appearance rather than the model, and it will be the photograph that gets published.
         choices:
           - Sediment and suspended solids, alongside the water.
           - Water at high frequency, close to the drinking-water intake.
@@ -1772,17 +1772,17 @@ missions:
         rebuttals:
           - Longitudinal sampling captures transport and is the second call. It answers where the contaminant is going rather than what the intake is drawing.
           - Replicates, blanks and spikes make each number defensible and place none of them. They are how you sample, not where.
-          - Sampling the discoloured water samples the appearance. The compound that matters here is colourless.
+          - Sampling the stained water samples the appearance. The compound that matters here is colourless.
         choices:
           - Densely, around the drinking-water intake.
           - Spread along the river, upstream and downstream, over several days.
           - Into replicates, blanks and spikes at every site already planned.
-          - Wherever the water is visibly discoloured.
+          - Wherever the water is visibly stained.
         answer: Densely, around the drinking-water intake.
   - title: A Reaction Underground
     objective: Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.
     briefing: Two drainage streams may mix in a confined tunnel. The player must determine limiting reactants, plausible products, and gas or heat generation before crews enter. Entering before bounding the chemistry could expose crews to heat, pressure, or oxygen displacement.
-    stake: "Day eight. Two drains may be meeting in a closed tunnel under the yard and the confined-space safety officer, Femi Oyelaran, has a crew suited up at the hatch waiting on your word. He will not send them in on a story. Oyelaran has monitors at the hatch and two hours of bottled air per man. Today you work out the largest reaction that could be happening down there, and whether the reaction you assumed is the one really going on. What hurts people in a closed space is ordinary: heat, pressure, and oxygen pushed out."
+    stake: "Day eight. Two drains may be meeting in a closed tunnel under the yard and the closed-space safety officer, Femi Oyelaran, has a crew suited up at the hatch waiting on your word. He will not send them in on a story. Oyelaran has monitors at the hatch and two hours of bottled air per man. Today you work out the largest reaction that could be happening down there, and whether the reaction you assumed is the one really going on. What hurts people in a closed space is ordinary: heat, pressure, and oxygen pushed out."
     takeaway: Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.
     stops:
       - group: ENERGY
@@ -1817,8 +1817,8 @@ missions:
         place: Stoichiometry Lab
         setup: Use the generic reaction 2A + B → products.
         question: Identify the limiting reactant and maximum reaction extent in moles of B consumed.
-        scene: A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. Confined-space entry decisions are being made from this number.
-        story: "A generic reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The limiting reactant is the one that runs out first, and it is what sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. Confined-space entry decisions are being made from this number."
+        scene: A reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. Closed-space entry decisions are being made from this number.
+        story: "A generic reaction takes two moles of A for every mole of B, and both are arriving in the tunnel in amounts nobody chose. The limiting reactant is the one that runs out first, and it is what sets the maximum extent of reaction — the rest of the other reagent simply sits there once its partner is gone. That is why an estimate based on the larger quantity is not conservative but wrong: it predicts heat and gas that cannot physically be produced. Closed-space entry decisions are being made from this number."
         assumes:
           - a reaction stops when one ingredient runs out
         takeaway: Limiting-reactant logic prevents impossible product estimates.
@@ -1970,7 +1970,7 @@ missions:
           marks:
             - x: 0
               label: cooling stopped
-        headline: Ninety minutes after cooling was shut off, the west bay is still climbing — and it has crossed the confined-entry limit.
+        headline: Ninety minutes after cooling was shut off, the west bay is still climbing — and it has crossed the closed-space entry limit.
         readings:
           - zone: West bay
             label: Bulk temperature
@@ -2349,7 +2349,7 @@ missions:
       - group: WATER
         call: Manage the new contaminant reservoir
         task: Minus four degrees, and the pond is liquid while the ditch is ice. Why?
-        title: Why the brine has not frozen
+        title: Why the salty water has not frozen
         place: Water and Sediment Laboratory
         scene: The holding pond is at minus four degrees and still liquid. The freshwater ditch beside it froze two nights ago, and the plant needs to know whether the pond can be trusted to keep flowing.
         assumes:
@@ -2365,7 +2365,7 @@ missions:
           - Dissolved salt depresses the freezing point, and the depression scales with the concentration of particles.
           - The pond is larger, and larger bodies of water cannot freeze.
           - The salt releases heat as it dissolves, keeping the pond warm.
-          - Brine is denser, and dense liquids have higher freezing points.
+          - Salty water is denser, and dense liquids have higher freezing points.
         answer: Dissolved salt depresses the freezing point, and the depression scales with the concentration of particles.
   - title: The Corrosion Failure
     objective: Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.
