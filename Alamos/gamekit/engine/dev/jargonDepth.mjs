@@ -49,7 +49,14 @@
 //      day. So: every technical word inside a phrase the questions use must be
 //      ordinary, claimed by the syllabus, a defined term in its own right, or
 //      said in the first sentence of the entry it belongs to.
-//   4. A DEPTH CEILING THAT RISES. Day one may introduce a term built on one
+//   4. THE CARD INTRODUCES ITS OWN WORDS FIRST. "Cation — a positively charged
+//      ion" gives the player one word they have and one they do not, unless Ion
+//      was printed first. Every defined term named in a card line must have had
+//      a card line of its own, earlier on that card or on an earlier day. The
+//      primer deriver honours this by pulling a term's prerequisites in ahead of
+//      it and dropping any term whose prerequisites will not fit the two lines a
+//      card gets; this rule is what stops an authored primer from doing worse.
+//   5. A DEPTH CEILING THAT RISES. Day one may introduce a term built on one
 //      other term and no more: ceiling 2, then one more every two days, to a
 //      cap of 6, which a fifteen-day campaign reaches on day eleven. A stack six
 //      concepts deep is a fair thing to ask in the last week of a campaign and an
@@ -262,6 +269,39 @@ for(const themeName of wanted){
     }
   }
 
+  // Rule 5, and the one a player actually feels: the plan card may not define a
+  // word with a word it has not given them yet. "Cation — a positively charged
+  // ion" is two words on that line, one of them known and one of them not,
+  // unless Ion was printed first. Cards are read in order, days are read in
+  // order, so the test is in order too.
+  const cardOrder = [];
+  {
+    const seenTerms = new Set();
+    const byName = new Map(JARGON.map(t => [String(t?.name ?? '').toLowerCase(), t]));
+    const single = new Map();
+    for(const t of JARGON){
+      if(!defined(t)) continue;
+      for(const n of [t?.name, ...(t?.aliases ?? [])].filter(Boolean)){
+        const w = String(n).trim().toLowerCase();
+        if(!/\s/.test(w) && !single.has(w)) single.set(w, t);
+      }
+    }
+    MISSIONS.forEach((m, mi) => {
+      for(const line of m.primer ?? []){
+        const [head, ...rest] = String(line).split(' — ');
+        const t = byName.get(String(head).trim().toLowerCase());
+        if(!t || !rest.length) continue;
+        const own = new Set([t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(n => String(n).toLowerCase()));
+        for(const w of rest.join(' — ').toLowerCase().match(/[a-z][a-z0-9'’-]*/g) ?? []){
+          const dep = single.get(w);
+          if(!dep || dep === t || own.has(w)) continue;
+          if(!seenTerms.has(dep)) cardOrder.push({ day: mi + 1, t, dep, w });
+        }
+        seenTerms.add(t);
+      }
+    });
+  }
+
   // Ceiling: 2 on day one, one more every three days, capped at 6.
   const ceilingFor = (day) => Math.min(6, 2 + Math.floor((day - 1) / 2));
   const gapWeight = new Map();
@@ -303,6 +343,12 @@ for(const themeName of wanted){
     if(unexplained.length > limit) console.log(`    … ${unexplained.length - limit} more`);
   }
 
+  if(!checkMode){
+    console.log(`\n  CARD ORDER — a plan card defining a term with one it has not introduced:`);
+    if(!cardOrder.length) console.log(`    (none)`);
+    for(const c of cardOrder.slice(0, limit)) console.log(`    d${c.day} ${c.t.name} is defined with "${c.w}" — ${c.dep.name} has not been on a card`);
+  }
+
   if(!checkMode) console.log(`\n  OVER THE CEILING — deeper than the day allows (day 1 allows 2, one more every two days):`);
   if(!checkMode && !overCeiling.length) console.log(`    (none)`);
   if(!checkMode) for(const r of overCeiling.slice(0, limit)){
@@ -323,6 +369,7 @@ for(const themeName of wanted){
       ...loadBearing.map(([w, n]) => `"${w}" holds up ${n} defined term(s) and nothing defines it`),
       ...outOfOrder.map(({ r, dep, dd }) => `${r.t.name} (d${r.day}) is named from ${dep.name}, first seen d${dd}`),
       ...lateInDef.map(({ r, dep, dd }) => `${r.t.name} (d${r.day}) is defined with ${dep.name}, first seen d${dd}`),
+      ...cardOrder.map(c => `the day ${c.day} card defines ${c.t.name} with "${c.w}", and ${c.dep.name} has not been on a card yet`),
       ...unexplained.map(u => `"${u.phrase}" uses "${u.w}", which nothing defines and ${u.t.name}'s first sentence — the line the plan card prints — does not say`),
       ...overCeiling.map(r => `${r.t.name} (d${r.day}) is ${r.d} concepts deep, and day ${r.day} allows ${ceilingFor(r.day)}`),
     ];

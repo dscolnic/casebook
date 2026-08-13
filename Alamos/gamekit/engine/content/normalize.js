@@ -208,6 +208,56 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     reach.set(t, dayTexts.filter(day => day.some(s => names.some(n => s.taught.includes(n)))).length);
   }
 
+  // Skip the entries that define nothing. The docx importers wrote 73 of
+  // contamcity's definitions as "a course concept used in Mission 3", which is a
+  // note to the author, not something to hand a player.
+  const HOLLOW = /course concept used in|should be defined|in the game, the term/i;
+
+  // What the card prints of an entry, and what that sentence itself leans on. A
+  // line reading "Cation — a positively charged ion" hands the player one word
+  // they have and one they do not, unless Ion came first. So a term's
+  // prerequisites are the defined terms named in the sentence the card will
+  // print, and they go on the card before it — on this day or an earlier one.
+  const printed = (t) => {
+    const full = String(t?.def ?? '').replace(/\s+/g, ' ').trim();
+    return (full.match(/^[^.!?]*[.!?]/)?.[0] ?? full).trim();
+  };
+  const singleWord = new Map();
+  for(const t of jargon){
+    if(!t?.def || HOLLOW.test(t.def)) continue;
+    for(const n of [t?.name, ...(t?.aliases ?? [])].filter(Boolean)){
+      const w = String(n).trim().toLowerCase();
+      if(!/\s/.test(w) && !singleWord.has(w)) singleWord.set(w, t);
+    }
+  }
+  const prereqsOf = (t) => {
+    const own = new Set([t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(n => String(n).toLowerCase()));
+    const out = [];
+    for(const w of printed(t).toLowerCase().match(/[a-z][a-z0-9'’-]*/g) ?? []){
+      const dep = singleWord.get(w);
+      if(dep && dep !== t && !own.has(w) && !out.includes(dep)) out.push(dep);
+    }
+    return out;
+  };
+  // The chain a term needs, deepest first, skipping anything already on a card.
+  // Anything with an entry counts, syllabus or not: if the game thought a word
+  // was worth defining, the card owes the player that definition before it uses
+  // the word to define something else. The only escape is a cycle — nucleus is
+  // defined by its protons and proton by its nucleus — where the seen-guard
+  // breaks the loop rather than blocking both.
+  const chainFor = (t, introduced, seen = new Set()) => {
+    if(seen.has(t)) return [];
+    seen.add(t);
+    const out = [];
+    for(const p of prereqsOf(t)){
+      if(introduced.has(p) || seen.has(p)) continue;
+      for(const x of chainFor(p, introduced, seen)) if(!out.includes(x)) out.push(x);
+      if(!out.includes(p)) out.push(p);
+    }
+    return out;
+  };
+
+  const introduced = new Set();
   let derived = 0;
   for(const [mi, m] of missions.entries()){
     if(Array.isArray(m.primer) && m.primer.some(x => typeof x === 'string' && x.trim())) continue;
@@ -215,11 +265,6 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     if(!lessons.length) continue;
     const stopTexts = dayTexts[mi];
 
-    // vocabulary the day actually uses, in the glossary's own words — skipping the
-    // entries that define nothing. The docx importers wrote 73 of contamcity's
-    // definitions as "a course concept used in Mission 3", which is a note to the
-    // author, not something to hand a player.
-    const HOLLOW = /course concept used in|should be defined|in the game, the term/i;
     // A term earns a line by being tied to what the day asks, not by being
     // mentioned. It must appear in at least one stop's `asked` text; ties break on
     // how many stops use it, then how much of the day's reasoning uses it, then
@@ -251,18 +296,36 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     // room for Aliquot, on nothing better than which word came first in the text.
     matched.sort((a, b) => b.core - a.core || b.reach - a.reach
       || b.asked - a.asked || b.taught - a.taught || a.at - b.at);
-    const terms = [];
+    // Two, not three. The card is what a player reads before a day they have not
+    // started; every line on it is a word they are being asked to carry, and a
+    // third is where a plan card becomes a vocabulary list. A term whose
+    // prerequisites do not fit inside that budget is not printed at all — half a
+    // definition is worse than none, because the missing half is the word the
+    // other one is made of.
+    // A term is introduced once. Re-printing one the player already has spends a
+    // line of a two-line card on nothing, and the day's second-best word — which
+    // is new — goes unnamed.
+    // Two terms chosen for their own sake, and up to three lines, because a
+    // prerequisite is not a third vocabulary item — it is the first half of the
+    // one idea the card is already spending a line on. Proton, nucleus, neutron
+    // is one thought in three steps; ion then cation is one thought in two.
+    const chosen = [];
+    let heads = 0;
     for(const { t } of matched){
+      if(heads >= 2 || chosen.length >= 3) break;
+      if(introduced.has(t)) continue;
+      const chain = [...chainFor(t, introduced), t].filter(x => !chosen.includes(x));
+      if(chosen.length + chain.length > 3) continue;
+      chosen.push(...chain);
+      heads++;
+    }
+    for(const t of chosen) introduced.add(t);
+    const terms = chosen.map((t) => {
       // One sentence. A glossary definition can run to forty words, and the plan
       // card is reference — checkStory fails a primer line over thirty-four.
-      const full = String(t.def).replace(/\s+/g, ' ').trim();
-      const def = (full.match(/^[^.!?]*[.!?]/)?.[0] ?? full).trim();
-      terms.push(`${t.name} — ${def[0].toLowerCase() + def.slice(1)}`);
-      // Two, not three. The card is what a player reads before a day they have
-      // not started; every line on it is a word they are being asked to carry,
-      // and a third one is where a plan card turns into a vocabulary list.
-      if(terms.length === 2) break;
-    }
+      const def = printed(t);
+      return `${t.name} — ${def[0].toLowerCase() + def.slice(1)}`;
+    });
     // the formulas, verbatim: an estimate's `relationship` is already one line
     const formulas = [...new Set(lessons.map(l => String(l.game?.relationship ?? '').trim()).filter(Boolean))];
     // and what the questions expect the player to bring with them, less any line

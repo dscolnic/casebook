@@ -6743,7 +6743,7 @@ export const JARGON = [
       "nucleus",
       "nuclei"
     ],
-    "def": "The tiny central part of an atom that contains protons and neutrons and almost all of the atom’s mass.",
+    "def": "The tiny central part of an atom, holding almost all of its mass in a space far smaller than the atom itself. It is built from protons and neutrons.",
     "core": true
   },
   {
