@@ -160,6 +160,9 @@ missions.forEach((m, mi) => {
     objective: m.objective ?? '',
     briefing: m.briefing ?? '',
     stake: m.stake ?? '',
+    // The terms and relationships the day's questions assume, printed on the
+    // plan card between the calls and the map.
+    ...(Array.isArray(m.primer) ? { primer: m.primer } : {}),
     takeaway: m.takeaway ?? '',
     stops: outStops,
   });

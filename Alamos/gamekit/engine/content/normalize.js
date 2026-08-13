@@ -147,8 +147,71 @@ export function normalizeContent(content = {}){
 
   // ---- last: the shape of the days themselves
   shapeMissions(content.MISSIONS ?? [], curriculum, changes);
+  primeMissions(content.MISSIONS ?? [], curriculum, content.JARGON ?? [], changes);
 
   return { changes, problems };
+}
+
+/**
+ * The words and relationships the day's questions assume, for the plan card.
+ *
+ * A day card said what had happened and who was arguing about it, and then the
+ * first question used "state vector", or wanted an impulse divided by a mass,
+ * as though the player had met either. The material to say so was already in the
+ * content and nothing read it: `assumes` on every lesson is the prior knowledge
+ * its author claimed, `relationship` on an estimate is the formula in words, and
+ * the glossary defines the vocabulary.
+ *
+ * So the primer is derived rather than written — 105 hand-written ones across
+ * seven games would drift from the questions the first time a stop moved. A book
+ * that wants to say it better writes `primer:` on the mission and that wins.
+ *
+ * Deliberately not the takeaway: a takeaway is what the day teaches, and this is
+ * read before the day. `checkStory` fails a primer holding a day's answer.
+ */
+export function primeMissions(missions = [], curriculum = {}, jargon = [], changes = []){
+  const sentence = (s) => {
+    const t = String(s ?? '').trim().replace(/\s+/g, ' ');
+    if(!t) return '';
+    return (t[0].toUpperCase() + t.slice(1)) + (/[.!?]$/.test(t) ? '' : '.');
+  };
+  let derived = 0;
+  for(const m of missions){
+    if(Array.isArray(m.primer) && m.primer.some(x => typeof x === 'string' && x.trim())) continue;
+    const lessons = (m.stops ?? []).map(s => curriculum[s.group]?.[s.lesson]).filter(Boolean);
+    if(!lessons.length) continue;
+    const haystack = lessons.map(l => [l.title, l.scene, l.game?.why, ...(l.game?.choices ?? [])
+      .map(c => (typeof c === 'string' ? c : c?.label))].join(' ')).join(' ').toLowerCase();
+
+    // vocabulary the day actually uses, in the glossary's own words — skipping the
+    // entries that define nothing. The docx importers wrote 73 of contamcity's
+    // definitions as "a course concept used in Mission 3", which is a note to the
+    // author, not something to hand a player.
+    const HOLLOW = /course concept used in|should be defined|in the game, the term/i;
+    const terms = [];
+    for(const t of jargon){
+      const names = [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String);
+      if(!t?.def || HOLLOW.test(t.def) || !names.some(n => haystack.includes(n.toLowerCase()))) continue;
+      const def = String(t.def).replace(/\s+/g, ' ').trim();
+      terms.push(`${t.name} — ${def[0].toLowerCase() + def.slice(1)}`);
+      if(terms.length === 2) break;
+    }
+    // the formulas, verbatim: an estimate's `relationship` is already one line
+    const formulas = [...new Set(lessons.map(l => String(l.game?.relationship ?? '').trim()).filter(Boolean))];
+    // and what the questions expect the player to bring with them, less any line
+    // the formula above already says — "force applied over a time is an impulse"
+    // under "Impulse = force × time" is one line of primer twice
+    const said = new Set(formulas.join(' ').toLowerCase().match(/[a-z]{3,}/g) ?? []);
+    const assumes = [...new Set(lessons.flatMap(l => l.assumes ?? []).map(sentence).filter(Boolean))]
+      .filter(a => (a.toLowerCase().match(/[a-z]{4,}/g) ?? []).some(w => !said.has(w)
+        && !['that', 'this', 'with', 'from', 'when', 'what', 'over', 'into', 'they', 'their'].includes(w)));
+
+    const primer = [...terms, ...formulas.slice(0, 2), ...assumes];
+    if(!primer.length) continue;
+    m.primer = primer.slice(0, 4);
+    derived++;
+  }
+  if(derived) changes.push(`${derived} mission primer(s) derived from the day's glossary terms, relationships and assumptions`);
 }
 
 /**

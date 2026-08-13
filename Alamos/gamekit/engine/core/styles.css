@@ -379,8 +379,14 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
   color:#8a8172;text-align:left;padding:0 8px 6px}
 .planTable td{border-top:1px solid var(--line);padding:9px 8px;vertical-align:top}
 .planNum{font:800 .9rem Inter,system-ui;color:#8a8172;width:24px}
-.planTask{font-size:.76rem;color:var(--muted);margin-top:2px}
-.planKind{font-size:.74rem;color:var(--muted);white-space:nowrap}
+.planMade{font:600 .72rem Inter,system-ui;color:#3d6f52;margin-left:6px}
+/* The terms and relationships today's questions assume. Quiet — it is reference,
+   read once, and the map under it is what the player is deciding from. */
+.planPrimer{border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#f7f5ef}
+.planPrimer h4{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
+  color:#8a8172;margin:0 0 6px}
+.planPrimer ul{margin:0;padding-left:16px}
+.planPrimer li{font:500 .78rem/1.45 Inter,system-ui;color:#4e4a43;margin:2px 0}
 .planNote{font:500 .78rem/1.5 Inter,system-ui;color:#4e4a43}
 .planMap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#efeade;
   display:flex;justify-content:center;max-height:min(34vh,280px)}

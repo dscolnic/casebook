@@ -1013,8 +1013,6 @@ function finishVisit(ok){
   // the bottom of the question panel, which on a Diagnosis meant scrolling
   // past a figure, six readings and five candidates to discover whether you
   // were right — the single least dramatic place it could have been put.
-  const mission = getCurrentMission(state);
-  const stake = mission?.stake || '';
   const pad2 = (n) => String(Math.floor(n)).padStart(2, '0');
   const clockAt = (h) => `Day ${Math.floor(h / 24) + 1}, ${pad2(h % 24)}:${pad2((h % 1) * 60)}`;
   const projDelta = ledger.projectionAfter - ledger.projectionBefore;
@@ -1102,8 +1100,10 @@ function finishVisit(ok){
     card.style.setProperty('--vc', colour);
     card.innerHTML =
       `<div class="verdictHead"><div class="verdictKicker">${esc(kicker)}</div>` +
-      `<h3 class="verdictTitle">${esc(headline)}</h3>` +
-      (stake ? `<p class="verdictStake">${esc(stake)}</p>` : '') + `</div>` +
+      // No mission blurb here. The verdict used to reprint the whole day card
+      // under the headline — a hundred words the player read on the plan card
+      // minutes ago, above the one thing they opened this panel to find out.
+      `<h3 class="verdictTitle">${esc(headline)}</h3></div>` +
       `<div class="verdictLedger">${ledgerHTML}</div>` +
       `<div class="verdictBody">${verdictFigureHTML(ch, lesson, ok)}${consequence}${worldNote}${stopNote}${detail}</div>` +
       choices +

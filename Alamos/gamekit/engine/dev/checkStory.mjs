@@ -56,6 +56,17 @@ if(!MISSIONS.length){
   process.exit(1);
 }
 
+// Check the day the player gets, not the day the book wrote. `normalize.js` runs
+// at load in every game: it reshapes the stops, adds the callback from day 3, and
+// derives each mission's primer from its own lessons. Reading the raw file meant
+// this checker had never seen a callback stop or a primer at all.
+const { normalizeContent } = await import('../content/normalize.js');
+normalizeContent({
+  CURRICULUM, MISSIONS, ROSTER,
+  JARGON: currMod?.JARGON ?? [], BALLPARK_CALCS: currMod?.BALLPARK_CALCS ?? {},
+  GROUPS: manifest?.content?.GROUPS ?? [],
+});
+
 // ——— helpers ————————————————————————————————————————————————————————
 const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
 const words = (s) => String(s ?? '').trim().split(/\s+/).filter(Boolean);
@@ -150,7 +161,25 @@ MISSIONS.forEach((m, i) => {
     }
   }
 
-  // 7. Reading level, against the audience the theme declares.
+  // 7. The primer. Derived by normalize.js from the day's own lessons unless the
+  //    book writes one, so an empty primer means a day whose stops declare no
+  //    prior knowledge, no formula and no glossary term — worth knowing about.
+  //    It is read before the questions, so the leak rule applies to it too.
+  const primer = (m.primer ?? []).filter(x => typeof x === 'string' && x.trim());
+  if(!primer.length) note(`${where}: no primer — nothing on the card says what the day's questions assume`);
+  if(primer.length > 4) fail(`${where}: primer is ${primer.length} lines — four is the most anybody reads before a map`);
+  for(const line of primer){
+    if(words(line).length > 34) fail(`${where}: a primer line runs to ${words(line).length} words — it is reference, not prose`);
+    const hay2 = plain(line);
+    for(const answer of answersFor(m)){
+      const key = plain(answer);
+      if(key.length >= 20 && hay2.includes(key)){
+        fail(`${where}: the primer contains this day's answer verbatim — "${answer.slice(0, 60)}…"`);
+      }
+    }
+  }
+
+  // 8. Reading level, against the audience the theme declares.
   const g = fk(stake);
   if(g != null){
     grades.push(g);

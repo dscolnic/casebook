@@ -411,6 +411,28 @@ export function createDay({
     return `<div class="planSince ${bad ? 'planSinceBad' : ''}">${esc(text)}</div>`;
   }
 
+  /**
+   * The words and the formulas today's questions are entitled to expect.
+   *
+   * A day card said what had happened and who wanted what, and then the first
+   * question used "state vector" as though the player had met it. The primer is
+   * authored per mission — `mission.primer`, two to four short lines, a term
+   * with its meaning or a relationship with its symbols — and it is the last
+   * thing read before the map, which is the last thing seen before the day
+   * starts.
+   *
+   * It is deliberately not the takeaway. A takeaway is what the day teaches,
+   * and printing that here would answer the questions before they are asked;
+   * `checkStory` fails a primer that contains a day's answer.
+   */
+  function primerHTML(m){
+    const lines = (m.primer ?? []).filter(x => typeof x === 'string' && x.trim());
+    if(!lines.length) return '';
+    return `<div class="planPrimer"><h4>Worth knowing first</h4><ul>`
+      + lines.map(l => `<li>${esc(l)}</li>`).join('')
+      + `</ul></div>`;
+  }
+
   function planHTML(resuming = false){
     const state = getState();
     const m = getCurrentMission(state);
@@ -427,23 +449,23 @@ export function createDay({
       // and "Astrometry & Orbit" is the name of no room the player can find.
       const personId = isPerson ? getPersonIdForStop(state, i) : null;
       const person = personId ? HISTORIC_CHARACTERS.find(c => c.id === personId) : null;
+      // A call is the instruction and nothing else. It used to carry the day's
+      // question under it and a column saying "a person" or "a room" beside it:
+      // the question is what the stop is for and reads as a second briefing,
+      // and whether a call is somebody or somewhere is said by the call itself.
       return `<tr class="${made ? 'planDone' : ''}"><td class="planNum">${made ? '✓' : i + 1}</td>`
-        + `<td><b>${esc(callLabel(person, s.group))}</b><div class="planTask">${esc(s.task ?? '')}</div></td>`
-        // What a non-person stop *is* depends on the game. In a town it is a
-        // room you walk into; in Mission Control it is a console on the floor
-        // you are already standing on, and calling that "a room" sent players
-        // looking for a door that does not exist.
-        + `<td class="planKind">${made ? 'made' : isPerson ? 'a person' : (theme.stopNoun ?? 'a room')}</td></tr>`;
+        + `<td><b>${esc(callLabel(person, s.group))}</b>${made ? ' <span class="planMade">made</span>' : ''}</td></tr>`;
     }).join('');
-    // The map first: it is what the player is choosing an order from, and a
-    // plan drawn to the site's own aspect can be seventeen hundred pixels tall,
-    // so under a table in a 70vh card it is a map nobody ever sees.
+    // Order: what happened, what you are called to, what you need to know, and
+    // the map last — the map is what the player chooses a route from, so it is
+    // the thing they should still be looking at when they press start.
     return `<div class="planCard">`
       + continuityHTML(state)
       + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`
-      + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
-      + `<table class="planTable"><thead><tr><th></th><th>Call</th><th></th></tr></thead>`
+      + `<table class="planTable"><thead><tr><th></th><th>Call</th></tr></thead>`
       + `<tbody>${rows}</tbody></table>`
+      + primerHTML(m)
+      + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
       // One line. The rest of what used to be here — how fast the clock runs
       // while you walk, drive or read — is a rule the player learns by playing
       // and read past by everyone else.
