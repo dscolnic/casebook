@@ -331,9 +331,21 @@ async function build(themeName){
       const w = String(a).toLowerCase().trim();
       if(w.length < 2) return false;
       return new RegExp(`(^|[^a-z])${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z]|$)`).test(text);
-    })).map(j => j.name);
+    }));
     return { takeaways, assumes, concepts, terms: terms.slice(0, 10) };
   };
+
+  // Where each term was first printed with its definition. A book has no chips to
+  // click: a term the reader meets has to be defined on the page, once, and
+  // pointed back to after that. The game's own plan card supplies the order —
+  // prerequisites before the terms built on them — and the rest of the day's
+  // vocabulary follows it.
+  const definedOn = new Map();
+  // The docx importers wrote 73 of Riverton's definitions as "a course concept
+  // used in Mission 3", which is a note to the author. A book that printed it
+  // would be handing the reader a to-do list instead of a definition.
+  const HOLLOW = /course concept used in|should be defined|in the game, the term/i;
+  const hasDef = (j) => j?.def && !HOLLOW.test(j.def);
 
   /** A mission's opening page. */
   const missionSheet = (sh) => {
@@ -370,7 +382,31 @@ async function build(themeName){
             ${t.takeaways.length ? `<ul>${t.takeaways.map(x => `<li>${rich(x)}</li>`).join('')}</ul>` : ''}
             ${t.concepts.length ? `<p class="terms"><span>Concepts on the syllabus (page 3)</span> ${
               t.concepts.map(x => `${x.n}. ${esc(x.c)}${x.m ? ' ▪' : ''}`).join(' · ')}</p>` : ''}
-            ${t.terms.length ? `<p class="terms"><span>Terms in play</span> ${t.terms.map(esc).join(' · ')}</p>` : ''}
+            ${(() => {
+              // The plan card the player reads before the day, in the order the
+              // game introduces it: a term never arrives before the term it is
+              // defined with.
+              const cardNames = new Set();
+              const card = (m.primer ?? []).map((line) => {
+                const [head, ...rest] = String(line).split(' — ');
+                const j = JARGON.find(x => String(x.name).toLowerCase() === String(head).trim().toLowerCase());
+                if(!j || !rest.length) return '';
+                cardNames.add(j.name);
+                if(!definedOn.has(j.name)) definedOn.set(j.name, sh.shift);
+                return `<dt>${esc(j.name)}</dt><dd>${rich(rest.join(' — '))}</dd>`;
+              }).filter(Boolean).join('');
+              // Everything else this day says, defined here the first time and
+              // pointed back to afterwards.
+              const rest = t.terms.filter(j => !cardNames.has(j.name) && hasDef(j));
+              const fresh = rest.filter(j => !definedOn.has(j.name));
+              const again = rest.filter(j => definedOn.has(j.name));
+              fresh.forEach(j => definedOn.set(j.name, sh.shift));
+              const freshHtml = fresh.map(j => `<dt>${esc(j.name)}</dt><dd>${rich(j.def ?? '')}</dd>`).join('');
+              return (card ? `<div class="vocab"><h4>Worth knowing first</h4><dl>${card}</dl></div>` : '')
+                + (freshHtml ? `<div class="vocab"><h4>Also said on this ${dayNoun.toLowerCase()}</h4><dl>${freshHtml}</dl></div>` : '')
+                + (again.length ? `<p class="terms"><span>Already defined</span> ${
+                    again.map(j => `${esc(j.name)} (${dayNoun.toLowerCase()} ${definedOn.get(j.name)})`).join(' · ')}</p>` : '');
+            })()}
             ${t.assumes.length ? `<p class="terms"><span>Assumed already known</span> ${t.assumes.map(esc).join(' · ')}</p>` : ''}
           </div>`;
         })()}
@@ -612,6 +648,13 @@ async function build(themeName){
                          letter-spacing: .09em; color: #5c6169; margin: 0 0 5pt; }
   .mission .teaches ul { margin: 0; padding-left: 1.1em; }
   .mission .teaches li { margin-bottom: 3pt; }
+  .mission .teaches .vocab { margin: 7pt 0 0; }
+  .mission .teaches .vocab h4 { font: 700 8pt/1.4 "Inter", system-ui, sans-serif; letter-spacing: .07em;
+    text-transform: uppercase; color: #6b7280; margin: 0 0 3pt; }
+  .mission .teaches .vocab dl { margin: 0; font-size: .93rem; color: #35393f; }
+  .mission .teaches .vocab dt { font-weight: 700; float: left; clear: left; margin-right: 5pt; }
+  .mission .teaches .vocab dt::after { content: " —"; }
+  .mission .teaches .vocab dd { margin: 0 0 2pt; }
   .mission .teaches .terms { margin: 6pt 0 0; font-size: .93rem; color: #35393f; max-width: none; }
   .mission .teaches .terms span { font: 700 8pt/1.4 "Inter", system-ui, sans-serif;
                                   text-transform: uppercase; letter-spacing: .08em; color: #5c6169; }

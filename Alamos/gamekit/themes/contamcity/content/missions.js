@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "IDENT",
         "lesson": 2,
-        "task": "Spend the first analytical reserve"
+        "task": "Spend the first of the lab budget"
       }
     ]
   },

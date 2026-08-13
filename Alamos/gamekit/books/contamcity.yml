@@ -1234,7 +1234,7 @@ missions:
         format: PROTOCOL
         why: A formula is not a name. It states which elements are present, in what whole-number ratio, and what charge the unit carries — and each of those constrains what the substance can do. Change a subscript or a charge and you have a different compound with different reactivity, different solubility and a different hazard class. A common name carries none of that, which is why a label reading only a trade name cannot support a hazard prediction. Some of the wrong answers here react with water.
         rebuttals:
-          - A metal cation paired with a group of atoms that carries its own charge is the standard signature of an ionic compound — a charged pair held together electrostatically rather than shared electrons.
+          - A metal paired with a charged group of atoms is the standard signature of an ionic compound — two opposite charges holding on to each other, rather than atoms sharing electrons.
           - Same elements in different ratios is a different compound, not a different name for one. The ratio is part of the identity.
           - More electrons than protons means surplus negative charge. Counting the two is the whole test.
           - A common name with no composition and no concentration constrains nothing. It is a label, and hazard prediction needs the formula behind it.
@@ -1242,9 +1242,9 @@ missions:
           - What the record shows
           - What you can conclude
         scenarios:
-          - The formula contains a metal cation and a group of atoms carrying one charge.
+          - The formula pairs a metal with a charged group of atoms.
           - Two substances share the same elements but different ratios.
-          - An ion has more electrons than protons.
+          - A particle has more electrons than protons.
           - A label gives a common name with no composition or concentration.
         choices:
           - Likely an ionic compound.
@@ -1252,7 +1252,7 @@ missions:
           - It is negatively charged.
           - The record is insufficient for hazard prediction.
         mapping: [0, 1, 2, 3]
-        answerText: 1. The formula contains a metal cation and a group of atoms carrying one charge. → Likely an ionic compound. 2. Two substances share the same elements but different ratios. → They are distinct compounds, not interchangeable names. 3. An ion has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no composition or concentration. → The record is insufficient for hazard prediction.
+        answerText: 1. The formula pairs a metal with a charged group of atoms. → Likely an ionic compound. 2. Two substances share the same elements but different ratios. → They are distinct compounds, not interchangeable names. 3. A particle has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no composition or concentration. → The record is insufficient for hazard prediction.
       - group: IDENT
         call: From damaged container to provisional identity
         task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.
@@ -1279,28 +1279,28 @@ missions:
         order: [0, 1, 2, 3]
         answerText: 1. Photograph and record the markings on the outside of the drum, which consumes nothing. 2. Sample the headspace vapour onto a sorbent tube, without breaching the bulk liquid. 3. Draw a small aliquot and run a non-destructive spectrum on it. 4. Commit part of that aliquot to a method that destroys it to identify it.
       - group: IDENT
-        call: Spend the first analytical reserve
+        call: Spend the first of the lab budget
         task: What does the response run first?
-        title: Spend the first analytical reserve
+        title: Spend the first of the lab budget
         place: Records and Shipping Office
         setup: What does the response run first?
-        scene: Eight hundred pounds of analytical reserve, four ways to spend it, and three drums whose labels are gone. Firefighters are holding at the fence line waiting on whatever comes back, and the first sample went in ninety minutes ago.
-        story: "You have a limited analytical reserve and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns."
+        scene: Eight hundred pounds of laboratory budget, four ways to spend it, and three drums whose labels are gone. Firefighters are holding at the fence line waiting on whatever comes back, and the first sample went in ninety minutes ago.
+        story: "You have a limited laboratory budget and four ways to spend it, and the first hours of a release are when uncertainty is most expensive. Analytical methods are not interchangeable: each one answers a different question, carries its own way of being fooled, and costs sample, time and exposure. Some of what looks like a fast answer is really a low-quality one taken at personal risk — smelling a container tells you almost nothing chemically and puts a responder in the vapour. One of them goes first, and the firefighters are waiting on whatever it returns."
         assumes:
           - a method that can be fooled will not tell you it has been
         takeaway: Early chemistry should reduce uncertainty without creating new exposure.
         format: CHOICE
-        why: Analytical methods are not interchangeable. Each answers a different question, carries its own way of being fooled, and costs sample, time and exposure. An identity is worth what the chance it had to be wrong is worth — so two methods that can be fooled by different things, run on the same sample, is the smallest evidence package that supports a name. Anything that can fool one of them has to also fool the other, and that is a much harder coincidence than fooling either alone.
+        why: Analytical methods are not interchangeable. Each answers a different question, carries its own way of being fooled, and costs sample, time and exposure. An identity is worth what the chance it had to be wrong is worth — so two tests that could not be fooled by the same thing, run on the same sample, are the least evidence a name can rest on. Anything that can fool one of them has to also fool the other, and that is a much harder coincidence than fooling either alone.
         rebuttals:
           - Shipping records are fast and say what was supposed to be in the container. After a fire in a freight yard, that is a hypothesis rather than an observation.
           - Blanks and reference samples are required and answer whether the laboratory contributed the signal. That question only arises once there is a signal.
           - Odour puts a responder in the vapour and returns nothing chemical — no composition, no concentration, and no record anybody can check.
         choices:
-          - Two analytical methods that can be fooled by different things, on the same sample.
+          - Two different kinds of lab test, run on the same sample.
           - A search for the shipping records and supplier lot information.
           - Reference samples and blanks, prepared alongside the sample.
           - A trained responder identifying the containers by odour.
-        answer: Two analytical methods that can be fooled by different things, on the same sample.
+        answer: Two different kinds of lab test, run on the same sample.
   - title: The Vapor Cloud
     objective: Provide a bounded plume assessment and decision triggers for evacuation zones.
     briefing: A colorless plume moves toward two neighborhoods as the weather changes. The team must estimate expansion, density, and direction without treating an ideal-gas model as a complete atmospheric forecast. A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.
@@ -1519,12 +1519,12 @@ missions:
         place: Spectroscopy Suite
         setup: Match each pattern to the best response.
         scene: Two methods have been run on the same extract and they do not tell the same story. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.
-        story: "Two methods have been run on the same extract and they do not tell the same story. Every analytical run carries controls for exactly this moment: a blank, which is everything except the sample and therefore answers whether a signal could have come from the laboratory itself, and a second method that can be fooled by different things, which answers whether the first method was fooled by something that merely resembles the target. Reading them together is the skill. A false identification here sends the plant a chemistry that could create a worse product than the one it removes."
+        story: "Two methods have been run on the same extract and they do not tell the same story. Every analytical run carries controls for exactly this moment: a blank, which is everything except the sample and therefore answers whether a signal could have come from the laboratory itself, and a second method that the same thing could not fool, which answers whether the first was fooled by something that merely resembles the target. Reading them together is the skill. A false identification here sends the plant a chemistry that could create a worse product than the one it removes."
         assumes:
           - a blank is everything except the sample
-        takeaway: Analytical confidence rises when two methods that fail differently point to the same compound.
+        takeaway: Confidence rises when two methods that could not fail the same way point to the same compound.
         format: DIAGNOSIS
-        why: "Every analytical run carries controls for exactly this moment. A blank contains everything except the sample, so it answers one question: could this signal have come from the laboratory rather than the river? Here it did — the blank carries the same peak at nearly the same height. A second method that can be fooled by different things answers whether the first was fooled by something that merely resembles the target, and the spectrum at 3.1 minutes does not match. Retention time alone never confirms identity."
+        why: "Every analytical run carries controls for exactly this moment. A blank contains everything except the sample, so it answers one question: could this signal have come from the laboratory rather than the river? Here it did — the blank carries the same peak at nearly the same height. A second method that the same thing could not fool answers whether the first was fooled by something that merely resembles the target, and the spectrum at 3.1 minutes does not match. Retention time alone never confirms identity."
         rebuttals:
           - Reporting 62 units treats a retention-time match as an identification. It is a screening match at best, and the blank has already shown where this peak came from.
           - Detector drift would raise the whole baseline and every peak with it. The 7.9-minute peak is unaffected and the calibration check is within limits, so the instrument is not the problem.
@@ -1616,10 +1616,10 @@ missions:
         place: Reference Library
         setup: One peak is still ambiguous and the review board wants it settled. What settles it?
         scene: One peak at 4.2 minutes matches two candidates to within 0.05 minutes, and both are on the shortlist. The river sample also carries humic matter, chloride at 40 mg/L, and a detergent from the foam used on the fire.
-        story: "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop sharing a retention window, or bring in evidence that fails in a different way, so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention."
+        story: "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop sharing a retention window, or bring in evidence that could not fail the same way, so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention."
         assumes:
           - two compounds that overlap in one method may not overlap in another
-        takeaway: Better presentation cannot repair a method that can be fooled, or evidence that was never validated.
+        takeaway: Better presentation cannot repair a method that was fooled, or evidence that was never validated.
         format: CHOICE
         why: "There are two honest ways out of an overlap. Improve the separation until the components stop sharing a retention window, or bring in evidence of a different kind so the answer no longer depends on the separation at all. The second is faster, and it cannot inherit the problem: a method that identifies by structure does not care that two compounds travelled at the same speed. The third way is to present the same weak data more attractively, and it adds no measurement."
         rebuttals:
@@ -1627,11 +1627,11 @@ missions:
           - Reference material and matrix spikes say whether the river is suppressing or enhancing the response. They cannot say which compound the peak belongs to.
           - Presentation is not evidence. The same weak data arranged more attractively is the one option here that adds no measurement.
         choices:
-          - A second structural method, fooled by different things.
+          - A second method of a different kind, run on the same extract.
           - A longer column and a slower change in the liquid carrying the sample, to improve the separation.
           - Certified reference material and matrix spikes.
           - The same data, presented more clearly in the report.
-        answer: A second structural method, fooled by different things.
+        answer: A second method of a different kind, run on the same extract.
   - title: The Concentration Problem
     objective: Produce concentration maps whose units, detection limits, and quality controls are explicit.
     briefing: City leaders ask whether the contaminant is "high," but samples differ in dilution, path length, and what else is in the sample. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.
