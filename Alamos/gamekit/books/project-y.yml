@@ -1596,23 +1596,23 @@ missions:
           - radiation deposits energy in whatever it passes through
         takeaway: A detector measures the consequences of an interaction, not radiation directly.
         format: SEQUENCE
-        why: A detector measures the consequences of an interaction, never the radiation itself. Energy has to be deposited in the sensitive material first — nothing downstream exists until that happens. That deposit produces charge carriers or photons, which is the transducer step and the one that decides what the instrument is sensitive to at all. Electronics then collect and amplify a response too small to handle raw. The data system digitises and stores a pulse last. Get the chain wrong and you are measuring your own apparatus.
+        why: A detector measures the consequences of an interaction, never the radiation itself. Energy has to be deposited in the sensitive material first — nothing downstream exists until that happens. That deposit sets free charge or light, which is the transducer step and the one that decides what the instrument is sensitive to at all. Electronics then collect and amplify a response too small to handle raw. The data system digitises and stores a pulse last. Get the chain wrong and you are measuring your own apparatus.
         rebuttals:
           - Energy deposited in the sensitive material is where everything starts. No deposit, no signal, however good the electronics are.
-          - "Charge carriers or photons are the transducer step: the point where a nuclear event becomes something electrical."
+          - "Free charge or light is the transducer step: the point where a nuclear event becomes something electrical."
           - Collection and amplification come third. They make a tiny response handleable, and they cannot create one that was never made.
           - Digitising and storing the pulse is last. It is the step people picture as the measurement, and it is the only one that adds no physics.
         cards:
           - Radiation deposits energy in the sensitive material
-          - The material produces charge carriers or photons
+          - The material sets free charge or light
           - Electronics collect and amplify the response
           - The data system digitizes and stores a pulse
         order: [0, 1, 2, 3]
-        answerText: 2 -> 3 -> 4 -> 5 (Radiation deposits energy in the sensitive material -> The material produces charge carriers or photons -> Electronics collect and amplify the response -> The data system digitizes and stores a pulse)
+        answerText: 2 -> 3 -> 4 -> 5 (Radiation deposits energy in the sensitive material -> The material sets free charge or light -> Electronics collect and amplify the response -> The data system digitizes and stores a pulse)
   - title: Account for nuclear energy
     objective: Connect mass, binding energy, calibration, and the program’s competing early architectures.
     briefing: The next step is to understand why nuclear changes involve such large energy scales, how a measurement system assigns an energy value, and why Los Alamos initially pursued more than one technical path.
-    stake: May 1943. Two architectures are on the table, the site can properly staff one of them, and Groves wants to know which by the end of the month. Today you work out where nuclear energy comes from, check that the instruments reporting it are calibrated, and compare the two paths. Every energy figure quoted on this mesa is really a pulse height on an instrument, converted by a calibration somebody had to establish with a known source. An uncalibrated number is a voltage with ambitions. Choose on preference instead of evidence and a year of work goes into the wrong programme.
+    stake: May 1943. Two architectures are on the table, the site can properly staff one of them, and Groves wants to know which by the end of the month. Today you work out where nuclear energy comes from, check that the instruments reporting it are calibrated, and compare the two paths. Every energy figure quoted on this mesa is really the size of an electrical pulse, converted by a calibration somebody had to establish with a known source. An uncalibrated number is a voltage with ambitions. Choose on preference instead of evidence and a year of work goes into the wrong programme.
     takeaway: Mass defect sets the nuclear energy scale, but that scale becomes useful only after instruments and engineering goals are calibrated.
     stops:
       - group: T
@@ -1653,7 +1653,7 @@ missions:
       - group: P
         call: Calibrate measured energy
         task: Arrange the four cards from earliest cause or prerequisite to latest result.
-        title: Pulse height and energy calibration
+        title: Energy calibration across instruments
         setup: Order the calibration workflow.
         scene: A spectrum is on the bench and somebody has written particle energies along the bottom of it. Los Alamos is about to compare spectra taken on different instruments in different buildings.
         assumes:
@@ -1688,7 +1688,7 @@ missions:
           - A long device driving one subcritical piece into another along a single axis is the gun-type architecture. One dimension, and a well-understood one.
           - A compact device squeezing the material inward from every direction is implosion. The difficulty is that it has to work in three dimensions at once.
           - Plutonium measurements showing that a slow assembly can be interrupted early are what make the plutonium gun unusable, whatever its engineering merits.
-          - Synchronised detonators, wave-shaping explosives and repeated hydrodynamic tests are the programme implosion demands. That is an organisation, not a drawing.
+          - Charges fired within microseconds of one another, explosives shaped to steer the wave and repeated full-scale rehearsals are the programme implosion demands. That is an organisation, not a drawing.
         columns:
           - What the engineers are looking at
           - What they decide
@@ -1696,12 +1696,12 @@ missions:
           - Engineers sketch a long device in which one subcritical piece would be driven into another along a single axis.
           - Engineers sketch a compact device in which explosive waves would squeeze the material inward from every direction.
           - Plutonium measurements show that a slower assembly could be interrupted by a stray neutron before full assembly.
-          - The alternative requires synchronized detonators, wave-shaping explosives, and repeated hydrodynamic tests before a nuclear trial.
+          - The alternative requires many charges firing within microseconds of one another, explosives shaped to steer the wave, and repeated full-scale rehearsals before a nuclear trial.
         choices:
           - "Use the gun-type concept: bring two separated subcritical pieces together rapidly along one line."
-          - "Use the implosion concept: compress one piece inward with a nearly spherical converging pressure wave."
-          - Reject the plutonium gun program because its slower assembly leaves too much time for pre-initiation.
-          - Build an implosion-development program focused on timing, symmetry, diagnostics, and reproducible explosive components.
+          - "Use the implosion concept: squeeze one piece inward from every side at once, with a pressure wave that closes on the centre."
+          - "Abandon the gun-type route for this material: the chain would begin before the pieces were fully together, whatever the engineering merits."
+          - Build an implosion-development program focused on timing, on how evenly the squeeze arrives, on diagnostics, and on explosive components that behave the same way twice.
         mapping: [0, 1, 2, 3]
         answerText: A design relies on bringing two separated pieces together along one axis. -> Gun-type architecture; A design relies on a converging wave that must preserve three-dimensional symmetry. -> Implosion architecture; A concept is comparatively straightforward to reason about but becomes unsuitable for reactor-produced plutonium. -> Gun-type program consequence; A concept demands a large diagnostic and high-explosive development program. -> Implosion program consequence
   - title: Follow radioactivity through the laboratory
@@ -1861,7 +1861,7 @@ missions:
           solution: 1/√400 ≈ 0.05, or 5%.
           explanation: "400 counts gives 5%. The scaling is what matters for planning: uncertainty falls as 1/√N, so halving it to 2.5% takes 1,600 counts — four times the run. Precision bought by counting longer gets expensive fast, which is why detector efficiency and background suppression are worth as much as extra hours."
           givens:
-            - Poisson standard deviation is about sqrt(N)
+            - Poisson fluctuation is about sqrt(N)
             - Fractional uncertainty is sqrt(N)/N
           relationship: Fractional uncertainty = 1 ÷ the square root of the number of counts.
         answerText: About 5%.
@@ -1943,7 +1943,7 @@ missions:
           - The higher spontaneous-neutron background in reactor-produced plutonium is a material measurement. It is the fact everything downstream follows from.
           - "A slow assembly staying vulnerable longer is the timing consequence: more time in the dangerous state means more chances for a stray neutron."
           - An early chain reaction disrupting the assembly is pre-initiation — the physical consequence, and the reason the timing matters.
-          - Reorganising around rapid symmetric compression is the programme's response. It is what the laboratory did about the first three, not another fact about the material.
+          - Reorganising around a fast squeeze arriving evenly from every side is the programme's response. It is what the laboratory did about the first three, not another fact about the material.
         columns:
           - What is true of the material
           - What follows for the design
@@ -1951,14 +1951,14 @@ missions:
           - Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background.
           - A comparatively slow assembly remains vulnerable to an early neutron.
           - An early chain reaction can disrupt the assembly before the intended state is reached.
-          - Los Alamos therefore reorganizes around rapid, symmetric compression.
+          - Los Alamos therefore reorganizes around a fast squeeze that arrives evenly from every side.
         choices:
           - Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat.
           - "Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early."
           - "Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result."
-          - Shift to rapid implosion, which compresses the material from all sides and shortens the vulnerable assembly time.
+          - Shift to rapid implosion, which squeezes the material from all sides and shortens the vulnerable assembly time.
         mapping: [0, 1, 2, 3]
-        answerText: "Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background -> Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat; A comparatively slow assembly remains vulnerable to an early neutron -> Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early; An early chain reaction can disrupt the assembly before the intended state is reached -> Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result; Los Alamos therefore reorganizes around rapid, symmetric compression -> Shift to rapid implosion, which compresses the material from all sides and shortens the vulnerable assembly time"
+        answerText: "Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background -> Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat; A comparatively slow assembly remains vulnerable to an early neutron -> Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early; An early chain reaction can disrupt the assembly before the intended state is reached -> Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result; Los Alamos therefore reorganizes around a fast squeeze that arrives evenly from every side -> Shift to rapid implosion, which squeezes the material from all sides and shortens the vulnerable assembly time"
   - title: Recognize the design pivot
     objective: Use neutron-background evidence to understand why one path was abandoned and inward compression became central.
     briefing: A new material property changes the program. First identify the background process, then see why the earlier approach became unacceptable, and finally translate the problem into the idea of inward compression.
@@ -5084,7 +5084,7 @@ packs:
         name: Ten repeat measurements
         zone: detector
         observed: all within 3% of each other
-        reference: Poisson scatter of about 3%
+        reference: expected random spread of about 3%
         purpose: Whether the effect reproduces. A fluctuation does not survive repetition; a real cause does.
     hypotheses:
       realsample:
@@ -5132,7 +5132,7 @@ packs:
           secondet: norm
           repeat: consistent
       statfluke:
-        label: Nothing to explain — ordinary scatter
+        label: Nothing to explain — ordinary statistical spread
         choice: Counting is a random process, and a run that lands high by chance needs no cause beyond the statistics.
         sig:
           gross: norm
@@ -5148,7 +5148,7 @@ packs:
       realsample: It explains the high gross rate, and it would be the convenient answer. But the excess is still there with the sample off the stage — 131 counts/min against a 95 baseline. Whatever is counting is not on the stage.
       roombg: "It explains an excess that survives removing the sample. It fails twice: the second detector in the same room reads normal, and the excess follows the instrument to a clean room instead of staying behind."
       noisefloor: "It fits the two loud findings exactly — a persisting excess that extra lead does not touch. It dies on the high-voltage test: with the bias off, the counter records nothing at all, so the pulses are real ionization, not electronics."
-      statfluke: Ten repeats agree within 3%. Scatter does not reproduce ten times, and it cannot survive removing the sample.
+      statfluke: Ten repeats agree within 3%. Chance spread does not reproduce ten times, and it cannot survive removing the sample.
     resolve:
       title: The instrument is counting itself
       paras:
@@ -5194,7 +5194,7 @@ packs:
         reference: closes within 1%
         purpose: Whether everything that went in is accounted for in a measured stream. A gap says material left by a route nobody is measuring; it does not say which route.
       raffinate:
-        name: Activity in the discarded aqueous phase
+        name: Activity in the discarded aqueous stream
         zone: streams
         observed: 0.4% of input
         reference: under 1% for a complete separation
@@ -5226,7 +5226,7 @@ packs:
     hypotheses:
       incomplete:
         label: The separation did not finish
-        choice: Part of the target stayed in the phase that was discarded, so the loss should be sitting in a stream that was measured and thrown away.
+        choice: Part of the target stayed in the liquid that was discarded, so the loss should be sitting in a stream that was measured and thrown away.
         sig:
           massbal: gap
           raffinate: hot

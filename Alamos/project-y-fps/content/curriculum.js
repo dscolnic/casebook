@@ -983,17 +983,17 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "2 -> 3 -> 4 -> 5 (Radiation deposits energy in the sensitive material -> The material produces charge carriers or photons -> Electronics collect and amplify the response -> The data system digitizes and stores a pulse)",
-        "why": "A detector measures the consequences of an interaction, never the radiation itself. Energy has to be deposited in the sensitive material first — nothing downstream exists until that happens. That deposit produces charge carriers or photons, which is the transducer step and the one that decides what the instrument is sensitive to at all. Electronics then collect and amplify a response too small to handle raw. The data system digitises and stores a pulse last. Get the chain wrong and you are measuring your own apparatus.",
+        "answer": "2 -> 3 -> 4 -> 5 (Radiation deposits energy in the sensitive material -> The material sets free charge or light -> Electronics collect and amplify the response -> The data system digitizes and stores a pulse)",
+        "why": "A detector measures the consequences of an interaction, never the radiation itself. Energy has to be deposited in the sensitive material first — nothing downstream exists until that happens. That deposit sets free charge or light, which is the transducer step and the one that decides what the instrument is sensitive to at all. Electronics then collect and amplify a response too small to handle raw. The data system digitises and stores a pulse last. Get the chain wrong and you are measuring your own apparatus.",
         "rebuttals": [
           "Energy deposited in the sensitive material is where everything starts. No deposit, no signal, however good the electronics are.",
-          "Charge carriers or photons are the transducer step: the point where a nuclear event becomes something electrical.",
+          "Free charge or light is the transducer step: the point where a nuclear event becomes something electrical.",
           "Collection and amplification come third. They make a tiny response handleable, and they cannot create one that was never made.",
           "Digitising and storing the pulse is last. It is the step people picture as the measurement, and it is the only one that adds no physics."
         ],
         "cards": [
           "Radiation deposits energy in the sensitive material",
-          "The material produces charge carriers or photons",
+          "The material sets free charge or light",
           "Electronics collect and amplify the response",
           "The data system digitizes and stores a pulse"
         ],
@@ -1010,14 +1010,14 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Pulse height and energy calibration",
+      "title": "Energy calibration across instruments",
       "scene": "A spectrum is on the bench and somebody has written particle energies along the bottom of it. Los Alamos is about to compare spectra taken on different instruments in different buildings.",
       "takeaway": "Calibration is a measured mapping, not a label pasted onto the x-axis.",
       "place": "",
       "story": "A spectrum is on the bench and somebody has written particle energies along the bottom of it. Los Alamos is about to compare spectra taken on different instruments in different buildings.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Pulse height and energy calibration",
+        "title": "Energy calibration across instruments",
         "setup": "Order the calibration workflow.",
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
@@ -1086,7 +1086,7 @@ export const CURRICULUM = {
         "answer": "About 5%.",
         "why": "A repeat of the same run would not give the same total, and for counting like this the typical fluctuation grows like the square root of the number of counts. So the fractional uncertainty is one over that square root, and it falls slowly: four hundred counts gives five per cent, and halving that to two and a half means counting four times as long. That is what makes this a planning tool rather than a curiosity. Knowing what a longer run would actually buy is how experiments get planned instead of wished for.",
         "givens": [
-          "Poisson standard deviation is about sqrt(N)",
+          "Poisson fluctuation is about sqrt(N)",
           "Fractional uncertainty is sqrt(N)/N"
         ],
         "relationship": "Fractional uncertainty = 1 ÷ the square root of the number of counts.",
@@ -2853,19 +2853,19 @@ export const CURRICULUM = {
           "A long device driving one subcritical piece into another along a single axis is the gun-type architecture. One dimension, and a well-understood one.",
           "A compact device squeezing the material inward from every direction is implosion. The difficulty is that it has to work in three dimensions at once.",
           "Plutonium measurements showing that a slow assembly can be interrupted early are what make the plutonium gun unusable, whatever its engineering merits.",
-          "Synchronised detonators, wave-shaping explosives and repeated hydrodynamic tests are the programme implosion demands. That is an organisation, not a drawing."
+          "Charges fired within microseconds of one another, explosives shaped to steer the wave and repeated full-scale rehearsals are the programme implosion demands. That is an organisation, not a drawing."
         ],
         "scenarios": [
           "Engineers sketch a long device in which one subcritical piece would be driven into another along a single axis.",
           "Engineers sketch a compact device in which explosive waves would squeeze the material inward from every direction.",
           "Plutonium measurements show that a slower assembly could be interrupted by a stray neutron before full assembly.",
-          "The alternative requires synchronized detonators, wave-shaping explosives, and repeated hydrodynamic tests before a nuclear trial."
+          "The alternative requires many charges firing within microseconds of one another, explosives shaped to steer the wave, and repeated full-scale rehearsals before a nuclear trial."
         ],
         "choices": [
           "Use the gun-type concept: bring two separated subcritical pieces together rapidly along one line.",
-          "Use the implosion concept: compress one piece inward with a nearly spherical converging pressure wave.",
-          "Reject the plutonium gun program because its slower assembly leaves too much time for pre-initiation.",
-          "Build an implosion-development program focused on timing, symmetry, diagnostics, and reproducible explosive components."
+          "Use the implosion concept: squeeze one piece inward from every side at once, with a pressure wave that closes on the centre.",
+          "Abandon the gun-type route for this material: the chain would begin before the pieces were fully together, whatever the engineering merits.",
+          "Build an implosion-development program focused on timing, on how evenly the squeeze arrives, on diagnostics, and on explosive components that behave the same way twice."
         ],
         "mapping": [
           0,
@@ -3883,25 +3883,25 @@ export const CURRICULUM = {
         "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background -> Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat; A comparatively slow assembly remains vulnerable to an early neutron -> Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early; An early chain reaction can disrupt the assembly before the intended state is reached -> Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result; Los Alamos therefore reorganizes around rapid, symmetric compression -> Shift to rapid implosion, which compresses the material from all sides and shortens the vulnerable assembly time",
+        "answer": "Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background -> Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat; A comparatively slow assembly remains vulnerable to an early neutron -> Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early; An early chain reaction can disrupt the assembly before the intended state is reached -> Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result; Los Alamos therefore reorganizes around a fast squeeze that arrives evenly from every side -> Shift to rapid implosion, which squeezes the material from all sides and shortens the vulnerable assembly time",
         "why": "Reactor-produced plutonium contains isotopes that emit neutrons on their own. The material supplies its own stray neutrons, at a rate nobody chose. A slow assembly spends longer in the state where one of those could start the chain. A chain that starts early releases enough energy to blow the pieces apart before most of the material has reacted. That is pre-initiation. It is a property of the material, not a defect better workmanship can fix. Implosion is the answer: squeeze from all sides, and cut the vulnerable time.",
         "rebuttals": [
           "The higher spontaneous-neutron background in reactor-produced plutonium is a material measurement. It is the fact everything downstream follows from.",
           "A slow assembly staying vulnerable longer is the timing consequence: more time in the dangerous state means more chances for a stray neutron.",
           "An early chain reaction disrupting the assembly is pre-initiation — the physical consequence, and the reason the timing matters.",
-          "Reorganising around rapid symmetric compression is the programme's response. It is what the laboratory did about the first three, not another fact about the material."
+          "Reorganising around a fast squeeze arriving evenly from every side is the programme's response. It is what the laboratory did about the first three, not another fact about the material."
         ],
         "scenarios": [
           "Reactor-produced plutonium contains isotopic components with a higher spontaneous-neutron background.",
           "A comparatively slow assembly remains vulnerable to an early neutron.",
           "An early chain reaction can disrupt the assembly before the intended state is reached.",
-          "Los Alamos therefore reorganizes around rapid, symmetric compression."
+          "Los Alamos therefore reorganizes around a fast squeeze that arrives evenly from every side."
         ],
         "choices": [
           "Count what the material emits while it sits still on the bench. Whatever comes out unprompted sets the clock every assembly scheme has to beat.",
           "Recognize the timing problem: a slower assembly gives a stray neutron more opportunity to start the chain reaction too early.",
           "Predict pre-initiation: early fission releases energy before full assembly and disrupts the material, producing a much weaker result.",
-          "Shift to rapid implosion, which compresses the material from all sides and shortens the vulnerable assembly time."
+          "Shift to rapid implosion, which squeezes the material from all sides and shortens the vulnerable assembly time."
         ],
         "mapping": [
           0,

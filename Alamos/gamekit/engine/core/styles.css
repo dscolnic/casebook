@@ -387,6 +387,16 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
   color:#8a8172;margin:0 0 6px}
 .planPrimer ul{margin:0;padding-left:16px}
 .planPrimer li{font:500 .78rem/1.45 Inter,system-ui;color:#4e4a43;margin:2px 0}
+/* The day's vocabulary, as a glossary rather than a list of sentences. The term
+   is what the eye is scanning for, so it carries the weight and sits on its own
+   line; a day that introduces a dozen words is then a column the reader skips
+   through instead of a paragraph they abandon. Scrolls at its own edge, because
+   the map below it is what the player presses start from. */
+.planPrimer dl{margin:0;display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);
+  gap:2px 10px;max-height:min(26vh,220px);overflow-y:auto}
+.planPrimer dt{font:700 .78rem/1.45 Inter,system-ui;color:#3c3830}
+.planPrimer dd{font:500 .78rem/1.45 Inter,system-ui;color:#4e4a43;margin:0}
+.planPrimer dl + ul{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
 .planNote{font:500 .78rem/1.5 Inter,system-ui;color:#4e4a43}
 .planMap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#efeade;
   display:flex;justify-content:center;max-height:min(34vh,280px)}

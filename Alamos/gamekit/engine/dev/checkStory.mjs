@@ -60,11 +60,17 @@ if(!MISSIONS.length){
 // at load in every game: it reshapes the stops, adds the callback from day 3, and
 // derives each mission's primer from its own lessons. Reading the raw file meant
 // this checker had never seen a callback stop or a primer at all.
+// Without DIAGNOSIS_PACKS a lesson that references one by `pack:` never expands,
+// so every instrument panel in the game — its readings, its candidates, its
+// answer — was invisible here. Project Y's stage 4 read as six terms of
+// vocabulary to this checker and nine to the player, and the leak check in
+// section 6 was scanning a diagnosis whose answer it could not see.
 const { normalizeContent } = await import('../content/normalize.js');
 normalizeContent({
   CURRICULUM, MISSIONS, ROSTER,
   JARGON: currMod?.JARGON ?? [], BALLPARK_CALCS: currMod?.BALLPARK_CALCS ?? {},
   GROUPS: manifest?.content?.GROUPS ?? [],
+  DIAGNOSIS_PACKS: currMod?.DIAGNOSIS_PACKS ?? manifest?.content?.DIAGNOSIS_PACKS ?? {},
 });
 
 // ——— helpers ————————————————————————————————————————————————————————
@@ -167,7 +173,17 @@ MISSIONS.forEach((m, i) => {
   //    It is read before the questions, so the leak rule applies to it too.
   const primer = (m.primer ?? []).filter(x => typeof x === 'string' && x.trim());
   if(!primer.length) note(`${where}: no primer — nothing on the card says what the day's questions assume`);
-  if(primer.length > 4) fail(`${where}: primer is ${primer.length} lines — four is the most anybody reads before a map`);
+  // The four-line rule was written when the card held two terms and two lines of
+  // prose, and it counted both together. The card now carries every term the
+  // day's questions hand the player a definition button for, so the cap applies
+  // to the prose — the formula and the assumed-knowledge sentences — which is
+  // what nobody reads a fifth of. A long term list is not a card that broke the
+  // rule; it is a day that introduces that many words, which is worth saying out
+  // loud without failing the campaign over it.
+  const termLines = (m.primerTerms ?? []).length;
+  const prose = primer.length - termLines;
+  if(prose > 4) fail(`${where}: primer carries ${prose} lines of prose — four is the most anybody reads before a map`);
+  if(termLines > 6) note(`${where}: the card introduces ${termLines} terms — the day's questions are written in that much new vocabulary`);
   for(const line of primer){
     if(words(line).length > 34) fail(`${where}: a primer line runs to ${words(line).length} words — it is reference, not prose`);
     const hay2 = plain(line);

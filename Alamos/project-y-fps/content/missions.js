@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Account for nuclear energy",
     "objective": "Connect mass, binding energy, calibration, and the program’s competing early architectures.",
     "briefing": "The next step is to understand why nuclear changes involve such large energy scales, how a measurement system assigns an energy value, and why Los Alamos initially pursued more than one technical path.",
-    "stake": "May 1943. Two architectures are on the table, the site can properly staff one of them, and Groves wants to know which by the end of the month. Today you work out where nuclear energy comes from, check that the instruments reporting it are calibrated, and compare the two paths. Every energy figure quoted on this mesa is really a pulse height on an instrument, converted by a calibration somebody had to establish with a known source. An uncalibrated number is a voltage with ambitions. Choose on preference instead of evidence and a year of work goes into the wrong programme.",
+    "stake": "May 1943. Two architectures are on the table, the site can properly staff one of them, and Groves wants to know which by the end of the month. Today you work out where nuclear energy comes from, check that the instruments reporting it are calibrated, and compare the two paths. Every energy figure quoted on this mesa is really the size of an electrical pulse, converted by a calibration somebody had to establish with a known source. An uncalibrated number is a voltage with ambitions. Choose on preference instead of evidence and a year of work goes into the wrong programme.",
     "takeaway": "Mass defect sets the nuclear energy scale, but that scale becomes useful only after instruments and engineering goals are calibrated.",
     "stops": [
       {

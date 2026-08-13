@@ -27,11 +27,31 @@ let activeDiagnosis = null;
  */
 const kindOf = (ch) => String(ch?.type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
 
+/**
+ * The glossary terms a piece of text is written in.
+ *
+ * Matched at a word start, not with `includes`. A substring test offered the
+ * player a definition button for Ion every time a question said "solution" or
+ * "region" — Riverton's glossary carries the bare alias "ion", and that is the
+ * word it hides inside most often.
+ *
+ * A suffix is allowed, so an inflected term still gets its chip: "detonators"
+ * and "hydrodynamic tests" are the term. Aliases of three characters or fewer
+ * have to match a whole word, which is what keeps "ion" and "pH" honest. Same
+ * rule as `primeMissions` in engine/content/normalize.js and as `make-book.mjs`,
+ * deliberately: a chip the player can click is a term the card named.
+ */
 function jargonMatches(text, max=12){
   const normalized=` ${String(text||'').toLowerCase()} `;
+  const hit=(a)=>{
+    const w=String(a).toLowerCase().trim();
+    if(w.length<2) return false;
+    const e=w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    return new RegExp(`(^|[^a-z0-9])${e}${w.length<=3?'([^a-z0-9]|$)':''}`).test(normalized);
+  };
   const found=[];
   for(const item of JARGON){
-    if(item.aliases.some(a=>normalized.includes(String(a).toLowerCase()))){ found.push(item); if(found.length>=max) break; }
+    if([item.name,...(item.aliases??[])].filter(Boolean).some(hit)){ found.push(item); if(found.length>=max) break; }
   }
   return found;
 }

@@ -175,18 +175,34 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     if(!t) return '';
     return (t[0].toUpperCase() + t.slice(1)) + (/[.!?]$/.test(t) ? '' : '.');
   };
-  // Two texts per stop, because they earn a term its place differently. `asked`
-  // is what the player has to reason over before the verdict exists — the task,
-  // the question and every option, card, scenario, given and proposal in front
-  // of them. `taught` is the reasoning that arrives afterwards. A word the
-  // question turns on has to be on the card; a word the verdict happens to use
-  // does not, and a word that appears only in the scene has not earned a line at
-  // all — it is set dressing, and naming it up front teaches vocabulary the day
-  // never asks for.
+  // Three texts per stop, because they earn a term its place differently.
+  //
+  // `clickable` is the one that decides whether a term is on the card at all: it
+  // is the same text `questionUI.termsRow` searches to draw the chips under a
+  // question, field for field. A term the player can click on in the question is
+  // a term the game has decided that question is written in, so it belongs on
+  // the card they read before the day — the card was quietly a shorter list than
+  // the chips, and the difference was vocabulary the player met for the first
+  // time inside the question it was needed for.
+  //
+  // `asked` and `taught` no longer gate anything; they rank. `asked` is what the
+  // player has to reason over before the verdict exists — the task, the question
+  // and every option, card, scenario, given and proposal in front of them.
+  // `taught` is the reasoning that arrives afterwards, and a term the day leans
+  // on in both places goes on the card ahead of one it only names.
   const label = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
   const textsFor = (lessons) => lessons.map((l) => {
     const ch = l.game ?? {};
+    const parts = [l.title, l.progress, l.takeaway, ch.title, ch.setup, ch.play, ch.task,
+      ch.question, ch.headline];
+    for(const k of ['cards', 'scenarios', 'choices', 'givens']){
+      if(Array.isArray(ch[k])) parts.push(...ch[k].map(v => (typeof v === 'string' ? v
+        : `${v?.label ?? ''} ${v?.mechanism ?? ''}`)));
+    }
+    if(Array.isArray(ch.readings)) for(const r of ch.readings) parts.push(r?.zone, r?.label, r?.value, r?.note);
+    if(Array.isArray(ch.proposals)) for(const p of ch.proposals) parts.push(p?.text);
     return {
+      clickable: ' ' + parts.filter(Boolean).join('  ').toLowerCase() + ' ',
       asked: [ch.task ?? ch.play, ch.question, ch.headline,
         ...(ch.choices ?? []).map(label), ...(ch.cards ?? []).map(label),
         ...(ch.scenarios ?? []).map(label), ...(ch.givens ?? []).map(label),
@@ -198,14 +214,31 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
   const lessonsOf = (m) => (m.stops ?? []).map(s => curriculum[s.group]?.[s.lesson]).filter(Boolean);
   const dayTexts = missions.map(m => textsFor(lessonsOf(m)));
 
+  // Matched at a word start, never with `includes`. A substring test puts Ion on
+  // the card because the day said "solution" — Riverton's glossary carries the
+  // bare alias "ion", and that is the word it hides inside most often.
+  //
+  // A suffix is allowed, because the questions inflect: "hydrodynamic tests",
+  // "detonators", "isotopes" are the term. Aliases of three characters or fewer
+  // have to match a whole word instead, which is what stops "ion" and "pH" from
+  // matching half the campaign. Same rule as `make-book.mjs`, deliberately — the
+  // print book and the plan card have to agree about what a day says.
+  const hit = (text, alias) => {
+    const w = String(alias).toLowerCase().trim();
+    if(w.length < 2) return false;
+    const e = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(^|[^a-z0-9])${e}${w.length <= 3 ? '([^a-z0-9]|$)' : ''}`).test(text);
+  };
+  const aliasesOf = (t) => [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String);
+
   // How much of the campaign comes back to a term, measured once: the number of
   // days whose reasoning uses it. A word the whole game keeps returning to is a
   // spine of the course; a word two days mention is a supporting term, whatever
   // order the glossary happens to list them in.
   const reach = new Map();
   for(const t of jargon){
-    const names = [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String).map(n => n.toLowerCase());
-    reach.set(t, dayTexts.filter(day => day.some(s => names.some(n => s.taught.includes(n)))).length);
+    const names = aliasesOf(t);
+    reach.set(t, dayTexts.filter(day => day.some(s => names.some(n => hit(s.taught, n)))).length);
   }
 
   // Skip the entries that define nothing. The docx importers wrote 73 of
@@ -265,26 +298,29 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     if(!lessons.length) continue;
     const stopTexts = dayTexts[mi];
 
-    // A term earns a line by being tied to what the day asks, not by being
-    // mentioned. It must appear in at least one stop's `asked` text; ties break on
-    // how many stops use it, then how much of the day's reasoning uses it, then
-    // where it first appears. Mentioned-once-in-a-scene loses to used-in-two-
-    // questions, and a glossary term the day never asks about is not named at all
-    // — which is the whole point: the card introduces the vocabulary of the day's
-    // concepts, and nothing else.
+    // A term earns a line by being one of the terms the day's questions are
+    // written in — the same test that decides whether the player gets a chip to
+    // click on. Ties break on what the course is about, then how much of the
+    // campaign returns to it, then how hard this day leans on it, then where it
+    // first appears.
+    //
+    // The old test was narrower than the chips in two ways and both cost the
+    // player the same thing. It read only the ask — so a term named in the
+    // question's title, its setup, or an instrument reading was invisible — and
+    // it then dropped anything asked once and reasoned with nowhere as set
+    // dressing. A term the game hands the player a definition button for is not
+    // set dressing; it is a word that question needs, and the card is where a
+    // word that question needs is supposed to arrive.
     const matched = [];
     for(const t of jargon){
-      const names = [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String).map(n => n.toLowerCase());
       if(!t?.def || HOLLOW.test(t.def)) continue;
-      const has = (text) => names.some(n => text.includes(n));
-      const asked = stopTexts.filter(s => has(s.asked)).length;
-      if(!asked) continue;
-      const taught = stopTexts.filter(s => has(s.taught)).length;
-      // Asked once and reasoned with nowhere is a word the day mentions, not one
-      // it is about. Two stops asking counts as the same evidence.
-      if(asked < 2 && !taught) continue;
+      const names = aliasesOf(t);
+      const clickable = stopTexts.filter(s => names.some(n => hit(s.clickable, n))).length;
+      if(!clickable) continue;
+      const asked = stopTexts.filter(s => names.some(n => hit(s.asked, n))).length;
+      const taught = stopTexts.filter(s => names.some(n => hit(s.taught, n))).length;
       const at = Math.min(...stopTexts.flatMap((s, i) => names.map(n => {
-        const j = s.asked.indexOf(n);
+        const j = s.clickable.indexOf(n.toLowerCase());
         return j < 0 ? Infinity : i * 10000 + j;
       })));
       matched.push({ t, core: t.core ? 1 : 0, reach: reach.get(t) ?? 0, asked, taught, at });
@@ -296,28 +332,31 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     // room for Aliquot, on nothing better than which word came first in the text.
     matched.sort((a, b) => b.core - a.core || b.reach - a.reach
       || b.asked - a.asked || b.taught - a.taught || a.at - b.at);
-    // Two, not three. The card is what a player reads before a day they have not
-    // started; every line on it is a word they are being asked to carry, and a
-    // third is where a plan card becomes a vocabulary list. A term whose
-    // prerequisites do not fit inside that budget is not printed at all — half a
-    // definition is worse than none, because the missing half is the word the
-    // other one is made of.
-    // A term is introduced once. Re-printing one the player already has spends a
-    // line of a two-line card on nothing, and the day's second-best word — which
-    // is new — goes unnamed.
-    // Two terms chosen for their own sake, and up to three lines, because a
-    // prerequisite is not a third vocabulary item — it is the first half of the
-    // one idea the card is already spending a line on. Proton, nucleus, neutron
-    // is one thought in three steps; ion then cation is one thought in two.
+    // Every one of them, prerequisites first, and each introduced once.
+    //
+    // The card used to take the best two and let the rest go. That was the right
+    // answer to the wrong question: it read as a budget on how much vocabulary a
+    // player will absorb before a day, when what it actually rationed was how
+    // much of the day's own vocabulary they were told about at all. The terms it
+    // dropped did not stop existing — they arrived inside a question instead,
+    // with a chip to click and no warning, which is the failure the card exists
+    // to prevent. So the list is now as long as the day's questions make it.
+    //
+    // A term is introduced once: re-printing one the player already has is a line
+    // spent on nothing, and the sort order decides which day gets to be the one
+    // that introduces it. Prerequisites still go in ahead of the term that leans
+    // on them, on this day or an earlier one — "Cation — a positively charged
+    // ion" hands the player one word they have and one they do not unless Ion
+    // came first, and `jargonDepth --check` rule 4 fails a card that does it.
+    //
+    // A day that comes out with a dozen lines is telling the truth about itself:
+    // it is a day that introduces a dozen words. That is a content finding — the
+    // card is not the place to hide it.
     const chosen = [];
-    let heads = 0;
     for(const { t } of matched){
-      if(heads >= 2 || chosen.length >= 3) break;
-      if(introduced.has(t)) continue;
-      const chain = [...chainFor(t, introduced), t].filter(x => !chosen.includes(x));
-      if(chosen.length + chain.length > 3) continue;
-      chosen.push(...chain);
-      heads++;
+      if(introduced.has(t) || chosen.includes(t)) continue;
+      for(const p of chainFor(t, introduced)) if(!chosen.includes(p)) chosen.push(p);
+      chosen.push(t);
     }
     for(const t of chosen) introduced.add(t);
     const terms = chosen.map((t) => {
@@ -336,9 +375,18 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
       .filter(a => (a.toLowerCase().match(/[a-z]{4,}/g) ?? []).some(w => !said.has(w)
         && !['that', 'this', 'with', 'from', 'when', 'what', 'over', 'into', 'they', 'their'].includes(w)));
 
-    const primer = [...terms, ...formulas.slice(0, 2), ...assumes];   // terms first: they are what the questions use
+    // Terms first: they are what the questions are written in. The prose after
+    // them — a formula, a sentence of assumed knowledge — is what the four-line
+    // rule was really about, so that is what stays capped, and it keeps the whole
+    // old budget on a day with no vocabulary of its own to introduce.
+    const prose = [...formulas.slice(0, 2), ...assumes].slice(0, Math.max(2, 4 - terms.length));
+    const primer = [...terms, ...prose];
     if(!primer.length) continue;
-    m.primer = primer.slice(0, 4);
+    m.primer = primer;
+    // The same terms, structured, for the two surfaces that print them: the plan
+    // card renders a definition list rather than a dozen bullets, and `checkStory`
+    // needs to know which lines are definitions before it counts prose.
+    m.primerTerms = chosen.map(t => ({ name: t.name, def: printed(t) }));
     derived++;
   }
   if(derived) changes.push(`${derived} mission primer(s) derived from the day's glossary terms, relationships and assumptions`);

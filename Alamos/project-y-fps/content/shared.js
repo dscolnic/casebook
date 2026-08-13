@@ -67,7 +67,7 @@ export const DIAGNOSIS_PACKS = {
         "name": "Ten repeat measurements",
         "zone": "detector",
         "observed": "all within 3% of each other",
-        "reference": "Poisson scatter of about 3%",
+        "reference": "expected random spread of about 3%",
         "purpose": "Whether the effect reproduces. A fluctuation does not survive repetition; a real cause does."
       }
     },
@@ -125,7 +125,7 @@ export const DIAGNOSIS_PACKS = {
         }
       },
       "statfluke": {
-        "label": "Nothing to explain — ordinary scatter",
+        "label": "Nothing to explain — ordinary statistical spread",
         "choice": "Counting is a random process, and a run that lands high by chance needs no cause beyond the statistics.",
         "sig": {
           "gross": "norm",
@@ -144,7 +144,7 @@ export const DIAGNOSIS_PACKS = {
       "realsample": "It explains the high gross rate, and it would be the convenient answer. But the excess is still there with the sample off the stage — 131 counts/min against a 95 baseline. Whatever is counting is not on the stage.",
       "roombg": "It explains an excess that survives removing the sample. It fails twice: the second detector in the same room reads normal, and the excess follows the instrument to a clean room instead of staying behind.",
       "noisefloor": "It fits the two loud findings exactly — a persisting excess that extra lead does not touch. It dies on the high-voltage test: with the bias off, the counter records nothing at all, so the pulses are real ionization, not electronics.",
-      "statfluke": "Ten repeats agree within 3%. Scatter does not reproduce ten times, and it cannot survive removing the sample."
+      "statfluke": "Ten repeats agree within 3%. Chance spread does not reproduce ten times, and it cannot survive removing the sample."
     },
     "resolve": {
       "title": "The instrument is counting itself",
@@ -208,7 +208,7 @@ export const DIAGNOSIS_PACKS = {
         "purpose": "Whether everything that went in is accounted for in a measured stream. A gap says material left by a route nobody is measuring; it does not say which route."
       },
       "raffinate": {
-        "name": "Activity in the discarded aqueous phase",
+        "name": "Activity in the discarded aqueous stream",
         "zone": "streams",
         "observed": "0.4% of input",
         "reference": "under 1% for a complete separation",
@@ -246,7 +246,7 @@ export const DIAGNOSIS_PACKS = {
     "hypotheses": {
       "incomplete": {
         "label": "The separation did not finish",
-        "choice": "Part of the target stayed in the phase that was discarded, so the loss should be sitting in a stream that was measured and thrown away.",
+        "choice": "Part of the target stayed in the liquid that was discarded, so the loss should be sitting in a stream that was measured and thrown away.",
         "sig": {
           "massbal": "gap",
           "raffinate": "hot",

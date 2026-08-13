@@ -416,10 +416,16 @@ export function createDay({
    *
    * A day card said what had happened and who wanted what, and then the first
    * question used "state vector" as though the player had met it. The primer is
-   * authored per mission — `mission.primer`, two to four short lines, a term
-   * with its meaning or a relationship with its symbols — and it is the last
-   * thing read before the map, which is the last thing seen before the day
-   * starts.
+   * authored per mission — `mission.primer`, a term with its meaning or a
+   * relationship with its symbols — and it is the last thing read before the
+   * map, which is the last thing seen before the day starts.
+   *
+   * The terms on it are every term the day's questions will offer a definition
+   * button for, so the list is as long as the day makes it and the definitions
+   * are set as a definition list: a dozen bullets of "Name — meaning" is a wall,
+   * and the same dozen with the word in front of its meaning is a glossary the
+   * eye can skip through. The prose lines below it are the formula and what the
+   * questions assume, which read as prose and stay a list.
    *
    * It is deliberately not the takeaway. A takeaway is what the day teaches,
    * and printing that here would answer the questions before they are asked;
@@ -428,9 +434,15 @@ export function createDay({
   function primerHTML(m){
     const lines = (m.primer ?? []).filter(x => typeof x === 'string' && x.trim());
     if(!lines.length) return '';
-    return `<div class="planPrimer"><h4>Worth knowing first</h4><ul>`
-      + lines.map(l => `<li>${esc(l)}</li>`).join('')
-      + `</ul></div>`;
+    // A book may author its own primer, in which case there is no structured term
+    // list and every line is prose as far as this knows.
+    const terms = (m.primerTerms ?? []).filter(t => t?.name && t?.def);
+    const rest = lines.slice(terms.length);
+    return `<div class="planPrimer"><h4>Worth knowing first</h4>`
+      + (terms.length ? `<dl>${terms.map(t =>
+          `<dt>${esc(t.name)}</dt><dd>${esc(t.def)}</dd>`).join('')}</dl>` : '')
+      + (rest.length ? `<ul>${rest.map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : '')
+      + `</div>`;
   }
 
   function planHTML(resuming = false){
