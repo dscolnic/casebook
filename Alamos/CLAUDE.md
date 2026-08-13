@@ -136,6 +136,7 @@ Behind `check`:
 node engine/dev/validateContent.mjs <theme>   # content agrees with itself + the contract
 node engine/dev/smokeCampaign.mjs  <theme>    # the engine can reach and grade every stop
 node engine/dev/probeQuestions.mjs <theme>    # no question answerable without the science
+node engine/dev/answerShape.mjs    <theme>    # the longest option is not the answer key
 node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data

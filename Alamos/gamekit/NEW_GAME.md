@@ -238,6 +238,25 @@ gating. Each exists because a shipped question failed it.
 
 `--advisory` prints findings without failing, for when you want the list.
 
+**And the whole game gets one more probe, because a per-question rule cannot see
+a habit.** `engine/dev/answerShape.mjs` counts how often the keyed answer is the
+longest option, in the mission questions and in the roster's passage quizzes,
+and tests that count against chance — a binomial tail, so six quizzes are not
+judged by the standard that damns sixty. LEAK already refuses a single set whose
+key is 1.9× its distractors; this catches the far commoner version, where every
+key is 1.2× longer and forty in a row are the longest thing on the card. When it
+was written, seven of the eight games failed it, the worst at 94 per cent
+against 25 by chance.
+
+The cause is structural rather than careless: the correct option is the one that
+has to be *true*, so it collects the qualifying clause, the unit and the
+"because", while a wrong option only has to be wrong, which takes four words. So
+the fix is not padding the distractors into waffle. Move the qualification into
+the question stem, and make each wrong option wrong for a stated reason —
+"Instrument transformers saturate during a fault and stop reporting altogether"
+rather than "Telemetry stops working". The rewrite usually improves the
+distractors, which is the tell that the rule is pointing at something real.
+
 **A matching question names its two columns.** `columns: [left, right]` on the
 stop. The shape that teaches is goal → method: what you want to measure on the
 left, how you measure it — with the mechanism in it — on the right. "Line-of-sight
