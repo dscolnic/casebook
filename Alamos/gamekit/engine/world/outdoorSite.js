@@ -37,6 +37,7 @@ export const TERRAIN_DEFAULTS = {
 // --------------------------------------------------------------- ground truth
 let PADS = [];
 let PATHS = [];
+let BED = null;
 let CFG = { ...TERRAIN_DEFAULTS };
 
 /**
@@ -49,6 +50,35 @@ export function setPads(boxes, margin = 4){
 }
 /** Register path corridors, which are graded flat like a real roadbed. */
 export function setPaths(paths){ PATHS = paths.slice(); }
+
+/**
+ * Register the river bed, so a water plane has somewhere to sit.
+ *
+ * `buildWater` drew its plane at `water.level` and nothing ever lowered the
+ * ground under it, so on a 'flat' profile the terrain sat ~0.8 m *above* the
+ * water and Riverton's river — the thing the site's own header calls the north
+ * edge of the city — was buried and had never once been visible. The water was
+ * even marked `ignoreAudit` for being below the floor, which is exactly the
+ * symptom.
+ *
+ * The bed is cut to `level - depthBelow` inside the footprint and feathered back
+ * up to the terrain over `shore` metres, so there is a bank rather than a step.
+ * Registered before the first height query, like the pads, because the visible
+ * mesh is built from this function and the two cannot be allowed to disagree.
+ */
+export function setWaterBed(bed){ BED = bed ? { ...bed } : null; }
+
+/** How much of this point is river bed: 1 inside, feathered to 0 up the bank. */
+function bedWeight(x, z){
+  if(!BED) return 0;
+  const hx = BED.width / 2, hz = BED.depth / 2;
+  const dx = Math.max(0, Math.abs(x - BED.cx) - hx);
+  const dz = Math.max(0, Math.abs(z - BED.cz) - hz);
+  const d = Math.max(dx, dz);
+  if(d >= BED.shore) return 0;
+  const t = 1 - d / BED.shore;
+  return t * t * (3 - 2 * t);
+}
 
 function padWeight(x, z){
   let best = 0;
@@ -119,6 +149,16 @@ function surfaceNoise(x, z){
 
 /** THE height function. Everything — mesh, props, people — uses this. */
 export function groundHeight(x, z){
+  const h = surfaceHeight(x, z);
+  // The river bed last, and on every profile: a channel is cut into whatever
+  // landform the theme chose, and a pad or a path inside the footprint would
+  // otherwise grade the bed back up to street level.
+  if(!BED) return h;
+  const w = bedWeight(x, z);
+  return w <= 0 ? h : h + (BED.floor - h) * w;
+}
+
+function surfaceHeight(x, z){
   // 'range' grades the *whole* height into a pad, not just the surface noise:
   // a bench cut into a mountainside has to be level, and damping the ripple on
   // a 1-in-3 slope leaves a building standing on a hill.

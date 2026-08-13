@@ -243,7 +243,234 @@ export function decorate(scene, ctx){
     x: -6, z: -70, y: y(-6, -70) + 2.4, w: 4.2, h: 1.1, facing: 0,
     sub: 'Screening beyond this point', accent: 0xc0392b,
   });
+
+  // ================================================== three weeks of logistics
+  //
+  // The campus already reads as improvised-upon. What it did not show is that
+  // everything holding it up arrived on a lorry: bulk oxygen, power, water,
+  // refrigeration. All of this is scenery on the service side and outside the
+  // fence, clear of the spine and of both courts.
+
+  // ---------------------------------------------------------- the oxygen farm
+  // The truest detail of a respiratory surge: hospitals ran out of the capacity
+  // to *deliver* oxygen, not out of oxygen. A bulk liquid tank, a vaporiser bank
+  // and a tanker parked against the fill point, on the service side east of the
+  // clinical wing. The vapour is the only moving thing on this side of the site.
+  {
+    const oxY = y(52, 30);
+    // Horizontal bulk tank on saddles.
+    lying(scene, 2.1, 11, 52, oxY + 3.0, 30, MATERIALS.panel());
+    for(const dz of [-3.4, 3.4]){
+      box(scene, 1.2, 2.0, 2.6, 52, oxY + 1.0, 30 + dz, MATERIALS.concrete());
+    }
+    // The vaporiser: a finned block, which is what actually frosts over.
+    for(let i = 0; i < 6; i++){
+      box(scene, 0.22, 4.2, 2.4, 57 + i * 0.55, oxY + 2.1, 30, MATERIALS.paintedSteel(0xd8dde0));
+    }
+    box(scene, 4.6, 0.5, 3.0, 58.4, oxY + 0.25, 30, MATERIALS.concrete());
+    // Frost plume, as stacked translucent slabs rather than a particle system:
+    // there is no animation budget here and a still drift reads correctly.
+    for(let i = 0; i < 4; i++){
+      const s = 1.6 + i * 0.9;
+      box(scene, s, 0.5, s, 58.4 + i * 0.8, oxY + 0.5 + i * 0.45, 30 + i * 0.5,
+        MATERIALS.glass());
+    }
+    soft({ x: 52, z: 30, r: 6.4 });
+    soft({ x: 58.4, z: 30, r: 3.0 });
+    sign(scene, 'MEDICAL OXYGEN', { x: 52, z: 24.2, y: oxY + 2.6, w: 4.0, h: 1.0,
+      facing: 0, sub: 'No smoking · no oil', accent: 0x2f6fa8 });
+    tanker(scene, 62, 44, y(62, 44), { facing: 0 });
+  }
+
+  // ------------------------------------------- refrigerated trailers, cabled up
+  // Grim but accurate, and there is nothing to see but plant: three reefer boxes
+  // on legs behind the clinical wing, each with its condenser running. No bodies,
+  // no gurneys — the machinery is the whole statement.
+  {
+    for(let i = 0; i < 3; i++){
+      const tx = -58, tz = 26 + i * 9;
+      const tY = y(tx, tz);
+      box(scene, 10.5, 3.0, 2.9, tx, tY + 2.3, tz, MATERIALS.panel());
+      box(scene, 1.3, 1.5, 2.4, tx + 5.6, tY + 3.1, tz, MATERIALS.paintedSteel(0x40474b));
+      // Landing legs and bogie, so it reads as a trailer and not a shed.
+      for(const dx of [-4.2, 4.4]) box(scene, 0.3, 1.0, 0.3, tx + dx, tY + 0.5, tz, MATERIALS.steel());
+      for(const dx of [-3.0, -1.6]) for(const dz of [-1.2, 1.2]){
+        cyl(scene, 0.48, 0.3, tx + dx, tY + 0.48, tz + dz, MATERIALS.rubber());
+      }
+      soft({ x: tx, z: tz, r: 5.6 });
+    }
+  }
+
+  // ------------------------------------------------ generators and cable runs
+  // Container labs, marquees and reefers all need power from somewhere. The
+  // cables are the point: a run of them taped across the service road ties
+  // separate objects into one installation, which is what makes a site read as
+  // bigger than the sum of its boxes.
+  {
+    const gY = y(-46, 62);
+    for(let i = 0; i < 2; i++){
+      const gx = -46 + i * 7;
+      box(scene, 6.0, 2.4, 2.6, gx, gY + 1.7, 62, MATERIALS.paintedSteel(0x6a6f5e));
+      box(scene, 5.4, 0.35, 2.2, gx, gY + 3.05, 62, MATERIALS.steel());
+      cyl(scene, 0.2, 1.6, gx + 2.4, gY + 3.8, 62, MATERIALS.paintedSteel(0x33383a));
+      soft({ x: gx, z: 62, r: 3.4 });
+    }
+    // Cable bundles: flat, wide, dark, hugging the ground — from the gensets to
+    // the container row and up to the north court.
+    const run = (x0, z0, x1, z1) => {
+      const mx = (x0 + x1) / 2, mz = (z0 + z1) / 2;
+      const len = Math.hypot(x1 - x0, z1 - z0);
+      const ang = Math.atan2(x1 - x0, z1 - z0);
+      box(scene, 0.62, 0.12, len, mx, y(mx, mz) + 0.06, mz, MATERIALS.rubber(), ang);
+    };
+    run(-40, 62, 28, 58);
+    run(-44, 60, -44, 34);
+    run(-42, 62, -18, -58);
+  }
+
+  // ------------------------------------------------- the container row, doubled
+  // They ran out of ground, so the second row went on top of the first. An
+  // external stair is what says that was not the plan.
+  {
+    for(let i = 0; i < 3; i++){
+      const cx = 31 + i * 4.2, cz = 56;
+      const base = y(cx, cz);
+      box(scene, 3.6, 2.9, 11.5, cx, base + 4.5, cz, MATERIALS.paintedSteel(i % 2 ? 0x8a5a2b : 0x2f6b62));
+      soft({ x: cx, z: cz, r: 2.6 });
+    }
+    const sY = y(41, 56);
+    for(let i = 0; i < 7; i++){
+      box(scene, 2.6, 0.12, 0.5, 41, sY + 0.6 + i * 0.45, 61 - i * 0.55, MATERIALS.steel());
+    }
+    box(scene, 0.1, 1.0, 4.6, 42.2, sY + 3.4, 58.6, MATERIALS.steel());
+  }
+
+  // ------------------------------------------------ the press pen and the wall
+  // Outside the fence, north of the gate, which is where a fence stops being an
+  // invisible limit and starts having an outside. The ribbon wall is the one
+  // human image on this side of the site.
+  {
+    const pY = y(-30, -78);
+    for(let i = 0; i < 9; i++){
+      box(scene, 0.08, 1.05, 0.08, -38 + i * 2.0, pY + 0.53, -78, MATERIALS.steel());
+    }
+    box(scene, 17, 0.07, 0.07, -30, pY + 1.05, -78, MATERIALS.paintedSteel(0xb8b2a4));
+    // Two broadcast vans, angled to the gate.
+    tanker(scene, -46, -80, y(-46, -80), { facing: Math.PI / 2, van: true, colour: 0xe4e1d8 });
+    tanker(scene, -46, -88, y(-46, -88), { facing: Math.PI / 2, van: true, colour: 0xd6d2c6 });
+    // Ribbons tied to the fence scrim, east of the gate.
+    for(let i = 0; i < 26; i++){
+      const rx = 16 + (i % 13) * 2.2, rz = -70;
+      const hue = [0xc0392b, 0x2f6fa8, 0xd4a017, 0xe2ded0][i % 4];
+      box(scene, 0.1, 0.6, 0.05, rx, y(rx, rz) + 1.5 - (i > 12 ? 0.5 : 0), rz + 0.16,
+        MATERIALS.paintedSteel(hue));
+    }
+  }
+
+  // ----------------------------------------------------- staff caravan park
+  // Staff who cannot go home is a real feature of a long outbreak, and it puts a
+  // second small neighbourhood inside the map on the far service side.
+  {
+    for(let i = 0; i < 5; i++){
+      const vx = -74 + (i % 3) * 9, vz = 52 + Math.floor(i / 3) * 8;
+      const vY = y(vx, vz);
+      box(scene, 6.4, 2.5, 2.6, vx, vY + 1.75, vz, MATERIALS.panel());
+      box(scene, 6.6, 0.3, 2.8, vx, vY + 3.1, vz, MATERIALS.paintedSteel(0xa9a294));
+      box(scene, 0.3, 0.9, 0.3, vx - 2.8, vY + 0.45, vz, MATERIALS.steel());
+      // A line of washing between two of them, which is the detail that says
+      // people are living here rather than storing something.
+      if(i === 1){
+        box(scene, 9.0, 0.04, 0.04, vx + 4.5, vY + 2.2, vz + 2.2, MATERIALS.steel());
+        for(let k = 0; k < 6; k++){
+          box(scene, 0.5, 0.7, 0.03, vx + 1.4 + k * 1.3, vY + 1.85, vz + 2.2,
+            MATERIALS.paintedSteel([0xe8e4d8, 0x7fa8c0, 0xd8d2c0][k % 3]));
+        }
+      }
+      soft({ x: vx, z: vz, r: 3.6 });
+    }
+  }
+
+  // -------------------------------------------------- bowsers and laundry skips
+  // Consumables at surge scale. Repetition of one simple object is the cheapest
+  // way to say volume.
+  {
+    for(let i = 0; i < 3; i++){
+      const bx = 46 + i * 5.2, bz = -34;
+      const bY = y(bx, bz);
+      cyl(scene, 1.35, 4.2, bx, bY + 1.5, bz, MATERIALS.panel(), 1.35);
+      box(scene, 3.4, 0.4, 2.2, bx, bY + 0.2, bz, MATERIALS.steel());
+      soft({ x: bx, z: bz, r: 1.9 });
+    }
+    for(const [sx, sz] of [[-58, -34], [-52, -34], [-58, -40], [-52, -40], [-58, -46]]){
+      const sY = y(sx, sz);
+      box(scene, 4.2, 1.7, 2.4, sx, sY + 0.95, sz, MATERIALS.paintedSteel(0x4d6a55));
+      box(scene, 4.3, 0.15, 2.5, sx, sY + 1.85, sz, MATERIALS.paintedSteel(0x3c5344));
+      soft({ x: sx, z: sz, r: 2.4 });
+    }
+  }
+
+  // ------------------------------------------------------- the closed playground
+  // A general hospital has one, and taped off it carries the whole situation in
+  // a single image without a word of explanation or a hint of gore.
+  {
+    const gx = 74, gz = 8, pgY = y(gx, gz);
+    // Frame, slide, two swings — read as a playground from silhouette alone.
+    for(const dx of [-3, 3]) box(scene, 0.16, 2.6, 0.16, gx + dx, pgY + 1.3, gz, MATERIALS.paintedSteel(0x2f6fa8));
+    box(scene, 6.4, 0.16, 0.16, gx, pgY + 2.6, gz, MATERIALS.paintedSteel(0x2f6fa8));
+    for(const dx of [-1.6, 1.6]){
+      box(scene, 0.06, 1.3, 0.06, gx + dx, pgY + 1.9, gz, MATERIALS.steel());
+      box(scene, 0.7, 0.08, 0.3, gx + dx, pgY + 1.25, gz, MATERIALS.paintedSteel(0xd4a017));
+    }
+    box(scene, 0.9, 0.1, 4.0, gx + 5.4, pgY + 1.1, gz + 1.4, MATERIALS.paintedSteel(0xc0392b), 0.32);
+    // Hazard tape on stakes, right around it.
+    const tape = [[-7, -6], [7, -6], [7, 6], [-7, 6]];
+    tape.forEach(([ax, az], i) => {
+      const [bx2, bz2] = tape[(i + 1) % 4];
+      box(scene, 0.08, 1.1, 0.08, gx + ax, pgY + 0.55, gz + az, MATERIALS.steel());
+      const mx = gx + (ax + bx2) / 2, mz = gz + (az + bz2) / 2;
+      const len = Math.hypot(bx2 - ax, bz2 - az);
+      box(scene, 0.1, 0.12, len, mx, pgY + 0.95, mz, MATERIALS.paintedSteel(0xd4a017),
+        Math.atan2(bx2 - ax, bz2 - az));
+    });
+    soft({ x: gx, z: gz, r: 7.4 });
+  }
   void colliders;
+}
+
+/**
+ * A cylinder on its side, along +Z. `kit.cyl` only builds them upright, and a
+ * bulk tank standing on end is a silo, not a tank — which is what the first pass
+ * at the oxygen farm rendered.
+ */
+function lying(parent, r, len, x, y, z, material){
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 14), material);
+  m.rotation.x = Math.PI / 2;
+  m.position.set(x, y, z);
+  m.castShadow = true;
+  m.receiveShadow = true;
+  parent.add(m);
+  return m;
+}
+
+/**
+ * A road tanker, or a box van with `van: true`. Both are the same shape at this
+ * scale — cab, chassis, body — and the site needs several of each without
+ * pulling in the driveable-vehicle machinery, because none of these can be taken.
+ */
+function tanker(scene, x, z, y = 0, { facing = 0, van = false, colour = 0xb9bcc0 } = {}){
+  const g = new THREE.Group();
+  box(g, 2.5, 1.4, 4.6, 0, 1.5, 3.4, MATERIALS.paintedSteel(van ? colour : 0x4a5460));   // cab
+  box(g, 2.3, 0.9, 2.2, 0, 2.6, 4.2, MATERIALS.glass());
+  box(g, 2.6, 0.5, 12, 0, 0.9, -2.4, MATERIALS.steel());                                  // chassis
+  if(van) box(g, 2.6, 3.0, 11, 0, 2.6, -2.4, MATERIALS.panel());
+  else lying(g, 1.3, 10.6, 0, 2.4, -2.4, MATERIALS.panel());
+  for(const dz of [4.0, -1.2, -3.0, -6.4]) for(const dx of [-1.15, 1.15]){
+    cyl(g, 0.52, 0.34, dx, 0.55, dz, MATERIALS.rubber());
+  }
+  g.rotation.y = facing;
+  g.position.set(x, y, z);
+  scene.add(g);
+  return g;
 }
 
 export default decorate;

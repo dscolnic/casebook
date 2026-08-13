@@ -360,6 +360,193 @@ export function decorate(scene, ctx){
     soft(l.soft); glow(l.glow);
   }
 
+  // ================================================== the ridge, past the fence
+  //
+  // A night site is the cheapest place in the repo to buy apparent size: at
+  // night you only need lights at the right distances, and every one of these is
+  // an emissive material. The six-light ceiling is untouched by all of it.
+
+  // -------------------------------------------- the observatory on the next ridge
+  // Beyond the player's 1300 m bound, on ground raised for it, with the shutter
+  // open. Real ridges carry several observatories, and an unreachable working
+  // dome at two kilometres says this facility is one of a set rather than the
+  // only building in the world. The slit is the whole trick — a bright thin
+  // vertical at that range reads instantly as a telescope that is observing.
+  {
+    const fx = -1980, fz = -1520;
+    const fy = y(fx, fz);
+    const far = dome(scene, fx, fz, fy + 9, 17, { facing: Math.PI * 0.42 });
+    // Its shutter, lit from inside: not `glow`-registered, because a light panel
+    // this far out contributes nothing and the list is walked every frame.
+    const slitMat = new THREE.MeshStandardMaterial({
+      color: 0x22303c, emissive: 0x9fc4e8, emissiveIntensity: 1.15, roughness: 0.6 });
+    box(scene, 2.6, 20, 0.5, fx + 12.5, fy + 20, fz - 6.0, slitMat, Math.PI * 0.42);
+    void far;
+  }
+
+  // ------------------------------------------------- the road up, from below
+  // Two headlights on the switchbacks a long way down. Nothing moves on this
+  // range at night except the crew coming up, and it implies the valley, the
+  // drive and other people for four emissive quads.
+  {
+    const hl = new THREE.MeshStandardMaterial({
+      color: 0xfff4d8, emissive: 0xfff4d8, emissiveIntensity: 2.8, roughness: 0.4 });
+    const spill = new THREE.MeshStandardMaterial({
+      color: 0x6a6250, emissive: 0xd8c08a, emissiveIntensity: 0.6, roughness: 0.9 });
+    const hx = 520, hz = 1180, hy = y(hx, hz);
+    for(const dx of [-0.9, 0.9]) box(scene, 0.55, 0.4, 0.2, hx + dx, hy + 1.1, hz, hl, -0.5);
+    // The cone it throws on the road ahead, as a flat lit patch.
+    box(scene, 7, 0.06, 20, hx + 3.5, hy + 0.08, hz - 9, spill, -0.5);
+  }
+
+  // ------------------------------------------------------- Valle Seco, below
+  // The town the whole campaign is defending, visible from the ridge as a field
+  // of window lights on the valley floor. Depth and stakes in one object.
+  {
+    const town = new THREE.Group();
+    const warm = new THREE.MeshStandardMaterial({
+      color: 0xffe6b0, emissive: 0xffd890, emissiveIntensity: 1.5, roughness: 0.7 });
+    const street = new THREE.MeshStandardMaterial({
+      color: 0xd8e4ff, emissive: 0xbcd0ff, emissiveIntensity: 1.2, roughness: 0.7 });
+    // A grid, jittered, so it reads as streets rather than a texture.
+    for(let i = 0; i < 96; i++){
+      const gx = (i % 12) * 26 + ((i * 37) % 11) - 150;
+      const gz = Math.floor(i / 12) * 24 + ((i * 53) % 9);
+      town.add(new THREE.Mesh(new THREE.PlaneGeometry(2.2, 2.2), i % 7 ? warm : street));
+      const m = town.children[town.children.length - 1];
+      m.rotation.x = -Math.PI / 2;
+      m.position.set(gx, 0.4, gz);
+    }
+    town.position.set(150, y(150, 1560), 1560);
+    scene.add(town);
+  }
+
+  // --------------------------------------------------- the microwave relay mast
+  // How the ridge's data got off the mountain before fibre. Vertical, rhythmic,
+  // and the aircraft-warning strobes read from anywhere on the site — which is
+  // what makes it a wayfinding landmark as well as scenery.
+  {
+    const mx = 96, mz = -96, mY = y(mx, mz);
+    for(let i = 0; i < 4; i++){       // lattice, tapering
+      const s = 1 - i * 0.18;
+      for(const [ox, oz] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]){
+        cyl(scene, 0.09, 11, mx + ox * 1.5 * s, mY + 5.5 + i * 11, mz + oz * 1.5 * s,
+          MATERIALS.steel());
+      }
+      box(scene, 3.0 * s, 0.08, 0.08, mx, mY + 11 + i * 11, mz - 1.5 * s, MATERIALS.steel());
+      box(scene, 0.08, 0.08, 3.0 * s, mx + 1.5 * s, mY + 11 + i * 11, mz, MATERIALS.steel());
+    }
+    // Two drum antennas near the top, facing off-ridge.
+    for(const [dy, ang] of [[30, 0.4], [37, -1.2]]){
+      const drumMat = MATERIALS.panel();
+      cyl(scene, 1.5, 1.6, mx + Math.sin(ang) * 2.2, mY + dy, mz + Math.cos(ang) * 2.2, drumMat, 1.5);
+    }
+    const strobe = new THREE.MeshStandardMaterial({
+      color: 0xff3a24, emissive: 0xff3a24, emissiveIntensity: 3.0, roughness: 0.3 });
+    for(const dy of [22, 33, 45]){
+      const s = new THREE.Mesh(new THREE.SphereGeometry(0.42, 8, 6), strobe);
+      s.position.set(mx, mY + dy, mz);
+      scene.add(s);
+      glow(s);
+    }
+    soft({ x: mx, z: mz, r: 3.0 });
+  }
+
+  // ---------------------------------------- the time and frequency standards
+  // `TIME` is an area of study with no physical presence on the ridge, which is
+  // odd for the group whose whole subject is a thing you can point at. A GPS
+  // choke-ring monument on a concrete pier and a windowless maser hut are what
+  // that group actually looks like: small, quiet, obviously precise.
+  {
+    const tx = 66, tz = 24;                 // beside the TIME building
+    const pierX = tx + 13, pierZ = tz - 9;
+    const pY = y(pierX, pierZ);
+    cyl(scene, 0.55, 2.2, pierX, pY + 1.1, pierZ, MATERIALS.concrete());
+    cyl(scene, 0.95, 0.16, pierX, pY + 2.3, pierZ, MATERIALS.paintedSteel(0xd8d3c8));
+    cyl(scene, 0.42, 0.34, pierX, pY + 2.55, pierZ, MATERIALS.panel(), 0.30);
+    soft({ x: pierX, z: pierZ, r: 1.1 });
+    // The hut: no windows, one door, a conduit to the pier. A maser lives in a
+    // box with a very boring temperature.
+    const hx = tx + 20, hz = tz + 2, hY = y(hx, hz);
+    box(scene, 5.0, 2.8, 4.2, hx, hY + 1.4, hz, MATERIALS.concrete());
+    box(scene, 5.4, 0.28, 4.6, hx, hY + 2.9, hz, MATERIALS.paintedSteel(0x55585c));
+    box(scene, 0.9, 2.0, 0.12, hx - 2.55, hY + 1.0, hz, MATERIALS.paintedSteel(0x3d4348));
+    box(scene, 0.14, 0.14, 9.0, hx - 2.0, hY + 0.2, hz - 5.5, MATERIALS.steel());
+    soft({ x: hx, z: hz, r: 3.6 });
+  }
+
+  // ------------------------------------------------- the dome nobody uses now
+  // Observatories keep their old buildings. A smaller dome with its shutter
+  // seized shut, used as a store, puts some history on the saddle — and a dark
+  // dome is what makes the working ones read as working.
+  {
+    const ox = -118, oz = 34, oY = y(ox, oz);
+    const old = dome(scene, ox, oz, oY + 3.2, 5.4, { facing: Math.PI * 0.8 });
+    soft(old.soft);
+    // Crates against it, and the shutter track rusted over rather than open.
+    box(scene, 1.1, 3.6, 0.28, ox + 5.2, oY + 6.4, oz + 1.2, MATERIALS.paintedSteel(0x6b4a36));
+    for(const [cx2, cz2] of [[ox + 7, oz - 4], [ox + 9, oz - 4], [ox + 7, oz - 6]]){
+      box(scene, 1.6, 1.2, 1.4, cx2, y(cx2, cz2) + 0.6, cz2, MATERIALS.paintedSteel(0x5f5a4e));
+      soft({ x: cx2, z: cz2, r: 1.2 });
+    }
+  }
+
+  // ------------------------------------------- weather mast and the snow poles
+  // Observing is weather-gated — the syllabus lists observing constraints as a
+  // method concept — and the poles draw the eye along the road, which is what
+  // makes a road feel long.
+  {
+    const wx = -44, wz = -8, wY = y(wx, wz);
+    cyl(scene, 0.13, 10, wx, wY + 5, wz, MATERIALS.steel());
+    // Anemometer cups and a vane, small but unmistakable in silhouette.
+    for(const a of [0, 2.09, 4.19]){
+      const cxp = wx + Math.sin(a) * 0.62, czp = wz + Math.cos(a) * 0.62;
+      cyl(scene, 0.16, 0.14, cxp, wY + 10.2, czp, MATERIALS.paintedSteel(0xd8d3c8));
+      box(scene, 0.62, 0.04, 0.04, (wx + cxp) / 2, wY + 10.2, (wz + czp) / 2,
+        MATERIALS.steel(), a);
+    }
+    box(scene, 0.06, 0.5, 1.1, wx, wY + 9.3, wz - 0.6, MATERIALS.paintedSteel(0xd8d3c8));
+    soft({ x: wx, z: wz, r: 0.8 });
+    // Snow poles: banded, at the road edge, out to where the road leaves the site.
+    for(let i = 0; i < 22; i++){
+      const px = 26, pz = -34 + i * 12;
+      const pyy = y(px, pz);
+      cyl(scene, 0.07, 2.4, px, pyy + 1.2, pz, MATERIALS.paintedSteel(0xd9d4c6));
+      box(scene, 0.16, 0.3, 0.16, px, pyy + 2.15, pz, MATERIALS.paintedSteel(0xd8321c));
+    }
+  }
+
+  // -------------------------------------------- fuel, gabions and the cattle guard
+  // The infrastructure that says somebody maintains this road. Diesel for the
+  // generators, rock-fall baskets where the cut is steepest, and a cattle guard
+  // at the boundary because this ridge is grazed below the gate.
+  {
+    const fx2 = -96, fz2 = 74, fY = y(fx2, fz2);
+    for(const dx of [0, 6.4]){
+      cyl(scene, 2.4, 5.0, fx2 + dx, fY + 2.5, fz2, MATERIALS.panel(), 2.4);
+      soft({ x: fx2 + dx, z: fz2, r: 2.8 });
+    }
+    box(scene, 16, 0.4, 10, fx2 + 3.2, fY + 0.2, fz2, MATERIALS.concrete());   // bund
+    box(scene, 16, 0.9, 0.5, fx2 + 3.2, fY + 0.45, fz2 - 5.0, MATERIALS.concrete());
+    box(scene, 16, 0.9, 0.5, fx2 + 3.2, fY + 0.45, fz2 + 5.0, MATERIALS.concrete());
+    // Gabions: stacked wire baskets, stepped back, along the uphill cut.
+    for(let i = 0; i < 9; i++){
+      const gx2 = 44 + i * 3.1, gz2 = 96;
+      const gY2 = y(gx2, gz2);
+      for(let k = 0; k < 3 - (i % 2); k++){
+        box(scene, 3.0, 1.0, 1.6, gx2, gY2 + 0.5 + k * 1.02, gz2 + k * 0.5,
+          MATERIALS.paintedSteel(0x6e6a5f));
+      }
+      soft({ x: gx2, z: gz2, r: 1.8 });
+    }
+    // The cattle guard, in the road at the boundary: rails across a pit.
+    const cgY = y(26, 150);
+    box(scene, 9, 0.4, 4.2, 26, cgY - 0.2, 150, MATERIALS.concrete());
+    for(let i = 0; i < 13; i++){
+      box(scene, 8.6, 0.12, 0.12, 26, cgY + 0.24, 148.2 + i * 0.3, MATERIALS.steel());
+    }
+  }
+
   // ------------------------------------------------------- infrastructure
   cableTray(scene, -22, -30, -22, 60, y(-22, 20));
   cableTray(scene, 24, -40, 24, 30, y(24, 0));

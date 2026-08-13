@@ -21,7 +21,7 @@
 // the visible surface and groundHeight() can never disagree.
 import * as THREE from 'three';
 import {
-  configureTerrain, setPads, setPaths, groundHeight as terrainHeight,
+  configureTerrain, setPads, setPaths, setWaterBed, groundHeight as terrainHeight,
   buildTerrain, buildPaths, buildSky, buildSunRig, buildHorizon,
   plantScrub, updateOutdoorTimeOfDay, onPath,
 } from './outdoorSite.js';
@@ -62,7 +62,10 @@ function buildWater(water){
   m.userData.ignoreAudit = true;
   scene.add(m);
 
-  // A low bank, so the water plane never meets the terrain in a visible seam.
+  // A low bank on the town side, so the water plane never meets the terrain in a
+  // visible seam. The bed cut by `setWaterBed` is what puts the water *below* the
+  // surface in the first place — without it this bank was hiding nothing, because
+  // the terrain covered the whole river.
   const bank = new THREE.Mesh(
     new THREE.BoxGeometry(water.width, 1.2, 2.4),
     MATERIALS.concrete());
@@ -133,6 +136,20 @@ export function initWorld(canvas, activeTheme){
     new THREE.Vector3(b.x - b.w / 2 - 2, 0, b.z - b.d / 2 - 2),
     new THREE.Vector3(b.x + b.w / 2 + 2, 0, b.z + b.d / 2 + 2)));
   setPads(pads, 5);
+  // The river bed, registered with the pads and for the same reason: the visible
+  // terrain mesh is built from groundHeight(), so a channel added afterwards would
+  // exist in the height function and not on screen.
+  if(site.water){
+    const w = site.water;
+    const level = w.level ?? -0.6;
+    setWaterBed({
+      cx: w.cx, cz: w.cz, width: w.width, depth: w.depth,
+      // Deep enough that the plane is clearly a surface on water rather than a
+      // sheet lying on mud, shallow enough that the far shore still reads as land.
+      floor: level - (w.bed ?? 1.6),
+      shore: w.shore ?? 14,
+    });
+  }
 
   // 2. Ground, water and routes.
   buildTerrain(scene);

@@ -12,7 +12,7 @@
 
 import * as THREE from 'three';
 import {
-  tank, pipeRun, crateStack, vehicle, fenceRun, displayBoard, post, box, cyl, MATERIALS,
+  tank, pipeRun, crateStack, vehicle, fenceRun, displayBoard, post, box, cyl, sign, MATERIALS,
 } from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
 
@@ -156,6 +156,193 @@ export function decorate(scene, ctx){
     mesh: dockHit, type: 'info', id: 'DOCK',
     prompt: 'E — Look at the river sampling point',
   });
+
+  // ============================================================ the wider city
+  //
+  // Everything below is scenery. None of it is a stop, none of it is
+  // interactable, and none of it is inside the player's bounds except where
+  // said. It exists because ten buildings on a graded pad read as a campus, and
+  // Riverton is supposed to be a working river city with an economy that made
+  // the contamination possible.
+  //
+  // Four devices, used deliberately: mass across the water that cannot be
+  // reached, an edge that leaves the map rather than stopping at it, one object
+  // far taller than the buildings, and parked vehicles standing in for people.
+
+  // ------------------------------------------------ the far bank: grain elevator
+  // The water runs from z −157 to −67 and the player is bounded at 105, so
+  // anything past the far shore is permanently out of reach — which is the point.
+  // A silo row is the cheapest large mass there is, and it gives the river
+  // something to be wide *against*: without it the water reads as a texture at
+  // the edge of the map rather than as a thing with another side.
+  {
+    const farY = 0;
+    const silo = new THREE.Group();
+    for(let i = 0; i < 6; i++){
+      cyl(silo, 5.2, 34, -132 + i * 10.6, 17, -178, MATERIALS.concrete());
+    }
+    // The headhouse across the top is what makes a row of cylinders read as a
+    // grain elevator instead of six tanks.
+    box(silo, 68, 9, 13, -105, 38, -178, MATERIALS.concrete());
+    box(silo, 68, 1.2, 15, -105, 43, -178, MATERIALS.paintedSteel(0x6d6a60));
+    // A conveyor gallery running down to the water, so the silos have a reason to
+    // be on a river at all.
+    box(silo, 3.0, 2.2, 46, -105, 26, -152, MATERIALS.paintedSteel(0x7d7565), 0);
+    silo.position.y = farY;
+    scene.add(silo);
+    // A second, smaller works further along, because one building on a shore
+    // reads as a model and two read as a district.
+    const works = new THREE.Group();
+    box(works, 40, 14, 18, 96, 7, -184, MATERIALS.panel());
+    cyl(works, 2.4, 30, 112, 15, -184, MATERIALS.concrete());
+    box(works, 44, 1.0, 20, 96, 14.4, -184, MATERIALS.paintedSteel(0x5f6a6d));
+    works.position.y = farY;
+    scene.add(works);
+  }
+
+  // ------------------------------------------------------- barge and tug
+  // Moored mid-river, past the bank the player cannot walk off. It explains how
+  // bulk chemical arrives at a city like this, and a long low hull at middle
+  // distance is what gives the water a readable scale.
+  {
+    const wl = -0.8;                     // site.water.level
+    const barge = new THREE.Group();
+    box(barge, 12, 2.2, 46, -34, 0.4, -94, MATERIALS.paintedSteel(0x4a4f52));
+    box(barge, 10.6, 0.5, 43, -34, 1.6, -94, MATERIALS.paintedSteel(0x39424a));
+    for(let i = 0; i < 3; i++){          // hopper coamings
+      box(barge, 9.4, 1.5, 11, -34, 2.2, -110 + i * 15, MATERIALS.paintedSteel(0x5a5f60));
+    }
+    box(barge, 7, 3.4, 7, -34, 2.9, -68.5, MATERIALS.paintedSteel(0x8d8574));   // tug
+    box(barge, 4.4, 3.0, 4.4, -34, 5.4, -68.5, MATERIALS.panel());
+    cyl(barge, 0.5, 3.2, -34, 8.2, -70.5, MATERIALS.paintedSteel(0x2f3538));
+    barge.position.y = wl;
+    scene.add(barge);
+  }
+
+  // ------------------------------------------------------------ the levee walk
+  // The bank is already a wall the player cannot cross. A levee crest with a
+  // stage gauge on it turns that from an invisible limit into a place you are
+  // obviously meant to stop — and a flood gauge is a measuring instrument, which
+  // is what this whole game is about.
+  {
+    const leveeY = y(0, -62);
+    box(scene, 250, 0.9, 5.0, 0, leveeY + 0.45, -62, MATERIALS.concrete());
+    for(let i = -5; i <= 5; i++){
+      soft(post(scene, i * 22, -64.4, leveeY + 0.9, 1.0, 0.07, 0xa8a294));
+    }
+    // The gauge: a staff with painted stage bands, tallest mark well over head
+    // height, which is the detail that says this river has done it before.
+    const gaugeY = y(-18, -64);
+    cyl(scene, 0.18, 7.5, -18, gaugeY + 3.75, -64, MATERIALS.panel());
+    for(let i = 0; i < 6; i++){
+      box(scene, 0.62, 0.5, 0.5, -18, gaugeY + 1.1 + i * 1.2, -64,
+        MATERIALS.paintedSteel(i >= 4 ? 0xb3462f : 0x2f3f4a));
+    }
+    soft({ x: -18, z: -64, r: 0.6 });
+  }
+
+  // ---------------------------------------------------------- the rail spur
+  // The yard is "where it started" and a freight yard implies rail. The spur runs
+  // east–west past the yard and keeps going to ±180, well past the player's
+  // bound at 105: a line that leaves the map is the cheapest way to say the city
+  // continues past what was built.
+  {
+    const railY = y(0, 104);
+    for(const sx of [-1, 1]){
+      box(scene, 180, 0.16, 0.14, sx * 92, railY + 0.24, 103.2, MATERIALS.steel());
+      box(scene, 180, 0.16, 0.14, sx * 92, railY + 0.24, 104.8, MATERIALS.steel());
+    }
+    for(let i = -30; i <= 30; i++){      // sleepers
+      box(scene, 0.9, 0.16, 2.6, i * 5.6, railY + 0.08, 104, MATERIALS.rubber());
+    }
+    // Two tank cars, parked clear of the yard gate at x = 0 so nothing blocks the
+    // route north out of the yard.
+    const car = (cx, tint) => {
+      const g = new THREE.Group();
+      box(g, 17, 1.0, 2.9, cx, 1.0, 104, MATERIALS.paintedSteel(0x4c4a46));
+      cyl(g, 1.55, 15.4, cx, 2.9, 104, MATERIALS.paintedSteel(tint), 1.55);
+      box(g, 1.2, 0.5, 1.2, cx, 4.6, 104, MATERIALS.steel());
+      for(const dx of [-6.4, 6.4]) for(const dz of [-1.2, 1.2]){
+        cyl(g, 0.45, 0.28, cx + dx, 0.5, 104 + dz, MATERIALS.rubber());
+      }
+      g.position.y = railY;
+      scene.add(g);
+      soft({ x: cx, z: 104, r: 8.6 });
+    };
+    car(-42, 0x8a8f8c);
+    car(38, 0x6f6a62);
+  }
+
+  // ------------------------------------------------------------ the water tower
+  // The tallest thing in Riverton, on the high side by the yard. The site has no
+  // verticality at all otherwise — every building is one storey on a flat
+  // floodplain — and a municipal water tower in a game about drinking water is
+  // the one landmark that is also the subject.
+  {
+    const twrY = y(-74, 86);
+    for(const a of [0, Math.PI / 2, Math.PI, -Math.PI / 2]){
+      const lx = -74 + Math.sin(a) * 3.4, lz = 86 + Math.cos(a) * 3.4;
+      cyl(scene, 0.22, 17, lx, twrY + 8.5, lz, MATERIALS.steel());
+    }
+    cyl(scene, 5.4, 6.2, -74, twrY + 20, 86, MATERIALS.panel());
+    cyl(scene, 5.4, 2.4, -74, twrY + 24.2, 86, MATERIALS.panel(), 1.2);
+    cyl(scene, 1.1, 17, -74, twrY + 8.5, 86, MATERIALS.steel());   // riser
+    sign(scene, 'RIVERTON', { x: -74, y: twrY + 20.4, z: 80.4, w: 7.4, h: 2.2, facing: Math.PI });
+    soft({ x: -74, z: 86, r: 4.2 });
+  }
+
+  // -------------------------------------------------- the press pen at Briefing
+  // The Public Briefing Center's own subtitle is "What the city is told". Two
+  // vans and a barriered pen give it an audience without rendering one.
+  {
+    const brY = y(86, 26);
+    park(74, 14, { facing: 0, colour: 0xe4e1d8, label: 'news van', id: 'VEH_PRESS_A' });
+    park(74, 38, { facing: Math.PI, colour: 0xd9d5c8, box: false, label: 'news van', id: 'VEH_PRESS_B' });
+    for(let i = 0; i < 7; i++){
+      soft(post(scene, 70 + i * 2.6, 26, brY, 1.05, 0.06, 0xc9bfa8));
+    }
+    box(scene, 18, 0.06, 0.06, 79, brY + 1.05, 26, MATERIALS.paintedSteel(0xb8b2a4));
+  }
+
+  // ------------------------------------------------ advisory boards on the avenue
+  // Trailer-mounted message boards, angled to the avenue and kept off it: the
+  // street is clear inside |x| < 5 and a prop over the route is the mistake that
+  // welds a player in place. These date the scene to *during* the incident, which
+  // nothing else on the avenue does.
+  {
+    for(const [bx, bz, facing] of [[8.5, 6, -Math.PI / 2], [-8.5, 48, Math.PI / 2]]){
+      const bY = y(bx, bz);
+      const trailer = new THREE.Group();
+      box(trailer, 3.2, 0.4, 1.8, bx, 0.7, bz, MATERIALS.paintedSteel(0xb0762a));
+      for(const dx of [-1.0, 1.0]){
+        cyl(trailer, 0.42, 0.26, bx + dx, 0.42, bz + 0.95, MATERIALS.rubber());
+      }
+      trailer.position.y = bY;
+      scene.add(trailer);
+      const b = displayBoard(scene, bx, bz, bY + 1.5, { facing, title: 'BOIL WATER ADVISORY', tint: 0xb3462f });
+      soft(b.soft);
+      lightPanels.push(b.screen);
+      soft({ x: bx, z: bz, r: 1.9 });
+    }
+  }
+
+  // ------------------------------------------- the market that is not happening
+  // A city mid-incident stops doing ordinary things, and a closed market says
+  // that better than an open one would. Stalls folded, pallets of sandbags
+  // waiting on the kerb, by the Records office where the cross street ends.
+  {
+    const mY = y(-86, 40);
+    for(let i = 0; i < 5; i++){
+      const sx = -96 + i * 5.2;
+      // Folded trestles, stacked flat against their frames.
+      box(scene, 0.5, 2.1, 3.4, sx, mY + 1.05, 42, MATERIALS.paintedSteel(0x8a7f6a), 0);
+      box(scene, 0.16, 2.3, 0.16, sx, mY + 1.15, 40.2, MATERIALS.steel());
+      soft({ x: sx, z: 42, r: 1.1 });
+    }
+    for(const [px, pz, rows] of [[-78, 44, 2], [-72, 44, 1], [-78, 50, 1]]){
+      soft(crateStack(scene, px, pz, y(px, pz), { rows, colour: 0x8f8a72 }));
+    }
+  }
 
   // ------------------------------------------------------- the weather mast
   // The Mobile Weather Station of Mission 2, as the tallest thing on the site,
