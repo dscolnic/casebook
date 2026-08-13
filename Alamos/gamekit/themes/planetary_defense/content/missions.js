@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Discovery Image",
     "objective": "Validate a new-object candidate and preserve the measurements needed for follow-up.",
     "briefing": "A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.",
-    "stake": "Eleven days before the object passes Earth, the survey pipeline run by Aino Virtanen has flagged a faint point that moved between three exposures. The same field holds forty thousand catalogued stars, two satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.",
+    "stake": "Eleven days before the object passes Earth, the automated survey run by Aino Virtanen has flagged a faint point that moved between three exposures. The same field holds forty thousand catalogued stars, two satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.",
     "takeaway": "Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -253,7 +253,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 15,
-        "task": "Which explanation fits the pre-discovery geometry and the survey operating record?"
+        "task": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?"
       },
       {
         "group": "OPS",

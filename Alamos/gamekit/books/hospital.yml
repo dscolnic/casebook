@@ -1571,7 +1571,7 @@ missions:
     stops:
       - group: MOVE
         call: How a Scrape Heals
-        task: Put the body’s simplified healing story in order.
+        task: Put the steps of healing in order.
         title: How a Scrape Heals
         setup: Ella  •  Wound Care Room
         scene: Ella has a small scrape. The team cleaned it and covered it. She asks what her body will do next. Skin is not a wrapper. It is living tissue. It fixes itself in stages, in the same order every time. First the bleeding stops. Then the cleanup. Then rebuilding. Knowing the stages tells you what is normal.
@@ -1701,7 +1701,7 @@ missions:
     stops:
       - group: DEF
         call: The Body Notices a Germ
-        task: Put the immune story in order.
+        task: Put the body’s germ-fighting steps in order.
         title: The Body Notices a Germ
         setup: Ruby  •  Immunology Room
         scene: Ruby is getting better. The immune doctor wants to show why. Four picture cards show what her body did. The steps happen in order. Something has to be noticed before it can be fought. Helpers have to arrive before the cleanup. The last step is the surprising one. The body keeps a record of what it met.
@@ -3180,7 +3180,7 @@ lessons:
       relationship: Total lifts = number of sets × lifts in each set.
     answerText: "15"
   - group: MOVE
-    task: Put the body’s simplified healing story in order.
+    task: Put the steps of healing in order.
     title: How a Scrape Heals — Review 2
     setup: Ella  •  Wound Care Room
     scene: Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.
@@ -3349,7 +3349,7 @@ lessons:
       relationship: Total lifts = number of sets × lifts in each set.
     answerText: "15"
   - group: MOVE
-    task: Put the body’s simplified healing story in order.
+    task: Put the steps of healing in order.
     title: How a Scrape Heals — Review 3
     setup: Ella  •  Wound Care Room
     scene: Ella has a small scrape. The hospital team has cleaned and covered it. She asks what her body will do next.
@@ -3785,7 +3785,7 @@ lessons:
       - No, because their other clues are different, so it must be a different germ.
     answer: Not enough evidence — many different problems can make a person tired.
   - group: DEF
-    task: Put the immune story in order.
+    task: Put the body’s germ-fighting steps in order.
     title: The Body Notices a Germ — Review 2
     setup: Ruby  •  Immunology Room
     scene: Ruby is getting better. The immunologist gives you four picture cards showing a very simplified immune response.

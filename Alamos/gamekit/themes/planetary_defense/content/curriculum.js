@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Object or artifact?",
-      "scene": "The survey pipeline has flagged a faint point that moved between three exposures, in a field holding satellite trails and a hot pixel column. The alert about to go out would task observatories on three continents.",
+      "scene": "The survey software has flagged a faint point that moved between three exposures, in a field holding satellite trails and a hot pixel column. The alert about to go out would task observatories on three continents.",
       "takeaway": "A discovery becomes convincing when motion is coherent in sky coordinates but not tied to one detector, exposure, or telescope.",
       "place": "Survey Telescope Control",
-      "story": "The survey pipeline has flagged a faint point that moved between three exposures, in a field holding satellite trails and a hot pixel column. The alert about to go out would task observatories on three continents.",
+      "story": "The survey software has flagged a faint point that moved between three exposures, in a field holding satellite trails and a hot pixel column. The alert about to go out would task observatories on three continents.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Object or artifact?",
@@ -25,7 +25,7 @@ export const CURRICULUM = {
           "A hot pixel is bright wherever that pixel is read, so it stays put in detector coordinates. This one crosses pixels.",
           "An alignment error moves many stars together. Here the stars stay fixed and one point does not."
         ],
-        "headline": "A survey pipeline flags a faint moving point near the ecliptic.",
+        "headline": "The survey software flags a faint moving point near the ecliptic.",
         "readings": [
           {
             "zone": "Three survey exposures",
@@ -1430,9 +1430,9 @@ export const CURRICULUM = {
         "type": "DIAGNOSIS",
         "title": "Why was it missed?",
         "setup": "Survey Strategy Center",
-        "play": "Which explanation fits the pre-discovery geometry and the survey operating record?",
-        "task": "Which explanation fits the pre-discovery geometry and the survey operating record?",
-        "question": "Which explanation fits the pre-discovery geometry and the survey operating record?",
+        "play": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?",
+        "task": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?",
+        "question": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?",
         "answer": "Solar-elongation blind spot",
         "why": "Completeness is geometric as well as instrumental, and this object was bright enough and effectively invisible at the same time. Its solar elongation was under about thirty degrees, which puts it in twilight where no ground survey can work. Everything else on the panel says the survey was healthy: the weather was clear, the detector was fine, and the predicted brightness was within reach whenever the object was in dark sky. It was found as soon as the geometry allowed, and not before.",
         "rebuttals": [

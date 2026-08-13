@@ -74,12 +74,20 @@ for(const themeName of wanted){
     }
   }
   // And everything the syllabus names, so "detection limit" and "mass number"
-  // are not reported as inventions.
+  // are not reported as inventions. Keys are matched by containment, because a
+  // key is written as it is said — "straight line on a", "phase angle" — and the
+  // phrase in the text is a window onto part of it.
+  const syllabusKeys = [];
   const syllabusPhrases = new Set();
   for(const con of SYLLABUS[themeName]?.concepts ?? []){
-    for(const k of con.k ?? []) syllabusPhrases.add(wordsOf(k).join(' '));
+    for(const k of con.k ?? []){ syllabusPhrases.add(wordsOf(k).join(' ')); syllabusKeys.push(wordsOf(k).join(' ')); }
     for(const w of wordsOf(con.c)) if(w.length >= 4) syllabusPhrases.add(w);
   }
+  // Containment, but only against keys that are themselves phrases. A one-word
+  // key must not swallow everything built on it: "analytical" is on Riverton's
+  // syllabus, and "analytical reserve" is the phrase this tool exists for.
+  const namedBySyllabus = (phrase) => syllabusPhrases.has(phrase)
+    || syllabusKeys.filter(k => k.includes(' ')).some(k => k.includes(phrase) || phrase.includes(k));
 
   const technical = (w) => !ordinary(w) && (claimsWord(themeName, w, claimed) || glossaryWords.has(norm(w)));
 
@@ -112,8 +120,12 @@ band gap depth breadth horizon boundary threshold trail record book line
           for(const len of [2, 3]){
             if(i + len > ws.length) continue;
             const parts = ws.slice(i, i + len);
+            // "one detector channel" is "detector channel" with a number in
+            // front of it, and reporting both says the same thing twice.
+            if(['one', 'two', 'three', 'each', 'every', 'any', 'some', 'this', 'that', 'these', 'those',
+              'first', 'second', 'third', 'next', 'last', 'same', 'own', 'new', 'old'].includes(parts[0])) continue;
             const phrase = parts.join(' ');
-            if(glossaryPhrases.has(phrase) || syllabusPhrases.has(phrase)) continue;
+            if(glossaryPhrases.has(phrase) || namedBySyllabus(phrase)) continue;
             // An abstract head, borrowed, with something technical in front of it.
             const head = parts[parts.length - 1];
             if(!HEADS.has(head)) continue;
