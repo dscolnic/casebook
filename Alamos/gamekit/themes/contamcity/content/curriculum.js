@@ -106,20 +106,20 @@ export const CURRICULUM = {
         "play": "What does the response run first?",
         "task": "What does the response run first?",
         "question": "What does the response run first?",
-        "answer": "Two analytical methods with different selectivity, on the same sample.",
-        "why": "Analytical methods are not interchangeable. Each answers a different question, carries its own way of being fooled, and costs sample, time and exposure. An identity is worth what the chance it had to be wrong is worth — so two methods with different selectivity, run on the same sample, is the smallest evidence package that supports a name. Anything that can fool one of them has to also fool the other, and that is a much harder coincidence than fooling either alone.",
+        "answer": "Two analytical methods that can be fooled by different things, on the same sample.",
+        "why": "Analytical methods are not interchangeable. Each answers a different question, carries its own way of being fooled, and costs sample, time and exposure. An identity is worth what the chance it had to be wrong is worth — so two methods that can be fooled by different things, run on the same sample, is the smallest evidence package that supports a name. Anything that can fool one of them has to also fool the other, and that is a much harder coincidence than fooling either alone.",
         "rebuttals": [
           "Shipping records are fast and say what was supposed to be in the container. After a fire in a freight yard, that is a hypothesis rather than an observation.",
           "Blanks and reference samples are required and answer whether the laboratory contributed the signal. That question only arises once there is a signal.",
           "Odour puts a responder in the vapour and returns nothing chemical — no composition, no concentration, and no record anybody can check."
         ],
         "choices": [
-          "Two analytical methods with different selectivity, on the same sample.",
+          "Two analytical methods that can be fooled by different things, on the same sample.",
           "A search for the shipping records and supplier lot information.",
           "Reference samples and blanks, prepared alongside the sample.",
           "A trained responder identifying the containers by odour."
         ],
-        "correctChoice": "Two analytical methods with different selectivity, on the same sample."
+        "correctChoice": "Two analytical methods that can be fooled by different things, on the same sample."
       },
       "assumes": [
         "a method that can be fooled will not tell you it has been"
@@ -162,9 +162,9 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Read analytical disagreement",
       "scene": "Two methods have been run on the same extract and they do not tell the same story. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
-      "takeaway": "Analytical confidence rises when independent selectivity points to the same compound.",
+      "takeaway": "Analytical confidence rises when two methods that fail differently point to the same compound.",
       "place": "Spectroscopy Suite",
-      "story": "Two methods have been run on the same extract and they do not tell the same story. Every analytical run carries controls for exactly this moment: a blank, which is everything except the sample and therefore answers whether a signal could have come from the laboratory itself, and a second method with different selectivity, which answers whether the first method was fooled by something that merely resembles the target. Reading them together is the skill. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
+      "story": "Two methods have been run on the same extract and they do not tell the same story. Every analytical run carries controls for exactly this moment: a blank, which is everything except the sample and therefore answers whether a signal could have come from the laboratory itself, and a second method that can be fooled by different things, which answers whether the first method was fooled by something that merely resembles the target. Reading them together is the skill. A false identification here sends the plant a chemistry that could create a worse product than the one it removes.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Read analytical disagreement",
@@ -173,7 +173,7 @@ export const CURRICULUM = {
         "task": "One explanation has to fit the sample, the blank and the second-method result together. Which is it?",
         "question": "One explanation has to fit the sample, the blank and the second-method result together. Which is it?",
         "answer": "The 3.1-minute peak is laboratory contamination",
-        "why": "Every analytical run carries controls for exactly this moment. A blank contains everything except the sample, so it answers one question: could this signal have come from the laboratory rather than the river? Here it did — the blank carries the same peak at nearly the same height. A second method with different selectivity answers whether the first was fooled by something that merely resembles the target, and the spectrum at 3.1 minutes does not match. Retention time alone never confirms identity.",
+        "why": "Every analytical run carries controls for exactly this moment. A blank contains everything except the sample, so it answers one question: could this signal have come from the laboratory rather than the river? Here it did — the blank carries the same peak at nearly the same height. A second method that can be fooled by different things answers whether the first was fooled by something that merely resembles the target, and the spectrum at 3.1 minutes does not match. Retention time alone never confirms identity.",
         "rebuttals": [
           "Reporting 62 units treats a retention-time match as an identification. It is a screening match at best, and the blank has already shown where this peak came from.",
           "Detector drift would raise the whole baseline and every peak with it. The 7.9-minute peak is unaffected and the calibration check is within limits, so the instrument is not the problem.",
@@ -314,10 +314,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Resolve the ambiguous peak",
-      "scene": "One peak at 4.2 minutes matches two candidates to within 0.05 minutes, and both are on the shortlist. The river sample also carries humic matter, chloride at 40 mg/L, and a surfactant from the foam used on the fire.",
-      "takeaway": "Better presentation cannot repair missing selectivity or validation.",
+      "scene": "One peak at 4.2 minutes matches two candidates to within 0.05 minutes, and both are on the shortlist. The river sample also carries humic matter, chloride at 40 mg/L, and a detergent from the foam used on the fire.",
+      "takeaway": "Better presentation cannot repair a method that can be fooled, or evidence that was never validated.",
       "place": "Reference Library",
-      "story": "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop sharing a retention window, or bring in evidence with a different selectivity so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention.",
+      "story": "One peak is still ambiguous and the review board wants it settled. There are two honest ways to resolve an overlap — improve the separation so the components stop sharing a retention window, or bring in evidence that fails in a different way, so the identification no longer depends on the separation at all — and one dishonest way, which is to present the same weak data more attractively. Matrix effects sit underneath all of it: the river is not clean solvent, and everything in it is competing for the instrument's attention.",
       "game": {
         "type": "CHOICE",
         "title": "Resolve the ambiguous peak",
@@ -325,20 +325,20 @@ export const CURRICULUM = {
         "play": "One peak is still ambiguous and the review board wants it settled. What settles it?",
         "task": "One peak is still ambiguous and the review board wants it settled. What settles it?",
         "question": "One peak is still ambiguous and the review board wants it settled. What settles it?",
-        "answer": "A second structural method, with different selectivity.",
+        "answer": "A second structural method, fooled by different things.",
         "why": "There are two honest ways out of an overlap. Improve the separation until the components stop sharing a retention window, or bring in evidence of a different kind so the answer no longer depends on the separation at all. The second is faster, and it cannot inherit the problem: a method that identifies by structure does not care that two compounds travelled at the same speed. The third way is to present the same weak data more attractively, and it adds no measurement.",
         "rebuttals": [
           "Improving the separation is the other honest route, and it is method development — days the review board does not have. Worth doing if the structural method also fails.",
           "Reference material and matrix spikes say whether the river is suppressing or enhancing the response. They cannot say which compound the peak belongs to.",
-          "Presentation is not selectivity. The same weak data arranged more attractively is the one option here that adds no measurement."
+          "Presentation is not evidence. The same weak data arranged more attractively is the one option here that adds no measurement."
         ],
         "choices": [
-          "A second structural method, with different selectivity.",
-          "A longer column and a slower gradient, to improve the separation.",
+          "A second structural method, fooled by different things.",
+          "A longer column and a slower change in the liquid carrying the sample, to improve the separation.",
           "Certified reference material and matrix spikes.",
           "The same data, presented more clearly in the report."
         ],
-        "correctChoice": "A second structural method, with different selectivity."
+        "correctChoice": "A second structural method, fooled by different things."
       },
       "assumes": [
         "two compounds that overlap in one method may not overlap in another"
@@ -779,19 +779,19 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Small ionic species in water. → Often dissolves as hydrated ions. 2. Nonpolar organic liquid with low water affinity. → May form a separate phase or surface film. 3. Polar neutral molecule capable of hydrogen bonding. → Often has appreciable water solubility. 4. Hydrophobic compound with strong affinity for organic-rich sediment. → May concentrate in suspended particles or sediment.",
-        "why": "A chemical released into water does not stay in one place or one phase, and where it goes follows from molecular structure. Polar molecules that can hydrogen-bond dissolve readily. Ionic species dissolve as hydrated ions, surrounded by water molecules. Non-polar liquids with little affinity for water separate out or spread as a surface film. Hydrophobic compounds partition onto organic carbon in suspended particles and sediment and stay there. Absence from the water column is not absence from the river.",
+        "answer": "1. Small ionic species in water. → Often dissolves as hydrated ions. 2. Nonpolar organic liquid that barely mixes with water. → May form a separate phase or surface film. 3. Polar neutral molecule capable of hydrogen bonding. → Often has appreciable water solubility. 4. Water-avoiding compound that sticks strongly to organic-rich sediment. → May concentrate in suspended particles or sediment.",
+        "why": "A chemical released into water does not stay in one place or one phase, and where it goes follows from molecular structure. Polar molecules that can hydrogen-bond dissolve readily. Ionic species dissolve as hydrated ions, surrounded by water molecules. Non-polar liquids, which barely mix with water, separate out or spread as a surface film. Compounds that avoid water partition onto organic carbon in suspended particles and sediment and stay there. Absence from the water column is not absence from the river.",
         "rebuttals": [
           "A small ionic species dissolves as hydrated ions — water molecules surround each ion and hold it in solution.",
-          "A non-polar organic liquid with low water affinity will not mix. It forms its own phase, often as a film on top.",
+          "A non-polar organic liquid barely mixes with water at all. It forms its own phase, often as a film on top.",
           "A polar neutral molecule that hydrogen-bonds behaves like water does, so it dissolves appreciably.",
-          "A hydrophobic compound with affinity for organic carbon leaves the water for the particles, and the particles settle."
+          "A water-avoiding compound that sticks to organic carbon leaves the water for the particles, and the particles settle."
         ],
         "scenarios": [
           "Small ionic species in water.",
-          "Nonpolar organic liquid with low water affinity.",
+          "Nonpolar organic liquid that barely mixes with water.",
           "Polar neutral molecule capable of hydrogen bonding.",
-          "Hydrophobic compound with strong affinity for organic-rich sediment."
+          "Water-avoiding compound that sticks strongly to organic-rich sediment."
         ],
         "choices": [
           "Often dissolves as hydrated ions.",
@@ -817,10 +817,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Why adding the same ion helps",
-      "scene": "The metal is precipitated as a carbonate, and the filtrate still reads 3.1 mg/L against a permit limit of 0.5. The carbonate dose is at the stoichiometric amount, the pH is 8.2, and somebody suggests simply adding more carbonate.",
+      "scene": "The metal is precipitated as a carbonate, and the filtered water still reads 3.1 mg/L against a permit limit of 0.5. The carbonate dose is at the stoichiometric amount, the pH is 8.2, and somebody suggests simply adding more carbonate.",
       "takeaway": "A precipitation equilibrium can be pushed by adding an ion it already contains.",
       "place": "Water and Sediment Laboratory",
-      "story": "The metal is precipitated as a carbonate, and the filtrate still reads 3.1 mg/L against a permit limit of 0.5. The carbonate dose is at the stoichiometric amount, the pH is 8.2, and somebody suggests simply adding more carbonate.",
+      "story": "The metal is precipitated as a carbonate, and the filtered water still reads 3.1 mg/L against a permit limit of 0.5. The carbonate dose is at the stoichiometric amount, the pH is 8.2, and somebody suggests simply adding more carbonate.",
       "game": {
         "type": "CHOICE",
         "title": "Why adding the same ion helps",
@@ -862,7 +862,7 @@ export const CURRICULUM = {
         "task": "The utility wants an answer this week. What does the survey sample?",
         "question": "The utility wants an answer this week. What does the survey sample?",
         "answer": "Sediment and suspended solids, alongside the water.",
-        "why": "Sampling design is where environmental chemistry is usually won or lost. Coverage in space, coverage in time and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The partitioning model predicts the hydrophobic fraction is not in the water at all, so a survey that samples only water comes back clean — and the city reads a clean water result as an all-clear. The point is to give the prediction a real chance to be wrong.",
+        "why": "Sampling design is where environmental chemistry is usually won or lost. Coverage in space, coverage in time and coverage across phases each buy a different kind of certainty, and a striking photograph of an oily bank buys none of them. The partitioning model predicts the water-avoiding part of it is not in the water at all, so a survey that samples only water comes back clean — and the city reads a clean water result as an all-clear. The point is to give the prediction a real chance to be wrong.",
         "rebuttals": [
           "High-frequency sampling at the intake is where the decision gets made, and it measures one phase of a system with four.",
           "Upstream comparison sites are what make any concentration mean something, and they are the next call rather than this one.",
@@ -1510,16 +1510,16 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Only treatment-plant effluent was sampled. → Sample representative endpoints and vulnerable zones. 2. Samples from the pipe network were collected after long flushing. → Document flushing and sample under realistic use conditions. 3. The method detection limit exceeds the release limit. → Use a more sensitive validated method. 4. The same laboratory tuned the treatment and then checked the final results. → Add an independent check or review.",
+        "answer": "1. Only the water leaving the treatment plant was sampled. → Sample representative endpoints and vulnerable zones. 2. Samples from the pipe network were collected after long flushing. → Document flushing and sample under realistic use conditions. 3. The method detection limit exceeds the release limit. → Use a more sensitive validated method. 4. The same laboratory tuned the treatment and then checked the final results. → Add an independent check or review.",
         "why": "Verification has several separate weak points and each has its own remedy. Sampling only the treatment plant leaves the endpoints and vulnerable zones untested, and those are where people actually drink. Sampling after long flushing measures water nobody will receive, so the flushing has to be documented and realistic use conditions sampled. A detection limit above the release limit cannot test the standard at all. And one laboratory doing both the optimisation and the verification has marked its own work.",
         "rebuttals": [
-          "Effluent-only sampling misses the endpoints and vulnerable zones where the exposure actually happens. Sample where people drink.",
+          "Sampling only the water leaving the plant misses the endpoints and vulnerable zones where the exposure actually happens. Sample where people drink.",
           "Samples taken after long flushing describe water nobody receives. Document the flushing and sample under realistic use.",
           "A detection limit above the release limit cannot test the standard. A more sensitive validated method is the only fix.",
           "One laboratory optimising and then verifying its own treatment is marking its own work. That gap is closed by independent review, not by better chemistry."
         ],
         "scenarios": [
-          "Only treatment-plant effluent was sampled.",
+          "Only the water leaving the treatment plant was sampled.",
           "Samples from the pipe network were collected after long flushing.",
           "The method detection limit exceeds the release limit.",
           "The same laboratory tuned the treatment and then checked the final results."
@@ -2202,7 +2202,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "Ninety-four per cent is a true statement about the water and a false one about the contaminant. Destruction would show as loss to a measured, benign product — not as 71 kg of solids.",
           "Flow and residence time are at design values, so the plant is doing exactly what it was built to do. That is the point: this is the designed outcome, not a malfunction.",
-          "An overstated influent would open a gap, but it cannot put 71 kg into the sludge. The solids were weighed and analysed independently.",
+          "An overstated figure for what came in would open a gap, but it cannot put 71 kg into the sludge. The solids were weighed and analysed independently.",
           "Twenty per cent is not measurement uncertainty. Calling it that is how a transformation product leaves a plant unmeasured and turns up downstream."
         ],
         "figure": {
@@ -2211,7 +2211,7 @@ export const CURRICULUM = {
           "caption": "Mass balance across the pilot treatment train for one campaign.",
           "bars": [
             {
-              "name": "Influent",
+              "name": "Water in",
               "value": 100,
               "display": "100 kg",
               "status": "normal"
@@ -2293,14 +2293,14 @@ export const CURRICULUM = {
           },
           {
             "label": "The treatment destroyed 94% of the contaminant",
-            "mechanism": "Influent minus effluent is the removal efficiency."
+            "mechanism": "What came in minus what left in the water is the removal efficiency."
           },
           {
             "label": "The plant is running outside its design conditions",
             "mechanism": "Off-spec flow or residence time would explain an unexpected result."
           },
           {
-            "label": "The influent measurement was too high",
+            "label": "The measurement of what came in was too high",
             "mechanism": "An overstated input would create an apparent gap at the end."
           },
           {
@@ -2328,7 +2328,7 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "1. Oxidise the dissolved metal to the oxidation state that forms an insoluble hydroxide. 2. Raise the pH to the window where that hydroxide is least soluble. 3. Settle and filter, taking the solid out of the water. 4. Polish the filtrate on activated carbon for what stayed dissolved.",
+        "answer": "1. Oxidise the dissolved metal to the oxidation state that forms an insoluble hydroxide. 2. Raise the pH to the window where that hydroxide is least soluble. 3. Settle and filter, taking the solid out of the water. 4. Polish the filtered water on activated carbon for what stayed dissolved.",
         "why": "A treatment train is not four independent machines. Each stage changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing — or worse than nothing. Solubility is the pivot. Precipitation has nothing to work with until the metal is in the oxidised form that makes an insoluble hydroxide, and the solid cannot be filtered until the pH has actually made it. Carbon is a polishing step: send it suspended solids and the bed blinds within hours.",
         "rebuttals": [
           "Oxidise first. Precipitation has nothing to work with until the metal is in the oxidation state that forms an insoluble hydroxide.",
@@ -2340,7 +2340,7 @@ export const CURRICULUM = {
           "Oxidise the dissolved metal to the oxidation state that forms an insoluble hydroxide.",
           "Raise the pH to the window where that hydroxide is least soluble.",
           "Settle and filter, taking the solid out of the water.",
-          "Polish the filtrate on activated carbon for what stayed dissolved."
+          "Polish the filtered water on activated carbon for what stayed dissolved."
         ],
         "order": [
           0,
@@ -2438,10 +2438,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "What the current actually removes",
-      "scene": "The electrochemical polishing cell has run for six hours at forty amperes, and the plant wants to know how much metal that should have taken out before it trusts the effluent number.",
+      "scene": "The electrochemical polishing cell has run for six hours at forty amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
       "takeaway": "Charge passed and mass deposited are proportional, which makes an electrochemical cell auditable.",
       "place": "Treatment Plant Gallery",
-      "story": "The electrochemical polishing cell has run for six hours at forty amperes, and the plant wants to know how much metal that should have taken out before it trusts the effluent number.",
+      "story": "The electrochemical polishing cell has run for six hours at forty amperes. Before the plant trusts the number for the water leaving it, it wants to know how much metal that should have taken out.",
       "game": {
         "type": "CHOICE",
         "title": "What the current actually removes",
@@ -2450,7 +2450,7 @@ export const CURRICULUM = {
         "task": "Six hours at forty amperes. What does that fix about the amount of metal removed?",
         "question": "Six hours at forty amperes. What does that fix about the amount of metal removed?",
         "answer": "The charge passed sets an upper bound on the moles deposited, through the electrons each ion needs.",
-        "why": "Current times time is charge, and charge divided by the Faraday constant is moles of electrons. A metal ion needing two electrons therefore yields at most half that many moles of metal. It is an upper bound rather than an answer because some current goes to side reactions — hydrogen at the cathode, most often — so the measured mass over the theoretical mass is the cell's efficiency. That ratio is what makes the cell auditable: an effluent number inconsistent with the charge passed is wrong somewhere.",
+        "why": "Current times time is charge, and charge divided by the Faraday constant is moles of electrons. A metal ion needing two electrons therefore yields at most half that many moles of metal. It is an upper bound rather than an answer because some current goes to side reactions — hydrogen at the cathode, most often — so the measured mass over the theoretical mass is the cell's efficiency. That ratio is what makes the cell auditable: a treated-water number inconsistent with the charge passed is wrong somewhere.",
         "rebuttals": [
           "Concentration affects the rate and the efficiency; the charge is what limits the total.",
           "One electron deposits one atom only for a singly charged ion. A divalent ion needs two.",
@@ -2912,13 +2912,6 @@ export const JARGON = [
       "dilution"
     ],
     "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
-  },
-  {
-    "name": "Effluent",
-    "aliases": [
-      "effluent"
-    ],
-    "def": "The treated water leaving a plant, as opposed to the influent going in."
   },
   {
     "name": "Electrode Potential",

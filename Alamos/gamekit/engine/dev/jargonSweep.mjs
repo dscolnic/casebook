@@ -92,7 +92,7 @@ accident agent alongside ambient appreciable arithmetic arrival attention barrel
 canopy capable ceiling channel chart circle city cleaning colourless column comparison compound
 concentrate conclusion conditional confidence container continuous corner corridor council criteria
 critical daily decorative delay department depth device discoloration document downstream drinking
-duration emergency employee entrance envelope equipment evening event exact excess exit expensive
+detergent duration emergency employee entrance envelope equipment evening event exact excess exit expensive
 experiment explanation explosion extent fence fire firefighter flooding fraction freight fresh gate
 guidance handling hazard header health hospital household identification identity incident independent
 industrial information injury inspection instrument insufficient intense interchangeable interpretation

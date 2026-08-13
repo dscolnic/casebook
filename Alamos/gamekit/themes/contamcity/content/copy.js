@@ -20,6 +20,6 @@ export const COPY = {
   "READOUT_IDENT": "<b>Spectra and identity display</b> — Chromatogram peaks alongside candidate spectral matches, with the confidence rank for each provisional identity.",
   "READOUT_QUANT": "<b>Calibration and limits display</b> — The working calibration curve, today's blanks, the detection limit and the guard band around the release limit.",
   "READOUT_ENERGY": "<b>Vessel temperature display</b> — Bulk temperature against time, with the cooling capacity drawn as a line the curve must not cross.",
-  "READOUT_TREAT": "<b>Treatment train display</b> — Influent and effluent for each stage, plus the byproduct and sludge mass that leaves with them.",
+  "READOUT_TREAT": "<b>Treatment train display</b> — Water in and water out for each stage, plus the byproduct and sludge mass that leaves with them.",
   "BOARD": "<b>Response status</b> — Mission, time remaining, scientific readiness and evidence independence, open issues, credits, risk and public trust, with the projection at the deadline. The assumptions behind the projection are inspectable, so a bottleneck can be fixed rather than merely out-spent."
 };
