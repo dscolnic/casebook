@@ -160,7 +160,8 @@ missions:
   - title: Read the instrument, not the rumour
     objective: Establish what was actually measured before anybody acts on it.
     briefing: Three readings came in overnight and no two of them agree.
-    stake: A number nobody can trace is a number the team will act on anyway.
+    stake: >-
+      Tuesday morning, and three readings came off the field station overnight that nobody can trace to a single instrument. Ada Merrick, who runs the station, will not put her name to any of them until she knows which one was taken before the calibration. The response desk is ready to act on the highest of the three, and Ruth Calderón wants a decision before the ten o'clock call. Today you work out which instrument produced which number, whether the log supports any of them, and what you are entitled to say out loud. A reading acted on without a source is the one that gets repeated for a month, and the repeat is where the mistake hardens into a fact.
     takeaway: A reading is a claim, and a claim carries its conditions with it.
     stops:
       - group: G1
@@ -213,7 +214,8 @@ missions:
         place: Records Office
         scene: >
           The day's forms are in a pile and two of them contradict each other.
-          Naidoo wants them back in the order the work actually happened.
+          Priya Naidoo, the records officer, wants them back in the order the
+          work actually happened.
         takeaway: A record made after the fact is a memory, not a record.
         format: SEQUENCE
         task: Order the steps as they have to happen.
@@ -228,7 +230,8 @@ missions:
   - title: How much, and how sure
     objective: Turn a rough situation into a number with a range on it.
     briefing: Command wants a scale before it decides anything, and wants it this hour.
-    stake: A decision made on the wrong order of magnitude is the wrong decision.
+    stake: >-
+      Wednesday, and the catchment has to be sized before the crew mobilises at noon. Two estimates are on the board and they disagree by a factor of ten; both were done carefully and in good faith, which is what makes this worth an hour. Tomas Oyelaran has the measurements and will give you every one of them, including the two that do not belong in the calculation. Today you settle the order of magnitude, decide which quantities actually enter it, and say how sure you are in a way somebody else can check. A decision made on the wrong power of ten is the wrong decision however careful the arithmetic underneath it was.
     takeaway: An estimate with its assumptions written down beats a precise number without them.
     stops:
       - group: G2
@@ -261,6 +264,7 @@ missions:
           units: m³
           solution: V = 12 × 8 × 0.15 ≈ 14 m³.
           explanation: Depth times area is volume; the duration and the density do not enter it.
+          relationship: Volume = length × width × the rise in depth, with the duration and the density not entering it.
       - group: G1
         task: Decide which explanation fits every reading
         title: The panel that rules things out
@@ -279,10 +283,10 @@ missions:
           - { zone: Blank, label: Signal, value: high, status: alarm }
           - { zone: Pump, label: Pressure, value: steady, status: normal, note: rules out a leak }
         choices:
-          - { label: The site concentration really has risen, mechanism: Channel A is reading a real change at the site. }
+          - { label: The concentration at the site has genuinely risen, mechanism: Channel A is reading a real change out at the site. }
           - { label: Something in the instrument is contributing signal, mechanism: The blank sees it too, so it is not coming from the sample. }
-          - { label: The sample line is leaking, mechanism: Air drawn in would dilute what reaches the detector. }
-          - { label: Nothing to explain, mechanism: Ordinary variation, no cause needed. }
+          - { label: The sample line is drawing in air somewhere, mechanism: A leak would dilute what reaches the detector. }
+          - { label: Ordinary variation, with nothing to explain, mechanism: Scatter this size needs no cause beyond chance. }
         answer: Something in the instrument is contributing signal
         why: A signal that appears in the blank was never evidence about the site.
       - group: G4
@@ -308,7 +312,8 @@ missions:
   - title: What the record does not say
     objective: Work out what happened from an account written by somebody who was not there.
     briefing: The only description of the first hour is a form filled in afterwards.
-    stake: A gap treated as a zero becomes a fact nobody can trace back.
+    stake: >-
+      Thursday, and the record has a six-hour hole in it where an instrument was offline and nobody logged the outage. The report going out at five treats that gap as a zero, which is the one reading nobody took. Priya Naidoo found it by reading the form for what it had no room to say, and she will not sign a summary that quietly fills it in. Today you find what the record does not say, decide whether the missing hours change the conclusion at all, and choose what goes in their place. A gap read as a zero becomes a fact nobody can trace back to a measurement, and it outlives everyone who knew better.
     takeaway: A missing entry is not a measurement of nothing.
     stops:
       - group: G3
@@ -322,10 +327,10 @@ missions:
         format: CHOICE
         question: The form leaves the wind field blank. What does that tell you?
         choices:
-          - There was no wind.
-          - The wind was too low to matter.
+          - The wind was calm for the whole period, so it changes nothing.
+          - The wind was too low that morning to have affected the reading.
           - Nobody recorded the wind, and it is unknown.
-          - The instrument failed.
+          - The instrument failed and the wind never entered the record.
         answer: Nobody recorded the wind, and it is unknown.
         why: A blank field records who wrote the form, not what the world was doing.
         rebuttals:
@@ -375,7 +380,8 @@ missions:
   - title: Handing it to somebody who acts on it
     objective: Turn a week of evidence into something another team can use without you.
     briefing: The response team takes over tomorrow and will not have you to ask.
-    stake: Work nobody else can follow is work that gets repeated.
+    stake: >-
+      Friday, and the week's work goes to the group that will act on it, none of whom were here for any of it. Ruth Calderón has an hour of your time and a decision to make, and Ada Merrick has three caveats she thinks cannot be dropped without making the whole thing misleading. Today you decide what has to travel with the numbers, what order somebody has to read them in, and which piece of uncertainty stays attached however inconvenient it is. Work nobody else can follow is work that gets done again by somebody with less time, and the second pass is where the mistakes get made.
     takeaway: A handover states what is known, how well, and what was never established.
     stops:
       - group: G2
@@ -389,10 +395,10 @@ missions:
         format: CHOICE
         question: Which sentence is safe to hand over?
         choices:
-          - The site reads 0.42 units.
+          - The site reads 0.42 units, which is the figure to report onward.
           - The site reads 0.42 units, measured after calibration, at one location, at 09:10.
-          - The site is around 0.4, give or take.
-          - The site is within limits.
+          - The site is around 0.4 units, give or take, on this morning's evidence.
+          - The site is within limits, on every reading taken so far today.
         answer: The site reads 0.42 units, measured after calibration, at one location, at 09:10.
         why: The conditions travel with the number, so the next reader cannot drop them.
         rebuttals:
