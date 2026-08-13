@@ -2732,10 +2732,19 @@ export const JARGON = [
     "aliases": [
       "anion",
       "anions",
-      "polyatomic anion"
+      "polyatomic anion",
+      "polyatomic anions"
     ],
-    "def": "A negatively charged ion — an atom or group that has gained electrons. A polyatomic anion is several atoms carrying one charge together, like sulfate or nitrate.",
+    "def": "An ion carrying negative charge, because it has gained electrons. A polyatomic anion is several atoms holding one charge together, like sulfate or nitrate.",
     "core": true
+  },
+  {
+    "name": "Ion",
+    "aliases": [
+      "ion",
+      "ions"
+    ],
+    "def": "An atom, or a group of atoms, that carries an electric charge because it has gained or lost electrons."
   },
   {
     "name": "Arrhenius Behavior",

@@ -1,7 +1,7 @@
 // jargonDepth.mjs — how much vocabulary a word is built out of, and whether the
 // game introduced those parts first.
 //
-//   node engine/dev/jargonDepth.mjs <theme> [--all] [--limit N]
+//   node engine/dev/jargonDepth.mjs <theme> [--all] [--limit N] [--check]
 //
 // `jargonSweep` asks whether a word belongs in the game at all. `checkJargon`
 // asks whether it was introduced before it was needed. Neither can see the thing
@@ -29,16 +29,28 @@
 //
 // ## The rule this exists to enforce
 //
-// A term may be introduced only after the terms it is built from. Concretely:
-// for every term the questions use, each of its defined parts must first appear
-// on an earlier day. What that catches is not a hard word — the sweep finds
-// those — but a hard word arriving in the wrong order, which is the failure that
-// makes a player feel stupid rather than taught.
+// Three rules, and `--check` enforces the first two:
+//
+//   1. NO LOAD-BEARING GAP. A part that two or more defined terms rest on has to
+//      be defined itself. One term leaning on one undefined word is an author's
+//      shorthand; three terms leaning on the same one is a concept the game
+//      forgot to teach — "ion", holding up anion, cation and ligand in a
+//      chemistry game that never said what an ion is.
+//   2. PARTS BEFORE WHOLES. A term whose NAME is built from another term may not
+//      arrive first. "Polyatomic anion" is unreadable without anion; a
+//      definition that leans on a later term is reported, not failed, because it
+//      only bites a player who opens the glossary.
+//   3. A DEPTH CEILING THAT RISES. Day one may introduce a term built on one
+//      other term and no more: ceiling 2, then one more every two days, to a
+//      cap of 6, which a fifteen-day campaign reaches on day eleven. A six-concept stack is a fair thing to ask in the last week and
+//      an unfair one on the first morning. Reported, not failed — Project Y
+//      breaks it on six days, and that is a content project rather than a bug.
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
 
 const args = process.argv.slice(2);
+const checkMode = args.includes('--check');
 const limit = Number(args[args.indexOf('--limit') + 1]) || 25;
 const wanted = args.includes('--all') ? themeNames() : [args[0]].filter(Boolean);
 if(!wanted.length){
@@ -46,6 +58,7 @@ if(!wanted.length){
   process.exit(2);
 }
 
+let failures = 0;
 const { ordinary, norm, stems } = await import(pathToFileURL(resolve(import.meta.dirname, '../../tools/common-words.mjs')).href);
 const { claimedWords, claimsWord } = await import(pathToFileURL(resolve(import.meta.dirname, '../../tools/syllabus.js')).href)
   .catch(() => ({ claimedWords: () => new Set(), claimsWord: () => false }));
@@ -89,12 +102,20 @@ for(const themeName of wanted){
   // A part the syllabus claims is prior knowledge the course is entitled to
   // expect — "electron" and "atomic number" are the first week of any chemistry
   // class. It is not a gap; it is the floor the game is allowed to stand on.
+  // Los Alamos is a place, Oppenheimer is a person, and neither is a concept a
+  // definition is built on. Same rule the sweep uses, same reason.
+  const properNames = new Set();
+  for(const p of [...(content.ROSTER ?? []), ...(content.LEADERS ?? [])])
+    for(const w of words(p?.name)) properNames.add(norm(w));
+  for(const g of content.GROUPS ?? []) for(const w of words(g?.name)) properNames.add(norm(w));
+  for(const w of words([theme.title, theme.subtitle, theme.name].filter(Boolean).join(' '))) properNames.add(norm(w));
   const claimed = claimedWords(themeName);
   // Also a shorter word the syllabus names in a longer one: "atom" under "atomic
   // number". The matcher's own floor is five letters, which is right for a queue
   // of long words and wrong here, where the roots are the whole question.
   const assumed = (w) => claimsWord(themeName, w, claimed)
-    || [...new Set([w, ...stems(w)])].some(r => r.length >= 4 && [...claimed].some(c => c.startsWith(r)));
+    || [...new Set([w, ...stems(w)])].some(r => r.length >= 3 && (claimed.exact?.has(r)
+      || (r.length >= 4 && [...claimed].some(c => c.startsWith(r)))));
   const HOLLOW = /course concept used in|should be defined|in the game, the term/i;
   const defined = (t) => t?.def && !HOLLOW.test(t.def);
 
@@ -105,20 +126,27 @@ for(const themeName of wanted){
     const inName = words(t?.name).map(norm).filter(w => technical(w) && !own.has(w));
     const inDef = defined(t) ? words(t.def).map(norm).filter(technical) : [];
     const out = new Map();
-    // multiword terms, matched whole against the definition
+    // multiword terms, matched whole against the definition. A phrase that
+    // matches consumes its own words: "polyatomic anion" resolves to Anion, and
+    // reporting "polyatomic" as undefined underneath it is the same fact twice.
+    const consumed = new Set();
     if(defined(t)){
       const hay = t.def.toLowerCase();
-      for(const { phrase, p } of byPhrase.map(x => ({ phrase: x.phrase, p: x.t }))){
+      for(const { phrase, t: p } of byPhrase){
         if(p === t || own.has(norm(phrase.replace(/\s+/g, '')))) continue;
-        if(defined(p) && hay.includes(phrase)) out.set(phrase, p);
+        if(defined(p) && hay.includes(phrase)){
+          out.set(phrase, { dep: p, fromName: false });
+          for(const w of words(phrase)) consumed.add(norm(w));
+        }
       }
     }
     for(const w of [...inName, ...inDef]){
+      if(consumed.has(w)) continue;
       if(own.has(w) && !inName.includes(w)) continue;
       const dep = byWord.get(w);
       if(dep === t) continue;
-      if(dep && defined(dep)){ out.set(w, dep); continue; }
-      if(assumed(w)) continue;                       // the course may expect it
+      if(dep && defined(dep)){ out.set(w, { dep, fromName: inName.includes(w) }); continue; }
+      if(assumed(w) || properNames.has(w)) continue;  // the course may expect it; a name is not a concept
       if(!out.has(w)) out.set(w, null);              // null = a gap
     }
     return out;
@@ -130,7 +158,7 @@ for(const themeName of wanted){
     if(depth.has(t)) return depth.get(t);
     if(seen.has(t)) return 1;                       // a definition that circles back
     seen.add(t);
-    const deps = [...parts.get(t).values()].filter(Boolean);
+    const deps = [...parts.get(t).values()].filter(Boolean).map(v => v.dep);
     const d = deps.length ? 1 + Math.max(...deps.map(x => measure(x, seen))) : 1;
     seen.delete(t);
     depth.set(t, d);
@@ -163,50 +191,92 @@ for(const themeName of wanted){
   const rows = used.map(t => ({
     t, d: depth.get(t), day: dayOf(t),
     gaps: [...parts.get(t).entries()].filter(([, dep]) => !dep).map(([w]) => w),
-    deps: [...parts.get(t).entries()].filter(([, dep]) => dep).map(([w, dep]) => ({ w, dep })),
+    deps: [...parts.get(t).entries()].filter(([, v]) => v).map(([w, v]) => ({ w, dep: v.dep, fromName: v.fromName })),
   }));
 
   // Out of order: a part the player has to hold first, that the game shows later.
   // Same day is allowed — a definition can arrive in the same morning — but a
   // later day is the failure this whole tool is for.
+  // Two kinds, and they are not the same failure. A part of the NAME is one the
+  // player has to parse to read the phrase at all — "polyatomic anion" is unread
+  // able without anion. A part of the DEFINITION only bites if they open the
+  // glossary. The first is a gate; the second is worth knowing.
   const outOfOrder = [];
+  const lateInDef = [];
   for(const r of rows){
-    for(const { dep } of r.deps){
+    for(const { dep, fromName } of r.deps){
       const dd = dayOf(dep);
-      if(dd > r.day) outOfOrder.push({ r, dep, dd });
+      if(!Number.isFinite(dd) || dd <= r.day) continue;   // never used, or already met
+      (fromName ? outOfOrder : lateInDef).push({ r, dep, dd });
     }
   }
 
   // A gap ranked by how much of the glossary leans on it: "ion" holding up anion
   // and cation is a different problem from one term using one undefined word.
+  // Ceiling: 2 on day one, one more every three days, capped at 6.
+  const ceilingFor = (day) => Math.min(6, 2 + Math.floor((day - 1) / 2));
   const gapWeight = new Map();
   for(const r of rows) for(const g of r.gaps) gapWeight.set(g, (gapWeight.get(g) ?? 0) + 1);
 
   const deep = rows.filter(r => r.d >= 2).sort((a, b) => b.d - a.d || a.day - b.day);
-  console.log(`\n#### ${themeName}: ${rows.length} glossary term(s) the game uses — `
+  if(!checkMode) console.log(`\n#### ${themeName}: ${rows.length} glossary term(s) the game uses — `
     + `${deep.length} built on other terms, ${[...gapWeight.keys()].length} part(s) nothing defines`);
 
-  console.log(`\n  DEPTH — built on other terms, deepest first:`);
-  for(const r of deep.slice(0, limit)){
+  if(!checkMode) console.log(`\n  DEPTH — built on other terms, deepest first:`);
+  if(!checkMode) for(const r of deep.slice(0, limit)){
     const chain = r.deps.map(({ w, dep }) => `${w}→${dep.name}(${depth.get(dep)})`).join(', ');
     console.log(`    ${r.d}  ${r.t.name}  · first seen d${r.day}`);
     console.log(`        built on: ${chain || '—'}${r.gaps.length ? `  · never defined: ${r.gaps.join(', ')}` : ''}`);
   }
-  if(deep.length > limit) console.log(`    … ${deep.length - limit} more (--limit ${deep.length})`);
+  if(!checkMode && deep.length > limit) console.log(`    … ${deep.length - limit} more (--limit ${deep.length})`);
 
-  console.log(`\n  GAPS — a part of a defined term that nothing defines, most depended on first:`);
+  if(!checkMode) console.log(`\n  GAPS — a part of a defined term that nothing defines, most depended on first:`);
   const gaps = [...gapWeight.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-  for(const [w, n] of gaps.slice(0, limit)){
+  if(!checkMode) for(const [w, n] of gaps.slice(0, limit)){
     const owners = rows.filter(r => r.gaps.includes(w)).map(r => r.t.name).slice(0, 4);
     console.log(`    ${w}  — ${n} term(s) built on it: ${owners.join(', ')}${n > 4 ? ' …' : ''}`
       + (firstDay.has(w) ? `  · the player first reads it on d${firstDay.get(w)}` : ''));
   }
-  if(gaps.length > limit) console.log(`    … ${gaps.length - limit} more`);
+  if(!checkMode && gaps.length > limit) console.log(`    … ${gaps.length - limit} more`);
 
-  console.log(`\n  OUT OF ORDER — a term arrives before the term it is built from:`);
-  if(!outOfOrder.length) console.log(`    (none)`);
-  for(const { r, dep, dd } of outOfOrder.sort((a, b) => a.r.day - b.r.day).slice(0, limit)){
+  if(!checkMode) console.log(`\n  OUT OF ORDER — a term whose NAME is built from a term the player meets later:`);
+  if(!checkMode && !outOfOrder.length) console.log(`    (none)`);
+  if(!checkMode) for(const { r, dep, dd } of outOfOrder.sort((a, b) => a.r.day - b.r.day).slice(0, limit)){
     console.log(`    d${r.day} ${r.t.name} needs ${dep.name}, first seen d${dd}`);
   }
-  if(outOfOrder.length > limit) console.log(`    … ${outOfOrder.length - limit} more`);
+  if(!checkMode && outOfOrder.length > limit) console.log(`    … ${outOfOrder.length - limit} more`);
+
+  const overCeiling = rows.filter(r => r.d > ceilingFor(r.day)).sort((a, b) => a.day - b.day || b.d - a.d);
+  if(!checkMode) console.log(`\n  OVER THE CEILING — deeper than the day allows (day 1 allows 2, one more every two days):`);
+  if(!checkMode && !overCeiling.length) console.log(`    (none)`);
+  if(!checkMode) for(const r of overCeiling.slice(0, limit)){
+    console.log(`    d${r.day} ${r.t.name} is ${r.d} deep, ceiling ${ceilingFor(r.day)}`);
+  }
+  if(!checkMode && overCeiling.length > limit) console.log(`    … ${overCeiling.length - limit} more`);
+
+  if(!checkMode) console.log(`\n  LATE IN THE GLOSSARY — a definition leans on a term the player meets later:`);
+  if(!checkMode && !lateInDef.length) console.log(`    (none)`);
+  if(!checkMode) for(const { r, dep, dd } of lateInDef.sort((a, b) => a.r.day - b.r.day).slice(0, limit)){
+    console.log(`    d${r.day} ${r.t.name} is defined with ${dep.name}, first seen d${dd}`);
+  }
+  if(!checkMode && lateInDef.length > limit) console.log(`    … ${lateInDef.length - limit} more`);
+
+  if(checkMode){
+    const loadBearing = [...gapWeight.entries()].filter(([, n]) => n >= 2);
+    const problems = [
+      ...loadBearing.map(([w, n]) => `"${w}" holds up ${n} defined term(s) and nothing defines it`),
+      ...outOfOrder.map(({ r, dep, dd }) => `${r.t.name} (d${r.day}) is named from ${dep.name}, first seen d${dd}`),
+    ];
+    if(problems.length){
+      console.error(`\n✗ theme "${themeName}" jargon depth: ${problems.length} problem(s)`);
+      problems.forEach(p => console.error('  ✗ ' + p));
+      failures += problems.length;
+    } else {
+      console.log(`\n✓ theme "${themeName}": no term rests on an undefined part, and no name arrives before the term it is built from`);
+    }
+    const notes = overCeiling.length + lateInDef.length;
+    if(notes) console.log(`  · ${overCeiling.length} term(s) over the day's depth ceiling, ${lateInDef.length} defined with a term the player meets later`);
+  }
 }
+
+if(checkMode) process.exit(failures ? 1 : 0);

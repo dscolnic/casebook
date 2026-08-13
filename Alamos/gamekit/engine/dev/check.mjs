@@ -21,8 +21,8 @@ if(!wanted.length){
 let failed = 0;
 for(const theme of wanted){
   for(const tool of ['validateContent.mjs', 'smokeCampaign.mjs', 'probeQuestions.mjs', 'personStops.mjs',
-                     'checkStory.mjs', 'checkNames.mjs', 'checkJargon.mjs', 'bookParity.mjs']){
-    const res = spawnSync(process.execPath, [resolve(here, tool), theme],
+                     'checkStory.mjs', 'checkNames.mjs', 'checkJargon.mjs', 'jargonDepth.mjs', 'bookParity.mjs']){
+    const res = spawnSync(process.execPath, [resolve(here, tool), theme, ...(tool === 'jargonDepth.mjs' ? ['--check'] : [])],
       { stdio: 'inherit', cwd: resolve(here, '../..') });
     if(res.status !== 0) failed++;
   }
