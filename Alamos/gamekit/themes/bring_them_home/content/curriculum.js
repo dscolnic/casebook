@@ -1335,7 +1335,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits the gas, pressure, flow, and electrical readings together?",
         "question": "Which explanation fits the gas, pressure, flow, and electrical readings together?",
         "answer": "Blocked scrubber flow path",
-        "why": "Powering a machine is not the same as achieving its function, and this panel measures both the machine and the quantity it is supposed to move. A fan spinning against a blocked path draws its current and moves almost no air, so normal current proves the motor is turning and nothing else. Airflow is low and the pressure drop across the filter is high, which is a restriction. Total cabin pressure is stable, so nothing is leaking. The carbon dioxide is being produced and never reaching the sorbent.",
+        "why": "Powering a machine is not the same as achieving its function, and this panel measures both the machine and the quantity it is supposed to move. A fan spinning against a blocked path draws its current and moves almost no air, so normal current proves the motor is turning and nothing else. Airflow is low and the pressure drop across the filter is high, which is a restriction. Total cabin pressure is stable, so nothing is leaking. The carbon dioxide is being produced and never reaching the scrubber.",
         "rebuttals": [
           "An unpowered fan would draw no current. This one draws its normal current — the motor is fine and the air still is not moving.",
           "A leak would drop total cabin pressure, and the pressure is stable. Gas is not leaving the spacecraft.",
@@ -1417,20 +1417,20 @@ export const CURRICULUM = {
         "play": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
         "task": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
         "question": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
-        "answer": "A sealed flow path that forces cabin air through the sorbent.",
-        "why": "Two things have to be true at once: enough sorbent surface to take the carbon dioxide chemically, and a sealed path that forces cabin air through it rather than around it. Bypass is the failure mode that looks like success. The fan runs, the crew hears it, and the concentration keeps climbing — because sorbent only removes carbon dioxide from air that actually crosses it. A large sorbent bed with a gap around it removes less than a small one with no gap.",
+        "answer": "A sealed flow path that forces cabin air through the scrubber.",
+        "why": "Two things have to be true at once: enough scrubber surface to take the carbon dioxide chemically, and a sealed path that forces cabin air through it rather than around it. Bypass is the failure mode that looks like success. The fan runs, the crew hears it, and the concentration keeps climbing — because sorbent only removes carbon dioxide from air that actually crosses it. A large sorbent bed with a gap around it removes less than a small one with no gap.",
         "rebuttals": [
           "Exposed area helps only for the fraction of the air that reaches it. A large sorbent bed with a gap around it removes less than a small one with none.",
           "Measuring in several places is how the crew finds out whether the fix worked, which is necessary and is not the fix.",
           "An audible fan proves a motor is turning. It says nothing about how much air is moving, or where."
         ],
         "choices": [
-          "A sealed flow path that forces cabin air through the sorbent.",
-          "As much exposed sorbent area as the canister allows.",
+          "A sealed flow path that forces cabin air through the scrubber.",
+          "As much exposed scrubber surface as the canister allows.",
           "A carbon dioxide reading taken at several cabin locations.",
           "Enough fan speed that the crew can hear it running."
         ],
-        "correctChoice": "A sealed flow path that forces cabin air through the sorbent."
+        "correctChoice": "A sealed flow path that forces cabin air through the scrubber."
       },
       "assumes": [
         "air, like water, takes the easiest path it is offered"
@@ -1773,13 +1773,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "A burn whose expected shift is smaller than its own execution uncertainty moves the nominal without reducing the risk, and spends propellant doing it.",
           "Preserving propulsion is the consequence of not burning rather than a decision in its own right, and it leaves the disagreement exactly where it was.",
-          "Updating the predictions across the covariance says how bad the disagreement is. It adds no new information about which station is right."
+          "Updating the predictions across every linked uncertainty says how bad the disagreement is. It adds no new information about which station is right."
         ],
         "choices": [
           "No — obtain one more independent, high-leverage observation.",
           "Yes — execute the correction the current solution calls for.",
           "No — preserve propulsion and accept the corridor as it stands.",
-          "No — update the entry predictions across the full covariance first."
+          "No — update the entry predictions across every linked uncertainty first."
         ],
         "correctChoice": "No — obtain one more independent, high-leverage observation."
       },

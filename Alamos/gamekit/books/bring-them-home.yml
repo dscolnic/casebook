@@ -948,7 +948,7 @@ missions:
           - label: CO2 sensor bias
             mechanism: The gas is normal and only one concentration measurement is wrong.
         answer: Blocked scrubber flow path
-        why: Powering a machine is not the same as achieving its function, and this panel measures both the machine and the quantity it is supposed to move. A fan spinning against a blocked path draws its current and moves almost no air, so normal current proves the motor is turning and nothing else. Airflow is low and the pressure drop across the filter is high, which is a restriction. Total cabin pressure is stable, so nothing is leaking. The carbon dioxide is being produced and never reaching the sorbent.
+        why: Powering a machine is not the same as achieving its function, and this panel measures both the machine and the quantity it is supposed to move. A fan spinning against a blocked path draws its current and moves almost no air, so normal current proves the motor is turning and nothing else. Airflow is low and the pressure drop across the filter is high, which is a restriction. Total cabin pressure is stable, so nothing is leaking. The carbon dioxide is being produced and never reaching the scrubber.
       - group: THERM
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
         title: CO2 production scale
@@ -991,12 +991,12 @@ missions:
           - air, like water, takes the easiest path it is offered
         question: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
         choices:
-          - A sealed flow path that forces cabin air through the sorbent.
-          - As much exposed sorbent area as the canister allows.
+          - A sealed flow path that forces cabin air through the scrubber.
+          - As much exposed scrubber surface as the canister allows.
           - A carbon dioxide reading taken at several cabin locations.
           - Enough fan speed that the crew can hear it running.
-        answer: A sealed flow path that forces cabin air through the sorbent.
-        why: "Two things have to be true at once: enough sorbent surface to take the carbon dioxide chemically, and a sealed path that forces cabin air through it rather than around it. Bypass is the failure mode that looks like success. The fan runs, the crew hears it, and the concentration keeps climbing — because sorbent only removes carbon dioxide from air that actually crosses it. A large sorbent bed with a gap around it removes less than a small one with no gap."
+        answer: A sealed flow path that forces cabin air through the scrubber.
+        why: "Two things have to be true at once: enough scrubber surface to take the carbon dioxide chemically, and a sealed path that forces cabin air through it rather than around it. Bypass is the failure mode that looks like success. The fan runs, the crew hears it, and the concentration keeps climbing — because sorbent only removes carbon dioxide from air that actually crosses it. A large sorbent bed with a gap around it removes less than a small one with no gap."
         rebuttals:
           - Exposed area helps only for the fraction of the air that reaches it. A large sorbent bed with a gap around it removes less than a small one with none.
           - Measuring in several places is how the crew finds out whether the fix worked, which is necessary and is not the fix.
@@ -1473,7 +1473,7 @@ missions:
     objective: Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.
     briefing: Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.
     stake: A hundred and six hours in, and it is Carter's turn — she has been waiting four days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was correct on the third shift. This shift you decide whether the trajectory really moved. Carter's rule is that a correction is worth making only when it is bigger than the error in knowing it, and she will say so in front of the room.
-    takeaway: Use random and systematic error, weighted averages, covariance, propagation, decision thresholds as an evidence chain rather than as isolated facts.
+    takeaway: Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.
     stops:
       - group: NAV
         task: Which explanation fits the ranging, angle, clock, and independent-time checks?
@@ -1571,13 +1571,13 @@ missions:
           - No — obtain one more independent, high-leverage observation.
           - Yes — execute the correction the current solution calls for.
           - No — preserve propulsion and accept the corridor as it stands.
-          - No — update the entry predictions across the full covariance first.
+          - No — update the entry predictions across every linked uncertainty first.
         answer: No — obtain one more independent, high-leverage observation.
         why: "Both stations share a clock model, so their agreement was never independent and their disagreement does not say which one is wrong. Only a measurement that cannot fail the same way can settle it. There is a second reason to wait: a correction burn carries its own execution uncertainty, roughly the size of the disagreement being argued about, so burning now would move the vehicle by about as much as the number might be wrong. A correction is worth making when it reduces risk, not when it moves the nominal."
         rebuttals:
           - A burn whose expected shift is smaller than its own execution uncertainty moves the nominal without reducing the risk, and spends propellant doing it.
           - Preserving propulsion is the consequence of not burning rather than a decision in its own right, and it leaves the disagreement exactly where it was.
-          - Updating the predictions across the covariance says how bad the disagreement is. It adds no new information about which station is right.
+          - Updating the predictions across every linked uncertainty says how bad the disagreement is. It adds no new information about which station is right.
   - title: Reentry
     objective: Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.
     briefing: "The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere, thermal shield, communications, and recovery."

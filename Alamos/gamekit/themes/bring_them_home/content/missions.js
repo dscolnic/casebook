@@ -320,7 +320,7 @@ export const MISSIONS = [
     "objective": "Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.",
     "briefing": "Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.",
     "stake": "A hundred and six hours in, and it is Carter's turn — she has been waiting four days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was correct on the third shift. This shift you decide whether the trajectory really moved. Carter's rule is that a correction is worth making only when it is bigger than the error in knowing it, and she will say so in front of the room.",
-    "takeaway": "Use random and systematic error, weighted averages, covariance, propagation, decision thresholds as an evidence chain rather than as isolated facts.",
+    "takeaway": "Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "NAV",

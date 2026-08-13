@@ -143,6 +143,10 @@ purity recover reorganise repulsion scientist segment segregate silence stable s
 symmetrical temptation theoretical tolerance vary variation blackboard bookkeeping
 accept acceptable background diagnostic hypotheses impurity instability lives measurably prompt
 radiological saturate stabilise throughput unstable
+affordable atmosphere atmospheric compress condensation consumable contradictory corruption descent
+dissipate distant endurance geometry gradient improvise intermittent moderate orientation perpendicular
+quality reconstruct refine reliability simulation subtract timeline timestamp transition transmit
+accelerometer propel propulsion transmitter unambiguous vibration voltmeter
 `.trim().split(/\s+/).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has
