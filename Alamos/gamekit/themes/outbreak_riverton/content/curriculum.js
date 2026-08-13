@@ -2173,7 +2173,8 @@ export const JARGON = [
       "antibody",
       "antibodies"
     ],
-    "def": "A protein the immune system makes that binds one specific target."
+    "def": "A protein the immune system makes that binds one specific target.",
+    "core": true
   },
   {
     "name": "Catalysis",
@@ -2183,7 +2184,8 @@ export const JARGON = [
       "catalyse",
       "catalyze"
     ],
-    "def": "Speeding a reaction by offering an easier path, without being used up. Enzymes are the biological version."
+    "def": "Speeding a reaction by offering an easier path, without being used up. Enzymes are the biological version.",
+    "core": true
   },
   {
     "name": "Codon",
@@ -2206,7 +2208,8 @@ export const JARGON = [
       "diffusion",
       "diffuses"
     ],
-    "def": "Movement from where there is more to where there is less, with no energy spent. It is why a small molecule crosses a membrane on its own."
+    "def": "Movement from where there is more to where there is less, with no energy spent. It is why a small molecule crosses a membrane on its own.",
+    "core": true
   },
   {
     "name": "Genomic sequencing",
@@ -2215,21 +2218,24 @@ export const JARGON = [
       "genome",
       "genomes"
     ],
-    "def": "Reading the agent’s genetic code, which shows how closely two cases are related."
+    "def": "Reading the agent’s genetic code, which shows how closely two cases are related.",
+    "core": true
   },
   {
     "name": "Homeostasis",
     "aliases": [
       "homeostasis"
     ],
-    "def": "The regulation that keeps internal conditions within workable ranges."
+    "def": "The regulation that keeps internal conditions within workable ranges.",
+    "core": true
   },
   {
     "name": "Incidence",
     "aliases": [
       "incidence"
     ],
-    "def": "How many new cases appear per unit of time. It is the rate; prevalence is the stock."
+    "def": "How many new cases appear per unit of time. It is the rate; prevalence is the stock.",
+    "core": true
   },
   {
     "name": "Neutralising antibody",
@@ -2237,7 +2243,8 @@ export const JARGON = [
       "neutralizing",
       "neutralising"
     ],
-    "def": "An antibody that blocks the agent from entering a cell, rather than merely marking it."
+    "def": "An antibody that blocks the agent from entering a cell, rather than merely marking it.",
+    "core": true
   },
   {
     "name": "Pathogen",
@@ -2245,7 +2252,8 @@ export const JARGON = [
       "pathogen",
       "pathogens"
     ],
-    "def": "An agent that causes disease — a virus, a bacterium, a parasite."
+    "def": "An agent that causes disease — a virus, a bacterium, a parasite.",
+    "core": true
   },
   {
     "name": "Prevalence",
@@ -2282,7 +2290,8 @@ export const JARGON = [
     "aliases": [
       "RNA"
     ],
-    "def": "The working copy of a gene, read to make a protein. Many viruses carry their whole genome as RNA."
+    "def": "The working copy of a gene, read to make a protein. Many viruses carry their whole genome as RNA.",
+    "core": true
   },
   {
     "name": "Saturation",
@@ -2304,7 +2313,8 @@ export const JARGON = [
     "aliases": [
       "sensitivity"
     ],
-    "def": "The fraction of true cases a test detects."
+    "def": "The fraction of true cases a test detects.",
+    "core": true
   },
   {
     "name": "Solute",
@@ -2319,7 +2329,8 @@ export const JARGON = [
     "aliases": [
       "specificity"
     ],
-    "def": "The fraction of unaffected cases a test correctly leaves negative."
+    "def": "The fraction of unaffected cases a test correctly leaves negative.",
+    "core": true
   },
   {
     "name": "Vector",
@@ -2327,6 +2338,7 @@ export const JARGON = [
       "vector",
       "vectors"
     ],
-    "def": "An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives."
+    "def": "An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives.",
+    "core": true
   }
 ];

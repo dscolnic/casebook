@@ -6024,7 +6024,8 @@ export const JARGON = [
       "radioactive activity",
       "activity"
     ],
-    "def": "The number of nuclear decays occurring per unit time in a sample."
+    "def": "The number of nuclear decays occurring per unit time in a sample.",
+    "core": true
   },
   {
     "name": "Adsorption",
@@ -6058,7 +6059,8 @@ export const JARGON = [
       " mev/u",
       " u/nucleon"
     ],
-    "def": "A mass unit used for atoms and nuclei. One atomic mass unit is close to the mass of one proton or neutron."
+    "def": "A mass unit used for atoms and nuclei. One atomic mass unit is close to the mass of one proton or neutron.",
+    "core": true
   },
   {
     "name": "Atomic number, Z",
@@ -6067,7 +6069,8 @@ export const JARGON = [
       "number z",
       " z "
     ],
-    "def": "The number of protons in a nucleus. It identifies the chemical element."
+    "def": "The number of protons in a nucleus. It identifies the chemical element.",
+    "core": true
   },
   {
     "name": "Background",
@@ -6093,7 +6096,8 @@ export const JARGON = [
       "barns",
       "barn"
     ],
-    "def": "A nuclear cross-section unit equal to 10⁻²⁴ square centimeters."
+    "def": "A nuclear cross-section unit equal to 10⁻²⁴ square centimeters.",
+    "core": true
   },
   {
     "name": "Binding energy",
@@ -6101,7 +6105,8 @@ export const JARGON = [
       "binding energy",
       "binding-energy"
     ],
-    "def": "The energy required to separate a nucleus into its individual protons and neutrons; equivalently, the energy released when the nucleus is formed."
+    "def": "The energy required to separate a nucleus into its individual protons and neutrons; equivalently, the energy released when the nucleus is formed.",
+    "core": true
   },
   {
     "name": "Binding energy per nucleon",
@@ -6109,7 +6114,8 @@ export const JARGON = [
       "binding energy per nucleon",
       "binding-energy-per-nucleon"
     ],
-    "def": "The average binding energy for each proton or neutron. It is a useful broad indicator of how tightly a nucleus is bound."
+    "def": "The average binding energy for each proton or neutron. It is a useful broad indicator of how tightly a nucleus is bound.",
+    "core": true
   },
   {
     "name": "Calibration",
@@ -6133,7 +6139,8 @@ export const JARGON = [
     "aliases": [
       "chain of custody"
     ],
-    "def": "A documented record of who handled a sample or component and when, preserving identity and traceability."
+    "def": "A documented record of who handled a sample or component and when, preserving identity and traceability.",
+    "core": true
   },
   {
     "name": "Chain reaction",
@@ -6141,7 +6148,8 @@ export const JARGON = [
       "chain reaction",
       "chain-reaction"
     ],
-    "def": "A process in which neutrons from one fission can cause additional fissions, producing successive generations."
+    "def": "A process in which neutrons from one fission can cause additional fissions, producing successive generations.",
+    "core": true
   },
   {
     "name": "Chemical yield",
@@ -6194,7 +6202,8 @@ export const JARGON = [
       "converging shock",
       "convergence"
     ],
-    "def": "A wave moving inward toward a central region, where its geometry can amplify pressure and sensitivity to imperfections."
+    "def": "A wave moving inward toward a central region, where its geometry can amplify pressure and sensitivity to imperfections.",
+    "core": true
   },
   {
     "name": "Corrosion",
@@ -6222,7 +6231,8 @@ export const JARGON = [
       "exactly critical",
       "critical state"
     ],
-    "def": "A state with multiplication factor equal to one, so the average neutron population remains steady."
+    "def": "A state with multiplication factor equal to one, so the average neutron population remains steady.",
+    "core": true
   },
   {
     "name": "Cross section",
@@ -6231,7 +6241,8 @@ export const JARGON = [
       "cross section",
       "cross-section"
     ],
-    "def": "A measure of the likelihood that a particle will undergo a particular interaction with a target nucleus. It has units of area."
+    "def": "A measure of the likelihood that a particle will undergo a particular interaction with a target nucleus. It has units of area.",
+    "core": true
   },
   {
     "name": "Dead time",
@@ -6248,7 +6259,8 @@ export const JARGON = [
       "lambda",
       "λ"
     ],
-    "def": "The probability per unit time that a radioactive nucleus will decay."
+    "def": "The probability per unit time that a radioactive nucleus will decay.",
+    "core": true
   },
   {
     "name": "Decision gate",
@@ -6265,7 +6277,8 @@ export const JARGON = [
       "delayed neutron",
       "delayed-neutron"
     ],
-    "def": "A neutron emitted later by certain radioactive fission products. Delayed neutrons are important for controllable reactor behavior."
+    "def": "A neutron emitted later by certain radioactive fission products. Delayed neutrons are important for controllable reactor behavior.",
+    "core": true
   },
   {
     "name": "Detector efficiency",
@@ -6276,7 +6289,8 @@ export const JARGON = [
       "efficiency correction",
       "efficiency"
     ],
-    "def": "The fraction of relevant particles or decays that a detector actually records."
+    "def": "The fraction of relevant particles or decays that a detector actually records.",
+    "core": true
   },
   {
     "name": "Detonation wave",
@@ -6284,7 +6298,8 @@ export const JARGON = [
       "detonation wave",
       "detonation"
     ],
-    "def": "A rapidly moving reaction front in high explosive, coupled to a strong shock wave."
+    "def": "A rapidly moving reaction front in high explosive, coupled to a strong shock wave.",
+    "core": true
   },
   {
     "name": "Detonator",
@@ -6292,7 +6307,8 @@ export const JARGON = [
       "detonator",
       "detonators"
     ],
-    "def": "A device that initiates a high-explosive detonation at a controlled time."
+    "def": "A device that initiates a high-explosive detonation at a controlled time.",
+    "core": true
   },
   {
     "name": "Diffusion",
@@ -6300,7 +6316,8 @@ export const JARGON = [
       "diffusion length",
       "diffusion"
     ],
-    "def": "The statistical spreading of particles through many random scattering events."
+    "def": "The statistical spreading of particles through many random scattering events.",
+    "core": true
   },
   {
     "name": "Discriminating test",
@@ -6334,7 +6351,8 @@ export const JARGON = [
       "MeV",
       "GeV"
     ],
-    "def": "The energy unit of particle physics. A chemical bond is a few eV; a nuclear event is millions of them, which is the whole difference between the two."
+    "def": "The energy unit of particle physics. A chemical bond is a few eV; a nuclear event is millions of them, which is the whole difference between the two.",
+    "core": true
   },
   {
     "name": "Energy resolution",
@@ -6352,7 +6370,8 @@ export const JARGON = [
       "explosive lenses",
       "lens system"
     ],
-    "def": "A shaped combination of explosive materials used to transform an outward detonation into a controlled converging shock pattern."
+    "def": "A shaped combination of explosive materials used to transform an outward detonation into a controlled converging shock pattern.",
+    "core": true
   },
   {
     "name": "Exponential attenuation",
@@ -6360,7 +6379,8 @@ export const JARGON = [
       "exponential attenuation",
       "attenuation"
     ],
-    "def": "The gradual reduction of an uncollided particle beam as particles interact while moving through matter."
+    "def": "The gradual reduction of an uncollided particle beam as particles interact while moving through matter.",
+    "core": true
   },
   {
     "name": "Fallout",
@@ -6375,7 +6395,8 @@ export const JARGON = [
       "fast neutron",
       "fast-neutron"
     ],
-    "def": "A neutron with relatively high kinetic energy, typically soon after being produced by fission or another nuclear reaction."
+    "def": "A neutron with relatively high kinetic energy, typically soon after being produced by fission or another nuclear reaction.",
+    "core": true
   },
   {
     "name": "Fat Man",
@@ -6390,7 +6411,8 @@ export const JARGON = [
       "firing chain",
       "firing system"
     ],
-    "def": "The ordered set of commands, safety conditions, timing elements, and outputs that leads from authorization to initiation."
+    "def": "The ordered set of commands, safety conditions, timing elements, and outputs that leads from authorization to initiation.",
+    "core": true
   },
   {
     "name": "Fissile material",
@@ -6399,7 +6421,8 @@ export const JARGON = [
       "fissile isotope",
       "fissile"
     ],
-    "def": "A material whose nuclei can sustain a neutron-driven fission chain under suitable conditions."
+    "def": "A material whose nuclei can sustain a neutron-driven fission chain under suitable conditions.",
+    "core": true
   },
   {
     "name": "Fission",
@@ -6407,14 +6430,16 @@ export const JARGON = [
       "fission",
       "fissioning"
     ],
-    "def": "The splitting of a heavy nucleus into smaller nuclei, usually accompanied by neutrons and a release of energy."
+    "def": "The splitting of a heavy nucleus into smaller nuclei, usually accompanied by neutrons and a release of energy.",
+    "core": true
   },
   {
     "name": "Fusion",
     "aliases": [
       "fusion"
     ],
-    "def": "The joining of light nuclei into a heavier nucleus, which can release energy when the final nucleus is more tightly bound."
+    "def": "The joining of light nuclei into a heavier nucleus, which can release energy when the final nucleus is more tightly bound.",
+    "core": true
   },
   {
     "name": "Fuzing",
@@ -6455,7 +6480,8 @@ export const JARGON = [
       "generation time",
       "neutron generation"
     ],
-    "def": "The characteristic time between one neutron generation and the next in a multiplying system."
+    "def": "The characteristic time between one neutron generation and the next in a multiplying system.",
+    "core": true
   },
   {
     "name": "Geometric acceptance",
@@ -6488,7 +6514,8 @@ export const JARGON = [
       "heavy water",
       "deuterium oxide"
     ],
-    "def": "Water whose hydrogen is mostly deuterium. It can slow neutrons while absorbing fewer of them than ordinary water."
+    "def": "Water whose hydrogen is mostly deuterium. It can slow neutrons while absorbing fewer of them than ordinary water.",
+    "core": true
   },
   {
     "name": "Hydrodynamic test",
@@ -6497,7 +6524,8 @@ export const JARGON = [
       "hydrodynamic testing",
       "hydrodynamics"
     ],
-    "def": "A test that studies materials moving under extreme pressure as if they were fluids, often using non-nuclear substitutes and fast diagnostics."
+    "def": "A test that studies materials moving under extreme pressure as if they were fluids, often using non-nuclear substitutes and fast diagnostics.",
+    "core": true
   },
   {
     "name": "Implosion",
@@ -6505,7 +6533,8 @@ export const JARGON = [
       "implosion",
       "implosion-development"
     ],
-    "def": "Compressing material inward from every side at once, with a converging pressure wave."
+    "def": "Compressing material inward from every side at once, with a converging pressure wave.",
+    "core": true
   },
   {
     "name": "Independent diagnostic",
@@ -6546,14 +6575,16 @@ export const JARGON = [
     "aliases": [
       "ionization chamber"
     ],
-    "def": "A detector that measures electric charge created when radiation ionizes gas."
+    "def": "A detector that measures electric charge created when radiation ionizes gas.",
+    "core": true
   },
   {
     "name": "Ionizing radiation",
     "aliases": [
       "ionizing radiation"
     ],
-    "def": "Radiation energetic enough to remove electrons from atoms or molecules, potentially damaging living tissue."
+    "def": "Radiation energetic enough to remove electrons from atoms or molecules, potentially damaging living tissue.",
+    "core": true
   },
   {
     "name": "Isotope",
@@ -6562,7 +6593,8 @@ export const JARGON = [
       "isotopes",
       "isotopic"
     ],
-    "def": "Atoms of the same element with the same number of protons but different numbers of neutrons."
+    "def": "Atoms of the same element with the same number of protons but different numbers of neutrons.",
+    "core": true
   },
   {
     "name": "Kinetic energy",
@@ -6577,7 +6609,8 @@ export const JARGON = [
       "neutron leakage",
       "leakage"
     ],
-    "def": "Neutrons escaping from the boundary of a system instead of causing further interactions inside it."
+    "def": "Neutrons escaping from the boundary of a system instead of causing further interactions inside it.",
+    "core": true
   },
   {
     "name": "Lot traceability",
@@ -6586,7 +6619,8 @@ export const JARGON = [
       "lot record",
       "batch traceability"
     ],
-    "def": "The ability to connect each finished item to its production batch, materials, process history, inspections, and test records."
+    "def": "The ability to connect each finished item to its production batch, materials, process history, inspections, and test records.",
+    "core": true
   },
   {
     "name": "Macroscopic cross section, Σ",
@@ -6596,7 +6630,8 @@ export const JARGON = [
       "sigma = n",
       "Σ"
     ],
-    "def": "The interaction probability per unit path length in a bulk material, found by multiplying microscopic cross section by target number density."
+    "def": "The interaction probability per unit path length in a bulk material, found by multiplying microscopic cross section by target number density.",
+    "core": true
   },
   {
     "name": "Mass balance",
@@ -6611,7 +6646,8 @@ export const JARGON = [
     "aliases": [
       "mass defect"
     ],
-    "def": "The difference between the summed masses of separate protons and neutrons and the smaller mass of the bound nucleus."
+    "def": "The difference between the summed masses of separate protons and neutrons and the smaller mass of the bound nucleus.",
+    "core": true
   },
   {
     "name": "Mass number, A",
@@ -6645,14 +6681,16 @@ export const JARGON = [
       "ductility",
       "hardness"
     ],
-    "def": "Measurements describing how a material responds to force, including strength, stiffness, hardness, and ability to deform without cracking."
+    "def": "Measurements describing how a material responds to force, including strength, stiffness, hardness, and ability to deform without cracking.",
+    "core": true
   },
   {
     "name": "MeV",
     "aliases": [
       "mev"
     ],
-    "def": "Mega-electron-volt, a unit of energy equal to one million electron-volts and commonly used for nuclear processes."
+    "def": "Mega-electron-volt, a unit of energy equal to one million electron-volts and commonly used for nuclear processes.",
+    "core": true
   },
   {
     "name": "Moderator",
@@ -6661,7 +6699,8 @@ export const JARGON = [
       "moderation",
       "moderates"
     ],
-    "def": "A material used to slow neutrons through repeated scattering while ideally absorbing relatively few of them."
+    "def": "A material used to slow neutrons through repeated scattering while ideally absorbing relatively few of them.",
+    "core": true
   },
   {
     "name": "Multiplication factor, k",
@@ -6670,7 +6709,8 @@ export const JARGON = [
       "k=",
       " k "
     ],
-    "def": "The ratio of neutrons in one chain-reaction generation to the preceding generation."
+    "def": "The ratio of neutrons in one chain-reaction generation to the preceding generation.",
+    "core": true
   },
   {
     "name": "Neutron",
@@ -6678,14 +6718,16 @@ export const JARGON = [
       "neutron",
       "neutrons"
     ],
-    "def": "An electrically neutral particle in the nucleus. Neutrons affect nuclear mass, stability, and the ability of some nuclei to sustain fission."
+    "def": "An electrically neutral particle in the nucleus. Neutrons affect nuclear mass, stability, and the ability of some nuclei to sustain fission.",
+    "core": true
   },
   {
     "name": "Neutron economy",
     "aliases": [
       "neutron economy"
     ],
-    "def": "An accounting of where neutrons are produced, absorbed usefully, absorbed parasitically, or lost by leakage."
+    "def": "An accounting of where neutrons are produced, absorbed usefully, absorbed parasitically, or lost by leakage.",
+    "core": true
   },
   {
     "name": "Nucleon",
@@ -6693,7 +6735,8 @@ export const JARGON = [
       "nucleon",
       "nucleons"
     ],
-    "def": "A collective name for either a proton or a neutron."
+    "def": "A collective name for either a proton or a neutron.",
+    "core": true
   },
   {
     "name": "Nucleus",
@@ -6709,7 +6752,8 @@ export const JARGON = [
       "nuclide",
       "nuclides"
     ],
-    "def": "A particular kind of nucleus specified by its numbers of protons and neutrons."
+    "def": "A particular kind of nucleus specified by its numbers of protons and neutrons.",
+    "core": true
   },
   {
     "name": "Number density",
@@ -6746,7 +6790,8 @@ export const JARGON = [
       "allotrope",
       "phase"
     ],
-    "def": "A physically distinct form of a material, such as a particular crystal structure, liquid, or gas."
+    "def": "A physically distinct form of a material, such as a particular crystal structure, liquid, or gas.",
+    "core": true
   },
   {
     "name": "Photoelectron",
@@ -6763,7 +6808,8 @@ export const JARGON = [
       "counting statistics",
       "statistical counting"
     ],
-    "def": "The probability model commonly used for independent counted events. Its standard fluctuation is approximately the square root of the number of counts."
+    "def": "The probability model commonly used for independent counted events. Its standard fluctuation is approximately the square root of the number of counts.",
+    "core": true
   },
   {
     "name": "Porosity",
@@ -6819,7 +6865,8 @@ export const JARGON = [
       "prompt neutron",
       "prompt-neutron"
     ],
-    "def": "A neutron emitted essentially immediately during fission."
+    "def": "A neutron emitted essentially immediately during fission.",
+    "core": true
   },
   {
     "name": "Prompt radiation",
@@ -6827,7 +6874,8 @@ export const JARGON = [
       "prompt ionizing radiation",
       "prompt radiation"
     ],
-    "def": "Neutrons and gamma rays emitted during and immediately after a nuclear event."
+    "def": "Neutrons and gamma rays emitted during and immediately after a nuclear event.",
+    "core": true
   },
   {
     "name": "Proportional counter",
@@ -6842,7 +6890,8 @@ export const JARGON = [
       "proton",
       "protons"
     ],
-    "def": "A positively charged particle in the nucleus. The number of protons determines which chemical element an atom is."
+    "def": "A positively charged particle in the nucleus. The number of protons determines which chemical element an atom is.",
+    "core": true
   },
   {
     "name": "Prototype",
@@ -6857,7 +6906,8 @@ export const JARGON = [
       "pulse height",
       "pulse-height"
     ],
-    "def": "The amplitude of a detector’s electrical pulse, often related to the energy deposited in the detector."
+    "def": "The amplitude of a detector’s electrical pulse, often related to the energy deposited in the detector.",
+    "core": true
   },
   {
     "name": "Pumpkin bomb",
@@ -6883,7 +6933,8 @@ export const JARGON = [
       "decay law",
       "decays"
     ],
-    "def": "A spontaneous nuclear transformation. Individual decay times are random, but a large population follows a predictable statistical law."
+    "def": "A spontaneous nuclear transformation. Individual decay times are random, but a large population follows a predictable statistical law.",
+    "core": true
   },
   {
     "name": "Radiography",
@@ -6909,7 +6960,8 @@ export const JARGON = [
       "random error",
       "random uncertainty"
     ],
-    "def": "Measurement variation that changes unpredictably from one observation to another and can often be reduced by collecting more data."
+    "def": "Measurement variation that changes unpredictably from one observation to another and can often be reduced by collecting more data.",
+    "core": true
   },
   {
     "name": "Random walk",
@@ -6917,7 +6969,8 @@ export const JARGON = [
       "random walk",
       "random-walk"
     ],
-    "def": "Motion made of many steps in changing directions. The net displacement grows roughly with the square root of the number of steps."
+    "def": "Motion made of many steps in changing directions. The net displacement grows roughly with the square root of the number of steps.",
+    "core": true
   },
   {
     "name": "Readiness review",
@@ -6940,7 +6993,8 @@ export const JARGON = [
     "aliases": [
       "reflector"
     ],
-    "def": "A layer around the fissile region that scatters escaping neutrons back into it, so fewer are lost."
+    "def": "A layer around the fissile region that scatters escaping neutrons back into it, so fewer are lost.",
+    "core": true
   },
   {
     "name": "Residual radiation",
@@ -6948,7 +7002,8 @@ export const JARGON = [
       "residual radiation",
       "residual radioactivity"
     ],
-    "def": "Radiation emitted later by radioactive products and activated materials."
+    "def": "Radiation emitted later by radioactive products and activated materials.",
+    "core": true
   },
   {
     "name": "Rest-mass energy",
@@ -6986,7 +7041,8 @@ export const JARGON = [
       "scattering",
       "scatter"
     ],
-    "def": "An interaction that changes a particle’s direction and often its energy without necessarily removing the particle."
+    "def": "An interaction that changes a particle’s direction and often its energy without necessarily removing the particle.",
+    "core": true
   },
   {
     "name": "Scintillation detector",
@@ -6994,7 +7050,8 @@ export const JARGON = [
       "scintillation",
       "scintillator"
     ],
-    "def": "A detector in which radiation produces flashes of light that are converted into electrical signals."
+    "def": "A detector in which radiation produces flashes of light that are converted into electrical signals.",
+    "core": true
   },
   {
     "name": "Sensitivity analysis",
@@ -7011,7 +7068,8 @@ export const JARGON = [
       "shock-like",
       "shock front"
     ],
-    "def": "A very abrupt pressure disturbance that moves faster than ordinary sound and strongly compresses material."
+    "def": "A very abrupt pressure disturbance that moves faster than ordinary sound and strongly compresses material.",
+    "core": true
   },
   {
     "name": "Signal-to-noise ratio",
@@ -7036,7 +7094,8 @@ export const JARGON = [
       "simultaneous initiation",
       "synchronization"
     ],
-    "def": "The requirement that multiple events occur within a very small allowed timing difference."
+    "def": "The requirement that multiple events occur within a very small allowed timing difference.",
+    "core": true
   },
   {
     "name": "Single-point failure",
@@ -7052,7 +7111,8 @@ export const JARGON = [
       "spontaneous fission",
       "spontaneous-fission"
     ],
-    "def": "Fission that occurs without an incoming neutron or other external trigger."
+    "def": "Fission that occurs without an incoming neutron or other external trigger.",
+    "core": true
   },
   {
     "name": "Standard deviation, σ",
@@ -7062,7 +7122,8 @@ export const JARGON = [
       "sigma_net",
       "σ"
     ],
-    "def": "A measure of the typical spread or uncertainty of repeated measurements."
+    "def": "A measure of the typical spread or uncertainty of repeated measurements.",
+    "core": true
   },
   {
     "name": "Stoichiometry",
@@ -7086,7 +7147,8 @@ export const JARGON = [
       "supercritical",
       "above critical"
     ],
-    "def": "A state with multiplication factor above one, so the neutron population grows from generation to generation."
+    "def": "A state with multiplication factor above one, so the neutron population grows from generation to generation.",
+    "core": true
   },
   {
     "name": "Surrogate material",
@@ -7095,7 +7157,8 @@ export const JARGON = [
       "non-nuclear substitute",
       "inert substitute"
     ],
-    "def": "A safer or more available material used to reproduce selected physical behavior without using the final hazardous material."
+    "def": "A safer or more available material used to reproduce selected physical behavior without using the final hazardous material.",
+    "core": true
   },
   {
     "name": "Symmetry",
@@ -7113,14 +7176,16 @@ export const JARGON = [
       "systematic error",
       "systematic uncertainty"
     ],
-    "def": "A consistent bias or calibration problem that does not necessarily shrink when more data are collected."
+    "def": "A consistent bias or calibration problem that does not necessarily shrink when more data are collected.",
+    "core": true
   },
   {
     "name": "Thermal expansion",
     "aliases": [
       "thermal expansion"
     ],
-    "def": "The change in a material’s dimensions as its temperature changes."
+    "def": "The change in a material’s dimensions as its temperature changes.",
+    "core": true
   },
   {
     "name": "Thermal neutron",
@@ -7128,7 +7193,8 @@ export const JARGON = [
       "thermal neutron",
       "thermal-neutron"
     ],
-    "def": "A neutron slowed until its typical energy is comparable to the thermal motion of surrounding matter."
+    "def": "A neutron slowed until its typical energy is comparable to the thermal motion of surrounding matter.",
+    "core": true
   },
   {
     "name": "Thin Man",
@@ -7153,7 +7219,8 @@ export const JARGON = [
       "timing window",
       "trigger window"
     ],
-    "def": "A selected time interval during which detector events are accepted for analysis."
+    "def": "A selected time interval during which detector events are accepted for analysis.",
+    "core": true
   },
   {
     "name": "Tolerance",
@@ -7170,7 +7237,8 @@ export const JARGON = [
       "radioactive tracer",
       "tracer"
     ],
-    "def": "A detectable isotope used to follow material through a chemical, biological, or industrial process."
+    "def": "A detectable isotope used to follow material through a chemical, biological, or industrial process.",
+    "core": true
   },
   {
     "name": "Trigger",

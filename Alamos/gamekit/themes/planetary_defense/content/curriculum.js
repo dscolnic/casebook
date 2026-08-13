@@ -2187,7 +2187,8 @@ export const JARGON = [
     "aliases": [
       "albedo"
     ],
-    "def": "The fraction of incident light a surface reflects."
+    "def": "The fraction of incident light a surface reflects.",
+    "core": true
   },
   {
     "name": "Astrometry",
@@ -2202,7 +2203,8 @@ export const JARGON = [
       "AU",
       "astronomical unit"
     ],
-    "def": "The average Earth–Sun distance, about 150 million kilometres. Orbit sizes are quoted in it."
+    "def": "The average Earth–Sun distance, about 150 million kilometres. Orbit sizes are quoted in it.",
+    "core": true
   },
   {
     "name": "Calibration",
@@ -2218,7 +2220,8 @@ export const JARGON = [
     "aliases": [
       "covariance"
     ],
-    "def": "A description of how uncertainties in fitted quantities vary together."
+    "def": "A description of how uncertainties in fitted quantities vary together.",
+    "core": true
   },
   {
     "name": "Ephemeris",
@@ -2226,21 +2229,24 @@ export const JARGON = [
       "ephemeris",
       "ephemerides"
     ],
-    "def": "A table of where an object will be, night by night, computed from its orbit. Its uncertainty is what a telescope has to search."
+    "def": "A table of where an object will be, night by night, computed from its orbit. Its uncertainty is what a telescope has to search.",
+    "core": true
   },
   {
     "name": "Light curve",
     "aliases": [
       "light curve"
     ],
-    "def": "Brightness measured as a function of time."
+    "def": "Brightness measured as a function of time.",
+    "core": true
   },
   {
     "name": "Parallax",
     "aliases": [
       "parallax"
     ],
-    "def": "The apparent shift of an object against the background stars when the observer moves. With a known baseline it gives a distance by triangle."
+    "def": "The apparent shift of an object against the background stars when the observer moves. With a known baseline it gives a distance by triangle.",
+    "core": true
   },
   {
     "name": "Polarimetry",
@@ -2255,13 +2261,15 @@ export const JARGON = [
     "aliases": [
       "radar delay"
     ],
-    "def": "Round-trip travel time of a radar signal, used to infer range."
+    "def": "Round-trip travel time of a radar signal, used to infer range.",
+    "core": true
   },
   {
     "name": "Solar elongation",
     "aliases": [
       "solar elongation"
     ],
-    "def": "The angular separation between an object and the Sun as seen from the observer."
+    "def": "The angular separation between an object and the Sun as seen from the observer.",
+    "core": true
   }
 ];

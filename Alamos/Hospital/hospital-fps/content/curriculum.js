@@ -4946,13 +4946,15 @@ export const JARGON = [
     "aliases": [
       "pulse"
     ],
-    "def": "The beat of the heart felt in the wrist or neck."
+    "def": "The beat of the heart felt in the wrist or neck.",
+    "core": true
   },
   {
     "name": "Triage",
     "aliases": [
       "triage"
     ],
-    "def": "Deciding who needs help first based on how urgent the clue is."
+    "def": "Deciding who needs help first based on how urgent the clue is.",
+    "core": true
   }
 ];

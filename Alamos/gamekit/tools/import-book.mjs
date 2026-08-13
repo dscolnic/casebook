@@ -27,6 +27,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { themeDir } from '../engine/dev/registry.mjs';
+import { claimedWords, claimsPhrase } from './syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
@@ -338,9 +339,17 @@ function choiceLike(format, s, at, base, need){
 }
 
 // --------------------------------------------------------------- glossary
-const JARGON = (book.glossary ?? []).map(t => ({
-  name: t.name, aliases: t.aliases ?? [String(t.name).toLowerCase()], def: t.def ?? t.definition ?? '',
-}));
+// `core` is the syllabus's answer to "is this one of the course's own concepts,
+// or a word this game happens to use?" — decided here, at build time, because the
+// syllabus is a claim about the course and has no business inside a running game.
+// The plan card reads it: a core term outranks a supporting one for the two lines
+// that card has.
+const claimed = claimedWords(themeName);
+const JARGON = (book.glossary ?? []).map(t => {
+  const aliases = t.aliases ?? [String(t.name).toLowerCase()];
+  const core = [t.name, ...aliases].filter(Boolean).some(n => claimsPhrase(themeName, n, claimed));
+  return { name: t.name, aliases, def: t.def ?? t.definition ?? '', ...(core ? { core: true } : {}) };
+});
 
 // ----------------------------------------------------------------- report
 if(problems.length){

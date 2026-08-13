@@ -2724,7 +2724,8 @@ export const JARGON = [
       "aliquot",
       "aliquots"
     ],
-    "def": "A measured portion taken out of a sample for one test. Taking one uses part of the sample up."
+    "def": "A measured portion taken out of a sample for one test. Taking one uses part of the sample up.",
+    "core": true
   },
   {
     "name": "Anion",
@@ -2733,14 +2734,16 @@ export const JARGON = [
       "anions",
       "polyatomic anion"
     ],
-    "def": "A negatively charged ion — an atom or group that has gained electrons. A polyatomic anion is several atoms carrying one charge together, like sulfate or nitrate."
+    "def": "A negatively charged ion — an atom or group that has gained electrons. A polyatomic anion is several atoms carrying one charge together, like sulfate or nitrate.",
+    "core": true
   },
   {
     "name": "Arrhenius Behavior",
     "aliases": [
       "arrhenius behavior"
     ],
-    "def": "A course concept used in Mission 8. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 8. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Atoms And Ions",
@@ -2754,7 +2757,8 @@ export const JARGON = [
     "aliases": [
       "balanced equations"
     ],
-    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Beer-Lambert Law",
@@ -2762,14 +2766,16 @@ export const JARGON = [
       "beer-lambert law",
       "beer lambert law"
     ],
-    "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Buffers",
     "aliases": [
       "buffers"
     ],
-    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Byproducts",
@@ -2793,14 +2799,16 @@ export const JARGON = [
     "aliases": [
       "calibration curves"
     ],
-    "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Calorimetry",
     "aliases": [
       "calorimetry"
     ],
-    "def": "A course concept used in Mission 7. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 7. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Carbonate",
@@ -2815,7 +2823,8 @@ export const JARGON = [
     "aliases": [
       "catalysis"
     ],
-    "def": "A course concept used in Mission 8. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 8. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Catalyst",
@@ -2825,7 +2834,8 @@ export const JARGON = [
       "catalysed",
       "catalyzed"
     ],
-    "def": "Something that speeds a reaction by offering an easier path, and is not used up doing it."
+    "def": "Something that speeds a reaction by offering an easier path, and is not used up doing it.",
+    "core": true
   },
   {
     "name": "Cation",
@@ -2833,14 +2843,16 @@ export const JARGON = [
       "cation",
       "cations"
     ],
-    "def": "A positively charged ion — an atom or group that has lost electrons. Metals form them."
+    "def": "A positively charged ion — an atom or group that has lost electrons. Metals form them.",
+    "core": true
   },
   {
     "name": "Chemical Formulas",
     "aliases": [
       "chemical formulas"
     ],
-    "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Chloride",
@@ -2858,14 +2870,16 @@ export const JARGON = [
       "chromatography",
       "chromatograph"
     ],
-    "def": "The output of a chromatograph: a trace with one peak for each component the column managed to separate, spaced by how long each took to come through."
+    "def": "The output of a chromatograph: a trace with one peak for each component the column managed to separate, spaced by how long each took to come through.",
+    "core": true
   },
   {
     "name": "Complex Ions",
     "aliases": [
       "complex ions"
     ],
-    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Concentration units",
@@ -2876,14 +2890,16 @@ export const JARGON = [
       "mol/l",
       "kg/year"
     ],
-    "def": "Milligrams per litre (mg/L) is mass per volume; moles per litre (mol/L) is particles per volume. A limit written in one cannot be compared with a number in the other until they are converted."
+    "def": "Milligrams per litre (mg/L) is mass per volume; moles per litre (mol/L) is particles per volume. A limit written in one cannot be compared with a number in the other until they are converted.",
+    "core": true
   },
   {
     "name": "Corrosion",
     "aliases": [
       "corrosion"
     ],
-    "def": "A course concept used in Mission 11. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 11. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Decision Rules",
@@ -2911,14 +2927,16 @@ export const JARGON = [
     "aliases": [
       "dilution"
     ],
-    "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 5. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Electrode Potential",
     "aliases": [
       "electrode potential"
     ],
-    "def": "A course concept used in Mission 11. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 11. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Energy Balance",
@@ -2932,14 +2950,16 @@ export const JARGON = [
     "aliases": [
       "enthalpy"
     ],
-    "def": "A course concept used in Mission 7. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 7. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Equilibrium",
     "aliases": [
       "equilibrium"
     ],
-    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Evidence Quality",
@@ -2960,7 +2980,8 @@ export const JARGON = [
     "aliases": [
       "exothermic reactions"
     ],
-    "def": "A course concept used in Mission 7. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 7. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Feedback",
@@ -2996,21 +3017,24 @@ export const JARGON = [
       "hydroxide",
       "hydroxides"
     ],
-    "def": "The anion OH with a charge of minus one. Metal hydroxides are often insoluble, which is why raising the pH drops metals out of water."
+    "def": "The anion OH with a charge of minus one. Metal hydroxides are often insoluble, which is why raising the pH drops metals out of water.",
+    "core": true
   },
   {
     "name": "Ideal Gas Law",
     "aliases": [
       "ideal gas law"
     ],
-    "def": "A course concept used in Mission 2. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 2. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Intermolecular Forces",
     "aliases": [
       "intermolecular forces"
     ],
-    "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Le Châtelier Principle",
@@ -3025,14 +3049,16 @@ export const JARGON = [
       "ligand",
       "ligands"
     ],
-    "def": "A molecule or ion that binds to a metal ion in solution. A strong ligand can keep a metal dissolved that would otherwise precipitate."
+    "def": "A molecule or ion that binds to a metal ion in solution. A strong ligand can keep a metal dissolved that would otherwise precipitate.",
+    "core": true
   },
   {
     "name": "Limiting Reactant",
     "aliases": [
       "limiting reactant"
     ],
-    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Mass Balance",
@@ -3048,7 +3074,8 @@ export const JARGON = [
       "spectrometer",
       "spectrometry"
     ],
-    "def": "An instrument that sorts fragments of a molecule by mass and charge, giving a pattern specific enough to identify a compound."
+    "def": "An instrument that sorts fragments of a molecule by mass and charge, giving a pattern specific enough to identify a compound.",
+    "core": true
   },
   {
     "name": "Measurement Uncertainty",
@@ -3077,28 +3104,32 @@ export const JARGON = [
       "molar mass",
       "molar"
     ],
-    "def": "The mass of one mole of a substance, in grams. It converts between a mass you can weigh and a number of particles."
+    "def": "The mass of one mole of a substance, in grams. It converts between a mass you can weigh and a number of particles.",
+    "core": true
   },
   {
     "name": "Molarity",
     "aliases": [
       "molarity"
     ],
-    "def": "Concentration in moles per litre — how many particles are dissolved, rather than how many grams."
+    "def": "Concentration in moles per litre — how many particles are dissolved, rather than how many grams.",
+    "core": true
   },
   {
     "name": "Mole Ratios",
     "aliases": [
       "mole ratios"
     ],
-    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Moles And Volume",
     "aliases": [
       "moles and volume"
     ],
-    "def": "A course concept used in Mission 2. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 2. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Neutralisation",
@@ -3122,7 +3153,8 @@ export const JARGON = [
     "aliases": [
       "nomenclature"
     ],
-    "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Oxidation",
@@ -3133,14 +3165,16 @@ export const JARGON = [
       "oxidised",
       "oxidized"
     ],
-    "def": "Losing electrons. An oxidising treatment turns a contaminant into something else, which is not the same as removing it."
+    "def": "Losing electrons. An oxidising treatment turns a contaminant into something else, which is not the same as removing it.",
+    "core": true
   },
   {
     "name": "Oxidation And Reduction",
     "aliases": [
       "oxidation and reduction"
     ],
-    "def": "A course concept used in Mission 11. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 11. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Oxidation-Reduction Treatment",
@@ -3148,7 +3182,8 @@ export const JARGON = [
       "oxidation-reduction treatment",
       "oxidation reduction treatment"
     ],
-    "def": "A course concept used in Mission 12. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 12. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Partitioning",
@@ -3162,35 +3197,40 @@ export const JARGON = [
     "aliases": [
       "periodic trends"
     ],
-    "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 1. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Ph",
     "aliases": [
       "ph"
     ],
-    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Phase Transfer",
     "aliases": [
       "phase transfer"
     ],
-    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Photochemistry",
     "aliases": [
       "photochemistry"
     ],
-    "def": "A course concept used in Mission 13. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 13. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Polarity",
     "aliases": [
       "polarity"
     ],
-    "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Precipitate",
@@ -3200,14 +3240,16 @@ export const JARGON = [
       "precipitates",
       "precipitation"
     ],
-    "def": "A solid that comes out of solution when the dissolved amount exceeds what the water can hold. As a verb, to make that happen."
+    "def": "A solid that comes out of solution when the dissolved amount exceeds what the water can hold. As a verb, to make that happen.",
+    "core": true
   },
   {
     "name": "Precipitation",
     "aliases": [
       "precipitation"
     ],
-    "def": "A course concept used in Mission 12. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 12. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Protective Strategies",
@@ -3222,7 +3264,8 @@ export const JARGON = [
       "proton",
       "protons"
     ],
-    "def": "A positively charged particle in the nucleus. How many there are decides which element an atom is, and therefore how it behaves chemically."
+    "def": "A positively charged particle in the nucleus. How many there are decides which element an atom is, and therefore how it behaves chemically.",
+    "core": true
   },
   {
     "name": "Quality control",
@@ -3260,7 +3303,8 @@ export const JARGON = [
       "reagent",
       "reagents"
     ],
-    "def": "A chemical added to make a reaction happen or a measurement possible, as opposed to the sample being measured."
+    "def": "A chemical added to make a reaction happen or a measurement possible, as opposed to the sample being measured.",
+    "core": true
   },
   {
     "name": "Representative Sampling",
@@ -3282,7 +3326,8 @@ export const JARGON = [
     "aliases": [
       "retention"
     ],
-    "def": "A course concept used in Mission 4. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 4. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Risk Communication",
@@ -3303,7 +3348,8 @@ export const JARGON = [
     "aliases": [
       "secondary pollutants"
     ],
-    "def": "A course concept used in Mission 13. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 13. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Separation",
@@ -3317,14 +3363,16 @@ export const JARGON = [
     "aliases": [
       "solubility"
     ],
-    "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Solubility Product",
     "aliases": [
       "solubility product"
     ],
-    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 10. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Specific Heat",
@@ -3338,7 +3386,8 @@ export const JARGON = [
     "aliases": [
       "spectral fingerprints"
     ],
-    "def": "A course concept used in Mission 4. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 4. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Spectrum",
@@ -3347,7 +3396,8 @@ export const JARGON = [
       "spectra",
       "infrared spectrum"
     ],
-    "def": "A record of which wavelengths of light a substance absorbed or emitted, read as a pattern of peaks rather than a single number."
+    "def": "A record of which wavelengths of light a substance absorbed or emitted, read as a pattern of peaks rather than a single number.",
+    "core": true
   },
   {
     "name": "Stewardship",
@@ -3362,14 +3412,16 @@ export const JARGON = [
       "stoichiometry",
       "stoichiometric"
     ],
-    "def": "The bookkeeping of a reaction: how much of one substance reacts with how much of another, read off the balanced equation."
+    "def": "The bookkeeping of a reaction: how much of one substance reacts with how much of another, read off the balanced equation.",
+    "core": true
   },
   {
     "name": "Strong And Weak Acids",
     "aliases": [
       "strong and weak acids"
     ],
-    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Temperature And Pressure",
@@ -3391,7 +3443,8 @@ export const JARGON = [
     "aliases": [
       "titration"
     ],
-    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 9. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   },
   {
     "name": "Uncertainty",
@@ -3408,13 +3461,15 @@ export const JARGON = [
       "volatilized",
       "volatility"
     ],
-    "def": "Easily evaporated. A volatile compound leaves the water for the air, which moves the problem rather than removing it."
+    "def": "Easily evaporated. A volatile compound leaves the water for the air, which moves the problem rather than removing it.",
+    "core": true
   },
   {
     "name": "Yield",
     "aliases": [
       "yield"
     ],
-    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary."
+    "def": "A course concept used in Mission 6. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
   }
 ];

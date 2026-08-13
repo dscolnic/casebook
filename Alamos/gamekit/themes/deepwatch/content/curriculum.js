@@ -2299,14 +2299,16 @@ export const JARGON = [
       "bearing",
       "bearings"
     ],
-    "def": "The direction to something, measured as an angle. Passive sonar gives you this and little else."
+    "def": "The direction to something, measured as an angle. Passive sonar gives you this and little else.",
+    "core": true
   },
   {
     "name": "Bearing rate",
     "aliases": [
       "bearing rate"
     ],
-    "def": "How fast a contact's bearing is changing. Near zero on a closing contact is the dangerous case."
+    "def": "How fast a contact's bearing is changing. Near zero on a closing contact is the dangerous case.",
+    "core": true
   },
   {
     "name": "Bilge",
@@ -2321,7 +2323,8 @@ export const JARGON = [
     "aliases": [
       "broadband"
     ],
-    "def": "Listening across all frequencies at once. Shows a contact as a smear that persists in bearing."
+    "def": "Listening across all frequencies at once. Shows a contact as a smear that persists in bearing.",
+    "core": true
   },
   {
     "name": "Carbon dioxide",
@@ -2329,7 +2332,8 @@ export const JARGON = [
       "CO2",
       "carbon dioxide"
     ],
-    "def": "The gas the crew breathes out. It has to be removed continuously, because in a sealed boat it only accumulates."
+    "def": "The gas the crew breathes out. It has to be removed continuously, because in a sealed boat it only accumulates.",
+    "core": true
   },
   {
     "name": "Cavitation",
@@ -2338,7 +2342,8 @@ export const JARGON = [
       "cavitate",
       "cavitating"
     ],
-    "def": "Bubbles forming and collapsing on a propeller blade. The loudest ordinary thing a submarine does."
+    "def": "Bubbles forming and collapsing on a propeller blade. The loudest ordinary thing a submarine does.",
+    "core": true
   },
   {
     "name": "Damper",
@@ -2353,7 +2358,8 @@ export const JARGON = [
     "aliases": [
       "dead reckoning"
     ],
-    "def": "Advancing a position from course, speed and time. It knows what the boat did and nothing about the water."
+    "def": "Advancing a position from course, speed and time. It knows what the boat did and nothing about the water.",
+    "core": true
   },
   {
     "name": "Dependency",
@@ -2361,7 +2367,8 @@ export const JARGON = [
       "dependency",
       "dependencies"
     ],
-    "def": "What stops working when you secure or isolate something else. The reason isolation is never free."
+    "def": "What stops working when you secure or isolate something else. The reason isolation is never free.",
+    "core": true
   },
   {
     "name": "Direct current",
@@ -2377,21 +2384,24 @@ export const JARGON = [
       "fix",
       "a fix"
     ],
-    "def": "A position from a measurement rather than a calculation. Everything after it is dead reckoning again."
+    "def": "A position from a measurement rather than a calculation. Everything after it is dead reckoning again.",
+    "core": true
   },
   {
     "name": "Narrowband",
     "aliases": [
       "narrowband"
     ],
-    "def": "Listening at one frequency. Machinery makes lines here, and a line can identify what is making it."
+    "def": "Listening at one frequency. Machinery makes lines here, and a line can identify what is making it.",
+    "core": true
   },
   {
     "name": "Reflash",
     "aliases": [
       "reflash"
     ],
-    "def": "A fire re-igniting after it looked out, because the ignition source was never removed."
+    "def": "A fire re-igniting after it looked out, because the ignition source was never removed.",
+    "core": true
   },
   {
     "name": "Scrubber",
@@ -2400,7 +2410,8 @@ export const JARGON = [
       "scrubbers",
       "co2 scrubber"
     ],
-    "def": "The plant that removes carbon dioxide from the boat's air. It reaches only where the dampers let it."
+    "def": "The plant that removes carbon dioxide from the boat's air. It reaches only where the dampers let it.",
+    "core": true
   },
   {
     "name": "Set and drift",
@@ -2409,7 +2420,8 @@ export const JARGON = [
       "set",
       "drift"
     ],
-    "def": "The direction and speed the water is carrying the boat. Invisible to dead reckoning until measured."
+    "def": "The direction and speed the water is carrying the boat. Invisible to dead reckoning until measured.",
+    "core": true
   },
   {
     "name": "Signature",
@@ -2417,7 +2429,8 @@ export const JARGON = [
       "signature",
       "acoustic signature"
     ],
-    "def": "The sound a boat makes that identifies it. Every machine running adds to it."
+    "def": "The sound a boat makes that identifies it. Every machine running adds to it.",
+    "core": true
   },
   {
     "name": "The layer",
@@ -2425,7 +2438,8 @@ export const JARGON = [
       "the layer",
       "thermocline"
     ],
-    "def": "The boundary between warm surface water and cold water below. Sound bends at it, making shadow zones."
+    "def": "The boundary between warm surface water and cold water below. Sound bends at it, making shadow zones.",
+    "core": true
   },
   {
     "name": "Transducer",
@@ -2440,6 +2454,7 @@ export const JARGON = [
     "aliases": [
       "trim"
     ],
-    "def": "How the boat's weight is balanced fore and aft. Water taken aboard anywhere changes it."
+    "def": "How the boat's weight is balanced fore and aft. Water taken aboard anywhere changes it.",
+    "core": true
   }
 ];

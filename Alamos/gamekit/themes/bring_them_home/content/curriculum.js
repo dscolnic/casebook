@@ -2228,14 +2228,16 @@ export const JARGON = [
     "aliases": [
       "common-mode error"
     ],
-    "def": "A shared error that makes several measurements agree for the same wrong reason."
+    "def": "A shared error that makes several measurements agree for the same wrong reason.",
+    "core": true
   },
   {
     "name": "Doppler shift",
     "aliases": [
       "doppler shift"
     ],
-    "def": "A frequency change caused by relative motion between source and observer."
+    "def": "A frequency change caused by relative motion between source and observer.",
+    "core": true
   },
   {
     "name": "Parallax",
@@ -2249,14 +2251,16 @@ export const JARGON = [
     "aliases": [
       "power"
     ],
-    "def": "The rate at which energy is transferred or used."
+    "def": "The rate at which energy is transferred or used.",
+    "core": true
   },
   {
     "name": "Resonance",
     "aliases": [
       "resonance"
     ],
-    "def": "Large oscillation produced when forcing is near a system natural frequency."
+    "def": "Large oscillation produced when forcing is near a system natural frequency.",
+    "core": true
   },
   {
     "name": "Scrubber",
@@ -2264,21 +2268,24 @@ export const JARGON = [
       "scrubber",
       "scrubbers"
     ],
-    "def": "The unit that removes carbon dioxide from the cabin air. It cleans only the air that reaches it."
+    "def": "The unit that removes carbon dioxide from the cabin air. It cleans only the air that reaches it.",
+    "core": true
   },
   {
     "name": "State vector",
     "aliases": [
       "state vector"
     ],
-    "def": "A compact description of position and velocity at one time."
+    "def": "A compact description of position and velocity at one time.",
+    "core": true
   },
   {
     "name": "Torque",
     "aliases": [
       "torque"
     ],
-    "def": "The rotational effect of a force applied with a lever arm."
+    "def": "The rotational effect of a force applied with a lever arm.",
+    "core": true
   },
   {
     "name": "Transponder",

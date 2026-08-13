@@ -175,31 +175,45 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     if(!t) return '';
     return (t[0].toUpperCase() + t.slice(1)) + (/[.!?]$/.test(t) ? '' : '.');
   };
+  // Two texts per stop, because they earn a term its place differently. `asked`
+  // is what the player has to reason over before the verdict exists — the task,
+  // the question and every option, card, scenario, given and proposal in front
+  // of them. `taught` is the reasoning that arrives afterwards. A word the
+  // question turns on has to be on the card; a word the verdict happens to use
+  // does not, and a word that appears only in the scene has not earned a line at
+  // all — it is set dressing, and naming it up front teaches vocabulary the day
+  // never asks for.
+  const label = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
+  const textsFor = (lessons) => lessons.map((l) => {
+    const ch = l.game ?? {};
+    return {
+      asked: [ch.task ?? ch.play, ch.question, ch.headline,
+        ...(ch.choices ?? []).map(label), ...(ch.cards ?? []).map(label),
+        ...(ch.scenarios ?? []).map(label), ...(ch.givens ?? []).map(label),
+        ...(ch.proposals ?? []).map(label)].filter(Boolean).join('  ').toLowerCase(),
+      taught: [ch.why, ...(l.assumes ?? []), ...(ch.rebuttals ?? []).map(label)]
+        .filter(Boolean).join('  ').toLowerCase(),
+    };
+  });
+  const lessonsOf = (m) => (m.stops ?? []).map(s => curriculum[s.group]?.[s.lesson]).filter(Boolean);
+  const dayTexts = missions.map(m => textsFor(lessonsOf(m)));
+
+  // How much of the campaign comes back to a term, measured once: the number of
+  // days whose reasoning uses it. A word the whole game keeps returning to is a
+  // spine of the course; a word two days mention is a supporting term, whatever
+  // order the glossary happens to list them in.
+  const reach = new Map();
+  for(const t of jargon){
+    const names = [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String).map(n => n.toLowerCase());
+    reach.set(t, dayTexts.filter(day => day.some(s => names.some(n => s.taught.includes(n)))).length);
+  }
+
   let derived = 0;
-  for(const m of missions){
+  for(const [mi, m] of missions.entries()){
     if(Array.isArray(m.primer) && m.primer.some(x => typeof x === 'string' && x.trim())) continue;
-    const lessons = (m.stops ?? []).map(s => curriculum[s.group]?.[s.lesson]).filter(Boolean);
+    const lessons = lessonsOf(m);
     if(!lessons.length) continue;
-    // Two texts per stop, because they earn a term its place differently. `asked`
-    // is what the player has to reason over before the verdict exists — the task,
-    // the question and every option, card, scenario, given and proposal in front
-    // of them. `taught` is the reasoning that arrives afterwards. A word the
-    // question turns on has to be on the card; a word the verdict happens to use
-    // does not, and a word that appears only in the scene has not earned a line
-    // at all — it is set dressing, and naming it up front teaches vocabulary the
-    // day never asks for.
-    const label = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
-    const stopTexts = lessons.map((l) => {
-      const ch = l.game ?? {};
-      return {
-        asked: [ch.task ?? ch.play, ch.question, ch.headline,
-          ...(ch.choices ?? []).map(label), ...(ch.cards ?? []).map(label),
-          ...(ch.scenarios ?? []).map(label), ...(ch.givens ?? []).map(label),
-          ...(ch.proposals ?? []).map(label)].filter(Boolean).join('  ').toLowerCase(),
-        taught: [ch.why, ...(l.assumes ?? [])].filter(Boolean).join('  ').toLowerCase(),
-        flavour: [l.title, l.scene].filter(Boolean).join('  ').toLowerCase(),
-      };
-    });
+    const stopTexts = dayTexts[mi];
 
     // vocabulary the day actually uses, in the glossary's own words — skipping the
     // entries that define nothing. The docx importers wrote 73 of contamcity's
@@ -228,9 +242,15 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
         const j = s.asked.indexOf(n);
         return j < 0 ? Infinity : i * 10000 + j;
       })));
-      matched.push({ t, asked, taught, at });
+      matched.push({ t, core: t.core ? 1 : 0, reach: reach.get(t) ?? 0, asked, taught, at });
     }
-    matched.sort((a, b) => b.asked - a.asked || b.taught - a.taught || a.at - b.at);
+    // Order: what the course is about, then what the campaign keeps returning to,
+    // then how hard this day leans on it, then where it first appears. Tie
+    // strength inside one day was the only test before, and it cut Spectrum — a
+    // syllabus concept four days reason with — from Riverton's first card to make
+    // room for Aliquot, on nothing better than which word came first in the text.
+    matched.sort((a, b) => b.core - a.core || b.reach - a.reach
+      || b.asked - a.asked || b.taught - a.taught || a.at - b.at);
     const terms = [];
     for(const { t } of matched){
       // One sentence. A glossary definition can run to forty words, and the plan

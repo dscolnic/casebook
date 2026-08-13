@@ -525,4 +525,87 @@ export const SYLLABUS = {
   },
 };
 
+// ---------------------------------------------------------------- matching
+//
+// Whether the syllabus claims a word is asked in two places — `jargonSweep`
+// sorts its queue by it, and `import-book` stamps `core` on the glossary terms
+// it claims — so the rule lives here, next to the claim it is testing.
+import { COMMON, PREFIXES, stems, ordinary, norm } from './common-words.mjs';
+
+const wordsOf = (s) => String(s ?? '').match(/[A-Za-z][A-Za-z0-9'’\/]*/g) ?? [];
+
+/**
+ * The syllabus, flattened: every string in a game's entry becomes an allowlist
+ * word. Word by word over-claims — "activation energy" would hand "energy" a
+ * licence it did not earn — so a single word counts only when it is technical on
+ * its own.
+ */
+export function claimedWords(theme){
+  const entry = SYLLABUS[theme] ?? SYLLABUS[String(theme).replace(/_/g, '-')] ?? null;
+  const out = new Set();
+  // A short key is not a weak one. "ph!", "mole", "flux!", "fix!" carry the bang
+  // this file already uses for "match this word exactly", and a length rule
+  // written for the long words dropped every one of them — so pH, the concept
+  // thirteen of Riverton's fifteen days reason with, counted as claimed by
+  // nothing at all. They go in a set of their own, matched whole.
+  out.exact = new Set();
+  const walk = (v) => {
+    if(typeof v === 'string'){
+      if(v.endsWith('!') || v.trim().length <= 4){
+        const k = norm(v.replace(/!$/, '').trim());
+        if(k) out.exact.add(k);
+      }
+      for(const w of wordsOf(v)){
+        const k = norm(w);
+        if(k.length >= 5 && !COMMON.has(k)) out.add(k);
+      }
+      return;
+    }
+    if(Array.isArray(v)){ v.forEach(walk); return; }
+    if(v && typeof v === 'object'){ Object.values(v).forEach(walk); }
+  };
+  walk(entry);
+  return out;
+}
+
+/**
+ * The syllabus writes stems on purpose — "precipitat", "oxidis", "mass spectrom" —
+ * so an exact match claims almost nothing. Two words share a root when one starts
+ * the other, or when they agree for seven characters: long enough that
+ * "electrochemical" finds "electrochemistry" and "detonators" finds "detonation
+ * velocity", short enough that "electrically" still does not find "electrolysis".
+ */
+export function sharesRoot(a, b){
+  if(a === b) return true;
+  const [s, l] = a.length <= b.length ? [a, b] : [b, a];
+  if(s.length >= 5 && l.startsWith(s)) return true;
+  let i = 0;
+  while(i < s.length && s[i] === l[i]) i++;
+  return i >= 7;
+}
+
+// The candidate side needs stemming as much as the syllabus side does:
+// "detonates" and "detonators" are the syllabus's "detonation velocity" with an
+// ending on them, and an unstemmed comparison claims neither.
+export const rootsOf = (key) => [key, key.replace(PREFIXES, ''), ...stems(key)].filter(w => w.length >= 5);
+
+/** Does this game's syllabus claim this single word? */
+export function claimsWord(theme, word, claimed = claimedWords(theme)){
+  const key = norm(word);
+  if(claimed.exact?.has(key)) return true;
+  return rootsOf(key).some(w => [...claimed].some(c => sharesRoot(w, c)));
+}
+
+/**
+ * And a phrase — a glossary term's name or one of its aliases. Ordinary words in
+ * it prove nothing: "surrogate material" is claimed only if "surrogate" is.
+ */
+export function claimsPhrase(theme, phrase, claimed = claimedWords(theme)){
+  return wordsOf(phrase).some(w => {
+    const k = norm(w);
+    if(claimed.exact?.has(k)) return true;
+    return k.length >= 5 && !ordinary(k) && claimsWord(theme, k, claimed);
+  });
+}
+
 export default SYLLABUS;
