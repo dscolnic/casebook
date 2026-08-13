@@ -259,6 +259,45 @@ answer first.
 **An estimate carries its `relationship` on the challenge**, not inside the
 estimate block, and offers distractor tiles. Both were real defects.
 
+### The equations the course cannot leave out
+
+`EQUATIONS` in `tools/syllabus.js` names them — four to ten per game, the test
+being whether a student could pass the unit without being able to write the thing
+down. It is a separate export from `SYLLABUS` on purpose: `claimedWords` walks
+every string in a `SYLLABUS` entry into the allowlist that `jargonSweep`
+prioritises by and that `import-book` stamps `core` from, so putting equations
+inside would claim "constant", "logarithm" and forty more words and reorder every
+plan card in the game.
+
+Coverage is three-way, and the middle one is the finding:
+
+```sh
+node engine/dev/syllabusEquations.mjs <theme> [--all]
+```
+
+* **computed** — the question's own `relationship`, template, worked solution or
+  givens match. A number came out of it, so it was taught.
+* **mentioned** — only the prose matches. That is not teaching.
+* **absent** — no question at all.
+
+Seven equations across the seven games are absent, including the effective
+reproduction number in an outbreak game and molarity in an analytical chemistry
+one. More telling is the ratio: Deep Watch computes three of ten while mentioning
+six, Riverton four of ten. The sonar equation, Snell's law, echo ranging,
+Archimedes, pH, Beer–Lambert and rate laws are all discussed and none of them is
+ever calculated. Page three of the printed book carries the same audit.
+
+**The player meets them before the question does.** `import-book` stamps each
+lesson with the equations it touches — the same way it stamps `core`, because the
+list is authoring data and the runtime should read a lesson rather than reach back
+into `tools/` for a syllabus — and `primeEquations` in `normalize.js` rolls that up
+to the day, printing each equation once, on the first day that needs it, above the
+vocabulary on the plan card and on the printed mission sheet. Every question that
+deals with one also carries it as a button beside the term chips. A day that only
+*mentions* an equation gets it too, and that is the case this exists for: a
+question that computes one already shows its relationship in the estimate panel,
+while a question that only reasons around one never showed the algebra at all.
+
 ## 7. Check, look, print
 
 ```sh
@@ -275,6 +314,14 @@ the repo: `checkStyles`, `worldParity`.
 They catch different things. The first theme on this engine had perfectly valid
 content and two thirds of its campaign unreachable, and only `smokeCampaign`
 could see it.
+
+A checker is only as good as the content it is handed. `checkStory` was never
+passed `DIAGNOSIS_PACKS`, so a lesson referencing a pack by `pack:` never expanded
+and every instrument panel in all seven games was invisible to it — readings,
+candidates, answer. Project Y's stage 4 read as six terms of vocabulary there and
+nine to the player, and the rule that fails a card containing the day's answer was
+scanning diagnoses whose answer it could not see. If you add a checker that
+normalises content by hand, give it everything the game gets.
 
 Then boot it and audit before judging anything visual:
 
@@ -378,6 +425,43 @@ pounds of laboratory budget, after every other check had passed it.
 
 Neither gates, because both need judgement. The sweep's own header says which
 decision each row is asking for.
+
+## Three things no checker can see
+
+Every gate above matches a word. None of them can see what the word *means* in the
+question that used it, and that is where the expensive content faults live.
+
+**1. A term has to be defined in the sense its questions use it.** All five gates
+passed while Project Y's cards handed the player the wrong definition four times
+over. `Phase` is defined as "a physically distinct form of a material, such as a
+particular crystal structure, liquid, or gas" — the metallurgical sense — and stage
+4 used it to mean the aqueous layer of a separation. `Carrier` is radiochemical
+carrier material, and stage 1's detector chain used it for charge carriers.
+`Scattering` is "an interaction that changes a particle's direction", and every
+match in a background-measurement panel was the statistical sense: "Poisson
+scatter", "ordinary scatter", "Scatter does not reproduce ten times". A word can be
+in the glossary, introduced in order, inside its depth ceiling, and still be
+teaching the wrong thing. Read the matches, not the counts.
+
+The related fault is a term introduced by a day that only name-checks it.
+`Standard deviation` reached a card from one `givens` line whose own verdict never
+said the words, and `Poisson statistics` from a reference field two days before the
+stop actually titled "Poisson counting statistics". The day that teaches it should
+be the day that introduces it.
+
+**2. A term's later appearances may be callbacks replaying the same lesson.** From
+day 3 every day carries a callback, so the same stop — and every word in it —
+appears again on later days. A term that looks anchored on days 2, 3 and 4 may be
+anchored only on day 2, with the others being that stop coming back. Cutting the
+word from day 2 then orphans it rather than moving it later, which is not what the
+sweep's day list appears to promise. Check whether the later day owns the lesson
+before you move anything.
+
+**3. Removing a defined term can create an ECHO.** `probeQuestions` fails a keyed
+option that is answered in its own prompt's words. Replacing "pre-initiation" with
+plain words in a Project Y option produced exactly that — five of the prompt's nine
+content words reappeared in the answer, because the jargon had been hiding the
+echo. Plain words are still the right call; re-run the probes after making them.
 
 ## The plan card is derived, and the rules are in `normalize.js`
 

@@ -69,9 +69,11 @@ anything. Then replace `book.yml`. Full runbook: `gamekit/NEW_GAME.md`.
 
 ## What is still unfinished
 
-- **Two world forks.** `project-y-fps/src/world.js` and the hospital's build
-  their place by hand. Both declare a site as data; the roads, boardwalks, poles,
-  fences, vehicles and central board have no home in the data yet.
+- **One world fork left: the hospital's.** It builds its place by hand though it
+  declares a site as data. Project Y came across — `src/world.js` is a 120-line
+  adapter over `engine/world/outdoorTown.js` and `worldParity` reports its world as
+  generated from site data. Its pine forest, ground scatter and lamp positions are
+  still code rather than data, and ~400 lines of `src/env.js` are dead.
 - **Two entry points.** Project Y and the hospital keep their own `main.js`,
   `index.html` and stylesheet fork. A feature added to one reaches one game —
   this has caused real bugs; grep all three before calling a change done.

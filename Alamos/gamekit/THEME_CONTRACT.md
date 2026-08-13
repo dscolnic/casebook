@@ -127,26 +127,50 @@ checks all of them at runtime in dev mode.
    lights took the hospital floor to 20 fps. Four point lights plus ambient,
    hemisphere, emissive panels and an IBL gives 118 fps and looks the same,
    because the light is diffuse anyway. Ceiling of 6 real lights.
+   **A road lamp, a window, a warning strobe and a lit telescope shutter are all
+   emissive geometry, never a light.** Project Y's road lighting was six
+   `PointLight`s switching on at dusk, which put that scene at eight against this
+   ceiling; the poles and bulbs are unchanged and the bulbs are emissive materials
+   registered as light panels, which is how every other game here lights a night
+   scene. Planetary Defense runs a whole nocturnal site — a second observatory two
+   kilometres off, a town on the valley floor, headlights on the switchbacks — at
+   three real lights.
 2. **Never put text on a `DoubleSide` material.** It renders mirrored — and
    arrows point the wrong way — to anyone approaching from behind. Use one
    single-sided face per direction, with the content flipped for each.
 3. **One source of truth for ground height.** If the visible mesh is graded or
    flattened, the height *function* must be too, or everyone standing on it
    sinks. Register pads before anything asks for a height.
-4. **People need feet at y=0, jointed knees, separation and gated labels.**
+   The corollary caught Project Y: its `props.js` and `npcs.js` placed objects from
+   `env.terrainHeight` while the engine graded the visible terrain from
+   `groundHeight`, the two agreeing to within half a metre. Two functions that
+   nearly agree is still two sources of truth. `env.terrainHeight` is a door onto
+   the engine's now.
+4. **`site.water` needs a bed, or the water is invisible.** `buildWater` draws a
+   plane at `water.level` and a bank beside it; it does not lower the ground. On a
+   flat profile the terrain sat 0.76 m *above* Riverton's river and covered it
+   completely — the river the site's own header calls the north edge of the city had
+   never been seen, and the water was flagged `ignoreAudit` for being below the
+   floor, which was the symptom being waved through. `setWaterBed()` in
+   `outdoorSite.js` cuts the channel and feathers the bank, registered with the pads
+   for the reason in rule 3. **Set `bed` and `shore` explicitly for anything small:**
+   the defaults are tuned for a 420 m river, and the default 14 m shore feather on
+   Ashley Pond — 14 m across — would dig a soft two-metre crater through the middle
+   of Los Alamos, eight metres from the spawn.
+5. **People need feet at y=0, jointed knees, separation and gated labels.**
    A single-capsule leg cannot sit — it sticks straight out of the chair.
    Sitting *lowers* the hips to seat height. Without separation the whole crowd
    converges into one clump. Nameplates show only when near *and* looked at.
-5. **Never dim gameplay elements with opacity.** Transparent walls read as a
+6. **Never dim gameplay elements with opacity.** Transparent walls read as a
    bug, not a hint. Darken the colour instead.
-6. **Outdoor palettes blow out.** Under ACES with a bright sky IBL a mid albedo
+7. **Outdoor palettes blow out.** Under ACES with a bright sky IBL a mid albedo
    renders near-white. Surfaces want `envMapIntensity` near 0.35–0.5 and an
    exposure below 1.0, *and* an albedo darker and more saturated than looks
    right written down. The first pass at a river city rendered as a salt flat.
-7. **Placement helpers take `(x, z, y)` — ground last.** `kit.js` is uniform
+8. **Placement helpers take `(x, z, y)` — ground last.** `kit.js` is uniform
    about this. One call written `(x, y, z)` put six display boards sixteen
    metres in the air, and only `audit.js` noticed.
-8. **Keep the spawn point and the route clear.** A prop dropped over the spawn
+9. **Keep the spawn point and the route clear.** A prop dropped over the spawn
    welds the player in place — the move is blocked, and both slide-along-axis
    fallbacks are blocked too, so the game renders perfectly and will not walk.
    Equipment parked against a wall runs *parallel* to it; rotating it 90° lays it
@@ -295,13 +319,26 @@ and none of them would fail a headless check.
   stucco, wood, tar paper, plinths, steps, corner boards, framed lit windows.
   `building()` takes `roof`, `siding`, `base`, `stoop`, `corners` and
   `windows: 'band' | 'punched'`, so a period building is a data row.
-- `project-y-fps/site.js` describes all 19 buildings and Ashley Pond as data.
-  **Nothing imports it.** `@world` still points at `src/world.js` and the game
-  runs exactly as it always did.
-- Before flipping project-y over: each of the 14 filler buildings wants a
-  side-by-side screenshot against its original (the 5 divisions got one, the
-  fillers did not), and the roads, boardwalks, power poles, fences, vehicles and
-  central board still have no representation in the data.
+- **project-y is across.** `site.js` describes all 19 buildings, Ashley Pond, the
+  roads as `paths` and the status board; `src/world.js` is a 120-line adapter over
+  `outdoorTown.js`, down from 1315; `worldParity` says "world is generated from the
+  site data". The Los Alamos objects the engine has no opinion about — the Tech Area
+  wire, the water tank, the duckboards, the jeeps, the Ponderosa forest — are in
+  `project-y-fps/props.js`, still built by the code that already did them well.
+- **The two things that made it safe, in order.** First, compare the heightfields
+  before porting either: the engine's `mesa` profile against `env.js`'s hand-rolled
+  one came out at 0.06 m mean difference over 841 points across the town, worst case
+  0.5 m, and every one of those was a building pad where the old surface noise
+  dipped a bench that should read level. Had that failed, the flip would have been a
+  terrain port. Second, an **adapter** rather than a rewrite: `main.js` is
+  deliberately forked and calls the old names, so `src/world.js` keeps all of them
+  and maps them onto the contract above — one-argument `initWorld`, argument-less
+  `updateWorldFromState`, `getBuildingPosition` onto `getStopPosition`,
+  `updateDayNight` onto `updateTimeOfDay`. Nothing outside the world changed.
+- What is still code rather than data in project-y: the pine forest, the ground
+  scatter and the lamp positions. About 400 lines of `src/env.js` are now dead —
+  sky, terrain, roads, ridges, all taken over by the engine — with no importer left;
+  the file header lists them.
 - `engine/world/interiorBuilding.js` exists: it builds one room to walk into
   from a town, lazily, in a district at x ≈ 4000, in three styles — `lab`,
   `timber` (board walls and chalkboards, for a game set before screens) and
@@ -317,9 +354,10 @@ and none of them would fail a headless check.
 - `engine/core/*` still uses the original vocabulary in places — `divisions`,
   `budget`, `Director funds`, `historicCharacters`. Renaming is mechanical but
   touches every file, so it is deliberately not done yet.
-- `project-y-fps/src/world.js` and the hospital's still build their place by
-  hand, though both declare a site as data. That is the last fork, and the
-  roads, boardwalks, poles, fences, vehicles and central board have no home in
-  the data yet.
+- **The hospital's world is the last fork.** It still builds its place by hand
+  though it declares a site as data. `interiorFloor.js` exists, so what is left is
+  the plan data, the fit-out, and the same two steps project-y went through: compare
+  the floor-height functions first, then adapt rather than rewrite, because the
+  hospital's `main.js` is forked for the same reason project-y's was.
 - `engine/core/*` still uses one game's vocabulary in places — `divisions`,
   `budget`, `Director funds`, `historicCharacters`.

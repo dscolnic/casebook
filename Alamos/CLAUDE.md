@@ -430,22 +430,32 @@ you are, never the takeaway.
 
 ## Known unfinished work
 
-- **Worlds are still forked.** Logic is shared; `world.js`, props and plan are
-  not. `project-y-fps/site.js` holds all 19 buildings as data but **nothing
-  imports it** — `@world` still points at `src/world.js`. Before flipping it:
-  each filler building wants a side-by-side against the original, and the roads,
-  boardwalks, poles, fences, vehicles and central board have no home in the data
-  yet. The modules both games would need now exist:
-  `engine/world/interiorBuilding.js` (one room to walk into) and
-  `engine/world/interiorFloor.js` (a whole floor, satisfying the world contract
-  over `interiorSite.js`'s builder — `site.kind: 'interior'` pointed straight at
-  the builder until a scaffolded theme failed on import).
-- **The worlds are still hand-built in two games.** Both now declare a `site`
-  in their manifest and `worldParity` checks it against the groups, but
-  `project-y-fps/src/world.js` and the hospital's still build the place
-  directly. Flipping them to `outdoorTown` / `interiorSite` is the last fork,
-  and the roads, boardwalks, poles, fences, vehicles and central board have no
-  home in the data yet.
+- **One world is still hand-built: the hospital's.** Project Y came across —
+  `src/world.js` is a 120-line adapter over `engine/world/outdoorTown.js`, which
+  builds the mesa from `site.js`, and `worldParity` now says "world is generated
+  from the site data" where it used to say "hand-built". The hospital's still
+  builds its place directly; flipping it to `interiorSite` is the last fork. The
+  modules it needs exist: `engine/world/interiorBuilding.js` (one room to walk
+  into) and `engine/world/interiorFloor.js` (a whole floor, satisfying the world
+  contract over `interiorSite.js`'s builder — `site.kind: 'interior'` pointed
+  straight at the builder until a scaffolded theme failed on import).
+- **How the Project Y flip was done, because the hospital's will want the same
+  shape.** An *adapter*, not a rewrite: `main.js` is deliberately forked and calls
+  the old names, so `src/world.js` keeps every one of them and maps them onto the
+  engine's contract — one-argument `initWorld`, argument-less
+  `updateWorldFromState`, `getBuildingPosition` onto `getStopPosition`,
+  `updateDayNight` onto `updateTimeOfDay`. The flip touched the world and left the
+  game alone. What made it safe was checking the terrain *before* porting it: the
+  engine's `mesa` profile was compared against the heightfield `env.js` computed by
+  hand over 841 points, mean difference 0.06 m, and the only half-metre cases were
+  building pads where the old surface noise dipped a bench that should read level.
+  Do that comparison first; if it fails, the flip is a terrain port and a much
+  bigger job.
+- **Project Y is not fully declarative yet.** The pine forest, the ground scatter
+  and the lamp positions are code in `project-y-fps/props.js` rather than site
+  data, and about 400 lines of `src/env.js` are now dead — sky, terrain, roads and
+  ridges, all taken over by the engine, with no importer left. The file header
+  lists them.
 - See `gamekit/FOURTH_GAME.md` for the plan this came from and what is left.
 - **Project Y bios have no authored questions yet.** Its 26 bios are long and
   good (164 words mean) and not one carries a `quiz` array, so every one falls
