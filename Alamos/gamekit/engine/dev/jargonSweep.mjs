@@ -31,14 +31,20 @@ if(!wanted.length){
 }
 
 const SUBS = { '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4', '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9' };
+// A hyphen joins two words and hides both: "lower-activation-energy" matched
+// neither the common list nor the syllabus as one token, so a compound of three
+// ordinary-or-claimed words sat in the queue. Split on it and judge the parts.
 const words = (s) => String(s ?? '').replace(/[₀-₉]/g, c => SUBS[c] ?? c)
-  .match(/[A-Za-z][A-Za-z0-9'’\/-]*/g) ?? [];
+  .match(/[A-Za-z][A-Za-z0-9'’\/]*/g) ?? [];
 const label = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
 const norm = (w) => String(w).toLowerCase().replace(/[’']s$/, '').replace(/-/g, '');
 
-// Everyday English that trips a morphology test. Short: the point of this tool is
-// to over-report, and a maintainer culling ten obvious words from a queue costs
-// less than a missed one shipping.
+// Everyday English that trips a morphology test. Over-reporting is still the
+// policy — a missed word ships and a culled one costs a glance — but there is a
+// limit past which it stops being a policy: a queue holding "explosion",
+// "permission" and "photographs" beside "surfactant" gets skimmed, and skimming
+// is how the real words survive a sweep. Everything below is a word a general
+// reader knows, collected from the queues of all seven games.
 const COMMON = new Set(`
 about above after again against almost already also always another answer anybody anything around arrive
 because become before begin behind believe better between both bring building carefully certain change
@@ -82,6 +88,44 @@ suggest supply support suppose surround survive suspect sustain switch target te
 temporary theory therefore threat total track transfer transport treat trend typical understand uniform
 unique unit update urgent useful valid value variable various version visible volume warning weight widely
 achieve achievable available candidate collision completion circulation aggressive beside brief
+accident agent alongside ambient appreciable arithmetic arrival attention barrel building bulk cabinet
+canopy capable ceiling channel chart circle city cleaning colourless column comparison compound
+concentrate conclusion conditional confidence container continuous corner corridor council criteria
+critical daily decorative delay department depth device discoloration document downstream drinking
+duration emergency employee entrance envelope equipment evening event exact excess exit expensive
+experiment explanation explosion extent fence fire firefighter flooding fraction freight fresh gate
+guidance handling hazard header health hospital household identification identity incident independent
+industrial information injury inspection instrument insufficient intense interchangeable interpretation
+interval isolate journey kitchen laboratory leadership library lighting limited loading meaningful
+meeting neighbour neighbourhood network notice occupy office online operator opposite outdoor overnight
+overshoot ownership package parking partner passage pathway patient pavement payment permanent permission
+personnel photograph physical pipeline plan plant plate platform pollution population portion position
+practice prediction prerequisite pressure prevention priority procedure programme property proportion
+protection provisional public reading recharge reference regular relationship relevant reliable
+requirement rescue residence resident residential resilience response responder restricted roadway
+roughly routine safe safely schedule scientific season section sensible sensitive session settlement
+severe shelter shift shipment shortage shutdown signature simple site situation specialist speed staff
+station storage street structural summary supervisor supply suppression surrounding suspicion tank team
+technician telephone thousand traffic transfer transport truck tunnel unusual utility vehicle village
+violent visitor volunteer warehouse warning waste weather worker workplace yard
+accumulate assign contaminate contaminant contamination destroy destruction distribute distribution
+destructive electric electrical electricity encounter freshwater intensify label necessary negative reoccupy
+reservoir sediment sufficient turbulent turbulence verify verification vulnerable
+ability anyone assumption automatic baseline boundary classmate community compartment conduct confusion
+deadline deliberate disagreement electronic environment evaluation everyone everywhere examine executive
+imbalance instant instruction interruption invitation line maintenance mean merchant navigation
+observation parent rate relative revolution sequence side simplify someone spine stencil struggle
+surprise themselves underneath understood unattended ventilate ventilation visibility vision
+activity certainty constrain handwashing lightheaded meant multiply playground rebuild
+`.trim().split(/\s+/).map(norm));
+
+// A unit is notation, not vocabulary. "millimetres" is not a word the player has
+// to be taught, and neither is the number in front of it.
+const UNITS = new Set(`
+metre meter centimetre centimeter millimetre millimeter kilometre kilometer micrometre micrometer
+litre liter millilitre milliliter microlitre microliter gram kilogram milligram microgram tonne
+joule kilojoule megajoule watt kilowatt kelvin celsius fahrenheit
+pascal kilopascal hectare acre gallon
 `.trim().split(/\s+/).map(norm));
 
 const TECHY = /(?:tion|sion|ment|ance|ence|ity|ology|ography|ometry|meter|metre|ate|ide|ine|ase|osis|emia|itis|ivity|graph|scopy|lysis|genic|phile|phobic|valent|meric|ant|ent|ive|oid|yl)s?$/i;
@@ -89,9 +133,23 @@ const TECHY = /(?:tion|sion|ment|ance|ence|ity|ology|ography|ometry|meter|metre|
 /** Would a general reader have to be taught this word? Deliberately generous. */
 // "calculated", "collisions", "constantly" and "controller" are the common word
 // with an ending on it, and testing the surface form leaves all four in the queue.
-const FORMS = [/e?d$/, /s$/, /ing$/, /ly$/, /e?r$/, /ion$/, /ment$/, /ance$/, /ence$/, /able$/, /ive$/];
-const ordinary = (w) => COMMON.has(w)
-  || FORMS.some(f => { const base = w.replace(f, ''); return base.length >= 4 && (COMMON.has(base) || COMMON.has(base + 'e')); });
+const FORMS = [/e?d$/, /s$/, /es$/, /ing$/, /ly$/, /e?r$/, /ion$/, /ment$/, /ance$/, /ence$/, /able$/, /ive$/, /al$/];
+// A prefix hides a common word the same way a suffix does: "uncontrolled" and
+// "unmeasured" are "control" and "measure" wearing two affixes at once.
+// "re" is not on the list: a chemistry queue is full of re- words that are real
+// terms, and stripping it turns "reagent" into "agent" and "reactive" into
+// "active" — two of the words this tool exists to find.
+const PREFIXES = /^(?:un|non|over|under|mis|pre|post|sub|inter|multi|semi|self)/;
+const known = (b) => b.length >= 4 && (COMMON.has(b) || UNITS.has(b) || COMMON.has(b + 'e') || UNITS.has(b + 'e'));
+// One pass strips one ending, and English stacks them: "scientifically" is
+// "scientific" under two, "controller" is "control" under an ending and the
+// doubled consonant that carrying it needed.
+const strip1 = (w) => [w.replace(/ies$/, 'y'), w.replace(/ied$/, 'y'), w.replace(/ily$/, 'y'), w.replace(/ation$/, ''), ...FORMS.map(f => w.replace(f, ''))]
+  .flatMap(b => [b, b.replace(/([a-z])\1$/, '$1')]);
+const stems = (w) => [w, ...strip1(w), ...strip1(w).flatMap(strip1)];
+const plain = (w) => COMMON.has(w) || UNITS.has(w) || stems(w).some(b => b !== w && known(b));
+const ordinary = (w) => plain(w)
+  || (PREFIXES.test(w) && (() => { const b = w.replace(PREFIXES, ''); return b.length >= 4 && plain(b); })());
 
 function candidate(raw){
   const w = norm(raw);
@@ -128,6 +186,22 @@ function claimedBy(theme){
   return out;
 }
 
+// The syllabus writes stems on purpose — "precipitat", "oxidis", "mass spectrom" —
+// so an exact match claims almost nothing: "oxidants", "replicates", "precipitate"
+// and "spectrometer" all sat in the rewrite pile beside their own syllabus entry.
+// Two words share a root when one starts the other, or when they agree for eight
+// characters — long enough that "electrochemical" finds "electrochemistry" and
+// "electrically" does not find "electrolysis".
+function sharesRoot(a, b){
+  if(a === b) return true;
+  const [s, l] = a.length <= b.length ? [a, b] : [b, a];
+  if(s.length >= 5 && l.startsWith(s)) return true;
+  let i = 0;
+  while(i < s.length && s[i] === l[i]) i++;
+  return i >= 8;
+}
+const claimCandidates = (key) => [key, key.replace(PREFIXES, '')].filter(w => w.length >= 5);
+
 for(const themeName of wanted){
   const dir = resolveTheme(themeName);
   const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
@@ -136,7 +210,7 @@ for(const themeName of wanted){
   normalizeContent(content);
   const CURRICULUM = content.CURRICULUM ?? {};
   const MISSIONS = content.MISSIONS ?? [];
-  const claimed = claimedBy(themeName);
+  const claimed = [...claimedBy(themeName)];
   const glossary = new Set();
   for(const t of content.JARGON ?? []){
     for(const n of [t?.name, ...(t?.aliases ?? [])].filter(Boolean)) for(const w of words(n)) glossary.add(norm(w));
@@ -165,7 +239,8 @@ for(const themeName of wanted){
 
   const rows = [...hits.entries()].map(([key, h]) => ({
     key, raw: h.raw, days: [...h.days].sort((a, b) => a - b), stops: h.stops,
-    onSyllabus: claimed.has(key), inGlossary: glossary.has(key),
+    onSyllabus: claimCandidates(key).some(w => claimed.some(c => sharesRoot(w, c))),
+    inGlossary: glossary.has(key),
   }));
   // Rarest first: a word used once is the one a rewrite removes most cheaply.
   rows.sort((a, b) => a.days.length - b.days.length || a.key.localeCompare(b.key));
