@@ -7,6 +7,33 @@
 // terms the syllabus actually claims. One list, one matcher, so they cannot
 // drift apart and disagree about the same word.
 
+// The closed class. None of these was ever in the list, because a candidacy test
+// with a five-letter floor never had to ask about "the" — and the moment a tool
+// looks at three-letter words to find "ion" and "pH", every one of them arrives
+// dressed as jargon.
+const FUNCTION_WORDS = `
+a an the and or but nor for yet so if then than that this these those there here
+is are was were be been being am do does did done has have had having will would
+shall should can could may might must ought
+i you he she it we they me him her us them my your his its our their mine yours
+no not none nothing any some each every all both few many much more most other
+another such own same very too also just only even still yet again once
+in on at by to from with without within into onto out off over under above below
+up down across through during before after until while since about against
+between among around behind beside beyond near past per via upon toward towards
+as of what which who whom whose when where why how whether because though although
+one two three four five six seven eight nine ten first second third
+`.trim().split(/\s+/);
+
+// Irregular forms a suffix-stripper cannot reach from a word that is already in
+// the list: written from write, gone from go, sat from sit.
+const IRREGULAR = `
+written wrote spoken spoke taken took given gave known knew shown showed seen saw
+gone went done did made held kept left felt found told sold sent built lost meant
+sat stood understood begun began drawn drew driven drove fallen fell flown flew
+grown grew risen rose thrown threw worn wore chosen chose broken broke frozen froze
+`.trim().split(/\s+/);
+
 /** Lower-case, possessive dropped, hyphens closed up — the form both lists use. */
 export const norm = (w) => String(w).toLowerCase().replace(/[’']s$/, '').replace(/-/g, '');
 
@@ -96,6 +123,10 @@ gravity hemisphere international intervention mission motion observatory opportu
 precision preliminary prepared preserve redistribute satellite spacecraft statistical successive
 telescope threaten trajectory transparent wavelength
 absorb absorption align alignment communicate communication preparedness repeatable repeatability
+add adding bind binds cannot drop drops easy form forms gain gains light minus otherwise particle
+raise raising rest side solid spread stick sticks thick thin tiny air beam dissolve edge
+hydrogen helium carbon nitrogen oxygen sodium magnesium aluminium aluminum silicon phosphorus sulfur
+sulphur chlorine chlorine potassium calcium iron copper zinc silver lead mercury uranium plutonium
 absent abundant abundance accessible activate admission adherence agriculture appropriate argument
 bedside bottleneck capacity catchment characterise citywide classification compatible compensate
 compensation confirm contribute deteriorate deterioration diagnosis discharge disease disproportionate
@@ -118,7 +149,7 @@ affordable atmosphere atmospheric compress condensation consumable contradictory
 dissipate distant endurance geometry gradient improvise intermittent moderate orientation perpendicular
 quality reconstruct refine reliability simulation subtract timeline timestamp transition transmit
 accelerometer propel propulsion switchboard thermometer transmitter unambiguous vibration voltmeter
-`.trim().split(/\s+/).map(norm));
+`.trim().split(/\s+/).concat(FUNCTION_WORDS, IRREGULAR).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has
 // to be taught, and neither is the number in front of it.

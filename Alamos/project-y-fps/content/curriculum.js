@@ -6105,8 +6105,7 @@ export const JARGON = [
       "binding energy",
       "binding-energy"
     ],
-    "def": "The energy required to separate a nucleus into its individual protons and neutrons; equivalently, the energy released when the nucleus is formed.",
-    "core": true
+    "def": "The energy required to separate a nucleus into its individual protons and neutrons; equivalently, the energy released when the nucleus is formed."
   },
   {
     "name": "Binding energy per nucleon",

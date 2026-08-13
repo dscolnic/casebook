@@ -2332,8 +2332,7 @@ export const JARGON = [
       "CO2",
       "carbon dioxide"
     ],
-    "def": "The gas the crew breathes out. It has to be removed continuously, because in a sealed boat it only accumulates.",
-    "core": true
+    "def": "The gas the crew breathes out. It has to be removed continuously, because in a sealed boat it only accumulates."
   },
   {
     "name": "Cavitation",
