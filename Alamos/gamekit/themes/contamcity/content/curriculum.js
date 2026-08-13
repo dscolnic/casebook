@@ -500,7 +500,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Read the day-night pattern",
       "scene": "Two monitors have been running through a full day and the traces do not look like a plume drifting away. The health desk is deciding today whether to lift the shelter advice.",
-      "takeaway": "Atmospheric chemistry must be inferred from coordinated chemical and meteorological patterns.",
+      "takeaway": "Atmospheric chemistry must be inferred from coordinated chemical and weather patterns.",
       "place": "Photochemistry Lab",
       "story": "Two monitors have been running through a full day and the traces do not look like a plume drifting away. Photochemistry has a signature: production requires sunlight, so a compound formed in the atmosphere climbs while the sun is up, lags the solar maximum by the time the chemistry takes, and falls back overnight when the radicals that made it are no longer being produced. A compound merely being blown around has no reason to care what time it is. The health desk is deciding today whether to lift the shelter advice.",
       "game": {
@@ -754,7 +754,7 @@ export const CURRICULUM = {
         "choices": [
           "The predicted secondary products, as well as the compound that was released.",
           "The released compound, at more stations and more often.",
-          "Sunlight, oxidants and the meteorological drivers.",
+          "Sunlight, oxidants and the weather.",
           "Nothing further — the visible plume has gone and the source is sealed."
         ],
         "correctChoice": "The predicted secondary products, as well as the compound that was released."
@@ -1102,7 +1102,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Control pH without overshoot",
-      "scene": "The intake is at pH 4.8 and the plant wants a dose this morning. The line is cast iron, the sediment holds the metal that four days of acid has been mobilising, and the dosing pump's smallest reliable step is a tenth of the calculated requirement.",
+      "scene": "The intake is at pH 4.8 and the plant wants a dose this morning. The line is cast iron, the sediment holds the metal that four days of acid has been working loose, and the dosing pump's smallest reliable step is a tenth of the calculated requirement.",
       "takeaway": "Neutralization should be governed by measurement and mixing, not a one-shot calculation.",
       "place": "Treatment Control Room",
       "story": "Neutralisation in a live water system is a control problem, not an arithmetic problem. The dose calculated from one grab sample assumes the water is uniform, the demand is fully characterised and the mixing is instantaneous, and none of those is true in a treatment train. Overshooting into strongly basic conditions is not a smaller mistake than under-dosing: it can mobilise metals from pipework and sediment that the acidic water was leaving alone. The plant is waiting on a dose, and what it is given first decides whether the correction is a measurement or a guess.",
@@ -1146,19 +1146,19 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "Identify the relevant dissolution, precipitation, or complexation reactions. → Write the equilibrium relationships and mass balance. → Change pH, ligand concentration, or ionic strength in the model. → Predict the redistribution among dissolved and solid forms, and measure it.",
+        "answer": "Identify the relevant dissolution, precipitation, or complexation reactions. → Write the equilibrium relationships and mass balance. → Change pH, ligand concentration, or ionic strength in the model. → Predict how much ends up dissolved and how much stays solid, and measure it.",
         "why": "Predicting where a system lands takes both halves of the problem. The relevant reactions have to be identified first, because you cannot write an equilibrium expression for chemistry you have not named. The expressions and the mass balance come next: the expressions say which direction the system moves, and the mass balance says how much of what has to be somewhere. Only then does changing a condition in the model mean anything, and only then can a prediction be compared against a measurement.",
         "rebuttals": [
           "Identify the reactions first. Dissolution, precipitation and complexation are different processes, and the model needs to know which are in play.",
           "Write the equilibrium relationships and the mass balance second. Direction and conservation are both needed; either alone gives a wrong answer.",
           "Change pH, ligand or ionic strength third — in the model, where being wrong is cheap.",
-          "Predict, then measure, last. A redistribution predicted and never checked is an assumption with arithmetic attached."
+          "Predict, then measure, last. A split predicted and never checked is an assumption with arithmetic attached."
         ],
         "cards": [
           "Identify the relevant dissolution, precipitation, or complexation reactions.",
           "Write the equilibrium relationships and mass balance.",
           "Change pH, ligand concentration, or ionic strength in the model.",
-          "Predict the redistribution among dissolved and solid forms, and measure it."
+          "Predict how much ends up dissolved and how much stays solid, and measure it."
         ],
         "order": [
           0,
@@ -1185,7 +1185,7 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. A solid precipitate is removed from contact with water. → Further dissolution pressure is reduced after physical removal. 2. A ligand strongly binds the dissolved metal. → Complexation can increase total dissolved concentration. 3. pH shifts to favor an insoluble hydroxide. → Precipitation is favored. 4. Sediment later encounters acidic water. → Previously precipitated material may remobilize.",
+        "answer": "1. A solid precipitate is removed from contact with water. → Further dissolution pressure is reduced after physical removal. 2. A ligand strongly binds the dissolved metal. → Complexation can increase total dissolved concentration. 3. pH shifts to favor an insoluble hydroxide. → Precipitation is favored. 4. Sediment later encounters acidic water. → Material that settled out earlier may dissolve again.",
         "why": "Le Chatelier's principle gives the direction, and each condition pushes a different way. Removing a solid phase from contact takes away the source of further dissolution. A ligand that binds the dissolved metal holds it in solution, so total dissolved concentration can rise even as free metal falls. A pH shift that favours an insoluble hydroxide drives precipitation. And a sediment that later meets acidic water can release what it captured — a contaminant locked into a solid this month can come back next month.",
         "rebuttals": [
           "Physically removing the precipitate takes the solid out of contact, so there is less driving further dissolution.",
@@ -1203,7 +1203,7 @@ export const CURRICULUM = {
           "Further dissolution pressure is reduced after physical removal.",
           "Complexation can increase total dissolved concentration.",
           "Precipitation is favored.",
-          "Previously precipitated material may remobilize."
+          "Material that settled out earlier may dissolve again."
         ],
         "mapping": [
           0,
@@ -1299,7 +1299,7 @@ export const CURRICULUM = {
         "answer": "The result is outside the calibrated range",
         "why": "Each quality control fails in its own distinct way, which is what makes them readable together. A blank says whether the laboratory contributed to the signal. A spike recovery says whether the matrix is suppressing or enhancing the response. Replicates say whether the measurement is stable. And the curve itself is a claim about a specific range of concentrations — linearity is a property of the interval that was measured, not a promise about everything above it. Detectors saturate, and a reading past the top standard extrapolates a relationship nobody verified.",
         "rebuttals": [
-          "Matrix interference would show as poor spike recovery. Recovery is 97%, so the river matrix is behaving.",
+          "Interference from the rest of the sample would show as poor spike recovery. Recovery is 97%, so the river matrix is behaving.",
           "A contaminated blank would read high. This one reads 0.01, and it would in any case lift the standards along with the sample.",
           "Imprecision would show as replicate scatter. These agree to ±1.5%; the result is repeatable, it is simply repeatable and unverified.",
           "Extending the line past the last standard is the specific mistake this panel is built around. r² = 0.999 describes the fit between 0 and 10 mg/L and says nothing about 13.7."
@@ -1408,7 +1408,7 @@ export const CURRICULUM = {
             "mechanism": "Above the top standard the instrument response is unverified, so converting 1.34 to a concentration extrapolates a relationship nobody measured."
           },
           {
-            "label": "Matrix interference is inflating the reading",
+            "label": "Something else in the sample is inflating the reading",
             "mechanism": "Something in the river water adds absorbance the analyte did not produce."
           },
           {
@@ -1499,10 +1499,10 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Close the verification gaps",
-      "scene": "A number can be perfectly valid and still fail to answer the question that was asked. The distribution network is about to be repressurised on the strength of this evidence package.",
+      "scene": "A number can be perfectly valid and still fail to answer the question that was asked. The distribution network is about to be brought back up to pressure on the strength of this evidence package.",
       "takeaway": "A compliant number is meaningful only if the sampling and method address the actual decision.",
       "place": "Water Distribution Network",
-      "story": "A number can be perfectly valid and still fail to answer the question that was asked. Verification has three separate weak points: whether the samples represent the exposure people will actually receive, whether the method's detection limit is low enough to test the standard at all, and whether what was measured is the compound the standard is about. Each weakness has its own remedy and they do not substitute for one another. The distribution network is about to be repressurised on the strength of this evidence package.",
+      "story": "A number can be perfectly valid and still fail to answer the question that was asked. Verification has three separate weak points: whether the samples represent the exposure people will actually receive, whether the method's detection limit is low enough to test the standard at all, and whether what was measured is the compound the standard is about. Each weakness has its own remedy and they do not substitute for one another. The distribution network is about to be brought back up to pressure on the strength of this evidence package.",
       "game": {
         "type": "PROTOCOL",
         "title": "Close the verification gaps",
@@ -1510,7 +1510,7 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Only treatment-plant effluent was sampled. → Sample representative endpoints and vulnerable zones. 2. Distribution-system samples were collected after long flushing. → Document flushing and sample under realistic use conditions. 3. The method detection limit exceeds the release limit. → Use a more sensitive validated method. 4. The same laboratory performed treatment optimization and final verification. → Add independent verification or review.",
+        "answer": "1. Only treatment-plant effluent was sampled. → Sample representative endpoints and vulnerable zones. 2. Samples from the pipe network were collected after long flushing. → Document flushing and sample under realistic use conditions. 3. The method detection limit exceeds the release limit. → Use a more sensitive validated method. 4. The same laboratory tuned the treatment and then checked the final results. → Add an independent check or review.",
         "why": "Verification has several separate weak points and each has its own remedy. Sampling only the treatment plant leaves the endpoints and vulnerable zones untested, and those are where people actually drink. Sampling after long flushing measures water nobody will receive, so the flushing has to be documented and realistic use conditions sampled. A detection limit above the release limit cannot test the standard at all. And one laboratory doing both the optimisation and the verification has marked its own work.",
         "rebuttals": [
           "Effluent-only sampling misses the endpoints and vulnerable zones where the exposure actually happens. Sample where people drink.",
@@ -1520,15 +1520,15 @@ export const CURRICULUM = {
         ],
         "scenarios": [
           "Only treatment-plant effluent was sampled.",
-          "Distribution-system samples were collected after long flushing.",
+          "Samples from the pipe network were collected after long flushing.",
           "The method detection limit exceeds the release limit.",
-          "The same laboratory performed treatment optimization and final verification."
+          "The same laboratory tuned the treatment and then checked the final results."
         ],
         "choices": [
           "Sample representative endpoints and vulnerable zones.",
           "Document flushing and sample under realistic use conditions.",
           "Use a more sensitive validated method.",
-          "Add independent verification or review."
+          "Add an independent check or review."
         ],
         "mapping": [
           0,
@@ -1896,7 +1896,7 @@ export const CURRICULUM = {
             "mechanism": "Temperature rises after the heat source is removed, off-gas is increasing, and the hot spot is fixed at the material — heat is being generated, not stored."
           },
           {
-            "label": "Stored heat from the fire is still dissipating",
+            "label": "Stored heat from the fire is still draining away",
             "mechanism": "A large thermal mass takes hours to give up the heat it absorbed."
           },
           {
@@ -2077,10 +2077,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Find the anode and cathode",
-      "scene": "Acidic water and two dissimilar metals in contact are all corrosion needs. The intake pipeline for a city's drinking water is a bad place to guess.",
+      "scene": "Acidic water and two different metals in contact are all corrosion needs. The intake pipeline for a city's drinking water is a bad place to guess.",
       "takeaway": "Stopping corrosion requires breaking or controlling the full circuit.",
       "place": "Pipeline Inspection Gallery",
-      "story": "Acidic water and two dissimilar metals in contact are all corrosion needs. Corrosion is an electrochemical circuit with four parts that must all be present: an anode where metal is oxidised and lost, a cathode where a matching reduction occurs, an electron path through the metal, and an ion path through the water. Break any one of them and the circuit stops. That is why treating a corroding pipe as a materials problem alone misses most of the available fixes, and why the intake pipeline for a city's drinking water is a bad place to guess.",
+      "story": "Acidic water and two different metals in contact are all corrosion needs. Corrosion is an electrochemical circuit with four parts that must all be present: an anode where metal is oxidised and lost, a cathode where a matching reduction occurs, an electron path through the metal, and an ion path through the water. Break any one of them and the circuit stops. That is why treating a corroding pipe as a materials problem alone misses most of the available fixes, and why the intake pipeline for a city's drinking water is a bad place to guess.",
       "game": {
         "type": "PROTOCOL",
         "title": "Find the anode and cathode",
@@ -2088,18 +2088,18 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Metal atoms lose electrons and enter solution. → Anodic oxidation site. 2. A surface consumes electrons in a reduction reaction. → Cathodic reduction site. 3. Two dissimilar metals are electrically connected in an electrolyte. → A galvanic cell can form. 4. A protective coating is breached at one small point. → Localized attack may concentrate at the defect.",
-        "why": "Corrosion is an electrochemical circuit with four parts that all have to be present: an anode where metal is oxidised and lost, a cathode where a matching reduction consumes those electrons, an electron path through the metal, and an ion path through the water. Break any one and the circuit stops. Two dissimilar metals connected in an electrolyte supply all four by themselves. And a coating breached at one small point concentrates the whole anodic current into that patch, which is why a pinhole is worse than bare metal.",
+        "answer": "1. Metal atoms lose electrons and enter solution. → Anodic oxidation site. 2. A surface consumes electrons in a reduction reaction. → Cathodic reduction site. 3. Two different metals are electrically connected in an electrolyte. → A galvanic cell can form. 4. A protective coating is breached at one small point. → Localized attack may concentrate at the defect.",
+        "why": "Corrosion is an electrochemical circuit with four parts that all have to be present: an anode where metal is oxidised and lost, a cathode where a matching reduction consumes those electrons, an electron path through the metal, and an ion path through the water. Break any one and the circuit stops. Two different metals connected in an electrolyte supply all four by themselves. And a coating breached at one small point concentrates the whole anodic current into that patch, which is why a pinhole is worse than bare metal.",
         "rebuttals": [
           "Metal atoms losing electrons and entering solution is oxidation, and the site where it happens is the anode. This is where the metal is actually lost.",
           "A surface consuming electrons in a reduction reaction is the cathode. It is the other half of the circuit and it loses no metal.",
-          "Two dissimilar metals connected in an electrolyte supply the anode, the cathode, the electron path and the ion path at once. That is a galvanic cell.",
+          "Two different metals connected in an electrolyte supply the anode, the cathode, the electron path and the ion path at once. That is a galvanic cell.",
           "A coating breached at one point forces the whole anodic current through a small area, so the attack concentrates there and perforates fast."
         ],
         "scenarios": [
           "Metal atoms lose electrons and enter solution.",
           "A surface consumes electrons in a reduction reaction.",
-          "Two dissimilar metals are electrically connected in an electrolyte.",
+          "Two different metals are electrically connected in an electrolyte.",
           "A protective coating is breached at one small point."
         ],
         "choices": [
@@ -2134,9 +2134,9 @@ export const CURRICULUM = {
         "type": "BALLPARK",
         "title": "How fast can material disappear?",
         "setup": "Use a simplified mass-loss estimate.",
-        "play": "Estimate the uniform penetration rate, in millimetres per year.",
-        "task": "Estimate the uniform penetration rate, in millimetres per year.",
-        "question": "Estimate the uniform penetration rate, in millimetres per year.",
+        "play": "Estimate the uniform corrosion rate, in millimetres per year.",
+        "task": "Estimate the uniform corrosion rate, in millimetres per year.",
+        "question": "Estimate the uniform corrosion rate, in millimetres per year.",
         "answer": "0.50 kg m^-2 year^-1.",
         "why": "Work out the average anyway — it bounds the problem and it is what maintenance budgets are written against. Two kilograms a year over four square metres of steel is about sixty microns of depth a year, which would take a century to reach through a six-millimetre wall. That is the number saying uniform corrosion is not the problem here. It is also the number that makes localised attack so much worse: the same total loss arriving at one defect perforates the wall in a season.",
         "givens": [
@@ -2156,7 +2156,7 @@ export const CURRICULUM = {
       "scene": "The pipeline is losing 0.4 millimetres of wall a year where it was losing 0.05, the water is now at pH 4.8 with chloride at 40 mg/L, and the intake has 3 millimetres of wall left in the worst section.",
       "takeaway": "Corrosion protection is a designed system of materials, environment, and inspection.",
       "place": "Maintenance Control",
-      "story": "Protecting a pipeline means attacking the circuit at whichever point is cheapest to break. Water chemistry changes how aggressive the electrolyte is; coatings interrupt the ion path but concentrate the attack wherever they fail; electrical isolation removes the galvanic couple between dissimilar metals; cathodic protection supplies electrons so that the pipe stops being the anode; inspection tells you which of them is working before a leak does. They are complementary, not alternatives, and the city cannot afford to lose the intake in the middle of the emergency.",
+      "story": "Protecting a pipeline means attacking the circuit at whichever point is cheapest to break. Water chemistry changes how aggressive the electrolyte is; coatings interrupt the ion path but concentrate the attack wherever they fail; electrical isolation removes the galvanic couple between different metals; cathodic protection supplies electrons so that the pipe stops being the anode; inspection tells you which of them is working before a leak does. They are complementary, not alternatives, and the city cannot afford to lose the intake in the middle of the emergency.",
       "game": {
         "type": "CHOICE",
         "title": "Protect the pipeline",
@@ -2164,20 +2164,20 @@ export const CURRICULUM = {
         "play": "The corrosion cell is running. Which control goes in first?",
         "task": "The corrosion cell is running. Which control goes in first?",
         "question": "The corrosion cell is running. Which control goes in first?",
-        "answer": "Electrically isolate the dissimilar metals where the coupling is.",
-        "why": "Protecting a pipeline means attacking the circuit wherever it is cheapest to break. Water chemistry changes how aggressive the electrolyte is, but it is constrained by everything else the treatment train has to achieve. Coatings interrupt the ion path and concentrate the attack wherever they fail. Cathodic protection supplies electrons so the pipe stops being the anode. Electrical isolation cuts the electron path between the two dissimilar metals — the one part of the circuit that can be removed without changing the water or trusting a coating.",
+        "answer": "Electrically isolate the different metals where the coupling is.",
+        "why": "Protecting a pipeline means attacking the circuit wherever it is cheapest to break. Water chemistry changes how aggressive the electrolyte is, but it is constrained by everything else the treatment train has to achieve. Coatings interrupt the ion path and concentrate the attack wherever they fail. Cathodic protection supplies electrons so the pipe stops being the anode. Electrical isolation cuts the electron path between the two different metals — the one part of the circuit that can be removed without changing the water or trusting a coating.",
         "rebuttals": [
           "Water chemistry works and is constrained by everything else the treatment train has to achieve, including the neutralisation that started this.",
           "Coatings interrupt the ion path and concentrate the entire anodic current wherever they fail, which is why they cannot be installed without an inspection programme.",
           "A better-presented leak report changes nothing in the circuit, and the intake is what is at risk."
         ],
         "choices": [
-          "Electrically isolate the dissimilar metals where the coupling is.",
+          "Electrically isolate the different metals where the coupling is.",
           "Adjust the water chemistry to make the electrolyte less aggressive.",
           "Recoat the pipe and inspect the coating for defects.",
           "Reissue the leak report with the inspection photographs attached."
         ],
-        "correctChoice": "Electrically isolate the dissimilar metals where the coupling is."
+        "correctChoice": "Electrically isolate the different metals where the coupling is."
       },
       "assumes": [
         "a circuit stops when any one part of it is broken"
@@ -2328,16 +2328,16 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "1. Oxidise the dissolved metal to the valence that forms an insoluble hydroxide. 2. Raise the pH to the window where that hydroxide is least soluble. 3. Settle and filter, taking the solid out of the water. 4. Polish the filtrate on activated carbon for what stayed dissolved.",
+        "answer": "1. Oxidise the dissolved metal to the oxidation state that forms an insoluble hydroxide. 2. Raise the pH to the window where that hydroxide is least soluble. 3. Settle and filter, taking the solid out of the water. 4. Polish the filtrate on activated carbon for what stayed dissolved.",
         "why": "A treatment train is not four independent machines. Each stage changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing — or worse than nothing. Solubility is the pivot. Precipitation has nothing to work with until the metal is in the oxidised form that makes an insoluble hydroxide, and the solid cannot be filtered until the pH has actually made it. Carbon is a polishing step: send it suspended solids and the bed blinds within hours.",
         "rebuttals": [
-          "Oxidise first. Precipitation has nothing to work with until the metal is in the valence that forms an insoluble hydroxide.",
+          "Oxidise first. Precipitation has nothing to work with until the metal is in the oxidation state that forms an insoluble hydroxide.",
           "Raise the pH second, into the window where that hydroxide is least soluble. This is the step that actually makes the solid.",
           "Settle and filter third, once there is a solid to remove. Filtering dissolved metal removes nothing.",
           "Carbon last, as polishing. Send solids to a carbon bed and it blinds within hours, and everything downstream of it stops."
         ],
         "cards": [
-          "Oxidise the dissolved metal to the valence that forms an insoluble hydroxide.",
+          "Oxidise the dissolved metal to the oxidation state that forms an insoluble hydroxide.",
           "Raise the pH to the window where that hydroxide is least soluble.",
           "Settle and filter, taking the solid out of the water.",
           "Polish the filtrate on activated carbon for what stayed dissolved."
@@ -2367,20 +2367,20 @@ export const CURRICULUM = {
         "play": "All three methods claim removal. What does the pilot have to measure?",
         "task": "All three methods claim removal. What does the pilot have to measure?",
         "question": "All three methods claim removal. What does the pilot have to measure?",
-        "answer": "The transformation products and toxicity-relevant surrogates.",
+        "answer": "The transformation products, and the stand-ins that track how toxic they are.",
         "why": "Every method on the table removes the target — that is why they are on the table. What separates them is what they leave behind: transformation products, residuals, and the lifecycle of the waste. A pilot that measures only the target compound cannot see the difference it was run to find, and judged on removal alone it will pick whichever method makes the most byproduct fastest. The right question is the one that would change the decision, and here that means analysing for the products each mechanism predicts.",
         "rebuttals": [
           "Comparing removal under representative chemistry is the comparison, and judged on the target alone it will pick whichever method makes the most byproduct fastest.",
-          "Media exhaustion and waste fate matter and come once a method is short-listed. They describe the lifecycle of a choice already made.",
+          "Whether the media wears out, and where the waste goes, matter — and they come once a method is short-listed. They describe the lifecycle of a choice already made.",
           "Optimising removal at any dose is the narrow optimisation that produced a sludge with twenty kilograms unaccounted for."
         ],
         "choices": [
-          "The transformation products and toxicity-relevant surrogates.",
+          "The transformation products, and the stand-ins that track how toxic they are.",
           "Removal of the target compound under representative water chemistry.",
-          "Media exhaustion, regeneration and the fate of the spent solids.",
+          "Whether the media wears out, whether it can be recharged, and where the used solids go.",
           "The highest achievable removal, at whatever dose it takes."
         ],
-        "correctChoice": "The transformation products and toxicity-relevant surrogates."
+        "correctChoice": "The transformation products, and the stand-ins that track how toxic they are."
       },
       "assumes": [
         "a method that removes a compound has to put it somewhere"
@@ -2400,16 +2400,16 @@ export const CURRICULUM = {
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "answer": "1. Identity confirmed by orthogonal methods and controls. → Treat identity as established with documented methods. 2. A transformation product is plausible but lacks a validated standard. → Label provisional and continue method development. 3. Filtered water meets criteria, but sediment remains contaminated. → Maintain sediment management and remobilization monitoring. 4. Pipeline corrosion is controlled only while chemistry remains within a narrow range. → Use conditional operation with chemistry and corrosion triggers.",
-        "why": "At the end of a release the evidence is in several states at once, and each calls for a different recommendation. An identity confirmed by orthogonal methods with controls is established and can be closed. A transformation product that is plausible but has no validated standard is provisional, and saying so is what keeps the record honest. Filtered water meeting criteria over contaminated sediment is a control that has to keep being funded. And corrosion held inside a narrow chemistry window is conditional operation with triggers.",
+        "answer": "1. Identity confirmed by independent methods and controls. → Treat identity as established with documented methods. 2. A transformation product is plausible but lacks a validated standard. → Label provisional and continue method development. 3. Filtered water meets criteria, but sediment remains contaminated. → Keep managing the sediment, and keep watching for the metal coming back. 4. Pipeline corrosion is controlled only while chemistry remains within a narrow range. → Use conditional operation with chemistry and corrosion triggers.",
+        "why": "At the end of a release the evidence is in several states at once, and each calls for a different recommendation. An identity confirmed by independent methods with controls is established and can be closed. A transformation product that is plausible but has no validated standard is provisional, and saying so is what keeps the record honest. Filtered water meeting criteria over contaminated sediment is a control that has to keep being funded. And corrosion held inside a narrow chemistry window is conditional operation with triggers.",
         "rebuttals": [
-          "Identity confirmed by orthogonal methods with controls is the strongest claim here. Document the methods and treat it as established.",
+          "Identity confirmed by independent methods with controls is the strongest claim here. Document the methods and treat it as established.",
           "A plausible transformation product with no validated standard cannot be quantified yet. Label it provisional and keep developing the method.",
           "Clean filtered water above contaminated sediment is a managed condition, not a resolved one. The management is what has to continue.",
           "Corrosion controlled only inside a narrow chemistry range is conditional operation. The condition needs triggers, or it is just a hope."
         ],
         "scenarios": [
-          "Identity confirmed by orthogonal methods and controls.",
+          "Identity confirmed by independent methods and controls.",
           "A transformation product is plausible but lacks a validated standard.",
           "Filtered water meets criteria, but sediment remains contaminated.",
           "Pipeline corrosion is controlled only while chemistry remains within a narrow range."
@@ -2417,7 +2417,7 @@ export const CURRICULUM = {
         "choices": [
           "Treat identity as established with documented methods.",
           "Label provisional and continue method development.",
-          "Maintain sediment management and remobilization monitoring.",
+          "Keep managing the sediment, and keep watching for the metal coming back.",
           "Use conditional operation with chemistry and corrosion triggers."
         ],
         "mapping": [
@@ -2458,7 +2458,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "The charge passed sets an upper bound on the moles deposited, through the electrons each ion needs.",
-          "Nothing. Deposition depends on concentration only, and current is incidental.",
+          "Nothing. How much metal plates out depends on concentration only, and the current does not matter.",
           "It fixes the mass exactly, because every electron deposits one atom of metal.",
           "It fixes the mass exactly, and the ion's charge does not enter the calculation."
         ],
@@ -2659,7 +2659,7 @@ export const BALLPARK_CALCS = {
   },
   "TREAT-2": {
     "prompt": "The gallery loses about 2.0 kg of steel a year over 4.0 m² of pipe wall. Steel runs about 7,900 kg per cubic metre, and the wall is 6 mm thick.",
-    "question": "Estimate the uniform penetration rate, in millimetres per year.",
+    "question": "Estimate the uniform corrosion rate, in millimetres per year.",
     "labels": [
       "2.0 kg/year  (mass lost)",
       "4.0 m²  (area affected)",

@@ -27,7 +27,7 @@ export const GROUPS = [
         "brief": "Connect the measurements to a mechanism the team can act on."
       },
       {
-        "name": "Confirm identity with orthogonal methods",
+        "name": "Confirm identity with independent methods",
         "cost": 26,
         "work": 19,
         "brief": "Confirm it with evidence that could have failed independently."

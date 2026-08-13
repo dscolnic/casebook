@@ -77,10 +77,10 @@ export const MISSIONS = [
   },
   {
     "title": "Identify the Unknowns",
-    "objective": "Assign confidence-ranked identities to mixture components using orthogonal evidence.",
+    "objective": "Assign confidence-ranked identities to mixture components using independent evidence.",
     "briefing": "Chromatography reveals several peaks, while spectroscopy suggests overlapping functional groups. The player must combine separation and structural evidence rather than forcing one peak to equal one compound. A false identification could lead the treatment plant to use chemistry that creates a more hazardous byproduct.",
     "stake": "Day four. The lab has a chromatogram — a chart with one peak for each thing it managed to separate out — and there are more peaks than the team has names. Two methods run on the same sample disagree. Kwabena Osei, the treatment engineer, wants a list this morning so the plant can start ordering chemistry; Okonjo will not give him one she cannot defend. Today you decide what is actually in the mixture and how sure you are willing to be about each name. Name something that is not there and the plant treats the water for it.",
-    "takeaway": "Assign confidence-ranked identities to mixture components using orthogonal evidence.",
+    "takeaway": "Assign confidence-ranked identities to mixture components using independent evidence.",
     "stops": [
       {
         "group": "IDENT",
@@ -102,7 +102,7 @@ export const MISSIONS = [
   {
     "title": "The Concentration Problem",
     "objective": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
-    "briefing": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and matrix interference. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.",
+    "briefing": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and what else is in the sample. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.",
     "stake": "Day six, and this is where the utility director, Marisol Reyes, and her quality assurance lead, Rie Nakamura, stop agreeing. The results are back as numbers and the city is holding each one against a legal limit, one water system at a time. Nakamura wants every result re-run before anything reopens. Reyes points out that four systems are shut on numbers nobody has questioned, hospitals are on tankers, and a week of caution has a cost too — and today she is right. Today you turn readings into what was really in the river, decide whether one result can be trusted, and choose where to sample. Outside the calibrated range nobody has checked what the instrument does at all.",
     "takeaway": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "stops": [
@@ -221,10 +221,10 @@ export const MISSIONS = [
   },
   {
     "title": "Equilibrium in the Reservoir",
-    "objective": "Predict how pH and ligands shift dissolved concentration and design monitoring for remobilization.",
+    "objective": "Predict how pH and ligands shift dissolved concentration and design monitoring for the metal coming back.",
     "briefing": "After pH adjustment, dissolved contaminant decreases but sediment concentrations rise. The team must determine whether precipitation and complexation have transferred rather than destroyed the hazard. An apparently clean reservoir can become contaminated again when chemistry or flow changes.",
     "stake": "Day twenty-three, and nine days have been clean. The dissolved amount is down, the amount in the sediment is up by about as much, and Elena Stavros, who will have to monitor it for a decade, is the only person in the room still asking about it — everybody else has moved on to the treatment plant. Today you predict where the contaminant goes the next time conditions move, and design monitoring that would catch it coming back. Nothing was destroyed by the correction. It was moved into a form that is not in the water today, and it is still in the reservoir. What tests that claim is a storm, a warm month, or the autumn week when the lake turns over.",
-    "takeaway": "Predict how pH and ligands shift dissolved concentration and design monitoring for remobilization.",
+    "takeaway": "Predict how pH and ligands shift dissolved concentration and design monitoring for the metal coming back.",
     "stops": [
       {
         "group": "WATER",
@@ -246,7 +246,7 @@ export const MISSIONS = [
   {
     "title": "The Corrosion Failure",
     "objective": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
-    "briefing": "Acidic water and dissimilar metals threaten the intake pipeline. The player must identify redox couples and stop a small leak from becoming a system-wide failure. A hidden localized failure could interrupt drinking water during the emergency.",
+    "briefing": "Acidic water and different metals threaten the intake pipeline. The player must identify redox couples and stop a small leak from becoming a system-wide failure. A hidden localized failure could interrupt drinking water during the emergency.",
     "stake": "Day twenty-six. A section of the intake pipeline has failed and Novák is standing in the hole in Third Street. It is also the main your own team clamped an earth cable to a fortnight ago. That pipe carries the water a hundred and forty thousand people drink, and the city is already on its reserves. Today you find where the metal is being lost and why, work out how fast, and choose the protection. Speed decides your response: the same loss over ten years is maintenance, and over a fortnight it is a burst main.",
     "takeaway": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
     "stops": [
