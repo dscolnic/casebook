@@ -311,51 +311,86 @@ covers.
 
 ---
 
-# Work still to do: the jargon sweep
+# The vocabulary rules, and what a person still has to decide
 
-`checkJargon` was built the wrong way round and the seven games still carry the
-consequence. Written down here because the next session should start from it
-rather than rediscover it.
+The jargon sweep in this section used to be a to-do list. It has been done, for
+all seven games, and what replaced it is a set of rules the checks now hold. Read
+this before writing or rewriting any question.
 
-**What is wrong.** The check treats an undefined term as a glossary gap, so the
-fix it invites is a definition. That is the wrong fix. "The formula contains a
-metal cation and a polyatomic anion" on day 1 of a chemistry course should read
-"the formula pairs a metal with a group of atoms carrying one charge together" —
-defining a word the question never needed makes the card longer without making
-the question answerable. Sixty glossary definitions were written to satisfy the
-check; most of them are excuses for jargon that should not be in the question.
+## The rule that holds
 
-The detector is also a curated domain lexicon, so its recall is poor: `sorbent`,
-`influent`, `matrix effect` and anything outside its morpheme list pass silently.
-For a *gate* that tradeoff is right — every finding is real. For a *sweep* it is
-backwards: you want over-flagging with a person reading the list.
+**A term belongs in a question only if the game's own syllabus claims it, or the
+day that uses it teaches it.** `tools/syllabus.js` is the authority — thirty
+concepts per game with their phrase lists — and `tools/common-words.mjs` is the
+other half: the ordinary English a morphology test keeps mistaking for jargon,
+plus the stemming both tools share. One list, one matcher, two consumers, so they
+cannot drift into disagreeing about the same word.
 
-**The rule that should hold.** A term belongs in a question only if it is on that
-game's syllabus, and only from the mission that teaches it onward. `tools/syllabus.js`
-already holds thirty concepts per game with their phrase lists, so the allowlist
-is a curriculum decision rather than a word list somebody maintains.
+## Five gates, in `jargonDepth.mjs --check`, inside `npm run check`
 
-**The order to do it in.**
+1. **No load-bearing gap.** A word two or more defined terms rest on must itself
+   be defined. Riverton defined anion, cation and ligand in terms of "ion" and
+   never said what an ion was.
+2. **Parts before wholes.** A term whose *name* is built from another term may
+   not arrive first — "polyatomic anion" is unreadable without anion.
+3. **A definition may not lean on a term the player meets later.**
+4. **The plan card introduces its own words first.** "Cation — a positively
+   charged ion" needs Ion to have had a card line already, on that card or an
+   earlier day. The primer deriver satisfies this by construction; the gate stops
+   an authored primer from doing worse.
+5. **A depth ceiling that rises.** Day one may introduce a term built on one
+   other term: ceiling 2, then one more every two days, capped at 6. A stack six
+   concepts deep is fair in the last week and unfair on the first morning.
 
-1. **Report mode, deliberately noisy.** Morphology plus length plus rarity, no
-   curated lexicon. For every candidate print the term, every stop that uses it,
-   and whether a syllabus concept claims it. That output is the work queue.
-2. **Classify each term**: on the syllabus (keep, and check the teaching mission
-   comes first), adjacent-but-unnecessary (rewrite in plain words), or notation
-   (units, formulas — leave).
-3. **Rewrite the questions, do not annotate them.** Scene, task, choices, cards.
-   The syllabus term stays where the question is *about* that term.
-4. **Retire the glossary entries** that exist only to explain a word the question
-   should not have used. Keep the ones tied to taught concepts.
-5. **Re-run the probes.** A rewrite in plainer words is exactly how a keyed answer
-   starts echoing its prompt, and ECHO is what catches it. `checkStory` for
-   reading level, `bookParity` because all of this is edited in `books/*.yml`.
-6. **Flip the gate**: no term outside its game's syllabus, and no syllabus term
-   before the mission that teaches it. Then this section can be deleted.
+Plus the sixth, which is about what the player actually sees: **every technical
+word inside a phrase the questions use must be ordinary, on the syllabus, a
+defined term in its own right, or said in the FIRST SENTENCE of its entry** —
+because the plan card prints one sentence, and "polyatomic" was explained in the
+second.
 
-Roughly 350 questions across seven games, plus the checker rewrite. Contamcity is
-the worst and Deep Watch the best, which is the order to work in.
----
+## Two reports, deliberately not gates
+
+```sh
+node engine/dev/jargonSweep.mjs <theme> [--unanchored]   # words: is this term earned?
+node engine/dev/phraseSweep.mjs <theme>                  # phrases whose words are all fine
+```
+
+`jargonSweep` over-flags on purpose and prints, per candidate, the days that use
+it and whether the syllabus claims it. `--unanchored` asks the sharper question
+per day: which hard words do the questions ask with that the day's own reasoning
+never touches. `phraseSweep` catches what neither word-level tool can — a
+technical modifier on a borrowed abstract head, used twice, named by neither the
+glossary nor the syllabus. It found "analytical reserve", which was eight hundred
+pounds of laboratory budget, after every other check had passed it.
+
+Neither gates, because both need judgement. The sweep's own header says which
+decision each row is asking for.
+
+## The plan card is derived, and the rules are in `normalize.js`
+
+`primeMissions()` picks the terms. A term earns a line by appearing in what the
+day *asks* — task, question, every option, card, scenario, given, proposal — and
+then only if the day also reasons with it, or a second stop asks with it too. A
+word that appears only in a scene is set dressing and buys nothing.
+
+Order is syllabus first (`core`, stamped at import time), then how many days of
+the campaign reason with the term, then how hard this day leans on it. Two terms
+chosen for their own sake, up to three lines, because a prerequisite is not a
+third vocabulary item — it is the first half of the one idea the card is already
+spending a line on. A term is introduced once.
+
+## What a person still has to decide
+
+* **The unanchored lists.** Run `jargonSweep <theme> --unanchored`. Terms a day
+  asks with and never reasons with are the next content pass: Project Y 40,
+  Outbreak 36, Planetary Defense 22, Riverton 21, Bring Them Home 9, Hospital 7,
+  Deep Watch 3. Each is either a word to cut or a verdict to write.
+* **`engine/core/terminology.js` is dead code.** Nothing imports it.
+  `inlineTextWithTerms` would underline a term in the prose where it is used,
+  which is a better answer than a strip of chips, and has never been wired up.
+* **Sixty-odd glossary entries still define nothing** — "a course concept used in
+  Mission 3" is the docx importers' note to the author. The book skips them; the
+  game still ships them.
 
 # Runbook: changing something in every game
 
