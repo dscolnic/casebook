@@ -78,9 +78,9 @@ export const MISSIONS = [
   {
     "title": "The Uncertainty Corridor",
     "objective": "Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.",
-    "briefing": "The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and nonlinear propagation without confusing low probability with zero consequence.",
+    "briefing": "The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.",
     "stake": "Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the part that matters. You get one chance to explain it.",
-    "takeaway": "Use probability distributions, covariance, nonlinear propagation, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.",
+    "takeaway": "Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "IMPACT",
@@ -102,7 +102,7 @@ export const MISSIONS = [
   {
     "title": "How Large Is It?",
     "objective": "Produce a diameter range rather than a single unsupported value.",
-    "briefing": "The object’s brightness is known, but size depends strongly on reflectivity. The player must combine photometry, albedo, and thermal evidence to bound diameter.",
+    "briefing": "The object’s brightness is known, but size depends strongly on reflectivity. The player must combine brightness, albedo, and thermal evidence to bound diameter.",
     "stake": "Six days to the pass, and this is the day the campaign has been dreading. Irina Sorokin, who observes in the thermal infrared, has been waiting on telescope time all week. Everything anybody wants to know about the eight-year return scales with size, and the size rests on how bright the object looked in a survey image. Brightness alone allows anything from 120 metres to 600. At the small end this is a city and an evacuation. At the large end it is a country, and a decade of bad harvests for everyone else. Nobody can tell you which, and no amount of staring at the discovery image will. Today you buy the measurement that breaks the tie.",
     "takeaway": "Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.",
     "stops": [
@@ -200,7 +200,7 @@ export const MISSIONS = [
     "objective": "Provide low, central, and high impact-energy scenarios with transparent assumptions.",
     "briefing": "The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.",
     "stake": "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly four hundred megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage.",
-    "takeaway": "Use mass and density, kinetic energy, scaling, uncertainty propagation, orders of magnitude as an evidence chain rather than as isolated facts.",
+    "takeaway": "Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "IMPACT",
@@ -234,7 +234,7 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 13,
-        "task": "Which atmospheric-entry outcome best fits the optical, deceleration, infrasound, and ground evidence?"
+        "task": "Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?"
       },
       {
         "group": "OPS",
@@ -248,7 +248,7 @@ export const MISSIONS = [
     "objective": "Design a survey strategy that improves detection and accurately reports what remains unseen.",
     "briefing": "The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.",
     "stake": "A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Sunward is a permanent hole.",
-    "takeaway": "Use selection effects, survey completeness, limiting magnitude, cadence, population inference as an evidence chain rather than as isolated facts.",
+    "takeaway": "Use selection effects, survey completeness, limiting magnitude, how often the survey looks, population inference as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "OPS",
@@ -270,7 +270,7 @@ export const MISSIONS = [
   {
     "title": "Can We Move It?",
     "objective": "Choose a deflection demonstration and define how success will be measured.",
-    "briefing": "Impact probability remains significant, and a reconnaissance mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.",
+    "briefing": "Impact probability remains significant, and a scouting mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.",
     "stake": "Four months after the pass, Fischer has the radar orbit, and the encounter is seven and a half years out — which sounds like plenty and is not, because a deflection has to be launched years before it arrives. Fischer's orbit is the best this campaign will ever have, and it is already two months old. Today you size the nudge and decide how success will be measured. On a weak body the push can break the object apart, and several fragments on the same path is worse than one. So what has to be measured is not what you launched but what actually happened to the orbit.",
     "takeaway": "Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.",
     "stops": [

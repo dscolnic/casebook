@@ -117,6 +117,14 @@ imbalance instant instruction interruption invitation line maintenance mean merc
 observation parent rate relative revolution sequence side simplify someone spine stencil struggle
 surprise themselves underneath understood unattended ventilate ventilation visibility vision
 activity certainty constrain handwashing lightheaded meant multiply playground rebuild
+accelerate acceleration alternative archive authority autonomous calibrate calibration catalogue
+challenge characterise coastline commission composition consequence consistent continent contribution
+decelerate deceleration decisive defence defense demonstration density dependent dimension discover
+displacement distortion enhancement evacuate evacuation fragment fragmentation geographic guarantee
+gravity hemisphere international intervention mission motion observatory opportunity percentage
+precision preliminary prepared preserve redistribute satellite spacecraft statistical successive
+telescope threaten trajectory transparent wavelength
+absorb absorption align alignment communicate communication preparedness repeatable repeatability
 `.trim().split(/\s+/).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has

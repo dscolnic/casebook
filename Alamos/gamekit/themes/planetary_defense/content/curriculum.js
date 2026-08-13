@@ -23,7 +23,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "A cosmic ray is a single sharp hit in one exposure. This source is star-like in all three and keeps moving.",
           "A hot pixel is bright wherever that pixel is read, so it stays put in detector coordinates. This one crosses pixels.",
-          "A registration error moves many stars together. Here the stars stay fixed and one point does not."
+          "An alignment error moves many stars together. Here the stars stay fixed and one point does not."
         ],
         "headline": "A survey pipeline flags a faint moving point near the ecliptic.",
         "readings": [
@@ -53,7 +53,7 @@ export const CURRICULUM = {
             "label": "Background stars",
             "value": "Remain fixed after astrometric alignment",
             "status": "normal",
-            "note": "Image registration is stable"
+            "note": "Frame alignment is stable"
           },
           {
             "zone": "Second telescope",
@@ -77,7 +77,7 @@ export const CURRICULUM = {
             "mechanism": "A fixed detector location appears bright whenever that pixel is read."
           },
           {
-            "label": "Image-registration artifact",
+            "label": "Frame-alignment artifact",
             "mechanism": "Misalignment makes many fixed stars appear to shift together."
           }
         ],
@@ -106,13 +106,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "Bias, dark and flat first — positions off an uncalibrated frame are wrong in a way no later step recovers.",
           "Cross-match second: stars, satellites, defects and catalogued objects, or you will measure them very precisely.",
-          "Centroids and magnitudes third, with uncertainties, because a position without one cannot be fitted to anything.",
+          "Positions and magnitudes third, with uncertainties, because a position without one cannot be fitted to anything.",
           "The ephemeris last, with a region. That is the step that makes this falsifiable by somebody who is not you."
         ],
         "cards": [
           "Apply the bias, dark and flat frames, and solve plate constants for each exposure.",
           "Cross-match every source in the field against the star catalogue, the satellite element sets and the defect mask.",
-          "Fit centroids, magnitudes and per-measurement uncertainties against the observatory clock.",
+          "Fit positions, magnitudes and per-measurement uncertainties against the observatory clock.",
           "Post an ephemeris with a predicted uncertainty region where another observatory can check it."
         ],
         "order": [
@@ -195,7 +195,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "From angles to orbit family",
       "scene": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass a million kilometres from Earth and some do not, and nothing measured so far separates them.",
-      "takeaway": "Uncertainty should be propagated as an ensemble of physically allowed trajectories.",
+      "takeaway": "Uncertainty should be carried forward as an ensemble of physically allowed trajectories.",
       "place": "Orbit Determination Center",
       "story": "Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass a million kilometres from Earth and some do not, and nothing measured so far separates them.",
       "game": {
@@ -206,17 +206,17 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Sparse angular data define a region of state space rather than a single orbit, and the honest procedure is to keep the whole family. Combining the timed directions with any range comes first because range is what angles cannot supply. Generating the states consistent with the observations *and their uncertainties* is what makes it a family rather than a best fit. Each is then propagated under gravity, and the spread in where they end up is the answer — not the middle of it.",
+        "why": "Sparse angular data define a region of state space rather than a single orbit, and the honest procedure is to keep the whole family. Combining the timed directions with any range comes first because range is what angles cannot supply. Generating the states consistent with the observations *and their uncertainties* is what makes it a family rather than a best fit. Each is then carried forward under gravity, and the spread in where they end up is the answer — not the middle of it.",
         "rebuttals": [
           "Directions and any range first: a set of angles alone leaves the distance free, which is the dimension the whole problem turns on.",
           "Generate states consistent with the uncertainties, not just the best fit. The best fit is one member of the family and has no special status.",
-          "Propagate each under gravity — the family has to be carried forward, not the average of it.",
+          "Carry each one forward under gravity — the family has to be carried forward, not the average of it.",
           "Compare the approach distances last. The spread across the family is the result; collapsing it to one number throws the question away."
         ],
         "cards": [
           "Combine timed directions and any range information.",
           "Generate state vectors consistent with the observations and uncertainties.",
-          "Propagate each allowed state under gravity.",
+          "Carry each allowed state forward under gravity.",
           "Compare future sky positions and Earth-approach distances across the family."
         ],
         "order": [
@@ -273,7 +273,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "A measured miss settles this pass and says nothing about the orbit the encounter creates.",
           "Albedo gives size. Size does not tell you where the object will be in eleven years.",
-          "A later arc is needed and is not sufficient — without propagating through the encounter there is nothing to compare it against."
+          "A later arc is needed and is not sufficient — without carrying the orbit forward through the encounter there is nothing to compare it against."
         ],
         "choices": [
           "How this approach changes the orbit, and whether the new path threads a keyhole on the next return.",
@@ -290,10 +290,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Build the deflection campaign",
-      "scene": "The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Reconnaissance first would cost a year of that lead time.",
+      "scene": "The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Scouting first would cost a year of that lead time.",
       "takeaway": "A deflection mission should be designed to learn its actual momentum transfer.",
       "place": "Orbit Monitoring Room",
-      "story": "The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Reconnaissance first would cost a year of that lead time.",
+      "story": "The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Scouting first would cost a year of that lead time.",
       "game": {
         "type": "CHOICE",
         "title": "Build the deflection campaign",
@@ -304,13 +304,13 @@ export const CURRICULUM = {
         "answer": "Long-term tracking, before and after the impact.",
         "why": "The thing a deflection has to produce is a change in the orbit, so the campaign has to measure the orbit before and after. Without that, the mission is a demonstration: the spacecraft hit something, and nobody can say what it did. The ejecta thrown off the surface add momentum by a factor nobody can calculate in advance, so the only way anyone learns it is by measuring one real impact.",
         "rebuttals": [
-          "Reconnaissance measures the mass the predicted velocity change depends on, and it costs a year of the lead time that makes any velocity change effective.",
+          "Scouting measures the mass the predicted velocity change depends on, and it costs a year of the lead time that makes any velocity change effective.",
           "Navigational margin decides whether the spacecraft hits. It says nothing about what happened to the orbit when it did.",
           "An impact with no measurement is a demonstration rather than an experiment, and it leaves the next campaign exactly as uncertain as this one."
         ],
         "choices": [
           "Long-term tracking, before and after the impact.",
-          "Reconnaissance to measure the mass, delaying the impactor by a year.",
+          "Scout it first to measure the mass, delaying the impactor by a year.",
           "Additional navigational margin on the impactor itself.",
           "Nothing — the impact is the experiment."
         ],
@@ -421,7 +421,7 @@ export const CURRICULUM = {
         "answer": "Thermal-infrared emission.",
         "why": "Brightness in reflected light is size times albedo, so one number cannot separate them — which is why the range runs from 120 to 600 metres and the consequence, going as the cube, from a city to a country. Thermal infrared measures the heat the surface emits, and that depends on size and temperature rather than on reflectivity, so it constrains the size from outside the degeneracy. Any further measurement in reflected light, however precise, still carries an assumed albedo inside it the answer.",
         "rebuttals": [
-          "Multi-band photometry and phase behaviour constrain the surface itself, and the size stays entangled with whatever they imply about it.",
+          "Brightness in several colours, and phase behaviour, constrain the surface itself, and the size stays entangled with whatever they imply about it.",
           "Radar gives a diameter directly and only when the geometry allows, which it will not for months. Book it; do not wait on it.",
           "Adopting the class average is free and reproduces exactly the problem it was meant to solve, with the assumption now buried in a number."
         ],
@@ -1064,7 +1064,7 @@ export const CURRICULUM = {
       "day": 6,
       "title": "Diameter-albedo degeneracy",
       "scene": "Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.",
-      "takeaway": "Photometry alone cannot uniquely determine size without an albedo assumption.",
+      "takeaway": "Brightness alone cannot uniquely determine size without an albedo assumption.",
       "place": "Infrared Telescope Team",
       "story": "Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.",
       "game": {
@@ -1075,7 +1075,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "How does the higher-albedo object's diameter compare?",
         "answer": "",
-        "why": "Brightness fixes the product of area and reflectivity. Four times the albedo at the same brightness therefore needs a quarter of the area. But diameter goes as the square root of area, so a quarter of the area is half the diameter, not a quarter of it. That is the whole degeneracy: photometry alone cannot separate a small bright rock from a large dark one, and every size quoted from brightness has an assumed reflectivity inside it.",
+        "why": "Brightness fixes the product of area and reflectivity. Four times the albedo at the same brightness therefore needs a quarter of the area. But diameter goes as the square root of area, so a quarter of the area is half the diameter, not a quarter of it. That is the whole degeneracy: brightness alone cannot separate a small bright rock from a large dark one, and every size quoted from brightness has an assumed reflectivity inside it.",
         "givens": [],
         "relationship": "At the same brightness, reflecting area varies inversely with albedo — and diameter is the square root of area.",
         "calcKey": "OPS-6"
@@ -1197,13 +1197,13 @@ export const CURRICULUM = {
         "answer": "Continuous longitude coverage across several observatories.",
         "why": "A single site sees the object for a few hours a night, so the light curve has gaps the length of its daylight — and a period can hide in a gap. A seven-hour variation observed from one place is consistent with a seven-hour rotation, a fourteen-hour one seen at half phase, or a tumbling body whose aspect is changing. Stations spread round the Earth fill the gaps, which removes the aliases before anything is fitted rather than afterwards. That matters here because the spacecraft's approach geometry is designed against whichever answer is adopted.",
         "rebuttals": [
-          "High cadence through one night refines a curve that may be the wrong curve, at higher precision.",
+          "Measuring more often through one night refines a curve that may be the wrong curve, at higher precision.",
           "Combining light curves across changing geometry is what tests whether one period explains all of them, and it needs a gap-free curve to combine.",
           "Adopting a provisional period is the failure this stop exists to prevent: the spacecraft arrives at a rotational phase chosen by an assumption."
         ],
         "choices": [
           "Continuous longitude coverage across several observatories.",
-          "Higher-cadence photometry through one long night.",
+          "Brightness measured more often through one long night.",
           "Light curves combined across changing viewing geometry.",
           "A provisional period, adopted now so the design can proceed."
         ],
@@ -1314,11 +1314,11 @@ export const CURRICULUM = {
         "type": "DIAGNOSIS",
         "title": "Why did the object break up high in the atmosphere?",
         "setup": "High-Altitude Observation Network",
-        "play": "Which atmospheric-entry outcome best fits the optical, deceleration, infrasound, and ground evidence?",
-        "task": "Which atmospheric-entry outcome best fits the optical, deceleration, infrasound, and ground evidence?",
-        "question": "Which atmospheric-entry outcome best fits the optical, deceleration, infrasound, and ground evidence?",
+        "play": "Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?",
+        "task": "Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?",
+        "question": "Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?",
         "answer": "Atmospheric fragmentation / airburst",
-        "why": "Where an object deposits its energy is read from several signatures at once, and here the silent channel does as much work as the loud ones. Rapid brightening high up with speed falling quickly is a body being stopped by air rather than by ground. An infrasound pulse is energy going into the atmosphere. Multiple fading tracks are fragments. And no seismic signal and no crater says that whatever happened, it did not happen at the surface.",
+        "why": "Where an object deposits its energy is read from several signatures at once, and here the silent channel does as much work as the loud ones. Rapid brightening high up with speed falling quickly is a body being stopped by air rather than by ground. A pulse of low-frequency sound is energy going into the atmosphere. Multiple fading tracks are fragments. And no seismic signal and no crater says that whatever happened, it did not happen at the surface.",
         "rebuttals": [
           "An intact ground impact transfers most of its energy at the surface, and that leaves a seismic signal and a crater. Neither is there.",
           "Saturating optics do not decelerate the object, and the speed measurement is independent of the brightness one.",
@@ -1341,8 +1341,8 @@ export const CURRICULUM = {
             "note": "Strong atmospheric deceleration"
           },
           {
-            "zone": "Infrasound",
-            "label": "Infrasound",
+            "zone": "Low-frequency sound",
+            "label": "Low-frequency sound",
             "value": "Broad atmospheric pulse",
             "status": "alarm",
             "note": "Consistent with distributed energy release"
@@ -1471,8 +1471,8 @@ export const CURRICULUM = {
             "note": "No prolonged camera outage"
           },
           {
-            "zone": "Survey cadence",
-            "label": "Survey cadence",
+            "zone": "How often the survey looks",
+            "label": "How often the survey looks",
             "value": "Covers the region after elongation increases",
             "status": "alarm",
             "note": "Detection follows emergence from solar glare"
@@ -1544,13 +1544,13 @@ export const CURRICULUM = {
         "why": "The numbers say which upgrade would have helped. At magnitude 21.8 against a limit of 22.0, this object was bright enough for the survey for seven weeks; what hid it was 28 degrees of solar elongation, in sky the survey does not cover. So depth added to the same sky finds it on exactly the same night it was found anyway, while sky coverage nearer the Sun — or a spacecraft looking from somewhere other than Earth — finds it weeks earlier. Completeness is a function of where you point as much as how faint you reach, and this object was hidden by the first, not the seconde same night.",
         "rebuttals": [
           "Greater depth finds fainter and darker bodies across the sky already covered, and would not have moved this discovery by a day.",
-          "A linking cadence turns detections into tracked objects, which requires the detection first.",
+          "Returning to the same patch turns detections into tracked objects, which requires the detection first.",
           "Reporting completeness from the catalogue counts the objects that were found using the objects that were found. It is the reasoning this discovery disproved."
         ],
         "choices": [
           "Wider sky and hemisphere coverage, including low solar elongations.",
           "Greater depth, to reach fainter and darker bodies.",
-          "A cadence optimised for linking detections into tracked objects.",
+          "A pattern of return visits optimised for linking detections into tracked objects.",
           "Nothing — report completeness from the fraction already catalogued."
         ],
         "correctChoice": "Wider sky and hemisphere coverage, including low solar elongations."
@@ -1681,7 +1681,7 @@ export const CURRICULUM = {
           "Along the orbit it changes the period, so the arrival-time shift grows with every return.",
           "It is a large fraction of the object's orbital speed, so the path moves immediately.",
           "The push is sideways, which tilts the orbit out of Earth's plane before the pass.",
-          "Momentum is not conserved in a hypervelocity impact, so the object gains more than it is given."
+          "Momentum is not conserved in a very fast impact, so the object gains more than it is given."
         ],
         "correctChoice": "Along the orbit it changes the period, so the arrival-time shift grows with every return."
       },

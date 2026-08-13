@@ -288,7 +288,7 @@ missions:
         rebuttals:
           - A cosmic ray is a single sharp hit in one exposure. This source is star-like in all three and keeps moving.
           - A hot pixel is bright wherever that pixel is read, so it stays put in detector coordinates. This one crosses pixels.
-          - A registration error moves many stars together. Here the stars stay fixed and one point does not.
+          - An alignment error moves many stars together. Here the stars stay fixed and one point does not.
         assumes:
           - a detector has its own defects, and they sit still in detector coordinates
         headline: A survey pipeline flags a faint moving point near the ecliptic.
@@ -312,7 +312,7 @@ missions:
             label: Background stars
             value: Remain fixed after astrometric alignment
             status: normal
-            note: Image registration is stable
+            note: Frame alignment is stable
           - zone: Second telescope
             label: Second telescope
             value: Recovers source near predicted position
@@ -325,7 +325,7 @@ missions:
             mechanism: A charged particle creates a transient sharp feature in one exposure.
           - label: Hot detector pixel
             mechanism: A fixed detector location appears bright whenever that pixel is read.
-          - label: Image-registration artifact
+          - label: Frame-alignment artifact
             mechanism: Misalignment makes many fixed stars appear to shift together.
         answer: Real moving Solar System object
         why: A real Solar System object moves in the sky, not on the chip. That is the whole test, and four readings apply it. The source is star-like in every frame, so it is not a cosmic ray, which arrives once and sharp. It lands on different pixels while the background stars stay fixed, so it is not a hot pixel. And a second telescope on another mountain found it near the predicted place — an object that exists for instruments that are not this one.
@@ -339,14 +339,14 @@ missions:
         rebuttals:
           - Bias, dark and flat first — positions off an uncalibrated frame are wrong in a way no later step recovers.
           - "Cross-match second: stars, satellites, defects and catalogued objects, or you will measure them very precisely."
-          - Centroids and magnitudes third, with uncertainties, because a position without one cannot be fitted to anything.
+          - Positions and magnitudes third, with uncertainties, because a position without one cannot be fitted to anything.
           - The ephemeris last, with a region. That is the step that makes this falsifiable by somebody who is not you.
         assumes:
           - a prediction somebody else can test is what makes a claim checkable
         cards:
           - Apply the bias, dark and flat frames, and solve plate constants for each exposure.
           - Cross-match every source in the field against the star catalogue, the satellite element sets and the defect mask.
-          - Fit centroids, magnitudes and per-measurement uncertainties against the observatory clock.
+          - Fit positions, magnitudes and per-measurement uncertainties against the observatory clock.
           - Post an ephemeris with a predicted uncertainty region where another observatory can check it.
         order: [0, 1, 2, 3]
         why: "Rejection has to come after calibration and before measurement, or every step measures the wrong thing. An uncalibrated frame gives positions that are wrong for instrumental reasons. Measuring before rejecting means astrometry on satellite trails and known asteroids. And the last step is what makes this a discovery rather than a claim: a predicted region hands somebody else a place to point and a way to prove you wrong."
@@ -491,22 +491,22 @@ missions:
         title: From angles to orbit family
         place: Orbit Determination Center
         scene: Every orbit that fits the arc projects to almost the same track across the sky. Some of them pass a million kilometres from Earth and some do not, and nothing measured so far separates them.
-        takeaway: Uncertainty should be propagated as an ensemble of physically allowed trajectories.
+        takeaway: Uncertainty should be carried forward as an ensemble of physically allowed trajectories.
         format: SEQUENCE
         rebuttals:
           - "Directions and any range first: a set of angles alone leaves the distance free, which is the dimension the whole problem turns on."
           - Generate states consistent with the uncertainties, not just the best fit. The best fit is one member of the family and has no special status.
-          - Propagate each under gravity — the family has to be carried forward, not the average of it.
+          - Carry each one forward under gravity — the family has to be carried forward, not the average of it.
           - Compare the approach distances last. The spread across the family is the result; collapsing it to one number throws the question away.
         assumes:
           - angles alone do not fix a distance
         cards:
           - Combine timed directions and any range information.
           - Generate state vectors consistent with the observations and uncertainties.
-          - Propagate each allowed state under gravity.
+          - Carry each allowed state forward under gravity.
           - Compare future sky positions and Earth-approach distances across the family.
         order: [0, 1, 2, 3]
-        why: Sparse angular data define a region of state space rather than a single orbit, and the honest procedure is to keep the whole family. Combining the timed directions with any range comes first because range is what angles cannot supply. Generating the states consistent with the observations *and their uncertainties* is what makes it a family rather than a best fit. Each is then propagated under gravity, and the spread in where they end up is the answer — not the middle of it.
+        why: Sparse angular data define a region of state space rather than a single orbit, and the honest procedure is to keep the whole family. Combining the timed directions with any range comes first because range is what angles cannot supply. Generating the states consistent with the observations *and their uncertainties* is what makes it a family rather than a best fit. Each is then carried forward under gravity, and the spread in where they end up is the answer — not the middle of it.
       - group: OPS
         task: Match each part of the orbit to the observation that pins it down. Each choice is used once.
         title: Which orbit feature does the data constrain?
@@ -559,9 +559,9 @@ missions:
           - A sharper-looking orbit drawn from the same data is the most dangerous product on this list, because it looks like progress and narrows nothing.
   - title: The Uncertainty Corridor
     objective: Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.
-    briefing: The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and nonlinear propagation without confusing low probability with zero consequence.
+    briefing: The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.
     stake: Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the part that matters. You get one chance to explain it.
-    takeaway: Use probability distributions, covariance, nonlinear propagation, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.
+    takeaway: Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
         task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.
@@ -646,7 +646,7 @@ missions:
           - Independent software checks the arithmetic rather than the sky. Worth doing, and it adds no observation.
   - title: How Large Is It?
     objective: Produce a diameter range rather than a single unsupported value.
-    briefing: The object’s brightness is known, but size depends strongly on reflectivity. The player must combine photometry, albedo, and thermal evidence to bound diameter.
+    briefing: The object’s brightness is known, but size depends strongly on reflectivity. The player must combine brightness, albedo, and thermal evidence to bound diameter.
     stake: Six days to the pass, and this is the day the campaign has been dreading. Irina Sorokin, who observes in the thermal infrared, has been waiting on telescope time all week. Everything anybody wants to know about the eight-year return scales with size, and the size rests on how bright the object looked in a survey image. Brightness alone allows anything from 120 metres to 600. At the small end this is a city and an evacuation. At the large end it is a country, and a decade of bad harvests for everyone else. Nobody can tell you which, and no amount of staring at the discovery image will. Today you buy the measurement that breaks the tie.
     takeaway: Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.
     stops:
@@ -684,11 +684,11 @@ missions:
         title: Diameter-albedo degeneracy
         place: Infrared Telescope Team
         scene: Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.
-        takeaway: Photometry alone cannot uniquely determine size without an albedo assumption.
+        takeaway: Brightness alone cannot uniquely determine size without an albedo assumption.
         format: BALLPARK
         assumes:
           - the area of a disc goes as the square of its diameter
-        why: "Brightness fixes the product of area and reflectivity. Four times the albedo at the same brightness therefore needs a quarter of the area. But diameter goes as the square root of area, so a quarter of the area is half the diameter, not a quarter of it. That is the whole degeneracy: photometry alone cannot separate a small bright rock from a large dark one, and every size quoted from brightness has an assumed reflectivity inside it."
+        why: "Brightness fixes the product of area and reflectivity. Four times the albedo at the same brightness therefore needs a quarter of the area. But diameter goes as the square root of area, so a quarter of the area is half the diameter, not a quarter of it. That is the whole degeneracy: brightness alone cannot separate a small bright rock from a large dark one, and every size quoted from brightness has an assumed reflectivity inside it."
         question: How does the higher-albedo object's diameter compare?
         estimate:
           relationship: At the same brightness, reflecting area varies inversely with albedo — and diameter is the square root of area.
@@ -728,7 +728,7 @@ missions:
         answer: Thermal-infrared emission.
         why: Brightness in reflected light is size times albedo, so one number cannot separate them — which is why the range runs from 120 to 600 metres and the consequence, going as the cube, from a city to a country. Thermal infrared measures the heat the surface emits, and that depends on size and temperature rather than on reflectivity, so it constrains the size from outside the degeneracy. Any further measurement in reflected light, however precise, still carries an assumed albedo inside it the answer.
         rebuttals:
-          - Multi-band photometry and phase behaviour constrain the surface itself, and the size stays entangled with whatever they imply about it.
+          - Brightness in several colours, and phase behaviour, constrain the surface itself, and the size stays entangled with whatever they imply about it.
           - Radar gives a diameter directly and only when the geometry allows, which it will not for months. Book it; do not wait on it.
           - Adopting the class average is free and reproduces exactly the problem it was meant to solve, with the assumption now buried in a number.
   - title: What Is It Made Of?
@@ -930,13 +930,13 @@ missions:
         question: A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?
         choices:
           - Continuous longitude coverage across several observatories.
-          - Higher-cadence photometry through one long night.
+          - Brightness measured more often through one long night.
           - Light curves combined across changing viewing geometry.
           - A provisional period, adopted now so the design can proceed.
         answer: Continuous longitude coverage across several observatories.
         why: A single site sees the object for a few hours a night, so the light curve has gaps the length of its daylight — and a period can hide in a gap. A seven-hour variation observed from one place is consistent with a seven-hour rotation, a fourteen-hour one seen at half phase, or a tumbling body whose aspect is changing. Stations spread round the Earth fill the gaps, which removes the aliases before anything is fitted rather than afterwards. That matters here because the spacecraft's approach geometry is designed against whichever answer is adopted.
         rebuttals:
-          - High cadence through one night refines a curve that may be the wrong curve, at higher precision.
+          - Measuring more often through one night refines a curve that may be the wrong curve, at higher precision.
           - Combining light curves across changing geometry is what tests whether one period explains all of them, and it needs a gap-free curve to combine.
           - "Adopting a provisional period is the failure this stop exists to prevent: the spacecraft arrives at a rotational phase chosen by an assumption."
   - title: Radar Contact
@@ -1025,12 +1025,12 @@ missions:
         rebuttals:
           - A measured miss settles this pass and says nothing about the orbit the encounter creates.
           - Albedo gives size. Size does not tell you where the object will be in eleven years.
-          - A later arc is needed and is not sufficient — without propagating through the encounter there is nothing to compare it against.
+          - A later arc is needed and is not sufficient — without carrying the orbit forward through the encounter there is nothing to compare it against.
   - title: Impact Energy
     objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
     briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.
     stake: "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly four hundred megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage."
-    takeaway: Use mass and density, kinetic energy, scaling, uncertainty propagation, orders of magnitude as an evidence chain rather than as isolated facts.
+    takeaway: Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
         task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.
@@ -1143,7 +1143,7 @@ missions:
           solution: 3.1×10^17 ÷ 4.184×10^15 ≈ 74 megatons.
           explanation: Subtract the exponents first — 10^17 ÷ 10^15 is 10^2 — then divide 3.1 by 4.184.
       - group: OPS
-        task: Which atmospheric-entry outcome best fits the optical, deceleration, infrasound, and ground evidence?
+        task: Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?
         title: Why did the object break up high in the atmosphere?
         place: High-Altitude Observation Network
         scene: A notional entry has been observed across four instruments and the ground survey has come back. The consequence office needs to know where the energy went before it writes an evacuation distance.
@@ -1167,8 +1167,8 @@ missions:
             value: Falls quickly during bright phase
             status: alarm
             note: Strong atmospheric deceleration
-          - zone: Infrasound
-            label: Infrasound
+          - zone: Low-frequency sound
+            label: Low-frequency sound
             value: Broad atmospheric pulse
             status: alarm
             note: Consistent with distributed energy release
@@ -1192,7 +1192,7 @@ missions:
           - label: No significant atmospheric interaction
             mechanism: The object keeps nearly constant speed and structure through the atmosphere.
         answer: Atmospheric fragmentation / airburst
-        why: Where an object deposits its energy is read from several signatures at once, and here the silent channel does as much work as the loud ones. Rapid brightening high up with speed falling quickly is a body being stopped by air rather than by ground. An infrasound pulse is energy going into the atmosphere. Multiple fading tracks are fragments. And no seismic signal and no crater says that whatever happened, it did not happen at the surface.
+        why: Where an object deposits its energy is read from several signatures at once, and here the silent channel does as much work as the loud ones. Rapid brightening high up with speed falling quickly is a body being stopped by air rather than by ground. A pulse of low-frequency sound is energy going into the atmosphere. Multiple fading tracks are fragments. And no seismic signal and no crater says that whatever happened, it did not happen at the surface.
       - group: OPS
         task: Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?
         title: Bound the atmospheric outcome
@@ -1218,7 +1218,7 @@ missions:
     objective: Design a survey strategy that improves detection and accurately reports what remains unseen.
     briefing: The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.
     stake: A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Sunward is a permanent hole.
-    takeaway: Use selection effects, survey completeness, limiting magnitude, cadence, population inference as an evidence chain rather than as isolated facts.
+    takeaway: Use selection effects, survey completeness, limiting magnitude, how often the survey looks, population inference as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS
         task: Which explanation fits the pre-discovery geometry and the survey operating record?
@@ -1255,8 +1255,8 @@ missions:
             value: Normal
             status: normal
             note: No prolonged camera outage
-          - zone: Survey cadence
-            label: Survey cadence
+          - zone: How often the survey looks
+            label: How often the survey looks
             value: Covers the region after elongation increases
             status: alarm
             note: Detection follows emergence from solar glare
@@ -1314,17 +1314,17 @@ missions:
         choices:
           - Wider sky and hemisphere coverage, including low solar elongations.
           - Greater depth, to reach fainter and darker bodies.
-          - A cadence optimised for linking detections into tracked objects.
+          - A pattern of return visits optimised for linking detections into tracked objects.
           - Nothing — report completeness from the fraction already catalogued.
         answer: Wider sky and hemisphere coverage, including low solar elongations.
         why: The numbers say which upgrade would have helped. At magnitude 21.8 against a limit of 22.0, this object was bright enough for the survey for seven weeks; what hid it was 28 degrees of solar elongation, in sky the survey does not cover. So depth added to the same sky finds it on exactly the same night it was found anyway, while sky coverage nearer the Sun — or a spacecraft looking from somewhere other than Earth — finds it weeks earlier. Completeness is a function of where you point as much as how faint you reach, and this object was hidden by the first, not the seconde same night.
         rebuttals:
           - Greater depth finds fainter and darker bodies across the sky already covered, and would not have moved this discovery by a day.
-          - A linking cadence turns detections into tracked objects, which requires the detection first.
+          - Returning to the same patch turns detections into tracked objects, which requires the detection first.
           - Reporting completeness from the catalogue counts the objects that were found using the objects that were found. It is the reasoning this discovery disproved.
   - title: Can We Move It?
     objective: Choose a deflection demonstration and define how success will be measured.
-    briefing: Impact probability remains significant, and a reconnaissance mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.
+    briefing: Impact probability remains significant, and a scouting mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.
     stake: Four months after the pass, Fischer has the radar orbit, and the encounter is seven and a half years out — which sounds like plenty and is not, because a deflection has to be launched years before it arrives. Fischer's orbit is the best this campaign will ever have, and it is already two months old. Today you size the nudge and decide how success will be measured. On a weak body the push can break the object apart, and several fragments on the same path is worse than one. So what has to be measured is not what you launched but what actually happened to the orbit.
     takeaway: Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.
     stops:
@@ -1392,7 +1392,7 @@ missions:
         task: The impactor is funded. What must the campaign add that the impactor alone does not?
         title: Build the deflection campaign
         place: Orbit Monitoring Room
-        scene: The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Reconnaissance first would cost a year of that lead time.
+        scene: The impactor is funded, launch is fixed for March, and arrival is five years before the encounter. The predicted velocity change is 0.9 cm/s, uncertain by a factor of three because the ejecta contribution is unmeasured. Scouting first would cost a year of that lead time.
         takeaway: A deflection mission should be designed to learn its actual momentum transfer.
         format: CHOICE
         assumes:
@@ -1400,13 +1400,13 @@ missions:
         question: The impactor is funded. What must the campaign add that the impactor alone does not?
         choices:
           - Long-term tracking, before and after the impact.
-          - Reconnaissance to measure the mass, delaying the impactor by a year.
+          - Scout it first to measure the mass, delaying the impactor by a year.
           - Additional navigational margin on the impactor itself.
           - Nothing — the impact is the experiment.
         answer: Long-term tracking, before and after the impact.
         why: "The thing a deflection has to produce is a change in the orbit, so the campaign has to measure the orbit before and after. Without that, the mission is a demonstration: the spacecraft hit something, and nobody can say what it did. The ejecta thrown off the surface add momentum by a factor nobody can calculate in advance, so the only way anyone learns it is by measuring one real impact."
         rebuttals:
-          - Reconnaissance measures the mass the predicted velocity change depends on, and it costs a year of the lead time that makes any velocity change effective.
+          - Scouting measures the mass the predicted velocity change depends on, and it costs a year of the lead time that makes any velocity change effective.
           - Navigational margin decides whether the spacecraft hits. It says nothing about what happened to the orbit when it did.
           - An impact with no measurement is a demonstration rather than an experiment, and it leaves the next campaign exactly as uncertain as this one.
   - title: Design the Intercept
@@ -1487,7 +1487,7 @@ missions:
           - Along the orbit it changes the period, so the arrival-time shift grows with every return.
           - It is a large fraction of the object's orbital speed, so the path moves immediately.
           - The push is sideways, which tilts the orbit out of Earth's plane before the pass.
-          - Momentum is not conserved in a hypervelocity impact, so the object gains more than it is given.
+          - Momentum is not conserved in a very fast impact, so the object gains more than it is given.
         answer: Along the orbit it changes the period, so the arrival-time shift grows with every return.
         why: "Orbital speed here is about 25 km/s, so a centimetre a second is one part in two and a half million — nothing, applied once. What makes it work is that a speed change along the direction of travel changes the orbital period, and a changed period means the object arrives at a slightly different time, every orbit, for as long as you have. Years of that becomes thousands of kilometres of miss distance. Push it sideways instead and you get almost nothing: the orbit tilts and the arrival time barely moves, which is why deflection is planned decades out and along-track."
         rebuttals:
