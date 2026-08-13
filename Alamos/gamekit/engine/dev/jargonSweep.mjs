@@ -1,6 +1,6 @@
 // jargonSweep.mjs — the work queue for the jargon sweep, not a gate.
 //
-//   node engine/dev/jargonSweep.mjs <theme> [--all] [--limit N]
+//   node engine/dev/jargonSweep.mjs <theme> [--all] [--limit N] [--unanchored]
 //
 // `checkJargon` is the gate: a curated domain lexicon, high precision, every
 // finding real. This is its opposite and exists for a different job. It
@@ -24,9 +24,10 @@ import { themeDir as resolveTheme, themeNames } from './registry.mjs';
 
 const args = process.argv.slice(2);
 const limit = Number(args[args.indexOf('--limit') + 1]) || 40;
+const unanchored = args.includes('--unanchored');
 const wanted = args.includes('--all') ? themeNames() : [args[0]].filter(Boolean);
 if(!wanted.length){
-  console.error('usage: node engine/dev/jargonSweep.mjs <theme> [--all] [--limit N]');
+  console.error('usage: node engine/dev/jargonSweep.mjs <theme> [--all] [--limit N] [--unanchored]');
   process.exit(2);
 }
 
@@ -265,7 +266,14 @@ for(const themeName of wanted){
   }
 
   const hits = new Map();   // norm -> { raw, days:Set, stops:[] }
+  // Per day: which hard words the questions ask with, and which the day's own
+  // reasoning uses. A word in the first set and not the second is jargon the day
+  // never earns — the player has to carry it to answer, and nothing that follows
+  // explains why it was the right word.
+  const byDay = [];
   MISSIONS.forEach((m, mi) => {
+    const day = { title: m.title, asked: new Map(), taught: new Set() };
+    byDay.push(day);
     for(const stop of m.stops ?? []){
       const l = CURRICULUM[stop.group]?.[stop.lesson];
       if(!l) continue;
@@ -274,6 +282,8 @@ for(const themeName of wanted){
         ...(ch.choices ?? []).map(label), ...(ch.cards ?? []).map(label),
         ...(ch.scenarios ?? []).map(label), ...(ch.givens ?? []).map(label),
         ...(ch.proposals ?? []).map(label)].filter(Boolean).join('  ');
+      for(const w of words([ch.why, ...(l.assumes ?? []), ...(ch.rebuttals ?? []).map(label)]
+        .filter(Boolean).join('  '))) day.taught.add(norm(w));
       // "Mrs. Grant" is a patient, not a hard word. The roster covers the cast a
       // game ships; the people invented inside a question are known only by the
       // title in front of them.
@@ -288,6 +298,7 @@ for(const themeName of wanted){
         const h = hits.get(key);
         h.days.add(mi + 1);
         if(h.stops.length < 3) h.stops.push(`d${mi + 1} ${stop.group} "${l.title}"`);
+        if(!day.asked.has(key)) day.asked.set(key, { raw, where: `${stop.group} "${l.title}"` });
       }
     }
   });
@@ -312,4 +323,22 @@ for(const themeName of wanted){
   }
   if(rewrite.length > limit) console.log(`    … ${rewrite.length - limit} more (--limit ${rewrite.length})`);
   console.log(`\n  KEEP — on the syllabus: ${keep.map(r => r.raw).join(', ') || '(none)'}`);
+
+  // --unanchored: the same question asked per day rather than per game. A term
+  // can be on the syllabus, defined in the glossary and still arrive unearned, if
+  // the day that uses it never reasons with it. Those are the words to cut or to
+  // tie down first, because the day is not about them.
+  if(!unanchored) continue;
+  const flat = (r) => r.onSyllabus ? '  · syllabus' : (r.inGlossary ? '  · glossary' : '');
+  const meta = new Map(rows.map(r => [r.key, r]));
+  let loose = 0;
+  console.log(`\n  UNANCHORED — asked with on the day, never reasoned with on the day:`);
+  byDay.forEach((day, i) => {
+    const out = [...day.asked.entries()].filter(([key]) => !day.taught.has(key));
+    if(!out.length) return;
+    loose += out.length;
+    console.log(`    d${i + 1} "${day.title}"`);
+    for(const [key, a] of out) console.log(`        ${a.raw} — ${a.where}${flat(meta.get(key) ?? {})}`);
+  });
+  console.log(`    ${loose} term(s) across ${byDay.length} days`);
 }

@@ -180,26 +180,57 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
     if(Array.isArray(m.primer) && m.primer.some(x => typeof x === 'string' && x.trim())) continue;
     const lessons = (m.stops ?? []).map(s => curriculum[s.group]?.[s.lesson]).filter(Boolean);
     if(!lessons.length) continue;
-    const haystack = lessons.map(l => [l.title, l.scene, l.game?.why, ...(l.game?.choices ?? [])
-      .map(c => (typeof c === 'string' ? c : c?.label))].join(' ')).join(' ').toLowerCase();
+    // Two texts per stop, because they earn a term its place differently. `asked`
+    // is what the player has to reason over before the verdict exists — the task,
+    // the question and every option, card, scenario, given and proposal in front
+    // of them. `taught` is the reasoning that arrives afterwards. A word the
+    // question turns on has to be on the card; a word the verdict happens to use
+    // does not, and a word that appears only in the scene has not earned a line
+    // at all — it is set dressing, and naming it up front teaches vocabulary the
+    // day never asks for.
+    const label = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
+    const stopTexts = lessons.map((l) => {
+      const ch = l.game ?? {};
+      return {
+        asked: [ch.task ?? ch.play, ch.question, ch.headline,
+          ...(ch.choices ?? []).map(label), ...(ch.cards ?? []).map(label),
+          ...(ch.scenarios ?? []).map(label), ...(ch.givens ?? []).map(label),
+          ...(ch.proposals ?? []).map(label)].filter(Boolean).join('  ').toLowerCase(),
+        taught: [ch.why, ...(l.assumes ?? [])].filter(Boolean).join('  ').toLowerCase(),
+        flavour: [l.title, l.scene].filter(Boolean).join('  ').toLowerCase(),
+      };
+    });
 
     // vocabulary the day actually uses, in the glossary's own words — skipping the
     // entries that define nothing. The docx importers wrote 73 of contamcity's
     // definitions as "a course concept used in Mission 3", which is a note to the
     // author, not something to hand a player.
     const HOLLOW = /course concept used in|should be defined|in the game, the term/i;
-    // Ordered by where the term first appears in the day's own text, so the plan
-    // card names what the first question will ask about rather than whatever the
-    // glossary happens to list first. Three, because two left the hard words of a
-    // chemistry day — cation, anion, aliquot — off the card entirely.
+    // A term earns a line by being tied to what the day asks, not by being
+    // mentioned. It must appear in at least one stop's `asked` text; ties break on
+    // how many stops use it, then how much of the day's reasoning uses it, then
+    // where it first appears. Mentioned-once-in-a-scene loses to used-in-two-
+    // questions, and a glossary term the day never asks about is not named at all
+    // — which is the whole point: the card introduces the vocabulary of the day's
+    // concepts, and nothing else.
     const matched = [];
     for(const t of jargon){
-      const names = [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String);
+      const names = [t?.name, ...(t?.aliases ?? [])].filter(Boolean).map(String).map(n => n.toLowerCase());
       if(!t?.def || HOLLOW.test(t.def)) continue;
-      const at = Math.min(...names.map(n => { const i = haystack.indexOf(n.toLowerCase()); return i < 0 ? Infinity : i; }));
-      if(Number.isFinite(at)) matched.push({ t, at });
+      const has = (text) => names.some(n => text.includes(n));
+      const asked = stopTexts.filter(s => has(s.asked)).length;
+      if(!asked) continue;
+      const taught = stopTexts.filter(s => has(s.taught)).length;
+      // Asked once and reasoned with nowhere is a word the day mentions, not one
+      // it is about. Two stops asking counts as the same evidence.
+      if(asked < 2 && !taught) continue;
+      const at = Math.min(...stopTexts.flatMap((s, i) => names.map(n => {
+        const j = s.asked.indexOf(n);
+        return j < 0 ? Infinity : i * 10000 + j;
+      })));
+      matched.push({ t, asked, taught, at });
     }
-    matched.sort((a, b) => a.at - b.at);
+    matched.sort((a, b) => b.asked - a.asked || b.taught - a.taught || a.at - b.at);
     const terms = [];
     for(const { t } of matched){
       // One sentence. A glossary definition can run to forty words, and the plan
@@ -207,7 +238,10 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
       const full = String(t.def).replace(/\s+/g, ' ').trim();
       const def = (full.match(/^[^.!?]*[.!?]/)?.[0] ?? full).trim();
       terms.push(`${t.name} — ${def[0].toLowerCase() + def.slice(1)}`);
-      if(terms.length === 3) break;
+      // Two, not three. The card is what a player reads before a day they have
+      // not started; every line on it is a word they are being asked to carry,
+      // and a third one is where a plan card turns into a vocabulary list.
+      if(terms.length === 2) break;
     }
     // the formulas, verbatim: an estimate's `relationship` is already one line
     const formulas = [...new Set(lessons.map(l => String(l.game?.relationship ?? '').trim()).filter(Boolean))];
