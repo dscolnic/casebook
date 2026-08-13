@@ -105,7 +105,7 @@ export const SYLLABUS = {
     course: 'AP Physics 2 nuclear unit, with the nuclear chemistry of AP Chemistry',
     concepts: [
       { c: 'Nuclear structure: protons, neutrons, isotopes, nuclide notation',
-        k: ['nuclide', 'isotope', 'proton', 'neutron number', 'atomic number', 'mass number'] },
+        k: ['nuclide', 'isotope', 'proton', 'neutron number', 'atomic number', 'mass number', 'nucleus', 'nucleon'] },
       { c: 'Mass defect, binding energy and E = mc²',
         k: ['mass defect', 'binding energy', 'rest-mass energy', 'mass-energy'] },
       { c: 'Binding energy per nucleon and the stability curve',

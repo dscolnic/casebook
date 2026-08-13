@@ -29,7 +29,7 @@
 //
 // ## The rule this exists to enforce
 //
-// Three rules, and `--check` enforces the first two:
+// Three rules, all of them enforced by `--check`:
 //
 //   1. NO LOAD-BEARING GAP. A part that two or more defined terms rest on has to
 //      be defined itself. One term leaning on one undefined word is an author's
@@ -38,13 +38,14 @@
 //      chemistry game that never said what an ion is.
 //   2. PARTS BEFORE WHOLES. A term whose NAME is built from another term may not
 //      arrive first. "Polyatomic anion" is unreadable without anion; a
-//      definition that leans on a later term is reported, not failed, because it
-//      only bites a player who opens the glossary.
+//      definition that leans on a later term is the same fault one step softer —
+//      it only bites a player who opens the glossary — and is failed too, now
+//      that every game is clean of both.
 //   3. A DEPTH CEILING THAT RISES. Day one may introduce a term built on one
 //      other term and no more: ceiling 2, then one more every two days, to a
-//      cap of 6, which a fifteen-day campaign reaches on day eleven. A six-concept stack is a fair thing to ask in the last week and
-//      an unfair one on the first morning. Reported, not failed — Project Y
-//      breaks it on six days, and that is a content project rather than a bug.
+//      cap of 6, which a fifteen-day campaign reaches on day eleven. A stack six
+//      concepts deep is a fair thing to ask in the last week of a campaign and an
+//      unfair one on the first morning.
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
@@ -60,8 +61,8 @@ if(!wanted.length){
 
 let failures = 0;
 const { ordinary, norm, stems } = await import(pathToFileURL(resolve(import.meta.dirname, '../../tools/common-words.mjs')).href);
-const { claimedWords, claimsWord } = await import(pathToFileURL(resolve(import.meta.dirname, '../../tools/syllabus.js')).href)
-  .catch(() => ({ claimedWords: () => new Set(), claimsWord: () => false }));
+const { claimedWords, claimsWord, claimsPhrase } = await import(pathToFileURL(resolve(import.meta.dirname, '../../tools/syllabus.js')).href)
+  .catch(() => ({ claimedWords: () => new Set(), claimsWord: () => false, claimsPhrase: () => false }));
 const words = (s) => String(s ?? '').match(/[A-Za-z][A-Za-z0-9'’\/-]*/g) ?? [];
 const label = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
 
@@ -134,7 +135,7 @@ for(const themeName of wanted){
       const hay = t.def.toLowerCase();
       for(const { phrase, t: p } of byPhrase){
         if(p === t || own.has(norm(phrase.replace(/\s+/g, '')))) continue;
-        if(defined(p) && hay.includes(phrase)){
+        if(defined(p) && hay.includes(phrase) && !claimsPhrase(themeName, phrase, claimed)){
           out.set(phrase, { dep: p, fromName: false });
           for(const w of words(phrase)) consumed.add(norm(w));
         }
@@ -145,8 +146,13 @@ for(const themeName of wanted){
       if(own.has(w) && !inName.includes(w)) continue;
       const dep = byWord.get(w);
       if(dep === t) continue;
+      // A part the syllabus claims adds no depth even when the glossary also
+      // defines it. Depth is meant to count the vocabulary this GAME has to
+      // teach, and "proton", "isotope" and "fission" are what a nuclear unit
+      // walks in with — a courtesy glossary entry for one of them should not
+      // make every term above it a concept deeper.
+      if(assumed(w) || properNames.has(w)) continue;
       if(dep && defined(dep)){ out.set(w, { dep, fromName: inName.includes(w) }); continue; }
-      if(assumed(w) || properNames.has(w)) continue;  // the course may expect it; a name is not a concept
       if(!out.has(w)) out.set(w, null);              // null = a gap
     }
     return out;
@@ -266,16 +272,16 @@ for(const themeName of wanted){
     const problems = [
       ...loadBearing.map(([w, n]) => `"${w}" holds up ${n} defined term(s) and nothing defines it`),
       ...outOfOrder.map(({ r, dep, dd }) => `${r.t.name} (d${r.day}) is named from ${dep.name}, first seen d${dd}`),
+      ...lateInDef.map(({ r, dep, dd }) => `${r.t.name} (d${r.day}) is defined with ${dep.name}, first seen d${dd}`),
+      ...overCeiling.map(r => `${r.t.name} (d${r.day}) is ${r.d} concepts deep, and day ${r.day} allows ${ceilingFor(r.day)}`),
     ];
     if(problems.length){
       console.error(`\n✗ theme "${themeName}" jargon depth: ${problems.length} problem(s)`);
       problems.forEach(p => console.error('  ✗ ' + p));
       failures += problems.length;
     } else {
-      console.log(`\n✓ theme "${themeName}": no term rests on an undefined part, and no name arrives before the term it is built from`);
+      console.log(`\n✓ theme "${themeName}": every term rests on parts the player already has, and none is deeper than its day allows`);
     }
-    const notes = overCeiling.length + lateInDef.length;
-    if(notes) console.log(`  · ${overCeiling.length} term(s) over the day's depth ceiling, ${lateInDef.length} defined with a term the player meets later`);
   }
 }
 

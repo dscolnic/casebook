@@ -181,7 +181,10 @@ const known = (b) => b.length >= 4 && (COMMON.has(b) || UNITS.has(b) || COMMON.h
 // One pass strips one ending, and English stacks them: "scientifically" is
 // "scientific" under two, "controller" is "control" under an ending and the
 // doubled consonant that carrying it needed.
-const strip1 = (w) => [w.replace(/ies$/, 'y'), w.replace(/ied$/, 'y'), w.replace(/ily$/, 'y'), w.replace(/ation$/, ''), ...FORMS.map(f => w.replace(f, ''))]
+const strip1 = (w) => [w.replace(/ies$/, 'y'), w.replace(/ied$/, 'y'), w.replace(/ily$/, 'y'), w.replace(/ation$/, ''),
+  // Latin plurals, because a nuclear glossary is written in them: nuclei is
+  // nucleus, spectra is spectrum, and a stemmer that only knows -s misses both.
+  w.replace(/i$/, 'us'), w.replace(/a$/, 'um'), ...FORMS.map(f => w.replace(f, ''))]
   .flatMap(b => [b, b.replace(/([a-z])\1$/, '$1')]);
 const stems = (w) => [w, ...strip1(w), ...strip1(w).flatMap(strip1)];
 // -ize and -ise are the same word, and a list that carries only one spelling

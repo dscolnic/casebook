@@ -6201,7 +6201,7 @@ export const JARGON = [
       "converging shock",
       "convergence"
     ],
-    "def": "A wave moving inward toward a central region, where its geometry can amplify pressure and sensitivity to imperfections.",
+    "def": "A wave moving inward toward a central region, where its geometry can amplify pressure and magnify any imperfection in the shape.",
     "core": true
   },
   {
@@ -6340,7 +6340,7 @@ export const JARGON = [
     "aliases": [
       "dynamic range"
     ],
-    "def": "The span from the smallest to the largest signal an instrument can measure without losing sensitivity or saturating."
+    "def": "The span from the smallest to the largest signal an instrument can measure without losing the small ones or saturating on the large ones."
   },
   {
     "name": "Electronvolt",
@@ -6454,7 +6454,7 @@ export const JARGON = [
       "the gadget",
       "gadget"
     ],
-    "def": "The name commonly used for the implosion test device assembled for Trinity."
+    "def": "The name the laboratory used for the implosion device it assembled for the first test."
   },
   {
     "name": "Gain drift",
@@ -6743,7 +6743,8 @@ export const JARGON = [
       "nucleus",
       "nuclei"
     ],
-    "def": "The tiny central part of an atom that contains protons and neutrons and almost all of the atom’s mass."
+    "def": "The tiny central part of an atom that contains protons and neutrons and almost all of the atom’s mass.",
+    "core": true
   },
   {
     "name": "Nuclide",
@@ -7110,7 +7111,7 @@ export const JARGON = [
       "spontaneous fission",
       "spontaneous-fission"
     ],
-    "def": "Fission that occurs without an incoming neutron or other external trigger.",
+    "def": "Fission that happens on its own, with no incoming neutron and nothing setting it off.",
     "core": true
   },
   {

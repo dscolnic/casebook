@@ -869,7 +869,7 @@ glossary:
       - converging wave
       - converging shock
       - convergence
-    def: A wave moving inward toward a central region, where its geometry can amplify pressure and sensitivity to imperfections.
+    def: A wave moving inward toward a central region, where its geometry can amplify pressure and magnify any imperfection in the shape.
   - name: Corrosion
     aliases:
       - corrosion
@@ -954,7 +954,7 @@ glossary:
   - name: Dynamic range
     aliases:
       - dynamic range
-    def: The span from the smallest to the largest signal an instrument can measure without losing sensitivity or saturating.
+    def: The span from the smallest to the largest signal an instrument can measure without losing the small ones or saturating on the large ones.
   - name: Electronvolt
     aliases:
       - eV
@@ -1021,7 +1021,7 @@ glossary:
     aliases:
       - the gadget
       - gadget
-    def: The name commonly used for the implosion test device assembled for Trinity.
+    def: The name the laboratory used for the implosion device it assembled for the first test.
   - name: Gain drift
     aliases:
       - gain drift
@@ -1418,7 +1418,7 @@ glossary:
     aliases:
       - spontaneous fission
       - spontaneous-fission
-    def: Fission that occurs without an incoming neutron or other external trigger.
+    def: Fission that happens on its own, with no incoming neutron and nothing setting it off.
   - name: Standard deviation, σ
     aliases:
       - standard deviation
