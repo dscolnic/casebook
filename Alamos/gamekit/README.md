@@ -1,6 +1,7 @@
 # gamekit
 
-One engine, three games. **Bringing a new design document? Read `NEW_GAME.md`.**
+One engine, seven games. **Building a game — new, or bringing a design
+document? `NEW_GAME.md` is the whole path in order.**
 **Touching world code? Read `THEME_CONTRACT.md` first.**
 
 ```sh

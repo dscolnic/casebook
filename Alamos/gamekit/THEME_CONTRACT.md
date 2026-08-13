@@ -1,5 +1,8 @@
 # Theme contract
 
+> The engine-facing half of phase 4 of `NEW_GAME.md`, which is the whole build in
+> order. Everything here is a rule the world code enforces or punishes.
+
 One engine, many games. The engine owns the loop, the player, interaction,
 state, saving, the question UI and the people; a **theme** owns the place and
 the content. Building Los Alamos and then the hospital cost most of its time in

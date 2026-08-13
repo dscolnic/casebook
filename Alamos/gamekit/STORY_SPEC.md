@@ -1,5 +1,8 @@
 # What a new game needs before it is a game
 
+> One of the phases of `NEW_GAME.md`, which is the whole build in order. This
+> file is the campaign-as-a-story part of the writing bar.
+
 Every rule below was bought with a defect that shipped, in prose that read
 perfectly well. Most of them are checked automatically:
 

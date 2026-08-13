@@ -5,6 +5,12 @@ shared engine they run on. Each is the same loop in a different setting:
 15 missions × 3 stops, walk to a place, answer a science question, hand off.
 No combat, no weapons.
 
+**`gamekit/NEW_GAME.md` is how to build one of these** — the whole path in
+order: decide the course, scaffold, write the book, build the place, meet the
+writing bar, meet the question bar, check and print. It carries the bar each step
+has to clear and the checker that enforces it. Read it before starting an eighth
+game, and add to it when the next rule turns up.
+
 **`GAMES.md` is the inventory** — all seven games, what each one is, where its
 content and its place live, and what is still unfinished. Read it first if you
 are picking this up cold. **`gamekit/STORY_SPEC.md` is the story contract** —
@@ -75,7 +81,8 @@ and all content — `curriculum, missions, divisions, leaders, historicCharacter
 
 ## Starting a new game
 
-Full runbook: `gamekit/NEW_GAME.md`. Short version:
+**`gamekit/NEW_GAME.md` is the whole thing**, in the order to do it in, with the
+writing bar and the question bar that took seven games to learn. Short version:
 
 ```sh
 cd gamekit

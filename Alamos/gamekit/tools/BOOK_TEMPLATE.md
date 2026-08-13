@@ -1,5 +1,8 @@
 # The book format
 
+> Phase 3 of `../NEW_GAME.md`, which is the whole build in order — read that for
+> what the writing has to clear once the format is right.
+
 > Before writing the missions, read **`gamekit/STORY_SPEC.md`** — what a
 > campaign needs beyond correct content (one argument with two sides, a cast in
 > every card, a stated timeline, and the four beats of a day card), and the

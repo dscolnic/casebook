@@ -1,15 +1,51 @@
-# Runbook: a new game
+# How to build one of these games
 
-> Before writing the missions, read **`gamekit/STORY_SPEC.md`** — what a
-> campaign needs beyond correct content (one argument with two sides, a cast in
-> every card, a stated timeline, and the four beats of a day card), and the
-> `checkStory.mjs` that enforces it.
+Seven games are on this engine. The eighth costs one command, one book file, the
+place it happens in — and the writing, which is where all the time actually
+goes. This file is the order to do it in and the bar each step has to clear.
+Every rule here is one somebody broke first.
 
-Four games are on this engine. The fifth costs one command plus one book file
-and the place it happens in; everything else is shared. This is the order to do
-it in, and what each step actually costs.
+**Read this first; read the four references when the step needs them.**
 
-## Start here
+| Reference | What it owns |
+| --- | --- |
+| `tools/BOOK_TEMPLATE.md` | the book format, with a worked example of every question format |
+| `STORY_SPEC.md` | the campaign as a story: one argument with two sides, a cast, a timeline |
+| `THEME_CONTRACT.md` | what a theme exports, what a world module must provide, the graphics rules |
+| `../CLAUDE.md` | the inventory of the seven games and the house rules across all of them |
+
+## The build, in order
+
+| # | Phase | Command | What proves it |
+| --- | --- | --- | --- |
+| 1 | Decide the course | — | you can name the areas, the arc and the audience |
+| 2 | Scaffold | `npm run new-theme <name>` | `npm run check <name>` is green before you write anything |
+| 3 | Write the book | `node tools/import-book.mjs books/<name>.yml <name> --verify` | importer writes it and the checks stay green |
+| 4 | Build the place | edit `site.js` / `plan.js` / `props.js` | `worldParity`, then a screenshot |
+| 5 | Meet the writing bar | — | `checkStory`, `checkNames` |
+| 6 | Meet the question bar | — | `probeQuestions` (four probes) |
+| 7 | Check, look, print | `npm run check <name>`, `node tools/make-book.mjs <name>` | green, walkable, and a book you can read |
+
+## 1. Decide the course before you decide the game
+
+The game is a delivery mechanism for a syllabus. Write these down first:
+
+- **The subject and the audience.** `audience: { grade }` in the manifest is a
+  gate, not a label: `engine/core/typography.js` scales the type from it and
+  `validateContent` fails a passage two grades over it. Hospital Heroes is 2,
+  the college games are 12–14.
+- **Six areas of study.** They become the groups — the columns of the whole
+  game. No design document contains them; they are a design decision and
+  everything else hangs off them. Six is what the shipped games use; four works.
+- **Fifteen days, as an arc.** A campaign is one argument with two sides, and
+  both sides have to be right on some day — see STORY_SPEC.md § 1. Missions do
+  not have to number 15; the HUD and the win condition follow the book.
+- **Thirty concepts the course must cover.** Add them to `tools/syllabus.js`.
+  The printed book then reports which of your questions teach each one, and which
+  concepts nothing teaches. The gaps are the useful output — write it before the
+  questions and the book tells you what to write next.
+
+## 2. Scaffold, and confirm the baseline
 
 ```sh
 cd gamekit
@@ -18,23 +54,22 @@ npm run new-theme <name> -- --interior   # a floor: a spine with rooms off it
 ```
 
 That copies `themes/_template`, imports its starter book, and registers the
-theme. What comes out is a **complete, playable, green game**: four areas, four
-days, one worked example of every question format, a walkable place, a cast with
-bios. Confirm it before you change anything —
+theme in `themes.json`. What comes out is a **complete, playable, green game**:
+four areas, four days, one worked example of every question format, a walkable
+place, a cast with bios. Confirm it before changing anything —
 
 ```sh
-npm run check <name>          # validate + smoke + styles + world parity
+npm run check <name>
 THEME=<name> npm run dev
 ```
 
 — because from here on, when a check goes red, the thing you just wrote is what
 broke it. That baseline is the whole point of scaffolding.
 
-## Then write the book
+## 3. Write the book
 
-A game is one YAML file. `tools/BOOK_TEMPLATE.md` is the format with a worked
-example of every question format, and `themes/<name>/book.yml` is the copy the
-scaffold left you.
+A game is one YAML file. `tools/BOOK_TEMPLATE.md` is the format;
+`themes/<name>/book.yml` is the copy the scaffold left you.
 
 ```sh
 cp themes/<name>/book.yml books/<name>.yml
@@ -48,79 +83,171 @@ format, a mapping that is not a permutation, a roster entry with no `division`,
 a ballpark stop with no estimate block, an answer that is not among the options.
 
 The book carries the areas, the cast and their bios, every mission and stop, the
-estimate specs, the glossary, what is inside each room, and what each place
-says. **Missions do not have to number 15** — the campaign is as long as the
-book, and the HUD and the win condition follow it.
+estimate specs, the glossary, what is inside each room, and what each place says.
 
-## What the book cannot supply
+**Write the book, not the content files.** `themes/<name>/content/*.js` is
+generated; a hand edit there is lost on the next import. The three games that
+have no book (Project Y, Hospital, The Contaminated City) are edited in place
+and that is a cost, not a pattern to copy.
 
-These are the hours. Nothing else is.
+### What a day is, before you write fifteen of them
 
-| File | What it is |
-| --- | --- |
-| `site.js` or `plan.js` | the place, as data. Every group needs a building or a room, or that call is unreachable — `worldParity` is what catches it |
-| `props.js` | the ten or so objects that make this place recognisable. Everything generic is in `engine/world/kit.js`; do not rewrite it |
-| `outfits.js` | what people wear |
-| `theme.js` | title, subtitle, the opening paragraphs, the look, `interiorStyle` |
+The engine reshapes what you write, at load, in
+`engine/content/normalize.js`, for every theme — so a re-import cannot lose it.
 
-## Bringing an existing Word design book
+- A mission is **one working day** with a countdown. The budget comes from the
+  route through the day's stops, so a spread-out day gets more hours and moving a
+  building changes it. Nothing is charged; time runs in real time, at a quarter
+  rate while a panel is open.
+- **Nobody walks into the same area twice in a day.** A repeat becomes a person
+  stop. Write each day into three different areas and this never fires.
+- **Each day has exactly one person stop**, unless a repeat forces a second.
+- **From day 3 every day carries a callback** to an area taught earlier, oldest
+  first — the spaced retrieval blocked practice does not give you. It prefers a
+  `— Review` variant of the lesson where one exists. A book with only three
+  areas gets no callbacks: everything is visited every day, so there is nothing
+  to call back to.
+- A wrong call costs money and only money: $5 to answer again, $10 to move on.
+  Each morning pays a stipend, so nobody is ever trapped.
 
-Two games arrived as `.docx` and each needed its own parser. Use these for a
-book that already exists, not for one you are about to write — everything a
-parser has to *infer* has cost a defect (63 lessons typed as the nearest format
-the importer knew; nine diagnosis packs referenced and never imported).
+## 4. Build the place
 
-```sh
-node tools/import-missionbook.mjs <book>.docx <theme> --dry   # MISSION n / Activity n.m
-node tools/import-designbook.mjs  <book>.docx <theme> --dry   # SHIFT n • CASE m
-```
-
-Run both with `--dry`; the one that reports missions is right. Re-run it with
-`--map tools/<theme>-map.json --verify`, where the map is mission → area:
-`{ "1": "IDENT", "2": "GASES", … }`. `tools/contamcity-map.json` and
-`tools/hospital-shift-map.json` are worked examples.
-
-One structural trap that bit four times before it was understood: **callout
-boxes run their label straight into their body inside a single table cell** —
-`"What is at stakeA wrong identity can cause…"`. Parse them with a regex that
-strips the known label, never by taking the next block.
-
-## Describing the place
-
-The scaffold leaves a small worked example of whichever kind you asked for.
+The scaffold leaves a worked example of whichever kind you asked for.
 
 - **Outdoor** — `site.js`: terrain, atmosphere, paths, buildings, furniture,
-  horizon, spawn. `engine/world/outdoorTown.js` builds it.
+  horizon, spawn. `engine/world/outdoorTown.js` (or `outdoorSite.js`) builds it.
 - **Interior** — `plan.js`: a spine with rooms down both sides, which covers an
   airport concourse, a lab corridor, a ward and a visitor centre alike.
   `engine/world/interiorFloor.js` builds it.
-- **Neither** — a theme whose place already exists brings its own world:
-  declare `world: 'themes/<name>/world.js'` in `site.js` and satisfy
-  THEME_CONTRACT.md § "What the world module must provide". Deep Watch does
-  this, because rebuilding its submarine as generated rooms would have thrown
-  away the thing worth converting. `themes/deepwatch/world.js` is the worked
-  example of the adapter.
+- **Neither** — a theme whose place already exists brings its own world: declare
+  `world: 'themes/<name>/world.js'` in `site.js` and satisfy THEME_CONTRACT.md
+  § "What the world module must provide". Deep Watch and Bring Them Home do this.
 
-Three things about the outdoor look that are easy to get wrong and produce no
-error at all: `far` has to reach past the horizon ranks and the sky dome (an
-interior's 160 clips the dome away and the sky renders **black in daylight**),
-`exposure` belongs below 1.0, and an outdoor albedo must be written darker than
-looks right — see THEME_CONTRACT.md rule 6.
+**A game's silhouette comes from its world module.** Two themes on the same
+world look like each other however the palette differs. If the place is the
+point, either bring a world or carry a props layer heavy enough to change the
+shape of the space.
 
-## Then check, and then look
+Three visual traps that produce no error at all: `look.far` must reach past the
+horizon ranks and the sky dome (an interior's 160 clips the dome and the sky
+renders **black in daylight**), `exposure` belongs below 1.0, and an outdoor
+albedo has to be written darker than looks right. Budget six real lights and do
+the rest with emissive materials. `kit.js` placers take `(x, z, y)` — ground
+last. THEME_CONTRACT.md has the full list, and every line of it cost hours.
+
+**Interiors should not be the same room seven times.** `interiorBuilding.js`
+picks a layout from the place's name and seed — control room, bay, office,
+workshop, archive — mirrors it, and moves the case stand accordingly. A theme
+that adds rooms should give them names that mean something, because the name is
+what selects the layout.
+
+## 5. The writing bar
+
+`checkStory.mjs` and `checkNames.mjs` enforce most of this. The parts they
+cannot see are the parts to read out loud.
+
+**The day card** — what the player reads before the countdown starts, in this
+order, composed by `createDay()` in `engine/core/app.js`:
+
+1. **What yesterday left behind**, one line, written by the engine from the
+   stored results. Nothing to author.
+2. **The stake**: 95–115 words (70–85 for a primary audience). It says what has
+   happened, who is arguing about what, what you decide today — "Today you …" /
+   "This shift you …", which is a checked clause — and what it costs to be
+   wrong. A time marker belongs in the first two sentences. Somebody from the
+   roster belongs in it. **It must not answer the day's own questions**, and it
+   must not teach: that was the single most expensive content mistake in this
+   repo, a hundred and fifty words of mechanism read minutes before the question
+   it gives away.
+3. **The calls**: "Go to the Guidance Computer Room", "Talk to Dr. Evelyn
+   Carter". The instruction and nothing else — not the question, not a column
+   saying whether it is a person or a place.
+4. **The primer**, two to four lines: the terms, formulas and assumptions the
+   day's questions are entitled to expect. It is *derived* in `normalize.js`
+   from the day's own lessons — glossary hits, each estimate's `relationship`,
+   each stop's `assumes` — so it cannot drift when a stop moves. Write
+   `primer:` on the mission only to beat the derived version. Never the
+   takeaway: that is what the day teaches.
+5. **The map**, last, because it is what the route is chosen from.
+
+**Every stop.** The scene is the situation, 30–45 words. The verdict `why` is
+the mechanism, 70–90 words (about 50 at primary). A rebuttal per wrong option,
+saying why *that* one fails. `takeaway` never equals `why`. Teaching-to-scene
+ratio across the seven games is 2.7–3.4; it was 0.22–0.52 when the mechanism
+sat in the scene.
+
+**`assumes:` on every lesson** — the prior knowledge this question is entitled
+to expect, one line. It is checked against the glossary and the stops before it,
+it feeds the primer, and writing it down is what stops a question quietly
+requiring a degree.
+
+**The campaign ends.** `ending: [...]` in the manifest, the paragraphs that say
+what happened and whether it worked. Fifteen missions used to end with
+"Campaign complete" in the HUD corner.
+
+**Names.** Nobody is named before they are introduced with a role or a title —
+"the integration lead, Evelyn Carter", then "Carter" for the rest of the
+campaign. `checkNames` fails a first mention that does not.
+
+**Copy rules that hold everywhere.** The opening card is one paragraph of
+situation: no mechanics, no controls, no scope disclaimer. The verdict says
+`Correct` / `Incorrect` first. Never write what the player or a measurement does
+*not* do — no "you do not touch the vehicle", no "this does not constrain
+distance". Say what it is for; put the contrast in the rebuttal if it earns its
+place.
+
+## 6. The question bar
+
+Four probes, all deterministic, all in `engine/dev/probeQuestions.mjs`, all
+gating. Each exists because a shipped question failed it.
+
+| Probe | What it catches |
+| --- | --- |
+| LEAK | the answer is pickable from the options alone — two distractors using absolutes, a keyed answer twice the length of the others, only the right one carrying a "because" |
+| GIVEAWAY | the scene already states the reasoning, or contains the keyed answer nearly verbatim |
+| ORDER | an ordering item solvable from the wording: the keyed order is the printed order, both endpoints pinned by "first"/"submit", or a card pointing at another card's output |
+| ECHO | a matching answer that restates its own prompt — two or more of the prompt's content words, and at least half of them, reappearing in the keyed option |
+
+`--advisory` prints findings without failing, for when you want the list.
+
+**A matching question names its two columns.** `columns: [left, right]` on the
+stop. The shape that teaches is goal → method: what you want to measure on the
+left, how you measure it — with the mechanism in it — on the right. "Line-of-sight
+velocity" against "Compare the frequency that comes back with the frequency
+that was sent; the fractional change equals the speed as a fraction of the speed
+of light." Where the item really is an inference, say so honestly instead:
+"What you observe" / "What it means", "The term" / "What it stands for".
+
+**The printed order is never the answer.** `normalize.js` permutes the cards of
+every SEQUENCE and the choices of every PROTOCOL at load, seeded on the lesson,
+and rewrites `order` / `mapping` so the keyed answer is provably unchanged. 214
+questions had shipped with the answer being the order they were written in.
+
+**A multiple-choice question has to be answerable.** Enough information in the
+scene and the options to reason from, and the reasoning in the answer choices
+where that is what teaches. Shuffle at render — authored packs put the correct
+answer first.
+
+**An estimate carries its `relationship` on the challenge**, not inside the
+estimate block, and offers distractor tiles. Both were real defects.
+
+## 7. Check, look, print
 
 ```sh
-npm run check <name>
+npm run check <name>      # one game        npm run check      # all of them
 ```
 
-Behind it: `validateContent` (content agrees with itself and with the contract),
-`smokeCampaign` (the engine can reach and grade every stop), `checkStyles` (no
-game sheet re-declares the engine's), `worldParity` (every group has somewhere
-to happen). They catch different things — the first theme on this engine had
-perfectly valid content and two thirds of its campaign unreachable, and only
-`smokeCampaign` could see it.
+Behind it, per theme: `validateContent` (content agrees with itself and the
+contract), `smokeCampaign` (the engine can reach and grade every stop),
+`probeQuestions` (the four probes), `personStops` (every mission person opens
+their question), `checkStory` (the campaign is a story and the cards brief),
+`checkNames`; then once for the repo: `checkStyles`, `worldParity`.
 
-Then boot it and run the audit before judging anything visual:
+They catch different things. The first theme on this engine had perfectly valid
+content and two thirds of its campaign unreachable, and only `smokeCampaign`
+could see it.
+
+Then boot it and audit before judging anything visual:
 
 ```js
 const { reportAudit } = await import('/engine/dev/audit.js');
@@ -131,44 +258,39 @@ reportAudit(gamekit.scene, gamekit.renderer, {
 });
 ```
 
-**A background tab gets no `requestAnimationFrame`.** The scene renders dark,
-the sun never moves, nothing animates and every interaction looks broken whether
-it is or not. Check `document.visibilityState` before concluding anything — and
-`window.<theme>` exposes the running modules so a throttled tab can be stepped
-by hand.
+**Screenshot before believing anything visual.** A gable roof was inside out in
+a shipped game; half a crowd never moved; a sign sat behind a canopy. Every one
+of them passed every assertion available. And **a background tab gets no
+`requestAnimationFrame`** — the scene renders dark, nothing animates, and every
+interaction looks broken whether it is or not. Check
+`document.visibilityState` first; `window.gamekit` exposes the running modules
+so a throttled tab can be stepped by hand.
 
-## What a day is
+Then print it, which is the fastest way to read a campaign whole:
 
-Worth knowing before you write missions, because the engine reshapes what you
-write. All of it happens in `engine/content/normalize.js` at load, for every
-theme, so a re-import cannot lose it.
+```sh
+node tools/make-book.mjs <name>              # books/print/<name>-book.pdf
+node tools/make-book.mjs <name> --no-answers # the student's copy
+npm run question-book -- <name>              # every question, plain
+```
 
-- A mission is **one working day** with a countdown. The budget is computed from
-  the route through the day's stops, so a spread-out day gets more hours and
-  moving a building changes it. Nothing is charged; time is spent in real time,
-  at a quarter rate while a panel is open.
-- **Nobody walks into the same area twice in a day.** A repeat becomes a person
-  stop. Write the day into three different areas and this never fires.
-- **Each day has exactly one person stop**, unless a repeat forces a second.
-- **From day 3 every day carries a callback** to an area taught earlier, oldest
-  first — the spaced retrieval that blocked practice does not give you. It
-  prefers a `— Review` variant of the lesson if the theme has one. This is why a
-  book with three areas gets no callbacks: with every area visited every day
-  there is nothing to call back to.
+The book is one question per page, a briefing page per mission with what that
+mission teaches, the syllabus map from `tools/syllabus.js` with the questions
+that teach each concept, the concepts nothing teaches, and the ending. Read the
+syllabus pages before anything else: they are the honest report on what the game
+covers.
 
-## How a theme reaches the engine
+## Before you call it done
 
-`engine/core/*` imports its content under fixed names — `./curriculum.js`,
-`./divisions.js`, `./missions.js`, `./leaders.js`, `./historicCharacters.js`,
-`./world.js`. Those are thin re-exports that read `@theme`, a Vite alias for
-`themes/<name>/` set from `THEME=<name>`; `@world` comes from the theme's
-`site.kind`, or from its own `world:` if it declares one. So the engine never
-names a theme, a theme never edits the engine, and headless tools get the same
-aliases from `engine/dev/themeResolver.mjs`.
-
-A theme served from `gamekit/` needs **no entry point of its own**:
-`gamekit/src/main.js` names nothing game-specific and runs both themes here
-already. The three forked `main.js` files belong to the games that predate this.
+| Claim | What proves it |
+| --- | --- |
+| The content is consistent and inside its reading level | `npm run check <name>` |
+| Every stop is reachable and gradeable | `smokeCampaign` inside that run |
+| No question is answerable without the science | `probeQuestions` inside that run |
+| The campaign is a story with an ending | `checkStory`, plus `ending:` in the manifest |
+| The place is walkable and looks like itself | `reportAudit` in the console, and screenshots |
+| The syllabus is covered, and the gaps are known | the syllabus pages of the printed book |
+| A re-import cannot lose any of it | it is all in `books/<name>.yml` |
 
 ---
 
@@ -198,7 +320,7 @@ cd ../Hospital/hospital-fps && npx vite build
 **A feature added to one `main.js` reaches one game.** The passage quiz shipped
 working in one game of three because of exactly this. If a change adds an
 interaction, a panel or a key binding, grep every `main.js` before calling it
-done. Two traps live in those files specifically: the frame loop starts during
+done. One trap lives in those files specifically: the frame loop starts during
 module evaluation, so `const day` and `const driving` must be declared *above*
 it or every frame throws `Cannot access 'day' before initialization`.
 
@@ -210,11 +332,14 @@ it or every frame throws `Cannot access 'day' before initialization`.
    rendering "not yet implemented" in a shipped game.
 2. Teach `validateContent.mjs` and `smokeCampaign.mjs` what "gradeable" means
    for it, or a broken one passes both checks.
-3. If it draws anything, use `engine/core/figures.js` — primitives that take
-   data, never geometry.
-4. Teach `tools/import-book.mjs` the format's fields, so a book can carry it.
-5. Shuffle the choices at render. Authored packs put the correct answer first; a
-   player who notices stops reading.
+3. Teach `probeQuestions.mjs` how it could be answered without the science. A
+   format with no probe is a format nobody checks.
+4. If it draws anything, use `engine/core/figures.js` — primitives that take
+   data, never geometry. Anything with column headings reads them from
+   `ch.columns`.
+5. Teach `tools/import-book.mjs` the format's fields, and `tools/make-book.mjs`
+   how to print it.
+6. Shuffle the choices at render.
 
 ## Adding a person-facing feature
 
@@ -224,3 +349,11 @@ The roster shape is `{ id, name, role, division, color, bio, quiz? }`.
 bios rather than authoring per person — it prefers an authored `quiz` and falls
 back to lifting a sentence, so it scales to every cast and cannot drift out of
 sync with the text.
+
+## When you find a new rule
+
+Two places, and both of them: the rule goes in this file or `../CLAUDE.md`, and
+**a checker goes in `engine/dev/`**. Every heading above that reads like a rule
+has a check under it, because a rule nobody runs is a rule the next game breaks.
+Prove the check by injecting the fault and watching it fail — three of the ones
+here were installed wrong the first time and passed everything.
