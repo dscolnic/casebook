@@ -336,9 +336,11 @@ and none of them would fail a headless check.
   `updateWorldFromState`, `getBuildingPosition` onto `getStopPosition`,
   `updateDayNight` onto `updateTimeOfDay`. Nothing outside the world changed.
 - What is still code rather than data in project-y: the pine forest, the ground
-  scatter and the lamp positions. About 400 lines of `src/env.js` are now dead —
-  sky, terrain, roads, ridges, all taken over by the engine — with no importer left;
-  the file header lists them.
+  scatter and the lamp positions. `src/env.js` went from 640 lines to 244 — the sky,
+  terrain, roads and ridges it built are deleted, since a second answer to "where is
+  the ground" is the one thing on this mesa that has already shipped broken. Careful
+  reading the leftovers: `ROADS`, `onRoad`, `MESA_PLAYER_LIMIT`, `rimRadius` and
+  `CANYON_DEPTH` have no importer and are all live, because `plantTrees` uses them.
 - `engine/world/interiorBuilding.js` exists: it builds one room to walk into
   from a town, lazily, in a district at x ≈ 4000, in three styles — `lab`,
   `timber` (board walls and chalkboards, for a game set before screens) and
