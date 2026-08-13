@@ -30,7 +30,7 @@ export const MISSIONS = [
   {
     "title": "What Kind of Agent?",
     "objective": "Classify the broad agent category and identify the next discriminating test.",
-    "briefing": "Initial samples contain biological material, but microscopy and routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.",
+    "briefing": "Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.",
     "stake": "Day two. Pathology has four results from the same specimens and will not put a name to any of it. The microscope images are the most convincing thing anybody has seen all week, which is exactly why the cell biology lead, Maya Chen, does not trust them yet, and her diagnostics counterpart Ravi Patel wants to commit the diagnostics bench tonight. This stage you decide what broad kind of thing this is and buy the one piece of evidence that would settle it. Everything downstream is chosen off this call: what to grow it in, which drugs are worth considering, what tomorrow's test looks for.",
     "takeaway": "Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence chain rather than as isolated facts.",
     "stops": [
@@ -133,7 +133,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 1,
-        "task": "Which bottleneck fits the entire cardiopulmonary panel?"
+        "task": "Which bottleneck fits the whole heart-and-lung panel?"
       },
       {
         "group": "POP",
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The Immune System Turns",
     "objective": "Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed adaptive response, or excessive inflammation.",
     "briefing": "Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish protective immune responses from damaging dysregulation.",
-    "stake": "Day eighteen, and this is Ortiz's stage. Several patients improved for a week and are now deteriorating fast, including the paramedic who drove the first case in. The clinical immunologist, Yusuf Haddad, wants immunosuppression started tonight and Ortiz is not far behind him; Morales wants the timeline built first. Ortiz is right — people are dying on the ward while the argument runs. This stage you build that timeline anyway, because it is what tells you which drug. Haddad has marker levels for all six patients and dates against only half of them. The paramedic's family is in the corridor.",
+    "stake": "Day eighteen, and this is Ortiz's stage. Several patients improved for a week and are now deteriorating fast, including the paramedic who drove the first case in. The clinical immunologist, Yusuf Haddad, wants drugs that damp the immune system started tonight and Ortiz is not far behind him; Morales wants the timeline built first. Ortiz is right — people are dying on the ward while the argument runs. This stage you build that timeline anyway, because it is what tells you which drug. Haddad has marker levels for all six patients and dates against only half of them. The paramedic's family is in the corridor.",
     "takeaway": "Use innate immunity, adaptive immunity, antibodies, T cells, inflammation, immune regulation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -167,7 +167,7 @@ export const MISSIONS = [
       {
         "group": "CLIN",
         "lesson": 4,
-        "task": "The ward wants to start immunosuppression tonight. What do you do?"
+        "task": "The ward wants to start drugs that damp the immune system tonight. What do you do?"
       }
     ]
   },
@@ -270,7 +270,7 @@ export const MISSIONS = [
   {
     "title": "Design the Intervention",
     "objective": "Select a layered intervention portfolio and identify the evidence required before deployment.",
-    "briefing": "The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using mechanistic and population evidence.",
+    "briefing": "The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using evidence about mechanism and evidence about populations.",
     "stake": "Day seventy-eight. The city wants an intervention and the room is arguing as though it can only have one. The antibody everyone favours binds the exact stretch of protein that mutated in the north, which Bergström has now said three times. This stage you choose what to fund and say what evidence is needed before any of it reaches a person. The options also arrive on different timescales — one is available on Monday, one in a year — which is the whole argument for layering them rather than picking a favourite. Back a single glamorous option and the city has one point of failure against something still changing.",
     "takeaway": "Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain rather than as isolated facts.",
     "stops": [

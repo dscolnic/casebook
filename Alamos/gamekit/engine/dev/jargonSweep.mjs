@@ -125,6 +125,16 @@ gravity hemisphere international intervention mission motion observatory opportu
 precision preliminary prepared preserve redistribute satellite spacecraft statistical successive
 telescope threaten trajectory transparent wavelength
 absorb absorption align alignment communicate communication preparedness repeatable repeatability
+absent abundant abundance accessible activate admission adherence agriculture appropriate argument
+bedside bottleneck capacity catchment characterise citywide classification compatible compensate
+compensation confirm contribute deteriorate deterioration diagnosis discharge disease disproportionate
+diversity drive effective effectiveness efficiency enrol enrolment escalate expansion frequency
+hospitalise hospitalisation impossible impression integrate interview investigate investigation
+mechanical modification outlive parameter persistent potential prescribe prescription publicity
+quantify redirect reduction representative resolution sedate standardise substitute successful
+template unfamiliar wastewater whiteboard
+acidity associate association case commit confirmatory degrade degradation demonstrate dioxide
+inhibit inhibition medical biomedical microscope suppress
 `.trim().split(/\s+/).map(norm));
 
 // A unit is notation, not vocabulary. "millimetres" is not a word the player has
@@ -155,7 +165,10 @@ const known = (b) => b.length >= 4 && (COMMON.has(b) || UNITS.has(b) || COMMON.h
 const strip1 = (w) => [w.replace(/ies$/, 'y'), w.replace(/ied$/, 'y'), w.replace(/ily$/, 'y'), w.replace(/ation$/, ''), ...FORMS.map(f => w.replace(f, ''))]
   .flatMap(b => [b, b.replace(/([a-z])\1$/, '$1')]);
 const stems = (w) => [w, ...strip1(w), ...strip1(w).flatMap(strip1)];
-const plain = (w) => COMMON.has(w) || UNITS.has(w) || stems(w).some(b => b !== w && known(b));
+// -ize and -ise are the same word, and a list that carries only one spelling
+// reports the other as jargon: "hospitalization", "characterize", "standardize".
+const spellings = (w) => (/iz/.test(w) ? [w, w.replace(/iz/g, 'is')] : [w]);
+const plain = (w) => spellings(w).some(v => COMMON.has(v) || UNITS.has(v) || stems(v).some(b => b !== v && known(b)));
 const ordinary = (w) => plain(w)
   || (PREFIXES.test(w) && (() => { const b = w.replace(PREFIXES, ''); return b.length >= 4 && plain(b); })());
 

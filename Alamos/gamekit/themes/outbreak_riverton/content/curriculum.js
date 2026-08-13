@@ -28,8 +28,8 @@ export const CURRICULUM = {
         "headline": "Pathology has several clues from the same positive specimens.",
         "readings": [
           {
-            "zone": "Microscopy",
-            "label": "Microscopy",
+            "zone": "Microscope",
+            "label": "Microscope",
             "value": "No intact cellular forms seen",
             "status": "normal",
             "note": "Several fields examined; image quality is good"
@@ -91,17 +91,17 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Locate the oxygen-delivery failure",
-      "scene": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full cardiopulmonary panel on one of them, and the team is about to escalate a treatment on the strength of it.",
+      "scene": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full heart-and-lung panel on one of them, and the team is about to escalate a treatment on the strength of it.",
       "takeaway": "Oxygen delivery is a chain. Normal measurements at one link can be powerful evidence that the failure lies somewhere else.",
       "place": "Intensive Care Unit",
-      "story": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full cardiopulmonary panel on one of them, and the team is about to escalate a treatment on the strength of it.",
+      "story": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full heart-and-lung panel on one of them, and the team is about to escalate a treatment on the strength of it.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Locate the oxygen-delivery failure",
         "setup": "Intensive Care Unit",
-        "play": "Which bottleneck fits the entire cardiopulmonary panel?",
-        "task": "Which bottleneck fits the entire cardiopulmonary panel?",
-        "question": "Which bottleneck fits the entire cardiopulmonary panel?",
+        "play": "Which bottleneck fits the whole heart-and-lung panel?",
+        "task": "Which bottleneck fits the whole heart-and-lung panel?",
+        "question": "Which bottleneck fits the whole heart-and-lung panel?",
         "answer": "Gas-exchange failure",
         "why": "Oxygen delivery is a chain, and normal values at one link are not reassurance — they are evidence that the failure is elsewhere. Carbon dioxide near normal says air is reaching the alveoli, so ventilation is working. Cardiac output normal says the pump is moving blood. Haemoglobin normal says the blood can carry oxygen. What is left is the handover between air and blood, and the imaging says the same thing.",
         "rebuttals": [
@@ -161,7 +161,7 @@ export const CURRICULUM = {
             "mechanism": "Oxygenated blood is present but cardiac output is too low to deliver it to tissues."
           },
           {
-            "label": "Anemia",
+            "label": "Too little hemoglobin",
             "mechanism": "Blood flow and lung exchange may be adequate, but too little hemoglobin limits oxygen carriage."
           }
         ],
@@ -195,8 +195,8 @@ export const CURRICULUM = {
         "choices": [
           "Tissue lactate and acid-base status.",
           "Arterial oxygenation and carbon dioxide.",
-          "Cardiac output or a validated flow surrogate.",
-          "The same pulse oximeter reading, repeated on three devices."
+          "Cardiac output, or a validated stand-in for flow.",
+          "The same blood-oxygen reading, repeated on three devices."
         ],
         "correctChoice": "Tissue lactate and acid-base status."
       },
@@ -218,11 +218,11 @@ export const CURRICULUM = {
         "play": "Which mechanism best explains the reversal in the full panel?",
         "task": "Which mechanism best explains the reversal in the full panel?",
         "question": "Which mechanism best explains the reversal in the full panel?",
-        "answer": "Dysregulated inflammatory injury",
+        "answer": "Inflammation out of control",
         "why": "Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.",
         "rebuttals": [
           "Uncontrolled replication would show a rising pathogen signal. This one is falling, over forty-eight hours, while the patient declines.",
-          "A bacterial superinfection is the classic late deterioration, and it is the reason cultures were sent. They are negative.",
+          "A second, bacterial infection on top of the first is the classic late deterioration, and it is the reason cultures were sent. They are negative.",
           "Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise."
         ],
         "headline": "Several patients begin to worsen after the amount of detectable pathogen has started to fall.",
@@ -269,11 +269,11 @@ export const CURRICULUM = {
             "mechanism": "The agent is multiplying faster and directly increasing tissue injury."
           },
           {
-            "label": "Dysregulated inflammatory injury",
+            "label": "Inflammation out of control",
             "mechanism": "The immune response remains strongly activated and damages tissue even as pathogen burden falls."
           },
           {
-            "label": "New bacterial superinfection",
+            "label": "A new bacterial infection on top",
             "mechanism": "A second bacterial infection is now driving the decline."
           },
           {
@@ -281,7 +281,7 @@ export const CURRICULUM = {
             "mechanism": "The apparent changes are unrelated fluctuations without a shared mechanism."
           }
         ],
-        "correctChoice": "Dysregulated inflammatory injury"
+        "correctChoice": "Inflammation out of control"
       },
       "assumes": [
         "the immune response can damage tissue while it clears an infection"
@@ -290,17 +290,17 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Treat the mechanism, not the marker",
-      "scene": "Late deterioration is killing patients and the ward wants to start immunosuppression tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.",
+      "scene": "Late deterioration is killing patients and the ward wants to start drugs that damp the immune system tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.",
       "takeaway": "Intervention should follow evidence about what the immune system is doing, where, and when.",
       "place": "Pathology Archive",
-      "story": "Late deterioration is killing patients and the ward wants to start immunosuppression tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.",
+      "story": "Late deterioration is killing patients and the ward wants to start drugs that damp the immune system tonight. The pathology archive has the samples to answer why, and answering takes hours the ward says it does not have.",
       "game": {
         "type": "CHOICE",
         "title": "Treat the mechanism, not the marker",
         "setup": "Pathology Archive",
-        "play": "The ward wants to start immunosuppression tonight. What do you do?",
-        "task": "The ward wants to start immunosuppression tonight. What do you do?",
-        "question": "The ward wants to start immunosuppression tonight. What do you do?",
+        "play": "The ward wants to start drugs that damp the immune system tonight. What do you do?",
+        "task": "The ward wants to start drugs that damp the immune system tonight. What do you do?",
+        "question": "The ward wants to start drugs that damp the immune system tonight. What do you do?",
         "answer": "Measure agent burden and inflammatory markers together over time first.",
         "why": "Two drivers fit the same bedside picture: a pathogen still replicating, and a host response that has itself become the injury. They are distinguished by direction, not by level — in the first, viral load is high or rising while inflammatory markers follow it; in the second, load is falling while the markers keep climbing. A single time point cannot separate them, because both can produce the same numbers on any given morning. Paired measurements over time separate them within hours, and the answer decides whether suppression helps or removes the thing that is clearing the infection.",
         "rebuttals": [
@@ -472,7 +472,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Separate binding from entry",
       "scene": "Some cell types are infected and some are not, and nobody can say at which step the resistant ones stop the process. Structural biology has bench time for one experiment before the therapy target is chosen.",
-      "takeaway": "Mechanistic experiments should identify the earliest point at which two conditions diverge.",
+      "takeaway": "Experiments built on a mechanism should identify the earliest point at which two conditions diverge.",
       "place": "Structural Biology Room",
       "story": "Some cell types are infected and some are not, and nobody can say at which step the resistant ones stop the process. Structural biology has bench time for one experiment before the therapy target is chosen.",
       "game": {
@@ -491,7 +491,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Measure receptor abundance on vulnerable and resistant cells.",
-          "Track whether bound material is internalised.",
+          "Track whether bound material is taken into the cell.",
           "Measure a late cellular response in both cell types.",
           "Increase the exposure until every cell shows damage."
         ],
@@ -583,7 +583,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "An enzyme is catalysing it, and above its range the protein denatures and stops working.",
-          "The reaction is endothermic, so more heat should always drive it faster.",
+          "The reaction takes in heat, so more heat should always drive it faster.",
           "The sample degraded, which is why the warmer block produced nothing.",
           "Heat destroyed the target sequence, so there was nothing left to amplify."
         ],
@@ -1129,10 +1129,10 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "From specimen to broad classification",
-      "scene": "The microscopy core has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
+      "scene": "The microscope bench has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
       "takeaway": "A good classification is an evidence synthesis, not a label generated by one instrument.",
       "place": "Microscopy Core",
-      "story": "The microscopy core has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
+      "story": "The microscope bench has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
       "game": {
         "type": "SEQUENCE",
         "title": "From specimen to broad classification",
@@ -1369,9 +1369,9 @@ export const CURRICULUM = {
         "task": "Which explanation fits the complete treatment-response panel?",
         "question": "Which explanation fits the complete treatment-response panel?",
         "answer": "Evolved resistance",
-        "why": "Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached therapeutic concentration and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.",
+        "why": "Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached a concentration that works and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.",
         "rebuttals": [
-          "Poor delivery means the drug never arrives, and the concentration is inside the therapeutic range with an initial response to prove it.",
+          "Poor delivery means the drug never arrives, and the concentration is inside the range where the drug works with an initial response to prove it.",
           "A misidentified agent would not have responded at all, and this one fell before it came back.",
           "Assay contamination would not spare the reference isolate, which was run alongside and remains sensitive."
         ],
@@ -1380,7 +1380,7 @@ export const CURRICULUM = {
           {
             "zone": "Drug concentration",
             "label": "Drug concentration",
-            "value": "Within expected therapeutic range",
+            "value": "Within the range where the drug works",
             "status": "normal",
             "note": "Measured repeatedly during treatment"
           },
@@ -1479,10 +1479,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Recover treatment effectiveness",
-      "scene": "Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had documented dosing and trough concentrations inside the therapeutic range.",
+      "scene": "Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had dosing on record, and trough levels in the range where the drug works.",
       "takeaway": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
       "place": "Pharmacology Unit",
-      "story": "Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had documented dosing and trough concentrations inside the therapeutic range.",
+      "story": "Effectiveness has fallen from 82 to 51 per cent over nine weeks. All eleven failures had dosing on record, and trough levels in the range where the drug works.",
       "game": {
         "type": "CHOICE",
         "title": "Recover treatment effectiveness",
@@ -1573,16 +1573,16 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; preclinical evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.",
+        "why": "Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; animal and laboratory evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.",
         "rebuttals": [
           "Target and mechanism first: without them there is nothing to test a compound against except hope.",
-          "Preclinical activity and safety second, because a compound that harms an animal has told you something you needed before a person took it.",
+          "Animal and laboratory evidence second, because a compound that harms an animal has told you something you needed before a person took it.",
           "Endpoints, controls and stopping rules third — they are what make the result interpretable, and they cannot be chosen after the data arrives.",
           "The monitored trial last, with oversight. It is the step everything before it exists to make defensible."
         ],
         "cards": [
           "Define the biological target and intended mechanism.",
-          "Demonstrate relevant activity and identify major safety concerns in preclinical evidence.",
+          "Demonstrate relevant activity and identify major safety concerns in animal and laboratory evidence.",
           "Specify trial population, endpoints, controls, and stopping rules.",
           "Begin a monitored clinical trial with independent oversight."
         ],
@@ -1615,13 +1615,13 @@ export const CURRICULUM = {
         "why": "Layers are chosen for mechanism and for timing, not by ranking their headline effects. The six estimates all sit between 15 and 30 per cent and all come from other settings, so the numbers cannot separate them here. Mechanism can: measures sharing one — three that depend on people staying home — fail in the same week, while ventilation and isolation act on transmission opportunity whatever the biology turns out to be. Timing settles the rest, because those two work this month, which is the month the other candidates spend in development.",
         "rebuttals": [
           "The vaccine is the strongest long-run layer and protects nobody during the months it takes to make. Start it too; it is not what this month buys.",
-          "A therapeutic depends on a pathway that is still being validated, and it acts after infection rather than reducing how much of it there is.",
+          "A drug depends on a pathway that is still being validated, and it acts after infection rather than reducing how much of it there is.",
           "A campaign announcing control is not a layer. It has no mechanism, and it fails in exactly the way that costs the most."
         ],
         "choices": [
           "Ventilation and rapid-isolation improvements.",
           "A vaccine candidate against a conserved surface feature.",
-          "A therapeutic aimed at a validated host or agent pathway.",
+          "A drug aimed at a validated host or agent pathway.",
           "A publicity campaign stating that the crisis is under control."
         ],
         "correctChoice": "Ventilation and rapid-isolation improvements."
@@ -1633,10 +1633,10 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "Read effect size and uncertainty",
-      "scene": "The trial has reported, and the health minister wants a number before deciding how much to buy. The biostatistics office has the event counts for both arms and nothing has been converted yet.",
+      "scene": "The trial has reported, and the health minister wants a number before deciding how much to buy. The statistics office has the event counts for both arms and nothing has been converted yet.",
       "takeaway": "Relative and absolute effects answer different decision questions and should be reported together.",
       "place": "Biostatistics Office",
-      "story": "The trial has reported, and the health minister wants a number before deciding how much to buy. The biostatistics office has the event counts for both arms and nothing has been converted yet.",
+      "story": "The trial has reported, and the health minister wants a number before deciding how much to buy. The statistics office has the event counts for both arms and nothing has been converted yet.",
       "game": {
         "type": "BALLPARK",
         "title": "Read effect size and uncertainty",
@@ -1678,7 +1678,7 @@ export const CURRICULUM = {
         "choices": [
           "Expand enrolment under the same pre-specified analysis.",
           "Declare success and stop collecting data.",
-          "Add mechanistic measurements to explain why it works.",
+          "Add measurements of the mechanism to explain why it works.",
           "Pause the trial until the adverse events are fully investigated."
         ],
         "correctChoice": "Expand enrolment under the same pre-specified analysis."
