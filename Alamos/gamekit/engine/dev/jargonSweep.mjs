@@ -55,14 +55,47 @@ suddenly sure surface system take talk tell temperature than that their them the
 this those though three through time today together tomorrow tonight took town train travel trouble true
 turn under until upon used usually very walk want watch water week well were what when where which while
 white whole will with within without word work world would write year young your
+account accurate action active actual addition additional adequate adjust adjustment advance advice affect
+agree amount analysis analyse analyze appear apply approach approve approximate area arrange assume attempt
+available average avoid balance become begin benefit better beyond brief broad build calculate care carry
+cause central certain chance charge check choice claim clear collapse collect colour combine common compare
+complete concern conclude confirm connect consider consist constant contact content context control convert
+correct count cover create current decide decline decrease define degree deliver depend describe design
+detail detect determine develop differ difficult direct discuss display distance divide double effect
+effort element energy engine ensure enter entire equal escape establish estimate event exact exceed exchange
+exist expand expect expense experience explain extend extra factor failure feature figure final finish
+follow force forward frequent function future gather general generate handle happen height hold identify
+image immediate impact improve include increase indicate individual industry inform initial inspect install
+instance intend interest internal introduce involve issue judge justify labour large layer level likely
+limit local locate machine maintain major manage manner mark material maximum mean measure medium mention
+method minimum modern modify monitor multiple narrow nature nearby normal notice object observe obtain
+occupy occur offer operate opinion option organise organize original outcome output overall parallel
+particular pattern percent perform period permit physical plan position positive practical prepare present
+prevent previous primary print priority process produce product programme progress project propose protect
+prove provide public purchase purpose quantity range rapid reaction receive recognise recognize recommend
+reduce refer reflect regard region regular reject relate release remain remove repair repeat replace
+represent request require reserve resolve respond restore retain return reveal reverse review revise
+routine safety satisfy scale schedule secure select sensible separate series serious service settle shape
+share shift signal significant similar simple single site situation solid solution source special specific
+spend stage standard state statement status steady storage store strong structure submit substance succeed
+suggest supply support suppose surround survive suspect sustain switch target technical technique
+temporary theory therefore threat total track transfer transport treat trend typical understand uniform
+unique unit update urgent useful valid value variable various version visible volume warning weight widely
+achieve achievable available candidate collision completion circulation aggressive beside brief
 `.trim().split(/\s+/).map(norm));
 
 const TECHY = /(?:tion|sion|ment|ance|ence|ity|ology|ography|ometry|meter|metre|ate|ide|ine|ase|osis|emia|itis|ivity|graph|scopy|lysis|genic|phile|phobic|valent|meric|ant|ent|ive|oid|yl)s?$/i;
 
 /** Would a general reader have to be taught this word? Deliberately generous. */
+// "calculated", "collisions", "constantly" and "controller" are the common word
+// with an ending on it, and testing the surface form leaves all four in the queue.
+const FORMS = [/e?d$/, /s$/, /ing$/, /ly$/, /e?r$/, /ion$/, /ment$/, /ance$/, /ence$/, /able$/, /ive$/];
+const ordinary = (w) => COMMON.has(w)
+  || FORMS.some(f => { const base = w.replace(f, ''); return base.length >= 4 && (COMMON.has(base) || COMMON.has(base + 'e')); });
+
 function candidate(raw){
   const w = norm(raw);
-  if(w.length < 5 || COMMON.has(w)) return false;
+  if(w.length < 5 || ordinary(w)) return false;
   if(w.includes('/')) return false;                        // units are notation
   if(/^[A-Z]{2,5}$/.test(raw)) return true;                // an acronym
   if(/\d/.test(w)) return true;                            // CO2, NO3
@@ -77,8 +110,17 @@ const SYLLABUS = syllabusMod.SYLLABUS ?? syllabusMod.default ?? {};
 function claimedBy(theme){
   const entry = SYLLABUS[theme] ?? SYLLABUS[theme?.replace(/_/g, '-')] ?? null;
   const out = new Set();
+  // Word by word over-claims: "activation energy" would hand "energy" a licence
+  // it did not earn, and half the ordinary vocabulary of a chemistry syllabus is
+  // ordinary. A single word counts only when it is technical on its own.
   const walk = (v) => {
-    if(typeof v === 'string'){ for(const w of words(v)) out.add(norm(w)); return; }
+    if(typeof v === 'string'){
+      for(const w of words(v)){
+        const k = norm(w);
+        if(k.length >= 5 && !COMMON.has(k)) out.add(k);
+      }
+      return;
+    }
     if(Array.isArray(v)){ v.forEach(walk); return; }
     if(v && typeof v === 'object'){ Object.values(v).forEach(walk); }
   };
