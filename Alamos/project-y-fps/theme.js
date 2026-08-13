@@ -8,14 +8,16 @@
 // The world stays this game's own src/world.js, reached through `@world`: the
 // mesa, the roads, the pond and the historic town are bespoke, and moving them
 // onto engine/world is a separate job. Logic first, world later.
-import { CURRICULUM, BALLPARK_CALCS, JARGON } from './src/curriculum.js';
-import { MISSION_DEFS } from './src/missions.js';
-import { GROUP_DEFS } from './src/divisions.js';
-import { HISTORIC_CHARACTERS } from './src/historicCharacters.js';
-import { LEADERS, AVATARS } from './src/leaders.js';
-import { SPECIAL_REQUESTS } from './src/specialRequests.js';
-import { INTERIORS } from './src/interiors.js';
-import { DIAGNOSIS_PACKS } from './src/diagnosis.js';
+// The content is one book — gamekit/books/project-y.yml — imported to ./content/
+// by tools/import-book.mjs, and engine/dev/bookParity.mjs fails if these files
+// stop matching it. src/*.js are one-line doors onto the same data, kept because
+// this game's own modules import them.
+import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
+import { MISSIONS as MISSION_DEFS } from './content/missions.js';
+import { GROUPS as GROUP_DEFS } from './content/groups.js';
+import { ROSTER as HISTORIC_CHARACTERS, LEADERS, AVATARS } from './content/roster.js';
+import { DIAGNOSIS_PACKS, SPECIAL_REQUESTS } from './content/shared.js';
+import { INTERIORS } from './interiors.js';
 import { site } from './site.js';
 
 

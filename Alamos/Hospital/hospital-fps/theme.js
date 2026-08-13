@@ -9,13 +9,16 @@
 // `@world` alias. Moving the place onto engine/world needs an interior builder
 // that satisfies the world contract, and that does not exist yet — so this
 // migration is logic first, world later.
-import { CURRICULUM, BALLPARK_CALCS, JARGON } from './src/curriculum.js';
-import { BALLPARK_BY_TITLE } from './src/ballpark-specs.js';
+// The content is one book — gamekit/books/hospital.yml — imported to
+// ./content/ by tools/import-book.mjs, and engine/dev/bookParity.mjs fails if
+// these files stop matching it. src/*.js are one-line doors onto the same data,
+// kept because this game's own modules import them.
+import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
+import { BALLPARK_BY_TITLE } from './content/shared.js';
 import { ROOMS, CORRIDOR } from './src/plan.js';
-import { MISSION_DEFS } from './src/missions.js';
-import { GROUP_DEFS } from './src/divisions.js';
-import { HISTORIC_CHARACTERS } from './src/historicCharacters.js';
-import { LEADERS } from './src/leaders.js';
+import { MISSIONS as MISSION_DEFS } from './content/missions.js';
+import { GROUPS as GROUP_DEFS } from './content/groups.js';
+import { ROSTER as HISTORIC_CHARACTERS, LEADERS } from './content/roster.js';
 
 
 export default {

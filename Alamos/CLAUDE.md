@@ -98,11 +98,15 @@ no entry point of its own: `gamekit/src/main.js` names nothing game-specific.
 The campaign is as long as the book; 15 missions is what the shipped games have,
 not a requirement.
 
-**A new game should be written as a book file**, not a Word document.
-`tools/BOOK_TEMPLATE.md` is the format, with a worked example of every question
-format; the importer checks it instead of guessing, and refuses to write a book
-that would produce an unplayable game. The docx importers stay for the two books
-that already exist:
+**Every game is a book file.** `tools/BOOK_TEMPLATE.md` is the format, with a
+worked example of every question format; the importer checks it instead of
+guessing, and refuses to write a book that would produce an unplayable game.
+`books/` holds all seven, `tools/export-book.mjs` writes one out of a game, and
+`engine/dev/bookParity.mjs` — inside `npm run check` — fails if a book stops
+regenerating the content its game ships. The three games that predate the format
+were converted that way; their `src/*.js` content files are now one-line doors
+onto the generated `content/`. The docx importers stay only for the two Word
+documents they were written for:
 
 ```sh
 node tools/import-missionbook.mjs <book>.docx <theme> --dry   # MISSION n / Activity n.m books

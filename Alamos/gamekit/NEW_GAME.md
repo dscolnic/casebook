@@ -86,9 +86,17 @@ The book carries the areas, the cast and their bios, every mission and stop, the
 estimate specs, the glossary, what is inside each room, and what each place says.
 
 **Write the book, not the content files.** `themes/<name>/content/*.js` is
-generated; a hand edit there is lost on the next import. The three games that
-have no book (Project Y, Hospital, The Contaminated City) are edited in place
-and that is a cost, not a pattern to copy.
+generated; a hand edit there is lost on the next import — and now fails a check
+the same day, because `engine/dev/bookParity.mjs` re-imports every book into a
+scratch directory and compares it against the content the game ships. All seven
+games are books. The two that arrived as Word documents and the one that predates
+the engine were converted with `tools/export-book.mjs`, which is the inverse of
+the importer:
+
+```sh
+node tools/export-book.mjs <name>                      # content -> book
+node engine/dev/bookParity.mjs <name>                  # do they still agree?
+```
 
 ### What a day is, before you write fifteen of them
 
@@ -241,7 +249,8 @@ Behind it, per theme: `validateContent` (content agrees with itself and the
 contract), `smokeCampaign` (the engine can reach and grade every stop),
 `probeQuestions` (the four probes), `personStops` (every mission person opens
 their question), `checkStory` (the campaign is a story and the cards brief),
-`checkNames`; then once for the repo: `checkStyles`, `worldParity`.
+`checkNames`, `bookParity` (the book still regenerates the game); then once for
+the repo: `checkStyles`, `worldParity`.
 
 They catch different things. The first theme on this engine had perfectly valid
 content and two thirds of its campaign unreachable, and only `smokeCampaign`
@@ -291,6 +300,7 @@ covers.
 | The place is walkable and looks like itself | `reportAudit` in the console, and screenshots |
 | The syllabus is covered, and the gaps are known | the syllabus pages of the printed book |
 | A re-import cannot lose any of it | it is all in `books/<name>.yml` |
+| The book and the game have not drifted apart | `bookParity` inside `npm run check` |
 
 ---
 

@@ -302,6 +302,82 @@ copy:
   IDENT: <p>The identification laboratory. Two instruments and a rule.</p>
 ```
 
+## Format 2: what the three older games needed
+
+Every game is now a book. Project Y, The Contaminated City and Hospital Heroes
+were generated from Word documents or hand-written JS, and `tools/export-book.mjs`
+wrote their books out of the games themselves. Five blocks exist because those
+three games could not be stated without them, and any book may use them.
+
+```yaml
+format: 2       # optional stamp; the importer reads a format-1 book unchanged
+
+# Lessons no mission stop points at. A callback day reaches a "— Review"
+# variant by title, so these are content, not spares: 206 of the seven games'
+# 425 lessons are unattached, and all of them belong to the older three.
+lessons:
+  - group: RESP
+    title: Count the Breaths — Review 2
+    task: Count again, on a patient who is talking
+    scene: >
+      Noah is back for a check, and this time he can finish a sentence.
+    takeaway: A rate is a count and a clock, and the clock has to be the same one.
+    format: BALLPARK
+    # …no estimate block: the spec comes from `estimatesByTitle` below
+
+# Panels several lessons share, expanded into each of them at load.
+packs:
+  airway-panel:
+    readings: [{ zone: Airway, label: Breathing rate, value: 34, status: alarm }]
+    choices: [A narrowed airway, A blocked filter, Nothing is wrong]
+    answer: A narrowed airway
+
+# Between-mission funding vignettes.
+specialRequests:
+  kim: { ask: A second thermometer for the ward, cost: 8, why: … }
+
+# One estimate spec applied by lesson title, across a lesson and its reviews.
+# Matched on the base title, so "Count the Breaths — Review 3" uses this too.
+estimatesByTitle:
+  Count the Breaths:
+    prompt: The nurse counts while she rests comfortably.
+    labels: [5 breaths (counted), 4 (fifteen-second parts in a minute)]
+    values: [5, 4]
+    correct: [0, 1]
+    target: 20
+    units: breaths per minute
+```
+
+Three stop-level fields come from the same conversion:
+
+| Field | What it is |
+| --- | --- |
+| `call` | the plan card's line for this stop — "Talk to Dr. Nguyen" — where it differs from the question's own `task` |
+| `setup` | what the panel says above the question, where it differs from `place` |
+| `story` | the longer form of the situation, where a game carries one as well as a scene |
+| `answerText` | the printed answer key, for a format that does not derive one |
+
+And two rules the importer now applies rather than a parser guessing:
+
+* **A diagnosis with no readings and no figure is imported as a CHOICE**, with a
+  warning. 35 of the hospital's lessons were typed DIAGNOSIS by a docx parser
+  that had one guess; the engine retyped them at load and the book now says what
+  the game plays.
+* **`figure` is allowed on any format.** It used to be passed through for
+  DIAGNOSIS only, which silently dropped a line chart on a sequence item.
+
+## The book is the source of truth, and that is checked
+
+`node engine/dev/bookParity.mjs <theme>` imports the book into a scratch
+directory and compares every export against the content the theme ships. It runs
+inside `npm run check`, so a hand edit to a generated file fails the same day it
+is made. Two commands, and they are inverses:
+
+```sh
+node tools/import-book.mjs books/<theme>.yml <theme>   # book  -> content
+node tools/export-book.mjs <theme>                     # content -> book
+```
+
 ## What is still not in the book
 
 The place itself — `site.js` (outdoor) or `plan.js` (interior) — and the props.

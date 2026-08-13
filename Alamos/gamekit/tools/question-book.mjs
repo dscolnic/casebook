@@ -28,7 +28,7 @@ const cur = await load('curriculum.js');
 const mis = await load('missions.js');
 const rosterMod = await load('roster.js').catch(() => ({}));
 let packs = {};
-for(const f of ['diagnosis-packs.js', 'diagnosis.js']){
+for(const f of ['shared.js', 'diagnosis-packs.js', 'diagnosis.js']){
   try{ const p = await load(f); packs = p.DIAGNOSIS_PACKS ?? Object.values(p).find(v => v && typeof v === 'object'); break; }catch{}
 }
 const theme = await import(resolve(dir, 'theme.js')).then(m => m.default ?? m).catch(() => ({}));

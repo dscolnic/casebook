@@ -16,19 +16,31 @@
 //
 // See tools/BOOK_TEMPLATE.md for the format, with a worked example of each
 // question format.
+//
+// Format 2 added what the three older games needed before they could be books at
+// all: lessons no mission stop points at (the review variants a callback day
+// reaches), a stop whose plan-card `call` differs from the question's own
+// instruction, and the three shared blocks — `packs`, `specialRequests`,
+// `estimatesByTitle`. `tools/export-book.mjs` writes one of these out of a game
+// and `engine/dev/bookParity.mjs` proves the pair still agree.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
+import { themeDir } from '../engine/dev/registry.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
 
 const [bookPath, themeName, ...flags] = process.argv.slice(2);
 if(!bookPath || !themeName){
-  console.error('usage: node tools/import-book.mjs <book.yml> <theme> [--dry] [--verify]');
+  console.error('usage: node tools/import-book.mjs <book.yml> <theme> [--dry] [--verify] [--out <dir>]');
   process.exit(2);
 }
 const dry = flags.includes('--dry');
+// `--out` is what makes the parity check possible: import into a scratch
+// directory and compare, without touching the theme that is being checked.
+const outFlag = flags.indexOf('--out');
+const outOverride = outFlag >= 0 ? flags[outFlag + 1] : null;
 
 const FORMATS = new Set(['PROTOCOL','SEQUENCE','BALLPARK','SCIENCETANK','DIAGNOSIS','TRIAGE','CASEBOOK','CHOICE']);
 const canonical = (t) => String(t ?? '').toUpperCase().replace(/[\s_-]+/g, '');
@@ -115,6 +127,42 @@ const CURRICULUM = Object.fromEntries(GROUPS.map(g => [g.id, []]));
 const BALLPARK_CALCS = {};
 const MISSIONS = [];
 
+/**
+ * Add one lesson to its group and return where it landed.
+ *
+ * Shared by a mission's stops and by the book's `lessons:` block, which is how a
+ * review variant reaches the game: normalize.js finds "<title> — Review" by
+ * title when a callback day wants it, so an unattached lesson is content, not a
+ * spare part. The day number is the position in the group, so the mission stops
+ * are laid down first and the unattached ones follow — mission indices cannot
+ * move when a review variant is added or removed.
+ */
+function addLesson(s, at){
+  if(!groupIds.has(s.group)) fail(`${at}: unknown group "${s.group}"`);
+  const lessons = CURRICULUM[s.group] ?? [];
+  const day = lessons.length + 1;
+  const game = gameFor(s, at, s.group, day);
+  const scene = String(s.scene ?? '').trim();
+  if(scene.length < 40) fail(`${at}: the scene is missing or too thin to reason from`);
+  const takeaway = String(s.takeaway ?? '').trim();
+  if(!takeaway) fail(`${at}: no takeaway`);
+  if(takeaway && game.why && takeaway === String(game.why).trim()){
+    fail(`${at}: the takeaway repeats the "why", so the intro gives the answer away`);
+  }
+  const assumes = Array.isArray(s.assumes) ? s.assumes.map(a => String(a).trim()).filter(Boolean) : [];
+  lessons.push({
+    day, title: s.title ?? s.task ?? `${s.group} ${day}`, scene, takeaway,
+    place: s.place ?? '',
+    // `story` is the longer form of the situation where a book carries one, and
+    // the scene otherwise. The engine reads it before the scene.
+    story: String(s.story ?? scene).trim(),
+    game,
+    ...(assumes.length ? { assumes } : {}),
+  });
+  CURRICULUM[s.group] = lessons;
+  return { day, game, scene };
+}
+
 missions.forEach((m, mi) => {
   const label = `mission ${mi + 1} ("${m.title ?? '?'}")`;
   const stops = m.stops ?? [];
@@ -122,35 +170,18 @@ missions.forEach((m, mi) => {
 
   const outStops = stops.map((s, si) => {
     const at = `${label} stop ${si + 1}`;
-    if(!groupIds.has(s.group)) fail(`${at}: unknown group "${s.group}"`);
-    const lessons = CURRICULUM[s.group] ?? [];
-    const day = lessons.length + 1;
-    const game = gameFor(s, at, s.group, day);
-    const scene = String(s.scene ?? '').trim();
-    if(scene.length < 40) fail(`${at}: the scene is missing or too thin to reason from`);
-    const takeaway = String(s.takeaway ?? '').trim();
-    if(!takeaway) fail(`${at}: no takeaway`);
-    if(takeaway && game.why && takeaway === String(game.why).trim()){
-      fail(`${at}: the takeaway repeats the "why", so the intro gives the answer away`);
-    }
-    // `assumes` is the prior knowledge the question expects the player to bring.
-    // It exists because the alternative — inferring it from the text — does not
-    // work: a question can turn on a fact whose every word is already on screen
-    // (a shaft harmonic "twice per revolution") and no lexical check can see the
-    // gap. Declared, it can be checked against the glossary and the stops before
-    // it, and a reviewer can read it.
-    const assumes = Array.isArray(s.assumes) ? s.assumes.map(a => String(a).trim()).filter(Boolean) : [];
-    lessons.push({ day, title: s.title ?? s.task ?? `${s.group} ${day}`, scene, takeaway,
-                   place: s.place ?? '', story: scene, game,
-                   ...(assumes.length ? { assumes } : {}) });
-    CURRICULUM[s.group] = lessons;
+    const { day } = addLesson(s, at);
     // `why` is the answer's reasoning and belongs in the verdict. The engine's
     // `stop.why` is something else entirely — the line shown ABOVE the question
     // saying why this stop matters now — so copying one into the other printed
     // the reasoning before the question and gave the answer away. A book that
     // wants to write that line uses `motivation`.
+    //
+    // `call` is the plan card's line for this stop where it differs from the
+    // question's own instruction. One string served both in the hand-written
+    // books; the docx games always had two.
     return {
-      group: s.group, lesson: day - 1, task: s.task ?? s.title ?? '',
+      group: s.group, lesson: day - 1, task: s.call ?? s.task ?? s.title ?? '',
       ...(s.motivation ? { why: s.motivation } : {}),
     };
   });
@@ -168,6 +199,11 @@ missions.forEach((m, mi) => {
   });
 });
 
+// Lessons no mission stop points at, laid down after every mission lesson so no
+// mission index depends on them. A callback day reaches a "— Review" variant by
+// title; the rest are spares a re-shaped campaign can use.
+(book.lessons ?? []).forEach((s, i) => addLesson(s, `unattached lesson ${i + 1} ("${s.title ?? s.task ?? '?'}")`));
+
 /** One stop's question, checked against what its format actually needs. */
 function gameFor(s, at, group, day){
   const format = canonical(s.format);
@@ -178,8 +214,15 @@ function gameFor(s, at, group, day){
     type: format, title: s.title ?? '', setup: s.setup ?? s.place ?? '',
     play: s.task ?? s.question ?? '', task: s.task ?? s.question ?? '',
     question: s.question ?? s.task ?? '',
-    answer: s.answer ?? '', why: s.why ?? '',
+    // `answer` is the printed key. Most formats derive it from their own fields;
+    // `answerText` is for a book that carries a worked one — a docx game's
+    // "1. X → Y 2. …" line, which the printed book reproduces verbatim.
+    answer: s.answerText ?? (typeof s.answer === 'string' ? s.answer : '') ?? '', why: s.why ?? '',
     ...(s.rebuttals ? { rebuttals: s.rebuttals } : {}),
+    // Any format can carry an instrument. It used to be passed through for
+    // DIAGNOSIS only, which is why a line chart on a sequence item was dropped
+    // silently on import.
+    ...(s.figure ? { figure: s.figure } : {}),
   };
   const need = (cond, msg) => { if(!cond) fail(`${at}: ${msg}`); };
 
@@ -204,8 +247,19 @@ function gameFor(s, at, group, day){
   }
   if(format === 'BALLPARK'){
     const e = s.estimate;
-    need(!!e, 'ballpark needs an `estimate` block — prose carries no arithmetic');
-    if(e){
+    // A spec can also be stated once under `estimatesByTitle` and applied by
+    // title, which is how a lesson and its four review variants share one set of
+    // number tiles. normalize.js attaches it at load.
+    // Matched on the base title, the way normalize.js does, so one spec covers a
+    // lesson and its "— Review 2" variants.
+    const base9 = String(s.title ?? '').replace(/\s+—\s+Review(\s+\d+)?$/i, '').trim();
+    const byTitle = (book.estimatesByTitle ?? {})[s.title] ?? (book.estimatesByTitle ?? {})[base9];
+    // A block carrying only `givens` and `relationship` is the reading matter,
+    // not the spec; the tiles and the target can come by title instead.
+    const hasSpec = !!e && (e.target !== undefined || (e.values ?? []).length > 0);
+    need(hasSpec || !!byTitle,
+         'ballpark needs an `estimate` block, or an `estimatesByTitle` entry for its title — prose carries no arithmetic');
+    if(hasSpec){
       need((e.labels ?? []).length === (e.values ?? []).length, 'estimate labels and values must line up');
       need(Number.isFinite(+e.target), 'estimate needs a numeric target');
       need((e.correct ?? []).every(i => i >= 0 && i < (e.values ?? []).length),
@@ -218,7 +272,12 @@ function gameFor(s, at, group, day){
         solution: e.solution ?? '', explanation: e.explanation ?? s.why ?? '',
       };
     }
-    return { ...base, givens: e?.givens ?? [], relationship: e?.relationship ?? '', calcKey: `${group}-${day}` };
+    return {
+      ...base, givens: e?.givens ?? [], relationship: e?.relationship ?? '',
+      // No key when the spec arrives by title: a calcKey pointing at nothing is
+      // how an estimate panel comes up empty.
+      ...(hasSpec ? { calcKey: `${group}-${day}` } : {}),
+    };
   }
   if(format === 'SCIENCETANK'){
     const labels = (s.proposals ?? []).map(p => p.label);
@@ -230,6 +289,21 @@ function gameFor(s, at, group, day){
     return { ...base, proposals: s.proposals, recommended: rec, research: s.evidence ?? '' };
   }
   if(format === 'DIAGNOSIS'){
+    // A diagnosis with no panel is not a diagnosis. `normalize.js` retypes it to
+    // CHOICE at load — 35 of the hospital's lessons are like this, typed by a
+    // docx parser that had one guess — so the book states what the game runs and
+    // the retype has nothing left to do.
+    if(!s.pack && !(s.readings ?? []).length && !s.figure){
+      warn(`${at}: DIAGNOSIS with no readings and no figure — imported as CHOICE, which is what it plays as`);
+      return choiceLike('CHOICE', s, at, base, need);
+    }
+    // A pack is a panel several lessons share, expanded into each of them at
+    // load by normalize.js. Project Y had nine of them referenced and never
+    // imported, which is the defect that made packs a first-class book block.
+    if(s.pack && !s.readings && !s.choices){
+      need(!!(book.packs ?? {})[s.pack], `names pack "${s.pack}", which the book does not define`);
+      return { ...base, pack: s.pack, ...(s.headline ? { headline: s.headline } : {}) };
+    }
     const labels = (s.choices ?? []).map(c => (typeof c === 'string' ? c : c.label));
     need(labels.length >= 4, 'diagnosis needs at least four candidates to rule out');
     const zones = new Set((s.readings ?? []).map(r => r.zone).filter(Boolean));
@@ -240,7 +314,7 @@ function gameFor(s, at, group, day){
     need(answers.every(a => labels.includes(a)), 'the answer names a candidate that is not on the list');
     return {
       ...base, headline: s.headline ?? '', readings: s.readings ?? [],
-      choices: s.choices, ...(s.figure ? { figure: s.figure } : {}),
+      choices: s.choices,
       ...(answers.length > 1 ? { correctChoices: answers } : { correctChoice: answers[0] }),
     };
   }
@@ -251,10 +325,16 @@ function gameFor(s, at, group, day){
              ...(s.columns ? { columns: s.columns } : {}) };
   }
   // CHOICE, TRIAGE, and a casebook that is really a question
+  return choiceLike(format, s, at, base, need);
+}
+
+/** One question, one right answer, graded by label. */
+function choiceLike(format, s, at, base, need){
   const labels = (s.choices ?? []).map(c => (typeof c === 'string' ? c : c.label));
   need(labels.length >= 3, `${format.toLowerCase()} needs at least three options`);
-  need(labels.includes(s.answer), 'the answer is not one of the options — grading compares labels');
-  return { ...base, choices: s.choices, correctChoice: s.answer };
+  const answer = Array.isArray(s.answer) ? s.answer[0] : s.answer;
+  need(labels.includes(answer), 'the answer is not one of the options — grading compares labels');
+  return { ...base, type: base.type === 'DIAGNOSIS' ? 'CHOICE' : base.type, choices: s.choices, correctChoice: answer };
 }
 
 // --------------------------------------------------------------- glossary
@@ -281,7 +361,12 @@ if(problems.length){
 }
 
 // ------------------------------------------------------------------- emit
-const outDir = resolve(gamekit, 'themes', themeName, 'content');
+// The two games that predate `themes/` keep their content in their own package
+// directory, so the output location comes from the registry rather than from a
+// path built here. `--out` overrides it, which is what the parity check uses.
+const outDir = outOverride
+  ? resolve(process.cwd(), outOverride)
+  : resolve(themeDir(themeName), 'content');
 const js = (name, value) => `export const ${name} = ${JSON.stringify(value, null, 2)};\n`;
 const banner = (what) =>
   `// ${what}\n// GENERATED by tools/import-book.mjs from ${bookPath.split('/').pop()}\n` +
@@ -304,14 +389,24 @@ if(dry){
     js('CURRICULUM', CURRICULUM) + '\n' + js('BALLPARK_CALCS', BALLPARK_CALCS) + '\n' + js('JARGON', JARGON));
   writeFileSync(resolve(outDir, 'missions.js'),
     banner('missions.js — the campaign') + js('MISSIONS', MISSIONS));
-  if(book.copy){
+  if(book.copy && Object.keys(book.copy).length){
     writeFileSync(resolve(outDir, 'copy.js'), banner('copy.js — what each place says') + js('COPY', book.copy));
   }
-  if(book.interiors){
-    writeFileSync(resolve(gamekit, 'themes', themeName, 'interiors.js'),
+  // The three shared blocks, in one file so that a theme wires in one import and
+  // gets all three — three optional imports across three manifests is how Project
+  // Y's nine diagnosis packs went missing. Written only when the book uses them.
+  const shared = { DIAGNOSIS_PACKS: book.packs ?? {}, SPECIAL_REQUESTS: book.specialRequests ?? {},
+                   BALLPARK_BY_TITLE: book.estimatesByTitle ?? {} };
+  if(Object.values(shared).some(v => Object.keys(v).length)){
+    writeFileSync(resolve(outDir, 'shared.js'),
+      banner('shared.js — content shared across lessons') +
+      Object.entries(shared).map(([k, v]) => js(k, v)).join('\n'));
+  }
+  if(book.interiors && Object.keys(book.interiors).length){
+    writeFileSync(resolve(themeDir(themeName), 'interiors.js'),
       banner('interiors.js — what is inside each room') + js('INTERIORS', book.interiors));
   }
-  console.log(`\nwrote themes/${themeName}/content/`);
+  console.log(`\nwrote ${outDir.replace(gamekit + '/', '')}`);
 }
 
 // --verify runs the checks against what was just written, because an importer

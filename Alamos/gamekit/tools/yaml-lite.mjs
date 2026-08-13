@@ -159,6 +159,18 @@ function parseSequence(lines, i, indent){
       i++;
       continue;
     }
+    // A nested sequence: `- - first`. The item is a list of its own, starting at
+    // the inner dash. Project Y's diagnosis packs pair each candidate with the
+    // readings that rule it out, which is a list of lists, and without this the
+    // inner list came back as the string "- first".
+    if(/^-\s+\S/.test(rest) || rest === '-'){
+      const inner = indent + 2;                     // where the inner dash sits
+      const synthetic = [' '.repeat(inner) + rest, ...lines.slice(i + 1)];
+      const [v, next] = parseSequence(synthetic, 0, inner);
+      out.push(v);
+      i = next === 0 ? i + 1 : i + next;
+      continue;
+    }
     // A quoted scalar on the dash is a scalar even when it contains a colon.
     // The mapping test below only knows "something, a colon, a space", which a
     // sentence in quotes satisfies — one rebuttal reading "…the most expensive:
