@@ -12,12 +12,12 @@ export const ROSTER = [
     "bio": "<p><p>Built this group out of two postdocs and a borrowed fridge, and has spent nine years since then writing proposals in January. She reads a result for what it lets the group do next, which is not the same as reading it for what it proves, and she knows the difference.</p> <p>Her position in the fortnight's argument is not recklessness. A finding nobody publishes is a finding somebody else publishes first, and the group that publishes second gets to check the work.</p></p>",
     "quiz": [
       {
-        "q": "What is Raghavan weighing when she pushes to publish early?",
-        "a": "The cost of being second, against the cost of being wrong",
+        "q": "What trade-off is Raghavan making when she pushes to move before every number is settled?",
+        "a": "The scientific cost of waiting, against the risk of making a claim too early",
         "wrong": [
-          "Whether the group has enough fridge time booked for the rest of the quarter",
-          "Whether the result will survive peer review at the journal she has chosen",
-          "Whether her postdocs would rather write the paper or run more experiments"
+          "The statistical gain from collecting more data, against the cost of another cooldown",
+          "The chance a journal will reject the paper, against the chance a competitor submits first",
+          "The time needed to write the paper, against the time needed to automate the analysis"
         ]
       }
     ]
@@ -31,12 +31,12 @@ export const ROSTER = [
     "bio": "<p><p>Spent four years in metrology before this and came out of it with a habit: he asks what else could produce this number before he asks what it means. He is slow in a way that has twice saved the group from retracting.</p> <p>He is not against publishing. He is against publishing a number that has only ever appeared on one machine, in one room, with one person's calibration underneath it.</p></p>",
     "quiz": [
       {
-        "q": "Why does Holm insist on a second device?",
+        "q": "What does a second device test that repeating the same experiment on Ridgeway's device cannot?",
         "a": "One machine cannot show you the errors it shares with itself",
         "wrong": [
-          "Two devices halve the statistical uncertainty on the result",
-          "Journals require replication before they will consider a paper",
-          "The second device is newer and therefore more trustworthy"
+          "Random uncertainty, because two devices automatically double the useful sample size",
+          "Long-term drift, because a second device acts as a clock reference",
+          "Fabrication yield, because a newer device is statistically more representative"
         ]
       }
     ]
@@ -54,8 +54,8 @@ export const ROSTER = [
         "a": "A line that carries a signal down also carries heat down",
         "wrong": [
           "Each cable adds electrical noise to the qubit's environment",
-          "There is no space left on the mixing chamber flange",
-          "Cables must be replaced after each cooldown, which is expensive"
+          "The mixing-chamber flange has a fixed cable count that cannot be exceeded",
+          "A new line increases the helium-3 consumption in direct proportion to its length"
         ]
       }
     ]
@@ -70,11 +70,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Lindqvist keep coupons from every fabrication run?",
-        "a": "A fault found months later can only be traced if the material still exists",
+        "a": "They preserve material from the run that made the failed device",
         "wrong": [
-          "Coupons are required by the cleanroom's certification",
-          "Old coupons are used to calibrate the deposition rate",
-          "They serve as spares when a wafer is damaged in handling"
+          "They provide a reference junction whose frequency is known not to drift",
+          "They let her reproduce the old deposition rate without using the process log",
+          "They can substitute for a damaged device because the coupon contains spare qubits"
         ]
       }
     ]
@@ -89,11 +89,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Mensah mean about a machine that agrees too easily?",
-        "a": "An automated tune-up can converge on a setting that flatters its own test",
+        "a": "It can succeed at its own test and miss everything outside it",
         "wrong": [
           "Automated calibration always finds a local rather than a global optimum",
-          "The control software reports success even when a pulse fails to fire",
-          "Machines report agreement because they average away disagreement"
+          "A successful calibration proves the pulse fired but not that the qubit received it",
+          "Averaging during calibration hides all systematic errors by turning them into random noise"
         ]
       }
     ]
@@ -110,9 +110,9 @@ export const ROSTER = [
         "q": "Why does Barros treat her instrument differently from the processor?",
         "a": "Somebody outside the group is already relying on its numbers",
         "wrong": [
-          "Magnetometers are more fragile than superconducting processors",
-          "Her sensor runs at room temperature and needs no cryogenics",
-          "Sensing results are easier to publish than computing results"
+          "The sensor must meet a fundamentally different quantum-mechanical limit from a research instrument",
+          "The hospital can accept only measurements made without cryogenic hardware",
+          "A service instrument no longer needs exploratory measurements once it has been commissioned"
         ]
       }
     ]
@@ -127,11 +127,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Where does Sadiq say the real attacks on a key link come from?",
-        "a": "Hardware behaving differently from what the protocol assumed",
+        "a": "Hardware behaving unlike the device the proof assumed",
         "wrong": [
-          "Eavesdroppers measuring the photons in transit",
-          "Weaknesses in the mathematics of the protocol itself",
-          "Errors introduced by the length of the fibre"
+          "The mathematics protects only the classical channel, leaving the quantum channel outside the proof",
+          "Long fibre changes the no-cloning theorem, so the proof has to be re-derived for each distance",
+          "Any optical loss is evidence of an eavesdropper rather than an ordinary channel imperfection"
         ]
       }
     ]
@@ -145,12 +145,12 @@ export const ROSTER = [
     "bio": "<p><p>Owns the frequency standard everything in the building is timed against, and is unbothered by how dull that sounds. Every measurement here is a comparison, and a comparison is only as good as the thing being compared to.</p> <p>She is the person who asks, quietly, what the number is traceable to.</p></p>",
     "quiz": [
       {
-        "q": "Why does Whitfield keep asking what a measurement is traceable to?",
-        "a": "The reading means nothing without knowing what it was compared against",
+        "q": "What does traceability add that a precise, repeatable reading does not?",
+        "a": "An unbroken chain of comparisons out to an agreed standard",
         "wrong": [
-          "Traceability is required before results can be published",
-          "An untraceable measurement cannot be repeated by the same group",
-          "Standards drift, so every measurement must be repeated weekly"
+          "A guarantee that the instrument has not drifted since its last calibration",
+          "A way to repeat the same measurement without knowing the original apparatus",
+          "A requirement that every measurement use the national standard directly"
         ]
       }
     ]
@@ -165,11 +165,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Nakamura say much of what looks like qubit error is not?",
-        "a": "A noisy readout chain misreads a qubit that was in the right state",
+        "a": "A noisy chain misreads a qubit that was in the right state",
         "wrong": [
           "Amplifiers add energy that excites the qubit during readout",
           "Qubit errors and readout errors are impossible to tell apart",
-          "Most reported errors come from the control pulses rather than the qubit"
+          "A control pulse can flip the classical digitiser even when it never reaches the qubit"
         ]
       }
     ]
@@ -180,15 +180,15 @@ export const ROSTER = [
     "role": "Theory, error correction",
     "division": "VER",
     "color": "#8b6bb0",
-    "bio": "<p><p>Works out what the hardware would have to reach before error correction helps, and is the person most likely to say that a headline number is below the line where it starts mattering.</p> <p>She is cheerful about it. The threshold is not an opinion.</p></p>",
+    "bio": "<p><p>Works out what the hardware would have to reach before error correction helps, and is the person most likely to ask whether a headline error number is even the quantity a threshold is defined for.</p> <p>She is cheerful about bad news. A threshold is quantitative, but it belongs to a particular code and noise model rather than to quantum computers in general.</p></p>",
     "quiz": [
       {
         "q": "What does Petrova mean when she says the threshold is not an opinion?",
         "a": "Below a certain physical error rate, adding qubits helps; above it, they hurt",
         "wrong": [
           "The threshold is fixed by international agreement between laboratories",
-          "Any error rate can be corrected given enough physical qubits",
-          "The threshold depends on which vendor supplies the hardware"
+          "Any measured average gate fidelity can be compared directly with any published threshold",
+          "The threshold is set mainly by the number of physical qubits available on the processor"
         ]
       }
     ]
@@ -203,7 +203,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Adeyemi stop people carrying phones past sign-in?",
-        "a": "A shielded room stops working the moment somebody brings a transmitter inside it",
+        "a": "One transmitter inside undoes the whole shield",
         "wrong": [
           "Phones interfere with the interlock system on the laser bay",
           "Photography is not permitted anywhere in the laboratory",
@@ -222,11 +222,11 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Castellan ask which data an analysis had already seen?",
-        "a": "A method tuned on the same data it is later tested against will flatter itself",
+        "a": "A fitted rule can look better on the data that shaped it than on genuinely unseen data",
         "wrong": [
-          "Reusing data doubles the effective sample size and narrows the error bars",
-          "Analyses must be run on raw data rather than on processed files",
-          "Seeing the data first makes an analysis slower to run"
+          "Using the same data twice doubles the effective sample size but makes the uncertainty harder to calculate",
+          "Processed data cannot be used for validation because only raw detector voltages preserve provenance",
+          "A method evaluated on old data is necessarily less accurate than one evaluated on the newest run"
         ]
       }
     ]

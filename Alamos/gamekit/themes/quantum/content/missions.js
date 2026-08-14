@@ -56,7 +56,7 @@ export const MISSIONS = [
     "objective": "Separate energy leaving the qubit from phase being scrambled.",
     "briefing": "T1 is respectable and T2 is a third of what it should be, on every qubit at once.",
     "stake": "Monday, and the coherence numbers are lopsided. Anders Holm has T1 on every qubit at around 90 microseconds, which is good, and T2 at 32, which is poor — and a qubit's coherence cannot exceed twice its relaxation time, so something is scrambling phase without taking any energy. Ijeoma Okafor says the fridge is quiet. Ren Nakamura suspects the flux line. Priya Raghavan needs to know which of these numbers goes in the review and what it means. Today you measure both times properly, work out what a poor T2 against a good T1 is telling you, and decide where the noise is coming in.",
-    "takeaway": "Losing energy and losing phase are different failures with different cures, and the second is usually the one you have.",
+    "takeaway": "Relaxation and dephasing remove different parts of quantum information, so the ratio of T1 to T2 is diagnostic.",
     "stops": [
       {
         "group": "VER",
@@ -80,7 +80,7 @@ export const MISSIONS = [
     "objective": "Understand what a readout actually decides, and how confident it is entitled to be.",
     "briefing": "The readout says 96 per cent fidelity. Nakamura says that number is doing a lot of work.",
     "stake": "Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96 per cent, and Ren Nakamura points out that it is the product of three separate things — how well the resonator separates the two states, how much noise the amplifier chain adds, and where somebody drew the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline figure for the review. Today you work out what the readout chain does to a signal, what a discriminator is actually deciding, and what part of that 96 per cent belongs to the qubit at all.",
-    "takeaway": "A readout number is a claim about a whole chain, and most of the chain has nothing to do with the qubit.",
+    "takeaway": "A readout fidelity belongs to the entire measurement chain: qubit-state-dependent signal, loss, amplification, noise and classification.",
     "stops": [
       {
         "group": "CTRL",
@@ -102,8 +102,8 @@ export const MISSIONS = [
   {
     "title": "The offer with a date on it",
     "objective": "Decide what to share, and when, while somebody else is deciding the same thing.",
-    "briefing": "A group in Delft will run your circuit on their device this month, if they hear back by Friday.",
-    "stake": "Wednesday, and a note arrives from a group in Delft. They have a device of a different design and a window of machine time in ten days, and they will run Ridgeway's circuit on it if they get the pulse sequences by Friday. Anders Holm's instinct is to send nothing until the local numbers are settled, because a sequence sent out is a result you no longer control. Priya Raghavan points out that this is the second device he has been asking for since March, offered free, with a deadline. This morning she is right, and the caution would cost the group the one thing it has been missing. Today you decide what to send, what to hold, and what you would need back to call it a replication.",
+    "briefing": "A group in Delft will run your circuit on their device this month, if they get the gate sequence and protocol by Friday.",
+    "stake": "Wednesday, and a note arrives from a group in Delft. They have a device of a different design and a window of machine time in ten days, and they will run Ridgeway's circuit on it if they get the logical gate sequence, preparation and measurement protocol by Friday. Anders Holm's instinct is to send nothing until the local numbers are settled, because a protocol sent out creates work and expectations the group no longer controls. Priya Raghavan points out that this is the second device he has been asking for since March, offered free, with a deadline. Today you decide what has to be shared for a genuinely independent check, what should stay hidden until after the run, and what the group gives up if it waits.",
     "takeaway": "Some evidence has a window on it, and refusing to move inside that window is a decision with its own cost.",
     "stops": [
       {
@@ -114,7 +114,7 @@ export const MISSIONS = [
       {
         "group": "NET",
         "lesson": 0,
-        "task": "Work out what can be sent and what cannot"
+        "task": "Distinguish no-cloning from communication"
       },
       {
         "group": "SENSE",
@@ -152,7 +152,7 @@ export const MISSIONS = [
     "objective": "Meet the part of this field that already works, and the discipline that comes with it.",
     "briefing": "The magnetometer has to be recalibrated by two, because a hospital is using its numbers.",
     "stake": "Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields a hundred million times weaker than the Earth's, a hospital across the city uses those numbers in a study that has been running for three years, and the calibration is due at two o'clock whatever else is happening. Grace Whitfield is bringing the reference. Priya Raghavan, who needs Barros for the review slides, has been told to come back at three. Today you work out where a sensor's precision limit comes from, what averaging can and cannot buy, and why a number that leaves the building carries obligations that a number in a slide does not.",
-    "takeaway": "The applications of this field that already work are the ones with calibration schedules, and the schedule is the reason they work.",
+    "takeaway": "Quantum sensing becomes useful outside the lab only when sensitivity, calibration, drift and uncertainty are treated as one system.",
     "stops": [
       {
         "group": "SENSE",
@@ -176,7 +176,7 @@ export const MISSIONS = [
     "objective": "Measure the machine's error in a way that does not measure your own readout.",
     "briefing": "Two error numbers, both honest, differing by a factor of three.",
     "stake": "Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4 per cent. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and they answer different questions; Priya Raghavan says the review will only print one of them. Dasha Petrova wants whichever number is comparable with the threshold, because below that line adding qubits helps and above it they do not. Today you work out what randomised benchmarking actually measures, why a long sequence gives a different answer from a short one, and which number belongs in a sentence about error correction.",
-    "takeaway": "An error number is defined by the procedure that produced it, and quoting it without the procedure is quoting nothing.",
+    "takeaway": "Different benchmarking procedures can produce different error numbers because they average over different operations and respond differently to preparation and measurement errors.",
     "stops": [
       {
         "group": "VER",
@@ -199,8 +199,8 @@ export const MISSIONS = [
     "title": "A number that rules something out",
     "objective": "Run the Bell test as a measurement, and say precisely what a violation excludes.",
     "briefing": "Two qubits, four settings, and a quantity that cannot exceed two if the outcomes were agreed in advance.",
-    "stake": "Tuesday, and the review wants a demonstration that the machine really is doing something quantum rather than something clever. Anders Holm's answer is the oldest one available: entangle two qubits, measure correlations at four combinations of settings, and compute a single number. If the outcomes were fixed before the measurement — by any instruction agreed in advance, however elaborate — that number cannot exceed two. Dasha Petrova wants the loopholes stated in the same breath as the result. Today you run it, work out what the measured value excludes, and write the sentence that says so without saying more.",
-    "takeaway": "The strongest results in this field are exclusions, and stating exactly what has been excluded is the whole of the claim.",
+    "stake": "\"Tuesday, and the review wants a demonstration that the machine can produce correlations incompatible with a simple local-classical model. Anders Holm proposes a CHSH experiment: entangle two qubits, measure four combinations of settings, and compute one number. Under the Bell-test assumptions, local pre-existing outcomes obey a bound of two. Dasha Petrova insists that an on-chip experiment does not satisfy every condition of a loophole-free Bell test, and that the limitation belongs in the claim rather than in a footnote. Today you compute the quantity, identify what its value says under the stated assumptions, and separate an on-chip quantum demonstration from a loophole-free test of local realism.\"",
+    "takeaway": "A Bell result is only as strong as the inequality, statistical test and experimental assumptions attached to it.",
     "stops": [
       {
         "group": "VER",
@@ -223,8 +223,8 @@ export const MISSIONS = [
     "title": "Reading a claim as a claim",
     "objective": "Work out what an advantage result asserts, and what would falsify it.",
     "briefing": "A competing group's paper says a classical computer would need nine thousand years. That is a claim about a classical computer.",
-    "stake": "Wednesday, and the paper everybody has been arguing about is on the table. A group has run a sampling circuit on a 67-qubit device and states that reproducing the output distribution classically would take about nine thousand years. Priya Raghavan wants Ridgeway's response ready for the review. Anders Holm points out the sentence is two claims welded together: one about what their machine did, and one about what every classical algorithm could do — and only the first is a measurement. Today you take the claim apart, work out which half could be wrong without anybody having cheated, and decide what Ridgeway can honestly say about it.",
-    "takeaway": "A claim about what somebody else's computer cannot do is a claim about the state of the art, and the state of the art moves.",
+    "stake": "\"Wednesday, and the paper everybody has been arguing about is on the table. A group has run a sampling circuit on a 67-qubit device and estimates that reproducing its output with the best classical methods they analysed would take about nine thousand years. Priya Raghavan wants Ridgeway's response ready for the review. Anders Holm points out that the headline joins several different claims: what the quantum device measured, how its fidelity was inferred, and how difficult the task is for specified classical algorithms and hardware. Today you separate those claims, ask what kind of evidence supports each one, and decide what a twelve-qubit laboratory can contribute without pretending to adjudicate a sixty-seven-qubit experiment.\"",
+    "takeaway": "A computational-advantage claim combines experimental evidence with a moving statement about classical algorithms, hardware and assumptions.",
     "stops": [
       {
         "group": "VER",
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "The discriminator that had seen the answer",
     "objective": "Find out why the second device disagrees, and what that does to a fortnight of numbers.",
     "briefing": "Delft ran the circuit. Their fidelity is a third lower than Ridgeway's, on hardware that is otherwise better.",
-    "stake": "Thursday, and Delft's raw shots arrived overnight. Their device has longer coherence and lower gate error than Ridgeway's by every measure they sent, and the circuit fidelity they get is a third lower. Anders Holm has been asking for a second device since March and this morning he is right about why. Marta Castellan finds it before lunch: Ridgeway's readout discriminator is retrained at the start of each session on data that includes the very states it is being asked to distinguish, so it has been scoring itself on its own training set. Nothing was faked. Today you work out what that does to a measured fidelity, which of the fortnight's numbers it touches, and what has to be rerun.",
+    "stake": "Thursday, and Delft's raw shots arrived overnight. Their device has longer coherence, lower gate error and better readout separation than Ridgeway's by every independent metric they sent, yet the circuit fidelity they report is about a third lower. Anders Holm has been asking for a second device since March because this is exactly the kind of contradiction one machine cannot create for itself. Marta Castellan pulls both groups' analysis notebooks and starts comparing where calibration data end and evaluation data begin. Today you diagnose the discrepancy, trace which of the fortnight's results depend on the suspect step, and decide what has to happen before the review.",
     "takeaway": "A method tuned on the data it is later tested against will flatter itself, and it will do so quietly and consistently.",
     "stops": [
       {
@@ -296,7 +296,7 @@ export const MISSIONS = [
     "objective": "Rank three demands on one group in one afternoon.",
     "briefing": "A fibre cut, a clock drifting, and a review deadline, all inside an hour.",
     "stake": "Monday, 15:20, and three things arrive together. A contractor with a digger has cut the fibre to the substation, which ends Yusuf Sadiq's key run mid-session. Grace Whitfield's clock comparison has come back 4 × 10⁻¹⁵ off, which is ten times its usual scatter and would put every frequency in the building slightly wrong. And the review pack is due at five, with the corrected fidelity numbers still being rerun. Priya Raghavan has one group, one afternoon, and has asked for an order rather than a discussion. Today you decide what gets attention first, work out what a cut link does to a key already exchanged, and say what a drifting reference does to everything measured against it.",
-    "takeaway": "Rank by what is still getting worse and what is cheapest to stop, not by what is loudest.",
+    "takeaway": "Triage depends on whether a problem is still propagating, what decisions it contaminates, and how quickly it can be bounded.",
     "stops": [
       {
         "group": "NET",
@@ -306,7 +306,7 @@ export const MISSIONS = [
       {
         "group": "NET",
         "lesson": 5,
-        "task": "Say what a cut link costs"
+        "task": "Distinguish raw key material from usable secret key"
       },
       {
         "group": "SENSE",
@@ -330,7 +330,7 @@ export const MISSIONS = [
       {
         "group": "CTRL",
         "lesson": 11,
-        "task": "Work out what the corrected number is"
+        "task": "Separate a measured fidelity from a projected register probability"
       },
       {
         "group": "NET",
@@ -344,7 +344,7 @@ export const MISSIONS = [
     "objective": "State the fortnight's results at the confidence each has earned.",
     "briefing": "The review is this afternoon, and every number on the slides needs its evidence beside it.",
     "stake": "Wednesday, and the fortnight goes in front of the review. Priya Raghavan will not put up a slide that states everything in the same typeface of certainty, because a panel that cannot tell a measurement from a projection will ask about the wrong thing and then act on the answer. Anders Holm has the reruns. Grace Whitfield wants the clock comparison in as a finding rather than a footnote. Marta Castellan wants the analysis pipeline versioned and cited. Elena Barros wants ten minutes for the thing that already works. Today you sort the fortnight's claims by the evidence under them and decide which of its habits the group keeps.",
-    "takeaway": "A result is worth what its evidence is worth, and saying so is what makes a claim usable by somebody else.",
+    "takeaway": "A strong review separates direct measurements, model-dependent inferences and forward projections instead of giving them the same visual certainty.",
     "stops": [
       {
         "group": "VER",

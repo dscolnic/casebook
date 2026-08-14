@@ -57,13 +57,34 @@ const rows = [];
  * budgets and the traps — and it rides along on the row rather than living only
  * in a preamble nobody scrolls back to.
  */
+const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+/**
+ * How many times this value appears in the book, ignoring how it is wrapped.
+ *
+ * Long prose lives in folded block scalars — `why: >` and a paragraph broken
+ * across indented lines — so the parsed one-line value never appears verbatim in
+ * the file. Matching on a whitespace-insensitive pattern is what makes a folded
+ * paragraph findable, and getting this wrong is what marked 106 of Quantum's
+ * rows read-only when every one of them was unique.
+ */
+const countIn = (t) => {
+  const pattern = t.split(/\s+/).filter(Boolean).map(esc).join('\\s+');
+  if(!pattern) return 0;
+  // `answer:` does not count. It is a copy of one of the choices by design —
+  // grading compares labels — so counting it made every *correct* answer in
+  // every game look non-unique, and the sheet quietly refused all of them. The
+  // apply step rewrites the answer line to follow its choice, so the pair stays
+  // in step without the exporter having to protect it.
+  const answerLines = new Set((raw.match(/^\s*answer: .*$/gm) ?? []));
+  const strippedRaw = [...answerLines].reduce((acc, line) => acc.split(line).join(''), raw);
+  return (strippedRaw.match(new RegExp(pattern, 'g')) ?? []).length;
+};
 const add = (id, text, note) => {
   const t = String(text ?? '').trim();
   if(!t) return;
-  // A string that occurs more than once in the book cannot be replaced safely
-  // by exact match, so it is exported as read-only context instead.
-  const occurrences = raw.split(t).length - 1;
-  rows.push({ id, text: t, note, ...(occurrences === 1 ? {} : { readOnly: true }) });
+  // Only a value that appears exactly once can be put back by matching on it.
+  // Anything else goes out as read-only context.
+  rows.push({ id, text: t, note, ...(countIn(t) === 1 ? {} : { readOnly: true }) });
 };
 
 add('theme.subtitle', book.theme?.subtitle, 'the player’s role and the place, one line');

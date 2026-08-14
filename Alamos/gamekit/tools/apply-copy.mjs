@@ -43,6 +43,73 @@ for(const p of [bookPath, manifestPath, resolve(process.cwd(), sheetArg)]){
   if(!existsSync(p)){ console.error(`missing: ${p}`); process.exit(2); }
 }
 
+
+const escRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * Find a value in the book, however it happens to be wrapped.
+ *
+ * Long prose is stored as a folded block scalar — `why: >` and a paragraph
+ * broken over indented lines — so the one-line value the sheet carries never
+ * appears verbatim. Matching on a whitespace-insensitive pattern finds it, and
+ * the span that comes back is what gets replaced.
+ *
+ * `indent` is the leading whitespace of the *continuation* lines, which is what
+ * a replacement has to be re-wrapped to. `folded` says whether this value was
+ * spread over more than one line, because a single-line value must stay on one
+ * line and a folded one must stay folded.
+ */
+function locate(text, original){
+  const words = original.split(/\s+/).filter(Boolean);
+  if(!words.length) return null;
+  const re = new RegExp(words.map(escRe).join('\\s+'), 'g');
+  // A hit that sits on an `answer:` line is the copy of a choice, not the choice
+  // itself. Counting it made every correct answer look ambiguous and refused it;
+  // the resync step below is what keeps the pair in step afterwards.
+  const onAnswerLine = (index) => {
+    const lineStart = text.lastIndexOf('\n', index) + 1;
+    return /^\s*answer: /.test(text.slice(lineStart, index + 1));
+  };
+  const hits = [...text.matchAll(re)].filter(h => !onAnswerLine(h.index));
+  if(!hits.length) return null;
+  const m = hits[0];
+  const span = m[0];
+  const folded = /\n/.test(span);
+  // The indent of the second line of the span, or of the line the span sits on.
+  let indent = '';
+  if(folded){
+    const second = span.split('\n')[1] ?? '';
+    indent = (second.match(/^\s*/) ?? [''])[0];
+  }else{
+    const lineStart = text.lastIndexOf('\n', m.index) + 1;
+    indent = (text.slice(lineStart).match(/^\s*/) ?? [''])[0] + '  ';
+  }
+  return { start: m.index, end: m.index + span.length, count: hits.length, folded, indent };
+}
+
+/**
+ * Put a replacement back in the shape the book expects.
+ *
+ * A folded value is re-wrapped to the indentation it had. A value that contains
+ * ": " would be read as a key, so it comes back double-quoted rather than
+ * refused — which is what the importer's own parser accepts, and is how the one
+ * quoted label in Quantum's book is already written.
+ */
+function render(next, found){
+  const needsQuote = /: /.test(next) && !/^["']/.test(next);
+  const value = needsQuote ? `"${next.replace(/"/g, '\\"')}"` : next;
+  if(!found.folded) return value;
+  const width = 96;
+  const out = [];
+  let line = '';
+  for(const w of value.split(' ')){
+    if(line && (line + ' ' + w).length + found.indent.length > width){ out.push(line); line = w; }
+    else line = line ? line + ' ' + w : w;
+  }
+  if(line) out.push(line);
+  return out.join('\n' + found.indent);
+}
+
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 const originals = new Map(manifest.rows.map(r => [r.id, r]));
 let book = readFileSync(bookPath, 'utf8');
@@ -59,24 +126,16 @@ for(const e of edits){
   const next = String(e.text ?? '').trim();
   if(!next){ refused.push(`${e.id}: empty replacement`); continue; }
   if(next === row.original){ unchanged.push(e.id); continue; }
-  if(row.readOnly){ refused.push(`${e.id}: marked read-only (the original occurs more than once)`); continue; }
+  if(row.readOnly){ refused.push(`${e.id}: read-only — this value is not unique in the book`); continue; }
   if(/\n/.test(next)){ refused.push(`${e.id}: replacement has a line break in it`); continue; }
-  // The YAML traps. A plain scalar cannot carry ": ", and a value starting with
-  // one of these is structure rather than text.
-  if(/: /.test(next) && !/^["']/.test(next)){
-    refused.push(`${e.id}: contains ": " — rewrite with a dash, or the importer will read it as a key`);
-    continue;
-  }
   if(/^[-?:,\[\]{}#&*!|>%@`]/.test(next)){
     refused.push(`${e.id}: starts with a character YAML treats as structure`);
     continue;
   }
-  const count = book.split(row.original).length - 1;
-  if(count !== 1){
-    refused.push(`${e.id}: original appears ${count} time(s) in the book, not once`);
-    continue;
-  }
-  book = book.replace(row.original, next);
+  const found = locate(book, row.original);
+  if(!found){ refused.push(`${e.id}: original no longer in the book — re-export before applying`); continue; }
+  if(found.count !== 1){ refused.push(`${e.id}: original appears ${found.count} times, not once`); continue; }
+  book = book.slice(0, found.start) + render(next, found) + book.slice(found.end);
   applied.push({ id: e.id, from: row.original, to: next });
 }
 
@@ -84,8 +143,12 @@ for(const e of edits){
 let resynced = 0;
 for(const a of applied){
   if(!/\.choices\.\d+$/.test(a.id)) continue;
-  const re = new RegExp(`(^\\s*answer: )${a.from.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}\\s*$`, 'm');
-  if(re.test(book)){ book = book.replace(re, `$1${a.to}`); resynced++; }
+  const words = a.from.split(/\s+/).filter(Boolean).map(escRe).join('\\s+');
+  const re = new RegExp(`(^\\s*answer: )${words}\\s*$`, 'm');
+  if(re.test(book)){
+    const quoted = /: /.test(a.to) ? `"${a.to.replace(/"/g, '\\"')}"` : a.to;
+    book = book.replace(re, `$1${quoted}`); resynced++;
+  }
 }
 
 console.log(`\n${applied.length} applied · ${unchanged.length} unchanged · ${refused.length} refused`
