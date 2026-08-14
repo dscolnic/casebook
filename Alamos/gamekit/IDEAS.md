@@ -1,7 +1,9 @@
 # What to build next
 
-`FOURTH_GAME.md` was about making a new game cheap. This is about making the
-games *better* — as teaching, and as things anybody would keep playing. Nothing
+`FOURTH_GAME.md` was about making a new game cheap. **`../GAME_IDEAS.md` is
+about which game to make next** — new subjects, with the course, the place and
+the argument worked out. This file is about making the games we already have
+*better* — as teaching, and as things anybody would keep playing. Nothing
 here is committed to; it is a list with the reasoning attached, so that a future
 session can pick one up without re-deriving why it mattered.
 
@@ -11,9 +13,13 @@ Effort is rough: **S** an afternoon, **M** a day or two, **L** a week or more.
 
 ## If you only do three
 
-1. **Wire the two content checks that currently only exist as one-off scripts**
-   (answer-echo and readability). Both caught real defects this week; neither
-   can catch them again. **S**
+1. ~~Wire the two content checks that only exist as one-off scripts~~ — **done**,
+   and then some. `npm run check` now runs twelve: answer-echo and readability
+   went into `probeQuestions` and `validateContent`, and August 2026 added
+   `answerShape` (the longest option is not the answer key), `checkVoice` (cards
+   brief rather than perform) and `placeStory` (the landscape matches the story).
+   The rule this keeps proving: **a defect found by reading is found once; the
+   same defect wired into `check.mjs` is found forever.** **S**
 2. **Confidence rating → distractor tracking → a debrief that uses both.** This
    is the jump from "quiz with a clock" to something that tells a student
    how they think. **M**

@@ -11,6 +11,10 @@ writing bar, meet the question bar, check and print. It carries the bar each ste
 has to clear and the checker that enforces it. Read it before starting a ninth
 game, and add to it when the next rule turns up.
 
+**`GAME_IDEAS.md` is what to build next** — the subject gaps across the eight,
+and the candidate games worked up against them, each with its course, its place
+and the argument it turns on.
+
 **`GAMES.md` is the inventory** — all eight games, what each one is, where its
 content and its place live, and what is still unfinished. Read it first if you
 are picking this up cold. **`gamekit/STORY_SPEC.md` is the story contract** —
@@ -137,6 +141,9 @@ node engine/dev/validateContent.mjs <theme>   # content agrees with itself + the
 node engine/dev/smokeCampaign.mjs  <theme>    # the engine can reach and grade every stop
 node engine/dev/probeQuestions.mjs <theme>    # no question answerable without the science
 node engine/dev/answerShape.mjs    <theme>    # the longest option is not the answer key
+node engine/dev/checkVoice.mjs    <theme>    # cards brief the player, they do not perform
+node engine/dev/placeStory.mjs    <theme>    # the landscape matches the story told on it
+node engine/dev/checkPassages.mjs <theme>    # talking to somebody teaches something
 node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data

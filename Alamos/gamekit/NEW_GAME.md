@@ -191,6 +191,26 @@ order, composed by `createDay()` in `engine/core/app.js`:
    variable list both fit.
 5. **The map**, last, because it is what the route is chosen from.
 
+   **The course equations carry their own variable list.** That paragraph is
+   about a formula written into a primer line. The other place equations appear
+   is the `EQUATIONS` table in `tools/syllabus.js`, printed on the plan card and
+   on a chip beside the question, and every entry there carries three fields
+   besides its keywords: `e` the equation, `c` a short label, `v` the symbols as
+   `[symbol, what it is with its unit]` pairs, and `s` one sentence saying what
+   the relation asserts. `syllabusEquations.mjs` fails on an entry missing `v` or
+   `s`, because the version of this that shipped printed
+   `df/dt = (P_gen − P_load) / 2H` beside the phrase "frequency as the running
+   balance of supply and demand" and defined nothing: a reader who does not
+   already know what H is cannot use the line, and one who does did not need it.
+   Keep `c` a label and put the explaining in `s`.
+
+   **Vocabulary first, equations last, variables inline.** The card puts the
+   terms and the prose above the equations, because a formula is the densest
+   thing on it and reads better once its words have been defined a few lines up.
+   The symbols run together on one flowing line rather than stacking as a
+   two-column list — four variables stacked cost four lines and pushed the
+   vocabulary off the card.
+
 **Every stop.** The scene is the situation, 30–45 words. The verdict `why` is
 the mechanism, 70–90 words (about 50 at primary). A rebuttal per wrong option,
 saying why *that* one fails. `takeaway` never equals `why`. Teaching-to-scene
@@ -223,6 +243,53 @@ situation: no mechanics, no controls, no scope disclaimer. The verdict says
 *not* do — no "you do not touch the vehicle", no "this does not constrain
 distance". Say what it is for; put the contrast in the rebuttal if it earns its
 place.
+
+**Brief the player; do not perform at them.** `engine/dev/checkVoice.mjs` gates
+three devices, and it exists because all eight games had them. Run it with
+`--demo` to see the paragraph it was written for.
+
+| Device | What it looks like | Instead |
+| --- | --- | --- |
+| WITHHELD | the noun replaced by a riddle: "one number that has to stay inside half a hertz of fifty" | name the quantity — it is the frequency |
+| PERFORMED | an abstraction given a will: "the load answers to nobody", "nothing aboard waits for you" | say who does what: demand rises and falls with what people are doing |
+| CHIASMUS / UNWATCHED | a phrase folded back for rhythm, or the nobody-is-watching flourish: "when it goes wrong it goes wrong in seconds", "whether anyone is watching or not" | state the fact once |
+
+There is a fourth pattern it counts rather than fails: **a card that ends on a
+maxim instead of on today**. A short closing sentence with no number, no name
+and no "you" in it is usually a slogan — "Margin is the number that matters",
+"A boat that cannot hear is a boat that is only being heard". It is only a note
+because the same shape is how a young-reader edition teaches, so any theme at
+`audience.grade` 6 or below is exempt: "The loudest patient is not always the
+one in the most trouble" is Hospital Heroes writing correctly. Above that grade,
+read the list and ask of each one whether it carries a fact about the shift or
+just sounds well.
+
+**Every bio needs an authored question, and it must not quote the bio.**
+`engine/dev/checkPassages.mjs` gates two things: a roster entry with a bio and
+no `quiz` array, and a keyed answer that repeats six or more consecutive words
+of the passage.
+
+The first matters because `personQuiz.js` has a *fallback* — with no authored
+question it lifts a sentence out of the bio and takes the distractors from other
+people's. That is a matching exercise: the player scans for the sentence that
+appeared a moment ago and learns nothing. Thirty-one bios across the nine games
+were in that state, which is what "there is no learning happening here" meant
+when a player walked up to an assessment engineer in Kestrel Bay.
+
+The second is the same failure written by hand, and twenty-five authored answers
+had it. Ask about the **why**: the bio says how somebody works and the question
+should be answerable only by somebody who understood it — "Why does Sørensen
+refuse an unlabelled core?" rather than anything whose answer is a phrase from
+the paragraph above it.
+
+Mind `answerShape` while you write them. Thirty-one new questions written in one
+sitting put the correct answer as the longest option three times out of four,
+because the true option is the one carrying the reason. Give a wrong option a
+real reason instead, or move the qualification out of the key.
+
+The tell that this has gone wrong is that the card reads like a trailer. The
+player has taken a job, and the opening card is the first hour of it: it should
+say what the place is, what their job is, and what is currently true.
 
 ## 6. The question bar
 
