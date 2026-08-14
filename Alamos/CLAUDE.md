@@ -235,13 +235,15 @@ wrote, at load, for every theme — so a re-import cannot lose it.
 - Answer formats: Protocol, Sequence, Ballpark, Science Tank, Diagnosis
   (instrument panel + candidates, draws a figure), TRIAGE, CASEBOOK, and CHOICE
   — one question, four candidates, and the rebuttals for the wrong ones.
-- **Three of them are instruments the player operates**, not questions they read.
+- **Four of them are instruments the player operates**, not questions they read.
   SWEEP is one control and a response plotted only where the player looks — a
   resonance, a decay, a trade-off. HOLDOUT fits a rule on one set of data, freezes
   it, and scores it on data it has never seen; the fitting curve carries a spike
   that beats the honest answer, so overfitting costs the player the stop. TALLY
   accumulates shots into bins and builds a statistic out of them, and the decision
-  it grades is when there is enough data to report. All three are in Quantum;
+  it grades is when there is enough data to report. PROBE hands over no readings at
+  all: the player takes them one station at a time along a physical chain and names
+  where the pattern breaks. All four are in Quantum;
   `engine/dev/instruments.html` draws every one in a theme on a single page, which
   is the only sane way to look at them — reaching one in the game means playing to
   the right day with time left on the clock.

@@ -1122,6 +1122,142 @@ export function bindTally(container, ch){
   });
 }
 
+/**
+ * PROBE — readings taken one at a time along a physical chain.
+ *
+ * A DIAGNOSIS hands over every reading at once, which makes "work out where the
+ * fault is" into "read the table". Here the stations start blank and the player
+ * takes the readings they want, in whatever order, and names the stage where the
+ * pattern breaks. What the panel never shows is the cause: the clamp, the loose
+ * fitting, the missing anchor. That is in the verdict, because a stop where the
+ * answer is visible in one station's detail is a scavenger hunt, and the point is
+ * that the temperatures localise the load before anybody looks at hardware.
+ *
+ * How many readings they took is recorded and reported, never graded. Measuring
+ * everything is not wrong; it is just slower than knowing what to measure, and
+ * saying so is more use than docking marks for it.
+ */
+const probeState = new WeakMap();
+
+export function probeHTML(ch){
+  const p = ch.probe ?? {};
+  const rows = (p.stations ?? []).map((s, i) => `<div class="probeStation" data-station="${i}">`
+    + `<button class="probeRead btn" data-read="${i}" type="button">Read</button>`
+    + `<div class="probeBody"><b>${esc(s.label)}</b>`
+    + `<div class="probeValues" data-values="${i}"><span class="probeBlank">not read</span></div></div>`
+    + `<button class="probeName" data-name="${i}" type="button" disabled>This one</button>`
+    + `</div>`).join('');
+  return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Find where the pattern breaks.')}</div>`
+    + `<div class="probePanel">`
+    + `<div class="sweepHint">${esc(p.hint ?? 'Take a reading at any station. Each one reports what it'
+      + ' is at now, what it was on the last run, and what its cooling is having to do.')}</div>`
+    + `<div class="probeChain">${rows}</div>`
+    + `<div class="probeCount" id="probeCount">No readings taken.</div>`
+    + `<div class="modalActions"><button class="btn primary" id="probeCommit" type="button" disabled>`
+    + `${esc(p.commit ?? 'Name the stage')}</button></div>`
+    + `<div id="visitFeedback"></div></div>`;
+}
+
+export function bindProbe(container, ch){
+  const p = ch.probe ?? {};
+  const panel = container.querySelector('.probePanel');
+  if(!panel) return;
+  const stations = p.stations ?? [];
+  const st = { read: new Set(), named: null, committed: false, order: [] };
+  probeState.set(panel, st);
+  const countEl = panel.querySelector('#probeCount');
+  const commitBtn = panel.querySelector('#probeCommit');
+
+  const refresh = () => {
+    countEl.textContent = st.read.size === 0 ? 'No readings taken.'
+      : `${st.read.size} of ${stations.length} stations read`
+        + (st.named === null ? '.' : `, naming ${stations[st.named].label}.`);
+    commitBtn.disabled = st.named === null || st.read.size < (p.minReadings ?? 2);
+  };
+
+  panel.querySelectorAll('.probeRead').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(st.committed) return;
+      const i = +btn.dataset.read;
+      const s = stations[i];
+      st.read.add(i);
+      st.order.push(i);
+      const cell = panel.querySelector(`[data-values="${i}"]`);
+      // Now, then, and what the cooling is doing. Deliberately no verdict on the
+      // reading: "normal" and "high" are the player's call, which is the stop.
+      cell.innerHTML = `<span><em>now</em> ${esc(s.reading)}</span>`
+        + `<span><em>last run</em> ${esc(s.expected)}</span>`
+        + (s.load ? `<span><em>cooling</em> ${esc(s.load)}</span>` : '');
+      btn.disabled = true;
+      btn.textContent = 'Read';
+      panel.querySelector(`[data-name="${i}"]`).disabled = false;
+      refresh();
+    });
+  });
+
+  panel.querySelectorAll('.probeName').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(st.committed) return;
+      st.named = +btn.dataset.name;
+      panel.querySelectorAll('.probeStation').forEach((row, i) =>
+        row.classList.toggle('named', i === st.named));
+      refresh();
+    });
+  });
+  refresh();
+
+  commitBtn.addEventListener('click', () => {
+    if(st.committed || st.named === null) return;
+    if(!activeChallenge) return;
+    st.committed = true;
+    const named = stations[st.named];
+    const ok = String(named.id ?? named.label) === String(p.target);
+    activeChallenge.userAnswer = `${named.label}, after ${st.read.size} reading(s)`;
+    activeChallenge.probeNamed = st.named;
+    activeChallenge.probeRead = [...st.read];
+    finishVisit(ok);
+  });
+}
+
+/**
+ * The chain as a departure from the last run, and where the player pointed.
+ *
+ * The obvious figure — both runs plotted as temperatures — is unreadable, and it
+ * took drawing it to see why: a fridge chain spans 47 K to 42 mK, so on any linear
+ * axis every stage below the second is a flat line on the floor and the separation
+ * the whole stop is about is invisible. What is worth plotting is each stage
+ * against what it held last time. Then unchanged is 1.0, the flat run along the
+ * top of the chain is obvious, and the step is exactly where the load enters.
+ */
+export function probeVerdictFigure(ch, named){
+  const p = ch.probe ?? {};
+  const stations = p.stations ?? [];
+  // "0.94 K", "42 mK", "190 mK" — a ratio needs both in the same unit, and the
+  // unit is whatever each reading carries.
+  const numeric = (v) => {
+    const m = /(-?[\d.]+)\s*(m?)/.exec(String(v ?? ''));
+    if(!m) return null;
+    return +m[1] * (m[2] === 'm' ? 1e-3 : 1);
+  };
+  const pts = stations.map((s, i) => {
+    const now = numeric(s.reading), then = numeric(s.expected);
+    return (Number.isFinite(now) && Number.isFinite(then) && then > 0) ? [i + 1, now / then] : null;
+  }).filter(Boolean);
+  if(pts.length < 2) return '';
+  const idx = Number.isInteger(named) ? named + 1 : null;
+  const trueIdx = stations.findIndex(s => String(s.id ?? s.label) === String(p.target)) + 1;
+  return lineChart({
+    series: [{ name: 'This run ÷ last run', points: pts }],
+    limit: { at: 1, label: 'unchanged' },
+    marks: [
+      ...(idx && idx !== trueIdx ? [{ x: idx, label: `you named ${stations[named].label}` }] : []),
+      ...(trueIdx ? [{ x: trueIdx, label: stations[trueIdx - 1].label }] : []),
+    ],
+    xLabel: `${p.chainLabel ?? 'Stage'} (1 = warmest)`, yLabel: 'Times last run',
+    caption: 'Every stage against what it held last time. The load enters where the chain leaves 1.0',
+  });
+}
+
 function triageHTML(ch){
   const opts=(ch.choices||[]).map((c,i)=>`<button class="orderItem" data-triage="${i}" type="button"><b>${String.fromCharCode(65+i)}.</b> ${esc(c)}</button>`).join('');
   return `<div class="compactInstruction">${esc(ch.task||ch.question||'Choose who needs help first.')}</div><div class="orderBank" style="display:grid;gap:8px">${opts}</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="triageCheck" type="button" disabled>Choose</button></div>`;
@@ -1524,6 +1660,7 @@ function verdictFigureHTML(ch, lesson, ok){
   // choosing, and the held-out curve is where it goes.
   if(kindOf(ch)==='HOLDOUT' && ch.holdout) return holdoutVerdictFigure(ch, activeChallenge.holdoutFrozen);
   if(kindOf(ch)==='TALLY' && ch.tally) return tallyVerdictFigure(ch, activeChallenge.tallyHistory);
+  if(kindOf(ch)==='PROBE' && ch.probe) return probeVerdictFigure(ch, activeChallenge.probeNamed);
   if(kindOf(ch)==='DIAGNOSIS') return renderFigure(ch.figure);
   return renderFigure(ch.figure ?? lesson.figure);
 }
@@ -1981,6 +2118,8 @@ function showChallengeForStop(id, stop, isRetry, person=null){
     challengeHTML = holdoutHTML(ch);
   } else if(kindOf(ch)==='TALLY'){
     challengeHTML = tallyHTML(ch);
+  } else if(kindOf(ch)==='PROBE'){
+    challengeHTML = probeHTML(ch);
   } else if(kindOf(ch)==='CASEBOOK'){
     challengeHTML = casebookHTML(ch);
   } else if(kindOf(ch)==='CHOICE'){
@@ -2003,6 +2142,7 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   if(kindOf(ch)==='SWEEP') bindSweep(live(), ch);
   else if(kindOf(ch)==='HOLDOUT') bindHoldout(live(), ch);
   else if(kindOf(ch)==='TALLY') bindTally(live(), ch);
+  else if(kindOf(ch)==='PROBE') bindProbe(live(), ch);
   const body=document.getElementById('modalBody');
   if(kindOf(ch)==='SEQUENCE') { bindOrder(); }
   else if(kindOf(ch)==='PROTOCOL') { bindProtocol(); }

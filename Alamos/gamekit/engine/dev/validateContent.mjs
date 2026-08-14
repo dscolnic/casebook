@@ -382,6 +382,20 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
         }
       }
     }
+    if(kind === 'PROBE'){
+      const p = l.game?.probe;
+      if(!p) fail(`${at}: PROBE with no probe block — it renders un-answerable`);
+      else {
+        const s = p.stations ?? [];
+        if(s.length < 4) fail(`${at}: probe needs at least four stations`);
+        if(!s.every(x => x.reading && x.expected)){
+          fail(`${at}: every probe station needs a reading and an expected value`);
+        }
+        if(!s.some(x => String(x.id ?? x.label) === String(p.target))){
+          fail(`${at}: probe target "${p.target}" is not one of its stations`);
+        }
+      }
+    }
     if(kind === 'TALLY'){
       const t = l.game?.tally;
       if(!t) fail(`${at}: TALLY with no tally block — it renders un-answerable`);

@@ -179,6 +179,19 @@ function materialHTML(ch){
       + `<p class="mono">${esc(t.formula ?? '')} — from ${n} shots per setting pair.`
       + (Number.isFinite(t.bound) ? ` The bound to beat is ${esc(String(t.bound))}.` : '') + `</p>`);
   }
+  if(ch.probe){
+    // The chain with both runs on it. On paper every reading is visible at once,
+    // which the panel refuses — but the inference is the same one, and a reader
+    // working from the page has to make it rather than being told the cause.
+    const p = ch.probe;
+    const rows = (p.stations ?? []).map(s =>
+      `<tr><td>${esc(s.label)}</td><td>${esc(s.reading)}</td><td>${esc(s.expected)}</td>`
+      + `<td>${esc(s.load ?? '')}</td></tr>`).join('');
+    section(`${esc(p.chainLabel ?? 'Stage')} by ${esc(p.chainLabel ?? 'stage').toLowerCase()}`,
+      `<table class="tallyFig"><thead><tr><th>${esc(p.chainLabel ?? 'Stage')}</th><th>This run</th>`
+      + `<th>Last run</th><th>Cooling</th></tr></thead><tbody>${rows}</tbody></table>`
+      + `<p class="mono">Name the ${esc((p.chainLabel ?? 'stage').toLowerCase())} where the load arrives.</p>`);
+  }
   if(ch.givens) section('Given', list(ch.givens.map(g => esc(g)), 'givens'));
   if(ch.relationship) section('Relationship', `<p class="mono">${esc(ch.relationship)}</p>`);
   if(ch.readings){

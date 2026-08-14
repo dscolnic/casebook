@@ -20,13 +20,23 @@
 > seed, so the statistic scatters like a statistic and the decision the player
 > makes is when it has settled. Graded on the number they actually got.
 >
+> **`PROBE`** (idea 4, M01) — sited readings. The stations start blank and the
+> player reads as few or as many as they like, then names the stage where the
+> pattern breaks. No station's own readings name the cause; the importer refuses a
+> book that puts "unclamped" or "bypassed" in one, because then nobody reads the
+> temperatures. The verdict plots each stage against what it held last cooldown,
+> so unchanged is 1.0 and the load is visibly where the chain leaves it.
+>
+> The stations are rows in a panel rather than objects six metres apart in the
+> cryostat. That is deliberate for now: the inference the idea asks for — narrow it
+> from the pattern, *then* look at hardware — is entirely in choosing what to read
+> and when to stop, and the walking version needs a world feature (readable props
+> that feed a live panel) rather than a renderer. The data model is the same one
+> either way, so siting them later changes where the buttons are and nothing else.
+>
 > Four of the remaining ideas are existing formats with new chrome and should
 > not be built as minigames: M15's evidence wall is CASEBOOK, M05's replication
 > package is PROTOCOL, M14's correction package and M12's audit are TRIAGE.
-> The one genuinely separate mechanic still to build is **sited readings** — a
-> DIAGNOSIS whose zones are objects you walk to rather than rows in a table,
-> which is what M01 wants, and the only one of these that needs world work rather
-> than a renderer.
 
 # Ridgeway Quantum Laboratory — FPS-Native Learning Interaction Ideas
 

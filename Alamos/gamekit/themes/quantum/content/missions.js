@@ -18,7 +18,7 @@ export const MISSIONS = [
       {
         "group": "CRYO",
         "lesson": 1,
-        "task": "Which explanation fits every stage's reading?"
+        "task": "Find where the heat is arriving"
       },
       {
         "group": "CTRL",

@@ -5,7 +5,7 @@
 <title>Instruments — every live panel in a theme</title>
 <!--
   Every panel in a theme that the player operates rather than reads: SWEEP,
-  HOLDOUT, TALLY. Drawn at the width the question modal draws them, on one page.
+  HOLDOUT, PROBE, TALLY. Drawn at the width the modal draws them, on one page.
 
   These are the formats that cannot be judged from the book. Whether the control
   is reachable, whether the readouts clear the modal's pinned action row, whether
@@ -47,7 +47,8 @@
 // started with, so this page follows the running game without naming it.
 import { CURRICULUM } from '@theme/content/curriculum.js';
 import { sweepHTML, bindSweep, holdoutHTML, bindHoldout, tallyHTML, bindTally,
-         sweepVerdictFigure, holdoutVerdictFigure, tallyVerdictFigure } from '/engine/core/questionUI.js';
+         probeHTML, bindProbe, sweepVerdictFigure, holdoutVerdictFigure, tallyVerdictFigure,
+         probeVerdictFigure } from '/engine/core/questionUI.js';
 
 const LIVE = {
   SWEEP: { html: sweepHTML, bind: bindSweep,
@@ -60,6 +61,10 @@ const LIVE = {
       + ` · axis ${g.holdout.axis.min}–${g.holdout.axis.max} ${g.holdout.axis.unit ?? ''}`
       + ` · ${g.holdout.fit.length} calibration points, ${g.holdout.test.length} held-out`,
     tag: () => 'fit, freeze, test' },
+  PROBE: { html: probeHTML, bind: bindProbe,
+    facts: g => `the load arrives at ${g.probe.target}`
+      + ` · ${g.probe.stations.length} stations · ${g.probe.minReadings} readings minimum`,
+    tag: () => 'sited readings' },
   TALLY: { html: tallyHTML, bind: bindTally,
     facts: g => `target ${g.tally.target} ±${g.tally.tolerance}`
       + ` · ${g.tally.settings.length} setting pairs · ${g.tally.batch} per batch`
@@ -136,6 +141,11 @@ for(const { l, g, kind } of found){
     const spike = g.holdout.fit.reduce((a, b) => (b.value > a.value ? b : a));
     verdict(title, `froze on the calibration peak, ${spike.at}${g.holdout.axis.unit ?? ''}`,
       holdoutVerdictFigure(g, spike.at));
+  }
+  if(kind === 'PROBE'){
+    // Named the coldest station, which is the error the format exists to correct.
+    const last = g.probe.stations.length - 1;
+    verdict(title, `named ${g.probe.stations[last].label}`, probeVerdictFigure(g, last));
   }
   if(kind === 'TALLY'){
     // A plausible early-reporting history: noisy at a hundred shots, settling.

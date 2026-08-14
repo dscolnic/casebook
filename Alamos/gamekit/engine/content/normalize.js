@@ -36,6 +36,10 @@ export const FORMATS = new Set([
   // batches of shots, watches the bins fill, and decides when there is enough
   // data to report the number.
   'TALLY',
+  // Readings taken one at a time along a physical chain, so the player finds the
+  // fault from where the pattern breaks rather than from a table handed to them
+  // with the answer already in it.
+  'PROBE',
 ]);
 
 /** 'Science Tank' | 'sciencetank' | 'SCIENCE_TANK' -> 'SCIENCETANK'. */

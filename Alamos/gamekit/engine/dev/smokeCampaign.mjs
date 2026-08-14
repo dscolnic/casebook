@@ -115,6 +115,9 @@ function diagnosisAnswerable(ch){
         // curves are what makes one answerable.
         (kind === 'HOLDOUT' && Number.isFinite(+ch.holdout?.pass)
           && (ch.holdout?.fit ?? []).length >= 5 && (ch.holdout?.test ?? []).length >= 5) ||
+        // Graded on which station the player names.
+        (kind === 'PROBE' && (ch.probe?.stations ?? []).length >= 4
+          && ch.probe.stations.some(x => String(x.id ?? x.label) === String(ch.probe.target))) ||
         // Graded on the statistic the authored probabilities actually produce.
         (kind === 'TALLY' && (ch.tally?.settings ?? []).length >= 2
           && ch.tally.settings.every(x => Number.isFinite(+x.pSame))

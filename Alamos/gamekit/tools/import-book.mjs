@@ -425,6 +425,39 @@ function gameFor(s, at, group, day){
     } };
   }
 
+  if(format === 'PROBE'){
+    // A chain of stations, each with what it reads now and what it read last
+    // time. The fault is where those two separate, so the book has to supply both
+    // for every station and the target has to be a station that exists.
+    const p = s.probe ?? {};
+    const stations = p.stations ?? [];
+    need(stations.length >= 4, 'a probe needs at least four stations — a pattern needs somewhere to break');
+    need(stations.every(x => String(x.label ?? '').trim()), 'every probe station needs a label');
+    need(stations.every(x => String(x.reading ?? '').trim() && String(x.expected ?? '').trim()),
+      'every probe station needs a `reading` and an `expected` — this run and the last one');
+    const ids = stations.map(x => String(x.id ?? x.label));
+    need(new Set(ids).size === ids.length, 'two probe stations share an id');
+    need(ids.includes(String(p.target)), `the probe target "${p.target}" is not one of its stations`);
+    // A cause named in a station's own detail turns the stop into a scavenger
+    // hunt: the player reads six rows, finds the one that says "unclamped", and
+    // never looks at the temperatures. The cause belongs in the verdict.
+    const CAUSE = /\b(unclamped|not clamped|no clamp|missing|bypass\w*|loose|unanchored|not heat[- ]sunk)\b/i;
+    need(!stations.some(x => CAUSE.test(String(x.load ?? '') + ' ' + String(x.detail ?? ''))),
+      'a probe station names the cause in its own readings — put it in `why`, or the pattern'
+      + ' never gets read');
+    need(String(s.answerText ?? '').trim(), 'a probe needs `answerText`');
+    return { ...base, probe: {
+      stations: stations.map(x => ({ id: String(x.id ?? x.label), label: String(x.label),
+        reading: String(x.reading), expected: String(x.expected),
+        ...(x.load ? { load: String(x.load) } : {}) })),
+      target: String(p.target),
+      chainLabel: p.chainLabel ?? 'Stage',
+      minReadings: Number.isFinite(+p.minReadings) ? +p.minReadings : 2,
+      commit: p.commit ?? 'Name the stage',
+      ...(p.hint ? { hint: String(p.hint) } : {}),
+    } };
+  }
+
   if(format === 'PROTOCOL'){
     const n = (s.scenarios ?? []).length;
     need(n >= 2, 'protocol needs at least two situations');
