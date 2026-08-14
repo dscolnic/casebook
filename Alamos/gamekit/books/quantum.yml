@@ -1,0 +1,2189 @@
+# quantum.yml — the Ridgeway Quantum Laboratory, over one fortnight.
+#
+# Modern quantum taught through the hardware. The rule this book is written
+# under: every question is about an instrument, a number or a choice, and if it
+# can only be settled by an interpretation of quantum mechanics it does not go
+# in. That is how this subject usually fails.
+#
+# The argument, both sides right on a named day: Priya Raghavan says a result
+# held back is a result somebody else gets credit for; Anders Holm will not put
+# his name to anything he has not seen on a second device. Raghavan is right on
+# day 5. Holm is right on day 11.
+
+theme:
+  id: quantum
+  title: Quantum
+  subtitle: Group Lead · Ridgeway Quantum Laboratory
+
+groups:
+  - id: CRYO
+    code: CRYO
+    name: Cryogenics & Vacuum
+    color: '#2980b9'
+    desc: Why the chip has to be colder than anything else in the building.
+    defaultLeader: okafor
+    milestones: [Read the stages, Find the heat, Fix the load, Ready to hand over]
+  - id: FAB
+    code: FAB
+    name: Fabrication & Materials
+    color: '#8e6b2f'
+    desc: What the chip is made of, and what that decides months later.
+    defaultLeader: lindqvist
+    milestones: [Look at the wafer, Date the defect, Change the process, Ready to hand over]
+  - id: CTRL
+    code: CTRL
+    name: Control & Readout
+    color: '#c0392b'
+    desc: Pulses in, one bit out, and everything that can go wrong between.
+    defaultLeader: mensah
+    milestones: [Find the qubit, Calibrate, Read it out, Ready to hand over]
+  - id: VER
+    code: VER
+    name: Error & Verification
+    color: '#7d5ba6'
+    desc: How wrong the machine is, and how you would know.
+    defaultLeader: holm
+    milestones: [Measure the error, Check the method, Reproduce it, Ready to hand over]
+  - id: SENSE
+    code: SENSE
+    name: Quantum Sensing
+    color: '#2f8f7a'
+    desc: The part of this field that already works for somebody else.
+    defaultLeader: barros
+    milestones: [Set the sensor, Beat the noise, Calibrate the scale, Ready to hand over]
+  - id: NET
+    code: NET
+    name: Networks & Security
+    color: '#d35400'
+    desc: Sending a quantum state somewhere, and what survives the trip.
+    defaultLeader: sadiq
+    milestones: [Send the key, Count the errors, Bound the leak, Ready to hand over]
+
+roster:
+  - id: raghavan
+    name: Priya Raghavan
+    role: Group lead, and the person who has to find the money
+    division: VER
+    color: '#7d5ba6'
+    bio: >-
+      <p>Built this group out of two postdocs and a borrowed fridge, and has spent nine years since then
+      writing proposals in January. She reads a result for what it lets the group do next, which is not the
+      same as reading it for what it proves, and she knows the difference.</p>
+      <p>Her position in the fortnight's argument is not recklessness. A finding nobody publishes is a
+      finding somebody else publishes first, and the group that publishes second gets to check the work.</p>
+    quiz:
+      - q: What is Raghavan weighing when she pushes to publish early?
+        a: The cost of being second, against the cost of being wrong
+        wrong:
+          - Whether the group has enough fridge time booked for the rest of the quarter
+          - Whether the result will survive peer review at the journal she has chosen
+          - Whether her postdocs would rather write the paper or run more experiments
+  - id: holm
+    name: Anders Holm
+    role: Verification lead
+    division: VER
+    color: '#6b4f96'
+    bio: >-
+      <p>Spent four years in metrology before this and came out of it with a habit: he asks what else could
+      produce this number before he asks what it means. He is slow in a way that has twice saved the group
+      from retracting.</p>
+      <p>He is not against publishing. He is against publishing a number that has only ever appeared on one
+      machine, in one room, with one person's calibration underneath it.</p>
+    quiz:
+      - q: Why does Holm insist on a second device?
+        a: One machine cannot show you the errors it shares with itself
+        wrong:
+          - Two devices halve the statistical uncertainty on the result
+          - Journals require replication before they will consider a paper
+          - The second device is newer and therefore more trustworthy
+  - id: okafor
+    name: Ijeoma Okafor
+    role: Cryogenic engineer
+    division: CRYO
+    color: '#2980b9'
+    bio: >-
+      <p>Thinks of the fridge as a plumbing problem with an expensive isotope in it, and is right. She can
+      tell from the mixing chamber temperature which stage a heat leak is on, and she keeps a log of every
+      cooldown the lab has ever done.</p>
+      <p>Her standing complaint is cable: every line into the fridge is a road for heat, and everybody wants
+      one more.</p>
+    quiz:
+      - q: Why does Okafor object to every new cable into the fridge?
+        a: A line that carries a signal down also carries heat down
+        wrong:
+          - Each cable adds electrical noise to the qubit's environment
+          - There is no space left on the mixing chamber flange
+          - Cables must be replaced after each cooldown, which is expensive
+  - id: lindqvist
+    name: Sara Lindqvist
+    role: Fabrication lead
+    division: FAB
+    color: '#8e6b2f'
+    bio: >-
+      <p>Makes the chips, and can date a defect to a process change from the shape of what fails. She keeps
+      wafer coupons from every run going back six years, which nobody thought was worth the drawer space
+      until the week they were.</p>
+      <p>She is patient about the fact that her mistakes only show up in somebody else's measurement, months
+      later.</p>
+    quiz:
+      - q: Why does Lindqvist keep coupons from every fabrication run?
+        a: A fault found months later can only be traced if the material still exists
+        wrong:
+          - Coupons are required by the cleanroom's certification
+          - Old coupons are used to calibrate the deposition rate
+          - They serve as spares when a wafer is damaged in handling
+  - id: mensah
+    name: Kofi Mensah
+    role: Control engineer
+    division: CTRL
+    color: '#c0392b'
+    bio: >-
+      <p>Calibrates the machine several times a day and has automated most of it, which means he is the
+      person most likely to notice when the automation has quietly started answering its own question.</p>
+      <p>He describes his job as arguing with a machine that agrees with you too easily.</p>
+    quiz:
+      - q: What does Mensah mean about a machine that agrees too easily?
+        a: An automated tune-up can converge on a setting that flatters its own test
+        wrong:
+          - Automated calibration always finds a local rather than a global optimum
+          - The control software reports success even when a pulse fails to fire
+          - Machines report agreement because they average away disagreement
+  - id: barros
+    name: Elena Barros
+    role: Sensing physicist
+    division: SENSE
+    color: '#2f8f7a'
+    bio: >-
+      <p>Runs the magnetometer, which is the only instrument in the building somebody outside the group
+      depends on: a hospital across the city uses her measurements, and they do not care what a qubit is.</p>
+      <p>She is the reminder that this field already delivers something, and that delivering it means
+      calibration, uptime and a phone that rings.</p>
+    quiz:
+      - q: Why does Barros treat her instrument differently from the processor?
+        a: Somebody outside the group is already relying on its numbers
+        wrong:
+          - Magnetometers are more fragile than superconducting processors
+          - Her sensor runs at room temperature and needs no cryogenics
+          - Sensing results are easier to publish than computing results
+  - id: sadiq
+    name: Yusuf Sadiq
+    role: Networks postdoc
+    division: NET
+    color: '#d35400'
+    bio: >-
+      <p>Runs the fibre to a substation forty kilometres away and spends most of his time on things that are
+      not quantum at all: splices, connectors, a contractor with a digger, and the temperature of a duct.</p>
+      <p>He is clear that the security argument only holds if the hardware does what the protocol assumed,
+      which is where every real attack has been.</p>
+    quiz:
+      - q: Where does Sadiq say the real attacks on a key link come from?
+        a: Hardware behaving differently from what the protocol assumed
+        wrong:
+          - Eavesdroppers measuring the photons in transit
+          - Weaknesses in the mathematics of the protocol itself
+          - Errors introduced by the length of the fibre
+  - id: whitfield
+    name: Grace Whitfield
+    role: Metrologist, and keeper of the clock
+    division: SENSE
+    color: '#3a9a84'
+    bio: >-
+      <p>Owns the frequency standard everything in the building is timed against, and is unbothered by how
+      dull that sounds. Every measurement here is a comparison, and a comparison is only as good as the
+      thing being compared to.</p>
+      <p>She is the person who asks, quietly, what the number is traceable to.</p>
+    quiz:
+      - q: Why does Whitfield keep asking what a measurement is traceable to?
+        a: The reading means nothing without knowing what it was compared against
+        wrong:
+          - Traceability is required before results can be published
+          - An untraceable measurement cannot be repeated by the same group
+          - Standards drift, so every measurement must be repeated weekly
+  - id: nakamura
+    name: Ren Nakamura
+    role: Readout and amplifier specialist
+    division: CTRL
+    color: '#a0392b'
+    bio: >-
+      <p>Owns the chain between the chip and the digitiser: amplifiers, circulators, attenuators, and the
+      noise budget that decides whether a single shot means anything.</p>
+      <p>He points out regularly that most of what people call qubit error is his chain failing to hear a
+      qubit that was fine.</p>
+    quiz:
+      - q: Why does Nakamura say much of what looks like qubit error is not?
+        a: A noisy readout chain misreads a qubit that was in the right state
+        wrong:
+          - Amplifiers add energy that excites the qubit during readout
+          - Qubit errors and readout errors are impossible to tell apart
+          - Most reported errors come from the control pulses rather than the qubit
+  - id: petrova
+    name: Dasha Petrova
+    role: Theory, error correction
+    division: VER
+    color: '#8b6bb0'
+    bio: >-
+      <p>Works out what the hardware would have to reach before error correction helps, and is the person
+      most likely to say that a headline number is below the line where it starts mattering.</p>
+      <p>She is cheerful about it. The threshold is not an opinion.</p>
+    quiz:
+      - q: What does Petrova mean when she says the threshold is not an opinion?
+        a: Below a certain physical error rate, adding qubits helps; above it, they hurt
+        wrong:
+          - The threshold is fixed by international agreement between laboratories
+          - Any error rate can be corrected given enough physical qubits
+          - The threshold depends on which vendor supplies the hardware
+  - id: adeyemi
+    name: Tunde Adeyemi
+    role: Laboratory manager
+    division: CRYO
+    color: '#3d7fb0'
+    bio: >-
+      <p>Runs the building: helium deliveries, the interlock register, who is trained on what, and the list
+      of things that may not be carried past the sign-in desk.</p>
+      <p>He is the reason the shielded room is still shielded, and he has removed a phone from somebody's
+      pocket more than once.</p>
+    quiz:
+      - q: Why does Adeyemi stop people carrying phones past sign-in?
+        a: A shielded room stops working the moment somebody brings a transmitter inside it
+        wrong:
+          - Phones interfere with the interlock system on the laser bay
+          - Photography is not permitted anywhere in the laboratory
+          - Phone batteries are a fire risk near stored cryogens
+  - id: castellan
+    name: Marta Castellan
+    role: Research software, data and provenance
+    division: NET
+    color: '#e08a2e'
+    bio: >-
+      <p>Keeps the pipeline that turns raw shots into published numbers, and the record of which version of
+      which script produced which figure. Everybody thanks her in a crisis and nobody funds her in between.</p>
+      <p>Her question, on every plot, is which data the analysis had already seen.</p>
+    quiz:
+      - q: Why does Castellan ask which data an analysis had already seen?
+        a: A method tuned on the same data it is later tested against will flatter itself
+        wrong:
+          - Reusing data doubles the effective sample size and narrows the error bars
+          - Analyses must be run on raw data rather than on processed files
+          - Seeing the data first makes an analysis slower to run
+
+glossary:
+  - name: Qubit
+    aliases: [qubits]
+    def: The two-state system a quantum computer stores information in.
+  - name: Superposition
+    aliases: []
+    def: A state that is a combination of both outcomes at once, until it is measured.
+  - name: Entanglement
+    aliases: [entangled, entangle]
+    def: A shared state in which two systems are correlated more strongly than any instructions agreed in advance could make them.
+  - name: Coherence
+    aliases: [coherent, decoherence]
+    def: How well a quantum state keeps its phase before the surroundings scramble it.
+  - name: Relaxation time
+    aliases: [T1]
+    def: The typical time an excited state takes to lose its energy.
+  - name: Dephasing
+    aliases: [T2, dephase]
+    def: Loss of the phase relationship in a state, without any energy leaving it.
+  - name: Rabi frequency
+    aliases: [Rabi]
+    def: How fast a driven system cycles between its two states, set by how hard it is driven.
+  - name: Pi pulse
+    aliases: [π pulse]
+    def: A pulse of exactly the duration that turns the state from one level to the other.
+  - name: Detuning
+    aliases: [detuned]
+    def: The gap between the frequency you are driving at and the frequency the system answers to.
+  - name: Readout
+    aliases: [read out, single-shot readout]
+    def: Turning the state of a qubit into a signal a classical instrument can record.
+  - name: Discriminator
+    aliases: [classifier]
+    def: The rule that decides which state a readout signal belongs to.
+  - name: Fidelity
+    aliases: []
+    def: How close an operation comes to the one intended, as a number between nought and one.
+  - name: Gate
+    aliases: [gates]
+    def: One operation applied to a qubit or a pair of them.
+  - name: Randomised benchmarking
+    aliases: [benchmarking, randomized benchmarking]
+    def: A way of measuring average error over many random sequences, so that readout error does not hide inside the answer.
+  - name: Dilution refrigerator
+    aliases: [fridge, cryostat]
+    def: The machine that reaches a few thousandths of a degree above absolute zero, in stages.
+  - name: Mixing chamber
+    aliases: []
+    def: The coldest stage of the fridge, where the chip sits.
+  - name: Heat load
+    aliases: []
+    def: How much heat arrives at a stage, which is what decides the temperature it can hold.
+  - name: Josephson junction
+    aliases: [junction, junctions]
+    def: A thin barrier between two superconductors, which is what makes a superconducting qubit possible.
+  - name: Two-level defect
+    aliases: [two-level system, TLS]
+    def: A tiny flaw in the material that can absorb energy at the same frequency as the qubit.
+  - name: Threshold
+    aliases: []
+    def: The error rate below which adding more physical qubits improves a logical one, and above which it does not.
+  - name: Logical qubit
+    aliases: []
+    def: One protected qubit built out of many physical ones, so that some errors can be corrected.
+  - name: Bell test
+    aliases: [CHSH, Bell inequality]
+    def: A measurement whose result rules out any explanation based on instructions agreed before the measurement.
+  - name: Standard quantum limit
+    aliases: [shot noise]
+    def: The precision reached by averaging independent measurements, which improves only as the square root of how many.
+  - name: Squeezing
+    aliases: [squeezed]
+    def: Trading uncertainty in one quantity for less in another, so a sensor can beat the averaging limit.
+  - name: Magnetometer
+    aliases: [magnetometry]
+    def: An instrument that measures magnetic field.
+  - name: Key distribution
+    aliases: [QKD, quantum key distribution]
+    def: Sending a secret key in a form where any interception shows up as errors.
+  - name: Quantum bit error rate
+    aliases: [QBER, error rate]
+    def: The fraction of test bits that disagree between the two ends of a link.
+  - name: Calibration
+    aliases: [calibrate, calibrated, recalibrate]
+    def: Checking an instrument against something already known, so that its readings mean something.
+  - name: Attenuation
+    aliases: [attenuator, attenuators]
+    def: Deliberately weakening a signal, which on a line into a fridge also cuts the noise coming down it.
+  - name: Provenance
+    aliases: []
+    def: The record of where a number came from and everything that was done to it.
+  - name: Traceable
+    aliases: [traceability]
+    def: Linked by an unbroken chain of comparisons back to an agreed standard.
+
+missions:
+  - title: Cold enough to have a ground state
+    objective: Work out why the chip has to be colder than anything else in the building.
+    briefing: The fridge is at 42 millikelvin instead of 11, and nothing on the chip behaves.
+    stake: >-
+      Monday, and the machine is warm. Ijeoma Okafor brought the fridge down over the weekend and it has
+      settled at 42 millikelvin instead of the 11 it usually holds, which sounds like a small difference and
+      is not. Kofi Mensah cannot get a clean measurement out of any qubit on the chip, and Priya Raghavan
+      has a review in ten days. Okafor thinks the heat is coming down a cable somebody added in the last
+      cooldown. Today you work out what temperature actually does to a qubit, put a number on how much of
+      the chip is sitting in the wrong state before anybody touches it, and find where the heat is getting
+      in.
+    takeaway: A qubit is only a two-state system while the room around it has no energy to spare.
+    stops:
+      - group: CRYO
+        task: Say why 42 millikelvin is not close enough
+        title: The energy of one quantum against the energy of the room
+        place: Cryogenics & Vacuum
+        scene: >
+          The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one
+          quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.
+        assumes:
+          - a system in contact with something warm can absorb energy from it
+        takeaway: Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.
+        format: BALLPARK
+        question: Estimate the fraction of qubits already excited at 42 mK.
+        why: >
+          A qubit sitting in a warm environment does not stay in its ground state: it is being offered
+          energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the
+          thermal energy to the energy of one quantum, exponentially, which is why a factor of four in
+          temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At
+          42 the population is large enough that a measurement of "the ground state" is partly a measurement
+          of the fridge.
+        estimate:
+          prompt: >
+            The qubit frequency is 5.0 GHz, so hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. The excited
+            fraction is e^(−hf/kT).
+          question: Choose the quantum energy and the thermal energy.
+          labels:
+            - 3.3e-24  (hf at 5 GHz, in joules)
+            - 5.8e-25  (kT at 42 mK, in joules)
+            - 1.5e-25  (kT at 11 mK, in joules)
+            - 5.0  (the qubit frequency in GHz)
+            - 42  (the fridge temperature in mK)
+          values: [3.3e-24, 5.8e-25, 1.5e-25, 5.0, 42]
+          slots: 2
+          template: 'e^(−{0} ÷ {1})'
+          formula: Math.exp(-a/b)
+          correct: [0, 1]
+          target: 0.0034
+          tolerance: 0.002
+          units: 'of the qubits'
+          solution: e^(−3.3e-24 / 5.8e-25) = e^(−5.7) ≈ 0.003.
+          explanation: >
+            About three in a thousand, against roughly one in five hundred thousand at 11 mK. The frequency
+            and the temperature in their own units are the inputs the two energies were computed from, and
+            neither belongs in this ratio.
+          givens:
+            - One quantum at 5 GHz is 3.3 × 10⁻²⁴ J
+            - The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J
+          relationship: >
+            Excited fraction = e raised to minus the quantum energy divided by the thermal energy, so it
+            falls very fast as the fridge gets colder.
+        answerText: About 0.3 per cent.
+      - group: CRYO
+        task: Find where the heat is arriving
+        title: Which stage the leak is on
+        place: Cryogenics & Vacuum
+        scene: >
+          Okafor has the temperatures from all six stages of this cooldown and from the last one. The upper
+          stages are normal. The two coldest are high, and the still is drawing more power than usual.
+        assumes:
+          - a refrigerator removes heat in stages, each colder than the last
+        takeaway: A stage sits where its heat load and its cooling power meet, so a temperature says how much heat is arriving there.
+        format: DIAGNOSIS
+        headline: The two coldest stages are warm and the upper four are exactly as they were last time.
+        task: Which explanation fits every stage's reading?
+        readings:
+          - { zone: 50 K stage, label: Temperature, value: 47 K, status: normal }
+          - { zone: 4 K stage, label: Temperature, value: 3.9 K, status: normal }
+          - { zone: Still, label: Temperature, value: 0.94 K, status: alarm, note: heater power up 40 per cent }
+          - { zone: Mixing chamber, label: Temperature, value: 42 mK, status: alarm }
+          - { zone: Vacuum can, label: Pressure, value: 2e-6 mbar, status: normal }
+        choices:
+          - { label: A vacuum leak into the can that is warming everything inside, mechanism: Gas in the vacuum space carries heat from the warm walls inward. }
+          - { label: Heat down a new signal line, mechanism: A line not heat-sunk at each stage carries heat straight to the coldest one. }
+          - { label: The mixture is short of helium-3, mechanism: Less mixture circulating means less cooling power everywhere below the still. }
+          - { label: The pulse tube is failing, mechanism: The first-stage cooler failing warms everything below it. }
+        answer: Heat down a new signal line
+        why: >
+          The pattern says where the heat enters, not just that it is there. A failing pulse tube or a
+          vacuum leak would warm the upper stages first, and both are normal — the 50 K and 4 K stages are
+          where those faults show. A mixture problem reduces cooling power below the still, which would show
+          as the mixing chamber warm and the still cold, not both warm with the still working harder. A line
+          that runs down without being clamped at each stage delivers heat directly to the bottom, and the
+          still burning more power is it fighting that load on the way past.
+        rebuttals:
+          - A vacuum leak warms the outer stages first, and the 50 K and 4 K stages are both normal.
+          - Short mixture would leave the still cold while the mixing chamber warmed, not both warm.
+          - A failing pulse tube shows at the 50 K stage before anywhere else, and it is at 47 K as usual.
+      - group: CTRL
+        task: Decide what to measure while the fridge is warm
+        title: What is worth doing at the wrong temperature
+        place: Control & Readout
+        scene: >
+          Fixing the heat leak means a warm-up and another cooldown: four days. Mensah has the machine for
+          those four days at 42 millikelvin and wants to know what is worth running.
+        assumes:
+          - some measurements depend on temperature and some do not
+        takeaway: Work out which of your measurements the fault actually invalidates, rather than stopping everything.
+        format: TRIAGE
+        question: What is worth running at 42 mK?
+        choices:
+          - Warm checks — wiring and electronics, which the chip cannot affect.
+          - Coherence times, which are the headline numbers for the review.
+          - Single-shot readout fidelity, which the review also needs.
+          - A full benchmarking run, to have something to show.
+        answer: Warm checks — wiring and electronics, which the chip cannot affect.
+        why: >
+          Anything whose answer depends on the qubit starting in its ground state is worthless this week,
+          and that includes coherence, readout fidelity and benchmarking — all three would come back worse
+          than the machine really is, and the numbers would be in somebody's slides by Friday. What does not
+          depend on it is everything warm: cable continuity, attenuator values, amplifier gain, timing
+          between channels. Those are real work, they are needed anyway, and doing them now means the four
+          days after the next cooldown are spent on physics.
+        rebuttals:
+          - Coherence measured with a thermally excited population is not this machine's coherence.
+          - Readout fidelity depends on which state the qubit was actually in, which is what the fridge has spoiled.
+          - A benchmarking run inherits both faults and would put a wrong number in front of the review.
+
+  - title: Finding a qubit that will not answer
+    objective: Locate a transition and turn a drive into a pulse that flips it.
+    briefing: The chip is cold again and one qubit is not where the design says it should be.
+    stake: >-
+      Friday, the fridge is at 11 millikelvin and eleven of the twelve qubits are where they were last month.
+      The twelfth is not answering anywhere near its design frequency, and Kofi Mensah has spent the morning
+      sweeping. Sara Lindqvist thinks the junction on that one came out of a run she has been suspicious of
+      since the spring. Priya Raghavan needs twelve working qubits for the circuit she has promised the
+      review. Today you find the transition by sweeping for it, turn the drive into a pulse that flips the
+      qubit reliably, and decide whether this chip is the one to spend the fortnight on.
+    takeaway: A qubit is not at the frequency you designed; it is at the frequency it answers to, and finding that is the first measurement.
+    stops:
+      - group: CTRL
+        task: Read a frequency sweep
+        title: Where the qubit actually is
+        place: Control & Readout
+        scene: >
+          Mensah's sweep runs from 4.2 to 6.4 gigahertz. There is one clear response at 4.61, a much weaker
+          one at 4.55, and nothing at 5.02 where the design put it.
+        assumes:
+          - a system absorbs energy strongly only near its own transition frequency
+        takeaway: Resonance is what makes a qubit findable, and a response away from the design frequency is information rather than a fault.
+        format: CHOICE
+        question: What has the sweep established?
+        choices:
+          - The qubit is broken, since it is not at its design frequency.
+          - The transition is at 4.61 GHz, and design was only a prediction.
+          - The sweep was run over the wrong range and should be repeated.
+          - The response at 4.55 GHz is the qubit and the stronger one is an artefact.
+        answer: The transition is at 4.61 GHz, and design was only a prediction.
+        why: >
+          A superconducting qubit's frequency depends on the junction, and the junction depends on an oxide
+          barrier a nanometre or so thick that no fabrication process controls perfectly. The design value is
+          what the geometry should give; the measured value is what this particular chip does. A strong,
+          narrow response is the transition. The weak one nearby is worth a note — it is often a two-level
+          defect in the material sitting close by in frequency — but it is not the qubit.
+        rebuttals:
+          - A qubit that responds strongly at a frequency is working; being away from design is a fabrication spread, not a fault.
+          - The sweep covered 4.2 to 6.4 GHz, which contains both the design value and the response.
+          - The weaker response is far narrower in strength and is a defect near the qubit in frequency.
+      - group: CTRL
+        task: Turn the drive into a pulse
+        title: How long a flip takes
+        place: Control & Readout
+        scene: >
+          With the drive at 4.61 GHz, the qubit's population oscillates as the pulse gets longer. Mensah
+          measures a full cycle every 84 nanoseconds.
+        assumes:
+          - a driven two-level system cycles between its states while the drive is on
+        takeaway: The pulse that flips a qubit is half a Rabi cycle, so a stronger drive means a shorter pulse.
+        format: BALLPARK
+        question: Estimate the length of a pulse that flips this qubit.
+        why: >
+          Driving on resonance does not simply excite the qubit; it drives it round, from ground to excited
+          and back again, at a rate set by how hard you drive. That rate is the Rabi frequency. A pulse that
+          lasts half a cycle leaves the qubit in the excited state, which is the operation everything else
+          is built out of. Drive harder and the pulse gets shorter, which is worth doing until the drive is
+          strong enough to start exciting things you did not intend.
+        estimate:
+          prompt: >
+            The population completes a full Rabi cycle every 84 nanoseconds.
+          question: Choose the cycle time and the fraction of a cycle a flip takes.
+          labels:
+            - 84 ns  (one full Rabi cycle)
+            - 2  (a flip is half a cycle)
+            - 4.61 GHz  (the qubit frequency)
+            - 11 mK  (the fridge temperature)
+            - 12  (qubits on the chip)
+          values: [84, 2, 4.61, 11, 12]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 42
+          tolerance: 6
+          units: ns
+          solution: t_π = 84 ÷ 2 = 42 ns.
+          explanation: >
+            Forty-two nanoseconds. The qubit frequency is what you drive at rather than how long for, and
+            the fridge temperature and the qubit count belong to other questions entirely.
+          givens:
+            - One full Rabi cycle takes 84 ns
+            - A flip is half a cycle
+          relationship: >
+            The flip pulse length = one Rabi cycle ÷ 2, because half a cycle takes the population from the
+            ground state to the excited state.
+        answerText: About 42 ns.
+      - group: FAB
+        task: Decide whether to keep this chip
+        title: One bad qubit out of twelve
+        place: Fabrication & Materials
+        scene: >
+          Lindqvist has the coupon from the same run. The junction resistances on it spread twice as wide as
+          usual, which puts several qubits in the frequency range where defects are common.
+        assumes:
+          - a fabrication run produces chips with a spread of properties
+        takeaway: A device is worth keeping or replacing on what it costs you in time, not on whether it is perfect.
+        format: SCIENCETANK
+        why: >
+          The honest position is that this chip works and is not the best this process can do. Replacing it
+          means four days of warm-up and cooldown out of a ten-day run, which is most of the fortnight, and
+          the replacement comes from a process nobody has fixed yet — so it might be no better. Measuring
+          this one properly, defect and all, gives the review a real number for a real device, and gives
+          Lindqvist the data she needs to date the fault. Characterising the defect is the cheapest thing on
+          the list and the most useful to everybody afterwards.
+        proposals:
+          - { label: A, text: Keep this chip, characterise the defect properly, and report twelve qubits with one of them worse. }
+          - { label: B, text: Swap in the spare chip, at four days of warm-up and cooldown. }
+          - { label: C, text: Keep the chip and simply leave the twelfth qubit out of every circuit. }
+          - { label: D, text: Stop and fix the fabrication process before running anything else. }
+        recommended: { A: 50, C: 25 }
+        evidence: |
+          The chip has twelve qubits and eleven are within 40 MHz of design. Warm-up and cooldown is four
+          days out of the ten before the review. The spare comes from the same suspicious run. Junction
+          resistance on the coupon spreads twice as wide as usual. The defect near 4.55 GHz has not been
+          characterised on any chip in this lab.
+
+  - title: Two clocks, and the one that runs out first
+    objective: Separate energy leaving the qubit from phase being scrambled.
+    briefing: T1 is respectable and T2 is a third of what it should be, on every qubit at once.
+    stake: >-
+      Monday, and the coherence numbers are lopsided. Anders Holm has T1 on every qubit at around 90
+      microseconds, which is good, and T2 at 32, which is poor — and a qubit's coherence cannot exceed twice
+      its relaxation time, so something is scrambling phase without taking any energy. Ijeoma Okafor says
+      the fridge is quiet. Ren Nakamura suspects the flux line. Priya Raghavan needs to know which of these
+      numbers goes in the review and what it means. Today you measure both times properly, work out what a
+      poor T2 against a good T1 is telling you, and decide where the noise is coming in.
+    takeaway: Losing energy and losing phase are different failures with different cures, and the second is usually the one you have.
+    stops:
+      - group: VER
+        task: Say what the two numbers mean together
+        title: Energy out, or phase scrambled
+        place: Error & Verification
+        scene: >
+          Holm's table: T1 of 90 microseconds, T2 of 32, on all twelve qubits within a few per cent. The
+          ceiling on T2 set by this T1 would be 180.
+        assumes:
+          - a quantum state has both an energy and a phase, which can be lost separately
+        takeaway: T2 far below twice T1 means the dominant fault is dephasing, which is noise rather than dissipation.
+        format: CHOICE
+        question: What do a good T1 and a poor T2 together tell you?
+        choices:
+          - The qubits are losing energy to their environment faster than expected.
+          - Something scrambles the phase without taking energy.
+          - The measurement of T2 is wrong, since coherence cannot be shorter than relaxation.
+          - Both numbers are limited by the same mechanism, which is the fridge temperature.
+        answer: Something scrambles the phase without taking energy.
+        why: >
+          The two times answer different questions. T1 asks how long an excited qubit keeps its energy; T2
+          asks how long the state keeps a definite phase relationship. Energy loss also destroys phase, which
+          is why T2 can never be more than twice T1. Here T2 is a fifth of that ceiling, so almost all of
+          the phase loss is coming from something that never takes any energy at all — slow noise in a
+          magnetic field or a control line, shifting the qubit frequency slightly and unpredictably.
+        rebuttals:
+          - Ninety microseconds of T1 is normal for this device; nothing there is faster than expected.
+          - T2 shorter than T1 is entirely ordinary, and it is T2 above twice T1 that would be impossible.
+          - The fridge limits thermal population, and a shared thermal limit would move both numbers together.
+      - group: CRYO
+        task: Work out the ceiling this T1 sets
+        title: How good T2 could be
+        place: Cryogenics & Vacuum
+        scene: >
+          Okafor wants to know how much room there is before anybody spends a week chasing the noise. The
+          relation is one over T2 equals one over twice T1 plus one over the pure dephasing time.
+        assumes:
+          - two independent loss processes add as rates rather than as times
+        takeaway: The dephasing rate is what is left when the relaxation contribution is subtracted, and it is the number worth chasing.
+        format: BALLPARK
+        question: Estimate the pure dephasing time behind these numbers.
+        why: >
+          Rates add; times do not. Energy loss contributes a dephasing rate of one over twice T1, because
+          losing the energy also loses the phase, and whatever else is happening adds its own rate on top.
+          Subtracting the first from the measured total leaves the pure dephasing rate, and its inverse is
+          the time to quote when you go looking for the cause. If that number is far shorter than the T1
+          contribution, the fridge and the materials are not your problem this week — the wiring is.
+        estimate:
+          prompt: >
+            T2 is 32 microseconds and T1 is 90. The relation is 1/T2 = 1/(2·T1) + 1/T_φ, so
+            1/T_φ = 1/32 − 1/180 per microsecond.
+          question: Choose the measured coherence time and the relaxation ceiling.
+          labels:
+            - 32  (T2, in microseconds)
+            - 180  (twice T1, in microseconds)
+            - 90  (T1, in microseconds)
+            - 42  (the flip pulse, in nanoseconds)
+            - 12  (qubits on the chip)
+          values: [32, 180, 90, 42, 12]
+          slots: 2
+          template: '1 ÷ (1/{0} − 1/{1})'
+          formula: 1/(1/a - 1/b)
+          correct: [0, 1]
+          target: 38.9
+          tolerance: 5
+          units: µs
+          solution: 1/T_φ = 1/32 − 1/180 → T_φ ≈ 39 µs.
+          explanation: >
+            About thirty-nine microseconds, which is close enough to the measured T2 to say that dephasing
+            is doing nearly all of the damage. T1 itself is an input to the ceiling rather than to this
+            subtraction, and the pulse length and qubit count belong elsewhere.
+          givens:
+            - T2 is 32 µs
+            - Twice T1 is 180 µs
+          relationship: >
+            1/T_φ = 1/T2 − 1/(2·T1), because the rates add and the relaxation contribution is the part you
+            already know.
+        answerText: About 39 µs.
+      - group: FAB
+        task: Say where slow noise comes from
+        title: What scrambles a phase without taking energy
+        place: Fabrication & Materials
+        scene: >
+          Lindqvist lists four candidates on the board and asks which of them changes a qubit's frequency
+          slightly and slowly, rather than taking a quantum out of it.
+        assumes:
+          - a qubit's frequency can depend on its surroundings
+        takeaway: Anything that shifts the qubit's frequency between one run and the next dephases it, even though it never takes energy.
+        format: PROTOCOL
+        why: >
+          Dephasing comes from the frequency wandering. If the qubit is a slightly different frequency on
+          each repetition, the phase you accumulate differs each time, and averaging over repetitions washes
+          the interference out — with no energy lost anywhere. Magnetic flux noise and current noise on a
+          bias line both do exactly that. A two-level defect sitting at the qubit frequency is a different
+          animal: it exchanges energy, so it hits T1. And thermal photons in the readout resonator shift the
+          frequency at random, which is dephasing again and one of the commonest causes.
+        rebuttals:
+          - Flux noise moves the qubit frequency slightly between repetitions, which is dephasing.
+          - Current noise on a bias line does the same thing by the same route.
+          - A defect at the qubit frequency exchanges energy with it, so it shortens T1 rather than T2.
+          - Stray photons in the readout resonator shift the frequency at random, which dephases without dissipating.
+        columns:
+          - The mechanism
+          - What it damages
+        scenarios:
+          - Magnetic flux noise through the loop.
+          - Current noise on the bias line.
+          - A two-level defect sitting at the qubit frequency.
+          - Thermal photons left in the readout resonator.
+        choices:
+          - Dephasing — it moves the frequency without taking energy.
+          - Dephasing, by the same route as flux noise.
+          - Relaxation — it exchanges energy with the qubit.
+          - Dephasing, and one of the commonest causes of it.
+        mapping: [0, 1, 2, 3]
+
+  - title: One bit out
+    objective: Understand what a readout actually decides, and how confident it is entitled to be.
+    briefing: The readout says 96 per cent fidelity. Nakamura says that number is doing a lot of work.
+    stake: >-
+      Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96
+      per cent, and Ren Nakamura points out that it is the product of three separate things — how well the
+      resonator separates the two states, how much noise the amplifier chain adds, and where somebody drew
+      the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline
+      figure for the review. Today you work out what the readout chain does to a signal, what a
+      discriminator is actually deciding, and what part of that 96 per cent belongs to the qubit at all.
+    takeaway: A readout number is a claim about a whole chain, and most of the chain has nothing to do with the qubit.
+    stops:
+      - group: CTRL
+        task: Follow the signal out
+        title: What happens between the chip and the answer
+        place: Control & Readout
+        scene: >
+          Nakamura walks the chain: resonator, then a metre of cable, an isolator, a parametric amplifier at
+          the mixing chamber, a semiconductor amplifier at 4 kelvin, more cable, a digitiser at room
+          temperature.
+        assumes:
+          - an amplifier increases a signal and adds noise of its own
+        takeaway: The first amplifier sets the noise of the whole chain, which is why it is the coldest thing after the chip.
+        format: SEQUENCE
+        why: >
+          Every stage after the first amplifier amplifies whatever the first one produced, noise included,
+          so the first amplifier's own noise is what decides the signal-to-noise ratio of the whole chain.
+          That is why it sits at the mixing chamber, cold and quiet, and why the warm electronics that
+          follow it can be ordinary. Put the parametric amplifier at 4 kelvin instead and you can rebuild
+          everything downstream to no effect at all.
+        cards:
+          - The resonator, which shifts frequency depending on the qubit's state.
+          - The parametric amplifier at the mixing chamber, which sets the noise of everything after it.
+          - The semiconductor amplifier at 4 kelvin, which lifts the signal for the trip up.
+          - The digitiser at room temperature, which records what arrives.
+        order: [0, 1, 2, 3]
+      - group: CTRL
+        task: Say what the discriminator decides
+        title: A line drawn between two clouds
+        place: Control & Readout
+        scene: >
+          The digitiser's shots plot as two clouds. Most are clearly in one or the other. A few thousand sit
+          between them, and a line drawn somewhere in that gap assigns every one of those to a state.
+        assumes:
+          - a measurement produces a distribution rather than a single value
+        takeaway: A discriminator turns a continuous signal into a bit, and where the line sits decides which errors you make.
+        format: CHOICE
+        question: What does moving the discriminator line do?
+        choices:
+          - It improves fidelity, because a better line assigns more shots correctly.
+          - It trades one error for the other; the overlap sets the floor.
+          - It has no effect, since the clouds are already separated.
+          - It changes what the qubit does during readout.
+        answer: It trades one error for the other; the overlap sets the floor.
+        why: >
+          The line has to go somewhere, and wherever it goes, shots from one cloud that landed on the wrong
+          side get called the other state. Move it toward the ground-state cloud and you misassign fewer
+          excited shots and more ground ones; move it back and the trade reverses. The only thing that
+          genuinely improves fidelity is separating the clouds — more signal, less noise, a longer
+          integration — because the overlap is what sets the floor no line can beat.
+        rebuttals:
+          - A better-placed line reduces one error and increases the other; the sum is bounded by the overlap.
+          - The clouds overlap by a few thousand shots, which is exactly the region the line has to cut.
+          - The discriminator is applied after the measurement and cannot change what the qubit did.
+      - group: VER
+        task: Take the readout out of the qubit number
+        title: Whose error is it
+        place: Error & Verification
+        scene: >
+          A circuit reports 8 per cent error. The readout on its own accounts for 4 per cent, and Holm wants
+          to know what is left for the gates.
+        assumes:
+          - errors from independent sources combine
+        takeaway: A quoted error is a sum until you separate the parts, and the interesting part is usually the smaller one.
+        format: CASEBOOK
+        why: >
+          Numbers that arrive as a single figure hide their parts, and this one has three. Readout error is
+          measured on its own by preparing a known state and reading it back, and it is 4 per cent. State
+          preparation is measured the same way and is small here. What is left is the gates, and it is the
+          only part that a better circuit or a better calibration will move. Quoting the 8 per cent as gate
+          error is the mistake that makes a machine look worse than it is; quoting 4 per cent as the whole
+          error makes it look better.
+        rebuttals:
+          - Readout error is measurable on its own by preparing a known state and reading it straight back.
+          - State preparation error is measured the same way and is small on this device.
+          - Gate error is what is left after the other two, and it is the only part a recalibration moves.
+          - The total is what a user experiences, and it is not the number that tells you what to fix.
+        columns:
+          - The part of the error
+          - What it tells you
+        scenarios:
+          - Readout error, 4 per cent.
+          - State preparation error, well under 1 per cent.
+          - Gate error, whatever is left.
+          - The 8 per cent total.
+        choices:
+          - Measured separately, and mostly about the amplifier chain.
+          - Measured the same way, and small on this device.
+          - The part a better pulse or calibration actually changes.
+          - What a user sees, and the wrong number to work from.
+        mapping: [0, 1, 2, 3]
+
+  - title: The offer with a date on it
+    objective: Decide what to share, and when, while somebody else is deciding the same thing.
+    briefing: A group in Delft will run your circuit on their device this month, if they hear back by Friday.
+    stake: >-
+      Wednesday, and a note arrives from a group in Delft. They have a device of a different design and a
+      window of machine time in ten days, and they will run Ridgeway's circuit on it if they get the pulse
+      sequences by Friday. Anders Holm's instinct is to send nothing until the local numbers are settled,
+      because a sequence sent out is a result you no longer control. Priya Raghavan points out that this is
+      the second device he has been asking for since March, offered free, with a deadline. This morning she
+      is right, and the caution would cost the group the one thing it has been missing. Today you decide
+      what to send, what to hold, and what you would need back to call it a replication.
+    takeaway: Some evidence has a window on it, and refusing to move inside that window is a decision with its own cost.
+    stops:
+      - group: VER
+        task: Decide what makes a replication worth the name
+        title: What you would need back
+        place: Error & Verification
+        scene: >
+          Holm writes down what Delft would have to return for the run to count as a check rather than a
+          courtesy. Raghavan writes down what she is willing to send by Friday.
+        assumes:
+          - a second measurement is only a check if it could disagree
+        takeaway: A replication has to be able to fail, which means the other group needs the method and not the expected answer.
+        format: PROTOCOL
+        why: >
+          The value of an independent run is that it shares as little as possible with the original. The
+          circuit and the pulse sequences have to go, or they are running a different experiment. The raw
+          shots have to come back, because the analysis is one of the things being checked. Ridgeway's own
+          calibration files must not go, since a shared calibration is exactly the common step that makes
+          two results agree for no good reason. And sending the expected result would tell them what to see,
+          which is the one thing that cannot be undone afterwards.
+        rebuttals:
+          - The circuit and pulse sequences have to go, or the two groups are not running the same experiment.
+          - Raw shots have to come back, because the analysis is part of what is being checked.
+          - Ridgeway's calibration must stay here; a shared calibration is the common step that manufactures agreement.
+          - The expected number must not be sent, because knowing it changes what a person does at every fork.
+        columns:
+          - The item
+          - Whether it crosses
+        scenarios:
+          - The circuit and the pulse sequences.
+          - The raw single-shot data from their run.
+          - Ridgeway's discriminator and calibration files.
+          - The result Ridgeway expects to see.
+        choices:
+          - Goes, or they are not running the same experiment.
+          - Comes back, because the analysis is part of what is checked.
+          - Stays here — a shared calibration makes agreement meaningless.
+          - Stays here, and firmly, because it would tell them what to find.
+        mapping: [0, 1, 2, 3]
+      - group: NET
+        task: Work out what can be sent and what cannot
+        title: Copying a state, and why you cannot
+        place: Networks & Security
+        scene: >
+          Yusuf Sadiq, listening, points out the obvious thing nobody has said: they can send the recipe,
+          and they cannot send the state itself. Not by fibre, not by post, not at all.
+        assumes:
+          - information can be copied and a quantum state is a different kind of object
+        takeaway: An unknown quantum state cannot be copied, which is a limit on engineering and the foundation of the security argument.
+        format: CHOICE
+        question: Why can Ridgeway send the circuit but not the prepared state?
+        choices:
+          - The state would decohere during transmission, though copying it is possible in principle.
+          - An unknown state cannot be copied, so only instructions can go.
+          - Sending it would require a fibre link Ridgeway does not have.
+          - The state contains proprietary calibration and cannot be shared.
+        answer: An unknown state cannot be copied, so only instructions can go.
+        why: >
+          There is no operation that takes an unknown quantum state and produces two of it. This is not an
+          engineering limit that better equipment removes; it follows from the linearity of the theory, and
+          it is why quantum information is sent by moving the only copy rather than by duplicating it. It is
+          also the whole basis of key distribution: an eavesdropper cannot take a copy and leave the original
+          untouched, so interception shows up as errors at the far end.
+        rebuttals:
+          - Decoherence is a real problem in transmission and is not what stops copying.
+          - Ridgeway does have a fibre link, and it would not help.
+          - Nothing about ownership is involved; the limit applies to a state nobody owns.
+      - group: SENSE
+        task: Decide what goes out on Friday
+        title: What Raghavan sends
+        place: Quantum Sensing
+        scene: >
+          Elena Barros, who ships numbers to a hospital every month, has the least romantic view of this in
+          the building: work goes out when somebody else needs it, and it goes out with its uncertainties.
+        assumes:
+          - a result can be shared at different levels of completeness
+        takeaway: Sending the method with its uncertainties is not the same as claiming a result, and confusing the two is what makes people hoard.
+        format: SCIENCETANK
+        why: >
+          The window is ten days and it will not come again this quarter. Sending the sequences with the
+          uncertainties stated costs nothing that matters: if Delft's run disagrees, that is the finding
+          Holm has been asking for since March, and finding out from a friendly group is far cheaper than
+          finding out from a referee. Sending the sequences plus the expected number ruins the check.
+          Waiting a fortnight means no second device at all. Publishing first and asking afterwards is the
+          only genuinely bad option, and it is the one the deadline pressure pushes toward.
+        proposals:
+          - { label: A, text: Send the sequences and the raw method, with every uncertainty stated, and ask for raw shots back. }
+          - { label: B, text: Send nothing until the local numbers are settled, and ask Delft for a window next quarter. }
+          - { label: C, text: Send the sequences together with Ridgeway's own result, so they know what to look for. }
+          - { label: D, text: Publish the local result this week, then invite replication afterwards. }
+        recommended: { A: 60, B: 15 }
+        evidence: |
+          Delft's window is ten days and the next is a quarter away. Their device is a different design,
+          which is what makes it an independent check. Ridgeway's own result has been measured on one device
+          by one group. The review is in five days. Delft has asked for sequences only, not for results.
+
+  - title: A defect with a date on it
+    objective: Trace a fault in a device back to the process that made it.
+    briefing: The weak response near 4.55 GHz turns up on three chips, all from the same six weeks.
+    stake: >-
+      Thursday, and Sara Lindqvist has been through the drawer. The weak absorption sitting 60 megahertz
+      below the twelfth qubit appears on three chips, and all three came from wafers processed in a
+      six-week window last spring — the same window in which the oxidation step was changed to raise yield.
+      Kofi Mensah has watched a qubit lose energy every time its frequency drifts into that feature. Priya
+      Raghavan has to decide whether this goes in the review as a known cause or as an open question. Today
+      you work out what the feature is, what it does to a qubit that sits near it, and what the process
+      change bought and cost.
+    takeaway: A defect in a material shows up months later in somebody else's measurement, which is why the record of what was made when is worth keeping.
+    stops:
+      - group: FAB
+        task: Say what the feature is
+        title: Something else that absorbs at that frequency
+        place: Fabrication & Materials
+        scene: >
+          The feature is narrow, sits at a fixed frequency, and moves slightly when the chip is thermally
+          cycled. It appears on three chips from one processing window and on none of the others.
+        assumes:
+          - a material can contain flaws that behave as small two-state systems
+        takeaway: A two-level defect in the oxide absorbs at its own frequency, and a qubit tuned near it loses energy into it.
+        format: DIAGNOSIS
+        headline: A narrow absorption sits 60 MHz below one qubit, on three chips from one six-week window.
+        task: Which explanation fits all of it?
+        readings:
+          - { zone: Feature, label: Linewidth, value: very narrow, status: alarm }
+          - { zone: Feature, label: Frequency, value: fixed, moves on thermal cycling, status: alarm }
+          - { zone: Chips, label: Where it appears, value: 3 of 14, all one window, status: alarm }
+          - { zone: Qubit, label: T1 when tuned near it, value: falls by 60 per cent, status: alarm }
+          - { zone: Fridge, label: Temperature, value: 11 mK, status: normal }
+        choices:
+          - { label: A two-level defect in the junction oxide, mechanism: A flaw with two states of its own absorbs at a fixed frequency and exchanges energy with a qubit tuned near it. }
+          - { label: A second qubit coupling in from the next cell, mechanism: Neighbouring qubits can couple and exchange excitation. }
+          - { label: Thermal photons in the readout resonator, mechanism: Stray photons shift and broaden the response. }
+          - { label: An artefact of the measurement electronics, mechanism: A spurious tone in the generator would appear at a fixed frequency. }
+        answer: A two-level defect in the junction oxide
+        why: >
+          Everything points at the material. A neighbouring qubit would be at a designed frequency, would
+          appear on every chip, and would not move when the chip is warmed and cooled — a defect does move,
+          because thermal cycling rearranges the atoms it is made of. Thermal photons broaden a response
+          rather than producing a narrow one, and the fridge is cold. An electronics artefact would appear
+          on all fourteen chips, since they share the same generator. Only a flaw in the oxide is narrow,
+          fixed, chip-specific, and able to take energy out of a qubit tuned onto it.
+        rebuttals:
+          - A neighbouring qubit sits at a design frequency and would show on every chip, not three.
+          - Thermal photons broaden the response instead of producing a narrow line, and the fridge is at 11 mK.
+          - An artefact in the shared electronics would appear on all fourteen chips.
+      - group: CTRL
+        task: Say what it does to a qubit near it
+        title: Energy with somewhere to go
+        place: Control & Readout
+        scene: >
+          When the twelfth qubit is tuned to within 10 megahertz of the feature, its T1 falls from 90
+          microseconds to about 35. Tuned 200 megahertz away, it recovers.
+        assumes:
+          - two systems at the same frequency can exchange energy
+        takeaway: A defect is only a problem in a band around its own frequency, so tuning away from it is a real repair.
+        format: CHOICE
+        question: What is the practical response to a defect at a known frequency?
+        choices:
+          - Discard the chip, since the defect cannot be removed.
+          - Operate the qubit away from that frequency, and record where the defect is.
+          - Cool the fridge further, so the defect has no energy to absorb.
+          - Drive the qubit harder to overcome the loss.
+        answer: Operate the qubit away from that frequency, and record where the defect is.
+        why: >
+          Resonant exchange only works near resonance. Move the qubit a few hundred megahertz away and the
+          coupling falls off sharply, which is why the same qubit is fine at 4.61 gigahertz and poor at 4.56.
+          On a tunable device that is a working repair rather than a compromise, and the important half of
+          it is writing the defect's frequency down — an undocumented one is a trap the next person falls
+          into when they retune. Cooling further does not help, because the defect absorbs energy from the
+          qubit rather than being thermally excited.
+        rebuttals:
+          - The chip is usable everywhere except a narrow band, which is not a reason to discard it.
+          - Colder helps thermal population and does nothing about a resonant exchange.
+          - Driving harder puts in more energy and does not stop it draining into the defect.
+      - group: VER
+        task: Say what the process change actually did
+        title: Yield against lifetime
+        place: Error & Verification
+        scene: >
+          The oxidation change raised the fraction of usable chips from about half to nearly three quarters.
+          It also appears to have produced these defects.
+        assumes:
+          - a process change can improve one measure and damage another
+        takeaway: A change that improves the number you were watching can damage the one you were not, which is why you record both before and after.
+        format: TRIAGE
+        question: What should the group do about the oxidation step?
+        choices:
+          - Revert it, since the defects are what is limiting coherence.
+          - Keep it, and compare defect density against the old process first.
+          - Keep it, because yield is what limits how many devices the group can test.
+          - Stop fabricating until the mechanism is understood.
+        answer: Keep it, and compare defect density against the old process first.
+        why: >
+          Three chips is a suggestion, not a measurement. The change is correlated with the defects and also
+          with a large yield improvement, and nobody has run the comparison that would separate them —
+          fabricate both ways, count defects per chip, and look. Reverting now trades a known gain for an
+          unquantified one. Keeping it without measuring means the group finds out in a year, in somebody
+          else's coherence numbers. Stopping fabrication costs the review and answers nothing.
+        rebuttals:
+          - Three chips from one window is a correlation, and reverting on it trades a measured gain for a guess.
+          - Keeping it without the comparison means the same argument again next year with no more evidence.
+          - Stopping fabrication removes the only way to get the data that would settle it.
+
+  - title: The instrument somebody else depends on
+    objective: Meet the part of this field that already works, and the discipline that comes with it.
+    briefing: The magnetometer has to be recalibrated by two, because a hospital is using its numbers.
+    stake: >-
+      Friday, and Elena Barros is not interested in the review. Her magnetometer measures fields a hundred
+      million times weaker than the Earth's, a hospital across the city uses those numbers in a study that
+      has been running for three years, and the calibration is due at two o'clock whatever else is
+      happening. Grace Whitfield is bringing the reference. Priya Raghavan, who needs Barros for the review
+      slides, has been told to come back at three. Today you work out where a sensor's precision limit comes
+      from, what averaging can and cannot buy, and why a number that leaves the building carries obligations
+      that a number in a slide does not.
+    takeaway: The applications of this field that already work are the ones with calibration schedules, and the schedule is the reason they work.
+    stops:
+      - group: SENSE
+        task: Find the noise floor
+        title: What averaging buys
+        place: Quantum Sensing
+        scene: >
+          A single measurement resolves 40 picotesla. Barros needs 4. She has an hour, and each measurement
+          takes a hundred milliseconds.
+        assumes:
+          - independent measurements can be averaged to reduce random error
+        takeaway: Averaging independent measurements improves precision as the square root of their number, which is a hard wall rather than a slow one.
+        format: BALLPARK
+        question: Estimate how many measurements are needed to reach 4 picotesla.
+        why: >
+          Random noise averages down as the square root of the number of independent measurements, so
+          improving by a factor of ten costs a hundred times as many. That is the standard quantum limit,
+          and it is why sensing is a patience problem: the first factor of ten is cheap and the second is
+          not. It is also why entanglement is interesting to people who build sensors — a squeezed or
+          entangled ensemble can beat that scaling, which is the only way past a wall that otherwise costs
+          you a factor of a hundred in time for every factor of ten in precision.
+        estimate:
+          prompt: >
+            One measurement resolves 40 pT and the target is 4 pT. Precision improves as the square root of
+            the number of measurements.
+          question: Choose the single-shot resolution and the target.
+          labels:
+            - 40  (single-measurement resolution, in pT)
+            - 4  (the target, in pT)
+            - 0.1  (seconds per measurement)
+            - 3600  (seconds in the hour available)
+            - 12  (qubits on the processor)
+          values: [40, 4, 0.1, 3600, 12]
+          slots: 2
+          template: '({0} ÷ {1})²'
+          formula: (a/b)*(a/b)
+          correct: [0, 1]
+          target: 100
+          tolerance: 15
+          units: measurements
+          solution: (40 ÷ 4)² = 100 measurements.
+          explanation: >
+            A hundred measurements, which at a tenth of a second each is ten seconds — comfortable. The
+            timing figures tell you whether it fits in the hour, and the qubit count belongs to the
+            processor rather than the sensor.
+          givens:
+            - One measurement resolves 40 pT
+            - The target is 4 pT
+          relationship: >
+            Number of measurements = (single-shot resolution ÷ target)², because precision improves as the
+            square root of how many you average.
+        answerText: About 100.
+      - group: SENSE
+        task: Say what the calibration is for
+        title: Against what
+        place: Quantum Sensing
+        scene: >
+          Whitfield arrives with the reference source at two. Barros measures it, writes the ratio in the
+          log, and only then measures anything anybody wants.
+        assumes:
+          - an instrument's reading is a comparison
+        takeaway: A measurement is a comparison with a standard, so a number without a traceable standard behind it is a reading rather than a result.
+        format: CHOICE
+        question: What does the two o'clock calibration establish?
+        choices:
+          - That the instrument is working, since it produced a number.
+          - That today's readings tie to a standard, so last year's compare.
+          - That the magnetometer is more precise than it was yesterday.
+          - That the hospital's study is using the correct units.
+        answer: That today's readings tie to a standard, so last year's compare.
+        why: >
+          Precision is how finely an instrument resolves; accuracy is whether it is right, and only a
+          comparison with something known establishes that. A three-year study is a comparison across time,
+          which means every reading in it has to be tied to the same standard — otherwise a slow drift in
+          the instrument becomes a slow trend in the data, and it is indistinguishable from the effect
+          somebody is looking for. The calibration is the thing that makes the third year commensurable with
+          the first.
+        rebuttals:
+          - Producing a number is not evidence of being right, which is exactly what a reference is for.
+          - Calibration ties the scale down; it does not change how finely the instrument resolves.
+          - Units are a matter of arithmetic, and the drift a calibration catches is not.
+      - group: NET
+        task: Say what a delivered number obliges you to
+        title: Numbers that leave the building
+        place: Networks & Security
+        scene: >
+          Sadiq points out that his key link has the same property: somebody else's system depends on it,
+          so its failures have to be visible to them rather than only to him.
+        assumes:
+          - a service somebody relies on has different obligations from an experiment
+        takeaway: Once somebody else acts on your numbers, telling them when the numbers are bad matters more than making the numbers better.
+        format: PROTOCOL
+        why: >
+          An experiment can fail quietly and be repeated. A delivered measurement cannot: somebody has
+          already used it. So the obligations are different in kind — a known uncertainty attached to every
+          number, a stated calibration interval, an alarm the user sees rather than one the operator sees,
+          and a record of what changed and when. None of that improves the instrument. All of it decides
+          whether the person on the other end can tell a real change from a fault in your equipment.
+        rebuttals:
+          - An uncertainty on every number is what lets the user judge whether a change is real.
+          - A calibration interval is what makes this year's readings comparable with last year's.
+          - An alarm the user can see is the difference between a fault and a silent wrong answer.
+          - A record of changes is what lets somebody re-examine a conclusion later.
+        columns:
+          - The obligation
+          - What it protects the user from
+        scenarios:
+          - An uncertainty stated on every delivered number.
+          - A published calibration interval.
+          - A fault alarm the user sees, not just the operator.
+          - A log of every change to the instrument.
+        choices:
+          - Reading a change as real when it is inside the noise.
+          - Comparing this year with last year through a drift.
+          - Acting for weeks on a number that was already wrong.
+          - Being unable to re-examine an old conclusion.
+        mapping: [0, 1, 2, 3]
+
+  - title: How wrong is it, and how would you know
+    objective: Measure the machine's error in a way that does not measure your own readout.
+    briefing: Two error numbers, both honest, differing by a factor of three.
+    stake: >-
+      Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4
+      per cent. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and
+      they answer different questions; Priya Raghavan says the review will only print one of them. Dasha
+      Petrova wants whichever number is comparable with the threshold, because below that line adding
+      qubits helps and above it they do not. Today you work out what randomised benchmarking actually
+      measures, why a long sequence gives a different answer from a short one, and which number belongs in
+      a sentence about error correction.
+    takeaway: An error number is defined by the procedure that produced it, and quoting it without the procedure is quoting nothing.
+    stops:
+      - group: VER
+        task: Say what benchmarking measures
+        title: Why a long sequence tells you more
+        place: Error & Verification
+        scene: >
+          Holm runs sequences of 2, 8, 32 and 128 random gates, each ending with the gate that should return
+          the qubit to where it started. The success rate falls smoothly with length.
+        assumes:
+          - errors accumulate as operations are applied in succession
+        takeaway: Benchmarking reads error from how fast success decays with sequence length, which is why the readout error drops out of it.
+        format: CHOICE
+        question: Why does the group use a decay over many lengths rather than one careful measurement?
+        choices:
+          - Longer sequences are more representative of real circuits.
+          - The error is in the slope, so constant offsets drop out.
+          - Averaging over many random sequences reduces statistical noise.
+          - Short sequences cannot be measured accurately.
+        answer: The error is in the slope, so constant offsets drop out.
+        why: >
+          A single measurement of a single gate gives you the gate error plus the readout error plus the
+          preparation error, and no way to separate them. A decay curve gives you the *rate* at which
+          success falls off with length, and a constant offset — however large — changes where the curve
+          starts and not how fast it falls. That is the trick: the quantity you want is in the slope, and
+          the quantities you cannot easily measure are in the intercept. Averaging over random sequences
+          matters too, but for a different reason: it stops one unlucky sequence standing for all of them.
+        rebuttals:
+          - Being representative is a benefit and not the reason the method separates the error out.
+          - Averaging reduces noise, which is true of any repeated measurement and is not what makes this one clean.
+          - Short sequences measure perfectly well; they simply cannot be told apart from a readout offset.
+      - group: CTRL
+        task: Compound one gate's error over a circuit
+        title: Where a good number stops being good
+        place: Control & Readout
+        scene: >
+          Mensah's proposed circuit is 400 gates deep. The measured fidelity of a single gate is 0.988.
+        assumes:
+          - independent errors compound over repeated operations
+        takeaway: Fidelity multiplies over depth, so a gate that is right ninety-nine times in a hundred fails a circuit a few hundred deep.
+        format: BALLPARK
+        question: Estimate the chance the whole 400-gate circuit is right.
+        why: >
+          Each gate has to work for the circuit to work, so the probabilities multiply rather than adding.
+          That turns a small per-gate error into a wall very quickly: at 98.8 per cent per gate, a
+          four-hundred-gate circuit succeeds about one time in a hundred and thirty. It is why depth is the
+          quantity that matters in this field rather than qubit count, and why error correction exists at
+          all — without it, adding depth costs exponentially and there is no arithmetic that rescues it.
+        estimate:
+          prompt: >
+            One gate has fidelity 0.988, and the circuit applies 400 of them in succession.
+          question: Choose the single-gate fidelity and the depth.
+          labels:
+            - 0.988  (fidelity of one gate)
+            - 400  (gates in the circuit)
+            - 12  (qubits used)
+            - 0.012  (error of one gate)
+            - 1.2  (benchmarked error, per cent)
+          values: [0.988, 400, 12, 0.012, 1.2]
+          slots: 2
+          template: '{0} ^ {1}'
+          formula: Math.pow(a,b)
+          correct: [0, 1]
+          target: 0.0079
+          tolerance: 0.004
+          units: 'chance the circuit is right'
+          solution: 0.988^400 ≈ 0.008.
+          explanation: >
+            Less than one per cent — about one run in a hundred and thirty. The per-gate error and the
+            benchmarked percentage are the same fact written differently, and the qubit count does not enter
+            a depth calculation.
+          givens:
+            - Single-gate fidelity is 0.988
+            - The circuit is 400 gates deep
+          relationship: >
+            Circuit fidelity = single-gate fidelity raised to the number of gates, because every gate has to
+            work and the probabilities multiply.
+        answerText: Under 1 per cent.
+      - group: VER
+        task: Say which number belongs beside the threshold
+        title: The number error correction cares about
+        place: Error & Verification
+        scene: >
+          Petrova wants to write one sentence about error correction. The threshold for the code she has in
+          mind is about 1 per cent per gate, and the two candidate numbers sit either side of it.
+        assumes:
+          - a threshold is a comparison against a defined quantity
+        takeaway: A threshold is defined against a particular error measure, so the comparison is only meaningful with the same measure on both sides.
+        format: CASEBOOK
+        why: >
+          The threshold is not a general statement about how good a machine feels; it is defined against an
+          average gate error of the kind benchmarking produces. So 1.2 per cent is the number that goes
+          beside it, and it sits above the line — which is the honest and unwelcome sentence. The 0.4 per
+          cent figure is a single gate under ideal conditions, and comparing it with a threshold defined for
+          average performance is comparing two different things. The circuit success rate is downstream of
+          both and is not a per-gate quantity at all.
+        rebuttals:
+          - Benchmarked average error is the quantity the threshold is defined against, which is why it is the one to quote.
+          - The best single gate under ideal conditions is not what a code experiences over a whole circuit.
+          - The circuit success rate is a consequence of gate error and depth, not a per-gate figure.
+          - Readout error is excluded from the benchmarked number by construction, which is what makes it comparable.
+        columns:
+          - The number
+          - What it is good for
+        scenarios:
+          - 1.2 per cent, from randomised benchmarking.
+          - 0.4 per cent, from one gate measured directly.
+          - 0.8 per cent, the circuit's own success rate per gate.
+          - 4 per cent readout error.
+        choices:
+          - The one to set beside a threshold, and it is above the line.
+          - A best case under ideal conditions, and not comparable with a threshold.
+          - A consequence of gate error and depth rather than a per-gate figure.
+          - Excluded from the benchmark by construction, which is what makes it comparable.
+        mapping: [0, 1, 2, 3]
+
+  - title: A number that rules something out
+    objective: Run the Bell test as a measurement, and say precisely what a violation excludes.
+    briefing: Two qubits, four settings, and a quantity that cannot exceed two if the outcomes were agreed in advance.
+    stake: >-
+      Tuesday, and the review wants a demonstration that the machine really is doing something quantum
+      rather than something clever. Anders Holm's answer is the oldest one available: entangle two qubits,
+      measure correlations at four combinations of settings, and compute a single number. If the outcomes
+      were fixed before the measurement — by any instruction agreed in advance, however elaborate — that
+      number cannot exceed two. Dasha Petrova wants the loopholes stated in the same breath as the result.
+      Today you run it, work out what the measured value excludes, and write the sentence that says so
+      without saying more.
+    takeaway: The strongest results in this field are exclusions, and stating exactly what has been excluded is the whole of the claim.
+    stops:
+      - group: VER
+        task: Compute the quantity
+        title: Four correlations, one number
+        place: Error & Verification
+        scene: >
+          The four correlation measurements come back at 0.71, −0.69, 0.70 and 0.68. The combination Holm
+          wants is the first minus the second plus the third plus the fourth.
+        assumes:
+          - a correlation between two detectors can be measured as a number between minus one and one
+        takeaway: The Bell quantity is arithmetic on four measured correlations, and its ceiling for pre-agreed outcomes is two.
+        format: BALLPARK
+        question: Estimate the CHSH value for these four correlations.
+        why: >
+          Nothing here is mysterious until the arithmetic is done. Each correlation says how often the two
+          detectors agreed at one pair of settings. The particular combination — one minus, three plus —
+          is chosen because any strategy in which each particle carries instructions decided in advance
+          keeps it at or below two, whatever those instructions are. Quantum mechanics allows up to about
+          2.83. So the measured number lands in one region or the other, and which region it lands in is
+          the entire result.
+        estimate:
+          prompt: >
+            The four correlations are E(a,b) = 0.71, E(a,b′) = −0.69, E(a′,b) = 0.70 and E(a′,b′) = 0.68.
+            S is the first minus the second plus the third plus the fourth.
+          question: Choose the four correlations.
+          labels:
+            - 0.71  (E of a and b)
+            - -0.69  (E of a and b prime)
+            - 0.70  (E of a prime and b)
+            - 0.68  (E of a prime and b prime)
+            - 2.83  (the quantum ceiling)
+          values: [0.71, -0.69, 0.70, 0.68, 2.83]
+          slots: 4
+          template: '{0} − {1} + {2} + {3}'
+          formula: a-b+c+d
+          correct: [0, 1, 2, 3]
+          target: 2.78
+          tolerance: 0.12
+          units: '(S)'
+          solution: S = 0.71 − (−0.69) + 0.70 + 0.68 = 2.78.
+          explanation: >
+            About 2.78, which is well above 2 and just under the quantum ceiling of 2.83 — the ceiling is
+            what the result is compared against rather than an input to it.
+          givens:
+            - The four measured correlations
+            - S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)
+          relationship: >
+            S is the sum of three correlations minus one of them, and any set of outcomes decided before the
+            measurement keeps |S| at or below 2.
+        answerText: About 2.78.
+      - group: NET
+        task: Say what the number excludes
+        title: What has been ruled out
+        place: Networks & Security
+        scene: >
+          S is 2.78, comfortably above 2. Sadiq asks Holm to say in one sentence what that establishes, and
+          then asks him to say what it does not.
+        assumes:
+          - a measurement can rule out a class of explanations without confirming one
+        takeaway: A Bell violation excludes every explanation in which the outcomes were fixed in advance and locally, which is stronger and narrower than proving a mechanism.
+        format: CHOICE
+        question: What does S = 2.78 establish?
+        choices:
+          - That the two qubits are communicating faster than light.
+          - That no locally pre-fixed set of outcomes explains these correlations.
+          - That quantum mechanics is the correct theory of nature.
+          - That the qubits are entangled to a fidelity of 98 per cent.
+        answer: That no locally pre-fixed set of outcomes explains these correlations.
+        why: >
+          The inequality is a statement about a whole family of explanations, not about one mechanism. It
+          says that if every outcome was determined by properties carried along beforehand, and no setting
+          influenced a distant outcome, then S cannot exceed 2. Measuring more than 2 kills that family.
+          It does not establish signalling — the correlations cannot be used to send anything, because each
+          detector on its own sees random results — and it does not prove a theory correct; a measurement
+          never does that. It rules something out, which is the strongest thing an experiment does.
+        rebuttals:
+          - Neither detector's results change when the other's settings change, so nothing is being sent.
+          - Excluding a class of explanations is not the same as proving the theory that predicted the excess.
+          - Fidelity is a separate measurement, and S alone does not give it.
+      - group: CTRL
+        task: State the loopholes
+        title: What a careful reader will ask
+        place: Control & Readout
+        scene: >
+          Petrova lists what somebody sceptical will want to know: whether the settings were chosen after
+          the state was prepared, whether the two qubits were far enough apart, and how many runs were
+          discarded.
+        assumes:
+          - an experiment's conclusion depends on conditions its apparatus may not meet
+        takeaway: Naming the conditions your apparatus does not meet is what separates a demonstration from a claim.
+        format: PROTOCOL
+        why: >
+          On a chip, two qubits are a millimetre apart and the measurement takes microseconds, so light
+          could comfortably carry a message from one to the other during the experiment — the locality
+          condition is not met, and saying so is not a weakness, it is the truth about the apparatus. If
+          settings are chosen in advance rather than during the run, a mechanism that knew them could
+          conspire. If runs are discarded on any criterion related to the outcome, the surviving sample is
+          not the sample the inequality is about. Each of these is a stated condition rather than a doubt.
+        rebuttals:
+          - Two qubits a millimetre apart cannot be separated fast enough for locality to hold, and the paper has to say so.
+          - Settings fixed in advance leave room for a mechanism that could have known them.
+          - Discarding runs on an outcome-related criterion changes what population the inequality applies to.
+          - Fair sampling is an assumption, and an assumption stated is not the same as an assumption hidden.
+        columns:
+          - The condition
+          - What it would take to meet it
+        scenarios:
+          - The two measurements are space-like separated.
+          - Settings are chosen after the state is prepared.
+          - No runs are discarded on outcome-related criteria.
+          - Detection efficiency is high enough to avoid fair-sampling assumptions.
+        choices:
+          - Detectors far enough apart that light cannot cross between them in the measurement time.
+          - A fast random choice made during the run rather than programmed beforehand.
+          - A pre-registered rule for exclusion, applied blind to the result.
+          - Efficient readout on both qubits, which this device has and many platforms do not.
+        mapping: [0, 1, 2, 3]
+
+  - title: Reading a claim as a claim
+    objective: Work out what an advantage result asserts, and what would falsify it.
+    briefing: A competing group's paper says a classical computer would need nine thousand years. That is a claim about a classical computer.
+    stake: >-
+      Wednesday, and the paper everybody has been arguing about is on the table. A group has run a sampling
+      circuit on a 67-qubit device and states that reproducing the output distribution classically would
+      take about nine thousand years. Priya Raghavan wants Ridgeway's response ready for the review. Anders
+      Holm points out the sentence is two claims welded together: one about what their machine did, and one
+      about what every classical algorithm could do — and only the first is a measurement. Today you take
+      the claim apart, work out which half could be wrong without anybody having cheated, and decide what
+      Ridgeway can honestly say about it.
+    takeaway: A claim about what somebody else's computer cannot do is a claim about the state of the art, and the state of the art moves.
+    stops:
+      - group: VER
+        task: Separate the two halves of the claim
+        title: What was measured and what was estimated
+        place: Error & Verification
+        scene: >
+          The paper reports a sampled distribution, a fidelity estimate, and a runtime for the best known
+          classical algorithm on the largest machine the authors could get time on.
+        assumes:
+          - a comparison has a measured side and a modelled side
+        takeaway: Half of an advantage claim is a measurement of a device and half is an estimate about algorithms nobody has invented yet.
+        format: CASEBOOK
+        why: >
+          What the device did is a measurement, and it either reproduces or it does not. The classical
+          runtime is a different kind of statement: it is the best anybody currently knows how to do, on
+          hardware somebody currently has, and it can be overturned by a cleverer algorithm without any
+          experimental error at all. That has happened repeatedly, and it is not a scandal — it is what a
+          bound of that kind means. The fidelity estimate sits in between, because it relies on a model of
+          how errors accumulate that cannot itself be checked classically at this size.
+        rebuttals:
+          - The sampled distribution is a measurement of their device, and it either reproduces or it does not.
+          - The classical runtime is the best known method today, and a better algorithm changes it without any error.
+          - The fidelity estimate leans on an error model that cannot be verified classically at this size.
+          - The energy and cost figures are engineering facts about two particular machines.
+        columns:
+          - The part of the claim
+          - What kind of statement it is
+        scenarios:
+          - The output distribution their device produced.
+          - Nine thousand years for the best known classical algorithm.
+          - The estimated circuit fidelity.
+          - The comparison of energy used.
+        choices:
+          - Measured. It reproduces or it does not.
+          - An estimate about the state of the art, which moves.
+          - A model-dependent number that cannot be checked classically at this size.
+          - Engineering facts about two particular machines.
+        mapping: [0, 1, 2, 3]
+      - group: CTRL
+        task: Say what Ridgeway's own machine could check
+        title: What twelve qubits can say about sixty-seven
+        place: Control & Readout
+        scene: >
+          Ridgeway has twelve qubits. Mensah is asked what, if anything, a twelve-qubit device can
+          contribute to an argument about a sixty-seven-qubit one.
+        assumes:
+          - a small system can be simulated exactly and a large one cannot
+        takeaway: A small device is where a method is validated, because it is the only size at which the right answer is known independently.
+        format: CHOICE
+        question: What is a twelve-qubit device good for here?
+        choices:
+          - Nothing; the claim is about a machine four times larger.
+          - Checking the method where the exact answer is already known.
+          - Running the same circuit more slowly and comparing runtimes.
+          - Demonstrating that twelve qubits are enough for the task.
+        answer: Checking the method where the exact answer is already known.
+        why: >
+          At twelve qubits a classical computer can produce the exact output distribution in seconds, which
+          means the true answer is known independently of the experiment. That is precisely where you test
+          the *method* — the fidelity estimator, the sampling analysis, the way errors are modelled — and if
+          it fails to recover the known answer at twelve qubits, nothing it says at sixty-seven is worth
+          reading. Small devices are not junior versions of large ones; they are where the instruments used
+          on large ones get calibrated.
+        rebuttals:
+          - A small device cannot reproduce the claim and can validate the tools the claim depends on.
+          - Comparing runtimes on a different-sized problem answers a different question.
+          - Nobody argues twelve qubits suffice for the task; that is not what would be shown.
+      - group: NET
+        task: Decide what Ridgeway says publicly
+        title: The response
+        place: Networks & Security
+        scene: >
+          Raghavan wants a paragraph for the review. The options on the table run from a full rebuttal to
+          silence, and the group has one genuinely new thing to offer.
+        assumes:
+          - a public statement can be about a method rather than about a rival
+        takeaway: The useful public contribution is usually a method somebody else can apply, not a verdict on somebody else's result.
+        format: SCIENCETANK
+        why: >
+          Ridgeway cannot rebut a sixty-seven-qubit runtime claim with twelve qubits and should not try. What
+          it can do is publish the validation: run the estimator at a size where the exact answer is known,
+          show where it holds and where it breaks, and hand that over. It is genuinely new, it is within the
+          group's means, and it improves the field's ability to judge the next claim as well as this one.
+          Endorsing or attacking the result outright commits the group to a position its own machine cannot
+          support either way.
+        proposals:
+          - { label: A, text: Publish the estimator validation at twelve qubits, where the exact answer is known, and say nothing about the rival result. }
+          - { label: B, text: Say nothing publicly until Delft's independent run comes back. }
+          - { label: C, text: Publish a rebuttal arguing the classical runtime estimate is too pessimistic. }
+          - { label: D, text: Endorse the result and cite it in the review as the state of the art. }
+        recommended: { A: 55, B: 20 }
+        evidence: |
+          Ridgeway has 12 qubits against the paper's 67. An exact classical simulation at 12 qubits takes
+          seconds. Nobody has published a validation of this estimator against exact results. Two previous
+          advantage claims were overturned by better classical algorithms rather than by experimental error.
+          The review is in three days.
+
+  - title: The discriminator that had seen the answer
+    objective: Find out why the second device disagrees, and what that does to a fortnight of numbers.
+    briefing: Delft ran the circuit. Their fidelity is a third lower than Ridgeway's, on hardware that is otherwise better.
+    stake: >-
+      Thursday, and Delft's raw shots arrived overnight. Their device has longer coherence and lower gate
+      error than Ridgeway's by every measure they sent, and the circuit fidelity they get is a third lower.
+      Anders Holm has been asking for a second device since March and this morning he is right about why.
+      Marta Castellan finds it before lunch: Ridgeway's readout discriminator is retrained at the start of
+      each session on data that includes the very states it is being asked to distinguish, so it has been
+      scoring itself on its own training set. Nothing was faked. Today you work out what that does to a
+      measured fidelity, which of the fortnight's numbers it touches, and what has to be rerun.
+    takeaway: A method tuned on the data it is later tested against will flatter itself, and it will do so quietly and consistently.
+    stops:
+      - group: CTRL
+        task: Say what the retraining did
+        title: Scoring yourself on your own training set
+        place: Control & Readout
+        scene: >
+          The tune-up takes a set of shots, fits the discriminator to them, and then evaluates readout
+          fidelity on the same shots. Delft fits on one set and evaluates on a fresh one.
+        assumes:
+          - a rule fitted to data describes that data better than it describes new data
+        takeaway: Evaluating a classifier on the data it was fitted to measures the fit, not the performance.
+        format: DIAGNOSIS
+        headline: Two devices, the better one reporting worse fidelity, and the difference is in the analysis.
+        task: Which explanation fits all of it?
+        readings:
+          - { zone: Delft device, label: T2, value: 61 µs, status: normal, note: better than Ridgeway }
+          - { zone: Delft device, label: Gate error, value: 0.6 per cent, status: normal }
+          - { zone: Delft result, label: Circuit fidelity, value: 0.62, status: alarm }
+          - { zone: Ridgeway result, label: Circuit fidelity, value: 0.91, status: alarm }
+          - { zone: Ridgeway method, label: Discriminator, value: fitted and scored on one set, status: alarm }
+        choices:
+          - { label: Delft's device is worse in some way their own metrics did not catch, mechanism: A hidden hardware fault would lower their result. }
+          - { label: "Ridgeway's discriminator was scored on its own training data", mechanism: "A rule fitted to a set describes that set better than it describes a fresh one." }
+          - { label: The circuits were not identical, mechanism: A different sequence would give a different result. }
+          - { label: Ordinary statistical fluctuation between the two runs, mechanism: Finite sampling produces spread between repeats. }
+        answer: "Ridgeway's discriminator was scored on its own training data"
+        why: >
+          The direction is the tell. Delft's hardware is better on every independently measured quantity —
+          coherence, gate error, readout separation — and their result is worse, which no hardware fault
+          explains. What differs is the analysis: Ridgeway fits the discriminator to a set of shots and then
+          reports its accuracy on those same shots, so every idiosyncrasy of that particular set is being
+          counted as performance. The circuits are identical, since Delft ran the sequences Ridgeway sent,
+          and a gap of a third is far outside sampling spread at these shot counts.
+        rebuttals:
+          - Every hardware quantity Delft measured independently is better than Ridgeway's, which no hidden fault reconciles.
+          - Delft ran the sequences Ridgeway sent, so the circuits are the same.
+          - A third is many times the sampling spread at these shot counts.
+      - group: VER
+        task: Sort the fortnight's numbers
+        title: What the artefact touches
+        place: Error & Verification
+        scene: >
+          Holm lists the numbers this fortnight produced and asks which of them passed through the
+          discriminator and which did not.
+        assumes:
+          - a fault in one step affects only what depends on that step
+        takeaway: Trace which results the faulty step is upstream of, and the rest stand.
+        format: CASEBOOK
+        why: >
+          The discriminator sits between the readout signal and every bit that comes out, so anything
+          counting bits inherits it — circuit fidelity, and the readout fidelity figure itself, which is the
+          most affected of all. What does not pass through it is anything read off a decay rather than a
+          classification: T1 and T2 come from how fast a signal falls with time, and a constant
+          misassignment shifts the curve without changing its slope. Benchmarking is the same story, which
+          is exactly why the method exists. And the Bell result used correlations computed from the same
+          classified shots, so it needs rerunning even though nothing about it looked wrong.
+        rebuttals:
+          - Circuit fidelity counts classified bits, so it inherits the fault directly.
+          - T1 and T2 are read from a decay rate, and a constant misassignment moves the intercept rather than the slope.
+          - Benchmarking reads error from a slope for the same reason, which is why it survives.
+          - The Bell correlations were computed from classified shots, so they have to be rerun.
+        columns:
+          - The result
+          - What the artefact does to it
+        scenarios:
+          - Circuit fidelity, 0.91.
+          - T1 and T2.
+          - The randomised benchmarking error.
+          - The Bell value of 2.78.
+        choices:
+          - Falls. It counts classified bits, so it inherits the fault directly.
+          - Stands. Read from a decay rate, which a constant misassignment does not change.
+          - Stands, for the same reason, which is why the method was chosen.
+          - Has to be rerun. Nothing looked wrong and the shots went through the same step.
+        mapping: [0, 1, 2, 3]
+      - group: FAB
+        task: Decide what happens next
+        title: Rerun, and tell whom
+        place: Fabrication & Materials
+        scene: >
+          Nothing has been published. The review is in two days. Delft has the raw shots and has not been
+          told what Ridgeway found.
+        assumes:
+          - a fault found before publication is a different problem from one found after
+        takeaway: An error caught before it is published costs a rerun; the same error caught after costs the group's word.
+        format: TRIAGE
+        question: What does the group do first?
+        choices:
+          - Tell Delft, who are mid-analysis on it right now.
+          - Rerun the affected numbers with a held-out evaluation set.
+          - Redraft the review slides with the corrected figures.
+          - Work out how long the discriminator has been trained this way.
+        answer: Tell Delft, who are mid-analysis on it right now.
+        why: >
+          Everything else can be done this week and Delft is working right now on an analysis whose
+          comparison point Ridgeway knows to be wrong. Every hour that passes is an hour of somebody else's
+          time spent on a discrepancy that has already been explained, and a group that has to be told later
+          rather than sooner will remember which it was. The rerun, the slides and the history all matter and
+          none of them changes what somebody else does in the next hour.
+        rebuttals:
+          - The rerun is this week's work and nobody else is waiting on it.
+          - Slides drafted before the rerun would only be drafted twice.
+          - How long it has been happening is worth knowing and changes nothing anybody does today.
+
+  - title: A day when the machine behaves
+    objective: Run an ordinary session, and notice what ordinary is resting on.
+    briefing: Everything is calibrated, the fridge is cold, and there is nothing to fix.
+    stake: >-
+      Friday, and it is a quiet day. The fridge is at 11 millikelvin, the tune-up converged on the first
+      attempt, every qubit is within a few megahertz of where it was yesterday, and the reruns are queued
+      and running themselves. Kofi Mensah uses days like this to ask what the group is assuming, because it
+      is the only time anybody has. Grace Whitfield is doing her monthly comparison against the national
+      standard, which nobody watches and everything depends on. Today you check what a calibration actually
+      established, read a drift that is behaving, and decide which of the group's comforts is a measurement
+      and which is a habit.
+    takeaway: A machine that is working is a set of assumptions nobody is currently being forced to check.
+    stops:
+      - group: CTRL
+        task: Say what the tune-up established
+        title: Converged, and on what
+        place: Control & Readout
+        scene: >
+          The automatic tune-up reports success on all twelve qubits in eleven minutes. Mensah asks what,
+          precisely, that success is a statement about.
+        assumes:
+          - an automated procedure optimises the quantity it was given
+        takeaway: A calibration says the machine matches the model it was tuned against, which is a narrower claim than working.
+        format: CHOICE
+        question: What has a successful tune-up established?
+        choices:
+          - That the machine is working correctly today.
+          - That it found parameters matching the responses it tests for.
+          - That the qubits have not drifted since yesterday.
+          - That the error rates will be as good as they were last week.
+        answer: That it found parameters matching the responses it tests for.
+        why: >
+          A tune-up searches for parameters that make a specific set of measurements come out as expected —
+          a frequency, a pulse amplitude, a readout separation. Success means it found them. It says nothing
+          about behaviour the routine does not test: leakage into higher levels, correlated errors across
+          qubits, or anything that happens on timescales longer than the routine runs for. That is not a
+          criticism of the routine; it is what any calibration is. The mistake is reading "converged" as
+          "correct".
+        rebuttals:
+          - Working correctly is a wider claim than the handful of responses the routine measures.
+          - Drift is inferred from the parameters having moved little, and the tune-up does not test for it directly.
+          - Nothing in a tune-up predicts an error rate; that is a separate measurement.
+      - group: SENSE
+        task: Read a comparison that is behaving
+        title: The month when nothing moved
+        place: Quantum Sensing
+        scene: >
+          Whitfield's monthly comparison agrees with the national standard to within the uncertainty, as it
+          has for eleven months. She writes it in the log with the same care as if it had not.
+        assumes:
+          - a calibration can pass or fail and both are results
+        takeaway: A comparison that agrees is evidence about the instrument's stability, and it is only evidence because a disagreement would have been recorded.
+        format: CHOICE
+        question: What is the value of a calibration that finds nothing wrong?
+        choices:
+          - Very little, since nothing changed and no action follows.
+          - It bounds the drift since the last one, which is what makes the readings between usable.
+          - It proves the instrument is accurate.
+          - It satisfies a requirement without producing information.
+        answer: It bounds the drift since the last one, which is what makes the readings between usable.
+        why: >
+          Every reading taken between two calibrations is trusted on the strength of the pair. If the second
+          comparison agrees, the drift over that interval was smaller than the uncertainty, and every number
+          in between inherits that bound. If nobody had checked, those readings would be untethered — not
+          wrong, but unbounded, which for a three-year study is the same as useless. That is why a null
+          result gets written down as carefully as a failure.
+        rebuttals:
+          - A null result is what licenses every measurement taken in the interval, so plenty follows from it.
+          - Agreement within uncertainty bounds the error; it does not prove the instrument right.
+          - The information is precisely the bound, which is why the log entry matters.
+      - group: CRYO
+        task: Separate the measured comforts from the habits
+        title: Which of these is a measurement
+        place: Cryogenics & Vacuum
+        scene: >
+          Okafor lists four things the group is relying on today. Two are numbers somebody took this week.
+          Two are figures nobody has revisited in a year.
+        assumes:
+          - a figure can be current or inherited
+        takeaway: A quantity that has not been remeasured since the setup changed is a habit wearing a number's clothes.
+        format: TRIAGE
+        question: Which assumption is most worth checking?
+        choices:
+          - The fridge base temperature, logged continuously.
+          - The input line attenuation, from a record two rebuilds ago.
+          - The qubit frequencies, measured this morning.
+          - The amplifier noise temperature, measured last month.
+        answer: The input line attenuation, from a record two rebuilds ago.
+        why: >
+          Three of these were measured recently on this configuration. The fourth is an inherited figure
+          from a wiring layout that has since been taken apart and rebuilt twice, and it is load-bearing:
+          every drive amplitude the group quotes, and therefore every statement about how hard a qubit is
+          being driven, is computed through it. It is also the one most likely to have changed, because a
+          rebuild is exactly when attenuators get swapped. Old, load-bearing, and probably wrong is the
+          combination that puts it first.
+        rebuttals:
+          - Base temperature is logged continuously and is as current as anything here.
+          - Qubit frequencies were measured this morning on this configuration.
+          - The amplifier noise temperature is a month old and was taken on the present chain.
+
+  - title: Three things at once
+    objective: Rank three demands on one group in one afternoon.
+    briefing: A fibre cut, a clock drifting, and a review deadline, all inside an hour.
+    stake: >-
+      Monday, 15:20, and three things arrive together. A contractor with a digger has cut the fibre to the
+      substation, which ends Yusuf Sadiq's key run mid-session. Grace Whitfield's clock comparison has come
+      back 4 × 10⁻¹⁵ off, which is ten times its usual scatter and would put every frequency in the building
+      slightly wrong. And the review pack is due at five, with the corrected fidelity numbers still being
+      rerun. Priya Raghavan has one group, one afternoon, and has asked for an order rather than a
+      discussion. Today you decide what gets attention first, work out what a cut link does to a key
+      already exchanged, and say what a drifting reference does to everything measured against it.
+    takeaway: Rank by what is still getting worse and what is cheapest to stop, not by what is loudest.
+    stops:
+      - group: NET
+        task: Decide what the group does first
+        title: Which of the three cannot wait
+        place: Networks & Security
+        scene: >
+          Raghavan puts the three on the board. Two of them have already done whatever they are going to do.
+        assumes:
+          - a problem still developing is different from one that has finished
+        takeaway: Rank by rate of deterioration and by how cheap the fix is, not by how alarming it sounds.
+        format: TRIAGE
+        question: What gets the group's attention first?
+        choices:
+          - The clock — everything since the last comparison is unbounded.
+          - The cut fibre, because the key session has stopped.
+          - The review pack, because it is due at five.
+          - The rerun queue, because the corrected numbers feed the pack.
+        answer: The clock — everything since the last comparison is unbounded.
+        why: >
+          The fibre is cut and will stay cut until a contractor digs it up; nothing the group does this
+          afternoon changes that, and no key material is at risk because an interrupted session simply
+          yields no key. The review pack has a deadline and a known remedy. The clock is the only one still
+          spreading: every frequency measured against it since the last comparison is unbounded until
+          somebody either confirms the drift or finds the fault in the comparison, and each hour adds more
+          measurements to the pile. It is also the cheapest to stop — one repeat comparison.
+        rebuttals:
+          - An interrupted key session yields no key rather than a compromised one, so nothing is at risk.
+          - The review pack has a deadline and a remedy, which makes it schedulable rather than urgent.
+          - The rerun queue is running itself and needs nobody in the next hour.
+      - group: NET
+        task: Say what a cut link costs
+        title: What an interrupted exchange leaves behind
+        place: Networks & Security
+        scene: >
+          The session was three-quarters through sifting when the fibre went. Sadiq is asked whether any of
+          the partial key can be used.
+        assumes:
+          - a key is only secret if the error rate on it has been checked
+        takeaway: A key that has not been through error estimation and privacy amplification is not a key, and a partial one cannot be rescued.
+        format: CHOICE
+        question: What can be done with the partial key?
+        choices:
+          - Use it, since three quarters of the bits were exchanged successfully.
+          - Nothing. Without the error estimate there is no bound on the leak.
+          - Store it and complete the exchange when the fibre is repaired.
+          - Use it at reduced length, in proportion to how much was completed.
+        answer: Nothing. Without the error estimate there is no bound on the leak.
+        why: >
+          The security of the protocol does not come from the exchange; it comes from the steps afterwards.
+          A sample of the bits is compared openly to measure the error rate, that rate bounds how much an
+          eavesdropper could know, and privacy amplification then compresses the key until that bound is
+          negligible. Skip those and you have a string of correlated bits with no bound on them at all.
+          Storing it does not help either — the sample has to come from the same session under the same
+          conditions.
+        rebuttals:
+          - The bits being exchanged is the easy part; the bound on what leaked is the part that makes it a key.
+          - Conditions change between sessions, so a later sample does not bound this one.
+          - Shortening a key does not substitute for privacy amplification against a measured error rate.
+      - group: SENSE
+        task: Say what a drifting reference does
+        title: Everything measured against it
+        place: Quantum Sensing
+        scene: >
+          If the clock really has drifted, every frequency measured in the building since the last
+          comparison is off by the same fraction — including the qubit frequencies in the review pack.
+        assumes:
+          - a measurement is a ratio against a reference
+        takeaway: An error in a shared reference moves every measurement together, which makes it invisible in any internal comparison.
+        format: CHOICE
+        question: Why is a drifting reference worse than a noisy instrument?
+        choices:
+          - Because the drift is larger than instrument noise.
+          - Because everything shifts together, so no internal check disagrees.
+          - Because it cannot be measured without a second clock.
+          - Because frequency errors compound over time and noise does not.
+        answer: Because everything shifts together, so no internal check disagrees.
+        why: >
+          Noise announces itself: repeat a measurement and the answers scatter, and the scatter is
+          measurable. A common-mode error does the opposite. Every instrument timed against the same
+          reference shifts together, every internal cross-check agrees, and the group's own consistency
+          becomes evidence that everything is fine. The only thing that can catch it is a comparison against
+          something outside the building, which is exactly why Whitfield's monthly ritual is not a ritual.
+        rebuttals:
+          - Size is not the point; a small common-mode shift is more dangerous than a large random one.
+          - It can be measured, and Whitfield's comparison against the national standard is how.
+          - Both accumulate in a long measurement; the difference is that one of them is detectable internally.
+
+  - title: The last morning it can be withdrawn
+    objective: Decide what to say about a number that is already outside the building.
+    briefing: The inflated fidelity is in a conference abstract, and the correction window closes today.
+    stake: >-
+      Tuesday, and the abstract went out three weeks ago with the inflated fidelity in it. The conference
+      allows corrections until five o'clock today and nothing afterwards. Priya Raghavan points out that
+      the corrected number is still good and the talk is in four months, when the rerun will be complete
+      anyway. Anders Holm says a number that is known to be wrong cannot be left standing on the strength
+      of a plan to fix it later. Dasha Petrova wants to know what the correction should actually contain.
+      Today you work out what the honest correction says, what it costs, and what the group commits to
+      either way.
+    takeaway: The moment a correction stops being possible is the moment the decision needs the whole argument rather than the quickest one.
+    stops:
+      - group: VER
+        task: Say what the correction has to contain
+        title: What a correction is for
+        place: Error & Verification
+        scene: >
+          Petrova drafts. The question is whether the correction names the cause or only the number, and
+          whether it goes out before the rerun finishes.
+        assumes:
+          - a correction is read by people deciding whether to trust the next result
+        takeaway: A correction that names the mechanism lets other groups check their own work; one that changes only a number does not.
+        format: PROTOCOL
+        why: >
+          The corrected figure is the least useful part. What another group can act on is the mechanism —
+          discriminator fitted and evaluated on one set of shots — because a dozen laboratories do exactly
+          that and none of them will look unless somebody says so. The scope matters too: which numbers were
+          affected and which were not, or every result the group has ever published falls under suspicion.
+          And it has to go now, incomplete, rather than after the rerun, because the deadline is today and a
+          complete correction that arrives too late corrects nothing.
+        rebuttals:
+          - The mechanism is the part another group can act on, which is what makes the correction useful.
+          - The scope stops every other result the group has published from falling under the same doubt.
+          - Saying the rerun is under way is honest and is not a substitute for the correction itself.
+          - Waiting for completeness misses the deadline, and after five o'clock nothing can be corrected at all.
+        columns:
+          - The element
+          - What it does
+        scenarios:
+          - The corrected number.
+          - The mechanism that produced the error.
+          - Which results are and are not affected.
+          - A note that the full rerun is under way.
+        choices:
+          - The least useful part on its own, though it has to be there.
+          - What another group can act on, and the reason to publish at all.
+          - What stops every other result falling under the same doubt.
+          - Honest context, and no substitute for the correction.
+        mapping: [0, 1, 2, 3]
+      - group: CTRL
+        task: Work out what the corrected number is
+        title: Fidelity, with a held-out set
+        place: Control & Readout
+        scene: >
+          The rerun's first results are in for three qubits. With a held-out evaluation set, readout
+          fidelity comes out at 0.941 rather than the 0.962 reported, and the circuit figure follows.
+        assumes:
+          - a fidelity measured on fresh data is the honest one
+        takeaway: The corrected number is smaller and it is real, which is the only kind of number worth having in a talk.
+        format: BALLPARK
+        question: Estimate the corrected circuit fidelity across twelve qubits.
+        why: >
+          Readout is applied to every qubit, so its fidelity enters the circuit figure once per qubit and
+          the product is what a whole-register measurement sees. That is the same compounding as gate error
+          and it is why a two-point drop per qubit becomes a much larger drop over twelve. It is also why
+          readout improvements are worth so much on a large device: the exponent is the number of qubits,
+          and it only grows.
+        estimate:
+          prompt: >
+            The corrected single-qubit readout fidelity is 0.941, and all twelve qubits are read out.
+          question: Choose the per-qubit fidelity and the number of qubits.
+          labels:
+            - 0.941  (corrected readout fidelity per qubit)
+            - 12  (qubits read out)
+            - 0.962  (the figure originally reported)
+            - 400  (gates in the circuit)
+            - 0.988  (single-gate fidelity)
+          values: [0.941, 12, 0.962, 400, 0.988]
+          slots: 2
+          template: '{0} ^ {1}'
+          formula: Math.pow(a,b)
+          correct: [0, 1]
+          target: 0.48
+          tolerance: 0.08
+          units: 'across the register'
+          solution: 0.941^12 ≈ 0.48.
+          explanation: >
+            About 0.48, against 0.63 on the figure originally reported — the gap widens with every qubit,
+            which is why the original number mattered. The gate fidelity and circuit depth belong to the
+            other half of the error budget.
+          givens:
+            - Corrected readout fidelity is 0.941 per qubit
+            - All twelve qubits are read out
+          relationship: >
+            Register readout fidelity = per-qubit fidelity raised to the number of qubits, because every
+            qubit has to be read correctly.
+        answerText: About 0.48.
+      - group: NET
+        task: Decide what the group commits to
+        title: What each version costs
+        place: Networks & Security
+        scene: >
+          Raghavan wants the consequences of both versions written down before anybody signs, so that the
+          group is choosing rather than drifting.
+        assumes:
+          - a decision not to act is also a decision with consequences
+        takeaway: Both options have costs, and the question is which of them the group can carry if it turns out to be wrong.
+        format: CASEBOOK
+        why: >
+          Correcting today costs the group a visibly reduced headline, an awkward paragraph, and the four
+          months until the talk spent being the group that corrected itself. Not correcting costs nothing at
+          all unless somebody notices — and Delft already has the raw shots, the mechanism, and every reason
+          to write about it. That asymmetry is the whole argument: one option's worst case is embarrassment
+          the group chose, and the other's worst case is the same embarrassment, chosen by somebody else,
+          with the group's silence attached to it.
+        rebuttals:
+          - Correcting costs a reduced headline and an awkward paragraph, both of which are survivable.
+          - Not correcting costs nothing only if nobody else has the evidence, and Delft has all of it.
+          - The rerun completing in four months does not un-publish an abstract that stood uncorrected.
+          - Silence is not neutral once the group knows; it becomes a second thing to explain.
+        columns:
+          - The option
+          - What it commits the group to
+        scenarios:
+          - Correct today, before the rerun is complete.
+          - Say nothing and correct at the talk in four months.
+          - Correct today and name the mechanism.
+          - Correct today and give only the number.
+        choices:
+          - A smaller headline now, and four months as the group that caught it.
+          - Hoping nobody with the data speaks first, which Delft can.
+          - The most useful version, because other laboratories can check themselves.
+          - The least useful version, and one that invites the question anyway.
+        mapping: [0, 1, 2, 3]
+
+  - title: What we know, and how well
+    objective: State the fortnight's results at the confidence each has earned.
+    briefing: The review is this afternoon, and every number on the slides needs its evidence beside it.
+    stake: >-
+      Wednesday, and the fortnight goes in front of the review. Priya Raghavan will not put up a slide that
+      states everything in the same typeface of certainty, because a panel that cannot tell a measurement
+      from a projection will ask about the wrong thing and then act on the answer. Anders Holm has the
+      reruns. Grace Whitfield wants the clock comparison in as a finding rather than a footnote. Marta
+      Castellan wants the analysis pipeline versioned and cited. Elena Barros wants ten minutes for the
+      thing that already works. Today you sort the fortnight's claims by the evidence under them and decide
+      which of its habits the group keeps.
+    takeaway: A result is worth what its evidence is worth, and saying so is what makes a claim usable by somebody else.
+    stops:
+      - group: VER
+        task: Sort the claims by their evidence
+        title: Measured, inferred, projected
+        place: Error & Verification
+        scene: >
+          Holm puts four of the fortnight's statements on the board. The group believes all four. They are
+          not held for the same reasons.
+        assumes:
+          - a claim can rest on a measurement, an inference, or a projection
+        takeaway: Sorting claims by their evidence is what tells a reader which one to check first.
+        format: CASEBOOK
+        why: >
+          The discriminator fault is the strongest thing here: two devices, raw shots on both sides, and a
+          mechanism anybody can reproduce in an afternoon. The corrected readout fidelity is a straight
+          measurement on held-out data, though so far on three qubits rather than twelve. The defect's
+          origin in the oxidation change is an inference from three chips in one window — sound, and not yet
+          the comparison that would settle it. And what the device will do once error correction is applied
+          is a projection from a threshold nobody at Ridgeway has reached, which is the weakest claim on the
+          slide and the one a panel will most want to hear.
+        rebuttals:
+          - Two devices, raw shots and a reproducible mechanism is as strong as evidence gets here.
+          - The corrected fidelity is measured on held-out data, on three qubits so far.
+          - The oxidation link is an inference from three chips in one window, without the controlled comparison.
+          - Behaviour under error correction is a projection from a threshold this group has not reached.
+        columns:
+          - The claim
+          - How strongly it is held
+        scenarios:
+          - The discriminator was scored on its own training data.
+          - Corrected readout fidelity is 0.941 per qubit.
+          - The defects came from the oxidation change.
+          - With error correction this architecture would reach useful depth.
+        choices:
+          - Established. Two devices, raw shots, and a mechanism anybody can reproduce.
+          - Measured on held-out data, on three qubits so far.
+          - Inferred from three chips in one processing window.
+          - Projected from a threshold this group has not reached.
+        mapping: [0, 1, 2, 3]
+      - group: SENSE
+        task: State the sensing result with its uncertainty
+        title: The number that goes to somebody else
+        place: Quantum Sensing
+        scene: >
+          Barros has ten minutes and one number: a field sensitivity, going to a hospital that will act on
+          it. She wants the uncertainty in the sentence rather than in a footnote.
+        assumes:
+          - a delivered number is used by somebody who cannot check it
+        takeaway: An uncertainty stated beside a number is what lets somebody else decide whether a change they see is real.
+        format: CHOICE
+        question: Why does the uncertainty belong in the sentence?
+        choices:
+          - Because caution is appropriate when reporting to clinicians.
+          - Because the user has to judge a change against the noise.
+          - Because the sensitivity figure alone would be too optimistic.
+          - Because it demonstrates that the measurement was done carefully.
+        answer: Because the user has to judge a change against the noise.
+        why: >
+          The hospital is not checking Ridgeway's work; it is using the number to decide whether something
+          in a patient changed. That decision is a comparison between an observed difference and the
+          smallest difference the instrument could have resolved, and the second half of that comparison
+          only exists if it is stated. A sensitivity with no uncertainty invites the user to treat every
+          wobble as real, which is worse than giving them no number at all.
+        rebuttals:
+          - Caution is a disposition; the uncertainty is a quantity the user's decision needs as an input.
+          - The figure is not optimistic, and stating its uncertainty is not a hedge against it.
+          - Careful work is demonstrated by the method section rather than by the presence of an error bar.
+      - group: CRYO
+        task: Decide which habits survive
+        title: What outlives the fortnight
+        place: Cryogenics & Vacuum
+        scene: >
+          Four things the group started doing under pressure. Okafor asks which of them are worth their cost
+          on an ordinary Tuesday, when nothing is wrong.
+        assumes:
+          - a practice adopted in a crisis has a cost that only shows later
+        takeaway: Keep the practices that would have caught this fortnight's mistake, and drop the ones that only paid off because it was abnormal.
+        format: TRIAGE
+        question: Which practice is most worth keeping permanently?
+        choices:
+          - Evaluating every fitted analysis on data it has never seen.
+          - Running every experiment twice before anybody looks at the result.
+          - A daily group meeting on the state of the machine.
+          - Versioning and citing the analysis pipeline with every figure.
+        answer: Evaluating every fitted analysis on data it has never seen.
+        why: >
+          One of these would have caught the whole fortnight. The discriminator survived for months because
+          nothing was ever evaluated on data it had not been fitted to, and a held-out set costs a few
+          minutes per session. Versioning the pipeline is genuinely good and would have made the fault
+          traceable rather than preventing it. Running everything twice doubles the cost of every result to
+          catch a class of error the held-out rule catches for nothing. And a daily meeting was right for a
+          fortnight and will be quietly abandoned by March.
+        rebuttals:
+          - Versioning would have made the fault traceable afterwards rather than stopping it happening.
+          - Running everything twice doubles every cost to catch what a held-out set catches for minutes.
+          - A daily meeting suits a crisis and will lapse the first ordinary month it applies to.
+
+interiors:
+  CRYO:
+    caption: The fridge is a plumbing problem with an expensive isotope in it.
+    standLine: Six stages, and the coldest one is where the chip lives.
+    station:
+      kind: panel
+      title: Stage temperatures
+      rows:
+        - { label: 50 K stage, value: 47 K, status: normal }
+        - { label: 4 K stage, value: 3.9 K, status: normal }
+        - { label: Still, value: 0.94 K, status: high }
+        - { label: Mixing chamber, value: 11 mK, status: normal }
+  FAB:
+    caption: A mistake here shows up in somebody else's measurement, months later.
+    standLine: Coupons from every run since 2020, and the drawer nobody wanted to spare.
+    station:
+      kind: panel
+      title: Wafer coupon
+      rows:
+        - { label: Junction resistance, value: 11.4 kΩ, status: normal }
+        - { label: Spread across wafer, value: 18 per cent, status: alarm }
+        - { label: Process window, value: spring, oxidation changed, status: high }
+  CTRL:
+    caption: Pulses in, one bit out, and everything that can go wrong between.
+    standLine: Twelve qubits, tuned this morning, and a chain of amplifiers to hear them through.
+    station:
+      kind: panel
+      title: Tune-up
+      rows:
+        - { label: Qubit 12 frequency, value: 4.61 GHz, status: high }
+        - { label: Flip pulse, value: 42 ns, status: normal }
+        - { label: Readout fidelity, value: 0.941 held out, status: normal }
+        - { label: Defect, value: 4.55 GHz, avoid, status: alarm }
+  VER:
+    caption: How wrong the machine is, and how you would know.
+    standLine: Two error numbers, both honest, answering different questions.
+    station:
+      kind: panel
+      title: Error budget
+      rows:
+        - { label: Benchmarked gate error, value: 1.2 per cent, status: alarm }
+        - { label: Best single gate, value: 0.4 per cent, status: normal }
+        - { label: Code threshold, value: about 1 per cent, status: high }
+        - { label: Bell value, value: 2.78, rerunning, status: high }
+  SENSE:
+    caption: The part of this field that already works for somebody else.
+    standLine: A magnetometer, a hospital across the city, and a calibration due at two.
+    station:
+      kind: panel
+      title: Magnetometer
+      rows:
+        - { label: Single-shot resolution, value: 40 pT, status: normal }
+        - { label: After averaging, value: 4 pT, status: normal }
+        - { label: Last comparison, value: within uncertainty, status: normal }
+        - { label: Clock offset, value: 4e-15, status: alarm }
+  NET:
+    caption: Sending a quantum state somewhere, and what survives the trip.
+    standLine: Forty kilometres of fibre, a substation, and a contractor with a digger.
+    station:
+      kind: panel
+      title: Key link
+      rows:
+        - { label: Distance, value: 41 km, status: normal }
+        - { label: Quantum bit error rate, value: 4.1 per cent, status: normal }
+        - { label: Sifted rate, value: 3.2 kbit/s, status: normal }
+        - { label: Link, value: cut at 15:20, status: alarm }
+
+copy:
+  CRYO: <p>Cryogenics. The fridge hangs open for service, its stages exposed one under another, each colder than the last. Everything here is about heat that should not arrive.</p>
+  FAB: <p>Fabrication. Yellow light, a spin coater, and a drawer of wafer coupons going back six years that nobody thought was worth the space until the week it was.</p>
+  CTRL: <p>Control and readout. Racks of microwave gear, more cable than anybody expects, and the desks where the machine is argued with several times a day.</p>
+  VER: <p>Verification. Plots of error against sequence length on every surface, and the wall of results nobody is allowed to believe yet.</p>
+  SENSE: <p>Sensing. A magnetometer inside a shield, a frequency standard in a rack, and the only instrument in the building somebody outside the group depends on.</p>
+  NET: <p>Networks. A fibre spool, a splice tray, and forty kilometres of duct between here and a substation.</p>
+  ARRIVE: <p>Sign-in. The register, the interlock keys, and the list of what may not be carried past this desk.</p>
+  OFFICE: <p>The group office. Where the argument about publishing happens, most days, at the kettle.</p>
+  STORE: <p>Gas and cryogen store. Helium, nitrogen, and the delivery schedule that decides what can be done this month.</p>
+  RACKS: <p>The microwave racks. Attenuators, circulators and amplifiers, in the order the signal meets them.</p>
+  DESK: <p>Analysis desks. Where the shots become numbers, and where the pipeline that does it is maintained.</p>
+  QUIET: <p>The reading room. One table, no instruments, and a door that shuts.</p>
+  SHIELD: <p>The shielded room. Mu-metal walls, a heavy door, and nothing electronic that has not been signed in.</p>
