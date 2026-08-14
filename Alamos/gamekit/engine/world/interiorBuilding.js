@@ -39,6 +39,7 @@ import {
 } from './materials.js';
 import { instrumentScreen, printedSheet, chalkboard, typedSheet } from './screens.js';
 import { addCaseBeacon } from './caseBeacon.js';
+import { furnishRoom, furnishingMaterials } from './interiorKit.js';
 
 /** Far enough along +x that the town is past the camera's far plane. */
 export const DISTRICT_X = 4000;
@@ -997,6 +998,57 @@ export function buildInteriorBuilding(scene, spec){
     new THREE.PlaneGeometry(0.46, 0.16),
     new THREE.MeshStandardMaterial({ color: 0x1d7a4a, emissive: 0x1d7a4a, emissiveIntensity: 0.8 })));
   exitSign.position.set(0, P.doorH + 0.22, z0 + 0.12);
+
+  // ---- the fit-out
+  //
+  // Everything above is the room: floor, walls, the instrument, the case stand,
+  // the door. Everything a room needs to look worked in — the shelving, the
+  // stools, the trolley somebody left, the notice nobody took down — comes from
+  // the shared kit, because `pieceDensity.mjs` counted nine to fifteen pieces in
+  // these rooms and fifteen is the bar. The theme's own props layer still owns
+  // what makes this place *itself*.
+  //
+  // Seeded on the room id, so it is the same room on every visit and a different
+  // room from the one next door.
+  const kindOfRoom = /store|supply|spares|stock/i.test(spec.placeName ?? spec.name ?? '') ? 'supply'
+    : /office|desk|planning/i.test(spec.placeName ?? spec.name ?? '') ? 'office'
+    : /control|operations|ops|watch/i.test(spec.placeName ?? spec.name ?? '') ? 'station'
+    : /read|quiet|library/i.test(spec.placeName ?? spec.name ?? '') ? 'quiet'
+    : 'lab';
+  // The kit wants a `box(...)`; this room builds with `add(new Mesh(...))`, so it
+  // gets one that attaches the same way everything else in here does.
+  const kitBox = (bw, bh, bd, bx, by, bz, material, ry = 0) => {
+    const m = add(new THREE.Mesh(new THREE.BoxGeometry(bw, bh, bd), material));
+    m.position.set(bx, by, bz);
+    m.rotation.y = ry;
+    m.castShadow = true; m.receiveShadow = true;
+    return m;
+  };
+  furnishRoom({
+    box: kitBox,
+    // The room's own palette where it has one, so the furniture is not the single
+    // thing in here that does not match.
+    mats: furnishingMaterials({ dark: baseMat(), pale: wallMat() }),
+    // Inside the walls, and clear of the doorway wall so nothing lands in the way
+    // of somebody coming in.
+    bounds: { x0: x0 + 0.5, x1: x1 - 0.5, z0: z0 + 1.8, z1: z1 - 0.6 },
+    kind: kindOfRoom,
+    // Both names: the building the player walked into ("Generation Hall") is more
+    // specific than the area's ("Generation & Fuel"), and the kit reads whichever
+    // one carries the work.
+    roomName: `${spec.placeName ?? ''} ${spec.name ?? ''}`.trim(),
+    seed: `${spec.id}-fitout`,
+    hard: (cx2, cz2, cw, cd, ch) => colliders.push(new THREE.Box3(
+      new THREE.Vector3(ox + cx2 - cw / 2, 0, oz + cz2 - cd / 2),
+      new THREE.Vector3(ox + cx2 + cw / 2, ch, oz + cz2 + cd / 2))),
+    // The case stand, the way in, and the instrument wall are all spoken for.
+    keepClear: [
+      { x: standX, z: standZ, r: 2.2 },
+      { x: 0, z: z0 + 1.2, r: 2.4 },
+      { x: 0, z: z1 - 0.9, r: 2.0 },
+    ],
+    target: 16,
+  });
 
   // A clear line down the room, on the opposite hand from the case stand, for
   // anything the *question* needs to put in the room — a PROBE's chain of

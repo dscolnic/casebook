@@ -69,7 +69,7 @@ function placements(scene){
     const w = bb.max.x - bb.min.x, d = bb.max.z - bb.min.z, h = bb.max.y - bb.min.y;
     out.push({
       x: (bb.min.x + bb.max.x) / 2, z: (bb.min.z + bb.max.z) / 2,
-      y0: bb.min.y, w, d, h,
+      y: (bb.min.y + bb.max.y) / 2, y0: bb.min.y, w, d, h,
       span: Math.max(w, d),
       // A floor or a ceiling: broad and flat. Named separately from `span`
       // because a 5 m bench and a 5 m floor slab are the same width.
@@ -82,7 +82,14 @@ function placements(scene){
 /** Structure is not furnishing. Everything else is a candidate piece. */
 const isFurnishing = (p) => !p.slab && p.span <= STRUCTURE_M && p.h > 0.06;
 
-/** Single-link clustering on horizontal distance: one cluster is one piece. */
+/**
+ * Single-link clustering: one cluster is one piece.
+ *
+ * In three dimensions, not two. Clustering on the floor plan alone merged a poster
+ * into the bench underneath it — and a poster is a piece, which is the whole reason
+ * a bare wall reads as a bare room. Height separates them; a shelf unit's four
+ * shelves are 0.46 m apart and still merge into the one thing they are.
+ */
 function cluster(items, radius = CLUSTER){
   const seen = new Array(items.length).fill(false);
   let n = 0;
@@ -96,7 +103,7 @@ function cluster(items, radius = CLUSTER){
       for(let j = 0; j < items.length; j++){
         if(seen[j]) continue;
         const b = items[j];
-        if(Math.hypot(a.x - b.x, a.z - b.z) <= radius){ seen[j] = true; stack.push(j); }
+        if(Math.hypot(a.x - b.x, (a.y ?? 0) - (b.y ?? 0), a.z - b.z) <= radius){ seen[j] = true; stack.push(j); }
       }
     }
   }
@@ -245,6 +252,7 @@ async function measureRooms(name, dir){
       if(bb.isEmpty() || !Number.isFinite(bb.min.x)) continue;
       const w = bb.max.x - bb.min.x, d = bb.max.z - bb.min.z, h = bb.max.y - bb.min.y;
       const p = { x: (bb.min.x + bb.max.x) / 2, z: (bb.min.z + bb.max.z) / 2,
+        y: (bb.min.y + bb.max.y) / 2,
         w, d, h, span: Math.max(w, d), slab: Math.min(w, d) > 2.5 && h < 0.35 };
       if(isFurnishing(p)) items.push(p);
     }

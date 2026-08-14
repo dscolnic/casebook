@@ -21,7 +21,7 @@ import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage,
-         showEnding, createMiniMap } from '../engine/core/app.js';
+         showEnding, createMiniMap, openCaseGroups } from '../engine/core/app.js';
 import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
 import { createFlying } from '../engine/world/flying.js';
@@ -118,6 +118,13 @@ function refreshWorld(){
         ? `${it.aircraft.label} — grounded until ${DAY_NOUN.toLowerCase()} ${AIRCRAFT_FROM_DAY}`
         : `E — Fly the ${it.aircraft.label}`;
     }
+  }
+  // Light the marker over each case stand that has a call open. An interior game's
+  // rooms are off the corridor and the player can see three doorways at once, so
+  // the marker is how they know which one today wants.
+  if(typeof world.setCaseOpen === 'function'){
+    const open = openCaseGroups();
+    for(const g of theme.content?.GROUPS ?? []) world.setCaseOpen(g.id, open.has(g.id));
   }
   updateHUD();
 }

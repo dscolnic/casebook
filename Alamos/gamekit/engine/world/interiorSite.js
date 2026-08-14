@@ -8,6 +8,7 @@
 // A plan is data (see themes/_template/plan.js). Everything here derives from
 // it: walls, doorways, doors, ceiling grid, signage, lighting and collision.
 import * as THREE from 'three';
+import { addCaseBeacon } from './caseBeacon.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import {
   paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture,
@@ -75,6 +76,8 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   const interactables = [];
   const lightPanels = [];
   const stopMeshes = new Map();
+  /** Per group: the thing you press to take the case, and the marker over it. */
+  const caseStands = new Map();
   /** roomId -> the flat hit target in its doorway, group room or not. A room
    *  with no lesson still has a sign to read, and the world module needs
    *  something to hang that interaction on. */
@@ -297,6 +300,32 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     } else {
       ctx.doorHit = null;
     }
+    // The case stand, inside the room.
+    //
+    // Until now a group room off this corridor was scenery: pressing E at its door
+    // teleported the player to a separately built room four kilometres away in x,
+    // and the room they could see into was never entered. The stand, the marker
+    // over it and the question all belong in the room the player is standing in.
+    if(r.group){
+      const sx = b.xOuter - b.sign * 1.5, sz = b.cz;
+      const topMat = M.frame ?? M.rail;
+      box(1.6, 0.06, 0.85, sx, 0.78, sz, topMat);
+      box(1.45, 0.68, 0.72, sx, 0.42, sz, M.base ?? topMat);
+      // Paper on it, so from the doorway it is a table somebody works at.
+      for(let i = 0; i < 4; i++){
+        box(0.24, 0.006, 0.32, sx - 0.4 + i * 0.26, 0.815 + i * 0.002, sz + (i % 2 ? 0.1 : -0.12), M.wall ?? topMat);
+      }
+      collide(sx, sz, 1.7, 0.95, 0.8);
+      const hit = new THREE.Mesh(new THREE.BoxGeometry(2.1, 1.6, 1.5),
+        new THREE.MeshBasicMaterial({ visible: false }));
+      hit.position.set(sx, 0.8, sz);
+      scene.add(hit);
+      const beacon = addCaseBeacon(scene, {
+        x: sx, z: sz, colour: 0x3f6f8f, label: 'Take the case · E', height: 2.3,
+      });
+      beacon.setActive(false);
+      caseStands.set(r.group, { hit, beacon, x: sx, z: sz, room: r });
+    }
     if(hooks.fitOutRoom) hooks.fitOutRoom(r, { ...ctx, bounds: b, opening });
   }
   // close the far end of the last room each side
@@ -309,7 +338,7 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   }
   if(hooks.fitOutSpine) hooks.fitOutSpine(ctx);
 
-  return { geo, colliders, softColliders, interactables, stopMeshes, roomDoors,
+  return { geo, colliders, softColliders, interactables, stopMeshes, roomDoors, caseStands,
            lightPanels, groundHeight: () => 0 };
 }
 

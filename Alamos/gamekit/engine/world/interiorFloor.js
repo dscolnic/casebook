@@ -30,6 +30,17 @@ export const softColliders = [];
 export const interactables = [];
 /** groupId -> { id, name, pos, entry, door } — one per mission destination. */
 export const stopMeshes = new Map();
+/** The case stands, by group, so the HUD can light the ones with a call open. */
+const caseStands = new Map();
+
+/**
+ * Light the marker over a room's case stand.
+ *
+ * The entry point knows which calls are open; this knows where the markers are.
+ */
+export function setCaseOpen(groupId, on){
+  caseStands.get(groupId)?.beacon?.setActive(!!on);
+}
 
 export let scene = null;
 export let renderer = null;
@@ -136,10 +147,22 @@ export function initWorld(canvas, activeTheme){
         entry: new THREE.Vector3(stop.entry.x, 0, stop.entry.z),
         door: stop.leaf, doorMesh: stop.doorMesh,
       });
-      if(hit){
+      // No door interactable for a group room any more. The room is right there
+      // off the corridor, so the player walks in; pressing E at the doorway used
+      // to teleport them to a separately built copy of the room in the interior
+      // district, which meant the thirteen rooms of this building were scenery.
+      // What they press is the case stand inside.
+      const stand = built.caseStands?.get(room.group);
+      if(stand){
         interactables.push({
-          mesh: hit, type: 'door', id: room.group,
-          prompt: `E — Enter ${room.name ?? g?.name ?? room.group}`,
+          mesh: stand.hit, type: 'case', id: room.group,
+          prompt: `E — Take the case in ${room.name ?? g?.name ?? room.group}`,
+        });
+        caseStands.set(room.group, stand);
+      } else if(hit){
+        interactables.push({
+          mesh: hit, type: 'case', id: room.group,
+          prompt: `E — Take the case in ${room.name ?? g?.name ?? room.group}`,
         });
       }
     } else if(hit){
@@ -224,6 +247,9 @@ export function getExtraSpots(){
 
 /** Spin the objective ring, so it is findable in peripheral vision. */
 export function updateWorldAnimation(t){
+  // The case markers bob, so they need the frame. No camera here: this module
+  // does not own one, and the beacon only uses it to face the player.
+  for(const stand of caseStands.values()) stand.beacon?.update?.(1 / 60, null);
   if(waypointMesh?.visible){
     waypointMesh.userData.ring.rotation.z = t * 0.9;
     waypointMesh.position.y = Math.sin(t * 2) * 0.05;
