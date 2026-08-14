@@ -109,6 +109,8 @@ function diagnosisAnswerable(ch){
         (kind === 'SEQUENCE' && ch.cards?.length && ch.order?.length === ch.cards.length) ||
         (kind === 'SCIENCETANK' && ch.proposals?.length && Object.keys(ch.recommended ?? {}).length) ||
         (kind === 'BALLPARK' && !!BALLPARK_CALCS[`${group}-${lesson.day}`]) ||
+        (kind === 'SWEEP' && Number.isFinite(+ch.sweep?.target) && +ch.sweep?.tolerance > 0
+          && (ch.sweep?.response ?? []).length >= 4) ||
         (kind === 'DIAGNOSIS' && ch.choices?.length >= 4 && diagnosisAnswerable(ch)) ||
         (kind === 'TRIAGE' && ch.choices?.length >= 2 && ch.choices.includes(ch.correctChoice)) ||
         (kind === 'CHOICE' && ch.choices?.length >= 3 &&

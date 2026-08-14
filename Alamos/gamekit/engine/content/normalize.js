@@ -24,6 +24,10 @@
 export const FORMATS = new Set([
   'PROTOCOL', 'SEQUENCE', 'BALLPARK', 'SCIENCETANK',
   'DIAGNOSIS', 'TRIAGE', 'CASEBOOK', 'CHOICE',
+  // A continuous control with a response curve: the player moves one knob and
+  // the instrument answers, which is the shape of most of the physics in these
+  // courses — a resonance, a decay, a calibration, a trade-off.
+  'SWEEP',
 ]);
 
 /** 'Science Tank' | 'sciencetank' | 'SCIENCE_TANK' -> 'SCIENCETANK'. */

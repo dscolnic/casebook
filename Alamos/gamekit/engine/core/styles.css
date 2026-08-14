@@ -527,3 +527,19 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .askContext p + p{margin-top:4px}
 .askContext span{font:800 .6rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;
   color:#8a97a0;margin-right:6px}
+
+/* SWEEP — one control, a live response, a reading committed on purpose. The
+   trace is only what the player has visited, so an untouched panel is an empty
+   plot: the format is answered by looking, not by pressing. */
+.sweepPanel{margin:10px 0 0}
+.sweepHead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.sweepAxisLabel{font:800 .62rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;color:#8a97a0}
+.sweepAt{font:800 .92rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}
+.sweepPlot{width:100%;height:auto;border:1px solid #cfd8dd;border-radius:6px;display:block}
+.sweepRange{width:100%;margin:10px 0 4px;accent-color:#2f6f8f}
+.sweepReadout{display:flex;justify-content:space-between;align-items:baseline;
+  border-top:1px solid var(--line);padding-top:7px}
+.sweepReadout span{font:800 .62rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;color:#8a97a0}
+.sweepReadout b{font:800 .88rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+  font-variant-numeric:tabular-nums}

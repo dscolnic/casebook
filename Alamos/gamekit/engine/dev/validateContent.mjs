@@ -333,6 +333,31 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
         fail(`${at}: choices[${i}] has no label text — it renders as [object Object]`);
       }
     });
+    if(kind === 'SWEEP'){
+      const w = l.game?.sweep;
+      const a = w?.axis ?? {};
+      if(!w) fail(`${at}: SWEEP with no sweep block — it renders un-answerable`);
+      else {
+        if(!(a.max > a.min)) fail(`${at}: sweep axis needs max above min`);
+        if(!((w.response ?? []).length >= 4)) fail(`${at}: sweep needs at least four response points`);
+        if(!(w.tolerance > 0)) fail(`${at}: sweep needs a positive tolerance`);
+        if(!(w.target >= a.min && w.target <= a.max)) fail(`${at}: sweep target is outside its axis`);
+        // Answerable by not moving, which is the one way this format breaks by
+        // default rather than by being wrong.
+        if(Math.abs((w.start ?? a.min) - w.target) <= w.tolerance){
+          fail(`${at}: the sweep starts on its own answer`);
+        }
+        // A feature nobody can see is a guess. The response at the target has to
+        // stand out from the baseline by more than a tenth of the full range.
+        const vals = (w.response ?? []).map(p => p.value);
+        const range = Math.max(...vals) - Math.min(...vals);
+        const atTarget = (w.response ?? []).reduce((best, p) =>
+          Math.abs(p.at - w.target) < Math.abs(best.at - w.target) ? p : best, w.response[0]);
+        if(range > 0 && Math.abs(atTarget.value - (w.baseline ?? 0)) < range * 0.1){
+          fail(`${at}: the sweep's response at the target barely differs from its baseline — there is nothing to find`);
+        }
+      }
+    }
     if(kind === 'BALLPARK'){
       const spec = content.BALLPARK_CALCS?.[`${group}-${l.day}`];
       if(!spec){

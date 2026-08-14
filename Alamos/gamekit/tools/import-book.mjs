@@ -43,7 +43,10 @@ const dry = flags.includes('--dry');
 const outFlag = flags.indexOf('--out');
 const outOverride = outFlag >= 0 ? flags[outFlag + 1] : null;
 
-const FORMATS = new Set(['PROTOCOL','SEQUENCE','BALLPARK','SCIENCETANK','DIAGNOSIS','TRIAGE','CASEBOOK','CHOICE']);
+// One list, in the engine. This was a second copy for as long as there were
+// eight formats, and the ninth is what found it: the book was refused for a
+// format the renderer already had.
+import { FORMATS } from '../engine/content/normalize.js';
 const canonical = (t) => String(t ?? '').toUpperCase().replace(/[\s_-]+/g, '');
 
 const problems = [];
@@ -278,6 +281,39 @@ function gameFor(s, at, group, day){
     ...(s.figure ? { figure: s.figure } : {}),
   };
   const need = (cond, msg) => { if(!cond) fail(`${at}: ${msg}`); };
+
+  if(format === 'SWEEP'){
+    // A continuous control the player moves while an instrument answers. The
+    // book authors the axis, the response as sampled points, and the feature to
+    // find; the renderer builds the trace as the handle moves. Everything a
+    // reader needs to see it on paper is here too, which is why the response is
+    // authored rather than computed from a formula the printed book cannot run.
+    const w = s.sweep ?? {};
+    const axis = w.axis ?? {};
+    need(Number.isFinite(+axis.min) && Number.isFinite(+axis.max) && +axis.max > +axis.min,
+      'sweep needs axis.min and axis.max, with max greater than min');
+    need(Array.isArray(w.response) && w.response.length >= 4,
+      'sweep needs at least four authored response points');
+    need(w.response.every(p => Number.isFinite(+p.at) && Number.isFinite(+p.value)),
+      'every sweep response point needs a numeric `at` and `value`');
+    need(Number.isFinite(+w.target), 'sweep needs a numeric target');
+    need(+w.target >= +axis.min && +w.target <= +axis.max, 'the sweep target is outside its own axis');
+    need(Number.isFinite(+w.tolerance) && +w.tolerance > 0, 'sweep needs a positive tolerance');
+    // Where the handle starts. A target sitting under the handle is answered by
+    // not moving, which is the one way this format can be broken by default.
+    const start = Number.isFinite(+w.start) ? +w.start : +axis.min;
+    need(Math.abs(start - +w.target) > +w.tolerance,
+      'the sweep starts on its own answer — move `start` away from `target`');
+    return { ...base, sweep: {
+      axis: { label: axis.label ?? '', unit: axis.unit ?? '', min: +axis.min, max: +axis.max,
+        step: Number.isFinite(+axis.step) ? +axis.step : (+axis.max - +axis.min) / 200 },
+      readout: { label: w.readout?.label ?? '', unit: w.readout?.unit ?? '' },
+      response: w.response.map(p => ({ at: +p.at, value: +p.value })),
+      baseline: Number.isFinite(+w.baseline) ? +w.baseline : 0,
+      target: +w.target, tolerance: +w.tolerance, start,
+      commit: w.commit ?? 'Mark it',
+    } };
+  }
 
   if(format === 'PROTOCOL'){
     const n = (s.scenarios ?? []).length;

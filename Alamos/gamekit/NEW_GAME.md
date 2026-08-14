@@ -291,6 +291,47 @@ The tell that this has gone wrong is that the card reads like a trailer. The
 player has taken a job, and the opening card is the first hour of it: it should
 say what the place is, what their job is, and what is currently true.
 
+**A ninth format: `SWEEP`, for physics that is a curve.** Most of what these
+courses teach has the same shape — a resonance, a decay, a calibration, a
+trade-off — and it is learned by moving one control and watching an instrument
+answer. The book authors an axis, the response as sampled points, the feature to
+find and a tolerance; the renderer plots only the positions the player has
+actually visited, so the trace is something they built rather than something the
+game drew.
+
+```yaml
+format: SWEEP
+question: Sweep the drive and mark the frequency this qubit actually responds at.
+sweep:
+  axis: { label: Drive frequency, unit: GHz, min: 4.20, max: 6.40, step: 0.01 }
+  readout: { label: Excited population, unit: '' }
+  baseline: 0.02
+  response:                      # sampled, not a formula — see below
+    - { at: 4.55, value: 0.16 }
+    - { at: 4.61, value: 0.94 }
+  target: 4.61
+  tolerance: 0.02
+  start: 4.20                    # where the handle begins
+  commit: Mark the qubit transition
+```
+
+Four decisions worth knowing before authoring one:
+
+- **The response is sampled, not computed.** The printed book has to show the
+  same curve and cannot run the game, so a formula would give paper and screen
+  two different questions.
+- **Nothing marks the target.** A glowing optimum turns the format into a
+  button, which is the first thing `INTERACTION_IDEAS.md` warns against.
+- **`start` may not sit within `tolerance` of `target`**, or the question is
+  answered by not moving — the one way this format breaks by default rather than
+  by being wrong. Both the importer and `validateContent` refuse it.
+- **The feature has to be visible.** `validateContent` fails a response whose
+  value at the target is within a tenth of the full range of the baseline:
+  there is nothing to find, and the player is guessing.
+
+Wrong answers teach here for free, which is the point: off resonance is a flat
+trace, and a full Rabi period returns the population to where it started.
+
 ## 6. The question bar
 
 Four probes, all deterministic, all in `engine/dev/probeQuestions.mjs`, all

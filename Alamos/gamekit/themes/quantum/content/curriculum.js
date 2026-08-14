@@ -734,26 +734,66 @@ export const CURRICULUM = {
       "place": "Control & Readout",
       "story": "Mensah's sweep runs from 4.2 to 6.4 gigahertz. There is one clear response at 4.61, a much weaker one at 4.55, and nothing at 5.02 where the design put it.",
       "game": {
-        "type": "CHOICE",
+        "type": "SWEEP",
         "title": "Where the qubit actually is",
         "setup": "Control & Readout",
         "play": "Read a frequency sweep",
         "task": "Read a frequency sweep",
-        "question": "Which interpretation is best supported by this sweep, without assuming what the weak 4.55 GHz feature is?",
-        "answer": "The transition is at 4.61 GHz, and design was only a prediction.",
-        "why": "The strong, narrow feature at 4.61 GHz is the best candidate for the qubit transition because it is the dominant resonant response in a sweep that includes the design frequency. Fabrication spread can move a superconducting qubit away from its target. The weaker feature at 4.55 GHz is evidence of an additional resonance, but this sweep alone does not identify its microscopic origin; that takes another test, such as seeing how the features move when the qubit is tuned. The important habit is to separate what the spectrum establishes from what it merely suggests.\n",
-        "rebuttals": [
-          "Fabrication spread moves real devices away from design; a strong resonant response is evidence the qubit is operating.",
-          "A second resonance is worth investigating, but one spectrum does not yet tell you whether it is a material defect, sideband or another mode.",
-          "The absence of a response at the design value is exactly why spectroscopy is needed; it does not make the measured resonance inconclusive."
-        ],
-        "choices": [
-          "The device failed fabrication because a working qubit must remain within a few megahertz of design.",
-          "The transition is at 4.61 GHz, and design was only a prediction.",
-          "The 4.55 GHz feature is the qubit because defects cannot produce coherent resonances.",
-          "The sweep is inconclusive because no response appears at the 5.02 GHz design value."
-        ],
-        "correctChoice": "The transition is at 4.61 GHz, and design was only a prediction."
+        "question": "Sweep the drive and mark the frequency this qubit actually responds at.",
+        "answer": "",
+        "why": "The strong, narrow response at 4.61 GHz is the transition. Nothing appears at 5.02, where the design put it, because a superconducting qubit's frequency depends on a junction barrier about a nanometre thick that no process controls perfectly — the design value is a prediction and the sweep is the measurement. The weaker feature near 4.55 is real and is not the qubit; identifying it takes a second test, such as watching how it moves when the chip is thermally cycled. Sweeping past both is what separates the two.\n",
+        "sweep": {
+          "axis": {
+            "label": "Drive frequency",
+            "unit": "GHz",
+            "min": 4.2,
+            "max": 6.4,
+            "step": 0.01
+          },
+          "readout": {
+            "label": "Excited population",
+            "unit": ""
+          },
+          "response": [
+            {
+              "at": 4.2,
+              "value": 0.02
+            },
+            {
+              "at": 4.5,
+              "value": 0.02
+            },
+            {
+              "at": 4.55,
+              "value": 0.16
+            },
+            {
+              "at": 4.58,
+              "value": 0.04
+            },
+            {
+              "at": 4.61,
+              "value": 0.94
+            },
+            {
+              "at": 4.64,
+              "value": 0.05
+            },
+            {
+              "at": 5.02,
+              "value": 0.02
+            },
+            {
+              "at": 6.4,
+              "value": 0.02
+            }
+          ],
+          "baseline": 0.02,
+          "target": 4.61,
+          "tolerance": 0.02,
+          "start": 4.2,
+          "commit": "Mark the qubit transition"
+        }
       },
       "assumes": [
         "a system absorbs energy strongly only near its own transition frequency"

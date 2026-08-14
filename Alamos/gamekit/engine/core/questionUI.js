@@ -541,6 +541,113 @@ function bindBallpark(){
 function tankHTML(ch){
   return `<div class="compactInstruction">Spend most of the 100 points across the proposals. The whole distribution is graded, not just your top pick: fund every proposal the evidence supports, and starve the ones it does not.</div><div class="tankGrid">${ch.proposals.map(p=>`<label class="tankProposal"><div><b>Proposal ${esc(p.label)}</b><p>${esc(p.text)}</p></div><input type="number" min="0" max="100" step="5" value="0" data-tank="${esc(p.label)}"><span>points</span></label>`).join('')}</div>${ch.research?`<details class="researchReveal"><summary>Evidence available</summary><div style="white-space:pre-wrap">${esc(ch.research)}</div></details>`:''}<div class="tankTotal">Allocated: <b id="tankTotal">0</b> / 100</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="tankCheck" type="button">Check</button></div>`;
 }
+
+/**
+ * SWEEP — one control, a live response, and a reading the player commits to.
+ *
+ * The mechanic most of the physics in these courses actually has: a resonance,
+ * a decay, a calibration, a trade-off. The player drags a handle along the axis;
+ * every position they visit is sampled and plotted, so the trace is something
+ * they *built* rather than something the game drew for them. The feature is
+ * found by looking, and the reading is committed on purpose.
+ *
+ * Two deliberate choices. The response is authored as sampled points rather
+ * than a formula, because the printed book has to show the same curve and
+ * cannot run JavaScript. And nothing marks the target: a glowing optimum turns
+ * the format into a button, which is the failure mode `INTERACTION_IDEAS.md`
+ * warns about in its own first rule.
+ */
+let activeSweep = null;
+
+/** Linear interpolation between the authored points, flat outside them. */
+function sweepValueAt(w, x){
+  const pts = [...(w.response ?? [])].sort((a, b) => a.at - b.at);
+  if(!pts.length) return w.baseline ?? 0;
+  if(x <= pts[0].at) return pts[0].value;
+  if(x >= pts[pts.length - 1].at) return pts[pts.length - 1].value;
+  for(let i = 1; i < pts.length; i++){
+    if(x <= pts[i].at){
+      const a = pts[i - 1], b = pts[i];
+      const t = (x - a.at) / (b.at - a.at || 1);
+      return a.value + (b.value - a.value) * t;
+    }
+  }
+  return w.baseline ?? 0;
+}
+
+function sweepHTML(ch){
+  const w = ch.sweep ?? {};
+  activeSweep = { at: w.start, visited: [], committed: false };
+  const a = w.axis ?? {};
+  return `<div class="sweepPanel" data-min="${a.min}" data-max="${a.max}" data-step="${a.step}">`
+    + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
+    + `<b class="sweepAt">${fmt(w.start)}${a.unit ? ' ' + esc(a.unit) : ''}</b></div>`
+    + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Response against ${esc(a.label)}">`
+    + `<rect width="320" height="120" fill="#f7f9fa"/>`
+    + `<polyline class="sweepTrace" fill="none" stroke="#2f6f8f" stroke-width="2" points=""/>`
+    + `<line class="sweepHandle" x1="0" y1="0" x2="0" y2="120" stroke="#c0392b" stroke-width="1.5"/>`
+    + `</svg>`
+    + `<input class="sweepRange" type="range" min="${a.min}" max="${a.max}" step="${a.step}" value="${w.start}">`
+    + `<div class="sweepReadout"><span>${esc(w.readout?.label ?? 'Response')}</span>`
+    + `<b class="sweepValue">—</b></div>`
+    + `<div class="modalActions"><button class="btn primary" id="sweepCommit" type="button">`
+    + `${esc(w.commit ?? 'Mark it')}</button></div>`
+    + `<div id="visitFeedback"></div></div>`;
+}
+
+/** Wire the handle and the commit button. */
+function bindSweep(container, ch){
+  const w = ch.sweep ?? {};
+  const panel = container.querySelector('.sweepPanel');
+  if(!panel) return;
+  const range = panel.querySelector('.sweepRange');
+  const trace = panel.querySelector('.sweepTrace');
+  const handle = panel.querySelector('.sweepHandle');
+  const atEl = panel.querySelector('.sweepAt');
+  const valEl = panel.querySelector('.sweepValue');
+  const a = w.axis ?? {};
+  const span = (a.max - a.min) || 1;
+  // The plot's y range comes from the authored points, so a small feature on a
+  // large baseline is still visible.
+  const vals = (w.response ?? []).map(p => p.value).concat([w.baseline ?? 0]);
+  const lo = Math.min(...vals), hi = Math.max(...vals);
+  const yRange = (hi - lo) || 1;
+  const px = (x) => ((x - a.min) / span) * 320;
+  const py = (v) => 114 - ((v - lo) / yRange) * 108;
+
+  const draw = () => {
+    const x = +range.value;
+    const v = sweepValueAt(w, x);
+    activeSweep.at = x;
+    // Only what the player has actually visited is plotted.
+    if(!activeSweep.visited.some(p => Math.abs(p.at - x) < (a.step || 0) / 2)){
+      activeSweep.visited.push({ at: x, value: v });
+      activeSweep.visited.sort((p, q) => p.at - q.at);
+    }
+    trace.setAttribute('points', activeSweep.visited.map(p => `${px(p.at).toFixed(1)},${py(p.value).toFixed(1)}`).join(' '));
+    handle.setAttribute('x1', px(x).toFixed(1));
+    handle.setAttribute('x2', px(x).toFixed(1));
+    atEl.textContent = `${fmt(x)}${a.unit ? ' ' + a.unit : ''}`;
+    valEl.textContent = `${fmt(v)}${w.readout?.unit ? ' ' + w.readout.unit : ''}`;
+  };
+  range.addEventListener('input', draw);
+  draw();
+
+  panel.querySelector('#sweepCommit')?.addEventListener('click', () => {
+    if(activeSweep.committed) return;
+    activeSweep.committed = true;
+    const ok = Math.abs(activeSweep.at - w.target) <= w.tolerance;
+    activeChallenge.userAnswer = `${fmt(activeSweep.at)}${a.unit ? ' ' + a.unit : ''}`;
+    activeChallenge.userValue = activeSweep.at;
+    // How much of the axis they looked at, which is the difference between
+    // finding a feature and landing on it.
+    activeChallenge.sweptFraction = activeSweep.visited.length
+      ? (Math.max(...activeSweep.visited.map(p => p.at)) - Math.min(...activeSweep.visited.map(p => p.at))) / span
+      : 0;
+    finishVisit(ok);
+  });
+}
+
 function triageHTML(ch){
   const opts=(ch.choices||[]).map((c,i)=>`<button class="orderItem" data-triage="${i}" type="button"><b>${String.fromCharCode(65+i)}.</b> ${esc(c)}</button>`).join('');
   return `<div class="compactInstruction">${esc(ch.task||ch.question||'Choose who needs help first.')}</div><div class="orderBank" style="display:grid;gap:8px">${opts}</div><div id="visitFeedback"></div><div class="modalActions"><button class="btn primary" id="triageCheck" type="button" disabled>Choose</button></div>`;
@@ -1383,6 +1490,8 @@ function showChallengeForStop(id, stop, isRetry, person=null){
     challengeHTML = triageHTML(ch);
   } else if(kindOf(ch)==='DIAGNOSIS'){
     challengeHTML = diagnosisHTML(ch);
+  } else if(kindOf(ch)==='SWEEP'){
+    challengeHTML = sweepHTML(ch);
   } else if(kindOf(ch)==='CASEBOOK'){
     challengeHTML = casebookHTML(ch);
   } else if(kindOf(ch)==='CHOICE'){
@@ -1398,6 +1507,10 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   // which area it belongs to are both on the card underneath.
   const titlePrefix = lesson.title || ch.title || def(id).name;
   openModal(titlePrefix, bodyPrefix + withAssist(challengeHTML));
+  // The sweep needs its handle wired after the body exists. Every other format
+  // is bound inside its own renderer or by openModal; this one owns a live
+  // control, so it binds here where the DOM is known to be in place.
+  if(kindOf(ch)==='SWEEP') bindSweep(document.getElementById('modalBody') ?? document, ch);
   const body=document.getElementById('modalBody');
   if(kindOf(ch)==='SEQUENCE') { bindOrder(); }
   else if(kindOf(ch)==='PROTOCOL') { bindProtocol(); }
