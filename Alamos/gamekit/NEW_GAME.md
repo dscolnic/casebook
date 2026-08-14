@@ -579,6 +579,40 @@ defined term in its own right, or said in the FIRST SENTENCE of its entry** —
 because the plan card prints one sentence, and "polyatomic" was explained in the
 second.
 
+## How furnished is the place — `pieceDensity.mjs`
+
+```sh
+node engine/dev/pieceDensity.mjs quantum      # one game, room by room
+node engine/dev/pieceDensity.mjs --all        # every game, thinnest first
+```
+
+"The rooms feel empty" is a judgement a screenshot supports and nothing measures,
+so it gets argued about instead of fixed. This builds each place headless — the
+world modules run in node behind the stubs in `engine/dev/headless.mjs`, because
+three.js does not touch the GPU until something renders — counts what was put in
+each room, and divides by floor area.
+
+A **piece** is not a mesh. A desk built from four boxes is one piece and four
+meshes, and counting meshes rewards whoever models a chair in the most parts, so
+placements within a metre of each other are clustered into one piece. Structure is
+excluded: walls, floors, ceilings and building shells are not furnishing.
+
+It reports the two kinds of room separately, because they come from different
+builders and are five times apart:
+
+| | median pieces | per 10 m² |
+| --- | --- | --- |
+| Quantum's own corridor rooms (`plan.js` + `props.js` `fitOutRoom`) | 3 | 0.45 |
+| engine-built case rooms (`interiorBuilding.js`), seven games | 9–15 | 0.91–1.52 |
+
+The bar to hold a new game to is the second row. A theme that lays out its own
+rooms has to furnish them itself, and the first one to do so came out at a fifth
+of what the shared builder gives every other game for free.
+
+What this cannot see is whether a place *looks* furnished: six pieces in one
+corner and six spread evenly measure the same. It answers "how much is in here",
+never "is it any good", and the screenshot rule still stands.
+
 ## Two reports, deliberately not gates
 
 ```sh

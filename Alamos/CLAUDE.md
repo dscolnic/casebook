@@ -149,6 +149,20 @@ node engine/dev/checkStyles.mjs               # no game stylesheet re-declares t
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data
 ```
 
+Two reports that are not part of `check`, because they answer "is this good
+enough" rather than "is this broken":
+
+```sh
+node engine/dev/pieceDensity.mjs --all        # how furnished every room is, thinnest first
+node engine/dev/syllabusEquations.mjs quantum # which equations a question computes, and when
+```
+
+`pieceDensity` builds each place headless — `engine/dev/headless.mjs` stubs the
+canvas and the renderer, since three.js touches no GPU until something renders —
+and counts placed pieces per room against floor area. It is how "the rooms feel
+empty" became a number: Quantum's own rooms hold a median of 3 pieces where the
+engine's case rooms hold 9–15.
+
 In the browser console, before judging how anything looks:
 
 ```js
