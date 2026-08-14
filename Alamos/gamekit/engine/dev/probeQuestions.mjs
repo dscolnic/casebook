@@ -168,7 +168,12 @@ for(const [mi, m] of MISSIONS.entries()){
     // "find the feature" into "drag to the number you were just told".
     if(ch.sweep && Number.isFinite(+ch.sweep.target)){
       const shown = String(+ch.sweep.target);
-      const read = [scene, ch.question, ch.task, ch.headline, ...(l.assumes ?? [])].join(' ');
+      // The day's stake counts. It is the first thing the player reads, it is on
+      // the plan card and on the `B` key all day, and Quantum's day 3 opened with
+      // "T1 at around 90 microseconds and T2 at 32" — the answer to that day's
+      // sweep, printed before the player had walked anywhere.
+      const read = [scene, ch.question, ch.task, ch.headline, m.stake ?? '',
+        ...(l.assumes ?? [])].join(' ');
       const bare = new RegExp(`(^|[^\\d.])${shown.replace('.', '\\.')}([^\\d]|$)`);
       if(bare.test(read)){
         add('GIVEAWAY', at, `the sweep's own target (${shown}) is printed in the scene or the question`);

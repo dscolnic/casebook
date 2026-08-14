@@ -644,12 +644,14 @@ missions:
     objective: Separate energy leaving the qubit from phase being scrambled.
     briefing: T1 is respectable and T2 is a third of what it should be, on every qubit at once.
     stake: >-
-      Monday, and the coherence numbers are lopsided. Anders Holm has T1 on every qubit at around 90
-      microseconds, which is good, and T2 at 32, which is poor — and a qubit's coherence cannot exceed twice
-      its relaxation time, so something is scrambling phase without taking any energy. Ijeoma Okafor says
-      the fridge is quiet. Ren Nakamura suspects the flux line. Priya Raghavan needs to know which of these
-      numbers goes in the review and what it means. Today you measure both times properly, work out what a
-      poor T2 against a good T1 is telling you, and decide where the noise is coming in.
+      Monday, and the coherence numbers are lopsided. Anders Holm has the relaxation time on every qubit
+      sitting about where he wants it and the coherence time at a fraction of that, on all twelve within a
+      few per cent — and a qubit's coherence can never exceed twice its relaxation time, so whatever is
+      doing this is scrambling phase without taking any energy at all. Ijeoma Okafor says the fridge is
+      quiet and has a fortnight of logs to show it. Ren Nakamura suspects the flux line. Priya Raghavan
+      needs to know which of these numbers goes in the review and what it means for the circuit she has
+      promised. Today you read both times off the traces yourself, work out what a poor coherence time
+      against a good relaxation time is telling you, and decide where the noise is getting in.
     takeaway: Relaxation and dephasing remove different parts of quantum information, so the ratio of T1 to T2 is diagnostic.
     stops:
       - group: VER
