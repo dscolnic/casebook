@@ -28,6 +28,14 @@ export const FORMATS = new Set([
   // the instrument answers, which is the shape of most of the physics in these
   // courses — a resonance, a decay, a calibration, a trade-off.
   'SWEEP',
+  // Fit a rule on one set of data, freeze it, and apply it to data it has never
+  // seen. The drop between the two numbers is the lesson, and it has to be an
+  // event the player causes rather than a sentence they read.
+  'HOLDOUT',
+  // A statistic assembled out of ordinary repeated measurements: the player runs
+  // batches of shots, watches the bins fill, and decides when there is enough
+  // data to report the number.
+  'TALLY',
 ]);
 
 /** 'Science Tank' | 'sciencetank' | 'SCIENCE_TANK' -> 'SCIENCETANK'. */

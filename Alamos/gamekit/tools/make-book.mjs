@@ -125,6 +125,60 @@ function materialHTML(ch){
       + `<p class="mono">Reads ${esc(w.readout?.label ?? 'response')} against ${esc(a.label ?? 'the control')}`
       + `, from ${esc(String(w.start))} ${esc(a.unit ?? '')}.</p>`);
   }
+  if(ch.holdout){
+    // Both curves, on paper, which the panel deliberately refuses to show at
+    // once. A reader working from the page has the same argument in front of
+    // them — the spike on one curve, and where it lands on the other.
+    const h = ch.holdout;
+    const a = h.axis ?? {};
+    const both = [
+      { label: h.fitLabel ?? 'Calibration set', points: h.fit ?? [] },
+      { label: h.testLabel ?? 'Held-out set', points: h.test ?? [], dash: true },
+    ];
+    const vals = both.flatMap(s => s.points.map(p => p.value));
+    const lo = Math.min(...vals), hi = Math.max(...vals);
+    const span = (a.max - a.min) || 1, range = (hi - lo) || 1;
+    const px = (x) => (8 + ((x - a.min) / span) * 304).toFixed(1);
+    const py = (v) => (96 - ((v - lo) / range) * 84).toFixed(1);
+    const ink = ['#1d3f57', '#8a5a1e'];
+    const plot = `<svg class="sweepFig" viewBox="0 0 320 110" role="img">`
+      + `<rect x="8" y="8" width="304" height="88" fill="#fbfaf6" stroke="#c9ccd2" stroke-width=".5"/>`
+      + both.map((s, i) => `<polyline fill="none" stroke="${ink[i]}" stroke-width="1.4"`
+          + (s.dash ? ' stroke-dasharray="4 3"' : '') + ` points="`
+          + [...s.points].sort((m, n) => m.at - n.at).map(p => `${px(p.at)},${py(p.value)}`).join(' ')
+          + `"/>`).join('')
+      + `<line x1="8" y1="${py(h.pass)}" x2="312" y2="${py(h.pass)}" stroke="#8c3b2f"`
+      + ` stroke-width=".8" stroke-dasharray="2 2"/>`
+      + `<text x="310" y="${(+py(h.pass) - 2).toFixed(1)}" class="axl" text-anchor="end">passes here</text>`
+      + `<text x="310" y="14" class="axl" text-anchor="end">${esc(String(hi))}</text>`
+      + `<text x="8" y="107" class="axl">${esc(String(a.min))}</text>`
+      + `<text x="312" y="107" class="axl" text-anchor="end">${esc(String(a.max))} ${esc(a.unit ?? '')}</text>`
+      + `<text x="160" y="107" class="axl" text-anchor="middle">${esc(a.label ?? '')}</text>`
+      + `</svg>`;
+    section(`Two sets — ${esc(a.label ?? 'threshold')}`, plot
+      + `<p class="sweepKey">${both.map((s, i) =>
+          `<span style="color:${ink[i]}">■</span> ${esc(s.label)}`).join(' &nbsp; ')}</p>`
+      + `<p class="mono">The line is chosen on the ${esc((h.fitLabel ?? 'calibration set').toLowerCase())}`
+      + `, frozen, and then scored on the ${esc((h.testLabel ?? 'held-out set').toLowerCase())}.`
+      + ` A held-out score of ${esc(String(h.pass))}${h.unit ? ' ' + esc(h.unit) : ''} or better is honest work.</p>`);
+  }
+  if(ch.tally){
+    // The counts a reader has to work from. The printed version cannot run
+    // batches, so it supplies the shot counts a full acquisition would give and
+    // asks for the same combination.
+    const t = ch.tally;
+    const n = (t.minShots ?? 400) * 2;
+    const rows = (t.settings ?? []).map(s => {
+      const same = Math.round(n * s.pSame);
+      return `<tr><td>${esc(s.label)}</td><td>${same}</td><td>${n - same}</td>`
+        + `<td>${s.sign === -1 ? '−' : '+'} ${(2 * s.pSame - 1).toFixed(2)}</td></tr>`;
+    }).join('');
+    section(`${esc(t.formulaLabel ?? 'Combination')} — ${esc(t.readoutLabel ?? 'from counts')}`,
+      `<table class="tallyFig"><thead><tr><th>Settings</th><th>Same</th><th>Different</th>`
+      + `<th>${esc(t.readoutLabel ?? 'Correlation')}</th></tr></thead><tbody>${rows}</tbody></table>`
+      + `<p class="mono">${esc(t.formula ?? '')} — from ${n} shots per setting pair.`
+      + (Number.isFinite(t.bound) ? ` The bound to beat is ${esc(String(t.bound))}.` : '') + `</p>`);
+  }
   if(ch.givens) section('Given', list(ch.givens.map(g => esc(g)), 'givens'));
   if(ch.relationship) section('Relationship', `<p class="mono">${esc(ch.relationship)}</p>`);
   if(ch.readings){
@@ -804,6 +858,10 @@ async function build(themeName){
   .sweepFig { width: 100%; height: auto; display: block; }
   .sweepFig .axl { font: 400 6pt "Inter", system-ui, sans-serif; fill: #6a6f77; }
   .sweepKey { font: 400 8pt "Inter", system-ui, sans-serif; color: #4a4f57; margin: 2pt 0 0; }
+  .tallyFig { width: 100%; border-collapse: collapse; font: 400 8.5pt "Inter", system-ui, sans-serif; }
+  .tallyFig th { text-align: right; font-weight: 700; border-bottom: .5pt solid #c9ccd2; padding: 1pt 3pt; }
+  .tallyFig th:first-child, .tallyFig td:first-child { text-align: left; }
+  .tallyFig td { text-align: right; padding: 1pt 3pt; border-bottom: .25pt solid #e3e0d8; }
   table.readings .val.alarm { font-weight: 700; }
   table.readings .note { color: #4a4f57; }
 

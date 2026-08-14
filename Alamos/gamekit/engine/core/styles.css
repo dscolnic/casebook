@@ -570,3 +570,34 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    number that has a floor, and seeing it refuse to reach zero is the lesson. */
 .sweepTotal{border-top-color:#2f4652}
 .sweepTotal span{color:#5b6a72}
+
+/* HOLDOUT — the same instrument as a sweep, with two data sets and a line that
+   gets frozen between them. The tabs are a state display, not a control: the
+   player cannot look at the held-out set until they have committed to a line. */
+.holdoutPanel{margin:10px auto 0;max-width:480px}
+.holdoutTabs{display:flex;gap:6px;margin:0 0 8px}
+.holdoutTab{flex:1;text-align:center;padding:5px 8px;border-radius:6px;
+  font:800 .6rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  background:#eef2f4;color:#9aa7ae;border:1px solid transparent}
+.holdoutTab.on{background:#fff;color:#2f4652;border-color:#cfd8dd}
+
+/* TALLY — counts accumulating in bins, and a statistic assembled out of them. */
+.tallyPanel{margin:10px auto 0;max-width:560px}
+.tallyTable{width:100%;border-collapse:collapse;margin:2px 0 10px}
+.tallyTable th{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0;text-align:right;padding:0 6px 5px;border-bottom:1px solid var(--line)}
+.tallyTable th:first-child{text-align:left}
+.tallyTable td{padding:6px;border-bottom:1px solid var(--line);text-align:right;
+  font:700 .84rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.tallyName{text-align:left !important;font:600 .78rem/1.3 Inter,system-ui !important;color:#2f4652}
+.tallyCount{color:#5b6a72}
+.tallyE{color:#5b6a72}
+.tallyTerm{color:#2f6f8f}
+.tallyTable .btn{padding:3px 9px;font-size:.72rem}
+.tallyCombo{display:flex;align-items:baseline;gap:10px;padding:8px 0 0;border-top:2px solid #2f4652}
+.tallyCombo span{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0}
+.tallyCombo code{font:700 .74rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#5b6a72}
+.tallyCombo b{margin-left:auto;font:800 1.1rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:#2f4652;font-variant-numeric:tabular-nums}
+.tallyNote{font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0;margin:6px 0 0}

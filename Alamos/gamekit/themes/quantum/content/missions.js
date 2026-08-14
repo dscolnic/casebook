@@ -253,7 +253,7 @@ export const MISSIONS = [
       {
         "group": "CTRL",
         "lesson": 9,
-        "task": "Which explanation fits all of it?"
+        "task": "Say what the retraining did"
       },
       {
         "group": "VER",

@@ -111,6 +111,14 @@ function diagnosisAnswerable(ch){
         (kind === 'BALLPARK' && !!BALLPARK_CALCS[`${group}-${lesson.day}`]) ||
         (kind === 'SWEEP' && Number.isFinite(+ch.sweep?.target) && +ch.sweep?.tolerance > 0
           && (ch.sweep?.response ?? []).length >= 4) ||
+        // Graded on the held-out score against `pass`, so those two and both
+        // curves are what makes one answerable.
+        (kind === 'HOLDOUT' && Number.isFinite(+ch.holdout?.pass)
+          && (ch.holdout?.fit ?? []).length >= 5 && (ch.holdout?.test ?? []).length >= 5) ||
+        // Graded on the statistic the authored probabilities actually produce.
+        (kind === 'TALLY' && (ch.tally?.settings ?? []).length >= 2
+          && ch.tally.settings.every(x => Number.isFinite(+x.pSame))
+          && Number.isFinite(+ch.tally?.target) && +ch.tally?.tolerance > 0) ||
         (kind === 'DIAGNOSIS' && ch.choices?.length >= 4 && diagnosisAnswerable(ch)) ||
         (kind === 'TRIAGE' && ch.choices?.length >= 2 && ch.choices.includes(ch.correctChoice)) ||
         (kind === 'CHOICE' && ch.choices?.length >= 3 &&

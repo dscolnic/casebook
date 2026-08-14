@@ -358,6 +358,48 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
         }
       }
     }
+    if(kind === 'HOLDOUT'){
+      const h = l.game?.holdout;
+      if(!h) fail(`${at}: HOLDOUT with no holdout block — it renders un-answerable`);
+      else {
+        const a = h.axis ?? {};
+        if(!(a.max > a.min)) fail(`${at}: holdout axis needs max above min`);
+        if(!((h.fit ?? []).length >= 5)) fail(`${at}: holdout needs at least five calibration points`);
+        if(!((h.test ?? []).length >= 5)) fail(`${at}: holdout needs at least five held-out points`);
+        if(!Number.isFinite(h.pass)) fail(`${at}: holdout needs a numeric pass score`);
+        else {
+          // The trap has to exist. If the best line on the fitting set also clears
+          // `pass` on the held-out set, the stop teaches that overfitting is free.
+          const bestFit = (h.fit ?? []).reduce((x, y) => (y.value > x.value ? y : x), h.fit[0]);
+          const near = (h.test ?? []).reduce((x, y) =>
+            Math.abs(y.at - bestFit.at) < Math.abs(x.at - bestFit.at) ? y : x, h.test[0]);
+          if(near.value >= h.pass){
+            fail(`${at}: the holdout's best calibration line also passes on held-out data — no trap`);
+          }
+          if(!(h.test ?? []).some(p => p.value >= h.pass)){
+            fail(`${at}: no position reaches the holdout pass score — it cannot be answered right`);
+          }
+        }
+      }
+    }
+    if(kind === 'TALLY'){
+      const t = l.game?.tally;
+      if(!t) fail(`${at}: TALLY with no tally block — it renders un-answerable`);
+      else {
+        const s = t.settings ?? [];
+        if(s.length < 2) fail(`${at}: tally needs at least two setting pairs`);
+        if(!s.every(x => Number.isFinite(x.pSame))) fail(`${at}: every tally setting needs pSame`);
+        if(!(t.tolerance > 0)) fail(`${at}: tally needs a positive tolerance`);
+        else {
+          // The settings have to produce the number the stop is keyed to, or the
+          // player collects shots forever and is marked wrong for the physics.
+          const truth = s.reduce((acc, x) => acc + (x.sign === -1 ? -1 : 1) * (2 * x.pSame - 1), 0);
+          if(Math.abs(truth - t.target) > t.tolerance){
+            fail(`${at}: tally settings produce ${truth.toFixed(3)}, outside the keyed ${t.target} ±${t.tolerance}`);
+          }
+        }
+      }
+    }
     if(kind === 'BALLPARK'){
       const spec = content.BALLPARK_CALCS?.[`${group}-${l.day}`];
       if(!spec){

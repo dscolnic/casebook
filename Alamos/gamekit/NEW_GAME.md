@@ -722,8 +722,8 @@ it or every frame throws `Cannot access 'day' before initialization`.
    because `.modalActions` is `position:sticky; bottom:0` and pins itself over
    whatever is between the scroll position and its place in the flow. It reads
    exactly like a format that does nothing. Two things make this cheap:
-   `engine/dev/sweeps.html` draws every sweep in a theme on one page (start the
-   dev server and open `/engine/dev/sweeps.html`), and a panel can be dropped
+   `engine/dev/instruments.html` draws every sweep in a theme on one page (start the
+   dev server and open `/engine/dev/instruments.html`), and a panel can be dropped
    into a real `.overlay > .modal > .modalBody` chain from the console, which is
    the only way to see the sticky bar behave as it does in a visit.
 8. **`fmt()` rounds to one decimal place, which is money, not instruments.** It

@@ -1435,100 +1435,158 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Scoring yourself on your own training set",
-      "scene": "Ridgeway retrains its discriminator at the start of every session, using a labelled calibration set to choose the decision boundary. Castellan notices that the reported readout fidelity is then calculated on that same calibration set. Delft fits its discriminator on one set of shots and evaluates it on a separate held-out set.",
-      "takeaway": "When better hardware gives a worse reported result, compare the analysis pipelines before inventing an invisible hardware failure.",
+      "scene": "Castellan has Ridgeway's own session on screen and both trays of shots beside it. Delft's device beats this one on coherence, on gate error and on readout separation, and reports a circuit fidelity a third lower. The one difference in the two pipelines is which shots the number is measured on.",
+      "takeaway": "A rule chosen on a sample is scored generously by that sample, so the only honest number comes from data the rule has never seen.",
       "place": "Control & Readout",
-      "story": "Ridgeway retrains its discriminator at the start of every session, using a labelled calibration set to choose the decision boundary. Castellan notices that the reported readout fidelity is then calculated on that same calibration set. Delft fits its discriminator on one set of shots and evaluates it on a separate held-out set.",
+      "story": "Castellan has Ridgeway's own session on screen and both trays of shots beside it. Delft's device beats this one on coherence, on gate error and on readout separation, and reports a circuit fidelity a third lower. The one difference in the two pipelines is which shots the number is measured on.",
       "game": {
-        "type": "DIAGNOSIS",
+        "type": "HOLDOUT",
         "title": "Scoring yourself on your own training set",
         "setup": "Control & Readout",
-        "play": "Which explanation fits all of it?",
-        "task": "Which explanation fits all of it?",
-        "question": "Which explanation fits all of it?",
-        "answer": "Ridgeway's discriminator was scored on its own training data",
-        "why": "\"The direction of the discrepancy makes the analysis difference suspicious. Delft's hardware metrics are better, both groups implemented the same logical circuit and protocol on their own hardware, and the gap is much larger than the expected sampling fluctuation. Ridgeway's classifier is being evaluated on the same data that selected its boundary, so the reported accuracy is optimistically biased: the evaluation rewards details of that particular calibration sample that may not generalise. Delft's held-out procedure measures performance on genuinely unseen shots. The clean test is now obvious — apply a held-out evaluation to Ridgeway's data and see whether the discrepancy shrinks.\"\n",
-        "rebuttals": [
-          "A hidden fault is possible in principle, but it does not explain why the one known pipeline difference predicts the discrepancy in exactly this direction.",
-          "The first thing to verify is the actual implemented circuit and protocol; the run records show both groups implemented the same specified experiment on their own hardware.",
-          "The observed gap is far larger than the sampling spread expected from the number of shots."
-        ],
-        "headline": "Two devices, the better one reporting worse fidelity, and the difference is in the analysis.",
-        "readings": [
-          {
-            "zone": "Delft device",
-            "label": "T2",
-            "value": "61 µs",
-            "status": "normal",
-            "note": "better than Ridgeway"
+        "play": "Say what the retraining did",
+        "task": "Say what the retraining did",
+        "question": "Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself, freeze it, and give it shots it has never seen — what does it score then?",
+        "answer": "About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the two per cent it appeared to gain was a feature of that one sample.",
+        "why": "A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the two clouds, which the next batch of shots also has, and the spike is a property of four thousand particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.\n",
+        "holdout": {
+          "axis": {
+            "label": "Discriminator threshold",
+            "unit": "mV",
+            "min": -40,
+            "max": 40,
+            "step": 1
           },
-          {
-            "zone": "Delft device",
-            "label": "Gate error",
-            "value": "0.6 per cent",
-            "status": "normal"
-          },
-          {
-            "zone": "Delft result",
-            "label": "Circuit fidelity",
-            "value": 0.62,
-            "status": "alarm"
-          },
-          {
-            "zone": "Ridgeway result",
-            "label": "Circuit fidelity",
-            "value": 0.91,
-            "status": "alarm"
-          },
-          {
-            "zone": "Ridgeway method",
-            "label": "Discriminator",
-            "value": "fitted and scored on one set",
-            "status": "alarm"
-          }
-        ],
-        "choices": [
-          {
-            "label": "A hidden hardware fault on Delft's device that escaped every independent metric they reported"
-          },
-          {
-            "label": "Ridgeway's discriminator was scored on its own training data",
-            "mechanism": "A rule fitted to a set describes that set better than it describes a fresh one."
-          },
-          {
-            "label": "A mismatch in the logical circuit or preparation/measurement protocol implemented by the two groups",
-            "mechanism": "A different sequence would give a different result."
-          },
-          {
-            "label": "Ordinary finite-sample fluctuation between two otherwise equivalent analyses",
-            "mechanism": "Finite sampling produces spread between repeats."
-          }
-        ],
-        "correctChoice": "Ridgeway's discriminator was scored on its own training data"
+          "fit": [
+            {
+              "at": -40,
+              "value": 88
+            },
+            {
+              "at": -20,
+              "value": 92.4
+            },
+            {
+              "at": -10,
+              "value": 94.6
+            },
+            {
+              "at": -6,
+              "value": 95.1
+            },
+            {
+              "at": -3,
+              "value": 95.2
+            },
+            {
+              "at": 0,
+              "value": 95.2
+            },
+            {
+              "at": 2,
+              "value": 95
+            },
+            {
+              "at": 8,
+              "value": 94.4
+            },
+            {
+              "at": 12,
+              "value": 95.2
+            },
+            {
+              "at": 14,
+              "value": 96.4
+            },
+            {
+              "at": 16,
+              "value": 95
+            },
+            {
+              "at": 20,
+              "value": 93.6
+            },
+            {
+              "at": 30,
+              "value": 91
+            },
+            {
+              "at": 40,
+              "value": 88.2
+            }
+          ],
+          "test": [
+            {
+              "at": -40,
+              "value": 87.6
+            },
+            {
+              "at": -20,
+              "value": 92
+            },
+            {
+              "at": -10,
+              "value": 94.2
+            },
+            {
+              "at": -6,
+              "value": 94.8
+            },
+            {
+              "at": -3,
+              "value": 95
+            },
+            {
+              "at": 0,
+              "value": 94.9
+            },
+            {
+              "at": 2,
+              "value": 94.6
+            },
+            {
+              "at": 8,
+              "value": 93.8
+            },
+            {
+              "at": 12,
+              "value": 93.2
+            },
+            {
+              "at": 14,
+              "value": 92.6
+            },
+            {
+              "at": 16,
+              "value": 92.2
+            },
+            {
+              "at": 20,
+              "value": 91.4
+            },
+            {
+              "at": 30,
+              "value": 89.2
+            },
+            {
+              "at": 40,
+              "value": 86.8
+            }
+          ],
+          "fitLabel": "Calibration shots",
+          "testLabel": "Shots it has never seen",
+          "unit": "%",
+          "pass": 94.5,
+          "start": -40,
+          "freeze": "Freeze the line",
+          "commit": "Report the held-out number",
+          "afterFreeze": "Frozen. That is what your line scores on shots it has never been shown."
+        }
       },
       "assumes": [
-        "a rule fitted to data describes that data better than it describes new data"
+        "a rule fitted to data describes that data better than it describes new data",
+        "a labelled calibration set is a sample, and a sample has features of its own"
       ],
       "equations": [
-        {
-          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
-          "c": "why dephasing is usually the harder number",
-          "v": [
-            [
-              "T₂",
-              "coherence time, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ],
-            [
-              "T_φ",
-              "pure dephasing time, from noise that scrambles phase without taking energy"
-            ]
-          ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
-        },
         {
           "e": "F_total ≈ F^n",
           "c": "gate fidelity compounding over circuit depth",
@@ -1547,6 +1605,25 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
+        },
+        {
+          "e": "n_phys ≈ d²  per logical qubit",
+          "c": "what error correction costs",
+          "v": [
+            [
+              "n_phys",
+              "physical qubits used for one logical qubit"
+            ],
+            [
+              "d",
+              "code distance, how many errors the code can survive"
+            ],
+            [
+              "p_threshold",
+              "the physical error rate below which adding qubits helps rather than hurts"
+            ]
+          ],
+          "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
         }
       ]
     },
@@ -2243,28 +2320,58 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Four correlations, one number",
-      "scene": "The four correlation measurements come back at 0.71, −0.69, 0.70 and 0.68. The combination Holm wants is the first minus the second plus the third plus the fourth.",
+      "scene": "Two qubits are entangled and the analyser has four setting pairs loaded. Each shot returns one outcome from each qubit, and the pair either agrees or it does not. Nothing has been run yet.",
       "takeaway": "The CHSH statistic combines four measured correlations; the classical bound and quantum prediction are comparisons made after the data are combined.",
       "place": "Error & Verification",
-      "story": "The four correlation measurements come back at 0.71, −0.69, 0.70 and 0.68. The combination Holm wants is the first minus the second plus the third plus the fourth.",
+      "story": "Two qubits are entangled and the analyser has four setting pairs loaded. Each shot returns one outcome from each qubit, and the pair either agrees or it does not. Nothing has been run yet.",
       "game": {
-        "type": "BALLPARK",
+        "type": "TALLY",
         "title": "Four correlations, one number",
         "setup": "Error & Verification",
         "play": "Compute the quantity",
         "task": "Compute the quantity",
-        "question": "Estimate the CHSH value for these four correlations.",
-        "answer": "About 2.78.",
-        "why": "Each correlation E is not simply the fraction of trials in which the detectors agree; it is the difference between the probabilities of equal and unequal outcomes, so E ranges from −1 to +1. The CHSH combination uses four such correlations with a particular sign pattern. For local hidden-variable models satisfying the Bell assumptions, |S| cannot exceed 2, while quantum mechanics permits values up to 2√2 ≈ 2.83. The arithmetic is simple; the scientific work is in making sure the four correlations really belong to the test you claim to have run.\n",
-        "givens": [
-          "The four measured correlations",
-          "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)"
-        ],
-        "relationship": "S is a signed sum of four correlation coefficients. Local hidden-variable models satisfying the CHSH assumptions obey |S| ≤ 2.\n",
-        "calcKey": "VER-7"
+        "question": "Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?",
+        "answer": "About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.",
+        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those four values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why a hundred shots per setting can put the combination either side of two and four hundred usually does not. The bound of two belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.\n",
+        "tally": {
+          "settings": [
+            {
+              "label": "a with b",
+              "pSame": 0.855,
+              "sign": 1
+            },
+            {
+              "label": "a with b′",
+              "pSame": 0.155,
+              "sign": -1
+            },
+            {
+              "label": "a′ with b",
+              "pSame": 0.85,
+              "sign": 1
+            },
+            {
+              "label": "a′ with b′",
+              "pSame": 0.84,
+              "sign": 1
+            }
+          ],
+          "batch": 100,
+          "minShots": 400,
+          "target": 2.78,
+          "tolerance": 0.14,
+          "bound": 2,
+          "boundLabel": "local-realist bound",
+          "formula": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)",
+          "formulaLabel": "CHSH statistic",
+          "readoutLabel": "Correlation",
+          "commit": "Report S",
+          "readyNote": "Every pair has four hundred shots. Keep going if the number is still wandering — nobody can tell you when it has settled except the number itself."
+        }
       },
       "assumes": [
-        "a correlation between two detectors can be measured as a number between minus one and one"
+        "a correlation between two detectors can be measured as a number between minus one and one",
+        "a proportion measured from a finite number of trials scatters around its true value"
       ],
       "equations": [
         {
@@ -2284,8 +2391,7 @@ export const CURRICULUM = {
               "the largest value any shared instruction agreed in advance can produce"
             ]
           ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one.",
-          "computed": true
+          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
         }
       ]
     },
@@ -3488,38 +3594,6 @@ export const BALLPARK_CALCS = {
     "units": "chance the circuit is right",
     "solution": "0.988^400 ≈ 0.008.",
     "explanation": "About 0.8 per cent, or roughly one run in 125, in the independent-identical-error toy model. Real circuit fidelity need not equal this product when errors are coherent, correlated or gate-dependent.\n"
-  },
-  "VER-7": {
-    "prompt": "The four correlations are E(a,b) = 0.71, E(a,b′) = −0.69, E(a′,b) = 0.70 and E(a′,b′) = 0.68. S is the first minus the second plus the third plus the fourth.\n",
-    "question": "Choose the four correlations.",
-    "labels": [
-      "0.71  (E of a and b)",
-      "-0.69  (E of a and b prime)",
-      "0.70  (E of a prime and b)",
-      "0.68  (E of a prime and b prime)",
-      "2.83  (the quantum ceiling)"
-    ],
-    "values": [
-      0.71,
-      -0.69,
-      0.7,
-      0.68,
-      2.83
-    ],
-    "slots": 4,
-    "template": "{0} − {1} + {2} + {3}",
-    "formula": "a-b+c+d",
-    "correct": [
-      0,
-      1,
-      2,
-      3
-    ],
-    "target": 2.78,
-    "tolerance": 0.12,
-    "units": "(S)",
-    "solution": "S = 0.71 − (−0.69) + 0.70 + 0.68 = 2.78.",
-    "explanation": "About 2.78. That is above the local-realist CHSH bound of 2 and below the quantum maximum 2√2 ≈ 2.83. Whether the experiment can use that value to close a Bell loophole depends on how the settings, timing and detections were implemented.\n"
   },
   "CTRL-12": {
     "prompt": "\"Toy model: each of twelve qubits has independent readout fidelity 0.941. Estimate the probability that all twelve are read correctly.\"\n",

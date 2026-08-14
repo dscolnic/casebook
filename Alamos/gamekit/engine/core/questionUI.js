@@ -609,7 +609,7 @@ const seriesDecimals = (series, baseline = 0) => {
   return decimalsFor(spread / 50);
 };
 
-// Exported for `engine/dev/sweeps.html`, which draws every sweep in a theme on
+// Exported for `engine/dev/instruments.html`, which draws every sweep in a theme on
 // one page. A sweep is the only format that cannot be judged from the book —
 // whether the control, the curve and the readouts fit is a question about the
 // rendered panel — and reaching one in the game means playing to the right day.
@@ -670,7 +670,7 @@ export function sweepHTML(ch){
  * supports, which is the difference between "wrong" and "you found the small
  * feature instead of the big one".
  *
- * Exported so `engine/dev/sweeps.html` can draw it for a wrong answer without
+ * Exported so `engine/dev/instruments.html` can draw it for a wrong answer without
  * playing a campaign.
  */
 export function sweepVerdictFigure(ch, yours, ok){
@@ -692,6 +692,54 @@ export function sweepVerdictFigure(ch, yours, ok){
     yLabel: series.length === 1 ? (series[0].label || w.readout?.label || '') : '',
     caption: ok ? 'The whole response, with the reading you committed'
                 : 'The whole response — your reading, and the one it supports',
+  });
+}
+
+/**
+ * Both curves at last, with the frozen line on them.
+ *
+ * The panel shows one curve while the player is choosing and a single held-out
+ * point after they freeze, on purpose — seeing the held-out curve would let them
+ * fit to that too, which is the mistake the stop is about. The verdict is where
+ * the argument is allowed to close: the calibration curve's spike was the best
+ * thing on screen, and here is where it lands on data it has never seen.
+ *
+ * Exported so `engine/dev/instruments.html` can draw it without a campaign.
+ */
+export function holdoutVerdictFigure(ch, frozen){
+  const h = ch.holdout ?? {}, a = h.axis ?? {};
+  return lineChart({
+    series: [
+      { name: h.fitLabel ?? 'Calibration', points: (h.fit ?? []).map(p => [p.at, p.value]) },
+      { name: h.testLabel ?? 'Held-out', points: (h.test ?? []).map(p => [p.at, p.value]) },
+    ],
+    marks: Number.isFinite(frozen)
+      ? [{ x: frozen, label: `your line, ${num(frozen, decimalsFor(a.step))}${a.unit ? ' ' + a.unit : ''}` }] : [],
+    xLabel: `${a.label ?? ''}${a.unit ? ` (${a.unit})` : ''}`,
+    caption: 'Both sets, at last. The gap between the curves is what fitting to a sample buys you',
+  });
+}
+
+/**
+ * The statistic as the shots came in.
+ *
+ * A player who reported early sees their own number sitting on the noisy part of
+ * their own trace, which is a more honest account of what went wrong than any
+ * sentence about standard errors.
+ */
+export function tallyVerdictFigure(ch, history){
+  const hist = history ?? [];
+  if(hist.length < 2) return '';
+  const t = ch.tally ?? {};
+  return lineChart({
+    // The combination's name, not the row label: what wanders here is the
+    // statistic, and calling its trace "Correlation" named the wrong quantity.
+    series: [{ name: t.formulaLabel ?? 'Combination', points: hist.map(p => [p.shots, p.value]) }],
+    ...(Number.isFinite(t.bound)
+      ? { limit: { at: t.bound, label: t.boundLabel || `bound ${t.bound}` } } : {}),
+    marks: [{ x: hist[hist.length - 1].shots, label: 'reported' }],
+    xLabel: 'Shots taken', yLabel: t.formulaLabel ?? '',
+    caption: 'Your own statistic as the shots came in — the scatter is the sample, not the physics',
   });
 }
 
@@ -789,6 +837,287 @@ export function bindSweep(container, ch){
     activeChallenge.sweptFraction = st.visited.length
       ? (Math.max(...st.visited.map(p => p.at)) - Math.min(...st.visited.map(p => p.at))) / span
       : 0;
+    finishVisit(ok);
+  });
+}
+
+/**
+ * HOLDOUT — fit a rule on one set of data, freeze it, and test it on data it has
+ * never seen.
+ *
+ * The most important idea in Quantum and the hardest to teach by telling: a
+ * threshold chosen on a sample describes that sample better than it describes a
+ * fresh one, quietly and consistently. Read as a sentence it is obvious and
+ * changes nothing. Done, it is a number falling in front of you.
+ *
+ * The mechanic is the sweep's, with one addition that carries the whole lesson.
+ * The player moves a threshold and sees its score on the CALIBRATION set — a
+ * curve with a broad, honest plateau and a narrow spike a little way off it,
+ * which is the noise of that particular sample and scores best of anything on
+ * screen. They freeze the line. Only then does the held-out set report, at the
+ * frozen position and nowhere else. Chasing the spike costs them; sitting on the
+ * plateau does not. Nothing marks either.
+ *
+ * Graded on the held-out score, never on the calibration score, because that is
+ * the entire argument.
+ */
+const holdoutState = new WeakMap();
+
+export function holdoutHTML(ch){
+  const h = ch.holdout ?? {};
+  const a = h.axis ?? {};
+  const ad = decimalsFor(a.step);
+  const unit = a.unit ? ' ' + esc(a.unit) : '';
+  return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Fit it, freeze it, and test it.')}</div>`
+    + `<div class="holdoutPanel" data-min="${a.min}" data-max="${a.max}">`
+    + `<div class="holdoutTabs"><b class="holdoutTab on" data-set="fit">${esc(h.fitLabel ?? 'Calibration set')}</b>`
+    + `<b class="holdoutTab" data-set="test">${esc(h.testLabel ?? 'Held-out set')}</b></div>`
+    + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
+    + `<b class="sweepAt">${num(h.start ?? a.min, ad)}${unit}</b></div>`
+    + `<div class="sweepHint" id="holdoutHint">Move the line and watch what it scores on the`
+    + ` ${esc((h.fitLabel ?? 'calibration set').toLowerCase())}. Freeze it when you are satisfied.</div>`
+    + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Score against ${esc(a.label)}">`
+    + `<rect width="320" height="120" fill="#f7f9fa"/>`
+    + `<polyline class="holdoutTrace" fill="none" stroke="${SWEEP_INK[0]}" stroke-width="2" points=""/>`
+    + `<polyline class="holdoutTestTrace" fill="none" stroke="${SWEEP_INK[1]}" stroke-width="2"`
+    + ` stroke-dasharray="3 3" points="" opacity="0"/>`
+    + `<circle class="sweepDot" r="2.6" cx="-20" cy="-20" fill="${SWEEP_INK[0]}"/>`
+    + `<line class="sweepHandle" x1="0" y1="0" x2="0" y2="120" stroke="#c0392b" stroke-width="1.5"/>`
+    + `<g class="sweepScale"></g></svg>`
+    + `<input class="sweepRange" type="range" min="${a.min}" max="${a.max}" step="${a.step}" value="${h.start ?? a.min}">`
+    + `<div class="sweepEnds"><span>${num(a.min, ad)}${unit}</span><span>${num(a.max, ad)}${unit}</span></div>`
+    + `<div class="sweepReadouts">`
+    + `<div class="sweepReadout"><span style="color:${SWEEP_INK[0]}">${esc(h.fitLabel ?? 'Calibration set')}</span>`
+    + `<b class="holdoutFitScore">—</b></div>`
+    + `<div class="sweepReadout sweepTotal"><span style="color:${SWEEP_INK[1]}">${esc(h.testLabel ?? 'Held-out set')}</span>`
+    + `<b class="holdoutTestScore">not yet run</b></div>`
+    + `</div>`
+    + `<div class="modalActions">`
+    + `<button class="btn" id="holdoutFreeze" type="button">${esc(h.freeze ?? 'Freeze the line')}</button>`
+    + `<button class="btn primary" id="holdoutCommit" type="button" disabled>`
+    + `${esc(h.commit ?? 'Report the honest number')}</button></div>`
+    + `<div id="visitFeedback"></div></div>`;
+}
+
+export function bindHoldout(container, ch){
+  const h = ch.holdout ?? {};
+  const panel = container.querySelector('.holdoutPanel');
+  if(!panel) return;
+  const a = h.axis ?? {};
+  const ad = decimalsFor(a.step);
+  const fit = { response: h.fit ?? [] }, test = { response: h.test ?? [] };
+  const st = { at: h.start ?? a.min, visited: [], frozen: null, committed: false };
+  holdoutState.set(panel, st);
+
+  const range = panel.querySelector('.sweepRange');
+  const handle = panel.querySelector('.sweepHandle');
+  const dot = panel.querySelector('.sweepDot');
+  const atEl = panel.querySelector('.sweepAt');
+  const trace = panel.querySelector('.holdoutTrace');
+  const testTrace = panel.querySelector('.holdoutTestTrace');
+  const fitEl = panel.querySelector('.holdoutFitScore');
+  const testEl = panel.querySelector('.holdoutTestScore');
+  const hint = panel.querySelector('#holdoutHint');
+  const freezeBtn = panel.querySelector('#holdoutFreeze');
+  const commitBtn = panel.querySelector('#holdoutCommit');
+  const tabs = [...panel.querySelectorAll('.holdoutTab')];
+
+  const span = (a.max - a.min) || 1;
+  const vals = [...fit.response, ...test.response].map(p => p.value);
+  const lo = Math.min(...vals), hi = Math.max(...vals);
+  const yRange = (hi - lo) || 1;
+  // `lo`, not the default 0: a fidelity in the high nineties spans ten points, and
+  // folding a zero into the spread said "one part in a hundred is enough" and
+  // printed 95.2 as 95 — on a question whose margin is half a point.
+  const vd = seriesDecimals([fit, test], lo);
+  const px = (x) => ((x - a.min) / span) * 320;
+  const py = (v) => 114 - ((v - lo) / yRange) * 108;
+  const scale = panel.querySelector('.sweepScale');
+  if(scale) scale.innerHTML =
+    `<text x="316" y="12" text-anchor="end" class="sweepTick">${num(hi, vd)}</text>`
+    + `<text x="316" y="116" text-anchor="end" class="sweepTick">${num(lo, vd)}</text>`;
+  const scoreAt = (which, x) => sweepValueAt({ response: which.response }, x);
+
+  const draw = () => {
+    const x = +range.value;
+    st.at = x;
+    const v = scoreAt(fit, x);
+    if(!st.visited.some(p => Math.abs(p.at - x) < (a.step || 0) / 2)){
+      st.visited.push({ at: x, value: v });
+      st.visited.sort((p, q) => p.at - q.at);
+    }
+    trace.setAttribute('points', st.visited.map(p => `${px(p.at).toFixed(1)},${py(p.value).toFixed(1)}`).join(' '));
+    dot.setAttribute('cx', clamp(px(x), 3.5, 316.5).toFixed(1));
+    dot.setAttribute('cy', clamp(py(v), 3.5, 116.5).toFixed(1));
+    handle.setAttribute('x1', px(x).toFixed(1));
+    handle.setAttribute('x2', px(x).toFixed(1));
+    atEl.textContent = `${num(x, ad)}${a.unit ? ' ' + a.unit : ''}`;
+    fitEl.textContent = `${num(v, vd)}${h.unit ? ' ' + h.unit : ''}`;
+  };
+  range.addEventListener('input', draw);
+  draw();
+
+  freezeBtn.addEventListener('click', () => {
+    if(st.frozen !== null) return;
+    st.frozen = st.at;
+    range.disabled = true;
+    freezeBtn.disabled = true;
+    commitBtn.disabled = false;
+    tabs.forEach(t => t.classList.toggle('on', t.dataset.set === 'test'));
+    const v = scoreAt(test, st.frozen);
+    st.testScore = v;
+    testEl.textContent = `${num(v, vd)}${h.unit ? ' ' + h.unit : ''}`;
+    // Only the one point. Revealing the held-out curve here would let the player
+    // fit to it too, which is the mistake the stop is about.
+    testTrace.setAttribute('points', `${px(st.frozen).toFixed(1)},${py(v).toFixed(1)}`);
+    hint.textContent = h.afterFreeze
+      ?? 'The line is frozen. That is what it scores on shots it has never seen.';
+  });
+
+  commitBtn.addEventListener('click', () => {
+    if(st.committed || st.frozen === null) return;
+    if(!activeChallenge) return;
+    st.committed = true;
+    const ok = st.testScore >= h.pass;
+    activeChallenge.userAnswer = `${num(st.testScore, vd)}${h.unit ? ' ' + h.unit : ''}`
+      + ` on the ${(h.testLabel ?? 'held-out set').toLowerCase()},`
+      + ` from a line at ${num(st.frozen, ad)}${a.unit ? ' ' + a.unit : ''}`;
+    activeChallenge.userValue = st.testScore;
+    activeChallenge.holdoutFrozen = st.frozen;
+    activeChallenge.holdoutFitScore = scoreAt(fit, st.frozen);
+    finishVisit(ok);
+  });
+}
+
+/**
+ * TALLY — a statistic built out of ordinary repeated measurements.
+ *
+ * CHSH read as four supplied correlations is arithmetic with a spooky caption.
+ * Acquired, it is what it actually is: counts in bins, a difference of
+ * probabilities, and a combination that only means something once there are
+ * enough shots behind it. The decision the player makes is the real one an
+ * experimenter makes — when is there enough data to report the number.
+ *
+ * Each batch is drawn from the authored probability with the campaign's own seed,
+ * so the counts scatter like counts and settle where the physics says. Committing
+ * early reports a noisy statistic and is marked on the number it actually got,
+ * which is the only honest way to teach this.
+ */
+const tallyState = new WeakMap();
+
+export function tallyHTML(ch){
+  const t = ch.tally ?? {};
+  const rows = (t.settings ?? []).map((s, i) => `<tr data-row="${i}">`
+    + `<td class="tallyName">${esc(s.label)}</td>`
+    + `<td class="tallyCount" data-cell="same">0</td>`
+    + `<td class="tallyCount" data-cell="diff">0</td>`
+    + `<td class="tallyCount" data-cell="n">0</td>`
+    + `<td class="tallyE">—</td>`
+    // The measured correlation and the term it becomes are different numbers, and
+    // one column tried to be both: a setting entering negatively with a negative
+    // correlation printed "− −0.730", which is a puzzle rather than a readout.
+    + `<td class="tallyTerm">—</td>`
+    + `<td><button class="btn tallyRun" data-run="${i}" type="button">Run ${t.batch ?? 100}</button></td>`
+    + `</tr>`).join('');
+  return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Acquire the correlations.')}</div>`
+    + `<div class="tallyPanel">`
+    + `<div class="sweepHint">Each batch is ${t.batch ?? 100} shots. A correlation is the`
+    + ` probability the two outcomes agree minus the probability they disagree, so it runs from`
+    + ` −1 to +1.</div>`
+    + `<table class="tallyTable"><thead><tr><th>Settings</th><th>Same</th><th>Different</th>`
+    + `<th>Shots</th><th>${esc(t.readoutLabel ?? 'Correlation')}</th><th>Enters as</th><th></th></tr></thead>`
+    + `<tbody>${rows}</tbody></table>`
+    + `<div class="tallyCombo"><span>${esc(t.formulaLabel ?? 'Combination')}</span>`
+    + `<code>${esc(t.formula ?? '')}</code><b class="tallyValue">—</b></div>`
+    + `<div class="tallyNote" id="tallyNote">Every setting pair needs at least ${t.minShots ?? 400}`
+    + ` shots before the combination can be reported.</div>`
+    + `<div class="modalActions"><button class="btn primary" id="tallyCommit" type="button" disabled>`
+    + `${esc(t.commit ?? 'Report the number')}</button></div>`
+    + `<div id="visitFeedback"></div></div>`;
+}
+
+export function bindTally(container, ch){
+  const t = ch.tally ?? {};
+  const panel = container.querySelector('.tallyPanel');
+  if(!panel) return;
+  const settings = t.settings ?? [];
+  const batch = t.batch ?? 100;
+  const minShots = t.minShots ?? 400;
+  const st = { bins: settings.map(() => ({ same: 0, diff: 0 })), history: [], committed: false };
+  tallyState.set(panel, st);
+  // Seeded on the campaign's own run seed and the batch index, so a replay of the
+  // same day scatters the same way and a reload cannot be used to reroll a
+  // statistic into range.
+  let draws = 0;
+  const rng = () => seeded(runSeed() * 7919 + (draws++) * 104729 + settings.length);
+
+  const valueEl = panel.querySelector('.tallyValue');
+  const note = panel.querySelector('#tallyNote');
+  const commitBtn = panel.querySelector('#tallyCommit');
+
+  const eOf = (i) => {
+    const b = st.bins[i], n = b.same + b.diff;
+    return n ? (b.same - b.diff) / n : null;
+  };
+  const combined = () => {
+    const es = settings.map((_, i) => eOf(i));
+    if(es.some(e => e === null)) return null;
+    // The sign pattern is authored per setting: a CHSH combination is three plus
+    // and one minus, and which one is negative is a property of the settings.
+    return es.reduce((acc, e, i) => acc + (settings[i].sign === -1 ? -e : e), 0);
+  };
+  const ready = () => settings.every((_, i) => st.bins[i].same + st.bins[i].diff >= minShots);
+
+  const refresh = () => {
+    settings.forEach((s, i) => {
+      const row = panel.querySelector(`tr[data-row="${i}"]`);
+      const b = st.bins[i], n = b.same + b.diff;
+      row.querySelector('[data-cell="same"]').textContent = b.same;
+      row.querySelector('[data-cell="diff"]').textContent = b.diff;
+      row.querySelector('[data-cell="n"]').textContent = n;
+      const e = eOf(i);
+      const signed = (v) => (v < 0 ? '−' : '+') + Math.abs(v).toFixed(3);
+      row.querySelector('.tallyE').textContent = e === null ? '—' : signed(e);
+      row.querySelector('.tallyTerm').textContent = e === null ? '—'
+        : signed(s.sign === -1 ? -e : e);
+    });
+    const s = combined();
+    valueEl.textContent = s === null ? '—' : s.toFixed(3);
+    const short = settings.filter((_, i) => st.bins[i].same + st.bins[i].diff < minShots).length;
+    commitBtn.disabled = !ready();
+    note.textContent = ready()
+      ? (t.readyNote ?? 'Every pair has enough shots. Report it when the number has stopped moving.')
+      : `${short} setting pair(s) still under ${minShots} shots.`;
+  };
+  refresh();
+
+  panel.querySelectorAll('.tallyRun').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(st.committed) return;
+      const i = +btn.dataset.run;
+      const p = clamp(settings[i].pSame ?? 0.5, 0, 1);
+      let same = 0;
+      for(let k = 0; k < batch; k++) if(rng() < p) same++;
+      st.bins[i].same += same;
+      st.bins[i].diff += batch - same;
+      const s = combined();
+      if(s !== null){
+        st.history.push({ shots: st.bins.reduce((n, b) => n + b.same + b.diff, 0), value: s });
+      }
+      refresh();
+    });
+  });
+
+  commitBtn.addEventListener('click', () => {
+    if(st.committed || !ready()) return;
+    if(!activeChallenge) return;
+    st.committed = true;
+    const s = combined();
+    const ok = Math.abs(s - t.target) <= t.tolerance;
+    activeChallenge.userAnswer = `${s.toFixed(3)}, from `
+      + `${st.bins.reduce((n, b) => n + b.same + b.diff, 0)} shots`;
+    activeChallenge.userValue = s;
+    activeChallenge.tallyHistory = st.history;
     finishVisit(ok);
   });
 }
@@ -1190,6 +1519,11 @@ function verdictFigureHTML(ch, lesson, ok){
   // their reading beside the one the instrument supports, so a near miss looks
   // like a near miss and a wrong feature looks like the wrong feature.
   if(kindOf(ch)==='SWEEP' && ch.sweep) return sweepVerdictFigure(ch, activeChallenge.userValue, ok);
+  // Both curves at last, with the frozen line on them. The calibration curve's
+  // spike is the point: it was the best thing on screen while the player was
+  // choosing, and the held-out curve is where it goes.
+  if(kindOf(ch)==='HOLDOUT' && ch.holdout) return holdoutVerdictFigure(ch, activeChallenge.holdoutFrozen);
+  if(kindOf(ch)==='TALLY' && ch.tally) return tallyVerdictFigure(ch, activeChallenge.tallyHistory);
   if(kindOf(ch)==='DIAGNOSIS') return renderFigure(ch.figure);
   return renderFigure(ch.figure ?? lesson.figure);
 }
@@ -1643,6 +1977,10 @@ function showChallengeForStop(id, stop, isRetry, person=null){
     challengeHTML = diagnosisHTML(ch);
   } else if(kindOf(ch)==='SWEEP'){
     challengeHTML = sweepHTML(ch);
+  } else if(kindOf(ch)==='HOLDOUT'){
+    challengeHTML = holdoutHTML(ch);
+  } else if(kindOf(ch)==='TALLY'){
+    challengeHTML = tallyHTML(ch);
   } else if(kindOf(ch)==='CASEBOOK'){
     challengeHTML = casebookHTML(ch);
   } else if(kindOf(ch)==='CHOICE'){
@@ -1661,7 +1999,10 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   // The sweep needs its handle wired after the body exists. Every other format
   // is bound inside its own renderer or by openModal; this one owns a live
   // control, so it binds here where the DOM is known to be in place.
-  if(kindOf(ch)==='SWEEP') bindSweep(document.getElementById('modalBody') ?? document, ch);
+  const live = () => document.getElementById('modalBody') ?? document;
+  if(kindOf(ch)==='SWEEP') bindSweep(live(), ch);
+  else if(kindOf(ch)==='HOLDOUT') bindHoldout(live(), ch);
+  else if(kindOf(ch)==='TALLY') bindTally(live(), ch);
   const body=document.getElementById('modalBody');
   if(kindOf(ch)==='SEQUENCE') { bindOrder(); }
   else if(kindOf(ch)==='PROTOCOL') { bindProtocol(); }

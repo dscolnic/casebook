@@ -347,6 +347,84 @@ function gameFor(s, at, group, day){
     } };
   }
 
+  if(format === 'HOLDOUT'){
+    // Two score curves over one threshold axis, and a line the player freezes
+    // between them. Graded on the held-out score, so the book has to make the
+    // calibration curve genuinely tempting: a broad honest plateau and a narrow
+    // spike off it that scores better on the fitting set and worse on the other.
+    const h = s.holdout ?? {};
+    const axis = h.axis ?? {};
+    need(Number.isFinite(+axis.min) && Number.isFinite(+axis.max) && +axis.max > +axis.min,
+      'holdout needs axis.min and axis.max, with max greater than min');
+    for(const which of ['fit', 'test']){
+      need(Array.isArray(h[which]) && h[which].length >= 5,
+        `holdout needs at least five authored points in \`${which}\``);
+      need(h[which].every(p => Number.isFinite(+p.at) && Number.isFinite(+p.value)),
+        `every holdout ${which} point needs a numeric \`at\` and \`value\``);
+    }
+    need(Number.isFinite(+h.pass), 'holdout needs a numeric `pass` — the held-out score that counts');
+    const bestFit = h.fit.reduce((a, b) => (b.value > a.value ? b : a));
+    const testAtBestFit = h.test.reduce((a, b) =>
+      (Math.abs(b.at - bestFit.at) < Math.abs(a.at - bestFit.at) ? b : a));
+    // The whole lesson is that the best line on the fitting set is not the best
+    // line on fresh data. A book where it is has built a question with no trap in
+    // it, and the player learns the opposite of the intended point.
+    need(testAtBestFit.value < +h.pass,
+      `the holdout's best calibration score (at ${bestFit.at}) also passes on the held-out set,`
+      + ' so chasing the sample costs nothing — the fitting curve needs a spike the other one lacks');
+    const bestTest = h.test.reduce((a, b) => (b.value > a.value ? b : a));
+    need(bestTest.value >= +h.pass, 'no position on the axis reaches the holdout `pass` score');
+    need(String(s.answerText ?? '').trim(),
+      'a holdout needs `answerText` — the honest number, and why it is lower');
+    return { ...base, holdout: {
+      axis: { label: axis.label ?? '', unit: axis.unit ?? '', min: +axis.min, max: +axis.max,
+        step: Number.isFinite(+axis.step) ? +axis.step : (+axis.max - +axis.min) / 200 },
+      fit: h.fit.map(p => ({ at: +p.at, value: +p.value })),
+      test: h.test.map(p => ({ at: +p.at, value: +p.value })),
+      fitLabel: h.fitLabel ?? 'Calibration set', testLabel: h.testLabel ?? 'Held-out set',
+      unit: h.unit ?? '', pass: +h.pass,
+      start: Number.isFinite(+h.start) ? +h.start : +axis.min,
+      freeze: h.freeze ?? 'Freeze the line', commit: h.commit ?? 'Report the honest number',
+      ...(h.afterFreeze ? { afterFreeze: String(h.afterFreeze) } : {}),
+    } };
+  }
+
+  if(format === 'TALLY'){
+    // Counts in bins, a correlation per setting pair, and a combination that only
+    // means anything once there are shots behind it. The player decides when
+    // there is enough data, which is the decision the format exists to teach.
+    const t = s.tally ?? {};
+    const settings = t.settings ?? [];
+    need(settings.length >= 2, 'a tally needs at least two setting pairs');
+    need(settings.every(x => String(x.label ?? '').trim()), 'every tally setting needs a label');
+    need(settings.every(x => Number.isFinite(+x.pSame) && +x.pSame >= 0 && +x.pSame <= 1),
+      'every tally setting needs `pSame` between 0 and 1 — the probability the outcomes agree');
+    need(settings.every(x => x.sign === undefined || [1, -1].includes(+x.sign)),
+      'a tally setting\'s `sign` is 1 or -1');
+    need(Number.isFinite(+t.target) && Number.isFinite(+t.tolerance) && +t.tolerance > 0,
+      'a tally needs a numeric `target` and a positive `tolerance`');
+    // What the authored probabilities actually produce, so a book cannot key a
+    // statistic the settings cannot reach.
+    const truth = settings.reduce((acc, x) =>
+      acc + (+x.sign === -1 ? -1 : 1) * (2 * +x.pSame - 1), 0);
+    need(Math.abs(truth - +t.target) <= +t.tolerance,
+      `the tally's settings produce ${truth.toFixed(3)}, which is outside the keyed target`
+      + ` ${t.target} ±${t.tolerance}`);
+    need(String(s.answerText ?? '').trim(), 'a tally needs `answerText`');
+    return { ...base, tally: {
+      settings: settings.map(x => ({ label: String(x.label), pSame: +x.pSame,
+        sign: +x.sign === -1 ? -1 : 1 })),
+      batch: Number.isFinite(+t.batch) ? +t.batch : 100,
+      minShots: Number.isFinite(+t.minShots) ? +t.minShots : 400,
+      target: +t.target, tolerance: +t.tolerance,
+      ...(Number.isFinite(+t.bound) ? { bound: +t.bound } : {}),
+      boundLabel: t.boundLabel ?? '', formula: t.formula ?? '',
+      formulaLabel: t.formulaLabel ?? 'Combination', readoutLabel: t.readoutLabel ?? 'Correlation',
+      commit: t.commit ?? 'Report the number',
+      ...(t.readyNote ? { readyNote: String(t.readyNote) } : {}),
+    } };
+  }
+
   if(format === 'PROTOCOL'){
     const n = (s.scenarios ?? []).length;
     need(n >= 2, 'protocol needs at least two situations');

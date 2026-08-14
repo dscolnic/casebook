@@ -235,6 +235,16 @@ wrote, at load, for every theme — so a re-import cannot lose it.
 - Answer formats: Protocol, Sequence, Ballpark, Science Tank, Diagnosis
   (instrument panel + candidates, draws a figure), TRIAGE, CASEBOOK, and CHOICE
   — one question, four candidates, and the rebuttals for the wrong ones.
+- **Three of them are instruments the player operates**, not questions they read.
+  SWEEP is one control and a response plotted only where the player looks — a
+  resonance, a decay, a trade-off. HOLDOUT fits a rule on one set of data, freezes
+  it, and scores it on data it has never seen; the fitting curve carries a spike
+  that beats the honest answer, so overfitting costs the player the stop. TALLY
+  accumulates shots into bins and builds a statistic out of them, and the decision
+  it grades is when there is enough data to report. All three are in Quantum;
+  `engine/dev/instruments.html` draws every one in a theme on a single page, which
+  is the only sane way to look at them — reaching one in the game means playing to
+  the right day with time left on the clock.
   **CHOICE exists because importers guess.** An activity that is a plain
   multiple-choice question gets typed as the nearest format the importer knows,
   which is how the hospital ended up with 36 "diagnoses" that had no instrument

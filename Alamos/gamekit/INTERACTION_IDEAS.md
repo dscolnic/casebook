@@ -1,17 +1,32 @@
-> **Status, August 2026.** The `SWEEP` format is built and Quantum's M02 S1
-> (spectroscopy) is the first instance — see `NEW_GAME.md` §5. It is the
-> substrate for nine of the fourteen ideas below: M01's temperature drag, M02's
-> sweep and Rabi scan, M03's delay scan, M04's boundary (as a two-counter
-> variant), M06's tuning through a defect, M07's averaging time, M08's sequence
-> lengths, M09's shot batches and M14's register size are all one control and a
-> response curve.
+> **Status, August 2026.** Three formats now carry these ideas — `SWEEP`,
+> `HOLDOUT` and `TALLY` — and all three are live in Quantum. See `NEW_GAME.md`
+> §"Adding a question format" for the rules each has cost.
+>
+> **`SWEEP`** — one control, a response built only where the player looks. Six
+> instances in Quantum (M02 spectroscopy, M03 T1-against-T2, M05 discriminator
+> boundary, M06 defect band, M07 averaging knee, M08 randomised-benchmarking
+> decay) and one in Blackout. It is the substrate for nine of the fourteen ideas
+> below.
+>
+> **`HOLDOUT`** (idea 2, M11) — fit a line on calibration shots, freeze it, and
+> score it on shots it has never seen. The calibration curve carries a narrow
+> spike that beats the honest plateau, so chasing the sample costs the player
+> their answer. The importer refuses a holdout whose best-fitting line also
+> passes on held-out data: no trap, no lesson.
+>
+> **`TALLY`** (idea 5, M09) — batches of shots into bins, a correlation per
+> setting pair, and a combination that means nothing until there are shots behind
+> it. The counts are drawn from the authored probabilities with the campaign's own
+> seed, so the statistic scatters like a statistic and the decision the player
+> makes is when it has settled. Graded on the number they actually got.
 >
 > Four of the remaining ideas are existing formats with new chrome and should
 > not be built as minigames: M15's evidence wall is CASEBOOK, M05's replication
 > package is PROTOCOL, M14's correction package and M12's audit are TRIAGE.
-> The genuinely separate mechanic still to build is **sited readings** — a
+> The one genuinely separate mechanic still to build is **sited readings** — a
 > DIAGNOSIS whose zones are objects you walk to rather than rows in a table,
-> which is what M01 wants.
+> which is what M01 wants, and the only one of these that needs world work rather
+> than a renderer.
 
 # Ridgeway Quantum Laboratory — FPS-Native Learning Interaction Ideas
 

@@ -1466,52 +1466,51 @@ missions:
         title: Four correlations, one number
         place: Error & Verification
         scene: >
-          The four correlation measurements come back at 0.71, −0.69, 0.70 and 0.68. The combination Holm
-          wants is the first minus the second plus the third plus the fourth.
+          Two qubits are entangled and the analyser has four setting pairs loaded. Each shot returns one
+          outcome from each qubit, and the pair either agrees or it does not. Nothing has been run yet.
         assumes:
           - a correlation between two detectors can be measured as a number between minus one and one
+          - a proportion measured from a finite number of trials scatters around its true value
         takeaway: The CHSH statistic combines four measured correlations; the classical bound and quantum prediction are comparisons made after the data are combined.
-        format: BALLPARK
-        question: Estimate the CHSH value for these four correlations.
-        why: >
-          Each correlation E is not simply the fraction of trials in which the detectors agree;
-          it is the difference between the probabilities of equal and unequal outcomes, so E
-          ranges from −1 to +1. The CHSH combination uses four such correlations with a
-          particular sign pattern. For local hidden-variable models satisfying the Bell
-          assumptions, |S| cannot exceed 2, while quantum mechanics permits values up to 2√2 ≈
-          2.83. The arithmetic is simple; the scientific work is in making sure the four
-          correlations really belong to the test you claim to have run.
-        estimate:
-          prompt: >
-            The four correlations are E(a,b) = 0.71, E(a,b′) = −0.69, E(a′,b) = 0.70 and E(a′,b′) = 0.68.
-            S is the first minus the second plus the third plus the fourth.
-          question: Choose the four correlations.
-          labels:
-            - 0.71  (E of a and b)
-            - -0.69  (E of a and b prime)
-            - 0.70  (E of a prime and b)
-            - 0.68  (E of a prime and b prime)
-            - 2.83  (the quantum ceiling)
-          values: [0.71, -0.69, 0.70, 0.68, 2.83]
-          slots: 4
-          template: '{0} − {1} + {2} + {3}'
-          formula: a-b+c+d
-          correct: [0, 1, 2, 3]
+        format: TALLY
+        question: >-
+          Acquire the four correlations yourself and combine them. How large is the statistic, and how many
+          shots did it take before it stopped moving?
+        tally:
+          # The probabilities the entangled state actually produces at these four
+          # setting pairs. The counts are drawn from them, so the statistic
+          # scatters like a measured statistic and settles where the physics says.
+          settings:
+            - { label: a with b, pSame: 0.855, sign: 1 }
+            - { label: a with b′, pSame: 0.155, sign: -1 }
+            - { label: a′ with b, pSame: 0.850, sign: 1 }
+            - { label: a′ with b′, pSame: 0.840, sign: 1 }
+          batch: 100
+          minShots: 400
+          formula: S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)
+          formulaLabel: CHSH statistic
+          readoutLabel: Correlation
+          bound: 2
+          boundLabel: local-realist bound
           target: 2.78
-          tolerance: 0.12
-          units: '(S)'
-          solution: S = 0.71 − (−0.69) + 0.70 + 0.68 = 2.78.
-          explanation: >
-            About 2.78. That is above the local-realist CHSH bound of 2 and below the quantum
-            maximum 2√2 ≈ 2.83. Whether the experiment can use that value to close a Bell
-            loophole depends on how the settings, timing and detections were implemented.
-          givens:
-            - The four measured correlations
-            - S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′)
-          relationship: >
-            S is a signed sum of four correlation coefficients. Local hidden-variable models
-            satisfying the CHSH assumptions obey |S| ≤ 2.
-        answerText: About 2.78.
+          tolerance: 0.14
+          commit: Report S
+          readyNote: >-
+            Every pair has four hundred shots. Keep going if the number is still wandering — nobody
+            can tell you when it has settled except the number itself.
+        why: >
+          A correlation here is not the fraction of trials that agree; it is that fraction minus
+          the fraction that disagree, which is why it runs from −1 to +1 and why a pair that
+          almost always disagrees contributes a large negative number. Every one of those four
+          values is a proportion from a finite number of shots, so each carries its own scatter,
+          and the scatter shrinks as the square root of the count — which is why a hundred shots
+          per setting can put the combination either side of two and four hundred usually does
+          not. The bound of two belongs to local models satisfying the Bell assumptions; quantum
+          mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the
+          number has stopped moving is the measurement.
+        answerText: >-
+          About 2.78, once every setting pair has several hundred shots behind it. Above the
+          local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.
       - group: NET
         task: Say what the number excludes
         title: What has been ruled out
@@ -1719,42 +1718,78 @@ missions:
         title: Scoring yourself on your own training set
         place: Control & Readout
         scene: >
-          Ridgeway retrains its discriminator at the start of every session, using a labelled
-          calibration set to choose the decision boundary. Castellan notices that the reported
-          readout fidelity is then calculated on that same calibration set. Delft fits its
-          discriminator on one set of shots and evaluates it on a separate held-out set.
+          Castellan has Ridgeway's own session on screen and both trays of shots beside it. Delft's device
+          beats this one on coherence, on gate error and on readout separation, and reports a circuit
+          fidelity a third lower. The one difference in the two pipelines is which shots the number is
+          measured on.
         assumes:
           - a rule fitted to data describes that data better than it describes new data
-        takeaway: When better hardware gives a worse reported result, compare the analysis pipelines before inventing an invisible hardware failure.
-        format: DIAGNOSIS
-        headline: Two devices, the better one reporting worse fidelity, and the difference is in the analysis.
-        task: Which explanation fits all of it?
-        readings:
-          - { zone: Delft device, label: T2, value: 61 µs, status: normal, note: better than Ridgeway }
-          - { zone: Delft device, label: Gate error, value: 0.6 per cent, status: normal }
-          - { zone: Delft result, label: Circuit fidelity, value: 0.62, status: alarm }
-          - { zone: Ridgeway result, label: Circuit fidelity, value: 0.91, status: alarm }
-          - { zone: Ridgeway method, label: Discriminator, value: fitted and scored on one set, status: alarm }
-        choices:
-          - { label: A hidden hardware fault on Delft's device that escaped every independent metric they reported }
-          - { label: "Ridgeway's discriminator was scored on its own training data", mechanism: "A rule fitted to a set describes that set better than it describes a fresh one." }
-          - { label: A mismatch in the logical circuit or preparation/measurement protocol implemented by the two groups, mechanism: A different sequence would give a different result. }
-          - { label: Ordinary finite-sample fluctuation between two otherwise equivalent analyses, mechanism: Finite sampling produces spread between repeats. }
-        answer: "Ridgeway's discriminator was scored on its own training data"
+          - a labelled calibration set is a sample, and a sample has features of its own
+        takeaway: A rule chosen on a sample is scored generously by that sample, so the only honest number comes from data the rule has never seen.
+        format: HOLDOUT
+        question: >-
+          Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself,
+          freeze it, and give it shots it has never seen — what does it score then?
+        holdout:
+          axis: { label: Discriminator threshold, unit: mV, min: -40, max: 40, step: 1 }
+          unit: '%'
+          fitLabel: Calibration shots
+          testLabel: Shots it has never seen
+          # The trap is authored, not incidental. There is a broad, honest plateau
+          # in the middle and a narrow spike at +14 mV that scores better than
+          # anything else on the calibration set — the noise of that particular
+          # sample, four thousand shots deep. It is the best line on screen while
+          # the player is choosing, and nothing marks it as anything.
+          fit:
+            - { at: -40, value: 88.0 }
+            - { at: -20, value: 92.4 }
+            - { at: -10, value: 94.6 }
+            - { at: -6, value: 95.1 }
+            - { at: -3, value: 95.2 }
+            - { at: 0, value: 95.2 }
+            - { at: 2, value: 95.0 }
+            - { at: 8, value: 94.4 }
+            - { at: 12, value: 95.2 }
+            - { at: 14, value: 96.4 }
+            - { at: 16, value: 95.0 }
+            - { at: 20, value: 93.6 }
+            - { at: 30, value: 91.0 }
+            - { at: 40, value: 88.2 }
+          # The same instrument, a different draw of shots. The plateau is still
+          # there, because it is a property of the clouds. The spike is not.
+          test:
+            - { at: -40, value: 87.6 }
+            - { at: -20, value: 92.0 }
+            - { at: -10, value: 94.2 }
+            - { at: -6, value: 94.8 }
+            - { at: -3, value: 95.0 }
+            - { at: 0, value: 94.9 }
+            - { at: 2, value: 94.6 }
+            - { at: 8, value: 93.8 }
+            - { at: 12, value: 93.2 }
+            - { at: 14, value: 92.6 }
+            - { at: 16, value: 92.2 }
+            - { at: 20, value: 91.4 }
+            - { at: 30, value: 89.2 }
+            - { at: 40, value: 86.8 }
+          pass: 94.5
+          start: -40
+          freeze: Freeze the line
+          commit: Report the held-out number
+          afterFreeze: Frozen. That is what your line scores on shots it has never been shown.
+        answerText: >-
+          About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the
+          best-scoring line on the calibration shots — reports about 92.6, and the two per cent it
+          appeared to gain was a feature of that one sample.
         why: >
-          "The direction of the discrepancy makes the analysis difference suspicious. Delft's
-          hardware metrics are better, both groups implemented the same logical circuit and
-          protocol on their own hardware, and the gap is much larger than the expected sampling
-          fluctuation. Ridgeway's classifier is being evaluated on the same data that selected
-          its boundary, so the reported accuracy is optimistically biased: the evaluation
-          rewards details of that particular calibration sample that may not generalise. Delft's
-          held-out procedure measures performance on genuinely unseen shots. The clean test is
-          now obvious — apply a held-out evaluation to Ridgeway's data and see whether the
-          discrepancy shrinks."
-        rebuttals:
-          - A hidden fault is possible in principle, but it does not explain why the one known pipeline difference predicts the discrepancy in exactly this direction.
-          - The first thing to verify is the actual implemented circuit and protocol; the run records show both groups implemented the same specified experiment on their own hardware.
-          - The observed gap is far larger than the sampling spread expected from the number of shots.
+          A threshold chosen on a sample is chosen partly on that sample's noise, and noise does
+          not repeat. That is why the middle of the range holds up and the spike does not: the
+          plateau is a property of the two clouds, which the next batch of shots also has, and
+          the spike is a property of four thousand particular records, which it does not. So a
+          score measured where the line was chosen is not a measurement of the classifier at all
+          — it is a measurement of the classifier plus the sample, and it is biased upwards
+          every time, quietly and in the same direction. The cure is procedural rather than
+          clever: keep shots back, freeze the rule, and report what it does on those.
       - group: VER
         task: Sort the fortnight's numbers
         title: What the artefact touches
