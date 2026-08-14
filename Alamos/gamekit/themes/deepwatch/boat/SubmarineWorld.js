@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { ProceduralProps } from './ProceduralProps.js';
 import { BilgeVisuals } from './BilgeVisuals.js';
 import { VALVES } from './fittings.js';
+import { furnishArea } from '../../../engine/world/interiorKit.js';
 
 /**
  * SubmarineWorld — builds the one persistent boat: a single-deck interior running
@@ -349,7 +350,116 @@ export class SubmarineWorld {
 
       const build = this[`_furnish_${c.id}`];
       if (build) build.call(this, c);
+
+      // And the fittings every compartment of a boat has, which nobody had
+      // written down because they are nobody's mission stop: lockers, valve
+      // wheels, gauge boards, stowed hose, deckhead cable runs. Measured before
+      // this went in, five of the six compartments held fewer than fifteen
+      // pieces and Atmosphere & Life Support held three.
+      this._furnishGeneric(c);
     }
+  }
+
+  /**
+   * The fittings a compartment has because it is a compartment.
+   *
+   * Deliberately a boat vocabulary and not the building one: a pressure hull has
+   * no whiteboards and no coat hooks. Everything here is against a bulkhead or
+   * overhead, because the centre of a compartment is how the crew gets fore and
+   * aft, and everything is low enough to walk past.
+   */
+  _furnishGeneric(c) {
+    const M = this.mat;
+    const steel = () => M.hullSteel();
+    const put = (mesh, x, y, z, ry = 0) => {
+      mesh.position.set(x, y, z);
+      mesh.rotation.y = ry;
+      this.root.add(mesh);
+      return mesh;
+    };
+    const box = (w, h, d, x, y, z, material, ry = 0) =>
+      put(new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material), x, y, z, ry);
+
+    const makers = {
+      // A run of stowage lockers, latched.
+      locker: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        box(0.42, 1.5, 1.1, x + s * 0.22, 0.75, z, steel());
+        for (const o of [-0.28, 0.28]) box(0.46, 0.06, 0.1, x + s * 0.22, 1.0, z + o, M.emissive(0x8d99a3, 0.02));
+        this.collision?.addBox?.(x + s * 0.22, z, 0.5, 1.2, 1.5, 'locker');
+      },
+      // A hand wheel on a stub of pipe: the most submarine object there is.
+      valveWheel: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        box(0.16, 0.16, 0.16, x + s * 0.16, 1.35, z, steel());
+        const wheel = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.028, 6, 14), M.emissive(0xb4472e, 0.05));
+        wheel.rotation.y = Math.PI / 2;
+        put(wheel, x + s * 0.3, 1.35, z);
+      },
+      // A cluster of gauges on a small board.
+      gaugeBoard: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        box(0.06, 0.44, 0.6, x + s * 0.06, 1.5, z, steel());
+        for (let i = 0; i < 3; i++) {
+          const g = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.03, 10),
+            M.emissive(0xdfe6ea, 0.25));
+          g.rotation.z = Math.PI / 2;
+          put(g, x + s * 0.11, 1.62 - i * 0.16, z + (i - 1) * 0.16);
+        }
+      },
+      // Pipe along the bulkhead, with its hangers.
+      pipeRun: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        const pipe = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 2.2, 8), steel());
+        pipe.rotation.x = Math.PI / 2;
+        put(pipe, x + s * 0.14, 2.05, z);
+        for (const o of [-0.9, 0.9]) box(0.1, 0.14, 0.06, x + s * 0.1, 2.14, z + o, steel());
+      },
+      // Coiled hose on a bracket.
+      stowedHose: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        const coil = new THREE.Mesh(new THREE.TorusGeometry(0.24, 0.055, 6, 12), M.emissive(0x2f3a42, 0.02));
+        coil.rotation.y = Math.PI / 2;
+        put(coil, x + s * 0.26, 1.15, z);
+        box(0.2, 0.05, 0.05, x + s * 0.14, 1.42, z, steel());
+      },
+      // A stencilled placard: which frame this is, and what is behind the door.
+      placard: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        box(0.03, 0.2, 0.42, x + s * 0.04, 1.78, z, M.emissive(0xd8d2bd, 0.12));
+      },
+      // Deckhead cable trunking, overhead and out of the way.
+      trunking: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        box(0.16, 0.12, 1.8, x + s * 0.3, 2.28, z, steel());
+      },
+      // A tool clip rail with a couple of things on it.
+      toolRail: (x, z) => {
+        const s = x < 0 ? 1 : -1;
+        box(0.05, 0.06, 0.7, x + s * 0.06, 1.42, z, steel());
+        for (const o of [-0.18, 0.14]) box(0.07, 0.26, 0.07, x + s * 0.12, 1.28, z + o, steel());
+      },
+    };
+
+    furnishArea({
+      makers,
+      order: ['locker', 'valveWheel', 'gaugeBoard', 'pipeRun', 'stowedHose',
+        'placard', 'trunking', 'toolRail'],
+      // Against both sides, inside the frames, and clear of the deck centreline
+      // the crew walks down.
+      bounds: { x0: -HALF_W + 0.1, x1: HALF_W - 0.1, z0: c.zStart + 0.9, z1: c.zEnd - 0.9 },
+      target: 16,
+      seed: `boat-${c.id}`,
+      sep: 1.15,
+      // Whatever this compartment already has: its station consoles and the three
+      // standard fittings, which were placed above.
+      keepClear: [
+        { x: -HALF_W + 0.25, z: c.zStart + 0.85, r: 1.2 },
+        { x: -HALF_W + 0.28, z: c.zEnd - 0.75, r: 1.2 },
+        { x: HALF_W - 0.24, z: c.zStart + 0.8, r: 1.2 },
+        { x: 0, z: c.zMid, r: 2.0 },
+      ],
+    });
   }
 
   _placeStation(c, type, name, x, z, screenColor) {

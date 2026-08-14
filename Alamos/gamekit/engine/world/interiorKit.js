@@ -654,3 +654,64 @@ export function furnishingMaterials(existing = {}){
       color: 0xa8c4cc, roughness: 0.2, metalness: 0.1, transparent: true, opacity: 0.5 }),
   };
 }
+
+/**
+ * Fit out an area from an explicit vocabulary.
+ *
+ * `furnishRoom` knows about rooms in buildings — walls, a doorway, notice boards.
+ * A submarine compartment and a mission-control tier are neither, and forcing them
+ * through it would put a whiteboard and a coat rail in a pressure hull. This is the
+ * same placement discipline — keep pieces apart, respect what is already there,
+ * count what went down — with the caller supplying what the pieces are.
+ *
+ *   makers   { name: (x, z, axis) => void }  the caller's own shapes
+ *   order    [name, …]                        which to place, cycled until full
+ *   bounds   { x0, x1, z0, z1 }
+ *   target   how many pieces
+ *
+ * Returns how many it managed, which is usually the target and is less when the
+ * area genuinely has no room for more.
+ */
+export function furnishArea({ makers, order, bounds: B, target = 15, seed = 'area',
+  keepClear = [], sep = 1.4 }){
+  const rand = rng(seed);
+  const xLo = Math.min(B.x0, B.x1), xHi = Math.max(B.x0, B.x1);
+  const zLo = Math.min(B.z0, B.z1), zHi = Math.max(B.z0, B.z1);
+  const taken = [];
+  let placed = 0;
+  const put = (fn, x, z, axis) => {
+    if(keepClear.some(k => Math.hypot(k.x - x, k.z - z) < (k.r ?? 1))) return false;
+    if(taken.some(t => Math.hypot(t.x - x, t.z - z) < sep)) return false;
+    fn(x, z, axis);
+    taken.push({ x, z });
+    placed++;
+    return true;
+  };
+  // Down both sides first, which is where fittings live in any working space,
+  // then whatever is left over in the middle.
+  const lanes = [
+    { x: xLo, axis: 'z' }, { x: xHi, axis: 'z' },
+    { x: (xLo + xHi) / 2, axis: 'z' },
+  ];
+  const run = zHi - zLo;
+  const steps = Math.max(1, Math.floor(run / sep));
+  let oi = 0;
+  for(const lane of lanes){
+    for(let k = 0; k <= steps && placed < target; k++){
+      const z = zLo + (k + 0.5) * (run / (steps + 1));
+      const name = order[oi++ % order.length];
+      const make = makers[name];
+      if(make) put(make, lane.x, z, lane.axis);
+    }
+    if(placed >= target) break;
+  }
+  // Still short: jitter into the gaps rather than giving up on the count.
+  let guard = 0;
+  while(placed < target && guard++ < 200){
+    const name = order[oi++ % order.length];
+    const make = makers[name];
+    if(!make) continue;
+    put(make, xLo + rand() * (xHi - xLo), zLo + rand() * run, 'z');
+  }
+  return placed;
+}

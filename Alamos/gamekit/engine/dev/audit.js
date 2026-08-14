@@ -185,3 +185,103 @@ export function reportAudit(scene, renderer, opts = {}){
   console.groupEnd();
   return findings;
 }
+
+// ---------------------------------------------------------------- furnishing
+//
+// The same measurement `engine/dev/pieceDensity.mjs` makes in node, made in the
+// browser instead, for the worlds node cannot build. Deep Watch, Bring Them Home
+// and the hospital construct a WebGLRenderer inside `initWorld` and bake an
+// environment map through it, which is real GPU work and not worth emulating —
+// so those three are measured where they actually run.
+//
+//   const { reportPieces } = await import('/engine/dev/audit.js');
+//   reportPieces(gamekit.scene, gamekit.theme, gamekit.world);
+//
+// A piece is not a mesh: placements within a metre of each other in three
+// dimensions are one thing, so a desk of four boxes counts once and the notice on
+// the wall above it counts separately. Structure — walls, decks, hull, ceilings —
+// is excluded by size.
+
+/** Single-link clustering in 3D. One cluster is one piece. */
+function clusterPieces(items, radius = 1.0){
+  const seen = new Array(items.length).fill(false);
+  let n = 0;
+  for(let i = 0; i < items.length; i++){
+    if(seen[i]) continue;
+    n++;
+    const stack = [i];
+    seen[i] = true;
+    while(stack.length){
+      const a = items[stack.pop()];
+      for(let j = 0; j < items.length; j++){
+        if(seen[j]) continue;
+        const b = items[j];
+        const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+        if(Math.sqrt(dx * dx + dy * dy + dz * dz) <= radius){ seen[j] = true; stack.push(j); }
+      }
+    }
+  }
+  return n;
+}
+
+/**
+ * Every furnishing-sized object in the scene, wherever it sits in the graph.
+ *
+ * Unlike the node checker this walks the whole tree rather than the top level: a
+ * hand-built world nests its props inside groups per compartment, and only the
+ * leaves have positions worth bucketing.
+ */
+export function scenePieces(scene, { maxSpan = 6, minHeight = 0.06 } = {}){
+  scene.updateMatrixWorld(true);
+  const out = [];
+  const bb = new THREE.Box3();
+  scene.traverse((o) => {
+    if(!o.isMesh || o.isLight) return;
+    bb.setFromObject(o);
+    if(bb.isEmpty() || !Number.isFinite(bb.min.x)) return;
+    const w = bb.max.x - bb.min.x, d = bb.max.z - bb.min.z, h = bb.max.y - bb.min.y;
+    if(Math.max(w, d) > maxSpan) return;                       // wall, deck, hull
+    if(Math.min(w, d) > 2.5 && h < 0.35) return;               // floor or ceiling slab
+    if(h < minHeight) return;                                  // a decal
+    out.push({ x: (bb.min.x + bb.max.x) / 2, y: (bb.min.y + bb.max.y) / 2,
+      z: (bb.min.z + bb.max.z) / 2 });
+  });
+  return out;
+}
+
+/**
+ * How furnished each area of a running game is.
+ *
+ * Buckets by nearest mission stop, which every theme has and every world can
+ * locate, so it works for a corridor of rooms and a submarine alike. `radius` is
+ * how far from a stop still counts as that area.
+ */
+export function reportPieces(scene, theme, world, { radius = 7 } = {}){
+  const pieces = scenePieces(scene);
+  const groups = theme?.content?.GROUPS ?? [];
+  const rows = [];
+  const claimed = new Set();
+  for(const g of groups){
+    const p = world?.getStopPosition?.(g.id);
+    if(!p) continue;
+    const mine = pieces.filter((q, i) => {
+      if(claimed.has(i)) return false;
+      const near = Math.hypot(q.x - p.x, q.z - p.z) <= radius;
+      if(near) claimed.add(i);
+      return near;
+    });
+    rows.push({ name: g.name ?? g.id, pieces: clusterPieces(mine), objects: mine.length });
+  }
+  const loose = pieces.filter((q, i) => !claimed.has(i));
+  rows.sort((a, b) => a.pieces - b.pieces);
+  const pad = Math.max(8, ...rows.map(r => r.name.length));
+  console.log(`%c${theme?.title ?? 'theme'} — pieces per area, thinnest first`,
+    'font-weight:700');
+  for(const r of rows){
+    console.log(`  ${r.name.padEnd(pad)} ${String(r.pieces).padStart(3)} pieces`
+      + `  (${r.objects} objects)${r.pieces < 15 ? '   ← under 15' : ''}`);
+  }
+  console.log(`  ${'elsewhere'.padEnd(pad)} ${String(clusterPieces(loose)).padStart(3)} pieces`
+    + `  (${loose.length} objects)`);
+  return rows;
+}

@@ -23,6 +23,17 @@ import themeManifest from '../theme.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { getPersonIdForStop } from './simulation.js';
 
+// Declared here, above everything, on purpose.
+//
+// The frame loop starts during module evaluation — `enterHospital` runs on load
+// and calls `startGameLoop` — so a binding declared further down the file is in
+// its temporal dead zone on frame one, whether it is a `const` or a `let`. It was
+// declared immediately above `animate()`, which looks safe and is not: what
+// matters is where it sits relative to the *call*, not to the function.
+// The symptom was the whole game failing to start with "Cannot access 'cornerMap'
+// before initialization".
+let cornerMap = null;
+
 window.addEventListener('error', e=>{ console.error('[Hospital]', e.message, e.error); try{ const so=document.getElementById('setupOverlay'); if(so){so.classList.add('hidden'); so.style.display='none';} }catch{} });
 const canvas=document.getElementById('canvas');
 const promptEl=document.getElementById('prompt');
@@ -276,9 +287,6 @@ function startGameLoop(){
                                getState, getCurrentTarget, updateInstruments, day, animateOnce: ()=>animate() });
 }
 
-// Declared above the frame loop on purpose: the loop starts during module
-// evaluation, so a const further down the file is a TDZ error on frame one.
-let cornerMap = null;
 function animate(){
   rafId=requestAnimationFrame(animate);
   cornerMap?.update(performance.now());
