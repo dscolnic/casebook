@@ -1,0 +1,652 @@
+// props.js — what a magnitude 6.8 leaves behind, three days later.
+//
+// The other seven games decorate a working place. This one decorates a broken
+// one, and the damage is the instrument: every object here is something an
+// engineer would photograph and write a number against.
+//
+// The vocabulary, and what each thing teaches:
+//
+//   the scarp        a kerb, a centre line and a fence stepped 1.8 m across a
+//                    line you can walk. The fault is not an abstraction on a map.
+//   sand boils       grey fans of ejected sand in the Flats streets, with a car
+//                    down to its axles. Liquefaction, and why fill is not soil.
+//   raking shores    timber from the pavement to the parapet line in Upper Town.
+//                    Unreinforced masonry fails outward; the shores hold it in.
+//   Marina Court     six storeys at eight degrees on a raft that is undamaged.
+//                    Bearing failure — the building is fine, the ground is not.
+//   the soft storey  a car park level pancaked under four floors that are intact.
+//                    Where the stiffness stops, the storey goes.
+//   the wharf        quay edge cracked parallel to the water and moved seaward,
+//                    with the gangway now short. Lateral spreading.
+//   placards         red, yellow and green on every door. The campaign's whole
+//                    decision, readable from across the street.
+//
+// House rules that bit while writing this: `kit.box` rotates about Y only, so
+// anything leaning is a THREE.Group with a z-rotation; emissive geometry rather
+// than lights, because six real lights is the ceiling and the base camp alone
+// would eat it; and placers take `(x, z, y)` with the ground last.
+import * as THREE from 'three';
+import {
+  MATERIALS, box, cyl, post, sign, fenceRun, crateStack, vehicle, displayBoard, tank,
+} from '../../engine/world/kit.js';
+
+/** The three placard colours, which are the same everywhere in this world. */
+const PLACARD = {
+  red: 0xb3342a,
+  yellow: 0xd8a02a,
+  green: 0x3f8f56,
+};
+
+/**
+ * A placard on a door: a coloured card in a frame, at eye height, facing out.
+ *
+ * Emissive at a low level so it stays readable in the dust haze without being a
+ * light — these are the wayfinding of the whole game and a grey card at fifty
+ * metres is invisible.
+ */
+function placard(scene, x, z, y, colour, facing = 0){
+  const g = new THREE.Group();
+  const back = new THREE.Mesh(
+    new THREE.BoxGeometry(0.62, 0.86, 0.05),
+    MATERIALS.paintedSteel(0x2e2b26),
+  );
+  const card = new THREE.Mesh(
+    new THREE.BoxGeometry(0.52, 0.74, 0.06),
+    new THREE.MeshStandardMaterial({
+      color: colour, emissive: new THREE.Color(colour), emissiveIntensity: 0.35,
+      roughness: 0.85, metalness: 0,
+    }),
+  );
+  card.position.z = 0.02;
+  g.add(back, card);
+  g.position.set(x, y + 1.55, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  return card;
+}
+
+/** Timber raking shores: the diagonal props holding a façade in. */
+function shores(scene, { x, z, y, facing = 0, length = 9, count = 4, height = 6.2 }){
+  const timber = MATERIALS.paintedSteel(0x8a7350);
+  for(let i = 0; i < count; i++){
+    const off = (i - (count - 1) / 2) * 2.6;
+    const g = new THREE.Group();
+    // The raker itself, leaning back from the wall at about 60°.
+    const len = Math.hypot(height, length * 0.55);
+    const r = new THREE.Mesh(new THREE.BoxGeometry(0.22, len, 0.22), timber);
+    r.position.set(0, len / 2, 0);
+    r.rotation.x = Math.atan2(length * 0.55, height);
+    g.add(r);
+    // Sole plate on the ground and a cleat against the wall.
+    const sole = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.18, 2.2), timber);
+    sole.position.set(0, 0.09, length * 0.5);
+    g.add(sole);
+    g.position.set(x + Math.cos(facing) * off, y, z + Math.sin(facing) * off);
+    g.rotation.y = facing;
+    scene.add(g);
+  }
+}
+
+/** A fan of ejected sand, with the crack it came out of. */
+function sandBoil(scene, x, z, y, r = 3.4){
+  const sand = new THREE.MeshStandardMaterial({ color: 0x9d9483, roughness: 1, metalness: 0 });
+  const fan = new THREE.Mesh(new THREE.CylinderGeometry(r, r * 1.15, 0.16, 18), sand);
+  fan.position.set(x, y + 0.08, z);
+  scene.add(fan);
+  const vent = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.16, r * 0.2, 0.2, 10),
+    MATERIALS.paintedSteel(0x4a4740));
+  vent.position.set(x, y + 0.14, z);
+  scene.add(vent);
+}
+
+
+/**
+ * A building sitting slightly out of plumb.
+ *
+ * `kit.box` rotates about Y only, so anything leaning has to be a Group with a
+ * z-rotation. Differential settlement is the point: a street where every house
+ * is out by a different degree or two reads as *ground* failing, where one
+ * dramatic lean reads as one unlucky building.
+ */
+function leaner(scene, { x, z, y, w = 9, d = 8, h = 6, tilt = 0.03, colour = 0xa39a8b, facing = 0 }){
+  const g = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), MATERIALS.paintedSteel(colour));
+  body.position.y = h / 2;
+  g.add(body);
+  const roof = new THREE.Mesh(new THREE.BoxGeometry(w + 0.6, 0.5, d + 0.6),
+    MATERIALS.paintedSteel(0x5d5347));
+  roof.position.y = h + 0.25;
+  g.add(roof);
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  g.rotation.z = tilt;
+  scene.add(g);
+  return g;
+}
+
+/**
+ * The spray-painted record of an inspection: a date, initials and a placard
+ * letter, straight onto the wall beside the door.
+ *
+ * Drawn as a small canvas texture rather than geometry, because it is the
+ * cheapest way to put readable writing on a wall and this is the visual
+ * language of the whole subject — every building in a placarded town wears one.
+ */
+function doorCode(scene, { x, z, y, facing = 0, text = '09/03  AW', colour = '#d8a02a' }){
+  const c = document.createElement('canvas');
+  c.width = 256; c.height = 128;
+  const cx = c.getContext('2d');
+  cx.clearRect(0, 0, 256, 128);
+  cx.strokeStyle = colour; cx.lineWidth = 9; cx.lineCap = 'round';
+  // The circle-and-slash the search teams actually use, then the writing.
+  cx.beginPath(); cx.arc(60, 64, 40, 0, Math.PI * 2); cx.stroke();
+  cx.beginPath(); cx.moveTo(30, 34); cx.lineTo(90, 94); cx.stroke();
+  cx.font = 'bold 34px monospace'; cx.fillStyle = colour;
+  cx.fillText(text, 112, 78);
+  const tex = new THREE.CanvasTexture(c);
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 1.3),
+    new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 1,
+      polygonOffset: true, polygonOffsetFactor: -3 }));
+  m.position.set(x, y + 2.1, z);
+  m.rotation.y = facing;
+  scene.add(m);
+  return m;
+}
+
+/** A ridge tent, for the people who are not sleeping in their houses. */
+function tent(scene, x, z, y, { w = 4.2, l = 6.4, h = 2.6, facing = 0, colour = 0xb9b2a2 } = {}){
+  const g = new THREE.Group();
+  const mat = MATERIALS.paintedSteel(colour);
+  for(const side of [-1, 1]){
+    const p = new THREE.Mesh(new THREE.BoxGeometry(w * 0.62, 0.12, l), mat);
+    p.position.set(side * w * 0.26, h * 0.55, 0);
+    p.rotation.z = side * 0.72;
+    g.add(p);
+  }
+  const end = new THREE.Mesh(new THREE.BoxGeometry(w, h * 0.5, 0.1), mat);
+  end.position.set(0, h * 0.25, l / 2);
+  g.add(end);
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  return g;
+}
+
+/** A crack in the ground: a thin dark line with a lip on one side. */
+function fissure(scene, { x, z, y, len = 12, ang = 0, width = 0.5, throwUp = 0.12 }){
+  const dark = MATERIALS.paintedSteel(0x2f2b26);
+  box(scene, len, 0.12, width, x, y + 0.04, z, dark, ang);
+  // The lip: one side of a crack is almost always a little higher than the other.
+  box(scene, len, throwUp, width * 0.5, x + Math.sin(ang) * width, y + throwUp / 2,
+    z + Math.cos(ang) * width, MATERIALS.paintedSteel(0x8a8172), ang);
+}
+
+export function decorate(scene, ctx){
+  const { groundHeight, colliders, softColliders, interactables, lightPanels } = ctx;
+  const y = (x, z) => groundHeight(x, z);
+  const soft = (s) => { if(s) softColliders.push(s); };
+  const glow = (m) => { if(m) lightPanels?.push(m); };
+
+  // ===================================================== the rupture, on foot
+  // The fault trace runs from (-400, 40) to (400, -110). Where it crosses the
+  // things people built in straight lines, it left the offset you can measure —
+  // which is the first field measurement of the campaign.
+  {
+    // The trace, parameterised so everything below sits on it.
+    const x0 = -400, z0 = 40, x1 = 400, z1 = -110;
+    const at = (t) => ({ x: x0 + (x1 - x0) * t, z: z0 + (z1 - z0) * t });
+    const ang = Math.atan2(z1 - z0, x1 - x0);
+
+    // Survey pegs along the trace, every twenty metres, on the walkable stretch.
+    for(let t = 0.42; t <= 0.60; t += 0.012){
+      const p = at(t);
+      post(scene, p.x, p.z, y(p.x, p.z), 1.1, 0.05, 0xd8a02a);
+    }
+
+    // Kestrel Street's centre line, stepped where it crosses. Two straight runs
+    // that do not meet — which is the whole point.
+    const paint = MATERIALS.paintedSteel(0xd9d2c0);
+    for(let i = 0; i < 7; i++){
+      const z = -46 - i * 6;
+      box(scene, 0.28, 0.04, 3.4, 1.9, y(1.9, z) + 0.03, z, paint);   // upthrown side
+    }
+    for(let i = 0; i < 7; i++){
+      const z = -6 + i * 6;
+      box(scene, 0.28, 0.04, 3.4, -0.6, y(-0.6, z) + 0.03, z, paint); // downthrown side
+    }
+
+    // A boundary fence walking across the trace, with its dogleg.
+    fenceRun(scene, { x0: -96, z0: 24, x1: -30, z1: 12, y: y(-60, 18), height: 1.5 });
+    fenceRun(scene, { x0: -28, z0: 9.4, x1: 34, z1: -2, y: y(0, 4), height: 1.5 });
+
+    // The scarp face itself: a raw earth step, dressed with a line of broken
+    // kerbstones so the eye reads it as ground rather than as a wall.
+    for(let t = 0.36; t <= 0.66; t += 0.006){
+      const p = at(t);
+      const g = y(p.x, p.z);
+      const jitter = Math.abs(Math.sin(t * 211)) * 0.5;
+      box(scene, 3.6, 0.5 + jitter, 1.1, p.x, g - 0.1, p.z,
+        MATERIALS.paintedSteel(0x7d7365), ang + Math.sin(t * 97) * 0.15);
+    }
+
+    // The lateral offset. A step you can only read from the side; a road whose
+    // centre line goes sideways 2.4 m and carries on is the photograph everybody
+    // has seen of a fault, and it is legible from a hundred metres.
+    for(let i = 0; i < 6; i++){
+      const z = -50 - i * 6;
+      box(scene, 0.28, 0.04, 3.4, 4.3, y(4.3, z) + 0.03, z, paint);
+    }
+    // The kerb, offset the same way, with the broken tail between the two runs.
+    box(scene, 0.4, 0.32, 40, -3.4, y(-3.4, 6) + 0.16, 6, MATERIALS.paintedSteel(0x9d968a));
+    box(scene, 0.4, 0.32, 40, -1.0, y(-1.0, -56) + 0.16, -56, MATERIALS.paintedSteel(0x9d968a));
+
+    // The ramp: bulldozed fill pushed over the step so vehicles can cross, which
+    // is what the terrain now does under the road and this is the evidence of it.
+    {
+      const rz = -34;
+      for(let i = 0; i < 7; i++){
+        const w = 13 - i * 0.7;
+        box(scene, w, 0.5, 3.0, 0, y(0, rz - 9 + i * 3) + 0.2 + i * 0.12, rz - 9 + i * 3,
+          MATERIALS.paintedSteel(0x7f7565));
+      }
+      // Spoil shoved off to both sides, cones down the middle, and the board.
+      for(const sx of [-9, 9]){
+        for(let i = 0; i < 5; i++){
+          const cz = rz - 8 + i * 4;
+          box(scene, 4 + (i % 2), 1.1 + (i % 3) * 0.4, 3.4, sx + (i % 2), y(sx, cz) + 0.55, cz,
+            MATERIALS.paintedSteel(0x6f6656), i * 0.5);
+        }
+      }
+      for(let i = 0; i < 8; i++){
+        const cz = rz - 12 + i * 3.4, cx = i % 2 ? 4.6 : -4.6;
+        cyl(scene, 0.34, 0.75, cx, y(cx, cz) + 0.37, cz, MATERIALS.paintedSteel(0xc4531f), 0.16);
+      }
+      sign(scene, 'RAMP — 10 km/h', { x: 7.5, z: rz + 13, y: y(7.5, rz + 13) + 2.3, facing: Math.PI,
+        sub: 'Surface rupture — single lane, banksman', accent: 0xd8a02a });
+      // A total station on a tripod, watching the scarp for movement.
+      const tx = -12, tz = rz - 4, ty = y(tx, tz);
+      for(let i = 0; i < 3; i++){
+        const a = i * 2.09;
+        box(scene, 0.07, 1.5, 0.07, tx + Math.cos(a) * 0.35, ty + 0.75, tz + Math.sin(a) * 0.35,
+          MATERIALS.paintedSteel(0xd8cfae), a);
+      }
+      box(scene, 0.42, 0.34, 0.3, tx, ty + 1.62, tz, MATERIALS.paintedSteel(0x2f3b46));
+    }
+
+    sign(scene, 'SURFACE RUPTURE', { x: 14, z: -28, y: y(14, -28) + 2.3, facing: Math.PI,
+      sub: 'Do not cross plant or vehicles', accent: 0xd8a02a });
+  }
+
+  // ================================================ the Flats: liquefaction
+  // Grey fans of sand in the streets, wettest near the old creek line, and a
+  // car that parked on what used to be ground.
+  {
+    // The fans follow the 1892 creek, because that is where the loosest and
+    // wettest material is. Scattered at random they were decoration; on a line
+    // they are the argument Navarro makes on day one, drawn on the ground.
+    const creek = (t) => ({ x: -150 + t * 300, z: 62 + Math.sin(t * 3.1) * 34 + t * 26 });
+    for(let i = 0; i <= 26; i++){
+      const p = creek(i / 26);
+      // Real ejecta covers a street rather than dotting it, so these overlap
+      // into a continuous sheet with the odd larger vent in it.
+      sandBoil(scene, p.x, p.z, y(p.x, p.z), 6.5 + (i % 4) * 2.2);
+      if(i % 3 === 0){
+        const o = creek((i + 0.5) / 26);
+        sandBoil(scene, o.x + 9, o.z - 7, y(o.x + 9, o.z - 7), 4.5);
+      }
+    }
+    // Tyre tracks cut through the silt, because people have been driving in it.
+    for(let i = 0; i < 22; i++){
+      const p = creek(i / 22);
+      box(scene, 11, 0.05, 0.55, p.x, y(p.x, p.z) + 0.2, p.z + 1.6,
+        MATERIALS.paintedSteel(0x6c6355), 0.1);
+      box(scene, 11, 0.05, 0.55, p.x, y(p.x, p.z) + 0.2, p.z - 1.6,
+        MATERIALS.paintedSteel(0x6c6355), 0.1);
+    }
+
+    // Fissures radiating through the Flats: kerbs pulled apart, a footpath
+    // opened, garden walls unzipped.
+    for(let i = 0; i < 16; i++){
+      const a = i * 0.7;
+      const fx = -110 + i * 14, fz = 88 + Math.sin(a) * 30;
+      fissure(scene, { x: fx, z: fz, y: y(fx, fz), len: 9 + (i % 4) * 5, ang: 0.3 + Math.sin(a) * 0.9 });
+    }
+
+    // Down to the axles, nose-down, in the biggest of them.
+    const car = vehicle(scene, 24, 86, y(24, 86) - 0.55, { facing: 0.7, colour: 0x8d99a6 });
+    soft({ x: 24, z: 86, r: 2.6 });
+
+    // A terrace, every house out by a different degree or two. One dramatic lean
+    // is an unlucky building; a street of small ones is the ground failing.
+    for(let i = 0; i < 9; i++){
+      const hx = -104 + i * 13, hz = 128;
+      const t = (Math.sin(i * 2.3) * 0.5 + Math.sin(i * 5.1) * 0.5) * 0.045;
+      leaner(scene, { x: hx, z: hz, y: y(hx, hz), w: 10, d: 9, h: 6.4, tilt: t,
+        colour: [0xa89c8a, 0x9c9484, 0xb0a48f][i % 3] });
+      doorCode(scene, { x: hx + 3.2, z: hz - 4.6, y: y(hx, hz), facing: 0,
+        text: ['09/03  AW', '10/03  MO', '09/03  AW'][i % 3],
+        colour: ['#d8a02a', '#b3342a', '#3f8f56'][i % 3] });
+    }
+
+    sign(scene, 'BAY ROAD CLOSED', { x: -6, z: 70, y: y(-6, 70) + 2.2, facing: 0,
+      sub: 'Ejecta — no through traffic', accent: 0xb3342a });
+  }
+
+  // ============================================ Upper Town: masonry and shores
+  // The Parade is a row of 1890s shopfronts with a heavy parapet. The parapet is
+  // now in the street, and what is left is held in by timber.
+  {
+    const px = -74, pz = -34, py = y(px, pz);
+    shores(scene, { x: px + 17, z: pz, y: py, facing: -Math.PI / 2, length: 9, count: 5, height: 6.4 });
+
+    // The parapet, where it landed: a spill of brick across the footpath.
+    for(let i = 0; i < 70; i++){
+      const t = (Math.sin(i * 17.3) + 1) / 2, u = (Math.sin(i * 7.7) + 1) / 2;
+      const bx = px + 18 + u * 6.5, bz = pz - 6 + t * 12;
+      box(scene, 0.5, 0.22, 0.24, bx, y(bx, bz) + 0.11 + (i % 3) * 0.2, bz,
+        MATERIALS.paintedSteel(0x9a6b52), t * 3.1);
+    }
+    // Hoarding and cordon along the front, because nobody may walk under it.
+    fenceRun(scene, { x0: px + 24, z0: pz - 16, x1: px + 24, z1: pz + 16, y: py, height: 2.0 });
+    placard(scene, px + 15.6, pz - 4, py, PLACARD.red, -Math.PI / 2);
+    placard(scene, px + 15.6, pz + 6, py, PLACARD.red, -Math.PI / 2);
+
+    // Two chimneys down in the street behind it, and a house off its piles.
+    for(const [cx, cz] of [[-96, -56], [-58, -62]]){
+      for(let i = 0; i < 14; i++){
+        const bx = cx + Math.sin(i * 3.1) * 2.4, bz = cz + Math.cos(i * 2.7) * 2.0;
+        box(scene, 0.42, 0.2, 0.2, bx, y(bx, bz) + 0.1, bz, MATERIALS.paintedSteel(0x8f6a55), i * 0.7);
+      }
+    }
+  }
+
+  // ========================================== Marina Court, eight degrees over
+  // The building the whole course turns on: six storeys leaning, sitting on a
+  // raft foundation that came through undamaged. Nothing structural failed. The
+  // ground underneath stopped being able to hold it up.
+  {
+    const bx = 62, bz = 132, by = y(bx, bz);
+    const tilt = 8 * Math.PI / 180;
+    const g = new THREE.Group();
+    const shell = MATERIALS.paintedSteel(0x9fa6ac);
+    const H = 21;
+    const body = new THREE.Mesh(new THREE.BoxGeometry(17, H, 15), shell);
+    body.position.y = H / 2;
+    g.add(body);
+    // Floor bands, so the lean is legible against the horizon.
+    for(let f = 1; f < 6; f++){
+      const band = new THREE.Mesh(new THREE.BoxGeometry(17.4, 0.5, 15.4),
+        MATERIALS.paintedSteel(0x7e858b));
+      band.position.y = f * 3.4;
+      g.add(band);
+    }
+    g.position.set(bx, by, bz);
+    g.rotation.z = tilt;
+    scene.add(g);
+    // A Box3, because that is what every consumer of `colliders` expects — the
+    // crowd's blocked() reads c.min.x directly, so a centre-and-size record
+    // throws before the world has finished building.
+    colliders.push(new THREE.Box3(
+      new THREE.Vector3(bx - 10, by, bz - 9), new THREE.Vector3(bx + 10, by + H, bz + 9)));
+
+    // The raft, tipped out of the ground on the high side and perfectly sound.
+    box(scene, 20, 1.2, 18, bx - 1.4, by - 0.2, bz, MATERIALS.paintedSteel(0x8b8880), 0);
+    placard(scene, bx - 9.5, bz + 7, by, PLACARD.red, Math.PI);
+    sign(scene, 'MARINA COURT', { x: bx - 12, z: bz + 12, y: by + 2.4, facing: Math.PI,
+      sub: 'Evacuated — raft intact, ground is not', accent: 0xb3342a });
+  }
+
+  // ============================================ the soft storey on Bay Road
+  // Four floors of flats sitting on a car park, and the car park is gone. The
+  // floors above it are undamaged, which is the lesson: the failure went where
+  // the stiffness stopped.
+  {
+    const bx = -56, bz = 62, by = y(bx, bz);
+    const shell = MATERIALS.paintedSteel(0xa8a091);
+    box(scene, 22, 10.5, 14, bx, by + 6.1, bz, shell);           // the intact block
+    for(let f = 1; f < 4; f++){
+      box(scene, 22.4, 0.4, 14.4, bx, by + 0.85 + f * 3.1, bz, MATERIALS.paintedSteel(0x8a836f));
+    }
+    // The collapsed level: a metre of slab where three metres of car park were,
+    // with the columns lying under it.
+    box(scene, 22, 0.9, 14, bx, by + 0.45, bz, MATERIALS.paintedSteel(0x9b9790));
+    for(let i = 0; i < 6; i++){
+      const cx = bx - 9 + i * 3.6;
+      box(scene, 0.5, 0.5, 3.2, cx, by + 0.25, bz + 6.4, MATERIALS.paintedSteel(0x8d8a82), 1.3 + i * 0.2);
+    }
+    colliders.push(new THREE.Box3(
+      new THREE.Vector3(bx - 12, by, bz - 8), new THREE.Vector3(bx + 12, by + 11, bz + 8)));
+    placard(scene, bx, bz + 8, by, PLACARD.red, 0);
+  }
+
+  // ================================================== the wharf, moved seaward
+  // Lateral spreading: the quay edge slid toward the water and left cracks
+  // parallel to the shore behind it, so the gangway no longer reaches.
+  {
+    const qz = 176;
+    box(scene, 220, 1.4, 22, 0, y(0, qz) + 0.3, qz, MATERIALS.paintedSteel(0x8f8b80));
+    // Tension cracks behind the edge, widening toward the water.
+    for(let i = 0; i < 5; i++){
+      const z = qz - 14 - i * 5;
+      box(scene, 150 - i * 14, 0.1, 0.5 + (5 - i) * 0.18, -8, y(0, z) + 0.36, z,
+        MATERIALS.paintedSteel(0x3f3b34), 0.02 * i);
+    }
+    // Bollards, one of them pulled over with the ground.
+    for(let i = 0; i < 7; i++){
+      const bx = -66 + i * 22;
+      cyl(scene, 0.42, 1.1, bx, y(bx, qz + 6) + 0.85, qz + 6, MATERIALS.paintedSteel(0x54504a));
+    }
+    // Containers thrown off a stack.
+    for(const [cx, cz, rot] of [[-40, 158, 0.1], [-32, 152, 0.9], [-46, 150, 0.35], [-22, 160, 1.4]]){
+      crateStack(scene, cx, cz, y(cx, cz), { rows: 1, colour: [0x9a5a3a, 0x3a6a7a, 0x7a7a4a][(cx + 60) % 3] });
+    }
+    sign(scene, 'PORT — CLOSED', { x: 8, z: 150, y: y(8, 150) + 2.4, facing: Math.PI,
+      sub: 'Quay moved 2.1 m — no craneage', accent: 0xb3342a });
+  }
+
+  // ======================================================== the incident base
+  // A car park with the response in it: containers, a marquee, a generator, a
+  // water bowser, and the board everybody argues in front of.
+  {
+    const cx = 0, cz = 30;
+    for(let i = 0; i < 4; i++){
+      const x = -34 + i * 9, z = cz + 22;
+      crateStack(scene, x, z, y(x, z), { rows: 1, colour: 0x5f6a55 });
+    }
+    tank(scene, 26, cz + 24, y(26, cz + 24), { r: 1.5, h: 3.0, colour: 0x8a8f92 });
+    // Generator, and the emissive floodlight head it feeds. No real lights: the
+    // ceiling is six and the sun rig has three of them.
+    box(scene, 3.2, 1.8, 1.6, 34, y(34, cz + 24) + 0.9, cz + 24, MATERIALS.paintedSteel(0x6c6f63));
+    const head = box(scene, 1.4, 0.5, 0.35, 34, y(34, cz + 24) + 4.6, cz + 22.6,
+      new THREE.MeshStandardMaterial({ color: 0xb9b39a, emissive: new THREE.Color(0xffedc0),
+        emissiveIntensity: 0.8, roughness: 0.8 }));
+    glow(head);
+    cyl(scene, 0.1, 4.4, 34, y(34, cz + 24) + 2.2, cz + 22.6, MATERIALS.paintedSteel(0x55584f));
+
+    const b = displayBoard(scene, -16, cz + 18, y(-16, cz + 18), {
+      facing: 0, title: 'PLACARDS TODAY', tint: 0xd8a02a });
+    soft(b.soft); glow(b.screen);
+    interactables.push({
+      mesh: b.screen, type: 'info', id: 'BOARD_PLACARDS',
+      prompt: 'E — Read the placard tally',
+    });
+
+    // Helipad, because the hospital decision means moving people.
+    box(scene, 18, 0.08, 18, 74, y(74, cz + 40) + 0.05, cz + 40, MATERIALS.paintedSteel(0x5b5f57));
+    box(scene, 2.0, 0.1, 7.0, 74, y(74, cz + 40) + 0.11, cz + 40, MATERIALS.paintedSteel(0xd9d2c0));
+    box(scene, 6.0, 0.1, 2.0, 74, y(74, cz + 40) + 0.11, cz + 40, MATERIALS.paintedSteel(0xd9d2c0));
+  }
+
+  // ============================================ the bridge that dropped a span
+  // A deck off its bearings over the creek, and a truck stopped short of the
+  // gap. Nothing else on this map says "the ground moved" at this scale.
+  {
+    const bz = 112, by = y(0, bz);
+    // Abutments and the pier that stayed.
+    for(const bx of [-26, 26]) box(scene, 9, 5.0, 14, bx, by + 2.5, bz, MATERIALS.paintedSteel(0x8b857a));
+    box(scene, 4, 4.6, 10, 0, by + 2.3, bz, MATERIALS.paintedSteel(0x8b857a));
+    // The span that held, and the one that did not — dropped at one end and
+    // resting on the pier at the other.
+    box(scene, 24, 0.9, 12, -14, by + 5.3, bz, MATERIALS.paintedSteel(0x9a958c));
+    const drop = new THREE.Group();
+    const deck = new THREE.Mesh(new THREE.BoxGeometry(24, 0.9, 12), MATERIALS.paintedSteel(0x9a958c));
+    deck.position.set(0, 0, 0);
+    drop.add(deck);
+    drop.position.set(15, by + 3.6, bz);
+    drop.rotation.z = -0.16;
+    scene.add(drop);
+    // Bearings and a rail hanging over the gap.
+    for(let i = 0; i < 5; i++) box(scene, 0.5, 0.5, 0.5, 2 + i * 0.9, by + 5.1 - i * 0.35, bz - 5.6,
+      MATERIALS.paintedSteel(0x50564f), i * 0.3);
+    vehicle(scene, -32, bz + 1, y(-32, bz + 1), { facing: Math.PI / 2, colour: 0x9c6b3a });
+    sign(scene, 'BRIDGE CLOSED', { x: -34, z: bz + 10, y: y(-34, bz + 10) + 2.3, facing: 0,
+      sub: 'Span dropped — no detour south of Bay Road', accent: 0xb3342a });
+    fenceRun(scene, { x0: -30, z0: bz + 8, x1: 30, z1: bz + 8, y: by, height: 1.3 });
+  }
+
+  // =================================================== the rail, bent seaward
+  // Lateral spreading at a hundred metres: the ground crept toward the water and
+  // took the track with it, so a straight line is now an S.
+  {
+    const z0 = 150;
+    for(let i = 0; i < 40; i++){
+      const t = i / 39;
+      const rx = -150 + t * 300;
+      const bend = Math.sin(t * Math.PI * 2) * 5.2 * Math.sin(t * Math.PI);
+      const rz = z0 + bend;
+      const ang = Math.atan2(Math.cos(t * Math.PI * 2) * 5.2 * 0.02, 1);
+      for(const off of [-0.72, 0.72]){
+        box(scene, 8.2, 0.16, 0.14, rx, y(rx, rz) + 0.28, rz + off,
+          MATERIALS.paintedSteel(0x6b5f52), ang);
+      }
+      box(scene, 1.0, 0.16, 2.4, rx, y(rx, rz) + 0.16, rz, MATERIALS.paintedSteel(0x5a5348), ang);
+    }
+  }
+
+  // ======================================================= where people sleep
+  // Four hundred households are named on nearly every card and the map has never
+  // shown one of them. Numbered rows in the park, a bowser, and a queue.
+  {
+    const px = 96, pz = 60;
+    for(let r = 0; r < 4; r++){
+      for(let c = 0; c < 7; c++){
+        const tx = px + c * 6.4, tz = pz + r * 8.2;
+        tent(scene, tx, tz, y(tx, tz), { facing: 0, colour: [0xb9b2a2, 0xa9a294, 0xc0b9a8][(r + c) % 3] });
+      }
+      sign(scene, `ROW ${r + 1}`, { x: px - 5.5, z: pz + r * 8.2, y: y(px - 5.5, pz + r * 8.2) + 1.7,
+        w: 1.8, h: 0.8, facing: -Math.PI / 2, accent: 0x2f6f8f });
+    }
+    tank(scene, px + 46, pz + 12, y(px + 46, pz + 12), { r: 1.4, h: 2.6, colour: 0x7f8f96 });
+    for(let i = 0; i < 6; i++) post(scene, px + 42 + i * 1.4, pz + 16, y(px + 42, pz + 16), 1.0, 0.06, 0x8f8778);
+    sign(scene, 'WELFARE CENTRE', { x: px + 14, z: pz - 7, y: y(px + 14, pz - 7) + 2.4, facing: 0,
+      sub: 'Registration · water · overnight beds', accent: 0x2f8f7a });
+  }
+
+  // ================================================== work, not just aftermath
+  // Three days in, a town is busy. A crane over the Parade, a skip, spoil, and
+  // the ladders the assessors are actually standing on.
+  {
+    const cx = -60, cz = -46, cy = y(cx, cz);
+    cyl(scene, 0.9, 26, cx, cy + 13, cz, MATERIALS.paintedSteel(0xc4531f));
+    box(scene, 30, 0.9, 1.4, cx + 9, cy + 25.4, cz, MATERIALS.paintedSteel(0xc4531f));
+    box(scene, 1.2, 6.0, 1.2, cx + 21, cy + 21.8, cz, MATERIALS.paintedSteel(0x4a4740));
+    box(scene, 6, 2.4, 3, cx - 8, cy + 1.2, cz, MATERIALS.paintedSteel(0x6f6656));      // counterweight
+    // Skip, spoil, and a stack of props waiting to go in.
+    box(scene, 6.2, 2.0, 2.6, cx + 16, cy + 1.0, cz + 9, MATERIALS.paintedSteel(0xb06a2a));
+    for(let i = 0; i < 7; i++) box(scene, 5, 0.24, 0.24, cx + 12, cy + 0.2 + i * 0.26, cz + 14,
+      MATERIALS.paintedSteel(0x8a7350), 0.05 * i);
+    for(let i = 0; i < 4; i++){
+      const lx = cx + 26 + i * 3;
+      box(scene, 0.4, 5.4, 0.12, lx, cy + 2.7, cz - 8, MATERIALS.paintedSteel(0xd8cfae), 0.12);
+    }
+  }
+
+  // ================================================= what the town looks like
+  // Door codes and taped windows on everything the assessors have reached, which
+  // is the visual language of a placarded town and the cheapest thing here.
+  {
+    const marks = [
+      [-74, -22, 0, '09/03  AW', '#b3342a'], [-74, -46, 0, '09/03  AW', '#b3342a'],
+      [-30, -96, 0, '10/03  MO', '#d8a02a'], [44, -60, 0, '10/03  MO', '#3f8f56'],
+      [-52, -60, 0, '09/03  AW', '#3f8f56'], [74, 26, Math.PI / 2, '11/03  AW', '#3f8f56'],
+      [8, 152, Math.PI, '10/03  MO', '#d8a02a'], [-6, -8, 0, '11/03  MO', '#d8a02a'],
+    ];
+    for(const [mx, mz, f, t, c] of marks) doorCode(scene, { x: mx, z: mz, y: y(mx, mz), facing: f, text: t, colour: c });
+    // Tape across the windows of the worst terrace.
+    for(let i = 0; i < 9; i++){
+      const wx = -104 + i * 13;
+      for(const s2 of [-1, 1]) box(scene, 3.2, 0.06, 0.06, wx, y(wx, 128) + 2.6, 123.6,
+        MATERIALS.paintedSteel(0xd8cfae), s2 * 0.62);
+    }
+  }
+
+  // ============================================ the clock, stopped at 04:12
+  {
+    const kx = -30, kz = -104, ky = y(kx, kz);
+    // The top third came down into the yard beside it.
+    for(let i = 0; i < 22; i++){
+      const bx = kx + 7 + (i % 5) * 1.3, bz = kz + 5 + Math.floor(i / 5) * 1.2;
+      box(scene, 0.5, 0.22, 0.24, bx, y(bx, bz) + 0.11 + (i % 3) * 0.2, bz,
+        MATERIALS.paintedSteel(0x9a6b52), i * 0.6);
+    }
+    const face = new THREE.Mesh(new THREE.CircleGeometry(1.5, 20),
+      new THREE.MeshStandardMaterial({ color: 0xe6dfcc, roughness: 0.9 }));
+    face.position.set(kx, ky + 11.6, kz + 6.1);
+    scene.add(face);
+    // Hands at 04:12, which is when it stopped.
+    box(scene, 0.9, 0.09, 0.06, kx + 0.35, ky + 11.75, kz + 6.2, MATERIALS.paintedSteel(0x2f2b26), 0);
+    box(scene, 1.25, 0.08, 0.06, kx - 0.3, ky + 11.25, kz + 6.2, MATERIALS.paintedSteel(0x2f2b26), 1.05);
+  }
+
+  // ====================================== the lights, because there is no grid
+  // Emissive only. Six real lights is the ceiling and the sun rig has three.
+  {
+    const lamps = [
+      [-40, 46], [-24, 40], [0, -34], [-52, -56], [40, -62], [96, 56], [8, 146],
+    ];
+    for(const [lx, lz] of lamps){
+      const ly = y(lx, lz);
+      cyl(scene, 0.12, 5.2, lx, ly + 2.6, lz, MATERIALS.paintedSteel(0x55584f));
+      const head = box(scene, 1.6, 0.5, 0.4, lx, ly + 5.3, lz,
+        new THREE.MeshStandardMaterial({ color: 0xb9b39a, emissive: new THREE.Color(0xffedc0),
+          emissiveIntensity: 0.9, roughness: 0.8 }));
+      glow(head);
+    }
+    // One lit building in a dark town: the hospital never closed.
+    for(let f = 0; f < 3; f++){
+      const w = box(scene, 38, 1.0, 0.3, -6, y(-6, -18) + 3.4 + f * 3.4, -28.2,
+        new THREE.MeshStandardMaterial({ color: 0x2c2e30, emissive: new THREE.Color(0xffe6b4),
+          emissiveIntensity: 0.85, roughness: 0.9 }));
+      glow(w);
+    }
+  }
+
+  // ================================================= silt over half the town
+  // The Flats are grey with dried ejecta and Upper Town is not. Large, very flat
+  // decals rather than a second terrain material, which the engine does not have.
+  {
+    for(let i = 0; i < 14; i++){
+      const sx = -140 + i * 21, sz = 96 + Math.sin(i * 1.7) * 26;
+      box(scene, 26 + (i % 3) * 8, 0.03, 30 + (i % 4) * 6, sx, y(sx, sz) + 0.02, sz,
+        MATERIALS.paintedSteel(0x8e8778), i * 0.2);
+    }
+  }
+
+  // ============================================== placards on the landmarks
+  // The wayfinding and the story in one object. Green on the school, yellow on
+  // the hospital — the decision the fortnight turns on is that yellow.
+  {
+    placard(scene, -6, -8, y(-6, -8), PLACARD.yellow, 0);
+    placard(scene, 74, 27, y(74, 27), PLACARD.green, Math.PI / 2);
+    placard(scene, 8, 154, y(8, 154), PLACARD.yellow, Math.PI);
+  }
+}
+
+export default decorate;
+
+// Kestrel Bay is outdoors, so the interior fit-out hooks do nothing. They have
+// to exist: the manifest exports the same three names whichever world it is
+// wired to, and a props file without them kills the world with a SyntaxError
+// about a missing export.
+export function fitOutRoom(){}
+export function fitOutSpine(){}

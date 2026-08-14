@@ -1,0 +1,2102 @@
+# aftershock.yml — Kestrel Bay, three days after a magnitude 6.8.
+#
+# One earthquake, two disasters: Upper Town on granite, the Flats on hydraulic
+# fill. The course is site effect, structural behaviour and decision under
+# uncertainty, and the campaign is a fortnight of deciding which buildings
+# people go back into.
+#
+# The argument, both sides right on a named day: Marisol Okonkwo places a
+# building on what the evidence supports and will not move faster than it;
+# Bram Halvorsen places it on what the town can survive being without, and
+# argues that an empty hospital kills people too. Okonkwo is right on day 4.
+# Halvorsen is right on day 6.
+
+theme:
+  id: aftershock
+  title: Aftershock
+  subtitle: Building Safety Coordinator · Kestrel Bay
+
+groups:
+  - id: SEIS
+    code: SEIS
+    name: Seismic Network
+    color: '#2980b9'
+    desc: What the ground actually did, and which instrument is entitled to say so.
+    defaultLeader: okonkwo
+    milestones: [Read the records, Locate the source, Check the instruments, Ready to hand over]
+  - id: STRUCT
+    code: STRUCT
+    name: Structural Assessment
+    color: '#c0392b'
+    desc: Whether a building is safe to enter, and what that placard is worth.
+    defaultLeader: halvorsen
+    milestones: [Walk the building, Find the load path, Rate the damage, Ready to hand over]
+  - id: GEO
+    code: GEO
+    name: Geotechnical
+    color: '#8e6b2f'
+    desc: The ground under the town, and why it behaved in two different ways.
+    defaultLeader: navarro
+    milestones: [Log the ground, Test the fill, Bound the movement, Ready to hand over]
+  - id: MAT
+    code: MAT
+    name: Materials & Testing
+    color: '#7d5ba6'
+    desc: What the concrete, the brick and the steel can still carry.
+    defaultLeader: ferreira
+    milestones: [Take the sample, Test it, Compare with design, Ready to hand over]
+  - id: HAZ
+    code: HAZ
+    name: Hazard & Forecasting
+    color: '#2f8f7a'
+    desc: What might still happen, expressed as a number somebody can act on.
+    defaultLeader: tanaka
+    milestones: [Read the sequence, Fit the rate, State the uncertainty, Ready to hand over]
+  - id: SAFE
+    code: SAFE
+    name: Public Safety
+    color: '#d35400'
+    desc: Cordons, notices and the cost of keeping people out of their own houses.
+    defaultLeader: adeyemi
+    milestones: [Set the cordon, Tell people why, Weigh the cost, Ready to hand over]
+
+roster:
+  - id: okonkwo
+    name: Marisol Okonkwo
+    role: Structural engineer, Building Safety Coordinator's deputy
+    division: STRUCT
+    color: '#c0392b'
+    bio: >-
+      <p>Nineteen years assessing buildings, six of them after earthquakes in three countries. She
+      places a building on what the evidence supports and not one step further, and she has been
+      overruled enough times to know exactly what it costs when she is right.</p>
+      <p>Her rule, said aloud most mornings: a placard is a claim about a building, and a claim you
+      cannot trace is a guess wearing a colour.</p>
+    quiz:
+      - q: Why does Okonkwo refuse to upgrade a placard on a walk-past?
+        a: A rapid assessment samples what is visible from outside
+        wrong:
+          - Rapid assessments are only valid for the first twenty-four hours after an event
+          - A placard cannot legally be changed once it has been fixed to the door
+          - Damage always shows on the outside of a building before the inside
+  - id: halvorsen
+    name: Bram Halvorsen
+    role: Emergency manager for the district
+    division: SAFE
+    color: '#d35400'
+    bio: >-
+      <p>Ran the response to two floods and a gas main before this. He thinks in what the town
+      cannot do without: a hospital with nobody in it, a school that stays shut for a term, a port
+      that stops paying wages. He is not careless and he is not in a hurry for its own sake.</p>
+      <p>His argument with Okonkwo is the fortnight's argument, and each of them is right on a day
+      the other is wrong.</p>
+    quiz:
+      - q: What does Halvorsen mean when he says an empty hospital has a cost?
+        a: Care not given elsewhere is also harm, and it does not appear on any inspection form
+        wrong:
+          - Empty buildings deteriorate faster than occupied ones do
+          - The hospital loses its funding if it is closed for more than a week
+          - An empty building cannot be inspected properly while the power is off
+  - id: navarro
+    name: Elena Navarro
+    role: Geotechnical engineer
+    division: GEO
+    color: '#8e6b2f'
+    bio: >-
+      <p>She wrote her thesis on the fill under this town, which nobody read at the time and four
+      people have asked her for this week. She can tell you which streets were creek in 1910 and it
+      turns out those are the streets with sand in them now.</p>
+      <p>She is the one who keeps saying that the buildings are not the story, the ground is.</p>
+    quiz:
+      - q: Why does Navarro care which streets were a creek a century ago?
+        a: Loose saturated fill in an old channel is where liquefaction shows up
+        wrong:
+          - Old creek beds are where the water mains were laid and they break first
+          - Historical maps are the only record of where the fault runs
+          - Buildings on former creek beds are always older and therefore weaker
+  - id: ferreira
+    name: Duarte Ferreira
+    role: Materials engineer, testing laboratory
+    division: MAT
+    color: '#7d5ba6'
+    bio: >-
+      <p>He breaks things for a living and is unromantic about it. Cores from a damaged column,
+      coupons cut from a brace, a rebound hammer for the cases where nobody will let him cut
+      anything: he wants a number with a method attached and treats everything else as an opinion.</p>
+      <p>He is patient with people and impatient with round figures nobody can source.</p>
+    quiz:
+      - q: Why will Ferreira not accept a rebound hammer reading as a strength?
+        a: It measures surface hardness, which is a proxy that has to be calibrated against cores
+        wrong:
+          - The hammer only works on concrete poured within the last five years
+          - Rebound readings are affected by the weather and are useless in the rain
+          - A hammer test damages the surface and cannot be repeated
+  - id: tanaka
+    name: Rei Tanaka
+    role: Seismologist, hazard and forecasting
+    division: HAZ
+    color: '#2f8f7a'
+    bio: >-
+      <p>Fits aftershock sequences for a living and spends most of the week explaining that a
+      forecast is a rate and not a promise. She is careful in public and blunt in the room.</p>
+      <p>She keeps a printed copy of the sequence taped to the wall, updated by hand, because she
+      says people believe a curve they watched being drawn.</p>
+    quiz:
+      - q: What does Tanaka's aftershock forecast actually state?
+        a: A rate of events per day, with a range around it
+        wrong:
+          - The date on which the sequence will end
+          - The magnitude of the next aftershock
+          - Which fault segment will move next
+  - id: adeyemi
+    name: Funmi Adeyemi
+    role: Public information officer
+    division: SAFE
+    color: '#e08a2e'
+    bio: >-
+      <p>She has to turn everything this office decides into something a person standing in the
+      street can act on, in two sentences, without frightening anybody into doing something worse.
+      She is the only one who reads the notices aloud before they go out.</p>
+      <p>Her test for a notice: what does somebody do differently after reading it?</p>
+    quiz:
+      - q: What is Adeyemi's test for a public notice?
+        a: Whether somebody reading it does something different afterwards
+        wrong:
+          - Whether it uses only words in common use
+          - Whether it has been approved by every agency involved
+          - Whether it can be printed on a single side of paper
+  - id: cardoso
+    name: Inês Cardoso
+    role: Network technician, Seismic Network
+    division: SEIS
+    color: '#2980b9'
+    bio: >-
+      <p>She maintains the vault on the bench above town and the four field stations below it, which
+      means she is the only person who knows that two of them have been running on a clock that
+      drifted since spring.</p>
+      <p>She is not embarrassed about it. She is the one who found it.</p>
+    quiz:
+      - q: Why does Cardoso check the vault instrument against a second one?
+        a: A single instrument cannot show its own drift
+        wrong:
+          - Vault instruments are less accurate than field stations
+          - Two instruments together record a wider frequency range
+          - The vault instrument is only used for large events
+  - id: whitcombe
+    name: Alan Whitcombe
+    role: Assessment engineer, second team
+    division: STRUCT
+    color: '#a0392b'
+    bio: >-
+      <p>Came up from the city with the second wave of assessors and has placarded more buildings
+      this week than most engineers do in a career. He is fast, and he knows the risk in being fast,
+      which is why he writes down what he did not look at.</p>
+      <p>The list of what he did not look at is the most useful document in the office.</p>
+    quiz:
+      - q: Why does Whitcombe keep a second list beside his placards?
+        a: A placard says nothing about the parts of a building nobody could get to
+        wrong:
+          - A second list is required by the standard before a placard can be changed later
+          - It records which buildings he expects to collapse in an aftershock
+          - Inspectors are rotated, so the next one needs to know who was there
+  - id: mbeki
+    name: Thandi Mbeki
+    role: Geotechnical field technician
+    division: GEO
+    color: '#9e7a3a'
+    bio: >-
+      <p>Logs the ground: cone tests where a rig can get in, hand augers where it cannot, and a
+      photograph of every sand fan in the Flats with a scale bar in it.</p>
+      <p>The photographs are turning into the best record anybody has of what the ground did.</p>
+    quiz:
+      - q: Why does Mbeki put a scale bar in every photograph?
+        a: Without it the picture records that ejecta happened, not how much
+        wrong:
+          - Photographs taken without a scale bar cannot be entered as evidence at an inquiry
+          - The bar keeps the camera at a fixed distance from the ground
+          - It marks which photographs were taken after the first aftershock
+  - id: sorensen
+    name: Kirsten Sørensen
+    role: Laboratory technician, Materials & Testing
+    division: MAT
+    color: '#8b6bb0'
+    bio: >-
+      <p>Runs the press. Cuts, caps and crushes cores, and keeps the chain of custody that makes the
+      result mean anything — which building, which column, which face, which day.</p>
+      <p>She has refused two samples this week for arriving without a label.</p>
+    quiz:
+      - q: Why does Sørensen refuse an unlabelled core?
+        a: A strength belongs to one column in one building, and an unlabelled core belongs to none
+        wrong:
+          - Unlabelled cores dry out on the bench before the press is free to test them
+          - The press cannot be calibrated without knowing the concrete's age
+          - Regulations require every sample to carry the name of the engineer who cut it
+  - id: ives
+    name: Peter Ives
+    role: Hospital facilities manager
+    division: HAZ
+    color: '#3a9a84'
+    bio: >-
+      <p>He has ninety beds, a yellow placard on his front door and no idea when either of those
+      changes. He knows his building better than anybody assessing it, and he knows that is not the
+      same as being able to say it is safe.</p>
+      <p>He is not fighting the process. He is asking it to hurry, precisely.</p>
+    quiz:
+      - q: Why can Ives not simply declare his own building safe?
+        a: Knowing a building well is not the same as having assessed what the earthquake did to it
+        wrong:
+          - Facilities managers are not permitted to enter a building that carries a yellow placard
+          - He has no access to the design drawings for the upper floors
+          - A declaration by the occupier would invalidate the insurance
+  - id: delacroix
+    name: Yvette Delacroix
+    role: Ward councillor for the Flats
+    division: SAFE
+    color: '#d4762a'
+    bio: >-
+      <p>Represents the half of town that got the worse earthquake and has the smaller houses. She
+      turns up to every meeting with a list of who is sleeping where, and she can name the streets
+      that have been cordoned longest.</p>
+      <p>She is not against the cordons. She wants somebody to say when they end.</p>
+    quiz:
+      - q: What is Delacroix actually asking the office for?
+        a: The condition each stretch of cordon would have to meet to come down
+        wrong:
+          - A guaranteed date on which every street reopens
+          - Compensation for every household still unable to get back into its own house
+          - A second opinion from an engineer she chooses herself
+
+glossary:
+  - name: Placard
+    aliases: [placards, placarded, placarding]
+    def: The notice fixed to a building after an inspection — green to enter, yellow for restricted use, red for no entry.
+  - name: Epicentre
+    aliases: [epicenter]
+    def: The point on the surface directly above where the fault started to slip.
+  - name: Magnitude
+    aliases: [magnitudes]
+    def: A single number for the size of an earthquake, on a scale where each unit is about thirty-two times the energy.
+  - name: Intensity
+    aliases: []
+    def: How strongly the ground shook at one particular place, which differs across a town in one earthquake.
+  - name: Liquefaction
+    aliases: [liquefied, liquefy]
+    def: Wet, loosely packed ground losing its strength while it is shaken, and behaving like a heavy liquid.
+  - name: Ejecta
+    aliases: [sand boil, sand boils]
+    def: Sand and water that reached the surface from below, left as grey fans in the street.
+  - name: Fill
+    aliases: [hydraulic fill, reclaimed]
+    def: Ground that was placed by people rather than laid down by nature, often dredged and pumped into position.
+  - name: Bedrock
+    aliases: [rock site]
+    def: Solid rock beneath the ground surface, which shakes only lightly where loose fill shakes hard.
+  - name: Site effect
+    aliases: [amplification, amplify, amplified]
+    def: Soft ground magnifying shaking, so two places the same distance from an earthquake feel different ones.
+  - name: Natural period
+    aliases: [fundamental period]
+    def: The time a building takes to sway back and forth once when it is pushed and let go.
+  - name: Resonance
+    aliases: [resonant]
+    def: What happens when the ground shakes at close to a building's own natural period, so each push adds to the last.
+  - name: Base shear
+    aliases: []
+    def: The total horizontal force an earthquake applies at the bottom of a building.
+  - name: Load path
+    aliases: [load paths]
+    def: The route a force takes down through a building to the ground; if it stops anywhere, that is where the damage goes.
+  - name: Soft storey
+    aliases: [soft story, soft-storey]
+    def: A floor with much lower stiffness than the storeys above it, usually an open ground floor, which takes all the movement.
+  - name: Ductility
+    aliases: [ductile, brittle]
+    def: A material's ability to bend a long way without breaking, which is what lets a building absorb an earthquake.
+  - name: Unreinforced masonry
+    aliases: [URM, masonry]
+    def: Brick or stone with no steel in it, strong when pressed and weak when pulled sideways.
+  - name: Factor of safety
+    aliases: [safety factor]
+    def: What a part can carry, divided by what was required of it.
+  - name: Aftershock
+    aliases: [aftershocks]
+    def: A smaller earthquake following the main one, on the same fault system, becoming rarer as time passes.
+  - name: Cordon
+    aliases: [cordoned, cordons]
+    def: A boundary keeping people out of an area, and a decision with a cost on both sides of it.
+
+  - name: Fault
+    aliases: [faults, fault line]
+    def: A break in the rock where the two sides have moved past each other, and can move again.
+  - name: Pore pressure
+    aliases: [pore water pressure]
+    def: Water pressure in the gaps inside the ground, which holds the packed particles apart.
+  - name: Loose ground
+    aliases: [loose, loosely packed]
+    def: Ground that is not tightly packed, so shaking can settle it into a smaller space.
+  - name: Saturated
+    aliases: [saturation]
+    def: Ground in which every gap is already full of water.
+  - name: Bearing capacity
+    aliases: [bearing]
+    def: How much weight the ground can take before it fails under a building.
+  - name: Shear
+    aliases: [shear force, in shear]
+    def: A force that slides one part of a wall or column past the part beside it.
+  - name: Capacity
+    aliases: [capacities]
+    def: How much a part of a building can carry before it fails.
+  - name: Demand
+    aliases: []
+    def: How much the earthquake actually required that part to carry.
+
+missions:
+  - title: Two towns, one earthquake
+    objective: Work out why the same shaking wrecked one half of Kestrel Bay and spared the other.
+    briefing: Upper Town lost its chimneys. The Flats lost its streets. Both are the same distance from the source.
+    stake: >-
+      Friday, three days after, and the first thing anybody says on walking into the base is that it
+      makes no sense. Upper Town, on the granite bench, has parapets in the street and almost every
+      building standing. The Flats, eleven hundred metres away on the same side of the same fault,
+      have sand in the gutters, a six-storey block leaning at eight degrees and a wharf that moved
+      two metres. Marisol Okonkwo will not sign an assessment programme until she can say why.
+      Elena Navarro thinks she already knows and wants a borehole to prove it. Today you read the
+      two records side by side, work out what the ground did to the shaking on its way up, and
+      decide which half of town gets the assessors first.
+    takeaway: One earthquake produces as many shakings as there are grounds to shake, and the ground is the difference.
+    stops:
+      - group: SEIS
+        task: Compare the two records from one earthquake
+        title: The same event, recorded twice
+        place: Seismic Network
+        scene: >
+          Inês Cardoso has the vault record from the bench and the field station record from Bay
+          Road. Same event, same minute, eleven hundred metres apart. One trace is short and sharp,
+          the other is three times taller and goes on for half a minute longer.
+        assumes:
+          - an instrument records the shaking where it stands, not the earthquake itself
+        takeaway: A record describes one place, so two records of one earthquake can disagree and both be right.
+        format: CHOICE
+        question: What does the difference between the two records mean?
+        choices:
+          - One of the two instruments is faulty and its record should be discarded.
+          - The soft ground under the Flats amplified and lengthened the shaking.
+          - The Flats are closer to the epicentre, which is why the shaking there was stronger.
+          - The Flats record includes aftershocks that the vault instrument was not running for.
+        answer: The soft ground under the Flats amplified and lengthened the shaking.
+        why: >
+          Waves slow down as they come up into softer ground, and slow waves carry the same energy
+          with bigger motions, so the shaking grows. Soft ground also rings: it holds the motion and
+          gives it back over several more seconds, at the periods the layer itself prefers. Rock
+          does neither. That is why the two records differ by a factor of three at eleven hundred
+          metres, and it is the reason the same earthquake destroyed one half of this town and
+          rattled the other.
+        rebuttals:
+          - Both instruments checked out against a second sensor this morning; the difference is real.
+          - Eleven hundred metres is nothing against a source twenty kilometres away, so distance cannot explain a factor of three.
+          - Both records cover the same ninety seconds, and the aftershocks are on separate traces.
+      - group: GEO
+        task: Say what the ground under the Flats is made of
+        title: Ground that people put there
+        place: Geotechnical
+        scene: >
+          Navarro has an 1892 survey and a photograph from 1948. Where Bay Road now runs there was a
+          tidal creek, and the port was pumped into place out of the dredger over four summers.
+        assumes:
+          - ground can be natural or placed by people
+        takeaway: Hydraulic fill is loose, saturated and young, which is the recipe for liquefaction.
+        format: PROTOCOL
+        why: >
+          Fill pumped from a dredger settles loose and stays loose: the grains are dropped through
+          water rather than pressed together over centuries, and the water never leaves. Loose,
+          saturated and uniform is precisely the ground that liquefies, because shaking can push the
+          grains closer and the water has nowhere to go. Rock is none of those things. The old creek
+          line matters because it is where the loosest and wettest material sits, and it is where
+          every sand fan in this town came out.
+        rebuttals:
+          - Hydraulic fill is dropped through water, so it settles loose and stays saturated.
+          - The granite bench is neither loose nor saturated, so its behaviour under shaking is nothing like the fill.
+          - The old creek line is where the loosest wettest material sits, which is why the fans follow it.
+          - Age matters because ground gains strength as it consolidates, and eighty years is young.
+        columns:
+          - The ground
+          - What it does when shaken
+        scenarios:
+          - Hydraulic fill, pumped in from a dredger in the 1940s.
+          - The granite bench under Upper Town.
+          - The line of the 1892 tidal creek.
+          - Ground that has been in place for ten thousand years.
+        choices:
+          - Loose and saturated, so shaking can pack it and the water pressure rises.
+          - Stiff and drained, so it passes the shaking on almost unchanged.
+          - The loosest and wettest of all, which is where the sand fans appeared.
+          - Consolidated by its own weight over time, which is why age is a defence.
+        mapping: [0, 1, 2, 3]
+      - group: STRUCT
+        task: Send the assessors somewhere first
+        title: Where the first day of assessment goes
+        place: Structural Assessment
+        scene: >
+          Six assessors, two halves of a town and one day. Okonkwo wants them where the buildings
+          are worst. Bram Halvorsen wants them where the most people are waiting to go home.
+        assumes:
+          - an assessment programme is a queue, and the order is a decision
+        takeaway: Send inspectors where the answer will change what happens next, not where the damage photographs best.
+        format: TRIAGE
+        question: Where does the first day of assessment go?
+        choices:
+          - The Flats terraces — 400 households out, most repairable.
+          - Marina Court, which is visibly leaning and already cordoned with nobody inside.
+          - Upper Town's timber houses, which are off their piles but standing.
+          - The Parade, where the parapets already fell and the street is closed.
+        answer: The Flats terraces — 400 households out, most repairable.
+        why: >
+          An inspection is worth what it changes. Four hundred households are sleeping in a hall
+          waiting on a placard, and most of those buildings will come back green or yellow, so a day
+          spent there sends hundreds of people home. Marina Court is already cordoned and already
+          empty, so an assessment today changes nobody's night. The Parade is the same: the damage
+          has happened, the street is shut, and knowing more about it this afternoon moves nothing.
+          Damage is not the same as urgency.
+        rebuttals:
+          - Marina Court is cordoned and empty, so a placard on it today changes nobody's night.
+          - The timber houses are standing and their occupants are mostly back in already.
+          - The Parade's street is closed and its damage is done; more detail there moves nothing today.
+
+  - title: The number everybody has already heard
+    objective: Pin the magnitude and the location down, and separate them from what people felt.
+    briefing: Two agencies published two magnitudes, and the difference is being read as a disagreement.
+    stake: >-
+      Saturday, and the town has two numbers for the same earthquake. One agency said 6.6 within
+      twenty minutes; another said 6.8 six hours later. Rei Tanaka can explain the difference in one
+      sentence to an engineer and has spent the morning failing to explain it to a radio station.
+      Funmi Adeyemi has to put something in a notice by four. Meanwhile Inês Cardoso has found that
+      two field stations have been running on a clock that drifted since spring, which changes where
+      the epicentre plots. Today you locate the earthquake properly, say what its magnitude is and
+      what it is not, and write down what the difference between 6.6 and 6.8 actually means.
+    takeaway: A magnitude is a measurement with a method attached, and revising it is the method working.
+    stops:
+      - group: SEIS
+        task: Locate the source from arrival times
+        title: How far away it started
+        place: Seismic Network
+        scene: >
+          The vault trace shows the P arrival at 04:12:19 and the S arrival at 04:12:32. Cardoso
+          wants the distance before anybody draws a circle on a map.
+        assumes:
+          - P waves travel faster than S waves through the same rock
+        takeaway: The gap between the two arrivals grows with distance, so one station gives a distance and three give a place.
+        format: BALLPARK
+        question: Estimate the distance from this station to the source.
+        why: >
+          Both waves leave at the same instant and travel the same path, but the P wave is faster, so
+          the gap between their arrivals is a clock that has been running since the earthquake
+          started. For shallow crust the two speeds work out at roughly eight kilometres for every
+          second of gap. One station turns that into a radius and knows only that the source is
+          somewhere on a circle; three stations turn three circles into a point, which is why a
+          network exists at all.
+        estimate:
+          prompt: >
+            The P wave arrived at 04:12:19 and the S wave at 04:12:32. Use 8 km for each second of
+            separation.
+          question: Choose the two arrival times and the constant.
+          labels:
+            - 32 s  (S arrival, seconds past the minute)
+            - 19 s  (P arrival, seconds past the minute)
+            - 8 km/s  (distance per second of separation)
+            - 6.8  (the magnitude)
+            - 11 km  (depth of the source)
+          values: [32, 19, 8, 6.8, 11]
+          slots: 3
+          template: '({0} − {1}) × {2}'
+          formula: (a-b)*c
+          correct: [0, 1, 2]
+          target: 104
+          tolerance: 12
+          units: km
+          solution: d = (32 − 19) × 8 = 104 km.
+          explanation: >
+            About a hundred kilometres to the source. The magnitude and the depth are both real
+            numbers about this earthquake and neither belongs in this calculation — one is how big
+            it was, the other is how deep, and this is how far.
+          givens:
+            - The S minus P interval is 13 seconds
+            - Distance is about 8 km for each second of that gap
+          relationship: >
+            Distance = the S-minus-P interval × 8 km per second, because the two waves left together
+            and travel at different speeds.
+        answerText: About 100 km.
+      - group: HAZ
+        task: Explain 6.6 against 6.8
+        title: Why the number moved
+        place: Hazard & Forecasting
+        scene: >
+          Tanaka has both agency bulletins on the desk. The early one used the first stations to
+          report; the later one used the whole network and the long-period part of the record.
+        assumes:
+          - a magnitude is computed from records, so more records can change it
+        takeaway: An early magnitude is a first estimate on partial data, and a revision is the method working rather than failing.
+        format: CHOICE
+        question: What does the change from 6.6 to 6.8 tell the public?
+        choices:
+          - The earthquake grew stronger during the six hours between the two bulletins.
+          - The later figure used more stations and the long-period signal.
+          - One of the two agencies made an error that should be corrected publicly.
+          - The two figures are on different scales and cannot be compared at all.
+        answer: The later figure used more stations and the long-period signal.
+        why: >
+          An automatic magnitude is computed in minutes from whichever stations have reported, using
+          the part of the record that arrives first. A large earthquake keeps radiating energy at
+          long periods for tens of seconds after that, and only the full network and the long-period
+          part of the signal capture all of it. So early estimates of big events run low and get
+          revised up. Nothing about the ground changed between the two bulletins; the measurement
+          got better.
+        rebuttals:
+          - The earthquake was over in under a minute; nothing about it changed six hours later.
+          - Neither agency was wrong — each stated what its data supported at the time it was issued.
+          - Both figures are moment magnitudes on the same scale, which is why they can be compared at all.
+      - group: SAFE
+        task: Say it in a way that survives being repeated
+        title: A notice somebody acts on
+        place: Public Safety
+        scene: >
+          Adeyemi has two hundred words and an audience that has heard two numbers and a rumour
+          about a bigger one coming. She wants to know what the notice has to contain.
+        assumes:
+          - a public notice is read once, quickly, by somebody who is tired
+        takeaway: A notice earns its place by changing what somebody does, and everything else in it competes with that.
+        format: SEQUENCE
+        why: >
+          People act on the first thing they can use, so the action goes first: what to do about the
+          building you are standing outside. The reason comes next, because a reason is what makes
+          an instruction survive being repeated by somebody else. The magnitude revision belongs
+          third — it matters, but nobody does anything differently because of it — and the
+          aftershock forecast last, framed as a rate, because it is the part most likely to be
+          misread as a prediction of a particular event.
+        cards:
+          - What to do about the building you are standing outside.
+          - Why, in one sentence.
+          - That the magnitude was revised from 6.6 to 6.8, and what that does and does not mean.
+          - The aftershock forecast, stated as a rate per week.
+        order: [0, 1, 2, 3]
+
+  - title: What the placard is claiming
+    objective: Learn what a rapid assessment can honestly say, and what it cannot.
+    briefing: Four hundred buildings were placarded in two days by six people. Somebody has to say what that is worth.
+    stake: >-
+      Sunday, and the first placards are being argued about. Alan Whitcombe's team got through four
+      hundred buildings in two days, which is fast, and Whitcombe is the first to say what that
+      speed bought and what it cost. A green placard on a house in the Flats means an engineer stood
+      outside it for six minutes. Yvette Delacroix has residents asking whether green means safe,
+      and Peter Ives at the hospital wants to know why his yellow has not moved in three days. Today
+      you work out what a rapid assessment actually inspects, what a placard colour is claiming, and
+      which buildings have to be looked at again properly.
+    takeaway: A placard states what an inspection covered, and the ones that go wrong are the ones read as covering more.
+    stops:
+      - group: STRUCT
+        task: Say what a rapid assessment actually samples
+        title: Six minutes outside a building
+        place: Structural Assessment
+        scene: >
+          Whitcombe's form has eleven boxes and a place for the colour. He filled four hundred of
+          them in two days, and he has kept a second list of everything he did not look at.
+        assumes:
+          - an inspection covers what the inspector could see
+        takeaway: A rapid assessment samples the outside and the obvious, so a green placard is a statement about what was visible.
+        format: CASEBOOK
+        why: >
+          A rapid assessment is a triage tool. It is meant to clear the obviously safe and stop the
+          obviously dangerous being entered, quickly, when there are more buildings than engineers.
+          What it can see is exterior damage, gross leaning, and the condition of the visible load
+          path. What it cannot see is anything behind a lining, any connection inside a wall, the
+          state of a foundation, or damage in a part of the building nobody opened. The colour is
+          honest about none of that unless the form is read with it, which is why the second list
+          matters more than the first.
+        rebuttals:
+          - Cracking visible from the street is exactly what a rapid assessment is designed to catch.
+          - A connection inside a wall cannot be seen from outside and is not covered by the walk-past.
+          - Foundation condition needs excavation or survey, neither of which happens in six minutes.
+          - Damage in an unopened part of a building is invisible to any exterior inspection.
+        columns:
+          - What was inspected
+          - What the placard can say about it
+        scenarios:
+          - Cracking in the visible outside walls.
+          - A steel connection buried inside a wall lining.
+          - The state of the foundation under the building.
+          - The rear wing, which was locked and nobody entered.
+        choices:
+          - Covered — this is what a walk-past is for.
+          - Not covered, and no colour on the door implies anything about it.
+          - Not covered without survey or excavation.
+          - Not covered, and the form should record that nobody got in.
+        mapping: [0, 1, 2, 3]
+      - group: SAFE
+        task: Explain what green means to somebody standing in the street
+        title: Green does not mean safe
+        place: Public Safety
+        scene: >
+          Delacroix has three residents outside with green placards and one question between them:
+          is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.
+        assumes:
+          - people read a colour as a verdict
+        takeaway: Green means no restriction was found from what was inspected, which is a smaller claim than safe.
+        format: CHOICE
+        question: What does a green placard entitle somebody to be told?
+        choices:
+          - That the building is safe to live in and has been checked throughout.
+          - That no restriction was found from what could be inspected, and what was not inspected is listed.
+          - That the building came through undamaged and needs no repair work.
+          - That the building will withstand any aftershock in the forecast.
+        answer: That no restriction was found from what could be inspected, and what was not inspected is listed.
+        why: >
+          The honest sentence is narrow and it is still useful: an engineer looked, from outside and
+          from what was accessible, and found nothing that stops you going in. It says nothing about
+          the parts nobody could see, nothing about repairs, and nothing about the next earthquake.
+          Saying more than that is how a green placard becomes a promise, and a promise is what gets
+          broken when an aftershock finds the connection nobody opened a wall to look at.
+        rebuttals:
+          - Nothing in a rapid assessment checks a whole building, so "checked throughout" is untrue.
+          - Green is not a statement about repair work; plenty of green buildings need it.
+          - No placard is a claim about future shaking, and the forecast is a rate rather than a guarantee.
+      - group: HAZ
+        task: Decide which buildings get looked at again
+        title: The ones worth a second visit
+        place: Hazard & Forecasting
+        scene: >
+          Two engineers are free tomorrow. Tanaka lays out four candidates from the four hundred,
+          each of which somebody has asked about.
+        assumes:
+          - a second inspection is a scarce thing to spend
+        takeaway: Re-inspect where the first look was least able to see and the consequence of being wrong is largest.
+        format: TRIAGE
+        question: Which building gets the detailed evaluation first?
+        choices:
+          - The hospital, yellow, occupied by ninety patients, with an unopened plant room.
+          - A green two-storey shop with a cracked front step.
+          - A red warehouse, empty, on the port, with an obvious lean.
+          - A green house whose owner is anxious and has called four times.
+        answer: The hospital, yellow, occupied by ninety patients, with an unopened plant room.
+        why: >
+          Two things decide this: how much the first inspection could not see, and what it costs to
+          be wrong. The hospital is worst on both. It has ninety people inside it now, it is holding
+          a yellow that nobody can resolve without opening the plant room, and every day it stays
+          yellow is a day the district's care is running somewhere else. The red warehouse is empty
+          and already restricted, so nothing changes today. The two green buildings are low
+          consequence, and anxiety, while real, is a reason for a phone call rather than for an
+          engineer.
+        rebuttals:
+          - A cracked front step is a non-structural defect on a low-consequence building.
+          - The warehouse is empty and red; a second look changes nothing about who is at risk today.
+          - An anxious owner deserves an explanation, which is a different resource from an engineer's day.
+
+  - title: The building that looks worst
+    objective: Separate what frightens people from what is actually holding the building up.
+    briefing: Marina Court is leaning eight degrees and its structure is undamaged. The queue outside it is not about engineering.
+    stake: >-
+      Monday, and Marina Court is on the front page. Six storeys of flats sitting over at eight
+      degrees above the marina, photographed from the water, and the photograph has done more to
+      frighten this town than anything the office has said. Elena Navarro has been under it: the
+      raft foundation is uncracked, the frame is plumb within itself, and the columns show nothing.
+      Bram Halvorsen wants it demolished this week because of what it is doing to people. Marisol
+      Okonkwo will not sign a demolition of a sound building on the strength of a photograph, and
+      today she is right. Today you work out what actually failed, what the lean costs, and what a
+      demolition would and would not fix.
+    takeaway: A building can fail without breaking, and the thing that failed may be the ground it stands on.
+    stops:
+      - group: GEO
+        task: Work out what failed under Marina Court
+        title: The raft is fine and the building is not
+        place: Geotechnical
+        scene: >
+          Navarro's survey: the raft is intact, level within itself, and rotated. One side has gone
+          down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.
+        assumes:
+          - a foundation spreads a building's weight into the ground
+        takeaway: When liquefied ground loses bearing capacity, an intact foundation simply rotates into it.
+        format: DIAGNOSIS
+        headline: A six-storey block is eight degrees out of plumb, with no damage to its structure.
+        task: Which explanation fits every observation?
+        readings:
+          - { zone: Raft foundation, label: Cracking, value: none, status: normal }
+          - { zone: Frame, label: Out of plumb within itself, value: 0.1°, status: normal }
+          - { zone: North edge, label: Settlement, value: 340 mm, status: alarm }
+          - { zone: South edge, label: Heave, value: 90 mm, status: alarm }
+          - { zone: Street, label: Ejecta, value: heavy on the north side, status: alarm }
+        choices:
+          - { label: The frame failed and the lean is structural, mechanism: A frame that has yielded on one side would lean this way. }
+          - { label: The ground liquefied and lost bearing capacity under one side, mechanism: Liquefied soil cannot carry the pressure under the raft, so the raft rotates into it. }
+          - { label: The raft was built out of level and this predates the earthquake, mechanism: A construction fault would produce a permanent lean. }
+          - { label: An aftershock struck the building from one side, mechanism: A directional pulse could push a building over. }
+        answer: The ground liquefied and lost bearing capacity under one side
+        why: >
+          Everything points down rather than up. The frame is plumb within itself and the raft is
+          uncracked, so nothing in the building yielded — a structural failure cannot produce a
+          perfect rotation of an undamaged box. Settlement on one edge with heave on the other is
+          exactly what happens when soil under one side turns to a heavy liquid and squeezes out
+          sideways, and the ejecta in the street on the low side is that soil arriving at the
+          surface. The building did what it was built to do; the ground stopped doing what everyone
+          assumed it would.
+        rebuttals:
+          - A yielded frame shows distortion within itself, and this one is plumb to a tenth of a degree.
+          - A construction fault would have been visible for years and would not come with fresh ejecta.
+          - A single directional pulse does not settle one edge by 340 mm and lift the other.
+      - group: STRUCT
+        task: Decide what the lean actually costs
+        title: What eight degrees does
+        place: Structural Assessment
+        scene: >
+          Okonkwo has the column loads. At eight degrees the weight above each column no longer
+          lands over its centre, and the offset grows with height up the building.
+        assumes:
+          - a leaning column carries its load off-centre
+        takeaway: A lean is dangerous through the extra moment it puts on the frame, not because it looks alarming.
+        format: CHOICE
+        question: What is the engineering objection to leaving Marina Court standing?
+        choices:
+          - That the lean will keep increasing on its own until the building falls over.
+          - That the weight now acts off-centre, adding bending to columns built to be squashed.
+          - That a leaning building is frightening and public confidence matters.
+          - That the frame has been weakened by the rotation itself.
+        answer: That the weight now acts off-centre, adding bending to columns built to be squashed.
+        why: >
+          A column is very good at being squashed and much worse at being bent. Once the building
+          leans, every floor's weight acts to one side of the column below it, and that offset
+          multiplies up the height into a bending moment nobody designed for. It is a real and
+          computable objection, and it is the one that decides whether people may go back in. Fear
+          is not an engineering reason, and the frame itself has not been damaged — which is exactly
+          why the argument has to be made in moments rather than in adjectives.
+        rebuttals:
+          - The lean stops when the pore pressure dissipates; it is not a process that runs away by itself.
+          - Public confidence is a real cost and a reason to explain, not a reason a structure is unsafe.
+          - The frame is undamaged, which is precisely what the survey found.
+      - group: SAFE
+        task: Answer the demolition question
+        title: What knocking it down would fix
+        place: Public Safety
+        scene: >
+          Halvorsen wants it gone this week. Delacroix points out that the twelve buildings around it
+          stand on the same ground, and nobody is proposing to demolish those.
+        assumes:
+          - a decision can treat a symptom or a cause
+        takeaway: Demolishing the visible case leaves the condition that produced it, and the condition is under the whole street.
+        format: SCIENCETANK
+        why: >
+          Demolition removes the hazard from this building and none of the hazard from the street.
+          The ground that failed here runs under twelve more blocks, and nothing about knocking down
+          Marina Court tells anybody which of those is next. The measurement that changes decisions
+          is a ground investigation across the Flats, because it is the only one that generalises.
+          Straightening the building is real engineering and slow. Doing nothing is not available —
+          the lean has to be monitored — but monitoring is cheap and buys the time the investigation
+          needs.
+        proposals:
+          - { label: A, text: Investigate the ground across the Flats, so the other blocks can be judged too. }
+          - { label: B, text: Monitor the lean weekly and leave the cordon in place while that runs. }
+          - { label: C, text: Demolish Marina Court this week and reassure the town. }
+          - { label: D, text: Underpin and straighten the building, starting now. }
+        recommended: { A: 45, B: 30 }
+        evidence: |
+          The raft is uncracked and the frame is plumb within itself. Twelve blocks stand on the same
+          fill. Demolition would take three weeks and cost about the same as investigating the whole
+          Flats. Nobody is inside the building. The lean has not changed in three days of readings.
+
+  - title: The one everybody assumed was fine
+    objective: Look at a green building properly, and find what a walk-past could never see.
+    briefing: Bay Road School is green, term starts in a week, and nobody has been inside the gym.
+    stake: >-
+      Tuesday, and the school is the quiet problem. Bay Road School came through with a green
+      placard, its classrooms look untouched, and the district would like four hundred children back
+      in it next week. Alan Whitcombe placarded it on day one from outside and wrote on his second
+      list that the gymnasium was locked. The gym is a single-storey hall with a long-span roof, no
+      internal walls, and heavy precast panels for its side walls. Marisol Okonkwo has the keys this
+      morning. Today you work out what a long-span hall does in an earthquake, what holds its walls
+      to its roof, and whether four hundred children go into it on Monday.
+    takeaway: The dangerous building is often the one nobody looked at, because nothing about it invited a second look.
+    stops:
+      - group: STRUCT
+        task: Find where the load path stops
+        title: A hall with nothing in the middle
+        place: Structural Assessment
+        scene: >
+          The gym is 34 metres across with a steel truss roof and precast concrete side panels. The
+          classrooms next door are small rooms with walls every four metres and no damage at all.
+        assumes:
+          - a horizontal force has to travel through a building to reach the ground
+        takeaway: A wall is only as good as its connection to the roof, and a long-span hall has few places to make that connection.
+        format: PROTOCOL
+        why: >
+          In the classroom block the earthquake force meets a wall every four metres and goes
+          straight down: short paths, plenty of them, nothing to break. The gym has none of that. Its
+          force has to travel along the roof to the end walls, which means the roof has to act as a
+          stiff plate and the panels have to be tied to it well enough to drag along. Every one of
+          those requirements is a connection, and connections are what fail. The panels themselves
+          are strong and they are the last thing to worry about.
+        rebuttals:
+          - Walls every four metres give the classroom block a short, redundant path to the ground.
+          - A 34 m roof has to act as a plate to carry force to the end walls, which is a demanding job.
+          - The tie between panel and roof is the link that has to drag the wall along, and it is small.
+          - The panels are strong in themselves; strength was never the question for them.
+        columns:
+          - The part
+          - What it has to do in the earthquake
+        scenarios:
+          - The classroom block's walls, every four metres.
+          - The gymnasium roof, spanning 34 metres.
+          - The tie between the precast panel and the roof.
+          - The precast panel itself.
+        choices:
+          - Carries the force straight down over a short path, many times over.
+          - Has to act as a stiff plate and carry the force sideways to the end walls.
+          - Has to drag the wall along with the roof, and is the smallest thing in the chain.
+          - Is strong in its own plane, and was never the weak part.
+        mapping: [0, 1, 2, 3]
+      - group: MAT
+        task: Test what the connection can carry
+        title: The bolt in the panel
+        place: Materials & Testing
+        scene: >
+          Kirsten Sørensen has pulled two cast-in anchors from a spare panel in the yard. The design
+          drawing says 40 kilonewtons each. The first came out at 24, the second at 27.
+        assumes:
+          - a designed capacity is a claim to be checked
+        takeaway: What a connection can carry is a measurement, and a drawing is a statement of intent.
+        format: BALLPARK
+        question: Estimate the factor of safety on the panel connection.
+        why: >
+          A factor of safety is capacity divided by demand, and both halves have to be real numbers.
+          The capacity here is what the anchors actually pulled out at, not what the drawing says
+          they should, and the demand is what this earthquake asked of them. Below one does not mean
+          the panel fell off — it means the margin was used up and something else, friction or a
+          neighbouring anchor, carried the difference. That is a building that survived by accident
+          rather than by design.
+        estimate:
+          prompt: >
+            The two anchors tested at 24 kN and 27 kN. The assessed demand on each anchor from this
+            earthquake is 31 kN.
+          question: Choose the tested capacity and the demand.
+          labels:
+            - 25.5 kN  (mean tested capacity)
+            - 31 kN  (assessed demand)
+            - 40 kN  (the drawing's design capacity)
+            - 34 m  (the roof span)
+            - 8  (panels on this wall)
+          values: [25.5, 31, 40, 34, 8]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 0.82
+          tolerance: 0.12
+          units: '(ratio)'
+          solution: FoS = 25.5 ÷ 31 ≈ 0.8.
+          explanation: >
+            About 0.8, which is below one. The design capacity of 40 kN is what the drawing intended
+            and is not what these anchors did; the span and the panel count belong to other
+            calculations.
+          givens:
+            - The anchors tested at a mean of 25.5 kN
+            - The assessed demand on each is 31 kN
+          relationship: Factor of safety = what it can carry ÷ what was asked of it.
+        answerText: About 0.8 — below one.
+      - group: SAFE
+        task: Say what happens to term
+        title: Four hundred children on Monday
+        place: Public Safety
+        scene: >
+          The classrooms are sound and the gym is not. Halvorsen points out that a school without a
+          hall is still a school, and that a district without a school is four hundred families who
+          cannot work.
+        assumes:
+          - a building can be used in part
+        takeaway: The useful question is which parts can be occupied, not whether the site is open or shut.
+        format: CHOICE
+        question: What should happen to Bay Road School on Monday?
+        choices:
+          - Open the whole site; the placard is green and the classrooms are undamaged.
+          - Open the classrooms and close the gymnasium until the panel connections are fixed.
+          - Close the whole site until every building on it has had a detailed evaluation.
+          - Open the site but hold all classes in the gymnasium, which has no internal walls to fall.
+        answer: Open the classrooms and close the gymnasium until the panel connections are fixed.
+        why: >
+          Placards are per building, and so is the reasoning. The classroom block has a short,
+          redundant load path and came through with nothing; keeping it shut protects nobody and
+          costs four hundred families a working week. The gym has a measured factor of safety below
+          one on the connection that holds its walls to its roof, and that is a specific, fixable
+          defect. Closing the whole site treats the two as one thing, which is the error the green
+          placard made in the first place.
+        rebuttals:
+          - The green placard covered what could be seen from outside, and the gym was locked.
+          - Closing the classrooms protects nobody, since nothing in them is deficient.
+          - The gym is the worst room on the site, not the safest — its walls are the ones tied on by anchors that tested below demand.
+
+  - title: The hospital, and what waiting costs
+    objective: Resolve a yellow placard on the one building the district cannot do without.
+    briefing: Ninety patients, three days of yellow, and an argument about whether more evidence is worth more time.
+    stake: >-
+      Wednesday, and the hospital has been yellow for four days. Peter Ives has ninety patients on
+      the ground floor and the two upper floors closed, the district's surgery is being done sixty
+      kilometres away, and two people have already been transferred who would not have been. Marisol
+      Okonkwo wants the plant room opened and the shear walls cored before she signs anything. Bram
+      Halvorsen says every day of that is a day of care not delivered, and this morning he is right:
+      the evidence Okonkwo wants will take four days and will not change what the building is. Today
+      you work out what is actually unresolved, what evidence would change the decision, and what
+      the waiting is costing.
+    takeaway: Gathering more evidence is not free, and evidence that cannot change the decision costs without buying anything.
+    stops:
+      - group: STRUCT
+        task: Say what is actually unresolved
+        title: The part nobody has seen
+        place: Structural Assessment
+        scene: >
+          Three days of inspection have cleared the frame, the cladding and the stairs. What is left
+          is a plant room on the roof, holding two water tanks, that nobody has opened.
+        assumes:
+          - a building's parts can be cleared separately
+        takeaway: When most of a building is resolved, the placard is being held by whatever is left, and it is worth naming precisely.
+        format: CASEBOOK
+        why: >
+          A yellow placard is not a fog: it is one or more specific unresolved items, and the
+          discipline is to write them down until the list is short enough to finish. Frame, cladding
+          and stairs are cleared and cannot be what is holding this. Two full water tanks on a roof
+          are a large mass in the worst possible place, and their restraint has not been seen. That
+          is the item. Naming it turns four days of general anxiety into one afternoon with a ladder
+          and a torch.
+        rebuttals:
+          - The frame has been inspected on every floor and is not what is holding the placard.
+          - Cladding was cleared on day two and is a falling hazard rather than a structural one.
+          - The stairs were the first thing checked, because they are the escape route.
+          - Two full tanks high on a building are a large mass with unknown restraint, which is the open item.
+        columns:
+          - The part of the hospital
+          - Where it stands
+        scenarios:
+          - The reinforced concrete frame.
+          - The external cladding panels.
+          - The main stair core.
+          - The roof plant room and its two water tanks.
+        choices:
+          - Cleared on inspection, all floors.
+          - Cleared, and a falling hazard rather than a structural question.
+          - Cleared first, because it is the escape route.
+          - Unresolved — nobody has opened it, and it holds a large mass high up.
+        mapping: [0, 1, 2, 3]
+      - group: HAZ
+        task: Put the cost of waiting into the same units
+        title: What four more days buys
+        place: Hazard & Forecasting
+        scene: >
+          Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen
+          wants both of them stated as consequences rather than as principles.
+        assumes:
+          - a delay has consequences that can be counted
+        takeaway: A decision to wait is a decision with an outcome, and it has to be compared with the outcome of deciding now.
+        format: CHOICE
+        question: How should the office weigh four more days of evidence-gathering?
+        choices:
+          - Evidence always comes first; the delay is unfortunate but not the engineer's concern.
+          - Against what the delay costs, and what the evidence could change.
+          - By the aftershock forecast alone, since that is the hazard the placard is about.
+          - By what the hospital's management prefers, since they carry the operational risk.
+        answer: Against what the delay costs, and what the evidence could change.
+        why: >
+          Both sides of this are real and both can be estimated. On one side, four days of transfers
+          at the rate the log shows, with the harm that comes from care given late and far away. On
+          the other, the chance that coring the shear walls changes the placard at all — which is
+          low, because the frame has already been cleared and the open item is a plant room that can
+          be looked at this afternoon. Evidence that cannot change the decision is not worth its
+          delay, and that is the test rather than a preference for caution.
+        rebuttals:
+          - Evidence-first is a good instinct and not a rule; the question is what this evidence could change.
+          - The forecast bears on the hazard but says nothing about the cost of the building standing empty.
+          - Management carries the operational risk and does not get to set the engineering standard.
+      - group: SEIS
+        task: Check what the hospital actually experienced
+        title: The instrument in the basement
+        place: Seismic Network
+        scene: >
+          There is an accelerograph in the hospital basement, installed in 1998 and never used in
+          anger. Cardoso has the record. It shows a peak of 0.31 g, and the building was designed
+          for 0.35.
+        assumes:
+          - a building can be instrumented, and the record is about that building
+        takeaway: A record from inside the building itself turns an assessment from an estimate into a measurement.
+        format: CHOICE
+        question: What does the basement record let the office say?
+        choices:
+          - That the building is undamaged, since the shaking stayed below the design value.
+          - That this building saw a little less than it was designed for.
+          - That the design value was too low and should be revised upward.
+          - That no further inspection is needed anywhere in the building.
+        answer: That this building saw a little less than it was designed for.
+        why: >
+          A record from the building's own basement removes the largest guess in the whole
+          assessment: what this structure was actually asked to do. Everywhere else the office is
+          estimating demand from a map. Here it is measured. It does not clear the building — a
+          structure can be damaged below its design level, particularly at connections, and the
+          plant room is still unopened — but it does mean the frame was not pushed past what it was
+          built for, which is why three floors of inspection found nothing.
+        rebuttals:
+          - Staying below a design value makes damage less likely, and does not prove there is none.
+          - One record from one earthquake is not grounds to revise a design standard.
+          - The plant room is still unopened, so the inspection is not finished.
+
+  - title: What the ground will do next
+    objective: Turn an aftershock sequence into a rate somebody can plan around.
+    briefing: Forty-one aftershocks yesterday, twenty-six today. Everybody wants to know when it stops.
+    stake: >-
+      Thursday, and the question in every room is when the aftershocks end. Rei Tanaka has the
+      sequence: two hundred and ten events above magnitude 3 in four days, falling steadily. Bram
+      Halvorsen wants a date he can put on a notice and Funmi Adeyemi has to write it. Marisol
+      Okonkwo needs the rate for a different reason — a damaged building has a reduced capacity, and
+      the chance of it being tested again is the only thing that makes a red placard urgent rather
+      than tidy. Today you fit the decay, say what the forecast is and is not, and work out what a
+      falling rate means for the buildings still standing with cracks in them.
+    takeaway: An aftershock forecast is a rate with a range, and the useful question is what it does to a decision.
+    stops:
+      - group: HAZ
+        task: Fit the decay and say what it predicts
+        title: The rate, falling
+        place: Hazard & Forecasting
+        scene: >
+          Day one had 96 events above magnitude 3. Day two had 52, day three 41, day four 26.
+          Tanaka's fit has the rate roughly halving as the elapsed time doubles.
+        assumes:
+          - a rate can fall smoothly without ever reaching zero
+        takeaway: Aftershocks decay as a power law, so the rate halves with each doubling of time rather than ending on a date.
+        format: BALLPARK
+        question: Estimate the number of magnitude 3+ aftershocks on day eight.
+        why: >
+          Omori's law says the rate goes roughly as one over the time since the mainshock. That has a
+          particular consequence: what matters is not how many days have passed but how many
+          doublings. Going from day four to day eight is one doubling, so the rate roughly halves
+          again. It also means the sequence has no end date — it fades into the background rate of a
+          region that has always had earthquakes, which is why a notice promising an end is a notice
+          that will be wrong.
+        estimate:
+          prompt: >
+            Day four had 26 events above magnitude 3, and the rate falls roughly as one over elapsed
+            time. Day eight is twice as far from the mainshock as day four.
+          question: Choose the day-four count and the ratio of the two times.
+          labels:
+            - 26  (events on day four)
+            - 2  (day eight is twice as far out)
+            - 96  (events on day one)
+            - 6.8  (the mainshock magnitude)
+            - 210  (total events so far)
+          values: [26, 2, 96, 6.8, 210]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 13
+          tolerance: 4
+          units: events
+          solution: n ≈ 26 ÷ 2 ≈ 13 events on day eight.
+          explanation: >
+            About thirteen. The day-one count and the running total describe the sequence so far, and
+            the magnitude is the size of the mainshock rather than anything about the rate.
+          givens:
+            - Day four had 26 events above magnitude 3
+            - Day eight is twice as far from the mainshock
+          relationship: >
+            Rate ≈ K ÷ elapsed time, so doubling the time since the mainshock roughly halves the
+            number of events per day.
+        answerText: About 13.
+      - group: SEIS
+        task: Say what a forecast does not claim
+        title: A rate is not a schedule
+        place: Seismic Network
+        scene: >
+          The notice draft says the aftershocks will have stopped by the end of the month. Cardoso
+          points at the sentence and asks where the month came from.
+        assumes:
+          - a forecast states what is expected on average
+        takeaway: A rate says how often, not when or how large, and writing it as a date makes a promise nobody can keep.
+        format: CHOICE
+        question: What can the forecast honestly say?
+        choices:
+          - That the sequence will be over by the end of the month.
+          - That the rate is falling, with a number per week and a range.
+          - That no aftershock larger than magnitude 5 will occur.
+          - That each day is safer than the one before it, without exception.
+        answer: That the rate is falling, with a number per week and a range.
+        why: >
+          The fit gives a rate and an uncertainty on that rate, and nothing else. It cannot give an
+          end date, because a power law fades rather than stops. It cannot rule out a large event —
+          the magnitudes in a sequence follow their own distribution, and a bigger one is always
+          possible and always less likely. And it cannot promise that each day is safer, because the
+          rate is an average and the sequence is random around it. Everything the forecast can say
+          is still useful, and the useful part is a number per week.
+        rebuttals:
+          - A power-law decay fades into the background and has no end date to promise.
+          - Magnitudes follow their own distribution, so a larger event is always possible and never ruled out.
+          - The rate is an average and events are random around it, so a quiet day proves nothing about the next.
+      - group: STRUCT
+        task: Say what the falling rate means for a cracked building
+        title: Damaged, and waiting to be asked again
+        place: Structural Assessment
+        scene: >
+          Okonkwo has eleven buildings with cracked shear walls that are still standing. Each has
+          less capacity than it had a week ago, and the sequence has not finished.
+        assumes:
+          - a damaged element carries less than it used to
+        takeaway: Damage lowers the capacity, so the same aftershock that was survivable last week may not be this week.
+        format: CHOICE
+        question: Why does a falling aftershock rate still leave these eleven buildings urgent?
+        choices:
+          - Because the rate could rise again without warning at any time.
+          - Because their capacity has fallen, so a smaller aftershock is now enough.
+          - Because aftershocks do more damage than mainshocks to buildings that are already cracked.
+          - Because the buildings will keep degrading on their own even if nothing further happens.
+        answer: Because their capacity has fallen, so a smaller aftershock is now enough.
+        why: >
+          Risk is hazard against capacity, and the earthquake moved both. The hazard is falling with
+          the sequence, which is the good news. But a cracked shear wall may have lost a third of
+          what it could carry, and the shaking that would now be enough to hurt it is far more common
+          than the shaking that damaged it. A magnitude 5 aftershock is many times more likely than
+          another 6.8, and against a weakened building it is the one that matters. That is why the
+          eleven get shored this week rather than next month.
+        rebuttals:
+          - Rates do fluctuate, but the case here does not depend on the rate rising.
+          - An aftershock is not inherently worse than a mainshock; what changed is the building.
+          - Cracked concrete does not keep degrading on its own in still air; it waits for the next demand.
+
+  - title: The material, and what it can still carry
+    objective: Get a number for the strength of a damaged building instead of an opinion.
+    briefing: The library's columns look cracked. Nobody has said what they can still hold.
+    stake: >-
+      Friday, and the argument at the base has moved from buildings to numbers. The public library is
+      a 1970s concrete frame with diagonal cracking in three ground-floor columns, and three
+      engineers have looked at it and used the words moderate, serious and superficial. Duarte
+      Ferreira points out that none of those is a number, and that his laboratory can produce one in
+      a day. Kirsten Sørensen has already cut four cores and refused a fifth for arriving without a
+      label saying which column it came from. Today you take a sample properly, turn it into a
+      strength, compare it with what the design assumed, and decide what the building may be used
+      for while that is happening.
+    takeaway: A word like serious is an opinion; a strength with a method behind it is something the next engineer can use.
+    stops:
+      - group: MAT
+        task: Get a strength from a damaged column
+        title: A number, with a method attached
+        place: Materials & Testing
+        scene: >
+          Four cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them:
+          28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25.
+        assumes:
+          - concrete strength is measured by crushing a sample of known size
+        takeaway: A core gives the strength of the concrete, which is a different question from whether the column is damaged.
+        format: CHOICE
+        question: What do the four core results establish?
+        choices:
+          - That the columns are undamaged, since the concrete exceeds its specified strength.
+          - That the concrete meets the strength the design assumed, which is one input and not the answer.
+          - That the design was too conservative and the building is stronger than it needs to be.
+          - That the cracking must have come from something other than the earthquake.
+        answer: That the concrete meets the strength the design assumed, which is one input and not the answer.
+        why: >
+          A core tests material, not structure. It answers one question — is this concrete as strong
+          as the drawing said — and the answer is yes, comfortably, at a mean of 28 against a
+          specified 25. What it cannot tell you is whether the column is still able to do its job,
+          because a column's capacity depends on its reinforcement, its ties, and whether the
+          cracking has broken the bond between steel and concrete. Good material in a damaged member
+          is common, and it is why the crack pattern is a separate investigation.
+        rebuttals:
+          - Cracking is a structural observation; a core says nothing about it either way.
+          - One building's concrete exceeding its specification says nothing about whether the design was conservative.
+          - Diagonal cracking in a ground-floor column during an earthquake has an obvious cause.
+      - group: STRUCT
+        task: Read what the crack pattern is saying
+        title: Which way the cracks run
+        place: Structural Assessment
+        scene: >
+          The cracks run diagonally, in both directions, crossing each other in an X across the
+          middle third of each column. They are fine, numerous and evenly spaced.
+        assumes:
+          - a crack runs across the direction of the tension that opened it
+        takeaway: Crack pattern names the action — diagonal in both directions is shear, reversing, which is what an earthquake does.
+        format: DIAGNOSIS
+        headline: Fine diagonal cracks cross in both directions across three ground-floor columns.
+        task: Which explanation fits the pattern?
+        readings:
+          - { zone: Column A, label: Crack direction, value: diagonal both ways, status: alarm }
+          - { zone: Column A, label: Crack width, value: 0.3 mm, status: normal }
+          - { zone: Column B, label: Cover concrete, value: intact, status: normal }
+          - { zone: Column C, label: Crack spacing, value: even, 120 mm, status: normal }
+          - { zone: Core sample, label: Strength, value: 28 MPa, status: normal }
+        choices:
+          - { label: Shear from reversing earthquake load, mechanism: Load pushed one way then the other, opening diagonal cracks in both directions. }
+          - { label: Overloading in compression, mechanism: Too much weight would crush the concrete. }
+          - { label: Long-term settlement of the foundation, mechanism: Settlement puts a frame into slow distortion. }
+          - { label: Poor quality concrete, mechanism: Weak material cracks under ordinary load. }
+        answer: Shear from reversing earthquake load
+        why: >
+          Diagonal cracks form across the direction of tension, and shear puts tension on a diagonal.
+          Cracks in both directions mean the load came both ways, which is what shaking does and what
+          settlement and gravity cannot. The rest of the evidence rules out the alternatives cleanly:
+          compression failure crushes and spalls the cover, and there is none; settlement produces a
+          slow single-direction distortion, not a crossed X; and the concrete tested above its
+          specification. Fine, numerous, evenly spaced cracking is also the good version of this
+          story — the reinforcement was working.
+        rebuttals:
+          - Compression failure spalls the cover concrete, and the cover here is intact.
+          - Settlement acts slowly and in one direction; it does not open crossed diagonals.
+          - The cores came back above the specified strength, so weak material is not the explanation.
+      - group: SAFE
+        task: Decide what the building may be used for meanwhile
+        title: Part of a building, for part of a purpose
+        place: Public Safety
+        scene: >
+          The library is the only hall in the district big enough for the public meeting on Monday,
+          and three of its ground-floor columns are cracked in shear.
+        assumes:
+          - occupancy can be limited by number, by area or by time
+        takeaway: Restricted use is a real option between open and shut, and it has to name what the restriction is protecting against.
+        format: SEQUENCE
+        why: >
+          Restricted use only means something if the restriction matches the defect. The defect is
+          load capacity in three ground-floor columns, so the first move is to take load off them,
+          which means shoring. Then limit what goes back on: numbers, not areas, because it is
+          weight and crowd movement that matter here. Then the time limit, so the restriction expires
+          rather than becoming permanent by neglect. The public meeting is last because it is the
+          use, and the use is decided by what the first three steps allow — not the other way round.
+        cards:
+          - Shore the three cracked columns to take load off them.
+          - Set an occupancy limit by number of people, and post it.
+          - Put a review date on the restriction so it expires rather than drifts.
+          - Decide whether Monday's meeting can be held in the building.
+        order: [0, 1, 2, 3]
+
+  - title: The cordon nobody can lift
+    objective: Weigh what a cordon protects against what it costs the people inside it.
+    briefing: Eleven streets have been closed for six days, and the reason is now three different reasons.
+    stake: >-
+      Saturday, and the cordon around the Flats is a week old. It was drawn on day one for falling
+      masonry, kept on day three for the gas main, and is being kept today because nobody has said
+      it can come down. Yvette Delacroix has a list of four hundred households, sixty of whom are
+      sleeping in the sports hall, and a question the office has not answered: what has to be true
+      for people to go home? Bram Halvorsen is losing patience and Marisol Okonkwo will not be
+      hurried. Today you find out what the cordon is actually protecting against street by street,
+      what each part of it costs, and where the line should be tonight.
+    takeaway: A cordon is a decision that is remade every day, and one kept out of habit is a decision nobody is making.
+    stops:
+      - group: SAFE
+        task: Say what each part of the cordon is for
+        title: Three reasons wearing one line
+        place: Public Safety
+        scene: >
+          Delacroix walks the boundary with the log. The northern arc is under the Parade's
+          parapets. The eastern leg follows the gas main. The southern leg has no note against it at
+          all.
+        assumes:
+          - a boundary can be drawn for more than one reason
+        takeaway: Every part of a cordon should name the hazard it answers, or it cannot be lifted when that hazard goes.
+        format: CASEBOOK
+        why: >
+          A cordon lifts hazard by hazard, and that only works if somebody wrote down which hazard
+          each stretch answers. Under the Parade the hazard is overhead and it ends when the
+          parapets are taken down or tied back. On the gas main it ends when the utility signs the
+          line off. On the liquefied street the hazard is not falling masonry at all — it is a road
+          that cannot carry a fire appliance, which is about access rather than about danger to
+          somebody walking. And the southern leg has no reason recorded, which means it is being
+          held because it was drawn, and that is the one to look at first.
+        rebuttals:
+          - Overhead masonry ends as a hazard when the parapet is removed or tied, which is scheduled work.
+          - The gas leg lifts when the utility signs the main off, and that is somebody else's decision to make.
+          - A road too soft for an appliance is an access problem, which is a different argument from danger on foot.
+          - A stretch with no recorded reason is being held by habit, which is why it goes first.
+        columns:
+          - The stretch of cordon
+          - What it is actually answering
+        scenarios:
+          - The northern arc, under the Parade's parapets.
+          - The eastern leg, along the gas main.
+          - Ferry Street, where the road surface has liquefied.
+          - The southern leg, with no note against it.
+        choices:
+          - Overhead falling hazard — lifts when the parapets are down or tied.
+          - A utility hazard — lifts when the gas company signs the main off.
+          - Access — the road will not carry a fire appliance, which is not the same as unsafe on foot.
+          - Nothing recorded. It is being held out of habit and should be reviewed first.
+        mapping: [0, 1, 2, 3]
+      - group: GEO
+        task: Say whether the liquefied street is dangerous or just unusable
+        title: Soft ground, three days on
+        place: Geotechnical
+        scene: >
+          Thandi Mbeki has been on Ferry Street with a hand auger. The sand fans have dried, the
+          water table has dropped back, and the surface bears a person easily and a truck not at all.
+        assumes:
+          - liquefied ground regains strength as pore pressure dissipates
+        takeaway: Liquefaction is a condition during shaking; what is left afterwards is disturbed ground with a different problem.
+        format: CHOICE
+        question: What is the honest status of Ferry Street now?
+        choices:
+          - Still liquefied, and dangerous to anybody walking on it.
+          - Drained and disturbed — walkable, no heavy vehicles, and liable to go again.
+          - Fully recovered, since the water has gone and the surface is dry.
+          - Permanently destroyed, and the street will have to be rebuilt before anybody returns.
+        answer: Drained and disturbed — walkable, no heavy vehicles, and liable to go again.
+        why: >
+          Liquefaction needs shaking to sustain it. Once the shaking stops, the excess water pressure
+          bleeds away over hours and the grains take up contact again, which is why the fans have
+          dried and the surface holds a person. What does not come back quickly is the density and
+          the fabric of the ground: it has been rearranged, and it is looser and less able to carry a
+          concentrated load than it was. And because the material is still loose and still saturated
+          below, a strong enough aftershock can do the whole thing again.
+        rebuttals:
+          - Pore pressure dissipates in hours, so the ground is not still liquefied three days on.
+          - Dry at the surface is not recovered underneath; the fabric of the ground has changed.
+          - Nothing here says the street is beyond repair, and most liquefied ground is repaired rather than replaced.
+      - group: HAZ
+        task: Set what has to be true for people to go home
+        title: A condition, not a date
+        place: Hazard & Forecasting
+        scene: >
+          Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a
+          promise about the ground and a condition makes a promise about the office.
+        assumes:
+          - a commitment can be tied to a date or to an event
+        takeaway: Tie a decision to a condition somebody can check, and it stays honest whatever the ground does next.
+        format: CHOICE
+        question: What should the office commit to?
+        choices:
+          - A date — the cordon lifts on Friday.
+          - A condition — each stretch lifts when its recorded hazard is resolved.
+          - A rate — the cordon lifts when aftershocks fall below one a day.
+          - No commitment until every building inside the cordon has been assessed in detail.
+        answer: A condition — each stretch lifts when its recorded hazard is resolved.
+        why: >
+          A date is a promise about the world, and the office does not control the world. A condition
+          is a promise about the office, which is the thing it can keep — and publishing the list
+          turns a wait into something residents can watch progress on, which is most of what people
+          are asking for when they ask for a date. The aftershock rate is the wrong trigger because
+          it is not the hazard on any of these streets, and waiting for detailed assessment of every
+          building means nobody goes home for a month.
+        rebuttals:
+          - A date is a promise about ground behaviour and repair work that nobody can guarantee.
+          - The aftershock rate is not the hazard recorded on any of these stretches.
+          - Detailed assessment of every building would take a month and is not what most of these streets need.
+
+  - title: The photograph that changed the meeting
+    objective: Deal with evidence that arrives from outside the process, in public.
+    briefing: A resident's photograph of a cracked column is on the front page, and the building is green.
+    stake: >-
+      Sunday, and the office is on the back foot. A resident photographed a cracked column in the
+      basement car park of a green-placarded apartment block on Ferry Street and gave it to the
+      paper. The photograph is real, the crack is real, and the block has ninety flats with people
+      back inside it. Alan Whitcombe placarded it green from outside on day one and never saw the
+      basement. Funmi Adeyemi has a public meeting at six. Marisol Okonkwo has two hours and no
+      access key. Today you work out what the photograph does and does not establish, get into the
+      basement, and decide what to say at six o'clock about a process that missed it.
+    takeaway: Evidence does not stop being evidence because of who found it, and a process that cannot absorb it will be worked around.
+    stops:
+      - group: STRUCT
+        task: Say what the photograph establishes
+        title: A real crack, and an unknown building
+        place: Structural Assessment
+        scene: >
+          The photograph shows a column with a horizontal crack about a metre above the floor, in a
+          basement with pipework and no daylight. There is no scale in the frame and no way to tell
+          which column it is.
+        assumes:
+          - a photograph records what was in front of the lens
+        takeaway: A photograph establishes that something exists somewhere, and everything else about it has to be gone and got.
+        format: CHOICE
+        question: What has the photograph established?
+        choices:
+          - That the building is unsafe and should be evacuated tonight.
+          - That a crack exists somewhere the green placard never covered.
+          - Nothing, because it was not taken by an engineer under controlled conditions.
+          - That the assessment team was negligent in issuing a green placard.
+        answer: That a crack exists somewhere the green placard never covered.
+        why: >
+          It is real evidence and it is thin evidence, and both of those matter. Real, because a
+          crack in a photograph is a crack. Thin, because without a scale nobody can say whether it
+          is 0.2 mm or 2 mm, without a location nobody can say which column carries what, and a
+          horizontal crack a metre up could be shear, a construction joint, or a shrinkage crack
+          that has been there for thirty years. What it does establish, unarguably, is that the
+          basement was never inspected — which the green placard's own form already said.
+        rebuttals:
+          - Nothing about width, location or age is available from the image, so evacuation is not supported by it.
+          - Who took a photograph does not change what is in it, and dismissing it on that basis is how a process loses trust.
+          - The team recorded that the basement was not inspected, which is the opposite of negligence.
+      - group: MAT
+        task: Work out what the crack is
+        title: Down there with a torch
+        place: Materials & Testing
+        scene: >
+          In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more
+          columns along the row carry one that looks the same.
+        assumes:
+          - a defect that repeats in a pattern usually has a construction cause
+        takeaway: A defect that appears at the same height on every column follows how the building was built, not how it was shaken.
+        format: CHOICE
+        question: What is the most likely explanation for the crack?
+        choices:
+          - Earthquake shear damage in every column of the row.
+          - A construction joint at the top of the first pour.
+          - Foundation settlement lifting the columns.
+          - Corrosion of the reinforcement inside the columns.
+        answer: A construction joint at the top of the first pour.
+        why: >
+          Earthquake damage is not tidy. It concentrates where the demand and the weakness meet, so
+          it varies from column to column and it runs diagonally when it is shear. A crack that is
+          horizontal, the same width, at exactly the same height on six columns in a row is
+          following something the builders did, and the obvious candidate is the lift height of the
+          first pour. That does not make it harmless — a joint can still be a plane of weakness —
+          but it makes it a different question, and one that was as true a month ago as it is today.
+        rebuttals:
+          - Earthquake shear runs diagonally and varies column to column; this is horizontal and uniform.
+          - Settlement would show as differential movement and cracking in the slab, and there is none.
+          - Corrosion cracks run along the bars and come with rust staining, neither of which is present.
+      - group: SAFE
+        task: Say it at six o'clock
+        title: The meeting
+        place: Public Safety
+        scene: >
+          Two hundred people, one photograph everybody has seen, and an office that has to explain
+          both what it found tonight and why it did not find it on day one.
+        assumes:
+          - trust is affected by how a process handles being wrong
+        takeaway: Say what was found, what it means and what the process missed, in that order, and commit to the part you control.
+        format: SEQUENCE
+        why: >
+          The finding goes first because that is what everybody came for, and because withholding it
+          while explaining process reads as evasion. Its meaning comes second: a construction joint
+          rather than earthquake damage, which is the substance. Third is the honest part about the
+          gap — the basement was never inspected, it was written down at the time, and nobody acted
+          on the list. Last is what changes, because a commitment only lands after people believe the
+          first three. Reversing any of this is how a meeting becomes an argument about the office
+          instead of about the building.
+        cards:
+          - What was found in the basement tonight, plainly.
+          - What it means — a construction joint, not earthquake damage.
+          - That the basement was never inspected, that this was recorded, and that nobody acted on the record.
+          - What changes now — every unopened space on the list gets visited, with dates.
+        order: [0, 1, 2, 3]
+
+  - title: A quiet day on the bench
+    objective: Spend a day on the half of town nobody is arguing about.
+    briefing: Upper Town has been assessed, cleared and forgotten. Somebody should look at it properly.
+    stake: >-
+      Monday, and for the first time in ten days nothing is on fire. The Flats have their programme,
+      the hospital is open, the school is running in its classrooms, and the office has a day with
+      no crisis in it. Marisol Okonkwo spends those days on the half of town nobody is asking about,
+      because Upper Town was cleared quickly on the strength of standing up, and standing up is not
+      the same as undamaged. Alan Whitcombe walks the Parade with her. Today you look at masonry
+      properly, work out what holds a heavy old wall to the floors behind it, and decide what is
+      worth doing to buildings that are not currently anybody's emergency.
+    takeaway: The building that survived is the one you learn most from, because you can still see what saved it.
+    stops:
+      - group: STRUCT
+        task: Say why the masonry failed the way it did
+        title: Walls that fall outward
+        place: Structural Assessment
+        scene: >
+          On the Parade, every parapet came down into the street and no wall fell inward. The
+          buildings behind them are undamaged, and their timber floors are still connected.
+        assumes:
+          - masonry is strong in compression and weak in tension
+        takeaway: Unreinforced masonry fails out of plane, so the free top of a wall goes first and the tied part stays.
+        format: CHOICE
+        question: Why did the parapets fall and the walls below them stay?
+        choices:
+          - The parapets were built later and with weaker mortar than the walls.
+          - The parapet has nothing tying its top back, and the wall below is held by the floors.
+          - The shaking was stronger at parapet height because the building amplified it.
+          - Parapets are thinner than walls, so they were the weakest part.
+        answer: The parapet has nothing tying its top back, and the wall below is held by the floors.
+        why: >
+          A masonry wall out of plane is only as good as what holds it. Where the floors meet it, the
+          wall is tied back every few metres and cannot go far. Above the roof line there is nothing:
+          the parapet is a free-standing cantilever of heavy brick with no tension capacity, and
+          shaking is exactly the load it cannot take. Height does amplify the motion a little, and
+          the parapet is thinner, but neither of those is the reason — a tied parapet of the same
+          brick and the same thickness stays up.
+        rebuttals:
+          - The mortar is continuous through both on these buildings; there is no later work.
+          - Amplification with height is real and small, and a tied parapet of the same brick survives it.
+          - Thinness matters less than restraint — what is missing at the top is anything to pull against.
+      - group: MAT
+        task: Choose what to test on an old wall
+        title: What you can learn without breaking it
+        place: Materials & Testing
+        scene: >
+          Ferreira has four options for the Parade's brickwork, and the owners have made it clear
+          that cutting large holes in a listed façade is not one of them.
+        assumes:
+          - a test can be destructive, semi-destructive or neither
+        takeaway: Choose the least destructive test that still answers the question you actually have.
+        format: TRIAGE
+        question: Which test tells you the most about whether these walls can be tied back?
+        choices:
+          - Pull-out tests on trial anchors in the existing brickwork.
+          - Compressive tests on bricks cut from the wall.
+          - A rebound hammer survey across the façade.
+          - A visual mortar-joint survey with a penknife.
+        answer: Pull-out tests on trial anchors in the existing brickwork.
+        why: >
+          The question is not how strong the brick is; it is whether an anchor drilled into this
+          particular old wall will hold when the parapet tries to leave. That is exactly what a
+          pull-out test on a trial anchor measures, in the real material, at the real depth, and it
+          leaves a hole the size of the anchor. Crushing bricks answers a question nobody asked and
+          destroys listed fabric to do it. The hammer and the penknife are useful for a general
+          sense of condition, and neither produces a capacity anyone can design against.
+        rebuttals:
+          - Brick compressive strength is not the limiting property when the failure mode is a tie pulling out.
+          - A rebound hammer gives surface hardness, which does not convert to anchor capacity in old masonry.
+          - A penknife survey grades mortar condition, which is useful context and not a number to design with.
+      - group: SEIS
+        task: Decide what is worth doing now
+        title: Before the next one
+        place: Seismic Network
+        scene: >
+          Nothing on the Parade is dangerous today. The same parapets, on the same walls, will be
+          here for the next earthquake, and the recurrence interval on this fault is about 140 years.
+        assumes:
+          - a hazard that has occurred will occur again
+        takeaway: The cheapest moment to fix a known failure mode is while the scaffolding is still up and everybody still believes in it.
+        format: SCIENCETANK
+        why: >
+          Tying parapets back is the highest-value work in this town and it is boring, which is why
+          it does not get done. It is cheap, it addresses the failure mode that actually happened on
+          every one of these buildings, and the scaffolding needed to do it is standing in the street
+          right now. A full seismic assessment of each building produces knowledge and no
+          strengthening. Demolition removes the street. Waiting for a grant scheme means doing it
+          after the scaffolding comes down, at three times the price, if at all.
+        proposals:
+          - { label: A, text: Tie the parapets back to the floor structure now, while the scaffolding is up. }
+          - { label: B, text: Commission a detailed seismic assessment of each building on the Parade. }
+          - { label: C, text: Wait for the strengthening grant scheme, which opens next year. }
+          - { label: D, text: Demolish the parapets and rebuild them in lightweight material later. }
+        recommended: { A: 55, D: 20 }
+        evidence: |
+          Every parapet on the Parade came down and no wall behind one did. Tying back costs about
+          £8,000 a building with scaffolding already standing, and about £25,000 without. The
+          recurrence interval on this fault is roughly 140 years and the last event was 6 days ago.
+          The grant scheme opens in eleven months and is oversubscribed in its first week each year.
+
+  - title: The record that was wrong all along
+    objective: Re-read the fortnight after finding the instrument everyone trusted was mis-sited.
+    briefing: The vault on the bench is not on rock. It is on four metres of weathered granite, and that changes every comparison.
+    stake: >-
+      Tuesday, and Inês Cardoso has found the thing nobody wanted found. The vault above Upper Town
+      is the reference station — the rock record every comparison in this fortnight has been made
+      against — and when she went up to service it she looked at the trench log from its
+      installation in 1998. It is not founded on rock. It sits on four metres of weathered, broken
+      granite that behaves like a stiff soil, and it has been amplifying by about 1.6 since the day
+      it was built. Every amplification figure this office has quoted is therefore too small. Today
+      you work out what that does to the fortnight's conclusions, and which of them still stand.
+    takeaway: A reference that is not what it claims moves every measurement made against it, and finding that out is a good day.
+    stops:
+      - group: SEIS
+        task: Say what a mis-sited reference does
+        title: Measuring against the wrong zero
+        place: Seismic Network
+        scene: >
+          Cardoso has a temporary instrument on outcropping rock two hundred metres away, running
+          for five days. Across eleven aftershocks it reads consistently lower than the vault, by a
+          factor near 1.6.
+        assumes:
+          - a comparison is only as good as the thing compared against
+        takeaway: If the reference amplifies, every ratio measured against it understates the real amplification.
+        format: CHOICE
+        question: What does the vault's own amplification do to the fortnight's numbers?
+        choices:
+          - Nothing, since both records were affected in the same way and the errors cancel.
+          - Every amplification quoted is too small, since the reference amplified too.
+          - The soft-site records are wrong and need to be recomputed from scratch.
+          - The magnitudes computed for the sequence are all too large.
+        answer: Every amplification quoted is too small, since the reference amplified too.
+        why: >
+          Amplification is a ratio, and the vault was the denominator. If the denominator has been
+          1.6 times bigger than it should have been, every ratio computed from it has been about 1.6
+          times too small — so the Flats did not shake three times harder than rock, they shook
+          nearer five. The soft-site records themselves are fine; nothing about them changed. And the
+          magnitudes are computed from a network of many stations, so one mis-sited vault barely
+          moves them.
+        rebuttals:
+          - The errors do not cancel, because only one of the two sites is affected and it is the reference.
+          - The soft-site records were measured correctly and do not need recomputing.
+          - Magnitudes come from many stations at once, so one station's siting hardly moves them.
+      - group: GEO
+        task: Sort the fortnight's conclusions
+        title: What still stands
+        place: Geotechnical
+        scene: >
+          Navarro puts four of the fortnight's conclusions on the board and asks which of them
+          leaned on the vault ratio and which did not.
+        assumes:
+          - a conclusion can rest on one measurement or on several
+        takeaway: A bad reference invalidates what was measured against it and leaves what was measured directly alone.
+        format: CASEBOOK
+        why: >
+          Trace each one back to what it actually used. The amplification factor was the vault ratio
+          itself, so it falls and is restated higher. Marina Court's diagnosis came from settlement,
+          heave and ejecta — a survey and a photograph, no reference station anywhere in it — so it
+          stands. The hospital's demand came from an instrument in its own basement, which owes the
+          vault nothing. And the case for tying parapets rests on the fact that every parapet on the
+          Parade fell, which is an observation about buildings and not a number at all.
+        rebuttals:
+          - The amplification factor was the vault ratio, so it is the one conclusion that falls outright.
+          - Marina Court was diagnosed from settlement, heave and ejecta, with no reference station involved.
+          - The hospital's demand was measured by an accelerograph in its own basement.
+          - The parapet argument rests on every parapet having fallen, which is an observation rather than a ratio.
+        columns:
+          - The conclusion
+          - What the vault error does to it
+        scenarios:
+          - The Flats amplify shaking by about three times.
+          - Marina Court failed through loss of bearing capacity.
+          - The hospital saw 0.31 g against a design value of 0.35.
+          - The Parade's parapets need tying back.
+        choices:
+          - Falls, and is restated — the real factor is nearer five.
+          - Stands. Survey, heave and ejecta; no reference station in it.
+          - Stands. Measured in the hospital's own basement.
+          - Stands. An observation about buildings rather than a ratio.
+        mapping: [0, 1, 2, 3]
+      - group: HAZ
+        task: Decide what a bigger amplification changes
+        title: Five times, not three
+        place: Hazard & Forecasting
+        scene: >
+          If the Flats amplify by five rather than three, the shaking a future earthquake will
+          deliver there is much larger than the figure in the district plan.
+        assumes:
+          - design values are chosen from expected shaking
+        takeaway: A correction to a hazard figure changes what should be built, not what has already happened.
+        format: CHOICE
+        question: What does the corrected amplification change?
+        choices:
+          - The placards issued this fortnight, which were based on the wrong figure.
+          - The design values for rebuilding in the Flats, and the case for ground improvement there.
+          - The magnitude of the earthquake that has already happened.
+          - Nothing, because the buildings have already been through the real shaking.
+        answer: The design values for rebuilding in the Flats, and the case for ground improvement there.
+        why: >
+          Placards were issued from damage that engineers looked at, not from a predicted
+          amplification, so they do not move. What does move is everything forward-looking: what a
+          new building on that fill has to be designed for, whether ground improvement is worth its
+          cost before anybody rebuilds, and what the district plan says about the next event. The
+          earthquake that happened is unaffected — the correction changes the expectation, not the
+          history — but the town is about to rebuild on that ground, and it now knows more about it.
+        rebuttals:
+          - Placards came from inspecting damage, not from a predicted amplification factor.
+          - The magnitude is a property of the source and is computed from many stations.
+          - The buildings that survived did so under this shaking, which says nothing about a future one on the corrected figure.
+
+  - title: Three things at once
+    objective: Rank three demands on one office in one afternoon.
+    briefing: An aftershock, a burst main and a deadline for the school, all inside an hour.
+    stake: >-
+      Wednesday, 15:40, and three things arrive together. A magnitude 5.1 aftershock has just shaken
+      the town, which is the largest in a week. A water main has burst on Ferry Street and is
+      pouring into ground everybody now knows is loose. And the district wants a decision on the
+      school gymnasium by five o'clock, because contractors are holding a slot for Saturday. Marisol
+      Okonkwo has four engineers, Bram Halvorsen is on the phone to the utility, and Funmi Adeyemi
+      has three drafts of a notice nobody has approved. Today you decide what gets attention first,
+      work out what the aftershock did to buildings already damaged, and say what a burst main does
+      to fill.
+    takeaway: Ranking is about which problem grows fastest and which is cheapest to remove, not about which sounds worst.
+    stops:
+      - group: SAFE
+        task: Decide what the office does first
+        title: Which of the three cannot wait
+        place: Public Safety
+        scene: >
+          Halvorsen has the three on the whiteboard and wants an order, not a discussion. Two of them
+          are already as bad as they are going to get.
+        assumes:
+          - a problem still growing is different from one that has finished
+        takeaway: Rank by how fast it worsens and how cheaply it can be stopped, not by how alarming it sounds.
+        format: TRIAGE
+        question: What gets the office's attention first?
+        choices:
+          - The burst main, pouring water into loose fill under occupied houses.
+          - The magnitude 5.1 aftershock, which has already happened.
+          - The school gymnasium decision, due at five.
+          - The eleven shored buildings, which should be re-checked after any aftershock.
+        answer: The burst main, pouring water into loose fill under occupied houses.
+        why: >
+          The aftershock is over. Whatever it did is done, and the re-checks matter but they are the
+          same work tomorrow morning. The gymnasium decision has a deadline and a known answer — the
+          anchors tested below demand, and that has not changed since Tuesday. The main is the only
+          one still getting worse every minute: it is raising pore pressure in exactly the material
+          that liquefied a week ago, under houses people are sleeping in, and it is also the one
+          that can be stopped with a phone call to somebody who can close a valve.
+        rebuttals:
+          - The aftershock has finished; the re-checks it triggers are tomorrow's work and lose nothing by waiting.
+          - The gymnasium answer has not changed since the anchors were tested, so meeting the deadline is a phone call.
+          - The shored buildings should be re-checked, and none of them is deteriorating in the next hour.
+      - group: GEO
+        task: Say what water does to fill
+        title: Wetting ground that has already failed
+        place: Geotechnical
+        scene: >
+          Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three
+          quarters of a metre since the main went, and the ground surface is soft again underfoot.
+        assumes:
+          - liquefaction requires saturated ground
+        takeaway: Raising the water table raises pore pressure, which is the quantity that decides whether shaking can liquefy the ground.
+        format: CHOICE
+        question: Why does the burst main matter more here than it would in Upper Town?
+        choices:
+          - Because the Flats have older pipes and more of them will burst.
+          - Because a higher water table in loose fill raises pore pressure before any shaking starts.
+          - Because water washes away the sand that was ejected in the first event.
+          - Because the fill will dissolve if it stays wet for long enough.
+        answer: Because a higher water table in loose fill raises pore pressure before any shaking starts.
+        why: >
+          Ground carries load through grain contact, and what is left over after the water pressure
+          is what holds the grains together. Raise the water table and you raise that pressure before
+          any shaking starts, which means less shaking is needed to close the gap and float the
+          grains apart. On the granite bench there is no loose saturated material to do this to. Here
+          there is fifteen metres of it, under houses, and the sequence is not over.
+        rebuttals:
+          - Pipe age explains why it burst and not why the consequence is worse on this ground.
+          - Washing sand about is a nuisance; the pore pressure is the mechanism that matters.
+          - Sand does not dissolve, and the fill is not going anywhere — its strength is the issue.
+      - group: STRUCT
+        task: Work out what the 5.1 did to the shored buildings
+        title: A smaller shake against a weaker building
+        place: Structural Assessment
+        scene: >
+          The 5.1 was about a tenth of the mainshock's ground motion in the Flats. Eleven buildings
+          have been shored since Friday, and two of them have new cracking this afternoon.
+        assumes:
+          - a shored building is being held rather than repaired
+        takeaway: Shoring holds a building up and does not restore what it lost, so new damage in a small aftershock is expected rather than surprising.
+        format: CHOICE
+        question: What do the two buildings with new cracking tell the office?
+        choices:
+          - That the shoring failed and should be replaced with a different system.
+          - That these two are near their reduced capacity, which is what shoring bought time against.
+          - That the aftershock was much larger in those two streets than the network recorded.
+          - That the original assessment of both buildings was wrong.
+        answer: That these two are near their reduced capacity, which is what shoring bought time against.
+        why: >
+          Shoring is a prop under a damaged structure. It carries load the structure can no longer
+          carry and it does not give anything back — the cracked wall is still cracked, and its
+          capacity is still lower than it was a fortnight ago. So a small aftershock producing new
+          cracking is the system telling you what it already told you: these two are close to the
+          edge, and they need strengthening or emptying rather than another week of props. That is
+          information, and it arrived cheaply.
+        rebuttals:
+          - The shoring is still standing and doing its job; nothing about it failed.
+          - Network stations either side of those streets recorded the same motion, so the shaking was not local.
+          - The original assessment said these buildings had reduced capacity, which is exactly what this confirms.
+
+  - title: The last morning it can be changed
+    objective: Commit the town to a rebuilding standard while the window is open.
+    briefing: The recovery plan closes for comment today, and the ground improvement clause is in or out.
+    stake: >-
+      Thursday, and the recovery plan goes to the council tonight. Inside it is one clause that
+      matters more than the rest: whether rebuilding in the Flats requires ground improvement, or
+      merely stronger foundations. Elena Navarro has the corrected amplification and the borehole
+      programme. Bram Halvorsen has the cost, which is large and falls on people who have just lost
+      houses. Yvette Delacroix has four hundred households who want to rebuild this year and cannot
+      afford to wait for a scheme. After tonight the clause cannot be reopened for five years.
+      Today you work out what ground improvement buys, what it costs, and what the town commits to
+      if the clause goes in — and what it commits to if it does not.
+    takeaway: The moment a decision stops being reversible is the moment it needs the whole argument, not the quickest one.
+    stops:
+      - group: GEO
+        task: Say what ground improvement actually does
+        title: Fixing the ground instead of the building
+        place: Geotechnical
+        scene: >
+          Navarro has three options costed: stone columns, deep densification, and doing nothing to
+          the ground while designing stiffer foundations on top of it.
+        assumes:
+          - liquefaction can be addressed in the ground or accommodated in the structure
+        takeaway: Improving the ground removes the mechanism; strengthening the building only survives it.
+        format: CHOICE
+        question: What is the difference between improving the ground and strengthening the foundation?
+        choices:
+          - There is none in practice; both prevent liquefaction damage equally.
+          - Improvement stops the fill liquefying; a stiff foundation only rides it out.
+          - Improvement is cheaper because it is done once for a whole street.
+          - A stiffer foundation prevents shaking from reaching the building at all.
+        answer: Improvement stops the fill liquefying; a stiff foundation only rides it out.
+        why: >
+          They address different halves of the problem. Densification packs the grains closer and
+          drainage gives the water somewhere to go, so the pore pressure never reaches the point
+          where the ground floats apart — the mechanism is gone. A raft or a piled foundation leaves
+          the ground exactly as it is and makes the building stiff enough to settle as one piece
+          instead of tearing. Both are legitimate. Only the first also protects the road, the pipes
+          and the neighbour's house, which is what makes it a plan question rather than a building
+          question.
+        rebuttals:
+          - The two are not equivalent, since one removes the mechanism and one accommodates it.
+          - Improvement is generally more expensive per site, not less, though it covers more than the building.
+          - Nothing stops shaking reaching a building; a stiff foundation changes how it responds to it.
+      - group: MAT
+        task: Put a number on what a stone column does
+        title: What densification buys
+        place: Materials & Testing
+        scene: >
+          Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before
+          the stone columns went in and 11 after.
+        assumes:
+          - a cone test measures the resistance of ground to penetration
+        takeaway: Ground improvement is measurable, so a plan clause can be written against a number rather than an intention.
+        format: BALLPARK
+        question: Estimate the factor by which the trial panel improved.
+        why: >
+          Cone resistance is a direct measure of how densely packed and interlocked the grains are,
+          which is the property that decides whether shaking can rearrange them. It is the right
+          number to write a clause against, because it can be tested after the work by anybody: a
+          contractor either delivers the resistance or does not. Compare that with a clause that
+          says the ground shall be improved, which is an intention nobody can measure and everybody
+          can argue about five years later.
+        estimate:
+          prompt: >
+            The trial panel tested at 4 MPa cone resistance before treatment and 11 MPa after.
+          question: Choose the two cone resistances.
+          labels:
+            - 11 MPa  (after treatment)
+            - 4 MPa  (before treatment)
+            - 15 m  (depth of the fill)
+            - 5  (the corrected amplification factor)
+            - 28 MPa  (concrete strength from the library cores)
+          values: [11, 4, 15, 5, 28]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 2.75
+          tolerance: 0.5
+          units: '× stronger'
+          solution: 11 ÷ 4 ≈ 2.8 times the original resistance.
+          explanation: >
+            Nearly three times. The fill depth, the amplification factor and the library's concrete
+            strength are all real numbers from this fortnight and none of them belongs here.
+          givens:
+            - Cone resistance before treatment was 4 MPa
+            - Cone resistance after treatment was 11 MPa
+          relationship: Improvement factor = resistance after ÷ resistance before.
+        answerText: About 2.8 times.
+      - group: SAFE
+        task: Commit, and say what the commitment contains
+        title: What the next five years hold
+        place: Public Safety
+        scene: >
+          The clause goes in or it does not, and it cannot be reopened for five years. Delacroix
+          wants to know what each version means for somebody rebuilding next spring.
+        assumes:
+          - a decision to require something is also a decision about who pays for it
+        takeaway: Requiring something commits you to the years in which people have to comply with it, and that has to be planned too.
+        format: PROTOCOL
+        why: >
+          A requirement is not relief; it is a bill with a date. If the clause goes in, the ground
+          under the Flats stops being the town's worst hazard over about a decade, and in the
+          meantime four hundred households face a cost they did not budget for — which means the
+          clause has to arrive with a scheme, or it will simply stop people rebuilding. If it stays
+          out, rebuilding is quick and cheap and the same fill is under the same streets for the next
+          event. Both are defensible. Only one of them is what the corrected amplification points at.
+        rebuttals:
+          - With the clause, the ground improves street by street over about a decade as sites are rebuilt.
+          - With the clause, four hundred households meet a cost they have not budgeted for, so it needs a scheme beside it.
+          - Without it, rebuilding is fast and cheap, and the fill is unchanged when the next earthquake comes.
+          - Either way the decision is fixed for five years, which is why it is argued tonight rather than next spring.
+        columns:
+          - The version
+          - What the town is committing to
+        scenarios:
+          - The clause goes in, with a funding scheme beside it.
+          - The clause goes in, with no scheme.
+          - The clause stays out.
+          - Either version, once council has voted.
+        choices:
+          - The ground improves street by street over about a decade as sites are rebuilt.
+          - A requirement people cannot afford, which stops rebuilding rather than improving ground.
+          - Fast, cheap rebuilding on the same fill, in place for the next event.
+          - Five years in which the decision cannot be reopened, whatever is learned.
+        mapping: [0, 1, 2, 3]
+
+  - title: What we know, and how well
+    objective: State the fortnight's findings at the confidence each one has earned.
+    briefing: The report goes out today, and it has to say which of its findings are measurements and which are judgements.
+    stake: >-
+      Friday, two weeks on, and the fortnight goes into a report. Marisol Okonkwo will not sign a
+      document that states everything at the same confidence, because a reader who cannot tell a
+      measurement from a judgement will act on both the same way. Elena Navarro has the borehole
+      results. Rei Tanaka wants her forecast stated as a rate with a range rather than as a number.
+      Inês Cardoso wants the vault siting error written down as a finding rather than buried as a
+      correction. Funmi Adeyemi has to turn all of it into something a household can use. Today you
+      sort the findings by the evidence under them, and decide which of the fortnight's changes
+      should outlive the emergency.
+    takeaway: A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.
+    stops:
+      - group: SEIS
+        task: Sort the findings by their evidence
+        title: Measured, inferred, assumed
+        place: Seismic Network
+        scene: >
+          Cardoso lays out four of the fortnight's statements. The office believes all four. They are
+          not held for the same reasons and she will not let them into the report as equals.
+        assumes:
+          - a claim can rest on a measurement, on an inference, or on nothing yet
+        takeaway: Sorting findings by their evidence is what lets a later reader know which ones to check first.
+        format: CASEBOOK
+        why: >
+          The vault siting is the strongest thing in the file: a trench log from 1998 and five days
+          of side-by-side recording against outcropping rock. The hospital's demand is measured too,
+          by its own instrument, and it is a single event at a single building. Marina Court's cause
+          is an inference — good geotechnics applied to a survey, with no borehole under the raft
+          itself. And what the fill will do in the next earthquake is a projection from a corrected
+          ratio and a handful of boreholes, which is the weakest thing here and the one the plan
+          clause rests on. Saying that out loud is not undermining the clause; it is what makes it
+          defensible.
+        rebuttals:
+          - The vault error has a 1998 trench log and five days of side-by-side recording behind it.
+          - The hospital's 0.31 g came from an instrument in its own basement, for one event.
+          - Marina Court's cause is sound geotechnics on a survey, with no borehole under the raft.
+          - The future behaviour of the fill is a projection, and it is the weakest claim in the report.
+        columns:
+          - The finding
+          - How strongly it is held
+        scenarios:
+          - The reference vault is founded on weathered granite, not rock.
+          - The hospital experienced 0.31 g at its base.
+          - Marina Court rotated through loss of bearing capacity.
+          - The Flats will amplify by about five in a future earthquake.
+        choices:
+          - Established. A 1998 trench log and five days of side-by-side records.
+          - Measured, once, at one building, for one event.
+          - Inferred. Good geotechnics on a survey, with no borehole under the raft.
+          - Projected. The weakest claim in the report, and the one the plan clause rests on.
+        mapping: [0, 1, 2, 3]
+      - group: HAZ
+        task: State the forecast as a range
+        title: The number that has to be a range
+        place: Hazard & Forecasting
+        scene: >
+          Tanaka's aftershock forecast goes into the report. She wants the range in the sentence and
+          Okonkwo wants to know what the range is for.
+        assumes:
+          - a forecast is a distribution rather than a single value
+        takeaway: A forecast without a range cannot size a decision, because the decision is sized against the range.
+        format: CHOICE
+        question: Why does the forecast go in as a range rather than a single number?
+        choices:
+          - Because a range is more cautious, and caution is appropriate after an event like this.
+          - Because what people have to plan against is the upper end, and a single number deletes it.
+          - Because the model is not good enough yet to state a single number honestly.
+          - Because a range cannot be shown to be wrong afterwards.
+        answer: Because what people have to plan against is the upper end, and a single number deletes it.
+        why: >
+          Nobody staffs an emergency to the average week. They staff it to a week that is worse than
+          average, and how much worse is exactly what the range says. A single number tells a
+          planner nothing about how far the sequence might run above it, so the planner invents a
+          margin — usually badly, usually too small. The range is also the honest part: it says which
+          part of the behaviour is well constrained by four hundred recorded events and which is not.
+        rebuttals:
+          - Caution is not the reason; the range is a quantity the staffing calculation needs as an input.
+          - The model's quality is what the range states, which is the opposite of hiding it.
+          - A range makes the forecast checkable, because outcomes outside it count against the model.
+      - group: STRUCT
+        task: Decide which of the fortnight's practices survives
+        title: What outlives the emergency
+        place: Structural Assessment
+        scene: >
+          Four things the office started doing under pressure. Okonkwo asks which of them is worth
+          its cost on an ordinary Tuesday, when nothing has happened.
+        assumes:
+          - a practice adopted under pressure has a cost that only shows later
+        takeaway: Keep the practices that would have caught this fortnight's mistakes, and drop the ones that only paid off because it was abnormal.
+        format: TRIAGE
+        question: Which practice is most worth keeping permanently?
+        choices:
+          - Recording, on every inspection, the parts of the building nobody could see.
+          - Two engineers on every placard, which halves the number of buildings assessed per day.
+          - A daily public meeting, which took two hours out of every afternoon.
+          - Re-inspecting every shored building after any aftershock above magnitude 4.
+        answer: Recording, on every inspection, the parts of the building nobody could see.
+        why: >
+          One of these would have caught almost everything that went wrong. The school gym, the
+          hospital plant room and the Ferry Street basement were all invisible to the inspection that
+          cleared them, and all three were on Whitcombe's second list — a list nobody was required to
+          act on. Making that list part of the placard turns an unknown into a task. Two engineers per
+          placard halves throughput to reduce an error rate nobody has measured. The daily meeting
+          was right for a fortnight and is not a standing commitment. And re-inspecting after every
+          magnitude 4 is a rule that will be quietly abandoned the first ordinary year it applies to.
+        rebuttals:
+          - Doubling up on placards halves the number of buildings cleared per day, for an error rate nobody has quantified.
+          - A daily public meeting was right during the emergency and is not sustainable as a standing practice.
+          - A rule triggered by every magnitude 4 will be dropped the first quiet year, which makes it worse than no rule.
+
+interiors:
+  SEIS:
+    caption: An instrument records the place it stands in, not the earthquake.
+    standLine: Two traces of one event, eleven hundred metres apart.
+    station:
+      kind: panel
+      title: Vault channel
+      rows:
+        - { label: Peak on rock, value: 0.09 g, status: normal }
+        - { label: Peak on fill, value: 0.31 g, status: alarm }
+        - { label: Clock check, value: drifted 1.6 s, status: low }
+  STRUCT:
+    caption: A placard states what the inspection covered, and nothing wider.
+    standLine: Four hundred buildings in two days, and a second list of what nobody saw.
+    station:
+      kind: panel
+      title: Placard tally
+      rows:
+        - { label: Green, value: 261, status: normal }
+        - { label: Yellow, value: 108, status: high }
+        - { label: Red, value: 31, status: alarm }
+        - { label: Interiors not entered, value: 74, status: low }
+  GEO:
+    caption: The buildings are not the story. The ground is.
+    standLine: Fifteen metres of hydraulic fill, pumped in over four summers.
+    station:
+      kind: panel
+      title: Ferry Street standpipe
+      rows:
+        - { label: Water table, value: 1.4 m below surface, status: high }
+        - { label: Cone resistance, value: 4 MPa, status: alarm }
+        - { label: After treatment, value: 11 MPa, status: normal }
+  MAT:
+    caption: A number with a method attached, or it is an opinion.
+    standLine: Four cores, capped and crushed, and one sample refused for having no label.
+    station:
+      kind: panel
+      title: Press
+      rows:
+        - { label: Core 1, value: 28 MPa, status: normal }
+        - { label: Core 3, value: 24 MPa, status: high }
+        - { label: Specified, value: 25 MPa, status: normal }
+  HAZ:
+    caption: A forecast is a rate with a range, not a date.
+    standLine: Two hundred and ten events above magnitude 3, and falling.
+    station:
+      kind: panel
+      title: Sequence
+      rows:
+        - { label: Day 1, value: 96 events, status: alarm }
+        - { label: Day 4, value: 26 events, status: high }
+        - { label: Forecast, day 8, value: 10 to 18, status: normal }
+  SAFE:
+    caption: A cordon is a decision remade every morning.
+    standLine: Eleven streets, six days, and three different reasons wearing one line.
+    station:
+      kind: panel
+      title: Cordon log
+      rows:
+        - { label: Streets closed, value: 11, status: high }
+        - { label: With a hazard recorded, value: 8, status: normal }
+        - { label: Households displaced, value: 400, status: alarm }
+
+copy:
+  SEIS: <p>The vault, cut into the bench above town. Concrete, a locked hatch, and the instrument every comparison this fortnight has been made against.</p>
+  STRUCT: <p>Assessment. Forms on every surface, a plan of the town with four hundred coloured dots on it, and a queue outside that starts before the door opens.</p>
+  GEO: <p>Geotechnical. Boxes of core, a hand auger against the wall, and an 1892 survey showing where the creek used to run.</p>
+  MAT: <p>The testing laboratory. A press, a saw, and a chain of custody that means the number belongs to a particular column in a particular building.</p>
+  HAZ: <p>The incident base, on the boundary between the two halves of town. The aftershock sequence is taped to the wall and updated by hand, because people believe a curve they watched being drawn.</p>
+  SAFE: <p>Public safety. Cordon tape, printed notices, and the list of who is sleeping where.</p>
+  HOSP: <p>Kestrel Bay Hospital. Ninety patients on the ground floor, two upper floors closed, and a yellow placard nobody has been able to resolve.</p>
+  SCHOOL: <p>Bay Road School. Green placard, undamaged classrooms, and a gymnasium whose wall panels are held on by anchors that tested below demand.</p>
+  PARADE: <p>The Parade. 1890s shopfronts with their parapets in the street and timber shores holding the façades in.</p>
+  DEPOT: <p>The port gate. The quay moved two metres seaward and the cranes have not turned since.</p>
