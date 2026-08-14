@@ -675,7 +675,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "What the pressure difference is for",
       "scene": "The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.",
-      "takeaway": "Flow is driven by a pressure difference and limited by the restriction in the path.",
+      "takeaway": "Something moves through a system for one reason and is held back for another.",
       "place": "Life Support Lab",
       "story": "The oxygen tank reads 40 psi, the cabin regulator is set to 15, and the flow has fallen to half of what the plan assumed. The line is the same line it was yesterday.",
       "game": {
@@ -2221,7 +2221,7 @@ export const CURRICULUM = {
       "day": 15,
       "title": "What is driving the vibration?",
       "scene": "A structural vibration becomes severe only in a narrow band of reaction-wheel speed. It peaks sharply near 3,200 rpm and falls away above and below.",
-      "takeaway": "Resonance is diagnosed by relationships among forcing frequency, natural frequency, and response - not by amplitude alone.",
+      "takeaway": "How hard something shakes matters less than what is shaking it and how fast.",
       "place": "Structural Dynamics Lab",
       "story": "A structural vibration becomes severe only in a narrow band of reaction-wheel speed. It peaks sharply near 3,200 rpm and falls away above and below.",
       "game": {

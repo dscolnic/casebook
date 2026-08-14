@@ -628,7 +628,7 @@ export const CURRICULUM = {
       "day": 9,
       "title": "Why the level pulses three times a second",
       "scene": "Two narrowband lines, 147 and 150 hertz, and the operator says the level swells and dies three times a second on the audio. The display shows two steady lines and nothing else.",
-      "takeaway": "Two close frequencies add and cancel in turn, and the beat rate is their difference.",
+      "takeaway": "Two tones close together rise and fall together at a rate you can hear and count.",
       "place": "Sonar Shack",
       "story": "Two narrowband lines, 147 and 150 hertz, and the operator says the level swells and dies three times a second on the audio. The display shows two steady lines and nothing else.",
       "game": {
@@ -1683,7 +1683,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "What the last watch left open",
       "scene": "The switchboard shows two breakers open from maintenance last week. The log says one of them was restored. You are about to send people to work on that cable.",
-      "takeaway": "A record and an indicator are two beliefs; a meter is a measurement.",
+      "takeaway": "A document and a lamp both report what somebody expects, which is a weaker thing than a reading.",
       "place": "Electrical Distribution",
       "story": "The switchboard shows two breakers open from maintenance last week. The log says one of them was restored. You are about to send people to work on that cable.",
       "game": {

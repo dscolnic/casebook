@@ -935,7 +935,7 @@ missions:
           runs at four hundred thousand.
         assumes:
           - a transformer changes voltage in proportion to its turns
-        takeaway: Raising voltage lowers current for the same power, and loss falls with the square of current.
+        takeaway: The same power can be delivered in more than one way, and the ways are not equally wasteful.
         format: CHOICE
         question: Why is power sent long distances at high voltage?
         choices:
@@ -1054,7 +1054,7 @@ missions:
           two circuits underneath it.
         assumes:
           - charge does not accumulate at a junction
-        takeaway: A node's currents must sum, which constrains the parts without revealing them.
+        takeaway: A conservation law bounds the parts of a system without identifying any of them.
         format: CHOICE
         question: What does the 900 A total tell you about the two circuits?
         choices:
@@ -1181,7 +1181,7 @@ missions:
           meter on the panel at five amps. Nothing connects the two circuits.
         assumes:
           - a changing magnetic field produces a voltage in a nearby conductor
-        takeaway: A changing current makes a changing field, and a changing field drives a current in a second winding.
+        takeaway: Two circuits with no connection between them can still be coupled through what changes around them.
         format: CHOICE
         question: How does the current transformer produce its reading?
         choices:
@@ -1880,7 +1880,7 @@ missions:
           figure before he decides whether the evening needs a switching change.
         assumes:
           - loss in a conductor rises with the square of the current
-        takeaway: A tenth more current is about a fifth more heat, which is why the square is the number that matters.
+        takeaway: When a quantity enters squared, a small change in it is a large change in the result.
         format: BALLPARK
         question: Estimate the power now lost as heat in the corridor.
         why: >
@@ -2117,7 +2117,7 @@ missions:
           to know what the width is for.
         assumes:
           - a forecast is a distribution rather than a single value
-        takeaway: A forecast without a width cannot size a reserve, because the reserve is sized against the width.
+        takeaway: A prediction is only usable by a planner if it says how wrong it might be.
         format: CHOICE
         question: Why does the winter peak go in as a range rather than as a single figure?
         choices:

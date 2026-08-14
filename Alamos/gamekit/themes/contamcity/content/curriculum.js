@@ -597,7 +597,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Why the drum is worse in the afternoon",
       "scene": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.",
-      "takeaway": "Vapour pressure rises steeply with temperature, so the same liquid is a different hazard at a different hour.",
+      "takeaway": "How much of a liquid is in the air above it depends steeply on how warm it is.",
       "place": "Atmospheric Monitoring Post",
       "story": "The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.",
       "game": {

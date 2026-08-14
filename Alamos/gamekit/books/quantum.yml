@@ -896,7 +896,7 @@ missions:
           and they cannot send the state itself. Not by fibre, not by post, not at all.
         assumes:
           - information can be copied and a quantum state is a different kind of object
-        takeaway: An unknown quantum state cannot be copied, which is a limit on engineering and the foundation of the security argument.
+        takeaway: Some limits are not engineering problems waiting for better equipment.
         format: CHOICE
         question: Why can Ridgeway send the circuit but not the prepared state?
         choices:
@@ -966,7 +966,7 @@ missions:
           cycled. It appears on three chips from one processing window and on none of the others.
         assumes:
           - a material can contain flaws that behave as small two-state systems
-        takeaway: A two-level defect in the oxide absorbs at its own frequency, and a qubit tuned near it loses energy into it.
+        takeaway: A flaw in a material has a signature, and the signature says when it was made as well as what it is.
         format: DIAGNOSIS
         headline: A narrow absorption sits 60 MHz below one qubit, on three chips from one six-week window.
         task: Which explanation fits all of it?
@@ -1002,7 +1002,7 @@ missions:
           microseconds to about 35. Tuned 200 megahertz away, it recovers.
         assumes:
           - two systems at the same frequency can exchange energy
-        takeaway: A defect is only a problem in a band around its own frequency, so tuning away from it is a real repair.
+        takeaway: Avoiding a fault is a legitimate repair when the fault is confined and documented.
         format: CHOICE
         question: What is the practical response to a defect at a known frequency?
         choices:
@@ -1378,7 +1378,7 @@ missions:
           then asks him to say what it does not.
         assumes:
           - a measurement can rule out a class of explanations without confirming one
-        takeaway: A Bell violation excludes every explanation in which the outcomes were fixed in advance and locally, which is stronger and narrower than proving a mechanism.
+        takeaway: The strongest thing an experiment does is rule a whole family of explanations out.
         format: CHOICE
         question: What does S = 2.78 establish?
         choices:
@@ -1496,7 +1496,7 @@ missions:
           contribute to an argument about a sixty-seven-qubit one.
         assumes:
           - a small system can be simulated exactly and a large one cannot
-        takeaway: A small device is where a method is validated, because it is the only size at which the right answer is known independently.
+        takeaway: Instruments get calibrated where the truth is already known, not where the interesting result is.
         format: CHOICE
         question: What is a twelve-qubit device good for here?
         choices:

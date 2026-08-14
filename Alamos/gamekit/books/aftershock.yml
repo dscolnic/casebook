@@ -639,7 +639,7 @@ missions:
           is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.
         assumes:
           - people read a colour as a verdict
-        takeaway: Green means no restriction was found from what was inspected, which is a smaller claim than safe.
+        takeaway: A verdict covers what was looked at, and its wording should not promise more.
         format: CHOICE
         question: What does a green placard entitle somebody to be told?
         choices:
@@ -712,7 +712,7 @@ missions:
           down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.
         assumes:
           - a foundation spreads a building's weight into the ground
-        takeaway: When liquefied ground loses bearing capacity, an intact foundation simply rotates into it.
+        takeaway: A structure can fail without anything in the structure breaking.
         format: DIAGNOSIS
         headline: A six-storey block is eight degrees out of plumb, with no damage to its structure.
         task: Which explanation fits every observation?
@@ -1212,7 +1212,7 @@ missions:
           middle third of each column. They are fine, numerous and evenly spaced.
         assumes:
           - a crack runs across the direction of the tension that opened it
-        takeaway: Crack pattern names the action — diagonal in both directions is shear, reversing, which is what an earthquake does.
+        takeaway: The shape of a failure records the direction of the force that caused it.
         format: DIAGNOSIS
         headline: Fine diagonal cracks cross in both directions across three ground-floor columns.
         task: Which explanation fits the pattern?
@@ -1598,7 +1598,7 @@ missions:
           factor near 1.6.
         assumes:
           - a comparison is only as good as the thing compared against
-        takeaway: If the reference amplifies, every ratio measured against it understates the real amplification.
+        takeaway: A ratio is only as good as its denominator, and a faulty reference moves every result computed from it.
         format: CHOICE
         question: What does the vault's own amplification do to the fortnight's numbers?
         choices:
@@ -1737,7 +1737,7 @@ missions:
           quarters of a metre since the main went, and the ground surface is soft again underfoot.
         assumes:
           - liquefaction requires saturated ground
-        takeaway: Raising the water table raises pore pressure, which is the quantity that decides whether shaking can liquefy the ground.
+        takeaway: Making a hazard more likely is not the same as causing it, and it is usually cheaper to stop.
         format: CHOICE
         question: Why does the burst main matter more here than it would in Upper Town?
         choices:

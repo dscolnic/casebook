@@ -845,7 +845,7 @@ missions:
         title: Locate the oxygen-delivery failure
         place: Intensive Care Unit
         scene: Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full heart-and-lung panel on one of them, and the team is about to escalate a treatment on the strength of it.
-        takeaway: Oxygen delivery is a chain. Normal measurements at one link can be powerful evidence that the failure lies somewhere else.
+        takeaway: A normal reading at one point in a chain is evidence about where the fault is not.
         format: DIAGNOSIS
         rebuttals:
           - Ventilation failure would usually push carbon dioxide up as oxygen falls, because the same failing airflow carries both. This carbon dioxide is near normal.
@@ -1114,7 +1114,7 @@ missions:
         title: The same genome, different cells
         place: Cell Biology Laboratory
         scene: Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.
-        takeaway: Gene regulation — which genes are switched on in which cell — is what makes a cell the cell it is.
+        takeaway: Every cell carries the same instructions and reads a different part of them.
         format: CHOICE
         assumes:
           - every cell in a body carries the same genome

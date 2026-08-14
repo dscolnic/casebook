@@ -1389,7 +1389,7 @@ missions:
         scene: The same open drum reads three times the vapour concentration at two in the afternoon as it did at six in the morning. Nothing has been added to it and nothing has been taken out.
         assumes:
           - a liquid and its vapour sit in equilibrium at a temperature
-        takeaway: Vapour pressure rises steeply with temperature, so the same liquid is a different hazard at a different hour.
+        takeaway: How much of a liquid is in the air above it depends steeply on how warm it is.
         format: CHOICE
         why: Vapour pressure is the pressure of gas in equilibrium with its own liquid, and it climbs steeply with temperature — often doubling for every ten or fifteen degrees. Warming the drum from morning to afternoon moves more molecules into the gas phase above the same liquid, so the air above it is more concentrated with no change in what is in the drum. This is why exposure limits are checked at the hottest part of the day, and why a hazard assessment made at dawn understates the afternoon.
         rebuttals:

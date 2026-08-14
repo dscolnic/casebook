@@ -446,7 +446,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Something else that absorbs at that frequency",
       "scene": "The feature is narrow, sits at a fixed frequency, and moves slightly when the chip is thermally cycled. It appears on three chips from one processing window and on none of the others.",
-      "takeaway": "A two-level defect in the oxide absorbs at its own frequency, and a qubit tuned near it loses energy into it.",
+      "takeaway": "A flaw in a material has a signature, and the signature says when it was made as well as what it is.",
       "place": "Fabrication & Materials",
       "story": "The feature is narrow, sits at a fixed frequency, and moves slightly when the chip is thermally cycled. It appears on three chips from one processing window and on none of the others.",
       "game": {
@@ -874,7 +874,7 @@ export const CURRICULUM = {
       "day": 6,
       "title": "Energy with somewhere to go",
       "scene": "When the twelfth qubit is tuned to within 10 megahertz of the feature, its T1 falls from 90 microseconds to about 35. Tuned 200 megahertz away, it recovers.",
-      "takeaway": "A defect is only a problem in a band around its own frequency, so tuning away from it is a real repair.",
+      "takeaway": "Avoiding a fault is a legitimate repair when the fault is confined and documented.",
       "place": "Control & Readout",
       "story": "When the twelfth qubit is tuned to within 10 megahertz of the feature, its T1 falls from 90 microseconds to about 35. Tuned 200 megahertz away, it recovers.",
       "game": {
@@ -1045,7 +1045,7 @@ export const CURRICULUM = {
       "day": 9,
       "title": "What twelve qubits can say about sixty-seven",
       "scene": "Ridgeway has twelve qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
-      "takeaway": "A small device is where a method is validated, because it is the only size at which the right answer is known independently.",
+      "takeaway": "Instruments get calibrated where the truth is already known, not where the interesting result is.",
       "place": "Control & Readout",
       "story": "Ridgeway has twelve qubits. Mensah is asked what, if anything, a twelve-qubit device can contribute to an argument about a sixty-seven-qubit one.",
       "game": {
@@ -2391,7 +2391,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Copying a state, and why you cannot",
       "scene": "Yusuf Sadiq, listening, points out the obvious thing nobody has said: they can send the recipe, and they cannot send the state itself. Not by fibre, not by post, not at all.",
-      "takeaway": "An unknown quantum state cannot be copied, which is a limit on engineering and the foundation of the security argument.",
+      "takeaway": "Some limits are not engineering problems waiting for better equipment.",
       "place": "Networks & Security",
       "story": "Yusuf Sadiq, listening, points out the obvious thing nobody has said: they can send the recipe, and they cannot send the state itself. Not by fibre, not by post, not at all.",
       "game": {
@@ -2494,7 +2494,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "What has been ruled out",
       "scene": "S is 2.78, comfortably above 2. Sadiq asks Holm to say in one sentence what that establishes, and then asks him to say what it does not.",
-      "takeaway": "A Bell violation excludes every explanation in which the outcomes were fixed in advance and locally, which is stronger and narrower than proving a mechanism.",
+      "takeaway": "The strongest thing an experiment does is rule a whole family of explanations out.",
       "place": "Networks & Security",
       "story": "S is 2.78, comfortably above 2. Sadiq asks Holm to say in one sentence what that establishes, and then asks him to say what it does not.",
       "game": {

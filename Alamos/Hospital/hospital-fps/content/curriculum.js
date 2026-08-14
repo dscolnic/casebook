@@ -2455,7 +2455,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Why Food Is Fuel",
       "scene": "Nina ran all morning and now she feels shaky. She has not eaten since breakfast. Her nurse asks you what her body has run out of.",
-      "takeaway": "Food gives the body energy, and the body uses energy up as it works.",
+      "takeaway": "The body spends what it takes in, and spends it faster when it works harder.",
       "place": "Food and Water Room",
       "story": "Nina ran all morning and now she feels shaky. She has not eaten since breakfast. Her nurse asks you what her body has run out of.",
       "game": {
@@ -2538,7 +2538,7 @@ export const CURRICULUM = {
       "day": 4,
       "title": "The Thirsty Player",
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
-      "takeaway": "Water is needed throughout the body, and the body has signals that help protect its water balance.",
+      "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
       "place": "",
       "story": "Mateo just finished a long soccer practice. He is thirsty. His mouth feels dry. The nurse says his urine looks darker than usual. The team is checking him. Water is in the blood, in every cell, and in sweat. The body loses some when you are active. It also gives signals when water runs low. Doctors read several signals together.",
       "game": {
@@ -2785,7 +2785,7 @@ export const CURRICULUM = {
       "day": 10,
       "title": "The Thirsty Player — Review 2",
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
-      "takeaway": "Water is needed throughout the body, and the body has signals that help protect its water balance.",
+      "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
       "place": "",
       "story": "Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.",
       "game": {
@@ -3015,7 +3015,7 @@ export const CURRICULUM = {
       "day": 16,
       "title": "The Thirsty Player — Review 3",
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
-      "takeaway": "Water is needed throughout the body, and the body has signals that help protect its water balance.",
+      "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
       "place": "",
       "story": "Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.",
       "game": {
@@ -3245,7 +3245,7 @@ export const CURRICULUM = {
       "day": 22,
       "title": "The Thirsty Player — Review 4",
       "scene": "Mateo just finished soccer. He is thirsty and his mouth is dry. The nurse says his urine looks darker than it was. The team is checking him.",
-      "takeaway": "Water is needed throughout the body, and the body has signals that help protect its water balance.",
+      "takeaway": "The body tells you when it is short of something, and thirst is one of those signals.",
       "place": "",
       "story": "Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.",
       "game": {
@@ -3527,7 +3527,7 @@ export const CURRICULUM = {
       "day": 4,
       "title": "Make the Hand Move",
       "scene": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
-      "takeaway": "Movement is teamwork between the brain, nerves, muscles, bones, and joints.",
+      "takeaway": "One movement needs several parts of the body working in turn.",
       "place": "",
       "story": "Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.",
       "game": {
@@ -3554,6 +3554,23 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is in charge of your body"
+      ],
+      "equations": [
+        {
+          "e": "how far behind = what is needed − what was taken",
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
+        }
       ]
     },
     {

@@ -1196,7 +1196,7 @@ missions:
         scene: Nina ran all morning and now she feels shaky. She has not eaten since breakfast. Her nurse asks you what her body has run out of.
         assumes:
           - food gives your body energy
-        takeaway: Food gives the body energy, and the body uses energy up as it works.
+        takeaway: The body spends what it takes in, and spends it faster when it works harder.
         format: CHOICE
         why: Food is fuel. Your body breaks food down and uses the energy to move, to keep warm, and to think. Running uses a lot of energy fast. Nina ate at breakfast and then used it all up. When the fuel runs low, people feel shaky, tired, or grumpy. A snack puts the fuel back. This is why hospitals ask when someone last ate.
         rebuttals:
@@ -1246,7 +1246,7 @@ missions:
         story: Mateo just finished a long soccer practice. He is thirsty. His mouth feels dry. The nurse says his urine looks darker than usual. The team is checking him. Water is in the blood, in every cell, and in sweat. The body loses some when you are active. It also gives signals when water runs low. Doctors read several signals together.
         assumes:
           - you sweat when you run around
-        takeaway: Water is needed throughout the body, and the body has signals that help protect its water balance.
+        takeaway: The body tells you when it is short of something, and thirst is one of those signals.
         format: DIAGNOSIS
         why: Water is in your blood, in every cell, and in your sweat. You lose some when you are active. Then the body gives signals. A dry mouth is one. Dark urine is another. Doctors read several signals together, because one on its own could mean lots of things. Two pointing the same way is stronger.
         rebuttals:
@@ -1379,7 +1379,7 @@ missions:
         scene: Sophie wiggles her fingers. She asks how the message got there so fast. The therapist gives you four cards. Moving one finger takes a whole chain. First a decision. Then a message along a nerve. Then a muscle pulls. Then a bone moves at a joint. Therapists think about this chain a lot. When movement fails, the chain shows where to look.
         assumes:
           - your brain is in charge of your body
-        takeaway: Movement is teamwork between the brain, nerves, muscles, bones, and joints.
+        takeaway: One movement needs several parts of the body working in turn.
         format: SEQUENCE
         why: Moving takes four things in order. The brain decides. Nerves carry that message out to the muscles. The muscles tighten and pull. Bones move at the joints. Muscles can only pull, never push, which is why they come in pairs. Nothing moves until the message gets there.
         cards:
@@ -2761,7 +2761,7 @@ lessons:
     story: Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.
     assumes:
       - you sweat when you run around
-    takeaway: Water is needed throughout the body, and the body has signals that help protect its water balance.
+    takeaway: The body tells you when it is short of something, and thirst is one of those signals.
     format: DIAGNOSIS
     why: Water is in your blood, in every cell, and in your sweat. You lose some when you are active. Then the body gives signals. A dry mouth is one. Dark urine is another. Doctors read several signals together, because one on its own could mean lots of things. Two pointing the same way is stronger.
     rebuttals:
@@ -2879,7 +2879,7 @@ lessons:
     story: Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.
     assumes:
       - you sweat when you run around
-    takeaway: Water is needed throughout the body, and the body has signals that help protect its water balance.
+    takeaway: The body tells you when it is short of something, and thirst is one of those signals.
     format: DIAGNOSIS
     why: Water is in your blood, in every cell, and in your sweat. You lose some when you are active. Then the body gives signals. A dry mouth is one. Dark urine is another. Doctors read several signals together, because one on its own could mean lots of things. Two pointing the same way is stronger.
     rebuttals:
@@ -2997,7 +2997,7 @@ lessons:
     story: Mateo finished a long soccer practice. He is thirsty, his mouth feels dry, and the nurse says his urine has been darker than usual. The medical team is checking him.
     assumes:
       - you sweat when you run around
-    takeaway: Water is needed throughout the body, and the body has signals that help protect its water balance.
+    takeaway: The body tells you when it is short of something, and thirst is one of those signals.
     format: DIAGNOSIS
     why: Water is in your blood, in every cell, and in your sweat. You lose some when you are active. Then the body gives signals. A dry mouth is one. Dark urine is another. Doctors read several signals together, because one on its own could mean lots of things. Two pointing the same way is stronger.
     rebuttals:

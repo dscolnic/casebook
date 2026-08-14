@@ -213,7 +213,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "What a node has to add up to",
       "scene": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it.",
-      "takeaway": "A node's currents must sum, which constrains the parts without revealing them.",
+      "takeaway": "A conservation law bounds the parts of a system without identifying any of them.",
       "place": "System Operations",
       "story": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it.",
       "game": {
@@ -854,7 +854,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "The reason the wires are not at wall voltage",
       "scene": "A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand.",
-      "takeaway": "Raising voltage lowers current for the same power, and loss falls with the square of current.",
+      "takeaway": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
       "place": "Generation Hall",
       "story": "A visitor asks Haddad why the machine makes power at twenty thousand volts and the line outside runs at four hundred thousand.",
       "game": {
@@ -1490,7 +1490,7 @@ export const CURRICULUM = {
       "day": 7,
       "title": "Loss when the load turns up anyway",
       "scene": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change.",
-      "takeaway": "A tenth more current is about a fifth more heat, which is why the square is the number that matters.",
+      "takeaway": "When a quantity enters squared, a small change in it is a large change in the result.",
       "place": "Transmission & Protection",
       "story": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak wants the heat figure before he decides whether the evening needs a switching change.",
       "game": {
@@ -2228,7 +2228,7 @@ export const CURRICULUM = {
       "day": 6,
       "title": "The number that has to be a range",
       "scene": "Lindgren's winter peak goes into the report. He wants the width in the sentence, and Reyes wants to know what the width is for.",
-      "takeaway": "A forecast without a width cannot size a reserve, because the reserve is sized against the width.",
+      "takeaway": "A prediction is only usable by a planner if it says how wrong it might be.",
       "place": "Load & Forecasting",
       "story": "Lindgren's winter peak goes into the report. He wants the width in the sentence, and Reyes wants to know what the width is for.",
       "game": {
@@ -2441,7 +2441,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "A reading taken without a connection",
       "scene": "Farrow has a current transformer clamped around a conductor at eleven thousand volts, feeding a meter on the panel at five amps. Nothing connects the two circuits.",
-      "takeaway": "A changing current makes a changing field, and a changing field drives a current in a second winding.",
+      "takeaway": "Two circuits with no connection between them can still be coupled through what changes around them.",
       "place": "Metering & Standards",
       "story": "Farrow has a current transformer clamped around a conductor at eleven thousand volts, feeding a meter on the panel at five amps. Nothing connects the two circuits.",
       "game": {

@@ -1050,7 +1050,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Why do the measured positions disagree?",
       "scene": "Astrometry from one wide-field camera curves away from the orbit fit while a second telescope agrees with it. Everything the network has on both is on the screen, and the orbit is due to be published tonight.",
-      "takeaway": "Astrometric residuals can diagnose the instrument: a bias that follows focal-plane position rather than the moving object is a calibration signature.",
+      "takeaway": "An error that tracks the apparatus rather than the target is telling you about the apparatus.",
       "place": "Follow-Up Telescope Network",
       "story": "Astrometry from one wide-field camera curves away from the orbit fit while a second telescope agrees with it. Everything the network has on both is on the screen, and the orbit is due to be published tonight.",
       "game": {
@@ -2104,7 +2104,7 @@ export const CURRICULUM = {
       "day": 21,
       "title": "Why a centimetre a second is enough",
       "scene": "The impactor design gives the object a speed change of about one centimetre a second, against an orbital speed near 25 kilometres a second. The room is being asked how that can possibly matter.",
-      "takeaway": "A small change along the orbit moves the arrival time, and the miss distance is bought with years.",
+      "takeaway": "A tiny nudge applied early buys a large miss later, and the currency is time.",
       "place": "Coordination Office",
       "story": "The impactor design gives the object a speed change of about one centimetre a second, against an orbital speed near 25 kilometres a second. The room is being asked how that can possibly matter.",
       "game": {

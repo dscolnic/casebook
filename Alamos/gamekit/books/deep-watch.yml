@@ -1970,7 +1970,7 @@ missions:
         title: What the last watch left open
         place: Electrical Distribution
         scene: The switchboard shows two breakers open from maintenance last week. The log says one of them was restored. You are about to send people to work on that cable.
-        takeaway: A record and an indicator are two beliefs; a meter is a measurement.
+        takeaway: A document and a lamp both report what somebody expects, which is a weaker thing than a reading.
         format: CHOICE
         assumes:
           - a record and an indicator are both claims about a circuit
@@ -2155,7 +2155,7 @@ missions:
         title: Why the level pulses three times a second
         place: Sonar Shack
         scene: Two narrowband lines, 147 and 150 hertz, and the operator says the level swells and dies three times a second on the audio. The display shows two steady lines and nothing else.
-        takeaway: Two close frequencies add and cancel in turn, and the beat rate is their difference.
+        takeaway: Two tones close together rise and fall together at a rate you can hear and count.
         format: CHOICE
         assumes:
           - two waves arriving together add where they are in phase and cancel where they are not

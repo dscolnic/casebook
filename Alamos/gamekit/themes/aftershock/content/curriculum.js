@@ -278,7 +278,7 @@ export const CURRICULUM = {
       "day": 6,
       "title": "Measuring against the wrong zero",
       "scene": "Cardoso has a temporary instrument on outcropping rock two hundred metres away, running for five days. Across eleven aftershocks it reads consistently lower than the vault, by a factor near 1.6.",
-      "takeaway": "If the reference amplifies, every ratio measured against it understates the real amplification.",
+      "takeaway": "A ratio is only as good as its denominator, and a faulty reference moves every result computed from it.",
       "place": "Seismic Network",
       "story": "Cardoso has a temporary instrument on outcropping rock two hundred metres away, running for five days. Across eleven aftershocks it reads consistently lower than the vault, by a factor near 1.6.",
       "game": {
@@ -779,7 +779,7 @@ export const CURRICULUM = {
       "day": 7,
       "title": "Which way the cracks run",
       "scene": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced.",
-      "takeaway": "Crack pattern names the action — diagonal in both directions is shear, reversing, which is what an earthquake does.",
+      "takeaway": "The shape of a failure records the direction of the force that caused it.",
       "place": "Structural Assessment",
       "story": "The cracks run diagonally, in both directions, crossing each other in an X across the middle third of each column. They are fine, numerous and evenly spaced.",
       "game": {
@@ -1173,7 +1173,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "The raft is fine and the building is not",
       "scene": "Navarro's survey: the raft is intact, level within itself, and rotated. One side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
-      "takeaway": "When liquefied ground loses bearing capacity, an intact foundation simply rotates into it.",
+      "takeaway": "A structure can fail without anything in the structure breaking.",
       "place": "Geotechnical",
       "story": "Navarro's survey: the raft is intact, level within itself, and rotated. One side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
       "game": {
@@ -1495,7 +1495,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Wetting ground that has already failed",
       "scene": "Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three quarters of a metre since the main went, and the ground surface is soft again underfoot.",
-      "takeaway": "Raising the water table raises pore pressure, which is the quantity that decides whether shaking can liquefy the ground.",
+      "takeaway": "Making a hazard more likely is not the same as causing it, and it is usually cheaper to stop.",
       "place": "Geotechnical",
       "story": "Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three quarters of a metre since the main went, and the ground surface is soft again underfoot.",
       "game": {
@@ -2337,7 +2337,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Green does not mean safe",
       "scene": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
-      "takeaway": "Green means no restriction was found from what was inspected, which is a smaller claim than safe.",
+      "takeaway": "A verdict covers what was looked at, and its wording should not promise more.",
       "place": "Public Safety",
       "story": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
       "game": {

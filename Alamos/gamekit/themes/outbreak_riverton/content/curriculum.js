@@ -92,7 +92,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Locate the oxygen-delivery failure",
       "scene": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full heart-and-lung panel on one of them, and the team is about to escalate a treatment on the strength of it.",
-      "takeaway": "Oxygen delivery is a chain. Normal measurements at one link can be powerful evidence that the failure lies somewhere else.",
+      "takeaway": "A normal reading at one point in a chain is evidence about where the fault is not.",
       "place": "Intensive Care Unit",
       "story": "Two patients arrived with the same complaint and are going in opposite directions. The intensive care unit has a full heart-and-lung panel on one of them, and the team is about to escalate a treatment on the strength of it.",
       "game": {
@@ -580,7 +580,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "The same genome, different cells",
       "scene": "Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.",
-      "takeaway": "Gene regulation — which genes are switched on in which cell — is what makes a cell the cell it is.",
+      "takeaway": "Every cell carries the same instructions and reads a different part of them.",
       "place": "Cell Biology Laboratory",
       "story": "Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.",
       "game": {
