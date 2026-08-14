@@ -5,6 +5,7 @@
 // colliders / interactables / buildingMeshes / updateWorldFromState /
 // getBuildingPosition / waypoint helpers / updateDayNight.
 import * as THREE from 'three';
+import { furnishArea } from '../../../gamekit/engine/world/interiorKit.js';
 import { GROUP_DEFS } from './divisions.js';
 import { getState } from './gameState.js';
 import {
@@ -636,6 +637,11 @@ export function initWorld(canvas){
     // Cross-walls between neighbouring rooms
     wall(b.xInner, r.z0, b.xOuter, r.z0, { baseSides: [-1, 1] });
 
+    // Everything a ward has that is not a mission stop. Measured before this,
+    // the hospital held about one piece per ten square metres — a children's
+    // hospital with nothing in it but the thing the question is about.
+    furnishWard(r, b);
+
     if(opening){
       const { leaf, hit } = makeDoor(r, opening);
       if(gdef){
@@ -949,3 +955,116 @@ export function getRoomEntry(id){
 }
 export function getCentralBoardMesh(){ return centralBoardMesh; }
 export function createInteriorScene(){ /* rooms are part of the main scene now */ }
+
+/**
+ * Fit out one room of the hospital.
+ *
+ * A children's hospital, so the vocabulary is its own: trolleys and drip stands,
+ * a hand-gel dispenser by every door, a weighing scale, a toy box, low chairs for
+ * families, a sharps bin out of reach, the curtain rail around a bay. Nothing
+ * sharp-edged in the middle of a floor children walk across, and nothing in the
+ * doorway.
+ */
+function furnishWard(r, b){
+  const f = b.sign;
+  const soft = () => mat('wardSoft', () => new THREE.MeshStandardMaterial({
+    color: 0xdfe4e8, roughness: 0.85 }));
+  const steel = () => mat('wardSteel', () => new THREE.MeshStandardMaterial({
+    color: 0xa9b2ba, roughness: 0.45, metalness: 0.3 }));
+  const bright = (hex) => mat(`wardBright-${hex}`, () => new THREE.MeshStandardMaterial({
+    color: hex, roughness: 0.7 }));
+
+  const makers = {
+    // A trolley: the single most common object in any hospital.
+    trolley: (x, z) => {
+      box(0.56, 0.05, 0.86, x, 0.84, z, soft());
+      box(0.56, 0.05, 0.86, x, 0.44, z, soft());
+      for(const sx of [-1, 1]) for(const sz of [-1, 1]){
+        box(0.04, 0.84, 0.04, x + sx * 0.25, 0.42, z + sz * 0.39, steel());
+      }
+      box(0.3, 0.16, 0.44, x, 0.94, z, bright(0x6fa8c7));
+    },
+    dripStand: (x, z) => {
+      box(0.05, 1.6, 0.05, x, 0.8, z, steel());
+      box(0.34, 0.04, 0.34, x, 0.03, z, steel());
+      box(0.14, 0.26, 0.1, x + 0.1, 1.5, z, soft());
+    },
+    // Low chairs, for the family who came with the child.
+    familyChairs: (x, z) => {
+      for(let i = 0; i < 2; i++){
+        const oz = (i - 0.5) * 0.62;
+        box(0.5, 0.06, 0.5, x, 0.42, z + oz, bright(i ? 0x7fb069 : 0xe0a03c));
+        box(0.5, 0.46, 0.07, x - f * 0.21, 0.66, z + oz, bright(i ? 0x7fb069 : 0xe0a03c));
+        for(const sx of [-1, 1]) box(0.05, 0.4, 0.05, x + sx * 0.19, 0.2, z + oz, steel());
+      }
+    },
+    toyBox: (x, z) => {
+      box(0.72, 0.44, 0.5, x, 0.22, z, bright(0xe0a03c));
+      box(0.76, 0.05, 0.54, x, 0.46, z, bright(0x6fa8c7));
+      for(let i = 0; i < 3; i++){
+        box(0.14, 0.14, 0.14, x - 0.2 + i * 0.2, 0.55, z, bright(i === 1 ? 0x7fb069 : 0xd06a5c));
+      }
+    },
+    // Hand gel, by the door and everywhere else.
+    gelPoint: (x, z) => {
+      box(0.12, 0.24, 0.1, x, 1.35, z, soft());
+      box(0.08, 0.06, 0.06, x, 1.2, z, bright(0x6fa8c7));
+    },
+    // A sharps bin, mounted high on purpose.
+    sharpsBin: (x, z) => {
+      box(0.24, 0.3, 0.2, x, 1.45, z, bright(0xe0a03c));
+      box(0.26, 0.05, 0.22, x, 1.62, z, bright(0xd06a5c));
+    },
+    scales: (x, z) => {
+      box(0.42, 0.1, 0.42, x, 0.05, z, soft());
+      box(0.05, 1.0, 0.05, x, 0.55, z, steel());
+      box(0.2, 0.14, 0.06, x, 1.08, z, soft());
+    },
+    // Storage, because everything else in the room has to live somewhere.
+    supplyUnit: (x, z) => {
+      box(0.5, 1.4, 0.9, x, 0.7, z, soft());
+      for(let i = 0; i < 4; i++) box(0.54, 0.04, 0.7, x, 0.35 + i * 0.32, z, steel());
+    },
+    // The curtain rail around a bay, which is how a ward gets its privacy.
+    curtainRail: (x, z) => {
+      box(0.05, 0.05, 2.2, x, 2.05, z, steel());
+      box(0.22, 1.5, 0.06, x, 1.25, z - 0.9, bright(0x7fb069));
+    },
+    bin: (x, z) => {
+      box(0.34, 0.6, 0.34, x, 0.3, z, soft());
+      box(0.36, 0.05, 0.36, x, 0.62, z, bright(0x6fa8c7));
+    },
+  };
+
+  const ORDER = {
+    exam:      ['trolley', 'dripStand', 'curtainRail', 'gelPoint', 'supplyUnit', 'sharpsBin', 'bin', 'scales'],
+    lab:       ['supplyUnit', 'trolley', 'gelPoint', 'sharpsBin', 'bin', 'curtainRail'],
+    waiting:   ['familyChairs', 'toyBox', 'bin', 'gelPoint', 'familyChairs', 'supplyUnit'],
+    reception: ['familyChairs', 'gelPoint', 'bin', 'supplyUnit', 'toyBox'],
+    quiet:     ['familyChairs', 'toyBox', 'bin', 'gelPoint', 'supplyUnit', 'curtainRail'],
+    // The small rooms down the east side. They are four to six metres long, so
+    // they fill on storage rather than on furniture somebody sits at.
+    supply:    ['supplyUnit', 'trolley', 'bin', 'gelPoint', 'supplyUnit', 'sharpsBin'],
+    pharmacy:  ['supplyUnit', 'trolley', 'gelPoint', 'bin', 'sharpsBin', 'supplyUnit'],
+  };
+
+  furnishArea({
+    makers,
+    order: ORDER[r.kind] ?? ORDER.exam,
+    // Inside the room, off the corridor wall, and clear of the walking line.
+    bounds: {
+      x0: b.xInner + f * 1.6, x1: b.xOuter - f * 0.7,
+      z0: r.z0 + 0.9, z1: r.z1 - 0.9,
+    },
+    target: 17,
+    seed: `ward-${r.id}`,
+    // Tighter in the small rooms: a four-metre store cannot hold its shelving a
+    // metre and a half apart, and four of these came up short on that alone.
+    sep: (r.z1 - r.z0) < 8 ? 1.15 : 1.45,
+    // The doorway, and the middle of the room where the case stand goes.
+    keepClear: [
+      { x: b.xInner + f * 1.0, z: b.cz, r: 2.3 },
+      { x: b.cx, z: b.cz, r: 2.2 },
+    ],
+  });
+}

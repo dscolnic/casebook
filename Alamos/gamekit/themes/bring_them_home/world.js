@@ -18,6 +18,7 @@
 //   · the light comes from the displays. Three real lights total, and every
 //     bright surface is emissive.
 import * as THREE from 'three';
+import { furnishArea } from '../../engine/world/interiorKit.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { site, CONSOLES, BOARDS, WORKROOMS } from './site.js';
 import { openCaseGroups } from '../../engine/core/app.js';
@@ -432,6 +433,12 @@ function buildWorkroom(spec, def){
     id: spec.group, x: xIn - f * 2.4, z: cz - 1.2,
     facing: f > 0 ? Math.PI / 2 : -Math.PI / 2,
   });
+  // The rest of the room. A twenty-metre bay with a bench and a door in it is a
+  // corridor: what makes it a working laboratory is the racks along the outer
+  // wall, the trolleys, the boxes nobody has put away and the paper on every
+  // surface. Measured before this, each of these four held six pieces.
+  furnishWorkroom(spec, { xIn, xOut, y, cz });
+
 }
 
 /**
@@ -442,6 +449,79 @@ function buildWorkroom(spec, def){
  * clock; standing in the courtyard is the one place the player can tell it is the
  * middle of the night.
  */
+/**
+ * Fit out one of the four wing rooms.
+ *
+ * These are the rooms behind mission control — the computer room, the power bay,
+ * the life support lab, the structures test bay — and each is twenty metres long.
+ * The vocabulary is the building's own: equipment racks, cable trays, test rigs,
+ * parts bins, the trolley of documentation that follows every one of these rooms
+ * around.
+ */
+function furnishWorkroom(spec, { xIn, xOut, y, cz }){
+  const f = spec.side === 'w' ? -1 : 1;
+  const inX = xIn + f * 0.9, outX = xOut - f * 0.9;
+
+  const makers = {
+    rack: (x, z) => {
+      box(0.7, 2.0, 0.62, x, y + 1.0, z, M.desk);
+      for(let i = 0; i < 6; i++){
+        box(0.74, 0.16, 0.06, x, y + 0.5 + i * 0.26, z + 0.3, i % 2 ? M.frame : M.top);
+      }
+      collide(x, z, 0.8, 0.7, y, 2.0);
+    },
+    bench: (x, z) => {
+      box(0.8, 0.06, 2.2, x, y + 0.88, z, M.top);
+      box(0.7, 0.8, 2.1, x, y + 0.44, z, M.desk);
+      collide(x, z, 0.9, 2.3, y, 0.9);
+    },
+    partsBin: (x, z) => {
+      for(let i = 0; i < 3; i++){
+        box(0.5, 0.24, 0.36, x, y + 0.12 + i * 0.26, z, i === 1 ? M.frame : M.top);
+      }
+    },
+    trolley: (x, z) => {
+      box(0.5, 0.05, 0.75, x, y + 0.8, z, M.top);
+      box(0.5, 0.05, 0.75, x, y + 0.4, z, M.top);
+      for(const sx of [-1, 1]) for(const sz of [-1, 1]){
+        box(0.04, 0.8, 0.04, x + sx * 0.22, y + 0.4, z + sz * 0.33, M.frame);
+      }
+      collide(x, z, 0.6, 0.85, y, 0.9);
+    },
+    cableTray: (x, z) => {
+      box(0.3, 0.08, 3.0, x, y + 2.6, z, M.frame);
+      for(const o of [-1.2, 1.2]) box(0.08, 0.3, 0.08, x, y + 2.78, z + o, M.frame);
+    },
+    stool: (x, z) => {
+      box(0.36, 0.06, 0.36, x, y + 0.66, z, M.desk);
+      for(const sx of [-1, 1]) for(const sz of [-1, 1]){
+        box(0.035, 0.64, 0.035, x + sx * 0.13, y + 0.33, z + sz * 0.13, M.frame);
+      }
+    },
+    crate: (x, z) => {
+      const n = 1 + (Math.abs(Math.round(x + z)) % 3);
+      for(let i = 0; i < n; i++) box(0.62, 0.36, 0.46, x, y + 0.18 + i * 0.37, z, M.desk);
+      collide(x, z, 0.7, 0.55, y, 0.4 * n);
+    },
+    bin: (x, z) => {
+      box(0.34, 0.5, 0.34, x, y + 0.25, z, M.frame);
+    },
+  };
+
+  furnishArea({
+    makers,
+    order: ['rack', 'bench', 'partsBin', 'trolley', 'stool', 'crate', 'cableTray', 'bin'],
+    bounds: { x0: Math.min(inX, outX), x1: Math.max(inX, outX),
+      z0: spec.z0 + 1.6, z1: spec.z1 - 1.6 },
+    target: 18,
+    seed: `bth-${spec.group}`,
+    sep: 1.5,
+    // The doorway in the corridor wall, and the middle of the room where the
+    // stop's own bench and case already are.
+    keepClear: [{ x: xIn + f * 1.2, z: cz, r: 2.4 }, { x: (xIn + xOut) / 2, z: cz, r: 2.6 }],
+  });
+}
+
 function buildCourtyard(){
   const C = B.courtyard;
   const cx = (C.x0 + C.x1) / 2, cz = (C.z0 + C.z1) / 2;
@@ -818,6 +898,12 @@ export function initWorld(canvas, activeTheme){
   const groups = theme.content?.GROUPS ?? [];
   for(const c of CONSOLES) buildConsole(c, groups.find(g => g.id === c.group));
   for(const r of WORKROOMS) buildWorkroom(r, groups.find(g => g.id === r.group));
+  // No scatter on the tiers. Chairs, bins and boxes strewn between the consoles
+  // raised the piece count and made the room look like a jumble sale: this floor
+  // is a stepped auditorium facing a wall of boards, and the emptiness of the
+  // treads is what lets every row see over the row in front. The count is not
+  // worth the room. The wing rooms behind it are a different matter — those are
+  // working laboratories and are furnished in `buildWorkroom`.
 
   // The status board, on the back wall by the doors.
   const statusScreen = instrumentScreen({ kind: 'panel', title: 'FLIGHT STATUS', rows: [] }, { w: 512, h: 256 });
