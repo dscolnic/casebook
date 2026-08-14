@@ -1153,14 +1153,20 @@ export function bindTally(container, ch){
  */
 const PROBE_READS = new Map();
 const PROBE_SITED = new Set();
+// What to tell the world when a reading is taken in the panel, so the post out in
+// the room lights up too. Without it the two disagree: the panel says a station is
+// read and its post still says "not read", which reads as a broken post.
+const PROBE_HOOKS = new Map();
 export const probeKey = (groupId, day) => `${groupId}-${day}`;
 export function markProbeRead(key, id){
   if(!PROBE_READS.has(key)) PROBE_READS.set(key, new Set());
   PROBE_READS.get(key).add(String(id));
+  PROBE_HOOKS.get(key)?.(String(id));
 }
 export function probeReadsFor(key){ return [...(PROBE_READS.get(key) ?? [])]; }
-export function setProbeSited(key, on = true){
-  if(on) PROBE_SITED.add(key); else PROBE_SITED.delete(key);
+export function setProbeSited(key, on = true, onRead = null){
+  if(on){ PROBE_SITED.add(key); if(onRead) PROBE_HOOKS.set(key, onRead); }
+  else { PROBE_SITED.delete(key); PROBE_HOOKS.delete(key); }
 }
 export function probeIsSited(key){ return PROBE_SITED.has(key); }
 
@@ -1203,8 +1209,9 @@ export function bindProbe(container, ch, opts = {}){
   const commitBtn = panel.querySelector('#probeCommit');
 
   const refresh = () => {
+    const posts = st.sited ? ' Each one also has a post in the room, if you would rather walk it.' : '';
     countEl.textContent = st.read.size === 0
-      ? (st.sited ? 'No readings yet. Each station is read at the station itself.' : 'No readings taken.')
+      ? `No readings taken.${posts}`
       : `${st.read.size} of ${stations.length} stations read`
         + (st.named === null ? '.' : `, naming ${stations[st.named].label}.`);
     commitBtn.disabled = st.named === null || st.read.size < (p.minReadings ?? 2);
@@ -1228,17 +1235,17 @@ export function bindProbe(container, ch, opts = {}){
   // Anything already read out in the room is on the panel the moment it opens.
   stations.forEach((s, i) => { if(st.read.has(String(s.id))) reveal(i); });
 
+  // Every Read button works, sited or not.
+  //
+  // The first version of the siting disabled them and captioned them "At the
+  // station", on the theory that the readings should be taken at the posts. What
+  // that produced was a panel in which nothing responded to anything: the case
+  // stand is the marked thing in the room, so it is opened first, and it opened
+  // onto six dead buttons and a disabled commit. Walking the chain is worth
+  // having, but it is not what this stop teaches — choosing what to measure and
+  // when to stop is — so it does not get to be the only way through.
   panel.querySelectorAll('.probeRead').forEach(btn => {
     const i = +btn.dataset.read;
-    if(sited){
-      // The readings are taken at the posts. The button stays visible and says so,
-      // because a control that vanishes reads as a bug and this one has to send the
-      // player somewhere.
-      btn.disabled = true;
-      btn.textContent = 'At the station';
-      btn.title = 'Take this reading at the station itself';
-      return;
-    }
     btn.addEventListener('click', () => {
       if(st.committed) return;
       st.read.add(String(stations[i].id));

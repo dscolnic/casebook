@@ -239,7 +239,9 @@ export function createInteriors({
           chain.key = probe.key;
           room.probeChain = chain;
           interactables.push(...chain.interactables);
-          setProbeSited(probe.key, true);
+          // The hook keeps the posts honest: a reading taken in the panel lights
+          // its post too, so the room and the card never disagree.
+          setProbeSited(probe.key, true, (sid) => chain.setRead(sid));
         }
       }
       // Anything read earlier today is still read: the player walked out to think
