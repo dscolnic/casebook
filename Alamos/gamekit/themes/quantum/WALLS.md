@@ -177,3 +177,117 @@ The last door, and the strictest.
 - A checklist of what must be left outside, in six lines.
 - Inside: nothing at all on the walls. The emptiness is the point, and it is the one
   room in the building where a bare wall is right.
+
+---
+
+# The nerd layer
+
+Everything above would furnish any research building. This is the part that only
+works in *this* one: the material a group of physicists actually puts on a wall.
+
+Two rules, because this is the layer that goes wrong:
+
+- **Mostly sincere, occasionally funny.** A real lab wall is nine parts earnest —
+  plots, records, photographs of equipment — and one part joke. Reverse the ratio
+  and the place stops being a laboratory and becomes a sitcom set. Aim for one joke
+  per room, two in the kitchen.
+- **A joke has to land at walking pace.** No punchline that needs the setup read
+  first. "CAT INSIDE — STATE UNKNOWN" lands. A three-line gag does not.
+
+## Records and plots — the sincere majority
+
+These are the ones that make the place feel like people have been measuring things
+here for years.
+
+| Where | What |
+| --- | --- |
+| Corridor | **COHERENCE, FIVE YEARS** — a hand-updated line chart, one point per quarter, ink changing colour where the pen ran out. A flat stretch is annotated *"the bad oxide"*. |
+| Corridor | A framed print of the group's first Rabi fringe, with the date and the initials of who took it. |
+| Control & Readout | **BEST T₂ THIS QUARTER** — a leaderboard by qubit, initials beside each, one entry crossed out and rewritten higher. |
+| Error & Verification | The current error budget as a pie chart, printed A3, three slices labelled in pen because the plotting script does not know their names. |
+| Fabrication | A wall of failed chips in a shallow display frame, each labelled with what killed it: *cracked on cooldown*, *shorted*, *never found it*. |
+| Fabrication | A spectrum with the 4.55 defect circled and *"hello again"* written beside it in biro. |
+| Cryogenics | A hand-drawn flow diagram of the mixture path through the fridge, the ³He leg in blue, taped up and referred to constantly. |
+| Quantum Sensing | An oscilloscope photograph from the eighties, kept because somebody's supervisor took it. |
+| Analysis Desks | A printed plot with the error bars circled and *"these are not error bars, these are the spread of three runs"* underneath, in the handwriting of whoever lost that argument. |
+| Networks | A campus fibre map with one span highlighted and the date it was lit. |
+
+## Whiteboards left up
+
+The most convincing thing on any physics wall is a whiteboard nobody dares clean.
+
+- **DO NOT ERASE** in three hands, one of them in permanent marker by mistake — with
+  a smaller note underneath: *"the permanent one was me. Sorry. — R."*
+- A Bloch sphere drawn well, then a second one drawn beside it because the axes on
+  the first were wrong, then an arrow between them saying *"this one"*.
+- A block diagram of the readout chain with every stage's gain written above it and
+  the total worked out twice, to different answers, both circled.
+- A half-finished derivation with the last line replaced by *"see notebook"*.
+- A seating plan for a leaving lunch, in the corner of a board otherwise full of
+  physics — nobody moved it, so the physics got written around it.
+
+## Posters worth having on the wall
+
+- **PERIODIC TABLE OF QUBITS** — superconducting, trapped ion, photonic, spin,
+  neutral atom, topological, each with its own strengths in small type. Ridgeway's
+  own column is ringed in marker. (Sincere, and the sort of thing groups print.)
+- A cutaway diagram of a dilution refrigerator, the commercial poster the
+  manufacturer sends, thumbtacked at four corners.
+- **THE FRIDGE, ANNOTATED** — a photograph of their own fridge with every stage
+  labelled in marker, which is the version people actually use.
+- A conference poster from Delft, kept and displayed with visible ambivalence —
+  ties straight to the campaign's argument about the second device.
+- A portrait photograph of John Bell, small, unlabelled, above the door of Error &
+  Verification. Anybody who knows, knows.
+- A print of a chip layout at ten times scale, framed properly, because it is
+  genuinely beautiful.
+
+## Jokes — one per room, no more
+
+- On the photocopier: **NO CLONING.** Nothing else. The best sign in the building.
+- On the kitchen microwave: **2.45 GHz — the only qubit in this building you are
+  allowed to cook.**
+- On the sample fridge in the office kitchen: **CAT INSIDE — STATE UNKNOWN.**
+- A whiteboard counter by the corridor: **DAYS SINCE WE BLAMED THE FRIDGE: 0**,
+  with the 0 written over a rubbed-out number every time.
+- Two boxes of cables, labelled **ENTANGLED** and **DO NOT SEPARATE**.
+- On a door that genuinely does both: **PUSH** and **PULL**, one above the other,
+  with *"superposition"* pencilled between them.
+- A troubleshooting poster in the racks room: *Have you tried — retuning? recooling?
+  recalibrating? going home?*
+- In Error & Verification: the CHSH inequality printed large, |S| ≤ 2, with the ≤ 2
+  crossed out and **2.78** written above it in red. Sincere and smug at once.
+- Magnetic letters on the kitchen fridge door, currently spelling something
+  half-finished that somebody keeps rearranging.
+- A **WANTED** poster for a two-level system: *last seen near 4.55 GHz, answers to
+  no name, do not approach with a qubit.*
+
+## Academic life, which is its own genre
+
+- A referee report pinned to the wall with one line highlighted in yellow, and
+  nothing else on the page marked. Everyone in the building knows which line.
+- A rejection letter, framed, from a journal that later published the same result.
+- A seminar flyer with the speaker's name and a hand-drawn arrow to *"free lunch"*.
+- **VIVA — FRIDAY 2PM** on a sheet of A4 with the candidate's name and, underneath,
+  a different hand: *"bring a chair, the room is small"*.
+- A conference beer mat collection, pinned in a grid, from eleven different cities.
+- A group photograph at a liquid-nitrogen ice-cream demonstration, everybody
+  laughing, one person clearly worried.
+
+## Murals
+
+Bigger, painted, no frame, lower contrast than a notice — background rather than
+reading matter.
+
+- **The temperature gradient**, already noted: a low band of colour down the whole
+  corridor, warm at the south end, cold at the north. Unlabelled.
+- **A Bloch sphere, three metres across**, painted flat on the end wall of the
+  corridor in two greys and one accent. Read as decoration at a distance, correct
+  up close.
+- **A spectrum as ornament** — the group's own first spectroscopy trace, enlarged
+  to eight metres and painted as a thin line along the corridor above head height,
+  the 4.61 peak where it happens to fall.
+- **The lattice** — in Fabrication, a wall painted with the chip's own layout at
+  enormous scale, faint enough to be a texture.
+- In the Reading Room, deliberately none of the above: one quiet wash of colour and
+  nothing to read. It is the only room where a wall is allowed to say nothing.
