@@ -998,9 +998,21 @@ export function buildInteriorBuilding(scene, spec){
     new THREE.MeshStandardMaterial({ color: 0x1d7a4a, emissive: 0x1d7a4a, emissiveIntensity: 0.8 })));
   exitSign.position.set(0, P.doorH + 0.22, z0 + 0.12);
 
+  // A clear line down the room, on the opposite hand from the case stand, for
+  // anything the *question* needs to put in the room — a PROBE's chain of
+  // stations, so far. It comes from here because the layout is the only thing that
+  // knows where its own furniture is: the first version of the station posts
+  // guessed a wall and put six of them through the shelving.
+  const laneX = mx(-2.35);
+  const stationLane = {
+    x: laneX, z0: z0 + 1.4, z1: z1 - 1.4,
+    // The yaw that turns a plane's face toward the middle of the room.
+    faceYaw: laneX < 0 ? Math.PI / 2 : -Math.PI / 2,
+  };
+
   return {
     id: spec.id,
-    group, colliders, interactables, light, screen, plate, chart, beacon,
+    group, colliders, interactables, light, screen, plate, chart, beacon, stationLane,
     /** Light the marker only while there is actually a case waiting here. */
     setCaseOpen(on){ beacon.setActive(on); },
     /** Where the player stands on entering: just inside, facing the room. */

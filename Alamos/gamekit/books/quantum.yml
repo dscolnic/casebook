@@ -385,6 +385,57 @@ missions:
     takeaway: A qubit is only a two-state system while the room around it has no energy to spare.
     stops:
       - group: CRYO
+        task: Find where the heat is arriving
+        title: Which stage the leak is on
+        place: Cryogenics & Vacuum
+        scene: >
+          The cryostat is open in service mode, six stages down the chain, each one colder than the one
+          above it. Okafor has last cooldown's numbers on a clipboard and a thermometer at every stage,
+          and she is not going to say which one she suspects.
+        assumes:
+          - a refrigerator removes heat in stages, each colder than the last
+          - a conductive path carries heat to wherever it is anchored, and past wherever it is not
+        takeaway: A refrigerator's stage-by-stage temperature pattern can localise a heat load instead of merely announcing that one exists.
+        format: PROBE
+        question: >-
+          The bottom of the fridge is warm and the top may not be. Take the readings you think you need —
+          at which stage is the heat arriving?
+        probe:
+          chainLabel: Stage
+          hint: >-
+            Each station reports what it is holding now, what it held on the last cooldown, and what its
+            cooling is having to do. Read as few or as many as you like.
+          # The pattern, and nothing that names its cause. The first two stages sit
+          # exactly where they were last time; from the still down, every stage is
+          # warm and working harder. The load therefore arrives between the 4 K
+          # stage and the still — which is the still's reading, the first one that
+          # departs.
+          stations:
+            - { id: PT1, label: 50 K stage, reading: 47 K, expected: 47 K, load: as expected }
+            - { id: PT2, label: 4 K stage, reading: 3.9 K, expected: 3.9 K, load: as expected }
+            - { id: STILL, label: Still, reading: 0.94 K, expected: 0.70 K, load: heater 40 per cent above normal }
+            - { id: CFHX, label: Heat exchanger, reading: 190 mK, expected: 120 mK, load: no separate control }
+            - { id: PLATE, label: Cold plate, reading: 95 mK, expected: 55 mK, load: no separate control }
+            - { id: MXC, label: Mixing chamber, reading: 42 mK, expected: 11 mK, load: full circulation }
+          target: STILL
+          minReadings: 3
+          commit: Name the stage
+        answerText: >-
+          The still. It is the first stage that has moved — a quarter of a kelvin above last
+          cooldown, with its heater working 40 per cent harder — and everything below it is warm
+          because the load is above them, not because their own cooling has failed.
+        why: >
+          Two stages held exactly what they held last time, which is what rules almost everything
+          out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm
+          the top of the chain first, and the top of the chain has not moved. From the still
+          downwards every stage is high and working harder, and heat only behaves that way when it
+          is being delivered from above. So the deepest stage is the worst affected and is not
+          where the problem is — the load enters at the first stage that departs, and the stages
+          below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not
+          below, which is exactly what a line added since the last cooldown and heat-sunk at only
+          the easy stages does. Okafor's cable is now worth looking at, not because cables are
+          always guilty but because this pattern is what an unanchored one predicts.
+      - group: CRYO
         task: Say why 42 millikelvin is not close enough
         title: The energy of one quantum against the energy of the room
         place: Cryogenics & Vacuum
@@ -434,57 +485,6 @@ missions:
             For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T
             increases hf/kT and suppresses the population exponentially.
         answerText: About 0.34 per cent.
-      - group: CRYO
-        task: Find where the heat is arriving
-        title: Which stage the leak is on
-        place: Cryogenics & Vacuum
-        scene: >
-          The cryostat is open in service mode, six stages down the chain, each one colder than the one
-          above it. Okafor has last cooldown's numbers on a clipboard and the thermometry live. Nobody has
-          read anything yet.
-        assumes:
-          - a refrigerator removes heat in stages, each colder than the last
-          - a conductive path carries heat to wherever it is anchored, and past wherever it is not
-        takeaway: A refrigerator's stage-by-stage temperature pattern can localise a heat load instead of merely announcing that one exists.
-        format: PROBE
-        question: >-
-          The bottom of the fridge is warm and the top may not be. Take the readings you think you need —
-          at which stage is the heat arriving?
-        probe:
-          chainLabel: Stage
-          hint: >-
-            Each station reports what it is holding now, what it held on the last cooldown, and what its
-            cooling is having to do. Read as few or as many as you like.
-          # The pattern, and nothing that names its cause. The first two stages sit
-          # exactly where they were last time; from the still down, every stage is
-          # warm and working harder. The load therefore arrives between the 4 K
-          # stage and the still — which is the still's reading, the first one that
-          # departs.
-          stations:
-            - { id: PT1, label: 50 K stage, reading: 47 K, expected: 47 K, load: as expected }
-            - { id: PT2, label: 4 K stage, reading: 3.9 K, expected: 3.9 K, load: as expected }
-            - { id: STILL, label: Still, reading: 0.94 K, expected: 0.70 K, load: heater 40 per cent above normal }
-            - { id: CFHX, label: Heat exchanger, reading: 190 mK, expected: 120 mK, load: no separate control }
-            - { id: PLATE, label: Cold plate, reading: 95 mK, expected: 55 mK, load: no separate control }
-            - { id: MXC, label: Mixing chamber, reading: 42 mK, expected: 11 mK, load: full circulation }
-          target: STILL
-          minReadings: 3
-          commit: Name the stage
-        answerText: >-
-          The still. It is the first stage that has moved — a quarter of a kelvin above last
-          cooldown, with its heater working 40 per cent harder — and everything below it is warm
-          because the load is above them, not because their own cooling has failed.
-        why: >
-          Two stages held exactly what they held last time, which is what rules almost everything
-          out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm
-          the top of the chain first, and the top of the chain has not moved. From the still
-          downwards every stage is high and working harder, and heat only behaves that way when it
-          is being delivered from above. So the deepest stage is the worst affected and is not
-          where the problem is — the load enters at the first stage that departs, and the stages
-          below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not
-          below, which is exactly what a line added since the last cooldown and heat-sunk at only
-          the easy stages does. Okafor's cable is now worth looking at, not because cables are
-          always guilty but because this pattern is what an unanchored one predicts.
       - group: CTRL
         task: Decide what to measure while the fridge is warm
         title: What is worth doing at the wrong temperature

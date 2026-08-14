@@ -1137,6 +1137,33 @@ export function bindTally(container, ch){
  * everything is not wrong; it is just slower than knowing what to measure, and
  * saying so is more use than docking marks for it.
  */
+/**
+ * Which of a PROBE's stations have been read, and whether they are sited.
+ *
+ * A sited probe's readings are taken out in the room, station by station, before
+ * the player ever opens the panel — so the panel cannot own the state. Keyed by
+ * area and day, which is the same key the room uses, and kept for the session: a
+ * player who reads four stations, walks out to think, and comes back does not read
+ * them again.
+ *
+ * `sited` is set by whoever built the posts. It is what tells the panel to stop
+ * offering its own Read buttons, and it stays false for a theme whose entry point
+ * never builds them — the panel then works on its own, which is the fallback that
+ * keeps a PROBE answerable in every game rather than only in this one.
+ */
+const PROBE_READS = new Map();
+const PROBE_SITED = new Set();
+export const probeKey = (groupId, day) => `${groupId}-${day}`;
+export function markProbeRead(key, id){
+  if(!PROBE_READS.has(key)) PROBE_READS.set(key, new Set());
+  PROBE_READS.get(key).add(String(id));
+}
+export function probeReadsFor(key){ return [...(PROBE_READS.get(key) ?? [])]; }
+export function setProbeSited(key, on = true){
+  if(on) PROBE_SITED.add(key); else PROBE_SITED.delete(key);
+}
+export function probeIsSited(key){ return PROBE_SITED.has(key); }
+
 const probeState = new WeakMap();
 
 export function probeHTML(ch){
@@ -1158,39 +1185,66 @@ export function probeHTML(ch){
     + `<div id="visitFeedback"></div></div>`;
 }
 
-export function bindProbe(container, ch){
+export function bindProbe(container, ch, opts = {}){
   const p = ch.probe ?? {};
   const panel = container.querySelector('.probePanel');
   if(!panel) return;
   const stations = p.stations ?? [];
-  const st = { read: new Set(), named: null, committed: false, order: [] };
+  // The key is the area and the day, which is what the room's posts use too. In
+  // the dev harness there is no active visit, so the panel keeps its own state and
+  // its own Read buttons.
+  const key = opts.key ?? (activeChallenge
+    ? probeKey(activeChallenge.id, activeChallenge.lesson?.day) : null);
+  const sited = key ? probeIsSited(key) : false;
+  const st = { read: new Set(key ? probeReadsFor(key) .map(String) : []),
+    named: null, committed: false, order: [], key, sited };
   probeState.set(panel, st);
   const countEl = panel.querySelector('#probeCount');
   const commitBtn = panel.querySelector('#probeCommit');
 
   const refresh = () => {
-    countEl.textContent = st.read.size === 0 ? 'No readings taken.'
+    countEl.textContent = st.read.size === 0
+      ? (st.sited ? 'No readings yet. Each station is read at the station itself.' : 'No readings taken.')
       : `${st.read.size} of ${stations.length} stations read`
         + (st.named === null ? '.' : `, naming ${stations[st.named].label}.`);
     commitBtn.disabled = st.named === null || st.read.size < (p.minReadings ?? 2);
   };
 
+  // Show what a station reads. Deliberately no verdict on the reading: "normal"
+  // and "high" are the player's call, which is the whole stop.
+  const reveal = (i) => {
+    const s = stations[i];
+    const cell = panel.querySelector(`[data-values="${i}"]`);
+    if(!cell) return;
+    cell.innerHTML = `<span><em>now</em> ${esc(s.reading)}</span>`
+      + `<span><em>last run</em> ${esc(s.expected)}</span>`
+      + (s.load ? `<span><em>cooling</em> ${esc(s.load)}</span>` : '');
+    const read = panel.querySelector(`[data-read="${i}"]`);
+    if(read){ read.disabled = true; read.textContent = 'Read'; }
+    const name = panel.querySelector(`[data-name="${i}"]`);
+    if(name) name.disabled = false;
+  };
+
+  // Anything already read out in the room is on the panel the moment it opens.
+  stations.forEach((s, i) => { if(st.read.has(String(s.id))) reveal(i); });
+
   panel.querySelectorAll('.probeRead').forEach(btn => {
+    const i = +btn.dataset.read;
+    if(sited){
+      // The readings are taken at the posts. The button stays visible and says so,
+      // because a control that vanishes reads as a bug and this one has to send the
+      // player somewhere.
+      btn.disabled = true;
+      btn.textContent = 'At the station';
+      btn.title = 'Take this reading at the station itself';
+      return;
+    }
     btn.addEventListener('click', () => {
       if(st.committed) return;
-      const i = +btn.dataset.read;
-      const s = stations[i];
-      st.read.add(i);
+      st.read.add(String(stations[i].id));
       st.order.push(i);
-      const cell = panel.querySelector(`[data-values="${i}"]`);
-      // Now, then, and what the cooling is doing. Deliberately no verdict on the
-      // reading: "normal" and "high" are the player's call, which is the stop.
-      cell.innerHTML = `<span><em>now</em> ${esc(s.reading)}</span>`
-        + `<span><em>last run</em> ${esc(s.expected)}</span>`
-        + (s.load ? `<span><em>cooling</em> ${esc(s.load)}</span>` : '');
-      btn.disabled = true;
-      btn.textContent = 'Read';
-      panel.querySelector(`[data-name="${i}"]`).disabled = false;
+      if(st.key) markProbeRead(st.key, stations[i].id);
+      reveal(i);
       refresh();
     });
   });
@@ -1213,6 +1267,8 @@ export function bindProbe(container, ch){
     const named = stations[st.named];
     const ok = String(named.id ?? named.label) === String(p.target);
     activeChallenge.userAnswer = `${named.label}, after ${st.read.size} reading(s)`;
+    // Cleared so a retry, or the same room tomorrow, starts blank again.
+    if(st.key) PROBE_READS.delete(st.key);
     activeChallenge.probeNamed = st.named;
     activeChallenge.probeRead = [...st.read];
     finishVisit(ok);

@@ -13,12 +13,12 @@ export const MISSIONS = [
       {
         "group": "CRYO",
         "lesson": 0,
-        "task": "Say why 42 millikelvin is not close enough"
+        "task": "Find where the heat is arriving"
       },
       {
         "group": "CRYO",
         "lesson": 1,
-        "task": "Find where the heat is arriving"
+        "task": "Say why 42 millikelvin is not close enough"
       },
       {
         "group": "CTRL",

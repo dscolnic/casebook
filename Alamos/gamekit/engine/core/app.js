@@ -11,6 +11,8 @@
 // works whether the game reaches the world through the engine's module or
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
+import { addProbeStations } from '../world/interiorStations.js';
+import { probeKey, probeReadsFor, setProbeSited, markProbeRead } from './questionUI.js';
 import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission } from './gameState.js';
 import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMission, completedMissionStops,
          getPersonIdForStop } from './simulation.js';
@@ -110,6 +112,27 @@ function stationForOpenCall(theme, groupId, calcs){
 }
 
 /**
+ * The PROBE this room's open call is, if it is one.
+ *
+ * Used to decide whether to put stations in the room. Same lookup as
+ * `stationForOpenCall`, and deliberately not folded into it: that one answers
+ * "what does the wall screen show", which every format can answer, and this one
+ * answers "does this room contain a chain the player walks", which only PROBE does.
+ */
+export function probeForOpenCall(theme, groupId){
+  const state = getState();
+  const m = state ? getCurrentMission(state) : null;
+  if(!m) return null;
+  const idx = openStopIndices(state).find(i => m.stops[i]?.group === groupId);
+  if(idx === undefined) return null;
+  const stop = m.stops[idx];
+  const lesson = theme.content?.CURRICULUM?.[groupId]?.[stop.lesson];
+  const ch = lesson?.game;
+  if(!ch || String(ch.type ?? '').toUpperCase() !== 'PROBE' || !ch.probe) return null;
+  return { lesson, ch, probe: ch.probe, key: probeKey(groupId, lesson.day) };
+}
+
+/**
  * The interiors: one walkable room per area, built on first entry, in a
  * district far from the town. Returns the manager the entry point drives.
  *
@@ -205,10 +228,41 @@ export function createInteriors({
       // The screen on the wall shows the instrument this call is actually about.
       const station = stationForOpenCall(theme, id, calcs);
       if(station) room.screen?.set?.(station);
+      // A PROBE's chain is physical: one post per station, down the room, in the
+      // order the chain runs. Built on entry rather than with the room, because
+      // which call is open here changes from day to day and so does the chain.
+      const probe = probeForOpenCall(theme, id);
+      if(probe && room.probeChain?.key !== probe.key){
+        room.probeChain?.dispose?.();
+        const chain = addProbeStations(room, probe.probe);
+        if(chain){
+          chain.key = probe.key;
+          room.probeChain = chain;
+          interactables.push(...chain.interactables);
+          setProbeSited(probe.key, true);
+        }
+      }
+      // Anything read earlier today is still read: the player walked out to think
+      // and came back, which is not a reason to take six readings again.
+      if(probe && room.probeChain) probeReadsFor(probe.key).forEach(sid => room.probeChain.setRead(sid));
       player.setGround(room.groundHeight);
       player.setBounds(DISTRICT_X + 400);
       player.teleport(room.enterTransform, room.enterTransform.yaw);
       return true;
+    },
+    /**
+     * Take a reading at one of this room's probe stations.
+     *
+     * The world writes into the same store the panel reads from, so a station read
+     * at the post is already read when the case is opened at the stand. Returns how
+     * many of the chain have been read, or null when this is not one of them.
+     */
+    readStation(stationId){
+      const chain = inside?.room?.probeChain;
+      if(!chain || !chain.ids.includes(String(stationId))) return null;
+      markProbeRead(chain.key, stationId);
+      chain.setRead(stationId);
+      return probeReadsFor(chain.key).length;
     },
     exit(){
       if(!inside) return false;

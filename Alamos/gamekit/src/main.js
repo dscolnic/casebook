@@ -263,6 +263,12 @@ const activate = makeActivate({
   // case on the stand inside.
   door: (t) => { if(!interiors.enter(t.id)) openVisit(t.id); },
   case: (t) => openVisit(t.id),
+  // A probe station. The feedback is the post itself — its face fills in and its
+  // lamp goes from grey to blue — so there is nothing to open and nothing to say.
+  station: (t) => {
+    const read = interiors.readStation(t.id);
+    if(read !== null) t.prompt = `Read — ${t.station?.label ?? t.id}`;
+  },
   roomexit: () => interiors.exit(),
   vehicle: (t) => driving.enter(t.vehicle),
   // A theme may hold the aircraft on the ground for the opening days:

@@ -1,6 +1,6 @@
-> **Status, August 2026.** Three formats now carry these ideas — `SWEEP`,
-> `HOLDOUT` and `TALLY` — and all three are live in Quantum. See `NEW_GAME.md`
-> §"Adding a question format" for the rules each has cost.
+> **Status, August 2026.** Four formats now carry these ideas — `SWEEP`,
+> `HOLDOUT`, `TALLY` and `PROBE` — and all four are live in Quantum. See
+> `NEW_GAME.md` §"Adding a question format" for the rules each has cost.
 >
 > **`SWEEP`** — one control, a response built only where the player looks. Six
 > instances in Quantum (M02 spectroscopy, M03 T1-against-T2, M05 discriminator
@@ -27,12 +27,20 @@
 > temperatures. The verdict plots each stage against what it held last cooldown,
 > so unchanged is 1.0 and the load is visibly where the chain leaves it.
 >
-> The stations are rows in a panel rather than objects six metres apart in the
-> cryostat. That is deliberate for now: the inference the idea asks for — narrow it
-> from the pattern, *then* look at hardware — is entirely in choosing what to read
-> and when to stop, and the walking version needs a world feature (readable props
-> that feed a live panel) rather than a renderer. The data model is the same one
-> either way, so siting them later changes where the buttons are and nothing else.
+> **The stations are sited.** Six posts down the clear side of the Cryogenics room,
+> in the order the chain runs, each with a blank face until somebody stands in
+> front of it and presses E — the face fills in and its lamp goes from grey to
+> blue. The panel at the case stand reads from the same store, so a station read at
+> the post is already read when the case is opened, and the panel's own Read
+> buttons say "At the station" instead. A theme whose entry point never builds the
+> posts still gets the panel version, which is what keeps a PROBE answerable in
+> every game rather than only in this one.
+>
+> Where the posts go comes from the room, not from this module: `stationLane` on
+> what `buildInteriorBuilding` returns is a clear line on the opposite hand from
+> the case stand. The first version guessed a wall and put six posts through the
+> shelving, which is the room builder's knowledge and not something a caller should
+> be inventing.
 >
 > Four of the remaining ideas are existing formats with new chrome and should
 > not be built as minigames: M15's evidence wall is CASEBOOK, M05's replication

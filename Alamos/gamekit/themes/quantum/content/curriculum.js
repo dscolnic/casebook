@@ -6,68 +6,11 @@ export const CURRICULUM = {
   "CRYO": [
     {
       "day": 1,
-      "title": "The energy of one quantum against the energy of the room",
-      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.",
-      "takeaway": "Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.",
-      "place": "Cryogenics & Vacuum",
-      "story": "The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "The energy of one quantum against the energy of the room",
-        "setup": "Cryogenics & Vacuum",
-        "play": "Say why 42 millikelvin is not close enough",
-        "task": "Say why 42 millikelvin is not close enough",
-        "question": "Using the two energy scales, estimate the equilibrium excited-state fraction at 42 mK.",
-        "answer": "About 0.34 per cent.",
-        "why": "\"A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \\\"the ground state\\\" is partly a measurement of the fridge.\"\n",
-        "givens": [
-          "One quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
-          "The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J"
-        ],
-        "relationship": "For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T increases hf/kT and suppresses the population exponentially.\n",
-        "calcKey": "CRYO-1"
-      },
-      "assumes": [
-        "a system in contact with something warm can absorb energy from it"
-      ],
-      "equations": [
-        {
-          "e": "E = hf,  compare with  kT",
-          "c": "why a superconducting qubit needs millikelvin",
-          "v": [
-            [
-              "E",
-              "energy of one quantum, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "f",
-              "transition frequency, in hertz"
-            ],
-            [
-              "k",
-              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
-            ],
-            [
-              "T",
-              "temperature, in kelvin"
-            ]
-          ],
-          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin.",
-          "computed": true
-        }
-      ]
-    },
-    {
-      "day": 2,
       "title": "Which stage the leak is on",
-      "scene": "The cryostat is open in service mode, six stages down the chain, each one colder than the one above it. Okafor has last cooldown's numbers on a clipboard and the thermometry live. Nobody has read anything yet.",
+      "scene": "The cryostat is open in service mode, six stages down the chain, each one colder than the one above it. Okafor has last cooldown's numbers on a clipboard and a thermometer at every stage, and she is not going to say which one she suspects.",
       "takeaway": "A refrigerator's stage-by-stage temperature pattern can localise a heat load instead of merely announcing that one exists.",
       "place": "Cryogenics & Vacuum",
-      "story": "The cryostat is open in service mode, six stages down the chain, each one colder than the one above it. Okafor has last cooldown's numbers on a clipboard and the thermometry live. Nobody has read anything yet.",
+      "story": "The cryostat is open in service mode, six stages down the chain, each one colder than the one above it. Okafor has last cooldown's numbers on a clipboard and a thermometer at every stage, and she is not going to say which one she suspects.",
       "game": {
         "type": "PROBE",
         "title": "Which stage the leak is on",
@@ -132,6 +75,63 @@ export const CURRICULUM = {
       "assumes": [
         "a refrigerator removes heat in stages, each colder than the last",
         "a conductive path carries heat to wherever it is anchored, and past wherever it is not"
+      ]
+    },
+    {
+      "day": 2,
+      "title": "The energy of one quantum against the energy of the room",
+      "scene": "The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.",
+      "takeaway": "Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.",
+      "place": "Cryogenics & Vacuum",
+      "story": "The chip's qubits answer at about 5 gigahertz. Okafor writes the two energies on the board — one quantum at that frequency, and the thermal energy at 42 millikelvin — and waits.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "The energy of one quantum against the energy of the room",
+        "setup": "Cryogenics & Vacuum",
+        "play": "Say why 42 millikelvin is not close enough",
+        "task": "Say why 42 millikelvin is not close enough",
+        "question": "Using the two energy scales, estimate the equilibrium excited-state fraction at 42 mK.",
+        "answer": "About 0.34 per cent.",
+        "why": "\"A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \\\"the ground state\\\" is partly a measurement of the fridge.\"\n",
+        "givens": [
+          "One quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
+          "The thermal energy at 42 mK is 5.8 × 10⁻²⁵ J"
+        ],
+        "relationship": "For hf several times larger than kT, excited fraction ≈ e^(−hf/kT); lowering T increases hf/kT and suppresses the population exponentially.\n",
+        "calcKey": "CRYO-2"
+      },
+      "assumes": [
+        "a system in contact with something warm can absorb energy from it"
+      ],
+      "equations": [
+        {
+          "e": "E = hf,  compare with  kT",
+          "c": "why a superconducting qubit needs millikelvin",
+          "v": [
+            [
+              "E",
+              "energy of one quantum, in joules"
+            ],
+            [
+              "h",
+              "Planck's constant, 6.63 × 10⁻³⁴ J s"
+            ],
+            [
+              "f",
+              "transition frequency, in hertz"
+            ],
+            [
+              "k",
+              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
+            ],
+            [
+              "T",
+              "temperature, in kelvin"
+            ]
+          ],
+          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin.",
+          "computed": true
+        }
       ]
     },
     {
@@ -3469,7 +3469,7 @@ export const CURRICULUM = {
 };
 
 export const BALLPARK_CALCS = {
-  "CRYO-1": {
+  "CRYO-2": {
     "prompt": "For a 5.0 GHz qubit, hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT, use p_excited ≈ e^(−hf/kT).\n",
     "question": "Choose the quantum energy and the thermal energy.",
     "labels": [
