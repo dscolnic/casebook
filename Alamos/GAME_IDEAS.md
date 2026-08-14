@@ -17,51 +17,153 @@ does not look like the eight already built, and a decision the campaign can turn
 on that is genuinely arguable from both sides. An idea missing any of the three
 is in "not yet" at the bottom, with the reason.
 
-## The subject gaps, as of the eighth game
+## The subject gaps, as of the ninth game
 
 Covered: analytical chemistry · nuclear physics · astronomy and mechanics ·
 biology and epidemiology · mechanics, circuits and thermal · waves and acoustics
-· power systems and AC · anatomy (grade 2).
+· power systems and AC · anatomy (grade 2) · seismology and structural
+engineering.
 
 Still open, roughly in order of how many students sit the course:
-**statistics**, **earth science**, environmental science, control systems,
-organic and process chemistry, materials, genetics, climate.
+**statistics**, environmental science, control systems, organic and process
+chemistry, materials, genetics, climate, and **modern quantum** — which is the
+first entry here aimed above second-year undergraduate, and the first whose
+subject the other eight do not touch at all.
 
 ---
 
 ## Ready to build
 
-These two were worked out alongside Blackout and are at the same level of
-detail — enough to scaffold from.
+Worked out to the level a scaffold needs: the course, the place, the argument
+with its named days, the areas, the equation list and the arc.
 
-### Aftershock — seismology and structural engineering
+### ~~Aftershock~~ — built, August 2026
 
-**Course:** earth science plus statics and materials; AP Physics 1 forces taken
-into engineering. Grade 12–13.
+Kestrel Bay, the ninth game. See `GAMES.md` for what it is and `STORIES.md` for
+what happens in it. Two things it proved that the next one can lean on: a
+terrain feature can carry a whole course (the fault scarp is the site effect
+lesson, drawn on the ground), and the damage in a props layer can be the
+instrument rather than the decoration.
 
-**The place:** a city three days after a magnitude 6.8. Shored façades,
-placarded doors, a seismic vault on bedrock outside town, a materials lab, a
-field office in a car park. It looks unlike the others because *the buildings
-are the evidence* — the damage is the instrument.
+Left unfinished when it shipped: 2 of its 10 equations are computed by a
+question and 6 only mentioned, and 24 of its 30 concepts are covered. Both are
+question-writing rather than building.
 
-**The story:** you decide which buildings people go back into. Red, yellow and
-green placards, with the owners standing outside. It is the strongest single
-decision on this list: irreversible, public, made on incomplete evidence, and
-stakes with no gore in them, which the content rules require.
+### Quantum — modern quantum, and the machines built out of it
 
-**Six areas:** Seismic Network · Structural Assessment · Materials & Testing ·
-Geotechnical · Hazard & Forecasting · Public Safety.
+**Course:** the modern-physics or introductory-quantum course a physics or
+electrical-engineering student takes in second year, taught through the hardware
+rather than through the postulates. Grade 13–14 — the highest audience in the
+set, and the first subject none of the nine existing games touches at all.
 
-**The argument, both sides right on a named day:** a conservative placard empties
-a hospital that would have stood; a permissive one is how people die in the
-aftershock.
+The reason to build it this way: superposition and entanglement are hard to
+build a *decision* around, and the standard course spends a term on formalism
+before anything is at stake. But "is this qubit dead, or is the readout lying"
+is a decision an engineer makes before lunch, and it needs exactly the same
+physics. Every question has to be about an instrument, a number or a choice.
+**If a question can be settled only by an interpretation of quantum mechanics,
+it does not go in.** That single rule is what keeps this from becoming vibes
+about spooky action, which is the way this subject usually fails.
 
-**Curriculum it can compute:** S-minus-P travel time to distance, magnitude as a
-log scale and why a 7 is not "a bit worse" than a 6, moment magnitude against
-Richter, building period against soil period (the Mexico City lesson), base
-shear, load path, factor of safety, stress–strain to yield, liquefaction,
-aftershock decay as a power law. The orders-of-magnitude reasoning is a real gap
-— no existing game asks a student to think in log scale about a hazard.
+**The place.** A dilution-refrigerator laboratory, which looks like nothing in
+this repo and very little anywhere else. The geography is a *temperature
+gradient* and the player walks down it: a loading bay at room temperature, a
+service bay where the fridge hangs open with its gold-plated stages exposed like
+a chandelier, the microwave rack wall — coax, circulators, attenuators, more
+cable than anybody expects — an optical table behind an interlocked curtain, a
+magnetically shielded room with a mu-metal door that has to be closed behind
+you, and a control room where nobody touches anything warm. Signage everywhere
+about what may not be brought in.
+
+Visually distinct in three ways: it is *interior and industrial at once*, its
+palette is metal and cable rather than architecture, and its one emissive
+element is instrument light. It would want `interiorFloor`, not a town.
+
+**The story.** A national laboratory runs a 60-qubit processor. A competing
+group publishes an advantage claim your director wants answered within the
+quarter, and the fortnight is spent deciding whether it reproduces. Midway, the
+group finds that its *own* best benchmark was partly a calibration artefact —
+the readout discriminator had been retrained on data that included the state it
+was supposed to be distinguishing. Nothing was faked; a good result got a
+little help from a procedure nobody had questioned.
+
+**The argument, both sides right on a named day.** Priya Raghavan says a result
+held back is a result somebody else gets credit for, and the funding round
+closes in March. Anders Holm will not put his name to anything he has not seen
+on a second device. She is right on day 5, when a fortnight of caution costs the
+group a collaboration that would have settled the question in a week. He is
+right on day 11, when the second device disagrees and the artefact surfaces.
+
+**Six areas:**
+
+- **Cryogenics & Vacuum** — the stages, the thermal budget, why 10 mK and not 1 K
+- **Fabrication & Materials** — junctions, two-level-system defects, what a bad wafer looks like months later
+- **Control & Readout** — pulses, calibration, the microwave chain, discriminators
+- **Error & Verification** — noise, benchmarking, what an advantage claim actually claims
+- **Quantum Sensing** — magnetometry, clocks, gravimetry: the applications that already work today
+- **Networks & Security** — QKD over fibre, entanglement distribution, why a repeater is hard
+
+**The cast, in the shape the other books use.** Raghavan (group lead, wants it
+published); Holm (verification, will not sign what he cannot reproduce); a
+cryogenic engineer who thinks of the fridge as a plumbing problem and is right;
+a fabrication lead who can date a defect to a process change; a control engineer
+who calibrates twelve times a day and is the one who finds the artefact; a
+sensing physicist whose magnetometer is the only thing in the building already
+being used by somebody else; a networks postdoc running fibre to a site forty
+kilometres away; a metrologist who owns the clock everything is timed against.
+
+**The equations it can genuinely compute** — the test before building:
+
+| | |
+| --- | --- |
+| `E = hf` against `kT` | why the fridge has to reach 10 mK for a 5 GHz qubit |
+| `f_Rabi = Ω/2π`, `t_π = 1/(2f_Rabi)` | drive strength to pulse length |
+| `P(t) = e^(−t/T₁)` | relaxation as a decay you fit |
+| `1/T₂ = 1/(2T₁) + 1/T_φ` | why dephasing is the harder number |
+| `F_total ≈ F^n` | gate fidelity compounding over circuit depth |
+| `Δf = 1/(2πT)` | Ramsey fringe spacing, and sensing time as resolution |
+| `δB ∝ 1/√N` | the shot-noise limit, and what squeezing buys against it |
+| `S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′) ≤ 2` | Bell, as an inequality with a measured number on the left |
+| `p_threshold` arithmetic | how many physical qubits one logical qubit costs |
+| `R = 1 − 2h(e)` | QKD key rate after error correction and privacy amplification |
+
+Ten equations, every one of which a Ballpark can land on, and not one of which
+needs an interpretation of the wavefunction.
+
+**The fifteen-day arc**, following STORY_SPEC §10:
+
+1. Why 10 mK — thermal energy against photon energy, on a fridge that is warm
+2. A qubit that will not drive — resonance, Rabi, and finding the frequency
+3. T₁ and T₂, and which of them the fridge can fix
+4. The readout chain: what a discriminator actually decides
+5. **Raghavan is right** — a collaboration offer with a deadline on it
+6. Fabrication: a defect dated to a process change nine months ago
+7. Sensing, and the thing already in use: a magnetometer somebody else depends on
+8. Benchmarking — what randomised benchmarking measures and what it does not
+9. Entanglement as a measured number: running the Bell test properly
+10. The advantage claim, read as a claim rather than a headline
+11. **The reversal, from evidence** — the second device disagrees, and the
+    discriminator turns out to have been trained on the state it was meant to
+    distinguish
+12. A quiet day: the fridge is cold, everything works, nothing is fixed
+13. Three at once — a fibre link down, a clock drifting, a review deadline
+14. **The last reversible moment** — the retraction goes out today or not at all
+15. What is known and how well, and which of the fortnight's habits survives
+
+**Why the formats fit.** Diagnosis is exceptional here and would carry the game:
+"T₂ far below T₁, fridge at temperature, drive line warm" is an instrument panel
+and four candidates, which is precisely the shape. Sequence gets calibration
+order, which is physically forced — you cannot measure a gate before you have
+found the resonance. Science Tank gets "which measurement do we buy" against a
+real budget of fridge time, which is the scarcest thing in any such lab.
+
+**The risks, stated before anybody starts.** It is the hardest subject here to
+keep concrete; the audience is the narrowest; and the place, being an interior,
+is the kind the hospital flip has not finished making easy. Against that: the
+subject is genuinely absent from the set, the applications are current rather
+than historical, and the story's central failure — a good result that got a
+little help from a procedure nobody questioned — is the most honest thing about
+science any of these games would teach.
 
 ### The Trial — biostatistics and clinical evidence
 
