@@ -715,3 +715,92 @@ export function furnishArea({ makers, order, bounds: B, target = 15, seed = 'are
   }
   return placed;
 }
+
+/**
+ * A mural: paint on a wall, not a notice on a wall.
+ *
+ * The difference is not size, it is contrast and framing. A notice is high
+ * contrast, framed, and asks to be read; a mural is low contrast, unframed, and is
+ * meant to be seen and not read — background that happens to be correct. The
+ * Reading Room gets one that says nothing at all, which is the point of it.
+ *
+ * `kind` is what is painted:
+ *   gradient  a band of colour, warm to cold, along a corridor
+ *   bloch     a Bloch sphere, correct up close, decoration at a distance
+ *   spectrum  a response curve as a long thin line, its peak where it falls
+ *   lattice   a chip layout at enormous scale, faint enough to be a texture
+ *   wash      nothing. One quiet field of colour.
+ */
+export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 2,
+  kind = 'wash', ink = '#5b6a72', paper = '#e8ecee', seed = 'mural' }){
+  const px = 1024, py = Math.max(128, Math.round((px * h) / w));
+  const canvas = document.createElement('canvas');
+  canvas.width = px; canvas.height = py;
+  const g = canvas.getContext('2d');
+  const rand = rng(seed);
+
+  g.fillStyle = paper; g.fillRect(0, 0, px, py);
+  if(kind === 'gradient'){
+    const grad = g.createLinearGradient(0, 0, px, 0);
+    grad.addColorStop(0, '#c8a24a');       // the warm end of the building
+    grad.addColorStop(0.5, '#7f96a6');
+    grad.addColorStop(1, '#5d7f9a');       // and the cold end
+    g.fillStyle = grad;
+    g.fillRect(0, py * 0.28, px, py * 0.44);
+  } else if(kind === 'bloch'){
+    const cx = px / 2, cy = py / 2, r = Math.min(px, py) * 0.38;
+    g.strokeStyle = ink; g.lineWidth = Math.max(2, r * 0.012);
+    g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.stroke();
+    // The equator, seen edge-on from slightly above.
+    g.beginPath(); g.ellipse(cx, cy, r, r * 0.28, 0, 0, Math.PI * 2); g.stroke();
+    // Axes, and one state vector, because a Bloch sphere without one is a ball.
+    g.beginPath();
+    g.moveTo(cx, cy - r * 1.1); g.lineTo(cx, cy + r * 1.1);
+    g.moveTo(cx - r * 1.1, cy); g.lineTo(cx + r * 1.1, cy);
+    g.stroke();
+    g.strokeStyle = '#b5502f'; g.lineWidth = Math.max(3, r * 0.02);
+    g.beginPath(); g.moveTo(cx, cy);
+    g.lineTo(cx + r * 0.62, cy - r * 0.56); g.stroke();
+  } else if(kind === 'spectrum'){
+    // A long thin trace with one strong peak and one weak feature, which is the
+    // shape of this building's own first measurement.
+    g.strokeStyle = ink; g.lineWidth = Math.max(2, py * 0.035);
+    g.beginPath();
+    for(let i = 0; i <= px; i++){
+      const t = i / px;
+      const peak = Math.exp(-((t - 0.42) ** 2) / 0.00022);
+      const weak = 0.17 * Math.exp(-((t - 0.36) ** 2) / 0.00012);
+      const v = 0.06 + peak + weak;
+      const yy = py * (0.86 - Math.min(1, v) * 0.72);
+      if(i === 0) g.moveTo(i, yy); else g.lineTo(i, yy);
+    }
+    g.stroke();
+  } else if(kind === 'lattice'){
+    g.strokeStyle = ink; g.globalAlpha = 0.34; g.lineWidth = 2;
+    const cell = px / 26;
+    for(let i = 0; i <= 26; i++){
+      g.beginPath(); g.moveTo(i * cell, 0); g.lineTo(i * cell, py); g.stroke();
+      g.beginPath(); g.moveTo(0, i * cell); g.lineTo(px, i * cell); g.stroke();
+    }
+    // A dozen pads, where a chip has them.
+    g.globalAlpha = 0.5; g.fillStyle = ink;
+    for(let i = 0; i < 12; i++){
+      g.fillRect(cell * (2 + Math.floor(rand() * 22)), cell * (1 + Math.floor(rand() * 8)),
+        cell * 1.6, cell * 1.6);
+    }
+    g.globalAlpha = 1;
+  }
+  // A wash paints nothing further: the field of colour is the whole of it.
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 8;
+  const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
+    new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95, metalness: 0 }));
+  // Attached through the caller's own placer, like everything else here.
+  const anchor = box(0.001, 0.001, 0.001, x, y, z, new THREE.MeshBasicMaterial({ visible: false }));
+  anchor.add(face);
+  face.position.set(faceX ? toward * 0.04 : 0, 0, faceX ? 0 : toward * 0.04);
+  face.rotation.y = faceX ? toward * Math.PI / 2 : (toward > 0 ? 0 : Math.PI);
+  return face;
+}

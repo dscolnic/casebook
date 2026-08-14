@@ -15,7 +15,170 @@
 //
 // The unused ones are ignored, so all three can be exported from here.
 
-import { furnishRoom, furnishCorridor, furnishingMaterials } from '../../engine/world/interiorKit.js';
+import { furnishRoom, furnishCorridor, furnishingMaterials, paintMural }
+  from '../../engine/world/interiorKit.js';
+
+/**
+ * What is on the walls, room by room.
+ *
+ * Authored from `WALLS.md`, which carries the whole list and the reasoning. None of
+ * it is on the syllabus and none of it is checked: a building where every notice is
+ * a safety instruction is a building nobody works in. It is nine parts earnest — the
+ * records, the rotas, the plots somebody actually took — and one joke per room,
+ * because reversing that ratio turns a laboratory into a sitcom set.
+ *
+ * Every one of these has to land at walking pace. A player goes past at 1.4 m/s.
+ */
+const WALL_TEXT = {
+  ARRIVE: [
+    { tag: 'VISITORS', heading: 'Sign in, badge on', accent: '#3f6f8f',
+      body: 'Escorted at all times past the yellow line. Badges go back on the board on the way out.' },
+    { tag: 'DO NOT BRING IN', heading: 'Past this point', accent: '#b5502f',
+      body: 'No watches. No keys. No loose tools beyond the racks. No food past the office.' },
+    { tag: 'BADGE BOARD', heading: 'Three are missing', accent: '#5b6a72',
+      body: 'Whoever has 07, it is not yours.' },
+    { tag: 'FIRE', heading: 'Assembly point is the gate', accent: '#b5502f',
+      body: 'Wardens listed below. Last drill went well apart from the people who kept walking.' },
+  ],
+  OFFICE: [
+    { tag: 'FORTNIGHT', heading: 'Review planner', accent: '#b5502f',
+      body: 'Blocked out in red. Anything that is not on this chart is not happening before it.' },
+    { tag: 'SIGN IT', heading: 'Leaving card', accent: '#3f6f8f',
+      body: 'Pen on the string. Do not take the pen.' },
+    { tag: 'WHO CAN FIX', heading: 'The printer', accent: '#5b6a72',
+      body: 'Three names. Two of them crossed out.' },
+    { tag: 'DAYS SINCE', heading: 'We blamed the fridge', accent: '#8a6a1e',
+      body: 'Zero. The nought is written over a rubbed-out number, again.' },
+  ],
+  FAB: [
+    { tag: 'GOWNING', heading: 'In this order', accent: '#8a6a1e',
+      body: 'Overshoes, hood, coverall, gloves. Laminated because it gets read wet.' },
+    { tag: 'NO PAPER', heading: 'Past this line', accent: '#b5502f',
+      body: 'This includes the crossword.' },
+    { tag: 'BAY BOOKING', heading: 'This week', accent: '#3f6f8f',
+      body: 'Initials in most squares. Two are somebody optimistic about Friday.' },
+    { tag: 'THE COUPON', heading: 'Junction resistance, this run', accent: '#5b6a72',
+      body: 'Spread twice as wide as usual. Circled in green by whoever plotted it.' },
+    { tag: 'HELLO AGAIN', heading: '4.55 GHz, on three chips now', accent: '#8a6a1e',
+      body: 'Printed spectrum, the feature ringed in biro, the date written small.' },
+  ],
+  CRYO: [
+    { tag: 'WARNING', heading: 'Oxygen deficiency hazard', accent: '#b5502f',
+      body: 'Helium and nitrogen displace air. Nobody transfers alone.',
+      footer: 'Monitor above 19.5 per cent' },
+    { tag: 'FRIDGE TIME', heading: 'Booked to the end of the quarter', accent: '#3f6f8f',
+      body: 'Four days a slot, warm-up and cooldown. Take the whole slot or none of it.' },
+    { tag: 'GOOD RUN', heading: 'Cooldown curve, kept', accent: '#5b6a72',
+      body: 'Hand-drawn, from the year it was installed, still the one everybody compares against.' },
+    { tag: 'DEWAR RETURNS', heading: 'Thursdays', accent: '#8a6a1e',
+      body: 'Label it or it comes back to you.' },
+    { tag: 'COOLDOWNS', heading: 'This year', accent: '#5b6a72',
+      body: 'A tally in fives on the door frame. Nobody remembers who started it.' },
+  ],
+  QUIET: [
+    { tag: 'VIVA', heading: 'Friday, two o\'clock', accent: '#3f6f8f',
+      body: 'Bring a chair. The room is small.' },
+    { tag: 'PLEASE', heading: 'Reshelve', accent: '#5b6a72',
+      body: 'Written above a shelf that plainly nobody has.' },
+    { tag: 'LEAVE IT', heading: 'The jigsaw', accent: '#8a6a1e',
+      body: 'Half done. It has been half done for a while.' },
+  ],
+  SENSE: [
+    { tag: 'CALIBRATION', heading: 'Due monthly', accent: '#3f6f8f',
+      body: 'Against the reference, before anything anybody wants. The ratio goes in the log.' },
+    { tag: 'THANK YOU', heading: 'From the hospital study', accent: '#1f8a4c',
+      body: 'A card, pinned where visitors see it, signed by eleven people.' },
+    { tag: 'QUIET PLEASE', heading: 'Measuring', accent: '#b5502f',
+      body: 'Hangs on a hook by the door. Out more often than not.' },
+    { tag: 'THE DOOR', heading: 'Was too small', accent: '#5b6a72',
+      body: 'Photograph of the magnetometer coming in sideways, six people and a strap.' },
+  ],
+  STORE: [
+    { tag: 'STOCK', heading: 'Full and empty', accent: '#5b6a72',
+      body: 'Chalked tally, updated daily, wrong by Wednesday.' },
+    { tag: 'CHAIN EVERY CYLINDER', heading: 'Every one', accent: '#b5502f',
+      body: 'With a photograph of one that was not, and what it did to the door.' },
+    { tag: 'DELIVERIES', heading: 'Tuesday and Friday', accent: '#3f6f8f',
+      body: 'Gate code below, half rubbed out, everybody knows it anyway.' },
+  ],
+  CTRL: [
+    { tag: 'HANDOVER', heading: 'In writing, every shift', accent: '#3f6f8f',
+      body: 'Blank forms on the clip. Half of them get filled in.' },
+    { tag: 'DO NOT SWITCH OFF', heading: 'This socket', accent: '#b5502f',
+      body: 'No explanation given. Nobody has dared ask.' },
+    { tag: 'BEST T2', heading: 'This quarter', accent: '#8a6a1e',
+      body: 'A leaderboard by qubit, initials beside each. One is crossed out and written higher.' },
+    { tag: 'FIRST FRINGE', heading: 'Framed', accent: '#5b6a72',
+      body: 'The group\'s first Rabi oscillation, with the date and two sets of initials.' },
+    { tag: 'NOT DURING A RUN', heading: 'The dartboard', accent: '#b5502f',
+      body: 'Hung low, next to a rule everybody has broken once.' },
+  ],
+  RACKS: [
+    { tag: 'CABLE LOAN', heading: 'Sign it out', accent: '#3f6f8f',
+      body: 'Six lines used. Two returned. The sheet has been up since spring.' },
+    { tag: 'BROKEN', heading: 'Do not use', accent: '#b5502f',
+      body: 'Three tags, hanging on a hook rather than on the equipment they belong to.' },
+    { tag: 'HAVE YOU TRIED', heading: 'In this order', accent: '#8a6a1e',
+      body: 'Retuning. Recooling. Recalibrating. Going home.' },
+    { tag: 'TORQUE', heading: 'SMA connectors', accent: '#5b6a72',
+      body: 'The table, greasy at one corner, correct to the newton centimetre.' },
+  ],
+  VER: [
+    { tag: 'RESULTS', heading: 'Same measurement, three sessions', accent: '#3f6f8f',
+      body: 'Pinned side by side with the differences ringed. Nobody has taken them down.' },
+    { tag: 'REPORTING', heading: 'What travels with a number', accent: '#5b6a72',
+      body: 'Method, sample size, uncertainty. Or it does not leave the room.' },
+    { tag: 'ERROR BUDGET', heading: 'Where it all goes', accent: '#8a6a1e',
+      body: 'A pie chart printed at A3, three slices labelled in pen because the script does not know their names.' },
+    { tag: 'S = 2.78', heading: 'Two is the bound', accent: '#b5502f',
+      body: 'The inequality printed large, the bound crossed out, the measured value written above it in red.' },
+    { tag: 'DO NOT ERASE', heading: 'In three hands', accent: '#5b6a72',
+      body: 'One of them in permanent marker by mistake. The apology is written underneath.' },
+  ],
+  DESK: [
+    { tag: 'THESE ARE NOT', heading: 'Error bars', accent: '#b5502f',
+      body: 'They are the spread of three runs. In the handwriting of whoever lost that argument.' },
+    { tag: 'WHY', heading: 'One word, one arrow', accent: '#8a6a1e',
+      body: 'Written on a printed plot and pinned back up unanswered.' },
+    { tag: 'HEADPHONES ON', heading: 'Means do not ask me things', accent: '#3f6f8f',
+      body: 'Printed in a jokey font. Entirely serious.' },
+    { tag: 'TWO MINUTES FAST', heading: 'The clock', accent: '#5b6a72',
+      body: 'Deliberate. There is a note explaining it, which is somehow worse.' },
+  ],
+  NET: [
+    { tag: 'KEY MATERIAL', heading: 'Nothing leaves on removable media', accent: '#b5502f',
+      body: 'Ask, and it will be refused in writing. The form is in the tray.' },
+    { tag: 'LOSS BUDGET', heading: 'Per span, per connector, per splice', accent: '#3f6f8f',
+      body: 'Posted so nobody has to guess, and initialled where it was last measured.' },
+    { tag: 'FIRST LINK', heading: 'Lit, and dated', accent: '#5b6a72',
+      body: 'Two people shaking hands in a plant room, neither of them dressed for a photograph.' },
+    { tag: 'ENTANGLED', heading: 'Do not separate', accent: '#8a6a1e',
+      body: 'Written on two boxes of cable that have been beside each other for years.' },
+  ],
+  SHIELD: [
+    { tag: 'CLOSE THE DOOR', heading: 'Behind you', accent: '#b5502f',
+      body: 'The only notice on this wall, and the only one this room gets.' },
+  ],
+};
+
+/** The corridor's own boards. Building-wide, and the ones everybody walks past. */
+const CORRIDOR_TEXT = [
+  { tag: 'THIS WEEK', heading: 'Who is on, who is away', accent: '#3f6f8f',
+    body: 'Half the slots in pencil. One crossed out twice and written again underneath.' },
+  { tag: 'SEMINARS', heading: 'This term', accent: '#5b6a72',
+    body: 'Three of them already past. One has MOVED — SEE EMAIL written across it.' },
+  { tag: 'COFFEE FUND', heading: 'Honesty box', accent: '#8a6a1e',
+    body: 'A pound a cup. Two pounds if you take the last one and do not make more.' },
+  { tag: 'LOST PROPERTY', heading: 'At sign-in', accent: '#5b6a72',
+    body: 'One glove. A bike light. A mug with a duck on it, unclaimed for a year.' },
+  { tag: 'COHERENCE', heading: 'Five years, by hand', accent: '#3f6f8f',
+    body: 'One point a quarter, the ink changing colour where the pen ran out. The flat stretch is labelled: the bad oxide.' },
+  { tag: 'FIRE', heading: 'On hearing the alarm', accent: '#b5502f',
+    body: 'Nearest exit, assembly at the gate. Do not stop for anything, including a run.' },
+  { tag: 'NO CLONING', heading: 'On the photocopier', accent: '#8a6a1e',
+    body: '' },
+];
+
 
 /**
  * Decorate an outdoor town. Everything generic — benches, bins, posts, signs,
@@ -106,6 +269,7 @@ export function fitOutRoom(room, ctx){
     kind: KIND[room.id] ?? room.kind ?? 'lab',
     roomName: room.name ?? room.id,
     fittings: FITTINGS[room.id],
+    notices: WALL_TEXT[room.id],
     seed: `quantum-${room.id}`,
     hard, soft,
     keepClear: [
@@ -117,6 +281,24 @@ export function fitOutRoom(room, ctx){
     ],
     target: 17,
   });
+
+  // Paint, where a room gets it. Low contrast and unframed on purpose: a mural is
+  // meant to be seen and not read, which is the opposite of everything else on
+  // these walls.
+  const MURAL = {
+    // The chip's own layout at enormous scale, faint enough to be a texture.
+    FAB: { kind: 'lattice', w: 5.2, h: 2.6, ink: '#8a6a1e' },
+    // One quiet field of colour and nothing to read. The only wall in the building
+    // allowed to say nothing.
+    QUIET: { kind: 'wash', w: 4.6, h: 2.4, paper: '#dfe0d8' },
+  }[room.id];
+  if(MURAL){
+    paintMural({
+      box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
+      x: b.xOuter - f * 0.12, y: 1.85, z: b.cz, faceX: true, toward: -f,
+      ...MURAL,
+    });
+  }
 }
 
 /**
@@ -138,8 +320,43 @@ export function fitOutSpine(ctx){
     z0: sp.z0, z1: sp.z1,
     seed: 'quantum-spine',
     every: 5,
+    signs: CORRIDOR_TEXT,
     hard,
     // Every doorway on both sides: a fire extinguisher across a door is a joke.
     keepClear: (plan.rooms ?? []).map(r => ({ z: (r.z0 + r.z1) / 2, r: 2.4 })),
   });
+
+  const mural = (opts) => paintMural({
+    box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
+    ...opts,
+  });
+  const wallX = P.corridorHalfWidth - 0.06;
+
+  // The temperature gradient, painted as a low band the length of the building:
+  // warm at the south end where the people and the coffee are, cold at the north
+  // where the fridge is. Nobody in the story admits it is deliberate.
+  const runs = 5;
+  const span = (sp.z1 - sp.z0) / runs;
+  for(let i = 0; i < runs; i++){
+    mural({ x: -wallX, y: 0.95, z: sp.z0 + (i + 0.5) * span, faceX: true, toward: 1,
+      w: span - 0.4, h: 0.5, kind: 'gradient', paper: '#dfe3e6', seed: `grad-${i}` });
+  }
+
+  // The group's own first spectroscopy trace, enlarged and run along the other
+  // wall above head height. The peak falls where it falls.
+  for(let i = 0; i < 3; i++){
+    const w = (sp.z1 - sp.z0) / 3;
+    mural({ x: wallX, y: 2.45, z: sp.z0 + (i + 0.5) * w, faceX: true, toward: -1,
+      w: w - 0.3, h: 0.42, kind: 'spectrum', ink: '#7f8f9a', paper: '#dfe3e6', seed: `spec-${i}` });
+  }
+
+  // And a Bloch sphere three metres across on the end wall, correct up close and
+  // decoration from the far end of the corridor.
+  // Forward of the end structure, not flat against the last centimetre of it: the
+  // rooms' end walls project into the corridor up there and were cutting the
+  // sphere down to a vertical strip.
+  mural({ x: 0, y: 1.95, z: sp.z1 - 1.25, faceX: false, toward: -1,
+    // The wall's own colour behind it, or the panel reads as a poster of a Bloch
+    // sphere rather than a Bloch sphere painted on the wall.
+    w: 3.4, h: 3.4, kind: 'bloch', ink: '#46535c', paper: '#dfe3e6' });
 }
