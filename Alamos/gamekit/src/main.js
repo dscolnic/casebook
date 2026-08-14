@@ -26,6 +26,7 @@ import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
 import { createFlying } from '../engine/world/flying.js';
 import { DAY_NOUN } from '../engine/core/constants.js';
+import { BALLPARK_CALCS } from '../engine/core/curriculum.js';
 
 const canvas = document.getElementById('canvas');
 const promptEl = document.getElementById('prompt');
@@ -139,7 +140,7 @@ function showInfo(title, html){
 // and then again in Project Y's entry point, which is exactly the duplication
 // this file is not supposed to own.
 const interiors = createInteriors({
-  scene, camera, theme, def,
+  scene, camera, theme, def, calcs: BALLPARK_CALCS,
   colliders: world.colliders,
   interactables: world.interactables,
   player: { getPosition, teleport, setGround, setBounds },

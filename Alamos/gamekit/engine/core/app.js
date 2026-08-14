@@ -50,6 +50,65 @@ export function openCaseGroups(){
   return out;
 }
 
+
+/**
+ * What the instrument in a room should be showing.
+ *
+ * Every area room has a live screen, and it used to show the same authored rows
+ * whatever the day was doing — so a player walked into Control & Readout, read a
+ * generic tune-up panel, then clicked the stand and met a completely different
+ * instrument in a modal. The screen on the wall and the question in front of you
+ * were about different things.
+ *
+ * Now the room shows *today's* instrument, derived from the open call:
+ *
+ *   DIAGNOSIS  its own readings — the panel is literally what this format is
+ *   SWEEP      the axis, its range, and what the instrument reads before it moves
+ *   BALLPARK   the quantities the estimate is given
+ *   otherwise  the theme's authored rows, which is the old behaviour
+ *
+ * Derived in the engine rather than authored per theme, so all ten games get it
+ * and there is nothing new to type in a book.
+ */
+function stationForOpenCall(theme, groupId, calcs){
+  const state = getState();
+  const m = state ? getCurrentMission(state) : null;
+  if(!m) return null;
+  const idx = openStopIndices(state).find(i => m.stops[i]?.group === groupId);
+  if(idx === undefined) return null;
+  const stop = m.stops[idx];
+  const lesson = theme.content?.CURRICULUM?.[groupId]?.[stop.lesson];
+  const ch = lesson?.game;
+  if(!ch) return null;
+  const kind = String(ch.type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
+  const num = (v) => (Math.round(v * 1000) / 1000).toString();
+
+  if(kind === 'DIAGNOSIS' && (ch.readings ?? []).length){
+    return { kind: 'panel', title: lesson.title ?? 'Panel', animated: true,
+      rows: ch.readings.slice(0, 5).map(r => ({
+        label: [r.zone, r.label].filter(Boolean).join(' · '),
+        value: r.value, status: r.status })) };
+  }
+  if(kind === 'SWEEP' && ch.sweep){
+    const w = ch.sweep, a = w.axis ?? {};
+    return { kind: 'panel', title: lesson.title ?? 'Sweep', animated: true, rows: [
+      { label: a.label || 'Control', value: `${num(a.min)}–${num(a.max)} ${a.unit ?? ''}`.trim(), status: 'normal' },
+      { label: 'Set to', value: `${num(w.start)} ${a.unit ?? ''}`.trim(), status: 'low' },
+      { label: w.readout?.label || 'Response', value: num(w.baseline ?? 0), status: 'low' },
+      { label: 'Sweep', value: 'not run', status: 'alarm' },
+    ] };
+  }
+  if(kind === 'BALLPARK'){
+    const spec = calcs?.[`${groupId}-${lesson.day}`];
+    const givens = (spec?.givens ?? []).slice(0, 4);
+    if(givens.length){
+      return { kind: 'panel', title: lesson.title ?? 'Estimate', animated: true,
+        rows: givens.map(g => ({ label: String(g), value: '', status: 'normal' })) };
+    }
+  }
+  return null;
+}
+
 /**
  * The interiors: one walkable room per area, built on first entry, in a
  * district far from the town. Returns the manager the entry point drives.
@@ -68,6 +127,9 @@ export function openCaseGroups(){
  */
 export function createInteriors({
   scene, camera, theme, def,
+  // Estimate specs, so a BALLPARK room can show the quantities it is given. The
+  // caller passes them because app.js must not reach for a game's own module.
+  calcs,
   colliders, interactables,
   player, townGround, townBounds,
   onEnter,
@@ -140,6 +202,9 @@ export function createInteriors({
       inside = { id, room, back: player.getPosition().clone(), yaw: live(camera).rotation.y };
       room.setVisible(true);
       room.setCaseOpen(openCaseGroups().has(id));
+      // The screen on the wall shows the instrument this call is actually about.
+      const station = stationForOpenCall(theme, id, calcs);
+      if(station) room.screen?.set?.(station);
       player.setGround(room.groundHeight);
       player.setBounds(DISTRICT_X + 400);
       player.teleport(room.enterTransform, room.enterTransform.yaw);

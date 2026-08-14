@@ -26,6 +26,7 @@ import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import themeManifest from '../theme.js';
 import { getPersonIdForStop } from './simulation.js';
 import { DAY_NOUN } from './constants.js';
+import { BALLPARK_CALCS } from '../../gamekit/engine/core/curriculum.js';
 
 const canvas=document.getElementById('canvas');
 const promptEl=document.getElementById('prompt');
