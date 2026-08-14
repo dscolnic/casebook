@@ -89,6 +89,55 @@ for(const themeName of wanted){
     console.log(`      ${where}`);
   }
 
+  // ---- when each one arrives, against when it is first needed
+  //
+  // The importer stops an equation being introduced before the day something
+  // computes it — day 1 of Quantum used to display four equations and use one, and
+  // the three spare ones were the heaviest in the course. This prints the result so
+  // the rule is visible, and so that a change which quietly demotes an equation to
+  // decoration shows up: converting day 9's estimate to a TALLY did exactly that to
+  // the CHSH combination, and nothing said so.
+  {
+    const dayOf = new Map();
+    // First arrival, not last. A lesson taught on day 5 and called back on day 13
+    // belongs to day 5, and taking the later one made three equations across the
+    // games look as though they were introduced before they were used.
+    (MISSIONS ?? []).forEach((m, mi) => (m.stops ?? []).forEach(st => {
+      const key = `${st.group}:${st.lesson}`;
+      if(!dayOf.has(key) || mi + 1 < dayOf.get(key)) dayOf.set(key, mi + 1);
+    }));
+    const seen = new Map();
+    for(const [group, lessons] of Object.entries(CURRICULUM ?? {})){
+      lessons.forEach((l, li) => {
+        const day = dayOf.get(`${group}:${li}`);
+        if(!day) return;
+        for(const eq of (l.equations ?? [])){
+          const rec = seen.get(eq.e) ?? { first: Infinity, firstComputed: null, days: new Set() };
+          rec.first = Math.min(rec.first, day);
+          if(eq.computed) rec.firstComputed = Math.min(rec.firstComputed ?? day, day);
+          rec.days.add(day);
+          seen.set(eq.e, rec);
+        }
+      });
+    }
+    const load = [...(MISSIONS ?? []).keys()].map(i => {
+      const day = i + 1;
+      return [...seen.values()].filter(r => r.days.has(day)).length;
+    });
+    console.log(`
+    equations shown per day: ${load.join(' ')}`);
+    const early = [...seen.entries()].filter(([, r]) =>
+      r.firstComputed !== null && r.first < r.firstComputed);
+    if(early.length){
+      console.log(`    ✗ ${early.length} shown before anything computes them:`);
+      for(const [e, r] of early){
+        console.log(`      · ${e} — shown day ${r.first}, first computed day ${r.firstComputed}`);
+      }
+    } else {
+      console.log('    ✓ none is shown before the day something computes it');
+    }
+  }
+
   // An equation whose letters are never named is a decoration. The card that
   // shows it has to say what each symbol is and what the relation asserts, so
   // the list is not allowed to carry one without them.

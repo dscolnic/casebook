@@ -51,27 +51,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "describing where something is and how it is moving takes six numbers"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "wave speed, in metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
-        }
       ]
     },
     {
@@ -1196,25 +1175,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A small force applied for a long time changes momentum as much as a large one applied briefly."
-        },
-        {
-          "e": "τ = rF",
-          "c": "torque about an axis, and rotational equilibrium",
-          "v": [
-            [
-              "τ",
-              "torque, in newton metres"
-            ],
-            [
-              "r",
-              "distance from the axis, in metres"
-            ],
-            [
-              "F",
-              "force applied at that distance"
-            ]
-          ],
-          "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel."
         }
       ]
     },
@@ -1640,29 +1600,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel."
-        },
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },

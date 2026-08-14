@@ -663,5 +663,65 @@ export function shapeMissions(missions = [], curriculum = {}, changes = []){
       if(!stop.callback) taught.push({ group: stop.group, lesson: stop.lesson });
     }
   });
+
+  // ---- an equation is not introduced before the day something computes it
+  //
+  // `equationsFor` in the importer attaches an equation to any stop whose prose
+  // mentions it, which is right for a stop that uses it and wrong everywhere else.
+  // Measured across the ten games rather than guessed: Quantum's day 1 displayed
+  // four equations and used one, and the three spare ones were the heaviest
+  // relations in the course — both decay laws and the fidelity product, five and
+  // seven days before anything asked for them.
+  //
+  // The importer applies the same rule to what it writes, which is what the printed
+  // book shows. This one has to exist as well, and has to run here, because the day
+  // an equation actually reaches a player is a *shaped* day: a callback pulls an
+  // earlier lesson into a later day, and a repeat becomes a person stop. Ordering by
+  // book position got two of Quantum's equations and one of Blackout's wrong.
+  //
+  // A conceptual identity no question ever computes — the surface code's qubit
+  // count, the standard quantum limit — is exempt from the ordering rule and
+  // subject only to the cap. Two per card: four formulas on one card is a card
+  // nobody reads.
+  const dayOfLesson = new Map();
+  missions.forEach((m, mi) => (m.stops ?? []).forEach(st => {
+    const key = `${st.group}:${st.lesson}`;
+    const day = mi + 1;
+    // First arrival wins: a callback on day 12 does not make day 12 the day.
+    if(!dayOfLesson.has(key) || day < dayOfLesson.get(key)) dayOfLesson.set(key, day);
+  }));
+  const firstComputed = new Map();
+  for(const [group, lessons] of Object.entries(curriculum ?? {})){
+    (lessons ?? []).forEach((l, li) => {
+      const day = dayOfLesson.get(`${group}:${li}`);
+      if(!day) return;
+      for(const eq of (l.equations ?? [])){
+        if(!eq.computed) continue;
+        const prev = firstComputed.get(eq.e);
+        if(prev === undefined || day < prev) firstComputed.set(eq.e, day);
+      }
+    });
+  }
+  let dropped = 0, capped = 0;
+  for(const [group, lessons] of Object.entries(curriculum ?? {})){
+    (lessons ?? []).forEach((l, li) => {
+      if(!l.equations?.length) return;
+      const day = dayOfLesson.get(`${group}:${li}`) ?? Infinity;
+      const kept = l.equations.filter(eq => {
+        if(eq.computed) return true;
+        const first = firstComputed.get(eq.e);
+        if(first === undefined || day >= first) return true;
+        dropped++;
+        return false;
+      });
+      kept.sort((a, b) => (b.computed ? 1 : 0) - (a.computed ? 1 : 0));
+      if(kept.length > 2) capped += kept.length - 2;
+      const final = kept.slice(0, 2);
+      if(final.length) l.equations = final; else delete l.equations;
+    });
+  }
+  if(dropped || capped){
+    changes.push(`equations: ${dropped} not shown before the day they are used, ${capped} trimmed past two per card`);
+  }
   return missions;
 }

@@ -426,25 +426,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
-          "c": "why dephasing is usually the harder number",
-          "v": [
-            [
-              "T₂",
-              "coherence time, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ],
-            [
-              "T_φ",
-              "pure dephasing time, from noise that scrambles phase without taking energy"
-            ]
-          ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
         }
       ]
     },
@@ -544,25 +525,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
-          "c": "the Bell test, as a measured number",
-          "v": [
-            [
-              "S",
-              "the CHSH quantity, computed from four correlation measurements"
-            ],
-            [
-              "E(a,b)",
-              "correlation between the two detectors at settings a and b"
-            ],
-            [
-              "2",
-              "the largest value any shared instruction agreed in advance can produce"
-            ]
-          ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
         }
       ]
     },
@@ -660,63 +622,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
-        },
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
-          "c": "why dephasing is usually the harder number",
-          "v": [
-            [
-              "T₂",
-              "coherence time, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ],
-            [
-              "T_φ",
-              "pure dephasing time, from noise that scrambles phase without taking energy"
-            ]
-          ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
-        },
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
         }
       ]
     },
@@ -2065,25 +1970,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
-          "c": "the Bell test, as a measured number",
-          "v": [
-            [
-              "S",
-              "the CHSH quantity, computed from four correlation measurements"
-            ],
-            [
-              "E(a,b)",
-              "correlation between the two detectors at settings a and b"
-            ],
-            [
-              "2",
-              "the largest value any shared instruction agreed in advance can produce"
-            ]
-          ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
         }
       ]
     },
@@ -2385,7 +2271,8 @@ export const CURRICULUM = {
               "the largest value any shared instruction agreed in advance can produce"
             ]
           ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
+          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one.",
+          "computed": true
         }
       ]
     },
@@ -2545,44 +2432,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
-        },
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        },
-        {
-          "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
-          "c": "the Bell test, as a measured number",
-          "v": [
-            [
-              "S",
-              "the CHSH quantity, computed from four correlation measurements"
-            ],
-            [
-              "E(a,b)",
-              "correlation between the two detectors at settings a and b"
-            ],
-            [
-              "2",
-              "the largest value any shared instruction agreed in advance can produce"
-            ]
-          ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
         }
       ]
     },
@@ -2721,25 +2570,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
-        },
-        {
-          "e": "n_phys ≈ d²  per logical qubit",
-          "c": "what error correction costs",
-          "v": [
-            [
-              "n_phys",
-              "physical qubits used for one logical qubit"
-            ],
-            [
-              "d",
-              "code distance, how many errors the code can survive"
-            ],
-            [
-              "p_threshold",
-              "the physical error rate below which adding qubits helps rather than hurts"
-            ]
-          ],
-          "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
         }
       ]
     }

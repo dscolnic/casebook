@@ -150,27 +150,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a rate is an amount divided by the time it took"
-      ],
-      "equations": [
-        {
-          "e": "θ = s / d",
-          "c": "the small-angle formula — angular size to physical size",
-          "v": [
-            [
-              "θ",
-              "angular size, in radians"
-            ],
-            [
-              "s",
-              "true size across, in kilometres"
-            ],
-            [
-              "d",
-              "distance to it, in kilometres"
-            ]
-          ],
-          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
-        }
       ]
     },
     {
@@ -1349,27 +1328,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement is informative where the candidate explanations disagree"
-      ],
-      "equations": [
-        {
-          "e": "θ = s / d",
-          "c": "the small-angle formula — angular size to physical size",
-          "v": [
-            [
-              "θ",
-              "angular size, in radians"
-            ],
-            [
-              "s",
-              "true size across, in kilometres"
-            ],
-            [
-              "d",
-              "distance to it, in kilometres"
-            ]
-          ],
-          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
-        }
       ]
     },
     {
@@ -1488,27 +1446,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement made one way can be wrong one way"
-      ],
-      "equations": [
-        {
-          "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection",
-          "v": [
-            [
-              "p",
-              "momentum, in kilogram metres per second"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
-        }
       ]
     },
     {

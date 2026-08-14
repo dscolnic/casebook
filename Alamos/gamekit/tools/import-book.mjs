@@ -162,7 +162,13 @@ function equationsFor(s, game, assumes){
     .toLowerCase().replace(/\s+/g, ' ') + ' ';
   // The arithmetic on its own: what the player fills in and what the answer is
   // worked out from.
-  const formula = flat([game.relationship, game.template, game.solution, ...(game.givens ?? [])]);
+  const formula = flat([game.relationship, game.template, game.solution,
+    // A TALLY assembles its combination out of counts the player took. That is the
+    // equation being performed, not mentioned, and it was being read as prose:
+    // converting day 9's estimate to a TALLY quietly demoted CHSH to decoration.
+    game.tally?.formula, game.tally?.formulaLabel,
+    ...(game.tally?.settings ?? []).map(x => x.label),
+    ...(game.givens ?? [])]);
   const text = flat([s.title, s.scene, s.story, s.takeaway, game.question, game.task, game.why,
     game.headline, game.setup, game.prompt, game.explanation, game.answer,
     ...(game.cards ?? []).map(lbl), ...(game.choices ?? []).map(lbl),
@@ -259,6 +265,71 @@ missions.forEach((m, mi) => {
 // mission index depends on them. A callback day reaches a "— Review" variant by
 // title; the rest are spares a re-shaped campaign can use.
 (book.lessons ?? []).forEach((s, i) => addLesson(s, `unattached lesson ${i + 1} ("${s.title ?? s.task ?? '?'}")`));
+
+/**
+ * Equations are not introduced before the day they are first needed, and no stop
+ * shows more than two.
+ *
+ * `equationsFor` attaches an equation to any stop whose prose mentions it, which
+ * is right for a stop that uses it and wrong everywhere else. The cost was
+ * measured rather than guessed: Quantum's day 1 displayed four equations and used
+ * one. Its third stop is a judgement call that computes nothing, and because its
+ * prose mentions coherence and benchmarking it carried the two decay relations and
+ * the fidelity product — the heaviest formulas in the course — on the opening day,
+ * five and seven days before anything asks for them.
+ *
+ * Two rules, applied here because both need to see the whole campaign:
+ *
+ *   · an equation the stop does not compute is dropped from any day before the
+ *     day it is first computed. It stays from that day onward, where it is
+ *     context for something the player has now done.
+ *   · at most two per stop, computed ones first, then the ones already introduced.
+ *     A card with four formulas on it is a card nobody reads.
+ *
+ * An equation no question ever computes — a conceptual identity like the surface
+ * code's qubit count — is exempt from the first rule and subject to the second.
+ */
+(() => {
+  const dayOfLesson = new Map();
+  MISSIONS.forEach((m, mi) => (m.stops ?? []).forEach(st => {
+    dayOfLesson.set(`${st.group}:${st.lesson}`, mi + 1);
+  }));
+  const firstComputed = new Map();
+  for(const [group, lessons] of Object.entries(CURRICULUM)){
+    lessons.forEach((l, li) => {
+      const day = dayOfLesson.get(`${group}:${li}`);
+      if(!day) return;
+      for(const eq of (l.equations ?? [])){
+        if(!eq.computed) continue;
+        const prev = firstComputed.get(eq.e);
+        if(prev === undefined || day < prev) firstComputed.set(eq.e, day);
+      }
+    });
+  }
+  let dropped = 0, capped = 0;
+  for(const [group, lessons] of Object.entries(CURRICULUM)){
+    lessons.forEach((l, li) => {
+      if(!l.equations?.length) return;
+      const day = dayOfLesson.get(`${group}:${li}`) ?? Infinity;
+      const kept = l.equations.filter(eq => {
+        if(eq.computed) return true;
+        const first = firstComputed.get(eq.e);
+        if(first === undefined) return true;      // never computed anywhere
+        if(day >= first) return true;
+        dropped++;
+        return false;
+      });
+      // Computed first, then whatever order the book put them in.
+      kept.sort((a, b) => (b.computed ? 1 : 0) - (a.computed ? 1 : 0));
+      if(kept.length > 2){ capped += kept.length - 2; }
+      const final = kept.slice(0, 2);
+      if(final.length) l.equations = final; else delete l.equations;
+    });
+  }
+  if(dropped || capped){
+    console.log(`  equations: ${dropped} dropped as early, ${capped} trimmed past two per stop`);
+  }
+})();
 
 /** One stop's question, checked against what its format actually needs. */
 function gameFor(s, at, group, day){

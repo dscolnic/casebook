@@ -1609,29 +1609,6 @@ export const CURRICULUM = {
           "computed": true
         },
         {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        },
-        {
           "e": "P = √3 · V_L · I_L · cos φ",
           "c": "three-phase power from line quantities",
           "v": [
@@ -1794,34 +1771,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Equipment is sized for the current it carries, which includes reactive power that does no work.",
-          "computed": true
-        },
-        {
-          "e": "ΔV ≈ I(R cos φ + X sin φ)",
-          "c": "voltage drop along a line, and why reactive power moves it",
-          "v": [
-            [
-              "ΔV",
-              "voltage drop along the line, in volts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "R",
-              "line resistance, in ohms"
-            ],
-            [
-              "X",
-              "line reactance, in ohms"
-            ],
-            [
-              "cos φ / sin φ",
-              "the power factor terms"
-            ]
-          ],
-          "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage.",
           "computed": true
         }
       ]
@@ -2094,6 +2043,26 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "η = E_out / E_in",
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate.",
+          "computed": true
+        },
+        {
           "e": "P = IV, and P = I²R",
           "c": "power delivered, and the loss that never arrives",
           "v": [
@@ -2115,26 +2084,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        },
-        {
-          "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage",
-          "v": [
-            [
-              "η",
-              "round-trip efficiency, between 0 and 1"
-            ],
-            [
-              "E_out",
-              "energy you get back out"
-            ],
-            [
-              "E_in",
-              "energy you put in"
-            ]
-          ],
-          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate.",
-          "computed": true
         }
       ]
     },

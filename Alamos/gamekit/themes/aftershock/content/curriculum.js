@@ -1275,25 +1275,6 @@ export const CURRICULUM = {
           "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays."
         },
         {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
           "e": "σ' = σ − u",
           "c": "effective stress, and how liquefaction happens",
           "v": [
@@ -1311,25 +1292,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
       ]
     },
@@ -2712,40 +2674,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
         }
       ]
     },

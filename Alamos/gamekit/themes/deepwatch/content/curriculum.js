@@ -51,27 +51,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "passive sonar listens and does not transmit"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
       ]
     },
     {
@@ -2004,27 +1983,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "every structure has frequencies at which it prefers to vibrate"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
       ]
     },
     {

@@ -90,31 +90,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some measurements leave the sample as they found it and some use it up"
-      ],
-      "equations": [
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a dilution factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so moles before equal moles after and the product of concentration and volume is unchanged."
-        }
       ]
     },
     {
@@ -544,52 +519,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "For a gas, pressure times volume is fixed by how much gas there is and how hot it is."
-        },
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a dilution factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so moles before equal moles after and the product of concentration and volume is unchanged."
-        },
-        {
-          "e": "q = mcΔT",
-          "c": "calorimetry — heat from a temperature change",
-          "v": [
-            [
-              "q",
-              "heat gained or lost, in joules"
-            ],
-            [
-              "m",
-              "mass being heated, in grams"
-            ],
-            [
-              "c",
-              "specific heat capacity, in joules per gram per kelvin"
-            ],
-            [
-              "ΔT",
-              "temperature change, in kelvin"
-            ]
-          ],
-          "s": "The heat that went in is the mass times how hard that substance is to warm times how far its temperature moved."
         }
       ]
     },
