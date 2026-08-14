@@ -126,6 +126,23 @@ for(const [mi, m] of MISSIONS.entries()){
       if(right.length > median * 1.9){
         add('LEAK', at, `the keyed answer is ${(right.length / median).toFixed(1)}× the length of a typical distractor — length alone identifies it`);
       }
+      // The takeaway is now shown *before* the question rather than in the
+      // verdict, because a player who is stuck needs to know what the question
+      // is about. That only works while the takeaway is the principle rather
+      // than the answer: if it shares most of the keyed option's content words,
+      // the card hands the answer over above the options.
+      const CONTENT_STOP = new Set(('the a an of to in is it and or that this for on with as by at from what which '
+        + 'how why be are was were you your they their its not no more than into over under when where').split(' '));
+      const contentOf = (t) => String(t ?? '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ')
+        .split(/\s+/).filter(w => w.length > 3 && !CONTENT_STOP.has(w));
+      const take = new Set(contentOf(l.takeaway));
+      const keyWords = contentOf(right);
+      if(take.size && keyWords.length >= 3){
+        const shared = keyWords.filter(w => take.has(w)).length / keyWords.length;
+        if(shared >= 0.4){
+          add('LEAK', at, `the takeaway repeats ${Math.round(shared * 100)}% of the keyed answer's own words, and it is shown before the question — make it the principle rather than the answer`);
+        }
+      }
       const because = /\bbecause\b|\bso that\b|\bwhich is why\b/i;
       if(because.test(right) && !wrong.some(c => because.test(c))){
         add('LEAK', at, 'only the keyed answer carries its own justification ("because …"), which marks it out from the others');

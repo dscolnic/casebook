@@ -717,10 +717,39 @@ function askCard(gs, lesson, ch, person){
     + `<div class="askName">${esc(who.name)}</div><div class="askRole">${esc(role)}</div></div>`
     + `<div class="askBody">`
     + `<p class="askBrief">${esc(brief)}</p>`
+    + askContextHTML(lesson)
     + equationRow(lesson)
     + termsRow(allChallengeText(lesson, ch, false))
     + `</div></div>`;
 }
+
+/**
+ * What this question takes as read, and what it is about — said before it is
+ * asked rather than after it is answered.
+ *
+ * `assumes` is the prior knowledge the question is entitled to expect and it
+ * reached the player only as a line in the printed book and, indirectly, in the
+ * day's primer. Saying it here answers the question a stuck player actually has,
+ * which is not "what is the answer" but "am I supposed to already know
+ * something".
+ *
+ * `takeaway` is the principle the question is an instance of. It used to appear
+ * only in the verdict, after the answer, where it reads as a moral rather than
+ * as help. Measured across the ten games, only 6 per cent of takeaways share
+ * enough of the keyed answer's wording to give it away — and `probeQuestions`
+ * now fails those, so the ones that survive are principles rather than answers.
+ */
+function askContextHTML(lesson){
+  const assumes = (lesson?.assumes ?? []).map(a => String(a).trim()).filter(Boolean);
+  const takeaway = String(lesson?.takeaway ?? '').trim();
+  if(!assumes.length && !takeaway) return '';
+  return `<div class="askContext">`
+    + (assumes.length
+        ? `<p class="askAssumes"><span>Takes as read</span> ${esc(assumes.join(' · '))}</p>` : '')
+    + (takeaway ? `<p class="askAbout"><span>What this is about</span> ${esc(takeaway)}</p>` : '')
+    + `</div>`;
+}
+
 /**
  * The course equations this question deals with, as buttons beside the terms.
  *

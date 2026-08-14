@@ -518,3 +518,12 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .planCall .planNum{font:800 .72rem/1 Inter,system-ui;color:var(--muted);flex:0 0 auto}
 .planCall.planDone{opacity:.6}
 .planCall.planDone .planNum{color:#3d6f52}
+
+/* What the question takes as read, and what it is about, before it is asked.
+   Quiet and small: this is orientation for somebody who is stuck, and it must
+   not compete with the situation above it or the question below. */
+.askContext{margin:8px 0 0;padding:7px 10px;border-left:2px solid #cfd8dd;background:#f7f9fa;border-radius:0 5px 5px 0}
+.askContext p{margin:0;font:500 .74rem/1.5 Inter,system-ui;color:#5b6a72}
+.askContext p + p{margin-top:4px}
+.askContext span{font:800 .6rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;
+  color:#8a97a0;margin-right:6px}
