@@ -48,6 +48,13 @@ function matchesTheme(s){
 function ensureMissionFields(){
   if(!_state) return;
   repairDay();
+  // One number per playthrough, mixed into every option shuffle in questionUI.
+  // Without it the shuffles are seeded on the day number and the area alone, so
+  // the fourth option is the answer on day 3 in every game anybody ever plays —
+  // and a second run is a memory test rather than the same questions again.
+  // Created once and saved, so re-opening a question mid-campaign does not
+  // reshuffle it under the player.
+  if(!Number.isFinite(_state.runSeed)) _state.runSeed = Math.floor(Math.random() * 1e9);
   if(!Array.isArray(_state.missionStopsCompleted)) _state.missionStopsCompleted=[];
   if(!_state.missionResults) _state.missionResults={};
   if(!_state.hints) _state.hints={};

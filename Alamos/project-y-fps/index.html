@@ -108,10 +108,14 @@ body{overflow:hidden;margin:0;background:#d9c7a7;color:var(--ink);font:400 1rem/
 #hudProjection.bad{color:#c0392b}
 #hudClock.low{color:#b0762a}
 #hudClock.urgent{color:#c0392b}
-#objective{position:fixed;top:58px;left:50%;transform:translateX(-50%);z-index:4;
-  max-width:min(640px,58vw);text-align:center;pointer-events:none;
+/* Under the clock on the left, not across the middle. Centred, it sat over the
+   view you are walking into and fought the corner map for the top of the frame;
+   the two HUD corners are where a player already looks. */
+#objective{position:fixed;top:66px;left:12px;z-index:4;
+  max-width:min(420px,42vw);text-align:left;pointer-events:none;
   background:rgba(22,25,28,.62);backdrop-filter:blur(6px);border-radius:12px;padding:8px 18px}
-#objectiveWhere{font:800 1.05rem/1.25 Inter,system-ui;color:#fff}
+/* Same size and weight as the clock's own figure (.hudStat b). */
+#objectiveWhere{font:800 .92rem/1.25 Inter,system-ui;color:#fff}
 #objectiveWhy{font:500 .82rem/1.4 Inter,system-ui;color:rgba(255,255,255,.86);margin-top:3px}
 #objective.done #objectiveWhere{color:#9fe6a8}
 #hudTools{position:fixed;top:10px;right:12px;z-index:4;display:flex;gap:6px}

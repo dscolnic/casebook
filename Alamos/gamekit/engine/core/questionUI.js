@@ -7,6 +7,18 @@ import { BALLPARK_CALCS, JARGON } from './curriculum.js';
 import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, SKIP_COST, SKIP_HOURS,
          VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
+
+/**
+ * The per-playthrough component of every option shuffle.
+ *
+ * Each shuffle below is seeded on the day, the area and a per-format constant,
+ * which makes the order stable *within* a campaign — necessary, or re-opening a
+ * question would deal the options again under the player. It also made the order
+ * identical in every campaign anybody ever played, so a second run tested memory
+ * of where the answer sat rather than the science. `runSeed` is drawn once when
+ * a campaign starts and saved with it.
+ */
+const runSeed = () => Number(getState()?.runSeed) || 0;
 import { formatCountdown } from './day.js';
 import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard } from './figures.js';
 
@@ -241,8 +253,13 @@ function bindEquations(container){
       wrap.querySelectorAll('.eqChip').forEach(x=>x.classList.remove('active'));
       if(wasActive){ panel.classList.add('hidden'); panel.innerHTML=''; return; }
       btn.classList.add('active');
+      let vars=[];
+      try{ vars=JSON.parse(btn.dataset.eqvars||'[]'); }catch{ vars=[]; }
       panel.innerHTML=`<b>${esc(btn.textContent)}</b>`
-        + (btn.dataset.eqfor?`<br>${esc(btn.dataset.eqfor)}`:'');
+        + (btn.dataset.eqfor?`<br>${esc(btn.dataset.eqfor)}`:'')
+        + (vars.length?`<p class="eqVars">${vars.map(([sym,mean])=>
+            `<span><b>${esc(sym)}</b> ${esc(mean)}</span>`).join('')}</p>`:'')
+        + (btn.dataset.eqsays?`<p class="eqSays">${esc(btn.dataset.eqsays)}</p>`:'');
       panel.classList.remove('hidden');
     });
   });
@@ -470,7 +487,7 @@ function ballparkBody(ch,spec){
 function ballparkHTML(ch){
   const spec=ballparkSpec();
   const state=getState();
-  activeCalc={ chosen:[], order: shuffleSeeded(spec?spec.labels.map((_,i)=>i):[], state.week*79 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge.id)*13 + activeChallenge.lesson.day) };
+  activeCalc={ chosen:[], order: shuffleSeeded(spec?spec.labels.map((_,i)=>i):[], state.week*79 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge.id)*13 + activeChallenge.lesson.day + runSeed()) };
   if(!spec) return `<div class="ballparkBox"><div class="question">${esc(ch.task||'Estimate')}</div><div class="feedback bad"><p>This estimate has not yet been converted to the number-tile format. Use the supplied givens to produce a rounded result.</p></div></div><div id="visitFeedback"></div>`;
   return ballparkBody(ch,spec);
 }
@@ -547,7 +564,7 @@ function diagnosisHTML(ch){
   // player who notices that stops reading the panel, which is the whole game.
   const state=getState();
   const order=shuffleSeeded(all.map((_,i)=>i),
-    state.week*63 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*17 + 5);
+    state.week*63 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*17 + 5 + runSeed());
   activeDiagnosis={ order };
   const opts=order.map((real,i)=>{
     const c=all[real];
@@ -591,7 +608,7 @@ function choiceHTML(ch){
   const all=(ch.choices||[]).map(c=> typeof c==='string' ? { label:c, mechanism:'' } : c);
   const state=getState();
   const order=shuffleSeeded(all.map((_,i)=>i),
-    state.week*41 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*13 + 7);
+    state.week*41 + GROUP_DEFS.findIndex(d=>d.id===activeChallenge?.id)*13 + 7 + runSeed());
   const opts=order.map((real,i)=>{
     const c=all[real];
     return `<button class="candidate" data-choice="${real}" type="button">`
@@ -721,7 +738,9 @@ function equationRow(lesson){
   // lesson is not in scope where the chips are bound, and one attribute is a
   // smaller thing to carry than module state that has to be kept in step.
   return `<div class="eqStrip"><div class="eqButtons">${eqs.map(x =>
-    `<button type="button" class="eqChip" data-eqfor="${esc(x.c ?? '')}">${esc(x.e)}</button>`).join('')}</div>`
+    `<button type="button" class="eqChip" data-eqfor="${esc(x.c ?? '')}"`
+    + ` data-eqsays="${esc(x.s ?? '')}"`
+    + ` data-eqvars="${esc(JSON.stringify(x.v ?? []))}">${esc(x.e)}</button>`).join('')}</div>`
     + `<div class="eqNote hidden"></div></div>`;
 }
 /** The glossary, as one quiet line rather than a labelled box of chips. */
@@ -1323,11 +1342,11 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   let bodyPrefix = challengePrefix(gs, lesson, ch, person);
   let challengeHTML='';
   if(kindOf(ch)==='SEQUENCE'){
-    const orderSeed = state.week*31 + GROUP_DEFS.indexOf(d)*7 + (isRetry?101:0);
+    const orderSeed = state.week*31 + GROUP_DEFS.indexOf(d)*7 + (isRetry?101:0) + runSeed();
     activeOrder={ chosen:[], seed: orderSeed, bank: shuffleSeeded(ch.cards.map((_,i)=>i), orderSeed) };
     challengeHTML = orderHTML(ch);
   } else if(kindOf(ch)==='PROTOCOL'){
-    activeProtocol={ order: shuffleSeeded(ch.choices.map((_,j)=>j), state.week*57 + GROUP_DEFS.indexOf(d)*11 + lesson.day*3 + (isRetry?101:0)) };
+    activeProtocol={ order: shuffleSeeded(ch.choices.map((_,j)=>j), state.week*57 + GROUP_DEFS.indexOf(d)*11 + lesson.day*3 + (isRetry?101:0) + runSeed()) };
     challengeHTML = protocolHTML(ch);
   } else if(kindOf(ch)==='BALLPARK'){
     challengeHTML = ballparkHTML(ch);

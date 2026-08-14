@@ -11,7 +11,7 @@ import { GROUP_DEFS } from './divisions.js';
 import { MISSION_DEFS } from './missions.js';
 import { getState, setState, save, load, createFresh, fundSelected, fundAllSelected, advanceWeek, visitBuildingCost, walkCost, advanceTime, getNextMissionStop, isNextBuilding, completeSpecialRequest, completeMission } from './gameState.js';
 import { openVisit, openPersonVisit, openSpecialRequest, closeModal } from './questionUI.js';
-import { createInteriors, exposeDebug, createDay, openPersonOrPassage, showEnding } from '../../gamekit/engine/core/app.js';
+import { createInteriors, exposeDebug, createDay, openPersonOrPassage, showEnding, createMiniMap } from '../../gamekit/engine/core/app.js';
 import { PANEL_PACE } from '../../gamekit/engine/core/day.js';
 import { createDriving } from '../../gamekit/engine/world/driving.js';
 import { updateHUD, updateDayClock, renderEndScreen, renderStats } from './dashboard.js';
@@ -300,8 +300,12 @@ function startGameLoop(){
                                driving, day });
 }
 
+// Declared above the frame loop on purpose: the loop starts during module
+// evaluation, so a const further down the file is a TDZ error on frame one.
+let cornerMap = null;
 function animate(){
   rafId=requestAnimationFrame(animate);
+  cornerMap?.update(performance.now());
   const delta=Math.min(0.05, clock.getDelta());
   const state=getState();
   if(!interiorMode && !dashboardOverlay.classList.contains('show') && !document.getElementById('overlay').classList.contains('show')){
@@ -684,6 +688,8 @@ function toggleMap(){
   updateMiniMap(1);
 }
 document.getElementById('mapBtn').onclick=toggleMap;
+// The always-on corner map, same as the other games. Clicking it opens the sheet.
+cornerMap = createMiniMap({ renderMap, onOpen: toggleMap });
 document.getElementById('closeMapBtn').onclick=()=> mapOverlay.classList.add('hidden');
 
 function toggleTab(){

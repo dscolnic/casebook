@@ -177,6 +177,51 @@ export function createInteriors({
  * anything the game has not declared, so a new interactable type shows up as
  * one silent no-op rather than three.
  */
+
+/**
+ * The corner map: a small always-on plan in the top right, instead of a button
+ * you have to remember to press.
+ *
+ * The full map was a keystroke away and still went unused, because a map you
+ * have to ask for does not help you decide where to walk — it helps you recover
+ * once you are already lost. This is the version that answers "which way is the
+ * thing I am walking to" without stopping the game.
+ *
+ * It re-renders on a timer rather than per frame. `renderMap` builds a whole
+ * SVG string, which is far too much to do sixty times a second and completely
+ * unnecessary: at walking pace nothing on it moves meaningfully inside a third
+ * of a second.
+ *
+ * Clicking it opens the full map, so the button it replaces still exists in the
+ * only place anybody looks for it.
+ */
+export function createMiniMap({ renderMap, onOpen, size = 171, every = 320 } = {}){
+  if(typeof document === 'undefined' || !renderMap) return null;
+  const el = document.createElement('div');
+  el.id = 'miniMap';
+  el.className = 'miniMap';
+  el.title = 'Click for the full map';
+  document.body.appendChild(el);
+
+  let last = 0, on = true;
+  const draw = () => { el.innerHTML = renderMap({ maxW: size, maxH: size, mini: true }); };
+  el.addEventListener('click', (e) => { e.stopPropagation(); onOpen?.(); });
+
+  draw();
+  return {
+    el,
+    /** Called from the frame loop; throttled internally. */
+    update(nowMs = performance.now()){
+      if(!on) return;
+      if(nowMs - last < every) return;
+      last = nowMs;
+      draw();
+    },
+    /** Hidden while a panel or a sheet is up, so it never sits over a card. */
+    setVisible(v){ on = v; el.classList.toggle('hidden', !v); if(v) draw(); },
+  };
+}
+
 /**
  * The card that closes a campaign.
  *
@@ -438,11 +483,14 @@ export function createDay({
     // list and every line is prose as far as this knows.
     const terms = (m.primerTerms ?? []).filter(t => t?.name && t?.def);
     const rest = lines.slice(terms.length);
+    // Vocabulary first, equations last. A formula is the densest thing on the
+    // card and the one that assumes the most, so it reads better once the words
+    // in it have been defined a few lines above.
     return `<div class="planPrimer"><h4>Worth knowing first</h4>`
-      + equationsHTML(m)
       + (terms.length ? `<dl>${terms.map(t =>
           `<dt>${esc(t.name)}</dt><dd>${esc(t.def)}</dd>`).join('')}</dl>` : '')
       + (rest.length ? `<ul>${rest.map(l => `<li>${esc(l)}</li>`).join('')}</ul>` : '')
+      + equationsHTML(m)
       + `</div>`;
   }
 
@@ -457,9 +505,19 @@ export function createDay({
   function equationsHTML(m){
     const eqs = (m.equations ?? []).filter(x => x?.e);
     if(!eqs.length) return '';
+    // Every symbol is named with its unit, and one sentence says what the
+    // equation asserts. Printing `df/dt = (P_gen − P_load) / 2H` beside the
+    // phrase "frequency as the running balance of supply and demand" is a label
+    // rather than an explanation: a reader who does not already know what H is
+    // cannot use the line, and a reader who does did not need it.
     return `<div class="planEqs">${eqs.map(x =>
-      `<div class="planEq"><code>${esc(x.e)}</code>`
-      + (x.c ? `<span>${esc(x.c)}</span>` : '') + `</div>`).join('')}</div>`;
+      `<div class="planEq"><div class="planEqHead"><code>${esc(x.e)}</code>`
+      + (x.c ? `<span>${esc(x.c)}</span>` : '') + `</div>`
+      + (Array.isArray(x.v) && x.v.length
+          ? `<p class="eqVars">${x.v.map(([sym, mean]) =>
+              `<span><b>${esc(sym)}</b> ${esc(mean)}</span>`).join('')}</p>` : '')
+      + (x.s ? `<p class="eqSays">${esc(x.s)}</p>` : '')
+      + `</div>`).join('')}</div>`;
   }
 
   function planHTML(resuming = false){
@@ -482,8 +540,14 @@ export function createDay({
       // question under it and a column saying "a person" or "a room" beside it:
       // the question is what the stop is for and reads as a second briefing,
       // and whether a call is somebody or somewhere is said by the call itself.
-      return `<tr class="${made ? 'planDone' : ''}"><td class="planNum">${made ? '✓' : i + 1}</td>`
-        + `<td><b>${esc(callLabel(person, s.group))}</b>${made ? ' <span class="planMade">made</span>' : ''}</td></tr>`;
+      // Across the card rather than down it. Three calls stacked as table rows
+      // read as an itinerary in order, which is the one thing this list is not —
+      // they are taken in whatever order the player likes, and side by side is
+      // what that looks like.
+      return `<div class="planCall${made ? ' planDone' : ''}">`
+        + `<span class="planNum">${made ? '✓' : i + 1}</span>`
+        + `<b>${esc(callLabel(person, s.group))}</b>`
+        + `${made ? '<span class="planMade">made</span>' : ''}</div>`;
     }).join('');
     // Order: what happened, what you are called to, what you need to know, and
     // the map last — the map is what the player chooses a route from, so it is
@@ -491,8 +555,7 @@ export function createDay({
     return `<div class="planCard">`
       + continuityHTML(state)
       + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`
-      + `<table class="planTable"><thead><tr><th></th><th>Call</th></tr></thead>`
-      + `<tbody>${rows}</tbody></table>`
+      + `<div class="planCalls"><h4>Objectives</h4><div class="planCallRow">${rows}</div></div>`
       + primerHTML(m)
       + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')
       // One line. The rest of what used to be here — how fast the clock runs

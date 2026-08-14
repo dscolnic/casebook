@@ -364,6 +364,8 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .eqNote{margin-top:8px;padding:8px 10px;border-left:3px solid #7f9aa8;background:#fff;
   font-size:.76rem;line-height:1.5;color:#49453e}
 .eqNote b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.eqNote .eqVars{margin-top:6px}
+.eqNote .eqSays{margin-top:7px;color:#3f3b35}
 /* The hint sits under the controls now: a price tag between the paragraph and
    the question put a shop counter in the middle of the reading. */
 .visitAssist{margin:14px 0 0;padding:0;border:0;background:none;opacity:.85}
@@ -411,11 +413,18 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .planPrimer dl + ul{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
 /* The equations this day is the first to need, above the vocabulary. Boxed and
    monospaced so they read as reference to be held onto rather than prose. */
-.planEqs{display:flex;flex-direction:column;gap:4px;margin:0 0 8px}
-.planEq{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;padding:5px 8px;
-  border:1px solid #cfd8dd;border-radius:5px;background:#f6f9fa}
+.planEqs{display:flex;flex-direction:column;gap:6px;margin:0 0 8px}
+.planEq{padding:6px 9px;border:1px solid #cfd8dd;border-radius:5px;background:#f6f9fa}
+.planEqHead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
 .planEq code{font:700 .78rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
-.planEq span{font:500 .74rem/1.4 Inter,system-ui;color:#5b6a72}
+.planEqHead span{font:500 .74rem/1.4 Inter,system-ui;color:#5b6a72}
+/* Every symbol named, with its unit — but run together rather than stacked. A
+   two-column list of four variables cost four lines and pushed the vocabulary
+   off the card; flowed inline the same four wrap into one or two. */
+.eqVars{margin:5px 0 0;font:500 .7rem/1.55 Inter,system-ui;color:#5b6a72}
+.eqVars span:not(:last-child)::after{content:' · ';color:#9aa8b0}
+.eqVars b{font:700 .7rem/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+.eqSays{margin:6px 0 0;font:500 .72rem/1.45 Inter,system-ui;color:#49453e}
 .planNote{font:500 .78rem/1.5 Inter,system-ui;color:#4e4a43}
 .planMap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#efeade;
   display:flex;justify-content:center;max-height:min(34vh,280px)}
@@ -481,3 +490,31 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .planSince{font:700 .78rem/1.45 Inter,system-ui;color:#3d6f52;background:#eef5f0;
   border:1px solid #cfe3d6;border-radius:8px;padding:8px 11px}
 .planSince.planSinceBad{color:#8a3d2f;background:#fbeee9;border-color:#e6cbc0}
+
+/* The corner map. Sits under the HUD buttons, top right, and is deliberately
+   small: it answers "which way" while walking, and the M-key sheet answers
+   "where is everything" when you stop. Pointer events on, because clicking it
+   opens the full one. */
+.miniMap{position:fixed;top:64px;right:14px;z-index:40;border:1px solid rgba(30,28,24,.35);
+  border-radius:8px;overflow:hidden;background:#efeade;cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.28);line-height:0}
+.miniMap:hover{border-color:rgba(30,28,24,.65)}
+.miniMap .mapWrap{display:block}
+.miniMap svg{display:block}
+.miniMap.hidden{display:none}
+@media (max-width:820px){ .miniMap{display:none} }
+
+/* The day's calls, side by side. They are taken in any order, so a vertical
+   numbered list was reading as an itinerary; a row of three reads as a choice.
+   Wraps on a narrow card, and each one keeps its number so the plan card and
+   the HUD still agree about which is which. */
+.planCalls{margin:2px 0 10px}
+.planCalls h4{font:800 .62rem/1 Inter,system-ui;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 6px}
+.planCallRow{display:flex;flex-wrap:wrap;gap:8px}
+.planCall{flex:1 1 auto;min-width:min(210px,100%);display:flex;align-items:baseline;gap:7px;
+  border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fbf8f0}
+.planCall b{font:700 .84rem/1.3 Inter,system-ui;color:var(--ink)}
+.planCall .planNum{font:800 .72rem/1 Inter,system-ui;color:var(--muted);flex:0 0 auto}
+.planCall.planDone{opacity:.6}
+.planCall.planDone .planNum{color:#3d6f52}

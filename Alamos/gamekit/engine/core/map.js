@@ -106,6 +106,11 @@ function bounds(site){
  * fixes. Fitting the box here keeps text at its own size.
  */
 export function renderMap(opts = {}){
+  // `mini` is the corner map: same drawing, no writing. At 190 px a place name
+  // is three unreadable pixels and the legend is a grey smear, and both of them
+  // crowd out the only two things the corner map is for — where you are, and
+  // which way the open calls lie.
+  const mini = !!opts.mini;
   const site = theme.site ?? {};
   const state = getState();
   const b = bounds(site);
@@ -204,7 +209,7 @@ export function renderMap(opts = {}){
     const boxOf = (a) => ({ x0: a.x0, x1: a.x1, y0: a.y - size, y1: a.y + 3 });
     const offMap = (b) => b.x0 < 2 || b.x1 > W - 2 || b.y0 < 2 || b.y1 > H - 2;
     const draw = (a, candidate, halo) =>
-      `<text x="${a.x}" y="${a.y}" text-anchor="${a.anchor}" font-size="${size}" `
+      mini ? '' : `<text x="${a.x}" y="${a.y}" text-anchor="${a.anchor}" font-size="${size}" `
       + `fill="${colour}" font-weight="${weight}"`
       + (halo ? ` stroke="#efeade" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke"` : '')
       + `>${esc(candidate)}</text>`;
@@ -322,7 +327,7 @@ export function renderMap(opts = {}){
 
     if(fitsRotated || fitsFlat){
       const extra = fitsRotated ? `transform="rotate(-90 ${cx} ${cy})"` : '';
-      g += `<text x="${cx}" y="${cy + (fitsRotated ? 0 : 4)}" text-anchor="middle" `
+      if(!mini) g += `<text x="${cx}" y="${cy + (fitsRotated ? 0 : 4)}" text-anchor="middle" `
          + `font-size="${size}" font-weight="${isTarget ? 800 : 600}" stroke="${halo}" `
          + `stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="${ink}" `
          + `${extra}>${esc(name)}</text>`;
@@ -345,9 +350,9 @@ export function renderMap(opts = {}){
         const edge = up ? y : y + h;
         g += `<line x1="${cx}" y1="${edge}" x2="${cx}" y2="${placed.ly + (up ? 3 : -size)}" `
            + `stroke="rgba(0,0,0,.35)" stroke-width="1"/>`
-           + `<text x="${cx}" y="${placed.ly}" text-anchor="middle" font-size="${size}" `
+           + (mini ? '' : `<text x="${cx}" y="${placed.ly}" text-anchor="middle" font-size="${size}" `
            + `font-weight="${isTarget ? 800 : 600}" stroke="rgba(255,255,255,.8)" stroke-width="3" `
-           + `stroke-linejoin="round" paint-order="stroke" fill="#1c1b19">${esc(name)}</text>`;
+           + `stroke-linejoin="round" paint-order="stroke" fill="#1c1b19">${esc(name)}</text>`);
       }
     }
     // No "go here" arrow. Same reason the outdoor map's "▼ open" flag went: it is
@@ -447,7 +452,7 @@ export function renderMap(opts = {}){
       : []);
   return `<div class="mapWrap"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" `
        + `aria-label="Map of the site"><rect width="${W}" height="${H}" fill="#efeade"/>${g}</svg>`
-       + `<div class="mapLegend">${esc(legend.join(' · '))}</div></div>`;
+       + (mini ? '' : `<div class="mapLegend">${esc(legend.join(' · '))}</div>`) + `</div>`;
 }
 
 /**

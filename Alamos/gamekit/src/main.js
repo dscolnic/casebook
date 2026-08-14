@@ -21,7 +21,7 @@ import { passageHTML, bindPassage } from '../engine/core/personQuiz.js';
 import { openVisit, openPersonVisit, closeModal } from '../engine/core/questionUI.js';
 import { def, groupPct } from '../engine/core/simulation.js';
 import { createInteriors, makeActivate, exposeDebug, createDay, openPersonOrPassage,
-         showEnding } from '../engine/core/app.js';
+         showEnding, createMiniMap } from '../engine/core/app.js';
 import { PANEL_PACE } from '../engine/core/day.js';
 import { createDriving } from '../engine/world/driving.js';
 import { createFlying } from '../engine/world/flying.js';
@@ -320,6 +320,8 @@ function openMap(){
   sheet('mapOverlay', true);
 }
 document.getElementById('mapBtn').addEventListener('click', openMap);
+// The always-on corner map. Clicking it opens the same sheet the button does.
+const miniMap = createMiniMap({ renderMap, onOpen: openMap });
 document.getElementById('mapClose').addEventListener('click', () => sheet('mapOverlay', false));
 // player.js already emits this on M.
 window.addEventListener('projecty:togglemap', () => {
@@ -406,6 +408,7 @@ function frame(now){
   if(flying.active) flying.update(delta);
   else if(driving.active) driving.update(delta);
   else updatePlayer(delta);
+  miniMap?.update(now);
   if(isLocked && !driving.active && !flying.active) updateInteractions(promptEl);
   else if(driving.active){
     promptEl.textContent = 'W/S drive · A/D steer · Shift faster · E — get out';

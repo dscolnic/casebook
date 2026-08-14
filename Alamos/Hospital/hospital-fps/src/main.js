@@ -17,7 +17,7 @@ import { updateInstruments } from './instruments.js';
 import { spawnNPCs, updateNPCs, pauseNPC, getNPCForDivision, getNPCByCharId, getNPCs } from './npcs.js';
 import { getWaypointMesh, setWaypointPosition, getRoomEntry } from './world.js';
 import { facingArrowHTML, renderMap } from '../../../gamekit/engine/core/map.js';
-import { exposeDebug, createDay, openPersonOrPassage, showEnding } from '../../../gamekit/engine/core/app.js';
+import { exposeDebug, createDay, openPersonOrPassage, showEnding, createMiniMap } from '../../../gamekit/engine/core/app.js';
 import { PANEL_PACE } from '../../../gamekit/engine/core/day.js';
 import themeManifest from '../theme.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
@@ -276,8 +276,12 @@ function startGameLoop(){
                                getState, getCurrentTarget, updateInstruments, day, animateOnce: ()=>animate() });
 }
 
+// Declared above the frame loop on purpose: the loop starts during module
+// evaluation, so a const further down the file is a TDZ error on frame one.
+let cornerMap = null;
 function animate(){
   rafId=requestAnimationFrame(animate);
+  cornerMap?.update(performance.now());
   const delta=Math.min(0.05, clock.getDelta());
   const state=getState();
   if(!interiorMode && !dashboardOverlay.classList.contains('show') && !document.getElementById('overlay').classList.contains('show')){
@@ -749,6 +753,7 @@ function toggleMap(){
   updateMiniMap();
 }
 document.getElementById('mapBtn').onclick=toggleMap;
+cornerMap = createMiniMap({ renderMap, onOpen: toggleMap });
 document.getElementById('closeMapBtn').onclick=()=> mapOverlay.classList.add('hidden');
 
 function toggleTab(){
