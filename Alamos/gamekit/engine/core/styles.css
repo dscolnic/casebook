@@ -543,3 +543,8 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .sweepReadout span{font:800 .62rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;color:#8a97a0}
 .sweepReadout b{font:800 .88rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
   font-variant-numeric:tabular-nums}
+/* A boundary sweep has one row per cost and a total under them: the total is the
+   number that has a floor, and seeing it refuse to reach zero is the lesson. */
+.sweepReadout + .sweepReadout{border-top:1px dotted var(--line)}
+.sweepTotal{border-top:2px solid #cfd8dd;margin-top:2px}
+.sweepTotal span{color:#5b6a72}

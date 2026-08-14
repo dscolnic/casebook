@@ -1461,26 +1461,99 @@ export const CURRICULUM = {
       "place": "Transmission & Protection",
       "story": "Novak has the corrected figures. At 89 degrees the corridor was not inside an emergency rating at all, and the relay that never operated is now the thing he wants explained.",
       "game": {
-        "type": "CHOICE",
+        "type": "SWEEP",
         "title": "What a rating is a statement about",
         "setup": "Transmission & Protection",
         "play": "Say what the corrected temperature does to the rating",
         "task": "Say what the corrected temperature does to the rating",
-        "question": "What does the corrected temperature change about that week?",
-        "answer": "The corridor was outside its rating, so the decisions that assumed a margin had none.",
-        "why": "A thermal rating is not a fuse setting. It is the current at which the conductor reaches a temperature the operator has agreed to accept, chosen so the metal keeps its strength and the span keeps its clearance. Surviving a higher temperature does not validate it, because the damage a rating protects against is cumulative: annealing and loss of tensile strength accumulate over hours above limit and show up years later as a span that fails in a wind nobody thought was remarkable. The relay is not the backstop either. Protection watches for faults, not for a conductor slowly cooking.\n",
-        "rebuttals": [
-          "Not failing is not the same as being inside a limit; the damage a rating prevents is cumulative and invisible at the time.",
-          "A rating that is survived once has not been shown conservative, any more than a corner taken too fast proves the speed limit wrong.",
-          "Protection looks for faults on a timescale of milliseconds; it does not and cannot watch a conductor's temperature."
-        ],
-        "choices": [
-          "Nothing important, because the corridor did not actually fail during those six hours.",
-          "The corridor was outside its rating, so the decisions that assumed a margin had none.",
-          "The rating was too conservative, since the corridor survived a temperature above it.",
-          "The relay must have been miscoordinated, because it should have tripped at 89 degrees."
-        ],
-        "correctChoice": "The corridor was outside its rating, so the decisions that assumed a margin had none."
+        "question": "Raise the corridor's current and find the load its continuous rating actually allows.",
+        "answer": "",
+        "why": "A rating is not a fuse setting. It is the current at which the conductor reaches a temperature somebody has agreed to accept — here 75 degrees — chosen so the metal keeps its strength and the span keeps its clearance. Because heating goes as the square of current, the last hundred amps cost far more degrees than the first hundred. That is why the corrected record matters: at 1,280 A the corridor sat at 89 degrees, well past the line, and every decision that treated it as inside a rating was taken without the margin it assumed.\n",
+        "sweep": {
+          "mode": "peak",
+          "axis": {
+            "label": "Corridor current",
+            "unit": "A",
+            "min": 600,
+            "max": 1600,
+            "step": 10
+          },
+          "readout": {
+            "label": "Conductor temperature",
+            "unit": "°C"
+          },
+          "series": [
+            {
+              "label": "Conductor temperature",
+              "unit": "",
+              "response": [
+                {
+                  "at": 600,
+                  "value": 38
+                },
+                {
+                  "at": 800,
+                  "value": 48
+                },
+                {
+                  "at": 1000,
+                  "value": 61
+                },
+                {
+                  "at": 1150,
+                  "value": 75
+                },
+                {
+                  "at": 1280,
+                  "value": 89
+                },
+                {
+                  "at": 1400,
+                  "value": 103
+                },
+                {
+                  "at": 1600,
+                  "value": 129
+                }
+              ]
+            }
+          ],
+          "response": [
+            {
+              "at": 600,
+              "value": 38
+            },
+            {
+              "at": 800,
+              "value": 48
+            },
+            {
+              "at": 1000,
+              "value": 61
+            },
+            {
+              "at": 1150,
+              "value": 75
+            },
+            {
+              "at": 1280,
+              "value": 89
+            },
+            {
+              "at": 1400,
+              "value": 103
+            },
+            {
+              "at": 1600,
+              "value": 129
+            }
+          ],
+          "baseline": 25,
+          "target": 1150,
+          "tolerance": 60,
+          "start": 600,
+          "commit": "Mark the continuous rating"
+        }
       },
       "assumes": [
         "a conductor's rating is a limit on temperature rather than on current"

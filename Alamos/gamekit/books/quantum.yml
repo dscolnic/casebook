@@ -656,25 +656,43 @@ missions:
         assumes:
           - a quantum state has both an energy and a phase, which can be lost separately
         takeaway: Comparing T1 with T2 tells you whether energy loss alone can explain the observed loss of coherence.
-        format: CHOICE
-        question: In the usual exponential-rate model, what mechanism must be contributing if T1 ≈ 90 µs but T2 ≈ 32 µs?
-        choices:
-          - The qubits are losing energy to their environment faster than expected.
-          - Something scrambles the phase without taking energy.
-          - The measurement of T2 is wrong, since coherence cannot be shorter than relaxation.
-          - Both numbers are limited by the same mechanism, which is the fridge temperature.
-        answer: Something scrambles the phase without taking energy.
+        format: SWEEP
+        question: Run both measurements out to longer delays, and find where the phase has gone.
+        sweep:
+          mode: boundary
+          axis: { label: Delay before readout, unit: µs, min: 1, max: 200, step: 1 }
+          # Two things decaying at different rates, on one axis. The point is
+          # visible before it is explained: the phase goes first.
+          series:
+            - label: Excited population left
+              response:
+                - { at: 1, value: 0.99 }
+                - { at: 32, value: 0.70 }
+                - { at: 62, value: 0.50 }
+                - { at: 90, value: 0.37 }
+                - { at: 140, value: 0.21 }
+                - { at: 200, value: 0.11 }
+            - label: Ramsey contrast left
+              response:
+                - { at: 1, value: 0.97 }
+                - { at: 22, value: 0.50 }
+                - { at: 32, value: 0.37 }
+                - { at: 62, value: 0.14 }
+                - { at: 90, value: 0.06 }
+                - { at: 200, value: 0.01 }
+          floor: Both together
+          target: 32
+          tolerance: 8
+          start: 1
+          commit: Mark where contrast has fallen to a third
         why: >
-          T1 measures energy relaxation. T2 measures loss of phase coherence, and relaxation
-          itself contributes to that loss, giving a relaxation-limited ceiling of 2T1 in the
-          simple exponential model. Here the measured T2 is far below that ceiling, so an
-          additional dephasing process is required. Slow fluctuations of flux, bias current or
-          resonator photon number are examples because they shift the qubit frequency between
-          repetitions without necessarily removing a quantum of energy.
-        rebuttals:
-          - Ninety microseconds of T1 is normal for this device; nothing there is faster than expected.
-          - T2 shorter than T1 is entirely ordinary, and it is T2 above twice T1 that would be impossible.
-          - The fridge limits thermal population, and a shared thermal limit would move both numbers together.
+          Both curves fall, and one falls much faster. Energy leaves at 90 microseconds and phase
+          coherence is gone by about 32, so nearly all of the damage is being done by something
+          that never takes any energy at all — slow noise shifting the qubit's frequency between
+          repetitions. That matters because the two have different cures: energy loss is a
+          materials and fridge problem, and dephasing is usually wiring. The ceiling worth
+          remembering is that coherence can never exceed twice the relaxation time, so 180 was
+          the best this device could have done and it is managing a fifth of it.
       - group: CRYO
         task: Work out the ceiling this T1 sets
         title: How good T2 could be
@@ -813,26 +831,47 @@ missions:
         assumes:
           - a measurement produces a distribution rather than a single value
         takeaway: A discriminator converts overlapping analogue distributions into reported states, so its threshold sets a trade between two kinds of misclassification.
-        format: CHOICE
-        question: If the two clouds themselves do not move, what can changing only the discriminator threshold accomplish?
-        choices:
-          - It improves fidelity, because a better line assigns more shots correctly.
-          - It trades one error for the other; the overlap sets the floor.
-          - It has no effect, since the clouds are already separated.
-          - It changes what the qubit does during readout.
-        answer: It trades one error for the other; the overlap sets the floor.
+        format: SWEEP
+        question: Move the discriminator line and find the best place for it.
+        sweep:
+          mode: boundary
+          axis: { label: Discriminator threshold, unit: mV, min: -40, max: 40, step: 1 }
+          # Two costs, moving in opposite directions. No position makes both
+          # small, which is the thing the panel is for.
+          series:
+            - label: Ground shots called excited
+              unit: '%'
+              response:
+                - { at: -40, value: 24.0 }
+                - { at: -20, value: 11.0 }
+                - { at: -6, value: 3.4 }
+                - { at: 0, value: 2.0 }
+                - { at: 8, value: 0.9 }
+                - { at: 20, value: 0.3 }
+                - { at: 40, value: 0.1 }
+            - label: Excited shots called ground
+              unit: '%'
+              response:
+                - { at: -40, value: 0.1 }
+                - { at: -20, value: 0.4 }
+                - { at: -6, value: 1.6 }
+                - { at: 0, value: 2.6 }
+                - { at: 8, value: 5.2 }
+                - { at: 20, value: 13.0 }
+                - { at: 40, value: 27.0 }
+          floor: Total misassignment
+          target: -3
+          tolerance: 4
+          start: -40
+          commit: Set the threshold
         why: >
-          "Moving the threshold changes which ambiguous shots are assigned to which state. It
-          can reduce the error for one prepared state while increasing it for the other, and the
-          optimum depends on what cost function the experiment cares about. What a threshold
-          cannot do is create information that is absent from the signal: if the two
-          distributions overlap strongly, the best classifier still has a nonzero error.
-          Improving signal-to-noise, integration or state separation changes that overlap;
-          moving the line only changes how the overlap is partitioned."
-        rebuttals:
-          - Moving toward one cloud can help one class while hurting the other; there is no direction that automatically improves both.
-          - The threshold directly changes how ambiguous shots are labelled, so the reported probabilities do change.
-          - The software decision is made from the recorded signal; in this setup it does not feed back and alter the earlier qubit dynamics.
+          Moving the line changes which ambiguous shots are called which state, and it can only
+          ever trade one error against the other — the two curves cross, and the sum has a
+          minimum that is not zero. That floor is the overlap between the clouds, and no line
+          removes it. Getting below it needs more signal, less noise or a longer integration:
+          something that separates the distributions rather than something that re-labels them.
+          The optimum also depends on which error costs more, which is a question about the
+          experiment rather than about the classifier.
       - group: VER
         task: Take the readout out of the qubit number
         title: Whose error is it
@@ -1056,26 +1095,34 @@ missions:
         assumes:
           - two systems at the same frequency can exchange energy
         takeaway: If a loss channel is sharply resonant, frequency can be an engineering control knob as well as a measurement.
-        format: CHOICE
-        question: What is the practical response to a defect at a known frequency?
-        choices:
-          - Discard the chip immediately, because any material defect makes its other frequencies scientifically unusable.
-          - Operate the qubit away from that frequency, and record where the defect is.
-          - Cool farther and assume the resonant feature will disappear once the defect is in its ground state.
-          - Increase drive power until coherent control is faster than the measured T1 loss.
-        answer: Operate the qubit away from that frequency, and record where the defect is.
+        format: SWEEP
+        question: Tune the qubit across the band and find the frequency to keep it away from.
+        sweep:
+          axis: { label: Qubit frequency, unit: GHz, min: 4.40, max: 4.80, step: 0.005 }
+          readout: { label: Relaxation time T1, unit: µs }
+          baseline: 90
+          # The dip is the defect found in the day-2 sweep, met again from the
+          # other side: there it absorbed drive, here it drains the qubit.
+          response:
+            - { at: 4.40, value: 92 }
+            - { at: 4.50, value: 90 }
+            - { at: 4.54, value: 62 }
+            - { at: 4.555, value: 34 }
+            - { at: 4.57, value: 58 }
+            - { at: 4.61, value: 89 }
+            - { at: 4.70, value: 91 }
+            - { at: 4.80, value: 90 }
+          target: 4.555
+          tolerance: 0.012
+          start: 4.80
+          commit: Mark the band to avoid
         why: >
-          "A resonant defect exchanges energy most strongly when its transition is close to the
-          qubit's. Detuning the qubit reduces that exchange, so a tunable device can often avoid
-          a narrow loss feature without pretending the defect has disappeared. The useful
-          response is therefore twofold: choose an operating frequency with acceptable T1 and
-          record the avoided region so the next calibration does not wander back into it.
-          Cooling can change defect occupation in some cases, but it does not remove the
-          resonant coupling that is producing the sharp frequency dependence here."
-        rebuttals:
-          - A narrow, mapped loss feature does not invalidate the entire chip; the relevant question is whether an operating region remains.
-          - Lower temperature may change populations but does not by itself remove a resonant coupling between the qubit and a defect.
-          - Faster control may reduce exposure during a pulse, but it does not restore the intrinsic T1 or make the loss channel disappear.
+          Resonant exchange only works near resonance, which is why the same qubit is fine at
+          4.61 GHz and poor a few tens of megahertz lower: tuned onto the defect it has somewhere
+          to put its energy, and T1 falls by more than half. On a tunable device that makes
+          frequency an engineering control as well as a measurement — move the qubit and the loss
+          channel is simply not there. The half of the job that gets forgotten is writing the
+          band down, because an undocumented defect is a trap for whoever retunes next.
       - group: VER
         task: Say what the process change actually did
         title: Yield against lifetime
@@ -1129,47 +1176,34 @@ missions:
         assumes:
           - independent measurements can be averaged to reduce random error
         takeaway: For independent measurements, random uncertainty falls only as 1/√N, so time buys precision with diminishing returns.
-        format: BALLPARK
-        question: If Barros averages continuously for the full hour, what random-noise-limited resolution would the 1/√N rule predict?
+        format: SWEEP
+        question: Choose how long to average, and find where averaging stops helping.
+        sweep:
+          axis: { label: Integration time, unit: s, min: 0.1, max: 120, step: 0.1 }
+          readout: { label: Resolvable field, unit: pT }
+          baseline: 40
+          # 1/root-N down to the point where a slow drift takes over. The knee is
+          # the whole lesson: averaging is not free forever.
+          response:
+            - { at: 0.1, value: 40.0 }
+            - { at: 1.0, value: 12.6 }
+            - { at: 4.0, value: 6.3 }
+            - { at: 10.0, value: 4.0 }
+            - { at: 20.0, value: 2.9 }
+            - { at: 35.0, value: 2.6 }
+            - { at: 60.0, value: 2.7 }
+            - { at: 120.0, value: 3.4 }
+          target: 35
+          tolerance: 8
+          start: 0.1
+          commit: Set the integration time
         why: >
-          "At one measurement every 0.1 seconds, an hour contains 36,000 nominally independent
-          shots. Independent random noise falls as 1/√N, so the predicted resolution is 40 pT
-          divided by √36,000, or about 0.21 pT. The original 4 pT target is therefore reached
-          after only about 100 shots, roughly ten seconds. The catch is the word *independent*:
-          once drift or correlated noise dominates, averaging longer stops following this ideal
-          scaling. Entanglement and squeezing can improve quantum-limited sensitivity in
-          suitable sensors, but they do not automatically remove technical drift or every other
-          noise source."
-        estimate:
-          prompt: >
-            One measurement resolves 40 pT and takes 0.10 s. One hour therefore contains 36,000
-            measurements. For independent random noise, resolution scales as 1/√N.
-          question: Choose the single-shot resolution and the number of measurements in one hour.
-          labels:
-            - 40  (single-measurement resolution, in pT)
-            - 4  (the target, in pT)
-            - 0.1  (seconds per measurement)
-            - 3600  (seconds in the hour available)
-            - 12  (qubits on the processor)
-          values: [40, 4, 0.1, 3600, 12]
-          slots: 2
-          template: '({0} ÷ {1})²'
-          formula: (a/b)*(a/b)
-          correct: [0, 1]
-          target: 100
-          tolerance: 15
-          units: measurements
-          solution: (40 ÷ 4)² = 100 measurements.
-          explanation: >
-            "About 0.21 pT: 40/√36,000. The 4 pT requirement would need only 100 independent
-            shots, or about ten seconds. If the real data stop improving this way, that is
-            evidence that drift or correlated noise has become the limit."
-          givens:
-            - One measurement resolves 40 pT
-            - One hour at 0.10 s per measurement gives 36,000 measurements
-          relationship: >
-            Averaged resolution = single-shot resolution ÷ √N for independent random noise.
-        answerText: About 0.21 pT.
+          Random noise averages down as the square root of the number of independent
+          measurements, so the first factor of ten in precision is cheap and the second costs a
+          hundred times the time. That is the standard quantum limit, and it is why sensing is a
+          patience problem. What ends it here is drift: past about half a minute the instrument
+          itself has moved, the measurements are no longer independent, and averaging longer
+          makes the answer worse rather than better. The knee is where those two effects cross.
       - group: SENSE
         task: Say what the calibration is for
         title: Against what
@@ -1260,27 +1294,34 @@ missions:
         assumes:
           - errors accumulate as operations are applied in succession
         takeaway: A quantity read from a trend survives a constant offset that would swamp a single reading.
-        format: CHOICE
-        question: What feature of the multi-length decay lets randomized benchmarking estimate gate performance despite fixed preparation and readout imperfections?
-        choices:
-          - Long sequences make preparation and readout errors physically smaller before the final measurement.
-          - The error is in the slope, so constant offsets drop out.
-          - Random sequences guarantee that every individual gate has exactly the same error probability.
-          - The final inversion gate cancels any error that occurred during state preparation.
-        answer: The error is in the slope, so constant offsets drop out.
+        format: SWEEP
+        question: Run sequences of increasing length, and find where half the runs no longer return.
+        sweep:
+          axis: { label: Gates in the sequence, unit: gates, min: 1, max: 256, step: 1 }
+          readout: { label: Runs returning to the start, unit: '' }
+          baseline: 0
+          # 0.988 per gate, compounded. Authored so the printed book shows the
+          # same decay the panel builds.
+          response:
+            - { at: 1, value: 0.988 }
+            - { at: 8, value: 0.908 }
+            - { at: 16, value: 0.825 }
+            - { at: 32, value: 0.680 }
+            - { at: 57, value: 0.500 }
+            - { at: 96, value: 0.316 }
+            - { at: 160, value: 0.146 }
+            - { at: 256, value: 0.045 }
+          target: 57
+          tolerance: 10
+          start: 1
+          commit: Mark the half-way length
         why: >
-          In the standard randomized-benchmarking model, state-preparation and measurement
-          errors mainly change the constants that set the vertical scale and offset of the
-          survival curve, while gate errors change how the curve decays with sequence length.
-          Fitting several lengths therefore extracts a decay parameter that is comparatively
-          insensitive to fixed SPAM errors. Randomizing over many sequences also averages over
-          the particular structure of any one sequence. This robustness has assumptions — for
-          example, strongly time-dependent or gate-dependent SPAM can complicate the simple
-          picture — so the benchmark is a procedure, not a magic error eraser.
-        rebuttals:
-          - Longer circuits do not reduce SPAM; they make accumulated gate error easier to distinguish from a fixed offset.
-          - Randomization averages sequence-specific structure, but it does not make all gates identical.
-          - The inversion ideally cancels the intended gates, not the preparation error that occurred before them.
+          Every gate has to work for the sequence to return, so the probabilities multiply and
+          the curve is exponential rather than straight. At 98.8 per cent a gate, half the runs
+          are already lost by about sixty gates — which is why depth, not qubit count, is the
+          quantity that limits this machine. Reading the error from how fast the curve falls is
+          also what makes the measurement clean: a constant readout offset moves the whole curve
+          down without changing its slope, so it drops out of the answer.
       - group: CTRL
         task: Compound one gate's error over a circuit
         title: Where a good number stops being good
@@ -1698,13 +1739,13 @@ missions:
           extracted mainly from how a signal changes with delay, so an approximately stable
           affine readout error often changes the amplitude or offset more than the fitted decay
           constant; those fits should still be checked, but they are not automatically invalid.
-          Standard randomized benchmarking has a similar designed insensitivity to fixed SPAM
+          Standard randomized benchmarking has a similar designed insensitivity to fixed state-preparation and measurement
           terms in its decay parameter. The rule is dependency, not prestige: rerun or reanalyse
           anything for which the faulty classification can change the quantity of interest."
         rebuttals:
           - Circuit outcome probabilities are downstream of the discriminator, so the classifier can bias them directly.
           - A stable readout offset often changes the scale or baseline of a relaxation/coherence trace more than its decay rate, but stability should be checked rather than assumed.
-          - Randomized benchmarking is built to make fixed SPAM contributions enter mainly as fit constants rather than as the sequence-length decay parameter.
+          - Randomized benchmarking is built to make fixed state-preparation and measurement contributions enter mainly as fit constants rather than as the sequence-length decay parameter.
           - The Bell statistic is calculated from classified joint outcomes, so the discriminator can bias the correlations themselves.
         columns:
           - The result
@@ -1717,7 +1758,7 @@ missions:
         choices:
           - "Affected directly: it is computed from classified circuit outcomes."
           - Likely robust in its fitted decay constant, but verify that the readout bias was stable over delay.
-          - Designed to be comparatively insensitive to fixed SPAM offsets in the decay parameter; still inspect the fit.
+          - Designed to be comparatively insensitive to fixed state-preparation and measurement offsets in the decay parameter; still inspect the fit.
           - "Affected: the CHSH correlations were computed from the same classified outcomes and must be reanalysed."
         mapping: [0, 1, 2, 3]
       - group: FAB

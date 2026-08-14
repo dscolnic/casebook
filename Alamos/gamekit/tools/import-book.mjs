@@ -292,10 +292,22 @@ function gameFor(s, at, group, day){
     const axis = w.axis ?? {};
     need(Number.isFinite(+axis.min) && Number.isFinite(+axis.max) && +axis.max > +axis.min,
       'sweep needs axis.min and axis.max, with max greater than min');
-    need(Array.isArray(w.response) && w.response.length >= 4,
-      'sweep needs at least four authored response points');
-    need(w.response.every(p => Number.isFinite(+p.at) && Number.isFinite(+p.value)),
+    // One curve, or several that trade off against each other. `mode: boundary`
+    // is the second kind: the control is a decision line and each series is a
+    // cost that moving it makes worse. The player is meant to discover that no
+    // position makes both small, which is why the format cannot simply mark an
+    // optimum.
+    const series = Array.isArray(w.series) && w.series.length
+      ? w.series
+      : [{ label: w.readout?.label ?? '', response: w.response }];
+    need(series.every(x => Array.isArray(x.response) && x.response.length >= 4),
+      'every sweep series needs at least four authored response points');
+    need(series.every(x => x.response.every(p => Number.isFinite(+p.at) && Number.isFinite(+p.value))),
       'every sweep response point needs a numeric `at` and `value`');
+    need(!w.mode || ['peak', 'boundary'].includes(w.mode),
+      `sweep mode "${w.mode}" is not one of peak, boundary`);
+    if(w.mode === 'boundary') need(series.length >= 2,
+      'a boundary sweep needs at least two series — the costs it trades between');
     need(Number.isFinite(+w.target), 'sweep needs a numeric target');
     need(+w.target >= +axis.min && +w.target <= +axis.max, 'the sweep target is outside its own axis');
     need(Number.isFinite(+w.tolerance) && +w.tolerance > 0, 'sweep needs a positive tolerance');
@@ -305,13 +317,19 @@ function gameFor(s, at, group, day){
     need(Math.abs(start - +w.target) > +w.tolerance,
       'the sweep starts on its own answer — move `start` away from `target`');
     return { ...base, sweep: {
+      mode: w.mode ?? 'peak',
       axis: { label: axis.label ?? '', unit: axis.unit ?? '', min: +axis.min, max: +axis.max,
         step: Number.isFinite(+axis.step) ? +axis.step : (+axis.max - +axis.min) / 200 },
       readout: { label: w.readout?.label ?? '', unit: w.readout?.unit ?? '' },
-      response: w.response.map(p => ({ at: +p.at, value: +p.value })),
+      series: series.map(x => ({ label: x.label ?? '', unit: x.unit ?? '',
+        response: x.response.map(p => ({ at: +p.at, value: +p.value })) })),
+      // Kept for the single-curve case, which is most of them, so nothing
+      // downstream has to branch to read one response.
+      response: series[0].response.map(p => ({ at: +p.at, value: +p.value })),
       baseline: Number.isFinite(+w.baseline) ? +w.baseline : 0,
       target: +w.target, tolerance: +w.tolerance, start,
       commit: w.commit ?? 'Mark it',
+      ...(w.floor ? { floor: String(w.floor) } : {}),
     } };
   }
 

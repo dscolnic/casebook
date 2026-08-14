@@ -90,6 +90,37 @@ function materialHTML(ch){
     section('Cards, in no order',
       list(ch.cards.map((c, i) => `<b>${letters[i]}</b>&nbsp; ${esc(label(c))}`), 'cards'));
   }
+  if(ch.sweep){
+    // The curve, on paper. The response is authored as sampled points precisely
+    // so this can exist: a formula would give the book and the screen two
+    // different questions, and a reader working from the printed page has to be
+    // able to find the same feature the panel shows.
+    const w = ch.sweep;
+    const a = w.axis ?? {};
+    const all = (w.series ?? [{ response: w.response ?? [] }]);
+    const vals = all.flatMap(x => x.response.map(p => p.value)).concat([w.baseline ?? 0]);
+    const lo = Math.min(...vals), hi = Math.max(...vals);
+    const span = (a.max - a.min) || 1, range = (hi - lo) || 1;
+    const px = (x) => (8 + ((x - a.min) / span) * 304).toFixed(1);
+    const py = (v) => (96 - ((v - lo) / range) * 84).toFixed(1);
+    const ink = ['#1d3f57', '#8a5a1e', '#2f6f4a'];
+    const plot = `<svg class="sweepFig" viewBox="0 0 320 110" role="img">`
+      + `<rect x="8" y="8" width="304" height="88" fill="#fbfaf6" stroke="#c9ccd2" stroke-width=".5"/>`
+      + all.map((x, i) => `<polyline fill="none" stroke="${ink[i % ink.length]}" stroke-width="1.4" points="`
+          + [...x.response].sort((m, n) => m.at - n.at).map(pt => `${px(pt.at)},${py(pt.value)}`).join(' ')
+          + `"/>`).join('')
+      + `<text x="8" y="107" class="axl">${esc(String(a.min))}</text>`
+      + `<text x="312" y="107" class="axl" text-anchor="end">${esc(String(a.max))} ${esc(a.unit ?? '')}</text>`
+      + `<text x="160" y="107" class="axl" text-anchor="middle">${esc(a.label ?? '')}</text>`
+      + `</svg>`;
+    const key = all.length > 1
+      ? `<p class="sweepKey">${all.map((x, i) =>
+          `<span style="color:${ink[i % ink.length]}">■</span> ${esc(x.label ?? '')}`).join(' &nbsp; ')}</p>`
+      : '';
+    section(`Sweep — ${esc(a.label ?? 'control')}`, plot + key
+      + `<p class="mono">Reads ${esc(w.readout?.label ?? 'response')} against ${esc(a.label ?? 'the control')}`
+      + `, from ${esc(String(w.start))} ${esc(a.unit ?? '')}.</p>`);
+  }
   if(ch.givens) section('Given', list(ch.givens.map(g => esc(g)), 'givens'));
   if(ch.relationship) section('Relationship', `<p class="mono">${esc(ch.relationship)}</p>`);
   if(ch.readings){
@@ -766,6 +797,9 @@ async function build(themeName){
   table.readings td { padding: 3pt 5pt; border-bottom: .5pt solid #d9dce1; vertical-align: top; }
   table.readings .zone { color: #5c6169; white-space: nowrap; }
   table.readings .val { font-family: "SF Mono", Menlo, monospace; white-space: nowrap; }
+  .sweepFig { width: 100%; height: auto; display: block; }
+  .sweepFig .axl { font: 400 6pt "Inter", system-ui, sans-serif; fill: #6a6f77; }
+  .sweepKey { font: 400 8pt "Inter", system-ui, sans-serif; color: #4a4f57; margin: 2pt 0 0; }
   table.readings .val.alarm { font-weight: 700; }
   table.readings .note { color: #4a4f57; }
 

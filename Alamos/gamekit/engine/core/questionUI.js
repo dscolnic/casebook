@@ -560,8 +560,9 @@ function tankHTML(ch){
 let activeSweep = null;
 
 /** Linear interpolation between the authored points, flat outside them. */
-function sweepValueAt(w, x){
-  const pts = [...(w.response ?? [])].sort((a, b) => a.at - b.at);
+function sweepValueAt(w, x, seriesIx = 0){
+  const src = (w.series ?? [])[seriesIx]?.response ?? w.response ?? [];
+  const pts = [...src].sort((a, b) => a.at - b.at);
   if(!pts.length) return w.baseline ?? 0;
   if(x <= pts[0].at) return pts[0].value;
   if(x >= pts[pts.length - 1].at) return pts[pts.length - 1].value;
@@ -575,21 +576,29 @@ function sweepValueAt(w, x){
   return w.baseline ?? 0;
 }
 
+const SWEEP_INK = ['#2f6f8f', '#b06a2a', '#3f8f56'];
+
 function sweepHTML(ch){
   const w = ch.sweep ?? {};
-  activeSweep = { at: w.start, visited: [], committed: false };
+  const series = w.series ?? [{ label: w.readout?.label ?? '', response: w.response ?? [] }];
+  activeSweep = { at: w.start, visited: [], committed: false, series: series.length };
   const a = w.axis ?? {};
   return `<div class="sweepPanel" data-min="${a.min}" data-max="${a.max}" data-step="${a.step}">`
     + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
     + `<b class="sweepAt">${fmt(w.start)}${a.unit ? ' ' + esc(a.unit) : ''}</b></div>`
     + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Response against ${esc(a.label)}">`
     + `<rect width="320" height="120" fill="#f7f9fa"/>`
-    + `<polyline class="sweepTrace" fill="none" stroke="#2f6f8f" stroke-width="2" points=""/>`
+    + series.map((x, i) =>
+        `<polyline class="sweepTrace" data-series="${i}" fill="none" stroke="${SWEEP_INK[i % SWEEP_INK.length]}" stroke-width="2" points=""/>`).join('')
     + `<line class="sweepHandle" x1="0" y1="0" x2="0" y2="120" stroke="#c0392b" stroke-width="1.5"/>`
     + `</svg>`
     + `<input class="sweepRange" type="range" min="${a.min}" max="${a.max}" step="${a.step}" value="${w.start}">`
-    + `<div class="sweepReadout"><span>${esc(w.readout?.label ?? 'Response')}</span>`
-    + `<b class="sweepValue">—</b></div>`
+    + series.map((x, i) => `<div class="sweepReadout"><span style="color:${SWEEP_INK[i % SWEEP_INK.length]}">`
+        + `${esc(x.label || w.readout?.label || 'Response')}</span>`
+        + `<b class="sweepValue" data-series="${i}">—</b></div>`).join('')
+    + (series.length > 1
+        ? `<div class="sweepReadout sweepTotal"><span>${esc(w.floor ?? 'Total')}</span>`
+          + `<b class="sweepSum">—</b></div>` : '')
     + `<div class="modalActions"><button class="btn primary" id="sweepCommit" type="button">`
     + `${esc(w.commit ?? 'Mark it')}</button></div>`
     + `<div id="visitFeedback"></div></div>`;
@@ -601,7 +610,6 @@ function bindSweep(container, ch){
   const panel = container.querySelector('.sweepPanel');
   if(!panel) return;
   const range = panel.querySelector('.sweepRange');
-  const trace = panel.querySelector('.sweepTrace');
   const handle = panel.querySelector('.sweepHandle');
   const atEl = panel.querySelector('.sweepAt');
   const valEl = panel.querySelector('.sweepValue');
@@ -609,26 +617,34 @@ function bindSweep(container, ch){
   const span = (a.max - a.min) || 1;
   // The plot's y range comes from the authored points, so a small feature on a
   // large baseline is still visible.
-  const vals = (w.response ?? []).map(p => p.value).concat([w.baseline ?? 0]);
+  const series = w.series ?? [{ response: w.response ?? [] }];
+  const vals = series.flatMap(x => x.response.map(p => p.value)).concat([w.baseline ?? 0]);
   const lo = Math.min(...vals), hi = Math.max(...vals);
   const yRange = (hi - lo) || 1;
   const px = (x) => ((x - a.min) / span) * 320;
   const py = (v) => 114 - ((v - lo) / yRange) * 108;
 
+  const traces = [...panel.querySelectorAll('.sweepTrace')];
+  const valEls = [...panel.querySelectorAll('.sweepValue')];
+  const sumEl = panel.querySelector('.sweepSum');
   const draw = () => {
     const x = +range.value;
-    const v = sweepValueAt(w, x);
+    const vs = series.map((_, i) => sweepValueAt(w, x, i));
     activeSweep.at = x;
     // Only what the player has actually visited is plotted.
     if(!activeSweep.visited.some(p => Math.abs(p.at - x) < (a.step || 0) / 2)){
-      activeSweep.visited.push({ at: x, value: v });
+      activeSweep.visited.push({ at: x, values: vs });
       activeSweep.visited.sort((p, q) => p.at - q.at);
     }
-    trace.setAttribute('points', activeSweep.visited.map(p => `${px(p.at).toFixed(1)},${py(p.value).toFixed(1)}`).join(' '));
+    traces.forEach((t, i) => t.setAttribute('points',
+      activeSweep.visited.map(p => `${px(p.at).toFixed(1)},${py(p.values[i]).toFixed(1)}`).join(' ')));
     handle.setAttribute('x1', px(x).toFixed(1));
     handle.setAttribute('x2', px(x).toFixed(1));
     atEl.textContent = `${fmt(x)}${a.unit ? ' ' + a.unit : ''}`;
-    valEl.textContent = `${fmt(v)}${w.readout?.unit ? ' ' + w.readout.unit : ''}`;
+    valEls.forEach((el, i) => {
+      el.textContent = `${fmt(vs[i])}${series[i].unit ? ' ' + series[i].unit : (w.readout?.unit ? ' ' + w.readout.unit : '')}`;
+    });
+    if(sumEl) sumEl.textContent = fmt(vs.reduce((a2, b) => a2 + b, 0));
   };
   range.addEventListener('input', draw);
   draw();

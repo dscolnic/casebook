@@ -743,6 +743,7 @@ export const CURRICULUM = {
         "answer": "",
         "why": "The strong, narrow response at 4.61 GHz is the transition. Nothing appears at 5.02, where the design put it, because a superconducting qubit's frequency depends on a junction barrier about a nanometre thick that no process controls perfectly — the design value is a prediction and the sweep is the measurement. The weaker feature near 4.55 is real and is not the qubit; identifying it takes a second test, such as watching how it moves when the chip is thermally cycled. Sweeping past both is what separates the two.\n",
         "sweep": {
+          "mode": "peak",
           "axis": {
             "label": "Drive frequency",
             "unit": "GHz",
@@ -754,6 +755,46 @@ export const CURRICULUM = {
             "label": "Excited population",
             "unit": ""
           },
+          "series": [
+            {
+              "label": "Excited population",
+              "unit": "",
+              "response": [
+                {
+                  "at": 4.2,
+                  "value": 0.02
+                },
+                {
+                  "at": 4.5,
+                  "value": 0.02
+                },
+                {
+                  "at": 4.55,
+                  "value": 0.16
+                },
+                {
+                  "at": 4.58,
+                  "value": 0.04
+                },
+                {
+                  "at": 4.61,
+                  "value": 0.94
+                },
+                {
+                  "at": 4.64,
+                  "value": 0.05
+                },
+                {
+                  "at": 5.02,
+                  "value": 0.02
+                },
+                {
+                  "at": 6.4,
+                  "value": 0.02
+                }
+              ]
+            }
+          ],
           "response": [
             {
               "at": 4.2,
@@ -914,50 +955,139 @@ export const CURRICULUM = {
       "place": "Control & Readout",
       "story": "The digitiser's shots plot as two clouds. Most are clearly in one or the other. A few thousand sit between them, and a line drawn somewhere in that gap assigns every one of those to a state.",
       "game": {
-        "type": "CHOICE",
+        "type": "SWEEP",
         "title": "A line drawn between two clouds",
         "setup": "Control & Readout",
         "play": "Say what the discriminator decides",
         "task": "Say what the discriminator decides",
-        "question": "If the two clouds themselves do not move, what can changing only the discriminator threshold accomplish?",
-        "answer": "It trades one error for the other; the overlap sets the floor.",
-        "why": "\"Moving the threshold changes which ambiguous shots are assigned to which state. It can reduce the error for one prepared state while increasing it for the other, and the optimum depends on what cost function the experiment cares about. What a threshold cannot do is create information that is absent from the signal: if the two distributions overlap strongly, the best classifier still has a nonzero error. Improving signal-to-noise, integration or state separation changes that overlap; moving the line only changes how the overlap is partitioned.\"\n",
-        "rebuttals": [
-          "Moving toward one cloud can help one class while hurting the other; there is no direction that automatically improves both.",
-          "The threshold directly changes how ambiguous shots are labelled, so the reported probabilities do change.",
-          "The software decision is made from the recorded signal; in this setup it does not feed back and alter the earlier qubit dynamics."
-        ],
-        "choices": [
-          "It improves fidelity, because a better line assigns more shots correctly.",
-          "It trades one error for the other; the overlap sets the floor.",
-          "It has no effect, since the clouds are already separated.",
-          "It changes what the qubit does during readout."
-        ],
-        "correctChoice": "It trades one error for the other; the overlap sets the floor."
+        "question": "Move the discriminator line and find the best place for it.",
+        "answer": "",
+        "why": "Moving the line changes which ambiguous shots are called which state, and it can only ever trade one error against the other — the two curves cross, and the sum has a minimum that is not zero. That floor is the overlap between the clouds, and no line removes it. Getting below it needs more signal, less noise or a longer integration: something that separates the distributions rather than something that re-labels them. The optimum also depends on which error costs more, which is a question about the experiment rather than about the classifier.\n",
+        "sweep": {
+          "mode": "boundary",
+          "axis": {
+            "label": "Discriminator threshold",
+            "unit": "mV",
+            "min": -40,
+            "max": 40,
+            "step": 1
+          },
+          "readout": {
+            "label": "",
+            "unit": ""
+          },
+          "series": [
+            {
+              "label": "Ground shots called excited",
+              "unit": "%",
+              "response": [
+                {
+                  "at": -40,
+                  "value": 24
+                },
+                {
+                  "at": -20,
+                  "value": 11
+                },
+                {
+                  "at": -6,
+                  "value": 3.4
+                },
+                {
+                  "at": 0,
+                  "value": 2
+                },
+                {
+                  "at": 8,
+                  "value": 0.9
+                },
+                {
+                  "at": 20,
+                  "value": 0.3
+                },
+                {
+                  "at": 40,
+                  "value": 0.1
+                }
+              ]
+            },
+            {
+              "label": "Excited shots called ground",
+              "unit": "%",
+              "response": [
+                {
+                  "at": -40,
+                  "value": 0.1
+                },
+                {
+                  "at": -20,
+                  "value": 0.4
+                },
+                {
+                  "at": -6,
+                  "value": 1.6
+                },
+                {
+                  "at": 0,
+                  "value": 2.6
+                },
+                {
+                  "at": 8,
+                  "value": 5.2
+                },
+                {
+                  "at": 20,
+                  "value": 13
+                },
+                {
+                  "at": 40,
+                  "value": 27
+                }
+              ]
+            }
+          ],
+          "response": [
+            {
+              "at": -40,
+              "value": 24
+            },
+            {
+              "at": -20,
+              "value": 11
+            },
+            {
+              "at": -6,
+              "value": 3.4
+            },
+            {
+              "at": 0,
+              "value": 2
+            },
+            {
+              "at": 8,
+              "value": 0.9
+            },
+            {
+              "at": 20,
+              "value": 0.3
+            },
+            {
+              "at": 40,
+              "value": 0.1
+            }
+          ],
+          "baseline": 0,
+          "target": -3,
+          "tolerance": 4,
+          "start": -40,
+          "commit": "Set the threshold",
+          "floor": "Total misassignment"
+        }
       },
       "assumes": [
         "a measurement produces a distribution rather than a single value"
       ],
       "equations": [
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        },
         {
           "e": "n_phys ≈ d²  per logical qubit",
           "c": "what error correction costs",
@@ -987,26 +1117,107 @@ export const CURRICULUM = {
       "place": "Control & Readout",
       "story": "When the twelfth qubit is tuned to 4.56 GHz, within about 10 MHz of the feature, its T1 falls from roughly 90 microseconds to about 35. At 4.61 GHz it is substantially better, and a few hundred megahertz away the extra loss is no longer visible.",
       "game": {
-        "type": "CHOICE",
+        "type": "SWEEP",
         "title": "Energy with somewhere to go",
         "setup": "Control & Readout",
         "play": "Say what it does to a qubit near it",
         "task": "Say what it does to a qubit near it",
-        "question": "What is the practical response to a defect at a known frequency?",
-        "answer": "Operate the qubit away from that frequency, and record where the defect is.",
-        "why": "\"A resonant defect exchanges energy most strongly when its transition is close to the qubit's. Detuning the qubit reduces that exchange, so a tunable device can often avoid a narrow loss feature without pretending the defect has disappeared. The useful response is therefore twofold: choose an operating frequency with acceptable T1 and record the avoided region so the next calibration does not wander back into it. Cooling can change defect occupation in some cases, but it does not remove the resonant coupling that is producing the sharp frequency dependence here.\"\n",
-        "rebuttals": [
-          "A narrow, mapped loss feature does not invalidate the entire chip; the relevant question is whether an operating region remains.",
-          "Lower temperature may change populations but does not by itself remove a resonant coupling between the qubit and a defect.",
-          "Faster control may reduce exposure during a pulse, but it does not restore the intrinsic T1 or make the loss channel disappear."
-        ],
-        "choices": [
-          "Discard the chip immediately, because any material defect makes its other frequencies scientifically unusable.",
-          "Operate the qubit away from that frequency, and record where the defect is.",
-          "Cool farther and assume the resonant feature will disappear once the defect is in its ground state.",
-          "Increase drive power until coherent control is faster than the measured T1 loss."
-        ],
-        "correctChoice": "Operate the qubit away from that frequency, and record where the defect is."
+        "question": "Tune the qubit across the band and find the frequency to keep it away from.",
+        "answer": "",
+        "why": "Resonant exchange only works near resonance, which is why the same qubit is fine at 4.61 GHz and poor a few tens of megahertz lower: tuned onto the defect it has somewhere to put its energy, and T1 falls by more than half. On a tunable device that makes frequency an engineering control as well as a measurement — move the qubit and the loss channel is simply not there. The half of the job that gets forgotten is writing the band down, because an undocumented defect is a trap for whoever retunes next.\n",
+        "sweep": {
+          "mode": "peak",
+          "axis": {
+            "label": "Qubit frequency",
+            "unit": "GHz",
+            "min": 4.4,
+            "max": 4.8,
+            "step": 0.005
+          },
+          "readout": {
+            "label": "Relaxation time T1",
+            "unit": "µs"
+          },
+          "series": [
+            {
+              "label": "Relaxation time T1",
+              "unit": "",
+              "response": [
+                {
+                  "at": 4.4,
+                  "value": 92
+                },
+                {
+                  "at": 4.5,
+                  "value": 90
+                },
+                {
+                  "at": 4.54,
+                  "value": 62
+                },
+                {
+                  "at": 4.555,
+                  "value": 34
+                },
+                {
+                  "at": 4.57,
+                  "value": 58
+                },
+                {
+                  "at": 4.61,
+                  "value": 89
+                },
+                {
+                  "at": 4.7,
+                  "value": 91
+                },
+                {
+                  "at": 4.8,
+                  "value": 90
+                }
+              ]
+            }
+          ],
+          "response": [
+            {
+              "at": 4.4,
+              "value": 92
+            },
+            {
+              "at": 4.5,
+              "value": 90
+            },
+            {
+              "at": 4.54,
+              "value": 62
+            },
+            {
+              "at": 4.555,
+              "value": 34
+            },
+            {
+              "at": 4.57,
+              "value": 58
+            },
+            {
+              "at": 4.61,
+              "value": 89
+            },
+            {
+              "at": 4.7,
+              "value": 91
+            },
+            {
+              "at": 4.8,
+              "value": 90
+            }
+          ],
+          "baseline": 90,
+          "target": 4.555,
+          "tolerance": 0.012,
+          "start": 4.8,
+          "commit": "Mark the band to avoid"
+        }
       },
       "assumes": [
         "two systems at the same frequency can exchange energy"
@@ -1452,26 +1663,122 @@ export const CURRICULUM = {
       "place": "Error & Verification",
       "story": "Holm's table: T1 of 90 microseconds, T2 of 32, on all twelve qubits within a few per cent. The ceiling on T2 set by this T1 would be 180.",
       "game": {
-        "type": "CHOICE",
+        "type": "SWEEP",
         "title": "Energy out, or phase scrambled",
         "setup": "Error & Verification",
         "play": "Say what the two numbers mean together",
         "task": "Say what the two numbers mean together",
-        "question": "In the usual exponential-rate model, what mechanism must be contributing if T1 ≈ 90 µs but T2 ≈ 32 µs?",
-        "answer": "Something scrambles the phase without taking energy.",
-        "why": "T1 measures energy relaxation. T2 measures loss of phase coherence, and relaxation itself contributes to that loss, giving a relaxation-limited ceiling of 2T1 in the simple exponential model. Here the measured T2 is far below that ceiling, so an additional dephasing process is required. Slow fluctuations of flux, bias current or resonator photon number are examples because they shift the qubit frequency between repetitions without necessarily removing a quantum of energy.\n",
-        "rebuttals": [
-          "Ninety microseconds of T1 is normal for this device; nothing there is faster than expected.",
-          "T2 shorter than T1 is entirely ordinary, and it is T2 above twice T1 that would be impossible.",
-          "The fridge limits thermal population, and a shared thermal limit would move both numbers together."
-        ],
-        "choices": [
-          "The qubits are losing energy to their environment faster than expected.",
-          "Something scrambles the phase without taking energy.",
-          "The measurement of T2 is wrong, since coherence cannot be shorter than relaxation.",
-          "Both numbers are limited by the same mechanism, which is the fridge temperature."
-        ],
-        "correctChoice": "Something scrambles the phase without taking energy."
+        "question": "Run both measurements out to longer delays, and find where the phase has gone.",
+        "answer": "",
+        "why": "Both curves fall, and one falls much faster. Energy leaves at 90 microseconds and phase coherence is gone by about 32, so nearly all of the damage is being done by something that never takes any energy at all — slow noise shifting the qubit's frequency between repetitions. That matters because the two have different cures: energy loss is a materials and fridge problem, and dephasing is usually wiring. The ceiling worth remembering is that coherence can never exceed twice the relaxation time, so 180 was the best this device could have done and it is managing a fifth of it.\n",
+        "sweep": {
+          "mode": "boundary",
+          "axis": {
+            "label": "Delay before readout",
+            "unit": "µs",
+            "min": 1,
+            "max": 200,
+            "step": 1
+          },
+          "readout": {
+            "label": "",
+            "unit": ""
+          },
+          "series": [
+            {
+              "label": "Excited population left",
+              "unit": "",
+              "response": [
+                {
+                  "at": 1,
+                  "value": 0.99
+                },
+                {
+                  "at": 32,
+                  "value": 0.7
+                },
+                {
+                  "at": 62,
+                  "value": 0.5
+                },
+                {
+                  "at": 90,
+                  "value": 0.37
+                },
+                {
+                  "at": 140,
+                  "value": 0.21
+                },
+                {
+                  "at": 200,
+                  "value": 0.11
+                }
+              ]
+            },
+            {
+              "label": "Ramsey contrast left",
+              "unit": "",
+              "response": [
+                {
+                  "at": 1,
+                  "value": 0.97
+                },
+                {
+                  "at": 22,
+                  "value": 0.5
+                },
+                {
+                  "at": 32,
+                  "value": 0.37
+                },
+                {
+                  "at": 62,
+                  "value": 0.14
+                },
+                {
+                  "at": 90,
+                  "value": 0.06
+                },
+                {
+                  "at": 200,
+                  "value": 0.01
+                }
+              ]
+            }
+          ],
+          "response": [
+            {
+              "at": 1,
+              "value": 0.99
+            },
+            {
+              "at": 32,
+              "value": 0.7
+            },
+            {
+              "at": 62,
+              "value": 0.5
+            },
+            {
+              "at": 90,
+              "value": 0.37
+            },
+            {
+              "at": 140,
+              "value": 0.21
+            },
+            {
+              "at": 200,
+              "value": 0.11
+            }
+          ],
+          "baseline": 0,
+          "target": 32,
+          "tolerance": 8,
+          "start": 1,
+          "commit": "Mark where contrast has fallen to a third",
+          "floor": "Both together"
+        }
       },
       "assumes": [
         "a quantum state has both an energy and a phase, which can be lost separately"
@@ -1717,50 +2024,110 @@ export const CURRICULUM = {
       "place": "Error & Verification",
       "story": "Holm runs sequences of 2, 8, 32 and 128 random gates, each ending with the gate that should return the qubit to where it started. The success rate falls smoothly with length.",
       "game": {
-        "type": "CHOICE",
+        "type": "SWEEP",
         "title": "Why a long sequence tells you more",
         "setup": "Error & Verification",
         "play": "Say what benchmarking measures",
         "task": "Say what benchmarking measures",
-        "question": "What feature of the multi-length decay lets randomized benchmarking estimate gate performance despite fixed preparation and readout imperfections?",
-        "answer": "The error is in the slope, so constant offsets drop out.",
-        "why": "In the standard randomized-benchmarking model, state-preparation and measurement errors mainly change the constants that set the vertical scale and offset of the survival curve, while gate errors change how the curve decays with sequence length. Fitting several lengths therefore extracts a decay parameter that is comparatively insensitive to fixed SPAM errors. Randomizing over many sequences also averages over the particular structure of any one sequence. This robustness has assumptions — for example, strongly time-dependent or gate-dependent SPAM can complicate the simple picture — so the benchmark is a procedure, not a magic error eraser.\n",
-        "rebuttals": [
-          "Longer circuits do not reduce SPAM; they make accumulated gate error easier to distinguish from a fixed offset.",
-          "Randomization averages sequence-specific structure, but it does not make all gates identical.",
-          "The inversion ideally cancels the intended gates, not the preparation error that occurred before them."
-        ],
-        "choices": [
-          "Long sequences make preparation and readout errors physically smaller before the final measurement.",
-          "The error is in the slope, so constant offsets drop out.",
-          "Random sequences guarantee that every individual gate has exactly the same error probability.",
-          "The final inversion gate cancels any error that occurred during state preparation."
-        ],
-        "correctChoice": "The error is in the slope, so constant offsets drop out."
+        "question": "Run sequences of increasing length, and find where half the runs no longer return.",
+        "answer": "",
+        "why": "Every gate has to work for the sequence to return, so the probabilities multiply and the curve is exponential rather than straight. At 98.8 per cent a gate, half the runs are already lost by about sixty gates — which is why depth, not qubit count, is the quantity that limits this machine. Reading the error from how fast the curve falls is also what makes the measurement clean: a constant readout offset moves the whole curve down without changing its slope, so it drops out of the answer.\n",
+        "sweep": {
+          "mode": "peak",
+          "axis": {
+            "label": "Gates in the sequence",
+            "unit": "gates",
+            "min": 1,
+            "max": 256,
+            "step": 1
+          },
+          "readout": {
+            "label": "Runs returning to the start",
+            "unit": ""
+          },
+          "series": [
+            {
+              "label": "Runs returning to the start",
+              "unit": "",
+              "response": [
+                {
+                  "at": 1,
+                  "value": 0.988
+                },
+                {
+                  "at": 8,
+                  "value": 0.908
+                },
+                {
+                  "at": 16,
+                  "value": 0.825
+                },
+                {
+                  "at": 32,
+                  "value": 0.68
+                },
+                {
+                  "at": 57,
+                  "value": 0.5
+                },
+                {
+                  "at": 96,
+                  "value": 0.316
+                },
+                {
+                  "at": 160,
+                  "value": 0.146
+                },
+                {
+                  "at": 256,
+                  "value": 0.045
+                }
+              ]
+            }
+          ],
+          "response": [
+            {
+              "at": 1,
+              "value": 0.988
+            },
+            {
+              "at": 8,
+              "value": 0.908
+            },
+            {
+              "at": 16,
+              "value": 0.825
+            },
+            {
+              "at": 32,
+              "value": 0.68
+            },
+            {
+              "at": 57,
+              "value": 0.5
+            },
+            {
+              "at": 96,
+              "value": 0.316
+            },
+            {
+              "at": 160,
+              "value": 0.146
+            },
+            {
+              "at": 256,
+              "value": 0.045
+            }
+          ],
+          "baseline": 0,
+          "target": 57,
+          "tolerance": 10,
+          "start": 1,
+          "commit": "Mark the half-way length"
+        }
       },
       "assumes": [
         "errors accumulate as operations are applied in succession"
-      ],
-      "equations": [
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        }
       ]
     },
     {
@@ -1986,11 +2353,11 @@ export const CURRICULUM = {
         "task": "Sort the fortnight's numbers",
         "question": "Sort the fortnight's numbers",
         "answer": "",
-        "why": "\"The discriminator converts analogue readout records into bits, so quantities built directly from classified outcomes — including the reported readout fidelity, circuit outcome probabilities and the Bell correlations — must be reconsidered. T1 and T2 are extracted mainly from how a signal changes with delay, so an approximately stable affine readout error often changes the amplitude or offset more than the fitted decay constant; those fits should still be checked, but they are not automatically invalid. Standard randomized benchmarking has a similar designed insensitivity to fixed SPAM terms in its decay parameter. The rule is dependency, not prestige: rerun or reanalyse anything for which the faulty classification can change the quantity of interest.\"\n",
+        "why": "\"The discriminator converts analogue readout records into bits, so quantities built directly from classified outcomes — including the reported readout fidelity, circuit outcome probabilities and the Bell correlations — must be reconsidered. T1 and T2 are extracted mainly from how a signal changes with delay, so an approximately stable affine readout error often changes the amplitude or offset more than the fitted decay constant; those fits should still be checked, but they are not automatically invalid. Standard randomized benchmarking has a similar designed insensitivity to fixed state-preparation and measurement terms in its decay parameter. The rule is dependency, not prestige: rerun or reanalyse anything for which the faulty classification can change the quantity of interest.\"\n",
         "rebuttals": [
           "Circuit outcome probabilities are downstream of the discriminator, so the classifier can bias them directly.",
           "A stable readout offset often changes the scale or baseline of a relaxation/coherence trace more than its decay rate, but stability should be checked rather than assumed.",
-          "Randomized benchmarking is built to make fixed SPAM contributions enter mainly as fit constants rather than as the sequence-length decay parameter.",
+          "Randomized benchmarking is built to make fixed state-preparation and measurement contributions enter mainly as fit constants rather than as the sequence-length decay parameter.",
           "The Bell statistic is calculated from classified joint outcomes, so the discriminator can bias the correlations themselves."
         ],
         "scenarios": [
@@ -2002,7 +2369,7 @@ export const CURRICULUM = {
         "choices": [
           "Affected directly: it is computed from classified circuit outcomes.",
           "Likely robust in its fitted decay constant, but verify that the readout bias was stable over delay.",
-          "Designed to be comparatively insensitive to fixed SPAM offsets in the decay parameter; still inspect the fit.",
+          "Designed to be comparatively insensitive to fixed state-preparation and measurement offsets in the decay parameter; still inspect the fit.",
           "Affected: the CHSH correlations were computed from the same classified outcomes and must be reanalysed."
         ],
         "mapping": [
@@ -2309,20 +2676,107 @@ export const CURRICULUM = {
       "place": "Quantum Sensing",
       "story": "A single measurement resolves 40 picotesla. Barros needs 4. She has an hour, and each measurement takes a hundred milliseconds.",
       "game": {
-        "type": "BALLPARK",
+        "type": "SWEEP",
         "title": "What averaging buys",
         "setup": "Quantum Sensing",
         "play": "Find the noise floor",
         "task": "Find the noise floor",
-        "question": "If Barros averages continuously for the full hour, what random-noise-limited resolution would the 1/√N rule predict?",
-        "answer": "About 0.21 pT.",
-        "why": "\"At one measurement every 0.1 seconds, an hour contains 36,000 nominally independent shots. Independent random noise falls as 1/√N, so the predicted resolution is 40 pT divided by √36,000, or about 0.21 pT. The original 4 pT target is therefore reached after only about 100 shots, roughly ten seconds. The catch is the word *independent*: once drift or correlated noise dominates, averaging longer stops following this ideal scaling. Entanglement and squeezing can improve quantum-limited sensitivity in suitable sensors, but they do not automatically remove technical drift or every other noise source.\"\n",
-        "givens": [
-          "One measurement resolves 40 pT",
-          "One hour at 0.10 s per measurement gives 36,000 measurements"
-        ],
-        "relationship": "Averaged resolution = single-shot resolution ÷ √N for independent random noise.\n",
-        "calcKey": "SENSE-2"
+        "question": "Choose how long to average, and find where averaging stops helping.",
+        "answer": "",
+        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of ten in precision is cheap and the second costs a hundred times the time. That is the standard quantum limit, and it is why sensing is a patience problem. What ends it here is drift: past about half a minute the instrument itself has moved, the measurements are no longer independent, and averaging longer makes the answer worse rather than better. The knee is where those two effects cross.\n",
+        "sweep": {
+          "mode": "peak",
+          "axis": {
+            "label": "Integration time",
+            "unit": "s",
+            "min": 0.1,
+            "max": 120,
+            "step": 0.1
+          },
+          "readout": {
+            "label": "Resolvable field",
+            "unit": "pT"
+          },
+          "series": [
+            {
+              "label": "Resolvable field",
+              "unit": "",
+              "response": [
+                {
+                  "at": 0.1,
+                  "value": 40
+                },
+                {
+                  "at": 1,
+                  "value": 12.6
+                },
+                {
+                  "at": 4,
+                  "value": 6.3
+                },
+                {
+                  "at": 10,
+                  "value": 4
+                },
+                {
+                  "at": 20,
+                  "value": 2.9
+                },
+                {
+                  "at": 35,
+                  "value": 2.6
+                },
+                {
+                  "at": 60,
+                  "value": 2.7
+                },
+                {
+                  "at": 120,
+                  "value": 3.4
+                }
+              ]
+            }
+          ],
+          "response": [
+            {
+              "at": 0.1,
+              "value": 40
+            },
+            {
+              "at": 1,
+              "value": 12.6
+            },
+            {
+              "at": 4,
+              "value": 6.3
+            },
+            {
+              "at": 10,
+              "value": 4
+            },
+            {
+              "at": 20,
+              "value": 2.9
+            },
+            {
+              "at": 35,
+              "value": 2.6
+            },
+            {
+              "at": 60,
+              "value": 2.7
+            },
+            {
+              "at": 120,
+              "value": 3.4
+            }
+          ],
+          "baseline": 40,
+          "target": 35,
+          "tolerance": 8,
+          "start": 0.1,
+          "commit": "Set the integration time"
+        }
       },
       "assumes": [
         "independent measurements can be averaged to reduce random error"
@@ -2983,36 +3437,6 @@ export const BALLPARK_CALCS = {
     "units": "µs",
     "solution": "1/T_φ = 1/32 − 1/180 → T_φ ≈ 39 µs.",
     "explanation": "About 39 microseconds in the simple exponential-rate model. That is close to the measured T2, so an additional dephasing contribution dominates over the relaxation contribution. If the measured Ramsey decay is non-exponential, one should not interpret this single number too literally.\n"
-  },
-  "SENSE-2": {
-    "prompt": "One measurement resolves 40 pT and takes 0.10 s. One hour therefore contains 36,000 measurements. For independent random noise, resolution scales as 1/√N.\n",
-    "question": "Choose the single-shot resolution and the number of measurements in one hour.",
-    "labels": [
-      "40  (single-measurement resolution, in pT)",
-      "4  (the target, in pT)",
-      "0.1  (seconds per measurement)",
-      "3600  (seconds in the hour available)",
-      "12  (qubits on the processor)"
-    ],
-    "values": [
-      40,
-      4,
-      0.1,
-      3600,
-      12
-    ],
-    "slots": 2,
-    "template": "({0} ÷ {1})²",
-    "formula": "(a/b)*(a/b)",
-    "correct": [
-      0,
-      1
-    ],
-    "target": 100,
-    "tolerance": 15,
-    "units": "measurements",
-    "solution": "(40 ÷ 4)² = 100 measurements.",
-    "explanation": "\"About 0.21 pT: 40/√36,000. The 4 pT requirement would need only 100 independent shots, or about ten seconds. If the real data stop improving this way, that is evidence that drift or correlated noise has become the limit.\"\n"
   },
   "CTRL-7": {
     "prompt": "One gate has fidelity 0.988, and the circuit applies 400 of them in succession.\n",
