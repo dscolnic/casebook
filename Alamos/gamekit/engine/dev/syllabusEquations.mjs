@@ -17,6 +17,7 @@ import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
 import { EQUATIONS, equationCoverage } from '../../tools/syllabus.js';
 
+const unnamed = [];
 const args = process.argv.slice(2);
 const wanted = args.includes('--all') ? themeNames() : [args[0]].filter(Boolean);
 if(!wanted.length){
@@ -84,7 +85,21 @@ for(const themeName of wanted){
       : 'NO QUESTION';
     console.log(`  ${mark} ${r.e}`);
     console.log(`      ${r.c}`);
+    if(r.v?.length) console.log(`      ${r.v.map(([sym]) => sym).join(' · ')}`);
     console.log(`      ${where}`);
+  }
+
+  // An equation whose letters are never named is a decoration. The card that
+  // shows it has to say what each symbol is and what the relation asserts, so
+  // the list is not allowed to carry one without them.
+  for(const r of rows){
+    if(!r.v?.length) unnamed.push(`${themeName}: ${r.e} names no variables`);
+    if(!r.s) unnamed.push(`${themeName}: ${r.e} has no sentence saying what it asserts`);
   }
 }
 if(wanted.length > 1) console.log(`\n${missingTotal} equation(s) absent across ${wanted.length} themes.`);
+if(unnamed.length){
+  console.log(`\n✗ ${unnamed.length} equation(s) printed without their variables defined:`);
+  unnamed.forEach(u => console.log('  · ' + u));
+  process.exit(1);
+}

@@ -177,7 +177,11 @@ function equationsFor(s, game, assumes){
   for(const eq of list){
     const computed = eq.k.some(k => hit(formula, k));
     if(!computed && !eq.k.some(k => hit(text, k))) continue;
-    out.push({ e: eq.e, c: eq.c, ...(computed ? { computed: true } : {}) });
+    // v and s ride along because the card has to define the symbols where it
+    // shows the equation. A formula whose letters are never named teaches
+    // nobody anything they did not already know.
+    out.push({ e: eq.e, c: eq.c, ...(eq.v ? { v: eq.v } : {}), ...(eq.s ? { s: eq.s } : {}),
+      ...(computed ? { computed: true } : {}) });
   }
   return out;
 }

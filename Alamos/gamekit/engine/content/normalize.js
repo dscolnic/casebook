@@ -419,7 +419,11 @@ export function primeEquations(missions = [], curriculum = {}, changes = []){
       for(const eq of l.equations ?? []){
         if(!eq?.e || seen.has(eq.e)) continue;
         seen.add(eq.e);
-        rows.push({ e: eq.e, c: eq.c ?? '', ...(eq.computed ? { computed: true } : {}) });
+        // v and s come through with it: the card that prints an equation is the
+        // card that has to name its symbols, and dropping them here is what left
+        // every plan card showing a formula whose letters were never defined.
+        rows.push({ e: eq.e, c: eq.c ?? '', ...(eq.v?.length ? { v: eq.v } : {}),
+          ...(eq.s ? { s: eq.s } : {}), ...(eq.computed ? { computed: true } : {}) });
       }
     }
     if(rows.length){ m.equations = rows; printed += rows.length; }
