@@ -20,7 +20,8 @@ import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
  */
 const runSeed = () => Number(getState()?.runSeed) || 0;
 import { formatCountdown } from './day.js';
-import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard } from './figures.js';
+import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard,
+         lineChart } from './figures.js';
 
 let activeChallenge = null;
 let activeOrder = null;
@@ -656,6 +657,40 @@ export function sweepHTML(ch){
     + `<div id="visitFeedback"></div></div>`;
 }
 
+/**
+ * The picture the verdict needs, which the panel cannot give it.
+ *
+ * A sweep plots only the positions the player visited — that is the format — so
+ * when the panel closes the curve they built goes with it. This reveals the whole
+ * authored response with their reading marked beside the one the instrument
+ * supports, which is the difference between "wrong" and "you found the small
+ * feature instead of the big one".
+ *
+ * Exported so `engine/dev/sweeps.html` can draw it for a wrong answer without
+ * playing a campaign.
+ */
+export function sweepVerdictFigure(ch, yours, ok){
+  const w = ch.sweep ?? {}, a = w.axis ?? {};
+  const series = (w.series?.length ? w.series
+    : [{ label: w.readout?.label ?? 'Response', response: w.response ?? [] }]);
+  const ad = decimalsFor(a.step);
+  const unit = a.unit ? ' ' + a.unit : '';
+  const marks = [];
+  if(Number.isFinite(yours) && Math.abs(yours - w.target) > w.tolerance){
+    marks.push({ x: yours, label: `yours, ${num(yours, ad)}${unit}` });
+  }
+  marks.push({ x: w.target, label: `${num(w.target, ad)}${unit}` });
+  return lineChart({
+    series: series.map(s => ({ name: s.label || w.readout?.label || 'Response',
+      points: (s.response ?? []).map(p => [p.at, p.value]) })),
+    marks,
+    xLabel: `${a.label ?? ''}${a.unit ? ` (${a.unit})` : ''}`,
+    yLabel: series.length === 1 ? (series[0].label || w.readout?.label || '') : '',
+    caption: ok ? 'The whole response, with the reading you committed'
+                : 'The whole response — your reading, and the one it supports',
+  });
+}
+
 /** Wire the handle and the commit button. */
 export function bindSweep(container, ch){
   const w = ch.sweep ?? {};
@@ -1145,6 +1180,12 @@ function verdictFigureHTML(ch, lesson, ok){
                                  : 'Every join holds';
     return board + `<div class="figureCaption">${esc(caption)}</div>`;
   }
+  // A sweep plots only what the player visited, which is the point of the format
+  // and leaves the verdict with nothing to show — the panel closes and the curve
+  // they built goes with it. Here the whole authored response is revealed, with
+  // their reading beside the one the instrument supports, so a near miss looks
+  // like a near miss and a wrong feature looks like the wrong feature.
+  if(kindOf(ch)==='SWEEP' && ch.sweep) return sweepVerdictFigure(ch, activeChallenge.userValue, ok);
   if(kindOf(ch)==='DIAGNOSIS') return renderFigure(ch.figure);
   return renderFigure(ch.figure ?? lesson.figure);
 }

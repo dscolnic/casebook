@@ -118,10 +118,17 @@ export function lineChart(spec, { w = 560, h = 220 } = {}){
     rightPad: Math.min(200, Math.max(92, Math.round(longest * 6.1) + 22)) });
 
   let body = f.g;
-  for(const m of spec.marks ?? []){
+  // Two marks close together had their labels drawn at the same height and
+  // overlapped into mush — "4.61 GHz" over "yours, 4.68 GHz" on the one figure
+  // where the whole point is the gap between them. Each label drops a row while
+  // the one before it is still within reach.
+  let lastLabelX = -Infinity, row = 0;
+  for(const m of [...(spec.marks ?? [])].sort((p, q) => p.x - q.x)){
     const x = f.sx(m.x);
+    row = (x - lastLabelX) < Math.max(60, m.label.length * 5.6) ? row + 1 : 0;
+    lastLabelX = x;
     body += `<line x1="${x}" y1="${f.pad.t}" x2="${x}" y2="${f.pad.t + f.ih}" stroke="${MUTED}" stroke-width="1" stroke-dasharray="3 3"/>`
-          + `<text x="${x + 4}" y="${f.pad.t + 11}" font-size="10" fill="${MUTED}">${esc(m.label)}</text>`;
+          + `<text x="${x + 4}" y="${f.pad.t + 11 + row * 13}" font-size="10" fill="${MUTED}">${esc(m.label)}</text>`;
   }
   if(spec.limit){
     const y = f.sy(spec.limit.at);

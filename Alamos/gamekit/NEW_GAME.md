@@ -340,7 +340,7 @@ gating. Each exists because a shipped question failed it.
 | Probe | What it catches |
 | --- | --- |
 | LEAK | the answer is pickable from the options alone — two distractors using absolutes, a keyed answer twice the length of the others, only the right one carrying a "because" |
-| GIVEAWAY | the scene already states the reasoning, or contains the keyed answer nearly verbatim |
+| GIVEAWAY | the scene already states the reasoning, or contains the keyed answer nearly verbatim; and for a sweep, prints the target, prints a number inside the target's own tolerance carrying the axis's unit, asks no question at all, or names no correct reading |
 | ORDER | an ordering item solvable from the wording: the keyed order is the printed order, both endpoints pinned by "first"/"submit", or a card pointing at another card's output |
 | ECHO | a matching answer that restates its own prompt — two or more of the prompt's content words, and at least half of them, reappearing in the keyed option |
 
@@ -385,6 +385,33 @@ answer first.
 
 **An estimate carries its `relationship` on the challenge**, not inside the
 estimate block, and offers distractor tiles. Both were real defects.
+
+**A sweep asks a question and states the criterion it grades against.** The first
+six were written as instructions — "sweep the drive and mark the frequency this
+qubit responds at", "move the discriminator line and find the best place for it" —
+which is not a question, and in the second case graded against a definition of
+"best" that appeared only in the verdict. Four of the six also printed the answer
+in their own scene ("one clear response at 4.61", target 4.61; "T1 of 90, T2 of
+32", target 32), so the panel was a formality. One named a frequency inside its
+own tolerance. And one contradicted itself: the scene said the sensor needed
+4 pT, which the curve reaches at 10 s, while the keyed reading was the 35 s knee,
+so a player who did what the scene asked was marked wrong.
+
+Four rules, all now gated by the importer and the GIVEAWAY probe:
+
+1. **The `question` ends in a question mark and names the criterion** — what makes
+   a reading the right one. "Both mistakes cost the same in this circuit. Where
+   should the line go?" is answerable; "find the best place for it" is not.
+2. **No number in the scene, question, task or `assumes` is the target**, or
+   inside its tolerance while carrying the axis's unit. State the *limit* the
+   reading is measured against — 75 °C, a third of the starting contrast — never
+   the reading.
+3. **`answerText` is required.** A sweep has no choices, so without it the verdict
+   says "Correct answer:" and nothing after the colon. Give the reading and what
+   it means: "About 32 µs. The population is still at 0.70 there."
+4. **The scene sets up one criterion, not two.** If the day's stake names a
+   requirement the curve meets somewhere other than the target, the player will
+   answer the requirement.
 
 ### The equations the course cannot leave out
 

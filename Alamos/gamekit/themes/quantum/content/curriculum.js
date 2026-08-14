@@ -729,19 +729,19 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Where the qubit actually is",
-      "scene": "Mensah's sweep runs from 4.2 to 6.4 gigahertz. There is one clear response at 4.61, a much weaker one at 4.55, and nothing at 5.02 where the design put it.",
+      "scene": "Mensah has the drive on the twelfth qubit and a readout that reports how much of the population ends up excited. The design put this qubit at 5.02 gigahertz, and the readout there has been flat all morning.",
       "takeaway": "A designed transition frequency is a target; spectroscopy tells you where the fabricated device actually responds.",
       "place": "Control & Readout",
-      "story": "Mensah's sweep runs from 4.2 to 6.4 gigahertz. There is one clear response at 4.61, a much weaker one at 4.55, and nothing at 5.02 where the design put it.",
+      "story": "Mensah has the drive on the twelfth qubit and a readout that reports how much of the population ends up excited. The design put this qubit at 5.02 gigahertz, and the readout there has been flat all morning.",
       "game": {
         "type": "SWEEP",
         "title": "Where the qubit actually is",
         "setup": "Control & Readout",
         "play": "Read a frequency sweep",
         "task": "Read a frequency sweep",
-        "question": "Sweep the drive and mark the frequency this qubit actually responds at.",
-        "answer": "",
-        "why": "The strong, narrow response at 4.61 GHz is the transition. Nothing appears at 5.02, where the design put it, because a superconducting qubit's frequency depends on a junction barrier about a nanometre thick that no process controls perfectly — the design value is a prediction and the sweep is the measurement. The weaker feature near 4.55 is real and is not the qubit; identifying it takes a second test, such as watching how it moves when the chip is thermally cycled. Sweeping past both is what separates the two.\n",
+        "question": "Nothing responds at the design frequency. Which frequency does this qubit absorb the drive at?",
+        "answer": "4.61 GHz, where nearly the whole population is driven into the excited state. The much weaker feature near 4.55 GHz is real and is not the qubit.",
+        "why": "A qubit absorbs a drive only close to its own transition, so the frequency where the population goes up is the transition. It is nowhere near 5.02 GHz because that number was a prediction: the frequency depends on a junction barrier about a nanometre thick, and no process controls a nanometre exactly. Two responses appear, and size is what separates them — a transition driven on resonance takes almost the whole population, while the small feature takes a sixth of it and is something else on the chip. Which of the two is the qubit can be settled by driving harder and watching only one of them saturate.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -833,7 +833,7 @@ export const CURRICULUM = {
           "target": 4.61,
           "tolerance": 0.02,
           "start": 4.2,
-          "commit": "Mark the qubit transition"
+          "commit": "Mark the transition"
         }
       },
       "assumes": [
@@ -960,9 +960,9 @@ export const CURRICULUM = {
         "setup": "Control & Readout",
         "play": "Say what the discriminator decides",
         "task": "Say what the discriminator decides",
-        "question": "Move the discriminator line and find the best place for it.",
-        "answer": "",
-        "why": "Moving the line changes which ambiguous shots are called which state, and it can only ever trade one error against the other — the two curves cross, and the sum has a minimum that is not zero. That floor is the overlap between the clouds, and no line removes it. Getting below it needs more signal, less noise or a longer integration: something that separates the distributions rather than something that re-labels them. The optimum also depends on which error costs more, which is a question about the experiment rather than about the classifier.\n",
+        "question": "Both mistakes cost the same in this circuit. Where should the line go, and what does the total misassignment there tell you?",
+        "answer": "Near where the two error curves cross, about −3 mV. Total misassignment there is about 5 per cent, and no threshold anywhere on the axis gets it lower.",
+        "why": "The line does not remove ambiguous shots; it decides which state they are called, so every millivolt taken off one error is added to the other. That is why the two curves cross and why the sum has a minimum that is not zero. The floor is the overlap between the two clouds, and it is a property of the measurement rather than of the threshold — getting under it needs more signal, less noise or a longer integration, something that moves the clouds apart. Equal costs put the line at the crossing; where one mistake costs more than the other, the best line moves away from it, which makes this a question about the circuit and not only about the classifier.\n",
         "sweep": {
           "mode": "boundary",
           "axis": {
@@ -1112,19 +1112,19 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Energy with somewhere to go",
-      "scene": "When the twelfth qubit is tuned to 4.56 GHz, within about 10 MHz of the feature, its T1 falls from roughly 90 microseconds to about 35. At 4.61 GHz it is substantially better, and a few hundred megahertz away the extra loss is no longer visible.",
+      "scene": "This qubit is tunable across about 400 megahertz. Nakamura has measured its relaxation time at every setting across that band, with the defect the group found yesterday somewhere inside it.",
       "takeaway": "If a loss channel is sharply resonant, frequency can be an engineering control knob as well as a measurement.",
       "place": "Control & Readout",
-      "story": "When the twelfth qubit is tuned to 4.56 GHz, within about 10 MHz of the feature, its T1 falls from roughly 90 microseconds to about 35. At 4.61 GHz it is substantially better, and a few hundred megahertz away the extra loss is no longer visible.",
+      "story": "This qubit is tunable across about 400 megahertz. Nakamura has measured its relaxation time at every setting across that band, with the defect the group found yesterday somewhere inside it.",
       "game": {
         "type": "SWEEP",
         "title": "Energy with somewhere to go",
         "setup": "Control & Readout",
         "play": "Say what it does to a qubit near it",
         "task": "Say what it does to a qubit near it",
-        "question": "Tune the qubit across the band and find the frequency to keep it away from.",
-        "answer": "",
-        "why": "Resonant exchange only works near resonance, which is why the same qubit is fine at 4.61 GHz and poor a few tens of megahertz lower: tuned onto the defect it has somewhere to put its energy, and T1 falls by more than half. On a tunable device that makes frequency an engineering control as well as a measurement — move the qubit and the loss channel is simply not there. The half of the job that gets forgotten is writing the band down, because an undocumented defect is a trap for whoever retunes next.\n",
+        "question": "Relaxation is around 90 microseconds across most of the band and much worse in one place. Which frequency should this qubit be kept away from?",
+        "answer": "About 4.555 GHz, where relaxation falls to roughly a third of the 90 microseconds available elsewhere. The damage is gone again within about 30 MHz either side.",
+        "why": "A qubit loses energy quickly when there is somewhere for that energy to go, and a two-level defect is somewhere — but only while the two are close in frequency, which is why the loss appears and disappears over tens of megahertz rather than across the whole band. Two things follow. The width of the dip is a measurement of how strongly the two are coupled, and on a tunable device the frequency itself becomes an engineering control: move the qubit and the loss channel is not there at all. The half of the job that gets forgotten is writing the band down, because an undocumented defect is a trap for whoever retunes next month.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -1658,19 +1658,19 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Energy out, or phase scrambled",
-      "scene": "Holm's table: T1 of 90 microseconds, T2 of 32, on all twelve qubits within a few per cent. The ceiling on T2 set by this T1 would be 180.",
+      "scene": "Holm has two measurements running on the same qubit at every delay. One reports how much excitation is still there. The other reports how much phase coherence is still there. Neither number has been read off yet.",
       "takeaway": "Comparing T1 with T2 tells you whether energy loss alone can explain the observed loss of coherence.",
       "place": "Error & Verification",
-      "story": "Holm's table: T1 of 90 microseconds, T2 of 32, on all twelve qubits within a few per cent. The ceiling on T2 set by this T1 would be 180.",
+      "story": "Holm has two measurements running on the same qubit at every delay. One reports how much excitation is still there. The other reports how much phase coherence is still there. Neither number has been read off yet.",
       "game": {
         "type": "SWEEP",
         "title": "Energy out, or phase scrambled",
         "setup": "Error & Verification",
         "play": "Say what the two numbers mean together",
         "task": "Say what the two numbers mean together",
-        "question": "Run both measurements out to longer delays, and find where the phase has gone.",
-        "answer": "",
-        "why": "Both curves fall, and one falls much faster. Energy leaves at 90 microseconds and phase coherence is gone by about 32, so nearly all of the damage is being done by something that never takes any energy at all — slow noise shifting the qubit's frequency between repetitions. That matters because the two have different cures: energy loss is a materials and fridge problem, and dephasing is usually wiring. The ceiling worth remembering is that coherence can never exceed twice the relaxation time, so 180 was the best this device could have done and it is managing a fifth of it.\n",
+        "question": "Both curves fall, and not together. At what delay has the phase coherence dropped to a third of where it started?",
+        "answer": "About 32 microseconds. The population is still at 0.70 there, and does not reach a third until about 90 — so T2 is 32 microseconds against a T1 of 90.",
+        "why": "Read at the same place on both curves, the two times come out a factor of three apart, and that gap is the diagnosis. Energy is leaving slowly; something is scrambling phase three times faster without taking any energy at all, which is what slow noise shifting the qubit's frequency between repetitions does. The two have different cures — energy loss is materials and fridge, dephasing is usually wiring — so the ratio decides who spends the week. It is also a bound worth carrying: coherence can never exceed twice the relaxation time, so this device could have reached 180 and is managing a fifth of that.\n",
         "sweep": {
           "mode": "boundary",
           "axis": {
@@ -1776,11 +1776,12 @@ export const CURRICULUM = {
           "target": 32,
           "tolerance": 8,
           "start": 1,
-          "commit": "Mark where contrast has fallen to a third"
+          "commit": "Mark T2"
         }
       },
       "assumes": [
-        "a quantum state has both an energy and a phase, which can be lost separately"
+        "a quantum state has both an energy and a phase, which can be lost separately",
+        "a decay time is conventionally read where a quantity has fallen to about a third of its start"
       ],
       "equations": [
         {
@@ -2018,19 +2019,19 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Why a long sequence tells you more",
-      "scene": "Holm runs sequences of 2, 8, 32 and 128 random gates, each ending with the gate that should return the qubit to where it started. The success rate falls smoothly with length.",
+      "scene": "Holm can run a sequence of any length, from a single gate up to a few hundred, each one ending with the gate that should return the qubit to where it started. Every run either comes back or does not.",
       "takeaway": "A quantity read from a trend survives a constant offset that would swamp a single reading.",
       "place": "Error & Verification",
-      "story": "Holm runs sequences of 2, 8, 32 and 128 random gates, each ending with the gate that should return the qubit to where it started. The success rate falls smoothly with length.",
+      "story": "Holm can run a sequence of any length, from a single gate up to a few hundred, each one ending with the gate that should return the qubit to where it started. Every run either comes back or does not.",
       "game": {
         "type": "SWEEP",
         "title": "Why a long sequence tells you more",
         "setup": "Error & Verification",
         "play": "Say what benchmarking measures",
         "task": "Say what benchmarking measures",
-        "question": "Run sequences of increasing length, and find where half the runs no longer return.",
-        "answer": "",
-        "why": "Every gate has to work for the sequence to return, so the probabilities multiply and the curve is exponential rather than straight. At 98.8 per cent a gate, half the runs are already lost by about sixty gates — which is why depth, not qubit count, is the quantity that limits this machine. Reading the error from how fast the curve falls is also what makes the measurement clean: a constant readout offset moves the whole curve down without changing its slope, so it drops out of the answer.\n",
+        "question": "How many gates can this qubit take before half the runs fail to come back?",
+        "answer": "Around 57 gates. Half the runs lost after 57 gates means about 98.8 per cent per gate, because 0.988 multiplied by itself 57 times is close to a half.",
+        "why": "Every gate in the sequence has to work for the qubit to come back, so the probabilities multiply and the curve falls exponentially rather than in a straight line. That makes the half-way length a per-gate error measurement: the length itself says how much each gate costs, and 57 gates to lose half of them works out at a bit over one per cent each. It is also why the shape matters more than any single point. A readout that mislabels a fixed fraction of shots pulls the whole curve down without changing how fast it falls, so a number read from the decay survives an offset that would ruin a number read from one sequence — which is the difference between the two figures on the board.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -2127,6 +2128,27 @@ export const CURRICULUM = {
       },
       "assumes": [
         "errors accumulate as operations are applied in succession"
+      ],
+      "equations": [
+        {
+          "e": "F_total ≈ F^n",
+          "c": "gate fidelity compounding over circuit depth",
+          "v": [
+            [
+              "F_total",
+              "chance the whole circuit is right"
+            ],
+            [
+              "F",
+              "fidelity of one gate, between 0 and 1"
+            ],
+            [
+              "n",
+              "number of gates in the circuit"
+            ]
+          ],
+          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
+        }
       ]
     },
     {
@@ -2670,19 +2692,19 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What averaging buys",
-      "scene": "A single measurement resolves 40 picotesla. Barros needs 4. She has an hour, and each measurement takes a hundred milliseconds.",
+      "scene": "Each measurement takes a hundred milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
       "takeaway": "For independent measurements, random uncertainty falls only as 1/√N, so time buys precision with diminishing returns.",
       "place": "Quantum Sensing",
-      "story": "A single measurement resolves 40 picotesla. Barros needs 4. She has an hour, and each measurement takes a hundred milliseconds.",
+      "story": "Each measurement takes a hundred milliseconds and resolves 40 picotesla on its own. Barros can average as many as she likes into one number, and she has an hour of instrument time.",
       "game": {
         "type": "SWEEP",
         "title": "What averaging buys",
         "setup": "Quantum Sensing",
         "play": "Find the noise floor",
         "task": "Find the noise floor",
-        "question": "Choose how long to average, and find where averaging stops helping.",
-        "answer": "",
-        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of ten in precision is cheap and the second costs a hundred times the time. That is the standard quantum limit, and it is why sensing is a patience problem. What ends it here is drift: past about half a minute the instrument itself has moved, the measurements are no longer independent, and averaging longer makes the answer worse rather than better. The knee is where those two effects cross.\n",
+        "question": "Averaging for longer buys resolution, until it does not. How long should she average, and what stops her going further?",
+        "answer": "About 35 seconds, resolving roughly 2.6 picotesla. Averaging for a minute is worse than averaging for half of one, so the extra hour of instrument time buys nothing.",
+        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of ten in resolution is cheap and the next costs a hundred times the time — the reason sensing is a patience problem rather than a precision one. Two things then fight. Averaging improves the number only while the measurements are independent, and past about half a minute the instrument itself has drifted, so later measurements are of a slightly different machine. Beyond the knee the curve turns back up and more data makes the answer worse. That is also why the hour does not help: the limit is drift, not the number of shots available.\n",
         "sweep": {
           "mode": "peak",
           "axis": {

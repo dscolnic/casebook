@@ -316,6 +316,20 @@ function gameFor(s, at, group, day){
     const start = Number.isFinite(+w.start) ? +w.start : +axis.min;
     need(Math.abs(start - +w.target) > +w.tolerance,
       'the sweep starts on its own answer — move `start` away from `target`');
+    // The verdict's "Correct answer" line comes from `answerText`, and a sweep
+    // has no choices to fall back on: without it the player is told they were
+    // wrong and never told what the reading should have been. All six of the
+    // first sweeps shipped that way.
+    need(String(s.answerText ?? '').trim(),
+      'a sweep needs `answerText` — the reading, and what it means');
+    // The target must not be printed anywhere the player reads before answering.
+    // Four of the first six sweeps named it in their own scene, which turns
+    // "find the feature" into "copy the number above the plot".
+    const said = [s.scene, s.question, s.task, s.headline, ...(s.assumes ?? [])].join(' ');
+    const shown = String(+w.target);
+    need(!new RegExp(`(^|[^\\d.])${shown.replace('.', '\\.')}([^\\d]|$)`).test(said),
+      `the sweep target ${shown} is printed in the scene or the question — the player can read`
+      + ' the answer instead of finding it');
     return { ...base, sweep: {
       mode: w.mode ?? 'peak',
       axis: { label: axis.label ?? '', unit: axis.unit ?? '', min: +axis.min, max: +axis.max,

@@ -159,6 +159,48 @@ for(const [mi, m] of MISSIONS.entries()){
       add('GIVEAWAY', at, 'the keyed answer appears almost word for word in the scene');
     }
 
+    // ---- 2b. GIVEAWAY, for a sweep: is the reading printed above the plot?
+    //
+    // A sweep has no options, so neither test above sees it, and the failure is
+    // cruder than either: the number the player is meant to find is written in
+    // the text they read on the way in. Four of the first six sweeps did this —
+    // one of them stated a frequency inside its own tolerance — which turns
+    // "find the feature" into "drag to the number you were just told".
+    if(ch.sweep && Number.isFinite(+ch.sweep.target)){
+      const shown = String(+ch.sweep.target);
+      const read = [scene, ch.question, ch.task, ch.headline, ...(l.assumes ?? [])].join(' ');
+      const bare = new RegExp(`(^|[^\\d.])${shown.replace('.', '\\.')}([^\\d]|$)`);
+      if(bare.test(read)){
+        add('GIVEAWAY', at, `the sweep's own target (${shown}) is printed in the scene or the question`);
+      }
+      // Near enough also counts. One sweep named 4.56 GHz for a target of 4.555
+      // with a tolerance of 0.012, so reading the scene landed inside the answer
+      // without ever touching the slider. Only numbers carrying the axis's own
+      // unit are considered — "40 picotesla" is not a candidate for an answer
+      // measured in seconds, and unit-blind matching reported it as one.
+      const unit = String(ch.sweep.axis?.unit ?? '').trim();
+      if(unit){
+        const carried = new RegExp(`(-?[\\d,]+(?:\\.\\d+)?)\\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
+        for(const m of read.matchAll(carried)){
+          const v = +m[1].replace(/,/g, '');
+          if(Number.isFinite(v) && Math.abs(v - +ch.sweep.target) <= +ch.sweep.tolerance){
+            add('GIVEAWAY', at, `"${m[0]}" in the scene or question is inside the sweep's own tolerance`
+              + ` of ${ch.sweep.target} — the answer can be read rather than found`);
+          }
+        }
+      }
+      // The criterion has to be somewhere, though: "find the best place for it"
+      // with no statement of what makes a place best is not a question anybody
+      // can answer, and it graded against a hidden definition.
+      if(!/\?/.test(String(ch.question ?? ''))){
+        add('GIVEAWAY', at, 'the sweep asks nothing — its `question` is an instruction, so the criterion the'
+          + ' reading is graded against is never stated');
+      }
+      if(!String(ch.answer ?? '').trim()){
+        add('GIVEAWAY', at, 'the sweep has no answerText, so the verdict names no correct reading');
+      }
+    }
+
   }
 }
 

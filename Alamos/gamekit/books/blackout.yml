@@ -1654,13 +1654,15 @@ missions:
         title: What a rating is a statement about
         place: Transmission & Protection
         scene: >
-          Novak has the corrected figures. At 89 degrees the corridor was not inside an emergency rating at
-          all, and the relay that never operated is now the thing he wants explained.
+          Novak has the corrected figures and the standard the corridor was built to. Its conductors may run
+          continuously at 75 degrees and no hotter, because above that the aluminium begins to lose strength
+          and the span loses clearance over the road beneath it.
         assumes:
           - a conductor's rating is a limit on temperature rather than on current
+          - resistive heating rises faster than the current that causes it
         takeaway: A rating is a temperature expressed as a current, so a wrong temperature makes the current limit meaningless.
         format: SWEEP
-        question: Raise the corridor's current and find the load its continuous rating actually allows.
+        question: Seventy-five degrees is the limit the conductor was built to. What current does that allow it to carry all day?
         sweep:
           axis: { label: Corridor current, unit: A, min: 600, max: 1600, step: 10 }
           readout: { label: Conductor temperature, unit: °C }
@@ -1679,14 +1681,18 @@ missions:
           tolerance: 60
           start: 600
           commit: Mark the continuous rating
+        answerText: >-
+          About 1,150 A. The corridor was carrying 1,280 A, which the corrected figures put near
+          89 degrees — fourteen degrees past the limit, on a line nobody thought was over it.
         why: >
-          A rating is not a fuse setting. It is the current at which the conductor reaches a
-          temperature somebody has agreed to accept — here 75 degrees — chosen so the metal keeps
-          its strength and the span keeps its clearance. Because heating goes as the square of
-          current, the last hundred amps cost far more degrees than the first hundred. That is
-          why the corrected record matters: at 1,280 A the corridor sat at 89 degrees, well past
-          the line, and every decision that treated it as inside a rating was taken without the
-          margin it assumed.
+          A rating is not a fuse setting. It is a temperature translated into a current, and the
+          translation runs through the heating, which goes as the square of the current: the last
+          hundred amps buy far more degrees than the first hundred, so the curve steepens and the
+          rating sits where it crosses the agreed temperature. Two consequences follow. A rating
+          is only as good as the temperature measurement behind it, which is why a drifted sensor
+          moves a limit that looks like a fixed property of the metal. And a modest-looking
+          overload is not modest in degrees — the 130 A the corridor was over by cost it fourteen
+          degrees, which is the margin the whole decision assumed it had.
       - group: OPS
         task: Decide which of the week's conclusions still stand
         title: What survives a bad number

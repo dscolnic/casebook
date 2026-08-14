@@ -78,6 +78,24 @@ for(const { group, i, l, g } of found){
   mount.innerHTML = sweepHTML(g);
   bindSweep(mount, g);
 }
+
+// The verdict's own picture, which the panel cannot show: a sweep plots only
+// what the player visited, so the whole authored response is revealed here with
+// the reading marked. Drawn for a deliberately wrong answer, because that is the
+// case worth looking at.
+const { sweepVerdictFigure } = await import('/engine/core/questionUI.js');
+for(const { l, g } of found){
+  const w = g.sweep, a = w.axis ?? {};
+  const off = w.target + w.tolerance * 3.5 <= a.max ? w.target + w.tolerance * 3.5
+                                                    : w.target - w.tolerance * 3.5;
+  const wrong = +off.toFixed(4);
+  const wrap = document.createElement('div');
+  wrap.className = 'case';
+  wrap.innerHTML = `<div class="caseHead"><h2>${l.title ?? ''} — verdict</h2>`
+    + `<em>answered ${wrong}${a.unit ? ' ' + a.unit : ''}</em></div><div class="modal"></div>`;
+  out.append(wrap);
+  wrap.querySelector('.modal').innerHTML = sweepVerdictFigure(g, wrong, false);
+}
 </script>
 </body>
 </html>
