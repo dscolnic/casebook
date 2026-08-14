@@ -686,6 +686,24 @@ it or every frame throws `Cannot access 'day' before initialization`.
 5. Teach `tools/import-book.mjs` the format's fields, and `tools/make-book.mjs`
    how to print it.
 6. Shuffle the choices at render.
+7. **Draw it, at the width the modal draws it, before you author a second one.**
+   SWEEP shipped six panels across two games and every check passed; the first
+   one anybody looked at had its slider and all three readouts below the fold,
+   because `.modalActions` is `position:sticky; bottom:0` and pins itself over
+   whatever is between the scroll position and its place in the flow. It reads
+   exactly like a format that does nothing. Two things make this cheap:
+   `engine/dev/sweeps.html` draws every sweep in a theme on one page (start the
+   dev server and open `/engine/dev/sweeps.html`), and a panel can be dropped
+   into a real `.overlay > .modal > .modalBody` chain from the console, which is
+   the only way to see the sticky bar behave as it does in a visit.
+8. **`fmt()` rounds to one decimal place, which is money, not instruments.** It
+   displayed a 0.99 population as `1` and four different frequencies on a
+   0.01 GHz axis as `4.6` — on a question whose tolerance was ±0.02. A format
+   with a number in it needs decimals derived from its own step and spread.
+9. **State belongs on the element, not in a module variable.** One module-level
+   `activeSweep` meant every panel on a page shared one set of visited points.
+   The game shows one at a time so nothing was visibly broken, and the dev page
+   that draws six found it immediately.
 
 ## Adding a person-facing feature
 

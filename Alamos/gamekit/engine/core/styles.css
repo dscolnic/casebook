@@ -531,20 +531,37 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 /* SWEEP — one control, a live response, a reading committed on purpose. The
    trace is only what the player has visited, so an untouched panel is an empty
    plot: the format is answered by looking, not by pressing. */
-.sweepPanel{margin:10px 0 0}
-.sweepHead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+/* The panel is narrower than the modal on purpose. At the modal's full 820 px a
+   viewBox of 320×120 renders a plot nearly 300 px tall, which pushed the slider
+   and every readout below the fold — the panel then looks like an empty box with
+   a button, and the format reads as broken. */
+.sweepPanel{margin:10px auto 0;max-width:480px}
+.sweepHead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+/* Say what to do with it. Nothing else in these games is dragged. */
+.sweepHint{font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0;margin:0 0 6px}
+.sweepEnds{display:flex;justify-content:space-between;margin:-2px 0 8px;
+  font:700 .6rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8a97a0;
+  font-variant-numeric:tabular-nums}
 .sweepAxisLabel{font:800 .62rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;color:#8a97a0}
 .sweepAt{font:800 .92rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
   font-variant-numeric:tabular-nums}
 .sweepPlot{width:100%;height:auto;border:1px solid #cfd8dd;border-radius:6px;display:block}
+/* The handle and the traces both pass under these, so they are drawn with a
+   white halo rather than moved somewhere the handle never goes — there is no
+   such place on an axis the player sweeps end to end. */
+.sweepTick{font:700 7px/1 ui-monospace,SFMono-Regular,Menlo,monospace;fill:#8a97a0;
+  stroke:#f7f9fa;stroke-width:2.5;paint-order:stroke}
 .sweepRange{width:100%;margin:10px 0 4px;accent-color:#2f6f8f}
-.sweepReadout{display:flex;justify-content:space-between;align-items:baseline;
-  border-top:1px solid var(--line);padding-top:7px}
-.sweepReadout span{font:800 .62rem/1 Inter,system-ui;letter-spacing:.07em;text-transform:uppercase;color:#8a97a0}
-.sweepReadout b{font:800 .88rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
+/* Side by side: a boundary sweep has three of these and stacking them cost more
+   height than the modal had. */
+.sweepReadouts{display:flex;gap:14px;align-items:stretch}
+.sweepReadout{flex:1;display:flex;flex-direction:column;gap:3px;
+  border-top:2px solid var(--line);padding-top:5px;min-width:0}
+.sweepReadout span{font:800 .58rem/1.2 Inter,system-ui;letter-spacing:.06em;text-transform:uppercase;
+  color:#8a97a0}
+.sweepReadout b{font:800 .95rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652;
   font-variant-numeric:tabular-nums}
-/* A boundary sweep has one row per cost and a total under them: the total is the
+/* A boundary sweep has one column per cost and the total last: the total is the
    number that has a floor, and seeing it refuse to reach zero is the lesson. */
-.sweepReadout + .sweepReadout{border-top:1px dotted var(--line)}
-.sweepTotal{border-top:2px solid #cfd8dd;margin-top:2px}
+.sweepTotal{border-top-color:#2f4652}
 .sweepTotal span{color:#5b6a72}

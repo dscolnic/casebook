@@ -557,7 +557,15 @@ function tankHTML(ch){
  * the format into a button, which is the failure mode `INTERACTION_IDEAS.md`
  * warns about in its own first rule.
  */
-let activeSweep = null;
+/**
+ * Where the player is on the axis and everywhere they have been.
+ *
+ * Held on the panel element, not in a module variable: a module variable is one
+ * sweep for the whole page, and the dev harness that draws six of them at once
+ * had every panel plotting the last one's visited points. One panel per visit is
+ * all the game ever shows, so this cost nothing to make right.
+ */
+const sweepState = new WeakMap();
 
 /** Linear interpolation between the authored points, flat outside them. */
 function sweepValueAt(w, x, seriesIx = 0){
@@ -578,43 +586,89 @@ function sweepValueAt(w, x, seriesIx = 0){
 
 const SWEEP_INK = ['#2f6f8f', '#b06a2a', '#3f8f56'];
 
-function sweepHTML(ch){
+/**
+ * Enough decimals to tell one position on this axis from the next.
+ *
+ * `fmt` rounds to one decimal place, which is right for money and wrong for
+ * every sweep in the repo: a spectroscopy axis stepping 0.01 GHz displayed
+ * "4.6" at four different frequencies, and a population of 0.99 displayed as
+ * "1". A player cannot land inside a tolerance of 0.02 reading a number that
+ * has been rounded to 0.1.
+ */
+const decimalsFor = (step) => {
+  const s = Math.abs(step) || 1;
+  if(s >= 1) return 0;
+  return Math.min(4, Math.max(1, Math.ceil(-Math.log10(s))));
+};
+const num = (v, d) => (Number.isFinite(v) ? v.toFixed(d) : '—');
+/** The decimals a series' own readout needs, from how far its values travel. */
+const seriesDecimals = (series, baseline = 0) => {
+  const vals = series.flatMap(s => (s.response ?? []).map(p => p.value)).concat([baseline]);
+  const spread = (Math.max(...vals) - Math.min(...vals)) || 1;
+  return decimalsFor(spread / 50);
+};
+
+// Exported for `engine/dev/sweeps.html`, which draws every sweep in a theme on
+// one page. A sweep is the only format that cannot be judged from the book —
+// whether the control, the curve and the readouts fit is a question about the
+// rendered panel — and reaching one in the game means playing to the right day.
+export function sweepHTML(ch){
   const w = ch.sweep ?? {};
   const series = w.series ?? [{ label: w.readout?.label ?? '', response: w.response ?? [] }];
-  activeSweep = { at: w.start, visited: [], committed: false, series: series.length };
   const a = w.axis ?? {};
+  const unit = a.unit ? ' ' + esc(a.unit) : '';
+  const ad = decimalsFor(a.step);
   return `<div class="sweepPanel" data-min="${a.min}" data-max="${a.max}" data-step="${a.step}">`
     + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
-    + `<b class="sweepAt">${fmt(w.start)}${a.unit ? ' ' + esc(a.unit) : ''}</b></div>`
+    + `<b class="sweepAt">${num(w.start, ad)}${unit}</b></div>`
+    + `<div class="sweepHint">Drag the slider across the range. Only the positions you visit are plotted.</div>`
     + `<svg class="sweepPlot" viewBox="0 0 320 120" role="img" aria-label="Response against ${esc(a.label)}">`
     + `<rect width="320" height="120" fill="#f7f9fa"/>`
     + series.map((x, i) =>
         `<polyline class="sweepTrace" data-series="${i}" fill="none" stroke="${SWEEP_INK[i % SWEEP_INK.length]}" stroke-width="2" points=""/>`).join('')
+    // A single visited position draws no polyline at all, so the first thing the
+    // player sees on an untouched panel is a blank box. The dot is the reading
+    // they are standing on; it marks where they are, never where to go.
+    + series.map((x, i) =>
+        `<circle class="sweepDot" data-series="${i}" r="2.6" cx="-20" cy="-20" fill="${SWEEP_INK[i % SWEEP_INK.length]}"/>`).join('')
     + `<line class="sweepHandle" x1="0" y1="0" x2="0" y2="120" stroke="#c0392b" stroke-width="1.5"/>`
+    + `<g class="sweepScale"></g>`
     + `</svg>`
     + `<input class="sweepRange" type="range" min="${a.min}" max="${a.max}" step="${a.step}" value="${w.start}">`
+    + `<div class="sweepEnds"><span>${num(a.min, ad)}${unit}</span><span>${num(a.max, ad)}${unit}</span></div>`
+    // The readouts sit side by side, not stacked. Three stacked rows put the
+    // numbers — which are the whole point of the format — below the fold of a
+    // modal whose actions are pinned under them.
+    + `<div class="sweepReadouts">`
     + series.map((x, i) => `<div class="sweepReadout"><span style="color:${SWEEP_INK[i % SWEEP_INK.length]}">`
         + `${esc(x.label || w.readout?.label || 'Response')}</span>`
         + `<b class="sweepValue" data-series="${i}">—</b></div>`).join('')
-    + (series.length > 1
-        ? `<div class="sweepReadout sweepTotal"><span>${esc(w.floor ?? 'Total')}</span>`
+    // The total is authored, not automatic. Two costs traded against each other
+    // have a meaningful sum with a floor in it — that is the lesson of a
+    // discriminator. Two different decays do not: adding an excited population to
+    // a Ramsey contrast produced "1.96", a number about nothing.
+    + (series.length > 1 && w.floor
+        ? `<div class="sweepReadout sweepTotal"><span>${esc(w.floor)}</span>`
           + `<b class="sweepSum">—</b></div>` : '')
+    + `</div>`
     + `<div class="modalActions"><button class="btn primary" id="sweepCommit" type="button">`
     + `${esc(w.commit ?? 'Mark it')}</button></div>`
     + `<div id="visitFeedback"></div></div>`;
 }
 
 /** Wire the handle and the commit button. */
-function bindSweep(container, ch){
+export function bindSweep(container, ch){
   const w = ch.sweep ?? {};
   const panel = container.querySelector('.sweepPanel');
   if(!panel) return;
+  const st = { at: (w.axis ?? {}).min ?? 0, visited: [], committed: false };
+  sweepState.set(panel, st);
   const range = panel.querySelector('.sweepRange');
   const handle = panel.querySelector('.sweepHandle');
   const atEl = panel.querySelector('.sweepAt');
-  const valEl = panel.querySelector('.sweepValue');
   const a = w.axis ?? {};
   const span = (a.max - a.min) || 1;
+  const ad = decimalsFor(a.step);
   // The plot's y range comes from the authored points, so a small feature on a
   // large baseline is still visible.
   const series = w.series ?? [{ response: w.response ?? [] }];
@@ -623,42 +677,78 @@ function bindSweep(container, ch){
   const yRange = (hi - lo) || 1;
   const px = (x) => ((x - a.min) / span) * 320;
   const py = (v) => 114 - ((v - lo) / yRange) * 108;
+  const vd = seriesDecimals(series, w.baseline ?? 0);
+  // The y scale is worth two labels: without them a decay and a fraction look
+  // identical, and the trace is the thing the player is reasoning from.
+  const scale = panel.querySelector('.sweepScale');
+  // Right-hand side: the handle starts at the left edge and the dot with it, and
+  // a label there is under both of them.
+  if(scale) scale.innerHTML =
+    `<text x="316" y="12" text-anchor="end" class="sweepTick">${num(hi, vd)}</text>`
+    + `<text x="316" y="116" text-anchor="end" class="sweepTick">${num(lo, vd)}</text>`;
 
   const traces = [...panel.querySelectorAll('.sweepTrace')];
+  const dots = [...panel.querySelectorAll('.sweepDot')];
   const valEls = [...panel.querySelectorAll('.sweepValue')];
   const sumEl = panel.querySelector('.sweepSum');
   const draw = () => {
     const x = +range.value;
     const vs = series.map((_, i) => sweepValueAt(w, x, i));
-    activeSweep.at = x;
+    st.at = x;
     // Only what the player has actually visited is plotted.
-    if(!activeSweep.visited.some(p => Math.abs(p.at - x) < (a.step || 0) / 2)){
-      activeSweep.visited.push({ at: x, values: vs });
-      activeSweep.visited.sort((p, q) => p.at - q.at);
+    if(!st.visited.some(p => Math.abs(p.at - x) < (a.step || 0) / 2)){
+      st.visited.push({ at: x, values: vs });
+      st.visited.sort((p, q) => p.at - q.at);
     }
     traces.forEach((t, i) => t.setAttribute('points',
-      activeSweep.visited.map(p => `${px(p.at).toFixed(1)},${py(p.values[i]).toFixed(1)}`).join(' ')));
+      st.visited.map(p => `${px(p.at).toFixed(1)},${py(p.values[i]).toFixed(1)}`).join(' ')));
+    dots.forEach((d, i) => {
+      // Clamped off the frame edge, or the dot at either end of the axis is half
+      // outside the plot and reads as nothing there.
+      d.setAttribute('cx', clamp(px(x), 3.5, 316.5).toFixed(1));
+      d.setAttribute('cy', clamp(py(vs[i]), 3.5, 116.5).toFixed(1));
+    });
     handle.setAttribute('x1', px(x).toFixed(1));
     handle.setAttribute('x2', px(x).toFixed(1));
-    atEl.textContent = `${fmt(x)}${a.unit ? ' ' + a.unit : ''}`;
+    atEl.textContent = `${num(x, ad)}${a.unit ? ' ' + a.unit : ''}`;
+    const unitOf = (i) => series[i].unit ?? w.readout?.unit ?? '';
     valEls.forEach((el, i) => {
-      el.textContent = `${fmt(vs[i])}${series[i].unit ? ' ' + series[i].unit : (w.readout?.unit ? ' ' + w.readout.unit : '')}`;
+      el.textContent = `${num(vs[i], vd)}${unitOf(i) ? ' ' + unitOf(i) : ''}`;
     });
-    if(sumEl) sumEl.textContent = fmt(vs.reduce((a2, b) => a2 + b, 0));
+    // The total carries a unit only where every series shares one — adding a
+    // percentage to a microsecond is the author's mistake, not something to
+    // paper over with a label.
+    if(sumEl){
+      const units = new Set(series.map((_, i) => unitOf(i)));
+      const u = units.size === 1 ? [...units][0] : '';
+      sumEl.textContent = `${num(vs.reduce((a2, b) => a2 + b, 0), vd)}${u ? ' ' + u : ''}`;
+    }
   };
   range.addEventListener('input', draw);
   draw();
+  // Deliberately NOT focused. A focused range input takes arrow, Home, End and
+  // Page keys, so a stray keystroke moves the reading the player is about to
+  // commit — and it moves silently. Tab still reaches it.
+
+  // The modal's action row is `position:sticky; bottom:0`, so anything between
+  // the current scroll position and that row is pinned *behind* it. On a sweep
+  // that is the readouts, which is how the format came to look like an empty box
+  // with a button under it.
+  requestAnimationFrame(() => panel.querySelector('.sweepReadouts')
+    ?.scrollIntoView({ block: 'nearest' }));
 
   panel.querySelector('#sweepCommit')?.addEventListener('click', () => {
-    if(activeSweep.committed) return;
-    activeSweep.committed = true;
-    const ok = Math.abs(activeSweep.at - w.target) <= w.tolerance;
-    activeChallenge.userAnswer = `${fmt(activeSweep.at)}${a.unit ? ' ' + a.unit : ''}`;
-    activeChallenge.userValue = activeSweep.at;
+    if(st.committed) return;
+    // Rendered outside a visit — the dev harness — has nothing to grade.
+    if(!activeChallenge) return;
+    st.committed = true;
+    const ok = Math.abs(st.at - w.target) <= w.tolerance;
+    activeChallenge.userAnswer = `${num(st.at, ad)}${a.unit ? ' ' + a.unit : ''}`;
+    activeChallenge.userValue = st.at;
     // How much of the axis they looked at, which is the difference between
     // finding a feature and landing on it.
-    activeChallenge.sweptFraction = activeSweep.visited.length
-      ? (Math.max(...activeSweep.visited.map(p => p.at)) - Math.min(...activeSweep.visited.map(p => p.at))) / span
+    activeChallenge.sweptFraction = st.visited.length
+      ? (Math.max(...st.visited.map(p => p.at)) - Math.min(...st.visited.map(p => p.at))) / span
       : 0;
     finishVisit(ok);
   });

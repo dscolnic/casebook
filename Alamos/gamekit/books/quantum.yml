@@ -680,7 +680,8 @@ missions:
                 - { at: 62, value: 0.14 }
                 - { at: 90, value: 0.06 }
                 - { at: 200, value: 0.01 }
-          floor: Both together
+          # No `floor` here on purpose: these two curves are compared, not added.
+          # A sum of a population and a contrast is a number about nothing.
           target: 32
           tolerance: 8
           start: 1

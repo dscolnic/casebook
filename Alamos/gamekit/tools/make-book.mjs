@@ -109,6 +109,10 @@ function materialHTML(ch){
       + all.map((x, i) => `<polyline fill="none" stroke="${ink[i % ink.length]}" stroke-width="1.4" points="`
           + [...x.response].sort((m, n) => m.at - n.at).map(pt => `${px(pt.at)},${py(pt.value)}`).join(' ')
           + `"/>`).join('')
+      // The same two y labels the panel draws, so a reader working from the page
+      // knows whether they are looking at a fraction or a microsecond count.
+      + `<text x="310" y="14" class="axl" text-anchor="end">${esc(String(hi))}</text>`
+      + `<text x="310" y="94" class="axl" text-anchor="end">${esc(String(lo))}</text>`
       + `<text x="8" y="107" class="axl">${esc(String(a.min))}</text>`
       + `<text x="312" y="107" class="axl" text-anchor="end">${esc(String(a.max))} ${esc(a.unit ?? '')}</text>`
       + `<text x="160" y="107" class="axl" text-anchor="middle">${esc(a.label ?? '')}</text>`

@@ -1776,8 +1776,7 @@ export const CURRICULUM = {
           "target": 32,
           "tolerance": 8,
           "start": 1,
-          "commit": "Mark where contrast has fallen to a third",
-          "floor": "Both together"
+          "commit": "Mark where contrast has fallen to a third"
         }
       },
       "assumes": [
