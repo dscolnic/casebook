@@ -1,3 +1,4 @@
+import { ranges, N, E, W } from '../gamekit/engine/world/horizonShape.js';
 // site.js — Los Alamos, as data.
 //
 // The first slice of moving this town onto gamekit's world layer: the five
@@ -143,6 +144,20 @@ export const site = {
   // The status board on Trinity Drive, which src/world.js drew by hand as
   // `centralBoardMesh`. Same place, same facing.
   board: { x: 0, z: 22, facing: 0, title: 'Project Y — Status' },
+
+  // The Hill had two mountain ranges and they are nothing like each other: the
+  // Jemez rise immediately west, close and dark, and the Sangre de Cristo stand
+  // forty miles east across the Rio Grande valley, high and blue with distance.
+  // The site shipped with no horizon at all, which left the mesa floating.
+  horizon: [
+    { radius: 520, height: 96, colour: 0x4c4a42, haze: 0.30,
+      amp: ranges([{ at: W, width: 2.2, hi: 1.0 }], 0.06) },
+    { radius: 900, height: 150, colour: 0x5a5f63, haze: 0.55,
+      amp: ranges([{ at: W, width: 1.8, hi: 1.1 }, { at: N, width: 1.0, hi: 0.5 }], 0.05) },
+    // Across the valley: far, low in the frame, and blued out by the air.
+    { radius: 1700, height: 210, colour: 0x6d7a86, haze: 0.78,
+      amp: ranges([{ at: E, width: 2.0, hi: 1.0 }], 0.03) },
+  ],
 
   spawn: { x: 0, z: 14, yaw: 0 },
 };

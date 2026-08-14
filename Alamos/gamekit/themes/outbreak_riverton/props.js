@@ -193,6 +193,65 @@ export function decorate(scene, ctx){
   const soft = (s) => { if(s) softColliders.push(s); };
   const glow = (m) => { if(m) lightPanels.push(m); };
 
+  // ================================================ the town outside the fence
+  // Three weeks into an outbreak in a town, and the town was not there: hills
+  // in every direction and a fence around an empty campus. Rooftops now press
+  // against the south fence, close enough to read as houses and too far to
+  // reach — which is what the fence is for, and what every transmission
+  // question is about.
+  {
+    const seedy = (n) => { const v = Math.sin(n * 12.9898) * 43758.5453; return v - Math.floor(v); };
+    for(let i = 0; i < 34; i++){
+      const x = -150 + i * 9.2 + seedy(i) * 4;
+      const z = 138 + seedy(i + 40) * 30;
+      const h = 4.5 + seedy(i + 90) * 4.5;
+      const gy = y(x, z);
+      box(scene, 7 + seedy(i + 7) * 4, h, 7 + seedy(i + 11) * 4, x, gy + h / 2, z,
+        MATERIALS.paintedSteel(0x6f6a60));
+      // Pitched roofs, alternating ridge direction so the row is not a barracks.
+      box(scene, 8 + seedy(i + 7) * 4, 0.7, 8 + seedy(i + 11) * 4, x, gy + h + 0.35, z,
+        MATERIALS.paintedSteel(0x574f46), seedy(i + 3) > 0.5 ? Math.PI / 2 : 0);
+    }
+    // A church tower and a water tank, so the skyline has two things in it that
+    // are not houses.
+    box(scene, 5, 16, 5, -46, y(-46, 150) + 8, 150, MATERIALS.paintedSteel(0x77716a));
+    box(scene, 6, 2.2, 6, -46, y(-46, 150) + 17, 150, MATERIALS.paintedSteel(0x4f4841));
+  }
+
+  // =========================================== the second hospital, still lit
+  // The one the transfer questions keep naming, across town: too far to walk
+  // to, lit all night, and also full. A pair of emissive slabs is enough at
+  // this distance.
+  {
+    const hx = 118, hz = 168, hy = y(hx, hz);
+    box(scene, 26, 20, 16, hx, hy + 10, hz, MATERIALS.paintedSteel(0x6b6f74));
+    const lit = new THREE.MeshStandardMaterial({
+      color: 0x2c2e30, emissive: new THREE.Color(0xffe6b4), emissiveIntensity: 0.9,
+      roughness: 0.9, metalness: 0,
+    });
+    for(let f = 0; f < 5; f++){
+      const w = box(scene, 24, 1.1, 0.3, hx, hy + 3 + f * 3.6, hz - 8.2, lit);
+      glow?.(w);
+    }
+    // Red obstruction light on the roof, and the pad marking beside it.
+    box(scene, 1.0, 0.8, 1.0, hx + 11, hy + 20.6, hz - 6, new THREE.MeshStandardMaterial({
+      color: 0x3a1512, emissive: new THREE.Color(0xd23b2a), emissiveIntensity: 1.2, roughness: 1 }));
+  }
+
+  // ============================================== the floodplain to the north
+  // Why the field station is the long hike it is: the ground drops to a river
+  // meadow and a levee runs along the top of the fall.
+  {
+    const zc = -196;
+    box(scene, 520, 2.4, 8, 0, y(0, zc) + 1.1, zc, MATERIALS.paintedSteel(0x6b6a5c));
+    for(let x = -240; x <= 240; x += 60){
+      box(scene, 2.0, 1.6, 2.0, x, y(x, zc + 6) + 0.8, zc + 6, MATERIALS.paintedSteel(0x8d8778));
+    }
+    sign(scene, 'FLOOD BANK', { x: 26, z: zc + 9, y: y(26, zc + 9) + 2.4, facing: Math.PI,
+      sub: 'No vehicles beyond this point', accent: 0x2f6f8f });
+  }
+
+
   // ------------------------------------------------- the south court: triage
   // Three marquees with zone bands, filling the court between the clinical
   // wing and cell biology, and leaving the spine clear.

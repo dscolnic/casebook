@@ -1,3 +1,4 @@
+import { ranges, opening, N, S, E, W } from '../../engine/world/horizonShape.js';
 // site.js — Riverton General under an outbreak, as data.
 //
 // Deliberately NOT a city. The Contaminated City is a river town with wide
@@ -113,9 +114,16 @@ export const site = {
   scrubColour: 0x53603c,
   scrubBand: [110, 300],
 
+  // A hospital campus is inside a town, and this one has been standing in open
+  // country with hills all round it — which quietly removed the population the
+  // whole outbreak is about. The town presses against the fence to the south,
+  // low and close; the floodplain and the river are north, past the field
+  // station, and the ground opens out that way.
   horizon: [
-    { radius: 480, height: 34, colour: 0x51606a, haze: 0.45 },
-    { radius: 660, height: 56, colour: 0x62707a, haze: 0.66 },
+    { radius: 480, height: 34, colour: 0x51606a, haze: 0.45,
+      amp: ranges([{ at: S, width: 2.4, hi: 1.0 }, { at: E, width: 1.0, hi: 0.62 }], 0.12) },
+    { radius: 660, height: 56, colour: 0x62707a, haze: 0.66,
+      amp: opening(N, 1.5, { deep: 0.08, hi: 0.9 }) },
   ],
 
   // In the middle of the south court, facing north up the spine at the

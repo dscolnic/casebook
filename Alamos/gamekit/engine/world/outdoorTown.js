@@ -41,6 +41,11 @@ let theme = null;
 let waypointMesh = null;
 let boardScreens = [];
 let lightPanels = [];
+// Props that want to know what the campaign is doing. `decorate` pushes
+// callbacks in and `updateWorldFromState` runs them, which is how Blackout's
+// city on the horizon knows which of its districts are out tonight. Without
+// this a props layer can only build a place, never let it respond.
+let stateHooks = [];
 let peopleStations = [];
 /** groupId -> the area's readout screen, so a call can change the street. */
 export const areaScreens = new Map();
@@ -229,9 +234,10 @@ export function initWorld(canvas, activeTheme){
   }
 
   // 7. Theme hook for the objects that make this place recognisable.
+  stateHooks = [];
   theme.decorate?.(scene, {
     groundHeight, colliders, softColliders, interactables, blocked, sign, MATERIALS,
-    lightPanels, areaScreens,
+    lightPanels, areaScreens, stateHooks,
   });
 
   // 8. The people. Every third mission stop is a person stop, so this is
@@ -269,6 +275,11 @@ export function initWorld(canvas, activeTheme){
  */
 export function updateWorldFromState(state, nextStopId = null, pct = () => 0){
   if(!state) return;
+  // Anything the theme registered in `decorate`. Wrapped, because a throwing
+  // prop must not take the world's own state update down with it.
+  for(const hook of stateHooks){
+    try{ hook(state); }catch(err){ console.warn('[world] a state hook failed', err); }
+  }
   const groups = theme?.content?.GROUPS ?? [];
   for(const [id, stop] of stopMeshes){
     const g = groups.find(x => x.id === id);

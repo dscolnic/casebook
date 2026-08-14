@@ -169,6 +169,38 @@ export function decorate(scene, ctx){
   // reached, an edge that leaves the map rather than stopping at it, one object
   // far taller than the buildings, and parked vehicles standing in for people.
 
+  // ------------------------------------ the intake, downstream and in sight
+  // "Nine hundred metres downstream of the outfall" is on the opening card and
+  // was a number with nothing behind it. The intake now stands on the bank to
+  // the east, in the sightline from the yard, so the distance between the thing
+  // that spilled and the thing that drinks is something you can look at.
+  {
+    const ix = 168, iz = -104, iy = y(ix, iz);
+    box(scene, 14, 6.4, 10, ix, iy + 3.2, iz, MATERIALS.paintedSteel(0x9aa0a2));
+    box(scene, 16, 0.6, 12, ix, iy + 6.7, iz, MATERIALS.paintedSteel(0x6a7073));
+    // Screen deck out over the water, on piles.
+    for(const dx of [-5, 0, 5]) cyl(scene, 0.5, 5.5, ix + dx, iy - 1.0, iz - 9, MATERIALS.paintedSteel(0x6f6a5f));
+    box(scene, 14, 0.5, 7, ix, iy + 1.6, iz - 9, MATERIALS.paintedSteel(0x7d8a86));
+    pipeRun(scene, { x0: ix, z0: iz + 5, x1: ix - 40, z1: iz + 46, y: iy + 0.3,
+      height: 2.0, r: 0.6, colour: 0x7f8a86 });
+    sign(scene, 'CITY WATER INTAKE', { x: ix - 9, z: iz + 7, y: iy + 2.6, facing: Math.PI / 2,
+      sub: 'Closed — see advisory', accent: 0xb03a2e });
+  }
+
+  // ------------------------------------------- the yard, still making smoke
+  // The fire went out six hours ago and the wind direction is the subject of
+  // three questions. A still drift, leaning east with the wind the questions
+  // ask about, so the answer is readable from anywhere on the map.
+  {
+    const bx = -96, bz = -34;
+    for(let i = 0; i < 7; i++){
+      const t = i / 6;
+      const w = 5 + t * 26;
+      box(scene, w, 3.0 + t * 5, w * 0.7,
+        bx + t * 58, y(bx, bz) + 7 + t * 15, bz + t * 16, MATERIALS.glass());
+    }
+  }
+
   // ------------------------------------------------ the far bank: grain elevator
   // The water runs from z −157 to −67 and the player is bounded at 105, so
   // anything past the far shore is permanently out of reach — which is the point.

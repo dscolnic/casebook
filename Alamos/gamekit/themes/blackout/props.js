@@ -96,10 +96,111 @@ function turbine(scene, x, z, y, h = 62, r = 26, spin = 0){
 }
 
 export function decorate(scene, ctx){
-  const { groundHeight, colliders, softColliders, interactables, lightPanels } = ctx;
+  const { groundHeight, colliders, softColliders, interactables, lightPanels, stateHooks } = ctx;
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
   const glow = (m) => { if(m) lightPanels?.push(m); };
+
+  // ======================================================= the city, south-east
+  // The thing the job is about. Four million people are named on every card and
+  // until now you could not see one of them: the horizon was a ring of hills in
+  // every direction, on a game about keeping a city lit.
+  //
+  // site.js puts a flat-topped silhouette rank out at 900 m on this bearing.
+  // What goes in front of it is the light — a field of small emissive panels at
+  // the distance where a window is a dot, laid out in districts so that losing
+  // one is legible from here.
+  //
+  // The districts go out as the campaign does. `stateHooks` runs on every state
+  // change, and `state.week` is the day, so the fifth of the island shed on the
+  // night the valley separates is a fifth of the skyline going dark, and the
+  // restoration days bring it back in the order the room worked.
+  {
+    const R = 880, spread = 1.42, base = Math.PI / 4;   // SE, matching site.js
+    const districts = [];
+    const DISTRICTS = 5;
+    for(let d = 0; d < DISTRICTS; d++){
+      const group = new THREE.Group();
+      const a0 = base - spread / 2 + (spread / DISTRICTS) * d;
+      const a1 = a0 + (spread / DISTRICTS) * 0.92;
+      // Windows, as one merged-looking cloud of small planes. Emissive only:
+      // six real lights is the ceiling and this is nowhere near worth one.
+      const mat = new THREE.MeshStandardMaterial({
+        color: 0x2b2a26, emissive: new THREE.Color(0xffd9a0), emissiveIntensity: 1.0,
+        roughness: 0.9, metalness: 0,
+      });
+      const geo = new THREE.PlaneGeometry(2.6, 1.6);
+      const count = 150;
+      const mesh = new THREE.InstancedMesh(geo, mat, count);
+      const m = new THREE.Matrix4();
+      for(let i = 0; i < count; i++){
+        const t = (Math.sin(i * 12.9898 + d * 7.7) * 43758.5453) % 1;
+        const u = (Math.sin(i * 78.233 + d * 3.1) * 24634.6345) % 1;
+        const a = a0 + (a1 - a0) * Math.abs(t);
+        const r = R - 40 * Math.abs(u);
+        // Windows sit in the lower two thirds of the silhouette: a lit dot above
+        // the roofline reads as a star in the wrong place.
+        const h = 3 + 15 * Math.abs((Math.sin(i * 3.7 + d) + 1) / 2) ** 1.7;
+        m.makeRotationY(-a + Math.PI / 2);
+        m.setPosition(Math.cos(a) * r, h, Math.sin(a) * r);
+        mesh.setMatrixAt(i, m);
+      }
+      mesh.instanceMatrix.needsUpdate = true;
+      // Real bounds rather than `frustumCulled = false`. An instanced mesh whose
+      // instances are all 900 m from its origin has a useless default bounding
+      // sphere and vanishes; turning culling off fixes that by pushing it
+      // through the renderer from every camera angle, which is the expensive
+      // way to be correct.
+      mesh.computeBoundingSphere();
+      group.add(mesh);
+      scene.add(group);
+      districts.push({ mesh, mat, base: 1.0 });
+      glow(mesh);
+    }
+
+    // Which districts are dark on which day. Day 8 is the night the corridor
+    // trips and the valley islands; the restoration runs through day 10, and by
+    // the report on day 15 everything is back. Anything the player has not
+    // reached yet is a city that is simply lit.
+    const OUT = (week) => {
+      if(week >= 8 && week <= 9) return 2;      // the island, shed to hold frequency
+      if(week === 10) return 1;                 // restoration, most of it back
+      return 0;
+    };
+    stateHooks?.push((state) => {
+      const out = OUT(Number(state?.week) || 1);
+      districts.forEach((d, i) => {
+        // Dark from the far end in, so the outage reads as a place rather than
+        // as a flicker spread evenly over the whole skyline.
+        const dark = i < out;
+        d.mat.emissiveIntensity = dark ? 0.04 : d.base;
+        d.mat.color.setHex(dark ? 0x24231f : 0x2b2a26);
+      });
+    });
+  }
+
+  // ============================================== the channel and the intake
+  // Water for the cooling tower, which has stood here evaporating nothing since
+  // the day this file was written. site.js cuts the bed; this is the bank.
+  {
+    const zc = -210, wY = -1.4;
+    // Levee along the near bank, low and long, with a rip-rap toe.
+    box(scene, 620, 2.6, 9, 0, y(0, zc + 44) + 1.0, zc + 44, MATERIALS.paintedSteel(0x6d6a5c));
+    // Rip-rap on the toe: low broken stone, not crates.
+    for(let x = -280; x <= 280; x += 11){
+      const j = Math.abs(Math.sin(x * 3.1) );
+      box(scene, 9, 0.5 + j * 0.5, 3.4 + j, x, y(x, zc + 38) + 0.25, zc + 38.5,
+        MATERIALS.paintedSteel(0x605d55), j * 0.4);
+    }
+    // Screen house on the water, and the pipe that leaves it for the tower.
+    const sx = 46, sz = zc + 30;
+    box(scene, 9, 5.2, 7, sx, wY + 2.6, sz, MATERIALS.paintedSteel(0x8a8f92));
+    box(scene, 10, 0.5, 8, sx, wY + 5.3, sz, MATERIALS.paintedSteel(0x5c6165));
+    pipeRun(scene, { x0: sx, z0: sz + 4, x1: 34, z1: -120, y: y(40, -160) + 0.4,
+      height: 2.2, r: 0.7, colour: 0x77807c });
+    sign(scene, 'RAW WATER INTAKE', { x: sx + 8, y: y(sx + 8, sz + 10) + 2.4, z: sz + 10,
+      facing: Math.PI, sub: 'Screens · travelling band', accent: 0x2f6f8f });
+  }
 
   // ============================================================ the switchyard
   // Three bays across the north end, fenced, on a gravel pad. Busbars at three

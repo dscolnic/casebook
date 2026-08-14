@@ -1,3 +1,4 @@
+import { ranges, opening, N, S, E, W } from '../../engine/world/horizonShape.js';
 // site.js — Riverton, as data.
 //
 // The design book names forty-five locations but never says what kind of place
@@ -107,9 +108,16 @@ export const site = {
   scrubColour: 0x5f6b45,
   scrubBand: [26, 250],
 
+  // The river runs east-west across the north of the map and the contamination
+  // cannot leave the valley — which is half the argument of the questions, and
+  // was invisible while the city sat in an even ring of hills. Bluffs rise on
+  // the far bank, the valley closes to the west, and the east is open, because
+  // that is downstream and downstream is where the intake is.
   horizon: [
-    { radius: 520, height: 44, colour: 0x4a5b66, haze: 0.42 },
-    { radius: 680, height: 70, colour: 0x5c6b76, haze: 0.62 },
+    { radius: 520, height: 44, colour: 0x4a5b66, haze: 0.42,
+      amp: ranges([{ at: N, width: 2.1, hi: 1.2 }, { at: W, width: 1.2, hi: 0.8 }], 0.10) },
+    { radius: 680, height: 70, colour: 0x5c6b76, haze: 0.62,
+      amp: opening(E, 1.3, { deep: 0.05, hi: 1 }) },
   ],
 
   // On the avenue, ten metres clear of everything, facing north up the street

@@ -127,6 +127,31 @@ export function decorate(scene, ctx){
     soft({ x: sx, z: sz, r: 0.9 });
   }
 
+  // ---------------------------------------------------------- the canyon edge
+  // The mesa stops. site.js has said so since the flip — there is a rim radius
+  // in the profile — and nothing marked it, so the Hill read as a field. A
+  // guard rail of posts and cable along the drop, a warning board, and the
+  // pines thinning to nothing beyond it.
+  {
+    const R = 96;
+    for(let i = 0; i < 46; i++){
+      const a = -0.9 + (i / 45) * 2.1;              // the east and south-east rim
+      const x = Math.cos(a) * R, z = Math.sin(a) * R;
+      const gy = y(x, z);
+      post(scene, x, z, gy, 1.0, 0.07, 0x6b6153);
+      if(i % 2 === 0){
+        const a2 = -0.9 + ((i + 1) / 45) * 2.1;
+        const x2 = Math.cos(a2) * R, z2 = Math.sin(a2) * R;
+        const mx = (x + x2) / 2, mz = (z + z2) / 2;
+        box(scene, Math.hypot(x2 - x, z2 - z), 0.06, 0.06, mx, y(mx, mz) + 0.85, mz,
+          MATERIALS.paintedSteel(0x4f4740), Math.atan2(z2 - z, x2 - x));
+      }
+    }
+    const sx = Math.cos(0.2) * (R - 5), sz = Math.sin(0.2) * (R - 5);
+    sign(scene, 'CANYON EDGE', { x: sx, z: sz, y: y(sx, sz) + 2.2, facing: 0.2 + Math.PI,
+      sub: 'No vehicles past the rail', accent: 0xb0762a });
+  }
+
   // ------------------------------------------------- the East Gate road, leaving
   // The only way in or out, and the strongest continuation edge available: a road
   // that visibly drops off the mesa rather than stopping at the edge of the map.

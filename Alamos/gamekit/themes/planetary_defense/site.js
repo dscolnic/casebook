@@ -1,3 +1,4 @@
+import { ranges, opening, N, S, E, W, SE as SE_VALLEY } from '../../engine/world/horizonShape.js';
 // site.js — the Cerro Alto range, at night, as data.
 //
 // This is the one game in the set that is played in the dark, and the only one
@@ -173,10 +174,18 @@ export const site = {
   // Ranges beyond the ridge, nearly black under starlight. Radius and height
   // both halved with the site: a rank at the same height twice as close is twice
   // the angular size, and 500-metre walls appeared round the range.
+  // A ring of summits at every bearing makes a ridge read as the bottom of a
+  // bowl, and this is a mountain top. The high country stands north and west;
+  // the south-east falls away to the valley the road climbs from, which is the
+  // one bearing where the sky comes down to the horizon — and the direction the
+  // survey telescope spends its night pointing.
   horizon: [
-    { radius: 1500, height: 170, colour: 0x2a2f36, haze: 0.30 },
-    { radius: 1900, height: 230, colour: 0x333a42, haze: 0.50 },
-    { radius: 2400, height: 290, colour: 0x3c434b, haze: 0.68 },
+    { radius: 1500, height: 170, colour: 0x2a2f36, haze: 0.30,
+      amp: ranges([{ at: N, width: 2.0, hi: 1.15 }, { at: W, width: 1.8, hi: 1.0 }], 0.10) },
+    { radius: 1900, height: 230, colour: 0x333a42, haze: 0.50,
+      amp: ranges([{ at: N, width: 2.4, hi: 1.1 }, { at: W, width: 2.0, hi: 0.95 }], 0.08) },
+    { radius: 2400, height: 290, colour: 0x3c434b, haze: 0.68,
+      amp: opening(SE_VALLEY, 1.7, { deep: 0.04, hi: 1 }) },
   ],
 
   // On the road below the coordination office, looking uphill at the domes.

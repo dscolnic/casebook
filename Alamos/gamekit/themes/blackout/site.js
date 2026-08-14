@@ -28,6 +28,8 @@
 //     area that holds the whole system, and the route to every other call passes
 //     its door.
 
+import { ranges, skyline, N, NW, SE } from '../../engine/world/horizonShape.js';
+
 const PI = Math.PI;
 
 /** One building per area of study. */
@@ -64,6 +66,11 @@ export const site = {
   // because everything interesting here is steel and stands up.
   terrain: {
     size: 760, segments: 300, playerLimit: 105,
+    // Flat, and it has to stay flat: a switchyard is graded, and the one time
+    // this was tried as `rolling` the spawn apron sank to -5.3 m — below the
+    // channel's own water level, which put the site under the river. The
+    // corridor gets its climb from the towers and the horizon behind them, not
+    // from the ground under the player's feet.
     profile: 'flat', relief: 0.7,
     // Kept darker and more saturated than it looks written down: under a bright
     // sky IBL with ACES a mid albedo renders close to white.
@@ -71,6 +78,12 @@ export const site = {
   },
 
   atmosphere: { turbidity: 3.0, rayleigh: 2.6, mie: 0.004, mieG: 0.78, scale: 850, stars: 900 },
+
+  // The file has called this a river plain since the day it was written and
+  // there was no water on it, while a 44 m cooling tower stood in the middle
+  // evaporating something. The channel runs along the north edge, past the
+  // switchyard, which is also where the intake would be.
+  water: { cx: 0, cz: -210, width: 620, depth: 74, level: -1.4, bed: 2.2, shore: 20 },
 
   paths: [
     { cx: 0, cz: 56, w: 220, d: 11, worn: 7 },    // the apron, east-west
@@ -98,9 +111,20 @@ export const site = {
   scrubColour: 0x5e6a48,
   scrubBand: [30, 250],
 
+  // Not a ring. The book names three directions and the skyline should agree
+  // with it: the wind ridge stands north-west, the valley that islands is a low
+  // broken line to the north, and the south-east is open ground with the city
+  // on it — the four million people this job is about, and the only thing out
+  // there anybody is trying to keep lit.
   horizon: [
-    { radius: 520, height: 40, colour: 0x4d5a63, haze: 0.44 },
-    { radius: 680, height: 64, colour: 0x5d6a74, haze: 0.62 },
+    { radius: 520, height: 40, colour: 0x4d5a63, haze: 0.44,
+      amp: ranges([{ at: NW, width: 1.5, hi: 1.15 }, { at: N, width: 1.2, hi: 0.42 }], 0.10) },
+    { radius: 680, height: 64, colour: 0x5d6a74, haze: 0.62,
+      amp: ranges([{ at: NW, width: 1.7, hi: 1.3 }], 0.08) },
+    // Low, flat-topped and far: a silhouette for the window lights to sit in
+    // front of rather than a model of a city.
+    { radius: 900, height: 26, colour: 0x55606b, haze: 0.55,
+      amp: skyline(SE, 1.5, { hi: 1, lo: 0.02 }) },
   ],
 
   // On the apron, ten clear metres all round, facing north up the spine toward

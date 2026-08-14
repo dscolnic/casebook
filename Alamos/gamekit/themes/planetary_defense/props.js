@@ -491,6 +491,34 @@ export function decorate(scene, ctx){
     }
   }
 
+  // --------------------------------------------- the snow line and the road up
+  // Two things that say "this is a mountain top" rather than "this is a hill":
+  // snow that starts at a height and stops, and the one road in, switchbacking
+  // out of the valley the horizon now opens toward. The headlights further down
+  // this file are on this road; until now the road was not there.
+  {
+    const snow = new THREE.MeshStandardMaterial({ color: 0x8f9aa4, roughness: 1, metalness: 0 });
+    // Patches on the north slope, all above the same contour, thinning upward.
+    for(let i = 0; i < 26; i++){
+      const a = -Math.PI * 0.85 + (i / 26) * Math.PI * 0.7;
+      const r = 240 + (i % 5) * 26;
+      const x = Math.cos(a) * r, z = Math.sin(a) * r;
+      const gy = y(x, z);
+      if(gy < 6) continue;                       // the contour: nothing low down
+      box(scene, 16 + (i % 4) * 9, 0.35, 11 + (i % 3) * 7, x, gy + 0.2, z, snow, a);
+    }
+    // The road: a pale scar in six switchback legs, dropping south-east.
+    const legs = 6;
+    for(let i = 0; i < legs; i++){
+      const t = i / (legs - 1);
+      const x = 90 + t * 150;
+      const z = 120 + t * 210;
+      const gy = y(x, z);
+      box(scene, 62 - t * 10, 0.3, 7, x, gy + 0.16, z,
+        MATERIALS.paintedSteel(0x5a544c), (i % 2 ? 1 : -1) * 0.5);
+    }
+  }
+
   // ------------------------------------------- weather mast and the snow poles
   // Observing is weather-gated — the syllabus lists observing constraints as a
   // method concept — and the poles draw the eye along the road, which is what

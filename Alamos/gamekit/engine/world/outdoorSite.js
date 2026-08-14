@@ -115,6 +115,22 @@ export function onPath(x, z, pad = 1.5){
   return false;
 }
 
+/**
+ * How much of a road is at this point, 0 outside and 1 in the middle of one,
+ * with a soft edge. `onPath` answers yes or no, which is right for grading
+ * surface noise and wrong for anything that has to taper.
+ */
+export function pathWeight(x, z, feather = 8){
+  let best = 0;
+  for(const p of PATHS){
+    const dx = Math.abs(x - p.cx) - p.w / 2, dz = Math.abs(z - p.cz) - p.d / 2;
+    const out = Math.max(dx, dz);
+    const t = Math.max(0, Math.min(1, 1 - out / feather));
+    best = Math.max(best, t * t * (3 - 2 * t));
+  }
+  return best;
+}
+
 function rimRadius(ang){
   const m = CFG.mesa, [a, b, c] = m.rimWobble;
   return m.rimRadius + Math.sin(ang * 3.1) * a + Math.cos(ang * 5.7) * b + Math.sin(ang * 11.3) * c;
@@ -141,6 +157,39 @@ function rangeHeight(x, z){
   return h + (fbm(x * 0.0022 + 61, z * 0.0022 + 23, 4) - 0.5) * 26 * CFG.relief;
 }
 
+/**
+ * A surface rupture: a straight line across the map with the ground on one side
+ * standing higher than the other.
+ *
+ * It lives in the terrain rather than in a props file because the ground has
+ * exactly one source of truth here — a scarp built as geometry would be a step
+ * the player walks straight through, and a step in `groundHeight` with no
+ * geometry is an invisible wall. Declared as
+ * `terrain.scarp = { x0, z0, x1, z1, throw, width }`, where `throw` is the
+ * vertical offset in metres and `width` is how far the ground takes to make it.
+ *
+ * Kestrel Bay is the reason it exists: an earthquake game whose fault does not
+ * appear in the landscape is teaching about something the player cannot see.
+ */
+function scarpLift(x, z){
+  const sc = CFG.scarp;
+  if(!sc) return 0;
+  const dx = (sc.x1 ?? 0) - (sc.x0 ?? 0), dz = (sc.z1 ?? 0) - (sc.z0 ?? 0);
+  const len = Math.hypot(dx, dz) || 1;
+  // Signed perpendicular distance from the trace: positive on the upthrown side.
+  const side = ((x - (sc.x0 ?? 0)) * dz - (z - (sc.z0 ?? 0)) * dx) / len;
+  const half = Math.max(0.5, (sc.width ?? 6) / 2);
+  const t = Math.max(0, Math.min(1, side / half * 0.5 + 0.5));
+  // Ramped through the roads. Two reasons, and they agree: a path is drawn as a
+  // single flat plane at the height of its centre, so a step under one leaves
+  // the decal standing a metre and a half proud of the ground — which is what
+  // "a road structure that cuts people off at chest level" turned out to be.
+  // And it is what actually happens within days of a rupture: crews push a ramp
+  // over the scarp so vehicles can cross. Off the road it stands full height.
+  const road = sc.rampRoads === false ? 0 : pathWeight(x, z);
+  return (sc.throw ?? 1.8) * (t * t * (3 - 2 * t)) * (1 - road);
+}
+
 /** Surface detail, before any pad or path grading. */
 function surfaceNoise(x, z){
   return ((fbm(x * 0.012 + 11, z * 0.012 + 7, 4) - 0.5) * 1.0
@@ -159,11 +208,19 @@ export function groundHeight(x, z){
 }
 
 function surfaceHeight(x, z){
+  // 'range' folds the scarp into its own pad grading, so it must not be added
+  // twice: a bench cut on the upthrown side has to level at the height it
+  // actually stands at.
+  return CFG.profile === 'range' ? baseSurfaceHeight(x, z) : baseSurfaceHeight(x, z) + scarpLift(x, z);
+}
+
+function baseSurfaceHeight(x, z){
   // 'range' grades the *whole* height into a pad, not just the surface noise:
   // a bench cut into a mountainside has to be level, and damping the ripple on
   // a 1-in-3 slope leaves a building standing on a hill.
   if(CFG.profile === 'range'){
-    const raw = (px, pz) => rangeHeight(px, pz) + surfaceNoise(px, pz) * (onPath(px, pz, 3) ? 0.08 : 1);
+    const raw = (px, pz) => rangeHeight(px, pz) + scarpLift(px, pz)
+      + surfaceNoise(px, pz) * (onPath(px, pz, 3) ? 0.08 : 1);
     const pad = nearestPad(x, z);
     const here = raw(x, z);
     if(!pad || pad.w <= 0) return here;
@@ -328,13 +385,21 @@ export function buildPaths(scene, paths){
       scene.add(m);
       return m;
     };
+    // The decal sits just above the ground *under this path*, not just above
+    // zero. It was a constant for six games because their terrain happens to sit
+    // at about y = 0; the first site whose basin was a metre down drew every road
+    // as a 260-metre slab hanging a metre in the air, cutting people off at chest
+    // height. A path is one flat plane, so this is the height of its centre — the
+    // corollary is that a path has to run over ground that is roughly level,
+    // which is also why the scarp ramps through them.
+    const base = groundHeight(p.cx, p.cz);
     const st = (long ? tex.shoulderX : tex.shoulderY).clone(); st.needsUpdate = true;
     st.repeat.set(long ? 1 : Math.max(2, p.w / 26), long ? Math.max(2, p.d / 26) : 1);
-    surface({ map: st }, 0.97, 0.05 + idx * 0.004, 1 + idx * 2);
+    surface({ map: st }, 0.97, base + 0.05 + idx * 0.004, 1 + idx * 2);
     if(p.worn){
       const wt = (long ? tex.wornX : tex.wornY).clone(); wt.needsUpdate = true;
       wt.repeat.set(long ? 1 : Math.max(2, p.w / 22), long ? Math.max(2, p.d / 22) : 1);
-      surface({ map: wt, worn: true }, 0.88, 0.075 + idx * 0.004, 2 + idx * 2);
+      surface({ map: wt, worn: true }, 0.88, base + 0.075 + idx * 0.004, 2 + idx * 2);
     }
   });
 }
@@ -699,6 +764,7 @@ export function configureTerrain(cfg = {}){
   CFG = {
     ...TERRAIN_DEFAULTS, ...cfg,
     mesa: { ...TERRAIN_DEFAULTS.mesa, ...(cfg.mesa || {}) },
+    scarp: cfg.scarp ?? null,
     ground: { ...TERRAIN_DEFAULTS.ground, ...(cfg.ground || {}) },
   };
   return CFG;
