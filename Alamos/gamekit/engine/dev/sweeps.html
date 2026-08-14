@@ -68,8 +68,11 @@ for(const { group, i, l, g } of found){
   wrap.className = 'case';
   wrap.innerHTML = `<div class="caseHead"><h2>${l.title ?? g.title ?? ''}</h2>`
     + `<em>${group} · lesson ${i} · ${w.mode ?? 'peak'}</em></div>`
-    + `<div class="modal"><p class="q">${g.question ?? ''}</p>`
-    + `<div class="mount"></div>`
+    // The question is NOT printed here. The renderer has to print it, and for a
+    // while it did not: the harness supplied its own copy, so the page showed a
+    // question the game was dropping. A dev page that helpfully fills a gap hides
+    // the gap.
+    + `<div class="modal"><div class="mount"></div>`
     + `<p class="facts">target ${w.target} ±${w.tolerance} ${a.unit ?? ''}`
     + ` · axis ${a.min}–${a.max} step ${a.step} · start ${w.start}`
     + ` · ${(w.series ?? [{}]).length} series</p></div>`;
@@ -77,6 +80,16 @@ for(const { group, i, l, g } of found){
   const mount = wrap.querySelector('.mount');
   mount.innerHTML = sweepHTML(g);
   bindSweep(mount, g);
+  // Does the panel actually show the question? It did not, for seven sweeps
+  // across two games, and no check could see it — the string was in the book, in
+  // the printed page and in the imported content, and only the renderer dropped
+  // it.
+  if(g.question && !mount.textContent.includes(g.question.slice(0, 40))){
+    const warn = document.createElement('div');
+    warn.className = 'miss';
+    warn.textContent = 'The renderer does not print this stop’s question: ' + g.question;
+    wrap.append(warn);
+  }
 }
 
 // The verdict's own picture, which the panel cannot show: a sweep plots only

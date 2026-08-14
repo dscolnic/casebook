@@ -537,6 +537,11 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
    a button, and the format reads as broken. */
 .sweepPanel{margin:10px auto 0;max-width:480px}
 .sweepHead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+/* The question itself. It has its own class rather than the `compactInstruction`
+   the other formats use, because that class has no rules anywhere and renders as
+   body text — which is survivable under a list of options and not under an
+   instrument, where the player has to know what reading is being asked for. */
+.sweepAsk{font:600 1.02rem/1.45 Inter,system-ui;color:var(--ink);margin:12px 0 0}
 /* Say what to do with it. Nothing else in these games is dragged. */
 .sweepHint{font:600 .68rem/1.35 Inter,system-ui;color:#8a97a0;margin:0 0 6px}
 .sweepEnds{display:flex;justify-content:space-between;margin:-2px 0 8px;

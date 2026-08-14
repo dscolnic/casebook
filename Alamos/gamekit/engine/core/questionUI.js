@@ -619,7 +619,11 @@ export function sweepHTML(ch){
   const a = w.axis ?? {};
   const unit = a.unit ? ' ' + esc(a.unit) : '';
   const ad = decimalsFor(a.step);
-  return `<div class="sweepPanel" data-min="${a.min}" data-max="${a.max}" data-step="${a.step}">`
+  // Every format prints its own instruction line; this one printed the axis label
+  // and nothing else, so the question the stop was written around never reached
+  // the player. What they saw was a slider and a criterion they had to guess.
+  return `<div class="sweepAsk">${esc(ch.question || ch.task || 'Find the reading.')}</div>`
+    + `<div class="sweepPanel" data-min="${a.min}" data-max="${a.max}" data-step="${a.step}">`
     + `<div class="sweepHead"><span class="sweepAxisLabel">${esc(a.label)}</span>`
     + `<b class="sweepAt">${num(w.start, ad)}${unit}</b></div>`
     + `<div class="sweepHint">Drag the slider across the range. Only the positions you visit are plotted.</div>`
