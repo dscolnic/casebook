@@ -732,7 +732,11 @@ export function furnishArea({ makers, order, bounds: B, target = 15, seed = 'are
  *   wash      nothing. One quiet field of colour.
  */
 export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 2,
-  kind = 'wash', ink = '#5b6a72', paper = '#e8ecee', seed = 'mural' }){
+  kind = 'wash', ink = '#5b6a72', paper = '#e8ecee', seed = 'mural',
+  // Which slice of a longer run this panel is, 0 to 1. A mural painted in
+  // sections along a corridor has to carry its part of the whole: without this
+  // every section ran the full gradient and the wall read as five paintings.
+  t0 = 0, t1 = 1 }){
   const px = 1024, py = Math.max(128, Math.round((px * h) / w));
   const canvas = document.createElement('canvas');
   canvas.width = px; canvas.height = py;
@@ -741,10 +745,21 @@ export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 
 
   g.fillStyle = paper; g.fillRect(0, 0, px, py);
   if(kind === 'gradient'){
+    // The whole run's colours, sampled across this panel's own slice of it.
+    const STOPS = [[0, [200, 162, 74]], [0.5, [127, 150, 166]], [1, [93, 127, 154]]];
+    const at = (t) => {
+      let a = STOPS[0], b = STOPS[STOPS.length - 1];
+      for(let i = 0; i < STOPS.length - 1; i++){
+        if(t >= STOPS[i][0] && t <= STOPS[i + 1][0]){ a = STOPS[i]; b = STOPS[i + 1]; break; }
+      }
+      const u = (t - a[0]) / ((b[0] - a[0]) || 1);
+      return a[1].map((c, i) => Math.round(c + (b[1][i] - c) * u));
+    };
     const grad = g.createLinearGradient(0, 0, px, 0);
-    grad.addColorStop(0, '#c8a24a');       // the warm end of the building
-    grad.addColorStop(0.5, '#7f96a6');
-    grad.addColorStop(1, '#5d7f9a');       // and the cold end
+    for(let i = 0; i <= 8; i++){
+      const [r0, g0, b0] = at(t0 + (t1 - t0) * (i / 8));
+      grad.addColorStop(i / 8, `rgb(${r0},${g0},${b0})`);
+    }
     g.fillStyle = grad;
     g.fillRect(0, py * 0.28, px, py * 0.44);
   } else if(kind === 'bloch'){

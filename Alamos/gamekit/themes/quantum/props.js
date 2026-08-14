@@ -332,23 +332,68 @@ export function fitOutSpine(ctx){
   });
   const wallX = P.corridorHalfWidth - 0.06;
 
-  // The temperature gradient, painted as a low band the length of the building:
+  /**
+   * Where the spine wall on one side is actually solid.
+   *
+   * This is not the whole corridor. A room marked `open: true` has no spine wall
+   * except a nib at each end, and every other room has a doorway cut out of the
+   * middle of its wall — so a mural painted as one long panel per side hangs in
+   * mid-air across the openings, which is exactly what it did: a band at waist
+   * height carrying on past the end of the wall it was painted on.
+   *
+   * `interiorSite.partition()` is where those gaps are cut, and these are the same
+   * numbers read back off it.
+   */
+  const solidSpans = (side) => {
+    const out = [];
+    const NIB = 0.9;
+    for(const r of (plan.rooms ?? []).filter(x => x.side === side)){
+      const cz = (r.z0 + r.z1) / 2;
+      if(r.open){
+        out.push({ z0: r.z0, z1: r.z0 + NIB });
+        out.push({ z0: r.z1 - NIB, z1: r.z1 });
+      } else {
+        const dw = r.door === 'wide' ? P.doorWideW : P.doorW;
+        out.push({ z0: r.z0, z1: cz - dw / 2 - 0.06 });
+        out.push({ z0: cz + dw / 2 + 0.06, z1: r.z1 });
+      }
+    }
+    // Anything under a metre is a stub of wall, not somewhere to paint.
+    return out.filter(sp => sp.z1 - sp.z0 > 1.0);
+  };
+
+  /** Paint one kind of mural along whichever bits of a side are wall. */
+  const alongWall = (side, opts) => {
+    const sign = side === 'w' ? -1 : 1;
+    const runZ0 = sp.z0, runZ1 = sp.z1;
+    for(const span of solidSpans(side)){
+      // Long spans are painted in sections so no single panel is enormous, and
+      // each section carries its own slice of the run.
+      const len = span.z1 - span.z0 - 0.5;
+      const parts = Math.max(1, Math.round(len / 7));
+      for(let i = 0; i < parts; i++){
+        const w = len / parts;
+        const cz = span.z0 + 0.25 + (i + 0.5) * w;
+        mural({
+          x: sign * wallX, z: cz, faceX: true, toward: -sign,
+          w: w - 0.12, paper: '#dfe3e6',
+          t0: (cz - w / 2 - runZ0) / (runZ1 - runZ0),
+          t1: (cz + w / 2 - runZ0) / (runZ1 - runZ0),
+          seed: `${side}-${Math.round(cz)}`,
+          ...opts,
+        });
+      }
+    }
+  };
+
+  // The temperature gradient, along whichever parts of the west wall are wall:
   // warm at the south end where the people and the coffee are, cold at the north
   // where the fridge is. Nobody in the story admits it is deliberate.
-  const runs = 5;
-  const span = (sp.z1 - sp.z0) / runs;
-  for(let i = 0; i < runs; i++){
-    mural({ x: -wallX, y: 0.95, z: sp.z0 + (i + 0.5) * span, faceX: true, toward: 1,
-      w: span - 0.4, h: 0.5, kind: 'gradient', paper: '#dfe3e6', seed: `grad-${i}` });
-  }
+  alongWall('w', { y: 0.95, h: 0.5, kind: 'gradient' });
 
-  // The group's own first spectroscopy trace, enlarged and run along the other
-  // wall above head height. The peak falls where it falls.
-  for(let i = 0; i < 3; i++){
-    const w = (sp.z1 - sp.z0) / 3;
-    mural({ x: wallX, y: 2.45, z: sp.z0 + (i + 0.5) * w, faceX: true, toward: -1,
-      w: w - 0.3, h: 0.42, kind: 'spectrum', ink: '#7f8f9a', paper: '#dfe3e6', seed: `spec-${i}` });
-  }
+  // The group's own first spectroscopy trace, along the east wall above head
+  // height. The peak falls where it falls.
+  alongWall('e', { y: 2.45, h: 0.42, kind: 'spectrum', ink: '#7f8f9a' });
 
   // And a Bloch sphere three metres across on the end wall, correct up close and
   // decoration from the far end of the corridor.
