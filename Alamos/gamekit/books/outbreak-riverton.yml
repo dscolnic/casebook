@@ -78,31 +78,73 @@ roster:
     name: Dr. Lena Ortiz
     role: Clinical Physiology Lead
     division: CLIN
+    quiz:
+      - q: Why does Ortiz read vital signs as a delivery chain rather than as separate numbers?
+        a: Oxygen reaching tissue depends on every link, so one normal reading does not clear the chain
+        wrong:
+          - Vital signs all come off one monitor, so they share whatever error it has
+          - Only the chain as a whole is recorded in the notes
+          - Individual readings are too imprecise to interpret
     bio: Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and heat through the body.
   - id: chen
     name: Dr. Maya Chen
     role: Cell Biology Lead
     division: CELL
+    quiz:
+      - q: Why can one agent damage one tissue and leave another alone?
+        a: Cells differ in the receptors and transport their membranes carry
+        wrong:
+          - Blood reaches some tissues a great deal faster than it reaches others
+          - Larger cells absorb more of any substance
+          - Damage depends only on the dose that arrives
     bio: Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.
   - id: patel
     name: Dr. Ravi Patel
     role: Molecular Diagnostics Lead
     division: MOL
+    quiz:
+      - q: What does Patel mean by treating a molecular signal as a claim?
+        a: It has to survive its controls, a second method and a known provenance before it means anything
+        wrong:
+          - Every result has to be published in some form before anybody may act on it
+          - A signal is only valid if the same laboratory repeats it
+          - Molecular methods are less reliable than culture
     bio: Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.
   - id: okafor
     name: Dr. Nia Okafor
     role: Immunology Lead
     division: IMM
+    quiz:
+      - q: Why does Okafor separate protective immune activity from damage?
+        a: The treatment that helps one is the treatment that makes the other worse
+        wrong:
+          - Only the damaging kind of inflammation shows up in a blood sample
+          - Protective responses always resolve without treatment
+          - The distinction decides which ward a patient goes to
     bio: Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention decision.
   - id: morales
     name: Dr. Sofia Morales
     role: Epidemiology Lead
     division: POP
+    quiz:
+      - q: What is Morales's comparison group actually for?
+        a: Without it a change in the numbers cannot be told from a change in who was tested
+        wrong:
+          - It doubles the size of the sample and narrows the confidence interval
+          - It is required before any result can be published
+          - It identifies which hospital reported first
     bio: Builds comparisons that distinguish real population change from sampling, bias, and coincidence.
   - id: singh
     name: Dr. Arjun Singh
     role: One Health Lead
     division: FIELD
+    quiz:
+      - q: Why does Singh refuse to call an animal finding a transmission route?
+        a: The animal may have caught it from people, and prevalence and exposure are what separate the two
+        wrong:
+          - Animal samples cannot be sequenced to the same depth as human ones
+          - Transmission routes can only be confirmed experimentally
+          - Wildlife sampling is never representative
     bio: Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.
   - id: nakamura
     name: Rin Nakamura
@@ -1168,7 +1210,7 @@ missions:
   - title: The Mutation
     objective: Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.
     briefing: A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.
-    stake: Day forty-five. A variant with three changes has gone from 8 to 31 per cent of sequences in four weeks, in one district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. Cry selection at an artefact and the next real one is ignored.
+    stake: Day forty-five. A variant with three changes has gone from 8 to 31 per cent of sequences in four weeks, in one district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.
     takeaway: Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL

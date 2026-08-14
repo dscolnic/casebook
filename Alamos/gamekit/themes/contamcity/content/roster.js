@@ -88,7 +88,7 @@ export const ROSTER = [
       },
       {
         "q": "What is the blank sample for?",
-        "a": "Clean solvent run through the whole procedure, to catch the instrument's own contamination",
+        "a": "Solvent alone taken through every step, so anything it shows came from the method",
         "wrong": [
           "A sample from upstream of the release, to establish the river’s normal level",
           "A known concentration used to convert the signal into a number",
@@ -182,7 +182,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "In Lindqvist’s model, what happens to the downwind concentration if the wind speed doubles?",
-        "a": "It roughly halves, since the same mass is spread through twice the air",
+        "a": "It falls by about half, because twice the air carries the same release",
         "wrong": [
           "It roughly doubles, because the plume reaches further before it dilutes",
           "It is unchanged, because wind moves the plume without diluting it",
@@ -210,7 +210,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Ibarra report sediment concentrations on a dry-weight basis?",
-        "a": "A wet core is mostly water, and the water fraction varies between samples",
+        "a": "Water makes up most of the weight, and how much varies from sample to sample",
         "wrong": [
           "Drying the sample destroys the contaminant, so the dry weight is the safe measurement",
           "The extraction solvent only works on completely dry material",
@@ -229,7 +229,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "A sample reads above Whitfield’s highest standard. What does she do about it?",
-        "a": "Dilute the sample back into the calibrated range and rerun it",
+        "a": "Bring the concentration down inside the range that was calibrated, then measure again",
         "wrong": [
           "Extend the calibration line upward and read the value off the extension",
           "Report the value with a wider uncertainty attached",
@@ -295,7 +295,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Boateng actually want from the laboratory?",
-        "a": "What is known, what is not, and which of the two is about to change",
+        "a": "The settled findings, the open ones, and which of them will move next",
         "wrong": [
           "A confirmed compound identification before any decision is taken",
           "A single recommended action with the reasoning left out",
@@ -446,7 +446,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Tanaka work in CAS numbers rather than trade names?",
-        "a": "A CAS number identifies exactly one substance, where a trade name does not",
+        "a": "One registry number means one compound; a trade name can cover several",
         "wrong": [
           "A CAS number also records the concentration of the shipped material",
           "The instrument software will not accept a trade name as an input",
@@ -455,7 +455,7 @@ export const ROSTER = [
       },
       {
         "q": "What does a break in the chain of custody cost the team?",
-        "a": "It can no longer be tied to a place and a time",
+        "a": "Nobody can now say where or when it was collected",
         "wrong": [
           "The sample degrades and has to be re-collected",
           "The laboratory has to repeat the calibration for that batch",

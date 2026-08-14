@@ -41,7 +41,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What makes Dunne treat a faint mark as a real contact?",
-        "a": "It persists in the same place minute after minute, and noise does not",
+        "a": "It stays on the same bearing while random marks do not",
         "wrong": [
           "It is brighter than the marks around it",
           "It appears at the same time as a hull pop",
@@ -69,7 +69,7 @@ export const ROSTER = [
       },
       {
         "q": "Why does she treat a depth sounding as her best instrument?",
-        "a": "It cannot be wrong for the same reason the plot is — it is independent",
+        "a": "Nothing it depends on is also feeding the plot",
         "wrong": [
           "It is more precise than any other instrument aboard",
           "It gives a position directly, without a chart",
@@ -286,7 +286,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Vance actually ask her watchstanders for?",
-        "a": "What is known, what is not, and which of the two is about to change",
+        "a": "The settled facts, the open ones, and which of them moves next",
         "wrong": [
           "A single recommendation, with the reasoning left out",
           "The most cautious option available, every time",

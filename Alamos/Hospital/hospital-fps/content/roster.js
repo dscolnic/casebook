@@ -41,7 +41,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What is happening on that huge folded surface inside the lungs?",
-        "a": "Oxygen crosses into the blood and carbon dioxide crosses back out",
+        "a": "Fresh air gives up oxygen and takes away the gas the body is finished with",
         "wrong": [
           "Air is warmed up before it reaches the stomach",
           "Blood is cleaned of germs before it returns to the heart",
@@ -97,7 +97,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does a cast actually do for a broken bone?",
-        "a": "It holds the two ends still while the body heals",
+        "a": "It stops the broken ends moving so the body can mend them",
         "wrong": [
           "It supplies the minerals the bone needs to knit together",
           "It presses the ends of the bone tightly together so they fuse",
@@ -106,7 +106,7 @@ export const ROSTER = [
       },
       {
         "q": "What is a growth plate?",
-        "a": "A band of softer tissue where new bone is added",
+        "a": "A softer strip near the end of the bone that is still growing",
         "wrong": [
           "The hard outer shell that protects the middle of the bone",
           "The joint where two bones meet and slide past each other",
@@ -153,7 +153,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How does soap help against germs?",
-        "a": "It breaks up the greasy coat so water washes them away",
+        "a": "It loosens the oily layer around them so they rinse off",
         "wrong": [
           "It poisons the germs where they sit on the skin",
           "It dries the skin out so germs cannot survive on it",
@@ -209,7 +209,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does the spacer on Amara’s inhaler do?",
-        "a": "It holds the puff so she can breathe it in slowly",
+        "a": "It keeps the medicine in front of her mouth for a few breaths",
         "wrong": [
           "It squeezes the medicine into a stronger dose before it is breathed in",
           "It warms the medicine up so that it does not make her cough",
@@ -247,7 +247,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is Arjun’s drip bag salty water rather than plain water?",
-        "a": "Cells sit in a balance with the fluid around them",
+        "a": "Cells and the liquid around them are already in balance",
         "wrong": [
           "Salt helps the fluid travel up the tube more quickly",
           "Salt stops germs growing inside the bag",
@@ -589,7 +589,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does droplet size matter so much in Luis’s nebuliser?",
-        "a": "Too big and they land in the throat, too small and they blow back out",
+        "a": "Big ones stop short of the lungs and very small ones are breathed out again",
         "wrong": [
           "Bigger droplets carry more medicine, so bigger is always better",
           "Small droplets are colder and make the airways tighten",
@@ -608,7 +608,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What do the sensors on Mae’s head record?",
-        "a": "The brain’s electrical activity, which changes through the stages of sleep",
+        "a": "Tiny electrical signals from the brain, which alter as she sleeps",
         "wrong": [
           "How warm her head becomes during deep sleep",
           "How often she moves and turns over in the night",
@@ -627,7 +627,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What makes the \"lub-dub\" sound of a heartbeat?",
-        "a": "Valves closing in turn to stop blood flowing backwards",
+        "a": "Flaps shutting one after another so blood cannot run the wrong way",
         "wrong": [
           "Blood hitting the wall of the heart as it is pushed out",
           "The heart muscle squeezing and then relaxing again",
@@ -703,7 +703,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does testing urine tell the team about the kidneys?",
-        "a": "Urine is what the kidneys filtered out, so it shows what they have been dealing with",
+        "a": "It is what the kidneys removed, so it shows what the body was clearing",
         "wrong": [
           "Urine is stored inside the kidneys until it is needed for a test",
           "Urine is made by the bladder and the kidneys only pass it along",
@@ -741,7 +741,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What are the two numbers in a blood pressure reading?",
-        "a": "The pressure while the heart is pushing, and the pressure between beats while it refills",
+        "a": "How hard blood pushes when the heart squeezes, and how hard between squeezes",
         "wrong": [
           "The pressure in the left arm and the pressure in the right arm",
           "The heart rate and the pressure in the artery",

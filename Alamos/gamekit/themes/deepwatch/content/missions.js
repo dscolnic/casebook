@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Silent Passage",
     "objective": "Cross a constrained area without losing contact awareness or making unnecessary noise.",
     "briefing": "The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.",
-    "stake": "Fifth day, first watch. The narrows are four miles across, the transit takes eleven hours, and the plot's uncertainty is a circle two miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points out that waiting puts the boat in the middle of the strait at first light, which is worse than any argument about the plot — and this time she is right. This watch you decide what has to be true before the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for Rask. Margin is the number that matters.",
+    "stake": "Fifth day, first watch. The narrows are four miles across, the transit takes eleven hours, and the plot's uncertainty is a circle two miles wide. The executive officer, Theo Whitfield, wants to wait for a better fix. Vance points out that waiting puts the boat in the middle of the strait at first light, which is worse than any argument about the plot — and this time she is right. This watch you decide what has to be true before the boat commits, how much margin the passage really has, and what Haruki can afford to shut down for Rask. What matters is how much water stays under the keel.",
     "takeaway": "Quiet costs capability, and the trade has to be made deliberately rather than by default.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "Sonar Blinded by the Boat",
     "objective": "Find the noise the boat is making about itself, and prove which machine it is.",
     "briefing": "Sonar has lost the picture. There is a broadband rise across every bearing and a new narrowband line, and the ocean has not changed. The problem is aboard, which makes it the engineers' problem and sonar's evidence.",
-    "stake": "Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and the broadband operator, Kes Dunne, has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. A boat that cannot hear is a boat that is only being heard.",
+    "stake": "Eleventh day. The broadband noise floor is up across every bearing rather than in one sector, and the broadband operator, Kes Dunne, has found a new narrowband line at a hundred and thirteen hertz that grows with turns. Rask says the boat is shouting into its own array; Haruki says his plant is running exactly as it was yesterday. This watch you decide whether the noise is outside the boat or inside it, narrow it to one machine, and say what kind of fault makes a line like that. While the array is degraded other boats can still hear this one, and it cannot hear them.",
     "takeaway": "Own-ship noise is diagnosed by correlating what sonar hears with what the plant is doing.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "Refit Decision",
     "objective": "Choose what to improve before the last patrol, on evidence rather than preference.",
     "briefing": "There is money and yard time for some of what the boat wants and not all of it. Every proposal has a cost, an uncertain benefit, and an effect on the patrol that follows.",
-    "stake": "Twenty-first day, and the refit list goes off the boat in tomorrow's message window. The yard will fund one item. Haruki wants the cooling pump that has cost him two watches this patrol, Rask wants the mounts that would have prevented the noise line, Lindqvist wants a second scrubber train, and Whitfield wants to know which of them the next patrol is most likely to need. This watch you decide. The evidence is unglamorous: which failures cost real time, which are becoming more frequent, and what each fix would actually remove. Memory is the trap, and every one of them is arguing from it.",
+    "stake": "Twenty-first day, and the refit list goes off the boat in tomorrow's message window. The yard will fund one item. Haruki wants the cooling pump that has cost him two watches this patrol, Rask wants the mounts that would have prevented the noise line, Lindqvist wants a second scrubber train, and Whitfield wants to know which of them the next patrol is most likely to need. This watch you decide. The evidence is unglamorous: which failures cost real time, which are becoming more frequent, and what each fix would actually remove. Everyone in the room is arguing from what they remember, and nobody has opened the log.",
     "takeaway": "An upgrade is worth what it changes about the decisions you will actually face.",
     "stops": [
       {

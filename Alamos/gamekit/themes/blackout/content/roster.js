@@ -47,7 +47,18 @@ export const ROSTER = [
     "role": "Protection Engineer",
     "division": "TRANS",
     "color": "#2980b9",
-    "bio": "<p>Sets the relays, which means he designs the conditions under which the network is allowed to give up on part of itself. He describes the job as writing the rules for an argument that will happen in eighty milliseconds with nobody present.</p><p>A relay that never trips is not a cautious relay, it is a relay that lets a fault burn. A relay that trips early takes out a healthy line and moves the overload somewhere less convenient. Coordination is the whole discipline.</p><p>His limit is that he is protecting against faults he has to imagine in advance, and the cascade always finds the sequence nobody drew.</p>"
+    "bio": "<p>Sets the relays, which means he designs the conditions under which the network is allowed to give up on part of itself. He describes the job as writing the rules for an argument that will happen in eighty milliseconds with nobody present.</p><p>A relay that never trips is not a cautious relay, it is a relay that lets a fault burn. A relay that trips early takes out a healthy line and moves the overload somewhere less convenient. Coordination is the whole discipline.</p><p>His limit is that he is protecting against faults he has to imagine in advance, and the cascade always finds the sequence nobody drew.</p>",
+    "quiz": [
+      {
+        "q": "Why does Novak call a relay setting the rules for an argument nobody attends?",
+        "a": "The relay has to decide alone, in milliseconds, from settings written months earlier",
+        "wrong": [
+          "Relay settings are agreed by a standing committee that never meets in the same room",
+          "The argument is between the two ends of a line that cannot talk to each other in time",
+          "Nobody is allowed in the yard while protection is live"
+        ]
+      }
+    ]
   },
   {
     "id": "obi",
@@ -74,7 +85,18 @@ export const ROSTER = [
     "role": "Load Forecasting",
     "division": "LOAD",
     "color": "#8e44ad",
-    "bio": "<p>Forecasts demand, which he insists is a branch of anthropology conducted with a thermometer. Weather, the television schedule, the school holidays and whether it gets dark before people get home.</p><p>He is precise about what a forecast is: a distribution, not a number. The useful output is the width, because the width is what the reserve has to cover.</p><p>His limit is that the events worth forecasting are rare by construction, so the model is always best calibrated for the days that matter least.</p>"
+    "bio": "<p>Forecasts demand, which he insists is a branch of anthropology conducted with a thermometer. Weather, the television schedule, the school holidays and whether it gets dark before people get home.</p><p>He is precise about what a forecast is: a distribution, not a number. The useful output is the width, because the width is what the reserve has to cover.</p><p>His limit is that the events worth forecasting are rare by construction, so the model is always best calibrated for the days that matter least.</p>",
+    "quiz": [
+      {
+        "q": "What does Lindgren mean by calling forecasting anthropology with a thermometer?",
+        "a": "Demand is what people do, and weather is only one of the things that decides it",
+        "wrong": [
+          "Forecasters interview a panel of households about their heating every winter",
+          "The model is built from historical temperature alone",
+          "Demand can be predicted from population size and nothing else"
+        ]
+      }
+    ]
   },
   {
     "id": "farrow",
@@ -101,7 +123,18 @@ export const ROSTER = [
     "role": "Assistant Operator",
     "division": "OPS",
     "color": "#c0392b",
-    "bio": "<p>Second seat on nights, three years in, and the person who actually keeps the log. Has read every sequence-of-events report the company owns and can quote which ones contradict the official account.</p>"
+    "bio": "<p>Second seat on nights, three years in, and the person who actually keeps the log. Has read every sequence-of-events report the company owns and can quote which ones contradict the official account.</p>",
+    "quiz": [
+      {
+        "q": "Why is the log Whitlock keeps worth more than the reports written afterwards?",
+        "a": "It records what the room knew at the time, before anybody knew how it ended",
+        "wrong": [
+          "It is the only document the regulator is entitled to ask the company for",
+          "Reports are written afterwards by people who were not on shift that night",
+          "The log records exact times and the reports do not"
+        ]
+      }
+    ]
   },
   {
     "id": "sarraf",
@@ -109,7 +142,18 @@ export const ROSTER = [
     "role": "Wind Fleet Controller",
     "division": "GEN",
     "color": "#d35400",
-    "bio": "<p>Dispatches the ridge fleet from a desk with more forecast on it than telemetry. Explains patiently and often that curtailing a turbine is not waste when the alternative is a line at its thermal limit.</p>"
+    "bio": "<p>Dispatches the ridge fleet from a desk with more forecast on it than telemetry. Explains patiently and often that curtailing a turbine is not waste when the alternative is a line at its thermal limit.</p>",
+    "quiz": [
+      {
+        "q": "Why does Sarraf say curtailing a turbine is not waste?",
+        "a": "Energy that cannot reach a customer was never available, whatever the wind was doing",
+        "wrong": [
+          "Curtailed output is held in storage and released later the same night",
+          "The fleet is paid the same under contract whether it runs or not",
+          "Turbines last longer when they are not run at full output"
+        ]
+      }
+    ]
   },
   {
     "id": "dube",
@@ -117,7 +161,18 @@ export const ROSTER = [
     "role": "Substation Technician",
     "division": "TRANS",
     "color": "#2980b9",
-    "bio": "<p>Does the switching in the yard when the control room asks for it, in the order it is written, reading it back before he touches anything. Has opinions about people who improvise switching sequences.</p>"
+    "bio": "<p>Does the switching in the yard when the control room asks for it, in the order it is written, reading it back before he touches anything. Has opinions about people who improvise switching sequences.</p>",
+    "quiz": [
+      {
+        "q": "Why does Dube read a switching order back before he touches anything?",
+        "a": "Saying it aloud is the one chance to catch a wrong item before it is irreversible",
+        "wrong": [
+          "The control room records the readback afterwards as proof of who is liable",
+          "Reading aloud is required by the radio protocol in the yard",
+          "It gives the control room time to cancel the instruction"
+        ]
+      }
+    ]
   },
   {
     "id": "kowalczyk",
@@ -125,7 +180,18 @@ export const ROSTER = [
     "role": "Field Crew Lead",
     "division": "DIST",
     "color": "#27ae60",
-    "bio": "<p>Runs the crew that finds the fault, which is usually a tree, and puts the feeder back. Knows which streets have the hospital, the dialysis clinic and the two houses on home oxygen.</p>"
+    "bio": "<p>Runs the crew that finds the fault, which is usually a tree, and puts the feeder back. Knows which streets have the hospital, the dialysis clinic and the two houses on home oxygen.</p>",
+    "quiz": [
+      {
+        "q": "Why does Kowalczyk know which streets have the dialysis clinic on them?",
+        "a": "Restoration order is decided by what waiting costs, not by how many houses are on the feeder",
+        "wrong": [
+          "Those streets are required by law to be restored first in every outage",
+          "Medical addresses are the only ones the fault-finding system records",
+          "Crews are paid a premium for restoring critical premises"
+        ]
+      }
+    ]
   },
   {
     "id": "alvarez",
@@ -133,7 +199,18 @@ export const ROSTER = [
     "role": "Demand Analyst",
     "division": "LOAD",
     "color": "#8e44ad",
-    "bio": "<p>Builds the load curves and the counterfactuals. Spends the day after an event working out what demand would have been if the event had not happened, which is the number every settlement argument turns on.</p>"
+    "bio": "<p>Builds the load curves and the counterfactuals. Spends the day after an event working out what demand would have been if the event had not happened, which is the number every settlement argument turns on.</p>",
+    "quiz": [
+      {
+        "q": "What is Alvarez's counterfactual demand curve for?",
+        "a": "It says what demand would have been without the event, which is what the loss is measured against",
+        "wrong": [
+          "It predicts what demand will be over the course of the following week",
+          "It shows which feeders were restored in which order",
+          "It converts megawatts into megawatt-hours for the report"
+        ]
+      }
+    ]
   },
   {
     "id": "bergström",
@@ -141,7 +218,18 @@ export const ROSTER = [
     "role": "Calibration Technician",
     "division": "METER",
     "color": "#b0762a",
-    "bio": "<p>Keeps the standards traceable and the calibration records current. The cheerful arbiter of whether a disputed reading is admissible, and immune to being hurried.</p>"
+    "bio": "<p>Keeps the standards traceable and the calibration records current. The cheerful arbiter of whether a disputed reading is admissible, and immune to being hurried.</p>",
+    "quiz": [
+      {
+        "q": "Why will Bergström not be hurried over a disputed reading?",
+        "a": "A reading is only admissible if the instrument's traceability can be shown, and that takes as long as it takes",
+        "wrong": [
+          "Calibration records can only be updated at the end of an accounting month",
+          "She is the only person permitted to touch the standards",
+          "A rushed calibration would damage the reference instrument"
+        ]
+      }
+    ]
   }
 ];
 

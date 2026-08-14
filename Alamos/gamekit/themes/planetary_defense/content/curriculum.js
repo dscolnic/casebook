@@ -154,7 +154,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "θ = s / d",
-          "c": "the small-angle formula — angular size to physical size"
+          "c": "the small-angle formula — angular size to physical size",
+          "v": [
+            [
+              "θ",
+              "angular size, in radians"
+            ],
+            [
+              "s",
+              "true size across, in kilometres"
+            ],
+            [
+              "d",
+              "distance to it, in kilometres"
+            ]
+          ],
+          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
         }
       ]
     },
@@ -295,7 +310,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "F = L / 4πd²",
-          "c": "inverse-square brightness, and the size–albedo degeneracy"
+          "c": "inverse-square brightness, and the size–albedo degeneracy",
+          "v": [
+            [
+              "F",
+              "flux received here, in watts per square metre"
+            ],
+            [
+              "L",
+              "how much light the object sends out, in watts"
+            ],
+            [
+              "d",
+              "distance, in metres"
+            ]
+          ],
+          "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical."
         }
       ]
     },
@@ -334,7 +364,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection"
+          "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
       ]
     },
@@ -373,7 +418,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection"
+          "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
       ]
     }
@@ -463,7 +523,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "F = L / 4πd²",
-          "c": "inverse-square brightness, and the size–albedo degeneracy"
+          "c": "inverse-square brightness, and the size–albedo degeneracy",
+          "v": [
+            [
+              "F",
+              "flux received here, in watts per square metre"
+            ],
+            [
+              "L",
+              "how much light the object sends out, in watts"
+            ],
+            [
+              "d",
+              "distance, in metres"
+            ]
+          ],
+          "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical."
         }
       ]
     },
@@ -686,7 +761,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "Δλ / λ = v / c",
-          "c": "Doppler shift as a line-of-sight speed"
+          "c": "Doppler shift as a line-of-sight speed",
+          "v": [
+            [
+              "Δλ",
+              "shift in wavelength"
+            ],
+            [
+              "λ",
+              "the unshifted wavelength"
+            ],
+            [
+              "v",
+              "speed along the line of sight"
+            ],
+            [
+              "c",
+              "the speed of light"
+            ]
+          ],
+          "s": "Motion toward or away stretches or squeezes the light by a fraction equal to the speed as a fraction of light speed."
         }
       ]
     }
@@ -769,6 +863,21 @@ export const CURRICULUM = {
         {
           "e": "KE = ½mv²",
           "c": "impact energy, and why speed dominates it",
+          "v": [
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy.",
           "computed": true
         }
       ]
@@ -800,6 +909,21 @@ export const CURRICULUM = {
         {
           "e": "KE = ½mv²",
           "c": "impact energy, and why speed dominates it",
+          "v": [
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy.",
           "computed": true
         }
       ]
@@ -831,6 +955,21 @@ export const CURRICULUM = {
         {
           "e": "p = mv",
           "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount.",
           "computed": true
         }
       ]
@@ -886,7 +1025,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection"
+          "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
       ]
     }
@@ -1010,7 +1164,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "d = baseline / parallax angle",
-          "c": "distance from a parallax shift"
+          "c": "distance from a parallax shift",
+          "v": [
+            [
+              "baseline",
+              "separation between the two observing points, in kilometres"
+            ],
+            [
+              "parallax angle",
+              "the shift in apparent position, in radians"
+            ]
+          ],
+          "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
         }
       ]
     },
@@ -1065,11 +1230,41 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "d = baseline / parallax angle",
-          "c": "distance from a parallax shift"
+          "c": "distance from a parallax shift",
+          "v": [
+            [
+              "baseline",
+              "separation between the two observing points, in kilometres"
+            ],
+            [
+              "parallax angle",
+              "the shift in apparent position, in radians"
+            ]
+          ],
+          "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
         },
         {
           "e": "Δλ / λ = v / c",
-          "c": "Doppler shift as a line-of-sight speed"
+          "c": "Doppler shift as a line-of-sight speed",
+          "v": [
+            [
+              "Δλ",
+              "shift in wavelength"
+            ],
+            [
+              "λ",
+              "the unshifted wavelength"
+            ],
+            [
+              "v",
+              "speed along the line of sight"
+            ],
+            [
+              "c",
+              "the speed of light"
+            ]
+          ],
+          "s": "Motion toward or away stretches or squeezes the light by a fraction equal to the speed as a fraction of light speed."
         }
       ]
     },
@@ -1108,7 +1303,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "d = baseline / parallax angle",
-          "c": "distance from a parallax shift"
+          "c": "distance from a parallax shift",
+          "v": [
+            [
+              "baseline",
+              "separation between the two observing points, in kilometres"
+            ],
+            [
+              "parallax angle",
+              "the shift in apparent position, in radians"
+            ]
+          ],
+          "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
         }
       ]
     },
@@ -1147,7 +1353,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "θ = s / d",
-          "c": "the small-angle formula — angular size to physical size"
+          "c": "the small-angle formula — angular size to physical size",
+          "v": [
+            [
+              "θ",
+              "angular size, in radians"
+            ],
+            [
+              "s",
+              "true size across, in kilometres"
+            ],
+            [
+              "d",
+              "distance to it, in kilometres"
+            ]
+          ],
+          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
         }
       ]
     },
@@ -1178,6 +1399,21 @@ export const CURRICULUM = {
         {
           "e": "F = L / 4πd²",
           "c": "inverse-square brightness, and the size–albedo degeneracy",
+          "v": [
+            [
+              "F",
+              "flux received here, in watts per square metre"
+            ],
+            [
+              "L",
+              "how much light the object sends out, in watts"
+            ],
+            [
+              "d",
+              "distance, in metres"
+            ]
+          ],
+          "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical.",
           "computed": true
         }
       ]
@@ -1256,7 +1492,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection"
+          "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
       ]
     },
@@ -1344,6 +1595,21 @@ export const CURRICULUM = {
         {
           "e": "θ = s / d",
           "c": "the small-angle formula — angular size to physical size",
+          "v": [
+            [
+              "θ",
+              "angular size, in radians"
+            ],
+            [
+              "s",
+              "true size across, in kilometres"
+            ],
+            [
+              "d",
+              "distance to it, in kilometres"
+            ]
+          ],
+          "s": "For small angles the angle an object subtends is simply its size divided by its distance.",
           "computed": true
         }
       ]
@@ -1383,7 +1649,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "KE = ½mv²",
-          "c": "impact energy, and why speed dominates it"
+          "c": "impact energy, and why speed dominates it",
+          "v": [
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy."
         }
       ]
     },
@@ -1422,7 +1703,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "KE = ½mv²",
-          "c": "impact energy, and why speed dominates it"
+          "c": "impact energy, and why speed dominates it",
+          "v": [
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy."
         }
       ]
     },
@@ -1781,7 +2077,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = √(GM / r)",
-          "c": "orbital speed, and the energy that goes with it"
+          "c": "orbital speed, and the energy that goes with it",
+          "v": [
+            [
+              "v",
+              "orbital speed, in metres per second"
+            ],
+            [
+              "G",
+              "the gravitational constant"
+            ],
+            [
+              "M",
+              "mass of the body being orbited, in kilograms"
+            ],
+            [
+              "r",
+              "orbital radius, in metres"
+            ]
+          ],
+          "s": "An orbit is a balance between speed and distance, so a closer orbit has to be a faster one."
         }
       ]
     },
@@ -1820,11 +2135,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection"
+          "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         },
         {
           "e": "v = √(GM / r)",
-          "c": "orbital speed, and the energy that goes with it"
+          "c": "orbital speed, and the energy that goes with it",
+          "v": [
+            [
+              "v",
+              "orbital speed, in metres per second"
+            ],
+            [
+              "G",
+              "the gravitational constant"
+            ],
+            [
+              "M",
+              "mass of the body being orbited, in kilograms"
+            ],
+            [
+              "r",
+              "orbital radius, in metres"
+            ]
+          ],
+          "s": "An orbit is a balance between speed and distance, so a closer orbit has to be a faster one."
         }
       ]
     },
@@ -1904,6 +2253,21 @@ export const CURRICULUM = {
         {
           "e": "E[X] = Σ p·x",
           "c": "expected value — a consequence weighted by its probability",
+          "v": [
+            [
+              "E[X]",
+              "expected value, in the same units as the consequence"
+            ],
+            [
+              "p",
+              "probability of an outcome"
+            ],
+            [
+              "x",
+              "what that outcome costs or gains"
+            ]
+          ],
+          "s": "Weight each outcome by how likely it is and add them up, which is how a small chance of something enormous is compared with a certainty of something small.",
           "computed": true
         }
       ]
@@ -1992,7 +2356,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection"
+          "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
       ]
     },
@@ -2031,7 +2410,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection"
+          "c": "momentum, and momentum transfer in a deflection",
+          "v": [
+            [
+              "p",
+              "momentum, in kilogram metres per second"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
         }
       ]
     }

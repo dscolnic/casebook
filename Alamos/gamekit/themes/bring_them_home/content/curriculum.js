@@ -55,7 +55,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
       ]
     },
@@ -133,7 +148,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "a_c = v² / r",
-          "c": "centripetal acceleration in circular motion"
+          "c": "centripetal acceleration in circular motion",
+          "v": [
+            [
+              "a_c",
+              "centripetal acceleration, in metres per second squared"
+            ],
+            [
+              "v",
+              "speed along the circle"
+            ],
+            [
+              "r",
+              "radius of the circle, in metres"
+            ]
+          ],
+          "s": "Going round a curve is an acceleration even at constant speed, because the direction keeps changing."
         }
       ]
     },
@@ -164,6 +194,25 @@ export const CURRICULUM = {
         {
           "e": "J = FΔt = Δp",
           "c": "impulse as the change in momentum",
+          "v": [
+            [
+              "J",
+              "impulse, in newton seconds"
+            ],
+            [
+              "F",
+              "force applied"
+            ],
+            [
+              "Δt",
+              "how long it acts for"
+            ],
+            [
+              "Δp",
+              "the resulting change in momentum"
+            ]
+          ],
+          "s": "A small force applied for a long time changes momentum as much as a large one applied briefly.",
           "computed": true
         }
       ]
@@ -195,6 +244,21 @@ export const CURRICULUM = {
         {
           "e": "τ = rF",
           "c": "torque about an axis, and rotational equilibrium",
+          "v": [
+            [
+              "τ",
+              "torque, in newton metres"
+            ],
+            [
+              "r",
+              "distance from the axis, in metres"
+            ],
+            [
+              "F",
+              "force applied at that distance"
+            ]
+          ],
+          "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel.",
           "computed": true
         }
       ]
@@ -226,6 +290,33 @@ export const CURRICULUM = {
         {
           "e": "v = v₀ + at, x = x₀ + v₀t + ½at²",
           "c": "kinematics at constant acceleration",
+          "v": [
+            [
+              "v",
+              "speed at time t, in metres per second"
+            ],
+            [
+              "v₀",
+              "speed at the start"
+            ],
+            [
+              "a",
+              "acceleration, in metres per second squared"
+            ],
+            [
+              "t",
+              "elapsed time, in seconds"
+            ],
+            [
+              "x",
+              "position"
+            ],
+            [
+              "x₀",
+              "starting position"
+            ]
+          ],
+          "s": "Under constant acceleration, speed grows in step with time and distance grows with the square of it.",
           "computed": true
         }
       ]
@@ -399,11 +490,57 @@ export const CURRICULUM = {
         {
           "e": "W = Fd, KE = ½mv²",
           "c": "work, kinetic energy and conservation of energy",
+          "v": [
+            [
+              "W",
+              "work done, in joules"
+            ],
+            [
+              "F",
+              "force along the motion, in newtons"
+            ],
+            [
+              "d",
+              "distance moved, in metres"
+            ],
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass"
+            ],
+            [
+              "v",
+              "speed"
+            ]
+          ],
+          "s": "Work done on something becomes its energy, and the total energy is bookkeeping that has to balance.",
           "computed": true
         },
         {
           "e": "P = IV = I²R",
           "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on.",
           "computed": true
         }
       ]
@@ -459,7 +596,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time"
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },
@@ -490,6 +646,25 @@ export const CURRICULUM = {
         {
           "e": "P = IV = I²R",
           "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on.",
           "computed": true
         }
       ]
@@ -556,6 +731,25 @@ export const CURRICULUM = {
         {
           "e": "Q = mcΔT",
           "c": "heat against a temperature change and a heat capacity",
+          "v": [
+            [
+              "Q",
+              "heat, in joules"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "c",
+              "specific heat capacity"
+            ],
+            [
+              "ΔT",
+              "temperature change, in kelvin"
+            ]
+          ],
+          "s": "How far a temperature moves depends on the heat added, the mass and how hard that material is to warm.",
           "computed": true
         }
       ]
@@ -660,6 +854,33 @@ export const CURRICULUM = {
         {
           "e": "W = Fd, KE = ½mv²",
           "c": "work, kinetic energy and conservation of energy",
+          "v": [
+            [
+              "W",
+              "work done, in joules"
+            ],
+            [
+              "F",
+              "force along the motion, in newtons"
+            ],
+            [
+              "d",
+              "distance moved, in metres"
+            ],
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass"
+            ],
+            [
+              "v",
+              "speed"
+            ]
+          ],
+          "s": "Work done on something becomes its energy, and the total energy is bookkeeping that has to balance.",
           "computed": true
         }
       ]
@@ -815,6 +1036,21 @@ export const CURRICULUM = {
         {
           "e": "v = fλ",
           "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion.",
           "computed": true
         }
       ]
@@ -921,15 +1157,64 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "F = ma",
-          "c": "Newton's second law"
+          "c": "Newton's second law",
+          "v": [
+            [
+              "F",
+              "net force, in newtons"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "a",
+              "acceleration, in metres per second squared"
+            ]
+          ],
+          "s": "Acceleration is what a net force produces, and the same force moves a heavier object less."
         },
         {
           "e": "J = FΔt = Δp",
-          "c": "impulse as the change in momentum"
+          "c": "impulse as the change in momentum",
+          "v": [
+            [
+              "J",
+              "impulse, in newton seconds"
+            ],
+            [
+              "F",
+              "force applied"
+            ],
+            [
+              "Δt",
+              "how long it acts for"
+            ],
+            [
+              "Δp",
+              "the resulting change in momentum"
+            ]
+          ],
+          "s": "A small force applied for a long time changes momentum as much as a large one applied briefly."
         },
         {
           "e": "τ = rF",
-          "c": "torque about an axis, and rotational equilibrium"
+          "c": "torque about an axis, and rotational equilibrium",
+          "v": [
+            [
+              "τ",
+              "torque, in newton metres"
+            ],
+            [
+              "r",
+              "distance from the axis, in metres"
+            ],
+            [
+              "F",
+              "force applied at that distance"
+            ]
+          ],
+          "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel."
         }
       ]
     },
@@ -974,7 +1259,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
       ]
     },
@@ -1005,11 +1305,41 @@ export const CURRICULUM = {
         {
           "e": "T = 2π√(m/k)",
           "c": "the period of a simple harmonic oscillator, and resonance",
+          "v": [
+            [
+              "T",
+              "period, in seconds"
+            ],
+            [
+              "m",
+              "the oscillating mass, in kilograms"
+            ],
+            [
+              "k",
+              "stiffness of the spring, in newtons per metre"
+            ]
+          ],
+          "s": "An oscillator has a natural period set by its mass and stiffness, and driving it at that rate is what makes a resonance.",
           "computed": true
         },
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
       ]
     }
@@ -1211,11 +1541,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "F = ma",
-          "c": "Newton's second law"
+          "c": "Newton's second law",
+          "v": [
+            [
+              "F",
+              "net force, in newtons"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "a",
+              "acceleration, in metres per second squared"
+            ]
+          ],
+          "s": "Acceleration is what a net force produces, and the same force moves a heavier object less."
         },
         {
           "e": "J = FΔt = Δp",
-          "c": "impulse as the change in momentum"
+          "c": "impulse as the change in momentum",
+          "v": [
+            [
+              "J",
+              "impulse, in newton seconds"
+            ],
+            [
+              "F",
+              "force applied"
+            ],
+            [
+              "Δt",
+              "how long it acts for"
+            ],
+            [
+              "Δp",
+              "the resulting change in momentum"
+            ]
+          ],
+          "s": "A small force applied for a long time changes momentum as much as a large one applied briefly."
         }
       ]
     },
@@ -1260,11 +1624,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "τ = rF",
-          "c": "torque about an axis, and rotational equilibrium"
+          "c": "torque about an axis, and rotational equilibrium",
+          "v": [
+            [
+              "τ",
+              "torque, in newton metres"
+            ],
+            [
+              "r",
+              "distance from the axis, in metres"
+            ],
+            [
+              "F",
+              "force applied at that distance"
+            ]
+          ],
+          "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel."
         },
         {
           "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time"
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },
@@ -1353,7 +1751,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time"
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },
@@ -1425,7 +1842,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time"
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },
@@ -1547,7 +1983,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time"
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },
@@ -1673,7 +2128,34 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "W = Fd, KE = ½mv²",
-          "c": "work, kinetic energy and conservation of energy"
+          "c": "work, kinetic energy and conservation of energy",
+          "v": [
+            [
+              "W",
+              "work done, in joules"
+            ],
+            [
+              "F",
+              "force along the motion, in newtons"
+            ],
+            [
+              "d",
+              "distance moved, in metres"
+            ],
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass"
+            ],
+            [
+              "v",
+              "speed"
+            ]
+          ],
+          "s": "Work done on something becomes its energy, and the total energy is bookkeeping that has to balance."
         }
       ]
     },
@@ -1712,7 +2194,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time"
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },
@@ -1801,11 +2302,41 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "T = 2π√(m/k)",
-          "c": "the period of a simple harmonic oscillator, and resonance"
+          "c": "the period of a simple harmonic oscillator, and resonance",
+          "v": [
+            [
+              "T",
+              "period, in seconds"
+            ],
+            [
+              "m",
+              "the oscillating mass, in kilograms"
+            ],
+            [
+              "k",
+              "stiffness of the spring, in newtons per metre"
+            ]
+          ],
+          "s": "An oscillator has a natural period set by its mass and stiffness, and driving it at that rate is what makes a resonance."
         },
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
       ]
     },
@@ -1844,11 +2375,41 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "T = 2π√(m/k)",
-          "c": "the period of a simple harmonic oscillator, and resonance"
+          "c": "the period of a simple harmonic oscillator, and resonance",
+          "v": [
+            [
+              "T",
+              "period, in seconds"
+            ],
+            [
+              "m",
+              "the oscillating mass, in kilograms"
+            ],
+            [
+              "k",
+              "stiffness of the spring, in newtons per metre"
+            ]
+          ],
+          "s": "An oscillator has a natural period set by its mass and stiffness, and driving it at that rate is what makes a resonance."
         },
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
         }
       ]
     },
@@ -1969,7 +2530,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time"
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
         }
       ]
     },

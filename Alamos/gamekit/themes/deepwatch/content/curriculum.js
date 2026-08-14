@@ -55,7 +55,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
       ]
     },
@@ -144,7 +159,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer"
+          "c": "Snell's law — why sound bends at a layer",
+          "v": [
+            [
+              "θ₁",
+              "angle in the first layer"
+            ],
+            [
+              "v₁",
+              "sound speed in that layer"
+            ],
+            [
+              "θ₂",
+              "angle in the second layer"
+            ],
+            [
+              "v₂",
+              "sound speed there"
+            ]
+          ],
+          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
       ]
     },
@@ -183,7 +217,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer"
+          "c": "Snell's law — why sound bends at a layer",
+          "v": [
+            [
+              "θ₁",
+              "angle in the first layer"
+            ],
+            [
+              "v₁",
+              "sound speed in that layer"
+            ],
+            [
+              "θ₂",
+              "angle in the second layer"
+            ],
+            [
+              "v₂",
+              "sound speed there"
+            ]
+          ],
+          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
       ]
     },
@@ -228,7 +281,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer"
+          "c": "Snell's law — why sound bends at a layer",
+          "v": [
+            [
+              "θ₁",
+              "angle in the first layer"
+            ],
+            [
+              "v₁",
+              "sound speed in that layer"
+            ],
+            [
+              "θ₂",
+              "angle in the second layer"
+            ],
+            [
+              "v₂",
+              "sound speed there"
+            ]
+          ],
+          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
       ]
     },
@@ -317,11 +389,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         },
         {
           "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer"
+          "c": "Snell's law — why sound bends at a layer",
+          "v": [
+            [
+              "θ₁",
+              "angle in the first layer"
+            ],
+            [
+              "v₁",
+              "sound speed in that layer"
+            ],
+            [
+              "θ₂",
+              "angle in the second layer"
+            ],
+            [
+              "v₂",
+              "sound speed there"
+            ]
+          ],
+          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
         }
       ]
     },
@@ -352,11 +458,45 @@ export const CURRICULUM = {
         {
           "e": "v = fλ",
           "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other.",
           "computed": true
         },
         {
           "e": "Δf / f = v / c",
           "c": "Doppler shift as a closing speed",
+          "v": [
+            [
+              "Δf",
+              "the shift in frequency, in hertz"
+            ],
+            [
+              "f",
+              "the frequency being transmitted"
+            ],
+            [
+              "v",
+              "closing speed along the line of sight"
+            ],
+            [
+              "c",
+              "speed of sound in water"
+            ]
+          ],
+          "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound.",
           "computed": true
         }
       ]
@@ -411,7 +551,30 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "SL − 2TL + TS − NL ≥ DT",
-          "c": "the sonar equation as a detection budget"
+          "c": "the sonar equation as a detection budget",
+          "v": [
+            [
+              "SL",
+              "source level of the noise"
+            ],
+            [
+              "TL",
+              "transmission loss, once each way"
+            ],
+            [
+              "TS",
+              "target strength of the contact"
+            ],
+            [
+              "NL",
+              "noise level at the array"
+            ],
+            [
+              "DT",
+              "detection threshold the operator needs"
+            ]
+          ],
+          "s": "Detection is a budget: the echo has to survive two trips through the water and still stand above the noise."
         }
       ]
     },
@@ -442,6 +605,21 @@ export const CURRICULUM = {
         {
           "e": "dB = 10·log₁₀(P/P₀)",
           "c": "the decibel, and why 3 dB is a doubling",
+          "v": [
+            [
+              "dB",
+              "the level, in decibels"
+            ],
+            [
+              "P",
+              "the power being measured"
+            ],
+            [
+              "P₀",
+              "the reference power it is quoted against"
+            ]
+          ],
+          "s": "Decibels are a logarithm, so adding 3 dB is doubling the power and adding 10 dB is ten times it.",
           "computed": true
         }
       ]
@@ -481,11 +659,41 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         },
         {
           "e": "f_beat = |f₁ − f₂|",
-          "c": "beats between two close frequencies"
+          "c": "beats between two close frequencies",
+          "v": [
+            [
+              "f_beat",
+              "the beat frequency you hear, in hertz"
+            ],
+            [
+              "f₁",
+              "one source frequency"
+            ],
+            [
+              "f₂",
+              "the other"
+            ]
+          ],
+          "s": "Two close tones rise and fall together at the difference of their frequencies, which is how two machines are told from one."
         }
       ]
     }
@@ -559,7 +767,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "d = ½vt",
-          "c": "echo ranging on a two-way travel time"
+          "c": "echo ranging on a two-way travel time",
+          "v": [
+            [
+              "d",
+              "range to the contact, in metres"
+            ],
+            [
+              "v",
+              "speed of sound in water"
+            ],
+            [
+              "t",
+              "the round-trip travel time, in seconds"
+            ]
+          ],
+          "s": "The ping goes out and comes back, so the range is half of what the travel time would otherwise give."
         }
       ]
     },
@@ -809,7 +1032,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "F_b = ρVg",
-          "c": "Archimedes — buoyancy from displaced volume"
+          "c": "Archimedes — buoyancy from displaced volume",
+          "v": [
+            [
+              "F_b",
+              "buoyant force, in newtons"
+            ],
+            [
+              "ρ",
+              "density of the water"
+            ],
+            [
+              "V",
+              "volume of water displaced, in cubic metres"
+            ],
+            [
+              "g",
+              "9.81 metres per second squared"
+            ]
+          ],
+          "s": "The upward force equals the weight of the water pushed aside, so flooding a compartment removes buoyancy the boat was relying on."
         }
       ]
     },
@@ -1061,7 +1303,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "p = ρgh",
-          "c": "hydrostatic pressure with depth"
+          "c": "hydrostatic pressure with depth",
+          "v": [
+            [
+              "p",
+              "pressure, in pascals"
+            ],
+            [
+              "ρ",
+              "density of seawater, about 1025 kilograms per cubic metre"
+            ],
+            [
+              "g",
+              "9.81 metres per second squared"
+            ],
+            [
+              "h",
+              "depth, in metres"
+            ]
+          ],
+          "s": "Pressure rises steadily with depth, which is why the same hole floods faster the deeper you go."
         }
       ]
     },
@@ -1747,7 +2008,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
       ]
     },
@@ -1874,7 +2150,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength"
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
       ]
     },
@@ -1929,7 +2220,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "F_b = ρVg",
-          "c": "Archimedes — buoyancy from displaced volume"
+          "c": "Archimedes — buoyancy from displaced volume",
+          "v": [
+            [
+              "F_b",
+              "buoyant force, in newtons"
+            ],
+            [
+              "ρ",
+              "density of the water"
+            ],
+            [
+              "V",
+              "volume of water displaced, in cubic metres"
+            ],
+            [
+              "g",
+              "9.81 metres per second squared"
+            ]
+          ],
+          "s": "The upward force equals the weight of the water pushed aside, so flooding a compartment removes buoyancy the boat was relying on."
         }
       ]
     },
@@ -2123,7 +2433,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "dB = 10·log₁₀(P/P₀)",
-          "c": "the decibel, and why 3 dB is a doubling"
+          "c": "the decibel, and why 3 dB is a doubling",
+          "v": [
+            [
+              "dB",
+              "the level, in decibels"
+            ],
+            [
+              "P",
+              "the power being measured"
+            ],
+            [
+              "P₀",
+              "the reference power it is quoted against"
+            ]
+          ],
+          "s": "Decibels are a logarithm, so adding 3 dB is doubling the power and adding 10 dB is ten times it."
         }
       ]
     }

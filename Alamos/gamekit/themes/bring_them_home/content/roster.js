@@ -9,7 +9,18 @@ export const ROSTER = [
     "role": "Guidance Lead",
     "division": "NAV",
     "color": "#315c78",
-    "bio": "<p>Uses independent tracking and dynamics to decide whether an apparent trajectory change is physical or a measurement artifact.</p>"
+    "bio": "<p>Uses independent tracking and dynamics to decide whether an apparent trajectory change is physical or a measurement artifact.</p>",
+    "quiz": [
+      {
+        "q": "How does Reyes tell a real trajectory change from a measurement artefact?",
+        "a": "By seeing whether independent sources moved, or only one",
+        "wrong": [
+          "By re-running the same navigation solution with much tighter tolerances",
+          "By waiting for the next scheduled navigation update",
+          "By comparing the result against the pre-launch plan"
+        ]
+      }
+    ]
   },
   {
     "id": "shah",
@@ -17,7 +28,18 @@ export const ROSTER = [
     "role": "Power Systems Lead",
     "division": "ELEC",
     "color": "#9a741d",
-    "bio": "<p>Reads voltage, current, power, and heat as one energy system rather than isolated meters.</p>"
+    "bio": "<p>Reads voltage, current, power, and heat as one energy system rather than isolated meters.</p>",
+    "quiz": [
+      {
+        "q": "Why does Shah read voltage, current and heat as one system?",
+        "a": "They are three views of one energy budget",
+        "wrong": [
+          "Three separate instruments together are more accurate than any one of them",
+          "Heat is the only quantity that can be measured directly in flight",
+          "The three meters share a single power supply"
+        ]
+      }
+    ]
   },
   {
     "id": "brooks",
@@ -25,7 +47,18 @@ export const ROSTER = [
     "role": "Thermal and Life Support Lead",
     "division": "THERM",
     "color": "#4b775f",
-    "bio": "<p>Tracks heat and gas through the cabin and asks whether powered hardware is actually transporting what it should.</p>"
+    "bio": "<p>Tracks heat and gas through the cabin and asks whether powered hardware is actually transporting what it should.</p>",
+    "quiz": [
+      {
+        "q": "What does Brooks mean by asking whether hardware is transporting what it should?",
+        "a": "Power to a fan is not proof that air is moving",
+        "wrong": [
+          "Hardware telemetry becomes unreliable during a power-down and cannot be trusted",
+          "Transport rates can only be measured on the ground",
+          "The crew cannot hear whether a fan is running"
+        ]
+      }
+    ]
   },
   {
     "id": "ito",
@@ -33,7 +66,18 @@ export const ROSTER = [
     "role": "Communications Lead",
     "division": "COMMS",
     "color": "#704f88",
-    "bio": "<p>Turns wave physics, antenna pointing, range, and receiver measurements into a quantitative link diagnosis.</p>"
+    "bio": "<p>Turns wave physics, antenna pointing, range, and receiver measurements into a quantitative link diagnosis.</p>",
+    "quiz": [
+      {
+        "q": "Why does Ito treat received power as only part of a link diagnosis?",
+        "a": "Pointing, range and a transmitter fault all look the same in it",
+        "wrong": [
+          "Received power is sampled too slowly to be useful during a fast fade",
+          "Power readings are quantised too coarsely at long range",
+          "Only frequency measurements are calibrated"
+        ]
+      }
+    ]
   },
   {
     "id": "mensah",
@@ -41,7 +85,18 @@ export const ROSTER = [
     "role": "Dynamics and Structures Lead",
     "division": "STRUCT",
     "color": "#9a3f36",
-    "bio": "<p>Connects torque, forcing frequency, natural modes, and measured motion to spacecraft behavior.</p>"
+    "bio": "<p>Connects torque, forcing frequency, natural modes, and measured motion to spacecraft behavior.</p>",
+    "quiz": [
+      {
+        "q": "Why does Mensah care about the frequency something is shaken at, not just how hard?",
+        "a": "A structure answers strongly only near its own natural frequency",
+        "wrong": [
+          "Forcing at high frequency always does more damage than forcing at low frequency",
+          "Frequency determines how far the vibration travels through the hull",
+          "Accelerometers only respond above a threshold frequency"
+        ]
+      }
+    ]
   },
   {
     "id": "carter",
@@ -49,7 +104,18 @@ export const ROSTER = [
     "role": "Mission Integration Lead",
     "division": "INTEG",
     "color": "#3d6f52",
-    "bio": "<p>Challenges common-mode assumptions and makes the final decision only after independent evidence agrees.</p>"
+    "bio": "<p>Challenges common-mode assumptions and makes the final decision only after independent evidence agrees.</p>",
+    "quiz": [
+      {
+        "q": "What is Carter guarding against by demanding independent evidence?",
+        "a": "Two instruments sharing a step can be wrong together",
+        "wrong": [
+          "Crew reports become unreliable when the people making them are under stress",
+          "A single instrument cannot be calibrated in flight",
+          "Independent teams work faster than one large team"
+        ]
+      }
+    ]
   },
   {
     "id": "whitaker",
@@ -80,7 +146,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Ferreira refuse to evaluate a load in isolation?",
-        "a": "Switching one off moves the cost into another system, often at a higher price later",
+        "a": "Switching one off moves the cost somewhere else",
         "wrong": [
           "Every load aboard draws the same current",
           "Loads can only be measured while the fuel cells are running",
@@ -137,7 +203,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why will Okoye not characterise a vibration mode from one accelerometer?",
-        "a": "A sensor at a node of the mode reads almost nothing while the structure moves nearby",
+        "a": "At a still point of that mode there is nothing to feel",
         "wrong": [
           "Accelerometers cannot measure below one hertz",
           "A single sensor cannot record frequency, only amplitude",
@@ -156,7 +222,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Lindqvist treat as the main risk during a fast-moving failure?",
-        "a": "Two rooms acting on different versions of the same number",
+        "a": "Two teams working from figures that disagree",
         "wrong": [
           "A back room refusing to give an estimate at all",
           "The crew asking questions over the loop",

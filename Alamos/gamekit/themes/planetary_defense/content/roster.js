@@ -9,7 +9,18 @@ export const ROSTER = [
     "role": "Survey Imaging Lead",
     "division": "DISC",
     "color": "#315c78",
-    "bio": "<p>Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated and independent observations.</p>"
+    "bio": "<p>Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated and independent observations.</p>",
+    "quiz": [
+      {
+        "q": "How does Nguyen separate a real moving object from a detector artefact?",
+        "a": "It appears in independent exposures and moves consistently",
+        "wrong": [
+          "Artefacts are always brighter on the frame than a real detection is",
+          "Real objects appear on only one detector at a time",
+          "Cosmic rays are removed by the telescope's own software"
+        ]
+      }
+    ]
   },
   {
     "id": "rossi",
@@ -17,7 +28,18 @@ export const ROSTER = [
     "role": "Orbit Determination Lead",
     "division": "ORBIT",
     "color": "#704f88",
-    "bio": "<p>Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the dangerous uncertainty.</p>"
+    "bio": "<p>Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the dangerous uncertainty.</p>",
+    "quiz": [
+      {
+        "q": "Why does Rossi treat a position as a timed measurement rather than a point?",
+        "a": "An orbit is fitted to when as much as where",
+        "wrong": [
+          "A position is only valid for the night on which it was taken",
+          "Timing decides which telescope gets credit for the observation",
+          "The covariance is computed from exposure length"
+        ]
+      }
+    ]
   },
   {
     "id": "adebayo",
@@ -25,7 +47,18 @@ export const ROSTER = [
     "role": "Physical Characterization Lead",
     "division": "CHAR",
     "color": "#4b775f",
-    "bio": "<p>Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely determines size or composition.</p>"
+    "bio": "<p>Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely determines size or composition.</p>",
+    "quiz": [
+      {
+        "q": "Why will Adebayo not give a diameter from brightness alone?",
+        "a": "Brightness is size and reflectivity together",
+        "wrong": [
+          "Brightness cannot be measured accurately at the faintest magnitudes",
+          "Diameter requires a radar detection by definition",
+          "Reflectivity is the same for every asteroid of a given type"
+        ]
+      }
+    ]
   },
   {
     "id": "fischer",
@@ -33,7 +66,18 @@ export const ROSTER = [
     "role": "Radar Dynamics Lead",
     "division": "RADAR",
     "color": "#9a741d",
-    "bio": "<p>Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.</p>"
+    "bio": "<p>Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.</p>",
+    "quiz": [
+      {
+        "q": "What does radar add that optical astrometry cannot give?",
+        "a": "A direct distance and line-of-sight speed",
+        "wrong": [
+          "A far more accurate measurement of the very same position on the sky",
+          "The object's composition from the returned frequency",
+          "Observations that can be made in daylight"
+        ]
+      }
+    ]
   },
   {
     "id": "banerjee",
@@ -41,7 +85,18 @@ export const ROSTER = [
     "role": "Impact Physics Lead",
     "division": "IMPACT",
     "color": "#9a3f36",
-    "bio": "<p>Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic outcomes.</p>"
+    "bio": "<p>Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic outcomes.</p>",
+    "quiz": [
+      {
+        "q": "Why does Banerjee give consequence as a range rather than a number?",
+        "a": "Three uncertain inputs multiply through the calculation",
+        "wrong": [
+          "A range is required by protocol before any public statement is made",
+          "Deterministic answers are only possible after entry",
+          "The range describes how likely an impact is"
+        ]
+      }
+    ]
   },
   {
     "id": "garcia",
@@ -49,7 +104,18 @@ export const ROSTER = [
     "role": "Survey and Response Lead",
     "division": "OPS",
     "color": "#3d6f52",
-    "bio": "<p>Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing expected value with a prediction.</p>"
+    "bio": "<p>Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing expected value with a prediction.</p>",
+    "quiz": [
+      {
+        "q": "What is Garcia guarding against when she says expected value is not a prediction?",
+        "a": "A tiny chance of something enormous gives a number nobody will see",
+        "wrong": [
+          "Expected value cannot be computed before the orbit is known",
+          "Probabilities below one per cent are not meaningful to a general audience",
+          "The public always misreads percentages"
+        ]
+      }
+    ]
   },
   {
     "id": "virtanen",
@@ -61,7 +127,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "How does Virtanen measure whether the survey is missing objects?",
-        "a": "By injecting synthetic sources into the images and counting how many the pipeline recovers",
+        "a": "By planting known objects and seeing how many are found",
         "wrong": [
           "By comparing the number found this year with last year",
           "By checking that no uncatalogued objects appear in the catalogue",
@@ -80,7 +146,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Delacroix conclude from residuals that grow toward one corner of the detector?",
-        "a": "The error follows focal-plane position, so it is instrumental rather than orbital",
+        "a": "The error follows position on the detector, not the sky",
         "wrong": [
           "The object is accelerating in a way gravity does not explain",
           "The exposure times were recorded in the wrong time standard",
@@ -99,7 +165,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Sorokin's infrared measurement pin down a diameter that optical brightness cannot?",
-        "a": "Thermal emission depends on size and temperature rather than on the unknown reflectivity",
+        "a": "Thermal emission depends on size and temperature, not reflectivity",
         "wrong": [
           "Infrared telescopes have better angular resolution",
           "Reflected light cannot be measured for faint objects",
@@ -118,7 +184,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why is a radar window so short and so valuable?",
-        "a": "Echo strength falls with the fourth power of distance",
+        "a": "The returned signal weakens as the fourth power of range",
         "wrong": [
           "The transmitter overheats after a few hours of use",
           "Radar requires the object to be in the Earth's shadow",

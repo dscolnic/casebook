@@ -9,7 +9,18 @@ export const ROSTER = [
     "role": "Clinical Physiology Lead",
     "division": "CLIN",
     "color": "#315c78",
-    "bio": "<p>Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and heat through the body.</p>"
+    "bio": "<p>Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and heat through the body.</p>",
+    "quiz": [
+      {
+        "q": "Why does Ortiz read vital signs as a delivery chain rather than as separate numbers?",
+        "a": "Oxygen reaching tissue depends on every link, so one normal reading does not clear the chain",
+        "wrong": [
+          "Vital signs all come off one monitor, so they share whatever error it has",
+          "Only the chain as a whole is recorded in the notes",
+          "Individual readings are too imprecise to interpret"
+        ]
+      }
+    ]
   },
   {
     "id": "chen",
@@ -17,7 +28,18 @@ export const ROSTER = [
     "role": "Cell Biology Lead",
     "division": "CELL",
     "color": "#4b775f",
-    "bio": "<p>Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.</p>"
+    "bio": "<p>Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.</p>",
+    "quiz": [
+      {
+        "q": "Why can one agent damage one tissue and leave another alone?",
+        "a": "Cells differ in the receptors and transport their membranes carry",
+        "wrong": [
+          "Blood reaches some tissues a great deal faster than it reaches others",
+          "Larger cells absorb more of any substance",
+          "Damage depends only on the dose that arrives"
+        ]
+      }
+    ]
   },
   {
     "id": "patel",
@@ -25,7 +47,18 @@ export const ROSTER = [
     "role": "Molecular Diagnostics Lead",
     "division": "MOL",
     "color": "#704f88",
-    "bio": "<p>Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.</p>"
+    "bio": "<p>Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.</p>",
+    "quiz": [
+      {
+        "q": "What does Patel mean by treating a molecular signal as a claim?",
+        "a": "It has to survive its controls, a second method and a known provenance before it means anything",
+        "wrong": [
+          "Every result has to be published in some form before anybody may act on it",
+          "A signal is only valid if the same laboratory repeats it",
+          "Molecular methods are less reliable than culture"
+        ]
+      }
+    ]
   },
   {
     "id": "okafor",
@@ -33,7 +66,18 @@ export const ROSTER = [
     "role": "Immunology Lead",
     "division": "IMM",
     "color": "#9a3f36",
-    "bio": "<p>Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention decision.</p>"
+    "bio": "<p>Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention decision.</p>",
+    "quiz": [
+      {
+        "q": "Why does Okafor separate protective immune activity from damage?",
+        "a": "The treatment that helps one is the treatment that makes the other worse",
+        "wrong": [
+          "Only the damaging kind of inflammation shows up in a blood sample",
+          "Protective responses always resolve without treatment",
+          "The distinction decides which ward a patient goes to"
+        ]
+      }
+    ]
   },
   {
     "id": "morales",
@@ -41,7 +85,18 @@ export const ROSTER = [
     "role": "Epidemiology Lead",
     "division": "POP",
     "color": "#9a741d",
-    "bio": "<p>Builds comparisons that distinguish real population change from sampling, bias, and coincidence.</p>"
+    "bio": "<p>Builds comparisons that distinguish real population change from sampling, bias, and coincidence.</p>",
+    "quiz": [
+      {
+        "q": "What is Morales's comparison group actually for?",
+        "a": "Without it a change in the numbers cannot be told from a change in who was tested",
+        "wrong": [
+          "It doubles the size of the sample and narrows the confidence interval",
+          "It is required before any result can be published",
+          "It identifies which hospital reported first"
+        ]
+      }
+    ]
   },
   {
     "id": "singh",
@@ -49,7 +104,18 @@ export const ROSTER = [
     "role": "One Health Lead",
     "division": "FIELD",
     "color": "#3d6f52",
-    "bio": "<p>Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.</p>"
+    "bio": "<p>Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.</p>",
+    "quiz": [
+      {
+        "q": "Why does Singh refuse to call an animal finding a transmission route?",
+        "a": "The animal may have caught it from people, and prevalence and exposure are what separate the two",
+        "wrong": [
+          "Animal samples cannot be sequenced to the same depth as human ones",
+          "Transmission routes can only be confirmed experimentally",
+          "Wildlife sampling is never representative"
+        ]
+      }
+    ]
   },
   {
     "id": "nakamura",

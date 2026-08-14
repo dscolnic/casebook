@@ -226,7 +226,7 @@ roster:
       After the war he returned to Cornell, won the 1967 Nobel Prize for the theory of stellar nucleosynthesis, and became a senior voice for arms control, test-ban verification, and eventually opposition to the Strategic Defense Initiative. He served as a Los Alamos consultant into his nineties and was regarded as the laboratory’s conscience on technical honesty.
     quiz:
       - q: What practice did Bethe institute in the Theoretical Division?
-        a: Independent recalculation of every important number
+        a: Working the significant figures out again from scratch, separately
         wrong:
           - One approved calculation method that the whole division had to use
           - A rule that no number was used until an experiment had confirmed it
@@ -406,7 +406,7 @@ roster:
       Post-war she became a prominent voice for women in science and for the peaceful use of nuclear energy, receiving the Enrico Fermi Award in 1966. Element 109, meitnerium, and the Hahn-Meitner Institute honor her. She died in Cambridge in 1968 and is regarded as one of the most significant physicists denied a Nobel for her central discovery.
     quiz:
       - q: What did Meitner do when the Manhattan Project invited her personally?
-        a: Refused outright — "I will have nothing to do with a bomb"
+        a: She refused, and never worked on the weapon programme
         wrong:
           - Agreed to consult on the theory only, and only from Stockholm
           - Accepted, and was then refused entry to the United States
@@ -1707,7 +1707,7 @@ missions:
   - title: Follow radioactivity through the laboratory
     objective: Treat decay as a quantitative process that must survive chemistry and background measurement.
     briefing: A radioactive sample changes while it is being prepared and measured. Follow the same evidence chain from the decay law, through tracer chemistry, to a defensible background measurement.
-    stake: July 1943, and three groups have reported yields that cannot all be right. Seaborg's chemistry says one thing, and Woods's counters another. The sample decays while the chemistry is still running, so the amount at the end is not the amount you started with. Today you handle decay as arithmetic, follow an element through a separation, and measure what a counter reads with nothing in front of it. Woods will not report a number until she has measured that, which is why hers is the count the others are being checked against. A count with no background under it is not a measurement.
+    stake: July 1943, and three groups have reported yields that cannot all be right. Seaborg's chemistry says one thing, and Woods's counters another. The sample decays while the chemistry is still running, so the amount at the end is not the amount you started with. Today you handle decay as arithmetic, follow an element through a separation, and measure what a counter reads with nothing in front of it. Woods will not report a number until she has measured that, which is why hers is the count the others are being checked against. Without a background count taken first, the number on its own means very little.
     takeaway: A count rate is not automatically a decay rate; time dependence, chemical recovery, and background all matter.
     stops:
       - group: T
@@ -2132,7 +2132,7 @@ missions:
   - title: Make symmetry measurable
     objective: Turn a qualitative demand for symmetry into calibrated timing evidence and an engineering requirement.
     briefing: “Nearly simultaneous” is not a measurement. Define a symmetry metric, calibrate the timing channels that observe it, and see why simultaneity became a system requirement.
-    stake: October 1944. “Nearly simultaneous” has been in every memo for two months. Nobody has written down what it means in microseconds. That is why Kistiakowsky's division and Bethe's have been arguing past each other since August. Today you turn it into a number, calibrate the channels that measure it, and give ordnance a requirement they can build to. Kistiakowsky has four recording channels and no record of when any of them was last checked against another. The memos will go on saying nearly simultaneous until somebody writes a tolerance beside it. Measure simultaneity with instruments that disagree and you have measured the instruments.
+    stake: October 1944. “Nearly simultaneous” has been in every memo for two months. Nobody has written down what it means in microseconds. That is why Kistiakowsky's division and Bethe's have been arguing past each other since August. Today you turn it into a number, calibrate the channels that measure it, and give ordnance a requirement they can build to. Kistiakowsky has four recording channels and no record of when any of them was last checked against another. The memos will go on saying nearly simultaneous until somebody writes a tolerance beside it. If the instruments disagree about when things happened, the timing you report describes the instruments rather than the shot.
     takeaway: A system requirement becomes testable only when it has a metric and a calibrated measurement chain.
     stops:
       - group: X

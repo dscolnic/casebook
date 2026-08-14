@@ -70,7 +70,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What practice did Bethe institute in the Theoretical Division?",
-        "a": "Independent recalculation of every important number",
+        "a": "Working the significant figures out again from scratch, separately",
         "wrong": [
           "One approved calculation method that the whole division had to use",
           "A rule that no number was used until an experiment had confirmed it",
@@ -260,7 +260,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What did Meitner do when the Manhattan Project invited her personally?",
-        "a": "Refused outright — \"I will have nothing to do with a bomb\"",
+        "a": "She refused, and never worked on the weapon programme",
         "wrong": [
           "Agreed to consult on the theory only, and only from Stockholm",
           "Accepted, and was then refused entry to the United States",

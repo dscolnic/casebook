@@ -226,7 +226,7 @@ roster:
       His favourite measurement is the peak flow meter, a plastic tube you blow into as hard as you can. It gives a number for how fast air can leave the lungs. One number on its own means little, but the same child’s numbers over a week show whether the tubes are opening up again.
     quiz:
       - q: What is happening on that huge folded surface inside the lungs?
-        a: Oxygen crosses into the blood and carbon dioxide crosses back out
+        a: Fresh air gives up oxygen and takes away the gas the body is finished with
         wrong:
           - Air is warmed up before it reaches the stomach
           - Blood is cleaned of germs before it returns to the heart
@@ -274,13 +274,13 @@ roster:
       Children’s bones have a trick adults have lost: a growth plate near each end, a band of softer tissue where new bone is added as the child gets taller. It is why children heal faster than grown-ups, and also why she takes a break near a growth plate more seriously than the same break in the middle of the bone.
     quiz:
       - q: What does a cast actually do for a broken bone?
-        a: It holds the two ends still while the body heals
+        a: It stops the broken ends moving so the body can mend them
         wrong:
           - It supplies the minerals the bone needs to knit together
           - It presses the ends of the bone tightly together so they fuse
           - It keeps germs away from the break inside the arm
       - q: What is a growth plate?
-        a: A band of softer tissue where new bone is added
+        a: A softer strip near the end of the bone that is still growing
         wrong:
           - The hard outer shell that protects the middle of the bone
           - The joint where two bones meet and slide past each other
@@ -322,7 +322,7 @@ roster:
       The immune system is her other subject. White blood cells learn the shape of a germ they have met before, so the second time it arrives they recognise it and start fighting immediately instead of taking days to work out what it is. That memory is exactly what a vaccine gives, without the illness.
     quiz:
       - q: How does soap help against germs?
-        a: It breaks up the greasy coat so water washes them away
+        a: It loosens the oily layer around them so they rinse off
         wrong:
           - It poisons the germs where they sit on the skin
           - It dries the skin out so germs cannot survive on it
@@ -370,7 +370,7 @@ roster:
       She keeps an asthma plan on the fridge at home, written with her doctor: what a good day looks like, what a bad day looks like, and who to call. She says the plan is the part that stopped her being frightened, because bad days stopped being a surprise.
     quiz:
       - q: What does the spacer on Amara’s inhaler do?
-        a: It holds the puff so she can breathe it in slowly
+        a: It keeps the medicine in front of her mouth for a few breaths
         wrong:
           - It squeezes the medicine into a stronger dose before it is breathed in
           - It warms the medicine up so that it does not make her cough
@@ -406,7 +406,7 @@ roster:
       The nurses call those salts electrolytes. They are the same things you lose in sweat, which is why sweat tastes salty, and why sports drinks were invented to put them back.
     quiz:
       - q: Why is Arjun’s drip bag salty water rather than plain water?
-        a: Cells sit in a balance with the fluid around them
+        a: Cells and the liquid around them are already in balance
         wrong:
           - Salt helps the fluid travel up the tube more quickly
           - Salt stops germs growing inside the bag
@@ -730,7 +730,7 @@ roster:
       It takes about ten minutes of ordinary breathing, and it works for a child too breathless to use an inhaler properly. Nothing has to be timed or coordinated — he just breathes.
     quiz:
       - q: Why does droplet size matter so much in Luis’s nebuliser?
-        a: Too big and they land in the throat, too small and they blow back out
+        a: Big ones stop short of the lungs and very small ones are breathed out again
         wrong:
           - Bigger droplets carry more medicine, so bigger is always better
           - Small droplets are colder and make the airways tighten
@@ -748,7 +748,7 @@ roster:
       The chest band tracks her breathing and a finger clip tracks her oxygen at the same time, so the record shows what her breathing was doing at each stage — something that cannot be seen at all while someone is awake.
     quiz:
       - q: What do the sensors on Mae’s head record?
-        a: The brain’s electrical activity, which changes through the stages of sleep
+        a: Tiny electrical signals from the brain, which alter as she sleeps
         wrong:
           - How warm her head becomes during deep sleep
           - How often she moves and turns over in the night
@@ -766,7 +766,7 @@ roster:
       They also put stickers on his chest for an ECG, which records the electrical signal that makes the heart squeeze. That signal always runs in the same order, so a trace out of order tells the doctor which part to look at.
     quiz:
       - q: What makes the "lub-dub" sound of a heartbeat?
-        a: Valves closing in turn to stop blood flowing backwards
+        a: Flaps shutting one after another so blood cannot run the wrong way
         wrong:
           - Blood hitting the wall of the heart as it is pushed out
           - The heart muscle squeezing and then relaxing again
@@ -838,7 +838,7 @@ roster:
       That is why the test looks for things that should not be there at all. Protein or blood in urine means the filter is letting through something it normally holds back, and sugar means there was more in the blood than the body could keep hold of.
     quiz:
       - q: Why does testing urine tell the team about the kidneys?
-        a: Urine is what the kidneys filtered out, so it shows what they have been dealing with
+        a: It is what the kidneys removed, so it shows what the body was clearing
         wrong:
           - Urine is stored inside the kidneys until it is needed for a test
           - Urine is made by the bladder and the kidneys only pass it along
@@ -874,7 +874,7 @@ roster:
       He has been asked to have it checked again on a normal day rather than a hospital day, since sitting in a waiting room worrying about a grandchild is not a typical afternoon and blood pressure notices things like that.
     quiz:
       - q: What are the two numbers in a blood pressure reading?
-        a: The pressure while the heart is pushing, and the pressure between beats while it refills
+        a: How hard blood pushes when the heart squeezes, and how hard between squeezes
         wrong:
           - The pressure in the left arm and the pressure in the right arm
           - The heart rate and the pressure in the artery

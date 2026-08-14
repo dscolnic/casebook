@@ -39,7 +39,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -78,7 +89,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -150,7 +172,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -189,7 +222,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -228,7 +272,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -267,7 +322,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -306,7 +372,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -345,7 +422,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -384,7 +472,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -423,7 +522,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -462,7 +572,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -501,7 +622,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -540,7 +672,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -579,7 +722,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -618,7 +772,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -657,7 +822,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -696,7 +872,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -735,7 +922,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -774,7 +972,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -813,7 +1022,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -852,7 +1072,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -891,7 +1122,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -930,7 +1172,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -969,7 +1222,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     }
@@ -1010,7 +1274,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -1049,7 +1324,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -1086,11 +1372,33 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
+          "v": [
+            [
+              "breaths in 15 seconds",
+              "how many breaths you counted"
+            ],
+            [
+              "× 4",
+              "four fifteen-second blocks make a minute"
+            ]
+          ],
+          "s": "The same trick works for breathing, as long as the child does not know you are counting.",
           "computed": true
         }
       ]
@@ -1161,11 +1469,33 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         },
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -1204,7 +1534,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -1276,7 +1617,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -1313,11 +1665,33 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
+          "v": [
+            [
+              "breaths in 15 seconds",
+              "how many breaths you counted"
+            ],
+            [
+              "× 4",
+              "four fifteen-second blocks make a minute"
+            ]
+          ],
+          "s": "The same trick works for breathing, as long as the child does not know you are counting.",
           "computed": true
         }
       ]
@@ -1388,6 +1762,17 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         }
       ]
@@ -1427,7 +1812,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -1499,7 +1895,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -1536,11 +1943,33 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
+          "v": [
+            [
+              "breaths in 15 seconds",
+              "how many breaths you counted"
+            ],
+            [
+              "× 4",
+              "four fifteen-second blocks make a minute"
+            ]
+          ],
+          "s": "The same trick works for breathing, as long as the child does not know you are counting.",
           "computed": true
         }
       ]
@@ -1611,6 +2040,17 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         }
       ]
@@ -1650,7 +2090,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -1722,7 +2173,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -1759,11 +2221,33 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         },
         {
           "e": "breaths in a minute = breaths in 15 seconds × 4",
           "c": "the same scaling for breathing",
+          "v": [
+            [
+              "breaths in 15 seconds",
+              "how many breaths you counted"
+            ],
+            [
+              "× 4",
+              "four fifteen-second blocks make a minute"
+            ]
+          ],
+          "s": "The same trick works for breathing, as long as the child does not know you are counting.",
           "computed": true
         }
       ]
@@ -1834,6 +2318,17 @@ export const CURRICULUM = {
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
           "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute.",
           "computed": true
         }
       ]
@@ -1873,7 +2368,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate"
+          "c": "scaling a short count up to a rate",
+          "v": [
+            [
+              "beats in 15 seconds",
+              "how many beats you counted"
+            ],
+            [
+              "× 4",
+              "because there are four fifteen-second blocks in a minute"
+            ]
+          ],
+          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
         }
       ]
     },
@@ -2013,7 +2519,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -2083,6 +2600,17 @@ export const CURRICULUM = {
         {
           "e": "how far behind = what is needed − what was taken",
           "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
       ]
@@ -2122,7 +2650,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -2227,7 +2766,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -2297,6 +2847,17 @@ export const CURRICULUM = {
         {
           "e": "how far behind = what is needed − what was taken",
           "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
       ]
@@ -2435,7 +2996,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -2505,6 +3077,17 @@ export const CURRICULUM = {
         {
           "e": "how far behind = what is needed − what was taken",
           "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
       ]
@@ -2643,7 +3226,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -2713,6 +3307,17 @@ export const CURRICULUM = {
         {
           "e": "how far behind = what is needed − what was taken",
           "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is.",
           "computed": true
         }
       ]
@@ -2820,7 +3425,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -2859,7 +3475,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -3093,7 +3720,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -3165,7 +3803,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -3399,7 +4048,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -3471,7 +4131,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -3674,7 +4345,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -3746,7 +4428,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -3950,7 +4643,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -4154,7 +4858,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -4358,7 +5073,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -4564,7 +5290,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -4766,6 +5503,17 @@ export const CURRICULUM = {
         {
           "e": "change each hour = total change ÷ hours taken",
           "c": "a rate from a change and a time",
+          "v": [
+            [
+              "total change",
+              "how much the number moved altogether"
+            ],
+            [
+              "hours taken",
+              "how long it took to move"
+            ]
+          ],
+          "s": "Dividing the change by the time gives how fast it is moving, which is what says whether to act now or watch.",
           "computed": true
         }
       ]
@@ -4805,7 +5553,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -4844,7 +5603,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -4916,7 +5686,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -4988,7 +5769,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -5190,6 +5982,17 @@ export const CURRICULUM = {
         {
           "e": "change each hour = total change ÷ hours taken",
           "c": "a rate from a change and a time",
+          "v": [
+            [
+              "total change",
+              "how much the number moved altogether"
+            ],
+            [
+              "hours taken",
+              "how long it took to move"
+            ]
+          ],
+          "s": "Dividing the change by the time gives how fast it is moving, which is what says whether to act now or watch.",
           "computed": true
         }
       ]
@@ -5229,7 +6032,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -5268,7 +6082,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },
@@ -5340,7 +6165,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit"
+          "c": "a running deficit",
+          "v": [
+            [
+              "what is needed",
+              "the amount the body should have had"
+            ],
+            [
+              "what was taken",
+              "the amount that actually went in"
+            ]
+          ],
+          "s": "The gap between what was needed and what was given is how far behind the patient is."
         }
       ]
     },

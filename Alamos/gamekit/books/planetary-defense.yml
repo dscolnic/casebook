@@ -78,31 +78,73 @@ roster:
     name: Dr. Linh Nguyen
     role: Survey Imaging Lead
     division: DISC
+    quiz:
+      - q: How does Nguyen separate a real moving object from a detector artefact?
+        a: It appears in independent exposures and moves consistently
+        wrong:
+          - Artefacts are always brighter on the frame than a real detection is
+          - Real objects appear on only one detector at a time
+          - Cosmic rays are removed by the telescope's own software
     bio: Distinguishes real moving sources from cosmic rays, detector defects, and image-processing artifacts using repeated and independent observations.
   - id: rossi
     name: Dr. Marco Rossi
     role: Orbit Determination Lead
     division: ORBIT
+    quiz:
+      - q: Why does Rossi treat a position as a timed measurement rather than a point?
+        a: An orbit is fitted to when as much as where
+        wrong:
+          - A position is only valid for the night on which it was taken
+          - Timing decides which telescope gets credit for the observation
+          - The covariance is computed from exposure length
     bio: Treats every position as a timed measurement with calibration and covariance, then asks which observation reduces the dangerous uncertainty.
   - id: adebayo
     name: Dr. Tola Adebayo
     role: Physical Characterization Lead
     division: CHAR
+    quiz:
+      - q: Why will Adebayo not give a diameter from brightness alone?
+        a: Brightness is size and reflectivity together
+        wrong:
+          - Brightness cannot be measured accurately at the faintest magnitudes
+          - Diameter requires a radar detection by definition
+          - Reflectivity is the same for every asteroid of a given type
     bio: Combines brightness, color, spectra, thermal information, and rotation without pretending any one observable uniquely determines size or composition.
   - id: fischer
     name: Dr. Anna Fischer
     role: Radar Dynamics Lead
     division: RADAR
+    quiz:
+      - q: What does radar add that optical astrometry cannot give?
+        a: A direct distance and line-of-sight speed
+        wrong:
+          - A far more accurate measurement of the very same position on the sky
+          - The object's composition from the returned frequency
+          - Observations that can be made in daylight
     bio: Uses signal delay and Doppler measurements to add independent geometric constraints to optical astrometry.
   - id: banerjee
     name: Dr. Rohan Banerjee
     role: Impact Physics Lead
     division: IMPACT
+    quiz:
+      - q: Why does Banerjee give consequence as a range rather than a number?
+        a: Three uncertain inputs multiply through the calculation
+        wrong:
+          - A range is required by protocol before any public statement is made
+          - Deterministic answers are only possible after entry
+          - The range describes how likely an impact is
     bio: Connects size, density, speed, atmosphere, and fragmentation to consequence ranges rather than single deterministic outcomes.
   - id: garcia
     name: Dr. Isabel Garcia
     role: Survey and Response Lead
     division: OPS
+    quiz:
+      - q: What is Garcia guarding against when she says expected value is not a prediction?
+        a: A tiny chance of something enormous gives a number nobody will see
+        wrong:
+          - Expected value cannot be computed before the orbit is known
+          - Probabilities below one per cent are not meaningful to a general audience
+          - The public always misreads percentages
     bio: Balances observing completeness, uncertainty reduction, public communication, and response thresholds without confusing expected value with a prediction.
   - id: virtanen
     name: Aino Virtanen
@@ -118,7 +160,7 @@ roster:
       and counting how many come back.
     quiz:
       - q: How does Virtanen measure whether the survey is missing objects?
-        a: By injecting synthetic sources into the images and counting how many the pipeline recovers
+        a: By planting known objects and seeing how many are found
         wrong:
           - By comparing the number found this year with last year
           - By checking that no uncatalogued objects appear in the catalogue
@@ -137,7 +179,7 @@ roster:
       of an orbital one.
     quiz:
       - q: What does Delacroix conclude from residuals that grow toward one corner of the detector?
-        a: The error follows focal-plane position, so it is instrumental rather than orbital
+        a: The error follows position on the detector, not the sky
         wrong:
           - The object is accelerating in a way gravity does not explain
           - The exposure times were recorded in the wrong time standard
@@ -156,7 +198,7 @@ roster:
       downstream cubes whichever size you guessed.
     quiz:
       - q: Why does Sorokin's infrared measurement pin down a diameter that optical brightness cannot?
-        a: Thermal emission depends on size and temperature rather than on the unknown reflectivity
+        a: Thermal emission depends on size and temperature, not reflectivity
         wrong:
           - Infrared telescopes have better angular resolution
           - Reflected light cannot be measured for faint objects
@@ -174,7 +216,7 @@ roster:
       and then not at all for years.
     quiz:
       - q: Why is a radar window so short and so valuable?
-        a: Echo strength falls with the fourth power of distance
+        a: The returned signal weakens as the fourth power of range
         wrong:
           - The transmitter overheats after a few hours of use
           - Radar requires the object to be in the Earth's shadow
@@ -560,7 +602,7 @@ missions:
   - title: The Uncertainty Corridor
     objective: Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.
     briefing: The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.
-    stake: Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the part that matters. You get one chance to explain it.
+    stake: Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses nine million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the uncertainty that is actually driving the number. You get one chance to explain it.
     takeaway: Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT
@@ -1217,7 +1259,7 @@ missions:
   - title: What Have We Failed to See?
     objective: Design a survey strategy that improves detection and accurately reports what remains unseen.
     briefing: The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.
-    stake: A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Sunward is a permanent hole.
+    stake: A month after the pass, the review by Isabel Garcia, who runs survey and response, asks the question nobody wanted to ask during it. This object was found eleven days out, from the direction of the Sun, and it had been brighter than the survey's own limit for weeks. Eleven days is enough to warn a region. It is nowhere near enough to move anything, and the only reason this campaign has any options at all is that the dangerous encounter is eight years away rather than this one. Today you work out why it was missed and design the improvement worth paying for. Anything approaching from the direction of the Sun cannot be seen from the ground at all.
     takeaway: Use selection effects, survey completeness, limiting magnitude, how often the survey looks, population inference as an evidence chain rather than as isolated facts.
     stops:
       - group: OPS

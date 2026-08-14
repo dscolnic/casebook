@@ -84,11 +84,37 @@ export const CURRICULUM = {
         {
           "e": "E = mc²",
           "c": "mass defect converted to binding energy",
+          "v": [
+            [
+              "E",
+              "energy released, in joules"
+            ],
+            [
+              "m",
+              "the mass that went missing, in kilograms"
+            ],
+            [
+              "c",
+              "the speed of light, 3.0 × 10⁸ metres per second"
+            ]
+          ],
+          "s": "Mass that disappears in a nuclear reaction reappears as energy, and the conversion factor is enormous.",
           "computed": true
         },
         {
           "e": "B / A",
           "c": "binding energy per nucleon, and the stability curve it plots",
+          "v": [
+            [
+              "B",
+              "total binding energy of the nucleus, in MeV"
+            ],
+            [
+              "A",
+              "the number of nucleons in it"
+            ]
+          ],
+          "s": "Binding energy per nucleon says how tightly an average particle is held, and nuclei move toward the peak of that curve by splitting or by fusing.",
           "computed": true
         }
       ]
@@ -123,11 +149,45 @@ export const CURRICULUM = {
         {
           "e": "N(t) = N₀e^(−λt)",
           "c": "exponential decay of a population",
+          "v": [
+            [
+              "N(t)",
+              "how many nuclei are left at time t"
+            ],
+            [
+              "N₀",
+              "how many there were at the start"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "t",
+              "elapsed time, in seconds"
+            ]
+          ],
+          "s": "A fixed fraction decays each second, so the population falls by the same proportion in every equal interval.",
           "computed": true
         },
         {
           "e": "λ = ln2 / t½",
           "c": "decay constant from half-life",
+          "v": [
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "ln2",
+              "0.693"
+            ],
+            [
+              "t½",
+              "half-life, the time for half of it to go"
+            ]
+          ],
+          "s": "The decay constant and the half-life are the same fact written two ways.",
           "computed": true
         }
       ]
@@ -162,11 +222,37 @@ export const CURRICULUM = {
         {
           "e": "Σ = nσ",
           "c": "macroscopic cross section from number density",
+          "v": [
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "n",
+              "nuclei per cubic centimetre"
+            ],
+            [
+              "σ",
+              "microscopic cross section, the target area of one nucleus"
+            ]
+          ],
+          "s": "One nucleus offers a small target, and packing many of them into a centimetre of material is what makes an interaction likely.",
           "computed": true
         },
         {
           "e": "mfp = 1 / Σ",
           "c": "mean free path as the inverse of interaction per length",
+          "v": [
+            [
+              "mfp",
+              "mean free path, in centimetres"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ]
+          ],
+          "s": "The average distance a neutron travels before interacting is the inverse of how much interaction each centimetre offers.",
           "computed": true
         }
       ]
@@ -222,7 +308,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -336,11 +441,37 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "Σ = nσ",
-          "c": "macroscopic cross section from number density"
+          "c": "macroscopic cross section from number density",
+          "v": [
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "n",
+              "nuclei per cubic centimetre"
+            ],
+            [
+              "σ",
+              "microscopic cross section, the target area of one nucleus"
+            ]
+          ],
+          "s": "One nucleus offers a small target, and packing many of them into a centimetre of material is what makes an interaction likely."
         },
         {
           "e": "σ = √N",
-          "c": "Poisson counting uncertainty, and why precision costs time"
+          "c": "Poisson counting uncertainty, and why precision costs time",
+          "v": [
+            [
+              "σ",
+              "the standard deviation of the count"
+            ],
+            [
+              "N",
+              "the number of counts recorded"
+            ]
+          ],
+          "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision."
         }
       ]
     },
@@ -379,11 +510,37 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "E = mc²",
-          "c": "mass defect converted to binding energy"
+          "c": "mass defect converted to binding energy",
+          "v": [
+            [
+              "E",
+              "energy released, in joules"
+            ],
+            [
+              "m",
+              "the mass that went missing, in kilograms"
+            ],
+            [
+              "c",
+              "the speed of light, 3.0 × 10⁸ metres per second"
+            ]
+          ],
+          "s": "Mass that disappears in a nuclear reaction reappears as energy, and the conversion factor is enormous."
         },
         {
           "e": "B / A",
-          "c": "binding energy per nucleon, and the stability curve it plots"
+          "c": "binding energy per nucleon, and the stability curve it plots",
+          "v": [
+            [
+              "B",
+              "total binding energy of the nucleus, in MeV"
+            ],
+            [
+              "A",
+              "the number of nucleons in it"
+            ]
+          ],
+          "s": "Binding energy per nucleon says how tightly an average particle is held, and nuclei move toward the peak of that curve by splitting or by fusing."
         }
       ]
     },
@@ -455,7 +612,18 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "B / A",
-          "c": "binding energy per nucleon, and the stability curve it plots"
+          "c": "binding energy per nucleon, and the stability curve it plots",
+          "v": [
+            [
+              "B",
+              "total binding energy of the nucleus, in MeV"
+            ],
+            [
+              "A",
+              "the number of nucleons in it"
+            ]
+          ],
+          "s": "Binding energy per nucleon says how tightly an average particle is held, and nuclei move toward the peak of that curve by splitting or by fusing."
         }
       ]
     },
@@ -531,11 +699,41 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "λ = ln2 / t½",
-          "c": "decay constant from half-life"
+          "c": "decay constant from half-life",
+          "v": [
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "ln2",
+              "0.693"
+            ],
+            [
+              "t½",
+              "half-life, the time for half of it to go"
+            ]
+          ],
+          "s": "The decay constant and the half-life are the same fact written two ways."
         },
         {
           "e": "A = λN",
-          "c": "activity from a decay constant and a population"
+          "c": "activity from a decay constant and a population",
+          "v": [
+            [
+              "A",
+              "activity, in decays per second"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "N",
+              "how many nuclei are present"
+            ]
+          ],
+          "s": "How radioactive something is depends on both how unstable it is and how much of it there is."
         }
       ]
     },
@@ -571,11 +769,41 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "mfp = 1 / Σ",
-          "c": "mean free path as the inverse of interaction per length"
+          "c": "mean free path as the inverse of interaction per length",
+          "v": [
+            [
+              "mfp",
+              "mean free path, in centimetres"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ]
+          ],
+          "s": "The average distance a neutron travels before interacting is the inverse of how much interaction each centimetre offers."
         },
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -605,6 +833,17 @@ export const CURRICULUM = {
         {
           "e": "σ = √N",
           "c": "Poisson counting uncertainty, and why precision costs time",
+          "v": [
+            [
+              "σ",
+              "the standard deviation of the count"
+            ],
+            [
+              "N",
+              "the number of counts recorded"
+            ]
+          ],
+          "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
       ]
@@ -795,7 +1034,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "Σ = nσ",
-          "c": "macroscopic cross section from number density"
+          "c": "macroscopic cross section from number density",
+          "v": [
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "n",
+              "nuclei per cubic centimetre"
+            ],
+            [
+              "σ",
+              "microscopic cross section, the target area of one nucleus"
+            ]
+          ],
+          "s": "One nucleus offers a small target, and packing many of them into a centimetre of material is what makes an interaction likely."
         }
       ]
     },
@@ -922,7 +1176,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -1117,7 +1390,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "Σ = nσ",
-          "c": "macroscopic cross section from number density"
+          "c": "macroscopic cross section from number density",
+          "v": [
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "n",
+              "nuclei per cubic centimetre"
+            ],
+            [
+              "σ",
+              "microscopic cross section, the target area of one nucleus"
+            ]
+          ],
+          "s": "One nucleus offers a small target, and packing many of them into a centimetre of material is what makes an interaction likely."
         }
       ]
     },
@@ -1184,11 +1472,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "A = λN",
-          "c": "activity from a decay constant and a population"
+          "c": "activity from a decay constant and a population",
+          "v": [
+            [
+              "A",
+              "activity, in decays per second"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "N",
+              "how many nuclei are present"
+            ]
+          ],
+          "s": "How radioactive something is depends on both how unstable it is and how much of it there is."
         },
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -1222,6 +1544,17 @@ export const CURRICULUM = {
         {
           "e": "σ = √N",
           "c": "Poisson counting uncertainty, and why precision costs time",
+          "v": [
+            [
+              "σ",
+              "the standard deviation of the count"
+            ],
+            [
+              "N",
+              "the number of counts recorded"
+            ]
+          ],
+          "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
       ]
@@ -1397,7 +1730,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "λ = ln2 / t½",
-          "c": "decay constant from half-life"
+          "c": "decay constant from half-life",
+          "v": [
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "ln2",
+              "0.693"
+            ],
+            [
+              "t½",
+              "half-life, the time for half of it to go"
+            ]
+          ],
+          "s": "The decay constant and the half-life are the same fact written two ways."
         }
       ]
     },
@@ -1506,6 +1854,17 @@ export const CURRICULUM = {
         {
           "e": "σ = √N",
           "c": "Poisson counting uncertainty, and why precision costs time",
+          "v": [
+            [
+              "σ",
+              "the standard deviation of the count"
+            ],
+            [
+              "N",
+              "the number of counts recorded"
+            ]
+          ],
+          "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
       ]
@@ -1590,6 +1949,17 @@ export const CURRICULUM = {
         {
           "e": "σ = √N",
           "c": "Poisson counting uncertainty, and why precision costs time",
+          "v": [
+            [
+              "σ",
+              "the standard deviation of the count"
+            ],
+            [
+              "N",
+              "the number of counts recorded"
+            ]
+          ],
+          "s": "Counting is random, so the uncertainty is the square root of the count and four times the counting time buys only twice the precision.",
           "computed": true
         }
       ]
@@ -1826,7 +2196,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -2009,7 +2398,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -2096,11 +2504,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "N(t) = N₀e^(−λt)",
-          "c": "exponential decay of a population"
+          "c": "exponential decay of a population",
+          "v": [
+            [
+              "N(t)",
+              "how many nuclei are left at time t"
+            ],
+            [
+              "N₀",
+              "how many there were at the start"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "t",
+              "elapsed time, in seconds"
+            ]
+          ],
+          "s": "A fixed fraction decays each second, so the population falls by the same proportion in every equal interval."
         },
         {
           "e": "λ = ln2 / t½",
-          "c": "decay constant from half-life"
+          "c": "decay constant from half-life",
+          "v": [
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "ln2",
+              "0.693"
+            ],
+            [
+              "t½",
+              "half-life, the time for half of it to go"
+            ]
+          ],
+          "s": "The decay constant and the half-life are the same fact written two ways."
         }
       ]
     },
@@ -2155,7 +2597,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "A = λN",
-          "c": "activity from a decay constant and a population"
+          "c": "activity from a decay constant and a population",
+          "v": [
+            [
+              "A",
+              "activity, in decays per second"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "N",
+              "how many nuclei are present"
+            ]
+          ],
+          "s": "How radioactive something is depends on both how unstable it is and how much of it there is."
         }
       ]
     },
@@ -3223,7 +3680,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "A = λN",
-          "c": "activity from a decay constant and a population"
+          "c": "activity from a decay constant and a population",
+          "v": [
+            [
+              "A",
+              "activity, in decays per second"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "N",
+              "how many nuclei are present"
+            ]
+          ],
+          "s": "How radioactive something is depends on both how unstable it is and how much of it there is."
         }
       ]
     },
@@ -3636,7 +4108,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -4222,11 +4713,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "N(t) = N₀e^(−λt)",
-          "c": "exponential decay of a population"
+          "c": "exponential decay of a population",
+          "v": [
+            [
+              "N(t)",
+              "how many nuclei are left at time t"
+            ],
+            [
+              "N₀",
+              "how many there were at the start"
+            ],
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "t",
+              "elapsed time, in seconds"
+            ]
+          ],
+          "s": "A fixed fraction decays each second, so the population falls by the same proportion in every equal interval."
         },
         {
           "e": "λ = ln2 / t½",
           "c": "decay constant from half-life",
+          "v": [
+            [
+              "λ",
+              "decay constant, in per second"
+            ],
+            [
+              "ln2",
+              "0.693"
+            ],
+            [
+              "t½",
+              "half-life, the time for half of it to go"
+            ]
+          ],
+          "s": "The decay constant and the half-life are the same fact written two ways.",
           "computed": true
         }
       ]
@@ -4283,7 +4808,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },
@@ -4718,7 +5262,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "I = I₀e^(−Σx)",
-          "c": "exponential attenuation through matter"
+          "c": "exponential attenuation through matter",
+          "v": [
+            [
+              "I",
+              "intensity after the material"
+            ],
+            [
+              "I₀",
+              "intensity before it"
+            ],
+            [
+              "Σ",
+              "macroscopic cross section, in per centimetre"
+            ],
+            [
+              "x",
+              "thickness, in centimetres"
+            ]
+          ],
+          "s": "Shielding removes a fixed fraction per centimetre, so intensity falls exponentially rather than linearly with thickness."
         }
       ]
     },

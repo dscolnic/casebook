@@ -268,7 +268,7 @@ roster:
           - The instrument software will not release a result without a threshold entered
           - It is the only way to keep the analysis from taking more than one shift
       - q: What is the blank sample for?
-        a: Clean solvent run through the whole procedure, to catch the instrument's own contamination
+        a: Solvent alone taken through every step, so anything it shows came from the method
         wrong:
           - A sample from upstream of the release, to establish the river’s normal level
           - A known concentration used to convert the signal into a number
@@ -352,7 +352,7 @@ roster:
       The assumptions are where it breaks. Flat ground, steady wind, a release rate somebody had to estimate. Riverton has a valley, an afternoon wind shift and a release rate nobody measured, so he reports his output as a shape and an order of magnitude and gets genuinely angry when it is quoted to three significant figures.
     quiz:
       - q: In Lindqvist’s model, what happens to the downwind concentration if the wind speed doubles?
-        a: It roughly halves, since the same mass is spread through twice the air
+        a: It falls by about half, because twice the air carries the same release
         wrong:
           - It roughly doubles, because the plume reaches further before it dilutes
           - It is unchanged, because wind moves the plume without diluting it
@@ -376,7 +376,7 @@ roster:
       The number she cares most about is the organic carbon content of the sediment, since that is what greasy compounds bind to. Two cores from the same river with different organic carbon will hold very different amounts of the same contaminant, and comparing them without that correction produces a hotspot that does not exist.
     quiz:
       - q: Why does Ibarra report sediment concentrations on a dry-weight basis?
-        a: A wet core is mostly water, and the water fraction varies between samples
+        a: Water makes up most of the weight, and how much varies from sample to sample
         wrong:
           - Drying the sample destroys the contaminant, so the dry weight is the safe measurement
           - The extraction solvent only works on completely dry material
@@ -394,7 +394,7 @@ roster:
       Her other daily enemy is drift. Detectors change through a run as the source ages and the column fouls, so she brackets a batch with standards at the start and the end, and reruns the batch when the two disagree by more than the tolerance. Diluting an over-range sample back into the calibrated range is the boring correct answer, and she will send the sample back for it.
     quiz:
       - q: A sample reads above Whitfield’s highest standard. What does she do about it?
-        a: Dilute the sample back into the calibrated range and rerun it
+        a: Bring the concentration down inside the range that was calibrated, then measure again
         wrong:
           - Extend the calibration line upward and read the value off the extension
           - Report the value with a wider uncertainty attached
@@ -454,7 +454,7 @@ roster:
       What she asks for is therefore never certainty. It is what you know, what you do not, and which of the two is about to change — and she would rather have a number with an honest uncertainty attached in twenty minutes than a clean number after lunch.
     quiz:
       - q: What does Boateng actually want from the laboratory?
-        a: What is known, what is not, and which of the two is about to change
+        a: The settled findings, the open ones, and which of them will move next
         wrong:
           - A confirmed compound identification before any decision is taken
           - A single recommended action with the reasoning left out
@@ -592,13 +592,13 @@ roster:
       His chain-of-custody file does a different job. It records who held each sample and when, so that a result can be tied to a place and a time. A perfect analysis of a sample nobody can place is not evidence, and he has seen a whole day of laboratory work voided by one unsigned transfer.
     quiz:
       - q: Why does Tanaka work in CAS numbers rather than trade names?
-        a: A CAS number identifies exactly one substance, where a trade name does not
+        a: One registry number means one compound; a trade name can cover several
         wrong:
           - A CAS number also records the concentration of the shipped material
           - The instrument software will not accept a trade name as an input
           - A CAS number records which supplier shipped that particular drum
       - q: What does a break in the chain of custody cost the team?
-        a: It can no longer be tied to a place and a time
+        a: Nobody can now say where or when it was collected
         wrong:
           - The sample degrades and has to be re-collected
           - The laboratory has to repeat the calibration for that batch
@@ -1405,7 +1405,7 @@ missions:
   - title: What Dissolved in the River?
     objective: Predict where each chemical class will be found and design a mass-balance sampling plan.
     briefing: Runoff from the accident enters the river. Some compounds remain in surface films, some dissolve, and others bind to sediment. The player must predict partitioning from molecular interactions and verify it with sampling. If the team samples only water, a persistent sediment reservoir may be missed until it re-enters the water supply.
-    stake: "Day three. Runoff reached the river overnight and Riverton's drinking-water intake is nine hundred metres downstream. Inês Ferreira, who owns water and sediment, has been out since four and wants it sampled; the state's auditor wants a water survey, because that is what a water survey means. Today you design it: where to sample, in what order, and which parts of the river to sample at all. That last one decides everything else. Test only the water and the result comes back clean, and it is honestly clean — today. The next flood stirs the mud."
+    stake: "Day three. Runoff reached the river overnight and Riverton's drinking-water intake is nine hundred metres downstream. Inês Ferreira, who owns water and sediment, has been out since four and wants it sampled; the state's auditor wants a water survey, because that is what a water survey means. Today you design it: where to sample, in what order, and which parts of the river to sample at all. That last one decides everything else. Test only the water and the result comes back clean, and it is honestly clean — today. The next flood will stir that sediment back into the water."
     takeaway: Predict where each chemical class will be found and design a mass-balance sampling plan.
     stops:
       - group: WATER
@@ -2472,7 +2472,7 @@ missions:
   - title: Remove It Without Making It Worse
     objective: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     briefing: Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.
-    stake: "Day thirty-one. Osei's pilot treatment works — ninety-eight per cent of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The most stubborn hazard here could be one nobody has a test for."
+    stake: "Day thirty-one. Osei's pilot treatment works — ninety-eight per cent of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The hazard that lasts longest here may be one there is still no test for."
     takeaway: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     stops:
       - group: TREAT

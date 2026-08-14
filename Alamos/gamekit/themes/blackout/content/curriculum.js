@@ -51,7 +51,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "df/dt = (P_gen − P_load) / 2H",
-          "c": "frequency as the running balance of supply and demand"
+          "c": "frequency as the running balance of supply and demand",
+          "v": [
+            [
+              "df/dt",
+              "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "P_gen",
+              "total generation, in megawatts"
+            ],
+            [
+              "P_load",
+              "total demand, in megawatts"
+            ],
+            [
+              "H",
+              "stored kinetic energy of the machines online, in megawatt-seconds"
+            ]
+          ],
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it."
         }
       ]
     },
@@ -90,7 +109,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
       ]
     },
@@ -329,11 +367,49 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         },
         {
           "e": "df/dt = (P_gen − P_load) / 2H",
-          "c": "frequency as the running balance of supply and demand"
+          "c": "frequency as the running balance of supply and demand",
+          "v": [
+            [
+              "df/dt",
+              "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "P_gen",
+              "total generation, in megawatts"
+            ],
+            [
+              "P_load",
+              "total demand, in megawatts"
+            ],
+            [
+              "H",
+              "stored kinetic energy of the machines online, in megawatt-seconds"
+            ]
+          ],
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it."
         }
       ]
     },
@@ -421,11 +497,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network"
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion."
         },
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
       ]
     },
@@ -497,7 +607,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
       ]
     },
@@ -616,11 +745,49 @@ export const CURRICULUM = {
         {
           "e": "P = IV, and P = I²R",
           "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current.",
           "computed": true
         },
         {
           "e": "df/dt = (P_gen − P_load) / 2H",
           "c": "frequency as the running balance of supply and demand",
+          "v": [
+            [
+              "df/dt",
+              "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "P_gen",
+              "total generation, in megawatts"
+            ],
+            [
+              "P_load",
+              "total demand, in megawatts"
+            ],
+            [
+              "H",
+              "stored kinetic energy of the machines online, in megawatt-seconds"
+            ]
+          ],
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it.",
           "computed": true
         }
       ]
@@ -660,7 +827,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "S = √(P² + Q²), pf = P/S",
-          "c": "apparent power and power factor"
+          "c": "apparent power and power factor",
+          "v": [
+            [
+              "S",
+              "apparent power, in volt-amperes"
+            ],
+            [
+              "P",
+              "real power, in watts"
+            ],
+            [
+              "Q",
+              "reactive power, in volt-amperes reactive"
+            ],
+            [
+              "pf",
+              "power factor, between 0 and 1"
+            ]
+          ],
+          "s": "Equipment is sized for the current it carries, which includes reactive power that does no work."
         }
       ]
     },
@@ -699,11 +885,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network"
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion."
         },
         {
           "e": "N₁/N₂ = V₁/V₂",
-          "c": "the transformer ratio, and why transmission is at high voltage"
+          "c": "the transformer ratio, and why transmission is at high voltage",
+          "v": [
+            [
+              "N₁",
+              "turns on the primary winding"
+            ],
+            [
+              "N₂",
+              "turns on the secondary"
+            ],
+            [
+              "V₁",
+              "primary voltage"
+            ],
+            [
+              "V₂",
+              "secondary voltage"
+            ]
+          ],
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
         }
       ]
     },
@@ -753,11 +973,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         },
         {
           "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage"
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
         }
       ]
     },
@@ -791,11 +1045,45 @@ export const CURRICULUM = {
         {
           "e": "P = IV, and P = I²R",
           "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current.",
           "computed": true
         },
         {
           "e": "E = Pt",
           "c": "energy from power over time — the kilowatt-hour",
+          "v": [
+            [
+              "E",
+              "energy, in kilowatt-hours"
+            ],
+            [
+              "P",
+              "power, in kilowatts"
+            ],
+            [
+              "t",
+              "time it was sustained, in hours"
+            ]
+          ],
+          "s": "Power is a rate and energy is the amount, and every settlement and compensation claim is in energy.",
           "computed": true
         }
       ]
@@ -835,7 +1123,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "df/dt = (P_gen − P_load) / 2H",
-          "c": "frequency as the running balance of supply and demand"
+          "c": "frequency as the running balance of supply and demand",
+          "v": [
+            [
+              "df/dt",
+              "how fast frequency is moving, in hertz per second"
+            ],
+            [
+              "P_gen",
+              "total generation, in megawatts"
+            ],
+            [
+              "P_load",
+              "total demand, in megawatts"
+            ],
+            [
+              "H",
+              "stored kinetic energy of the machines online, in megawatt-seconds"
+            ]
+          ],
+          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it."
         }
       ]
     }
@@ -876,7 +1183,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
       ]
     },
@@ -931,7 +1257,30 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "ΔV ≈ I(R cos φ + X sin φ)",
-          "c": "voltage drop along a line, and why reactive power moves it"
+          "c": "voltage drop along a line, and why reactive power moves it",
+          "v": [
+            [
+              "ΔV",
+              "voltage drop along the line, in volts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "R",
+              "line resistance, in ohms"
+            ],
+            [
+              "X",
+              "line reactance, in ohms"
+            ],
+            [
+              "cos φ / sin φ",
+              "the power factor terms"
+            ]
+          ],
+          "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage."
         }
       ]
     },
@@ -970,11 +1319,37 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network"
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion."
         },
         {
           "e": "V_rms = V_peak / √2",
-          "c": "why an AC quantity needs saying which one you mean"
+          "c": "why an AC quantity needs saying which one you mean",
+          "v": [
+            [
+              "V_rms",
+              "the root-mean-square value a meter reports"
+            ],
+            [
+              "V_peak",
+              "the highest instantaneous value a scope shows"
+            ]
+          ],
+          "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant."
         }
       ]
     },
@@ -1007,7 +1382,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network"
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion."
         }
       ]
     },
@@ -1040,7 +1430,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "N₁/N₂ = V₁/V₂",
-          "c": "the transformer ratio, and why transmission is at high voltage"
+          "c": "the transformer ratio, and why transmission is at high voltage",
+          "v": [
+            [
+              "N₁",
+              "turns on the primary winding"
+            ],
+            [
+              "N₂",
+              "turns on the secondary"
+            ],
+            [
+              "V₁",
+              "primary voltage"
+            ],
+            [
+              "V₂",
+              "secondary voltage"
+            ]
+          ],
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
         }
       ]
     },
@@ -1108,15 +1517,68 @@ export const CURRICULUM = {
         {
           "e": "V = IR",
           "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion.",
           "computed": true
         },
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         },
         {
           "e": "P = √3 · V_L · I_L · cos φ",
           "c": "three-phase power from line quantities",
+          "v": [
+            [
+              "P",
+              "three-phase power, in watts"
+            ],
+            [
+              "V_L",
+              "line-to-line voltage, in volts"
+            ],
+            [
+              "I_L",
+              "line current, in amperes"
+            ],
+            [
+              "cos φ",
+              "power factor"
+            ]
+          ],
+          "s": "Three-phase power from line quantities carries a √3 because line and phase values differ.",
           "computed": true
         }
       ]
@@ -1167,7 +1629,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage"
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
         }
       ]
     }
@@ -1204,16 +1681,73 @@ export const CURRICULUM = {
         {
           "e": "V = IR",
           "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion.",
           "computed": true
         },
         {
           "e": "S = √(P² + Q²), pf = P/S",
           "c": "apparent power and power factor",
+          "v": [
+            [
+              "S",
+              "apparent power, in volt-amperes"
+            ],
+            [
+              "P",
+              "real power, in watts"
+            ],
+            [
+              "Q",
+              "reactive power, in volt-amperes reactive"
+            ],
+            [
+              "pf",
+              "power factor, between 0 and 1"
+            ]
+          ],
+          "s": "Equipment is sized for the current it carries, which includes reactive power that does no work.",
           "computed": true
         },
         {
           "e": "ΔV ≈ I(R cos φ + X sin φ)",
           "c": "voltage drop along a line, and why reactive power moves it",
+          "v": [
+            [
+              "ΔV",
+              "voltage drop along the line, in volts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "R",
+              "line resistance, in ohms"
+            ],
+            [
+              "X",
+              "line reactance, in ohms"
+            ],
+            [
+              "cos φ / sin φ",
+              "the power factor terms"
+            ]
+          ],
+          "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage.",
           "computed": true
         }
       ]
@@ -1415,11 +1949,45 @@ export const CURRICULUM = {
         {
           "e": "V = IR",
           "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion.",
           "computed": true
         },
         {
           "e": "P = √3 · V_L · I_L · cos φ",
           "c": "three-phase power from line quantities",
+          "v": [
+            [
+              "P",
+              "three-phase power, in watts"
+            ],
+            [
+              "V_L",
+              "line-to-line voltage, in volts"
+            ],
+            [
+              "I_L",
+              "line current, in amperes"
+            ],
+            [
+              "cos φ",
+              "power factor"
+            ]
+          ],
+          "s": "Three-phase power from line quantities carries a √3 because line and phase values differ.",
           "computed": true
         }
       ]
@@ -1453,11 +2021,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         },
         {
           "e": "η = E_out / E_in",
           "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate.",
           "computed": true
         }
       ]
@@ -1492,7 +2094,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
       ]
     },
@@ -1547,7 +2168,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
       ]
     },
@@ -1619,7 +2259,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives"
+          "c": "power delivered, and the loss that never arrives",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
         }
       ]
     }
@@ -1731,11 +2390,49 @@ export const CURRICULUM = {
         {
           "e": "S = √(P² + Q²), pf = P/S",
           "c": "apparent power and power factor",
+          "v": [
+            [
+              "S",
+              "apparent power, in volt-amperes"
+            ],
+            [
+              "P",
+              "real power, in watts"
+            ],
+            [
+              "Q",
+              "reactive power, in volt-amperes reactive"
+            ],
+            [
+              "pf",
+              "power factor, between 0 and 1"
+            ]
+          ],
+          "s": "Equipment is sized for the current it carries, which includes reactive power that does no work.",
           "computed": true
         },
         {
           "e": "P = √3 · V_L · I_L · cos φ",
           "c": "three-phase power from line quantities",
+          "v": [
+            [
+              "P",
+              "three-phase power, in watts"
+            ],
+            [
+              "V_L",
+              "line-to-line voltage, in volts"
+            ],
+            [
+              "I_L",
+              "line current, in amperes"
+            ],
+            [
+              "cos φ",
+              "power factor"
+            ]
+          ],
+          "s": "Three-phase power from line quantities carries a √3 because line and phase values differ.",
           "computed": true
         }
       ]
@@ -1775,7 +2472,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "N₁/N₂ = V₁/V₂",
-          "c": "the transformer ratio, and why transmission is at high voltage"
+          "c": "the transformer ratio, and why transmission is at high voltage",
+          "v": [
+            [
+              "N₁",
+              "turns on the primary winding"
+            ],
+            [
+              "N₂",
+              "turns on the secondary"
+            ],
+            [
+              "V₁",
+              "primary voltage"
+            ],
+            [
+              "V₂",
+              "secondary voltage"
+            ]
+          ],
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
         }
       ]
     },
@@ -1830,11 +2546,45 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "N₁/N₂ = V₁/V₂",
-          "c": "the transformer ratio, and why transmission is at high voltage"
+          "c": "the transformer ratio, and why transmission is at high voltage",
+          "v": [
+            [
+              "N₁",
+              "turns on the primary winding"
+            ],
+            [
+              "N₂",
+              "turns on the secondary"
+            ],
+            [
+              "V₁",
+              "primary voltage"
+            ],
+            [
+              "V₂",
+              "secondary voltage"
+            ]
+          ],
+          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
         },
         {
           "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage"
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
         }
       ]
     },
@@ -1995,7 +2745,22 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage"
+          "c": "round-trip efficiency of storage",
+          "v": [
+            [
+              "η",
+              "round-trip efficiency, between 0 and 1"
+            ],
+            [
+              "E_out",
+              "energy you get back out"
+            ],
+            [
+              "E_in",
+              "energy you put in"
+            ]
+          ],
+          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
         }
       ]
     }

@@ -355,7 +355,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "pH = pKa + log([A⁻]/[HA])",
-          "c": "Henderson–Hasselbalch — buffering in a body"
+          "c": "Henderson–Hasselbalch — buffering in a body",
+          "v": [
+            [
+              "pH",
+              "acidity of the blood"
+            ],
+            [
+              "pKa",
+              "the acid constant for that buffer pair, 6.1 for bicarbonate"
+            ],
+            [
+              "[A⁻]",
+              "concentration of the base form, bicarbonate"
+            ],
+            [
+              "[HA]",
+              "concentration of the acid form, dissolved carbon dioxide"
+            ]
+          ],
+          "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other."
         }
       ]
     },
@@ -534,6 +553,25 @@ export const CURRICULUM = {
         {
           "e": "N(t) = N₀ · 2^(t/T_d)",
           "c": "exponential growth from a doubling time",
+          "v": [
+            [
+              "N(t)",
+              "how many cases at time t"
+            ],
+            [
+              "N₀",
+              "cases at the start"
+            ],
+            [
+              "t",
+              "elapsed time"
+            ],
+            [
+              "T_d",
+              "doubling time, in the same units as t"
+            ]
+          ],
+          "s": "Exponential growth adds a constant proportion rather than a constant number, so the count doubles in every doubling time.",
           "computed": true
         }
       ]
@@ -852,7 +890,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "sensitivity = TP / (TP+FN)",
-          "c": "and specificity = TN / (TN+FP) — what a test misses"
+          "c": "and specificity = TN / (TN+FP) — what a test misses",
+          "v": [
+            [
+              "TP",
+              "true positives, sick and testing positive"
+            ],
+            [
+              "FN",
+              "false negatives, sick and testing negative"
+            ],
+            [
+              "TN",
+              "true negatives"
+            ],
+            [
+              "FP",
+              "false positives"
+            ]
+          ],
+          "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other."
         }
       ]
     },
@@ -938,7 +995,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "sensitivity = TP / (TP+FN)",
-          "c": "and specificity = TN / (TN+FP) — what a test misses"
+          "c": "and specificity = TN / (TN+FP) — what a test misses",
+          "v": [
+            [
+              "TP",
+              "true positives, sick and testing positive"
+            ],
+            [
+              "FN",
+              "false negatives, sick and testing negative"
+            ],
+            [
+              "TN",
+              "true negatives"
+            ],
+            [
+              "FP",
+              "false positives"
+            ]
+          ],
+          "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other."
         }
       ]
     },
@@ -993,7 +1069,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
-          "c": "why a good test fails at low prevalence"
+          "c": "why a good test fails at low prevalence",
+          "v": [
+            [
+              "PPV",
+              "positive predictive value, the chance a positive is real"
+            ],
+            [
+              "prev",
+              "prevalence, how common the disease is"
+            ],
+            [
+              "sens",
+              "sensitivity"
+            ],
+            [
+              "spec",
+              "specificity"
+            ]
+          ],
+          "s": "When almost nobody has the disease, most positives come from the many well people tested, however good the test is."
         }
       ]
     }
@@ -1224,11 +1319,49 @@ export const CURRICULUM = {
         {
           "e": "sensitivity = TP / (TP+FN)",
           "c": "and specificity = TN / (TN+FP) — what a test misses",
+          "v": [
+            [
+              "TP",
+              "true positives, sick and testing positive"
+            ],
+            [
+              "FN",
+              "false negatives, sick and testing negative"
+            ],
+            [
+              "TN",
+              "true negatives"
+            ],
+            [
+              "FP",
+              "false positives"
+            ]
+          ],
+          "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other.",
           "computed": true
         },
         {
           "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
           "c": "why a good test fails at low prevalence",
+          "v": [
+            [
+              "PPV",
+              "positive predictive value, the chance a positive is real"
+            ],
+            [
+              "prev",
+              "prevalence, how common the disease is"
+            ],
+            [
+              "sens",
+              "sensitivity"
+            ],
+            [
+              "spec",
+              "specificity"
+            ]
+          ],
+          "s": "When almost nobody has the disease, most positives come from the many well people tested, however good the test is.",
           "computed": true
         }
       ]
@@ -1292,7 +1425,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
-          "c": "why a good test fails at low prevalence"
+          "c": "why a good test fails at low prevalence",
+          "v": [
+            [
+              "PPV",
+              "positive predictive value, the chance a positive is real"
+            ],
+            [
+              "prev",
+              "prevalence, how common the disease is"
+            ],
+            [
+              "sens",
+              "sensitivity"
+            ],
+            [
+              "spec",
+              "specificity"
+            ]
+          ],
+          "s": "When almost nobody has the disease, most positives come from the many well people tested, however good the test is."
         }
       ]
     },
@@ -1706,6 +1858,29 @@ export const CURRICULUM = {
         {
           "e": "risk = events / people at risk",
           "c": "and NNT = 1 / (control risk − treated risk)",
+          "v": [
+            [
+              "events",
+              "how many people had the outcome"
+            ],
+            [
+              "people at risk",
+              "how many could have"
+            ],
+            [
+              "NNT",
+              "number needed to treat"
+            ],
+            [
+              "control risk",
+              "risk without the treatment"
+            ],
+            [
+              "treated risk",
+              "risk with it"
+            ]
+          ],
+          "s": "Risk is a proportion rather than a count, and the number needed to treat says how many patients you must treat to prevent one event.",
           "computed": true
         }
       ]
@@ -1784,7 +1959,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "sensitivity = TP / (TP+FN)",
-          "c": "and specificity = TN / (TN+FP) — what a test misses"
+          "c": "and specificity = TN / (TN+FP) — what a test misses",
+          "v": [
+            [
+              "TP",
+              "true positives, sick and testing positive"
+            ],
+            [
+              "FN",
+              "false negatives, sick and testing negative"
+            ],
+            [
+              "TN",
+              "true negatives"
+            ],
+            [
+              "FP",
+              "false positives"
+            ]
+          ],
+          "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other."
         }
       ]
     },
@@ -2028,7 +2222,26 @@ export const CURRICULUM = {
       "equations": [
         {
           "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
-          "c": "why a good test fails at low prevalence"
+          "c": "why a good test fails at low prevalence",
+          "v": [
+            [
+              "PPV",
+              "positive predictive value, the chance a positive is real"
+            ],
+            [
+              "prev",
+              "prevalence, how common the disease is"
+            ],
+            [
+              "sens",
+              "sensitivity"
+            ],
+            [
+              "spec",
+              "specificity"
+            ]
+          ],
+          "s": "When almost nobody has the disease, most positives come from the many well people tested, however good the test is."
         }
       ]
     }
