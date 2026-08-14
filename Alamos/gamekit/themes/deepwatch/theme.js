@@ -52,11 +52,11 @@ export default {
 
   opening: [
     'You have the watch on a submarine at ninety metres, and the boat has been submerged long '
-    + 'enough that nobody aboard has seen daylight or a horizon. Everything you know about the world '
-    + 'outside this hull arrives as sound, and everything you know about the boat arrives as a gauge '
-    + 'somebody else is reading. Nothing aboard waits for you: a contact you have not resolved keeps '
-    + 'closing, water already aboard keeps rising, and a plot nobody has corrected gets further from '
-    + 'the truth every minute.',
+    + 'enough that nobody aboard has seen daylight. You cannot look outside: what you know about the '
+    + 'water around you comes from sonar, and what you know about the boat comes from gauges other '
+    + 'people read out to you. Problems carry on while you think about them. A contact you have not '
+    + 'identified keeps closing, water already aboard keeps rising, and an uncorrected plot drifts '
+    + 'further from the boat\'s real position every minute.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

@@ -76,11 +76,12 @@ export default {
   // One paragraph of situation. No mechanics, no controls, and never a list of
   // what the player does not do.
   opening: [
-    'The Calder interconnection is four million people, six thousand megawatts and one number '
-    + 'that has to stay inside half a hertz of fifty. You are the system operator on nights. '
-    + 'Generation you do not own answers to you by contract, the load answers to nobody, and '
-    + 'the balance between them is settled every second whether anyone is watching or not. '
-    + 'When it goes wrong it goes wrong in seconds and is put back over days.',
+    'The Calder interconnection supplies four million people from about six thousand megawatts '
+    + 'of generation, and its frequency has to stay within half a hertz of fifty or plant starts '
+    + 'tripping off. You are the system operator on nights. Most of that generation belongs to '
+    + 'companies you can instruct under contract but cannot order about, and demand rises and '
+    + 'falls with whatever four million people are doing. Your job is to keep the two matched, '
+    + 'second by second. A fault takes seconds; getting supply back can take days.',
   ],
 
   ending: [
