@@ -279,6 +279,254 @@ function paintSignFace(text = {}, px = 512, py = 340){
 }
 
 /**
+ * Paint a poster face.
+ *
+ * A poster was a coloured rectangle: 0.5 × 0.68 of flat paint, no image on it at
+ * all. It counted as a piece, it hung correctly on the wall, and a wall carrying
+ * three of them still read as a wall carrying nothing, because a blank orange
+ * panel is not something anybody would put up.
+ *
+ * Not the same job as `paintSignFace`. A sign carries a sentence somebody needs to
+ * read; a poster is what is on the wall of a room where this work is done, and it
+ * is almost all picture. So these are drawn rather than typeset — a plot with its
+ * error bars, an apparatus schematic, a lattice, a conference poster seen from
+ * across the room, a periodic grid, a stack of traces — and the words on them are
+ * the few a poster actually shows at two metres.
+ *
+ * Deliberately generic. A ward, a control centre and a submarine all put charts
+ * and schematics on their walls, and what makes the room *itself* is the signage
+ * next to these, which the theme writes.
+ */
+const POSTER_KINDS = ['plot', 'apparatus', 'lattice', 'conference', 'periodic', 'traces', 'photo'];
+
+function paintPosterFace({ kind, seed = 1, paper = '#efeee9', ink = '#20262c',
+  soft = '#68727c', accent = '#3f6f8f', px = 384, py = 512 } = {}){
+  const canvas = document.createElement('canvas');
+  canvas.width = px; canvas.height = py;
+  const g = canvas.getContext('2d');
+  let v = Math.abs(Math.round(seed)) || 3;
+  const rnd = () => (v = (v * 48271) % 2147483647) / 2147483647;
+  const k = kind ?? POSTER_KINDS[Math.floor(rnd() * POSTER_KINDS.length)];
+  const font = (w, s) => `${w} ${Math.round(s)}px Inter, Helvetica, Arial, sans-serif`;
+
+  g.fillStyle = paper; g.fillRect(0, 0, px, py);
+  g.textBaseline = 'top';
+
+  /** Ruled lines standing in for body text, which is all it is at this distance. */
+  const ruled = (x, y, w, rows, lh = 9) => {
+    g.fillStyle = soft; g.globalAlpha = 0.5;
+    for(let i = 0; i < rows; i++){
+      g.fillRect(x, y + i * lh, w * (0.72 + rnd() * 0.28), Math.max(1, lh * 0.34));
+    }
+    g.globalAlpha = 1;
+  };
+  /** A framed panel with a caption bar, which is what every figure on a poster is. */
+  const panel = (x, y, w, h) => {
+    g.fillStyle = '#fff'; g.fillRect(x, y, w, h);
+    g.strokeStyle = soft; g.globalAlpha = 0.6; g.lineWidth = 1;
+    g.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+    g.globalAlpha = 1;
+  };
+
+  if(k === 'plot'){
+    const m = px * 0.13, w = px - m * 1.4, h = py * 0.52, y0 = py * 0.2;
+    g.fillStyle = accent; g.fillRect(0, 0, px, py * 0.1);
+    g.fillStyle = '#fff'; g.font = font(800, px * 0.055);
+    g.fillText('MEASURED', px * 0.05, py * 0.028);
+    panel(m, y0, w, h);
+    // Gridlines, axes, then a falling curve with error bars on it, because a plot
+    // on a wall in any of these buildings is somebody's result.
+    g.strokeStyle = soft; g.globalAlpha = 0.22;
+    for(let i = 1; i < 5; i++){
+      g.beginPath(); g.moveTo(m, y0 + (h * i) / 5); g.lineTo(m + w, y0 + (h * i) / 5); g.stroke();
+      g.beginPath(); g.moveTo(m + (w * i) / 5, y0); g.lineTo(m + (w * i) / 5, y0 + h); g.stroke();
+    }
+    g.globalAlpha = 1;
+    g.strokeStyle = ink; g.lineWidth = 1.5;
+    g.beginPath(); g.moveTo(m, y0); g.lineTo(m, y0 + h); g.lineTo(m + w, y0 + h); g.stroke();
+    const decay = 0.4 + rnd() * 0.8;
+    g.strokeStyle = accent; g.lineWidth = 2.4;
+    g.beginPath();
+    for(let i = 0; i <= 40; i++){
+      const t = i / 40;
+      const yy = y0 + h * (1 - Math.exp(-t * 3.2 * decay) * 0.92);
+      i ? g.lineTo(m + w * t, yy) : g.moveTo(m + w * t, yy);
+    }
+    g.stroke();
+    g.strokeStyle = ink; g.lineWidth = 1.2;
+    for(let i = 0; i < 7; i++){
+      const t = (i + 0.5) / 7;
+      const yy = y0 + h * (1 - Math.exp(-t * 3.2 * decay) * 0.92) + (rnd() - 0.5) * 8;
+      const e = 6 + rnd() * 10;
+      g.beginPath(); g.moveTo(m + w * t, yy - e); g.lineTo(m + w * t, yy + e); g.stroke();
+      g.fillStyle = ink; g.beginPath(); g.arc(m + w * t, yy, 2.6, 0, Math.PI * 2); g.fill();
+    }
+    ruled(m, y0 + h + py * 0.045, w, 6, py * 0.028);
+  }else if(k === 'apparatus'){
+    // Boxes joined by a line, with leaders off them: every schematic ever pinned up.
+    g.fillStyle = ink; g.font = font(800, px * 0.06);
+    g.fillText('SCHEMATIC', px * 0.07, py * 0.05);
+    g.fillStyle = soft; g.fillRect(px * 0.07, py * 0.11, px * 0.4, 2);
+    const n = 4, top = py * 0.2, bh = py * 0.115, gap = py * 0.055;
+    for(let i = 0; i < n; i++){
+      const yy = top + i * (bh + gap);
+      const ww = px * (0.36 + rnd() * 0.24), xx = px * 0.12 + (i % 2) * px * 0.18;
+      g.fillStyle = i % 2 ? accent : ink; g.globalAlpha = i % 2 ? 0.75 : 0.85;
+      g.fillRect(xx, yy, ww, bh);
+      g.globalAlpha = 1;
+      // The line down the stack, and a leader out to a label.
+      g.strokeStyle = ink; g.lineWidth = 1.6;
+      if(i){ g.beginPath(); g.moveTo(px * 0.3, yy - gap); g.lineTo(px * 0.3, yy); g.stroke(); }
+      g.globalAlpha = 0.55;
+      g.beginPath(); g.moveTo(xx + ww, yy + bh / 2); g.lineTo(px * 0.9, yy + bh / 2); g.stroke();
+      g.globalAlpha = 1;
+      g.fillStyle = soft; g.fillRect(px * 0.9, yy + bh / 2 - 2, px * 0.06, 3);
+    }
+    ruled(px * 0.12, py * 0.86, px * 0.72, 4, py * 0.026);
+  }else if(k === 'lattice'){
+    g.fillStyle = ink; g.font = font(800, px * 0.058);
+    g.fillText('STRUCTURE', px * 0.07, py * 0.05);
+    const cols = 5, rows = 7, m = px * 0.12;
+    const cw = (px - m * 2) / (cols - 1), ch = (py * 0.62) / (rows - 1);
+    const y0 = py * 0.18;
+    g.strokeStyle = soft; g.globalAlpha = 0.45; g.lineWidth = 1.2;
+    for(let r = 0; r < rows; r++){
+      for(let c = 0; c < cols; c++){
+        const x = m + c * cw, y = y0 + r * ch;
+        if(c < cols - 1){ g.beginPath(); g.moveTo(x, y); g.lineTo(x + cw, y); g.stroke(); }
+        if(r < rows - 1){ g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + ch); g.stroke(); }
+      }
+    }
+    g.globalAlpha = 1;
+    for(let r = 0; r < rows; r++){
+      for(let c = 0; c < cols; c++){
+        const big = (r + c) % 2 === 0;
+        g.fillStyle = big ? accent : ink;
+        g.beginPath(); g.arc(m + c * cw, y0 + r * ch, big ? 7 : 4, 0, Math.PI * 2); g.fill();
+      }
+    }
+    ruled(m, py * 0.86, px - m * 2, 3, py * 0.028);
+  }else if(k === 'conference'){
+    // What a poster looks like from across a room: a title, three columns, figures.
+    g.fillStyle = accent; g.fillRect(0, 0, px, py * 0.13);
+    g.fillStyle = '#fff';
+    for(let i = 0; i < 2; i++) g.fillRect(px * 0.06, py * 0.035 + i * py * 0.04, px * (0.7 - i * 0.28), py * 0.022);
+    const cw = px * 0.28, gapx = px * 0.04;
+    for(let c = 0; c < 3; c++){
+      const x = px * 0.04 + c * (cw + gapx);
+      let y = py * 0.18;
+      for(let blk = 0; blk < 3; blk++){
+        if((c + blk) % 3 === 1){ panel(x, y, cw, py * 0.11); y += py * 0.135; }
+        else { ruled(x, y, cw, 5, py * 0.022); y += py * 0.145; }
+      }
+    }
+    g.fillStyle = soft; g.globalAlpha = 0.4;
+    g.fillRect(px * 0.04, py * 0.93, px * 0.92, 2);
+    g.globalAlpha = 1;
+  }else if(k === 'periodic'){
+    g.fillStyle = ink; g.font = font(800, px * 0.055);
+    g.fillText('REFERENCE', px * 0.07, py * 0.05);
+    const cols = 6, rows = 9, m = px * 0.08;
+    const cw = (px - m * 2) / cols, ch = cw * 1.05, y0 = py * 0.16;
+    const TINT = [accent, ink, soft, '#8a6a3f', '#5c7a5c'];
+    for(let r = 0; r < rows; r++){
+      for(let c = 0; c < cols; c++){
+        // A real table is not a full rectangle, and the gaps are most of what makes
+        // it read as one rather than as a chessboard.
+        if(r < 2 && c > 0 && c < cols - 1) continue;
+        const x = m + c * cw, y = y0 + r * ch;
+        g.fillStyle = TINT[(r * 3 + c) % TINT.length];
+        g.globalAlpha = 0.16 + ((r * 5 + c) % 4) * 0.09;
+        g.fillRect(x + 1, y + 1, cw - 2, ch - 2);
+        g.globalAlpha = 1;
+        g.strokeStyle = soft; g.globalAlpha = 0.35; g.lineWidth = 1;
+        g.strokeRect(x + 1.5, y + 1.5, cw - 3, ch - 3);
+        g.globalAlpha = 1;
+        g.fillStyle = ink; g.fillRect(x + 4, y + ch * 0.3, cw * 0.42, ch * 0.2);
+      }
+    }
+  }else if(k === 'traces'){
+    g.fillStyle = ink; g.font = font(800, px * 0.055);
+    g.fillText('RECORD', px * 0.07, py * 0.05);
+    const n = 6, m = px * 0.1, w = px - m * 2, top = py * 0.17, band = (py * 0.72) / n;
+    for(let i = 0; i < n; i++){
+      const mid = top + band * (i + 0.5);
+      g.strokeStyle = soft; g.globalAlpha = 0.3; g.lineWidth = 1;
+      g.beginPath(); g.moveTo(m, mid); g.lineTo(m + w, mid); g.stroke();
+      g.globalAlpha = 1;
+      g.strokeStyle = i % 3 === 0 ? accent : ink; g.lineWidth = 1.6;
+      g.beginPath();
+      const f = 3 + i * 2 + rnd() * 4, amp = band * (0.16 + rnd() * 0.2);
+      for(let s = 0; s <= 120; s++){
+        const t = s / 120;
+        const yy = mid - Math.sin(t * f * Math.PI * 2) * amp * Math.exp(-t * (i * 0.3));
+        s ? g.lineTo(m + w * t, yy) : g.moveTo(m + w * t, yy);
+      }
+      g.stroke();
+      g.fillStyle = soft; g.fillRect(m - px * 0.055, mid - 2, px * 0.04, 3);
+    }
+  }else if(k === 'pinboard'){
+    // Cork, and what is pinned to it. Asked for by name rather than drawn at
+    // random: a pinboard is a piece of furniture, and the others are paper.
+    g.fillStyle = '#b99a6b'; g.fillRect(0, 0, px, py);
+    g.globalAlpha = 0.16;
+    for(let i = 0; i < 900; i++){
+      g.fillStyle = i % 2 ? '#8d6f45' : '#d8bd91';
+      g.fillRect(rnd() * px, rnd() * py, 2 + rnd() * 3, 2 + rnd() * 3);
+    }
+    g.globalAlpha = 1;
+    const sheets = 5;
+    for(let i = 0; i < sheets; i++){
+      const w = px * (0.24 + rnd() * 0.16), h = w * (0.9 + rnd() * 0.5);
+      const x = px * 0.05 + rnd() * (px * 0.9 - w);
+      const y = py * 0.05 + rnd() * (py * 0.9 - h);
+      g.save();
+      g.translate(x + w / 2, y + h / 2);
+      g.rotate((rnd() - 0.5) * 0.14);
+      g.globalAlpha = 0.22; g.fillStyle = '#000';
+      g.fillRect(-w / 2 + 3, -h / 2 + 4, w, h);
+      g.globalAlpha = 1;
+      g.fillStyle = i % 4 === 0 ? '#f4e39a' : paper;
+      g.fillRect(-w / 2, -h / 2, w, h);
+      if(i % 3 === 1){
+        g.fillStyle = accent; g.fillRect(-w / 2, -h / 2, w, h * 0.16);
+      }
+      g.fillStyle = soft; g.globalAlpha = 0.55;
+      for(let r = 0; r < 5; r++){
+        g.fillRect(-w / 2 + w * 0.1, -h / 2 + h * (0.3 + r * 0.13),
+          w * 0.8 * (0.55 + rnd() * 0.45), Math.max(1, h * 0.035));
+      }
+      g.globalAlpha = 1;
+      g.fillStyle = ['#c0392b', '#2c6ea8', '#3f7a4a'][i % 3];
+      g.beginPath(); g.arc(0, -h / 2 + 7, 4.5, 0, Math.PI * 2); g.fill();
+      g.restore();
+    }
+  }else{
+    // A photograph. Not of anything nameable: a horizon, a structure against it,
+    // and a caption bar — enough to read as a picture of the work from the door.
+    const grad = g.createLinearGradient(0, 0, 0, py * 0.78);
+    grad.addColorStop(0, accent); grad.addColorStop(1, paper);
+    g.fillStyle = grad; g.fillRect(px * 0.05, py * 0.05, px * 0.9, py * 0.73);
+    g.globalAlpha = 0.8;
+    g.fillStyle = ink;
+    const base = py * 0.66;
+    g.fillRect(px * 0.05, base, px * 0.9, py * 0.12);
+    for(let i = 0; i < 5; i++){
+      const w2 = px * (0.06 + rnd() * 0.1), h2 = py * (0.06 + rnd() * 0.16);
+      g.fillRect(px * (0.1 + i * 0.17), base - h2, w2, h2);
+    }
+    g.globalAlpha = 1;
+    g.fillStyle = paper; g.fillRect(px * 0.05, py * 0.78, px * 0.9, py * 0.04);
+    ruled(px * 0.07, py * 0.85, px * 0.7, 3, py * 0.03);
+  }
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 8;
+  return tex;
+}
+
+/**
  * A notice with words on it, on a wall.
  *
  * Shared by rooms and corridors because a blank rectangle raises a piece count and
@@ -288,7 +536,7 @@ function paintSignFace(text = {}, px = 512, py = 340){
  * `faceX` says the wall runs along z (so the sheet faces ±x). `toward` is the
  * direction the face should point, +1 or -1.
  */
-export function wordedSign({ box, mats: M, x, z, faceX, toward = -1, text = {}, wide = 0.66 }){
+export function wordedSign({ box, mats: M, x, z, y = 1.58, faceX, toward = -1, text = {}, wide = 0.66 }){
   // Proportions vary with the layout: a rota is landscape, a sticky note is square,
   // a photograph is a little wider than tall. Uniform sheets were half of why every
   // board looked like the same board.
@@ -301,10 +549,10 @@ export function wordedSign({ box, mats: M, x, z, faceX, toward = -1, text = {}, 
   const w = style === 'sticky' ? wide * 0.55 : wide;
   const h = w * ratio;
   const tex = paintSignFace(text, 512, Math.round(512 * ratio));
-  const backing = box(faceX ? 0.04 : w + 0.06, h + 0.06, faceX ? w + 0.06 : 0.04, x, 1.58, z, M.dark);
+  const backing = box(faceX ? 0.04 : w + 0.06, h + 0.06, faceX ? w + 0.06 : 0.04, x, y, z, M.dark);
   const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
     new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9 }));
-  const anchor = box(0.001, 0.001, 0.001, x, 1.58, z, M.dark);
+  const anchor = box(0.001, 0.001, 0.001, x, y, z, M.dark);
   anchor.add(face);
   markWallMounted([backing, anchor], faceX, toward, `sign ${text.tag ?? text.heading ?? ''}`.trim());
   face.position.set(faceX ? toward * 0.03 : 0, 0, faceX ? 0 : toward * 0.03);
@@ -393,6 +641,10 @@ export function furnishRoom(spec){
   const rand = rng(seed);
   const pick = (arr) => arr[Math.floor(rand() * arr.length)];
   const jit = (r) => (rand() - 0.5) * 2 * r;
+  // What this building prints on. A 1960s control centre does not print on white,
+  // and a bright sheet in a dark room reads as a light box rather than as paper.
+  const PRINT = { paper: '#efeee9', ink: '#20262c', soft: '#68727c', accent: '#3f6f8f',
+    ...(spec.print ?? {}) };
 
   const w = Math.abs(B.x1 - B.x0), d = Math.abs(B.z1 - B.z0);
   const cx = (B.x0 + B.x1) / 2, cz = (B.z0 + B.z1) / 2;
@@ -418,13 +670,20 @@ export function furnishRoom(spec){
   // which is why the number is not rounder.
   const FLOOR_SEP = 1.7, WALL_SEP = 1.1;
   const taken = { floor: [], wall: [] };
-  const blocked = (x, z, r = 0.5) => keepClear.some(k =>
-    Math.hypot(k.x - x, k.z - z) < (k.r ?? 1) + r);
+  const blocked = (x, z, r = 0.5, scale = 1) => keepClear.some(k =>
+    Math.hypot(k.x - x, k.z - z) < (k.r ?? 1) * scale + r);
   const crowded = (list, x, z, sep) => list.some(t => Math.hypot(t.x - x, t.z - z) < sep);
   /** Place one piece, unless the spot is spoken for or too close to its own kind. */
   const put = (fn, x, z, lane = 'floor') => {
     const sep = lane === 'wall' ? WALL_SEP : FLOOR_SEP;
-    if(blocked(x, z) || crowded(taken[lane], x, z, sep)) return false;
+    // `keepClear` is about the floor: it keeps furniture out of the way in, and off
+    // the spot where a case stand goes. Enforced at full radius on the wall as
+    // well, it emptied five metres of the long wall in every group room — the
+    // stand in the middle of the room was reserving the wall behind it, and a
+    // poster on a wall has never been in anybody's way. The wall keeps a smaller
+    // margin, enough that nothing is hung directly behind the thing you walk up to.
+    if(blocked(x, z, lane === 'wall' ? 0.35 : 0.5, lane === 'wall' ? 0.4 : 1)
+      || crowded(taken[lane], x, z, sep)) return false;
     fn(x, z);
     taken[lane].push({ x, z });
     placed++;
@@ -501,15 +760,53 @@ export function furnishRoom(spec){
     hard(x, z, 0.7, 0.55, 0.35 * n);
   };
   // Wall furniture. Flat, cheap, and the difference between a wall and a room.
-  const notice = (x, z, wallX) => {
-    const t = 0.03;
-    const ww = wallX ? t : 0.62, dd = wallX ? 0.62 : t;
-    box(ww, 0.46, dd, x, 1.55, z, pick([M.pale, M.accent]));
-    box(ww + 0.005, 0.5, dd + 0.005, x, 1.55, z, M.dark);
-  };
-  const poster = (x, z, wallX) => {
+  //
+  // A wall maker is given the name of the wall it is going on, not a boolean:
+  // which way round the sheet lies and which way it faces are both derived from
+  // it, and a printed face pointing into the wall is a blank rectangle from the
+  // room. (It cannot be solved with a DoubleSide material — that renders the
+  // print mirrored from behind. See the rules in CLAUDE.md.)
+  const onX = (wall) => wall === 'xLo' || wall === 'xHi';
+  const towardOf = (wall) => (wall === 'xLo' || wall === 'zLo' ? 1 : -1);
+  /** A printed sheet hung flat on a wall, with a thin edge behind it. */
+  const sheetOnWall = (x, y, z, wall, w, h, tex, edge) => {
+    const faceX = onX(wall), toward = towardOf(wall);
     const t = 0.02;
-    box(wallX ? t : 0.5, 0.68, wallX ? 0.5 : t, x, 1.62, z, pick([M.pale, M.accent, M.surface]));
+    box(faceX ? t : w + 0.03, h + 0.03, faceX ? w + 0.03 : t, x, y, z, edge);
+    const anchor = box(0.001, 0.001, 0.001, x, y, z, edge);
+    const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
+      new THREE.MeshStandardMaterial({ map: tex, roughness: 0.94, metalness: 0 }));
+    anchor.add(face);
+    face.position.set(faceX ? toward * 0.022 : 0, 0, faceX ? 0 : toward * 0.022);
+    face.rotation.y = faceX ? toward * Math.PI / 2 : (toward > 0 ? 0 : Math.PI);
+    return face;
+  };
+  /** A pinboard: cork, and the paper somebody has pinned to it. */
+  const notice = (x, z, wall) => {
+    const k = 0.85 + rand() * 0.4;
+    const w = 0.72 * k, h = 0.54 * k;
+    sheetOnWall(x, 1.48 + rand() * 0.26, z, wall, w, h,
+      paintPosterFace({ kind: 'pinboard', seed: Math.floor(rand() * 1e6), ...PRINT,
+        px: 512, py: 384 }), M.dark);
+  };
+  /**
+   * A poster.
+   *
+   * It used to be one flat-painted rectangle 0.5 × 0.68, which counted as a piece
+   * and hung correctly and made no difference to the room at all: an orange panel
+   * with nothing on it is not something anybody would put up. Now it carries a
+   * plot, a schematic, a lattice, a conference poster, a reference grid, a stack
+   * of traces or a photograph, and its shape follows what is on it.
+   */
+  const poster = (x, z, wall) => {
+    const kind = POSTER_KINDS[Math.floor(rand() * POSTER_KINDS.length)];
+    const wide = kind === 'traces' || kind === 'photo';
+    const k = 0.82 + rand() * 0.5;
+    const w = (wide ? 0.88 : 0.6) * k;
+    const h = (wide ? 0.6 : 0.84) * k;
+    sheetOnWall(x, 1.5 + rand() * 0.3, z, wall, w, h,
+      paintPosterFace({ kind, seed: Math.floor(rand() * 1e6), ...PRINT,
+        px: wide ? 512 : 384, py: wide ? 350 : 512 }), M.dark);
   };
   const extinguisher = (x, z) => {
     // On the floor. It was drawn at 0.72 with a half-height of 0.25, which put its
@@ -634,8 +931,15 @@ export function furnishRoom(spec){
    * cryogen warning, a booking sheet, a torque table, a shift rota. The sheet is
    * painted onto a canvas the same way the case plate and the wall screens are.
    */
+  // Height and size vary per board. Hung at one height in one size, wall furniture
+  // reads as a row of identical rectangles at picture-rail level — which is what a
+  // wall of them looked like even once they were spread along it properly. Real
+  // walls carry a big board at eye level and a small notice above it.
   const signPlate = (x, z, wallX, text) => wordedSign({
-    box, mats: M, x, z, faceX: wallX,
+    box, mats: M, x, z,
+    y: 1.5 + rand() * 0.34,
+    wide: 0.58 + rand() * 0.42,
+    faceX: wallX,
     toward: wallX ? (x < cx ? 1 : -1) : (z < cz ? 1 : -1),
     text,
   });
@@ -784,27 +1088,23 @@ export function furnishRoom(spec){
   const signs = [...domain, ...NOTICES.generic];
   let si = 0;
   const nextSign = () => signs[si++ % signs.length];
-  const wallSpots = [
-    { make: (x, z) => signPlate(x, z, true, nextSign()), wall: 'xLo' },
-    { make: (x, z) => signPlate(x, z, true, nextSign()), wall: 'xHi' },
-    { make: (x, z) => signPlate(x, z, false, nextSign()), wall: 'zLo' },
-    { make: (x, z) => signPlate(x, z, false, nextSign()), wall: 'zHi' },
-    { make: (x, z) => signPlate(x, z, true, nextSign()), wall: 'xLo' },
-    { make: (x, z) => poster(x, z, true), wall: 'xHi' },
-    { make: (x, z) => poster(x, z, false), wall: 'zLo' },
-    { make: (x, z) => notice(x, z, false), wall: 'zHi' },
-    { make: (x, z) => clock(x, z, true), wall: 'xHi' },
-    { make: (x, z) => hooks(x, z, true), wall: 'xLo' },
-    { make: extinguisher, wall: 'xLo' },
-    { make: bin, wall: 'zHi' },
-    // The second rank. A 59 m² store runs out of floor before it runs out of
-    // wall, and these are what got its three smallest rooms over the bar.
-    { make: (x, z) => poster(x, z, false), wall: 'zHi' },
-    { make: (x, z) => notice(x, z, false), wall: 'zLo' },
-    { make: (x, z) => hooks(x, z, true), wall: 'xHi' },
-    { make: extinguisher, wall: 'zLo' },
-    { make: (x, z) => poster(x, z, true), wall: 'xLo' },
-    { make: (x, z) => notice(x, z, true), wall: 'xHi' },
+  // What goes on a wall, in the order a wall fills up: the things that say where
+  // you are standing first, then the things that say what is done here, then the
+  // fittings. Each takes the name of its wall, so it can work out which way round
+  // to lie and which way to face.
+  const WALL_VOCAB = [
+    (x, z, wall) => signPlate(x, z, onX(wall), nextSign()),
+    (x, z, wall) => poster(x, z, wall),
+    (x, z, wall) => signPlate(x, z, onX(wall), nextSign()),
+    (x, z, wall) => notice(x, z, wall),
+    (x, z, wall) => poster(x, z, wall),
+    (x, z, wall) => hooks(x, z, onX(wall)),
+    (x, z, wall) => signPlate(x, z, onX(wall), nextSign()),
+    (x, z, wall) => poster(x, z, wall),
+    (x, z, wall) => clock(x, z, onX(wall)),
+    (x, z) => extinguisher(x, z),
+    (x, z, wall) => notice(x, z, wall),
+    (x, z) => bin(x, z),
   ];
   // On the wall planes, not on the furniture rectangle.
   //
@@ -823,16 +1123,53 @@ export function furnishRoom(spec){
     xHi: (t) => ({ x: wxHi - stand, z: wzLo + 0.8 + t * (wDeep - 1.6) }),
     zLo: (t) => ({ x: wxLo + 0.8 + t * (wWide - 1.6), z: wzLo + stand }),
     zHi: (t) => ({ x: wxLo + 0.8 + t * (wWide - 1.6), z: wzHi - stand }) };
+  /**
+   * Fill each wall along its whole length.
+   *
+   * The old pass held a fixed list of eighteen spots, each pinned to a named wall,
+   * and each took the first free position scanning from one end. Two things came
+   * of that. A short wall and an eleven-metre wall were offered the same number of
+   * things, so the long ones stayed bare; and because every item started its
+   * search at the same end, they landed wherever the search happened to succeed
+   * rather than spread out. Error & Verification had six metres of unbroken empty
+   * wall down one side of it — which is what "the rooms look sterile" was, after
+   * the fit-out had already put enough pieces in them.
+   *
+   * So each wall gets a quota from its own length, and the i-th item on it starts
+   * at the i-th of that many even positions rather than at the end. It only
+   * searches outward from there if the even position is refused — by a doorway, by
+   * the case stand, or by something already hung.
+   */
+  const runOf = { xLo: wDeep, xHi: wDeep, zLo: wWide, zHi: wWide };
+  const WALLS_ROUND = ['xLo', 'zHi', 'xHi', 'zLo'];
+  const quotaOf = (wall) => Math.max(2, Math.min(8, Math.round((runOf[wall] - 1.4) / 1.7)));
   let signsUp = 0;
-  for(const spot of wallSpots){
-    if(signsUp >= MIN_SIGNS && placed >= target) break;
-    for(let k = 0; k < 8; k++){
-      const p = along[spot.wall]((k + 0.5 + jit(0.2)) / 8);
-      // Both ends of the board, not just its middle. A sheet is up to 1.3 m across,
-      // so a centre that clears a doorway by 200 mm still hangs half a metre of
-      // board over the opening — which is what was floating in every entrance.
-      if(!spanOk(p.x, p.z, spot.wall, 0.7)) continue;
-      if(put(onWall(spot.wall, spot.make), p.x, p.z, 'wall')){ signsUp++; break; }
+  let vi = 0;
+  const maxQuota = Math.max(...WALLS_ROUND.map(quotaOf));
+  // Round-robin the walls rather than finishing one before starting the next, so a
+  // room that runs out of vocabulary has it spread over four walls, not two.
+  for(let i = 0; i < maxQuota; i++){
+    for(const wall of WALLS_ROUND){
+      const quota = quotaOf(wall);
+      if(i >= quota) continue;
+      if(signsUp >= MIN_SIGNS && placed >= target) break;
+      const make = WALL_VOCAB[vi % WALL_VOCAB.length];
+      // The even position first, then either side of it, in steps small enough to
+      // clear a doorway and large enough to be worth trying.
+      const base = (i + 0.5) / quota;
+      for(const d of [0, 0.06, -0.06, 0.13, -0.13, 0.22, -0.22, 0.32, -0.32]){
+        const t = base + d + jit(0.015);
+        if(t < 0.02 || t > 0.98) continue;
+        const p = along[wall](t);
+        // Both ends of the board, not just its middle. A sheet is up to 1.3 m
+        // across, so a centre that clears a doorway by 200 mm still hangs half a
+        // metre of board over the opening — which is what floated in every entrance.
+        if(!spanOk(p.x, p.z, wall, 0.7)) continue;
+        if(put(onWall(wall, (px, pz) => make(px, pz, wall)), p.x, p.z, 'wall')){
+          signsUp++; vi++;
+          break;
+        }
+      }
     }
   }
 
@@ -983,23 +1320,24 @@ export function furnishCorridor(spec){
   // board roughly every thirty metres and read as a hospital that had just opened.
   // Signage is its own pass now: a board every `signEvery` metres, alternating
   // sides, skipping the doorways.
+  // Each side walked separately, rather than one walk alternating between them.
+  // Alternating meant a board every 6.4 m per side instead of every 3.2, and any
+  // position refused for a doorway flipped the side as well as losing the board —
+  // so a ten-metre solid run opposite a row of doors could come out completely
+  // bare, which is what the north end of the spine looked like. The two sides are
+  // offset by half a spacing so the boards do not stand in facing pairs.
   const signEvery = spec.signEvery ?? 3.2;
-  let sside = -1;
-  for(let z = z0 + 3; z < z1 - 2; z += signEvery){
-    if(!clear(z)){ sside *= -1; continue; }
-    // If this side has no wall here, try the other one before giving up on the
-    // position — a corridor with an open room down one side still has a wall
-    // opposite it.
-    // Pick the width first, then check the wall is solid across the whole of it.
-    const wide = ci % 3 === 0 ? 1.25 : 0.85;
-    const spanClear = (sx) => [-wide / 2 - 0.1, 0, wide / 2 + 0.1]
-      .every(t => wallOk(sx * wallX, z + t));
-    if(!spanClear(sside)) sside *= -1;
-    if(!spanClear(sside)) continue;
-    wordedSign({ box, mats: M, x: sside * wallX, z, faceX: true, toward: -sside,
-      text: CORRIDOR_SIGNS[ci++ % CORRIDOR_SIGNS.length], wide });
-    placed++;
-    sside *= -1;
+  for(const sside of [-1, 1]){
+    for(let z = z0 + 3 + (sside > 0 ? signEvery / 2 : 0); z < z1 - 2; z += signEvery){
+      if(!clear(z)) continue;
+      // Pick the width first, then check the wall is solid across the whole of it.
+      const wide = ci % 3 === 0 ? 1.25 : 0.85;
+      if(![-wide / 2 - 0.1, 0, wide / 2 + 0.1].every(t => wallOk(sside * wallX, z + t))) continue;
+      wordedSign({ box, mats: M, x: sside * wallX, z,
+        y: 1.5 + rand() * 0.3, faceX: true, toward: -sside,
+        text: CORRIDOR_SIGNS[ci++ % CORRIDOR_SIGNS.length], wide });
+      placed++;
+    }
   }
 
   // Along the walls, alternating sides, skipping doorways.
