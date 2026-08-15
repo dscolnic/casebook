@@ -176,7 +176,29 @@ const CORRIDOR_TEXT = [
   { tag: 'FIRE', heading: 'On hearing the alarm', accent: '#b5502f',
     body: 'Nearest exit, assembly at the gate. Do not stop for anything, including a run.' },
   { tag: 'NO CLONING', heading: 'On the photocopier', accent: '#8a6a1e',
-    body: '' },
+    body: 'Somebody printed it, laminated it, and stuck it on at eye height. Nobody has taken it down.' },
+  { tag: 'DAYS SINCE', heading: 'We blamed the fridge', accent: '#8a6a1e',
+    body: 'Zero. The nought is written over a rubbed-out number, and has been all year.' },
+  { tag: 'QUBITS', heading: 'The other kinds', accent: '#3f6f8f',
+    body: 'Trapped ion, photonic, spin, neutral atom, topological. Our own column is ringed in marker.' },
+  { tag: 'DELFT', heading: 'Their poster, kept', accent: '#5b6a72',
+    body: 'Presented at the spring meeting. Displayed here with visible ambivalence.' },
+  { tag: 'THE FRIDGE', heading: 'Annotated by hand', accent: '#3f6f8f',
+    body: 'A photograph of our own, every stage labelled in marker. The version people actually use.' },
+  { tag: 'ENTANGLED', heading: 'Do not separate', accent: '#8a6a1e',
+    body: 'Written on two boxes of cable that have stood beside each other for four years.' },
+  { tag: 'SEMINAR', heading: 'Thursday, four o\'clock', accent: '#5b6a72',
+    body: 'Speaker, title, and an arrow somebody drew to the words free lunch.' },
+  { tag: 'REFEREE 2', heading: 'One line highlighted', accent: '#b5502f',
+    body: 'The rest of the page unmarked. Everybody in the building knows which line.' },
+  { tag: 'BEER MATS', heading: 'Eleven cities', accent: '#5b6a72',
+    body: 'Pinned in a grid. Two are from conferences nobody here attended.' },
+  { tag: 'FIRST CHIP', heading: 'The one that worked', accent: '#3f6f8f',
+    body: 'Framed, crooked, and photographed so badly that the date is the only legible thing on it.' },
+  { tag: 'WANTED', heading: 'A two-level system', accent: '#b5502f',
+    body: 'Last seen near 4.55 gigahertz. Answers to no name. Do not approach with a qubit.' },
+  { tag: 'LIQUID HELIUM', heading: 'Price, five years', accent: '#8a6a1e',
+    body: 'A chart going one way only, taped up by somebody who wanted it noticed.' },
 ];
 
 
@@ -266,6 +288,9 @@ export function fitOutRoom(room, ctx){
       x0: b.xInner + f * 2.0, x1: b.xOuter - f * 0.55,
       z0: room.z0 + 0.7, z1: room.z1 - 0.7,
     },
+    // The wall planes, so the notices hang on walls rather than a metre out in the
+    // room where the furniture rectangle starts.
+    walls: { x0: b.xInner, x1: b.xOuter, z0: room.z0, z1: room.z1 },
     kind: KIND[room.id] ?? room.kind ?? 'lab',
     roomName: room.name ?? room.id,
     fittings: FITTINGS[room.id],
@@ -320,6 +345,10 @@ export function fitOutSpine(ctx){
     z0: sp.z0, z1: sp.z1,
     seed: 'quantum-spine',
     every: 5,
+    // A board every three metres or so. At four and a half, with every doorway
+    // skipped, a sixty-metre corridor carried four of them and read as a building
+    // that had opened last week.
+    signEvery: 3.2,
     signs: CORRIDOR_TEXT,
     hard,
     // Every doorway on both sides: a fire extinguisher across a door is a joke.
