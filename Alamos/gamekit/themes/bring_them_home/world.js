@@ -730,6 +730,48 @@ function furnishRingSigns(){
  * illegible; each panel draws its own slice of one virtual drawing, so the seams
  * fall between panel lines rather than through the middle of an engine bell.
  */
+/**
+ * The centre's seal, on the back wall of the control room.
+ *
+ * The back wall is the one every row faces away from and every visitor walks in
+ * through, so it is where the building puts its own name. This is the centre's
+ * mark rather than a real agency's: the mission, the crew, the recovery force and
+ * the cast are all invented, and hanging a real insignia over them would put an
+ * organisation that exists behind a flight that does not.
+ */
+function paintControlRoomSeal(){
+  const { halfWidth: HW, back } = R;
+  const dw = B.doorW / 2;
+  const half = HW - dw;
+
+  // Where the back wall can actually be seen from.
+  //
+  // Raycast from four places in the room — front row, middle, back tier, off to one
+  // side — and the wall is visible in a band from about 3.1 m to 4.0 m: above the
+  // consoles on the back tier, below the gallery that overhangs this wall. Higher
+  // than that is hidden by the gallery from almost everywhere, which is where the
+  // first attempt put it, and lower is behind the consoles.
+  //
+  // So the seal is as big as that band allows and no bigger, and there is one on
+  // each half of the wall rather than one enormous one nobody can see.
+  // As big as the band takes. 1.2 m sat comfortably inside it and read as a badge
+  // rather than as the building's mark; 1.9 m runs from just above the console tops
+  // to just under the gallery, which is the whole of the wall anybody can see.
+  const size = 1.9;
+  const y = 3.45;
+  for(const s2 of [-1, 1]){
+    paintMural({
+      box: (w2, h2, d2, x2, y2, z2, mat2) => box(w2, h2, d2, x2, y2, z2, mat2),
+      x: s2 * (dw + half / 2), y, z: back - 0.18,
+      faceX: false, toward: -1,
+      w: size, h: size,
+      kind: 'seal',
+      text: { heading: 'MISSION CONTROL CENTER', body: 'FLIGHT OPERATIONS' },
+      seed: `seal-${s2}`,
+    });
+  }
+}
+
 function paintVehicleWall(){
   const HW = B.halfWidth;
   const [, n1] = B.northLeg;
@@ -1130,6 +1172,7 @@ export function initWorld(canvas, activeTheme){
   for(const r of WORKROOMS) buildWorkroom(r, groups.find(g => g.id === r.group));
   furnishRingSigns();
   paintVehicleWall();
+  paintControlRoomSeal();
   // No scatter on the tiers. Chairs, bins and boxes strewn between the consoles
   // raised the piece count and made the room look like a jumble sale: this floor
   // is a stepped auditorium facing a wall of boards, and the emptiness of the

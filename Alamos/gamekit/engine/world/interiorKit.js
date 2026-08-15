@@ -1094,6 +1094,8 @@ export function furnishArea({ makers, order, bounds: B, target = 15, seed = 'are
  */
 export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 2,
   kind = 'wash', ink = '#5b6a72', paper = '#e8ecee', soft = '#6b747c', seed = 'mural',
+  // Wording, for the kinds that carry any.
+  text = {},
   // Which slice of a longer run this panel is, 0 to 1. A mural painted in
   // sections along a corridor has to carry its part of the whole: without this
   // every section ran the full gradient and the wall read as five paintings.
@@ -1165,6 +1167,75 @@ export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 
         cell * 1.6, cell * 1.6);
     }
     g.globalAlpha = 1;
+  } else if(kind === 'seal'){
+    // An institutional seal: a disc, an orbit, a chevron and a ring of stars, with
+    // the room's own name curved around it. Deliberately this building's mark and
+    // not a real agency's — the mission, the cast and the centre are invented, and
+    // borrowing a real insignia would put a real organisation behind a made-up
+    // flight.
+    const cx2 = px / 2, cy2 = py / 2, r = Math.min(px, py) * 0.46;
+    g.fillStyle = '#12325e';
+    g.beginPath(); g.arc(cx2, cy2, r, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = '#dfe4ea'; g.lineWidth = r * 0.035;
+    g.beginPath(); g.arc(cx2, cy2, r * 0.93, 0, Math.PI * 2); g.stroke();
+
+    // Stars scattered across the field, thicker toward the bottom.
+    g.fillStyle = '#ffffff';
+    for(let i = 0; i < 60; i++){
+      const a = rand() * Math.PI * 2, rr = Math.sqrt(rand()) * r * 0.85;
+      const sxx = cx2 + Math.cos(a) * rr, syy = cy2 + Math.sin(a) * rr;
+      const sr = r * (0.006 + rand() * 0.012);
+      g.beginPath(); g.arc(sxx, syy, sr, 0, Math.PI * 2); g.fill();
+    }
+
+    // The orbit: an ellipse across the disc, and a spacecraft on it.
+    g.strokeStyle = '#ffffff'; g.lineWidth = r * 0.045;
+    g.save();
+    g.translate(cx2, cy2); g.rotate(-0.42);
+    g.beginPath(); g.ellipse(0, 0, r * 0.78, r * 0.3, 0, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = '#dfe4ea';
+    g.beginPath(); g.arc(r * 0.78, 0, r * 0.055, 0, Math.PI * 2); g.fill();
+    g.restore();
+
+    // The chevron, sweeping up to the right.
+    g.fillStyle = '#c3452f';
+    g.save();
+    g.translate(cx2, cy2);
+    g.beginPath();
+    g.moveTo(-r * 0.72, r * 0.18);
+    g.lineTo(r * 0.30, -r * 0.46);
+    g.lineTo(r * 0.62, -r * 0.30);
+    g.lineTo(-r * 0.60, r * 0.40);
+    g.closePath(); g.fill();
+    g.restore();
+
+    // The name, curved around the top; the division, straight across the bottom.
+    const arcText = (str, radius, y0deg, size) => {
+      g.save();
+      g.translate(cx2, cy2);
+      g.fillStyle = '#ffffff';
+      g.font = `800 ${Math.round(size)}px Inter, Helvetica, Arial, sans-serif`;
+      g.textAlign = 'center'; g.textBaseline = 'middle';
+      const chars = [...str];
+      const per = (size * 0.62) / radius;              // radians per character
+      let a = y0deg - (per * (chars.length - 1)) / 2;
+      for(const ch of chars){
+        g.save();
+        g.translate(Math.cos(a) * radius, Math.sin(a) * radius);
+        g.rotate(a + Math.PI / 2);
+        g.fillText(ch, 0, 0);
+        g.restore();
+        a += per;
+      }
+      g.restore();
+      g.textAlign = 'left'; g.textBaseline = 'top';
+    };
+    arcText(String(text.heading ?? 'MISSION CONTROL CENTER'), r * 0.80, -Math.PI / 2, r * 0.115);
+    g.fillStyle = '#ffffff';
+    g.font = `700 ${Math.round(r * 0.095)}px Inter, Helvetica, Arial, sans-serif`;
+    g.textAlign = 'center';
+    g.fillText(String(text.body ?? 'FLIGHT OPERATIONS'), cx2, cy2 + r * 0.70);
+    g.textAlign = 'left';
   } else if(kind === 'rocket'){
     // A launch vehicle in elevation, drawn as the engineering wall graphic a place
     // like this would actually have: stages, engines, callouts with leader lines, a
