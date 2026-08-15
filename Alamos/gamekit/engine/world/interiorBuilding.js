@@ -1035,6 +1035,9 @@ export function buildInteriorBuilding(scene, spec){
     // The wall faces themselves, for the signage. Without these the boards hang
     // off the furniture rectangle, half a metre out from the wall.
     walls: { x0, x1, z0, z1 },
+    // The doorway is a hole in the front wall, and a notice hung across it floats
+    // in the opening.
+    wallOk: (wx, wz) => !(Math.abs(wz - z0) < 0.4 && Math.abs(wx) < P.doorW / 2 + 0.35),
     kind: kindOfRoom,
     // Both names: the building the player walked into ("Generation Hall") is more
     // specific than the area's ("Generation & Fuel"), and the kit reads whichever

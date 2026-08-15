@@ -282,6 +282,16 @@ export function furnishRoom(spec){
   // the signs off those put every board a metre or two out from the wall, floating
   // in the middle of the room. A caller that knows its wall planes passes them.
   const W = spec.walls ?? B;
+  /**
+   * Is there wall at this point?
+   *
+   * A room's wall planes are not solid all the way round: every room has a doorway
+   * cut out of one of them, and a room open to a corridor has no wall on that side
+   * at all beyond a nib at each end. Hanging a notice there puts it in mid-air in
+   * the opening, which is exactly what it did along the whole spine. The caller
+   * knows where its own holes are; this asks.
+   */
+  const wallOk = spec.wallOk ?? (() => true);
   const rand = rng(seed);
   const pick = (arr) => arr[Math.floor(rand() * arr.length)];
   const jit = (r) => (rand() - 0.5) * 2 * r;
@@ -709,8 +719,9 @@ export function furnishRoom(spec){
   let signsUp = 0;
   for(const spot of wallSpots){
     if(signsUp >= MIN_SIGNS && placed >= target) break;
-    for(let k = 0; k < 6; k++){
-      const p = along[spot.wall]((k + 0.5 + jit(0.2)) / 6);
+    for(let k = 0; k < 8; k++){
+      const p = along[spot.wall]((k + 0.5 + jit(0.2)) / 8);
+      if(!wallOk(p.x, p.z, spot.wall)) continue;
       if(put(spot.make, p.x, p.z, 'wall')){ signsUp++; break; }
     }
   }

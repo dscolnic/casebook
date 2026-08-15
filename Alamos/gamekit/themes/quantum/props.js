@@ -291,6 +291,17 @@ export function fitOutRoom(room, ctx){
     // The wall planes, so the notices hang on walls rather than a metre out in the
     // room where the furniture rectangle starts.
     walls: { x0: b.xInner, x1: b.xOuter, z0: room.z0, z1: room.z1 },
+    // And where those planes are actually solid. The spine face is the one with
+    // holes in it: a doorway in the middle of every closed room, and nothing at all
+    // across an open one but a nib at each end. Signs were hanging in both.
+    wallOk: (x, z) => {
+      const onSpine = Math.abs(x - b.xInner) < 0.4;
+      if(!onSpine) return true;
+      const NIB = 0.9;
+      if(room.open) return z < room.z0 + NIB || z > room.z1 - NIB;
+      const dw = room.door === 'wide' ? ctx.P.doorWideW : ctx.P.doorW;
+      return Math.abs(z - b.cz) > dw / 2 + 0.2;
+    },
     kind: KIND[room.id] ?? room.kind ?? 'lab',
     roomName: room.name ?? room.id,
     fittings: FITTINGS[room.id],
