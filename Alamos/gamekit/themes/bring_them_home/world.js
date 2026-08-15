@@ -586,10 +586,15 @@ function furnishWorkroom(spec, { xIn, xOut, y, cz }){
   // On the room side of both walls: the outer wall and the corridor wall, which is
   // 300 mm thick and built centred on its line.
   const T = 0.18;
+  const doorHalf = (B.roomDoorW ?? 1.8) / 2;
   sheets.forEach((sheet, i) => {
-    const onOuter = i % 2 === 0;
-    const sx = onOuter ? xOut - f * T : xIn + f * T;
     const sz = spec.z0 + 3 + i * ((spec.z1 - spec.z0 - 6) / Math.max(1, sheets.length - 1));
+    // The corridor wall has this room's doorway in the middle of it, and a board is
+    // a metre across — so anything that would overlap the opening goes on the outer
+    // wall instead of hanging half over the way in.
+    const clearsDoor = Math.abs(sz - cz) > doorHalf + 0.9;
+    const onOuter = i % 2 === 0 || !clearsDoor;
+    const sx = onOuter ? xOut - f * T : xIn + f * T;
     wordedSign({
       box: (w2, h2, d2, x2, y2, z2, mat2) => box(w2, h2, d2, x2, y2 + y, z2, mat2),
       mats: { dark: M.riser },

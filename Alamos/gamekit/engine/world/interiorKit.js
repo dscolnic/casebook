@@ -326,6 +326,19 @@ export function furnishRoom(spec){
    * knows where its own holes are; this asks.
    */
   const wallOk = spec.wallOk ?? (() => true);
+  /**
+   * Is there wall behind the whole width of this thing?
+   *
+   * `wallOk` answers for a point. Everything hung on a wall has a width, and the
+   * end of a board is as capable of hanging over a doorway as its middle is.
+   */
+  const spanOk = (x, z, wallName, halfWide) => {
+    const alongZ = wallName === 'xLo' || wallName === 'xHi';
+    for(const t of [-halfWide, 0, halfWide]){
+      if(!wallOk(x + (alongZ ? 0 : t), z + (alongZ ? t : 0), wallName)) return false;
+    }
+    return true;
+  };
   const rand = rng(seed);
   const pick = (arr) => arr[Math.floor(rand() * arr.length)];
   const jit = (r) => (rand() - 0.5) * 2 * r;
@@ -755,7 +768,10 @@ export function furnishRoom(spec){
     if(signsUp >= MIN_SIGNS && placed >= target) break;
     for(let k = 0; k < 8; k++){
       const p = along[spot.wall]((k + 0.5 + jit(0.2)) / 8);
-      if(!wallOk(p.x, p.z, spot.wall)) continue;
+      // Both ends of the board, not just its middle. A sheet is up to 1.3 m across,
+      // so a centre that clears a doorway by 200 mm still hangs half a metre of
+      // board over the opening — which is what was floating in every entrance.
+      if(!spanOk(p.x, p.z, spot.wall, 0.7)) continue;
       if(put(spot.make, p.x, p.z, 'wall')){ signsUp++; break; }
     }
   }
@@ -776,7 +792,7 @@ export function furnishRoom(spec){
       const wallName = WALLS_IN_ORDER[wi++ % 4];
       for(let k = 0; k < 8; k++){
         const p = along[wallName]((k + 0.5) / 8);
-        if(!wallOk(p.x, p.z, wallName)) continue;
+        if(!spanOk(p.x, p.z, wallName, 1.2)) continue;
         if(put((px, pz) => make(px, pz, wallName.startsWith('x') ? 'z' : 'x'), p.x, p.z, 'wall')) break;
       }
       continue;
@@ -913,11 +929,14 @@ export function furnishCorridor(spec){
     // If this side has no wall here, try the other one before giving up on the
     // position — a corridor with an open room down one side still has a wall
     // opposite it.
-    if(!wallOk(sside * wallX, z)) sside *= -1;
-    if(!wallOk(sside * wallX, z)) continue;
+    // Pick the width first, then check the wall is solid across the whole of it.
+    const wide = ci % 3 === 0 ? 1.25 : 0.85;
+    const spanClear = (sx) => [-wide / 2 - 0.1, 0, wide / 2 + 0.1]
+      .every(t => wallOk(sx * wallX, z + t));
+    if(!spanClear(sside)) sside *= -1;
+    if(!spanClear(sside)) continue;
     wordedSign({ box, mats: M, x: sside * wallX, z, faceX: true, toward: -sside,
-      text: CORRIDOR_SIGNS[ci++ % CORRIDOR_SIGNS.length],
-      wide: ci % 3 === 0 ? 1.25 : 0.85 });
+      text: CORRIDOR_SIGNS[ci++ % CORRIDOR_SIGNS.length], wide });
     placed++;
     sside *= -1;
   }
