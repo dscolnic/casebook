@@ -23,6 +23,11 @@ what a campaign needs beyond correct content, and the checker that enforces it.
 **Read `gamekit/THEME_CONTRACT.md` before touching world code.** It is short and
 every rule in it cost hours to learn.
 
+**Read `gamekit/INTERIORS.md` before working on the inside of a place.** It has
+the check-and-look loop, which builder each game's rooms come from — three of
+them are furnished outside the shared fit-out entirely — and the one mistake that
+has now been made four times.
+
 ## The eight games
 
 | Game | Where | The place, and why it looks unlike the others | Run it |
