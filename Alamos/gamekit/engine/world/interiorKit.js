@@ -728,10 +728,25 @@ export function furnishRoom(spec){
 
   // The things that say what happens here go down first and get the best wall
   // positions. Generic furniture fills in around them, never instead of them.
+  // Two of these hang on a wall rather than standing on the floor, and they were
+  // being placed from the furniture lanes like everything else — which put a
+  // tool board and a whiteboard in the middle of the room, floating.
+  const WALL_MOUNTED = new Set(['toolBoard', 'whiteboard']);
   let li = Math.floor(rand() * lanes.length);
+  const WALLS_IN_ORDER = ['xLo', 'xHi', 'zLo', 'zHi'];
+  let wi = Math.floor(rand() * 4);
   for(const name of fittings){
     const make = NARRATIVE[name];
     if(!make) continue;
+    if(WALL_MOUNTED.has(name)){
+      const wallName = WALLS_IN_ORDER[wi++ % 4];
+      for(let k = 0; k < 8; k++){
+        const p = along[wallName]((k + 0.5) / 8);
+        if(!wallOk(p.x, p.z, wallName)) continue;
+        if(put((px, pz) => make(px, pz, wallName.startsWith('x') ? 'z' : 'x'), p.x, p.z, 'wall')) break;
+      }
+      continue;
+    }
     const lane = lanes[li++ % lanes.length];
     for(let attempt = 0; attempt < 5; attempt++){
       const x = lane.x !== undefined ? lane.x : cx + jit(w * 0.3);
@@ -806,6 +821,15 @@ export function furnishRoom(spec){
 export function furnishCorridor(spec){
   const { box, mats: M, halfWidth, z0, z1, seed = 'spine', hard = () => {},
     every = 6, keepClear = [] } = spec;
+  /**
+   * Is there wall on this side at this point?
+   *
+   * A corridor is not two continuous walls. Every room off it has a doorway, and a
+   * room open to the corridor has no wall at all across its whole length — so a
+   * board hung at a fixed spacing, alternating sides, ends up in mid-air wherever
+   * the alternation lands on an opening. The caller knows its own plan; this asks.
+   */
+  const wallOk = spec.wallOk ?? (() => true);
   const rand = rng(seed);
   const pick = (arr) => arr[Math.floor(rand() * arr.length)];
   const clear = (z) => !keepClear.some(k => Math.abs(k.z - z) < (k.r ?? 1.2));
@@ -847,6 +871,11 @@ export function furnishCorridor(spec){
   let sside = -1;
   for(let z = z0 + 3; z < z1 - 2; z += signEvery){
     if(!clear(z)){ sside *= -1; continue; }
+    // If this side has no wall here, try the other one before giving up on the
+    // position — a corridor with an open room down one side still has a wall
+    // opposite it.
+    if(!wallOk(sside * wallX, z)) sside *= -1;
+    if(!wallOk(sside * wallX, z)) continue;
     wordedSign({ box, mats: M, x: sside * wallX, z, faceX: true, toward: -sside,
       text: CORRIDOR_SIGNS[ci++ % CORRIDOR_SIGNS.length],
       wide: ci % 3 === 0 ? 1.25 : 0.85 });
@@ -858,6 +887,8 @@ export function furnishCorridor(spec){
   let side = 1;
   for(let z = z0 + 4; z < z1 - 2; z += every){
     if(!clear(z)){ side *= -1; continue; }
+    if(!wallOk(side * wallX, z)) side *= -1;
+    if(!wallOk(side * wallX, z)) continue;
     const x = side * fitX;
     switch(pick(['notice', 'fire', 'bench', 'trolley', 'recycling', 'hydrant'])){
       case 'notice':

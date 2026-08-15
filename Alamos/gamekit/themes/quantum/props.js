@@ -295,6 +295,18 @@ export function fitOutRoom(room, ctx){
     // holes in it: a doorway in the middle of every closed room, and nothing at all
     // across an open one but a nib at each end. Signs were hanging in both.
     wallOk: (x, z) => {
+      // Cross-walls exist at every room's z0, and at the far end of the last room
+      // on each side. A room whose z1 nothing adjoins — Cryogenics, with a gap
+      // between it and the Reading Room — has no wall at that end, and notices hung
+      // on it stood in the gap.
+      const mine = (ctx.plan?.rooms ?? []).filter(r2 => r2.side === room.side);
+      const last = mine[mine.length - 1];
+      const crossAt = (zz) => mine.some(r2 => Math.abs(r2.z0 - zz) < 0.06)
+        || (last && Math.abs(last.z1 - zz) < 0.06);
+      if(Math.abs(z - room.z0) < 0.4 && !crossAt(room.z0)) return false;
+      if(Math.abs(z - room.z1) < 0.4 && !crossAt(room.z1)) return false;
+      // The spine face is the one with the doorway in it, and an open room has no
+      // spine face at all beyond a nib at each end.
       const onSpine = Math.abs(x - b.xInner) < 0.4;
       if(!onSpine) return true;
       const NIB = 0.9;
@@ -349,29 +361,6 @@ export function fitOutRoom(room, ctx){
 export function fitOutSpine(ctx){
   const { plan, P, box, materials: M, hard } = ctx;
   const sp = plan.spine ?? { z0: -8, z1: 58 };
-  furnishCorridor({
-    box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
-    mats: furnishingMaterials({ surface: M.frame, metal: M.rail, dark: M.base, pale: M.wall }),
-    halfWidth: P.corridorHalfWidth,
-    z0: sp.z0, z1: sp.z1,
-    seed: 'quantum-spine',
-    every: 5,
-    // A board every three metres or so. At four and a half, with every doorway
-    // skipped, a sixty-metre corridor carried four of them and read as a building
-    // that had opened last week.
-    signEvery: 3.2,
-    signs: CORRIDOR_TEXT,
-    hard,
-    // Every doorway on both sides: a fire extinguisher across a door is a joke.
-    keepClear: (plan.rooms ?? []).map(r => ({ z: (r.z0 + r.z1) / 2, r: 2.4 })),
-  });
-
-  const mural = (opts) => paintMural({
-    box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
-    ...opts,
-  });
-  const wallX = P.corridorHalfWidth - 0.06;
-
   /**
    * Where the spine wall on one side is actually solid.
    *
@@ -401,6 +390,37 @@ export function fitOutSpine(ctx){
     // Anything under a metre is a stub of wall, not somewhere to paint.
     return out.filter(sp => sp.z1 - sp.z0 > 1.0);
   };
+
+  /** Is the spine wall solid on this side, at this z? */
+  const solidAt = (side, z) => solidSpans(side).some(sp2 => z > sp2.z0 + 0.35 && z < sp2.z1 - 0.35);
+
+  furnishCorridor({
+    box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
+    mats: furnishingMaterials({ surface: M.frame, metal: M.rail, dark: M.base, pale: M.wall }),
+    halfWidth: P.corridorHalfWidth,
+    z0: sp.z0, z1: sp.z1,
+    seed: 'quantum-spine',
+    every: 5,
+    // A board every three metres or so. At four and a half, with every doorway
+    // skipped, a sixty-metre corridor carried four of them and read as a building
+    // that had opened last week.
+    signEvery: 3.2,
+    signs: CORRIDOR_TEXT,
+    hard,
+    // No blanket keep-out at the doorways any more. It was applied to both sides
+    // at once — a door on the west blocked the east wall too — and with thirteen
+    // rooms at 2.4 m each it excluded sixty-two of the corridor's sixty-six metres.
+    // Seven boards survived it. `wallOk` already knows where each side's doorways
+    // are, because it is built from the same spans the walls are cut with.
+    keepClear: [],
+    wallOk: (x, z) => solidAt(x < 0 ? 'w' : 'e', z),
+  });
+
+  const mural = (opts) => paintMural({
+    box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
+    ...opts,
+  });
+  const wallX = P.corridorHalfWidth - 0.06;
 
   /** Paint one kind of mural along whichever bits of a side are wall. */
   const alongWall = (side, opts) => {
