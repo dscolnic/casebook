@@ -114,12 +114,19 @@ function paintSignFace(text = {}, px = 512, py = 340){
     bodyBlock(148, yy + 6, px - 164, 4, 16);
     bodyBlock(16, 196, px - 32, 3, 16);
   } else if(style === 'grid'){
-    // A rota or booking sheet: a grid with most of it filled in.
-    header(46);
-    const cols = 6, rows = 5, x0 = 14, y0 = 62, cw = (px - 28) / cols, ch = (py - 78) / rows;
+    // A rota or booking sheet: a grid with most of it filled in, under a heading
+    // that says what is being booked. The heading used to be dropped, which left a
+    // grid of initials belonging to nothing.
+    header(42);
+    g.fillStyle = ink; g.font = '700 19px Inter, Helvetica, Arial, sans-serif';
+    g.fillText(String(text.heading ?? '').slice(0, 44), 14, 50);
+    const capLines = wrap(text.body, px - 28, '400 14px Inter, Helvetica, Arial, sans-serif').slice(0, 2);
+    const capH = capLines.length * 18;
+    const cols = 6, rows = 4, x0 = 14, y0 = 80,
+      cw = (px - 28) / cols, ch = (py - y0 - capH - 18) / rows;
     g.strokeStyle = '#c9ccd2'; g.lineWidth = 1;
     for(let r = 0; r <= rows; r++){ g.beginPath(); g.moveTo(x0, y0 + r * ch); g.lineTo(px - 14, y0 + r * ch); g.stroke(); }
-    for(let c = 0; c <= cols; c++){ g.beginPath(); g.moveTo(x0 + c * cw, y0); g.lineTo(x0 + c * cw, py - 16); g.stroke(); }
+    for(let c = 0; c <= cols; c++){ g.beginPath(); g.moveTo(x0 + c * cw, y0); g.lineTo(x0 + c * cw, y0 + rows * ch); g.stroke(); }
     g.fillStyle = soft;
     for(let r = 0; r < rows; r++) for(let c = 0; c < cols; c++){
       if(rnd() < 0.62){
@@ -128,6 +135,9 @@ function paintSignFace(text = {}, px = 512, py = 340){
         g.fillText(marks[Math.floor(rnd() * marks.length)], x0 + c * cw + cw * 0.28, y0 + r * ch + ch * 0.3);
       }
     }
+    g.fillStyle = soft; g.font = '400 14px Inter, Helvetica, Arial, sans-serif';
+    let cy = py - capH - 6;
+    for(const l of capLines){ g.fillText(l, 14, cy); cy += 18; }
   } else if(style === 'chart'){
     // A hand-kept plot. Fills the sheet; the title is a strip, not a paragraph.
     header(44);
@@ -166,19 +176,32 @@ function paintSignFace(text = {}, px = 512, py = 340){
     g.fillStyle = soft; g.font = '400 14px Inter, Helvetica, Arial, sans-serif';
     g.fillText(String(text.body ?? '').slice(0, 52), 14, py - 26);
   } else if(style === 'list'){
-    // Names and numbers, with leader dots. Fills top to bottom.
-    header(46);
-    const names = ['Okafor', 'Mensah', 'Holm', 'Nakamura', 'Lindqvist', 'Raghavan', 'Petrova', 'Barros'];
-    g.font = '600 17px Inter, Helvetica, Arial, sans-serif';
-    let yy = 64;
-    for(let i = 0; i < 7; i++){
-      g.fillStyle = ink;
-      g.fillText(names[(seedNum + i) % names.length], 16, yy);
+    // A list of somethings against a list of values, with leader dots. The caller
+    // can supply the rows; otherwise it is the group, which is what most of these
+    // boards are.
+    header(42);
+    g.fillStyle = ink; g.font = '700 18px Inter, Helvetica, Arial, sans-serif';
+    g.fillText(String(text.heading ?? '').slice(0, 46), 16, 50);
+    const rows2 = text.items ?? (() => {
+      const names = ['Okafor', 'Mensah', 'Holm', 'Nakamura', 'Lindqvist', 'Raghavan', 'Petrova'];
+      const vals = ['ext 2214', 'ext 2190', 'ext 2233', 'Tue', 'Thu', 'am', 'pm'];
+      return names.map((n, i) => [n, vals[(seedNum + i) % vals.length]]);
+    })();
+    let yy = 82;
+    for(const [k, v] of rows2.slice(0, 6)){
+      g.fillStyle = ink; g.font = '600 17px Inter, Helvetica, Arial, sans-serif';
+      g.fillText(String(k), 16, yy);
+      const kw = g.measureText(String(k)).width;
       g.fillStyle = '#c9ccd2';
-      for(let x = 130; x < px - 60; x += 8) g.fillRect(x, yy + 9, 3, 2);
-      g.fillStyle = soft;
-      g.fillText(['ext 2214', 'ext 2190', 'Tue', 'Thu', '✓', 'am', 'pm'][(seedNum + i) % 7], px - 58, yy);
-      yy += 26;
+      for(let x = 26 + kw; x < px - 70; x += 8) g.fillRect(x, yy + 9, 3, 2);
+      g.fillStyle = soft; g.textAlign = 'right';
+      g.fillText(String(v), px - 16, yy);
+      g.textAlign = 'left';
+      yy += 25;
+    }
+    if(text.body){
+      g.fillStyle = soft; g.font = '400 13px Inter, Helvetica, Arial, sans-serif';
+      g.fillText(String(text.body).slice(0, 58), 16, py - 22);
     }
   } else if(style === 'tally'){
     // Chalk. Big marks, counted in fives, filling the sheet.
