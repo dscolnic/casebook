@@ -9,6 +9,7 @@
 // it: walls, doorways, doors, ceiling grid, signage, lighting and collision.
 import * as THREE from 'three';
 import { addCaseBeacon } from './caseBeacon.js';
+import { markStructure } from './interiorKit.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import {
   paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture,
@@ -115,6 +116,7 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     const w = alongX ? len : P.wall;
     const d = alongX ? P.wall : len;
     const m = box(w, h, d, cx, h / 2, cz, opts.material ?? M.wall);
+    markStructure([m], 'wall');
     if(!opts.noCollide) collide(cx, cz, w, d, h);
     if(opts.base !== false){
       const bh = 0.11;
@@ -122,13 +124,14 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
         const b = box(alongX ? len : P.wall + 0.028, bh, alongX ? P.wall + 0.028 : len,
           cx + (alongX ? 0 : s * 0.014), bh / 2, cz + (alongX ? s * 0.014 : 0), M.base);
         b.castShadow = false;
+        markStructure([b], 'trim');
       }
     }
     if(opts.rail){
       for(const s of (opts.railSides ?? [-1, 1])){
-        box(alongX ? len : 0.055, 0.13, alongX ? 0.055 : len,
+        markStructure([box(alongX ? len : 0.055, 0.13, alongX ? 0.055 : len,
           cx + (alongX ? 0 : s * (P.wall / 2 + 0.03)), 0.92,
-          cz + (alongX ? s * (P.wall / 2 + 0.03) : 0), M.rail);
+          cz + (alongX ? s * (P.wall / 2 + 0.03) : 0), M.rail)], 'trim');
       }
     }
     return m;
@@ -144,6 +147,7 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   spineFloor.rotation.x = -Math.PI / 2;
   spineFloor.position.set(0, 0.002, (envelope.z0 + envelope.z1) / 2);
   spineFloor.receiveShadow = true;
+  markStructure([spineFloor], 'floor');
   scene.add(spineFloor);
 
   const roomFloorMat = new THREE.MeshStandardMaterial({
@@ -156,6 +160,7 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
     f.rotation.x = -Math.PI / 2;
     f.position.set(side * (P.corridorHalfWidth + w / 2), 0.001, (envelope.z0 + envelope.z1) / 2);
     f.receiveShadow = true;
+    markStructure([f], 'floor');
     scene.add(f);
   }
 

@@ -39,7 +39,7 @@ import {
 } from './materials.js';
 import { instrumentScreen, printedSheet, chalkboard, typedSheet } from './screens.js';
 import { addCaseBeacon } from './caseBeacon.js';
-import { furnishRoom, furnishingMaterials } from './interiorKit.js';
+import { furnishRoom, furnishingMaterials, markStructure } from './interiorKit.js';
 
 /** Far enough along +x that the town is past the camera's far plane. */
 export const DISTRICT_X = 4000;
@@ -303,6 +303,7 @@ export function buildInteriorBuilding(scene, spec){
   ));
   floor.rotation.x = -Math.PI / 2;
   floor.receiveShadow = true;
+  markStructure([floor], 'floor');
 
   const wallMat = () => mat(`int-wall-${S.wallKind}-${S.wall}`, () => new THREE.MeshStandardMaterial({
     map: S.wallKind === 'board' ? boardTexture(S.wall) : paintTexture(S.wall),
@@ -328,6 +329,8 @@ export function buildInteriorBuilding(scene, spec){
     const sk = add(new THREE.Mesh(
       new THREE.BoxGeometry(along ? len : P.wall + 0.02, 0.14, along ? P.wall + 0.02 : len), baseMat()));
     sk.position.set(cx, 0.07, cz);
+    markStructure([m], 'wall');
+    markStructure([sk], 'trim');
     return m;
   };
 
@@ -1035,6 +1038,9 @@ export function buildInteriorBuilding(scene, spec){
     // The wall faces themselves, for the signage. Without these the boards hang
     // off the furniture rectangle, half a metre out from the wall.
     walls: { x0, x1, z0, z1 },
+    // Those are the lines the walls were built on, not their surfaces — the fit-out
+    // needs the thickness to stand anything off them.
+    wallThickness: P.wall,
     // The doorway is a hole in the front wall, and a notice hung across it floats
     // in the opening.
     wallOk: (wx, wz) => !(Math.abs(wz - z0) < 0.4 && Math.abs(wx) < P.doorW / 2 + 0.35),

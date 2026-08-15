@@ -329,6 +329,7 @@ export function fitOutRoom(room, ctx){
     // The wall planes, so the notices hang on walls rather than a metre out in the
     // room where the furniture rectangle starts.
     walls: { x0: b.xInner, x1: b.xOuter, z0: room.z0, z1: room.z1 },
+    wallThickness: ctx.P.wall,
     // And where those planes are actually solid. The spine face is the one with
     // holes in it: a doorway in the middle of every closed room, and nothing at all
     // across an open one but a nib at each end. Signs were hanging in both.
@@ -498,11 +499,14 @@ export function fitOutSpine(ctx){
 
   // And a Bloch sphere three metres across on the end wall, correct up close and
   // decoration from the far end of the corridor.
-  // Forward of the end structure, not flat against the last centimetre of it: the
-  // rooms' end walls project into the corridor up there and were cutting the
-  // sphere down to a vertical strip.
-  mural({ x: 0, y: 1.95, z: sp.z1 - 1.25, faceX: false, toward: -1,
+  //
+  // It was drawn 3.4 m tall centred at 1.95, which runs from 0.25 up to 3.65 in a
+  // corridor whose ceiling is at 3.2 — so the top of it was inside the slab, and
+  // the fix at the time was to pull the whole panel 1.25 m forward of the wall,
+  // where it hung in the middle of the corridor on nothing. Sized to the corridor
+  // instead, it goes back on the wall it is supposed to be painted on.
+  mural({ x: 0, y: 1.68, z: sp.z1 - ctx.P.wall / 2 - 0.03, faceX: false, toward: -1,
     // The wall's own colour behind it, or the panel reads as a poster of a Bloch
     // sphere rather than a Bloch sphere painted on the wall.
-    w: 3.4, h: 3.4, kind: 'bloch', ink: '#46535c', paper: '#dfe3e6' });
+    w: 2.9, h: 2.9, kind: 'bloch', ink: '#46535c', paper: '#dfe3e6' });
 }

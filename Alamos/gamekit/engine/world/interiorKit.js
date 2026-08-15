@@ -24,6 +24,34 @@
 import * as THREE from 'three';
 import { printedSheet } from './screens.js';
 
+/**
+ * Record that something hangs on a wall, and which way it faces.
+ *
+ * Four separate rounds of this were found by the player walking into the room and
+ * saying so: boards floating in doorways, boards hung *inside* the wall, a mural
+ * running on past the end of one. Every count and every audit passed each time,
+ * because they asked whether a point had a wall behind it and a board is not a
+ * point. `engine/dev/placement.mjs` fires rays through the whole face instead —
+ * but only at things it knows are meant to be on a wall, which is what this says.
+ *
+ * `faceX` means the wall runs along z, so the face looks down ±x. `toward` is
+ * which way, +1 or -1. Together they are the outward normal, and everything the
+ * audit asks is asked along it.
+ */
+export function markWallMounted(objects, faceX, toward, label = ''){
+  const n = faceX ? [toward, 0, 0] : [0, 0, toward];
+  for(const o of objects){
+    if(o) o.userData.mount = { kind: 'wall', n, label };
+  }
+}
+
+/** Structure is what a room is made of; furnishing is what is in it. */
+export function markStructure(objects, kind = 'wall'){
+  for(const o of objects){
+    if(o) o.userData.structure = kind;
+  }
+}
+
 
 /**
  * A notice with words on it, on a wall.
@@ -273,11 +301,12 @@ export function wordedSign({ box, mats: M, x, z, faceX, toward = -1, text = {}, 
   const w = style === 'sticky' ? wide * 0.55 : wide;
   const h = w * ratio;
   const tex = paintSignFace(text, 512, Math.round(512 * ratio));
-  box(faceX ? 0.04 : w + 0.06, h + 0.06, faceX ? w + 0.06 : 0.04, x, 1.58, z, M.dark);
+  const backing = box(faceX ? 0.04 : w + 0.06, h + 0.06, faceX ? w + 0.06 : 0.04, x, 1.58, z, M.dark);
   const face = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
     new THREE.MeshStandardMaterial({ map: tex, roughness: 0.9 }));
   const anchor = box(0.001, 0.001, 0.001, x, 1.58, z, M.dark);
   anchor.add(face);
+  markWallMounted([backing, anchor], faceX, toward, `sign ${text.tag ?? text.heading ?? ''}`.trim());
   face.position.set(faceX ? toward * 0.03 : 0, 0, faceX ? 0 : toward * 0.03);
   face.rotation.y = faceX ? toward * Math.PI / 2 : (toward > 0 ? 0 : Math.PI);
   return face;
@@ -309,8 +338,30 @@ function rng(seed){
  * Returns the number of pieces placed.
  */
 export function furnishRoom(spec){
-  const { box, mats: M, bounds: B, kind = 'lab', seed = 'room',
+  const { mats: M, bounds: B, kind = 'lab', seed = 'room',
     hard = () => {}, soft = () => {}, keepClear = [], target = 16 } = spec;
+  // Everything placed on a wall goes through this, so it can be caught and tagged
+  // as wall furniture without every maker having to say so. `engine/dev/
+  // placement.mjs` fires rays at whatever is tagged; anything it cannot see, it
+  // cannot check, and what it could not see was buried in the plaster for months.
+  let capture = null;
+  const box = (...a) => {
+    const m = spec.box(...a);
+    if(capture && m) capture.push(m);
+    return m;
+  };
+  /** Tag whatever `make` places as hanging on `wallName`, facing into the room. */
+  const onWall = (wallName, make) => (x, z) => {
+    capture = [];
+    try{ make(x, z); }finally{
+      const faceX = wallName.startsWith('x');
+      const toward = wallName === 'xLo' || wallName === 'zLo' ? 1 : -1;
+      for(const o of capture){
+        if(!o.userData.mount) markWallMounted([o], faceX, toward, `${wallName} fitting`);
+      }
+      capture = null;
+    }
+  };
   // Where the walls actually are, which is NOT where the furniture goes. The floor
   // bounds are inset a metre or two so nothing stands in the walking line; hanging
   // the signs off those put every board a metre or two out from the wall, floating
@@ -756,13 +807,22 @@ export function furnishRoom(spec){
     { make: (x, z) => notice(x, z, true), wall: 'xHi' },
   ];
   // On the wall planes, not on the furniture rectangle.
+  //
+  // And *proud* of them. A caller passes the line its walls were built on, and a
+  // wall is raised centred on that line — so a 0.18 m wall on x = 2.1 has the
+  // surface a player sees at 2.01, and the 0.07 m standoff this used to hang
+  // things at put every poster, notice and clock 20 mm inside the plaster. They
+  // were in the room, they were counted, they had wall behind them, and nobody
+  // could see any of them. Half the thickness, plus enough to stand off it.
+  const wallT = spec.wallThickness ?? 0.18;
+  const stand = wallT / 2 + 0.03;
   const wxLo = Math.min(W.x0, W.x1), wxHi = Math.max(W.x0, W.x1);
   const wzLo = Math.min(W.z0, W.z1), wzHi = Math.max(W.z0, W.z1);
   const wWide = wxHi - wxLo, wDeep = wzHi - wzLo;
-  const along = { xLo: (t) => ({ x: wxLo + 0.07, z: wzLo + 0.8 + t * (wDeep - 1.6) }),
-    xHi: (t) => ({ x: wxHi - 0.07, z: wzLo + 0.8 + t * (wDeep - 1.6) }),
-    zLo: (t) => ({ x: wxLo + 0.8 + t * (wWide - 1.6), z: wzLo + 0.07 }),
-    zHi: (t) => ({ x: wxLo + 0.8 + t * (wWide - 1.6), z: wzHi - 0.07 }) };
+  const along = { xLo: (t) => ({ x: wxLo + stand, z: wzLo + 0.8 + t * (wDeep - 1.6) }),
+    xHi: (t) => ({ x: wxHi - stand, z: wzLo + 0.8 + t * (wDeep - 1.6) }),
+    zLo: (t) => ({ x: wxLo + 0.8 + t * (wWide - 1.6), z: wzLo + stand }),
+    zHi: (t) => ({ x: wxLo + 0.8 + t * (wWide - 1.6), z: wzHi - stand }) };
   let signsUp = 0;
   for(const spot of wallSpots){
     if(signsUp >= MIN_SIGNS && placed >= target) break;
@@ -772,7 +832,7 @@ export function furnishRoom(spec){
       // so a centre that clears a doorway by 200 mm still hangs half a metre of
       // board over the opening — which is what was floating in every entrance.
       if(!spanOk(p.x, p.z, spot.wall, 0.7)) continue;
-      if(put(spot.make, p.x, p.z, 'wall')){ signsUp++; break; }
+      if(put(onWall(spot.wall, spot.make), p.x, p.z, 'wall')){ signsUp++; break; }
     }
   }
 
@@ -793,7 +853,8 @@ export function furnishRoom(spec){
       for(let k = 0; k < 8; k++){
         const p = along[wallName]((k + 0.5) / 8);
         if(!spanOk(p.x, p.z, wallName, 1.2)) continue;
-        if(put((px, pz) => make(px, pz, wallName.startsWith('x') ? 'z' : 'x'), p.x, p.z, 'wall')) break;
+        if(put(onWall(wallName, (px, pz) => make(px, pz, wallName.startsWith('x') ? 'z' : 'x')),
+          p.x, p.z, 'wall')) break;
       }
       continue;
     }
@@ -1390,6 +1451,7 @@ export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 
   // Attached through the caller's own placer, like everything else here.
   const anchor = box(0.001, 0.001, 0.001, x, y, z, new THREE.MeshBasicMaterial({ visible: false }));
   anchor.add(face);
+  markWallMounted([anchor], faceX, toward, `mural ${kind}`);
   face.position.set(faceX ? toward * 0.04 : 0, 0, faceX ? 0 : toward * 0.04);
   face.rotation.y = faceX ? toward * Math.PI / 2 : (toward > 0 ? 0 : Math.PI);
   return face;
