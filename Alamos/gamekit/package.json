@@ -11,7 +11,8 @@
     "check": "node engine/dev/check.mjs",
     "new-theme": "node tools/new-theme.mjs",
     "import-book": "node tools/import-book.mjs",
-    "question-book": "node tools/question-book.mjs"
+    "question-book": "node tools/question-book.mjs",
+    "shots": "node engine/dev/shots.mjs"
   },
   "dependencies": {
     "three": "^0.160.0"

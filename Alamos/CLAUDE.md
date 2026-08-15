@@ -145,9 +145,26 @@ node engine/dev/checkVoice.mjs    <theme>    # cards brief the player, they do n
 node engine/dev/placeStory.mjs    <theme>    # the landscape matches the story told on it
 node engine/dev/checkPassages.mjs <theme>    # talking to somebody teaches something
 node engine/dev/personStops.mjs    <theme>    # every mission person opens their question
+node engine/dev/placement.mjs      <theme>    # everything hung is on a wall, not in it or over a doorway
 node engine/dev/checkStyles.mjs               # no game stylesheet re-declares the engine's
 node engine/dev/worldParity.mjs               # every group has somewhere to happen in the data
 ```
+
+`placement` is the one that fires rays. Four rounds of play-testing were spent on
+the same defect — boards floating in doorways, boards hung *inside* the wall so
+only the dark edge shows, a mural running past the end of the wall — and every
+check passed each time, because they asked whether a *point* had a wall behind it
+and a notice board is a metre wide. This asks through the whole face of a fitting,
+from both sides. Anything on a wall goes up through `markWallMounted` in
+`interiorKit`, and anything the walls are made of through `markStructure`, because
+guessing which meshes are walls from their proportions is how a checker starts
+lying. It cannot see a hand-built world, and it cannot see a fitting that never
+said it was one.
+
+Wall furniture is placed *proud* of the line a caller passes, never on it: a wall
+is raised centred on that line, so a 0.18 m wall on x = 2.1 shows its face at 2.01
+and anything hung at 2.07 is inside the plaster. `furnishRoom` takes
+`wallThickness` and does that arithmetic once.
 
 Two reports that are not part of `check`, because they answer "is this good
 enough" rather than "is this broken":
@@ -155,7 +172,20 @@ enough" rather than "is this broken":
 ```sh
 node engine/dev/pieceDensity.mjs --all        # how furnished every room is, thinnest first
 node engine/dev/syllabusEquations.mjs quantum # which equations a question computes, and when
+npm run shots <theme>                         # a picture of every room, and a contact sheet
 ```
+
+`shots` is the answer to everything a checker cannot judge. Whether a room looks
+lived in, whether a mural is clipped, whether a seal is hidden behind the gallery
+— all of that has been found by a person launching the game, walking there, and
+saying so, and most of it was obvious in a still. It runs vite, renders the game
+in headless Chrome through SwiftShader, drives the game's own `teleport` to each
+viewpoint, and writes `shots/<theme>/index.html`: every room on one page, about
+two minutes for fifty views. Views come from `--at x,y,z --yaw deg` for one
+specific thing, else `themes/<theme>/shots.js`, else the theme's `plan.js`, else
+a turn on the spot at the spawn. A hand-built world should have a `shots.js`;
+`themes/bring_them_home/shots.js` is the worked example, and that game has no
+other automatic check on where anything is.
 
 `pieceDensity` builds each place headless — `engine/dev/headless.mjs` stubs the
 canvas and the renderer, since three.js touches no GPU until something renders —
