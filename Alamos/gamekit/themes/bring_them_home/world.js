@@ -18,7 +18,7 @@
 //   · the light comes from the displays. Three real lights total, and every
 //     bright surface is emissive.
 import * as THREE from 'three';
-import { furnishArea } from '../../engine/world/interiorKit.js';
+import { furnishArea, wordedSign } from '../../engine/world/interiorKit.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { site, CONSOLES, BOARDS, WORKROOMS } from './site.js';
 import { openCaseGroups } from '../../engine/core/app.js';
@@ -508,6 +508,97 @@ function furnishWorkroom(spec, { xIn, xOut, y, cz }){
     },
   };
 
+  // ---- what is on these walls
+  //
+  // Printed matter, nineteen-seventies: aged paper, a typewriter's worth of words,
+  // and nothing that could not have been run off on a duplicator the morning of the
+  // shift. The room is dark, so the sheets are cream rather than white — a white
+  // sheet in here reads as a light box.
+  const PAPER = { paper: '#e6e0d2', ink: '#20242a', soft: '#4c525a' };
+  const NOTICES = {
+    NAV: [
+      { style: 'warning', tag: 'CAUTION', heading: 'Do not remove computer power',
+        accent: '#8a5a2b',
+        body: 'A power-down loses the erasable store. Reloading from the ropes is '
+          + 'forty minutes and cannot be done during a burn.' },
+      { style: 'list', tag: 'PROGRAM', heading: 'Loaded, this mission phase',
+        accent: '#3f6f8f',
+        items: [['P00', 'idle'], ['P52', 'platform align'], ['P41', 'RCS burn'],
+          ['P63', 'entry initialisation'], ['V37', 'change program']],
+        body: 'Verify the program number aloud before you key it.' },
+      { style: 'banner', tag: 'ALIGNMENT', heading: 'Two stars, every eight hours',
+        accent: '#5b6a72',
+        body: 'Drift is quoted per axis and goes on the log sheet, signed. '
+          + 'An alignment nobody wrote down did not happen.' },
+      { style: 'grid', tag: 'CORE ROPE', heading: 'Module store, bay by bay',
+        accent: '#5b6a72', body: 'Signed out against the mission, returned the same shift.' },
+      { style: 'sticky', tag: 'NOTE', heading: 'Restart is not a diagnosis',
+        accent: '#8a5a2b',
+        body: 'If it restarts twice, log the alarm codes before you touch anything else.' },
+    ],
+    ELEC: [
+      { style: 'warning', tag: 'ISOLATE FIRST', heading: 'Before any probe goes in',
+        accent: '#a33f2f',
+        body: 'Main and standby buses are live at all times during a mission. '
+          + 'Two people, one permit, and the breaker collared open.' },
+      { style: 'list', tag: 'BUS', heading: 'Nominal, in volts', accent: '#3f6f8f',
+        items: [['Main A', '28.9'], ['Main B', '28.7'], ['Battery relay', '29.1'],
+          ['AC bus 1', '115 / 400 Hz'], ['AC bus 2', '115 / 400 Hz']],
+        body: 'Anything under 26.5 is called immediately, not at the end of the round.' },
+      { style: 'chart', tag: 'FUEL CELL', heading: 'Output, this mission to date',
+        accent: '#5b6a72', body: 'Three cells. Reactant quantity is the limit, not the load.' },
+      { style: 'banner', tag: 'A ZERO READING', heading: 'Is a reading', accent: '#8a5a2b',
+        body: 'A bus that reads zero and a bus that is dead look identical from here. '
+          + 'Confirm with a second measurement on a different sensor before you call it.' },
+    ],
+    THERM: [
+      { style: 'list', tag: 'CABIN', heading: 'Limits, crew compartment', accent: '#3f6f8f',
+        items: [['Pressure', '4.8–5.2 psi'], ['CO₂ partial', 'below 7.6 mmHg'],
+          ['Temperature', '18–27 °C'], ['Humidity', '40–70 %']],
+        body: 'Any excursion is called and logged with the time.' },
+      { style: 'warning', tag: 'SCRUBBER', heading: 'Canister change is timed',
+        accent: '#a33f2f',
+        body: 'Log the change, not the intention to change it. The curve is only '
+          + 'readable if the times are right.' },
+      { style: 'chart', tag: 'CO₂', heading: 'Partial pressure, last 24 hours',
+        accent: '#5b6a72', body: 'Plotted hourly by hand from the downlink.' },
+      { style: 'photo', tag: 'THE MOCK-UP', heading: 'Cabin trainer, Building 9',
+        accent: '#5b6a72', body: 'Same panel layout. Use it before you talk a crew through anything.' },
+    ],
+    STRUCT: [
+      { style: 'list', tag: 'TORQUE', heading: 'Structural fasteners', accent: '#3f6f8f',
+        items: [['3/8 in, steel', '38 N·m'], ['1/4 in, steel', '11 N·m'],
+          ['Hatch dogs', 'sequence A–F'], ['Anything flight', 'witness required']],
+        body: 'Torque wrench is calibrated quarterly. Certificate on the back of the door.' },
+      { style: 'warning', tag: 'LOAD TEST', heading: 'Nobody in the bay while it runs',
+        accent: '#a33f2f',
+        body: 'Amber light means rigged. Red means loaded. The door interlock is not '
+          + 'a substitute for looking.' },
+      { style: 'chart', tag: 'TEST ARTICLE 4', heading: 'Strain against applied load',
+        accent: '#5b6a72', body: 'Linear to 1.4 g. The knee is where the fitting yields.' },
+      { style: 'banner', tag: 'A CHANNEL DROPPING', heading: 'Is a measurement of the wire',
+        accent: '#8a5a2b',
+        body: 'Until the same event shows on a sensor that shares no harness with it, '
+          + 'you have a telemetry fault, not a structural one.' },
+    ],
+  };
+  const sheets = NOTICES[spec.group] ?? [];
+  // On the room side of both walls: the outer wall and the corridor wall, which is
+  // 300 mm thick and built centred on its line.
+  const T = 0.18;
+  sheets.forEach((sheet, i) => {
+    const onOuter = i % 2 === 0;
+    const sx = onOuter ? xOut - f * T : xIn + f * T;
+    const sz = spec.z0 + 3 + i * ((spec.z1 - spec.z0 - 6) / Math.max(1, sheets.length - 1));
+    wordedSign({
+      box: (w2, h2, d2, x2, y2, z2, mat2) => box(w2, h2, d2, x2, y2 + y, z2, mat2),
+      mats: { dark: M.riser },
+      x: sx, z: sz, faceX: true, toward: onOuter ? -f : f,
+      text: { ...sheet, ...PAPER },
+      wide: 0.95,
+    });
+  });
+
   furnishArea({
     makers,
     order: ['rack', 'bench', 'partsBin', 'trolley', 'stool', 'crate', 'cableTray', 'bin'],
@@ -519,6 +610,79 @@ function furnishWorkroom(spec, { xIn, xOut, y, cz }){
     // The doorway in the corridor wall, and the middle of the room where the
     // stop's own bench and case already are.
     keepClear: [{ x: xIn + f * 1.2, z: cz, r: 2.4 }, { x: (xIn + xOut) / 2, z: cz, r: 2.6 }],
+  });
+}
+
+/**
+ * The boards in the ring corridor.
+ *
+ * This is the public part of the building — the corridor everybody walks between
+ * the control room and the wings — so what is on its walls is the whole centre's
+ * business rather than one room's: the flight rules, the shift roster, the recovery
+ * force, the standing instruction about who may say anything to a journalist.
+ *
+ * Kept off the south leg's inner wall, which is the control room's back wall and
+ * already carries the status board and the doors.
+ */
+function furnishRingSigns(){
+  const HW = B.halfWidth;
+  const [, s1] = B.southLeg;
+  const [n0] = B.northLeg;
+  const y = ENTRY_Y;
+  const T = 0.18;
+  const PAPER = { paper: '#e6e0d2', ink: '#20242a', soft: '#4c525a' };
+
+  const SHEETS = [
+    { style: 'banner', tag: 'FLIGHT RULE 4-11', heading: 'Disagreeing sensors',
+      accent: '#a33f2f',
+      body: 'Where two independent measurements disagree, the vehicle is assumed to be '
+        + 'in the worse of the two states until a third, independent measurement says '
+        + 'otherwise. Assume nothing from a single channel.' },
+    { style: 'grid', tag: 'SHIFT', heading: 'Console roster, this week', accent: '#3f6f8f',
+      body: 'Handover at the console, in writing, before the off-going controller leaves.' },
+    { style: 'list', tag: 'RECOVERY', heading: 'Force on station', accent: '#5b6a72',
+      items: [['Primary ship', 'mid-Pacific'], ['Secondary', 'Atlantic'],
+        ['Air rescue', 'four aircraft'], ['On-station', 'H−6 hours']],
+      body: 'Positions are confirmed each shift by the recovery officer.' },
+    { style: 'warning', tag: 'THE LOOP', heading: 'One voice at a time',
+      accent: '#a33f2f',
+      body: 'Do not key over a call. If you did not hear it, ask for it again — '
+        + 'do not assume it. Everything on the loop is recorded.' },
+    { style: 'banner', tag: 'PUBLIC AFFAIRS', heading: 'Nothing leaves this building',
+      accent: '#8a5a2b',
+      body: 'No statement, no estimate and no opinion goes to a reporter except through '
+        + 'the public affairs officer. This includes what you tell your family.' },
+    { style: 'chart', tag: 'GROUND ELAPSED TIME', heading: 'Mission clock, this shift',
+      accent: '#5b6a72', body: 'All times on every log are GET. Local time is not used.' },
+    { style: 'list', tag: 'IF YOU ARE UNSURE', heading: 'Say so, in this order',
+      accent: '#3f6f8f',
+      items: [['Your own console', 'first'], ['Your back room', 'second'],
+        ['Flight Director', 'always'], ['Anyone else', 'never']],
+      body: 'A controller who says "I do not know" has done their job.' },
+    { style: 'photo', tag: 'THE LAST CREW', heading: 'Recovery, eleven months ago',
+      accent: '#5b6a72', body: 'Same room, same consoles, same three people on the loop.' },
+    { style: 'sticky', tag: 'NOTE', heading: 'Coffee urn is broken again',
+      accent: '#8a5a2b', body: 'Machine on the north leg works. Take the long way round.' },
+    { style: 'warning', tag: 'SIMULATION', heading: 'When the amber light is on',
+      accent: '#8a5a2b',
+      body: 'Everything you hear on the loop is a simulation, including the parts that '
+        + 'sound like they are not. Say SIM before every call.' },
+  ];
+
+  // Down both long legs of the ring, alternating sides, facing into the corridor.
+  const z0 = s1 + 2, z1 = n0 - 2;
+  SHEETS.forEach((sheet, i) => {
+    const f = i % 2 === 0 ? -1 : 1;                 // west leg, then east
+    const t = (Math.floor(i / 2) + 0.5) / Math.ceil(SHEETS.length / 2);
+    const z = z0 + t * (z1 - z0);
+    wordedSign({
+      box: (w2, h2, d2, x2, y2, z2, mat2) => box(w2, h2, d2, x2, y2 + y, z2, mat2),
+      mats: { dark: M.riser },
+      // On the room side of the ring's outer wall, which is 300 mm and centred.
+      x: f * (HW - T), z, faceX: true, toward: -f,
+      text: { ...sheet, ...PAPER },
+      wide: i % 3 === 0 ? 1.3 : 0.95,
+    });
   });
 }
 
@@ -898,6 +1062,7 @@ export function initWorld(canvas, activeTheme){
   const groups = theme.content?.GROUPS ?? [];
   for(const c of CONSOLES) buildConsole(c, groups.find(g => g.id === c.group));
   for(const r of WORKROOMS) buildWorkroom(r, groups.find(g => g.id === r.group));
+  furnishRingSigns();
   // No scatter on the tiers. Chairs, bins and boxes strewn between the consoles
   // raised the piece count and made the room look like a jumble sale: this floor
   // is a stepped auditorium facing a wall of boards, and the emptiness of the

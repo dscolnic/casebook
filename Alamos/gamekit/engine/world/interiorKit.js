@@ -55,7 +55,11 @@ function paintSignFace(text = {}, px = 512, py = 340){
   canvas.width = px; canvas.height = py;
   const g = canvas.getContext('2d');
   const accent = text.accent || '#3f6f8f';
-  const ink = '#1b1e22', soft = '#4a5259';
+  // A building's own paper. Ridgeway prints on white; a nineteen-seventies control
+  // centre does not, and a bright white sheet in a dark room reads as a light box.
+  const paper = text.paper || '#fbfaf6';
+  const ink = text.ink || '#1b1e22';
+  const soft = text.soft || '#4a5259';
   const seedNum = [...String(text.tag ?? '') + String(text.heading ?? '')]
     .reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 100000, 7);
   const style = text.style ?? SIGN_STYLES[seedNum % SIGN_STYLES.length];
@@ -87,7 +91,7 @@ function paintSignFace(text = {}, px = 512, py = 340){
   };
 
   g.textBaseline = 'top';
-  g.fillStyle = '#fbfaf6'; g.fillRect(0, 0, px, py);
+  g.fillStyle = paper; g.fillRect(0, 0, px, py);
 
   if(style === 'banner'){
     // Colour across the top half, the words large in it, the body filling under.
@@ -105,7 +109,7 @@ function paintSignFace(text = {}, px = 512, py = 340){
     g.fillStyle = accent;
     g.beginPath();
     g.moveTo(74, 78); g.lineTo(132, 178); g.lineTo(16, 178); g.closePath(); g.fill();
-    g.fillStyle = '#fbfaf6';
+    g.fillStyle = paper;
     g.font = '800 54px Inter, Helvetica, Arial, sans-serif';
     g.fillText('!', 62, 108);
     g.fillStyle = ink; g.font = '800 21px Inter, Helvetica, Arial, sans-serif';
@@ -170,7 +174,7 @@ function paintSignFace(text = {}, px = 512, py = 340){
       g.beginPath(); g.arc(cx2, py - 120, 16, 0, Math.PI * 2); g.fill();
       g.fillRect(cx2 - 15, py - 104, 30, 46);
     }
-    g.fillStyle = '#fbfaf6'; g.fillRect(0, py - 58, px, 58);
+    g.fillStyle = paper; g.fillRect(0, py - 58, px, 58);
     g.fillStyle = ink; g.font = '700 17px Inter, Helvetica, Arial, sans-serif';
     g.fillText(String(text.heading ?? '').slice(0, 40), 14, py - 48);
     g.fillStyle = soft; g.font = '400 14px Inter, Helvetica, Arial, sans-serif';
@@ -187,17 +191,24 @@ function paintSignFace(text = {}, px = 512, py = 340){
       const vals = ['ext 2214', 'ext 2190', 'ext 2233', 'Tue', 'Thu', 'am', 'pm'];
       return names.map((n, i) => [n, vals[(seedNum + i) % vals.length]]);
     })();
-    let yy = 82;
-    for(const [k, v] of rows2.slice(0, 6)){
-      g.fillStyle = ink; g.font = '600 17px Inter, Helvetica, Arial, sans-serif';
+    // Spread the rows over the sheet rather than stacking them at the top: four
+    // items in a space built for seven left the bottom half blank, which is the
+    // whole complaint about signs that look like nothing.
+    const shown = rows2.slice(0, 7);
+    const top = 78, bottom = py - (text.body ? 34 : 14);
+    const step = Math.max(22, (bottom - top) / Math.max(1, shown.length));
+    const fs = Math.max(15, Math.min(22, step * 0.62));
+    let yy = top + step * 0.15;
+    for(const [k, v] of shown){
+      g.fillStyle = ink; g.font = `600 ${fs}px Inter, Helvetica, Arial, sans-serif`;
       g.fillText(String(k), 16, yy);
       const kw = g.measureText(String(k)).width;
       g.fillStyle = '#c9ccd2';
-      for(let x = 26 + kw; x < px - 70; x += 8) g.fillRect(x, yy + 9, 3, 2);
+      for(let x = 26 + kw; x < px - 80; x += 8) g.fillRect(x, yy + fs * 0.55, 3, 2);
       g.fillStyle = soft; g.textAlign = 'right';
       g.fillText(String(v), px - 16, yy);
       g.textAlign = 'left';
-      yy += 25;
+      yy += step;
     }
     if(text.body){
       g.fillStyle = soft; g.font = '400 13px Inter, Helvetica, Arial, sans-serif';
