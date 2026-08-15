@@ -1681,14 +1681,31 @@ export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 
       g.globalAlpha = 1;
     }
     // Roll pattern on the first stage: the alternating quarters everybody knows.
+    //
+    // Sized off the body, not off the stage. Drawn from the stage *length* it
+    // scaled with the whole forty-six metres of wall: each block came out 277 px
+    // wide with a 739 px gap on a 1024 px panel, so every panel showed one
+    // isolated black slab floating on a pale body and the wall read as having
+    // holes punched in it. A roll pattern is paint, and paint meets the edges it
+    // is painted up to.
     {
-      const x = X0, w2 = L * 0.40;
+      const runX0 = X0 + L * 0.015, runX1 = X0 + L * 0.385;
+      // Blocks about as wide as the body is deep, and edge to edge: the alternation
+      // is the whole of what makes it read as roll rather than as rectangles.
+      const blocks = Math.max(5, Math.round((runX1 - runX0) / (R * 2.1)));
+      const bw = (runX1 - runX0) / blocks;
       g.fillStyle = ink;
-      for(let i = 0; i < 4; i++){
-        const bx = x + w2 * (0.06 + i * 0.22);
-        g.fillRect(bx, axis - R, w2 * 0.06, R * (i % 2 ? 1 : 0.55));
-        g.fillRect(bx + w2 * 0.06, axis + R * (i % 2 ? 0 : 0.45), w2 * 0.06, R * (i % 2 ? 1 : 0.55));
+      g.globalAlpha = 0.82;
+      for(let i = 0; i < blocks; i++){
+        // Stopping just short of the body edge leaves the outline reading as the
+        // side of a vehicle rather than as the border of a black rectangle.
+        g.fillRect(runX0 + i * bw, i % 2 ? axis : axis - R * 0.93, bw, R * 0.93);
       }
+      g.globalAlpha = 1;
+      // The body outline back over the top, so the paint sits inside the vehicle
+      // instead of cutting its edge.
+      g.strokeStyle = ink;
+      g.strokeRect(X0, axis - R, L * 0.40, R * 2);
     }
     // ---- engines: five bells at the aft, one on the centreline
     for(const off of [-0.62, -0.31, 0, 0.31, 0.62]){

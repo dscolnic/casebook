@@ -785,7 +785,9 @@ function paintVehicleWall(){
     paintMural({
       box: (w2, h2, d2, x2, y2, z2, mat2) => box(w2, h2, d2, x2, y2 + y, z2, mat2),
       x: cx, y: 2.0, z: n1 - T, faceX: false, toward: -1,
-      w: w - 0.02, h: 3.4,
+      // Exactly the panel width. A 20 mm gap between boards showed as a dark line
+      // every 3.7 m down a drawing that is meant to be one drawing.
+      w, h: 3.4,
       kind: 'rocket',
       ink: '#1d2228', paper: '#cfc8b6', soft: '#5a5f66',
       t0: i / PANELS, t1: (i + 1) / PANELS,
