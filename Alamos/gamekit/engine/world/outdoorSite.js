@@ -369,37 +369,49 @@ export function buildPaths(scene, paths){
   };
   paths.forEach((p, idx) => {
     const long = p.d > p.w;
-    const surface = (t, rough, y, order) => {
-      const m = new THREE.Mesh(
-        new THREE.PlaneGeometry(long ? (t.worn ? p.worn : p.w) : p.w,
-                                long ? p.d : (t.worn ? p.worn : p.d), 1, 1),
-        new THREE.MeshStandardMaterial({
-          map: t.map, roughness: rough, metalness: 0,
-          transparent: true, depthWrite: false,
-          polygonOffset: true, polygonOffsetFactor: -2,
-        }));
+    // The decal is *draped* over the ground, not laid flat at the height of its
+    // centre. It was one flat plane for seven games because their terrain sits
+    // near y = 0 under a road; the first site with a road across a mountain
+    // saddle drew a 190-metre slab that was buried at one end and hanging twenty
+    // metres in the air at the other — "a walkway coming out of the hill from
+    // both sides that floats and you cannot walk on". Grading the landform flat
+    // under a path is the other fix and it is wrong here: it would cut a
+    // twenty-metre trench through the saddle. So the mesh follows
+    // `groundHeight`, which stays the one source of truth for where the ground
+    // is, and a path may now run over any slope.
+    const surface = (t, rough, lift, order) => {
+      const W = long ? (t.worn ? p.worn : p.w) : p.w;
+      const D = long ? p.d : (t.worn ? p.worn : p.d);
+      const g = new THREE.PlaneGeometry(W, D,
+        Math.max(1, Math.round(W / 4)), Math.max(1, Math.round(D / 4)));
+      // Rotated -90° about X, a plane's local (x, y, z) lands at world
+      // (cx + x, z, cz - y): the local *z* is the height to displace.
+      const pos = g.attributes.position;
+      for(let i = 0; i < pos.count; i++){
+        const x = p.cx + pos.getX(i), z = p.cz - pos.getY(i);
+        pos.setZ(i, groundHeight(x, z) + lift);
+      }
+      pos.needsUpdate = true;
+      g.computeVertexNormals();
+      const m = new THREE.Mesh(g, new THREE.MeshStandardMaterial({
+        map: t.map, roughness: rough, metalness: 0,
+        transparent: true, depthWrite: false,
+        polygonOffset: true, polygonOffsetFactor: -2,
+      }));
       m.rotation.x = -Math.PI / 2;
-      m.position.set(p.cx, y, p.cz);
+      m.position.set(p.cx, 0, p.cz);
       m.renderOrder = order;
       m.receiveShadow = true;
       scene.add(m);
       return m;
     };
-    // The decal sits just above the ground *under this path*, not just above
-    // zero. It was a constant for six games because their terrain happens to sit
-    // at about y = 0; the first site whose basin was a metre down drew every road
-    // as a 260-metre slab hanging a metre in the air, cutting people off at chest
-    // height. A path is one flat plane, so this is the height of its centre — the
-    // corollary is that a path has to run over ground that is roughly level,
-    // which is also why the scarp ramps through them.
-    const base = groundHeight(p.cx, p.cz);
     const st = (long ? tex.shoulderX : tex.shoulderY).clone(); st.needsUpdate = true;
     st.repeat.set(long ? 1 : Math.max(2, p.w / 26), long ? Math.max(2, p.d / 26) : 1);
-    surface({ map: st }, 0.97, base + 0.05 + idx * 0.004, 1 + idx * 2);
+    surface({ map: st }, 0.97, 0.05 + idx * 0.004, 1 + idx * 2);
     if(p.worn){
       const wt = (long ? tex.wornX : tex.wornY).clone(); wt.needsUpdate = true;
       wt.repeat.set(long ? 1 : Math.max(2, p.w / 22), long ? Math.max(2, p.d / 22) : 1);
-      surface({ map: wt, worn: true }, 0.88, base + 0.075 + idx * 0.004, 2 + idx * 2);
+      surface({ map: wt, worn: true }, 0.88, 0.075 + idx * 0.004, 2 + idx * 2);
     }
   });
 }
