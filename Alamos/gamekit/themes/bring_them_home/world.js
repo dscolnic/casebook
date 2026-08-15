@@ -674,21 +674,48 @@ function furnishRingSigns(){
         + 'sound like they are not. Say SIM before every call.' },
   ];
 
+  // The same wall carries a doorway into each wing room, cut by `buildRing` from
+  // `doorFor()`. A board hung across one of those hangs in the opening — which is
+  // where FLIGHT RULE 4-11 ended up, in the doorway of the guidance computer room.
+  // These are the same numbers the holes are cut with, so the two cannot drift.
+  const doorways = (side) => WORKROOMS.filter(r => r.side === side).map(r => ({
+    c: (r.z0 + r.z1) / 2, h: B.roomDoorW / 2,
+  }));
+  const clearOfDoors = (side, z, halfWide) => doorways(side)
+    .every(d => Math.abs(z - d.c) > d.h + halfWide + 0.25);
+
   // Down both long legs of the ring, alternating sides, facing into the corridor.
   const z0 = s1 + 2, z1 = n0 - 2;
+  let placedAt = z0;
   SHEETS.forEach((sheet, i) => {
     const f = i % 2 === 0 ? -1 : 1;                 // west leg, then east
+    const side = f < 0 ? 'w' : 'e';
+    const wide = i % 3 === 0 ? 1.3 : 0.95;
     const t = (Math.floor(i / 2) + 0.5) / Math.ceil(SHEETS.length / 2);
-    const z = z0 + t * (z1 - z0);
+    let z = z0 + t * (z1 - z0);
+    // Walk it clear of the nearest doorway rather than dropping the board.
+    if(!clearOfDoors(side, z, wide / 2)){
+      let moved = null;
+      for(let step = 0.5; step < 8 && moved === null; step += 0.5){
+        for(const dz of [step, -step]){
+          const trial = z + dz;
+          if(trial > z0 && trial < z1 && clearOfDoors(side, trial, wide / 2)){ moved = trial; break; }
+        }
+      }
+      if(moved === null) return;
+      z = moved;
+    }
+    placedAt = z;
     wordedSign({
       box: (w2, h2, d2, x2, y2, z2, mat2) => box(w2, h2, d2, x2, y2 + y, z2, mat2),
       mats: { dark: M.riser },
       // On the room side of the ring's outer wall, which is 300 mm and centred.
       x: f * (HW - T), z, faceX: true, toward: -f,
       text: { ...sheet, ...PAPER },
-      wide: i % 3 === 0 ? 1.3 : 0.95,
+      wide,
     });
   });
+  void placedAt;
 }
 
 function buildCourtyard(){
