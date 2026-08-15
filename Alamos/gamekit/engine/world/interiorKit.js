@@ -835,9 +835,14 @@ export function furnishCorridor(spec){
   const clear = (z) => !keepClear.some(k => Math.abs(k.z - z) < (k.r ?? 1.2));
   let placed = 0;
   let ci = 0;
-  // The wall's own face. 0.35 m inside it left every board floating a hand's width
-  // off the wall, which at eye level is unmistakable.
-  const wallX = halfWidth - 0.04;
+  // The wall's own visible face.
+  //
+  // `interiorSite` builds a wall *centred* on the line it is given, so the surface
+  // the player sees is half its thickness inside that. Hanging boards 40 mm in from
+  // the centre line put every one of them inside an 180 mm wall: they were in the
+  // scene, correctly positioned, facing the right way, and completely invisible.
+  const wallT = spec.wallThickness ?? 0.18;
+  const wallX = halfWidth - wallT / 2 - 0.03;
   // Fittings still stand off the wall; only the boards sit on it.
   const fitX = halfWidth - 0.35;
   // What a working building has in its corridor. Generic on purpose: a theme that

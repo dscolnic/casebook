@@ -398,6 +398,9 @@ export function fitOutSpine(ctx){
     box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
     mats: furnishingMaterials({ surface: M.frame, metal: M.rail, dark: M.base, pale: M.wall }),
     halfWidth: P.corridorHalfWidth,
+    // The walls are centred on the corridor half-width, so the kit needs the
+    // thickness to find the face the player actually sees.
+    wallThickness: P.wall,
     z0: sp.z0, z1: sp.z1,
     seed: 'quantum-spine',
     every: 5,
