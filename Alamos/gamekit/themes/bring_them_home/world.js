@@ -18,7 +18,7 @@
 //   · the light comes from the displays. Three real lights total, and every
 //     bright surface is emissive.
 import * as THREE from 'three';
-import { furnishArea, wordedSign } from '../../engine/world/interiorKit.js';
+import { furnishArea, wordedSign, paintMural } from '../../engine/world/interiorKit.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { site, CONSOLES, BOARDS, WORKROOMS } from './site.js';
 import { openCaseGroups } from '../../engine/core/app.js';
@@ -718,6 +718,40 @@ function furnishRingSigns(){
   void placedAt;
 }
 
+/**
+ * The vehicle, across the north leg.
+ *
+ * The far side of the courtyard is a forty-six metre corridor with nothing on it at
+ * all — the longest blank wall in the building and the one people walk when there is
+ * nothing to do but wait. It carries the stack, in elevation, at very nearly the
+ * size of the thing itself.
+ *
+ * Painted in sections because a single canvas that long would be either enormous or
+ * illegible; each panel draws its own slice of one virtual drawing, so the seams
+ * fall between panel lines rather than through the middle of an engine bell.
+ */
+function paintVehicleWall(){
+  const HW = B.halfWidth;
+  const [, n1] = B.northLeg;
+  const y = ENTRY_Y;
+  const T = 0.18;
+  const PANELS = 12;
+  const span = HW * 2 - 1.2;
+  const w = span / PANELS;
+  for(let i = 0; i < PANELS; i++){
+    const cx = -HW + 0.6 + (i + 0.5) * w;
+    paintMural({
+      box: (w2, h2, d2, x2, y2, z2, mat2) => box(w2, h2, d2, x2, y2 + y, z2, mat2),
+      x: cx, y: 2.0, z: n1 - T, faceX: false, toward: -1,
+      w: w - 0.02, h: 3.4,
+      kind: 'rocket',
+      ink: '#1d2228', paper: '#cfc8b6', soft: '#5a5f66',
+      t0: i / PANELS, t1: (i + 1) / PANELS,
+      seed: `vehicle-${i}`,
+    });
+  }
+}
+
 function buildCourtyard(){
   const C = B.courtyard;
   const cx = (C.x0 + C.x1) / 2, cz = (C.z0 + C.z1) / 2;
@@ -1095,6 +1129,7 @@ export function initWorld(canvas, activeTheme){
   for(const c of CONSOLES) buildConsole(c, groups.find(g => g.id === c.group));
   for(const r of WORKROOMS) buildWorkroom(r, groups.find(g => g.id === r.group));
   furnishRingSigns();
+  paintVehicleWall();
   // No scatter on the tiers. Chairs, bins and boxes strewn between the consoles
   // raised the piece count and made the room look like a jumble sale: this floor
   // is a stepped auditorium facing a wall of boards, and the emptiness of the

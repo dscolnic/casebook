@@ -1093,7 +1093,7 @@ export function furnishArea({ makers, order, bounds: B, target = 15, seed = 'are
  *   wash      nothing. One quiet field of colour.
  */
 export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 2,
-  kind = 'wash', ink = '#5b6a72', paper = '#e8ecee', seed = 'mural',
+  kind = 'wash', ink = '#5b6a72', paper = '#e8ecee', soft = '#6b747c', seed = 'mural',
   // Which slice of a longer run this panel is, 0 to 1. A mural painted in
   // sections along a corridor has to carry its part of the whole: without this
   // every section ran the full gradient and the wall read as five paintings.
@@ -1165,7 +1165,150 @@ export function paintMural({ box, x, y = 1.9, z, faceX, toward = -1, w = 3, h = 
         cell * 1.6, cell * 1.6);
     }
     g.globalAlpha = 1;
+  } else if(kind === 'rocket'){
+    // A launch vehicle in elevation, drawn as the engineering wall graphic a place
+    // like this would actually have: stages, engines, callouts with leader lines, a
+    // station scale along the bottom and a person at the foot of it for scale.
+    //
+    // The whole vehicle is laid out in one virtual canvas `FULL` wide and each panel
+    // draws its own slice of it, so a mural split across twelve boards is one
+    // continuous drawing rather than twelve small ones.
+    const FULL = px / Math.max(0.0001, (t1 - t0));
+    g.save();
+    g.translate(-t0 * FULL, 0);
+    const L = FULL * 0.94, X0 = FULL * 0.03;       // the vehicle, nose to the right
+    const axis = py * 0.44;
+    // Not to scale — a 110 m vehicle across 46 m of wall would be four metres in
+    // diameter and would not fit the corridor. This is a schematic elevation, drawn
+    // as large as the wall allows so it reads from the far end of the leg.
+    const R = py * 0.23;                            // body radius
+    const line = Math.max(1.5, py * 0.006);
+    g.lineWidth = line;
+    g.strokeStyle = ink;
+    const band = (x, w2, fill) => { g.fillStyle = fill; g.fillRect(x, axis - R, w2, R * 2); };
+
+    // ---- stages, aft to nose
+    const stages = [
+      { n: 'FIRST STAGE', f: 0.00, t: 0.40, r: 1.00 },
+      { n: 'INTERSTAGE', f: 0.40, t: 0.44, r: 0.94 },
+      { n: 'SECOND STAGE', f: 0.44, t: 0.70, r: 1.00 },
+      { n: 'THIRD STAGE', f: 0.70, t: 0.84, r: 0.86 },
+      { n: 'INSTRUMENT UNIT', f: 0.84, t: 0.865, r: 0.86 },
+      { n: 'ADAPTER', f: 0.865, t: 0.915, r: 0.72 },
+      { n: 'SERVICE MODULE', f: 0.915, t: 0.955, r: 0.60 },
+      { n: 'COMMAND MODULE', f: 0.955, t: 0.978, r: 0.52 },
+    ];
+    for(const st of stages){
+      const x = X0 + L * st.f, w2 = L * (st.t - st.f), r = R * st.r;
+      g.fillStyle = paper === '#fbfaf6' ? '#e9ecee' : '#d9d3c4';
+      g.fillRect(x, axis - r, w2, r * 2);
+      g.strokeRect(x, axis - r, w2, r * 2);
+      // Panel seams down the length of every stage.
+      g.globalAlpha = 0.35;
+      for(let sx = x + w2 * 0.12; sx < x + w2 - 2; sx += Math.max(18, w2 * 0.09)){
+        g.beginPath(); g.moveTo(sx, axis - r); g.lineTo(sx, axis + r); g.stroke();
+      }
+      g.globalAlpha = 1;
+    }
+    // Roll pattern on the first stage: the alternating quarters everybody knows.
+    {
+      const x = X0, w2 = L * 0.40;
+      g.fillStyle = ink;
+      for(let i = 0; i < 4; i++){
+        const bx = x + w2 * (0.06 + i * 0.22);
+        g.fillRect(bx, axis - R, w2 * 0.06, R * (i % 2 ? 1 : 0.55));
+        g.fillRect(bx + w2 * 0.06, axis + R * (i % 2 ? 0 : 0.45), w2 * 0.06, R * (i % 2 ? 1 : 0.55));
+      }
+    }
+    // ---- engines: five bells at the aft, one on the centreline
+    for(const off of [-0.62, -0.31, 0, 0.31, 0.62]){
+      const ey = axis + R * off, er = R * 0.26;
+      g.fillStyle = paper === '#fbfaf6' ? '#c9ccd2' : '#b9b1a0';
+      g.beginPath();
+      g.moveTo(X0, ey - er * 0.55);
+      g.lineTo(X0 - L * 0.035, ey - er);
+      g.lineTo(X0 - L * 0.035, ey + er);
+      g.lineTo(X0, ey + er * 0.55);
+      g.closePath(); g.fill(); g.stroke();
+    }
+    // ---- fins at the base
+    for(const sgn of [-1, 1]){
+      g.fillStyle = ink; g.globalAlpha = 0.75;
+      g.beginPath();
+      g.moveTo(X0 + L * 0.02, axis + sgn * R);
+      g.lineTo(X0 + L * 0.02, axis + sgn * R * 1.5);
+      g.lineTo(X0 + L * 0.10, axis + sgn * R);
+      g.closePath(); g.fill();
+      g.globalAlpha = 1;
+    }
+    // ---- escape tower on the nose
+    {
+      const nx = X0 + L * 0.978, r = R * 0.52;
+      g.fillStyle = paper === '#fbfaf6' ? '#e9ecee' : '#d9d3c4';
+      g.beginPath();
+      g.moveTo(nx, axis - r); g.lineTo(nx + L * 0.012, axis - r * 0.35);
+      g.lineTo(nx + L * 0.012, axis + r * 0.35); g.lineTo(nx, axis + r);
+      g.closePath(); g.fill(); g.stroke();
+      g.beginPath();
+      g.moveTo(nx + L * 0.012, axis - r * 0.12); g.lineTo(nx + L * 0.048, axis - r * 0.12);
+      g.lineTo(nx + L * 0.048, axis + r * 0.12); g.lineTo(nx + L * 0.012, axis + r * 0.12);
+      g.closePath(); g.fill(); g.stroke();
+      for(const sgn of [-1, 1]){
+        g.beginPath();
+        g.moveTo(nx + L * 0.03, axis + sgn * r * 0.12);
+        g.lineTo(nx + L * 0.022, axis + sgn * r * 0.5);
+        g.stroke();
+      }
+    }
+    // ---- conduit tunnel, the length of the stack
+    g.globalAlpha = 0.5;
+    g.beginPath();
+    g.moveTo(X0 + L * 0.02, axis - R * 0.82); g.lineTo(X0 + L * 0.84, axis - R * 0.7);
+    g.stroke();
+    g.globalAlpha = 1;
+
+    // ---- callouts, with leader lines
+    g.font = `700 ${Math.round(py * 0.045)}px Inter, Helvetica, Arial, sans-serif`;
+    g.fillStyle = ink;
+    stages.forEach((st, i) => {
+      const cx2 = X0 + L * (st.f + st.t) / 2;
+      const up = i % 2 === 0;
+      const ly = up ? axis - R * 1.25 : axis + R * 1.25;
+      const ty = up ? ly - py * 0.03 : ly + py * 0.055;
+      g.globalAlpha = 0.6;
+      g.beginPath(); g.moveTo(cx2, axis + (up ? -R : R)); g.lineTo(cx2, ly); g.stroke();
+      g.globalAlpha = 1;
+      g.textAlign = 'center';
+      g.fillText(st.n, cx2, ty);
+    });
+    g.textAlign = 'left';
+    // A couple of engineering notes, because a wall graphic in this building would
+    // carry numbers rather than just names.
+    g.font = `400 ${Math.round(py * 0.038)}px Inter, Helvetica, Arial, sans-serif`;
+    g.fillStyle = soft;
+    g.fillText('FIVE ENGINES · GIMBALLED · CENTRE ENGINE FIXED', X0 + L * 0.04, axis + R * 1.75);
+    g.fillText('SEPARATION PLANES MARKED ▲', X0 + L * 0.46, axis + R * 1.75);
+
+    // ---- station scale along the bottom, and a person for scale
+    const sy = py * 0.9;
+    g.strokeStyle = soft; g.globalAlpha = 0.8;
+    g.beginPath(); g.moveTo(X0, sy); g.lineTo(X0 + L, sy); g.stroke();
+    for(let i = 0; i <= 20; i++){
+      const sx = X0 + (L * i) / 20;
+      g.beginPath(); g.moveTo(sx, sy); g.lineTo(sx, sy - py * (i % 5 === 0 ? 0.035 : 0.018)); g.stroke();
+      if(i % 5 === 0){
+        g.fillStyle = soft;
+        g.font = `400 ${Math.round(py * 0.032)}px Inter, Helvetica, Arial, sans-serif`;
+        g.fillText(`${i * 5} m`, sx + 4, sy - py * 0.045);
+      }
+    }
+    g.globalAlpha = 1;
+    // No figure for scale. It was drawn at the foot of the station rule and read as
+    // a person standing in the drawing rather than as a scale mark — the numbers do
+    // that job and do not need help.
+    g.restore();
   }
+
   // A wash paints nothing further: the field of colour is the whole of it.
 
   const tex = new THREE.CanvasTexture(canvas);
