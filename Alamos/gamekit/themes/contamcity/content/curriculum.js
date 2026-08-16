@@ -1788,10 +1788,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Map concentration with limited samples",
-      "scene": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5.",
+      "scene": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30% against the laboratory's 5.",
       "takeaway": "Spatial coverage without analytical validity—or validity without spatial coverage—cannot protect the city.",
       "place": "Quality Assurance Desk",
-      "story": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
+      "story": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30% against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
       "game": {
         "type": "CHOICE",
         "title": "Map concentration with limited samples",

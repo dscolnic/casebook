@@ -95,7 +95,7 @@ export const INTERIORS = {
   },
   "ELEC": {
     "caption": "Charge and moles are one measurement in two units, and the gap between them is the cell.",
-    "standLine": "12 cells, 640 amps, and 8 per cent of it making nothing.",
+    "standLine": "12 cells, 640 amps, and 8% of it making nothing.",
     "station": {
       "kind": "panel",
       "title": "Water stack",

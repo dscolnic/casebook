@@ -52,7 +52,7 @@ export const INTERIORS = {
         },
         {
           "label": "Reader disagreement",
-          "value": "11 per cent",
+          "value": "11%",
           "status": "normal"
         },
         {

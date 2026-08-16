@@ -307,7 +307,7 @@ roster:
 
       He works with three tools and each one moves the contaminant rather than destroying it. Activated carbon adsorbs organics onto an enormous internal surface area — the compound is now in the carbon bed, which becomes hazardous waste with a destination. Air stripping blows the volatile fraction out of the water and into the air, which is a genuine improvement only if the air is somewhere no one is standing. Chemical oxidation actually breaks bonds, but partially oxidised fragments are products too, and some are worse than what you started with.
 
-      So every option he offers arrives with the byproduct, the sludge and the destination attached. A treatment train that removes 99 per cent of a contaminant and puts the rest through a neighbourhood’s air is not a success; it is a transfer, and he wants it named as 1.
+      So every option he offers arrives with the byproduct, the sludge and the destination attached. A treatment train that removes 99% of a contaminant and puts the rest through a neighbourhood’s air is not a success; it is a transfer, and he wants it named as 1.
     quiz:
       - q: Why does Osei describe activated carbon and air stripping as moving a contaminant rather than removing it?
         a: Neither breaks the compound down
@@ -503,7 +503,7 @@ roster:
     bio: |-
       Controls entry to the tunnel and the sewer heads, and will not sign an entry permit against a qualitative argument.
 
-      A confined space kills in ways that have nothing to do with toxicity. A gas that is chemically harmless still displaces air, and an atmosphere below about 19 and a half per cent oxygen takes people down without warning or smell. So his meter reads four things before anyone descends: oxygen, flammable vapour as a percentage of the lower explosive limit, carbon monoxide and hydrogen sulfide — and it reads them at three depths, because the dense vapours he fears are lying at the bottom.
+      A confined space kills in ways that have nothing to do with toxicity. A gas that is chemically harmless still displaces air, and an atmosphere below about 19.5% oxygen takes people down without warning or smell. So his meter reads four things before anyone descends: oxygen, flammable vapour as a percentage of the lower explosive limit, carbon monoxide and hydrogen sulfide — and it reads them at three depths, because the dense vapours he fears are lying at the bottom.
 
       What he needs from the chemists is a number: how much gas the reaction can produce, and how fast, against the ventilation rate he can actually deliver. "Probably fine" is not an input to that calculation, and he has turned down people far senior to him for offering it.
     quiz:
@@ -1758,8 +1758,8 @@ missions:
         title: Map concentration with limited samples
         place: Quality Assurance Desk
         setup: You cannot sample every metre of river. Where do the samples go?
-        scene: The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5.
-        story: "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30 per cent against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them."
+        scene: The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30% against the laboratory's 5.
+        story: "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30% against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them."
         assumes:
           - a map is only worth what the decisions it supports are worth
         takeaway: Spatial coverage without analytical validity—or validity without spatial coverage—cannot protect the city.
@@ -2613,7 +2613,7 @@ missions:
   - title: Remove It Without Making It Worse
     objective: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     briefing: Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.
-    stake: "Day 31. Osei's pilot treatment works — 98 per cent of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The hazard that lasts longest here may be one there is still no test for."
+    stake: "Day 31. Osei's pilot treatment works — 98% of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The hazard that lasts longest here may be one there is still no test for."
     takeaway: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.
     stops:
       - group: TREAT

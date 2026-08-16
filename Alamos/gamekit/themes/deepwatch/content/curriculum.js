@@ -551,7 +551,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "By what factor do the mounts reduce radiated power?",
         "answer": "A factor of about 15.85, usually rounded to 16; the new radiated power is about 6.3% of the old value.",
-        "why": "For a power ratio, ΔL = 10 log₁₀(P₂/P₁). A 12 dB reduction means the original-to-new power ratio is 10^(12/10) ≈ 15.85. So the new radiated power is about 1/15.85, or 6.3 percent, of the old value. The common “3 dB is a doubling” shortcut gives nearly the same answer: 4 3 dB steps are about a factor of 16. The exact logarithmic calculation is better here because the equation is what the course is supposed to teach.",
+        "why": "For a power ratio, ΔL = 10 log₁₀(P₂/P₁). A 12 dB reduction means the original-to-new power ratio is 10^(12/10) ≈ 15.85. So the new radiated power is about 1/15.85, or 6.3%, of the old value. The common “3 dB is a doubling” shortcut gives nearly the same answer: 4 3 dB steps are about a factor of 16. The exact logarithmic calculation is better here because the equation is what the course is supposed to teach.",
         "givens": [],
         "relationship": "Reduction factor = 10^(ΔL/10) for a power-level difference in decibels.",
         "calcKey": "SONAR-8"
@@ -1033,7 +1033,7 @@ export const CURRICULUM = {
         "rebuttals": [
           "The unresolved contact may be nothing, and it can be held and watched while something else is fixed.",
           "A wet bilge that is not rising is a note in the log. It becomes a casualty when the level moves.",
-          "Carbon dioxide at 0.7 per cent rising slowly has 20 hours of margin behind it and is measured continuously.",
+          "Carbon dioxide at 0.7% rising slowly has 20 hours of margin behind it and is measured continuously.",
           "A bearing at a steady 68 degrees is a watch item. Steady is the word that matters."
         ],
         "choices": [
@@ -2241,10 +2241,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "One link is not handing the heat on",
-      "scene": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45 percent, and 1 of 2 pumps is secured.",
+      "scene": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45%, and 1 of 2 pumps is secured.",
       "takeaway": "For a similar heat load, lower coolant mass flow makes each kilogram of coolant warm more, so the outlet temperature rise gets larger.",
       "place": "Machinery Control Room",
-      "story": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45 percent, and 1 of 2 pumps is secured.",
+      "story": "The lube oil and fresh-water loop are both hot. Seawater enters the cooler at 9 °C and leaves at 23 °C; its normal outlet is about 12 °C at this load. The seawater flow indicator reads 45%, and 1 of 2 pumps is secured.",
       "game": {
         "type": "CHOICE",
         "title": "One link is not handing the heat on",
@@ -2253,7 +2253,7 @@ export const CURRICULUM = {
         "task": "Which link in the chain has failed?",
         "question": "Which link in the chain has failed?",
         "answer": "The limiting problem is low seawater flow through the cooler.",
-        "why": "Heat carried by a coolant depends on mass flow and temperature rise. If the heat load stays similar and flow falls, each kilogram carries more energy, so ΔT grows. Here seawater warms 14 °C instead of about 3 °C while flow is only 45 percent of normal. The hot fresh-water loop shows heat reaches the seawater cooler. The large seawater temperature rise shows too little water is carrying it away. A small outlet rise would instead suggest poor transfer across the exchanger.",
+        "why": "Heat carried by a coolant depends on mass flow and temperature rise. If the heat load stays similar and flow falls, each kilogram carries more energy, so ΔT grows. Here seawater warms 14 °C instead of about 3 °C while flow is only 45% of normal. The hot fresh-water loop shows heat reaches the seawater cooler. The large seawater temperature rise shows too little water is carrying it away. A small outlet rise would instead suggest poor transfer across the exchanger.",
         "rebuttals": [
           "The fresh-water loop is hot, so heat is crossing the oil cooler into it.",
           "The 45% seawater-flow reading directly identifies a downstream transport limit.",
@@ -2688,12 +2688,12 @@ export const BALLPARK_CALCS = {
     "explanation": "Use measured volume, not depth change, because a submerged boat’s vertical motion also depends on planes, speed and acceleration."
   },
   "ATMO-4": {
-    "prompt": "The crew makes more carbon dioxide than one train removes, and the limit is a rise of one per cent.",
+    "prompt": "The crew makes more carbon dioxide than one train removes, and the limit is a rise of 1%.",
     "question": "Estimate how long until the boat reaches the limit.",
     "labels": [
       "1.4 m³/h  (crew production)",
       "1.1 m³/h  (1 train removes)",
-      "6.0 m³  (a 1 per cent rise, boat-wide)",
+      "6.0 m³  (a 1% rise, boat-wide)",
       "4 h  (the transit)"
     ],
     "values": [

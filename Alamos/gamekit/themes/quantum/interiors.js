@@ -47,7 +47,7 @@ export const INTERIORS = {
         },
         {
           "label": "Spread across wafer",
-          "value": "18 per cent",
+          "value": "18%",
           "status": "alarm"
         },
         {
@@ -97,17 +97,17 @@ export const INTERIORS = {
       "rows": [
         {
           "label": "Benchmarked gate error",
-          "value": "1.2 per cent",
+          "value": "1.2%",
           "status": "alarm"
         },
         {
           "label": "Best single gate",
-          "value": "0.4 per cent",
+          "value": "0.4%",
           "status": "normal"
         },
         {
           "label": "Code threshold",
-          "value": "about 1 per cent",
+          "value": "about 1%",
           "status": "high"
         },
         {
@@ -162,7 +162,7 @@ export const INTERIORS = {
         },
         {
           "label": "Quantum bit error rate",
-          "value": "4.1 per cent",
+          "value": "4.1%",
           "status": "normal"
         },
         {

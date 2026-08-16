@@ -47,7 +47,7 @@ export const INTERIORS = {
         },
         {
           "label": "Of capacity",
-          "value": "88 per cent",
+          "value": "88%",
           "status": "high"
         },
         {
@@ -102,12 +102,12 @@ export const INTERIORS = {
       "rows": [
         {
           "label": "Seepage, weir W3",
-          "value": "11 per cent up",
+          "value": "11% up",
           "status": "high"
         },
         {
           "label": "Predicted for this head",
-          "value": "10 to 13 per cent",
+          "value": "10 to 13%",
           "status": "normal"
         },
         {

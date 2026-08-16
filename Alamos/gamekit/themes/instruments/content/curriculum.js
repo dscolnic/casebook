@@ -220,8 +220,8 @@ export const CURRICULUM = {
         "play": "Decide which measurement is worth buying",
         "task": "Decide which measurement is worth buying",
         "question": "One measurement is affordable. Which of these is carrying the uncertainty in the energy?",
-        "answer": "The density. It is raised to the first power and known to 45 per cent, which outweighs a radius cubed and known to 8 — so the sampling is the measurement worth buying, and the energy is a range rather than a figure.",
-        "why": "A term contributes its exponent multiplied by its own fractional width. The radius is cubed, which is the part everybody sees, and it is known well enough that 3 times 8 per cent is still smaller than 1 times 45. Buying another radar pass therefore improves the number that was already good and moves the total almost not at all. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable and produces exactly the wrong answer here. The density is also the term nobody can measure directly from orbit, which is why it stays wide.\n",
+        "answer": "The density. It is raised to the first power and known to 45%, which outweighs a radius cubed and known to 8 — so the sampling is the measurement worth buying, and the energy is a range rather than a figure.",
+        "why": "A term contributes its exponent multiplied by its own fractional width. The radius is cubed, which is the part everybody sees, and it is known well enough that 3 times 8% is still smaller than 1 times 45. Buying another radar pass therefore improves the number that was already good and moves the total almost not at all. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable and produces exactly the wrong answer here. The density is also the term nobody can measure directly from orbit, which is why it stays wide.\n",
         "propagate": {
           "output": {
             "label": "Impact energy",
@@ -359,13 +359,7 @@ export const CURRICULUM = {
           "start": "Q = C·L·H^(3/2)",
           "goal": "dQ/dt in terms of dH/dt",
           "startNote": "given",
-          "rules": [
-            "power",
-            "product",
-            "quotient",
-            "chain",
-            "implicit"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Differentiate both sides with respect to time.",
@@ -420,7 +414,7 @@ export const CURRICULUM = {
               ]
             }
           ],
-          "hint": "Choose the line that actually follows, then say which rule gets you there.",
+          "hint": "Choose the line that actually follows from the one above it.",
           "commit": "Report the rate"
         }
       },
@@ -1298,7 +1292,7 @@ export const CURRICULUM = {
               "label": "Lower the monitor into the gallery",
               "cost": 3,
               "axis": "conditions where the crew will actually be",
-              "reveals": "Oxygen at 17 per cent 4 metres down, and falling with depth.",
+              "reveals": "Oxygen at 17% 4 metres down, and falling with depth.",
               "decisive": true
             },
             {
@@ -1432,7 +1426,7 @@ export const CURRICULUM = {
         "play": "Write the thresholds before tonight's update",
         "task": "Write the thresholds before tonight's update",
         "question": "Set each stage's threshold, release the board, and stand by what it does.",
-        "answer": "Every threshold has to sit low enough to fire while its own lead time is still available — the evacuation stage below about 0.3 per cent, since it needs 14 days and only the first 2 updates arrive with that much left.",
+        "answer": "Every threshold has to sit low enough to fire while its own lead time is still available — the evacuation stage below about 0.3%, since it needs 14 days and only the first 2 updates arrive with that much left.",
         "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set too high never fires, and the stage simply does not happen. A threshold set at a sensible number fires on the day 9 update with 300 hours left, which is a correct rule for an action that needed 336 — so the rule is satisfied and the evacuation is already impossible. The day 15 collapse to 1 in 9000 does not make the day 9 decision a mistake, and the board is what makes that arguable afterwards, because it was signed before anybody knew.\n",
         "trigger": {
           "scale": {

@@ -496,11 +496,11 @@ glossary:
 missions:
   # ---------------------------------------------------------------- day 1
   # Unit 1 — limits, the difference quotient, and where a derivative fails to exist.
-  - title: 88 per cent
+  - title: 88%
     objective: Get an instantaneous rate out of readings, out of a formula, and find the instant that has none.
     briefing: Nine days of rain forecast, and every number on this dam is about to be asked how fast it is moving.
     stake: >-
-      Monday, and the reservoir is at 88 per cent after the driest summer in 9 years. June Sato
+      Monday, and the reservoir is at 88% after the driest summer in 9 years. June Sato
       brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and
       a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does
       not want one. Everything decided this fortnight is decided on rates rather than readings, so
@@ -580,7 +580,6 @@ missions:
           start: 'V(t) = 5t² + 40t'
           startNote: storage in thousands of cubic metres, t in hours
           goal: "V'(4), from the definition rather than from a rule"
-          rules: [expansion, cancellation, limit, power, substitution]
           steps:
             - ask: Write the difference quotient and expand V(t+h).
               answer: 0
@@ -768,11 +767,10 @@ missions:
           Derive how fast the discharge rises as the head rises, and evaluate it at 2.0 metres.
         derive:
           hint: >-
-            Pick the line that actually follows, then name the rule that gets you there.
+            Pick the line that actually follows from the one above it.
           start: 'Q = C·L·H^(3/2)'
           startNote: the spillway rating, with C·L = 21.0
           goal: 'dQ/dt in terms of dH/dt'
-          rules: [power, product, quotient, chain, implicit]
           steps:
             - ask: Differentiate both sides with respect to time.
               answer: 0
@@ -846,11 +844,10 @@ missions:
           Derive the rate of change of output, and evaluate it with the afternoon's numbers.
         derive:
           hint: >-
-            Both Q and H are functions of time. Choose the line that follows and name the rule.
+            Both Q and H are functions of time. Choose the line that follows.
           start: 'P = 8.6·Q·H'
           startNote: 'kilowatts, with Q in m³/s and H in metres'
           goal: 'dP/dt in terms of dQ/dt and dH/dt'
-          rules: [power, product, quotient, chain, constant]
           steps:
             - ask: Differentiate the product with respect to time.
               answer: 1
@@ -1110,7 +1107,6 @@ missions:
           start: 'R(t) = 120 + 60t'
           startNote: 'cubic metres a second, t in hours from 14:00'
           goal: 'the volume delivered between t = 0 and t = 4'
-          rules: [antiderivative, evaluation, units, chain, substitution]
           steps:
             - ask: Write an antiderivative of the rate.
               answer: 1
@@ -1277,7 +1273,6 @@ missions:
           start: 'U² + 0.8·U·h = 640'
           startNote: 'U in kilopascals, h in metres above datum'
           goal: 'dU/dt in terms of dh/dt'
-          rules: [power, product, chain, implicit, constant]
           steps:
             - ask: Differentiate both sides with respect to time.
               answer: 0
@@ -1492,7 +1487,6 @@ missions:
           start: 'h(t) = 214.6 + 0.9t − 0.03t²'
           startNote: 'metres above datum, t in days from Monday'
           goal: 'the day h stops rising, classified'
-          rules: [power, critical point, second derivative, evaluation, constant]
           steps:
             - ask: Differentiate the level with respect to time.
               answer: 1
@@ -1678,7 +1672,6 @@ missions:
           start: 'dQ/dH = 31.5·H^(1/2)'
           startNote: 'the sensitivity of discharge to head, over 0.5 m ≤ H ≤ 3.0 m'
           goal: 'the head at which the sensitivity is greatest'
-          rules: [power, critical point, endpoint, second derivative, evaluation]
           steps:
             - ask: Differentiate the sensitivity and look for a critical point in the range.
               answer: 0
@@ -1905,7 +1898,6 @@ missions:
           start: 'Q(t) = 48 + 8t'
           startNote: 'cubic metres a second, t in hours from the start of the release'
           goal: 'the steady flow with the same six-hour total'
-          rules: [antiderivative, evaluation, average, endpoint, substitution]
           steps:
             - ask: Integrate the schedule over the six hours.
               answer: 0
@@ -2011,7 +2003,6 @@ missions:
           start: 'dh/dt = −k·√h'
           startNote: 'h in metres of head on the outlet, k ≈ 0.10 an hour'
           goal: 'h as a function of t'
-          rules: [separation, antiderivative, initial condition, chain, power]
           steps:
             - ask: Separate the variables.
               answer: 0
@@ -2230,8 +2221,8 @@ missions:
           stage-storage curve is a table of. Stacking the areas with the trapezoid rule is the same
           arithmetic as stacking flows in time, with height in place of time, and it is why the
           resurvey matters so much: the areas are the integrand. The 2003 sheet gives 2.58, 2.75 and
-          2.92 for the same 3 levels and returns 11.0 million for this slice, which is 11 per
-          cent of headroom the control room believed it had.
+          2.92 for the same 3 levels and returns 11.0 million for this slice, which is 11%
+           of headroom the control room believed it had.
         estimate:
           prompt: >
             Resurveyed areas 2.30, 2.45 and 2.60 square kilometres, at levels 2 metres apart. Half
@@ -2297,13 +2288,13 @@ missions:
           dominant: coeff
           commit: Report the range
         answerText: >-
-          The coefficient. It sits at the first power and is known to 15 per cent, which beats a
+          The coefficient. It sits at the first power and is known to 15%, which beats a
           head at the three-halves power known to 4 — so the gauged calibration is the slot worth
           spending, and the discharge is a range rather than a figure.
         why: >
           A factor contributes its exponent multiplied by its own fractional width. The head carries
           the three-halves that the whole spillway is famous for, and it is gauged well enough that
-          1 and a half times 4 per cent is still small beside 1 times 15. Buying another
+          1 and a half times 4% is still small beside 1 times 15. Buying another
           head gauge therefore improves the term that was already good and barely moves the total.
           What makes this worth catching is that the shortcut — rank by exponent — is reasonable,
           teachable, and gives exactly the wrong answer here. The coefficient stays wide because
@@ -2422,7 +2413,6 @@ missions:
           start: 'the limit as t goes to 0 of (1 − e^(−t/T)) ÷ t'
           startNote: 'the arriving fraction of a step release, with T = 4 hours'
           goal: 'a number for the initial rate of arrival'
-          rules: [substitution, indeterminate form, quotient, differentiation, evaluation]
           steps:
             - ask: Name the form of the limit before doing anything to it.
               answer: 1
@@ -2488,7 +2478,7 @@ missions:
           commit: Report the rate
         answerText: >-
           A quarter per hour. The limit is 1/T, so a four-hour reach begins taking a step release at
-          25 per cent an hour, however little has arrived at the first instant.
+          25% an hour, however little has arrived at the first instant.
         why: >
           Zero over zero is a statement that substitution has failed, not a value.
           Differentiating the top and the bottom separately replaces both by the rates at which
@@ -2513,7 +2503,7 @@ missions:
         why: >
           A differential is the simplest use a derivative has. Multiply the slope by the step
           and read off the change. It is exact only in the limit. Over six centimetres on a
-          curve this gentle the error is under one per cent, well inside what the gauge can
+          curve this gentle the error is under 1%, well inside what the gauge can
           resolve. The reason to write it as a slope times a step is that the slope is a number
           worth carrying. It says a centimetre is worth almost half a cubic metre a second
           today, and seven-tenths of one at three metres.
@@ -2586,7 +2576,6 @@ missions:
           start: 'dQ/dt = −k·Q'
           startNote: 'Q in cubic metres a second, k the recession constant, per day'
           goal: 'Q as a function of t'
-          rules: [separation, antiderivative, exponentiation, initial condition, power]
           steps:
             - ask: Separate the variables and integrate both sides.
               answer: 2
@@ -2874,7 +2863,6 @@ missions:
           start: 'L(t) = 60t ÷ (t² + 4)'
           startNote: 'tonnes an hour, t in hours from the peak'
           goal: 'the total load between t = 0 and t = 4'
-          rules: [substitution, antiderivative, evaluation, chain, limits]
           steps:
             - ask: Choose a substitution and rewrite the integral.
               answer: 0
@@ -3023,7 +3011,6 @@ missions:
           start: 'S(t) = the integral of N from 0 to t, with N(t) = 40 − 8t'
           startNote: 'net flow in cubic metres a second, t in days from tonight'
           goal: 'the day S is greatest, classified'
-          rules: [fundamental theorem, critical point, second derivative, antiderivative, evaluation]
           steps:
             - ask: Write the derivative of the accumulation.
               answer: 1
@@ -3130,8 +3117,8 @@ missions:
     objective: Judge a fit by what it leaves over, reduce a fortnight to one rate, and say what has been established.
     briefing: The water has gone and what is left is what can be defended in writing.
     stake: >-
-      Monday, a fortnight on. The reservoir is at 91 per cent, the reach was warned twice and flooded
-      neither time, and the resurvey has moved every volume on the site by 11 per cent. Zawadzka
+      Monday, a fortnight on. The reservoir is at 91%, the reach was warned twice and flooded
+      neither time, and the resurvey has moved every volume on the site by 11%. Zawadzka
       has three fits of the uplift against head and the one with the best summary number is not
       obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the
       annual return. And the liaison committee sits this evening. Today you judge a fit by what it
@@ -3268,11 +3255,11 @@ missions:
         format: SCIENCETANK
         task: Spend what the authority will release on what the fortnight showed was missing.
         evidence: |
-          The provisional correction to the stage-storage curve is 11 per cent at working levels
+          The provisional correction to the stage-storage curve is 11% at working levels
           and rests on 11 transects. A full resurvey is four weeks of boat time. Every volume and
           every level forecast on the site divides by that curve; the uplift and the seepage do not.
           The recession constant was fitted on a week and scored on four days it had never seen, and
-          held. The spillway coefficient is still a handbook figure carrying 15 per cent, which
+          held. The spillway coefficient is still a handbook figure carrying 15%, which
           is the widest term in the discharge and the 1 nobody has ever measured here. The arrival
           times were checked against what the reach actually saw, for the first time in nine years.
         proposals:
@@ -3282,8 +3269,8 @@ missions:
           - { label: D, text: 'Re-fit the uplift prediction on the fortnight of high-level data.' }
         why: >
           The two worth funding are the two that everything else is computed through. The area curve
-          is the integrand of every volume and the divisor of every level forecast, so an 11 per
-          cent error in it is an 11 per cent error in all of them at once, and 11 transects is
+          is the integrand of every volume and the divisor of every level forecast, so an 11%
+           error in it is an 11% error in all of them at once, and 11 transects is
           a provisional number the room is already relying on. The coefficient is the widest term in
           the discharge by a long way, and improving the head gauge instead would refine the term that
           was already good. More gauges would improve a forecast that was not what failed, and the
@@ -3309,7 +3296,7 @@ interiors:
       title: Storage and level
       rows:
         - { label: Level, value: 214.62 m, status: high }
-        - { label: Of capacity, value: 88 per cent, status: high }
+        - { label: Of capacity, value: 88%, status: high }
         - { label: Surface area here, value: 2.6 km², status: normal }
         - { label: Freeboard, value: 2.1 m, status: alarm }
   GATES:
@@ -3330,8 +3317,8 @@ interiors:
       kind: panel
       title: Foundation gallery
       rows:
-        - { label: 'Seepage, weir W3', value: 11 per cent up, status: high }
-        - { label: Predicted for this head, value: 10 to 13 per cent, status: normal }
+        - { label: 'Seepage, weir W3', value: 11% up, status: high }
+        - { label: Predicted for this head, value: 10 to 13%, status: normal }
         - { label: Uplift U7, value: tracking level, status: normal }
         - { label: Drain D12, value: unchanged, status: normal }
   POWER:

@@ -1862,7 +1862,7 @@ missions:
         takeaway: Number density turns a microscopic cross section into an interaction probability per length, which sets both mean free path and exponential attenuation.
         format: BALLPARK
         answerText: Σ ≈ 0.01 cm^-1, the mean free path is about 100 cm, and after 1 mean free path I/I₀ = e^-1 ≈ 0.37.
-        why: "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After 1 mean free path, x = 1/Σ, so the exponent is minus 1 and about 37 percent of an uncollided beam remains. One parameter connects all three ideas."
+        why: "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After 1 mean free path, x = 1/Σ, so the exponent is minus 1 and about 37% of an uncollided beam remains. One parameter connects all three ideas."
         call: Interpret a cross section
         setup: A solid has number density n = 10^22 cm^-3, and the cross section is 1 barn = 10^-24 cm^2.
         estimate:
@@ -1896,7 +1896,7 @@ missions:
         takeaway: Four times as many counts are needed to cut statistical uncertainty in half.
         format: BALLPARK
         answerText: About 5%.
-        why: "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. 400 counts gives 5 percent. To cut that in half, to 2.5 percent, you need 4 times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively."
+        why: "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. 400 counts gives 5%. To cut that in half, to 2.5%, you need 4 times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively."
         call: Use Poisson statistics
         setup: A run records 400 net counts with negligible background uncertainty.
         estimate:
@@ -1960,7 +1960,7 @@ missions:
               unitNote: This is a fraction of measured activity, not a fraction of the original material input.
           tolerance: 0.5
         answerText: Count the vessel-wall loss. Recorded outputs account for 93.9% of the input; adding the 5.8% found on the walls gives 99.7%, which closes the 100% input within rounding.
-        why: The input is 100 percent of the target material. Recorded product and aqueous output account for only 93.9 percent, so 6.1 percent is still missing. The 91 percent purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8 percent of the input on the vessel surface. Add that loss route and the balance closes to 99.7 percent, inside rounding. Yield, purity, and material balance are different claims.
+        why: The input is 100% of the target material. Recorded product and aqueous output account for only 93.9%, so 6.1% is still missing. The 91% purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8% of the input on the vessel surface. Add that loss route and the balance closes to 99.7%, inside rounding. Yield, purity, and material balance are different claims.
         call: Verify yield and purity
         setup: You are reconciling a separation batch whose numbers do not close.
   - title: Track neutrons through matter
@@ -2587,7 +2587,7 @@ missions:
         takeaway: Adding independent uncertainties linearly is usually too pessimistic; ignoring correlation can be too optimistic.
         format: BALLPARK
         answerText: About 10%.
-        why: "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. 8 percent and 6 percent make 10, not 14. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent."
+        why: "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. 8% and 6% make 10, not 14. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent."
         call: Carry independent uncertainties through
         setup: A predicted reaction rate has an 8% cross-section uncertainty and a 6% flux uncertainty.
         estimate:
@@ -3691,7 +3691,7 @@ lessons:
       labels:
         - 0.05 MeV width
         - 1 MeV line energy
-        - 100 percent/unit
+        - 100%/unit
         - 0.5 MeV width
       values: [0.05, 1, 100, 0.5]
       slots: 3
@@ -5051,7 +5051,7 @@ lessons:
       labels:
         - 200 events/s
         - 10⁻⁵ s
-        - 100 percent/unit
+        - 100%/unit
         - 10⁻² s
       values: [200, 0.00001, 100, 0.01]
       slots: 3
@@ -5068,7 +5068,7 @@ lessons:
         - Vulnerable window t = 10 microseconds = 1 x 10^-5 s
         - Expected events lambda = r t
       relationship: Probability ≈ the event rate × the length of the vulnerable window. Multiply by 100 for a percentage.
-    answerText: lambda = 200 x 10^-5 = 0.002, so P is about 0.2 percent.
+    answerText: lambda = 200 x 10^-5 = 0.002, so P is about 0.2%.
   - group: X
     task: Arrange the four cards from earliest cause or prerequisite to latest result.
     title: "RaLa: seeing an implosion with gamma rays"

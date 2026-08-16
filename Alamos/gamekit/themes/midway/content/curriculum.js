@@ -19,7 +19,7 @@ export const CURRICULUM = {
         "task": "Derive the speed at the bottom of the drop",
         "question": "Get the speed at the end of 42 metre free fall, from the constant-acceleration relations rather than from the notebook.",
         "answer": "v = √(2 × 9.8 × 42) ≈ 28.7 m/s, and it is the speed at the moment the fins engage.",
-        "why": "Brennan's \"about 29\" was right, and now it is defensible. The relation v² = v₀² + 2aΔx is the 1 to reach for when a problem gives a distance and asks for a speed, since it is the only constant-acceleration relation with no time in it. Two things carry the physics: the factor of 2, which is where the average speed of an accelerating body lives, and the square, which is why a fall twice as long gives a speed only 40 per cent higher.",
+        "why": "Brennan's \"about 29\" was right, and now it is defensible. The relation v² = v₀² + 2aΔx is the 1 to reach for when a problem gives a distance and asks for a speed, since it is the only constant-acceleration relation with no time in it. Two things carry the physics: the factor of 2, which is where the average speed of an accelerating body lives, and the square, which is why a fall twice as long gives a speed only 40% higher.",
         "derive": {
           "start": "v² = v₀² + 2aΔx",
           "goal": "the speed at the bottom of the fall, in metres per second",
@@ -42,7 +42,7 @@ export const CURRICULUM = {
                 {
                   "text": "v² = 0 + (9.8)(42)",
                   "rule": "substitution",
-                  "why": "The factor of two is what carries the average speed of an accelerating body. Drop it and every step below is clean algebra with a speed 29 per cent low — 20 metres a second, which reads perfectly plausible for a fall of this size.",
+                  "why": "The factor of two is what carries the average speed of an accelerating body. Drop it and every step below is clean algebra with a speed 29% low — 20 metres a second, which reads perfectly plausible for a fall of this size.",
                   "survives": true
                 },
                 {
@@ -105,7 +105,7 @@ export const CURRICULUM = {
               ]
             }
           ],
-          "hint": "Each line has to follow from the one above it, and the rule you name is part of the answer.",
+          "hint": "Each line has to follow from the one above it.",
           "commit": "Commit the derivation"
         }
       },
@@ -239,7 +239,7 @@ export const CURRICULUM = {
         "play": "Get the local strength of gravity out of a period",
         "task": "Get the local strength of gravity out of a period",
         "question": "What does the ship's period give for g, and what is it worth?",
-        "answer": "About 9.75 m/s², from g = 4π²L/T² — good to about 1 per cent, which is enough for the tower.",
+        "answer": "About 9.75 m/s², from g = 4π²L/T² — good to about 1%, which is enough for the tower.",
         "why": "Rearranging the period expression makes g the subject, and the 2 things it needs — a length and a time — are the 2 quantities a park can measure well with a tape and a stopwatch over 20 cycles. The value belongs to the place rather than to the ride: gravity does not know which machine is measuring it, so the same 9.75 goes into the tower's kinematics, the coaster's energy statement and the flume's pressures. That is what makes it worth doing once, properly.",
         "rebuttals": [
           "Gravity is a property of the location, and every ride within 100 metres shares it.",
@@ -247,12 +247,12 @@ export const CURRICULUM = {
           "Dropping the 2π loses a factor of about 40 in the result, and 2.4 is not a gravity anywhere."
         ],
         "choices": [
-          "About 9.75 m/s², from g = 4π²L/T² — good to about 1 per cent, which is enough for the tower.",
+          "About 9.75 m/s², from g = 4π²L/T² — good to about 1%, which is enough for the tower.",
           "About 9.75 m/s², but it belongs to the ship alone and cannot be carried to another ride.",
           "It gives nothing without the mass of the boat, which the expression needs.",
           "About 2.4 m/s², from g = L/T², which shows the ship's arm has been mismeasured."
         ],
-        "correctChoice": "About 9.75 m/s², from g = 4π²L/T² — good to about 1 per cent, which is enough for the tower."
+        "correctChoice": "About 9.75 m/s², from g = 4π²L/T² — good to about 1%, which is enough for the tower."
       },
       "assumes": [
         "the pendulum period depends on the length and on g alone",
@@ -567,8 +567,8 @@ export const CURRICULUM = {
         "play": "Derive the speed at the bottom with the losses in it",
         "task": "Derive the speed at the bottom with the losses in it",
         "question": "Work the energy statement down to the speed at the foot of the drop, and say what the measured speed then tells you.",
-        "answer": "v₁ = √(2.0² + 2 × 9.8 × 24) ≈ 21.8 m/s ideal against 21.4 measured — about 4 per cent of the energy gone by the foot of the first drop.",
-        "why": "Dividing by the mass is the step worth remembering: it is why the loaded train and the empty one arrive together, and why the answer is a statement about the track rather than about the load. What the comparison buys is a measurement of the friction that no gauge in the park reports. Four per cent by the foot of the drop is ordinary; the number that matters is what has gone by the crown of the loop, because that is where the circuit has the least in hand.",
+        "answer": "v₁ = √(2.0² + 2 × 9.8 × 24) ≈ 21.8 m/s ideal against 21.4 measured — about 4% of the energy gone by the foot of the first drop.",
+        "why": "Dividing by the mass is the step worth remembering: it is why the loaded train and the empty one arrive together, and why the answer is a statement about the track rather than about the load. What the comparison buys is a measurement of the friction that no gauge in the park reports. 4% by the foot of the drop is ordinary; the number that matters is what has gone by the crown of the loop, because that is where the circuit has the least in hand.",
         "derive": {
           "start": "mgh₀ + ½mv₀² = mgh₁ + ½mv₁² + W_friction",
           "goal": "the speed at the foot of the drop with no losses, and what the measured 21.4 m/s implies",
@@ -623,7 +623,7 @@ export const CURRICULUM = {
                 {
                   "text": "v₁ = √(v₀² + g(h₀ − h₁))",
                   "rule": "conservation",
-                  "why": "The half in the kinetic term is what puts a two in front of g when the equation is rearranged. Dropping it loses 30 per cent of the speed."
+                  "why": "The half in the kinetic term is what puts a two in front of g when the equation is rearranged. Dropping it loses 30% of the speed."
                 }
               ]
             },
@@ -643,13 +643,13 @@ export const CURRICULUM = {
                   "why": "That is the ideal speed for a drop from 26 metres to the ground rather than to the station 2 metres above it."
                 },
                 {
-                  "text": "v₁ ≈ 21.8 m/s, so friction has taken about 4 per cent of the energy",
+                  "text": "v₁ ≈ 21.8 m/s, so friction has taken about 4% of the energy",
                   "rule": "evaluation"
                 },
                 {
-                  "text": "v₁ ≈ 21.8 m/s, so friction has taken about 2 per cent of the energy",
+                  "text": "v₁ ≈ 21.8 m/s, so friction has taken about 2% of the energy",
                   "rule": "evaluation",
-                  "why": "Two per cent is the shortfall in the speed. Energy goes as the square, so the fraction lost is close to twice the fraction of speed lost, and reporting the smaller one halves the loss the ride actually has."
+                  "why": "2% is the shortfall in the speed. Energy goes as the square, so the fraction lost is close to twice the fraction of speed lost, and reporting the smaller one halves the loss the ride actually has."
                 }
               ]
             }
@@ -744,7 +744,7 @@ export const CURRICULUM = {
                 {
                   "text": "Set N = mg, so the rider feels normal weight at the crown",
                   "rule": "dynamics",
-                  "why": "A perfectly sensible design condition and not the minimum. It gives a speed 40 per cent higher than the limit, which is a comfort criterion being mistaken for a safety 1 — and if the ride is judged against it, a train that is safe reads as a failure.",
+                  "why": "A perfectly sensible design condition and not the minimum. It gives a speed 40% higher than the limit, which is a comfort criterion being mistaken for a safety 1 — and if the ride is judged against it, a train that is safe reads as a failure.",
                   "survives": true
                 },
                 {
@@ -795,7 +795,7 @@ export const CURRICULUM = {
                   "why": "The radii have been swapped. The measured crown is the wider one, and a wider crown is the one that needs more speed."
                 },
                 {
-                  "text": "8.5 m/s measured against 7.4 m/s drawn — the real loop demands 15 per cent more",
+                  "text": "8.5 m/s measured against 7.4 m/s drawn — the real loop demands 15% more",
                   "rule": "evaluation"
                 },
                 {
@@ -1338,7 +1338,7 @@ export const CURRICULUM = {
         "task": "Get the sideways force on an outer pole",
         "question": "Estimate the sideways force the pole puts on a 78 kg rider.",
         "answer": "",
-        "why": "340 newtons is about 44 per cent of this rider's weight, pushing sideways, and it has to come from somewhere real — the pole, through the saddle, into the rider. 9 turns a minute instead of 8 would make it 430 newtons, since the force goes as the square of the speed while the speed goes as the rate of turning. That is the whole of why Brennan's difference between 17 was something he could feel.",
+        "why": "340 newtons is about 44% of this rider's weight, pushing sideways, and it has to come from somewhere real — the pole, through the saddle, into the rider. 9 turns a minute instead of 8 would make it 430 newtons, since the force goes as the square of the speed while the speed goes as the rate of turning. That is the whole of why Brennan's difference between 17 was something he could feel.",
         "givens": [],
         "relationship": "F = mv²/r: the force needed to hold a mass on a circle is the mass times the speed squared, divided by the radius.",
         "calcKey": "CAROUSEL-3"
@@ -1503,7 +1503,7 @@ export const CURRICULUM = {
         "task": "Decide what the controller does at the limit",
         "question": "What should the controller do when the speed setting is pushed past ten turns a minute?",
         "answer": "Refuse the setting outright, with no key override on the ride's own panel.",
-        "why": "A limit is only a limit when something other than a person's attention holds it. An alarm on a busy Saturday is a noise in a place already full of noise, and a log is a record of the thing having happened. The derivation gives a specific number for a specific reason — the chains reach the pole surround beyond it — and the last option misreads what rounding does: the figures were rounded, and the answer is not therefore soft by ten per cent.",
+        "why": "A limit is only a limit when something other than a person's attention holds it. An alarm on a busy Saturday is a noise in a place already full of noise, and a log is a record of the thing having happened. The derivation gives a specific number for a specific reason — the chains reach the pole surround beyond it — and the last option misreads what rounding does: the figures were rounded, and the answer is not therefore soft by 10%.",
         "rebuttals": [
           "An alarm hands a safety decision to whoever is most tired, at the moment they are busiest.",
           "A log turns the limit into something reviewed on Friday about a Saturday.",
@@ -1594,7 +1594,7 @@ export const CURRICULUM = {
         "task": "Identify the distance a torque is actually measured over",
         "question": "The jib is 6 metres long and angled up at 30°. Which distance sets the moment about the pin?",
         "answer": "The horizontal distance from the pin to the load's line of action, which is 5.2 metres.",
-        "why": "A torque is the force times the perpendicular distance from the pivot to the line the force acts along. The load hangs straight down, so that line is vertical and the perpendicular distance to it is horizontal — 6 metres times the cosine of 30, which is 5.2. Raising the jib does not shorten the steel and it does shorten the arm, which is exactly why a crane can lift more with the boom up. Using the length of the member instead overstates this moment by 15 per cent.",
+        "why": "A torque is the force times the perpendicular distance from the pivot to the line the force acts along. The load hangs straight down, so that line is vertical and the perpendicular distance to it is horizontal — 6 metres times the cosine of 30, which is 5.2. Raising the jib does not shorten the steel and it does shorten the arm, which is exactly why a crane can lift more with the boom up. Using the length of the member instead overstates this moment by 15%.",
         "rebuttals": [
           "The steel is six metres of it, and the arm is measured across the force rather than along the member.",
           "The height fixes where the load hangs and has no bearing on a vertical force's arm.",
@@ -1861,7 +1861,7 @@ export const CURRICULUM = {
         "task": "Put a number on the wind a gondola carries",
         "question": "Estimate the wind force on 1 gondola at 22 metres a second.",
         "answer": "",
-        "why": "1500 newtons on 1 gondola is about a sixth of a tonne pushing sideways on something hanging from a pin, and there are 24 of them. The square is the part to carry away: the wind that arrives in gusts at 30 rather than 22 brings not 36 per cent more force but 86. That is why wind rules are written with a stopping speed well below anything structural, and why the gust rather than the mean is what the operator has to watch.",
+        "why": "1500 newtons on 1 gondola is about a sixth of a tonne pushing sideways on something hanging from a pin, and there are 24 of them. The square is the part to carry away: the wind that arrives in gusts at 30 rather than 22 brings not 36% more force but 86. That is why wind rules are written with a stopping speed well below anything structural, and why the gust rather than the mean is what the operator has to watch.",
         "givens": [],
         "relationship": "F = ½ρC_dAv²: wind force is half the air density times the drag coefficient times the area times the speed squared.",
         "calcKey": "WHEEL-5"
@@ -2015,7 +2015,7 @@ export const CURRICULUM = {
         "task": "Count what survives a collision and what does not",
         "question": "A 320 kg car at 3.1 m/s strikes a stationary 290 kg car and they move off together. What is conserved?",
         "answer": "The momentum, which is the same before and after; the kinetic energy is not.",
-        "why": "Momentum is conserved in any collision where nothing outside pushes on the pair. On a slippery floor, over a tenth of a second, that is a good description. Kinetic energy is a different quantity, and nothing protects it. The pair leaves at 1.6 metres a second carrying about 810 joules, where 1,540 went in. Nearly half has gone into deforming rubber, making noise and warming the bumper. That is what an inelastic collision is, and it is what makes the ride bearable.",
+        "why": "Momentum is kept. Nothing outside pushes on the pair, so the total before is the total after. Kinetic energy is not kept. The pair leaves at 1.6 metres a second and carries about 810 joules. It went in with 1,540. Nearly half has gone into bending rubber, noise and heat. That loss is what makes the ride safe to sit in.",
         "rebuttals": [
           "A collision that returned all its energy would send the cars apart again, which these do not do.",
           "Kinetic energy is the quantity that goes missing here; nearly half of it does.",
@@ -2069,7 +2069,7 @@ export const CURRICULUM = {
         "play": "Derive the speed the pair leaves at",
         "task": "Derive the speed the pair leaves at",
         "question": "Work the momentum statement down to the speed the pair leaves at, and then say what happened to the energy.",
-        "answer": "v = (320 × 3.1) ÷ 610 ≈ 1.63 m/s, and about 47 per cent of the kinetic energy has gone into rubber, heat and noise.",
+        "answer": "v = (320 × 3.1) ÷ 610 ≈ 1.63 m/s, and about 47% of the kinetic energy has gone into rubber, heat and noise.",
         "why": "Momentum is conserved in every collision where nothing outside pushes on the pair, which is what makes it the quantity to write down first. Kinetic energy is not conserved and is not destroyed either: it leaves the mechanical books and turns up as deformation, sound and a warm bumper. A ride designed to keep its energy would be a ride that flung people apart at the speed they arrived, which is why the softness of the rubber is a safety feature.",
         "derive": {
           "start": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
@@ -2099,7 +2099,7 @@ export const CURRICULUM = {
                 {
                   "text": "½(320)(3.1²) + 0 = ½(320 + 290)v²",
                   "rule": "conservation",
-                  "why": "This conserves kinetic energy, which a collision that ends with the cars locked together does not do. It gives a speed about 40 per cent too high."
+                  "why": "This conserves kinetic energy, which a collision that ends with the cars locked together does not do. It gives a speed about 40% too high."
                 }
               ]
             },
@@ -2139,13 +2139,13 @@ export const CURRICULUM = {
                   "why": "Momentum being conserved says nothing about the energy. They are different quantities and only one of them is protected in a collision like this."
                 },
                 {
-                  "text": "1,538 J before and 810 J after, so 47 per cent has been destroyed",
+                  "text": "1,538 J before and 810 J after, so 47% has been destroyed",
                   "rule": "evaluation",
                   "why": "The arithmetic is right and the word is wrong. Energy is not destroyed; it has gone into deforming rubber, heating the bumpers and making the noise that is most of the ride's appeal.",
                   "survives": true
                 },
                 {
-                  "text": "1,538 J before and 810 J after, so 47 per cent has left as heat, sound and deformation",
+                  "text": "1,538 J before and 810 J after, so 47% has left as heat, sound and deformation",
                   "rule": "evaluation"
                 },
                 {
@@ -2582,7 +2582,7 @@ export const CURRICULUM = {
         "task": "Derive the period from the restoring force",
         "question": "Work the restoring force down to the period of the swing, and say what the period depends on.",
         "answer": "T = 2π√(L/g) ≈ 5.9 s, and it depends on the length and on g — the mass cancels out 2 lines before the end.",
-        "why": "The cancellation is the result. A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the timing is untouched, and the same argument is why every object falls at the same rate. Turned round, the expression is a way of measuring gravity: length and period are both easy to measure well, and 5.9 seconds on 8.6 metres gives g to better than 1 per cent. Idowu's complaint now has a number to be checked against.",
+        "why": "The cancellation is the result. A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the timing is untouched, and the same argument is why every object falls at the same rate. Turned round, the expression is a way of measuring gravity: length and period are both easy to measure well, and 5.9 seconds on 8.6 metres gives g to better than 1%. Idowu's complaint now has a number to be checked against.",
         "derive": {
           "start": "F = −mg sinθ",
           "goal": "an expression for the period, and the quantities it contains",
@@ -3206,9 +3206,9 @@ export const CURRICULUM = {
         "setup": "The Log Flume",
         "play": "Size the pump against the lift it has to make",
         "task": "Size the pump against the lift it has to make",
-        "question": "Estimate the electrical power the pump needs at 72 per cent efficiency.",
+        "question": "Estimate the electrical power the pump needs at 72% efficiency.",
         "answer": "",
-        "why": "A flow rate times a density is a mass every second, and lifting that mass through the head is an energy every second, which is a power. The efficiency divides: the pump has to take more from the supply than it hands to the water. 53.7 kilowatts against 55 kilowatt plate is a margin of about 2 per cent, which is not a margin — it is why the pump trips on hot afternoons when its cooling is worst.",
+        "why": "A flow rate times a density is a mass every second, and lifting that mass through the head is an energy every second, which is a power. The efficiency divides: the pump has to take more from the supply than it hands to the water. 53.7 kilowatts against 55 kilowatt plate is a margin of about 2%, which is not a margin — it is why the pump trips on hot afternoons when its cooling is worst.",
         "givens": [],
         "relationship": "P = ρgQh ÷ η: the power is the weight of water lifted each second times the height, divided by the pump's efficiency.",
         "calcKey": "FLUME-4"
@@ -3321,7 +3321,7 @@ export const CURRICULUM = {
                 {
                   "text": "ρg(h₁ − h₂) = ½ρv₂², so v₂ = √(g(h₁ − h₂))",
                   "rule": "substitution",
-                  "why": "The half in the kinetic term becomes a two when it is moved across. Dropping it gives a speed 30 per cent low, and the expression still looks like the 1 in every textbook.",
+                  "why": "The half in the kinetic term becomes a two when it is moved across. Dropping it gives a speed 30% low, and the expression still looks like the 1 in every textbook.",
                   "survives": true
                 },
                 {
@@ -3737,8 +3737,8 @@ export const BALLPARK_CALCS = {
     "explanation": "The depth of the hull side is what is left over as freeboard, and it is the answer to the next question rather than this one."
   },
   "FLUME-4": {
-    "prompt": "0.42 m³/s of water lifted 9.4 m, water at 1,000 kg per cubic metre, pump 72 per cent efficient.",
-    "question": "Estimate the electrical power the pump needs at 72 per cent efficiency.",
+    "prompt": "0.42 m³/s of water lifted 9.4 m, water at 1,000 kg per cubic metre, pump 72% efficient.",
+    "question": "Estimate the electrical power the pump needs at 72% efficiency.",
     "labels": [
       "0.42 m³/s  (flow returned to the tank)",
       "1000 kg/m³  (density of water)",

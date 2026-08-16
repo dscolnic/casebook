@@ -18,7 +18,7 @@ export const CURRICULUM = {
         "play": "Find where the heat is arriving",
         "task": "Find where the heat is arriving",
         "question": "The bottom of the fridge is warm and the top may not be. Take the readings you think you need — at which stage is the heat arriving?",
-        "answer": "The still. It is the first stage that has moved — a quarter of a kelvin above last cooldown, with its heater working 40 per cent harder — and everything below it is warm because the load is above them, not because their own cooling has failed.",
+        "answer": "The still. It is the first stage that has moved — a quarter of a kelvin above last cooldown, with its heater working 40% harder — and everything below it is warm because the load is above them, not because their own cooling has failed.",
         "why": "Two stages held exactly what they held last time, which is what rules almost everything out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm the top of the chain first, and the top of the chain has not moved. From the still downwards every stage is high and working harder, and heat only behaves that way when it is being delivered from above. So the deepest stage is the worst affected and is not where the problem is — the load enters at the first stage that departs, and the stages below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not below, which is exactly what a line added since the last cooldown and heat-sunk at only the easy stages does. Okafor's cable is now worth looking at, not because cables are always guilty but because this pattern is what an unanchored one predicts.",
         "probe": {
           "stations": [
@@ -41,7 +41,7 @@ export const CURRICULUM = {
               "label": "Still",
               "reading": "0.94 K",
               "expected": "0.70 K",
-              "load": "heater 40 per cent above normal"
+              "load": "heater 40% above normal"
             },
             {
               "id": "CFHX",
@@ -91,7 +91,7 @@ export const CURRICULUM = {
         "play": "Say why 42 millikelvin is not close enough",
         "task": "Say why 42 millikelvin is not close enough",
         "question": "Using the 2 energy scales, estimate the equilibrium excited-state fraction at 42 mK.",
-        "answer": "About 0.34 per cent.",
+        "answer": "About 0.34%.",
         "why": "\"A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of \\\"the ground state\\\" is partly a measurement of the fridge.\"",
         "givens": [
           "1 quantum at 5 GHz is 3.3 × 10⁻²⁴ J",
@@ -493,7 +493,7 @@ export const CURRICULUM = {
           {
             "zone": "Qubit",
             "label": "T1 when tuned near it",
-            "value": "falls by 60 per cent",
+            "value": "falls by 60%",
             "status": "alarm"
           },
           {
@@ -607,7 +607,7 @@ export const CURRICULUM = {
         "choices": [
           "Warm checks — wiring and electronics, which the chip cannot affect.",
           "Use the 42 mK coherence values as the review numbers, because T1 and T2 are still measurable.",
-          "Run only readout calibration, because the excited population is below one per cent.",
+          "Run only readout calibration, because the excited population is below 1%.",
           "Run the full benchmark suite and correct every result later with the calculated thermal population."
         ],
         "correctChoice": "Warm checks — wiring and electronics, which the chip cannot affect."
@@ -880,7 +880,7 @@ export const CURRICULUM = {
         "play": "Say what the discriminator decides",
         "task": "Say what the discriminator decides",
         "question": "Both mistakes cost the same in this circuit. Where should the line go, and what does the total misassignment there tell you?",
-        "answer": "Near where the 2 error curves cross, about −3 mV. Total misassignment there is about 5 per cent, and no threshold anywhere on the axis gets it lower.",
+        "answer": "Near where the 2 error curves cross, about −3 mV. Total misassignment there is about 5%, and no threshold anywhere on the axis gets it lower.",
         "why": "The line does not remove ambiguous shots; it decides which state they are called, so every millivolt taken off one error is added to the other. That is why the two curves cross and why the sum has a minimum that is not zero. The floor is the overlap between the two clouds, and it is a property of the measurement rather than of the threshold — getting under it needs more signal, less noise or a longer integration, something that moves the clouds apart. Equal costs put the line at the crossing; where one mistake costs more than the other, the best line moves away from it, which makes this a question about the circuit and not only about the classifier.\n",
         "sweep": {
           "mode": "boundary",
@@ -1177,7 +1177,7 @@ export const CURRICULUM = {
         "play": "Compound one gate's error over a circuit",
         "task": "Compound one gate's error over a circuit",
         "question": "Under the simplifying assumption that each of the 400 gates succeeds independently with probability 0.988, estimate the all-gates-success probability.",
-        "answer": "About 0.8 per cent.",
+        "answer": "About 0.8%.",
         "why": "If — and this is a simplifying model — every gate succeeds independently with the same probability and the circuit counts as correct only when every gate succeeds, the all-success probability is 0.988^400, about 0.008. The point is the exponential sensitivity to depth. Real quantum errors can be coherent, correlated and partly cancel or amplify, so this product is not a universal prediction of circuit fidelity. It is a useful first estimate that shows why a per-gate number that looks close to one can still be inadequate for deep circuits.\n",
         "givens": [
           "Single-gate fidelity is 0.988",
@@ -1365,7 +1365,7 @@ export const CURRICULUM = {
         "play": "Say what the retraining did",
         "task": "Say what the retraining did",
         "question": "Ridgeway's number was measured on the very shots that chose the line. Choose the line yourself, freeze it, and give it shots it has never seen — what does it score then?",
-        "answer": "About 95 per cent from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the 2 per cent it appeared to gain was a feature of that 1 sample.",
+        "answer": "About 95% from anywhere on the broad plateau. A line on the 14 mV spike — the best-scoring line on the calibration shots — reports about 92.6, and the 2% it appeared to gain was a feature of that 1 sample.",
         "why": "A threshold chosen on a sample is chosen partly on that sample's noise, and noise does not repeat. That is why the middle of the range holds up and the spike does not: the plateau is a property of the 2 clouds, which the next batch of shots also has, and the spike is a property of 4000 particular records, which it does not. So a score measured where the line was chosen is not a measurement of the classifier at all — it is a measurement of the classifier plus the sample, and it is biased upwards every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.",
         "holdout": {
           "axis": {
@@ -1823,10 +1823,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Whose error is it",
-      "scene": "The first end-to-end diagnostic is in. It reports 8 per cent wrong outcomes. Separate calibration experiments estimate about 4 per cent readout error and less than 1 per cent preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
+      "scene": "The first end-to-end diagnostic is in. It reports 8% wrong outcomes. Separate calibration experiments estimate about 4% readout error and less than 1% preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
       "takeaway": "An observed error rate is only a diagnosis after you state the model used to separate preparation, gates and measurement.",
       "place": "Error & Verification",
-      "story": "The first end-to-end diagnostic is in. It reports 8 per cent wrong outcomes. Separate calibration experiments estimate about 4 per cent readout error and less than 1 per cent preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
+      "story": "The first end-to-end diagnostic is in. It reports 8% wrong outcomes. Separate calibration experiments estimate about 4% readout error and less than 1% preparation error. Holm asks what Ridgeway can honestly infer about the remaining circuit contribution.",
       "game": {
         "type": "CASEBOOK",
         "title": "Whose error is it",
@@ -1835,7 +1835,7 @@ export const CURRICULUM = {
         "task": "Take the readout out of the qubit number",
         "question": "Take the readout out of the qubit number",
         "answer": "",
-        "why": "\"For small, approximately independent error probabilities, adding the contributions is a useful first-order budget, but it is not an exact law. The 8 per cent observed error therefore suggests that several per cent remain for gate and circuit effects after accounting for readout and preparation. A more careful analysis would model how the errors compose rather than simply subtracting percentages. The educational point is the separation: the number a user sees is not automatically the number a pulse engineer should optimise.\"",
+        "why": "\"For small, approximately independent error probabilities, adding the contributions is a useful first-order budget, but it is not an exact law. The 8% observed error therefore suggests that several per cent remain for gate and circuit effects after accounting for readout and preparation. A more careful analysis would model how the errors compose rather than simply subtracting percentages. The educational point is the separation: the number a user sees is not automatically the number a pulse engineer should optimise.\"",
         "rebuttals": [
           "Readout error is measurable on its own by preparing a known state and reading it straight back.",
           "State preparation error is measured the same way and is small on this device.",
@@ -1843,10 +1843,10 @@ export const CURRICULUM = {
           "The total is what a user experiences, and it is not the number that tells you what to fix."
         ],
         "scenarios": [
-          "Readout error, 4 per cent.",
-          "State preparation error, well under 1 per cent.",
+          "Readout error, 4%.",
+          "State preparation error, well under 1%.",
           "Gate and circuit error, inferred from the remaining budget rather than by exact subtraction.",
-          "The 8 per cent total."
+          "The 8% total."
         ],
         "choices": [
           "Readout contribution: constrained by separate prepared-state measurements and strongly dependent on the measurement chain.",
@@ -2007,8 +2007,8 @@ export const CURRICULUM = {
         "play": "Say what benchmarking measures",
         "task": "Say what benchmarking measures",
         "question": "How many gates can this qubit take before half the runs fail to come back?",
-        "answer": "Around 57 gates. Half the runs lost after 57 gates means about 98.8 per cent per gate, because 0.988 multiplied by itself 57 times is close to a half.",
-        "why": "Every gate in the sequence has to work for the qubit to come back, so the probabilities multiply and the curve falls exponentially rather than in a straight line. That makes the half-way length a per-gate error measurement: the length itself says how much each gate costs, and 57 gates to lose half of them works out at a bit over 1 per cent each. It is also why the shape matters more than any single point. A readout that mislabels a fixed fraction of shots pulls the whole curve down without changing how fast it falls, so a number read from the decay survives an offset that would ruin a number read from one sequence — which is the difference between the two figures on the board.\n",
+        "answer": "Around 57 gates. Half the runs lost after 57 gates means about 98.8% per gate, because 0.988 multiplied by itself 57 times is close to a half.",
+        "why": "Every gate in the sequence has to work for the qubit to come back, so the probabilities multiply and the curve falls exponentially rather than in a straight line. That makes the half-way length a per-gate error measurement: the length itself says how much each gate costs, and 57 gates to lose half of them works out at a bit over 1% each. It is also why the shape matters more than any single point. A readout that mislabels a fixed fraction of shots pulls the whole curve down without changing how fast it falls, so a number read from the decay survives an offset that would ruin a number read from one sequence — which is the difference between the two figures on the board.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -2131,10 +2131,10 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "The number error correction cares about",
-      "scene": "Petrova wants to write one sentence about error correction. For the simplified stochastic error model used in her code study, the quoted threshold is about 1 per cent in a per-gate error metric intended to match the benchmark. The direct single-gate number and the randomized-benchmarking number sit on opposite sides of it.",
+      "scene": "Petrova wants to write one sentence about error correction. For the simplified stochastic error model used in her code study, the quoted threshold is about 1%  in a per-gate error metric intended to match the benchmark. The direct single-gate number and the randomized-benchmarking number sit on opposite sides of it.",
       "takeaway": "A threshold comparison is meaningful only when the experimental error metric and the code's assumed error metric are actually comparable.",
       "place": "Error & Verification",
-      "story": "Petrova wants to write one sentence about error correction. For the simplified stochastic error model used in her code study, the quoted threshold is about 1 per cent in a per-gate error metric intended to match the benchmark. The direct single-gate number and the randomized-benchmarking number sit on opposite sides of it.",
+      "story": "Petrova wants to write one sentence about error correction. For the simplified stochastic error model used in her code study, the quoted threshold is about 1%  in a per-gate error metric intended to match the benchmark. The direct single-gate number and the randomized-benchmarking number sit on opposite sides of it.",
       "game": {
         "type": "CASEBOOK",
         "title": "The number error correction cares about",
@@ -2143,7 +2143,7 @@ export const CURRICULUM = {
         "task": "Say which number belongs beside the threshold",
         "question": "Say which number belongs beside the threshold",
         "answer": "",
-        "why": "\"For *this stated simplified model*, the 1.2 per cent randomized-benchmarking error is the intended comparison and it lies above the 1 per cent line. The 0.4 per cent direct figure is a best-case measurement of 1 gate under a different procedure, so using it would answer a different question. In real fault-tolerance work, even an average benchmarking error may not be enough: coherent and correlated errors can make the worst-case behaviour relevant to a code much worse than the average infidelity. The careful sentence therefore names both the metric and the model instead of declaring that the machine is simply 'above threshold'.\"\n",
+        "why": "\"For *this stated simplified model*, the 1.2% randomized-benchmarking error is the intended comparison and it lies above the 1% line. The 0.4% direct figure is a best-case measurement of 1 gate under a different procedure, so using it would answer a different question. In real fault-tolerance work, even an average benchmarking error may not be enough: coherent and correlated errors can make the worst-case behaviour relevant to a code much worse than the average infidelity. The careful sentence therefore names both the metric and the model instead of declaring that the machine is simply 'above threshold'.\"\n",
         "rebuttals": [
           "This is the intended comparison only because the code study has defined a compatible stochastic per-gate metric; that assumption belongs in the sentence.",
           "A best-case direct gate measurement and an average sequence benchmark are different procedures and need not answer the same fault-tolerance question.",
@@ -2151,13 +2151,13 @@ export const CURRICULUM = {
           "Readout error matters to fault tolerance, but it is not the per-gate quantity used in this particular comparison."
         ],
         "scenarios": [
-          "1.2 per cent, from randomized benchmarking, with the model assumption stated.",
-          "0.4 per cent, from 1 directly measured gate under favourable conditions.",
-          "About 0.8 per cent, the toy-model success probability of the 400-gate circuit.",
-          "4 per cent readout error, a separate measurement channel."
+          "1.2%, averaged over long randomized gate sequences.",
+          "0.4%, from one gate measured directly under favourable conditions.",
+          "About 0.8%, the toy-model success probability of the 400-gate circuit.",
+          "4% readout error, a separate measurement channel."
         ],
         "choices": [
-          "The benchmark-derived per-gate figure intended for this stated model comparison, provided the metric assumption is named.",
+          "The figure a threshold is quoted against, once somebody says which error measure both sides mean.",
           "A best-case direct gate measurement that should not inherit a threshold defined for a different error metric.",
           "A depth-dependent consequence of many operations, not itself the specified per-gate threshold variable.",
           "A separate measurement-error channel that matters to a full fault-tolerant design but is not the gate metric used in this comparison."
@@ -3407,7 +3407,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.002,
     "units": "of the qubits",
     "solution": "e^(−3.3e-24 / 5.8e-25) = e^(−5.7) ≈ 0.003.",
-    "explanation": "About 3.4 × 10⁻³, or 0.34 per cent. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly 7 orders of magnitude even though the absolute population is still below 1 per cent."
+    "explanation": "About 3.4 × 10⁻³, or 0.34%. At 11 mK the same estimate is about 3 × 10⁻¹⁰, so the warmer fridge increases the equilibrium excited population by roughly 7 orders of magnitude even though the absolute population is still below 1%."
   },
   "CTRL-3": {
     "prompt": "The population completes a full Rabi cycle every 84 nanoseconds.\n",
@@ -3497,7 +3497,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.004,
     "units": "chance the circuit is right",
     "solution": "0.988^400 ≈ 0.008.",
-    "explanation": "About 0.8 per cent, or roughly 1 run in 125, in the independent-identical-error toy model. Real circuit fidelity need not equal this product when errors are coherent, correlated or gate-dependent.\n"
+    "explanation": "About 0.8%, or roughly 1 run in 125, in the independent-identical-error toy model. Real circuit fidelity need not equal this product when errors are coherent, correlated or gate-dependent.\n"
   },
   "CTRL-12": {
     "prompt": "\"Toy model: each of 12 qubits has independent readout fidelity 0.941. Estimate the probability that all 12 are read correctly.\"\n",

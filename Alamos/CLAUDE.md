@@ -402,9 +402,16 @@ wrote, at load, for every theme — so a re-import cannot lose it.
   104 interactions between them, which turn out to be nineteen distinct designs.
   `gamekit/FORMATS.md` is that catalogue, and all nineteen are built, plus a
   twentieth — **DERIVE** — which did not come from the documents at all: it was
-  written for a calculus course, grades the line *and* the rule that licenses it,
-  and its trap is that one wrong branch per step must stay algebraically valid or
-  the step is passable by elimination. The twelve
+  written for a calculus course, grades the line the previous one actually gives
+  you, and its trap is that one wrong branch per step must stay algebraically
+  valid or the step is passable by elimination. It once graded a second half —
+  name the rule that licenses each step — and that is **off by default** now,
+  behind `askRule: true`. The argument for it was that the right line for the
+  wrong reason is how somebody passes calculus without learning it; the argument
+  against is what counting found, that in five of Midway's 29 steps and ten of
+  Headwater's 33 every candidate carried the *same* rule, so the second half of
+  the answer was a click with one possible value. A `rules` list without
+  `askRule` is refused by the importer rather than quietly ignored. The twelve
   carrying four or more instances each — TRIGGER (write the rule before the number moves), VALUE (what
   would this measurement change), CLOUD (a distribution against a limit, where
   narrowing is not shifting), ALLOCATE (a finite pool, scalar or rate × time),

@@ -389,7 +389,7 @@ missions:
           - Every substation reports the same frequency to two decimal places.
           - The trend fell steeply for the first two seconds, then more slowly.
           - The frequency has stopped falling and is sitting below its starting value.
-          - Two substations report voltages that differ by three per cent.
+          - Two substations report voltages that differ by 3%.
         choices:
           - The machines are all turning in step, so this is one system-wide quantity.
           - The steepness measures the mismatch against the inertia that was there to absorb it.
@@ -512,7 +512,7 @@ missions:
         task: Set the overload action thresholds before the corridor trend is released.
         title: What you do before a relay does it for you
         place: Transmission Control
-        scene: The corridor is at 108 per cent of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.
+        scene: The corridor is at 108% of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.
         assumes:
           - continuous and emergency ratings are different limits
           - redispatch is slower than automatic or operator load shedding
@@ -587,7 +587,7 @@ missions:
         format: BALLPARK
         question: Estimate the power lost as heat in the loaded corridor.
         answerText: About 17 MW.
-        why: Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10 per cent more current means about 21 per cent more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.
+        why: Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10% more current means about 21% more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.
         estimate:
           prompt: The balanced corridor carries 1,150 A RMS in each phase. Each phase has 4.2 ohms of resistance over the full corridor.
           question: Choose the current, the resistance and the number of phases.
@@ -657,7 +657,7 @@ missions:
         takeaway: Volt drop is set by the current and by both parts of the line's impedance.
         format: BALLPARK
         question: Estimate the volt drop from the substation to the far end.
-        answerText: About 1.07 kV line-to-line, roughly 9.7 per cent of an 11 kV feeder.
+        answerText: About 1.07 kV line-to-line, roughly 9.7% of an 11 kV feeder.
         why: A real feeder has both resistance and reactance. Current through those terms produces a voltage drop whose size depends on the load phase angle. The resistive part follows the in-phase current. The reactive part follows the out-of-phase current. For a balanced three-phase feeder expressed with line-to-line voltage, the result carries a factor of root three. That factor matters here because 11 kV is a line-to-line rating. Reactive support can raise the far-end voltage by reducing the reactive part of the drop.
         estimate:
           prompt: |-
@@ -679,7 +679,7 @@ missions:
           tolerance: 60
           units: V
           solution: ΔV_LL ≈ 1.732 × 310 × (1.8 × 0.95 + 0.9 × 0.31) ≈ 1,069 V ≈ 1.07 kV.
-          explanation: About 1.07 kV line-to-line, close to 10 per cent of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula.
+          explanation: About 1.07 kV line-to-line, close to 10% of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula.
           givens:
             - Feeder current is 310 A
             - Resistance is 1.8 Ω and reactance is 0.9 Ω
@@ -869,9 +869,9 @@ missions:
           target: 0.85
           tolerance: 0.03
           units: fraction
-          solution: η = 187 ÷ 220 = 0.85, or 85 per cent.
+          solution: η = 187 ÷ 220 = 0.85, or 85%.
           explanation: |-
-            85 per cent, so 15 per cent of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question.
+            85%, so 15% of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question.
           givens:
             - Energy in was 220 MWh
             - Energy returned was 187 MWh
@@ -1249,7 +1249,7 @@ missions:
         evidence: |-
           The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like
           this occur perhaps 40 times a winter. Storage at the ridge would be about 50 MW for 4 hours,
-          at 85 per cent round trip. The corridor's second circuit has been on the reinforcement list for
+          at 85% round trip. The corridor's second circuit has been on the reinforcement list for
           two years without a date.
   - title: The system splits
     objective: Work out what an island is, and whether the one that has formed can hold.
@@ -1742,7 +1742,7 @@ missions:
               decisive: false
               reveals: The seasonal width remains well calibrated; this does not restore missing synchronous kinetic energy.
         answerText: Buy the current machine-data inertia audit. It reveals about 18,000 MW·s rather than the inherited 25,000. For a 300 MW loss at 50 Hz, |df/dt| rises from 0.30 Hz/s to about 0.42 Hz/s.
-        why: Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about 40 per cent faster.
+        why: Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about 40% faster.
   - title: Three things at once
     objective: Rank three simultaneous problems, and hold the reasoning while they interfere.
     briefing: A fault, a forecast miss and a plant coming off at the same hour, and one room.
@@ -1823,7 +1823,7 @@ missions:
         format: BALLPARK
         question: Estimate the power now lost as heat in the corridor.
         answerText: About 21 MW.
-        why: The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11 per cent, from 1,150 A to 1,280 A. The heat rises by about 24 per cent, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.
+        why: The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11%, from 1,150 A to 1,280 A. The heat rises by about 24%, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.
         estimate:
           prompt: The balanced corridor now carries 1,280 A RMS in each phase. Each phase still has 4.2 ohms of resistance over the full corridor.
           question: Choose the current, the resistance and the number of phases.
@@ -1843,7 +1843,7 @@ missions:
           units: W
           solution: P_loss = 3 × 1280² × 4.2 ≈ 2.06 × 10⁷ W ≈ 21 MW.
           explanation: |-
-            About 21 megawatts, against 17 an hour ago. Current rose by 11 per cent and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss.
+            About 21 megawatts, against 17 an hour ago. Current rose by 11% and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss.
           givens:
             - RMS current is now 1,280 A in each phase
             - Resistance remains 4.2 Ω per phase
@@ -2084,7 +2084,7 @@ interiors:
         - { label: Units online, value: 4 of 5, status: low }
         - { label: Stored inertia, value: '4, 200 MW·s', status: normal }
         - { label: Fastest ramp, value: 8 MW/min, status: low }
-        - { label: Governor droop, value: 4 per cent, status: normal }
+        - { label: Governor droop, value: 4%, status: normal }
   TRANS:
     caption: A rating is a time and a temperature, not a wall.
     standLine: 1 corridor above continuous rating, and a relay that will decide in 40 minutes.
@@ -2092,7 +2092,7 @@ interiors:
       kind: panel
       title: Corridor loading
       rows:
-        - { label: Circuit 2 loading, value: 108 per cent, status: high }
+        - { label: Circuit 2 loading, value: 108%, status: high }
         - { label: Continuous rating, value: '1, 060 A', status: normal }
         - { label: Emergency rating, value: '1, 240 A for 30 min', status: high }
         - { label: Conductor temperature, value: 78 °C, status: high }

@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "The Mutation",
     "objective": "Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.",
     "briefing": "A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.",
-    "stake": "Day 45. A variant with 3 changes has gone from 8 to 31 per cent of sequences in 4 weeks, in 1 district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.",
+    "stake": "Day 45. A variant with 3 changes has gone from 8 to 31% of sequences in 4 weeks, in 1 district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.",
     "takeaway": "Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather than as isolated facts.",
     "stops": [
       {

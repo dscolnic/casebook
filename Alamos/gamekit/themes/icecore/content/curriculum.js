@@ -1386,7 +1386,7 @@ export const CURRICULUM = {
         "play": "Report a ratio the way everyone else does",
         "task": "Report a ratio the way everyone else does",
         "question": "Estimate the isotope value of this sample in parts per thousand.",
-        "answer": "About −35 per mil. The sample holds 3.5 per cent less heavy oxygen than ocean water, which is what a polar site looks like.",
+        "answer": "About −35 per mil. The sample holds 3.5% less heavy oxygen than ocean water, which is what a polar site looks like.",
         "why": "Isotope ratios differ from one another in the fourth decimal place, so nobody reports them as ratios. The convention is to divide the sample's ratio by the ratio of 1 agreed water, subtract 1 so that the standard itself reads 0, and multiply by 1000 so the numbers are convenient. What comes out is a difference in parts per thousand, always negative for polar snow because every stage of the journey from the ocean has already removed some of the heavy isotope. The scale is a comparison, and it only means anything if everyone uses the same water.",
         "givens": [],
         "relationship": "δ¹⁸O = (R_sample ÷ R_standard − 1) × 1000 — the sample's heavy-to-light ratio against ocean water's, in parts per thousand.",
@@ -2872,8 +2872,8 @@ export const CURRICULUM = {
         "play": "Find the uncertainty worth reducing",
         "task": "Find the uncertainty worth reducing",
         "question": "Which measurement should the remaining time buy?",
-        "answer": "The past accumulation rate. Its 30 per cent uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.",
-        "why": "A term enters the result raised to some power, and its contribution to the width of the answer is that power multiplied by its own fractional uncertainty. The grain diameter is cubed, which makes it look like the term to fix, but it is known to 5 per cent, so it contributes 15. The accumulation rate enters once and is known to 30, so it contributes twice as much on its own. Ranking by exponent is a reasonable habit and it picks the wrong measurement here.",
+        "answer": "The past accumulation rate. Its 30% uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.",
+        "why": "A term enters the result raised to some power, and its contribution to the width of the answer is that power multiplied by its own fractional uncertainty. The grain diameter is cubed, which makes it look like the term to fix, but it is known to 5%, so it contributes 15. The accumulation rate enters once and is known to 30, so it contributes twice as much on its own. Ranking by exponent is a reasonable habit and it picks the wrong measurement here.",
         "propagate": {
           "output": {
             "label": "Dust flux during the cold interval",

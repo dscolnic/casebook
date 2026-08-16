@@ -437,10 +437,22 @@ exists because it is usually guessable from the wording, and a derivation's
 difficulty was never in the order.
 
 DERIVE grades the move: at each line the player picks the expression that
-actually follows, from candidates that are the manipulations students really make,
-**and separately names the rule that licenses it**. Both halves are scored,
-because the right line for the wrong reason is the commonest way to pass calculus
-without learning it, and this is the only format in the set that can see it.
+actually follows, from candidates that are the manipulations students really make.
+
+It also once asked, separately, for **the rule that licenses each line**, and
+scored both halves — the argument being that the right line for the wrong reason
+is the commonest way to pass calculus without learning it, and that this is the
+only format in the set that can see it. That half is **off by default** now,
+behind `askRule: true` on the derive block.
+
+What changed the argument was counting. The rule only discriminates where the
+candidates differ in what licenses them, and often they did not: in five of
+Midway's 29 steps and ten of Headwater's 33, every candidate carried the *same*
+rule, so the second half of the answer was a click with exactly one possible
+value. All three games that use DERIVE now grade the line alone. Opting back in
+is deliberate — a `rules` list without `askRule` is refused by the importer
+rather than quietly ignored, and `askRule` with fewer than three rules is refused
+too, because a list of two answers itself by elimination.
 
 Its trap is `survives`: at least one wrong candidate per step has to stay
 algebraically valid for the rest of the derivation. A step whose wrong branches
@@ -449,8 +461,8 @@ doors — the player learns to pick whatever is not malformed, which is not
 differentiating. The importer refuses a step without one, and three other
 refusals go with it: a distractor with no `why` (a wrong option that teaches
 nothing is not worth authoring), a keyed line longer than every distractor (the
-answer identifiable by its shape), and a candidate claiming a rule that is not in
-the offered list (a candidate nobody could ever score right).
+answer identifiable by its shape), and — where `askRule` is on — a candidate claiming a rule that is not in the
+offered list (a candidate nobody could ever score right).
 
 `books/interactions/TEMPLATE.jsonl` carries one worked row per design, drawn
 from a real interaction in the document it came from, and

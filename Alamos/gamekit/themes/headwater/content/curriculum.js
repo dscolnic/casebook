@@ -360,7 +360,7 @@ export const CURRICULUM = {
         "task": "Turn a slope into a small change",
         "question": "Estimate the change in spillway discharge from a six-centimetre rise in head.",
         "answer": "About 2.7 cubic metres a second more over the spillway.",
-        "why": "A differential is the simplest use a derivative has. Multiply the slope by the step and read off the change. It is exact only in the limit. Over six centimetres on a curve this gentle the error is under one per cent, well inside what the gauge can resolve. The reason to write it as a slope times a step is that the slope is a number worth carrying. It says a centimetre is worth almost half a cubic metre a second today, and seven-tenths of one at three metres.\n",
+        "why": "A differential is the simplest use a derivative has. Multiply the slope by the step and read off the change. It is exact only in the limit. Over six centimetres on a curve this gentle the error is under 1%, well inside what the gauge can resolve. The reason to write it as a slope times a step is that the slope is a number worth carrying. It says a centimetre is worth almost half a cubic metre a second today, and seven-tenths of one at three metres.\n",
         "givens": [
           "Rating slope 44.5 m³/s per metre at this head",
           "Head up six centimetres since the morning call"
@@ -582,13 +582,7 @@ export const CURRICULUM = {
           "start": "L(t) = 60t ÷ (t² + 4)",
           "goal": "the total load between t = 0 and t = 4",
           "startNote": "tonnes an hour, t in hours from the peak",
-          "rules": [
-            "substitution",
-            "antiderivative",
-            "evaluation",
-            "chain",
-            "limits"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Choose a substitution and rewrite the integral.",
@@ -669,22 +663,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "dy/dt = (dy/dx)·(dx/dt)",
-          "c": "the chain rule, and every related rate on the site",
-          "v": [
-            [
-              "dy/dx",
-              "how the outer quantity responds to the inner one"
-            ],
-            [
-              "dx/dt",
-              "how fast the inner one is moving"
-            ]
-          ],
-          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
-          "computed": true
-        },
-        {
           "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
           "c": "the fundamental theorem, used to total a rate",
           "v": [
@@ -697,8 +675,7 @@ export const CURRICULUM = {
               "the two ends of the interval"
             ]
           ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
-          "computed": true
+          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
         },
         {
           "e": "f(a + Δx) ≈ f(a) + f′(a)·Δx",
@@ -713,8 +690,7 @@ export const CURRICULUM = {
               "the step away from it"
             ]
           ],
-          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step.",
-          "card": false
+          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step."
         }
       ]
     }
@@ -740,13 +716,7 @@ export const CURRICULUM = {
           "start": "V(t) = 5t² + 40t",
           "goal": "V'(4), from the definition rather than from a rule",
           "startNote": "storage in thousands of cubic metres, t in hours",
-          "rules": [
-            "expansion",
-            "cancellation",
-            "limit",
-            "power",
-            "substitution"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Write the difference quotient and expand V(t+h).",
@@ -849,22 +819,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one.",
-          "computed": true
-        },
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
           "computed": true
         }
       ]
@@ -1006,13 +960,7 @@ export const CURRICULUM = {
           "start": "h(t) = 214.6 + 0.9t − 0.03t²",
           "goal": "the day h stops rising, classified",
           "startNote": "metres above datum, t in days from Monday",
-          "rules": [
-            "power",
-            "critical point",
-            "second derivative",
-            "evaluation",
-            "constant"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Differentiate the level with respect to time.",
@@ -1172,13 +1120,7 @@ export const CURRICULUM = {
           "start": "dh/dt = −k·√h",
           "goal": "h as a function of t",
           "startNote": "h in metres of head on the outlet, k ≈ 0.10 an hour",
-          "rules": [
-            "separation",
-            "antiderivative",
-            "initial condition",
-            "chain",
-            "power"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Separate the variables.",
@@ -1269,22 +1211,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
-          "computed": true
-        },
-        {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
           "c": "the chain rule, and every related rate on the site",
           "v": [
@@ -1318,8 +1244,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
-          "computed": true,
-          "card": false
+          "computed": true
         },
         {
           "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
@@ -1336,6 +1261,22 @@ export const CURRICULUM = {
           ],
           "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
           "computed": true,
+          "card": false
+        },
+        {
+          "e": "d/dt (t^n) = n·t^(n−1)",
+          "c": "the power rule, which every other differentiation here is built on",
+          "v": [
+            [
+              "n",
+              "the exponent, which may be a fraction"
+            ],
+            [
+              "t",
+              "the variable being differentiated with respect to"
+            ]
+          ],
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
           "card": false
         },
         {
@@ -1371,7 +1312,7 @@ export const CURRICULUM = {
         "task": "Rebuild the volume from the corrected areas",
         "question": "Estimate the volume held between 210 and 214 metres on the resurveyed curve.",
         "answer": "About 9.8 million cubic metres between 210 and 214 metres.",
-        "why": "Volume is the integral of the surface area with respect to level, which is what a stage-storage curve is a table of. Stacking the areas with the trapezoid rule is the same arithmetic as stacking flows in time, with height in place of time, and it is why the resurvey matters so much: the areas are the integrand. The 2003 sheet gives 2.58, 2.75 and 2.92 for the same 3 levels and returns 11.0 million for this slice, which is 11 per cent of headroom the control room believed it had.\n",
+        "why": "Volume is the integral of the surface area with respect to level, which is what a stage-storage curve is a table of. Stacking the areas with the trapezoid rule is the same arithmetic as stacking flows in time, with height in place of time, and it is why the resurvey matters so much: the areas are the integrand. The 2003 sheet gives 2.58, 2.75 and 2.92 for the same 3 levels and returns 11.0 million for this slice, which is 11%  of headroom the control room believed it had.\n",
         "givens": [
           "Areas 2.30, 2.45, 2.60 km² at 210, 212 and 214 m",
           "Two metres between surveyed levels"
@@ -1459,13 +1400,7 @@ export const CURRICULUM = {
           "start": "dQ/dt = −k·Q",
           "goal": "Q as a function of t",
           "startNote": "Q in cubic metres a second, k the recession constant, per day",
-          "rules": [
-            "separation",
-            "antiderivative",
-            "exponentiation",
-            "initial condition",
-            "power"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Separate the variables and integrate both sides.",
@@ -1636,13 +1571,7 @@ export const CURRICULUM = {
           "start": "S(t) = the integral of N from 0 to t, with N(t) = 40 − 8t",
           "goal": "the day S is greatest, classified",
           "startNote": "net flow in cubic metres a second, t in days from tonight",
-          "rules": [
-            "fundamental theorem",
-            "critical point",
-            "second derivative",
-            "antiderivative",
-            "evaluation"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Write the derivative of the accumulation.",
@@ -1820,13 +1749,7 @@ export const CURRICULUM = {
           "start": "Q = C·L·H^(3/2)",
           "goal": "dQ/dt in terms of dH/dt",
           "startNote": "the spillway rating, with C·L = 21.0",
-          "rules": [
-            "power",
-            "product",
-            "quotient",
-            "chain",
-            "implicit"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Differentiate both sides with respect to time.",
@@ -1881,7 +1804,7 @@ export const CURRICULUM = {
               ]
             }
           ],
-          "hint": "Pick the line that actually follows, then name the rule that gets you there.",
+          "hint": "Pick the line that actually follows from the one above it.",
           "commit": "Report the rate"
         }
       },
@@ -1907,18 +1830,6 @@ export const CURRICULUM = {
           "computed": true
         },
         {
-          "e": "(u·v)′ = u′·v + u·v′",
-          "c": "a product where both factors are moving",
-          "v": [
-            [
-              "u, v",
-              "the two quantities being multiplied, each a function of time"
-            ]
-          ],
-          "s": "A product of two changing quantities has two rates in it, and the rule keeps them apart: one term holds the first factor still, the other holds the second.",
-          "computed": true
-        },
-        {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
           "c": "the chain rule, and every related rate on the site",
           "v": [
@@ -1932,8 +1843,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
-          "computed": true,
-          "card": false
+          "computed": true
         },
         {
           "e": "dh/dt = (I − O) / A(h)",
@@ -1999,13 +1909,7 @@ export const CURRICULUM = {
           "start": "R(t) = 120 + 60t",
           "goal": "the volume delivered between t = 0 and t = 4",
           "startNote": "cubic metres a second, t in hours from 14:00",
-          "rules": [
-            "antiderivative",
-            "evaluation",
-            "units",
-            "chain",
-            "substitution"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Write an antiderivative of the rate.",
@@ -2070,22 +1974,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "dy/dt = (dy/dx)·(dx/dt)",
-          "c": "the chain rule, and every related rate on the site",
-          "v": [
-            [
-              "dy/dx",
-              "how the outer quantity responds to the inner one"
-            ],
-            [
-              "dx/dt",
-              "how fast the inner one is moving"
-            ]
-          ],
-          "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
-          "computed": true
-        },
-        {
           "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
           "c": "the fundamental theorem, used to total a rate",
           "v": [
@@ -2114,8 +2002,7 @@ export const CURRICULUM = {
               "the variable being differentiated with respect to"
             ]
           ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
-          "card": false
+          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
         }
       ]
     },
@@ -2263,13 +2150,7 @@ export const CURRICULUM = {
           "start": "dQ/dH = 31.5·H^(1/2)",
           "goal": "the head at which the sensitivity is greatest",
           "startNote": "the sensitivity of discharge to head, over 0.5 m ≤ H ≤ 3.0 m",
-          "rules": [
-            "power",
-            "critical point",
-            "endpoint",
-            "second derivative",
-            "evaluation"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Differentiate the sensitivity and look for a critical point in the range.",
@@ -2360,8 +2241,8 @@ export const CURRICULUM = {
         "play": "Decide which measurement is worth buying",
         "task": "Decide which measurement is worth buying",
         "question": "One calibration is affordable this week. Which of these is carrying the uncertainty in the discharge?",
-        "answer": "The coefficient. It sits at the first power and is known to 15 per cent, which beats a head at the three-halves power known to 4 — so the gauged calibration is the slot worth spending, and the discharge is a range rather than a figure.",
-        "why": "A factor contributes its exponent multiplied by its own fractional width. The head carries the three-halves that the whole spillway is famous for, and it is gauged well enough that 1 and a half times 4 per cent is still small beside 1 times 15. Buying another head gauge therefore improves the term that was already good and barely moves the total. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable, and gives exactly the wrong answer here. The coefficient stays wide because nobody has ever calibrated this crest against a measured river.\n",
+        "answer": "The coefficient. It sits at the first power and is known to 15%, which beats a head at the three-halves power known to 4 — so the gauged calibration is the slot worth spending, and the discharge is a range rather than a figure.",
+        "why": "A factor contributes its exponent multiplied by its own fractional width. The head carries the three-halves that the whole spillway is famous for, and it is gauged well enough that 1 and a half times 4% is still small beside 1 times 15. Buying another head gauge therefore improves the term that was already good and barely moves the total. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable, and gives exactly the wrong answer here. The coefficient stays wide because nobody has ever calibrated this crest against a measured river.\n",
         "propagate": {
           "output": {
             "label": "Spillway discharge",
@@ -2596,13 +2477,7 @@ export const CURRICULUM = {
           "start": "U² + 0.8·U·h = 640",
           "goal": "dU/dt in terms of dh/dt",
           "startNote": "U in kilopascals, h in metres above datum",
-          "rules": [
-            "power",
-            "product",
-            "chain",
-            "implicit",
-            "constant"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Differentiate both sides with respect to time.",
@@ -2662,34 +2537,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
-          "computed": true
-        },
-        {
-          "e": "(u·v)′ = u′·v + u·v′",
-          "c": "a product where both factors are moving",
-          "v": [
-            [
-              "u, v",
-              "the two quantities being multiplied, each a function of time"
-            ]
-          ],
-          "s": "A product of two changing quantities has two rates in it, and the rule keeps them apart: one term holds the first factor still, the other holds the second.",
-          "computed": true
-        },
-        {
           "e": "dy/dt = (dy/dx)·(dx/dt)",
           "c": "the chain rule, and every related rate on the site",
           "v": [
@@ -2703,8 +2550,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
-          "computed": true,
-          "card": false
+          "computed": true
         },
         {
           "e": "dh/dt = (I − O) / A(h)",
@@ -2724,8 +2570,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level.",
-          "computed": true,
-          "card": false
+          "computed": true
         }
       ]
     },
@@ -2844,19 +2689,13 @@ export const CURRICULUM = {
         "play": "Evaluate a limit that comes out as zero over zero",
         "task": "Evaluate a limit that comes out as zero over zero",
         "question": "Evaluate the initial rate of arrival, and say what makes the method legitimate.",
-        "answer": "A quarter per hour. The limit is 1/T, so a four-hour reach begins taking a step release at 25 per cent an hour, however little has arrived at the first instant.",
+        "answer": "A quarter per hour. The limit is 1/T, so a four-hour reach begins taking a step release at 25% an hour, however little has arrived at the first instant.",
         "why": "Zero over zero is a statement that substitution has failed, not a value. Differentiating the top and the bottom separately replaces both by the rates at which they are vanishing. The quotient settles on the ratio of those rates, which is why the answer depends on T at all. The result matters for the warning sheet. The arriving fraction is nearly nothing at the first instant. The rate at which it starts arriving is a definite quarter per hour that no reading at the start could ever show.\n",
         "derive": {
           "start": "the limit as t goes to 0 of (1 − e^(−t/T)) ÷ t",
           "goal": "a number for the initial rate of arrival",
           "startNote": "the arriving fraction of a step release, with T = 4 hours",
-          "rules": [
-            "substitution",
-            "indeterminate form",
-            "quotient",
-            "differentiation",
-            "evaluation"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Name the form of the limit before doing anything to it.",
@@ -3105,13 +2944,7 @@ export const CURRICULUM = {
           "start": "P = 8.6·Q·H",
           "goal": "dP/dt in terms of dQ/dt and dH/dt",
           "startNote": "kilowatts, with Q in m³/s and H in metres",
-          "rules": [
-            "power",
-            "product",
-            "quotient",
-            "chain",
-            "constant"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Differentiate the product with respect to time.",
@@ -3161,7 +2994,7 @@ export const CURRICULUM = {
               ]
             }
           ],
-          "hint": "Both Q and H are functions of time. Choose the line that follows and name the rule.",
+          "hint": "Both Q and H are functions of time. Choose the line that follows.",
           "commit": "Report the rate"
         }
       },
@@ -3170,22 +3003,6 @@ export const CURRICULUM = {
         "a constant factor passes through a derivative unchanged"
       ],
       "equations": [
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative.",
-          "computed": true
-        },
         {
           "e": "(u·v)′ = u′·v + u·v′",
           "c": "a product where both factors are moving",
@@ -3212,8 +3029,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A quantity that changes only because another one does carries that other one rate as a factor, and dropping it silently answers a question about the wrong variable.",
-          "computed": true,
-          "card": false
+          "computed": true
         },
         {
           "e": "dh/dt = (I − O) / A(h)",
@@ -3830,13 +3646,7 @@ export const CURRICULUM = {
           "start": "Q(t) = 48 + 8t",
           "goal": "the steady flow with the same six-hour total",
           "startNote": "cubic metres a second, t in hours from the start of the release",
-          "rules": [
-            "antiderivative",
-            "evaluation",
-            "average",
-            "endpoint",
-            "substitution"
-          ],
+          "rules": [],
           "steps": [
             {
               "ask": "Integrate the schedule over the six hours.",
@@ -4157,7 +3967,7 @@ export const CURRICULUM = {
         "task": "Spend what the authority will release on what the fortnight showed was missing.",
         "question": "Spend what the authority will release on what the fortnight showed was missing.",
         "answer": "",
-        "why": "The two worth funding are the two that everything else is computed through. The area curve is the integrand of every volume and the divisor of every level forecast, so an 11 per cent error in it is an 11 per cent error in all of them at once, and 11 transects is a provisional number the room is already relying on. The coefficient is the widest term in the discharge by a long way, and improving the head gauge instead would refine the term that was already good. More gauges would improve a forecast that was not what failed, and the uplift re-fit is real work that can wait for a quiet quarter.\n",
+        "why": "The two worth funding are the two that everything else is computed through. The area curve is the integrand of every volume and the divisor of every level forecast, so an 11%  error in it is an 11% error in all of them at once, and 11 transects is a provisional number the room is already relying on. The coefficient is the widest term in the discharge by a long way, and improving the head gauge instead would refine the term that was already good. More gauges would improve a forecast that was not what failed, and the uplift re-fit is real work that can wait for a quiet quarter.\n",
         "proposals": [
           {
             "label": "A",
@@ -4180,7 +3990,7 @@ export const CURRICULUM = {
           "A": 50,
           "B": 30
         },
-        "research": "The provisional correction to the stage-storage curve is 11 per cent at working levels\nand rests on 11 transects. A full resurvey is four weeks of boat time. Every volume and\nevery level forecast on the site divides by that curve; the uplift and the seepage do not.\nThe recession constant was fitted on a week and scored on four days it had never seen, and\nheld. The spillway coefficient is still a handbook figure carrying 15 per cent, which\nis the widest term in the discharge and the 1 nobody has ever measured here. The arrival\ntimes were checked against what the reach actually saw, for the first time in nine years.\n"
+        "research": "The provisional correction to the stage-storage curve is 11% at working levels\nand rests on 11 transects. A full resurvey is four weeks of boat time. Every volume and\nevery level forecast on the site divides by that curve; the uplift and the seepage do not.\nThe recession constant was fitted on a week and scored on four days it had never seen, and\nheld. The spillway coefficient is still a handbook figure carrying 15%, which\nis the widest term in the discharge and the 1 nobody has ever measured here. The arrival\ntimes were checked against what the reach actually saw, for the first time in nine years.\n"
       },
       "assumes": [
         "a measurement that every other quantity is divided by is worth more than a measurement of one quantity"

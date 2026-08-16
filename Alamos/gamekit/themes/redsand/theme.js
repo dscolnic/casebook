@@ -104,7 +104,7 @@ export default {
     + 'fortnight arguing about: the polishing column filled around sol 261 and passed chloride to the '
     + 'reactor for thirty-eight sols, and the catalyst died from the inlet end while the temperature '
     + 'profiles were being read as heat damage. The last spare charge went in on sol 300 and held '
-    + 'seventy-one per cent conversion to the end.',
+    + '71% conversion to the end.',
     'What it cost: eleven sols of production, one catalyst charge with no replacement on the planet, '
     + 'and about four hundred kilograms of oxygen out of the vent while a radiator stood under a '
     + 'fortnight of storm dust. What is unfinished: the lead-and-lag columns are plumbed and the '
@@ -133,7 +133,7 @@ export default {
     // metre-wide doorways needs 0.3 or the player gets stuck in them.
     playerRadius: 0.45,
     // Six real lights is the ceiling. buildSunRig makes three of them.
-    // Mars gets 43 per cent of Earth's sunlight, and the dust scatters a great
+    // Mars gets 43% of Earth's sunlight, and the dust scatters a great
     // deal of what arrives — so a weaker sun and a stronger hemisphere fill
     // than anywhere else in the set, which is also what fills the shadows the
     // way a dusty sky really does.

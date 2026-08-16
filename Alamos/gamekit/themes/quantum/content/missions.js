@@ -78,8 +78,8 @@ export const MISSIONS = [
   {
     "title": "One bit out",
     "objective": "Understand what a readout actually decides, and how confident it is entitled to be.",
-    "briefing": "The readout says 96 per cent fidelity. Nakamura says that number is doing a lot of work.",
-    "stake": "Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96 per cent, and Ren Nakamura points out that it is the product of 3 separate things — how well the resonator separates the 2 states, how much noise the amplifier chain adds, and where somebody drew the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline figure for the review. Today you work out what the readout chain does to a signal, what a discriminator is actually deciding, and what part of that 96 per cent belongs to the qubit at all.",
+    "briefing": "The readout says 96% fidelity. Nakamura says that number is doing a lot of work.",
+    "stake": "Tuesday, and the argument is about a single number. The single-shot readout fidelity is quoted at 96%, and Ren Nakamura points out that it is the product of 3 separate things — how well the resonator separates the 2 states, how much noise the amplifier chain adds, and where somebody drew the line between them. Anders Holm wants each of the three measured. Priya Raghavan wants the headline figure for the review. Today you work out what the readout chain does to a signal, what a discriminator is actually deciding, and what part of that 96% belongs to the qubit at all.",
     "takeaway": "A readout fidelity belongs to the entire measurement chain: qubit-state-dependent signal, loss, amplification, noise and classification.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "How wrong is it, and how would you know",
     "objective": "Measure the machine's error in a way that does not measure your own readout.",
     "briefing": "Two error numbers, both honest, differing by a factor of three.",
-    "stake": "Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4 per cent. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and they answer different questions; Priya Raghavan says the review will only print 1 of them. Dasha Petrova wants whichever number is comparable with the threshold, because below that line adding qubits helps and above it they do not. Today you work out what randomised benchmarking actually measures, why a long sequence gives a different answer from a short one, and which number belongs in a sentence about error correction.",
+    "stake": "Monday, and there are two error figures on the board. A direct measurement of a single gate says 0.4%. Randomised benchmarking over long sequences says 1.2. Anders Holm says both are correct and they answer different questions; Priya Raghavan says the review will only print 1 of them. Dasha Petrova wants whichever number is comparable with the threshold, because below that line adding qubits helps and above it they do not. Today you work out what randomised benchmarking actually measures, why a long sequence gives a different answer from a short one, and which number belongs in a sentence about error correction.",
     "takeaway": "Different benchmarking procedures can produce different error numbers because they average over different operations and respond differently to preparation and measurement errors.",
     "stops": [
       {

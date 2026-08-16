@@ -68,7 +68,7 @@ export const METHOD = {
   DEGENERACY: 'Two controls, one measurement. Find out how many combinations fit it equally before you commit to any of them, and bring in the second measurement when you see why you need it.',
   CHAIN: 'Force reaches the ground through a chain of transfers, and the chain is only as good as the weakest one it needs. Build the path, then name the transfer that governs it.',
   BALANCE: 'Reading a stream costs nothing. Counting it is a claim that it is part of the same quantity — so read everything, and count only what actually flows.',
-  DERIVE: 'Take the derivation one line at a time, choosing the expression the previous line actually gives you. Where the book also offers a list of rules, name the one that licenses each step; both halves are then graded, because the right line for the wrong reason is the commonest way to pass a calculus course without learning it.',
+  DERIVE: 'Take the derivation one line at a time, choosing the expression the previous line actually gives you. A wrong turn is not refused — the rail shows what you built, and the verdict shows where it left the correct path and what that path would have produced.',
   VERIFY: 'Lock a prediction first; it cannot be changed afterwards. Then act, and then spend what it takes to find out what actually happened. Not measuring is an answer too, and a poor one.',
   PROPAGATE: 'Each term contributes its own width times the power it is raised to. Find which one the output\'s uncertainty is really made of, then buy the measurement that shrinks it.',
   STRESS: 'The assumption has a range because nobody measured it exactly. Move it to the pessimistic end before you choose, and pick what still works there rather than what wins in the middle.',
@@ -2712,7 +2712,7 @@ const DERIVE = {
     return ask(ch, 'Work it through, one line at a time.')
       + `<div class="instPanel derivePanel">`
       + method('DERIVE')
-      + hint(d.hint ?? ((d.rules ?? []).length
+      + hint(d.hint ?? (d.askRule === true
         ? 'Choose the line that follows, and name the rule that gets you there.'
         : 'Choose the line that follows from the one above it.'))
       + `<div class="deriveGoal"><span>Goal</span><b>${esc(d.goal ?? '')}</b></div>`
@@ -2728,16 +2728,23 @@ const DERIVE = {
     if(!panel) return;
     const steps = d.steps ?? [];
     const rules = d.rules ?? [];
-    // Naming the rule is a half of this format a book can decline.
+    // Naming the rule is off unless a book asks for it, and that is the default
+    // on purpose.
     //
-    // It was written on the argument that the right line for the wrong reason
-    // is the commonest way to pass a calculus course without learning it, and
-    // that holds where the candidates genuinely differ in what licenses them.
-    // It does not hold where they do not: in five of Midway's 29 steps and ten
-    // of Headwater's 33, every candidate carries the *same* rule, so the second
-    // half of the answer is a click with one possible value. An empty or absent
-    // `rules` list turns it off and the panel grades the line alone.
-    const naming = rules.length > 0;
+    // It was written on the argument that the right line for the wrong reason is
+    // the commonest way to pass a calculus course without learning it. That
+    // holds only where the candidates genuinely differ in what licenses them,
+    // and mostly they did not: in five of Midway's 29 steps and ten of
+    // Headwater's 33, every candidate carried the *same* rule, so the second
+    // half of the answer was a click with one possible value. What that teaches
+    // is that the panel wants two clicks.
+    //
+    // `askRule: true` on the derive block turns it back on, and the importer
+    // then insists on at least three rules — a list of two answers itself by
+    // elimination. A `rules` list on its own does nothing: opting in has to be
+    // deliberate, or the half comes back the first time somebody pastes a block
+    // from an older book.
+    const naming = d.askRule === true && rules.length > 0;
     const rail = panel.querySelector('#deriveRail');
     const stepEl = panel.querySelector('#deriveStep');
     const take = panel.querySelector('#deriveTake');
@@ -2828,7 +2835,7 @@ const DERIVE = {
   verdict(ch, r){
     const d = ch.derive ?? {};
     const steps = d.steps ?? [];
-    const naming = (d.rules ?? []).length > 0;
+    const naming = d.askRule === true && (d.rules ?? []).length > 0;
     const taken = r?.deriveTaken ?? [];
     const rows = steps.map((s, n) => {
       const t = taken[n];
@@ -2858,8 +2865,9 @@ const DERIVE = {
   },
   // `facts` is handed the challenge, not the block — the dev page printed
   // "0 line(s) · 0 rules offered" for a panel with four of each.
-  facts: (g) => `${(g.derive?.steps ?? []).length} line(s) ·`
-    + ` ${(g.derive?.rules ?? []).length} rules offered · goal ${g.derive?.goal ?? '—'}`,
+  facts: (g) => `${(g.derive?.steps ?? []).length} line(s)`
+    + (g.derive?.askRule === true ? ` · ${(g.derive?.rules ?? []).length} rules offered` : '')
+    + ` · goal ${g.derive?.goal ?? '—'}`,
   tag: () => 'derivation',
 };
 

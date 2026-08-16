@@ -121,7 +121,7 @@ roster:
       making that slower.
 
       He germinates a sample of every accession on a schedule and plots the
-      curve. When it drops below 85 per cent the accession has to be
+      curve. When it drops below 85% the accession has to be
       grown out, which is the moment the argument between the vault and the
       field starts again.
 
@@ -154,7 +154,7 @@ roster:
       - q: Why can Ivanescu not say which alleles are worth keeping?
         a: What is useful depends on a future nobody has seen
         wrong:
-          - Allele frequencies cannot be measured accurately below one per cent
+          - Allele frequencies cannot be measured accurately below 1%
           - The passport data does not record which alleles an accession carries
           - Sequencing every accession would cost more than the collection is worth
   - id: quiroga
@@ -455,7 +455,7 @@ missions:
         task: Say what the cold and the drying are for
         title: Why the vault is cold
         place: Seed Vault
-        scene: Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6 per cent moisture. The other sat in a warm shed and now germinates at 31 per cent.
+        scene: Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6% moisture. The other sat in a warm shed and now germinates at 31%.
         assumes:
           - orthodox seeds are seeds that can survive drying and cold storage
         takeaway: Cold and low moisture extend orthodox-seed life by slowing the reactions that drive deterioration.
@@ -609,7 +609,7 @@ missions:
             a: 0.005
             b: 0.005
           commit: Report it
-        answerText: The first result permits several mixes of recombination and marker error. Direct-gene PCR removes the assay-error explanation, leaving linkage and about four per cent recombination.
+        answerText: The first result permits several mixes of recombination and marker error. Direct-gene PCR removes the assay-error explanation, leaving linkage and about 4% recombination.
         why: PCR copies a chosen DNA region through repeated denaturation, primer annealing, and extension. Gel electrophoresis can then separate the resulting DNA fragments by size. Here that tool reads a marker near the resistance gene, not the gene itself. Marker–trait disagreement can therefore come from recombination or assay error. One disagreement rate cannot separate those causes. A second PCR assay aimed inside the resistance gene adds independent evidence. When it confirms the gene call, linkage and recombination remain.
       - group: DRY
         task: Say where the mass in the harvest came from
@@ -739,7 +739,7 @@ missions:
     briefing: WM-712 is ready. The ground it needs is the ground the vault wants.
     stake: >-
       Thursday, and the sowing plan is due tomorrow. Volpe's line WM-712 has been through 4
-      seasons of trials and yields 11 per cent over the standard in dry years. Releasing it
+      seasons of trials and yields 11% over the standard in dry years. Releasing it
       needs the whole west ground for seed increase, which is the ground Qureshi's 60 overdue
       accessions would have used. The forecast for the summer is dry, the merchant wants a decision,
       and both of them are right about something. Today you work out what a season's delay actually
@@ -774,14 +774,14 @@ missions:
         title: What the trial can actually claim
         place: Field Laboratory
         scene: |-
-          Four seasons, one site, four replicates each. WM-712 is ahead by 11 per cent in the 2 dry years and by 2 per cent in the wet ones. The merchant's leaflet says "11 per cent higher yielding".
+          Four seasons, one site, four replicates each. WM-712 is ahead by 11% in the 2 dry years and by 2% in the wet ones. The merchant's leaflet says "11% higher yielding".
         assumes:
           - a trial measures lines under the conditions the trial happened in
         takeaway: A number from a trial carries the conditions it was measured under, or it is a different claim.
         format: CHOICE
         question: What does this trial support saying about WM-712?
         answerText: "The defensible claim is site- and season-specific: WM-712's advantage was much larger in the 2 dry years than in the wet years."
-        why: "The eleven-per-cent advantage belongs to two dry years at one site. In wet years the advantage is only two per cent. Removing those conditions turns a measured result into a broader claim the data have not tested. The useful conclusion therefore carries its environment with it: WM-712 performed especially well in dry seasons on this ground. That result can motivate trials in other dry places, but it cannot substitute for them. Genotype-by-environment effects make performance conditional rather than universal."
+        why: "The eleven-per-cent advantage belongs to two dry years at one site. In wet years the advantage is only 2%. Removing those conditions turns a measured result into a broader claim the data have not tested. The useful conclusion therefore carries its environment with it: WM-712 performed especially well in dry seasons on this ground. That result can motivate trials in other dry places, but it cannot substitute for them. Genotype-by-environment effects make performance conditional rather than universal."
         choices:
           - At this site, its advantage is much larger in dry seasons than in wet ones
           - Across these four seasons, it has a consistent eleven-per-cent advantage at this site
@@ -789,7 +789,7 @@ missions:
           - It should outyield the standard whenever seasonal rainfall falls below average
         answer: At this site, its advantage is much larger in dry seasons than in wet ones
         rebuttals:
-          - The wet-year advantage is only 2 per cent, so 11 per cent is not a season-independent effect.
+          - The wet-year advantage is only 2%, so 11% is not a season-independent effect.
           - One site can motivate a drought-adaptation hypothesis, but it cannot establish performance across regions.
           - The trial separates dry from wet years here; it does not define a rainfall threshold that guarantees the same response.
       - group: DRY
@@ -860,7 +860,7 @@ missions:
         takeaway: A rule fitted on one population has to be scored on a population it has never seen.
         format: HOLDOUT
         question: Set the marker score above which a seedling is kept, on the plants the marker was mapped in — then freeze it and score it on a population it has never seen. What does it get?
-        answerText: About 94 per cent, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — 20 points of it was that 1 population's noise.
+        answerText: About 94%, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — 20 points of it was that 1 population's noise.
         why: A cut-off chosen on one population partly fits that population’s accidents. Those accidents do not have to repeat. The broad high-scoring shelf is useful because it persists when the rule is frozen and applied to the new donor cross. The sharp optimum at 63 does not persist; it was overfit to the mapping plants. A holdout population separates a marker rule that generalises from one that merely describes the sample used to choose it.
         holdout:
           hint: The calibration curve is the population this marker was built from. The other one is next year's.
@@ -990,7 +990,7 @@ missions:
         task: Set the field-reservation and grow-out thresholds before replaying the viability record.
         title: Write the viability rule before it falls
         place: Seed Vault
-        scene: Mbaye has 11 germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.
+        scene: Mbaye has 11 germination results from the same accession, falling from 98 to 85%. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.
         assumes:
           - germination percentage measures the fraction of seeds that can produce seedlings
           - regeneration requires field space before seed can be multiplied
@@ -1156,9 +1156,9 @@ missions:
           - Collection date says nothing about what selected the population before it was collected.
       - group: DRY
         task: Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation.
-        title: Where the missing two per cent went
+        title: Where the missing 2% went
         place: Drying & Processing Hall
-        scene: Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about two per cent less. Nakagawa also detects the defence transcript in clean leaves before infection.
+        scene: Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about 2% less. Nakagawa also detects the defence transcript in clean leaves before infection.
         assumes:
           - transcription produces mRNA from DNA
           - translation uses mRNA to make protein
@@ -1335,7 +1335,7 @@ missions:
                 - regen_history
             - id: rare
               label: Rare-variant comparison
-              reading: 9 alleles recorded in 1994 at under 5 per cent are absent from the current sample
+              reading: 9 alleles recorded in 1994 at under 5% are absent from the current sample
               depends:
                 - passport
                 - current_genotype
@@ -1349,7 +1349,7 @@ missions:
                 - regen_history
             - id: viability
               label: Germination panel
-              reading: Germination 91 per cent, and the store has held minus 18 for 28 years
+              reading: Germination 91%, and the store has held minus 18 for 28 years
               depends:
                 - germination
                 - vault_log
@@ -1464,9 +1464,9 @@ missions:
         format: SCIENCETANK
         why: The first place to find ground is outside the measured yield trial. Headlands and spare block can hold a screening nursery that mainly needs many plants and reliable inoculation. If more ground is still needed, shortening every plot spreads a modest precision cost across the trial. Dropping a replicate removes an entire independent comparison. That weakens small yield differences. Removing guard rows is worse because vigorous plots can borrow light and water from neighbours, quietly biasing every comparison. Different cuts therefore sacrifice different kinds of evidence.
         evidence: |-
-          The yield trial has 240 plots: 60 lines, 4 replicates. Guard rows take about 8 per cent
+          The yield trial has 240 plots: 60 lines, 4 replicates. Guard rows take about 8%
           of the area and stop plots from borrowing light and water from their neighbours. Shortening
-          plots by a fifth would free 20 per cent but raises the error variance because a short plot
+          plots by a fifth would free 20% but raises the error variance because a short plot
           samples less ground. Dropping the fourth replicate frees a quarter and removes most of the
           trial's ability to separate lines that differ by less than half a tonne. The screening
           material needs the equivalent of 30 plots.
@@ -1682,8 +1682,8 @@ missions:
           - an allele present at low frequency can be lost when a population is sampled
         takeaway: An allele that has vanished was not necessarily destroyed; it may only have failed to be picked.
         format: DIAGNOSIS
-        answerText: The evidence supports loss by drift during repeated small grow-outs. The old note shows the resistant phenotype was rare, not that the allele frequency was exactly five per cent.
-        why: The 1994 field note says about 5 per cent of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If 5 per cent of plants show it, a random sample of 30 has about a 21 per cent chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.
+        answerText: The evidence supports loss by drift during repeated small grow-outs. The old note shows the resistant phenotype was rare, not that the allele frequency was exactly 5%.
+        why: The 1994 field note says about 5% of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If 5% of plants show it, a random sample of 30 has about a 21% chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.
         headline: The 1994 notes describe resistant plants in this accession. The 2026 sample has none.
         readings:
           - zone: 1994 notes
@@ -1709,7 +1709,7 @@ missions:
             note: grown in a clean nursery
         choices:
           - label: Drift removed it across three small grow-outs
-            mechanism: An allele at 5 per cent has a real chance of missing a sample of 33 times over.
+            mechanism: An allele at 5% has a real chance of missing a sample of 33 times over.
           - label: The 1994 collector recorded it wrongly
             mechanism: A mistaken note would not be consistent with the rest of that collection trip.
           - label: The resistance was selected against during the grow-outs
@@ -1778,7 +1778,7 @@ missions:
         title: 40 tonnes and a failing gene
         place: Crossing Hall
         scene: |-
-          40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11 per cent more in a dry year.
+          40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11% more in a dry year.
         assumes:
           - a released variety is planted over a large area at once
         takeaway: What makes a variety valuable is also what makes a single failing gene expensive.
@@ -2012,20 +2012,20 @@ interiors:
       title: Vault conditions
       rows:
         - { label: Chamber temperature, value: minus 18 C, status: normal }
-        - { label: Seed moisture, value: 5.8 per cent, status: normal }
+        - { label: Seed moisture, value: 5.8%, status: normal }
         - { label: Door open today, value: 41 minutes, status: high }
         - { label: Viability tests overdue, value: "1,140 accessions", status: alarm }
   DRY:
-    caption: A seed comes in at 20 per cent water and has to leave at 5.
+    caption: A seed comes in at 20% water and has to leave at 5.
     standLine: Slow and cool, because heat kills the embryo it is meant to be preserving.
     station:
       kind: panel
       title: Drying room
       rows:
         - { label: Air temperature, value: 18 C, status: normal }
-        - { label: Relative humidity, value: 15 per cent, status: normal }
-        - { label: Incoming moisture, value: 19 per cent, status: high }
-        - { label: Target moisture, value: 5 to 7 per cent, status: normal }
+        - { label: Relative humidity, value: 15%, status: normal }
+        - { label: Incoming moisture, value: 19%, status: high }
+        - { label: Target moisture, value: 5 to 7%, status: normal }
   CROSS:
     caption: Two parents, one morning, and a bag over the head before anything else reaches it.
     standLine: A cross made here is a line in four years and a release in seven.
@@ -2057,8 +2057,8 @@ interiors:
       rows:
         - { label: Plots, value: 240, status: normal }
         - { label: Replicates, value: 4, status: normal }
-        - { label: Selected-plot gain, value: 31 per cent, status: alarm }
-        - { label: Gain across replicates, value: 11 per cent, status: normal }
+        - { label: Selected-plot gain, value: 31%, status: alarm }
+        - { label: Gain across replicates, value: 11%, status: normal }
   POP:
     caption: A collection is a set of frequencies, and every grow-out is a chance to change them.
     standLine: What was collected in 1994 and what is in the packet now are 2 different populations.

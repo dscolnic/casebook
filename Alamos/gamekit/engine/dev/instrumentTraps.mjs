@@ -150,10 +150,19 @@ const BREAKS = [
     [["                - text: 'dQ/dt = C\u00b7L\u00b7(3/2)\u00b7H^(1/2)\u00b7dH/dt'",
       "                - text: 'dQ/dt = C\u00b7L\u00b7(3/2)\u00b7H^(1/2)\u00b7dH/dt, on the head as it stands now'"]],
     'identifiable by its'],
+  // Naming the rule is off by default, so this trap has to switch it on before
+  // it can break it. That is the point of the opt-in: the orphan-rule refusal
+  // only means anything where the player is actually shown a list to pick from.
   ['DERIVE', 'a candidate claims a rule the player is never offered',
-    [['                  rule: chain\n                  why: >-\n                    The 3/2 that comes down',
+    [["          startNote: given",
+      "          startNote: given\n          askRule: true\n          rules: [chain, power, substitution, evaluation]"],
+     ['                  rule: chain\n                  why: >-\n                    The 3/2 that comes down',
       '                  rule: lhopital\n                  why: >-\n                    The 3/2 that comes down']],
     'not in `rules`'],
+  ['DERIVE', 'a rules list nobody is ever shown',
+    [["          startNote: given",
+      "          startNote: given\n          rules: [chain, power, substitution, evaluation]"]],
+    'askRule'],
 ];
 
 const dir = mkdtempSync(join(tmpdir(), 'gamekit-traps-'));

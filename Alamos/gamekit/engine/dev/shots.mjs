@@ -30,7 +30,7 @@ import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { tmpdir } from 'node:os';
 import { createServer } from 'node:net';
-import { themeDir } from './registry.mjs';
+import { themeDir, placeDir } from './registry.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..', '..');
@@ -206,7 +206,8 @@ async function until(url, what, tries = 100){
 }
 
 // --------------------------------------------------------------------- run
-const dir = themeDir(theme);
+// The viewpoints belong to the place, so an edition takes the base theme's.
+const dir = placeDir(theme);
 const views = await viewsFor(dir);
 mkdirSync(outDir, { recursive: true });
 

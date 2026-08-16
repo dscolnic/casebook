@@ -79,7 +79,7 @@ export default {
   opening: [
     'Ashfell Dam holds ninety-two million cubic metres of water in a gorge, '
     + 'with four villages along the river below it. This morning the reservoir is '
-    + 'at 88 per cent after the driest summer in nine years. The forecast is nine '
+    + 'at 88% after the driest summer in nine years. The forecast is nine '
     + 'days of rain starting Thursday, over every hillside that drains into it. '
     + 'You are the duty engineer, so the amount of water let out each morning is '
     + 'ordered by you. You order it out of gauge readings taken hours ago and a '

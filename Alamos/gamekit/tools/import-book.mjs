@@ -986,25 +986,29 @@ function gameFor(s, at, group, day){
         'a derivation needs a `goal`, stated as a form — "dQ/dt in terms of dH/dt" — so the panel'
         + ' can say where it is going without printing where it ends up');
       need(steps.length >= 2, 'a derivation of one line is not a derivation');
-      // Naming the rule is optional, but half-offering it is not: a list of one
-      // or two rules answers the second half of every step by elimination, so
-      // it is three or none. None means the panel grades the line alone.
-      need(rules.length === 0 || rules.length >= 3,
-        'a derivation offers at least three named rules or none at all — one or two rules to choose'
-        + ' from answers the second half of every step by elimination. Drop `rules` entirely to grade'
-        + ' the line by itself');
+      // Naming the rule is off by default and opted into with `askRule: true`.
+      // Half-offering it is not allowed: a list of one or two rules answers the
+      // second half of every step by elimination, so a book that asks for the
+      // rule offers three or more.
+      const asksRule = b.askRule === true;
+      need(!asksRule || rules.length >= 3,
+        '`askRule: true` needs at least three named rules — one or two to choose from answers the'
+        + ' second half of every step by elimination');
+      need(asksRule || !rules.length,
+        'this derivation lists `rules` but does not set `askRule: true`, so nothing would ever show'
+        + ' them. Add `askRule: true` to ask for the rule, or drop the `rules` list');
       steps.forEach((st, i) => {
         const cands = st.candidates ?? [];
         const n = `step ${i + 1}`;
         need(String(st.ask ?? '').trim(), `${n} needs an \`ask\` — what this line is doing`);
         need(cands.length >= 3, `${n} needs at least three candidates`);
         need(cands.every(c => String(c.text ?? '').trim())
-          && (!rules.length || cands.every(c => String(c.rule ?? '').trim())),
-          `every candidate in ${n} needs \`text\`, and the \`rule\` it claims wherever rules are offered`);
-        // Only when the player is being asked to name one. A book that has
-        // switched the naming half off keeps its per-candidate `rule` values —
-        // they cost nothing, and they are what switching it back on needs.
-        need(!rules.length || cands.every(c => rules.includes(String(c.rule))),
+          && (!asksRule || cands.every(c => String(c.rule ?? '').trim())),
+          `every candidate in ${n} needs \`text\`, and the \`rule\` it claims wherever rules are asked for`);
+        // Only when the player is being asked to name one. A book with the
+        // naming half off may keep its per-candidate `rule` values — they cost
+        // nothing, and they are what switching it back on would need.
+        need(!asksRule || cands.every(c => rules.includes(String(c.rule))),
           `${n} has a candidate claiming a rule that is not in \`rules\` — the player could never`
           + ' pick it, so that candidate can never be scored right');
         const key = +st.answer;

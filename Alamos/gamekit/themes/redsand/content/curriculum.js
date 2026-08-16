@@ -850,9 +850,9 @@ export const CURRICULUM = {
         "answer": "",
         "why": "Every line in an assay belongs to a part of the plant. The methane figure is the headline and the least informative. Carbon monoxide is not a contaminant that blew in; it is evidence of a second reaction on the same bed. Unreacted hydrogen is expected in a loop that recycles and would be alarming in one that did not. Water past the drier is a maintenance item that becomes an emergency 200 metres downstream, at 273 K in the exchanger.",
         "scenarios": [
-          "Methane at 96.4 per cent of the dry stream.",
-          "Carbon monoxide at 0.9 per cent.",
-          "Hydrogen at 2.1 per cent.",
+          "Methane at 96.4% of the dry stream.",
+          "Carbon monoxide at 0.9%.",
+          "Hydrogen at 2.1%.",
           "Water at 400 parts per million after the drier."
         ],
         "choices": [
@@ -1016,10 +1016,10 @@ export const CURRICULUM = {
         "answer": "",
         "why": "A specification is not one overall purity score. Each line protects a different downstream function. Water is the failure here: 400 ppm is 8 times a 50 ppm limit. At cryogenic valve temperatures, that water can become solid and interfere with moving hardware. Carbon monoxide and carbon dioxide are still inside their stated limits. If either rose too far, it would create a different consequence. The vehicle therefore needs every assay line interpreted against its own limit and failure mode before loading begins.",
         "scenarios": [
-          "Methane at 99.1 per cent against a limit of 99.0.",
+          "Methane at 99.1% against a limit of 99.0.",
           "Water at 400 parts per million against a limit of 50.",
-          "Carbon monoxide at 0.5 per cent against a limit of 1.0.",
-          "Carbon dioxide at 0.2 per cent against a limit of 0.5."
+          "Carbon monoxide at 0.5% against a limit of 1.0.",
+          "Carbon dioxide at 0.2% against a limit of 0.5."
         ],
         "choices": [
           "Inside the limit, and the margin is thin enough to be worth watching on the next batch.",
@@ -1450,23 +1450,23 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "The space left at the top",
-      "scene": "Bhatt's loading procedure stops the methane tank at 95 per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.",
+      "scene": "Bhatt's loading procedure stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.",
       "takeaway": "A cryogenic tank is designed around what happens to it between filling and use.",
       "place": "Cold End",
-      "story": "Bhatt's loading procedure stops the methane tank at 95 per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.",
+      "story": "Bhatt's loading procedure stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.",
       "game": {
         "type": "CHOICE",
         "title": "The space left at the top",
         "setup": "Cold End",
         "play": "Say how full a cryogenic tank may be filled",
         "task": "Say how full a cryogenic tank may be filled",
-        "question": "Why is the flight tank filled to 95 per cent rather than full?",
+        "question": "Why is the flight tank filled to 95% rather than full?",
         "answer": "Vapour from boil-off needs somewhere to go, or the tank pressure climbs against its rating.",
         "why": "A cryogenic tank always contains some vapour because heat continues to enter. The gas space above the liquid is the ullage. It gives newly formed vapour room before pressure reaches the relief setting. Filling the tank completely with liquid removes that buffer. Heating then causes liquid expansion and vapour formation to drive pressure upward quickly. The relief system must vent material to protect the tank. Leaving planned ullage therefore prevents a small heat input from immediately becoming a propellant-loss event before the vehicle uses the fuel.",
         "rebuttals": [
           "Liquid methane in a tank sits at its boiling point and is not cooling further.",
           "The gauge on this tank reads by pressure and temperature and does not need a surface to float on.",
-          "The pump is fed by pressure from the tank's own vapour, and five per cent is not what makes that possible."
+          "The pump is fed by pressure from the tank's own vapour, and 5% is not what makes that possible."
         ],
         "choices": [
           "Vapour from boil-off needs somewhere to go, or the tank pressure climbs against its rating.",
@@ -1855,14 +1855,14 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Where eight per cent of the charge went",
+      "title": "Where 8% of the charge went",
       "scene": "The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.",
       "takeaway": "Faraday’s law fixes the theoretical product from charge; current efficiency measures how much of that charge reached the intended reaction.",
       "place": "Electrolysis Hall",
       "story": "The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.",
       "game": {
         "type": "BALANCE",
-        "title": "Where eight per cent of the charge went",
+        "title": "Where 8% of the charge went",
         "setup": "Electrolysis Hall",
         "play": "Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.",
         "task": "Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.",
@@ -2125,10 +2125,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What limits the current",
-      "scene": "Sundqvist wants the stacks run 20 per cent above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
+      "scene": "Sundqvist wants the stacks run 20% above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
       "takeaway": "The ceiling on a cell is usually thermal rather than electrochemical.",
       "place": "Electrolysis Hall",
-      "story": "Sundqvist wants the stacks run 20 per cent above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
+      "story": "Sundqvist wants the stacks run 20% above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
       "game": {
         "type": "CHOICE",
         "title": "What limits the current",
@@ -2137,7 +2137,7 @@ export const CURRICULUM = {
         "task": "Say whether the stacks can be pushed harder",
         "question": "What sets the highest current these stacks can be run at?",
         "answer": "The heat the cooling loop can carry away, since the wasted voltage rises with the current.",
-        "why": "Faraday's law puts no ceiling on current at all: more charge is simply more product, in exact proportion. What rises with current is the overpotential, because resistance and sluggish electrode steps both cost more voltage the harder the cell is driven, and that extra voltage becomes heat inside the stack. So the limit is set by what the cooling loop can carry away before the cell cooks its own seals. 20 per cent more current can cost 40 per cent more heat.",
+        "why": "Faraday's law puts no ceiling on current at all: more charge is simply more product, in exact proportion. What rises with current is the overpotential, because resistance and sluggish electrode steps both cost more voltage the harder the cell is driven, and that extra voltage becomes heat inside the stack. So the limit is set by what the cooling loop can carry away before the cell cooks its own seals. 20% more current can cost 40% more heat.",
         "rebuttals": [
           "Faraday's constant converts charge into moles and does not cap the charge itself.",
           "Water feed is a limit worth checking and this hall has buffer enough for the requested rate.",
@@ -3221,10 +3221,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Getting water out of frozen ground — Review",
-      "scene": "A load has come in at three per cent water instead of eight, and the same four operations have to run on it. Nakagawa wants the order confirmed before the hopper is sealed.",
+      "scene": "A load has come in at 3% water instead of eight, and the same four operations have to run on it. Nakagawa wants the order confirmed before the hopper is sealed.",
       "takeaway": "A poorer load changes the yield of a process and not the order of it.",
       "place": "Water Plant",
-      "story": "A load has come in at three per cent water instead of eight, and the same four operations have to run on it. Nakagawa wants the order confirmed before the hopper is sealed.",
+      "story": "A load has come in at 3% water instead of eight, and the same four operations have to run on it. Nakagawa wants the order confirmed before the hopper is sealed.",
       "game": {
         "type": "SEQUENCE",
         "title": "Getting water out of frozen ground — Review",

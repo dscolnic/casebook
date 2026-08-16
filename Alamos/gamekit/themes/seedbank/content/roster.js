@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Seed Physiologist",
     "division": "VAULT",
     "color": "#2f5d52",
-    "bio": "<p>Answers one question for a living: how long will this live? A seed in the vault is not inert. It is respiring, slowly, and everything he controls — the drying room, the moisture content, the minus 18 — is aimed at making that slower.</p><p>He germinates a sample of every accession on a schedule and plots the curve. When it drops below 85 per cent the accession has to be grown out, which is the moment the argument between the vault and the field starts again.</p><p>His limit is that a germination test costs seed. Every measurement of how alive a collection is takes a little of it away.</p>",
+    "bio": "<p>Answers one question for a living: how long will this live? A seed in the vault is not inert. It is respiring, slowly, and everything he controls — the drying room, the moisture content, the minus 18 — is aimed at making that slower.</p><p>He germinates a sample of every accession on a schedule and plots the curve. When it drops below 85% the accession has to be grown out, which is the moment the argument between the vault and the field starts again.</p><p>His limit is that a germination test costs seed. Every measurement of how alive a collection is takes a little of it away.</p>",
     "quiz": [
       {
         "q": "Why does Mbaye dry seed before it goes into the vault?",
@@ -72,7 +72,7 @@ export const ROSTER = [
         "q": "Why can Ivanescu not say which alleles are worth keeping?",
         "a": "What is useful depends on a future nobody has seen",
         "wrong": [
-          "Allele frequencies cannot be measured accurately below one per cent",
+          "Allele frequencies cannot be measured accurately below 1%",
           "The passport data does not record which alleles an accession carries",
           "Sequencing every accession would cost more than the collection is worth"
         ]

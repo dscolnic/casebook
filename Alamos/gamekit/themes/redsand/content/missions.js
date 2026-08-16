@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "Water is the whole plant",
     "objective": "Find the feed that actually caps the plant, and what it costs to clean.",
     "briefing": "The bed is fine and the stacks are fine, and the plant made 11 kilograms again.",
-    "stake": "Sol 296, and for the third sol running the plant has made about 11 kilograms with a bed that could do more. Sora Nakagawa, who cuts the ground the water comes from, has been working poorer ice for a week: eight per cent water by mass in the spring, four and a half this morning, and the machine cannot go deeper fast enough to make it up. Abiola's holding tank is brine rather than water, and it stays liquid at temperatures that ought to have frozen it solid. Today you find out how salty that has to be to behave that way, what the stacks do with the voltage above the minimum, and which way the loop is running right now. Everything downstream is waiting on one tank.",
+    "stake": "Sol 296, and for the third sol running the plant has made about 11 kilograms with a bed that could do more. Sora Nakagawa, who cuts the ground the water comes from, has been working poorer ice for a week: 8% water by mass in the spring, four and a half this morning, and the machine cannot go deeper fast enough to make it up. Abiola's holding tank is brine rather than water, and it stays liquid at temperatures that ought to have frozen it solid. Today you find out how salty that has to be to behave that way, what the stacks do with the voltage above the minimum, and which way the loop is running right now. Everything downstream is waiting on one tank.",
     "takeaway": "The step that limits a plant is not the step anybody is arguing about.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "The bed walks downstream",
     "objective": "Find out what is happening inside a bed nobody can see into.",
     "briefing": "The reactor's hot spot has moved 30 centimetres down the bed in 9 sols.",
-    "stake": "Sol 297, and Kaur brought in 9 sols of temperature profiles this morning with the hot spot moved 30 centimetres down the bed. Output is falling about two per cent a sol against a feed that has not changed, and the assay bench has begun reporting carbon monoxide in the product where there was none in the spring. Élodie Moreau, who works the transfer lines, has a boil-off log that has gone up as well, which may be the same problem or a different one. Today you decide what the bed is telling you, work out why a hot reactor makes a gas nobody asked for, and put a number on what the tank farm loses standing still. Kaur says the profile means the front of the bed is dead; Sundqvist says a bed that hot is doing what hot beds do.",
+    "stake": "Sol 297, and Kaur brought in 9 sols of temperature profiles this morning with the hot spot moved 30 centimetres down the bed. Output is falling about 2% a sol against a feed that has not changed, and the assay bench has begun reporting carbon monoxide in the product where there was none in the spring. Élodie Moreau, who works the transfer lines, has a boil-off log that has gone up as well, which may be the same problem or a different one. Today you decide what the bed is telling you, work out why a hot reactor makes a gas nobody asked for, and put a number on what the tank farm loses standing still. Kaur says the profile means the front of the bed is dead; Sundqvist says a bed that hot is doing what hot beds do.",
     "takeaway": "A measurement taken every sol becomes evidence when somebody lays nine of them side by side.",
     "stops": [
       {
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "The sol everything agreed",
     "objective": "Close the plant's own books while there is nothing to firefight.",
     "briefing": "The new charge ran to specification for a full sol and nobody quite believes it.",
-    "stake": "Sol 301, and for the first time since the spring the plant has run a full 24 hours without anybody being called out. The new charge is holding conversion at 71 per cent, the polishing column is fresh, and the sol's production came in at 14.1 kilograms against a target of 13.8. Wells has asked for the quiet sol to be spent on arithmetic rather than on improvements, which is not a popular instruction. Today you close the energy ledger against what the array actually delivered, settle how full a cryogenic tank may be filled, and follow the carbon through a full pass of the loop. Herrera's view is that a plant nobody understands on a good sol is a plant nobody can fix on a bad one.",
+    "stake": "Sol 301, and for the first time since the spring the plant has run a full 24 hours without anybody being called out. The new charge is holding conversion at 71% , the polishing column is fresh, and the sol's production came in at 14.1 kilograms against a target of 13.8. Wells has asked for the quiet sol to be spent on arithmetic rather than on improvements, which is not a popular instruction. Today you close the energy ledger against what the array actually delivered, settle how full a cryogenic tank may be filled, and follow the carbon through a full pass of the loop. Herrera's view is that a plant nobody understands on a good sol is a plant nobody can fix on a bad one.",
     "takeaway": "The sol to check the books is the sol when nothing is going wrong.",
     "stops": [
       {
@@ -268,7 +268,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "40 per cent of the sun",
+    "title": "40% of the sun",
     "objective": "Decide what the station stops doing when the power halves.",
     "briefing": "A regional dust storm arrived overnight and the array is delivering less than half.",
     "stake": "Sol 302. A regional storm crossed the station overnight and the sky this morning is the colour of the ground. Iosif Petrov, the array technician, has the field delivering 430 kilowatt-hours against 2000 on a clear sol, and nobody can say whether that lasts 2 sols or 20. Everything on this plain runs off that array: the stacks, the refrigerators, the drill, and the habitat that Demir keeps at 19 degrees. Today you work out how much light is actually reaching the panels, decide in what order the loads are shed, and settle what the water plant does while the drill is stopped. Wells will sign whatever order you set, and she has said she will not revisit it before the storm clears.",
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "Three things at once",
     "objective": "Rank three faults that arrived together, and act on them in that order.",
     "briefing": "The storm cleared and left three problems that were not there a week ago.",
-    "stake": "Sol 303, and the storm blew itself out in the last hours of the night. It left three things behind. Moreau's oxygen tank is losing twice the boil-off it lost a fortnight ago; the new catalyst charge has never been checked against the sol-270 run because the storm took the power to do it; and the battery bank came down to 30 per cent overnight and has to be brought back before the next dust event. Today you work out what is wrong with the cold end, decide what a fair comparison of the new charge looks like, and rank all three against each other. Kaur, Moreau and Achebe each want theirs first, and all three of them are being reasonable about it.",
+    "stake": "Sol 303, and the storm blew itself out in the last hours of the night. It left three things behind. Moreau's oxygen tank is losing twice the boil-off it lost a fortnight ago; the new catalyst charge has never been checked against the sol-270 run because the storm took the power to do it; and the battery bank came down to 30% overnight and has to be brought back before the next dust event. Today you work out what is wrong with the cold end, decide what a fair comparison of the new charge looks like, and rank all three against each other. Kaur, Moreau and Achebe each want theirs first, and all three of them are being reasonable about it.",
     "takeaway": "Three reasonable people wanting to be first is a ranking problem rather than an argument.",
     "stops": [
       {

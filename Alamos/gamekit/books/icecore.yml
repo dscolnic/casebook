@@ -1132,7 +1132,7 @@ missions:
         takeaway: An isotope value is a comparison with an agreed water, which is why every one of them is negative here.
         format: BALLPARK
         question: Estimate the isotope value of this sample in parts per thousand.
-        answerText: About −35 per mil. The sample holds 3.5 per cent less heavy oxygen than ocean water, which is what a polar site looks like.
+        answerText: About −35 per mil. The sample holds 3.5% less heavy oxygen than ocean water, which is what a polar site looks like.
         why: >-
           Isotope ratios differ from one another in the fourth decimal place, so nobody reports them
           as ratios. The convention is to divide the sample's ratio by the ratio of 1 agreed
@@ -1396,7 +1396,7 @@ missions:
         takeaway: A term's contribution is its own width multiplied by the power it is raised to, and the largest power is not always the largest contribution.
         format: PROPAGATE
         question: Which measurement should the remaining time buy?
-        answerText: The past accumulation rate. Its 30 per cent uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.
+        answerText: The past accumulation rate. Its 30% uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.
         propagate:
           hint: >-
             Each term contributes its own fractional width times the power it is raised to. The bar
@@ -1417,7 +1417,7 @@ missions:
         why: >-
           A term enters the result raised to some power, and its contribution to the width of the
           answer is that power multiplied by its own fractional uncertainty. The grain diameter is
-          cubed, which makes it look like the term to fix, but it is known to 5 per cent, so it
+          cubed, which makes it look like the term to fix, but it is known to 5%, so it
           contributes 15. The accumulation rate enters once and is known to 30, so it
           contributes twice as much on its own. Ranking by exponent is a reasonable habit and it
           picks the wrong measurement here.

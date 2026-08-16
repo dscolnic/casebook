@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "What the guessing survey found",
     "objective": "Find out whether the people scoring the outcome knew which arm they were scoring.",
     "briefing": "Investigators were asked to guess. They were right far more often than chance.",
-    "stake": "Thursday, 11 days out, and a routine questionnaire has come back wrong. At the last annual visit every investigator was asked to guess which arm each of their participants was on. Across 1,180 guesses they were right 71 per cent of the time. Ansah's committee, who see no arms at all, are unaffected; the symptom score written by the treating doctor is another matter, and it is the score Iriarte and Doyle have both called the one patients care about. Today you work out what a guessing rate like that does to each of CLARION-3's outcomes, and what the board has to be told before it reads either.",
+    "stake": "Thursday, 11 days out, and a routine questionnaire has come back wrong. At the last annual visit every investigator was asked to guess which arm each of their participants was on. Across 1,180 guesses they were right 71% of the time. Ansah's committee, who see no arms at all, are unaffected; the symptom score written by the treating doctor is another matter, and it is the score Iriarte and Doyle have both called the one patients care about. Today you work out what a guessing rate like that does to each of CLARION-3's outcomes, and what the board has to be told before it reads either.",
     "takeaway": "A blind that has already failed cannot be restored by insisting on it.",
     "stops": [
       {

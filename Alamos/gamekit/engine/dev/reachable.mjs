@@ -31,7 +31,7 @@
 import { existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { themeDir, themeNames } from './registry.mjs';
+import { themeDir, themeNames, placeDir } from './registry.mjs';
 import { installDom } from './headless.mjs';
 
 const args = process.argv.slice(2);
@@ -53,7 +53,10 @@ let failures = 0;
 
 for(const name of wanted){
   const dir = themeDir(name);
-  const sitePath = resolve(dir, 'site.js');
+  // The place is the base theme's when this is an edition; the manifest and the
+  // content are still this theme's own.
+  const place = placeDir(name);
+  const sitePath = resolve(place, 'site.js');
   if(!existsSync(sitePath)){
     console.log(`\n· ${name}: interior or its own world — nothing to fill`);
     continue;
@@ -64,8 +67,8 @@ for(const name of wanted){
     continue;
   }
   const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
-  const props = existsSync(resolve(dir, 'props.js'))
-    ? await import(pathToFileURL(resolve(dir, 'props.js')).href) : {};
+  const props = existsSync(resolve(place, 'props.js'))
+    ? await import(pathToFileURL(resolve(place, 'props.js')).href) : {};
 
   // The colliders the *theme* places. The world's own building boxes are added
   // below from the site data, because building the real world needs a GPU and

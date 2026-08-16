@@ -372,19 +372,19 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The blind that had already gone",
-      "scene": "At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71 per cent across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.",
+      "scene": "At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71% across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.",
       "takeaway": "When a treatment announces itself, the people measuring stop being blind whatever the protocol says.",
       "place": "Adjudication Room",
-      "story": "At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71 per cent across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.",
+      "story": "At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71% across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.",
       "game": {
         "type": "CHOICE",
         "title": "The blind that had already gone",
         "setup": "Adjudication Room",
         "play": "Choose the explanation that fits the guessing survey and the visible flush.",
         "task": "Choose the explanation that fits the guessing survey and the visible flush.",
-        "question": "What best explains investigators guessing the treatment arm correctly 71 per cent of the time?",
+        "question": "What best explains investigators guessing the treatment arm correctly 71% of the time?",
         "answer": "The visible early flush is the best explanation. It gives investigators information about assignment before they later write the symptom score. The protocol may still say blinded while the measurement process is not.",
-        "why": "71 per cent correct across 1,180 guesses is far from the 50 per cent expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.",
+        "why": "71% correct across 1,180 guesses is far from the 50% expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.",
         "choices": [
           {
             "label": "The visible early flush is revealing assignment",
@@ -399,7 +399,7 @@ export const CURRICULUM = {
             "mechanism": "Accurate guessing would then be a consequence of the treatment working."
           },
           {
-            "label": "71 per cent is a plausible chance fluctuation in 1,180 guesses",
+            "label": "71% is a plausible chance fluctuation in 1,180 guesses",
             "mechanism": "Across 1,180 guesses, ordinary variation would put the figure near 50."
           }
         ],
@@ -1000,7 +1000,7 @@ export const CURRICULUM = {
         "task": "Say what a second look costs",
         "question": "Why does an unplanned look at the endpoint threaten the trial's error rate?",
         "answer": "Every look is another chance to cross the line by luck alone",
-        "why": "A five per cent error rate is a promise about the whole trial, not about one test. Data wander as they accumulate; a difference that looks convincing at one moment can be gone a month later. Each time somebody tests the accumulated data, the trial gets another opportunity to catch that wandering at its most flattering point. Two planned looks are affordable because the boundary at each was made harder to compensate. An unplanned look has no such correction, so it spends error rate the trial never budgeted for.",
+        "why": "A 5% error rate is a promise about the whole trial, not about one test. Data wander as they accumulate; a difference that looks convincing at one moment can be gone a month later. Each time somebody tests the accumulated data, the trial gets another opportunity to catch that wandering at its most flattering point. Two planned looks are affordable because the boundary at each was made harder to compensate. An unplanned look has no such correction, so it spends error rate the trial never budgeted for.",
         "rebuttals": [
           "The events keep arriving whether or not anybody looks; looking does not consume them.",
           "Losing the blind is a serious separate harm, and the error rate would rise even if nobody remembered what they saw.",
@@ -1293,12 +1293,12 @@ export const CURRICULUM = {
         "setup": "Statistics & Analysis",
         "play": "Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.",
         "task": "Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.",
-        "question": "Estimate the NNT, then estimate the standard error of the 18.9 per cent control-arm event rate.",
+        "question": "Estimate the NNT, then estimate the standard error of the 18.9% control-arm event rate.",
         "answer": "About 24 people treated for 1 event avoided; the control-arm event rate has SE ≈ 0.011, or 1.1 percentage points.",
-        "why": "The risk difference and NNT describe the size of the observed benefit. Precision is a different question. For a proportion, standard error depends on both the event rate and the number measured. With about 1,200 people in the control arm, an 18.9 per cent rate has an SE near 1.1 percentage points. A 95 per cent margin is about twice that. Increasing the sample narrows this uncertainty only with the square root of n, so halving the SE takes about four times as many people.",
+        "why": "The risk difference and NNT describe the size of the observed benefit. Precision is a different question. For a proportion, standard error depends on both the event rate and the number measured. With about 1,200 people in the control arm, an 18.9% rate has an SE near 1.1 percentage points. A 95% margin is about twice that. Increasing the sample narrows this uncertainty only with the square root of n, so halving the SE takes about four times as many people.",
         "givens": [
-          "Control arm event rate 18.9 per cent",
-          "Treatment arm event rate 14.7 per cent"
+          "Control arm event rate 18.9%",
+          "Treatment arm event rate 14.7%"
         ],
         "relationship": "ARR = p_control − p_treatment; NNT = 1/ARR; SE = √(p(1−p)/n); a 95% margin is about 1.96 × SE.",
         "calcKey": "STAT-6"
@@ -1466,10 +1466,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "How often something clears the line by luck",
-      "scene": "14 prespecified subgroups, each tested at the usual 5 per cent. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
+      "scene": "14 prespecified subgroups, each tested at the usual 5%. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
       "takeaway": "The chance of at least one false positive rises fast with the number of tests.",
       "place": "Statistics & Analysis",
-      "story": "14 prespecified subgroups, each tested at the usual 5 per cent. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
+      "story": "14 prespecified subgroups, each tested at the usual 5%. Feldman writes the arithmetic on the board and asks what the chance is that at least one clears the line with no real difference anywhere.",
       "game": {
         "type": "BALLPARK",
         "title": "How often something clears the line by luck",
@@ -1477,17 +1477,17 @@ export const CURRICULUM = {
         "play": "Put a number on 14 looks",
         "task": "Put a number on 14 looks",
         "question": "Estimate the chance that at least 1 of 14 subgroups clears the line by luck alone.",
-        "answer": "About 51 per cent — near enough a coin toss.",
+        "answer": "About 51% — near enough a coin toss.",
         "why": "Each test carries its own small chance of being wrong, and the chances do not stay small when they are stacked. With independent tests the probability that none misfires is 0.95 multiplied by itself once per test, so 14 tests leave barely half the outcomes clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated, but that a room looking in 14 places will usually find something in 1 of them. Real subgroups overlap and correlate, which softens the number without changing the lesson.\n",
         "givens": [
           "14 subgroups were prespecified",
-          "Each is tested at the five per cent level"
+          "Each is tested at the 5% level"
         ],
         "relationship": "Chance of at least 1 false positive = 1 − (1 − α)^m, with α the level of each test and m the number of tests.\n",
         "calcKey": "STAT-8"
       },
       "assumes": [
-        "each test has a five per cent chance of a false positive on its own"
+        "each test has a 5% chance of a false positive on its own"
       ],
       "equations": [
         {
@@ -1525,21 +1525,21 @@ export const CURRICULUM = {
         "setup": "Statistics & Analysis",
         "play": "Say how likely the trial is to finish positive",
         "task": "Say how likely the trial is to finish positive",
-        "question": "What does a conditional power of 78 per cent tell the board?",
-        "answer": "A conditional power of 78 per cent is a forecast under an assumption about the remaining data. About 78 per cent of comparable continuations would finish significant. It is not the probability that the treatment works.",
-        "why": "Conditional power forecasts the trial under an assumption about what happens next. It starts with the data already collected and asks how often the final test would cross its line if the remaining events behave as assumed. A value of 78 per cent argues against stopping for futility. It does not say there is a 78 per cent chance the treatment works. It also does not say the current result is significant. The stopping boundary answers that separate question.",
+        "question": "What does a conditional power of 78% tell the board?",
+        "answer": "A conditional power of 78% is a forecast under an assumption about the remaining data. About 78% of comparable continuations would finish significant. It is not the probability that the treatment works.",
+        "why": "Conditional power forecasts the trial under an assumption about what happens next. It starts with the data already collected and asks how often the final test would cross its line if the remaining events behave as assumed. A value of 78% argues against stopping for futility. It does not say there is a 78% chance the treatment works. It also does not say the current result is significant. The stopping boundary answers that separate question.",
         "rebuttals": [
           "That would be a probability about the treatment itself and requires a different framework and assumptions.",
           "Information fraction is events observed divided by events planned; here it is about two thirds.",
           "Today's boundary is evaluated with today's statistic. Conditional power forecasts a future final analysis."
         ],
         "choices": [
-          "Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant",
-          "Given the current data, the probability that the treatment truly has a benefit is 78 per cent",
-          "78 per cent of the information needed for the final analysis has already been collected",
-          "The current interim result has a 78 per cent chance of crossing today's stopping boundary"
+          "Under the stated future-data assumption, about 78% of comparable continuations would finish significant",
+          "Given the current data, the probability that the treatment truly has a benefit is 78%",
+          "78% of the information needed for the final analysis has already been collected",
+          "The current interim result has a 78% chance of crossing today's stopping boundary"
         ],
-        "correctChoice": "Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant"
+        "correctChoice": "Under the stated future-data assumption, about 78% of comparable continuations would finish significant"
       },
       "assumes": [
         "the trial has collected about two thirds of its planned events"
@@ -2405,10 +2405,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "One relative risk, many absolute effects",
-      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22 per cent; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "scene": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "takeaway": "A relative effect does not determine the absolute benefit until the baseline risk is known.",
       "place": "Regulatory & Registry",
-      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22 per cent; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
+      "story": "2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.",
       "game": {
         "type": "DEGENERACY",
         "title": "One relative risk, many absolute effects",
@@ -2416,8 +2416,8 @@ export const CURRICULUM = {
         "play": "Move the two event rates until they reproduce the reported relative risk, then use the absolute risk reduction to collapse the possibilities.",
         "task": "Move the two event rates until they reproduce the reported relative risk, then use the absolute risk reduction to collapse the possibilities.",
         "question": "How many pairs of arm risks fit the relative result, and what second measurement identifies the CLARION-3 pair?",
-        "answer": "The relative risk alone allows many pairs. Adding ARR = 0.042 selects the CLARION-3 rates: 0.189 in control and 0.147 in treatment. Their ratio is about 0.778, a 22 per cent relative reduction.",
-        "why": "A ratio does not carry the baseline rate with it. Treatment and control risks of 3.9 and 5 per cent give almost the same relative reduction as 14.7 and 18.9 per cent. The absolute benefits are very different. That is why the relative result forms a whole line of possible pairs on the display. Adding the measured absolute reduction gives a second line. Their intersection recovers the actual arm rates and shows why an absolute statement carries information the relative headline leaves out.",
+        "answer": "The relative risk alone allows many pairs. Adding ARR = 0.042 selects the CLARION-3 rates: 0.189 in control and 0.147 in treatment. Their ratio is about 0.778, a 22% relative reduction.",
+        "why": "A ratio does not carry the baseline rate with it. Treatment and control risks of 3.9 and 5% give almost the same relative reduction as 14.7 and 18.9%. The absolute benefits are very different. That is why the relative result forms a whole line of possible pairs on the display. Adding the measured absolute reduction gives a second line. Their intersection recovers the actual arm rates and shows why an absolute statement carries information the relative headline leaves out.",
         "degeneracy": {
           "controls": [
             {
@@ -2603,7 +2603,7 @@ export const BALLPARK_CALCS = {
     "explanation": "About two thirds. By months the trial looks 3 quarters done — 41 of 54 — and the 2 numbers disagree because the amendment brought in people at lower risk. The boundary the board reads in a fortnight is set from the 0.65, not from the calendar.\n"
   },
   "STAT-6": {
-    "prompt": "The adjudicated event happened in 18.9 per cent of control and 14.7 per cent of treatment, with about 1,200 people per arm. First use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) for the control rate and 1.96 × SE for a 95 per cent margin.",
+    "prompt": "The adjudicated event happened in 18.9% of control and 14.7% of treatment, with about 1,200 people per arm. First use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) for the control rate and 1.96 × SE for a 95% margin.",
     "question": "Choose the two event rates and the approximate number in one arm.",
     "labels": [
       "0.189  (control arm event rate)",
@@ -2631,10 +2631,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 3,
     "units": "people treated per event avoided",
     "solution": "ARR = 0.189 − 0.147 = 0.042; NNT = 1/0.042 ≈ 24. SE = √(0.189×0.811/1200) ≈ 0.0113; 1.96×SE ≈ 0.022.",
-    "explanation": "NNT is about 24. The control-arm SE is about 0.011, or 1.1 percentage points, so its 95 per cent margin is about 2.2 points. The first number describes clinical size; the second describes sampling precision. Halving that SE would require about four times the sample, not twice."
+    "explanation": "NNT is about 24. The control-arm SE is about 0.011, or 1.1 percentage points, so its 95% margin is about 2.2 points. The first number describes clinical size; the second describes sampling precision. Halving that SE would require about four times the sample, not twice."
   },
   "STAT-8": {
-    "prompt": "14 subgroups are each tested at 5 per cent level. If nothing is really different anywhere, the chance that none of them clears the line is 0.95 raised to the fourteenth power. The chance that at least one does is one minus that.\n",
+    "prompt": "14 subgroups are each tested at 5% level. If nothing is really different anywhere, the chance that none of them clears the line is 0.95 raised to the fourteenth power. The chance that at least one does is one minus that.\n",
     "question": "Choose the per-test pass rate and the number of tests.",
     "labels": [
       "0.95  (chance 1 test does not misfire)",

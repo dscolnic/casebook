@@ -757,7 +757,7 @@ missions:
         format: CHOICE
         question: Why does an unplanned look at the endpoint threaten the trial's error rate?
         why: |-
-          A five per cent error rate is a promise about the whole trial, not about one test. Data wander as they accumulate; a difference that looks convincing at one moment can be gone a month later. Each time somebody tests the accumulated data, the trial gets another opportunity to catch that wandering at its most flattering point. Two planned looks are affordable because the boundary at each was made harder to compensate. An unplanned look has no such correction, so it spends error rate the trial never budgeted for.
+          A 5% error rate is a promise about the whole trial, not about one test. Data wander as they accumulate; a difference that looks convincing at one moment can be gone a month later. Each time somebody tests the accumulated data, the trial gets another opportunity to catch that wandering at its most flattering point. Two planned looks are affordable because the boundary at each was made harder to compensate. An unplanned look has no such correction, so it spends error rate the trial never budgeted for.
         choices:
           - Every look is another chance to cross the line by luck alone
           - Looking early reduces the number of events the trial will finally collect
@@ -1318,7 +1318,7 @@ missions:
     stake: >-
       Thursday, 11 days out, and a routine questionnaire has come back wrong. At the last
       annual visit every investigator was asked to guess which arm each of their participants was
-      on. Across 1,180 guesses they were right 71 per cent of the time. Ansah's committee, who see
+      on. Across 1,180 guesses they were right 71% of the time. Ansah's committee, who see
       no arms at all, are unaffected; the symptom score written by the treating doctor is another
       matter, and it is the score Iriarte and Doyle have both called the one patients care about.
       Today you work out what a guessing rate like that does to each of CLARION-3's outcomes, and
@@ -1329,23 +1329,23 @@ missions:
         task: Choose the explanation that fits the guessing survey and the visible flush.
         title: The blind that had already gone
         place: Adjudication Room
-        scene: At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71 per cent across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.
+        scene: At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71% across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.
         assumes:
           - blinding is meant to keep the person measuring from knowing the arm
         takeaway: When a treatment announces itself, the people measuring stop being blind whatever the protocol says.
         format: CHOICE
-        question: What best explains investigators guessing the treatment arm correctly 71 per cent of the time?
+        question: What best explains investigators guessing the treatment arm correctly 71% of the time?
         answerText: The visible early flush is the best explanation. It gives investigators information about assignment before they later write the symptom score. The protocol may still say blinded while the measurement process is not.
-        why: 71 per cent correct across 1,180 guesses is far from the 50 per cent expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.
-        headline: Investigators guessed correctly 71 per cent of the time. Chance would be 50 per cent. First-fortnight logs show a visible flush concentrated in one arm.
+        why: 71% correct across 1,180 guesses is far from the 50% expected by chance. The visible flush also supplies a direct mechanism. Investigators can see it before they later score symptoms. A leaked allocation list could also raise guessing, but it would not explain participants guessing well too. Guessing from improvement would require a treatment effect much larger than the event data show. The survey therefore measures a real loss of blinding, not random noise.
+        headline: Investigators guessed correctly 71% of the time. Chance would be 50%. First-fortnight logs show a visible flush concentrated in one arm.
         readings:
           - zone: Investigator guesses
             label: Correct
-            value: 71 per cent
+            value: 71%
             status: alarm
           - zone: Participant guesses
             label: Correct
-            value: 68 per cent
+            value: 68%
             status: alarm
           - zone: Adjudicators
             label: Files with arm shown
@@ -1367,7 +1367,7 @@ missions:
             mechanism: A leak would raise guessing accuracy without any clinical signal to go on.
           - label: Investigators are inferring assignment from dramatic clinical improvement
             mechanism: Accurate guessing would then be a consequence of the treatment working.
-          - label: 71 per cent is a plausible chance fluctuation in 1,180 guesses
+          - label: 71% is a plausible chance fluctuation in 1,180 guesses
             mechanism: Across 1,180 guesses, ordinary variation would put the figure near 50.
         answer: The visible early flush is revealing assignment
       - group: STAT
@@ -1493,11 +1493,11 @@ missions:
           - a proportion estimated from a sample has sampling error
         takeaway: Effect size says how large the difference is; standard error says how much the estimate would move across repeated samples.
         format: BALLPARK
-        question: Estimate the NNT, then estimate the standard error of the 18.9 per cent control-arm event rate.
+        question: Estimate the NNT, then estimate the standard error of the 18.9% control-arm event rate.
         answerText: About 24 people treated for 1 event avoided; the control-arm event rate has SE ≈ 0.011, or 1.1 percentage points.
-        why: The risk difference and NNT describe the size of the observed benefit. Precision is a different question. For a proportion, standard error depends on both the event rate and the number measured. With about 1,200 people in the control arm, an 18.9 per cent rate has an SE near 1.1 percentage points. A 95 per cent margin is about twice that. Increasing the sample narrows this uncertainty only with the square root of n, so halving the SE takes about four times as many people.
+        why: The risk difference and NNT describe the size of the observed benefit. Precision is a different question. For a proportion, standard error depends on both the event rate and the number measured. With about 1,200 people in the control arm, an 18.9% rate has an SE near 1.1 percentage points. A 95% margin is about twice that. Increasing the sample narrows this uncertainty only with the square root of n, so halving the SE takes about four times as many people.
         estimate:
-          prompt: The adjudicated event happened in 18.9 per cent of control and 14.7 per cent of treatment, with about 1,200 people per arm. First use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) for the control rate and 1.96 × SE for a 95 per cent margin.
+          prompt: The adjudicated event happened in 18.9% of control and 14.7% of treatment, with about 1,200 people per arm. First use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) for the control rate and 1.96 × SE for a 95% margin.
           question: Choose the two event rates and the approximate number in one arm.
           labels:
             - 0.189  (control arm event rate)
@@ -1514,10 +1514,10 @@ missions:
           tolerance: 3
           units: people treated per event avoided
           solution: ARR = 0.189 − 0.147 = 0.042; NNT = 1/0.042 ≈ 24. SE = √(0.189×0.811/1200) ≈ 0.0113; 1.96×SE ≈ 0.022.
-          explanation: NNT is about 24. The control-arm SE is about 0.011, or 1.1 percentage points, so its 95 per cent margin is about 2.2 points. The first number describes clinical size; the second describes sampling precision. Halving that SE would require about four times the sample, not twice.
+          explanation: NNT is about 24. The control-arm SE is about 0.011, or 1.1 percentage points, so its 95% margin is about 2.2 points. The first number describes clinical size; the second describes sampling precision. Halving that SE would require about four times the sample, not twice.
           givens:
-            - Control arm event rate 18.9 per cent
-            - Treatment arm event rate 14.7 per cent
+            - Control arm event rate 18.9%
+            - Treatment arm event rate 14.7%
           relationship: ARR = p_control − p_treatment; NNT = 1/ARR; SE = √(p(1−p)/n); a 95% margin is about 1.96 × SE.
       - group: RAND
         task: Decide what to do about the blind for everybody still enrolling
@@ -1809,11 +1809,11 @@ missions:
         title: How often something clears the line by luck
         place: Statistics & Analysis
         scene: >
-          14 prespecified subgroups, each tested at the usual 5 per cent. Feldman writes
+          14 prespecified subgroups, each tested at the usual 5%. Feldman writes
           the arithmetic on the board and asks what the chance is that at least one clears the line
           with no real difference anywhere.
         assumes:
-          - each test has a five per cent chance of a false positive on its own
+          - each test has a 5% chance of a false positive on its own
         takeaway: The chance of at least one false positive rises fast with the number of tests.
         format: BALLPARK
         question: Estimate the chance that at least 1 of 14 subgroups clears the line by luck alone.
@@ -1827,7 +1827,7 @@ missions:
           lesson.
         estimate:
           prompt: >
-            14 subgroups are each tested at 5 per cent level. If nothing is really
+            14 subgroups are each tested at 5% level. If nothing is really
             different anywhere, the chance that none of them clears the line is 0.95 raised to the
             fourteenth power. The chance that at least one does is one minus that.
           question: Choose the per-test pass rate and the number of tests.
@@ -1852,11 +1852,11 @@ missions:
             time, which is why the over-seventies finding is not evidence on its own.
           givens:
             - 14 subgroups were prespecified
-            - Each is tested at the five per cent level
+            - Each is tested at the 5% level
           relationship: >
             Chance of at least 1 false positive = 1 − (1 − α)^m, with α the level of each test and
             m the number of tests.
-        answerText: About 51 per cent — near enough a coin toss.
+        answerText: About 51% — near enough a coin toss.
       - group: ENDP
         task: Check what the over-seventies analysis actually measured
         title: The slice, and what it was scored on
@@ -1957,15 +1957,15 @@ missions:
           - the trial has collected about two thirds of its planned events
         takeaway: A forecast about a study is not a statement about the treatment.
         format: CHOICE
-        question: What does a conditional power of 78 per cent tell the board?
-        answerText: A conditional power of 78 per cent is a forecast under an assumption about the remaining data. About 78 per cent of comparable continuations would finish significant. It is not the probability that the treatment works.
-        why: Conditional power forecasts the trial under an assumption about what happens next. It starts with the data already collected and asks how often the final test would cross its line if the remaining events behave as assumed. A value of 78 per cent argues against stopping for futility. It does not say there is a 78 per cent chance the treatment works. It also does not say the current result is significant. The stopping boundary answers that separate question.
+        question: What does a conditional power of 78% tell the board?
+        answerText: A conditional power of 78% is a forecast under an assumption about the remaining data. About 78% of comparable continuations would finish significant. It is not the probability that the treatment works.
+        why: Conditional power forecasts the trial under an assumption about what happens next. It starts with the data already collected and asks how often the final test would cross its line if the remaining events behave as assumed. A value of 78% argues against stopping for futility. It does not say there is a 78% chance the treatment works. It also does not say the current result is significant. The stopping boundary answers that separate question.
         choices:
-          - Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant
-          - Given the current data, the probability that the treatment truly has a benefit is 78 per cent
-          - 78 per cent of the information needed for the final analysis has already been collected
-          - The current interim result has a 78 per cent chance of crossing today's stopping boundary
-        answer: Under the stated future-data assumption, about 78 per cent of comparable continuations would finish significant
+          - Under the stated future-data assumption, about 78% of comparable continuations would finish significant
+          - Given the current data, the probability that the treatment truly has a benefit is 78%
+          - 78% of the information needed for the final analysis has already been collected
+          - The current interim result has a 78% chance of crossing today's stopping boundary
+        answer: Under the stated future-data assumption, about 78% of comparable continuations would finish significant
         rebuttals:
           - That would be a probability about the treatment itself and requires a different framework and assumptions.
           - Information fraction is events observed divided by events planned; here it is about two thirds.
@@ -2005,7 +2005,7 @@ missions:
         task: Move the two event rates until they reproduce the reported relative risk, then use the absolute risk reduction to collapse the possibilities.
         title: One relative risk, many absolute effects
         place: Regulatory & Registry
-        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22 per cent; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
+        scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. 1 says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
         assumes:
           - relative risk is treatment risk divided by control risk
           - absolute risk reduction is control risk minus treatment risk
@@ -2053,8 +2053,8 @@ missions:
                 b: 0.258
           observable:
             label: Relative risk
-        answerText: "The relative risk alone allows many pairs. Adding ARR = 0.042 selects the CLARION-3 rates: 0.189 in control and 0.147 in treatment. Their ratio is about 0.778, a 22 per cent relative reduction."
-        why: A ratio does not carry the baseline rate with it. Treatment and control risks of 3.9 and 5 per cent give almost the same relative reduction as 14.7 and 18.9 per cent. The absolute benefits are very different. That is why the relative result forms a whole line of possible pairs on the display. Adding the measured absolute reduction gives a second line. Their intersection recovers the actual arm rates and shows why an absolute statement carries information the relative headline leaves out.
+        answerText: "The relative risk alone allows many pairs. Adding ARR = 0.042 selects the CLARION-3 rates: 0.189 in control and 0.147 in treatment. Their ratio is about 0.778, a 22% relative reduction."
+        why: A ratio does not carry the baseline rate with it. Treatment and control risks of 3.9 and 5% give almost the same relative reduction as 14.7 and 18.9%. The absolute benefits are very different. That is why the relative result forms a whole line of possible pairs on the display. Adding the measured absolute reduction gives a second line. Their intersection recovers the actual arm rates and shows why an absolute statement carries information the relative headline leaves out.
       - group: ENDP
         task: State what the trial has established about its endpoint
         title: What can be claimed
@@ -2121,7 +2121,7 @@ interiors:
       rows:
         - { label: Files ruled this year, value: 402, status: normal }
         - { label: Under adjudication, value: 19, status: high }
-        - { label: Reader disagreement, value: 11 per cent, status: normal }
+        - { label: Reader disagreement, value: 11%, status: normal }
         - { label: Files showing an arm, value: 0, status: normal }
   SAFE:
     caption: The only table in the building where the two arms appear on the same page.

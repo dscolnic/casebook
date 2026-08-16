@@ -17,7 +17,7 @@ export const INTERIORS = {
         },
         {
           "label": "Seed moisture",
-          "value": "5.8 per cent",
+          "value": "5.8%",
           "status": "normal"
         },
         {
@@ -34,7 +34,7 @@ export const INTERIORS = {
     }
   },
   "DRY": {
-    "caption": "A seed comes in at 20 per cent water and has to leave at 5.",
+    "caption": "A seed comes in at 20% water and has to leave at 5.",
     "standLine": "Slow and cool, because heat kills the embryo it is meant to be preserving.",
     "station": {
       "kind": "panel",
@@ -47,17 +47,17 @@ export const INTERIORS = {
         },
         {
           "label": "Relative humidity",
-          "value": "15 per cent",
+          "value": "15%",
           "status": "normal"
         },
         {
           "label": "Incoming moisture",
-          "value": "19 per cent",
+          "value": "19%",
           "status": "high"
         },
         {
           "label": "Target moisture",
-          "value": "5 to 7 per cent",
+          "value": "5 to 7%",
           "status": "normal"
         }
       ]
@@ -142,12 +142,12 @@ export const INTERIORS = {
         },
         {
           "label": "Selected-plot gain",
-          "value": "31 per cent",
+          "value": "31%",
           "status": "alarm"
         },
         {
           "label": "Gain across replicates",
-          "value": "11 per cent",
+          "value": "11%",
           "status": "normal"
         }
       ]

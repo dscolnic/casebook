@@ -902,7 +902,7 @@ missions:
         takeaway: Positive predictive value depends on prevalence as well as sensitivity and specificity.
         format: BALLPARK
         question: Estimate the chance that a positive result is a true case.
-        why: "The validation table lets all three quantities be computed. Among 100 infected people, 90 test positive and 10 test negative, giving 90 per cent sensitivity. Among 9,900 uninfected people, 9,801 test negative and 99 test positive, giving 99 per cent specificity. The same counts also show why a positive is less decisive in a low-prevalence group: there are 90 true positives but 99 false positives. So only 90 of 189 positive tests are true cases, about 48 per cent."
+        why: "The validation table lets all three quantities be computed. Among 100 infected people, 90 test positive and 10 test negative, giving 90% sensitivity. Among 9,900 uninfected people, 9,801 test negative and 99 test positive, giving 99% specificity. The same counts also show why a positive is less decisive in a low-prevalence group: there are 90 true positives but 99 false positives. So only 90 of 189 positive tests are true cases, about 48%."
         estimate:
           relationship: Sensitivity = TP ÷ (TP+FN). Specificity = TN ÷ (TN+FP). PPV = TP ÷ (TP+FP).
           prompt: A reference method identifies 100 infected and 9,900 uninfected people in a 10,000-person validation group. The assay gives 90 true positives, 10 false negatives, 9,801 true negatives and 99 false positives.
@@ -1381,7 +1381,7 @@ missions:
   - title: The Mutation
     objective: Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.
     briefing: A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.
-    stake: Day 45. A variant with 3 changes has gone from 8 to 31 per cent of sequences in 4 weeks, in 1 district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.
+    stake: Day 45. A variant with 3 changes has gone from 8 to 31% of sequences in 4 weeks, in 1 district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.
     takeaway: Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL
@@ -1409,7 +1409,7 @@ missions:
         task: Which explanation best fits the frequency trend and the independent checks?
         title: Selection or sampling artifact?
         place: Evolutionary Dynamics Group
-        scene: A variant has gone from 8 to 31 per cent of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.
+        scene: A variant has gone from 8 to 31% of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.
         assumes:
           - a change in who gets tested changes what the tests find
         takeaway: A changing share needs competing explanations tested before it can support a claim about biological advantage.
@@ -1570,13 +1570,13 @@ missions:
         task: One thing before anybody's prescription changes. Which?
         title: Recover treatment effectiveness
         place: Pharmacology Unit
-        scene: Effectiveness has fallen from 82 to 51 per cent in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.
+        scene: Effectiveness has fallen from 82 to 51% in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.
         assumes:
           - a matched comparison is what turns a finding into evidence
         takeaway: A resistance response should combine evolutionary evidence with pharmacology and patient safety.
         format: CHOICE
         question: One thing before anybody's prescription changes. Which?
-        why: Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51 per cent over 9 weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.
+        why: Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51% over 9 weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.
         choices:
           - Sequence the failures alongside matched successful cases.
           - Measure drug exposure and adherence objectively.
@@ -1771,13 +1771,13 @@ missions:
         task: The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?
         title: Continue, expand, or pause?
         place: Independent Safety Board
-        scene: The estimated benefit is 24 per cent, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.
+        scene: The estimated benefit is 24%, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.
         assumes:
           - a wider interval means less is known, not that the effect is smaller
         takeaway: Benefit and safety must both be judged through the pre-specified monitoring plan; a positive benefit estimate does not override a possible safety signal.
         format: CHOICE
         question: Promising, imprecise, and the adverse events are uneven. What does the board decide?
-        why: A confidence interval from 3 to 41 per cent is compatible with benefit across a wide range of sizes. Excluding zero under the planned model is evidence against no effect, not proof that the exact benefit is known. Seven serious adverse events versus two may be chance or a safety signal; raw counts alone do not decide which. Precision depends on sample size, event frequency and design. The board should apply the pre-specified safety boundary and event review. It can then resume, modify, expand or stop according to that plan.
+        why: A confidence interval from 3 to 41% is compatible with benefit across a wide range of sizes. Excluding zero under the planned model is evidence against no effect, not proof that the exact benefit is known. Seven serious adverse events versus two may be chance or a safety signal; raw counts alone do not decide which. Precision depends on sample size, event frequency and design. The board should apply the pre-specified safety boundary and event review. It can then resume, modify, expand or stop according to that plan.
         choices:
           - Apply the pre-specified safety review and resume or expand only if its boundary permits.
           - Declare success because the benefit interval excludes zero.
@@ -1850,7 +1850,7 @@ missions:
         task: Set both occupancy thresholds before releasing the next capacity updates, then see whether each action still has enough lead time to matter.
         title: Choose an adaptive policy
         place: City Command
-        scene: Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75 per cent and a short worst-case trace from the capacity model. Two reversible actions each need lead time.
+        scene: Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75% and a short worst-case trace from the capacity model. Two reversible actions each need lead time.
         assumes:
           - a trigger is written before the next number arrives
           - reversible preparations still need time to take effect
@@ -1897,8 +1897,8 @@ missions:
             - id: surge
               label: Open regional surge-bed capacity
               leadHours: 24
-        answerText: Set the first trigger near 80 per cent occupancy and the second near 88 per cent before releasing the trace. In this worst-case run they fire with the required day of lead time. Waiting until occupancy is already near 95 per cent makes the same actions operationally late.
-        why: A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, 90 of 120 beds are already occupied, so the system starts at 75 per cent. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.
+        answerText: Set the first trigger near 80% occupancy and the second near 88% before releasing the trace. In this worst-case run they fire with the required day of lead time. Waiting until occupancy is already near 95% makes the same actions operationally late.
+        why: A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, 90 of 120 beds are already occupied, so the system starts at 75%. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.
   - title: The Final Briefing
     objective: Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.
     briefing: The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.

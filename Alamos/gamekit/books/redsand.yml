@@ -367,7 +367,7 @@ roster:
       metres of ground.
 
       He samples every load before it goes to the hopper, because the difference
-      between eight per cent water and three per cent is the difference between a
+      between 8% water and 3% is the difference between a
       shift that meets its number and one that does not.
 
       His limit is depth. Below about two metres the machine is slower than the
@@ -858,7 +858,7 @@ missions:
           relationship: Feed mass = product mass × molar mass of the feed ÷ molar mass of the product, since CO₂ + 4H₂ → CH₄ + 2H₂O consumes 1 carbon dioxide for each methane.
       - group: ELEC
         task: Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.
-        title: Where eight per cent of the charge went
+        title: Where 8% of the charge went
         place: Electrolysis Hall
         scene: The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.
         assumes:
@@ -1020,7 +1020,7 @@ missions:
     stake: >-
       Sol 296, and for the third sol running the plant has made about 11 kilograms with a bed
       that could do more. Sora Nakagawa, who cuts the ground the water comes from, has been working
-      poorer ice for a week: eight per cent water by mass in the spring, four and a half this
+      poorer ice for a week: 8% water by mass in the spring, four and a half this
       morning, and the machine cannot go deeper fast enough to make it up. Abiola's holding tank is
       brine rather than water, and it stays liquid at temperatures that ought to have frozen it
       solid. Today you find out how salty that has to be to behave that way, what the stacks do
@@ -1140,7 +1140,7 @@ missions:
     briefing: The reactor's hot spot has moved 30 centimetres down the bed in 9 sols.
     stake: >-
       Sol 297, and Kaur brought in 9 sols of temperature profiles this morning with the hot spot
-      moved 30 centimetres down the bed. Output is falling about two per cent a sol against a
+      moved 30 centimetres down the bed. Output is falling about 2% a sol against a
       feed that has not changed, and the assay bench has begun reporting carbon monoxide in the
       product where there was none in the spring. Élodie Moreau, who works the transfer lines, has a
       boil-off log that has gone up as well, which may be the same problem or a different one. Today
@@ -1299,9 +1299,9 @@ missions:
         format: PROTOCOL
         why: Every line in an assay belongs to a part of the plant. The methane figure is the headline and the least informative. Carbon monoxide is not a contaminant that blew in; it is evidence of a second reaction on the same bed. Unreacted hydrogen is expected in a loop that recycles and would be alarming in one that did not. Water past the drier is a maintenance item that becomes an emergency 200 metres downstream, at 273 K in the exchanger.
         scenarios:
-          - Methane at 96.4 per cent of the dry stream.
-          - Carbon monoxide at 0.9 per cent.
-          - Hydrogen at 2.1 per cent.
+          - Methane at 96.4% of the dry stream.
+          - Carbon monoxide at 0.9%.
+          - Hydrogen at 2.1%.
           - Water at 400 parts per million after the drier.
         choices:
           - The plant is doing its main job, and the arguments all live in the few per cent left over.
@@ -1363,7 +1363,7 @@ missions:
         readings:
           - zone: Inlet 20 mm
             label: Chlorine on the surface
-            value: 1.9 per cent by mass
+            value: 1.9% by mass
             status: alarm
           - zone: Inlet 20 mm
             label: Nickel particle size
@@ -1534,8 +1534,8 @@ missions:
     briefing: The new charge ran to specification for a full sol and nobody quite believes it.
     stake: >-
       Sol 301, and for the first time since the spring the plant has run a full 24 hours
-      without anybody being called out. The new charge is holding conversion at 71 per
-      cent, the polishing column is fresh, and the sol's production came in at 14.1
+      without anybody being called out. The new charge is holding conversion at 71%
+      , the polishing column is fresh, and the sol's production came in at 14.1
       kilograms against a target of 13.8. Wells has asked for the quiet sol to be
       spent on arithmetic rather than on improvements, which is not a popular instruction. Today you
       close the energy ledger against what the array actually delivered, settle how full a
@@ -1580,13 +1580,13 @@ missions:
         title: The space left at the top
         place: Cold End
         scene: |-
-          Bhatt's loading procedure stops the methane tank at 95 per cent by volume. Moreau has been asked why the remaining five per cent is not simply more propellant, with the window as close as it is.
+          Bhatt's loading procedure stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.
         assumes:
           - a liquid at its boiling point turns to vapour when heat reaches it
           - a closed vessel has a pressure it is rated to
         takeaway: A cryogenic tank is designed around what happens to it between filling and use.
         format: CHOICE
-        question: Why is the flight tank filled to 95 per cent rather than full?
+        question: Why is the flight tank filled to 95% rather than full?
         why: A cryogenic tank always contains some vapour because heat continues to enter. The gas space above the liquid is the ullage. It gives newly formed vapour room before pressure reaches the relief setting. Filling the tank completely with liquid removes that buffer. Heating then causes liquid expansion and vapour formation to drive pressure upward quickly. The relief system must vent material to protect the tank. Leaving planned ullage therefore prevents a small heat input from immediately becoming a propellant-loss event before the vehicle uses the fuel.
         choices:
           - Vapour from boil-off needs somewhere to go, or the tank pressure climbs against its rating.
@@ -1597,7 +1597,7 @@ missions:
         rebuttals:
           - Liquid methane in a tank sits at its boiling point and is not cooling further.
           - The gauge on this tank reads by pressure and temperature and does not need a surface to float on.
-          - The pump is fed by pressure from the tank's own vapour, and five per cent is not what makes that possible.
+          - The pump is fed by pressure from the tank's own vapour, and 5% is not what makes that possible.
       - group: EQUIL
         task: Close the 100-mole carbon ledger for 1 pass, then decide which carbon is lost and which is recycled.
         title: Close the carbon pass
@@ -1637,7 +1637,7 @@ missions:
         answerText: The pass closes as 64 CH₄ + 2 CO + 34 recycled CO₂ = 100 carbon moles. Recycle makes the overall methane fraction approach about 64/(64+2) ≈ 97%, not 64%.
         why: "A one-pass conversion of 64% does not mean 36% of the feed is lost. The carbon ledger shows 64 moles leaving as methane, 2 as carbon monoxide and 34 returning as unreacted carbon dioxide. The recycle term is therefore inventory, not waste. If the same selectivity holds over repeated passes, the returned carbon keeps getting another chance. The ultimate split approaches the ratio of the irreversible products: 64/(64+2), or about 97% methane, with about 3% ending as carbon monoxide."
   # ---------------------------------------------------------------- sol 302
-  - title: 40 per cent of the sun
+  - title: 40% of the sun
     objective: Decide what the station stops doing when the power halves.
     briefing: A regional dust storm arrived overnight and the array is delivering less than half.
     stake: >-
@@ -1775,7 +1775,7 @@ missions:
       Sol 303, and the storm blew itself out in the last hours of the night. It left three things
       behind. Moreau's oxygen tank is losing twice the boil-off it lost a fortnight ago; the new
       catalyst charge has never been checked against the sol-270 run because the storm took the
-      power to do it; and the battery bank came down to 30 per cent overnight and has to be
+      power to do it; and the battery bank came down to 30% overnight and has to be
       brought back before the next dust event. Today you work out what is wrong with the cold end,
       decide what a fair comparison of the new charge looks like, and rank all three against each
       other. Kaur, Moreau and Achebe each want theirs first, and all three of them are being
@@ -1904,10 +1904,10 @@ missions:
         format: PROTOCOL
         why: "A specification is not one overall purity score. Each line protects a different downstream function. Water is the failure here: 400 ppm is 8 times a 50 ppm limit. At cryogenic valve temperatures, that water can become solid and interfere with moving hardware. Carbon monoxide and carbon dioxide are still inside their stated limits. If either rose too far, it would create a different consequence. The vehicle therefore needs every assay line interpreted against its own limit and failure mode before loading begins."
         scenarios:
-          - Methane at 99.1 per cent against a limit of 99.0.
+          - Methane at 99.1% against a limit of 99.0.
           - Water at 400 parts per million against a limit of 50.
-          - Carbon monoxide at 0.5 per cent against a limit of 1.0.
-          - Carbon dioxide at 0.2 per cent against a limit of 0.5.
+          - Carbon monoxide at 0.5% against a limit of 1.0.
+          - Carbon dioxide at 0.2% against a limit of 0.5.
         choices:
           - Inside the limit, and the margin is thin enough to be worth watching on the next batch.
           - Eight times the limit, and it freezes in a valve at the temperature that valve runs at.
@@ -1952,7 +1952,7 @@ missions:
         title: What limits the current
         place: Electrolysis Hall
         scene: >
-          Sundqvist wants the stacks run 20 per cent above their rated current for the sols that
+          Sundqvist wants the stacks run 20% above their rated current for the sols that
           remain. Achebe has the cooling loop's capacity written on the board beside the request.
         assumes:
           - the product a cell makes is proportional to the charge it passes
@@ -1971,8 +1971,8 @@ missions:
           exact proportion. What rises with current is the overpotential, because resistance and
           sluggish electrode steps both cost more voltage the harder the cell is driven, and that
           extra voltage becomes heat inside the stack. So the limit is set by what the cooling loop
-          can carry away before the cell cooks its own seals. 20 per cent more current can cost
-          40 per cent more heat.
+          can carry away before the cell cooks its own seals. 20% more current can cost
+          40% more heat.
         rebuttals:
           - Faraday's constant converts charge into moles and does not cap the charge itself.
           - Water feed is a limit worth checking and this hall has buffer enough for the requested rate.
@@ -2278,7 +2278,7 @@ lessons:
     task: Order the same plant on a poorer load
     place: Water Plant
     scene: >
-      A load has come in at three per cent water instead of eight, and the same four operations have
+      A load has come in at 3% water instead of eight, and the same four operations have
       to run on it. Nakagawa wants the order confirmed before the hopper is sealed.
     assumes:
       - warming ice-bearing soil releases water as vapour at low pressure
@@ -2401,7 +2401,7 @@ interiors:
         - { label: Oxygen boil-off, value: 12.5 kg/sol, status: low }
   ELEC:
     caption: Charge and moles are one measurement in two units, and the gap between them is the cell.
-    standLine: 12 cells, 640 amps, and 8 per cent of it making nothing.
+    standLine: 12 cells, 640 amps, and 8% of it making nothing.
     station:
       kind: panel
       title: Water stack

@@ -30,7 +30,7 @@
 // its own wall furniture without the kit is invisible here. And it only reaches
 // worlds the generated builders make: a game that lays out its own place by hand
 // is beyond it. Screenshots are what covers those — see `shots.mjs`.
-import { themeDir, themeNames } from './registry.mjs';
+import { themeDir, themeNames, placeDir } from './registry.mjs';
 import { THREE, interiorScene, caseRoomScenes } from './scenes.mjs';
 
 /** How far behind a fitting a wall may be and still be holding it up. */
@@ -282,7 +282,9 @@ function roomNamer(plan){
 // --------------------------------------------------------------------- run
 let failed = 0;
 for(const name of wanted){
-  const dir = themeDir(name);
+  // Everything this fires a ray at is the place, and an edition's place is the
+  // base theme's.
+  const dir = placeDir(name);
   const problems = [];
   let fittingCount = 0, standingCount = 0, places = 0;
 

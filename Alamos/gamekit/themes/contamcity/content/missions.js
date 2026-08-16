@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "Remove It Without Making It Worse",
     "objective": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "briefing": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.",
-    "stake": "Day 31. Osei's pilot treatment works — 98 per cent of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The hazard that lasts longest here may be one there is still no test for.",
+    "stake": "Day 31. Osei's pilot treatment works — 98% of the compound you identified is gone by the outlet — and he wants to scale it this week. Nakamura points out that the panel it was tested against was written for that compound and nothing else. Today you work out what the treatment actually did: what it removed, what it made, and where the rest went. A test panel written for the original reports success either way, because it is not looking for what you made. The hazard that lasts longest here may be one there is still no test for.",
     "takeaway": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "stops": [
       {

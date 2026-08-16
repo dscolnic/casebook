@@ -5,23 +5,23 @@
 // wheel's gondolas hang level, and whether the park looks shut. The rooms are
 // engine-built and are not the risk.
 export const shots = [
-  // What a player sees from inside the gate: the midway, with the wheel on the
-  // left and the ship on the right, and the coaster's lift hill behind them.
+  // Arriving: the county road, the car park, the ticket line, then the midway.
+  { name: 'the-road-in', at: { x: -30, z: 158 }, yaw: 0 },
+  { name: 'car-park-west', at: { x: -56, z: 132 }, yaw: 0 },
+  { name: 'ticket-line', at: { x: 0, z: 84 }, yaw: 0 },
   { name: 'inside-the-gate', at: { x: 0, z: 58 }, yaw: 0 },
   { name: 'the-midway-north', at: { x: 0, z: 10 }, yaw: 0 },
+  // The rides. yaw is degrees, and on this site 90 looks west and 270 east.
   { name: 'ferris-wheel', at: { x: -18, z: 4 }, yaw: 180 },
-  { name: 'ferris-wheel-under', at: { x: -18, z: 46 }, yaw: 180 },
-  { name: 'pirate-ship', at: { x: 26, z: -6 }, yaw: 270 },
-  { name: 'carousel-and-swings', at: { x: -28, z: -6 }, yaw: 90 },
-  { name: 'bumper-pavilion', at: { x: 6, z: -24 }, yaw: 270 },
-  // The coaster from three sides: the station, the lift hill, and the loop.
-  { name: 'coaster-station', at: { x: -30, z: -44 }, yaw: 90 },
-  { name: 'coaster-lift-hill', at: { x: -30, z: -70 }, yaw: 60 },
-  { name: 'the-loop', at: { x: -6, z: -58 }, yaw: 90 },
-  { name: 'the-loop-from-below', at: { x: -22, z: -44 }, yaw: 0 },
-  { name: 'drop-tower', at: { x: 20, z: -74 }, yaw: 270 },
+  { name: 'pirate-ship', at: { x: 24, z: 6 }, yaw: 270 },
+  { name: 'carousel-and-swings', at: { x: -26, z: -6 }, yaw: 90 },
+  { name: 'bumper-pavilion', at: { x: 4, z: -24 }, yaw: 270 },
+  { name: 'coaster-station', at: { x: -22, z: -44 }, yaw: 90 },
+  { name: 'coaster-lift-hill', at: { x: -12, z: -78 }, yaw: 90 },
+  { name: 'the-loop', at: { x: -2, z: -58 }, yaw: 90 },
+  { name: 'the-loop-from-below', at: { x: -22, z: -42 }, yaw: 0 },
+  { name: 'drop-tower', at: { x: 22, z: -74 }, yaw: 270 },
   { name: 'flume-and-lake', at: { x: 0, z: -84 }, yaw: 0 },
-  { name: 'flume-drop', at: { x: -4, z: -108 }, yaw: 120 },
   // The two that are about the park being shut rather than about a ride.
   { name: 'boarded-stalls', at: { x: 4, z: 40 }, yaw: 90 },
   { name: 'from-the-lake-back', at: { x: 0, z: -130 }, yaw: 180 },

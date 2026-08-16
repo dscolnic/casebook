@@ -854,7 +854,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the kinetic energy to be dissipated.",
         "answer": "",
-        "why": "Kinetic energy is one-half the mass times speed squared. The squared speed is the dominant feature of lunar return. Raising entry speed by about 40 percent nearly doubles the kinetic energy for the same mass. That extra energy must still be removed before landing. The heat shield therefore faces a much harder job even if the capsule itself is unchanged. Comparing speeds without squaring them would badly understate the difference between low-Earth-orbit entry and return from the Moon.",
+        "why": "Kinetic energy is one-half the mass times speed squared. The squared speed is the dominant feature of lunar return. Raising entry speed by about 40% nearly doubles the kinetic energy for the same mass. That extra energy must still be removed before landing. The heat shield therefore faces a much harder job even if the capsule itself is unchanged. Comparing speeds without squaring them would badly understate the difference between low-Earth-orbit entry and return from the Moon.",
         "givens": [],
         "relationship": "Kinetic energy = ½ × mass × speed².",
         "calcKey": "THERM-5"
@@ -3021,7 +3021,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 30000000000,
     "units": "J",
     "solution": "½mv² ≈ 3.0 × 10¹¹ J.",
-    "explanation": "The one-half is written into the template rather than offered as a tile, because it is part of the relationship and not a measured quantity. The low-orbit speed is there to be compared: 40 per cent slower is half the energy, through the same heat shield."
+    "explanation": "The one-half is written into the template rather than offered as a tile, because it is part of the relationship and not a measured quantity. The low-orbit speed is there to be compared: 40% slower is half the energy, through the same heat shield."
   },
   "STRUCT-3": {
     "prompt": "A mounted component is modelled as a 4 kg mass on a 400 N/m spring.",
@@ -3081,7 +3081,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.5,
     "units": "km",
     "solution": "√(6² + 8²) = 10 km.",
-    "explanation": "Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by 40 per cent here."
+    "explanation": "Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by 40% here."
   }
 };
 

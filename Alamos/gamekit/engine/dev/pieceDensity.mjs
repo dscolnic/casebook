@@ -24,7 +24,7 @@
 import { existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { themeDir, themeNames } from './registry.mjs';
+import { themeDir, themeNames, placeDir } from './registry.mjs';
 import { installDom, stubRenderer } from './headless.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
@@ -266,7 +266,7 @@ async function measureRooms(name, dir){
 const summary = [];
 for(const name of wanted){
   let dir;
-  try{ dir = themeDir(name); }catch{ console.log(`\n=== ${name}: not a registered theme`); continue; }
+  try{ dir = placeDir(name); }catch{ console.log(`\n=== ${name}: not a registered theme`); continue; }
   const hasPlan = existsSync(resolve(dir, 'plan.js'));
   const hasSite = existsSync(resolve(dir, 'site.js'));
   let res = null;

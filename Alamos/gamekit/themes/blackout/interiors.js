@@ -57,7 +57,7 @@ export const INTERIORS = {
         },
         {
           "label": "Governor droop",
-          "value": "4 per cent",
+          "value": "4%",
           "status": "normal"
         }
       ]
@@ -72,7 +72,7 @@ export const INTERIORS = {
       "rows": [
         {
           "label": "Circuit 2 loading",
-          "value": "108 per cent",
+          "value": "108%",
           "status": "high"
         },
         {

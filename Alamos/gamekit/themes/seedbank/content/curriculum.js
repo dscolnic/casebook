@@ -7,10 +7,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the vault is cold",
-      "scene": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6 per cent moisture. The other sat in a warm shed and now germinates at 31 per cent.",
+      "scene": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6% moisture. The other sat in a warm shed and now germinates at 31%.",
       "takeaway": "Cold and low moisture extend orthodox-seed life by slowing the reactions that drive deterioration.",
       "place": "Seed Vault",
-      "story": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6 per cent moisture. The other sat in a warm shed and now germinates at 31 per cent.",
+      "story": "Mbaye has two lots of the same accession on the bench. 1 spent 4 years at minus 18 degrees and 6% moisture. The other sat in a warm shed and now germinates at 31%.",
       "game": {
         "type": "CHOICE",
         "title": "Why the vault is cold",
@@ -73,10 +73,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Write the viability rule before it falls",
-      "scene": "Mbaye has 11 germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
+      "scene": "Mbaye has 11 germination results from the same accession, falling from 98 to 85%. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
       "takeaway": "A biological threshold must fire early enough for the action it triggers to arrive before the measured state crosses the limit.",
       "place": "Seed Vault",
-      "story": "Mbaye has 11 germination results from the same accession, falling from 98 to 85 per cent. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
+      "story": "Mbaye has 11 germination results from the same accession, falling from 98 to 85%. The current regeneration floor is 85. Booking field space takes several planning updates, and starting the grow-out takes one more.",
       "game": {
         "type": "TRIGGER",
         "title": "Write the viability rule before it falls",
@@ -655,10 +655,10 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "40 tonnes and a failing gene",
-      "scene": "40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11 per cent more in a dry year.",
+      "scene": "40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11% more in a dry year.",
       "takeaway": "What makes a variety valuable is also what makes a single failing gene expensive.",
       "place": "Crossing Hall",
-      "story": "40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11 per cent more in a dry year.",
+      "story": "40 tonnes of WM-712 seed exists. Its single resistance gene is being beaten 200 kilometres away and in Wellmere's own nursery this morning. It still yields 11% more in a dry year.",
       "game": {
         "type": "CHOICE",
         "title": "40 tonnes and a failing gene",
@@ -923,7 +923,7 @@ export const CURRICULUM = {
             {
               "id": "rare",
               "label": "Rare-variant comparison",
-              "reading": "9 alleles recorded in 1994 at under 5 per cent are absent from the current sample",
+              "reading": "9 alleles recorded in 1994 at under 5% are absent from the current sample",
               "depends": [
                 "passport",
                 "current_genotype",
@@ -943,7 +943,7 @@ export const CURRICULUM = {
             {
               "id": "viability",
               "label": "Germination panel",
-              "reading": "Germination 91 per cent, and the store has held minus 18 for 28 years",
+              "reading": "Germination 91%, and the store has held minus 18 for 28 years",
               "depends": [
                 "germination",
                 "vault_log"
@@ -1053,8 +1053,8 @@ export const CURRICULUM = {
         "play": "What happened to the resistance in this accession?",
         "task": "What happened to the resistance in this accession?",
         "question": "What happened to the resistance in this accession?",
-        "answer": "The evidence supports loss by drift during repeated small grow-outs. The old note shows the resistant phenotype was rare, not that the allele frequency was exactly five per cent.",
-        "why": "The 1994 field note says about 5 per cent of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If 5 per cent of plants show it, a random sample of 30 has about a 21 per cent chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.",
+        "answer": "The evidence supports loss by drift during repeated small grow-outs. The old note shows the resistant phenotype was rare, not that the allele frequency was exactly 5%.",
+        "why": "The 1994 field note says about 5% of plants showed the resistant phenotype. That is not automatically a five-per-cent allele frequency. Dominance and genotype frequencies matter. It still tells us the resistant type was uncommon. If 5% of plants show it, a random sample of 30 has about a 21% chance of missing it entirely. Repeated small grow-outs create repeated opportunities for that loss. The clean nurseries provide no selection that would reliably preserve the resistance.",
         "headline": "The 1994 notes describe resistant plants in this accession. The 2026 sample has none.",
         "readings": [
           {
@@ -1092,7 +1092,7 @@ export const CURRICULUM = {
         "choices": [
           {
             "label": "Drift removed it across three small grow-outs",
-            "mechanism": "An allele at 5 per cent has a real chance of missing a sample of 33 times over."
+            "mechanism": "An allele at 5% has a real chance of missing a sample of 33 times over."
           },
           {
             "label": "The 1994 collector recorded it wrongly",
@@ -1284,10 +1284,10 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What the trial can actually claim",
-      "scene": "Four seasons, one site, four replicates each. WM-712 is ahead by 11 per cent in the 2 dry years and by 2 per cent in the wet ones. The merchant's leaflet says \"11 per cent higher yielding\".",
+      "scene": "Four seasons, one site, four replicates each. WM-712 is ahead by 11% in the 2 dry years and by 2% in the wet ones. The merchant's leaflet says \"11% higher yielding\".",
       "takeaway": "A number from a trial carries the conditions it was measured under, or it is a different claim.",
       "place": "Field Laboratory",
-      "story": "Four seasons, one site, four replicates each. WM-712 is ahead by 11 per cent in the 2 dry years and by 2 per cent in the wet ones. The merchant's leaflet says \"11 per cent higher yielding\".",
+      "story": "Four seasons, one site, four replicates each. WM-712 is ahead by 11% in the 2 dry years and by 2% in the wet ones. The merchant's leaflet says \"11% higher yielding\".",
       "game": {
         "type": "CHOICE",
         "title": "What the trial can actually claim",
@@ -1296,9 +1296,9 @@ export const CURRICULUM = {
         "task": "Say what four seasons of trials support",
         "question": "What does this trial support saying about WM-712?",
         "answer": "The defensible claim is site- and season-specific: WM-712's advantage was much larger in the 2 dry years than in the wet years.",
-        "why": "The eleven-per-cent advantage belongs to two dry years at one site. In wet years the advantage is only two per cent. Removing those conditions turns a measured result into a broader claim the data have not tested. The useful conclusion therefore carries its environment with it: WM-712 performed especially well in dry seasons on this ground. That result can motivate trials in other dry places, but it cannot substitute for them. Genotype-by-environment effects make performance conditional rather than universal.",
+        "why": "The eleven-per-cent advantage belongs to two dry years at one site. In wet years the advantage is only 2%. Removing those conditions turns a measured result into a broader claim the data have not tested. The useful conclusion therefore carries its environment with it: WM-712 performed especially well in dry seasons on this ground. That result can motivate trials in other dry places, but it cannot substitute for them. Genotype-by-environment effects make performance conditional rather than universal.",
         "rebuttals": [
-          "The wet-year advantage is only 2 per cent, so 11 per cent is not a season-independent effect.",
+          "The wet-year advantage is only 2%, so 11% is not a season-independent effect.",
           "One site can motivate a drought-adaptation hypothesis, but it cannot establish performance across regions.",
           "The trial separates dry from wet years here; it does not define a rainfall threshold that guarantees the same response."
         ],
@@ -1434,7 +1434,7 @@ export const CURRICULUM = {
           "B": 55,
           "A": 30
         },
-        "research": "The yield trial has 240 plots: 60 lines, 4 replicates. Guard rows take about 8 per cent\nof the area and stop plots from borrowing light and water from their neighbours. Shortening\nplots by a fifth would free 20 per cent but raises the error variance because a short plot\nsamples less ground. Dropping the fourth replicate frees a quarter and removes most of the\ntrial's ability to separate lines that differ by less than half a tonne. The screening\nmaterial needs the equivalent of 30 plots."
+        "research": "The yield trial has 240 plots: 60 lines, 4 replicates. Guard rows take about 8%\nof the area and stop plots from borrowing light and water from their neighbours. Shortening\nplots by a fifth would free 20% but raises the error variance because a short plot\nsamples less ground. Dropping the fourth replicate frees a quarter and removes most of the\ntrial's ability to separate lines that differ by less than half a tonne. The screening\nmaterial needs the equivalent of 30 plots."
       },
       "assumes": [
         "a trial's precision depends on its replication and its plot size"
@@ -1522,7 +1522,7 @@ export const CURRICULUM = {
         "play": "Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them.",
         "task": "Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them.",
         "question": "Which combinations can explain the first disagreement rate, and which one survives the direct-gene PCR check?",
-        "answer": "The first result permits several mixes of recombination and marker error. Direct-gene PCR removes the assay-error explanation, leaving linkage and about four per cent recombination.",
+        "answer": "The first result permits several mixes of recombination and marker error. Direct-gene PCR removes the assay-error explanation, leaving linkage and about 4% recombination.",
         "why": "PCR copies a chosen DNA region through repeated denaturation, primer annealing, and extension. Gel electrophoresis can then separate the resulting DNA fragments by size. Here that tool reads a marker near the resistance gene, not the gene itself. Marker–trait disagreement can therefore come from recombination or assay error. One disagreement rate cannot separate those causes. A second PCR assay aimed inside the resistance gene adds independent evidence. When it confirms the gene call, linkage and recombination remain.",
         "degeneracy": {
           "controls": [
@@ -1631,7 +1631,7 @@ export const CURRICULUM = {
         "play": "Test whether the marker still works here",
         "task": "Test whether the marker still works here",
         "question": "Set the marker score above which a seedling is kept, on the plants the marker was mapped in — then freeze it and score it on a population it has never seen. What does it get?",
-        "answer": "About 94 per cent, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — 20 points of it was that 1 population's noise.",
+        "answer": "About 94%, from a cut-off near 48. The 63 that scores 99 on the mapping plants drops to 79 on the new cross — 20 points of it was that 1 population's noise.",
         "why": "A cut-off chosen on one population partly fits that population’s accidents. Those accidents do not have to repeat. The broad high-scoring shelf is useful because it persists when the rule is frozen and applied to the new donor cross. The sharp optimum at 63 does not persist; it was overfit to the mapping plants. A holdout population separates a marker rule that generalises from one that merely describes the sample used to choose it.",
         "holdout": {
           "axis": {
@@ -2009,14 +2009,14 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Where the missing two per cent went",
-      "scene": "Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about two per cent less. Nakagawa also detects the defence transcript in clean leaves before infection.",
+      "title": "Where the missing 2% went",
+      "scene": "Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about 2% less. Nakagawa also detects the defence transcript in clean leaves before infection.",
       "takeaway": "Gene regulation controls when defence proteins are made, and expression before infection can carry a standing resource cost.",
       "place": "Drying & Processing Hall",
-      "story": "Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about two per cent less. Nakagawa also detects the defence transcript in clean leaves before infection.",
+      "story": "Toft has paired no-rust plots of near-identical lines with and without the resistance gene. The resistant line yields about 2% less. Nakagawa also detects the defence transcript in clean leaves before infection.",
       "game": {
         "type": "BALANCE",
-        "title": "Where the missing two per cent went",
+        "title": "Where the missing 2% went",
         "setup": "Drying & Processing Hall",
         "play": "Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation.",
         "task": "Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation.",

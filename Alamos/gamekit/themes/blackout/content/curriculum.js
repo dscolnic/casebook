@@ -30,7 +30,7 @@ export const CURRICULUM = {
           "Every substation reports the same frequency to two decimal places.",
           "The trend fell steeply for the first two seconds, then more slowly.",
           "The frequency has stopped falling and is sitting below its starting value.",
-          "Two substations report voltages that differ by three per cent."
+          "Two substations report voltages that differ by 3%."
         ],
         "choices": [
           "The machines are all turning in step, so this is one system-wide quantity.",
@@ -1031,7 +1031,7 @@ export const CURRICULUM = {
           "A": 45,
           "C": 25
         },
-        "research": "The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like\nthis occur perhaps 40 times a winter. Storage at the ridge would be about 50 MW for 4 hours,\nat 85 per cent round trip. The corridor's second circuit has been on the reinforcement list for\ntwo years without a date."
+        "research": "The ridge can produce 340 MW tonight. The corridor is rated at about 190 MW continuous. Nights like\nthis occur perhaps 40 times a winter. Storage at the ridge would be about 50 MW for 4 hours,\nat 85% round trip. The corridor's second circuit has been on the reinforcement list for\ntwo years without a date."
       },
       "assumes": [
         "power has to have a path to where it is used"
@@ -1169,7 +1169,7 @@ export const CURRICULUM = {
         "task": "Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan.",
         "question": "Which evidence should be bought before the room trusts its present under-frequency timing?",
         "answer": "Buy the current machine-data inertia audit. It reveals about 18,000 MW·s rather than the inherited 25,000. For a 300 MW loss at 50 Hz, |df/dt| rises from 0.30 Hz/s to about 0.42 Hz/s.",
-        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about 40 per cent faster.",
+        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about 40% faster.",
         "value": {
           "budget": {
             "amount": 4,
@@ -1246,10 +1246,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What you do before a relay does it for you",
-      "scene": "The corridor is at 108 per cent of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.",
+      "scene": "The corridor is at 108% of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.",
       "takeaway": "A protection plan must be written before the number moves, with earlier thresholds for actions that take longer to arrive.",
       "place": "Transmission Control",
-      "story": "The corridor is at 108 per cent of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.",
+      "story": "The corridor is at 108% of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.",
       "game": {
         "type": "TRIGGER",
         "title": "What you do before a relay does it for you",
@@ -1673,7 +1673,7 @@ export const CURRICULUM = {
         "task": "Work out the corridor's loss at the higher flow",
         "question": "Estimate the power now lost as heat in the corridor.",
         "answer": "About 21 MW.",
-        "why": "The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11 per cent, from 1,150 A to 1,280 A. The heat rises by about 24 per cent, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.",
+        "why": "The same loss relation now gives a worse answer. Resistive heating rises with the square of RMS current, across all three phases. Current has risen by about 11%, from 1,150 A to 1,280 A. The heat rises by about 24%, from roughly 17 MW to 21 MW. That matters because the conductor rating is thermal. A small-looking increase in current can therefore use a much larger fraction of the available temperature margin.",
         "givens": [
           "RMS current is now 1,280 A in each phase",
           "Resistance remains 4.2 Ω per phase",
@@ -1784,7 +1784,7 @@ export const CURRICULUM = {
         "play": "Estimate the volt drop to the end of the feeder",
         "task": "Estimate the volt drop to the end of the feeder",
         "question": "Estimate the volt drop from the substation to the far end.",
-        "answer": "About 1.07 kV line-to-line, roughly 9.7 per cent of an 11 kV feeder.",
+        "answer": "About 1.07 kV line-to-line, roughly 9.7% of an 11 kV feeder.",
         "why": "A real feeder has both resistance and reactance. Current through those terms produces a voltage drop whose size depends on the load phase angle. The resistive part follows the in-phase current. The reactive part follows the out-of-phase current. For a balanced three-phase feeder expressed with line-to-line voltage, the result carries a factor of root three. That factor matters here because 11 kV is a line-to-line rating. Reactive support can raise the far-end voltage by reducing the reactive part of the drop.",
         "givens": [
           "Feeder current is 310 A",
@@ -2074,7 +2074,7 @@ export const CURRICULUM = {
         "task": "Estimate the loss in the loaded corridor",
         "question": "Estimate the power lost as heat in the loaded corridor.",
         "answer": "About 17 MW.",
-        "why": "Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10 per cent more current means about 21 per cent more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.",
+        "why": "Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10% more current means about 21% more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.",
         "givens": [
           "RMS current is 1,150 A in each phase",
           "Resistance is 4.2 Ω per phase over the corridor",
@@ -3007,7 +3007,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 60,
     "units": "V",
     "solution": "ΔV_LL ≈ 1.732 × 310 × (1.8 × 0.95 + 0.9 × 0.31) ≈ 1,069 V ≈ 1.07 kV.",
-    "explanation": "About 1.07 kV line-to-line, close to 10 per cent of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula."
+    "explanation": "About 1.07 kV line-to-line, close to 10% of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula."
   },
   "METER-2": {
     "prompt": "The circuit was at 11,000 V between lines, carrying 310 A per line, at 0.95 power factor. Root 3 is about 1.732.",
@@ -3068,8 +3068,8 @@ export const BALLPARK_CALCS = {
     "target": 0.85,
     "tolerance": 0.03,
     "units": "fraction",
-    "solution": "η = 187 ÷ 220 = 0.85, or 85 per cent.",
-    "explanation": "85 per cent, so 15 per cent of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question."
+    "solution": "η = 187 ÷ 220 = 0.85, or 85%.",
+    "explanation": "85%, so 15% of everything put in never comes back. The rating and the duration describe how the store behaves, not how much survives the trip. Multiply them and you get an energy figure that has nothing to do with this question."
   },
   "TRANS-4": {
     "prompt": "The total leaving the busbar is 900 A. The older circuit is 6 ohms and the newer 1 is 3 ohms. Both run between the same two busbars.",
@@ -3214,7 +3214,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 1800000,
     "units": "W",
     "solution": "P_loss = 3 × 1280² × 4.2 ≈ 2.06 × 10⁷ W ≈ 21 MW.",
-    "explanation": "About 21 megawatts, against 17 an hour ago. Current rose by 11 per cent and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss."
+    "explanation": "About 21 megawatts, against 17 an hour ago. Current rose by 11% and the heat rose by nearly a quarter, because the square does the work. The earlier current and the corrected temperature are both real numbers about this corridor and neither enters the loss."
   }
 };
 

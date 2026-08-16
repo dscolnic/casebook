@@ -1373,7 +1373,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the chance that a positive result is a true case.",
         "answer": "",
-        "why": "The validation table lets all three quantities be computed. Among 100 infected people, 90 test positive and 10 test negative, giving 90 per cent sensitivity. Among 9,900 uninfected people, 9,801 test negative and 99 test positive, giving 99 per cent specificity. The same counts also show why a positive is less decisive in a low-prevalence group: there are 90 true positives but 99 false positives. So only 90 of 189 positive tests are true cases, about 48 per cent.",
+        "why": "The validation table lets all three quantities be computed. Among 100 infected people, 90 test positive and 10 test negative, giving 90% sensitivity. Among 9,900 uninfected people, 9,801 test negative and 99 test positive, giving 99% specificity. The same counts also show why a positive is less decisive in a low-prevalence group: there are 90 true positives but 99 false positives. So only 90 of 189 positive tests are true cases, about 48%.",
         "givens": [],
         "relationship": "Sensitivity = TP ÷ (TP+FN). Specificity = TN ÷ (TN+FP). PPV = TP ÷ (TP+FP).",
         "calcKey": "POP-5"
@@ -1581,10 +1581,10 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Selection or sampling artifact?",
-      "scene": "A variant has gone from 8 to 31 per cent of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
+      "scene": "A variant has gone from 8 to 31% of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "takeaway": "A changing share needs competing explanations tested before it can support a claim about biological advantage.",
       "place": "Evolutionary Dynamics Group",
-      "story": "A variant has gone from 8 to 31 per cent of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
+      "story": "A variant has gone from 8 to 31% of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Selection or sampling artifact?",
@@ -1810,10 +1810,10 @@ export const CURRICULUM = {
     {
       "day": 12,
       "title": "Recover treatment effectiveness",
-      "scene": "Effectiveness has fallen from 82 to 51 per cent in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
+      "scene": "Effectiveness has fallen from 82 to 51% in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
       "takeaway": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
       "place": "Pharmacology Unit",
-      "story": "Effectiveness has fallen from 82 to 51 per cent in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
+      "story": "Effectiveness has fallen from 82 to 51% in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
       "game": {
         "type": "CHOICE",
         "title": "Recover treatment effectiveness",
@@ -1822,7 +1822,7 @@ export const CURRICULUM = {
         "task": "One thing before anybody's prescription changes. Which?",
         "question": "One thing before anybody's prescription changes. Which?",
         "answer": "Sequence the failures alongside matched successful cases.",
-        "why": "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51 per cent over 9 weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.",
+        "why": "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51% over 9 weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.",
         "rebuttals": [
           "Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.",
           "Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.",
@@ -2089,10 +2089,10 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Continue, expand, or pause?",
-      "scene": "The estimated benefit is 24 per cent, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.",
+      "scene": "The estimated benefit is 24%, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.",
       "takeaway": "Benefit and safety must both be judged through the pre-specified monitoring plan; a positive benefit estimate does not override a possible safety signal.",
       "place": "Independent Safety Board",
-      "story": "The estimated benefit is 24 per cent, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.",
+      "story": "The estimated benefit is 24%, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.",
       "game": {
         "type": "CHOICE",
         "title": "Continue, expand, or pause?",
@@ -2101,7 +2101,7 @@ export const CURRICULUM = {
         "task": "The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?",
         "question": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
         "answer": "Apply the pre-specified safety review and resume or expand only if its boundary permits.",
-        "why": "A confidence interval from 3 to 41 per cent is compatible with benefit across a wide range of sizes. Excluding zero under the planned model is evidence against no effect, not proof that the exact benefit is known. Seven serious adverse events versus two may be chance or a safety signal; raw counts alone do not decide which. Precision depends on sample size, event frequency and design. The board should apply the pre-specified safety boundary and event review. It can then resume, modify, expand or stop according to that plan.",
+        "why": "A confidence interval from 3 to 41% is compatible with benefit across a wide range of sizes. Excluding zero under the planned model is evidence against no effect, not proof that the exact benefit is known. Seven serious adverse events versus two may be chance or a safety signal; raw counts alone do not decide which. Precision depends on sample size, event frequency and design. The board should apply the pre-specified safety boundary and event review. It can then resume, modify, expand or stop according to that plan.",
         "rebuttals": [
           "A benefit signal does not erase the safety analysis. Stopping for efficacy alone would freeze both the imprecision and the unresolved adverse-event question.",
           "Mechanism can be informative but it does not replace independent adjudication of serious adverse events.",
@@ -2186,10 +2186,10 @@ export const CURRICULUM = {
     {
       "day": 19,
       "title": "Choose an adaptive policy",
-      "scene": "Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75 per cent and a short worst-case trace from the capacity model. Two reversible actions each need lead time.",
+      "scene": "Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75% and a short worst-case trace from the capacity model. Two reversible actions each need lead time.",
       "takeaway": "Adaptive policy works best when observable thresholds and lead times are committed before the evidence moves.",
       "place": "City Command",
-      "story": "Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75 per cent and a short worst-case trace from the capacity model. Two reversible actions each need lead time.",
+      "story": "Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75% and a short worst-case trace from the capacity model. Two reversible actions each need lead time.",
       "game": {
         "type": "TRIGGER",
         "title": "Choose an adaptive policy",
@@ -2197,8 +2197,8 @@ export const CURRICULUM = {
         "play": "Set both occupancy thresholds before releasing the next capacity updates, then see whether each action still has enough lead time to matter.",
         "task": "Set both occupancy thresholds before releasing the next capacity updates, then see whether each action still has enough lead time to matter.",
         "question": "Which precommitted thresholds keep the response ahead of the capacity boundary?",
-        "answer": "Set the first trigger near 80 per cent occupancy and the second near 88 per cent before releasing the trace. In this worst-case run they fire with the required day of lead time. Waiting until occupancy is already near 95 per cent makes the same actions operationally late.",
-        "why": "A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, 90 of 120 beds are already occupied, so the system starts at 75 per cent. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.",
+        "answer": "Set the first trigger near 80% occupancy and the second near 88% before releasing the trace. In this worst-case run they fire with the required day of lead time. Waiting until occupancy is already near 95% makes the same actions operationally late.",
+        "why": "A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, 90 of 120 beds are already occupied, so the system starts at 75%. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.",
         "trigger": {
           "scale": {
             "label": "Critical-care occupancy",

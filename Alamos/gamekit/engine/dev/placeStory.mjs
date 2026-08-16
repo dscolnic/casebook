@@ -29,7 +29,7 @@
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { readFileSync, existsSync } from 'node:fs';
-import { themeDir as resolveTheme } from './registry.mjs';
+import { themeDir as resolveTheme, placeDir } from './registry.mjs';
 
 const themeName = process.argv[2];
 if(!themeName){
@@ -64,8 +64,12 @@ const site = theme.site ?? {};
 const placeSource = (() => {
   const files = ['site.js', 'props.js', 'interiors.js'];
   let out = '';
+  // An edition's own directory holds a re-export and nothing else — the place
+  // is the base theme's, and reading this directory would report a game whose
+  // landscape is empty because it is somebody else's.
+  const from = placeDir(themeName);
   for(const f of files){
-    const p = resolve(dir, f);
+    const p = resolve(from, f);
     if(existsSync(p)) out += '\n' + readFileSync(p, 'utf8');
   }
   return out.toLowerCase();

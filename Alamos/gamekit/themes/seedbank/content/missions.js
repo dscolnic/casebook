@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The season you do not get back",
     "objective": "Weigh a release against a delay, with a dry summer forecast.",
     "briefing": "WM-712 is ready. The ground it needs is the ground the vault wants.",
-    "stake": "Thursday, and the sowing plan is due tomorrow. Volpe's line WM-712 has been through 4 seasons of trials and yields 11 per cent over the standard in dry years. Releasing it needs the whole west ground for seed increase, which is the ground Qureshi's 60 overdue accessions would have used. The forecast for the summer is dry, the merchant wants a decision, and both of them are right about something. Today you work out what a season's delay actually costs, what the trial data does and does not support, and what the crop gets out of a wet spring that a dry one never gives it.",
+    "stake": "Thursday, and the sowing plan is due tomorrow. Volpe's line WM-712 has been through 4 seasons of trials and yields 11% over the standard in dry years. Releasing it needs the whole west ground for seed increase, which is the ground Qureshi's 60 overdue accessions would have used. The forecast for the summer is dry, the merchant wants a decision, and both of them are right about something. Today you work out what a season's delay actually costs, what the trial data does and does not support, and what the crop gets out of a wet spring that a dry one never gives it.",
     "takeaway": "A delay is not neutral, and neither is a release; the question is which cost is recoverable.",
     "stops": [
       {

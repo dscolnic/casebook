@@ -218,7 +218,7 @@ export const ROSTER = [
     "role": "Drill and Excavation Operator",
     "division": "SOIL",
     "color": "#9a8352",
-    "bio": "<p>Cuts the ice-bearing ground the water plant runs on. The ice here is not a layer to be found but a cement through the soil, so what the machine brings up is a load of frozen dirt with a water content that changes across ten metres of ground.</p><p>He samples every load before it goes to the hopper, because the difference between eight per cent water and three per cent is the difference between a shift that meets its number and one that does not.</p><p>His limit is depth. Below about two metres the machine is slower than the plant can use, and the shallow ground near the station has already been cut.</p>",
+    "bio": "<p>Cuts the ice-bearing ground the water plant runs on. The ice here is not a layer to be found but a cement through the soil, so what the machine brings up is a load of frozen dirt with a water content that changes across ten metres of ground.</p><p>He samples every load before it goes to the hopper, because the difference between 8% water and 3% is the difference between a shift that meets its number and one that does not.</p><p>His limit is depth. Below about two metres the machine is slower than the plant can use, and the shallow ground near the station has already been cut.</p>",
     "quiz": [
       {
         "q": "Why does Nakagawa sample each load before it reaches the hopper?",

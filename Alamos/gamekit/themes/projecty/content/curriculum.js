@@ -228,7 +228,7 @@ export const CURRICULUM = {
         "task": "Estimate the macroscopic cross section, the mean free path, and the fraction of an uncollided beam left after one mean free path.",
         "question": "Estimate the macroscopic cross section, the mean free path, and the fraction of an uncollided beam left after one mean free path.",
         "answer": "Σ ≈ 0.01 cm^-1, the mean free path is about 100 cm, and after 1 mean free path I/I₀ = e^-1 ≈ 0.37.",
-        "why": "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After 1 mean free path, x = 1/Σ, so the exponent is minus 1 and about 37 percent of an uncollided beam remains. One parameter connects all three ideas.",
+        "why": "A microscopic cross section is an interaction probability written as an area. Multiply it by the number of targets per volume and you get the macroscopic cross section Σ, an inverse length. Its inverse is the mean free path. The same Σ also controls attenuation: I/I₀ = e⁻Σx. After 1 mean free path, x = 1/Σ, so the exponent is minus 1 and about 37% of an uncollided beam remains. One parameter connects all three ideas.",
         "givens": [
           "Sigma = n sigma",
           "Mean free path = 1/Sigma"
@@ -474,7 +474,7 @@ export const CURRICULUM = {
         "task": "Estimate the total fractional uncertainty.",
         "question": "Estimate the total fractional uncertainty.",
         "answer": "About 10%.",
-        "why": "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. 8 percent and 6 percent make 10, not 14. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent.",
+        "why": "Independent uncertainties combine in quadrature: square each contribution, add the squares, and take the root. 8% and 6% make 10, not 14. The larger term dominates, so reducing a small contribution may barely change the total while improving the largest one matters much more. That ranking is the practical value of an uncertainty budget. It tells a laboratory with limited people and time which measurement is worth improving first, rather than treating every error bar as equally urgent.",
         "givens": [
           "Independent fractional uncertainties combine in quadrature"
         ],
@@ -1651,7 +1651,7 @@ export const CURRICULUM = {
         "task": "Estimate the fractional statistical uncertainty.",
         "question": "Estimate the fractional statistical uncertainty.",
         "answer": "About 5%.",
-        "why": "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. 400 counts gives 5 percent. To cut that in half, to 2.5 percent, you need 4 times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively.",
+        "why": "A repeat of the same run would not give exactly the same total. For Poisson counting, the typical fluctuation is about the square root of the count, so the fractional uncertainty is 1/√N. 400 counts gives 5%. To cut that in half, to 2.5%, you need 4 times as many counts. That slow square-root improvement is why counting statistics are a planning tool: longer runs buy precision, but they buy it expensively.",
         "givens": [
           "Poisson fluctuation is about sqrt(N)",
           "Fractional uncertainty is sqrt(N)/N"
@@ -2848,7 +2848,7 @@ export const CURRICULUM = {
         "task": "Read the reported quantities, decide which belong in the material ledger, and close the input to within the allowed tolerance.",
         "question": "Which uncounted route closes the material balance?",
         "answer": "Count the vessel-wall loss. Recorded outputs account for 93.9% of the input; adding the 5.8% found on the walls gives 99.7%, which closes the 100% input within rounding.",
-        "why": "The input is 100 percent of the target material. Recorded product and aqueous output account for only 93.9 percent, so 6.1 percent is still missing. The 91 percent purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8 percent of the input on the vessel surface. Add that loss route and the balance closes to 99.7 percent, inside rounding. Yield, purity, and material balance are different claims.",
+        "why": "The input is 100% of the target material. Recorded product and aqueous output account for only 93.9%, so 6.1% is still missing. The 91% purity result answers a different question and cannot be added to that ledger. A wall swab finds 5.8% of the input on the vessel surface. Add that loss route and the balance closes to 99.7%, inside rounding. Yield, purity, and material balance are different claims.",
         "balance": {
           "total": {
             "amount": 100,
@@ -5556,7 +5556,7 @@ export const CURRICULUM = {
         "play": "Estimate the probability of at least one event using P approximately lambda when lambda is small.",
         "task": "Estimate the probability of at least one event using P approximately lambda when lambda is small.",
         "question": "Estimate the probability of at least one event using P approximately lambda when lambda is small.",
-        "answer": "lambda = 200 x 10^-5 = 0.002, so P is about 0.2 percent.",
+        "answer": "lambda = 200 x 10^-5 = 0.002, so P is about 0.2%.",
         "why": "For a fixed random-event rate, a shorter vulnerable time lowers the chance of an event during assembly.",
         "givens": [
           "Random-event rate r = 200 per second",
@@ -6706,7 +6706,7 @@ export const BALLPARK_CALCS = {
     "labels": [
       "0.05 MeV width",
       "1 MeV line energy",
-      "100 percent/unit",
+      "100%/unit",
       "0.5 MeV width"
     ],
     "values": [
@@ -7078,7 +7078,7 @@ export const BALLPARK_CALCS = {
     "labels": [
       "200 events/s",
       "10⁻⁵ s",
-      "100 percent/unit",
+      "100%/unit",
       "10⁻² s"
     ],
     "values": [

@@ -4,10 +4,10 @@
 
 export const MISSIONS = [
   {
-    "title": "88 per cent",
+    "title": "88%",
     "objective": "Get an instantaneous rate out of readings, out of a formula, and find the instant that has none.",
     "briefing": "Nine days of rain forecast, and every number on this dam is about to be asked how fast it is moving.",
-    "stake": "Monday, and the reservoir is at 88 per cent after the driest summer in 9 years. June Sato brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does not want one. Everything decided this fortnight is decided on rates rather than readings, so today you take a rate three ways — between two gauge readings, out of a fitted formula by the definition itself, and at one instant where the record has no rate at all.",
+    "stake": "Monday, and the reservoir is at 88% after the driest summer in 9 years. June Sato brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does not want one. Everything decided this fortnight is decided on rates rather than readings, so today you take a rate three ways — between two gauge readings, out of a fitted formula by the definition itself, and at one instant where the record has no rate at all.",
     "takeaway": "A reading is a value; a rate is a limit, and the limit is the part that says what happens next.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "What the fortnight is worth",
     "objective": "Judge a fit by what it leaves over, reduce a fortnight to one rate, and say what has been established.",
     "briefing": "The water has gone and what is left is what can be defended in writing.",
-    "stake": "Monday, a fortnight on. The reservoir is at 91 per cent, the reach was warned twice and flooded neither time, and the resurvey has moved every volume on the site by 11 per cent. Zawadzka has three fits of the uplift against head and the one with the best summary number is not obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the annual return. And the liaison committee sits this evening. Today you judge a fit by what it leaves over, reduce a fortnight to one rate, and say what the two weeks actually established.",
+    "stake": "Monday, a fortnight on. The reservoir is at 91%, the reach was warned twice and flooded neither time, and the resurvey has moved every volume on the site by 11%. Zawadzka has three fits of the uplift against head and the one with the best summary number is not obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the annual return. And the liaison committee sits this evening. Today you judge a fit by what it leaves over, reduce a fortnight to one rate, and say what the two weeks actually established.",
     "takeaway": "A model is judged by the structure it leaves behind, not by the size of what it leaves behind.",
     "stops": [
       {
