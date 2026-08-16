@@ -285,14 +285,21 @@ export function decorate(scene, ctx){
     // translucent sheets, twenty-two translucent streaks and seven mist veils,
     // and twelve transparent surfaces in a row sum to a flat grey wash — which
     // looks exactly like a fall that is not rendering at all.
+    // **The emissive here is a brightness budget, not a dial to turn up.**
+    // At 1.5 on a pure-white front sheet the curtain clipped, and a clipped
+    // curtain is flat: the streaks below are drawn at four brightnesses and all
+    // four came out the same white. The window then reads as a blank panel, and
+    // the reasonable conclusion from inside the game is that the glazing is
+    // opaque and the fall is not rendering — which is what was reported. Keep
+    // the front sheet under the clip and let the streaks be what is bright.
     const back = M.sheet.clone();
     back.transparent = false; back.opacity = 1;
-    back.color.setHex(0x9fc4d2); back.emissive.setHex(0x6f97a8); back.emissiveIntensity = 0.9;
+    back.color.setHex(0x8fb3c2); back.emissive.setHex(0x4e7c8a); back.emissiveIntensity = 0.35;
     put(2.4, HEAD - POOL + 6, w, FALL_X + 0.8, (HEAD + POOL) / 2, cz, back);
 
     const front = M.sheet.clone();
     front.transparent = false; front.opacity = 1;
-    front.color.setHex(0xffffff); front.emissive.setHex(0xdcf0f8); front.emissiveIntensity = 1.5;
+    front.color.setHex(0xdfeef4); front.emissive.setHex(0x9dc4d4); front.emissiveIntensity = 0.5;
     put(1.6, HEAD - POOL + 4, w - 1.6, FALL_X - 1.4, (HEAD + POOL) / 2 - 1, cz, front);
 
     // The streaks: opaque ribbons at four brightnesses and irregular lengths,
@@ -305,7 +312,9 @@ export function decorate(scene, ctx){
       mat.transparent = false; mat.opacity = 1;
       mat.color.setHex(shades[(k + i) % shades.length]);
       mat.emissive.setHex(shades[(k + i) % shades.length]);
-      mat.emissiveIntensity = 1.1 + ((k + i) % 3) * 0.7;
+      // The streaks are the brightest thing in the gorge now, and the only
+      // thing above the sheets behind them — so the four shades stay four.
+      mat.emissiveIntensity = 0.75 + ((k + i) % 3) * 0.45;
       put(0.5, h, 0.42 + ((k * 7) % 9) / 12, FALL_X - 2.5, HEAD - h / 2 + 2, z, mat);
     }
 
