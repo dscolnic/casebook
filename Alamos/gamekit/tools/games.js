@@ -27,7 +27,10 @@ export const GAMES = [
   { id: 'headwater', title: 'Headwater',
     course: 'AP Calculus AB', field: 'Maths & Stats', accent: '#3f92c9',
     place: 'Ashfell Dam from the inside — galleries, a gate chamber, and a hundred metres of air off the crest.',
-    hero: 'spawn-1.png' },
+    // The spawn spin this used to point at was a photograph of an unlit pane of
+    // glass. themes/headwater/shots.js exists now; this is the operations
+    // gallery, which is the one view that says what the building is.
+    hero: 'gallery-2-up.png' },
 
   { id: 'the_trial', title: 'The Trial',
     course: 'AP Statistics · trial design', field: 'Maths & Stats', accent: '#cf7fae',
