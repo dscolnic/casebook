@@ -65,6 +65,18 @@ const roleOf = (id) => {
   return m ? m[1].replace(/\\'/g, "'") : '';
 };
 
+/**
+ * What this game calls a day. Red Sand runs on sols and Bring Them Home on
+ * "Day"; a picker that says "Mission 7" when the game itself says "Sol 7" is
+ * describing a different game from the one behind the card.
+ */
+const dayNounOf = (id) => {
+  const f = resolve(themeDirOf(id), 'theme.js');
+  if (!existsSync(f)) return 'Day';
+  const m = /dayNoun:\s*'([^']*)'/.exec(readFileSync(f, 'utf8'));
+  return m ? m[1] : 'Day';
+};
+
 /** How many days and how many stops the campaign actually runs to. */
 const sizeOf = (id) => {
   const f = resolve(themeDirOf(id), 'content', 'missions.js');
@@ -124,8 +136,14 @@ function card(g) {
   const full = SYLLABUS[g.id]?.course ?? '';
   const tag = built ? 'a' : 'div';
   const href = built ? ` href="./${g.id}/index.html"` : '';
+  // `data-game` and `data-days` are what the progress script reads. The save
+  // itself is never read at build time — it lives in the player's browser, and
+  // the picker is served from the same origin as the games, so the page can ask
+  // localStorage directly.
   return `
       <${tag} class="card${built ? '' : ' card--unbuilt'}"${href} data-field="${esc(g.field)}"
+         data-game="${esc(g.id)}" data-days="${size ? size.days : ''}"
+         data-daynoun="${esc(dayNounOf(g.id))}"
          style="--accent:${g.accent}">
         <div class="shot">
           ${shot ? `<img src="${shot}" alt="" loading="lazy">`
@@ -133,6 +151,7 @@ function card(g) {
           <div class="shot__veil"></div>
           <span class="field">${esc(g.field)}</span>
           ${built ? '<span class="play" aria-hidden="true">▶</span>' : '<span class="unbuilt">not built</span>'}
+          <span class="resume" hidden></span>
           <h2>${esc(g.title)}</h2>
         </div>
         <div class="body">
@@ -144,6 +163,7 @@ function card(g) {
             ${grade ? `<span>reads at grade ${grade}</span>` : ''}
           </p>
           ${full ? `<p class="full">${esc(full)}</p>` : ''}
+          <p class="progress" hidden></p>
         </div>
       </${tag}>`;
 }
@@ -257,6 +277,23 @@ function page(games) {
     color:var(--dim); border:1px solid var(--line); background:#0d0f13cc;
     border-radius:999px; padding:5px 8px;
   }
+  /* A game already under way. Bottom-RIGHT of the shot: the title sits bottom
+     left, the field chip top left and the play mark top right, and this is the
+     one corner left. It was on the bottom left first and printed straight
+     through the game's own name. */
+  .resume{
+    position:absolute; right:12px; bottom:12px; z-index:2;
+    font:600 10.5px/1 ui-monospace,Menlo,monospace; letter-spacing:.08em;
+    color:#0d0f13; background:#e9ecf2; border-radius:999px; padding:5px 9px;
+  }
+  .resume--done{background:var(--accent)}
+  .card--started{outline:1px solid color-mix(in srgb, var(--accent) 55%, transparent)}
+  .progress{margin:0; font:500 12px/1.45 inherit; color:var(--accent)}
+  .progress__bar{
+    display:block; height:3px; margin-top:6px; border-radius:2px;
+    background:var(--line); overflow:hidden;
+  }
+  .progress__bar i{display:block; height:100%; background:var(--accent)}
 
   .body{padding:15px 17px 17px; display:flex; flex-direction:column; gap:8px; flex:1}
   .course{
@@ -318,6 +355,45 @@ function page(games) {
 </div>
 
 <script>
+  // ------------------------------------------------------------- where was I
+  //
+  // Every game saves its campaign to localStorage under gamekit_<id>_v1, and
+  // this page is served from the same origin as the games it links to — so the
+  // picker can read them directly. Nothing is written here and nothing is sent
+  // anywhere; a card with no save says nothing at all.
+  //
+  // The shape is the engine's: week is the mission number the player is on,
+  // one-based, and status is 'playing' | 'won' | 'lost'.
+  for (const card of document.querySelectorAll('.card[data-game]')) {
+    let save = null;
+    try { save = JSON.parse(localStorage.getItem('gamekit_' + card.dataset.game + '_v1') || 'null'); }
+    catch (e) { save = null; }
+    if (!save || typeof save.week !== 'number') continue;
+
+    const days = Number(card.dataset.days) || 0;
+    const noun = card.dataset.daynoun || 'Day';
+    const done = save.status === 'won';
+    const at = Math.min(save.week, days || save.week);
+
+    const badge = card.querySelector('.resume');
+    const line = card.querySelector('.progress');
+    card.classList.add('card--started');
+    if (badge) {
+      badge.textContent = done ? 'finished' : 'resume';
+      badge.classList.toggle('resume--done', done);
+      badge.hidden = false;
+    }
+    if (line) {
+      const where = done
+        ? 'Finished all ' + days + ' ' + noun.toLowerCase() + 's'
+        : noun + ' ' + at + (days ? ' of ' + days : '');
+      const pct = days ? Math.round(((done ? days : at - 1) / days) * 100) : 0;
+      line.innerHTML = where
+        + (days ? '<span class="progress__bar"><i style="width:' + pct + '%"></i></span>' : '');
+      line.hidden = false;
+    }
+  }
+
   const chips = [...document.querySelectorAll('.chip')];
   const cards = [...document.querySelectorAll('.card')];
   const empty = document.getElementById('empty');
