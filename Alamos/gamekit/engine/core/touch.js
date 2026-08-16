@@ -25,6 +25,11 @@
 // drag and a mouse move produce identical rotation.
 
 import * as THREE from 'three';
+import { wantsTouch } from '../device.js';
+
+// Re-exported because `player.js` asks this module the question and there is no
+// reason for it to know the predicate moved out.
+export { wantsTouch };
 
 const _euler = new THREE.Euler(0, 0, 0, 'YXZ');
 const _PI_2 = Math.PI / 2;
@@ -45,27 +50,6 @@ const STICK_RADIUS = 54;
 // middle of turning around.
 const TAP_SLOP = 11;      // px
 const TAP_TIME = 320;     // ms
-
-/**
- * Is this a device that has to be played with thumbs?
- *
- * `maxTouchPoints > 0` is not the question — a touchscreen laptop answers yes
- * and has a mouse. The question is whether there is a fine pointer to lock, so
- * this asks for a coarse pointer that cannot hover, which is a tablet or a
- * phone and not a Surface with a trackpad. `?touch=1` and `?touch=0` override
- * it, because the only way to iterate on this layer is to force it on at a
- * desk.
- */
-export function wantsTouch(){
-  // The headless builders in engine/dev stub a canvas and a renderer but not a
-  // browser, so every one of these has to be asked for rather than assumed.
-  if(typeof window === 'undefined' || typeof document === 'undefined') return false;
-  const forced = typeof location === 'undefined'
-    ? null : new URLSearchParams(location.search || '').get('touch');
-  if(forced === '1') return true;
-  if(forced === '0') return false;
-  return window.matchMedia?.('(pointer: coarse) and (hover: none)').matches === true;
-}
 
 function key(code, type){
   window.dispatchEvent(new KeyboardEvent(type, { code, bubbles: true }));

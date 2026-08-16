@@ -24,6 +24,7 @@
 import * as THREE from 'three';
 import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay } from './interiorSite.js';
 import { displayBoard } from './kit.js';
+import { tuneRendererForDevice } from './materials.js';
 
 export const colliders = [];
 export const softColliders = [];
@@ -102,10 +103,8 @@ export function initWorld(canvas, activeTheme){
   const look = theme.look ?? {};
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  tuneRendererForDevice(renderer);
   renderer.setSize(innerWidth, innerHeight);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = look.exposure ?? 1.0;
 

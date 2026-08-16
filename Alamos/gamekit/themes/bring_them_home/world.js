@@ -25,7 +25,7 @@ import { openCaseGroups } from '../../engine/core/app.js';
 // The beacon's label billboards toward whoever is looking at it.
 import { camera } from '../../engine/core/player.js';
 import { instrumentScreen } from '../../engine/world/screens.js';
-import { dampEnvironment } from '../../engine/world/materials.js';
+import { dampEnvironment, tuneRendererForDevice } from '../../engine/world/materials.js';
 // The same marker the other games put over an open case stand. Here it hangs
 // over the console: with no doors and no rooms, an open call had nothing to
 // announce it from across the floor except a ring on the carpet.
@@ -1110,10 +1110,8 @@ export function initWorld(canvas, activeTheme){
   const look = theme.look ?? {};
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  tuneRendererForDevice(renderer);
   renderer.setSize(innerWidth, innerHeight);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = look.exposure ?? 1.0;
 

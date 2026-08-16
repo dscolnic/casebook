@@ -3,6 +3,7 @@
 // All of these draw to a canvas at build time rather than loading image files,
 // so a theme ships no assets and a new surface is a few lines of 2D drawing.
 import * as THREE from 'three';
+import { wantsTouch } from '../device.js';
 
 // ---------------------------------------------------------- deterministic rng
 // Themes must look identical on every reload, so nothing visual may use
@@ -199,4 +200,37 @@ export function dampEnvironment(scene, level = 0.4, roughnessAbove = 0.55){
       if(m.roughness > roughnessAbove) m.envMapIntensity = level;
     }
   });
+}
+
+/**
+ * Set up a renderer for the machine it is actually running on.
+ *
+ * Five modules create a renderer — three engine worlds and the two themes that
+ * bring their own — and every one of them wrote the same four lines. They are
+ * here instead, because the numbers are a device decision rather than a world
+ * decision and a tablet budget applied in three places out of five is worse
+ * than none.
+ *
+ * What a phone or tablet gets, and why:
+ *
+ * - **Pixel ratio 1.5 rather than 2.** A tablet reports 2, which on a 1180-wide
+ *   iPad is a 2360 px buffer — the same fragment count as a 4K monitor, for a
+ *   GPU with a fraction of the power. 1.5 is 44% fewer fragments and, at that
+ *   density, not a difference you can see. This is the one lever that costs
+ *   nothing visually.
+ * - **PCF rather than PCFSoft shadows.** Fewer taps per shadow lookup. The
+ *   edges harden slightly; the alternative is a slideshow.
+ *
+ * What it deliberately does not change is the draw call count, which is the
+ * real cost — Red Sand issues about 1,500 a frame from 1,973 meshes, 1,601 of
+ * them shadow casters. That is a content problem (instancing, and not every
+ * bolt needing to cast), not something a renderer flag can fix.
+ */
+export function tuneRendererForDevice(renderer){
+  const mobile = wantsTouch();
+  const dpr = typeof devicePixelRatio === 'number' ? devicePixelRatio : 1;
+  renderer.setPixelRatio(Math.min(dpr, mobile ? 1.5 : 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = mobile ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
+  return renderer;
 }

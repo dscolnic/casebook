@@ -535,6 +535,31 @@ path can be stepped by hand in a throttled tab. Importing `player.js` from the
 console does **not** work for this — it resolves to a second copy of the module
 with its own uninitialised `camera`.
 
+**`engine/device.js` is where the device question is answered**, not `touch.js`,
+because two layers need the same answer and nothing under `engine/world` has
+ever imported from `engine/core`. `world/materials.js` `tuneRendererForDevice()`
+is the other caller: pixel ratio 1.5 instead of 2 and `PCFShadowMap` instead of
+`PCFSoftShadowMap` on a coarse pointer. A tablet reports a device pixel ratio of
+2, which on an iPad is the fragment count of a 4K monitor for a fraction of the
+GPU; 1.5 is 47% fewer fragments and invisible at that density. **Five modules
+create a renderer** — the three engine worlds and the two themes that bring
+their own — and all five wrote the same four lines, which is why the numbers
+moved into one function. A mobile budget applied in three places out of five is
+worse than none.
+
+What that does *not* fix is the draw call count, which is the real cost: Red Sand
+issues about 1,500 a frame from 1,973 meshes with 5 instanced, 1,601 of them
+shadow casters. That is content work — instancing, and not every bolt needing to
+cast — not a renderer flag.
+
+**`vh` is wrong on iOS wherever a panel is sized against the window.** It is the
+height with the browser toolbars *hidden*, so `.modal{max-height:85vh}` let a
+long question panel run its own bottom under the chrome — and `.modalActions` is
+sticky to the bottom of that box, so the answer button went under with it. Every
+such rule now carries a `dvh` line after the `vh` one. Same bug as `#canvas`
+being `100vh`, and it will happen again the next time something is sized in
+viewport units.
+
 ## House rules learned the hard way
 
 1. **Do not fork the engine again.** Three copies meant every fix three times.

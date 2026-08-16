@@ -25,7 +25,7 @@ import { LightingSystem } from './boat/LightingSystem.js';
 import { AREA_COMPARTMENT } from './site.js';
 import { instrumentScreen } from '../../engine/world/screens.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { dampEnvironment } from '../../engine/world/materials.js';
+import { dampEnvironment, tuneRendererForDevice } from '../../engine/world/materials.js';
 
 export let scene, renderer;
 export const colliders = [];        // Box3[] — the engine's own collision
@@ -57,10 +57,8 @@ export function initWorld(canvas, activeTheme){
   const look = theme.look ?? {};
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  tuneRendererForDevice(renderer);
   renderer.setSize(innerWidth, innerHeight);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   // No filmic tone mapping here, unlike the outdoor games. The boat's materials
   // and its lighting states were authored against a linear pipeline; running
   // them through ACES at 0.95 exposure took every compartment two stops down and

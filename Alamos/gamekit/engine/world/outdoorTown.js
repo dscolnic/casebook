@@ -26,7 +26,7 @@ import {
   plantScrub, updateOutdoorTimeOfDay, onPath,
 } from './outdoorSite.js';
 import { building, sign, displayBoard, post, bench, bin, MATERIALS } from './kit.js';
-import { mat } from './materials.js';
+import { mat, tuneRendererForDevice } from './materials.js';
 
 export const colliders = [];
 export const softColliders = [];
@@ -136,10 +136,8 @@ export function initWorld(canvas, activeTheme){
   const look = theme.look ?? {};
 
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  tuneRendererForDevice(renderer);
   renderer.setSize(innerWidth, innerHeight);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = look.exposure ?? 1.0;
 
