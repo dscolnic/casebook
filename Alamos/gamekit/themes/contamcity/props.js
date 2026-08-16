@@ -12,7 +12,8 @@
 
 import * as THREE from 'three';
 import {
-  tank, pipeRun, crateStack, vehicle, fenceRun, displayBoard, post, box, cyl, sign, MATERIALS,
+  tank, pipeRun, crateStack, vehicle, scooter, scooterRack, fenceRun, displayBoard,
+  post, box, cyl, sign, MATERIALS,
 } from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
 
@@ -53,6 +54,56 @@ export function decorate(scene, ctx){
       wheels: box.wheels, topSpeed: 12,
       colliders, interactables,
     });
+  };
+
+  /**
+   * A city scooter, in a rack, ridden standing up.
+   *
+   * The truck was the only thing faster than walking and it is the wrong tool
+   * for most of Riverton: it lives in the freight yard at the north end, and
+   * fetching one to cross to a lab costs more of the day than walking. A
+   * scooter is left at the door of the place you rode it to.
+   *
+   * The handling numbers are the point of the thing, not decoration: it pulls
+   * away in about a second, turns inside a pavement, and tops out at 9 m/s —
+   * comfortably above a sprint at 8.5, well under the truck's 12, and it leans
+   * into a corner because two wheels do.
+   */
+  const rack = (x, z, facing, list) => {
+    const ry = y(x, z);
+    const rail = scooterRack(scene, x, z, ry, { facing, slots: list.length }).soft;
+    soft(rail);
+    const cos = Math.cos(facing), sin = Math.sin(facing);
+    const taken = [];
+    list.forEach(({ id, label, colour }, i) => {
+      // Along the rack, nose out of it: the rack runs across the riding line.
+      const off = (i - (list.length - 1) / 2) * 0.9;
+      // Along the bar, and 0.7 m out from it, which is where the rear wheel
+      // sits: parked on the bar itself, the rail runs through the deck.
+      const sx = x + off * cos - Math.sin(facing) * 0.7;
+      const sz = z - off * sin - Math.cos(facing) * 0.7;
+      const s = scooter(scene, sx, sz, y(sx, sz), { facing, colour });
+      taken.push(driveable(scene, s.group, {
+        id, label, verb: 'Ride',
+        halfWidth: 0.34, halfLength: 0.7, height: 1.35, clearance: 0.22,
+        // Standing on the deck, hands on the bar: the eye is a rider's height
+        // above the deck, not a seated driver's above a chassis.
+        seat: { x: 0, y: 1.62, z: 0.34 },
+        steer: s.steer, steerAxis: 'y', steerAmount: 0.5,
+        wheels: s.wheels, wheelRadius: 0.115,
+        topSpeed: 9, sprint: 1.2,
+        accel: 9, brake: 7, reverseAccel: 2.2, coastDrag: 1.9, driveDrag: 0.7,
+        turn: 1.9, gripAt: 1.6, reverseFrac: 0.14, lean: 0.26,
+        hint: 'W/S ride · A/D steer · Shift faster · E — step off',
+        // The rail it stands at, and its neighbours in the same rack. Without
+        // this the scooter is inside the rack's collider before it moves and
+        // every direction out is blocked — you get on, and nothing happens.
+        ignore: [rail],
+        colliders, interactables,
+      }));
+    });
+    // Pulling out is a turn, and a turn swings the tail across the next slot.
+    for(const v of taken) for(const other of taken) if(other !== v) v.ignore.add(other.box);
   };
 
   // ---------------------------------------------------------- area readouts
@@ -115,6 +166,29 @@ export function decorate(scene, ctx){
   park(-11, 30, { facing: 0, colour: 0x39607a, box: false, label: 'city sedan', id: 'VEH_AVE_A' });
   park(12, -6, { facing: Math.PI, colour: 0x5b6f52, label: 'sampling van', id: 'VEH_AVE_B' });
   park(-13, 62, { facing: 0, colour: 0x7b5f3a, box: false, label: 'works pickup', id: 'VEH_AVE_C' });
+
+  // ------------------------------------------------------------- the scooters
+  // Four racks, beside the avenue and at both ends of the lab row, so there is
+  // one within a few seconds of anywhere the day sends you. Off the carriageway
+  // (the avenue is x ∈ [-5, 5]), clear of every doorway and readout, and none
+  // within ten metres of the spawn at (0, 36).
+  rack(9, 47, 0, [
+    { id: 'SCOOT_AVE_A', label: 'city scooter', colour: 0x2f7fa8 },
+    { id: 'SCOOT_AVE_B', label: 'city scooter', colour: 0x1f7a6b },
+    { id: 'SCOOT_AVE_C', label: 'city scooter', colour: 0xb0762a },
+  ]);
+  rack(-24, -8, 0, [
+    { id: 'SCOOT_WEST_A', label: 'city scooter', colour: 0x7a4fa3 },
+    { id: 'SCOOT_WEST_B', label: 'city scooter', colour: 0x2f7fa8 },
+  ]);
+  rack(24, -8, 0, [
+    { id: 'SCOOT_EAST_A', label: 'city scooter', colour: 0xb3462f },
+    { id: 'SCOOT_EAST_B', label: 'city scooter', colour: 0x1f7a6b },
+  ]);
+  rack(-16, 70, 0, [
+    { id: 'SCOOT_NORTH_A', label: 'city scooter', colour: 0x2f7fa8 },
+    { id: 'SCOOT_NORTH_B', label: 'city scooter', colour: 0xb0762a },
+  ]);
   soft(crateStack(scene, -12, 100, yardY, { rows: 2, colour: 0x8c7a4e }));
   soft(crateStack(scene, 12, 100, yardY, { rows: 1, colour: 0x6f7a52 }));
 

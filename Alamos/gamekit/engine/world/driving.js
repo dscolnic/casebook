@@ -76,7 +76,11 @@ export function driveable(scene, group, opts = {}){
   // way the thing is pointing until it moves. The wheel is that reference, and
   // it turns with the input, so a held turn is visible before the world moves.
   let steeringWheel = null;
-  if(opts.wheel !== false){
+  if(opts.steer){
+    // The vehicle brought its own steering to turn — a scooter's handlebar,
+    // which pivots about its stem rather than lying back like a car's wheel.
+    steeringWheel = opts.steer;
+  } else if(opts.wheel !== false){
     steeringWheel = new THREE.Group();
     const metal = new THREE.MeshStandardMaterial({ color: 0x23272b, roughness: 0.45, metalness: 0.35 });
     const rim = new THREE.Mesh(new THREE.TorusGeometry(0.155, 0.019, 8, 22), metal);
@@ -107,10 +111,45 @@ export function driveable(scene, group, opts = {}){
   const record = {
     id: opts.id ?? `vehicle-${Math.round(group.position.x)}-${Math.round(group.position.z)}`,
     steeringWheel,
+    steerAxis: opts.steerAxis ?? 'z',
+    steerAmount: opts.steerAmount ?? 0.9,
     label: opts.label ?? 'vehicle',
+    verb: opts.verb ?? 'Drive',
     group, hit, seat, halfW, halfL, height,
     wheels: opts.wheels ?? [],
+    wheelRadius: opts.wheelRadius ?? 0.45,
+    // What the bonnet clears and drives over rather than stopping against. A
+    // kerb to a truck is a wall to a scooter with 115 mm wheels.
+    clearance: opts.clearance ?? 0.55,
     topSpeed: opts.topSpeed ?? 11,
+    // How it handles. The defaults are the truck the controller was written for;
+    // a scooter is a tenth of its mass and is unrideable on them — it pulls away
+    // like a loaded flatbed and needs a street's width to turn round.
+    accel: opts.accel ?? 7,
+    reverseAccel: opts.reverseAccel ?? 5,
+    // S is a brake while still going forwards and reverse once stopped. They
+    // were the same number, which is right for a truck and wrong for anything
+    // that rolls: a scooter that reverses at walking pace still has to be able
+    // to stop at a door.
+    brake: opts.brake ?? opts.reverseAccel ?? 5,
+    coastDrag: opts.coastDrag ?? 3.4,
+    driveDrag: opts.driveDrag ?? 1.1,
+    turn: opts.turn ?? 1.5,
+    // The speed at which steering reaches full authority. A car that turns on
+    // the spot feels like a shopping trolley; a scooter that does not is a car.
+    gripAt: opts.gripAt ?? 4,
+    reverseFrac: opts.reverseFrac ?? 0.45,
+    sprint: opts.sprint ?? 1.35,
+    // Radians of roll leant into a turn at full speed. Zero for anything with
+    // four wheels, because a truck that leans is a truck rolling over.
+    lean: opts.lean ?? 0,
+    hint: opts.hint ?? null,
+    // What this vehicle is parked *in*, and must not be stopped by. A scooter
+    // stands 0.7 m from its rack and the rack's collider is wider than that, so
+    // every direction out was blocked from the moment you got on: the vehicle
+    // starts inside a collider, which is the same trap that welds a person in
+    // place (house rule 16), reached from the other side.
+    ignore: new Set(opts.ignore ?? []),
     box: null,
     colliders: opts.colliders ?? null,
   };
@@ -118,7 +157,7 @@ export function driveable(scene, group, opts = {}){
   opts.colliders?.push(record.box);
   opts.interactables?.push({
     mesh: hit, type: 'vehicle', id: record.id,
-    prompt: `E — Drive the ${record.label}`,
+    prompt: `E — ${record.verb} the ${record.label}`,
     vehicle: record,
   });
   return record;
@@ -176,11 +215,11 @@ export function createDriving({
       const px = x + lx * cos + lz * sin;
       const pz = z - lx * sin + lz * cos;
       for(const b of colliders){
-        if(b === v.box) continue;
+        if(b === v.box || v.ignore.has(b)) continue;
         if(px < b.min.x || px > b.max.x || pz < b.min.z || pz > b.max.z) continue;
         // A kerb or a low plinth is not a wall. Anything the bonnet clears is
         // driven over rather than stopped against.
-        if(b.max.y > y + 0.55) return true;
+        if(b.max.y > y + (v.clearance ?? 0.55)) return true;
       }
     }
     // People and poles are circles, and sampling eight points along a six-metre
@@ -190,7 +229,7 @@ export function createDriving({
     // exact, and one comparison per soft collider.
     if(softColliders){
       for(const c of softColliders){
-        if(c.r <= 0) continue;
+        if(c.r <= 0 || v.ignore.has(c)) continue;
         const dx = c.x - x, dz = c.z - z;
         const lx = dx * cos - dz * sin;
         const lz = dx * sin + dz * cos;
@@ -293,19 +332,20 @@ export function createDriving({
 
       // Throttle and brake. Reverse is deliberately slow: this is a town, and
       // a vehicle that reverses as fast as it drives is one nobody can park.
-      const accel = m.forward > 0 ? 7 : m.forward < 0 ? -5 : 0;
-      const drag = m.forward === 0 ? 3.4 : 1.1;
+      const accel = m.forward > 0 ? v.accel
+        : m.forward < 0 ? -(speed > 0.1 ? v.brake : v.reverseAccel) : 0;
+      const drag = m.forward === 0 ? v.coastDrag : v.driveDrag;
       speed += accel * delta;
       speed -= Math.sign(speed) * drag * delta;
       if(Math.abs(speed) < 0.06 && m.forward === 0) speed = 0;
-      const top = v.topSpeed * (m.sprint ? 1.35 : 1);
-      speed = Math.max(-top * 0.45, Math.min(top, speed));
+      const top = v.topSpeed * (m.sprint ? v.sprint : 1);
+      speed = Math.max(-top * v.reverseFrac, Math.min(top, speed));
 
       // Steering scales with how fast the wheels are actually turning, and
       // reverses when reversing, which is what makes reverse parking work.
       if(m.right && Math.abs(speed) > 0.15){
-        const grip = Math.min(1, Math.abs(speed) / 4);
-        yaw -= m.right * 1.5 * grip * delta * Math.sign(speed);
+        const grip = Math.min(1, Math.abs(speed) / v.gripAt);
+        yaw -= m.right * v.turn * grip * delta * Math.sign(speed);
       }
 
       const nx = v.group.position.x - Math.sin(yaw) * speed * delta;
@@ -329,14 +369,17 @@ export function createDriving({
         v.group.position.x + lx * cos + lz * sin,
         v.group.position.z - lx * sin + lz * cos);
       const pitch = Math.atan2(at(0, v.halfL) - at(0, -v.halfL), v.halfL * 2);
-      const roll = Math.atan2(at(v.halfW, 0) - at(-v.halfW, 0), v.halfW * 2);
+      const ground = Math.atan2(at(v.halfW, 0) - at(-v.halfW, 0), v.halfW * 2);
+      // Two wheels lean into the corner; four do not, and `lean` is 0 for them.
+      const roll = ground + v.lean * m.right * Math.min(1, Math.abs(speed) / top);
       v.group.rotation.x += (-pitch - v.group.rotation.x) * Math.min(1, delta * 6);
       v.group.rotation.z += (roll - v.group.rotation.z) * Math.min(1, delta * 6);
 
-      for(const w of v.wheels) w.rotation[w.userData.spinAxis ?? 'x'] -= speed * delta / 0.45;
+      for(const w of v.wheels) w.rotation[w.userData.spinAxis ?? 'x'] -= speed * delta / v.wheelRadius;
       if(v.steeringWheel){
-        const want = -m.right * 0.9;
-        v.steeringWheel.rotation.z += (want - v.steeringWheel.rotation.z) * Math.min(1, delta * 9);
+        const want = -m.right * v.steerAmount;
+        const ax = v.steerAxis;
+        v.steeringWheel.rotation[ax] += (want - v.steeringWheel.rotation[ax]) * Math.min(1, delta * 9);
       }
 
       // The camera goes in the seat. Its rotation is left alone — the mouse

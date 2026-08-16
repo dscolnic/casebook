@@ -425,7 +425,10 @@ function frame(now){
   miniMap?.update(now);
   if(isLocked && !driving.active && !flying.active) updateInteractions(promptEl);
   else if(driving.active){
-    promptEl.textContent = 'W/S drive · A/D steer · Shift faster · E — get out';
+    // A scooter is not got out of. The vehicle carries its own line where the
+    // default one would be wrong.
+    promptEl.textContent = driving.vehicle?.hint
+      ?? 'W/S drive · A/D steer · Shift faster · E — get out';
     promptEl.classList.remove('hidden');
   } else if(flying.active){
     const alt = Math.round(flying.altitude);

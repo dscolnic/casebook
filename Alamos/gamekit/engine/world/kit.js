@@ -435,6 +435,81 @@ export function vehicle(scene, x, z, y = 0, { facing = 0, colour = 0xc4442f, box
 }
 
 /**
+ * A parked kick scooter, and the rack it stands in.
+ *
+ * The vehicle the towns were missing. A truck is faster than walking and worse
+ * at everything else: it needs a street, it cannot be parked at a door, and
+ * getting one out of the freight yard costs more of the day than the walk it
+ * saves. A scooter is the short hop — a metre wide, ridden between buildings,
+ * left at the one you walked to.
+ *
+ * Like every driveable, the body runs along **-z**, which is the direction it
+ * travels. The handlebar is a group of its own so the controller can turn it;
+ * standing on a deck with nothing moving in front of you gives no sense of
+ * which way the thing is pointed.
+ */
+export function scooter(scene, x, z, y = 0, { facing = 0, colour = 0x2f7fa8 } = {}){
+  const g = new THREE.Group();
+  const frame = MATERIALS.paintedSteel(colour);
+  const dark = MATERIALS.paintedSteel(0x23272b);
+  // Deck, and the grip tape on top of it.
+  box(g, 0.30, 0.06, 1.05, 0, 0.17, 0.06, frame);
+  box(g, 0.26, 0.012, 0.92, 0, 0.205, 0.06, dark);
+  // Kicked-up tail over the rear wheel, so it does not read as a plank.
+  const tail = box(g, 0.28, 0.05, 0.26, 0, 0.235, 0.62, frame);
+  tail.rotation.x = -0.34;
+
+  const wheels = [];
+  const roller = (wz, r) => {
+    const w = new THREE.Mesh(new THREE.CylinderGeometry(r, r, 0.06, 12), MATERIALS.rubber());
+    w.rotation.z = Math.PI / 2;
+    w.position.set(0, r, wz);
+    w.userData.spinAxis = 'x';        // laid on its side, so it rolls about x
+    wheels.push(w);
+    g.add(w);
+    return w;
+  };
+  roller(0.72, 0.115);
+
+  // Everything that turns, in its own frame: front wheel, fork, stem, bar. The
+  // pivot is the head tube, so the geometry inside it is offset forward.
+  const steer = new THREE.Group();
+  steer.position.set(0, 0, -0.5);
+  const front = new THREE.Mesh(new THREE.CylinderGeometry(0.115, 0.115, 0.06, 12), MATERIALS.rubber());
+  front.rotation.z = Math.PI / 2;
+  front.position.set(0, 0.115, -0.02);
+  front.userData.spinAxis = 'x';
+  wheels.push(front);
+  steer.add(front);
+  for(const s of [-1, 1]) box(steer, 0.03, 0.30, 0.03, s * 0.055, 0.26, -0.02, dark);
+  box(steer, 0.05, 0.92, 0.05, 0, 0.86, 0.02, frame);          // the stem
+  box(steer, 0.62, 0.04, 0.04, 0, 1.30, 0.02, dark);           // the bar
+  for(const s of [-1, 1]) box(steer, 0.11, 0.05, 0.05, s * 0.25, 1.30, 0.02, MATERIALS.rubber());
+  g.add(steer);
+
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  return { group: g, wheels, steer, deck: 0.20 };
+}
+
+/**
+ * The rack scooters are left in. Scenery, but the reason a scooter parked in
+ * the middle of an avenue does not read as litter.
+ */
+export function scooterRack(scene, x, z, y = 0, { facing = 0, slots = 3 } = {}){
+  const g = new THREE.Group();
+  const steel = MATERIALS.steel();
+  const span = slots * 0.9;
+  box(g, span, 0.09, 0.09, 0, 0.42, 0, steel);
+  for(const s of [-1, 1]) box(g, 0.09, 0.46, 0.09, s * (span / 2 - 0.06), 0.23, 0, steel);
+  g.position.set(x, y, z);
+  g.rotation.y = facing;
+  scene.add(g);
+  return { group: g, soft: { x, z, r: Math.max(0.7, span / 2) } };
+}
+
+/**
  * A free-standing display board — the instrument readout or map that gives a
  * location its scientific identity. Emissive, so it reads at dusk without
  * costing a light.
