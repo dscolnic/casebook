@@ -18,6 +18,15 @@
     "seedbank": "themes/seedbank",
     "redsand": "themes/redsand",
     "midway": "themes/midway",
-    "planetary_defense_ms": "themes/planetary_defense_ms"
+    "planetary_defense_ms": "themes/planetary_defense_ms",
+    "deepwatch_ms": "themes/deepwatch_ms",
+    "aftershock_ms": "themes/aftershock_ms",
+    "icecore_ms": "themes/icecore_ms",
+    "sightline": "themes/sightline",
+    "seedbank_ms": "themes/seedbank_ms",
+    "outbreak_riverton_ms": "themes/outbreak_riverton_ms",
+    "blackout_ms": "themes/blackout_ms",
+    "bring_them_home_ms": "themes/bring_them_home_ms",
+    "contamcity_ms": "themes/contamcity_ms"
   }
 }

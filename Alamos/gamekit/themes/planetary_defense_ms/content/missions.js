@@ -7,23 +7,23 @@ export const MISSIONS = [
     "title": "The Discovery Image",
     "objective": "Validate a new-object candidate and preserve the measurements needed for follow-up.",
     "briefing": "A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.",
-    "stake": "11 days before the object passes Earth, the automated survey run by Aino Virtanen has flagged a faint point that moved between 3 exposures. The same field holds 40000 catalogued stars, 2 satellite trails and a column of hot pixels. Today you decide whether there is really an object there, keep the measurements in a state somebody else can use, and say where to point next. Nothing else is known yet — not how big, not what it is made of, not whether this pass is the only one that matters. Every hour of hesitation widens the patch of sky it could be in.",
+    "stake": "Eleven days before the object passes Earth. The survey run by Aino Virtanen has flagged a faint dot that moved between three pictures. The same patch of sky holds forty thousand catalogued stars, two satellite streaks and a column of hot pixels. Today you decide whether there is really something out there. You leave the measurements in a state somebody else can use. And you say where to point next. Nothing else is known yet. Not how big it is. Not what it is made of. Not whether this pass is the one that matters. Every hour of waiting widens the patch of sky it could be in.",
     "takeaway": "Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "DISC",
         "lesson": 0,
-        "task": "Which explanation fits the motion, image shape, detector map, and independent follow-up?"
+        "task": "Say which explanation fits all four readings on the board."
       },
       {
         "group": "DISC",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four steps in the order they have to be done."
       },
       {
         "group": "ORBIT",
         "lesson": 0,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Turn the shift between two pictures into a rate the next telescope can use."
       }
     ]
   },
@@ -31,23 +31,23 @@ export const MISSIONS = [
     "title": "Confirm the Motion",
     "objective": "Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.",
     "briefing": "Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry without creating a false trajectory from inconsistent reference frames.",
-    "stake": "Ten days to the pass, and six observatories have reported positions to Hugo Delacroix, the campaign astrometrist. Two used a different time standard, one recorded no plate solution at all, and one camera's measurements curve away from the orbit fit in a way that looks systematic rather than random. Today you build one clean track out of all of it and buy the next observation. Delacroix will not weight anything down until the room agrees how. A weak track loses the object after the pass, when it will be too faint to find again for years.",
+    "stake": "Ten days to the pass. Six observatories have sent positions to Hugo Delacroix, the campaign's position expert. Two used a different clock standard. One sent no pointing solution at all. And one camera's measurements bend away from the orbit in a way that looks like a fault rather than noise. Today you build one clean track out of all of it, and you buy the next observation. Delacroix will not throw anything out until the room agrees how. A weak track loses the object after the pass. It will be too faint to find again for years.",
     "takeaway": "Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 0,
-        "task": "Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?"
+        "task": "Say which explanation fits the pattern in the misses."
       },
       {
         "group": "ORBIT",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four steps in the order they have to be done."
       },
       {
         "group": "OPS",
         "lesson": 1,
-        "task": "Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity."
+        "task": "Spend the one booking on the observation that changes next week's prediction most."
       }
     ]
   },
@@ -55,23 +55,23 @@ export const MISSIONS = [
     "title": "The Uncertainty Corridor",
     "objective": "Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.",
     "briefing": "The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.",
-    "stake": "Eight days out, and the argument has stopped being about this pass. The best-fit orbit for the return in eight years misses Earth comfortably. A thin set of solutions inside the uncertainty does not, and the corridor they sweep crosses 9 million people and a coastline. This morning's numbers moved the impact probability up, and it is already on the wire. Rossi wants to say nothing until the arc is longer. Joan Ellery, who coordinates preparedness for the two counties under the corridor, is right that the number goes public whether or not this room has the words for it. Today you work out that probability properly and decide which observation reduces the uncertainty that is actually driving the number. You get one chance to explain it.",
+    "stake": "Eight days out, and the argument is no longer about this pass. The best-fit path for the return in eight years misses Earth easily. A thin set of paths inside the spread does not. The strip they cross holds nine million people and a coastline. This morning's numbers pushed the chance up, and it is already on the wire. Dr. Marco Rossi, the orbit lead, wants to say nothing until the arc is longer. Joan Ellery, who runs preparedness for the two counties under that strip, says the number goes public whether or not this room has the words for it. Today you work the chance out properly, and pick the measurement that shrinks it. You get one chance to explain it.",
     "takeaway": "Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 0,
-        "task": "Move and narrow the encounter cloud until the full allowed band clears Earth."
+        "task": "Move and narrow the cloud of paths until all of it clears Earth."
       },
       {
         "group": "ORBIT",
         "lesson": 2,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Turn the count of paths that hit into a chance anybody can quote."
       },
       {
         "group": "OPS",
         "lesson": 2,
-        "task": "A thin set of solutions still hits Earth. Where do you point next week?"
+        "task": "A thin set of paths still hits Earth. Say where the telescope should point next week."
       }
     ]
   },
@@ -85,17 +85,17 @@ export const MISSIONS = [
       {
         "group": "CHAR",
         "lesson": 0,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each change to what it does to the brightness we measure."
       },
       {
         "group": "OPS",
         "lesson": 3,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Work out how the widths compare when two rocks look equally bright."
       },
       {
         "group": "CHAR",
         "lesson": 1,
-        "task": "Fit the reflected brightness, then use the thermal spectrum to break the size–albedo degeneracy."
+        "task": "Fit the reflected light, then use the heat reading to settle the size and the surface."
       }
     ]
   },
@@ -103,23 +103,23 @@ export const MISSIONS = [
     "title": "What Is It Made Of?",
     "objective": "Assign a composition class with explicit alternatives and confidence.",
     "briefing": "Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player must avoid turning a taxonomic resemblance into an exact material claim.",
-    "stake": "Five days out. A broad dip has appeared near 1.4 microns in the spectrum, and if it is real it changes the composition class the characterization lead, Tola Adebayo, has already named in a draft circular. Today you decide whether that feature belongs to the asteroid, and what would make the claim solid. This is not a label for a catalogue. Density comes from composition, mass comes from density, and so does strength — which decides whether the body holds together when a spacecraft hits it in three years' time. Every model built after today inherits whatever is written today.",
+    "stake": "Five days out. A wide dip has appeared in the spectrum. If it is real, it changes what Dr. Tola Adebayo, the characterisation lead, has already written into a draft notice. Today you decide whether that dip belongs to the rock, and what would make the claim solid. This is not a label for a catalogue. What the rock is made of gives its density. Density gives its weight. Weight and strength decide whether it holds together when a spacecraft hits it in three years. Every model built after today inherits whatever gets written today.",
     "takeaway": "Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "CHAR",
         "lesson": 2,
-        "task": "Open the dependency chain behind each spectrum, keep the independent checks, and identify the shared source of the 1.4 μm dip."
+        "task": "Open what each spectrum depends on, keep the ones that stand alone, and name what the rest share."
       },
       {
         "group": "OPS",
         "lesson": 4,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four steps in the order they have to be done."
       },
       {
         "group": "OPS",
         "lesson": 5,
-        "task": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?"
+        "task": "One spectrum, one angle, one spin — and a draft notice naming a class. Say what you require."
       }
     ]
   },
@@ -133,17 +133,17 @@ export const MISSIONS = [
       {
         "group": "RADAR",
         "lesson": 0,
-        "task": "Match each quantity to the radar observable that measures it. Each choice is used once."
+        "task": "Match each thing we want to know to the radar reading that measures it."
       },
       {
         "group": "OPS",
         "lesson": 6,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Turn the echo time into a distance the orbit team can use."
       },
       {
         "group": "ORBIT",
         "lesson": 3,
-        "task": "Radar has settled this pass. What has to be computed before anybody calls the object safe?"
+        "task": "Radar has settled this pass. Say what has to be worked out before anybody calls it safe."
       }
     ]
   },
@@ -151,23 +151,23 @@ export const MISSIONS = [
     "title": "Impact Energy",
     "objective": "Provide low, central, and high impact-energy scenarios with transparent assumptions.",
     "briefing": "The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.",
-    "stake": "The object passed a week ago at four times the distance of the Moon, and is now heading away. What it left behind is a characterisation: about 180 metres across, and roughly 400 megatons if the eight-year return arrives. That is not the end of the world. It is one metropolitan region — or, if it comes down at sea off a populated coast, a wave reaching a shoreline with hours of warning. Rohan Banerjee, who models impact physics, wants one number for civil defence today; Adebayo says the diameter is still the widest term and everything else is decoration. Today you produce low, central and high scenarios and say which unknown is still doing the damage.",
+    "stake": "The object passed a week ago at four times the distance of the Moon, and it is heading away. What it left behind is a description. About one hundred and eighty metres across, and roughly four hundred megatons if the return in eight years arrives. That is not the end of the world. It is one city region. Out at sea off a coast, it is a wave with hours of warning. Dr. Rohan Banerjee, who models impacts, wants one number for civil defence today. Adebayo says the width is still the widest guess and everything else is decoration. Today you give a low, a middle and a high, and say which unknown is doing the damage.",
     "takeaway": "Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 1,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Work the weight and the arrival speed into an energy figure."
       },
       {
         "group": "OPS",
         "lesson": 7,
-        "task": "Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry."
+        "task": "Say what doubling the arrival speed does to the energy."
       },
       {
         "group": "OPS",
         "lesson": 8,
-        "task": "The consequence range spans two orders of magnitude. Which measurement narrows it most?"
+        "task": "Say which measurement would narrow the range of consequences most."
       }
     ]
   },
@@ -175,23 +175,23 @@ export const MISSIONS = [
     "title": "Can We Move It?",
     "objective": "Choose a deflection demonstration and define how success will be measured.",
     "briefing": "Impact probability remains significant, and a scouting mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.",
-    "stake": "Four months after the pass, Fischer has the radar orbit, and the encounter is seven and a half years out — which sounds like plenty and is not, because a deflection has to be launched years before it arrives. Fischer's orbit is the best this campaign will ever have, and it is already two months old. Today you size the nudge and decide how success will be measured. On a weak body the push can break the object apart, and several fragments on the same path is worse than one. So what has to be measured is not what you launched but what actually happened to the orbit.",
+    "stake": "Four months after the pass. Dr. Anna Fischer, the radar lead, has the best orbit this campaign will ever have, and it is already two months old. The return is seven and a half years out. That sounds like plenty and it is not, because a deflection has to launch years before it arrives. Today you size the push and decide how success gets measured. On a weak rock the push can break it apart, and several pieces on the same path are worse than one. So what has to be measured is not what you launched. It is what actually happened to the orbit.",
     "takeaway": "Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 2,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Work the craft's push into a change in the rock's speed."
       },
       {
         "group": "IMPACT",
         "lesson": 3,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each item on the board to what it does to the outcome."
       },
       {
         "group": "ORBIT",
         "lesson": 4,
-        "task": "Predict the velocity-change range, execute the impact, then verify the achieved deflection with post-impact tracking."
+        "task": "Lock a predicted range, run the impact, then spend the tracking to find out what happened."
       }
     ]
   },
@@ -205,17 +205,17 @@ export const MISSIONS = [
       {
         "group": "OPS",
         "lesson": 9,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each state of the evidence to what it justifies doing."
       },
       {
         "group": "OPS",
         "lesson": 10,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Turn the chance and the population into a number the office can plan against."
       },
       {
         "group": "OPS",
         "lesson": 11,
-        "task": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace."
+        "task": "Set the threshold for each stage before the updates arrive, then release the stream."
       }
     ]
   },
@@ -223,23 +223,23 @@ export const MISSIONS = [
     "title": "The Final Defense Review",
     "objective": "Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.",
     "briefing": "The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.",
-    "stake": "Eight years after the discovery, and the encounter is next week. The impactor struck 5 years ago; tracking since then puts the object about 2 Earth radii out, and some 5000 kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Garcia, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next 1 is up there now, unfound, and the survey line that caught this 1 expires in 11 months.",
+    "stake": "Eight years after the discovery, and the encounter is next week. The impactor struck 5 years ago; tracking since then puts the object about 2 Earth radii out, and some 5000 kilometres of that was bought by the impact. It was on a path nobody would have accepted. Nothing further can be done now, which is as it should be, because everything that could be done was done seven years ago. Today you take the claims one at a time with Dr. Isabel Garcia, who leads survey and response, write the public record with Ellery, and decide what stays funded once nobody is frightened. The population this object came from has not changed. The next 1 is up there now, unfound, and the survey line that caught this 1 expires in 11 months.",
     "takeaway": "Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 12,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each claim to what the evidence under it justifies doing."
       },
       {
         "group": "ORBIT",
         "lesson": 5,
-        "task": "Use the two remaining independent checks on the final-record claims that most need physical verification."
+        "task": "Spend the two checks on the signed claims that most need measuring."
       },
       {
         "group": "OPS",
         "lesson": 13,
-        "task": "The campaign budget ends with this review. What survives it?"
+        "task": "Say which part of the system has to keep its funding."
       }
     ]
   }

@@ -23,6 +23,7 @@
 // the bar it cleared before.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
+import { bookNameFor } from './books.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const root = resolve(here, '..');
@@ -33,10 +34,10 @@ if(!theme || !sheetArg){
   console.error('usage: node tools/apply-copy.mjs <theme> <edited.jsonl> [--dry]');
   process.exit(2);
 }
-const BOOKS = { deepwatch: 'deep-watch', bring_them_home: 'bring-them-home',
-  outbreak_riverton: 'outbreak-riverton', planetary_defense: 'planetary-defense',
-  projecty: 'project-y' };
-const bookName = BOOKS[theme] ?? theme;
+// One resolver, in tools/books.mjs: a book is found by matching the
+// separator-free spelling of the theme name, so an edition's book needs no
+// entry anywhere.
+const bookName = bookNameFor(theme) ?? theme;
 const bookPath = resolve(root, 'books', `${bookName}.yml`);
 const manifestPath = resolve(root, 'books', 'copy', `${bookName}-copy.manifest.json`);
 for(const p of [bookPath, manifestPath, resolve(process.cwd(), sheetArg)]){

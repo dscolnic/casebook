@@ -41,6 +41,7 @@ import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { emitYaml } from './yaml-emit.mjs';
 import { normalise, trap, missingFields, BLOCK, targetFormat, known, screenGap } from './conversion-normalise.mjs';
+import { bookNameFor } from './books.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const root = resolve(here, '..');
@@ -57,10 +58,10 @@ if(!theme || !sheetArg){
   console.error('usage: node tools/apply-conversions.mjs <theme> <returned.jsonl> [--dry] [--with-text]');
   process.exit(2);
 }
-const BOOKS = { deepwatch: 'deep-watch', bring_them_home: 'bring-them-home',
-  outbreak_riverton: 'outbreak-riverton', planetary_defense: 'planetary-defense',
-  projecty: 'project-y' };
-const bookName = BOOKS[theme] ?? theme;
+// One resolver, in tools/books.mjs: a book is found by matching the
+// separator-free spelling of the theme name, so an edition's book needs no
+// entry anywhere.
+const bookName = bookNameFor(theme) ?? theme;
 const bookPath = resolve(root, 'books', `${bookName}.yml`);
 const sheetPath = resolve(process.cwd(), sheetArg);
 for(const p of [bookPath, sheetPath]){

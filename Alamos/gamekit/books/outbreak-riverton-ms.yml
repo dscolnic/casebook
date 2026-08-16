@@ -1,0 +1,1511 @@
+# outbreak_riverton_ms.yml — Outbreak: Riverton, taught at grade 6.
+#
+# DERIVED from books/outbreak-riverton.yml by tools/derive-edition.mjs. The place, the
+# cast and the story are the base game's and are not this file's to change; the
+# course is. Days kept: 1, 2, 3, 5, 6, 8, 9, 11, 12, 15 of 15.
+#
+# What may be rewritten here, and what may not, is MIDDLE_SCHOOL_EDITIONS.md §1,
+# and engine/dev/editionParity.mjs fails the game for crossing it. Rewrite the
+# prose against books/GRADE6_BRIEF.md and re-import:
+#
+#   node tools/import-book.mjs books/outbreak-riverton-ms.yml outbreak_riverton_ms --verify
+
+theme:
+  id: outbreak_riverton_ms
+  title: "Outbreak: Riverton"
+  subtitle: Scientific Response Director · Riverton
+
+# The areas of study. One column of the game each; every group needs somebody on the roster.
+groups:
+  - id: CLIN
+    code: CLIN
+    name: Clinical Physiology
+    color: "#315c78"
+    desc: Patient physiology, organ systems, and bedside evidence.
+    defaultLeader: ortiz
+    milestones:
+      - Observe the patient
+      - Connect the evidence
+      - Verify with an independent check
+      - Ready to hand off
+  - id: CELL
+    code: CELL
+    name: Cell & Membrane Biology
+    color: "#4b775f"
+    desc: Cells, membranes, receptors, transport, and host interactions.
+    defaultLeader: chen
+    milestones:
+      - Build the cell model
+      - Connect the evidence
+      - Verify with an independent check
+      - Ready to hand off
+  - id: MOL
+    code: MOL
+    name: Molecular Diagnostics
+    color: "#704f88"
+    desc: DNA, RNA, gene expression, sequencing, and diagnostic controls.
+    defaultLeader: patel
+    milestones:
+      - Validate the molecular evidence
+      - Connect the evidence
+      - Verify with an independent check
+      - Ready to hand off
+  - id: IMM
+    code: IMM
+    name: Immunology & Treatment
+    color: "#9a3f36"
+    desc: Immune mechanisms, treatment response, and intervention evidence.
+    defaultLeader: okafor
+    milestones:
+      - Separate response from damage
+      - Connect the evidence
+      - Verify with an independent check
+      - Ready to hand off
+  - id: POP
+    code: POP
+    name: Epidemiology & Evolution
+    color: "#9a741d"
+    desc: Population patterns, surveillance, trials, and evolutionary change.
+    defaultLeader: morales
+    milestones:
+      - Connect cases to populations
+      - Connect the evidence
+      - Verify with an independent check
+      - Ready to hand off
+  - id: FIELD
+    code: FIELD
+    name: Ecology & One Health
+    color: "#3d6f52"
+    desc: Environmental surveillance, animal reservoirs, and ecosystem connections.
+    defaultLeader: singh
+    milestones:
+      - Connect hosts and environment
+      - Connect the evidence
+      - Verify with an independent check
+      - Ready to hand off
+
+# The cast. `division` is what makes a person a valid person stop.
+roster:
+  - id: ortiz
+    name: Dr. Lena Ortiz
+    role: Clinical Physiology Lead
+    division: CLIN
+    quiz:
+      - q: Why does Ortiz read vital signs as a delivery chain rather than as separate numbers?
+        a: Oxygen reaching tissue depends on every link, so one normal reading does not clear the chain
+        wrong:
+          - Vital signs all come off one monitor, so they share whatever error it has
+          - Only the chain as a whole is recorded in the notes
+          - Individual readings are too imprecise to interpret
+    bio: Connects vital signs and laboratory measurements to the physical chain that delivers oxygen, water, nutrients, and heat through the body.
+  - id: chen
+    name: Dr. Maya Chen
+    role: Cell Biology Lead
+    division: CELL
+    quiz:
+      - q: Why can one agent damage one tissue and leave another alone?
+        a: Cells differ in the receptors and transport their membranes carry
+        wrong:
+          - Blood reaches some tissues a great deal faster than it reaches others
+          - Larger cells absorb more of any substance
+          - Damage depends only on the dose that arrives
+    bio: Uses cell structure and membrane behavior to explain why the same agent can affect one tissue but not another.
+  - id: patel
+    name: Dr. Ravi Patel
+    role: Molecular Diagnostics Lead
+    division: MOL
+    quiz:
+      - q: What does Patel mean by treating a molecular signal as a claim?
+        a: It has to survive its controls, a second method and a known provenance before it means anything
+        wrong:
+          - Every result has to be published in some form before anybody may act on it
+          - A signal is only valid if the same laboratory repeats it
+          - Molecular methods are less reliable than culture
+    bio: Treats every molecular signal as a claim that must survive controls, independent methods, and provenance checks.
+  - id: okafor
+    name: Dr. Nia Okafor
+    role: Immunology Lead
+    division: IMM
+    quiz:
+      - q: Why does Okafor separate protective immune activity from damage?
+        a: The treatment that helps one is the treatment that makes the other worse
+        wrong:
+          - Only the damaging kind of inflammation shows up in a blood sample
+          - Protective responses always resolve without treatment
+          - The distinction decides which ward a patient goes to
+    bio: Separates protective immune activity from tissue-damaging inflammation and asks what evidence changes an intervention decision.
+  - id: morales
+    name: Dr. Sofia Morales
+    role: Epidemiology Lead
+    division: POP
+    quiz:
+      - q: What is Morales's comparison group actually for?
+        a: Without it a change in the numbers cannot be told from a change in who was tested
+        wrong:
+          - It doubles the size of the sample and narrows the confidence interval
+          - It is required before any result can be published
+          - It identifies which hospital reported first
+    bio: Builds comparisons that distinguish real population change from sampling, bias, and coincidence.
+  - id: singh
+    name: Dr. Arjun Singh
+    role: One Health Lead
+    division: FIELD
+    quiz:
+      - q: Why does Singh refuse to call an animal finding a transmission route?
+        a: The animal may have caught it from people, and prevalence and exposure are what separate the two
+        wrong:
+          - Animal samples cannot be sequenced to the same depth as human ones
+          - Transmission routes can only be confirmed experimentally
+          - Wildlife sampling is never representative
+    bio: Connects human cases to animals, water, and ecosystems without assuming that correlation proves a transmission route.
+  - id: nakamura
+    name: Rin Nakamura
+    role: Critical Care Physician
+    division: CLIN
+    bio: |-
+      Runs the intensive care unit, where the outbreak stops being a case count and
+      becomes four people whose oxygen is falling for reasons nobody has settled.
+
+      She reads a patient as a set of coupled systems. A falling oxygen saturation
+      can come from the lung, the blood that carries the oxygen or the circulation
+      that moves it, and the treatment for each of those is different.
+
+      Her limit is that the sickest patients are the least representative. What is
+      happening in her unit is real and it is also the tail of the distribution.
+    quiz:
+      - q: Why does Nakamura warn against describing the disease from her unit alone?
+        a: The sickest patients are the tail of the distribution, not a sample of it
+        wrong:
+          - Intensive care records are less accurate than ward records
+          - Severe cases are treated before they can be measured
+          - Her unit only admits patients with confirmed tests
+  - id: adeyemi
+    name: Funke Adeyemi
+    role: Cell Biologist
+    division: CELL
+    bio: |-
+      Works out which cells the pathogen can enter and what it does once inside,
+      because that constrains everything downstream — which tissues are damaged,
+      which drugs could plausibly work, and which route of transmission is possible.
+
+      She runs a negative control on every plate as a matter of habit. A culture
+      that shows an effect without a control showing nothing is a result about the
+      laboratory as much as about the pathogen.
+    quiz:
+      - q: Why does Adeyemi run a negative control on every plate?
+        a: Without it, an effect of the laboratory looks like an effect of the pathogen
+        wrong:
+          - Controls make the cultures grow at a reproducible rate
+          - A control is what converts a qualitative result into a quantitative one
+          - Controls are required only when the sample is from a patient
+  - id: bergstrom
+    name: Lena Bergström
+    role: Genomic Epidemiologist
+    division: MOL
+    bio: |-
+      Reads sequences for what they say about transmission — who infected whom,
+      how long the chain has been running, and whether two clusters are one
+      outbreak or two.
+
+      Genetic distance is her main tool and her main trap. Two sequences being
+      close is evidence of a recent common ancestor, not evidence that one patient
+      infected the other, and the difference matters for every control decision.
+    quiz:
+      - q: What does Bergström say two nearly identical sequences establish?
+        a: A recent common ancestor, which is not the same as one patient infecting the other
+        wrong:
+          - The direction of transmission between the two patients
+          - That both patients were infected on the same day
+          - That the pathogen is not mutating
+  - id: haddad
+    name: Yusuf Haddad
+    role: Clinical Immunologist
+    division: IMM
+    bio: |-
+      Separates the damage a pathogen does from the damage the immune response does
+      while clearing it, which sounds academic until a treatment has to be chosen.
+
+      Suppressing inflammation helps a patient whose injury is immune-driven and
+      harms one who is still fighting the infection. The same drug, the same dose,
+      opposite outcomes, decided by where the patient is in their course.
+    quiz:
+      - q: Why can the same anti-inflammatory treatment help one patient and harm another?
+        a: It depends whether the damage is immune-driven or the infection is still winning
+        wrong:
+          - Doses are calculated from body weight, so they vary between patients on the ward
+          - Some patients absorb the drug and others do not
+          - The drug expires quickly once a vial is opened
+  - id: oduya
+    name: Grace Oduya
+    role: Field Epidemiologist
+    division: POP
+    bio: |-
+      Builds the case definition, which decides what counts as a case and therefore
+      what every curve in the response is a curve of.
+
+      A definition too narrow misses the spread and one too wide fills the count
+      with other illnesses. She changes it when she has to and records the change,
+      because a curve that bends on the day the definition moved is not evidence
+      about the disease.
+    quiz:
+      - q: Why does Oduya document every change to the case definition?
+        a: A bend on the day the definition changed is an artefact
+        wrong:
+          - Definitions must be approved by the hospitals before use
+          - Changing a definition invalidates every laboratory result taken before it
+          - The definition determines which treatment a patient receives
+  - id: castellanos
+    name: Mateo Castellanos
+    role: Wildlife Veterinarian
+    division: FIELD
+    bio: |-
+      Samples the animals people live alongside, which is where most new human
+      pathogens were living before they were human pathogens.
+
+      Finding the organism in a species proves that species can carry it. Showing
+      it is a reservoir needs prevalence, the exposure pattern of the human cases,
+      and comparison sites where the illness never appeared — otherwise a bystander
+      that caught it from people gets blamed and culled.
+    quiz:
+      - q: Why is finding the pathogen in an animal not enough to declare a reservoir?
+        a: The animal may have caught it from people, and prevalence separates the two
+        wrong:
+          - Field samples are always contaminated by human handling
+          - A reservoir must contain a higher viral load than any patient
+          - The organism has to be found in more than one individual animal at the site
+
+# Terms the game may explain in place.
+glossary:
+  - name: Epidemiology
+    aliases:
+      - epidemiology
+      - epidemiologist
+      - epidemiological
+    def: The study of how health events are spread through a population, and what makes them spread that way.
+  - name: Antibody
+    aliases:
+      - antibody
+      - antibodies
+    def: A protein the immune system makes that binds one specific target.
+  - name: Catalysis
+    aliases:
+      - catalysing
+      - catalyzing
+      - catalyse
+      - catalyze
+    def: Speeding a reaction by offering an easier path, without being used up. Enzymes are the biological version.
+  - name: Codon
+    aliases:
+      - codon
+      - codons
+    def: Three letters of genetic code, which together name one amino acid. Change one and the protein may change by one unit.
+  - name: Control
+    aliases:
+      - control
+    def: A comparison designed to reveal whether a signal could arise without the proposed cause.
+  - name: Diffusion
+    aliases:
+      - diffusion
+      - diffuses
+    def: Movement from where there is more to where there is less, with no energy spent. It is why a small molecule crosses a membrane on its own.
+  - name: Genomic sequencing
+    aliases:
+      - genomic
+      - genome
+      - genomes
+    def: Reading the agent’s genetic code, which shows how closely two cases are related.
+  - name: Homeostasis
+    aliases:
+      - homeostasis
+    def: The regulation that keeps internal conditions within workable ranges.
+  - name: Incidence
+    aliases:
+      - incidence
+    def: How many new cases appear per unit of time. It is the rate; prevalence is the stock.
+  - name: Neutralising antibody
+    aliases:
+      - neutralizing
+      - neutralising
+    def: An antibody that blocks the agent from entering a cell, rather than merely marking it.
+  - name: Pathogen
+    aliases:
+      - pathogen
+      - pathogens
+    def: An agent that causes disease — a virus, a bacterium, a parasite.
+  - name: Prevalence
+    aliases:
+      - prevalence
+    def: How many people have the illness right now. Long illnesses keep it high after new cases fall.
+  - name: Reagent
+    aliases:
+      - reagent
+      - reagents
+    def: A chemical added to make a test work, as opposed to the sample being tested.
+  - name: Reservoir
+    aliases:
+      - reservoir
+    def: A host population or environment in which an infectious agent can persist.
+  - name: Ribosome
+    aliases:
+      - ribosome
+      - ribosomes
+    def: The machine in a cell that reads RNA and assembles the protein it specifies.
+  - name: RNA
+    aliases:
+      - RNA
+    def: The working copy of a gene, read to make a protein. Many viruses carry their whole genome as RNA.
+  - name: Saturation
+    aliases:
+      - saturation
+      - saturated
+    def: The point at which adding more changes nothing, because every place it could go is taken.
+  - name: Selection
+    aliases:
+      - selection
+    def: A process in which variants differ in reproductive success, changing frequencies over generations.
+  - name: Sensitivity
+    aliases:
+      - sensitivity
+    def: The fraction of true cases a test detects.
+  - name: Solute
+    aliases:
+      - solute
+      - solutes
+    def: The substance dissolved in a liquid, as opposed to the liquid doing the dissolving.
+  - name: Specificity
+    aliases:
+      - specificity
+    def: The fraction of unaffected cases a test correctly leaves negative.
+  - name: Vector
+    aliases:
+      - vector
+      - vectors
+    def: An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives.
+
+# The campaign: 1 working day each, 3 stops and a callback from day 3.
+missions:
+  - title: The First Cluster
+    objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
+    briefing: Three Riverton hospitals report an unusual combination of fever, dry cough, severe headache, and profound fatigue. The player must decide whether the pattern is a true outbreak signal before scarce emergency resources are committed.
+    stake: Day one. Seven patients, three hospitals, four days, and the same four symptoms in every one of them. The epidemiology lead, Sofia Morales, has the surveillance printout and a reporter downstairs already has the number. This stage you decide whether this is an outbreak at all, agree what counts as a case, and spend the first of the response money. Seven sounds like a lot, and Morales will not say whether it is until she knows what a normal week in this city looks like. Call it nothing and you lose the weeks when an outbreak is still small enough to stop.
+    takeaway: Use baseline variation, case definition, controls, correlation versus coincidence, measurement bias as an evidence chain rather than as isolated facts.
+    stops:
+      - group: POP
+        task: Say whether this is a real signal, and what on the desk decides it.
+        title: Signal or noise?
+        place: Emergency Department Network
+        scene: Seven patients across three hospitals in four days, with the same four symptoms. Dr. Sofia Morales has the printouts, and the press office has asked twice whether to say anything.
+        assumes:
+          - a rate counts cases against how many people there are and how long it took
+          - the system only sees the patients who reached a hospital
+        takeaway: A count becomes a signal only when something says what was expected instead.
+        format: DIAGNOSIS
+        question: Is this a real signal, and what on the desk decides it?
+        answerText: A real signal. Two a year is what this city normally sees. And two of the seven were found a second way.
+        why: "A count on its own is not a signal. What makes it one is a comparison with what was expected, written down beforehand. This city logs about two of these a year. Seven in four days is not a busy week. The quiet reading matters most: two of the seven were found by hand, outside the alert that found the other five. If every case had come through one alert, the cluster could have belonged to the alert."
+        headline: Seven cases in four days, against a thing the city normally logs twice a year.
+        readings:
+          - zone: Count
+            label: Cases meeting the syndrome
+            value: 7 in four days
+            status: alarm
+          - zone: Baseline
+            label: Same syndrome
+            value: about 2 a year
+            status: key
+          - zone: Reporting
+            label: How the cases were found
+            value: 5 by one alert rule
+            status: key
+          - zone: Denominator
+            label: Catchment population
+            value: supplied by all three hospitals
+            status: normal
+          - zone: Season
+            label: Other respiratory syndromes this week
+            value: flat
+            status: normal
+          - zone: Geography
+            label: Shared address
+            value: none found
+            status: normal
+        choices:
+          - label: A real jump above what this city normally sees.
+            mechanism: Seven in four days, against about two a year, is far outside what the system normally does.
+          - label: Something the shared alert rule created by itself.
+            mechanism: Every case was found the same way, by the same rule.
+          - label: Ordinary autumn coughs and colds.
+            mechanism: This kind of illness is common in autumn, and seven is inside the usual wobble.
+          - label: Impossible to say, because nobody knows how many people are out there.
+            mechanism: Seven is a count with nothing underneath it.
+        answer: A real jump above what this city normally sees.
+        rebuttals:
+          - The alert rule is the right worry, and it is the one this panel rules out. Five came through it and two did not.
+          - Autumn coughs would lift the other illnesses too. Those are flat, so whatever this is, it is not the season.
+          - The population figures are on the desk. All three hospitals supplied theirs, so that objection has already been answered.
+      - group: POP
+        task: Put the four steps in the order each one can be checked in.
+        title: What counts as a case
+        place: Epidemiology Operations Room
+        scene: Three hospitals start counting at six in the morning. Each has written its own idea of what counts. Dr. Lena Ortiz, who leads the ward side, wants one on every desk before the night shift leaves.
+        assumes:
+          - a graph of cases only means something if everybody counted the same thing
+          - a definition can be too narrow or too wide, and both are wrong
+        takeaway: A definition turns a worry into something two people can count the same way.
+        format: SEQUENCE
+        why: A definition of what counts is an instrument, and it can be wrong in two directions. Too narrow and most of the spread is invisible. Too wide and the count fills up with ordinary autumn coughs. That is why it gets tested twice before it goes out. Against patients everybody agrees are cases, which catches one that is too narrow. Against people who obviously are not, which catches one that is too wide.
+        rebuttals:
+          - The notes come first. What these patients share has to come out of the patients, not out of the drafting.
+          - Symptoms, timing and place next, because that is what somebody actually applies at four in the morning.
+          - Testing before it goes out, not after. Known cases catch a definition that is too narrow, and obvious non-cases catch one that is too wide.
+          - The revision date goes out with it. Without one, three hospitals keep counting to a definition everybody knows is temporary.
+        cards:
+          - Read the notes of the patients already in, and find what they share.
+          - Write down the symptoms, the timing and the place, plainly enough to use at four in the morning.
+          - Try it on known cases, and on people who obviously do not have it.
+          - Send it out with a date for revising it, and what is still unknown.
+        order: [1, 0, 2, 3]
+      - group: POP
+        task: Spend the one slot on what makes tomorrow's numbers usable.
+        title: Spend the first afternoon
+        place: Clinical Data Office
+        scene: Morales can start one thing this afternoon. Four are ready to go, and tomorrow's hospital numbers will land before any second one can start.
+        assumes:
+          - three hospitals can only be added together if they counted the same way
+        takeaway: The best first measurement is the one that makes everything measured later comparable.
+        format: VALUE
+        question: Which first move changes what the team can conclude tomorrow?
+        value:
+          hint: You can start one project before tomorrow’s hospital reports arrive. Open each card to see what new conclusion it would make possible, then spend the slot.
+          budget:
+            amount: 1
+            unit: response start
+            label: Projects that can begin this afternoon
+          decision: Choose the first action that makes tomorrow's citywide outbreak picture interpretable.
+          options:
+            - id: line_list
+              label: Standardised line list across all three hospitals
+              cost: 1
+              axis: measurement standardization
+              decisive: true
+              reveals: Whether all three hospitals are counting the same observable case definition with dates and catchment denominators.
+            - id: director_interviews
+              label: Interview every hospital director
+              cost: 1
+              axis: expert opinion
+              decisive: false
+              reveals: Clinicians' impressions of how unusual the week feels, without a common denominator or case definition.
+            - id: wastewater
+              label: Start wastewater sampling in affected and comparison areas
+              cost: 1
+              axis: independent population surveillance
+              decisive: false
+              reveals: A community-level signal that does not depend on care seeking, but cannot define or identify clinical cases.
+            - id: warning
+              label: Issue a citywide warning now
+              cost: 1
+              axis: public communication
+              decisive: false
+              reveals: No new physical evidence; it commits public credibility before the transmission picture is established.
+        answerText: Start the shared list. Tomorrow's three counts only become one usable picture if the same definition and the same dates made them.
+        why: Three hospitals are about to send in three sets of numbers. They can only be added together if the same rule made them. A shared list, with the same dates and the same town figures, is what does that. Testing the sewage gives a separate signal about the whole town, and it cannot say who is ill. Asking experts what they think has nothing underneath it. A warning adds no evidence.
+  - title: What Kind of Agent?
+    objective: Classify the broad agent category and identify the next discriminating test.
+    briefing: Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.
+    stake: Day two. Pathology has four results from the same samples and will not put a name to any of it. The pictures down the microscope are the most convincing thing anybody has seen all week. That is exactly why Maya Chen, who leads the cell work, does not trust them yet. Ravi Patel wants to commit the test bench tonight. This stage you decide what broad kind of thing this is, and buy the one piece of evidence that would settle it. Everything after today is chosen off that call. What to grow it in. Which drugs are worth a look. What tomorrow's test goes hunting for.
+    takeaway: Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence chain rather than as isolated facts.
+    stops:
+      - group: CLIN
+        task: Say which explanation fits every reading, including the quiet ones.
+        title: What kind of germ fits everything?
+        place: Hospital Pathology Suite
+        scene: Pathology has four results from the same samples and still cannot name what this is. The samples are waiting under the hood. Ortiz needs a broad answer before the overnight run is booked.
+        assumes:
+          - some germs are cells that can copy themselves, and viruses cannot copy themselves alone
+          - a test that comes back negative is a result, not a missing one
+        takeaway: What something is gets settled by several tests together, not by one striking picture.
+        format: DIAGNOSIS
+        question: Which explanation fits every reading here?
+        answerText: Something virus-like. Three separate looks for a cell came back empty, and it only copies itself inside living cells.
+        why: The negative results do most of the work. Nothing cell-shaped is visible. The marker that finds bacteria is absent. The stain built to find fungal walls is clean, and it rarely misses. The signal only grows where there are living cells to grow in, which fits something that cannot copy itself alone. And the blank is clean, so it did not come out of the room. That is a virus-shaped answer, without naming which one.
+        rebuttals:
+          - A bacterium is a cell, and it would leave something behind. Three separate looks came back empty.
+          - A fungus would show its wall on a stain built to find it. That stain is clean, and it rarely misses.
+          - Something from the room is the right suspicion, and the blank is how it gets checked. This blank is clean.
+        headline: Several clues from the same samples, and no name yet.
+        readings:
+          - zone: Microscope
+            label: Microscope
+            value: No intact cellular forms seen
+            status: normal
+            note: Several fields examined; image quality is good
+          - zone: Host-cell dependence
+            label: Host-cell dependence
+            value: Signal rises only when living host cells are present
+            status: alarm
+            note: Acellular control shows no increase
+          - zone: Bacterial marker
+            label: Bacterial marker
+            value: Not detected
+            status: normal
+            note: Control bacterial sample is detected normally
+          - zone: Fungal cell-wall stain
+            label: Fungal cell-wall stain
+            value: Negative
+            status: normal
+            note: Positive stain control is normal
+          - zone: Extraction blank
+            label: Extraction blank
+            value: Negative
+            status: normal
+            note: No target signal in the blank
+        choices:
+          - label: Something virus-like.
+            mechanism: Not a cell of its own, and it can only copy itself inside a living cell.
+          - label: A bacterium of some kind.
+            mechanism: A cell in its own right, which would leave the markers and shapes of one.
+          - label: A fungus of some kind.
+            mechanism: A cell with a wall, which is exactly what the stain is built to find.
+          - label: Something that got in from the laboratory.
+            mechanism: Stray material loose in the room, rather than anything in the patients.
+        answer: Something virus-like.
+      - group: POP
+        task: Put the four steps in the order they have to happen.
+        title: From sample to a first answer
+        place: Microscopy Core
+        scene: The bench has patient material, healthy tissue and a blank on it. There are four things it could do with them, and two of them use up what they measure.
+        assumes:
+          - measuring a dirty sample measures the dirt
+        takeaway: A first answer is built out of several observations, not printed by one machine.
+        format: SEQUENCE
+        why: Each step only means something if the step before it held. The blank and the healthy tissue come first, because they separate the germ from whatever it arrived in. Measure a shape in a dirty sample and you have measured the dirt, close up. Size and shape then say whether this is a cell at all. Only then does asking whether it can copy itself alone mean anything.
+        rebuttals:
+          - The controls come first, because everything after them is a claim about the patient rather than the tube.
+          - Shape before behaviour. Whether something needs a living cell is a question about an organism, and you do not have one yet.
+          - The copying question comes third. It is the slowest and the fussiest, and worth running only on something the first two steps survived.
+          - Putting it together comes last. A first answer is what the other three produce, not a step on its own.
+        cards:
+          - Compare the patient material against healthy tissue and a blank.
+          - Look at how big it is, what it is made of, and what its genetic material is like.
+          - Ask whether it can copy itself alone, or only inside a living cell.
+          - Put the separate observations together into a first answer.
+        order: [0, 1, 2, 3]
+      - group: MOL
+        task: Say what the temperature comparison shows.
+        title: When heat changes the test
+        place: Molecular Diagnostics Bench
+        scene: A test works after being warmed to thirty-seven degrees. After the same part is held at fifty-five, it mostly stops working. Nothing else was changed.
+        assumes:
+          - the working part of a test can be a protein, and a protein has to keep its shape to work
+        takeaway: Change one thing and hold the rest, and what changes belongs to the thing you changed.
+        format: CHOICE
+        question: What does the temperature comparison show?
+        answerText: The heat wrecked the shape of the working part. Everything else was held the same, so the loss belongs to the temperature.
+        why: Warming things up usually speeds a reaction up. Everything moves about more and bumps into more. That only holds while the working part keeps its shape. Push the heat far enough and the shape goes, and so does the pocket where the work happens. Here only the heat changed, so the loss belongs to the heat. It says nothing about the patient's sample.
+        choices:
+          - The higher temperature wrecked the shape the test depends on.
+          - More heat always means a faster reaction, so it must have run too fast.
+          - The patient's sample went off, even though this test used the same working part.
+          - The thing being looked for was destroyed at fifty-five degrees.
+        answer: The higher temperature wrecked the shape the test depends on.
+        rebuttals:
+          - Heat speeds a reaction only while the working part is still working. Its shape sets the limit.
+          - What changed here is the temperature the working part was held at, not the patient sample.
+          - This test measures whether the working part still works. It says nothing about the target being destroyed.
+  - title: The Point of Entry
+    objective: Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream replication.
+    briefing: The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine how membrane structure, receptors, and transport explain this selectivity.
+    stake: Day four. The agent reaches the airway in everybody and only some cells are being damaged, and Adeyemi has spent two nights on why. This stage you work out why those cells and not their neighbours, and design the experiment that separates two steps people keep merging. Two of the three benches are already booked and Adeyemi wants the third tonight. Chen has asked for the resistant cells to be kept aside whatever is decided. Your teams start designing a therapy from this picture tonight. If the model is wrong they spend three months blocking a step the agent does not need.
+    takeaway: Use phospholipid bilayer, receptors, diffusion, facilitated transport, endocytosis, cell specificity as an evidence chain rather than as isolated facts.
+    stops:
+      - group: CELL
+        task: Put the four steps of getting in into order.
+        title: Getting into a cell
+        place: Cell Culture Wing
+        scene: Only some kinds of cell in the airway are affected. The culture wing has four cards about getting into a cell, and nobody has put them in order.
+        assumes:
+          - a cell's outer layer lets some things through and keeps others out
+        takeaway: A cell's outside decides what can get in, which is why only some cells are affected.
+        format: SEQUENCE
+        why: The order is physical, and it explains the pattern. Nothing gets in until something on the surface is recognised. A cell without the right piece on its outside cannot be entered, however much lands on it. The layer bends next, because that is what the recognition sets off. Material crosses after that. Everything the cell then does wrongly comes later.
+        rebuttals:
+          - Recognition first. It decides which cells are even candidates, which is why some kinds are affected and others are not.
+          - The layer bends because something bound to it. That is a consequence of recognition rather than a step on its own.
+          - Material crosses only after the layer has rearranged. That is what the rearranging is for.
+          - The hijacked machinery is last, because it is an effect. A cell doing the wrong work has already been entered.
+        cards:
+          - Something on the outside of the germ is recognised by a piece on the cell's surface.
+          - The cell's outer layer bends, or joins with it.
+          - The material crosses into the cell.
+          - The cell's own machinery starts being used for something else.
+        order: [0, 1, 2, 3]
+      - group: CELL
+        task: Match each observation to how the material is crossing.
+        title: Which way things cross
+        place: Membrane Biology Lab
+        scene: Four things from the culture bench, each about something crossing a cell's outer layer. The cell biologist wants each one named before the model goes further.
+        assumes:
+          - things spread from where there is more of them to where there is less
+          - a cell has to spend energy to move something the other way
+        takeaway: How something crosses is worked out from the rules it obeys, not from what it is called.
+        format: PROTOCOL
+        why: Three things tell these apart, and none of them is the name of the molecule. Which way it goes. Downhill is free, uphill costs, and the energy spent is the receipt. Whether it needs help. Something small and greasy slips through, and a charged particle cannot. And how big it is. Something too big for any doorway gets wrapped up and carried in.
+        columns:
+          - What the material does
+          - How it is crossing
+        rebuttals:
+          - Downhill and needing no help is the simplest case. It is small and greasy enough to cross the layer itself.
+          - Downhill through a doorway is still free. The doorway supplies the choosiness, not the push.
+          - Uphill with energy spent is the one where the cell is doing work, and the cost is what identifies it.
+          - Something large being wrapped up is a different process from anything crossing the layer.
+        scenarios:
+          - Something small and greasy moves from where there is more of it to where there is less.
+          - A charged particle moves the same way, through a doorway in the layer.
+          - Something is moved uphill, and energy gets spent doing it.
+          - Something large is wrapped up by the layer and taken in.
+        choices:
+          - Straight through the layer, with no help.
+          - Through a doorway, still downhill and still free.
+          - Pushed uphill, which is what the energy is for.
+          - Wrapped up and swallowed whole.
+        mapping: [0, 1, 2, 3]
+      - group: CELL
+        task: Change one thing at a time, then put it back, and say whether the landing step is required.
+        title: Separate landing from getting in
+        place: Structural Biology Room
+        scene: Dr. Maya Chen has a test that counts how much gets into airway cells. Three changes are ready to try, and the treatment meeting needs to know about the first step.
+        assumes:
+          - a fair test changes one thing and holds everything else still
+          - an effect that comes back when you undo the change is stronger evidence than a coincidence
+        takeaway: A cause is proved when changing one thing changes the result, and putting it back brings it back.
+        format: CONTROL
+        question: Which single change makes the entry follow the landing step rather than the dose or the handling?
+        control:
+          dataProvenance: invented simulated, non-infectious classroom fluorescence values; mechanism is source-derived
+          hint: Keep two controls fixed while changing the third. A useful cause should move the entry signal when changed and restore it when reversed.
+          noise: 5
+          variables:
+            - id: receptor_blocker
+              label: Surface-receptor blocker
+              baseline: "off"
+              changed: "on"
+              result: 22
+              deltaFromBaseline: -78
+            - id: matched_antibody
+              label: Matched control antibody
+              baseline: "off"
+              changed: "on"
+              result: 97
+              deltaFromBaseline: -3
+            - id: particle_dose
+              label: Labelled-particle exposure
+              baseline: 1×
+              changed: 2×
+              result: 181
+              deltaFromBaseline: 81
+          states:
+            - id: baseline
+              receptor_blocker: "off"
+              matched_antibody: "off"
+              particle_dose: 1×
+              response: 100
+            - id: block_receptor
+              receptor_blocker: "on"
+              matched_antibody: "off"
+              particle_dose: 1×
+              response: 22
+            - id: control_antibody
+              receptor_blocker: "off"
+              matched_antibody: "on"
+              particle_dose: 1×
+              response: 97
+            - id: double_dose
+              receptor_blocker: "off"
+              matched_antibody: "off"
+              particle_dose: 2×
+              response: 181
+            - id: blocker_washout
+              receptor_blocker: "off"
+              matched_antibody: "off"
+              particle_dose: 1×
+              response: 96
+          ambiguousIfMultipleChanges: true
+          requiresReversal: true
+          baseline: 100
+          response: -78
+          changedReading: 22
+          responseUnit: fluorescence units
+          truth: receptor_blocker
+        answerText: Blocking the landing step. Entry falls from about 100 to 22, and washing the blocker off brings it back to 96. The look-alike blocker changes nothing.
+        why: Counting the landing places on a cell is only a clue. The real test asks whether the landing step is needed. Block it, keep the dose and the handling the same, and what gets in falls hard. Add a look-alike blocker and nothing changes, so it was not just adding something. Wash the blocker off and it comes back. Both directions is what makes it a cause.
+  - title: A Test Before Morning
+    objective: Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.
+    briefing: Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.
+    stake: Day nine, and the hospitals need a working test by sunrise. Patel's overnight run has flagged several patients positive — and one of the controls, a tube that had nothing in it and should have come back empty. 3000 people have already been told to isolate on that run and the bulletin goes out at 6. This stage you decide whether the run can be believed and what a positive would mean for a patient. Patel wants to re-run everything from the start. The hospitals want the six o'clock number.
+    takeaway: Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.
+    stops:
+      - group: MOL
+        task: Put the four steps of the run in order.
+        title: A run you can trust by morning
+        place: Sample Processing Room
+        scene: Hospitals want a test by sunrise and the room has four hours. Four steps are on the whiteboard. The machine multiplies whatever is in the tube a billion times, which is why the order is argued about.
+        assumes:
+          - the machine copies whatever is in the tube, wanted or not
+        takeaway: A test result is what a controlled process produced, not what a machine displayed.
+        format: SEQUENCE
+        why: A patient result read before the controls is a machine reading, not evidence. The name has to survive the first step, or the answer belongs to nobody. The controls go in with the samples. Added later, they test a different run. One shows the chemistry worked. Another shows the signal did not come out of the room. Only then is the patient's tube worth reading.
+        rebuttals:
+          - Extraction first, with the name attached. A result that cannot be tied to a patient is nobody's diagnosis.
+          - The controls go in with the samples. Added afterwards, they test a different run from the one that gave the result.
+          - The copying comes third. It is the step everything else exists to make readable.
+          - Reading last, and only on condition. If a control misbehaved, the patient tubes cannot be read however clean they look.
+        cards:
+          - Get the material out of the sample, without losing whose it is.
+          - Put the controls into the run, alongside the samples.
+          - Run the copying, with settings somebody has checked.
+          - Read the patient's result, but only if the controls behaved.
+        order: [0, 1, 2, 3]
+      - group: MOL
+        task: Open what each result depends on, keep what stands, and name what the rest share.
+        title: Why did the test turn positive?
+        place: PCR Diagnostics Lab
+        scene: Dr. Ravi Patel has patient tubes, two controls and a separate machine on one screen. One ward has already cleared isolation rooms. If this run is wrong, patients get moved before morning.
+        assumes:
+          - a blank tube has no patient sample in it
+          - two machines with different chemistry fail in different ways
+        takeaway: Agreement is not evidence when everything agreeing came down the same pipe.
+        format: TRACE
+        question: Which results share one path, and what evidence survives it?
+        trace:
+          hint: Do not count positive wells. Open what each result depends on, keep evidence built on a different path, and identify the dependency shared by the unreliable signals.
+          target: workflow_carryover
+          channels:
+            - id: patient_amp
+              label: Patient amplification wells
+              reading: several positive signals (expected positive if target is present and the run is clean)
+              depends:
+                - patient_material
+                - amp_chemistry
+                - workflow_carryover
+            - id: ntc
+              label: No-template control
+              reading: positive target signal (expected should remain negative)
+              depends:
+                - amp_chemistry
+                - workflow_carryover
+            - id: positive_control
+              label: Known positive control
+              independent: true
+              reading: amplifies as expected (expected chemistry can amplify target)
+              depends:
+                - amp_chemistry
+                - control_template
+            - id: orthogonal
+              label: Independent patient platform
+              independent: true
+              reading: target not detected in the same patients (expected separate preparation and chemistry)
+              depends:
+                - patient_material
+                - orthogonal_chemistry
+                - independent_prep
+          resources:
+            - id: patient_material
+              label: Patient material
+            - id: amp_chemistry
+              label: Amplification chemistry
+            - id: workflow_carryover
+              label: Amplification-workflow carryover
+            - id: control_template
+              label: Known positive-control template
+            - id: orthogonal_chemistry
+              label: Independent platform chemistry
+            - id: independent_prep
+              label: Independent sample preparation
+          independent:
+            - positive_control
+            - orthogonal
+        answerText: The patient tubes and the blank share one run, so stray material explains both. Keep the other machine's result.
+        why: A blank tube has no patient material in it. So a positive there came from the room or the chemicals. The patient tubes went through the same room and the same chemicals. That makes their positives doubtful, however many there are. The control that was meant to be positive shows the chemistry can work, and it cannot rescue a spoiled run. The other machine used different chemistry, so its result stands.
+        headline: The overnight amplification run flags several patient samples as positive, but one control is also behaving strangely.
+      - group: POP
+        task: Work out how often a positive result is a real case.
+        title: What does a positive mean?
+        place: Clinical Statistics Desk
+        scene: The mayor's office wants to test the whole town, and to treat every positive as a case. The desk has a table from ten thousand people, with the true answer beside the test's.
+        assumes:
+          - how good a test is does not change with how common the illness is
+        takeaway: When something is rare, most positives can be wrong even with a very good test.
+        format: BALLPARK
+        question: Out of every hundred positive results, how many are real cases?
+        answerText: About 48 in every hundred. Ninety positives are real and ninety-nine are not, because the illness is rare.
+        why: The test is good. It catches ninety of the hundred people who really have it, and it correctly clears ninety-nine per cent of everyone else. But everyone else is nine thousand nine hundred people, and one per cent of that is ninety-nine wrong positives. So there are ninety right positives and ninety-nine wrong ones. Less than half the positives are real. Nothing is wrong with the test. What makes it happen is that the illness is rare.
+        estimate:
+          relationship: Share that are real = real positives ÷ all positives × 100.
+          prompt: Out of ten thousand people, a hundred really have it. The test flags 90 of those hundred, and it also flags 99 people who do not have it.
+          question: Out of every hundred positive results, how many are real cases?
+          labels:
+            - 90 (real cases the test flagged)
+            - 99 (people flagged who do not have it)
+            - 10 (real cases the test missed)
+            - 9,801 (people correctly cleared)
+            - 100 (people who really have it)
+            - 9,900 (people who do not)
+          values: [10000, 0.01, 0.9, 0.99, 0.3, 0.1]
+          slots: 4
+          template: "{0}×{1}×{2} ÷ ( {0}×{1}×{2} + {0}×(1−{1})×(1−{3}) ) × 100"
+          formula: a*b*c/(a*b*c + a*(1-b)*(1-d))*100
+          correct: [0, 1, 2, 3]
+          target: 47.62
+          tolerance: 3
+          units: "%"
+          solution: 90 ÷ (90 + 99) × 100 is about 48 out of every hundred.
+          explanation: There are 189 positives altogether, and only 90 of them are real. Divide by the hundred true cases instead and you answer a different question.
+  - title: Why Are Some Patients Sicker?
+    objective: Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.
+    briefing: Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.
+    stake: Day 13. Nakamura has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.
+    takeaway: Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.
+    stops:
+      - group: CLIN
+        task: Build the path oxygen takes, then name the step that is holding it up.
+        title: Where the oxygen stops getting through
+        place: Intensive Care Unit
+        scene: A patient's oxygen is dropping while Dr. Lena Ortiz reads the bedside screen. The blood carries plenty. The heart is pumping normally. The new lung pictures are not normal at all.
+        assumes:
+          - oxygen has to go from the air into the lungs, into the blood, and out to the body, in that order
+          - a normal reading at one step makes a simple failure there less likely
+        takeaway: A chain is found by checking every handover, and the normal ones narrow it down as much as the odd ones.
+        format: CHAIN
+        question: Where is the oxygen path most likely failing?
+        chain:
+          hint: Build the route oxygen must follow. Then use each reading to ask which link is still compatible with the failure; the largest number on the screen is not automatically the governing one.
+          distractor: circulation
+          links:
+            - id: ventilation
+              label: Ventilation to the alveoli
+              transfers: fresh gas from the airways to the alveoli
+              reading: PaCO₂ 39 mmHg
+            - id: gas_exchange
+              label: Air–blood gas exchange
+              transfers: oxygen across the alveolar-capillary interface
+              reading: arterial oxygen low; diffuse alveolar involvement on imaging
+            - id: hemoglobin
+              label: Haemoglobin carriage
+              transfers: oxygen bound in circulating blood
+              reading: haemoglobin 14 g/dL
+            - id: circulation
+              label: Cardiac flow
+              transfers: oxygenated blood through the systemic circulation
+              reading: cardiac output 5.2 L/min
+            - id: tissue_delivery
+              label: Tissue delivery and use
+              transfers: oxygen from capillary blood to cells
+              reading: downstream metabolic evidence not yet complete
+          order:
+            - ventilation
+            - gas_exchange
+            - hemoglobin
+            - circulation
+            - tissue_delivery
+          governing: gas_exchange
+        answerText: The handover from air into blood, in the lungs. Breathing, carrying and pumping all read normal, and the lung pictures do not.
+        why: Oxygen delivery is a chain, so one normal reading proves nothing on its own. The breathing out is near normal, so the patient is not simply under-breathing. The blood carries a normal amount, so there is no shortage of carriers. The heart is moving a normal amount of blood, so the pump is not the problem. What is left is the handover from air to blood, and the lung pictures agree.
+        headline: Two patients have severe fatigue and low tissue oxygen delivery.
+      - group: POP
+        task: Work out how much oxygen actually reaches the body.
+        title: Carrying is not delivering
+        place: Cardiopulmonary Physiology Lab
+        scene: The bedside argument has stalled on which of two patients is worse. Each litre of their blood carries the same oxygen. One moves three litres a minute and the other moves five.
+        assumes:
+          - how much arrives depends on how much each litre carries and how many litres arrive
+        takeaway: A full tank means nothing until something says how fast it is being delivered.
+        format: BALLPARK
+        question: How much oxygen a minute reaches the patient with the slower pump?
+        answerText: About 0.6 litres of oxygen a minute, against 1.0 for the other patient — the same blood, half again as much reaching the body.
+        why: Two patients whose blood carries exactly the same oxygen can differ by a factor of two in what reaches them, because the flow is doing the work. Three litres a minute at a fifth of a litre of oxygen each is 0.6 a minute. Five litres is a full litre. The bedside readings everybody quotes describe what each litre carries. Nobody can read delivery off them, because delivery is a rate and those are not.
+        estimate:
+          relationship: Oxygen delivered = litres of blood a minute × oxygen in each litre.
+          prompt: Each litre of blood carries about 0.20 litres of oxygen in both patients. The first patient's heart moves 3 litres a minute; the second moves 5.
+          question: How much oxygen a minute reaches the patient with the slower pump?
+          labels:
+            - 3 L/min (the slower pump)
+            - 0.20 L of oxygen in every litre of blood
+            - 5 L/min (the other patient)
+            - 86 % (how full the blood is)
+            - 14 g/dL (how much carrier there is)
+          values: [3, 0.2, 5, 86, 14]
+          slots: 2
+          template: "{0} × {1}"
+          formula: a*b
+          correct: [0, 1]
+          target: 0.6
+          tolerance: 0.06
+          units: L O₂/min
+          solution: 3 × 0.20 is 0.6 litres of oxygen a minute, against 1.0 for the other patient.
+          explanation: Delivery is a rate. The saturation and the blood count describe what a litre carries, and neither of them says how many litres arrive.
+      - group: CLIN
+        task: Say which measurement would add something the chart does not already have.
+        title: Which measurement is still missing
+        place: Clinical Chemistry Bench
+        scene: The oxygen path points at the lungs, and the team wants one more measurement before rounds. Three of the four on offer have already been taken, in one form or another.
+        assumes:
+          - a measurement adds nothing if the chart already answers it
+        takeaway: The measurement worth taking is the one nobody can already answer from the chart.
+        format: CHOICE
+        question: Which measurement would actually add something here?
+        answerText: What the tissues themselves show. Everything else on the list has already been measured, or repeats a number nobody is arguing about.
+        why: Three of these have already been answered. The oxygen and carbon dioxide are on the chart from the last panel. The pump has been measured and read normal. Three machines agreeing about the same number tells you the machines agree, which nobody doubted. What has not been measured is what is happening downstream, in the body's own tissues. That is where a delivery problem shows up as harm, and it is the only reading here that could still change what the team does.
+        choices:
+          - What the body's tissues are showing downstream.
+          - The oxygen and carbon dioxide in the blood.
+          - How much blood the heart is moving.
+          - The same blood-oxygen reading, on three machines.
+        answer: What the body's tissues are showing downstream.
+        rebuttals:
+          - The oxygen and carbon dioxide are already on the chart. Measuring them again is being precise about something nobody is arguing about.
+          - The pump has been measured and read normal. Worth repeating if the patient changes, and it is not the missing measurement now.
+          - Three machines agreeing tells you the machines agree. It does not add an observation.
+        estimate:
+          prompt: Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg.
+          question: Estimate arterial pH using the blood bicarbonate Henderson–Hasselbalch relation.
+          values: [6.1, 14, 0.03, 31, 7.4, 40]
+          correct: [0, 1, 2, 3]
+          slots: 4
+          template: "{0} + log10({1} ÷ ({2} × {3}))"
+          formula: a + Math.log10(b/(c*d))
+          target: 7.28
+          tolerance: 0.03
+          units: pH
+          relationship: pH = 6.1 + log10([HCO₃⁻] ÷ (0.03 × PaCO₂)).
+          explanation: 0.03 × 31 ≈ 0.93. Then 14 ÷ 0.93 ≈ 15.1, log10(15.1) ≈ 1.18, and pH ≈ 7.28. Low bicarbonate lowers pH; lower PaCO₂ partially compensates.
+          solution: pH ≈ 7.28, consistent with acidemia and a metabolic component with respiratory compensation.
+          labels:
+            - 6.1  (apparent pKa)
+            - 14 mmol/L  (bicarbonate)
+            - 0.03 mmol/L/mmHg  (CO₂ solubility)
+            - 31 mmHg  (PaCO₂)
+            - 7.40  (the middle of the normal pH range)
+            - 40 mmHg  (a normal PaCO₂, not this patient's)
+  - title: The Hidden Transmission Route
+    objective: Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.
+    briefing: Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.
+    stake: Day twenty-four, and Morales gets her turn. Ward isolation has held for nine days, and cases keep turning up in streets with nobody in hospital. Grace Oduya, who works in the field, kept a sewer sample from the north of the city by chance. It was tested this morning, and it was positive four days before the first patient walked in. This stage you decide where this is really being passed on, and where to watch. Oduya has three teams and the city has four drains. Nine days of ward isolation has already cost the hospitals their planned operations.
+    takeaway: Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain rather than as isolated facts.
+    stops:
+      - group: IMM
+        task: Match each stream to what it actually supports.
+        title: What each stream is looking at
+        place: Wastewater Treatment Plant
+        scene: Isolation has held for nine days and cases keep appearing. Four streams of information are on the table at the water plant, and each one saw a different slice of the city.
+        assumes:
+          - who ends up in a set of numbers is decided by how they were collected
+        takeaway: Each stream watches a different group of people, and what it can show follows from which group.
+        format: PROTOCOL
+        why: Each of these watches a different set of people. The sewage watches everybody, whether or not they went to a hospital, which is why it can move first. It cannot name a person, and it does not prove the water is how anybody caught it. Interviews ask people directly and depend on what they remember. A volunteer survey samples volunteers. And the number of people ill now stays high after new cases fall, because people stay ill for a while.
+        columns:
+          - What the stream shows
+          - What it supports
+        rebuttals:
+          - Sewage can rise before hospitals do, because it watches everybody rather than the people who came in. It names nobody, and it does not prove the water is the route.
+          - Exposures found before anybody felt ill say something about when it passes, from the only stream that asks people directly.
+          - A volunteer sample at one station is a sample of volunteers at one station. The bias is in who agreed.
+          - How many are on the wards and how many arrive today are different things, and this is how they come apart.
+        scenarios:
+          - The sewage reading rises before hospital admissions do.
+          - Interviews at home find several exposures before people felt ill.
+          - A survey at one station asks only people who volunteer.
+          - The total on the wards stays high after new admissions fall.
+        choices:
+          - An early sign from the whole town, and not proof of how it spreads.
+          - Evidence that people can pass it on before they feel ill.
+          - A sample of volunteers at one station, which may not be like the riders.
+          - Each patient takes weeks to recover, so the wards empty slowly.
+        mapping: [0, 1, 2, 3]
+      - group: CELL
+        task: Work out how many cells there will be in eight hours.
+        title: How many by morning
+        place: Cell Biology Laboratory
+        scene: The dish starts with five hundred cells, and this line doubles every forty minutes. The bench needs a number for eight hours from now, before deciding how much food to make up.
+        assumes:
+          - every division turns one cell into two
+        takeaway: Doubling looks slow at first and then is not slow at all.
+        format: BALLPARK
+        question: About how many cells will there be after eight hours?
+        answerText: About two million. Twelve doublings is roughly four thousand times as many, not twelve times.
+        why: Eight hours is four hundred and eighty minutes, which is twelve doublings. Twelve doublings is not twelve times as many. It is two multiplied by itself twelve times, which is about four thousand times as many. Five hundred cells become about two million. The shape matters more than the number. Add ninety minutes and you add two more doublings, which multiplies the answer by four. That is why the same arithmetic is frightening when the thing doubling is cases.
+        estimate:
+          relationship: Cells at the end = cells at the start × two, doubled once for every doubling time.
+          prompt: Five hundred cells to start, one doubling every forty minutes, and eight hours to go.
+          question: About how many cells will there be after eight hours?
+          labels:
+            - 500 (cells at the start)
+            - 480 min (eight hours)
+            - 40 min (one doubling)
+            - 2 (cells from each division)
+            - 8 h (the same time, in hours)
+            - 60 (minutes in an hour)
+          values: [500, 480, 40, 2, 8, 60]
+          slots: 4
+          template: "{0} × {3} ^ ({1} ÷ {2})"
+          formula: a*Math.pow(d, b/c)
+          correct: [0, 1, 2, 3]
+          target: 2048000
+          tolerance: 400000
+          units: cells
+          solution: 480 ÷ 40 is 12 doublings. Doubling twelve times is about 4,100 times as many, so 500 becomes about two million.
+          explanation: Twelve doublings, not twelve times. Multiply five hundred by twelve and the answer is out by a factor of over three hundred.
+      - group: CELL
+        task: Say why only some cells make the landing site.
+        title: Same instructions, different cells
+        place: Cell Biology Laboratory
+        scene: The stain shows the landing site all over the airway cells, and nowhere on the muscle cells two millimetres away. Same patient, same slice, same instructions inside every cell.
+        assumes:
+          - every cell in a body carries the same set of instructions
+        takeaway: Every cell carries the same instructions and reads a different part of them.
+        format: CHOICE
+        question: Every cell has the same instructions. Why do only some of them make the landing site?
+        answerText: The instruction is being read in airway cells and left unread in muscle cells. Both carry it.
+        why: Every cell carries the whole set of instructions, so having the instruction explains nothing about where the thing gets made. What decides it is which instructions a cell is reading. That is what makes an airway cell an airway cell rather than a muscle cell. For an outbreak it is the practical point. The germ can only get into cells that make its landing site, which is why this one causes an illness of the airways rather than of the muscles.
+        choices:
+          - The instruction is read in some kinds of cell and left unread in others.
+          - Only airway cells have that instruction. The muscle cells lost it.
+          - The muscle cells make it too, and the stain cannot reach them.
+          - The germ makes it, rather than the cell.
+        answer: The instruction is read in some kinds of cell and left unread in others.
+        rebuttals:
+          - Cells do not throw instructions away as they specialise. Both kinds carry the whole set.
+          - The stain shows the thing is absent from the muscle tissue, not merely hard to reach.
+          - The landing site is one of the body's own parts. The germ uses it and does not supply it.
+  - title: The Animal Connection
+    objective: Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.
+    briefing: Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.
+    stake: Day thirty-three. Readouts from three patients sit close to something found in animals along the river, and the council has signed an order to clear the heron colony on Saturday. Mateo Castellanos, the wildlife vet, has been out there twice and says the herons are the wrong animal. Arjun Singh will not say either way until the sampling is designed properly. This stage you decide what part any animal is really playing, and design the campaign that could show it. The argument is about who passes what to whom, over time. Not about which animal is nearby, or easiest to blame.
+    takeaway: Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.
+    stops:
+      - group: FIELD
+        task: Match each pattern to the role it makes an animal.
+        title: Carrier, carrier-of-it, or bystander
+        place: One Health Field Station
+        scene: Sequences from three patients sit close to something found in animals along the river. The field station has four patterns on the board, and a trapper waiting outside with more animals.
+        assumes:
+          - an animal can carry a germ, move it about, or simply be nearby
+        takeaway: What an animal's role is comes from what it does over time, not from being close by.
+        format: PROTOCOL
+        why: A role is a claim about what keeps happening, not about which animal people are afraid of. An animal that carries the germ for a long time without getting very ill is where it lives between outbreaks. Something that bites and moves it from one animal to another is a carrier of it, whether or not it is where the germ lives. An animal that gets ill and passes it to nobody is where the chain stops. And an animal that is simply always nearby and always tests clean shares the ground, not the germ.
+        columns:
+          - What the animal does
+          - What that makes it
+        rebuttals:
+          - Carrying it a long time without much illness is what living with it looks like. It has to stay well enough to keep carrying.
+          - A biting creature that moves it between animals is doing that job, whether or not the germ lives in it.
+          - An animal that gets ill and passes it to nobody is a dead end. The chain arrives and stops there.
+          - Common near cases and always clean is a shared habitat. Being nearby is the weakest evidence on the board.
+        scenarios:
+          - An animal carries it for a long time and hardly gets ill.
+          - A biting creature moves it from one animal to another.
+          - An animal gets ill, and passes it on to almost nobody.
+          - An animal is common near cases and always tests clean.
+        choices:
+          - Where the germ lives between outbreaks.
+          - Something that moves it about.
+          - Where the chain stops.
+          - Sharing the ground rather than the germ.
+        mapping: [0, 1, 2, 3]
+      - group: FIELD
+        task: Put the four steps of the field campaign in order.
+        title: Test where it lives
+        place: Wildlife Ecology Site
+        scene: Trappers report sick animals on the flood plain. Nobody has sampled in a way that could tell where the germ lives from an animal that caught it from people.
+        assumes:
+          - where you look decides what you can find
+        takeaway: A claim about where something lives needs a design that could have found it somewhere else.
+        format: SEQUENCE
+        why: One positive animal proves nothing about where a germ lives. What makes it evidence is a design that could have found it elsewhere and did not. So the order matters. Where people got ill says which animals to sample. Comparison places make the numbers mean something. Only then does comparing animals with people say anything, and only then can it be tested.
+        rebuttals:
+          - Cases against habitat first. That is what says which animals and which places are even candidates.
+          - Even sampling, with comparison places, second. Find it only where you looked hardest and you have measured your own searching.
+          - Comparing across animals and people third. It needs samples from both sides to compare.
+          - Crossing over again and again comes last. One event can be a coincidence, and a claim about where a germ lives is a claim about something that keeps happening.
+        cards:
+          - Map where people got ill against where the animals live.
+          - Sample the likely animals, and sample comparison places too.
+          - Compare how common it is, and how closely related, across animals and people.
+          - Test whether all of it explains the germ crossing over again and again.
+        order: [0, 1, 2, 3]
+      - group: POP
+        task: Spend the twenty sampling slots so the campaign can tell the stories apart.
+        title: Choose the field campaign
+        place: Comparative Genomics Lab
+        scene: Dr. Arjun Singh has one field campaign and twenty sampling slots. Likely animals, comparison places and a second visit later all want the same crews.
+        assumes:
+          - a sample stands for the group it was drawn from
+          - telling where a germ lives from where it merely arrived needs a comparison
+        takeaway: A field plan is defined by the explanations it can rule out with the samples it chooses.
+        format: ALLOCATE
+        question: Which plan keeps the comparisons that could tell the stories apart?
+        allocate:
+          dataProvenance: invented classroom package sizes; sampling logic is source-derived
+          hint: Every package buys a comparison and consumes field capacity. Keep the questions about geography, species and persistence answerable before spending anything on extra depth at one convenient site.
+          pool:
+            amount: 20
+            unit: sampling slots
+            label: Field campaign capacity
+          items:
+            - id: human_data
+              label: Existing human case locations and exposure histories
+              cost: 0
+              note: Already available; they guide sampling but do not establish an animal reservoir by themselves.
+              protected: true
+            - id: candidate_case
+              label: Candidate species at case-linked sites
+              cost: 6
+            - id: candidate_compare
+              label: Same candidate species at comparison sites
+              cost: 5
+            - id: comparison_species
+              label: Comparison species in the same habitats
+              cost: 4
+            - id: repeat_time
+              label: Repeat sampling at a second time point
+              cost: 5
+            - id: deep_household
+              label: Extra dense sampling around one case household
+              cost: 6
+          answers:
+            - required: true
+              requires:
+                - candidate_case
+                - candidate_compare
+              question: Is carriage concentrated at case-linked sites rather than everywhere sampled?
+            - required: true
+              requires:
+                - candidate_case
+                - comparison_species
+              question: Is the candidate species different from other species sharing the habitat?
+            - required: true
+              requires:
+                - candidate_case
+                - repeat_time
+              question: Does the pattern persist across time rather than reflect one spillback episode?
+            - required: false
+              requires:
+                - deep_household
+              question: How precisely can one household cluster be mapped?
+        answerText: Spread the slots across the likely animal near cases, the same animal far away, other animals nearby, and a second visit later.
+        why: A positive animal near a sick person fits several stories. The germ lives in that animal. It caught it from people. Or both met the same thing. Only comparisons can separate those. The same animal far from any cases tests the place. Other animals in the same habitat test the species. Coming back later tests whether it stays.
+  - title: Treatment Failure
+    objective: Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective advantage without undertreating patients.
+    briefing: A therapy that initially helped is failing in a growing subset of patients. The player must determine whether the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.
+    stake: Day 60. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Lena Bergström, who reads the germ's own readout, has a resistant sample from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.
+    takeaway: Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain rather than as isolated facts.
+    stops:
+      - group: POP
+        task: Say which explanation fits the whole panel.
+        title: Why did the treatment stop working?
+        place: Clinical Ward
+        scene: A treatment that worked is failing, and another patient got worse overnight. The ward has the drug levels, the counts over time, and the germ's own readout from before and after.
+        assumes:
+          - a drug only works if it reaches the germ in a large enough amount
+        takeaway: Something living can change while you watch, if what you are doing decides which ones survive.
+        format: DIAGNOSIS
+        question: Which explanation fits the whole panel?
+        answerText: The germ changed. The drug arrived, worked, and then stopped working while the changed form took over.
+        why: Treatment can fail in several ways, and the normal readings say which. The drug reached the right level, and the count fell, so the drug was working and reaching its target. Then the count came back up while the patient was still taking it, and the changed form of the germ took over during the same weeks. The reference sample, run alongside, is still knocked down by the drug. So the drug still works. This germ no longer minds it.
+        rebuttals:
+          - Not getting there means the drug never arrives. The level was measured, it was right, and the count fell to prove it.
+          - The wrong germ would never have responded at all. This one fell before it came back.
+          - Something loose in the laboratory would not spare the reference sample, which was run alongside and still responds.
+        headline: A treatment knocks the germ down, and then the counts climb again while the patient is still taking it.
+        readings:
+          - zone: Drug concentration
+            label: Drug concentration
+            value: Within the range where the drug works
+            status: normal
+            note: Measured repeatedly during treatment
+          - zone: Agent burden
+            label: Agent burden
+            value: Falls, then rebounds
+            status: alarm
+            note: Initial response is followed by renewed growth
+          - zone: Target-site sequence
+            label: Target-site sequence
+            value: Resistance-associated variant becomes dominant
+            status: alarm
+            note: Frequency rises after treatment begins
+          - zone: Reference isolate
+            label: Reference isolate
+            value: Remains drug-sensitive
+            status: alarm
+            note: The assay can still detect drug activity
+          - zone: Administration record
+            label: Administration record
+            value: Doses documented
+            status: alarm
+            note: No major missed-dose pattern
+        choices:
+          - label: The drug is not getting there.
+            mechanism: The drug never reaches a level that does anything.
+          - label: The germ has changed, and the changed form took over.
+            mechanism: Treatment kills the ones it can, and the survivors take over.
+          - label: It was the wrong germ all along.
+            mechanism: The first answer was wrong, so the treatment never fitted.
+          - label: Something got into the samples in the laboratory.
+            mechanism: The rise is a laboratory artefact rather than anything in the patient.
+        answer: The germ has changed, and the changed form took over.
+      - group: POP
+        task: Put the four steps in order.
+        title: How resistance spreads
+        place: Microbiology and Evolution Lab
+        scene: The treatment worked for six weeks, and now fails in one patient in four. The failures cluster on the wards where it has been used longest. Somebody has said the germ learned to beat it.
+        assumes:
+          - a population is never all the same, before anything acts on it
+        takeaway: Nothing learns. What changes is which ones leave descendants.
+        format: SEQUENCE
+        why: A treatment does not teach a germ anything, and it does not make the form it needs. That form was already there, rare, before the drug arrived. What the drug changes is which ones have offspring. It kills the ones it can, the few it cannot survive, those few multiply, and after enough rounds most of what is left is the form the drug cannot touch. The clustering on the long-treated wards is that process having run longer.
+        rebuttals:
+          - The rare ones exist first. This is the step that separates the real explanation from a story about a germ learning.
+          - Treatment kills what it can. That is what choosing looks like, and it acts on what is already there.
+          - The survivors multiply, which is how something rare stops being rare.
+          - Being left with mostly the tough form is the outcome, and it is what the ward is now measuring.
+        cards:
+          - A few of them are already different, before any treatment.
+          - The treatment kills the ones it can much better than the ones it cannot.
+          - The ones it cannot kill survive and multiply.
+          - What is left is mostly the form the drug cannot touch.
+        order: [0, 1, 2, 3]
+      - group: POP
+        task: Choose the one test to run before the treatment plan is rewritten.
+        title: One thing before the prescriptions change
+        place: Pharmacology Unit
+        scene: The treatment worked in eighty-two patients in a hundred nine weeks ago, and in fifty-one now. Eleven of the failures had their doses recorded and their drug levels checked.
+        assumes:
+          - a comparison group is what turns a finding into evidence
+        takeaway: Compare the failures with matched successes, or the finding is just a description of the failures.
+        format: CHOICE
+        question: What is the one thing to do before anybody's prescription changes?
+        answerText: Read the germ from the failures and from matched patients who got better. The comparison is what makes it evidence.
+        why: A treatment can fail in three places. It can be given wrongly, it can fail to arrive, or it can arrive and no longer work. Recorded doses and measured levels rule out the first two here. So the change is probably in the germ. Reading the germ from the failures would show a change, and a change on its own proves nothing. Reading it from patients who got better as well is what shows the change tracks the failures rather than being everywhere.
+        choices:
+          - Read the germ from the failures, alongside matched patients who got better.
+          - Measure how much drug each patient actually got.
+          - Raise the dose for everybody on the ward.
+          - Try different drugs and combinations, under a proper plan.
+        answer: Read the germ from the failures, alongside matched patients who got better.
+        rebuttals:
+          - How much drug each patient got is the right question when nobody has measured it. Here it was measured, and it was fine.
+          - Raising the dose for everybody treats the answer as already known, and hands extra drug to the three in four who are getting better.
+          - Different drugs are the response once you know what changed. Chosen now, it is a guess with a plan attached.
+  - title: Design the Intervention
+    objective: Select a layered intervention portfolio and identify the evidence required before deployment.
+    briefing: The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using evidence about mechanism and evidence about populations.
+    stake: Day seventy-eight. The city wants something done, and the room is arguing as though it can only have one thing. The treatment everybody favours sticks to the exact patch that changed in the north, which Bergström has now said three times. This stage you choose what to fund, and say what evidence is needed before any of it reaches a person. They also arrive at different times. One is ready on Monday and one takes a year, which is the whole argument for having several. Back one glamorous idea and the city has a single thing to lose.
+    takeaway: Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain rather than as isolated facts.
+    stops:
+      - group: POP
+        task: Match each aim to the measure that achieves it.
+        title: Where each measure acts
+        place: Vaccine Design Lab
+        scene: The city wants something done, and the room is arguing as if only one thing can be chosen. Four proposals are on the table, and each acts at a different moment.
+        assumes:
+          - an illness has a before, a during and an after, and different tools act at each
+        takeaway: Measures that act at different moments are stronger together than more of any one of them.
+        format: PROTOCOL
+        why: Each of these acts at a different moment, which is why they add up instead of competing. Stopping the germ getting into a cell has to happen before it does. Calming the damage happens afterwards, and giving it too early gets in the way of a defence still doing its job. Building up defences in advance is what a vaccine does, and arriving first is its whole value. Ventilation and distance act on the passing on, whatever the germ turns out to be.
+        columns:
+          - What you want to do
+          - How you do it
+        rebuttals:
+          - Blocking the landing site is a job for something that gets in the way of it, and it has to be there before the germ is.
+          - Calming the damage is treatment after the fact, and timing decides everything. Too early and it holds back a defence still needed.
+          - Having defences ready before exposure is what vaccination does. Arriving first is the whole point of it.
+          - Ventilation and distance act on the passing on rather than on any patient, which is why they work whatever this turns out to be.
+        scenarios:
+          - Stop it getting into cells in the first place.
+          - Cut short the damage after somebody is already ill.
+          - Have defences ready before anybody meets it.
+          - Give it fewer chances to pass between people.
+        choices:
+          - Something that blocks the landing site, given before it arrives.
+          - Treatment that calms the damage, timed carefully.
+          - Vaccination.
+          - Ventilation, distance and staying home when ill.
+        mapping: [0, 1, 2, 3]
+      - group: POP
+        task: Put the four steps in order.
+        title: From a promising result to a fair trial
+        place: Therapeutics Group
+        scene: Two things look promising in the dish, and the city wants one of them in patients within the month. Neither has been tried in an animal, and the plan on the table says nothing about when to stop.
+        assumes:
+          - working in a dish is not evidence of helping a person
+        takeaway: Being in a hurry changes how fast the steps go, not which steps there are.
+        format: SEQUENCE
+        why: Being in a hurry changes the speed of this and not its shape. Knowing what the thing is supposed to do comes first, because otherwise there is nothing to test it against. Animals and laboratory work come next, because a thing that harms an animal has told you something before a person takes it. Then comes what would count as working, and when to stop. Decide those after the results arrive and the trial can prove anything you like.
+        rebuttals:
+          - What it is supposed to do comes first. Without that there is nothing to test it against except hope.
+          - Animals and laboratory work second. A thing that harms an animal has told you something you needed before a person took it.
+          - What counts as working, and when to stop, third. Chosen after the results arrive, they can be chosen to suit.
+          - The watched trial last. It is what everything before it exists to make fair.
+        cards:
+          - Say what it is supposed to do, and how.
+          - Show it does something, and find the obvious harms, before any person takes it.
+          - Write down who is in the trial, what counts as working, and when to stop.
+          - Run the trial, watched by people who are not running it.
+        order: [0, 1, 2, 3]
+      - group: POP
+        task: Spend the three slots so the response does not fail all at once.
+        title: Three slots, six good ideas
+        place: Public Health Strategy Room
+        scene: Dr. Nia Okafor has six workable ideas and three slots to fund. Some can work this month. Others take longer, and some fail for exactly the same reasons as each other.
+        assumes:
+          - things that work in different ways fail for different reasons
+          - a plan with three slots gives up three good ideas
+        takeaway: A set of measures is stronger when they do not all depend on the same thing going right.
+        format: ALLOCATE
+        question: Which three keep the response working if one assumption turns out wrong?
+        allocate:
+          dataProvenance: invented one-slot authoring packages; intervention mechanisms and timing are source-derived
+          hint: You have three slots, not six. Keep an immediate transmission package and a different longer-horizon mechanism alive; the panel shows which response questions each choice preserves.
+          pool:
+            amount: 3
+            unit: funding slots
+            label: Intervention packages that can be started
+          items:
+            - id: ventilation
+              label: Ventilation upgrades in high-risk indoor settings
+              cost: 1
+            - id: rapid_isolation
+              label: Rapid testing, isolation support and contact response
+              cost: 1
+            - id: vaccine
+              label: Vaccine platform against a conserved target
+              cost: 1
+            - id: therapeutic
+              label: Targeted therapeutic development
+              cost: 1
+            - id: paid_leave
+              label: Paid stay-home support for exposed workers
+              cost: 1
+            - id: publicity
+              label: Publicity campaign declaring the crisis controlled
+              cost: 1
+          answers:
+            - required: true
+              requires:
+                - ventilation
+              question: Reduce indoor transmission opportunity this month
+            - required: true
+              requires:
+                - rapid_isolation
+              question: Interrupt detected transmission chains this month
+            - required: true
+              requires:
+                - vaccine
+              question: Preserve a longer-horizon immune layer
+            - required: false
+              requires:
+                - therapeutic
+              question: Develop a treatment option for infected patients
+            - required: false
+              requires:
+                - paid_leave
+              question: Reduce the cost of staying home when exposed
+            - required: false
+              requires:
+                - publicity
+              question: Create a reassuring public message without new evidence
+        answerText: Ventilation, fast isolation and the vaccine. Two act this month by different routes, and the third adds a different kind of protection later.
+        why: Layers are only layers if they fail separately. Ventilation lowers the chance of catching it, without waiting for anybody to be found. Fast isolation works after somebody is found, and cuts what happens next. A vaccine takes longer and protects in a different way. Treatment and sick pay both matter, and three slots cannot buy six things.
+  - title: The Final Briefing
+    objective: Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.
+    briefing: The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.
+    stake: Day 140. The mayor is on air in an hour, and behind that broadcast sit five months of conclusions that are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early — that this began with the hospital cluster — did not survive Oduya's sewer sample. This stage you go through the claims one at a time and decide what the city keeps funding after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.
+    takeaway: Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence chain rather than as isolated facts.
+    stops:
+      - group: POP
+        task: Spend the two checks on the claims that need them most.
+        title: What each claim has earned
+        place: Scientific Review Hall
+        scene: The emergency is closing, and four signed claims are going into the city's record. Two checks are left. The evidence under the four is not equally strong.
+        assumes:
+          - a signature records that somebody said it, not that anybody checked it
+          - a strong claim can survive one of its sources being wrong
+        takeaway: Say each claim at the strength its own evidence can carry.
+        format: ATTEST
+        question: Which claims need checking before the report can say them at full strength?
+        attest:
+          dataProvenance: invented final-review check budget; claim strengths are source-derived
+          hint: Every card is signed. You can independently check two. Spend those checks where a wrong critical claim would change the report and where independent backing is still missing.
+          claims:
+            - id: transmission
+              label: The main transmission route is established enough for operational planning
+              critical: true
+              backed: true
+              evidence: Multiple independent surveillance and exposure streams already converge on the route.
+            - id: risk_group
+              label: The proposed severe-risk subgroup is established for citywide policy
+              critical: true
+              backed: false
+              evidence: Collect a representative confirmatory sample rather than relying on one small observational group.
+            - id: treatment_duration
+              label: The monitored treatment benefit can be assumed to persist beyond eight weeks
+              critical: true
+              backed: false
+              evidence: Extend follow-up and reproduce the duration estimate under the planned analysis.
+            - id: reservoir
+              label: The suspected animal species is the confirmed reservoir
+              critical: false
+              backed: false
+              evidence: Complete comparison-site, species and repeat-time One Health evidence before making a reservoir claim.
+          checks: 2
+        answerText: Check who gets sickest, and how long the treatment holds. The rest is either backed already or written as still open.
+        why: A report should not give everything the same confidence. How it spreads is backed by three separate streams, so it can carry planning. Who gets sickest comes from one small group of patients, and it is about to become city policy. The treatment claim covers eight weeks and is written as though it covers longer. The animal question is open, and can be written as open.
+      - group: POP
+        task: Order the briefing by how much each claim can carry.
+        title: Build the public explanation
+        place: City Command
+        scene: The mayor goes live in an hour. How it spreads is settled. The animal question is not. The treatment has eight weeks behind it. Every sentence will be replayed for years.
+        assumes:
+          - people judge a claim by how it was supported, once they find out
+        takeaway: A public account is ordered by the strength of its evidence, not by the order the work happened in.
+        format: SEQUENCE
+        why: Order it by what the evidence carries, strongest first. That is the order in which a listener can tell one kind of claim from another. Say the animal question as firmly as the spreading and the whole thing falls apart the day the animal turns out to be somewhere else. Ending with what would settle each open question lets people judge the next update.
+        cards:
+          - How it spreads, which three separate streams agree on.
+          - Who gets sickest, which one small group of patients suggests.
+          - Where it came from, which is still open.
+          - What would settle each open question, and when the city will look again.
+        order: [0, 1, 2, 3]
+      - group: POP
+        task: Say which capability the city should protect.
+        title: What survives the emergency
+        place: Public Briefing Room
+        scene: The emergency budget ends in three weeks, and anything not protected stops with it. Four programmes want the last line. The council votes this month.
+        assumes:
+          - anything not funded to continue stops when the emergency does
+        takeaway: Keep the system that spots the next one, not the instrument that starred in this one.
+        format: CHOICE
+        question: Which capability should the city protect when the emergency budget closes?
+        answerText: The three streams together, with somebody funded to read them side by side. Any one of them alone is much less than what worked this time.
+        why: Each stream sees a different part of an outbreak, and each is much less useful alone. Sequencing says what changed, and it needs samples that stand for the town. Sewage gives the earliest warning, and it names nobody and explains nothing. Hospital numbers say who is ill, and they arrive late. What made this response work was the three being read together. That is the thing that quietly disappears when the money ends, because no single line item owns it.
+        choices:
+          - The three streams together, with shared records and somebody to read them.
+          - The sequencing bench, since it found the change.
+          - The sewage sampling, since it gave the earliest warning.
+          - None. Stop the outbreak programme, and rebuild when the next one starts.
+        answer: The three streams together, with shared records and somebody to read them.
+        rebuttals:
+          - Sequencing is powerful, and it needs samples that stand for the town, and it cannot say who is ill.
+          - Sewage warns early, and it names nobody and cannot say what the illness does.
+          - Throwing the records away removes the baselines that make the next signal readable at all.
+# What each place says when the player reads it.
+copy:
+  CLIN: <p>The clinical wing. Every hypothesis in this outbreak has to survive contact with an actual patient.</p>
+  CELL: <p>Cell and membrane biology. What the pathogen does to a cell, and what that rules out.</p>
+  MOL: <p>Molecular diagnostics. Two instruments, a library, and a rule about controls.</p>
+  IMM: <p>Immunology and treatment. Where protection and damage are told apart.</p>
+  POP: <p>Epidemiology operations. Counts, denominators, and the difference between them.</p>
+  FIELD: <p>The One Health field station. The outbreak did not start in a hospital.</p>
+  CMD: <p>City Health Command. Decisions are made here whether or not the evidence has arrived.</p>
+  TRANSIT: <p>The transit and mobility centre. Trip counts nobody has yet matched to the case map.</p>
+  BRIEF: <p>The public briefing room. What the city is told, and how much of it is hedged.</p>
+  WASTE: <p>The wastewater plant. Surveillance that sees the city before the city sees a doctor.</p>

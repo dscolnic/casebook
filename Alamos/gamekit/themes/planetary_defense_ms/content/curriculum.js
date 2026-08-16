@@ -6,76 +6,76 @@ export const CURRICULUM = {
   "DISC": [
     {
       "day": 1,
-      "title": "Object or artifact?",
-      "scene": "Three survey frames show the same star-like point at three sky positions and on three different detector pixels. The background stars stay registered. A second telescope on another mountain then finds the source close to the predicted next position.",
-      "takeaway": "A discovery becomes convincing when motion is coherent in sky coordinates but not tied to one detector, exposure, or telescope.",
+      "title": "Real object, or camera fault?",
+      "scene": "Three survey pictures show the same faint dot in three different places. The background stars have not moved. A telescope on another mountain has just found the dot too.",
+      "takeaway": "Something real moves against the stars, and a camera fault stays where the camera put it.",
       "place": "Survey Telescope Control",
-      "story": "Three survey frames show the same star-like point at three sky positions and on three different detector pixels. The background stars stay registered. A second telescope on another mountain then finds the source close to the predicted next position.",
+      "story": "Three survey pictures show the same faint dot in three different places. The background stars have not moved. A telescope on another mountain has just found the dot too.",
       "game": {
         "type": "CHOICE",
-        "title": "Object or artifact?",
+        "title": "Real object, or camera fault?",
         "setup": "Survey Telescope Control",
-        "play": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
-        "task": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
-        "question": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
-        "answer": "Real Solar System object",
-        "why": "A real Solar System object moves in the sky, not on the chip. That is the whole test, and four readings apply it. The source is star-like in every frame, so it is not a cosmic ray, which arrives once and sharp. It lands on different pixels while the background stars stay fixed, so it is not a hot pixel. And a second telescope on another mountain found it near the predicted place — an object that exists for instruments that are not this one.",
+        "play": "Say which explanation fits all four readings on the board.",
+        "task": "Say which explanation fits all four readings on the board.",
+        "question": "Which explanation fits all four readings?",
+        "answer": "A real object out in the Solar System",
+        "why": "A real object moves against the sky. A camera fault moves with the camera. That is the test, and every reading here uses it. The dot is round in all three pictures, so it is not a cosmic ray, which hits once and hits sharp. It lands on a new pixel each time, so it is not a hot pixel. A second telescope found it, so it is not one camera making things up.",
         "rebuttals": [
-          "A cosmic ray is a single sharp hit in one exposure. This source is star-like in all three and keeps moving.",
-          "A hot pixel is bright wherever that pixel is read, so it stays put in detector coordinates. This one crosses pixels.",
-          "An alignment error moves many stars together. Here the stars stay fixed and one point does not."
+          "A cosmic ray hits once and looks sharp. This dot is round in all three pictures, and it keeps moving.",
+          "A hot pixel is bright wherever that pixel sits. This dot lands somewhere new each time.",
+          "A bad line-up would drag many stars along. Here the stars hold still and one dot does not."
         ],
         "choices": [
           {
-            "label": "Real Solar System object",
-            "mechanism": "A point source changes sky position coherently while stars and detector coordinates remain stable."
+            "label": "A real object out in the Solar System",
+            "mechanism": "A real object shifts against the stars and lands on a new part of the chip each time."
           },
           {
-            "label": "Cosmic-ray hit",
-            "mechanism": "A charged particle creates a transient sharp feature in one exposure."
+            "label": "A cosmic ray hitting the camera",
+            "mechanism": "A charged particle leaves one sharp mark, in one picture only."
           },
           {
-            "label": "Hot detector pixel",
-            "mechanism": "A fixed detector location appears bright whenever that pixel is read."
+            "label": "A hot pixel on the chip",
+            "mechanism": "One spot on the chip reads bright every time that spot is read."
           },
           {
-            "label": "Frame-alignment artifact",
-            "mechanism": "Misalignment makes many fixed stars appear to shift together."
+            "label": "The pictures were lined up wrong",
+            "mechanism": "A bad line-up drags many stars the same way at once."
           }
         ],
-        "correctChoice": "Real Solar System object"
+        "correctChoice": "A real object out in the Solar System"
       },
       "assumes": [
-        "a detector has its own defects, and they sit still in detector coordinates"
+        "a detector is the chip inside the camera, and its faults stay in one spot on the chip"
       ]
     },
     {
       "day": 2,
-      "title": "Validate the discovery",
-      "scene": "40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
-      "takeaway": "A discovery is useful only when another observer can test it.",
+      "title": "Check it before you send it",
+      "scene": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The discovery notice goes out at dawn.",
+      "takeaway": "A claim is worth sending out once somebody else can test it.",
       "place": "Image Processing Lab",
-      "story": "40000 catalogued stars, 2 satellite trails and a hot-pixel column share the frames with the moving point. The formal discovery notice goes out at dawn. If the reduction is wrong, follow-up telescopes will spend the next night chasing an artifact.",
+      "story": "Forty thousand stars, two satellite streaks and a bad column of pixels share the pictures with the moving dot. The discovery notice goes out at dawn.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Validate the discovery",
+        "title": "Check it before you send it",
         "setup": "Image Processing Lab",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "play": "Put the four steps in the order they have to be done.",
+        "task": "Put the four steps in the order they have to be done.",
+        "question": "Put the four steps in the order they have to be done.",
         "answer": "",
-        "why": "A discovery claim should survive a chain of checks that fail in different ways. First confirm that the source is present in multiple exposures. Then measure positions against fixed stars and test whether the motion is coherent in sky coordinates. Check that the path is not tied to one detector feature or reduction step. Finally ask an independent telescope to recover the source near the predicted position. Each step removes a different artifact class, so the final claim does not rest on one instrument or one pipeline.",
+        "why": "Each step throws out a different kind of mistake. Cleaning removes what the camera itself adds. Matching removes the satellites, the known faults and the objects already on the list. Measuring turns a picture into numbers, with a range that says how sure you are. The last step turns all of that into a prediction. A prediction can fail, and that is what makes the claim worth sending.",
         "rebuttals": [
-          "Bias, dark and flat first — positions off an uncalibrated frame are wrong in a way no later step recovers.",
-          "Cross-match second: stars, satellites, defects and catalogued objects, or you will measure them very precisely.",
-          "Positions and magnitudes third, with uncertainties, because a position without one cannot be fitted to anything.",
-          "The ephemeris last, with a region. That is the step that makes this falsifiable by somebody who is not you."
+          "Cleaning comes first. Positions measured off a dirty picture are wrong, and no later step fixes that.",
+          "Matching comes second, or you measure a satellite or a bad pixel very carefully.",
+          "Measuring comes third, with how sure you are. A position with no range on it fits nothing.",
+          "The prediction comes last. It is the step that lets somebody else prove you wrong."
         ],
         "cards": [
-          "Apply the bias, dark and flat frames, and solve plate constants for each exposure.",
-          "Cross-match every source in the field against the star catalogue, the satellite element sets and the defect mask.",
-          "Fit positions, magnitudes and per-measurement uncertainties against the observatory clock.",
-          "Post an ephemeris with a predicted uncertainty region where another observatory can check it."
+          "Remove the camera's own marks, and solve exactly where it was pointing.",
+          "Match every dot in the field against the star list, the satellite list and the known camera faults.",
+          "Measure where the object is and how bright it is, and say how sure you are.",
+          "Post a predicted position, so another observatory can look and check."
         ],
         "order": [
           0,
@@ -85,62 +85,83 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "a prediction somebody else can test is what makes a claim checkable"
+        "a prediction other people can test is what makes a claim checkable"
       ]
     }
   ],
   "ORBIT": [
     {
       "day": 1,
-      "title": "How far did it move?",
-      "scene": "The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
-      "takeaway": "Repeated images turn apparent motion into a measurable rate.",
+      "title": "How fast is it moving?",
+      "scene": "The dot shifted between two pictures taken twenty minutes apart. The next telescope has to be told where to point. Nobody has turned that shift into a rate yet.",
+      "takeaway": "Two pictures and a clock turn movement into a rate you can point with.",
       "place": "Minor-Planet Operations Desk",
-      "story": "The object shifted between 2 frames 20 minutes apart, and the desk has to say where the next telescope should point. Nobody has turned that shift into a rate yet.",
+      "story": "The dot shifted between two pictures taken twenty minutes apart. The next telescope has to be told where to point. Nobody has turned that shift into a rate yet.",
       "game": {
         "type": "BALLPARK",
-        "title": "How far did it move?",
+        "title": "How fast is it moving?",
         "setup": "Minor-Planet Operations Desk",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the apparent motion in arcseconds per hour.",
+        "play": "Turn the shift between two pictures into a rate the next telescope can use.",
+        "task": "Turn the shift between two pictures into a rate the next telescope can use.",
+        "question": "About how fast is it moving, in arcseconds per hour?",
         "answer": "",
-        "why": "Angular speed is a rate, so the first job is to keep the angle and time units consistent. A motion of 0.6 arcsecond each minute becomes 36 arcseconds each hour because an hour contains 60 minutes. That does not by itself give a physical speed: the same angular motion can correspond to very different transverse speeds at different distances. The useful result here is the sky rate, which tells the follow-up team how far the source will move between images and how quickly the search window must be updated.",
+        "why": "Angular speed is a rate, so the units have to match before anything is divided. Six tenths of an arcsecond a minute is thirty-six arcseconds an hour, because an hour holds sixty minutes. This is not how fast the rock really flies. The same shift in the sky means very different true speeds at different distances. What it does tell you is how far the dot drifts between tonight's pictures.",
         "givens": [],
-        "relationship": "Rate = distance moved ÷ time taken. Multiply by 60 to go from per minute to per hour.",
+        "relationship": "Rate = how far it moved ÷ how long it took. Minutes become hours by multiplying by sixty.",
         "calcKey": "ORBIT-1"
       },
       "assumes": [
         "a rate is an amount divided by the time it took"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of repeated measurements",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the measurements added up"
+            ],
+            [
+              "how many",
+              "the number of measurements"
+            ]
+          ],
+          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero."
+        }
       ]
     },
     {
       "day": 2,
-      "title": "Build the observation arc",
-      "scene": "Six observatories have reported. Two use a different time standard, one recorded no plate solution at all, and together they cover four hours. The next uncertainty region has to come out of this.",
-      "takeaway": "Prediction is the operational test of an astrometric model.",
+      "title": "Build the arc",
+      "scene": "Six observatories have sent positions. Two used a different time standard, and one sent no pointing solution at all. Together they cover four hours.",
+      "takeaway": "A path is tested by where the object turns up next, not by how well it fits the past.",
       "place": "Astrometry Lab",
-      "story": "Six observatories have reported. Two use a different time standard, one recorded no plate solution at all, and together they cover four hours. The next uncertainty region has to come out of this.",
+      "story": "Six observatories have sent positions. Two used a different time standard, and one sent no pointing solution at all. Together they cover four hours.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Build the observation arc",
+        "title": "Build the arc",
         "setup": "Astrometry Lab",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "play": "Put the four steps in the order they have to be done.",
+        "task": "Put the four steps in the order they have to be done.",
+        "question": "Put the four steps in the order they have to be done.",
         "answer": "",
-        "why": "Orbit fits improve when observations cover more time and more viewing geometry. Several points taken minutes apart can be very precise, yet still fit many distances and velocities. A later observation gives those candidate orbits time to separate on the sky. A station far away can add parallax from a different line of sight. The goal is not simply more coordinates. The goal is measurements that make competing orbit solutions predict different positions, then carrying the remaining uncertainty forward.",
+        "why": "A short arc fits many paths at once. They agree about where the object has been and disagree about where it goes. Time is what pulls them apart. Wait a few nights and paths that matched the same measurements spread out across the sky. So the real test is a prediction. Point where one path says the object will be, and the paths that were wrong are gone.",
         "rebuttals": [
-          "Common frame and clock first: two time standards in one fit is an error nobody sees in the residuals afterwards.",
-          "A preliminary motion model second — you need something to take residuals against.",
-          "Residuals third, and read for structure. Scatter is noise; a pattern following one station is a fault.",
-          "The prediction last. The test of an astrometric model is where the object turns up, not how well it fits where it has been."
+          "Same map and same clock first. Two time standards in one fit hide inside the answer afterwards.",
+          "A rough path second. You need something to measure the misses against.",
+          "The misses third. Scatter is noise, but a pattern that follows one station is a fault.",
+          "The prediction last. It is the only step the sky can prove wrong."
         ],
         "cards": [
-          "Place every measurement in a common coordinate and time system.",
-          "Fit a preliminary sky-plane motion model.",
-          "Inspect residuals for station, time, or field-dependent structure.",
-          "State where the object will be on the following night, to the precision a telescope can be pointed with."
+          "Put every measurement on the same map and the same clock.",
+          "Fit a first rough path across the sky.",
+          "Look at what the fit misses, and see whether the misses make a pattern.",
+          "Say where the object will be tomorrow night, closely enough to point a telescope."
         ],
         "order": [
           0,
@@ -150,82 +171,144 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "measurements only combine if they are in the same frame and the same clock"
+        "an arc is the stretch of time your measurements cover"
       ]
     },
     {
       "day": 3,
-      "title": "Probability from an ensemble",
-      "scene": "A simplified Monte Carlo run has finished at the statistical orbit lab. What it produced is a count of samples, and the figure that leaves this room will be quoted in public for years.",
-      "takeaway": "A tiny probability can be estimated only with enough samples and a valid uncertainty model.",
+      "title": "Thirty-seven paths in a hundred thousand",
+      "scene": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
+      "takeaway": "A very small chance can only be measured by trying a very large number of times.",
       "place": "Statistical Orbit Lab",
-      "story": "A simplified Monte Carlo run has finished at the statistical orbit lab. What it produced is a count of samples, and the figure that leaves this room will be quoted in public for years.",
+      "story": "The computer has finished flying every path that fits the measurements. What came back is a count. The number that leaves this room will be quoted in public for years.",
       "game": {
         "type": "BALLPARK",
-        "title": "Probability from an ensemble",
+        "title": "Thirty-seven paths in a hundred thousand",
         "setup": "Statistical Orbit Lab",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the impact probability, as a percentage.",
+        "play": "Turn the count of paths that hit into a chance anybody can quote.",
+        "task": "Turn the count of paths that hit into a chance anybody can quote.",
+        "question": "What is the chance of impact, as a percentage?",
         "answer": "",
-        "why": "A Monte Carlo ensemble turns an uncertain orbit into many physically allowed trajectories. If 37 of 100,000 propagated trajectories intersect Earth, the estimated impact probability is 37/100,000 = 3.7×10⁻⁴, or 0.037%. That number is not a count of future impacts; it is the fraction of the current uncertainty distribution that lands in the impact region. Its meaning depends on how the ensemble represents the measurement uncertainties and correlations, so a later observation can move or narrow the distribution and change the fraction sharply.",
+        "why": "The computer draws many paths that all fit the measurements, then flies each one forward. Thirty-seven out of one hundred thousand land on Earth. That works out at 0.037 per cent. It is not a count of future impacts. It is the share of the spread that lands on us. So the number moves whenever the spread moves. One good measurement next week can shrink it to nothing, or double it.",
         "givens": [],
-        "relationship": "Probability = impacting samples ÷ total samples. Multiply by 100 for a percentage.",
+        "relationship": "Chance = paths that hit ÷ all the paths tried. Multiply by one hundred for a percentage.",
         "calcKey": "ORBIT-3"
       },
       "assumes": [
-        "a probability can be estimated by counting outcomes over trials"
+        "a chance can be worked out by counting how often something happens out of all the tries"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a percentage of a population",
+          "v": [
+            [
+              "part",
+              "how many that share comes to"
+            ],
+            [
+              "whole",
+              "the whole population"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it.",
+          "computed": true
+        }
       ]
     },
     {
       "day": 4,
       "title": "What this pass does to the next one",
-      "scene": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
-      "takeaway": "A close approach rewrites the orbit it happens on, so safety is a claim about the returns after it.",
+      "scene": "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then the return solution flashes up on the board: eleven years.",
+      "takeaway": "A close pass rewrites the path it happens on, so safety is a claim about the passes after it.",
       "place": "Orbit Determination",
-      "story": "Radar has pinned this pass at 2.4 Earth radii, and the control room starts to relax. Then the return solution flashes: 11 years. Earth’s gravity is about to rewrite the orbit, and nobody yet knows where that rewritten orbit brings it back.",
+      "story": "Radar has pinned this pass at 2.4 Earth radii and the room starts to relax. Then the return solution flashes up on the board: eleven years.",
       "game": {
         "type": "CHOICE",
         "title": "What this pass does to the next one",
         "setup": "Orbit Determination",
-        "play": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
-        "task": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
-        "question": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
-        "answer": "Propagate the measured encounter through Earth’s gravity and test the resulting return geometry for later close approaches.",
-        "why": "A measured miss distance settles the current encounter, not every later one. Passing only a few Earth radii away lets Earth's gravity change the asteroid's speed and direction enough to alter its period and return time. Small regions of the current encounter geometry can map into much closer approaches later, so the post-encounter orbit must be propagated before declaring the object safe. A fresh arc after the pass then tests that propagated solution; neither the present miss nor the later arc should be interpreted alone.",
+        "play": "Radar has settled this pass. Say what has to be worked out before anybody calls it safe.",
+        "task": "Radar has settled this pass. Say what has to be worked out before anybody calls it safe.",
+        "question": "Radar has settled this pass. What has to be worked out before anybody calls the object safe?",
+        "answer": "Carry the measured pass forward through Earth's gravity, and check the close approaches after it.",
+        "why": "A measured miss settles this pass and not the next one. Passing a few Earth radii out lets Earth's gravity pull on the rock and change its speed and its direction. That changes how long its trip round the Sun takes, so it returns at a different time and in a different place. A narrow band of today's paths can turn into a much closer pass later. Safety has to be worked out after the bend.",
         "rebuttals": [
-          "A measured miss settles this pass and says nothing about the orbit the encounter creates.",
-          "Albedo gives size. Size does not tell you where the object will be in 11 years.",
-          "A later arc is needed and is not sufficient — without carrying the orbit forward through the encounter there is nothing to compare it against."
+          "A measured miss settles this pass and says nothing about the path the pass creates.",
+          "Size is worth knowing, and it does not say where the rock will be in eleven years.",
+          "A fresh arc is needed and is not enough. Without carrying the orbit through the pass there is nothing to compare it with."
         ],
         "choices": [
-          "Propagate the measured encounter through Earth’s gravity and test the resulting return geometry for later close approaches.",
-          "Use the measured miss distance as the final safety result because the object is already receding from this encounter.",
-          "Refine the physical size first, then infer future safety from whether the object is large enough to survive another close pass.",
-          "Collect a post-encounter astrometric arc and treat that new arc as sufficient without propagating the close-approach dynamics."
+          "Carry the measured pass forward through Earth's gravity, and check the close approaches after it.",
+          "Use the measured miss as the final answer, since the object is already going away.",
+          "Pin down the size first, then judge safety from whether it would survive another pass.",
+          "Take a fresh set of measurements after the pass and treat those as enough on their own."
         ],
-        "correctChoice": "Propagate the measured encounter through Earth’s gravity and test the resulting return geometry for later close approaches."
+        "correctChoice": "Carry the measured pass forward through Earth's gravity, and check the close approaches after it."
       },
       "assumes": [
-        "a planet's gravity changes the path of anything that passes close to it"
+        "a planet's gravity bends the path of anything that passes close to it"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took."
+        },
+        {
+          "e": "distance = speed × time",
+          "c": "distance from a radar echo",
+          "v": [
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "speed",
+              "the speed of light, 300,000 kilometres per second"
+            ],
+            [
+              "time",
+              "the round trip, in seconds"
+            ]
+          ],
+          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
+        }
       ]
     },
     {
       "day": 5,
-      "title": "Build the deflection campaign",
-      "scene": "The impactor has hit. Applause starts in the control room, but the asteroid’s orbit has not yet been remeasured. One dedicated tracking campaign remains, and the mission cannot say it worked until that campaign returns a post-impact velocity change.",
-      "takeaway": "An intervention is not scientifically complete until its effect is measured against a prediction made before the action.",
+      "title": "Say what you expect, then measure it",
+      "scene": "The impactor has hit and the control room is cheering. Nobody has measured the orbit yet. One tracking campaign is left in the budget.",
+      "takeaway": "An action is not finished until somebody measures what it did.",
       "place": "Orbit Monitoring Room",
-      "story": "The impactor has hit. Applause starts in the control room, but the asteroid’s orbit has not yet been remeasured. One dedicated tracking campaign remains, and the mission cannot say it worked until that campaign returns a post-impact velocity change.",
+      "story": "The impactor has hit and the control room is cheering. Nobody has measured the orbit yet. One tracking campaign is left in the budget.",
       "game": {
         "type": "VERIFY",
-        "title": "Build the deflection campaign",
+        "title": "Say what you expect, then measure it",
         "setup": "Orbit Monitoring Room",
-        "play": "Predict the velocity-change range, execute the impact, then verify the achieved deflection with post-impact tracking.",
-        "task": "Predict the velocity-change range, execute the impact, then verify the achieved deflection with post-impact tracking.",
-        "question": "Did the asteroid’s measured orbit change agree with the pre-impact prediction?",
-        "answer": "The impact succeeds physically, but the campaign is complete only after post-impact tracking measures the orbital change. In this authored run the measured Δv is 2.1 cm/s, inside the 1.5–4.5 cm/s prediction range and consistent with the momentum-transfer expectation.",
-        "why": "The simple momentum calculation gives a lower-bound velocity change near 1.5 cm/s. Ejecta leaving the surface can add momentum in the opposite direction and raise that value, so the pre-impact prediction should be a range rather than one exact number. A successful spacecraft collision proves that the action occurred; it does not measure the asteroid’s new orbit. Continued astrometry after impact is the experiment’s outcome measurement. Comparing that measured change with the locked prediction tests both the intervention and the physical model used to design it.",
+        "play": "Lock a predicted range, run the impact, then spend the tracking to find out what happened.",
+        "task": "Lock a predicted range, run the impact, then spend the tracking to find out what happened.",
+        "question": "Did the measured change in the orbit match what was predicted before the impact?",
+        "answer": "The hit works. The job is finished only once tracking measures the new orbit. Here the measured change is 2.1 centimetres a second. That sits inside the predicted 1.5 to 4.5, so the model that sized the craft holds up.",
+        "why": "The momentum sum gives a smallest change of about one and a half centimetres a second. Material thrown off the surface can add to that. So the prediction has to be a range, not one number. A hit proves the craft arrived. It does not measure the new orbit. Only tracking does that. Comparing it against a locked prediction tests the physics, not the aim.",
         "verify": {
           "prediction": {
             "label": "Post-impact orbit-fit velocity change",
@@ -258,26 +341,86 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "momentum transfer sets a lower-bound deflection scale",
-        "ejecta can change the momentum transferred to the asteroid"
+        "the momentum sum gives the smallest change in speed to expect",
+        "material thrown off the surface can add to the push"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took."
+        },
+        {
+          "e": "momentum = weight × speed",
+          "c": "what a collision hands over",
+          "v": [
+            [
+              "momentum",
+              "in kilogram metres per second"
+            ],
+            [
+              "weight",
+              "mass, in kilograms"
+            ],
+            [
+              "speed",
+              "in metres per second"
+            ]
+          ],
+          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
+        },
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
+          "card": false
+        }
       ]
     },
     {
       "day": 6,
-      "title": "Build the final public record",
-      "scene": "The board has two independent checks left before release. Every claim is signed, but several could still change the public conclusion if wrong. The final record goes public tonight, and whatever survives becomes the starting point for the next threat.",
-      "takeaway": "A scientific record is strongest where critical claims can be independently reconstructed, not merely where every box is signed.",
+      "title": "Signed is not checked",
+      "scene": "Two independent checks are left before the record goes public tonight. Every claim in it is signed. Some of them would change the conclusion if they were wrong.",
+      "takeaway": "A signature records a decision. It does not measure a thing.",
       "place": "Orbit Monitoring Center",
-      "story": "The board has two independent checks left before release. Every claim is signed, but several could still change the public conclusion if wrong. The final record goes public tonight, and whatever survives becomes the starting point for the next threat.",
+      "story": "Two independent checks are left before the record goes public tonight. Every claim in it is signed. Some of them would change the conclusion if they were wrong.",
       "game": {
         "type": "ATTEST",
-        "title": "Build the final public record",
+        "title": "Signed is not checked",
         "setup": "Orbit Monitoring Center",
-        "play": "Use the two remaining independent checks on the final-record claims that most need physical verification.",
-        "task": "Use the two remaining independent checks on the final-record claims that most need physical verification.",
-        "question": "Which signed claims must be verified before the public record is released?",
-        "answer": "Use the two independent checks on the critical claims that are still unbacked: the measured deflection and the size/consequence record. The orbit-status claim is already independently reproduced, while signatures and communications approval do not substitute for physical verification.",
-        "why": "A final scientific record is trustworthy when another person can reconstruct what was measured, how it was calibrated and which uncertainties remain. A signed statement documents approval, but it cannot establish the physical condition by itself. Verification should go first to critical claims that still lack independent backing. Rechecking an already reproduced orbit fit uses scarce capacity without strengthening the weakest link. The release is ready when the important conclusions have evidence chains that can survive failure of one person, instrument or analysis path.",
+        "play": "Spend the two checks on the signed claims that most need measuring.",
+        "task": "Spend the two checks on the signed claims that most need measuring.",
+        "question": "Which signed claims have to be checked before the record goes out?",
+        "answer": "Spend both checks on the claims that matter and that nobody has backed up. Those are the measured push and the size record. The orbit status has been checked elsewhere already. A signature is not a measurement.",
+        "why": "A record is trustworthy when somebody else can rebuild what was measured and how. A signature says a person approved it. It does not say the thing is true. So the checks go to claims that matter and that nobody has confirmed another way. Checking an orbit fit that has already been reproduced spends a check and strengthens nothing. The weakest important link is the one worth the money.",
         "attest": {
           "claims": [
             {
@@ -322,45 +465,66 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "a signed record and an independently verified condition are different things",
-        "verification capacity is limited"
+        "a signature records that somebody approved something",
+        "checking costs time, and there is not enough of it for everything"
+      ],
+      "equations": [
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
+        }
       ]
     }
   ],
   "CHAR": [
     {
       "day": 1,
-      "title": "What controls apparent brightness?",
-      "scene": "The object was bright enough for a survey telescope to find, and that single number is being read across the room as a size. Four things that change reflected flux are on the board.",
-      "takeaway": "A bright asteroid is not necessarily large.",
+      "title": "What makes it look bright?",
+      "scene": "The object was bright enough for the survey to spot it, and people across the room are reading that one number as a size. Four things that change brightness are on the board.",
+      "takeaway": "A bright asteroid is not always a big one.",
       "place": "Photometry Lab",
-      "story": "The object was bright enough for a survey telescope to find, and that single number is being read across the room as a size. Four things that change reflected flux are on the board.",
+      "story": "The object was bright enough for the survey to spot it, and people across the room are reading that one number as a size. Four things that change brightness are on the board.",
       "game": {
         "type": "PROTOCOL",
-        "title": "What controls apparent brightness?",
+        "title": "What makes it look bright?",
         "setup": "Photometry Lab",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Match each change to what it does to the brightness we measure.",
+        "task": "Match each change to what it does to the brightness we measure.",
+        "question": "Match each change to what it does to the brightness we measure.",
         "answer": "",
-        "why": "Brightness is the product of all four, which is why the size everybody wants is entangled with a reflectivity nobody has measured. A bigger cross-section reflects more. A more reflective surface reflects more of what arrives. Distance from the Sun sets how much arrives in the first place. Distance from the observer sets how much of what leaves the object reaches the telescope. The same flux comes from a small bright body close in or a large dark one further out.",
+        "why": "Brightness is four things multiplied together, which is why size and surface get tangled. A bigger rock catches more sunlight. A better reflector sends back more of what lands on it. Distance from the Sun sets how much sunlight arrives at all. Distance from us sets how much of what leaves the rock gets here. The same brightness fits a small pale rock nearby or a big dark one far out.",
         "rebuttals": [
-          "A larger cross-section intercepts and returns more light — the term everybody assumes is the only one.",
-          "Higher reflectivity returns more of what arrives, at the same size. This is the one that makes brightness ambiguous.",
-          "Greater distance from the Sun means less light arriving to be reflected at all.",
-          "Greater distance from the observer spreads what does return, so less of it reaches the telescope."
+          "A bigger rock catches more sunlight and sends more back. This is the one everybody assumes is the whole story.",
+          "A shinier surface returns more of what lands on it, at the same size. This is what makes brightness ambiguous.",
+          "Further from the Sun means less sunlight arrives in the first place.",
+          "Further from us means what comes back is spread thinner by the time it arrives."
         ],
         "scenarios": [
-          "Larger cross-sectional area.",
-          "Higher reflectivity.",
-          "Greater distance from the Sun.",
-          "Greater distance from the observer."
+          "The rock is bigger across.",
+          "The surface reflects better.",
+          "The rock is further from the Sun.",
+          "The rock is further from us."
         ],
         "choices": [
-          "Usually increases reflected flux.",
-          "Increases reflected flux for the same size and geometry.",
-          "Reduces illumination.",
-          "Reduces received flux through geometric spreading."
+          "More light comes back, because there is more surface catching sunlight.",
+          "More of the sunlight that lands is sent back, at the same size.",
+          "Less sunlight arrives to be sent back at all.",
+          "What does come back is spread thinner before it gets here."
         ],
         "mapping": [
           0,
@@ -370,29 +534,50 @@ export const CURRICULUM = {
         ],
         "columns": [
           "What changes",
-          "What happens to the brightness"
+          "What that does to the brightness"
         ]
       },
       "assumes": [
-        "light spreads out with distance"
+        "light spreads out as it travels, so the same lamp looks fainter from further away"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of repeated measurements",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the measurements added up"
+            ],
+            [
+              "how many",
+              "the number of measurements"
+            ]
+          ],
+          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero."
+        }
       ]
     },
     {
       "day": 2,
-      "title": "Bound the diameter",
-      "scene": "Reflected light alone leaves the asteroid somewhere between roughly 120 and 600 metres across. The thermal team now has a calibrated infrared spectrum peaking near 10.0 μm and a heat-flux measurement from the same observing geometry.",
-      "takeaway": "A degeneracy is broken by an observable with different physical dependence, not merely by measuring the same observable more precisely.",
+      "title": "Settle the size",
+      "scene": "Reflected light alone puts the rock somewhere between one hundred and twenty and six hundred metres across. The heat team now has an infrared reading from the same night.",
+      "takeaway": "A tie between two answers is broken by a measurement that depends on them differently.",
       "place": "Physical Characterization Group",
-      "story": "Reflected light alone leaves the asteroid somewhere between roughly 120 and 600 metres across. The thermal team now has a calibrated infrared spectrum peaking near 10.0 μm and a heat-flux measurement from the same observing geometry.",
+      "story": "Reflected light alone puts the rock somewhere between one hundred and twenty and six hundred metres across. The heat team now has an infrared reading from the same night.",
       "game": {
         "type": "DEGENERACY",
-        "title": "Bound the diameter",
+        "title": "Settle the size",
         "setup": "Physical Characterization Group",
-        "play": "Fit the reflected brightness, then use the thermal spectrum to break the size–albedo degeneracy.",
-        "task": "Fit the reflected brightness, then use the thermal spectrum to break the size–albedo degeneracy.",
-        "question": "Which diameter and albedo satisfy both the reflected-light and thermal constraints?",
-        "answer": "The reflected light alone allows many size–albedo pairs. The thermal constraint intersects that family near a diameter of 180 m and albedo of about 0.44. The 10.0 μm emission peak also gives a characteristic temperature of about 290 K from Wien’s law.",
-        "why": "Reflected brightness depends on both cross-sectional area and reflectivity, so one brightness can be produced by a small bright object or a larger dark one. That is a degeneracy, not simply a noisy measurement. Thermal infrared adds different physics: absorbed sunlight is reradiated as heat, and the spectral peak gives a characteristic temperature through Wien’s law. Combining the thermal flux with the reflected-light locus leaves one shared solution. Independent observables are powerful because they cut across the same unknowns in different directions.",
+        "play": "Fit the reflected light, then use the heat reading to settle the size and the surface.",
+        "task": "Fit the reflected light, then use the heat reading to settle the size and the surface.",
+        "question": "Which width and which surface fit the reflected light and the heat at once?",
+        "answer": "Reflected light allows a whole family of pairs. The heat reading crosses that family near one hundred and eighty metres across, with a surface reflecting about 0.44 of the light that lands. The glow also puts the surface near seventeen degrees Celsius.",
+        "why": "Reflected light depends on size and surface together, so many pairs fit it equally well. That is a tie, not a noisy measurement, and measuring the same light more carefully will never break it. Heat depends on the two the other way round. A dark rock absorbs more sunlight, so it runs warmer and glows more. Lay the two answers over each other and they cross in one place.",
         "degeneracy": {
           "controls": [
             {
@@ -480,26 +665,26 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "reflected brightness depends on both size and albedo",
-        "a thermal spectrum carries temperature information"
+        "a warm object glows in infrared light, which our eyes cannot see",
+        "reflected brightness depends on the size and the surface together"
       ]
     },
     {
       "day": 3,
-      "title": "Real absorption or spectral artifact?",
-      "scene": "A broad dip near 1.4 microns has appeared in the spectrum, and it would change the composition class if it is real. The observatory has the standard star, the airmass record and a space-based spectrum of the same object.",
-      "takeaway": "Agreement is not independent evidence when several measurements inherit the same physical path or calibration.",
+      "title": "Whose dip is it?",
+      "scene": "A wide dip has turned up in the spread of colours, and it would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
+      "takeaway": "Measurements that share one path do not check each other.",
       "place": "Spectroscopy Observatory",
-      "story": "A broad dip near 1.4 microns has appeared in the spectrum, and it would change the composition class if it is real. The observatory has the standard star, the airmass record and a space-based spectrum of the same object.",
+      "story": "A wide dip has turned up in the spread of colours, and it would change what the rock is made of. The room has a standard star, an air record, and a spectrum taken from space.",
       "game": {
         "type": "TRACE",
-        "title": "Real absorption or spectral artifact?",
+        "title": "Whose dip is it?",
         "setup": "Spectroscopy Observatory",
-        "play": "Open the dependency chain behind each spectrum, keep the independent checks, and identify the shared source of the 1.4 μm dip.",
-        "task": "Open the dependency chain behind each spectrum, keep the independent checks, and identify the shared source of the 1.4 μm dip.",
-        "question": "Does the absorption belong to the asteroid, the atmosphere, or the detector chain?",
-        "answer": "Treat the 1.4 μm dip as telluric contamination, not a secure asteroid absorption band. The ground target, standard star and airmass behavior share Earth’s atmosphere; the space spectrum lacks the feature, and the flat field does not support a detector artifact.",
-        "why": "Three ground-based displays can agree because they share the same atmosphere. The standard star shows the dip too, and the feature becomes deeper at larger airmass, exactly when the optical path through the atmosphere is longer. A stable flat field argues against a detector sensitivity defect. Most importantly, the space-based spectrum removes the terrestrial path and the feature disappears. The right inference comes from tracing dependencies: several agreeing channels that share one source are not several independent votes for an asteroid absorption band.",
+        "play": "Open what each spectrum depends on, keep the ones that stand alone, and name what the rest share.",
+        "task": "Open what each spectrum depends on, keep the ones that stand alone, and name what the rest share.",
+        "question": "Does the dip belong to the rock, to the air, or to the camera?",
+        "answer": "Treat the dip as air, not rock. The target, the standard star and the airmass pattern all share Earth's atmosphere. The spectrum from space has no dip, and the flat field says the camera is fine.",
+        "why": "Three ground displays can agree because all three looked through the same air. The standard star has the dip too. The dip gets deeper when the light came through more air. The flat field is steady, so the camera is not adding it. And the spectrum taken from above the air has no dip at all. Agreement proves nothing when everything agrees for one shared reason.",
         "trace": {
           "channels": [
             {
@@ -590,9 +775,9 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "Earth’s atmosphere can imprint absorption on ground-based spectra",
-        "airmass measures the length of the atmospheric path",
-        "a spectrum is brightness measured wavelength by wavelength"
+        "a spectrum is brightness measured colour by colour",
+        "air can leave marks of its own in a spectrum taken from the ground",
+        "airmass is how much air the light came through on the way in"
       ]
     }
   ],
@@ -600,36 +785,36 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What does radar measure?",
-      "scene": "The radar room has its first clean echo train from the asteroid. Delay, Doppler shift and echo width are displayed together, and the optical orbit team is standing by to decide which new constraint belongs in the next fit.",
-      "takeaway": "Active sensing can transform orbit and shape knowledge during a short window.",
+      "scene": "The radar room has its first clean run of echoes. Delay, pitch shift and echo width are up on one screen. The orbit team is waiting to hear which reading to use.",
+      "takeaway": "Each radar reading measures one thing, and none of them measures all of it.",
       "place": "Planetary Radar Facility",
-      "story": "The radar room has its first clean echo train from the asteroid. Delay, Doppler shift and echo width are displayed together, and the optical orbit team is standing by to decide which new constraint belongs in the next fit.",
+      "story": "The radar room has its first clean run of echoes. Delay, pitch shift and echo width are up on one screen. The orbit team is waiting to hear which reading to use.",
       "game": {
         "type": "PROTOCOL",
         "title": "What does radar measure?",
         "setup": "Planetary Radar Facility",
-        "play": "Match each quantity to the radar observable that measures it. Each choice is used once.",
-        "task": "Match each quantity to the radar observable that measures it. Each choice is used once.",
-        "question": "Match each quantity to the radar observable that measures it. Each choice is used once.",
+        "play": "Match each thing we want to know to the radar reading that measures it.",
+        "task": "Match each thing we want to know to the radar reading that measures it.",
+        "question": "Match each thing we want to know to the radar reading that measures it.",
         "answer": "",
-        "why": "Radar separates dimensions that optical images entangle, and each observable separates a different one. Echo delay is time of flight, so it is a distance, measured rather than fitted. Doppler spread across the echo is the range of line-of-sight velocities across the body, which is rotation. Echo power against delay says how much surface sits at each distance, which is shape and roughness. And repeated delay-Doppler images across a rotation build the three-dimensional model none of the others gives on its own.",
+        "why": "Radar pulls apart what a picture leaves tangled, and each reading pulls apart something different. The delay of the echo is a time, and with a known speed a time is a distance. The spread in pitch is the range of speeds across the rock, which is spin. Echo strength against time says how much surface sits at each depth. Only pictures taken right through a turn give the shape.",
         "rebuttals": [
-          "A distance is a time multiplied by a speed, and the delay of the echo is the one timed quantity a radar returns.",
-          "Rotation appears as a spread of line-of-sight velocities across the body, and a spread of velocities is a spread of frequencies.",
-          "Where along the line of sight an echo came from is carried by when it arrives, so power against delay resolves the surface in range.",
-          "A three-dimensional shape needs the body seen from several aspects, which is what repetition through a rotation provides."
+          "A distance is a speed multiplied by a time, and the delay of the echo is the time radar hands you.",
+          "Spin shows up as a spread of speeds across the rock, and a spread of speeds is a spread of pitches.",
+          "Where along the line an echo came from is carried by when it arrives back.",
+          "A whole shape needs the rock seen from many sides, which is what one full turn gives you."
         ],
         "scenarios": [
-          "Distance to the object.",
-          "How fast the object is rotating.",
-          "How much of the body sits at each depth.",
-          "The three-dimensional shape, and the spin that carries it around."
+          "How far away it is.",
+          "How fast it spins.",
+          "How much of the rock sits at each depth.",
+          "Its whole shape, and the spin that carries it round."
         ],
         "choices": [
-          "Time the echo. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the range, and the clock is good enough to place a body millions of kilometres away to within metres.",
-          "Measure how far the returned frequency is spread out. One limb of a rotating body turns toward us while the other turns away, so the echo comes back smeared across a band of Doppler shifts whose width scales with the rotation speed.",
-          "Read echo power against delay. The near face answers first, so power arriving later came from further in, and the run of power with time is a profile of the target in depth.",
-          "Build delay-Doppler images on successive nights through a full turn. Each image is one projection of the body, and a sequence taken across changing aspect is what a shape model is fitted to."
+          "Time the echo. Radio travels at a known speed, so the time there and back gives a distance.",
+          "Measure how far the echo is spread in pitch. One side turns toward us while the other turns away.",
+          "Read how strong the echo is at each moment. The near face answers first, so later means deeper.",
+          "Build pictures on many nights, right through a full turn, and fit them together."
         ],
         "mapping": [
           0,
@@ -638,12 +823,73 @@ export const CURRICULUM = {
           3
         ],
         "columns": [
-          "What we want to measure",
+          "What we want to know",
           "How the radar measures it"
         ]
       },
       "assumes": [
-        "radar sends a signal out and measures what comes back"
+        "radar sends a radio pulse out and listens for what comes back",
+        "a shift in the pitch of an echo tells you how fast something moves toward or away"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took."
+        },
+        {
+          "e": "distance = speed × time",
+          "c": "distance from a radar echo",
+          "v": [
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "speed",
+              "the speed of light, 300,000 kilometres per second"
+            ],
+            [
+              "time",
+              "the round trip, in seconds"
+            ]
+          ],
+          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
+        },
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of repeated measurements",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the measurements added up"
+            ],
+            [
+              "how many",
+              "the number of measurements"
+            ]
+          ],
+          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero.",
+          "card": false
+        }
       ]
     }
   ],
@@ -651,19 +897,19 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Read the risk correctly",
-      "scene": "The nominal orbit misses Earth, but the uncertainty cloud still reaches the impact boundary. A press briefing is scheduled this afternoon, and the monitoring chief wants one sentence: safe enough to stand down, or dangerous enough to keep tracking?",
-      "takeaway": "Risk is carried by the full uncertainty distribution; a safe-looking central value does not erase the tail.",
+      "scene": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
+      "takeaway": "Risk lives in the whole spread, not in the middle of it.",
       "place": "Impact Monitoring Center",
-      "story": "The nominal orbit misses Earth, but the uncertainty cloud still reaches the impact boundary. A press briefing is scheduled this afternoon, and the monitoring chief wants one sentence: safe enough to stand down, or dangerous enough to keep tracking?",
+      "story": "The best-guess path misses Earth, and the cloud of possible paths around it still touches the impact line. Dr. Marco Rossi, the orbit lead, wants one sentence before the briefing.",
       "game": {
         "type": "CLOUD",
         "title": "Read the risk correctly",
         "setup": "Impact Monitoring Center",
-        "play": "Move and narrow the encounter cloud until the full allowed band clears Earth.",
-        "task": "Move and narrow the encounter cloud until the full allowed band clears Earth.",
-        "question": "What has to change before the whole uncertainty cloud is outside the impact boundary?",
-        "answer": "Neither a safer nominal miss nor a modestly narrower uncertainty is enough alone in this panel. Apply both: the lower edge moves to 4.5 − 3.2 = 1.3 Earth radii, so the full authored cloud clears the Earth-limb boundary.",
-        "why": "An orbit solution is a probability distribution, not a dot. Changing a systematic offset can move its center without reducing the range of allowed trajectories. Better independent observations can narrow that range without guaranteeing that the new center is safely placed. The decision has to use both pieces. If any substantial part of the allowed cloud still crosses the impact boundary, the risk is not removed by a reassuring nominal miss. New evidence earns confidence by changing the distribution in a physically justified way.",
+        "play": "Move and narrow the cloud of paths until all of it clears Earth.",
+        "task": "Move and narrow the cloud of paths until all of it clears Earth.",
+        "question": "What has to change before the whole cloud of paths clears Earth?",
+        "answer": "Neither move is enough on its own. Do both. The near edge then sits at 4.5 − 3.2 = 1.3 Earth radii, and the whole cloud clears Earth.",
+        "why": "An orbit is a spread of possible paths, not a dot. Fixing a known bias slides the whole spread sideways. It does not make the spread any thinner. Better measurements do make it thinner, but they do not choose where the middle sits. The call needs both. If a real part of the spread still crosses Earth, a safe-looking middle has not made anybody safe.",
         "cloud": {
           "bounds": {
             "min": 1,
@@ -695,92 +941,197 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "an orbit fit has uncertainty as well as a central solution",
-        "systematic corrections move a center while new information can narrow a distribution"
+        "an orbit fit gives a spread of possible paths, not one path",
+        "the middle of a spread can move without the spread getting any thinner"
       ]
     },
     {
       "day": 2,
-      "title": "Energy of a notional impactor",
-      "scene": "Civil defence will not convene anybody without an energy figure. The impact physics group has a radius, a density from the presumed composition class, and an approach speed, each with its own uncertainty.",
-      "takeaway": "Impact energy couples geometric, material, and orbital measurements.",
+      "title": "How much energy does it carry?",
+      "scene": "Civil defence will not call anyone in without an energy figure. The impact group has a weight for the rock. It also has the speed the rock would arrive at.",
+      "takeaway": "Speed counts twice over in energy, so it is the number worth measuring best.",
       "place": "Impact Physics Group",
-      "story": "Civil defence will not convene anybody without an energy figure. The impact physics group has a radius, a density from the presumed composition class, and an approach speed, each with its own uncertainty.",
+      "story": "Civil defence will not call anyone in without an energy figure. The impact group has a weight for the rock. It also has the speed the rock would arrive at.",
       "game": {
         "type": "BALLPARK",
-        "title": "Energy of a notional impactor",
+        "title": "How much energy does it carry?",
         "setup": "Impact Physics Group",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the impact kinetic energy.",
+        "play": "Work the weight and the arrival speed into an energy figure.",
+        "task": "Work the weight and the arrival speed into an energy figure.",
+        "question": "About how much energy would the impact carry?",
         "answer": "",
-        "why": "Mass is the volume of a sphere times its density, and energy is half that mass times the speed squared. The trap is the first number: the formula takes a radius, and a diameter dropped into it gives an object eight times too heavy. That factor of eight is the same one that makes the size measurement worth more than any other, which is what the next stop is about.",
+        "why": "The energy of a moving thing is half its weight, multiplied by the speed twice over. That second speed is what makes this number so touchy. Double the speed and the energy is four times bigger. Double the weight and it only doubles. So speed and size are not equally worth measuring. It is also why a rock the size of a house does what nothing that size does down here.",
         "givens": [],
-        "relationship": "Mass = density × volume, and the volume of a sphere is (4π/3) × radius³. Kinetic energy = ½ × mass × speed².",
+        "relationship": "Energy = ½ × weight × speed × speed.",
         "calcKey": "IMPACT-2"
       },
       "assumes": [
-        "kinetic energy depends on mass and on speed",
-        "the volume of a sphere goes as the cube of its radius"
+        "the energy of a moving thing depends on how heavy it is and how fast it goes"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took.",
+          "computed": true
+        }
       ]
     },
     {
       "day": 3,
-      "title": "Velocity change from momentum transfer",
-      "scene": "A kinetic impactor is being sized at the deflection lab. The spacecraft's mass and closing speed are known, and so is the asteroid's mass to within a factor of a few.",
-      "takeaway": "Deflection relies on small velocity change plus long lead time.",
+      "title": "How much does the push move it?",
+      "scene": "The deflection lab is sizing a spacecraft. It knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.",
+      "takeaway": "The same push moves a heavier thing less, in exact proportion.",
       "place": "Deflection Physics Lab",
-      "story": "A kinetic impactor is being sized at the deflection lab. The spacecraft's mass and closing speed are known, and so is the asteroid's mass to within a factor of a few.",
+      "story": "The deflection lab is sizing a spacecraft. It knows the craft's weight and how fast it would close, and the rock's weight to within a factor of a few.",
       "game": {
         "type": "BALLPARK",
-        "title": "Velocity change from momentum transfer",
+        "title": "How much does the push move it?",
         "setup": "Deflection Physics Lab",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the asteroid's change in speed.",
+        "play": "Work the craft's push into a change in the rock's speed.",
+        "task": "Work the craft's push into a change in the rock's speed.",
+        "question": "About how much does the rock's speed change?",
         "answer": "",
-        "why": "For a first lower-bound estimate, treat the impactor and asteroid as a momentum-transfer problem. The delivered momentum is impactor mass times relative speed. Divide that momentum by the asteroid mass to estimate the asteroid's velocity change, giving about 0.015 m/s, or 1.5 cm/s for the supplied values. Real kinetic impacts can gain extra momentum from ejecta leaving the surface, but the simple calculation establishes the scale before that enhancement is known. It also shows why asteroid mass and impact geometry matter directly to the achievable deflection.",
+        "why": "Momentum is weight multiplied by speed, and a collision hands it over. The craft carries a large speed and almost no weight. The rock has an enormous weight, so the same momentum buys it very little speed. Divide, and the change is about one and a half centimetres a second. That sounds like nothing at all. Given ten years of travel, it is the difference between a hit and a miss.",
         "givens": [],
-        "relationship": "Momentum = mass × speed, and it is conserved. Velocity change = momentum transferred ÷ the mass it is given to.",
+        "relationship": "Momentum = weight × speed. Change in speed = that momentum ÷ the weight it lands on.",
         "calcKey": "IMPACT-3"
       },
       "assumes": [
-        "momentum is mass times velocity, and it is conserved in a collision"
+        "momentum is weight multiplied by speed, and a collision passes it on",
+        "the same push shared over more weight makes less change in speed"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took.",
+          "computed": true
+        },
+        {
+          "e": "momentum = weight × speed",
+          "c": "what a collision hands over",
+          "v": [
+            [
+              "momentum",
+              "in kilogram metres per second"
+            ],
+            [
+              "weight",
+              "mass, in kilograms"
+            ],
+            [
+              "speed",
+              "in metres per second"
+            ]
+          ],
+          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on.",
+          "computed": true
+        },
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
+          "computed": true,
+          "card": false
+        },
+        {
+          "e": "change in position = change in speed × time",
+          "c": "why a deflection works better early",
+          "v": [
+            [
+              "change in position",
+              "how far it has moved off its old path, in kilometres"
+            ],
+            [
+              "change in speed",
+              "in kilometres per second"
+            ],
+            [
+              "time",
+              "how long before it arrives, in seconds"
+            ]
+          ],
+          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
+          "card": false
+        }
       ]
     },
     {
       "day": 4,
-      "title": "What determines deflection success?",
-      "scene": "The impactor concept is on the mission board beside the asteroid mass estimate, encounter geometry and tracking plan. The director wants the team to separate what sets the delivered momentum from what determines whether that momentum becomes a useful orbital change.",
-      "takeaway": "Deflection is an experiment whose dependent variable is the asteroid orbit.",
+      "title": "What makes a deflection work?",
+      "scene": "The impactor plan is up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.",
+      "takeaway": "A deflection is an experiment, and the thing it changes is the orbit.",
       "place": "Mission Engineering Center",
-      "story": "The impactor concept is on the mission board beside the asteroid mass estimate, encounter geometry and tracking plan. The director wants the team to separate what sets the delivered momentum from what determines whether that momentum becomes a useful orbital change.",
+      "story": "The impactor plan is up on the mission board. Beside it sit the weight estimate and the tracking plan. The director wants it all sorted before the review.",
       "game": {
         "type": "PROTOCOL",
-        "title": "What determines deflection success?",
+        "title": "What makes a deflection work?",
         "setup": "Mission Engineering Center",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Match each item on the board to what it does to the outcome.",
+        "task": "Match each item on the board to what it does to the outcome.",
+        "question": "Match each item on the board to what it does to the outcome.",
         "answer": "",
-        "why": "Deflection success is not set by impactor speed alone. Delivered momentum depends on impactor mass and relative velocity, while the asteroid's resulting velocity change also depends on its mass. Surface material can increase the transfer through ejecta, and the direction of the impulse determines how efficiently the orbit changes in the useful direction. Navigation controls whether the impact occurs where intended. Tracking before and after the event then measures what actually changed. A successful collision is therefore only one link in a measurement-and-control chain, not the final evidence of success.",
+        "why": "A deflection has four separate parts, and only one of them is the collision. The push that lands depends on the craft's weight and closing speed. What that push does depends on the rock's weight. Material thrown off the surface adds more push, by an amount nobody can predict yet. Time turns a tiny speed change into distance. Without tracking afterwards none of it is measured, only hoped.",
         "rebuttals": [
-          "More lead time multiplies the same velocity change into more displacement. It is the cheapest term in the problem.",
-          "The asteroid's mass divides the transferred momentum, so an uncertain mass is an uncertain result in direct proportion.",
-          "Ejecta leaving the surface carry momentum away and add to the transfer — a real effect with a factor nobody can predict.",
-          "Post-impact tracking measures the orbit change that happened rather than the one that was predicted. Without it the mission is a demonstration."
+          "More warning multiplies the same small change into more distance. It is the cheapest thing in the whole problem.",
+          "The rock's weight divides the push, so an uncertain weight is an uncertain result, in direct proportion.",
+          "Material thrown off the surface carries momentum away and adds to the push, by a factor nobody can predict.",
+          "Tracking afterwards measures the change that happened rather than the one that was expected."
         ],
         "scenarios": [
-          "Longer lead time.",
-          "Unknown asteroid mass.",
-          "Uncertain momentum enhancement from ejecta.",
-          "Post-impact tracking."
+          "More years of warning.",
+          "The rock's weight is not well known.",
+          "Nobody knows how much material will be thrown off.",
+          "Tracking after the impact."
         ],
         "choices": [
-          "More displacement accumulates from the same Δv.",
-          "Makes predicted Δv uncertain.",
-          "Changes effective transferred momentum.",
-          "Measures actual orbit change rather than assumed performance."
+          "The same change in speed moves it further.",
+          "The size of the change cannot be predicted well.",
+          "The push that lands is bigger or smaller than planned.",
+          "It measures what really changed, not what was promised."
         ],
         "mapping": [
           0,
@@ -789,77 +1140,157 @@ export const CURRICULUM = {
           3
         ],
         "columns": [
-          "What varies",
+          "What is on the board",
           "What it does to the outcome"
         ]
       },
       "assumes": [
-        "a small velocity change accumulates into a large displacement over time"
+        "a tiny change in speed adds up to a large change in position over years"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took."
+        },
+        {
+          "e": "momentum = weight × speed",
+          "c": "what a collision hands over",
+          "v": [
+            [
+              "momentum",
+              "in kilogram metres per second"
+            ],
+            [
+              "weight",
+              "mass, in kilograms"
+            ],
+            [
+              "speed",
+              "in metres per second"
+            ]
+          ],
+          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
+        },
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
+          "card": false
+        },
+        {
+          "e": "change in position = change in speed × time",
+          "c": "why a deflection works better early",
+          "v": [
+            [
+              "change in position",
+              "how far it has moved off its old path, in kilometres"
+            ],
+            [
+              "change in speed",
+              "in kilometres per second"
+            ],
+            [
+              "time",
+              "how long before it arrives, in seconds"
+            ]
+          ],
+          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
+          "card": false
+        }
       ]
     }
   ],
   "OPS": [
     {
       "day": 1,
-      "title": "Why do the measured positions disagree?",
-      "scene": "The wide-field camera's reference stars and asteroid share a residual that grows toward one edge of the detector. Exposure times agree with the observatory clock. A second telescope shows neither pattern and agrees with the current orbit fit.",
-      "takeaway": "An error that tracks the apparatus rather than the target is telling you about the apparatus.",
+      "title": "Why do the positions disagree?",
+      "scene": "One wide camera's positions bend away from the orbit near one edge of its chip. The clock checks out. A second telescope, watching the same object, shows nothing odd.",
+      "takeaway": "An error that follows the equipment is telling you about the equipment.",
       "place": "Follow-Up Telescope Network",
-      "story": "The wide-field camera's reference stars and asteroid share a residual that grows toward one edge of the detector. Exposure times agree with the observatory clock. A second telescope shows neither pattern and agrees with the current orbit fit.",
+      "story": "One wide camera's positions bend away from the orbit near one edge of its chip. The clock checks out. A second telescope, watching the same object, shows nothing odd.",
       "game": {
         "type": "CHOICE",
-        "title": "Why do the measured positions disagree?",
+        "title": "Why do the positions disagree?",
         "setup": "Follow-Up Telescope Network",
-        "play": "Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?",
-        "task": "Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?",
-        "question": "Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?",
-        "answer": "Focal-plane distortion calibration error",
-        "why": "The reference stars are the control, and they show the same spatial pattern as the asteroid. A residual that follows position on the focal plane belongs to the camera, not to the sky — real acceleration would move the asteroid and leave the stars alone. The timestamps agree with the observatory clock, so it is not timing. A second telescope agrees with the orbit, so it is not the orbit. What is left is the mapping from detector to sky, and the distortion calibration is older than the camera.",
+        "play": "Say which explanation fits the pattern in the misses.",
+        "task": "Say which explanation fits the pattern in the misses.",
+        "question": "Which explanation fits the pattern in the misses?",
+        "answer": "The camera's map from chip to sky is out of date",
+        "why": "The reference stars are the control. They do not move, so anything that shifts them belongs to the equipment. Here they miss by more toward one edge of the chip, and the asteroid misses the same way. That is a pattern in chip position, not in the sky. A real push would move the asteroid alone. The clock agrees, so it is not timing, and the second telescope agrees, so it is not the orbit.",
         "rebuttals": [
-          "Real acceleration acts on the asteroid alone. The reference stars would not follow it, and here they do.",
-          "A timing error shifts moving objects and leaves fixed stars correctly placed. Both are displaced here, and the clock checks out.",
-          "A catalogue-wide star error would show at the second telescope too, and across the whole field rather than growing toward one edge."
+          "A real push acts on the asteroid alone. The stars would stay where they belong, and here they do not.",
+          "A clock error moves the asteroid and leaves the stars right. Both are off here, and the clock checks out.",
+          "A bad star list would show up at the second telescope too, and all across the field rather than at one edge."
         ],
         "choices": [
           {
-            "label": "Focal-plane distortion calibration error",
-            "mechanism": "A position-dependent mapping from detector coordinates to sky coordinates biases both stars and asteroid near the field edge."
+            "label": "The camera's map from chip to sky is out of date",
+            "mechanism": "A stale chip-to-sky map pushes the stars and the asteroid the same way near the edge."
           },
           {
-            "label": "Real asteroid acceleration",
-            "mechanism": "A physical force changes only the asteroid trajectory on the sky."
+            "label": "The asteroid is really speeding up",
+            "mechanism": "A real force in space moves the asteroid and nothing else."
           },
           {
-            "label": "Timing error",
-            "mechanism": "Incorrect exposure time shifts moving-object positions while fixed reference stars remain correctly mapped."
+            "label": "The recorded times are wrong",
+            "mechanism": "A wrong exposure time shifts moving objects and leaves fixed stars where they belong."
           },
           {
-            "label": "Catalog-wide star error",
-            "mechanism": "The reference catalog is wrong in the same way for both telescopes and all field positions."
+            "label": "The star list is wrong everywhere",
+            "mechanism": "A bad star list is wrong in the same way at every telescope and across the whole field."
           }
         ],
-        "correctChoice": "Focal-plane distortion calibration error"
+        "correctChoice": "The camera's map from chip to sky is out of date"
       },
       "assumes": [
-        "reference stars in the same frame are a control on the frame itself"
+        "the reference stars in a picture are a check on the picture itself, because they do not move"
       ]
     },
     {
       "day": 2,
-      "title": "Buy the best next observation",
-      "scene": "4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.",
-      "takeaway": "A measurement is valuable when its possible outcomes separate the decisions still in contention, not merely when it is precise.",
+      "title": "Buy the observation that decides",
+      "scene": "Four hours of spare time on a two-metre telescope. The object is faint and sets soon after dusk. The same patch of sky comes back in six nights.",
+      "takeaway": "A measurement is worth buying when its result would change what you do next.",
       "place": "Time Standards Room",
-      "story": "4 hours of discretionary time are available on a 2-metre telescope. The object is magnitude 22.4, sets 2 hours after dusk, and the current arc is only 4 hours. The same field is observable again in six nights; the press office is waiting.",
+      "story": "Four hours of spare time on a two-metre telescope. The object is faint and sets soon after dusk. The same patch of sky comes back in six nights.",
       "game": {
         "type": "VALUE",
-        "title": "Buy the best next observation",
+        "title": "Buy the observation that decides",
         "setup": "Time Standards Room",
-        "play": "Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity.",
-        "task": "Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity.",
-        "question": "Which booking changes the six-night orbit prediction most?",
-        "answer": "Spend the follow-up booking on a later observation that lengthens the arc. The competing orbits have had time to separate, so the new position changes the six-night prediction more than another near-duplicate exposure.",
-        "why": "A short arc permits many combinations of distance and velocity. A second point taken immediately can be precise while adding little new geometry. Waiting several days lets those allowed trajectories separate, so one later position can eliminate large parts of the orbit family. A parallax observation is valuable because it constrains distance through different geometry, but the immediate operational question is which orbit predicts the object six nights from now. The best scarce booking is the one that directly increases that prediction leverage.",
+        "play": "Spend the one booking on the observation that changes next week's prediction most.",
+        "task": "Spend the one booking on the observation that changes next week's prediction most.",
+        "question": "Which booking changes the six-night prediction most?",
+        "answer": "Book the later observation. By then the paths that fit today's data have spread apart. One position rules most of them out. Another picture tonight would not.",
+        "why": "A short arc fits many paths at once. A picture tonight is sharp and adds almost nothing. The paths have not had time to disagree yet. Give them days and they spread across the sky. Then one later position throws most of them out. Looking from far away works for the same reason. A new angle is new information. A sharper picture from the same spot is not.",
         "value": {
           "budget": {
             "amount": 1,
@@ -902,94 +1333,95 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "a short observation arc is consistent with many orbits",
-        "parallax can constrain distance"
+        "a short arc of measurements fits many possible paths",
+        "parallax is the shift you see when you look at something from a different place"
       ]
     },
     {
       "day": 3,
-      "title": "Reduce the dangerous uncertainty",
-      "scene": "The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
-      "takeaway": "The best observation separates the live hypotheses rather than merely adding another point.",
+      "title": "Point where the answers disagree",
+      "scene": "The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets of paths sit eight arcseconds apart. After that they close up again.",
+      "takeaway": "The best measurement is the one whose result the rival answers would disagree about.",
       "place": "Planetary Defense Coordination Office",
-      "story": "The nominal orbit misses by four Earth radii. Roughly 1 in 600 allowed solutions impact instead. Next Tuesday those solutions place the object eight arcseconds from the rest of the family; after that the two predictions begin to converge again.",
+      "story": "The best guess misses by four Earth radii, and about one path in six hundred still hits. Next Tuesday the two sets of paths sit eight arcseconds apart. After that they close up again.",
       "game": {
         "type": "CHOICE",
-        "title": "Reduce the dangerous uncertainty",
+        "title": "Point where the answers disagree",
         "setup": "Planetary Defense Coordination Office",
-        "play": "A thin set of solutions still hits Earth. Where do you point next week?",
-        "task": "A thin set of solutions still hits Earth. Where do you point next week?",
-        "question": "A thin set of solutions still hits Earth. Where do you point next week?",
-        "answer": "Where the impacting and non-impacting solutions predict different positions.",
-        "why": "A measurement is only informative where the live hypotheses disagree. Here that is one night. On Tuesday the impacting solutions and the missing ones sit 8 arcseconds apart, which any follow-up telescope resolves. Before and after, the two families predict the same position within the errors. An observation then is certain to confirm what nobody disputed. So the rule for scheduling follow-up is to point where the predictions diverge, not where the object is brightest — and that condition is a place and a date rather than a telescope.",
+        "play": "A thin set of paths still hits Earth. Say where the telescope should point next week.",
+        "task": "A thin set of paths still hits Earth. Say where the telescope should point next week.",
+        "question": "A thin set of paths still hits Earth. Where do you point next week?",
+        "answer": "Where the hitting paths and the missing paths point to different places.",
+        "why": "A measurement only teaches you something where the rival answers disagree. Here that is one night. On Tuesday the hitting paths and the missing paths sit eight arcseconds apart. Any follow-up telescope can tell those apart. Before and after, both sets predict the same spot. Point then and you confirm what nobody argued about. So the answer here is a date, not a better telescope.",
         "rebuttals": [
-          "The brightest field is the easiest measurement and the least informative one; every solution already agrees about where the object will be.",
-          "Bias calibration improves every measurement a little and separates the two families not at all.",
-          "Independent software checks the arithmetic rather than the sky. Worth doing, and it adds no observation."
+          "The brightest night is the easiest measurement and the least useful one. Every path already agrees about where it will be.",
+          "Better calibration helps every measurement a little, and tells the two sets apart not at all.",
+          "Another program checks the arithmetic rather than the sky. Worth doing, and it adds no measurement."
         ],
         "choices": [
-          "Where the impacting and non-impacting solutions predict different positions.",
+          "Where the hitting paths and the missing paths point to different places.",
           "Wherever the object is brightest and easiest to measure.",
-          "At the same fields again, to improve the astrometric bias calibration.",
-          "Nowhere new — run the arc through independent orbit software."
+          "At the same patch of sky again, to improve the camera calibration.",
+          "Nowhere new — run the same measurements through another orbit program."
         ],
-        "correctChoice": "Where the impacting and non-impacting solutions predict different positions."
+        "correctChoice": "Where the hitting paths and the missing paths point to different places."
       },
       "assumes": [
-        "a measurement is informative where the candidate explanations disagree"
+        "a measurement teaches you something where the possible answers disagree"
       ]
     },
     {
       "day": 4,
-      "title": "Diameter-albedo degeneracy",
-      "scene": "Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.",
-      "takeaway": "Brightness alone cannot uniquely determine size without an albedo assumption.",
+      "title": "Same brightness, different size",
+      "scene": "Two rocks look just as bright as each other. One reflects four times as well. The infrared team wants the sizes compared before anybody says a number out loud.",
+      "takeaway": "Brightness alone cannot give a size unless somebody has assumed a reflectivity.",
       "place": "Infrared Telescope Team",
-      "story": "Two objects show the same reflected brightness and one is four times as reflective as the other. The infrared team wants the size comparison written down before anybody quotes a diameter.",
+      "story": "Two rocks look just as bright as each other. One reflects four times as well. The infrared team wants the sizes compared before anybody says a number out loud.",
       "game": {
         "type": "BALLPARK",
-        "title": "Diameter-albedo degeneracy",
+        "title": "Same brightness, different size",
         "setup": "Infrared Telescope Team",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "How does the higher-albedo object's diameter compare?",
+        "play": "Work out how the widths compare when two rocks look equally bright.",
+        "task": "Work out how the widths compare when two rocks look equally bright.",
+        "question": "How wide is the shinier rock, compared with the other rock?",
         "answer": "",
-        "why": "Brightness fixes the product of area and reflectivity. Four times the albedo at the same brightness therefore needs a quarter of the area. But diameter goes as the square root of area, so a quarter of the area is half the diameter, not a quarter of it. That is the whole degeneracy: brightness alone cannot separate a small bright rock from a large dark one, and every size quoted from brightness has an assumed reflectivity inside it.",
+        "why": "Brightness pins down the area facing us multiplied by how well it reflects, and nothing else. Four times the reflectivity at the same brightness needs a quarter of the area. Width is the square root of area, so a quarter of the area is half the width. That is the whole trap. Every size taken from brightness has a guess about the surface hidden inside it.",
         "givens": [],
-        "relationship": "At the same brightness, reflecting area varies inversely with albedo — and diameter is the square root of area.",
+        "relationship": "At the same brightness, four times the reflectivity needs a quarter of the area. Width is the square root of area.",
         "calcKey": "OPS-4"
       },
       "assumes": [
-        "the area of a disc goes as the square of its diameter"
+        "albedo is how well a surface reflects the light that lands on it",
+        "the area of a circle grows as the square of its width"
       ]
     },
     {
       "day": 5,
-      "title": "From photons to composition class",
-      "scene": "The spectrum has two broad features and a slope, and three mineral models reproduce all of them within the noise. Space weathering reddens a surface, grain size changes band depth, and viewing geometry shifts the continuum.",
-      "takeaway": "A good composition result retains the plausible alternatives.",
+      "title": "From light to what it is made of",
+      "scene": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. A draft notice naming one of them is already being typed.",
+      "takeaway": "A good answer about what something is made of keeps the other answers that still fit.",
       "place": "Meteorite Comparison Lab",
-      "story": "The spectrum has two broad features and a slope, and three mineral models reproduce all of them within the noise. Space weathering reddens a surface, grain size changes band depth, and viewing geometry shifts the continuum.",
+      "story": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. A draft notice naming one of them is already being typed.",
       "game": {
         "type": "SEQUENCE",
-        "title": "From photons to composition class",
+        "title": "From light to what it is made of",
         "setup": "Meteorite Comparison Lab",
-        "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "play": "Put the four steps in the order they have to be done.",
+        "task": "Put the four steps in the order they have to be done.",
+        "question": "Put the four steps in the order they have to be done.",
         "answer": "",
-        "why": "Calibration has to come before interpretation because the Sun, the atmosphere and the instrument are all in the recorded signal, and a feature identified before they are removed may belong to any of them. Reflectance against wavelength is then a property of the object. Only then is it worth asking which features are robust — and comparing several physical models rather than one is what stops space weathering being read as composition. The report keeps the alternatives, because three models still fit.",
+        "why": "Cleaning has to come first, because the Sun, the air and the instrument are all inside what the camera recorded. A dip found before they are removed may belong to any of them. Reflectance is then a property of the rock. Only after that is it worth asking which features hold up. Weathering and grain size can copy a change in minerals, so several models are tried and the report keeps what still fits.",
         "rebuttals": [
-          "Calibrate first: the Sun's own spectrum and the atmosphere's are in the recording, and a band found before they are removed may be theirs.",
-          "Reflectance second — it is the quantity that belongs to the object rather than to the observation.",
-          "Robust features and several models third, because weathering, grain size and geometry all mimic a compositional difference.",
-          "Report the alternatives last. A class stated without them is a claim the data cannot support."
+          "Cleaning first. The Sun's own colours and the air's are in the recording, and a dip found before they go may be theirs.",
+          "Reflectance second. It is the part that belongs to the rock rather than to the night.",
+          "Features and models third. Weathering, grain size and viewing angle all copy a change in minerals.",
+          "The alternatives last. A class with nothing beside it claims more than the data can hold."
         ],
         "cards": [
-          "Calibrate solar, atmospheric, and instrument response.",
-          "Measure reflectance as a function of wavelength.",
-          "Identify robust features and compare multiple physical models.",
-          "Report supported classes, alternatives, and needed follow-up."
+          "Take out what the Sun, the air and the instrument each added.",
+          "Measure how much light the surface sends back, colour by colour.",
+          "Pick out the features that hold up, and try several mineral models against them.",
+          "Report the classes that fit, the ones you cannot rule out, and what would settle it."
         ],
         "order": [
           0,
@@ -999,161 +1431,307 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "what a telescope records includes everything the light passed through"
+        "what a telescope records includes everything the light passed through on the way"
       ]
     },
     {
       "day": 6,
-      "title": "Improve the composition claim",
-      "scene": "The draft circular names a composition class outright. One spectrum supports it. In the next room, the deflection team is using the implied density to size the impactor. If the class is wrong, the spacecraft design starts from the wrong mass estimate.",
-      "takeaway": "Characterization should seek discriminating evidence rather than stronger labels.",
+      "title": "Make the claim stronger",
+      "scene": "The draft notice names what the rock is made of. One spectrum backs it. Next door the deflection team is sizing a spacecraft from the weight that class implies.",
+      "takeaway": "Ask for evidence that could disagree with you, not for a firmer label.",
       "place": "Composition Review Room",
-      "story": "The draft circular names a composition class outright. One spectrum supports it. In the next room, the deflection team is using the implied density to size the impactor. If the class is wrong, the spacecraft design starts from the wrong mass estimate.",
+      "story": "The draft notice names what the rock is made of. One spectrum backs it. Next door the deflection team is sizing a spacecraft from the weight that class implies.",
       "game": {
         "type": "CHOICE",
-        "title": "Improve the composition claim",
+        "title": "Make the claim stronger",
         "setup": "Composition Review Room",
-        "play": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
-        "task": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
-        "question": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
-        "answer": "Wavelength coverage extended beyond the current range.",
-        "why": "A stronger composition claim needs evidence that breaks the current ambiguity. Another ground spectrum taken in nearly the same way may repeat the same errors. A meteorite comparison tests whether candidate materials can produce the observed bands. Thermal infrared data use different physics and help constrain size and surface properties. Those checks can rule out some material classes without pretending one answer is certain. The best follow-up plan combines independent methods, then keeps the remaining composition range visible when the deflection team estimates density.",
+        "play": "One spectrum, one angle, one spin — and a draft notice naming a class. Say what you require.",
+        "task": "One spectrum, one angle, one spin — and a draft notice naming a class. Say what you require.",
+        "question": "One spectrum, one angle, one spin, and a draft notice naming a class. What do you require?",
+        "answer": "Look at more colours than this spectrum covers.",
+        "why": "A firmer claim needs evidence that could disagree with the one you have. More colours reach features this spectrum cannot see at all, so whole families of minerals can be ruled out. Another look tonight, taken the same way, repeats the same mistakes. Checks that work by different physics come next, once the list is short. Keep the range visible, because the deflection team turns it into a weight.",
         "rebuttals": [
-          "Other phase angles and rotations test whether the surface is uniform, which matters once the candidate classes are narrowed rather than before.",
-          "Polarimetry and radar texture constrain grain structure by different physics and are the right independent check on whichever class survives.",
-          "Publishing the class with a note attached is the same claim in smaller type, and the deflection team will size a spacecraft from the density it implies."
+          "Other angles and spin phases test whether the surface is the same all over. That matters once the list is short, not before.",
+          "Texture measured another way checks whichever class survives. On its own it does not shorten the list.",
+          "Publishing with a note attached is the same claim in smaller type, and a spacecraft gets sized from it anyway."
         ],
         "choices": [
-          "Wavelength coverage extended beyond the current range.",
-          "Observations at other phase angles and rotational phases.",
-          "Polarimetry or a radar texture constraint.",
-          "Nothing further — publish the class and note the uncertainty."
+          "Look at more colours than this spectrum covers.",
+          "Watch it at other angles and other points in its spin.",
+          "Add a measurement of the surface texture, taken a different way.",
+          "Nothing more — publish the class and mention the doubt."
         ],
-        "correctChoice": "Wavelength coverage extended beyond the current range."
+        "correctChoice": "Look at more colours than this spectrum covers."
       },
       "assumes": [
-        "a measurement made one way can be wrong one way"
+        "a measurement made one way can be wrong in the same way every time"
+      ],
+      "equations": [
+        {
+          "e": "change in position = change in speed × time",
+          "c": "why a deflection works better early",
+          "v": [
+            [
+              "change in position",
+              "how far it has moved off its old path, in kilometres"
+            ],
+            [
+              "change in speed",
+              "in kilometres per second"
+            ],
+            [
+              "time",
+              "how long before it arrives, in seconds"
+            ]
+          ],
+          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
+        }
       ]
     },
     {
       "day": 7,
-      "title": "Diameter from angular width",
-      "scene": "A radar image resolves the echo to about 0.09 arcsecond across while the orbit solution places the asteroid 4.0 × 10^8 metres away. The characterization team wants a physical diameter before the next consequence run begins.",
-      "takeaway": "An angle becomes a size only when it is multiplied by a distance.",
+      "title": "How far away, from the echo?",
+      "scene": "The dish sent a pulse, and the echo came back four seconds later. The characterisation team needs a distance before the next run starts.",
+      "takeaway": "An echo becomes a distance once you know the speed and the time.",
       "place": "Coordination Office",
-      "story": "A radar image resolves the echo to about 0.09 arcsecond across while the orbit solution places the asteroid 4.0 × 10^8 metres away. The characterization team wants a physical diameter before the next consequence run begins.",
+      "story": "The dish sent a pulse, and the echo came back four seconds later. The characterisation team needs a distance before the next run starts.",
       "game": {
         "type": "BALLPARK",
-        "title": "Diameter from angular width",
+        "title": "How far away, from the echo?",
         "setup": "Coordination Office",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the diameter of the object.",
+        "play": "Turn the echo time into a distance the orbit team can use.",
+        "task": "Turn the echo time into a distance the orbit team can use.",
+        "question": "About how far away is the object?",
         "answer": "",
-        "why": "Angular width becomes a physical diameter only when a distance is supplied. For a small angle in radians, size is approximately distance times angular size. Convert 0.09 arcsecond to radians, about 4.36×10⁻⁷ rad, and multiply by 4.0×10⁸ m. The result is about 1.7×10² m, or roughly 170 m across. The calculation is powerful because radar has supplied an independent distance: without that distance, an angular width alone cannot tell whether the object is small and nearby or larger and farther away.",
+        "why": "Radar hands you a time, and a time becomes a distance as soon as the speed is known. Radio travels three hundred thousand kilometres each second. Four seconds is one million two hundred thousand kilometres of travelling. The pulse went out and came back, so the rock sits half that away. That is six hundred thousand kilometres. Radar is worth so much here because it measures a distance instead of fitting one.",
         "givens": [],
-        "relationship": "Diameter = angular width in radians × distance. An arcsecond is 1/206,265 of a radian.",
+        "relationship": "Distance = speed × time ÷ two, because the pulse went there and back.",
         "calcKey": "OPS-7"
       },
       "assumes": [
-        "an angle on the sky is a size divided by the distance to the thing"
+        "radio waves travel at a fixed speed, three hundred thousand kilometres every second"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took.",
+          "computed": true
+        },
+        {
+          "e": "distance = speed × time",
+          "c": "distance from a radar echo",
+          "v": [
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "speed",
+              "the speed of light, 300,000 kilometres per second"
+            ],
+            [
+              "time",
+              "the round trip, in seconds"
+            ]
+          ],
+          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
+        }
       ]
     },
     {
       "day": 8,
-      "title": "The speed it actually arrives at",
-      "scene": "The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.",
-      "takeaway": "Earth gravity can raise a slow encounter speed enough to change impact energy materially before atmospheric entry begins.",
+      "title": "Twice as fast",
+      "scene": "The arrival speed in the briefing has just doubled after a new tracking run. The energy in that briefing came from the old speed, and it is read out in an hour.",
+      "takeaway": "A quantity that appears twice in a rule moves the answer much further than one that appears once.",
       "place": "Coordination Office",
-      "story": "The approach speed far from Earth is 12 kilometres a second. That number has gone to civil defence as the entry speed, and the energy in their briefing was computed from it.",
+      "story": "The arrival speed in the briefing has just doubled after a new tracking run. The energy in that briefing came from the old speed, and it is read out in an hour.",
       "game": {
-        "type": "BALLPARK",
-        "title": "The speed it actually arrives at",
+        "type": "CHOICE",
+        "title": "Twice as fast",
         "setup": "Coordination Office",
-        "play": "Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry.",
-        "task": "Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry.",
-        "question": "What kinetic energy follows once Earth’s gravity has raised the entry speed above 12 km/s?",
-        "answer": "About 1.06 × 10^18 J. Earth’s gravity raises the speed from 12 km/s far away to about 16.4 km/s at entry, making the kinetic energy about 1.87 times larger for the same mass.",
-        "why": "Far from Earth the object approaches at 12 km/s, but Earth's gravity accelerates it before atmospheric entry. Combine the speeds in quadrature: v = √(12² + 11.2²) ≈ 16.4 km/s. For the same mass, kinetic energy scales as speed squared, so the energy ratio is 16.4²/12² ≈ 1.87. The entry energy is therefore about 87% larger than a calculation that uses the far-field speed directly. Gravitational focusing changes both the trajectory and the energy scale that consequence models inherit.",
+        "play": "Say what doubling the arrival speed does to the energy.",
+        "task": "Say what doubling the arrival speed does to the energy.",
+        "question": "The rock arrives twice as fast as the briefing assumed. What happens to the energy?",
+        "answer": "Four times the energy. The speed goes into the rule twice, so twice the speed is two times two.",
+        "why": "The energy of a moving thing is half the weight, times the speed twice over. Weight goes in once, so doubling it doubles the energy. Speed goes in twice, so doubling it multiplies the energy by four. A briefing built on the old speed is not slightly wrong. It is wrong four times over, and the warning area, the number of people and the whole plan were sized from it.",
         "rebuttals": [
-          "The 2 speeds differ by Earth's escape speed, which is 11.2 km/s and not negligible against 12.",
-          "The atmosphere decelerates the object after entry, so it cannot lower the speed at which entry begins.",
-          "Energy is proportional to the square of entry speed, so the speed error propagates straight into the energy."
+          "Twice the speed is four times the energy, not twice. The speed is multiplied by itself in the rule.",
+          "The air slows the rock after it arrives, so it cannot change the speed the arrival starts at.",
+          "The crater is made out of the energy. Change the energy and the crater changes with it."
         ],
-        "givens": [],
-        "relationship": "v² = v∞² + v_esc², and KE = ½mv².",
-        "calcKey": "OPS-8"
+        "choices": [
+          "Four times the energy, because the speed goes in twice over.",
+          "Twice the energy, because twice the speed is twice everything.",
+          "Less than that, because the air slows it down first.",
+          "It changes the crater, and not the energy."
+        ],
+        "correctChoice": "Four times the energy, because the speed goes in twice over."
       },
       "assumes": [
-        "a falling object speeds up as it falls, and Earth's escape speed is 11.2 km/s"
+        "the energy of a moving thing uses its speed twice over"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took."
+        },
+        {
+          "e": "KE = ½ × m × v²",
+          "c": "the energy an impact carries",
+          "v": [
+            [
+              "KE",
+              "kinetic energy, in joules"
+            ],
+            [
+              "m",
+              "mass, in kilograms"
+            ],
+            [
+              "v",
+              "speed, in metres per second"
+            ]
+          ],
+          "s": "Doubling the mass doubles the energy; doubling the speed multiplies it by four, which is why speed is the number that matters most."
+        }
       ]
     },
     {
       "day": 9,
-      "title": "Reduce consequence uncertainty",
-      "scene": "The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.",
-      "takeaway": "Risk communication should show how physical uncertainty maps into consequence uncertainty.",
+      "title": "Which measurement is worth the most?",
+      "scene": "The range of harm runs from one region to a whole continent. Every part of that range comes from a measurement. There is time to improve one of them.",
+      "takeaway": "Improve the measurement that carries the most error into the answer, not the one that is easiest to repeat.",
       "place": "Emergency Planning Office",
-      "story": "The consequence range runs from a regional evacuation to a continent-wide emergency, and every part of that range traces back to a physical measurement. The planning office can improve one of them before the region has to be told anything.",
+      "story": "The range of harm runs from one region to a whole continent. Every part of that range comes from a measurement. There is time to improve one of them.",
       "game": {
         "type": "CHOICE",
-        "title": "Reduce consequence uncertainty",
+        "title": "Which measurement is worth the most?",
         "setup": "Emergency Planning Office",
-        "play": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
-        "task": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
-        "question": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
-        "answer": "The diameter, from thermal infrared or radar.",
-        "why": "Impact energy depends strongly on the inputs used to build mass and speed. Diameter matters because mass scales roughly with volume, so a fractional diameter error is amplified when converted to mass. Density adds another uncertainty, while speed enters kinetic energy squared. The right response is not one overprecise energy but a range propagated from plausible inputs. Better measurements should target the terms that dominate that range, rather than improving a well-known input simply because it is easy to measure again.",
+        "play": "Say which measurement would narrow the range of consequences most.",
+        "task": "Say which measurement would narrow the range of consequences most.",
+        "question": "The range of consequences is enormous. Which measurement narrows it most?",
+        "answer": "The width, from heat measurements or from radar.",
+        "why": "Weight comes from volume, and volume is the width multiplied in three times over. So an error in the width arrives at the energy three times as wide as it started. Density goes in once. Speed goes in twice and is already the best known of the three, so there is least left to win there. That is why the width is worth more than anything else on this list.",
         "rebuttals": [
-          "Density enters linearly and is genuinely uncertain. Worth improving, and worth a third as much per factor of error.",
-          "Speed enters squared and is already the best determined of the three, so there is least left to win there.",
-          "Reporting only the worst case resolves nothing and spends public attention on a number that cannot be defended when it is questioned."
+          "Density goes in once and is genuinely uncertain. Worth improving, and worth about a third as much.",
+          "Speed goes in twice, and it is already the best known of the three, so there is least left to win.",
+          "Reporting only the worst case settles nothing. It also spends public attention on a number nobody can defend."
         ],
         "choices": [
-          "The diameter, from thermal infrared or radar.",
-          "The density, from composition and dynamical analogues.",
-          "The entry speed and angle.",
-          "None — report the worst case and plan against that."
+          "The width, from heat measurements or from radar.",
+          "The density, from what the rock is made of.",
+          "The speed and the angle it arrives at.",
+          "None of them — report the worst case and plan for that."
         ],
-        "correctChoice": "The diameter, from thermal infrared or radar."
+        "correctChoice": "The width, from heat measurements or from radar."
       },
       "assumes": [
-        "the widest term in a product dominates the uncertainty of the result"
+        "a number that is multiplied in three times spreads any error three times as wide"
+      ],
+      "equations": [
+        {
+          "e": "speed = distance ÷ time",
+          "c": "how fast something is moving",
+          "v": [
+            [
+              "speed",
+              "in kilometres per second"
+            ],
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "time",
+              "in seconds"
+            ]
+          ],
+          "s": "Speed is how much ground is covered divided by how long it took."
+        },
+        {
+          "e": "distance = speed × time",
+          "c": "distance from a radar echo",
+          "v": [
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "speed",
+              "the speed of light, 300,000 kilometres per second"
+            ],
+            [
+              "time",
+              "the round trip, in seconds"
+            ]
+          ],
+          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
+        }
       ]
     },
     {
       "day": 10,
-      "title": "Match action to evidence state",
-      "scene": "The regional emergency team is around one table. A wall display shows the newest orbit corridor, likely damage area, and time remaining. Today they must decide whether to keep watching, prepare supplies, warn the public, or order people to move.",
-      "takeaway": "Preparedness can escalate in stages without claiming certainty.",
+      "title": "Match what you do to what you know",
+      "scene": "The regional team is round one table. The wall shows the newest corridor, the likely damage area and the time left. Today they choose what to do.",
+      "takeaway": "You can prepare in stages without ever claiming to be certain.",
       "place": "Risk Communication Center",
-      "story": "The regional emergency team is around one table. A wall display shows the newest orbit corridor, likely damage area, and time remaining. Today they must decide whether to keep watching, prepare supplies, warn the public, or order people to move.",
+      "story": "The regional team is round one table. The wall shows the newest corridor, the likely damage area and the time left. Today they choose what to do.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Match action to evidence state",
+        "title": "Match what you do to what you know",
         "setup": "Risk Communication Center",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Match each state of the evidence to what it justifies doing.",
+        "task": "Match each state of the evidence to what it justifies doing.",
+        "question": "Match each state of the evidence to what it justifies doing.",
         "answer": "",
-        "why": "Action thresholds depend on consequence, lead time and reversibility rather than on probability alone. A very low probability with years in hand justifies tracking and cheap preparation, because there is time to learn more. A rising probability with a stable corridor justifies pre-positioning, which is reversible. High probability with days left justifies protective action under emergency authority, because the time to learn more has gone. And a probability that falls justifies standing down publicly and saying why — which is what makes the next escalation believable.",
+        "why": "What you do depends on three things: how bad it would be, how long you have, and whether you could undo it. Years in hand means there is still time to learn more, so watch and prepare cheaply. A rising chance is worth real preparation, as long as it can be undone. With days left, the time to learn more has gone. And a chance that falls is stood down out loud, or the next warning is ignored.",
         "rebuttals": [
-          "Very low probability with years of lead time buys the cheapest thing: keep watching, and prepare in ways that cost nothing if it comes to nothing.",
-          "A rising probability over a stable corridor justifies pre-positioning, precisely because pre-positioning can be undone.",
-          "High probability with days left is when reversibility stops being the deciding factor and consequence takes over.",
-          "A falling probability is stood down in public, with the reason. Quietly dropping it is how the next warning is disbelieved."
+          "A tiny chance with years in hand buys the cheapest thing there is. Keep watching, and prepare in ways that cost nothing.",
+          "A rising chance over a corridor that holds still is worth real supplies, because supplies can be moved back out.",
+          "With days left, being able to undo it stops being the deciding thing. What it would cost takes over.",
+          "A falling chance is stood down out loud, with the reason. Dropping it quietly is how the next warning gets ignored."
         ],
         "scenarios": [
-          "Very low probability with years of lead time.",
-          "Rising probability with a stable regional corridor.",
-          "High probability with days remaining.",
-          "Probability falls after decisive tracking."
+          "A tiny chance, with years still to run.",
+          "A rising chance, and the corridor holding still.",
+          "A high chance, with days left.",
+          "The chance falls after a decisive measurement."
         ],
         "choices": [
-          "Continue tracking and low-cost preparedness.",
-          "Pre-position resources and plan corridor-specific evacuations.",
-          "Execute protective actions under emergency authority.",
-          "Scale back actions transparently while preserving lessons."
+          "Keep watching, and prepare in ways that cost nothing if it comes to nothing.",
+          "Move supplies in and plan the routes, because both can be undone.",
+          "Order people to move, under emergency powers.",
+          "Stand down in public, and say why."
         ],
         "mapping": [
           0,
@@ -1162,54 +1740,96 @@ export const CURRICULUM = {
           3
         ],
         "columns": [
-          "What the evidence state is",
+          "What the evidence says",
           "What you do"
         ]
       },
       "assumes": [
-        "a reversible action can be taken and undone; an irreversible one cannot"
+        "a reversible action can be undone afterwards; an irreversible one cannot"
+      ],
+      "equations": [
+        {
+          "e": "average = total ÷ how many",
+          "c": "the mean of repeated measurements",
+          "v": [
+            [
+              "average",
+              "the mean"
+            ],
+            [
+              "total",
+              "the measurements added up"
+            ],
+            [
+              "how many",
+              "the number of measurements"
+            ]
+          ],
+          "s": "Measuring the same thing several times and averaging pulls the random part of each measurement toward zero."
+        }
       ]
     },
     {
       "day": 11,
-      "title": "Expected displaced population",
-      "scene": "The emergency management office needs a number to plan against. It has the population inside the corridor and the current impact probability, and it has to write something on a form today.",
-      "takeaway": "Decision metrics must be interpreted according to the distribution they summarize.",
+      "title": "How many people is that share?",
+      "scene": "The emergency office needs a number to plan against. It has the people living inside the corridor. It has today's chance of impact. And it has a form to fill in.",
+      "takeaway": "A small share of a very large number is still a number somebody has to plan for.",
       "place": "Emergency Management Office",
-      "story": "The emergency management office needs a number to plan against. It has the population inside the corridor and the current impact probability, and it has to write something on a form today.",
+      "story": "The emergency office needs a number to plan against. It has the people living inside the corridor. It has today's chance of impact. And it has a form to fill in.",
       "game": {
         "type": "BALLPARK",
-        "title": "Expected displaced population",
+        "title": "How many people is that share?",
         "setup": "Emergency Management Office",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the expected displaced population.",
+        "play": "Turn the chance and the population into a number the office can plan against.",
+        "task": "Turn the chance and the population into a number the office can plan against.",
+        "question": "How many people does that share come to?",
         "answer": "",
-        "why": "Expected value combines the size of an outcome with its probability. If the current impact probability is 2% and the exposed population in the relevant corridor is 500,000 people, the expected displaced population is 0.02 × 500,000 = 10,000. That does not mean exactly 10,000 people will move. In the simplified two-outcome picture, either the impact does not occur or a much larger population is affected. The expectation is useful for comparing preparation costs and risks while the event itself remains uncertain.",
+        "why": "This number is a share, not a headcount. Half of one per cent of nine million people is forty-five thousand. Nobody expects exactly that many people to move. Either the rock misses and nobody moves, or it hits and far more than that do. What the share is good for is comparing plans. It puts the cost of preparing beside the risk of not preparing, in the same units.",
         "givens": [],
-        "relationship": "An expectation = the consequence × the probability of it happening.",
+        "relationship": "Part = the whole × the share, once the share is written as a decimal.",
         "calcKey": "OPS-11"
       },
       "assumes": [
-        "an expectation is a probability multiplied by a consequence"
+        "a percentage is a share out of one hundred"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a percentage of a population",
+          "v": [
+            [
+              "part",
+              "how many that share comes to"
+            ],
+            [
+              "whole",
+              "the whole population"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it."
+        }
       ]
     },
     {
       "day": 12,
       "title": "Prepare without panic",
-      "scene": "Five orbit updates are queued. Regional planners can still prepare without evacuating anyone, but planning and pre-positioning both take time. The action thresholds must be locked before the updates begin. Once the stream starts, nobody gets to move them.",
-      "takeaway": "Good risk policy ties staged, reversible actions to evidence thresholds before the evidence moves.",
+      "scene": "Five orbit updates are queued. Planners can still prepare without moving anybody. Both planning and supplies take time, and the thresholds have to be set before the stream starts.",
+      "takeaway": "A rule written before the numbers arrive is the only rule the numbers cannot bend.",
       "place": "Scientific Advisory Board",
-      "story": "Five orbit updates are queued. Regional planners can still prepare without evacuating anyone, but planning and pre-positioning both take time. The action thresholds must be locked before the updates begin. Once the stream starts, nobody gets to move them.",
+      "story": "Five orbit updates are queued. Planners can still prepare without moving anybody. Both planning and supplies take time, and the thresholds have to be set before the stream starts.",
       "game": {
         "type": "TRIGGER",
         "title": "Prepare without panic",
         "setup": "Scientific Advisory Board",
-        "play": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace.",
-        "task": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace.",
-        "question": "Which precommitted thresholds preserve enough lead time for planning and pre-positioning?",
-        "answer": "Set the planning trigger around 0.25% and the pre-positioning trigger around 0.75% before releasing the updates. In this authored trace they fire with the required lead time still available; waiting until the final 1.4% update leaves no operational margin.",
-        "why": "A trigger is a decision rule written before the next number arrives. Preparation has lead time, so a scientifically correct action can still be useless if it begins too late. Precommitting thresholds also prevents hindsight from turning every new probability into a different standard. Tie early thresholds to reversible actions and later ones to costlier steps while the orbit solution continues to update. The goal is not to pretend the probability is certain; it is to connect uncertainty to staged actions that remain possible when the rule fires.",
+        "play": "Set the threshold for each stage before the updates arrive, then release the stream.",
+        "task": "Set the threshold for each stage before the updates arrive, then release the stream.",
+        "question": "Which thresholds still leave enough time for planning and for moving supplies?",
+        "answer": "Set planning near 0.25 per cent and supplies near 0.75 per cent, before the stream runs. Both then fire with time still in hand. Waiting for the last update at 1.4 per cent leaves none.",
+        "why": "A threshold is a decision made before the next number lands. Preparation takes time, so an action that is right can still be useless if it starts too late. Setting the rule first also stops every new number being judged by a new standard. Early thresholds go on things that can be undone. Later ones go on the things that cost more. None of it pretends the chance is certain.",
         "trigger": {
           "scale": {
             "label": "Campaign impact-probability update",
@@ -1268,43 +1888,64 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "impact probability can change as new orbit data arrive",
-        "some preparations are reversible and require lead time"
+        "the chance of impact moves as new measurements arrive",
+        "preparations take time to set up, and some of them can be undone"
+      ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "a percentage of a population",
+          "v": [
+            [
+              "part",
+              "how many that share comes to"
+            ],
+            [
+              "whole",
+              "the whole population"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it."
+        }
       ]
     },
     {
       "day": 13,
-      "title": "Disposition the final claims",
-      "scene": "The board has to publish one account of an eight-year campaign, and the four claims in front of it carry very different weights of evidence. Whatever it writes will be read by whoever runs the next one.",
-      "takeaway": "Planetary defense is a continuing evidence system, not a one-time heroic act.",
+      "title": "What each claim has earned",
+      "scene": "The board has to publish one account of an eight-year campaign. The four claims in front of it rest on very different evidence. Whoever runs the next one will read it.",
+      "takeaway": "Different claims in one document have earned different amounts of confidence.",
       "place": "International Review Hall",
-      "story": "The board has to publish one account of an eight-year campaign, and the four claims in front of it carry very different weights of evidence. Whatever it writes will be read by whoever runs the next one.",
+      "story": "The board has to publish one account of an eight-year campaign. The four claims in front of it rest on very different evidence. Whoever runs the next one will read it.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Disposition the final claims",
+        "title": "What each claim has earned",
         "setup": "International Review Hall",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Match each claim to what the evidence under it justifies doing.",
+        "task": "Match each claim to what the evidence under it justifies doing.",
+        "question": "Match each claim to what the evidence under it justifies doing.",
         "answer": "",
-        "why": "Final review separates mission success, residual orbital uncertainty, civil readiness and future capability, because they are four different states and giving them one confidence is how a document becomes untrustworthy. Tracking that confirms the orbit shift independently is strong enough to accept while verification continues. A poorly constrained tail is a reason to keep observing rather than to collapse the distribution onto the nominal. Plans built on an outdated corridor have to be updated before anybody uses them. And survey gaps outlive this object entirely.",
+        "why": "These four claims are in four different states, and giving them one level of confidence is how a report stops being trusted. A shift that somebody else has confirmed can be accepted. An edge nobody has pinned down is a reason to keep watching, not a reason to quote the middle. Plans built on an old corridor have to be fixed before use. And the gaps in the search outlive this rock entirely.",
         "rebuttals": [
-          "An independently confirmed orbit shift is the strongest claim here and can be accepted, with verification continuing.",
-          "A poorly constrained tail is not a safe nominal. Collapsing the distribution onto its middle is the error the whole campaign was about.",
-          "Civil plans against an outdated corridor are worse than no plans, because somebody will use them.",
-          "Survey gaps have nothing to do with this object and everything to do with the next one."
+          "An orbit shift somebody else has confirmed is the strongest claim here. Accept it, with checking going on.",
+          "An edge nobody has pinned down is not a safe middle. Treating it as one is the mistake this whole campaign was about.",
+          "Plans built on an old corridor are worse than no plans, because somebody will pick them up and use them.",
+          "Gaps in the search have nothing to do with this rock and everything to do with the next one."
         ],
         "scenarios": [
-          "Post-impact tracking shows the required orbit shift with independent confirmation.",
-          "The nominal miss is safe, but a poorly constrained tail remains.",
-          "Civil plans are ready but based on an outdated corridor.",
-          "The object is no longer threatening, but survey gaps remain."
+          "Tracking shows the orbit shift, and somebody else confirms it.",
+          "The best guess is safe, and the edge of the spread is not pinned down.",
+          "The plans are ready, and they use an old corridor.",
+          "The rock is no threat, and the search still misses parts of the sky."
         ],
         "choices": [
-          "Accept the deflection claim and continue verification.",
-          "Continue targeted observations; do not collapse the distribution to the nominal.",
-          "Update plans before operational use.",
-          "Fund long-term survey and preparedness improvements."
+          "Accept it, and keep checking.",
+          "Keep observing, and do not treat the middle as the whole answer.",
+          "Update them before anybody uses them.",
+          "Fund the searching and the readiness for the long run."
         ],
         "mapping": [
           0,
@@ -1323,35 +1964,75 @@ export const CURRICULUM = {
     },
     {
       "day": 14,
-      "title": "Fund the planetary-defense legacy",
-      "scene": "The threat is gone, and so is most of the campaign budget. The discovery survey still misses parts of the sky, and two follow-up sites lose funding at year’s end. The board must decide what capability survives this success.",
-      "takeaway": "The durable defense is an institution that can repeatedly detect, learn, decide, and act.",
+      "title": "What survives the success",
+      "scene": "The threat is gone, and so is most of the budget. The search still misses parts of the sky, and two follow-up sites lose their funding at the end of the year.",
+      "takeaway": "The lasting defence is a system that can find, learn, decide and act again.",
       "place": "Mission Operations",
-      "story": "The threat is gone, and so is most of the campaign budget. The discovery survey still misses parts of the sky, and two follow-up sites lose funding at year’s end. The board must decide what capability survives this success.",
+      "story": "The threat is gone, and so is most of the budget. The search still misses parts of the sky, and two follow-up sites lose their funding at the end of the year.",
       "game": {
         "type": "CHOICE",
-        "title": "Fund the planetary-defense legacy",
+        "title": "What survives the success",
         "setup": "Mission Operations",
-        "play": "The campaign budget ends with this review. What survives it?",
-        "task": "The campaign budget ends with this review. What survives it?",
+        "play": "Say which part of the system has to keep its funding.",
+        "task": "Say which part of the system has to keep its funding.",
         "question": "The campaign budget ends with this review. What survives it?",
-        "answer": "Sustain survey completeness and rapid follow-up as the foundation, while preserving interfaces to characterization, response and preparedness.",
-        "why": "Warning time supports almost every choice made later in the campaign. Finding an object earlier gives more nights for orbit checks. It also gives teams time to measure size, rotation, and composition. Years of warning can make a small deflection useful. Civil authorities can prepare in stages instead of acting all at once. Consequence models and communication still matter, but they cannot restore lost time. The strongest long-term investment is therefore a survey-and-follow-up system that finds objects early and keeps measuring them.",
+        "answer": "Keep the search and the fast follow-up going, and hold on to the links to everything else.",
+        "why": "Warning time is what every later choice gets bought with. Finding a rock earlier gives more nights to check the orbit. It gives time to measure the size and what it is made of. It makes a small push worth giving, because years turn a push into distance. It lets people prepare in stages. Plans and models matter too, and none of them can give back time that was never bought.",
         "rebuttals": [
-          "Characterization and deflection demonstrations are valuable, but they need an object to be found with enough warning for those options to exist.",
-          "Preparedness converts warning into action; it cannot create warning if the observing system never finds or recovers the object.",
-          "This campaign itself shows that blind geometry, coverage and follow-up capacity remain incomplete, so discovery is not automatic."
+          "Studying rocks and testing deflections are both worth having, and they need an object found early enough for any of it to matter.",
+          "Readiness turns a warning into action. It cannot make a warning if nothing finds the rock in the first place.",
+          "This campaign is the evidence against that. The gaps, the viewing angles and the follow-up were all short."
         ],
         "choices": [
-          "Sustain survey completeness and rapid follow-up as the foundation, while preserving interfaces to characterization, response and preparedness.",
-          "Shift most recurring funds from discovery to characterization and deflection demonstrations because cataloguing is now largely complete.",
-          "Shift most recurring funds from discovery to civil preparedness because scientific warning will arrive automatically once an object is dangerous.",
-          "End new investment because the current catalogue and automated alerts make future discovery and follow-up a solved problem."
+          "Keep the search and the fast follow-up going, and hold on to the links to everything else.",
+          "Move most of the money to studying rocks and testing deflections, since the catalogue is nearly done.",
+          "Move most of the money to civil readiness, since a warning will arrive by itself when it matters.",
+          "Stop spending. The catalogue and the automatic alerts have it covered."
         ],
-        "correctChoice": "Sustain survey completeness and rapid follow-up as the foundation, while preserving interfaces to characterization, response and preparedness."
+        "correctChoice": "Keep the search and the fast follow-up going, and hold on to the links to everything else."
       },
       "assumes": [
-        "warning time is produced by finding things, not by planning for them"
+        "warning time comes from finding things early, not from planning for them"
+      ],
+      "equations": [
+        {
+          "e": "change in speed = momentum ÷ weight",
+          "c": "what a push does to something heavy",
+          "v": [
+            [
+              "change in speed",
+              "in metres per second"
+            ],
+            [
+              "momentum",
+              "what the push handed over"
+            ],
+            [
+              "weight",
+              "the mass it landed on, in kilograms"
+            ]
+          ],
+          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
+        },
+        {
+          "e": "change in position = change in speed × time",
+          "c": "why a deflection works better early",
+          "v": [
+            [
+              "change in position",
+              "how far it has moved off its old path, in kilometres"
+            ],
+            [
+              "change in speed",
+              "in kilometres per second"
+            ],
+            [
+              "time",
+              "how long before it arrives, in seconds"
+            ]
+          ],
+          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
+        }
       ]
     }
   ]
@@ -1359,14 +2040,14 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "ORBIT-1": {
-    "prompt": "The object shifts 12 arcseconds in 20 minutes, and the desk needs a rate before it can predict where to look next.",
-    "question": "Estimate the apparent motion in arcseconds per hour.",
+    "prompt": "The dot moves twelve arcseconds in twenty minutes. Before anyone points a telescope, that has to become a rate per hour.",
+    "question": "About how fast is it moving, in arcseconds per hour?",
     "labels": [
-      "12 arcsec (measured shift)",
-      "20 min (between the 2 frames)",
-      "3 exposures",
-      "1,200 s (the same interval, in seconds)",
-      "24 h"
+      "twelve arcseconds (how far it moved)",
+      "twenty minutes (between the two pictures)",
+      "three exposures",
+      "1,200 seconds (the same gap, in seconds)",
+      "twenty-four hours"
     ],
     "values": [
       12,
@@ -1385,18 +2066,18 @@ export const BALLPARK_CALCS = {
     "target": 36,
     "tolerance": 3,
     "units": "arcsec/hour",
-    "solution": "12 ÷ 20 = 0.6 arcsec/min, so about 36 arcsec/hour.",
-    "explanation": "The 60 in the template is minutes per hour, so the interval has to be in minutes. Handing it the same interval in seconds gives an answer 60 times too small — which would look like a main-belt object rather than something close."
+    "solution": "Twelve ÷ twenty is six tenths of an arcsecond a minute, so about thirty-six arcseconds an hour.",
+    "explanation": "The sixty in the template is the minutes in an hour, so the time has to be in minutes. Use the same gap in seconds and the answer comes out sixty times too small."
   },
   "ORBIT-3": {
-    "prompt": "In a simplified Monte Carlo set, 37 of 100,000 sampled trajectories consistent with the observations strike Earth.",
-    "question": "Estimate the impact probability, as a percentage.",
+    "prompt": "The computer flew one hundred thousand paths that all fit the measurements. Thirty-seven of them hit Earth.",
+    "question": "What is the chance of impact, as a percentage?",
     "labels": [
-      "37 impacting samples",
-      "100,000 samples drawn",
-      "1,000 samples (the first quick run)",
-      "99,963 samples that miss",
-      "8 years to encounter"
+      "thirty-seven paths that hit",
+      "one hundred thousand paths tried",
+      "one thousand paths (the first quick run)",
+      "99,963 paths that missed",
+      "eight years to the encounter"
     ],
     "values": [
       37,
@@ -1415,18 +2096,18 @@ export const BALLPARK_CALCS = {
     "target": 0.037,
     "tolerance": 0.004,
     "units": "%",
-    "solution": "37/100,000 = 3.7 × 10⁻⁴, or 0.037%.",
-    "explanation": "The denominator is every sample drawn, not the ones that missed — dividing by the misses gives almost the same number here and the wrong quantity everywhere. 1000 samples could not have resolved a probability this small at all."
+    "solution": "Thirty-seven out of one hundred thousand is 0.037 per cent.",
+    "explanation": "The bottom number is every path tried, not only the ones that missed. And a thousand tries could never have found a chance this small."
   },
   "OPS-4": {
-    "prompt": "Two objects show the same reflected brightness and one has four times the albedo of the other. Reflected flux scales with cross-sectional area times reflectivity.",
-    "question": "How does the higher-albedo object's diameter compare?",
+    "prompt": "Two rocks look equally bright. One reflects four times as well as the other. Brightness is the area facing us multiplied by how well that area reflects.",
+    "question": "How wide is the shinier rock, compared with the other rock?",
     "labels": [
-      "1.0 (reflected brightness, relative)",
-      "4.0 (albedo, relative)",
-      "2.0 (the square root of the albedo ratio)",
-      "16.0 (the albedo ratio, squared)",
-      "0.25 (the reciprocal of the albedo ratio)"
+      "1.0 (how bright it looks)",
+      "4.0 (how much better it reflects)",
+      "2.0 (the square root of that)",
+      "16.0 (that number squared)",
+      "0.25 (one divided by that number)"
     ],
     "values": [
       1,
@@ -1445,111 +2126,79 @@ export const BALLPARK_CALCS = {
     "target": 0.5,
     "tolerance": 0.05,
     "units": "× the diameter of the darker object",
-    "solution": "Four times the albedo at the same brightness means a quarter of the area, so half the diameter.",
-    "explanation": "Brightness fixes the product of area and reflectivity, so four times the reflectivity requires a quarter of the area — and diameter goes as the square root of area, not as area. The tile that has already taken the square root is the trap."
+    "solution": "A quarter of the area, so half the width.",
+    "explanation": "A quarter of the area is not a quarter of the width, because area grows as width squared. The tile that has already taken the square root is the trap."
   },
   "OPS-7": {
-    "prompt": "Radar puts the object 6.0×10^8 m away, and the dome measured an angular width of 0.10 arcsec.",
-    "question": "Estimate the diameter of the object.",
+    "prompt": "The pulse left the dish and the echo came back four seconds later. Radio travels three hundred thousand kilometres a second.",
+    "question": "About how far away is the object?",
     "labels": [
-      "0.10 arcsec (measured angular width)",
-      "206,265 (arcsec in 1 radian)",
-      "6.0e8 m (distance, from radar)",
-      "1.5e11 m (1 astronomical unit)",
-      "0.5 arcsec (the seeing that night)"
+      "4.0 seconds (there and back)",
+      "300,000 kilometres each second (speed of radio)",
+      "2 (out, and back again)",
+      "eight years to the encounter",
+      "0.5 arcseconds (the seeing that night)"
     ],
     "values": [
-      0.1,
-      206265,
-      600000000,
-      150000000000,
+      4,
+      300000,
+      2,
+      8,
       0.5
     ],
     "slots": 3,
-    "template": "{0} ÷ {1} × {2}",
-    "formula": "a/b*c",
+    "template": "{0} × {1} ÷ {2}",
+    "formula": "a*b/c",
     "correct": [
       0,
       1,
       2
     ],
-    "target": 291,
-    "tolerance": 40,
-    "units": "m",
-    "solution": "0.10 ÷ 206,265 = 4.8×10^-7 rad; × 6.0×10^8 m ≈ 290 m.",
-    "explanation": "The distance has to be the measured one. An astronomical unit in that slot gives a diameter of 70 km."
+    "target": 600000,
+    "tolerance": 30000,
+    "units": "km",
+    "solution": "Three hundred thousand × four ÷ two is six hundred thousand kilometres.",
+    "explanation": "Forget to halve it and the answer is twice too big. That is how far the pulse travelled, not how far away the rock is."
   },
   "IMPACT-2": {
-    "prompt": "The best current estimates are a radius near 90 metres, a density around 2,600 kg per cubic metre, and an approach speed of about 20 kilometres a second.",
-    "question": "Estimate the impact kinetic energy.",
+    "prompt": "The rock weighs about eight billion kilograms, and it would arrive at twenty thousand metres a second.",
+    "question": "About how much energy would the impact carry?",
     "labels": [
-      "90 m (radius)",
-      "2,600 kg/m³ (density)",
-      "20,000 m/s (approach speed)",
-      "180 m (diameter)",
-      "11,000 m/s (Earth escape velocity)"
+      "8,000,000,000 kg (what it weighs)",
+      "20,000 metres a second (how fast it arrives)",
+      "180 metres (how wide it is)",
+      "2,600 kg in every cubic metre (the rock it is made of)",
+      "11,200 metres a second (the speed needed to escape Earth)"
     ],
     "values": [
-      90,
-      2600,
+      8000000000,
       20000,
       180,
-      11000
+      2600,
+      11200
     ],
-    "slots": 3,
-    "template": "0.5 × ( (4π/3) {0}³ {1} ) × {2}²",
-    "formula": "0.5*((4*Math.PI/3)*a*a*a*b)*c*c",
+    "slots": 2,
+    "template": "½ × {0} × {1} × {1}",
+    "formula": "0.5*a*b*b",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
-    "target": 1588000000000000000,
+    "target": 1600000000000000000,
     "tolerance": 200000000000000000,
     "units": "J",
-    "solution": "Mass about 7.9 × 10⁹ kg, kinetic energy about 1.6 × 10¹⁸ J — roughly 400 megatons.",
-    "explanation": "The sphere formula takes a radius, and the diameter tile put into it gives an object eight times too massive. That factor of eight is the same one that makes the diameter measurement worth more than any other."
-  },
-  "OPS-8": {
-    "prompt": "The asteroid mass estimate is 7.9 × 10^9 kg. Its speed far from Earth is 12 km/s, and Earth’s escape speed is 11.2 km/s.",
-    "question": "Estimate the corrected kinetic energy at atmospheric entry.",
-    "labels": [
-      "7.9e9 kg (asteroid mass from the prior estimate)",
-      "12 km/s (speed far from Earth)",
-      "11.2 km/s (Earth escape speed)",
-      "90 m (radius, already folded into the mass)",
-      "2,600 kg/m³ (density, already folded into the mass)"
-    ],
-    "values": [
-      7900000000,
-      12,
-      11.2,
-      90,
-      2600
-    ],
-    "slots": 3,
-    "template": "0.5 × {0} × ({1}² + {2}²) × 10⁶",
-    "formula": "0.5*a*(b*b+c*c)*1000000",
-    "correct": [
-      0,
-      1,
-      2
-    ],
-    "target": 1064288000000000000,
-    "tolerance": 100000000000000000,
-    "units": "J",
-    "solution": "0.5 × 7.9×10^9 × (12² + 11.2²) × 10^6 ≈ 1.06×10^18 J. The same speed sum gives v ≈ 16.4 km/s, so entry energy is about 1.87 times the far-field value.",
-    "explanation": "Use the mass once. The radius and density are decoys because they were already used to get that mass. The two speed terms combine through gravitational focusing before kinetic energy is calculated."
+    "solution": "Half of eight billion, times twenty thousand, times twenty thousand again — about 1.6 × 10¹⁸ joules.",
+    "explanation": "The speed goes in twice. Halve it and the energy falls to a quarter, which is why the speed tile is worth more than the weight tile."
   },
   "IMPACT-3": {
-    "prompt": "A 10,000 kg impactor strikes the 7.9 × 10⁹ kg asteroid at 12,000 metres per second, in a perfectly inelastic lower-bound estimate.",
-    "question": "Estimate the asteroid's change in speed.",
+    "prompt": "A ten thousand kilogram craft hits the rock at twelve thousand metres a second. The rock weighs 7.9 billion kilograms.",
+    "question": "About how much does the rock's speed change?",
     "labels": [
-      "10,000 kg (impactor mass)",
-      "12,000 m/s (impact speed)",
-      "7.9e9 kg (asteroid mass)",
-      "20,000 m/s (the encounter speed with Earth)",
-      "2.0 (momentum enhancement from ejecta)"
+      "10,000 kg (weight of the craft)",
+      "12,000 metres a second (closing speed)",
+      "7.9 billion kg (weight of the rock)",
+      "20,000 metres a second (the speed it meets Earth at)",
+      "2.0 (extra push from material thrown off)"
     ],
     "values": [
       10000,
@@ -1569,18 +2218,18 @@ export const BALLPARK_CALCS = {
     "target": 0.0152,
     "tolerance": 0.0015,
     "units": "m/s",
-    "solution": "Momentum transferred is 1.2 × 10⁸ kg m/s; divided by 7.9 × 10⁹ kg, Δv ≈ 0.015 m/s.",
-    "explanation": "Conservation of momentum needs the impactor's mass and speed, not the asteroid's encounter speed with Earth. The ejecta enhancement is real and would raise this figure — it is left out because nobody can predict it, which is exactly why the mission has to measure it."
+    "solution": "Ten thousand × twelve thousand is 1.2 × 10⁸. Divided by 7.9 × 10⁹ kilograms, that is about 0.015 metres a second.",
+    "explanation": "Use the craft's own closing speed, not the speed the rock meets Earth at. Material thrown off the surface would add more push, and it is left out because nobody can predict it."
   },
   "OPS-11": {
-    "prompt": "A simplified corridor contains 9 million people and the current impact probability is 0.5%.",
-    "question": "Estimate the expected displaced population.",
+    "prompt": "Nine million people live inside the corridor. Today's chance of impact is half of one per cent.",
+    "question": "How many people does that share come to?",
     "labels": [
-      "9.0e6 people (in the corridor)",
-      "0.005 (impact probability)",
-      "2.0e6 people (in the largest corridor city)",
-      "0.05 (an earlier probability estimate)",
-      "0.037 % (the ensemble figure)"
+      "nine million people (in the corridor)",
+      "0.005 (today's chance, as a decimal)",
+      "two million people (in the biggest city there)",
+      "0.05 (an earlier, higher chance)",
+      "0.037 per cent (the number from the path count)"
     ],
     "values": [
       9000000,
@@ -1599,8 +2248,8 @@ export const BALLPARK_CALCS = {
     "target": 45000,
     "tolerance": 3600,
     "units": "people (expectation)",
-    "solution": "9 × 10⁶ × 0.005 = 45,000 people, as an expectation.",
-    "explanation": "A probability written as a percentage has to be converted before it is multiplied, which is what makes the 0.037 tile dangerous: it is the right quantity in the wrong units, and it would put the answer out by a factor of 100."
+    "solution": "Nine million × 0.005 is forty-five thousand people.",
+    "explanation": "Half of one per cent is 0.005, not 0.5. Put the percentage straight in without converting it and the answer is a hundred times too big."
   }
 };
 
@@ -1610,7 +2259,8 @@ export const JARGON = [
     "aliases": [
       "albedo"
     ],
-    "def": "The fraction of incident light a surface reflects."
+    "def": "The fraction of incident light a surface reflects.",
+    "core": true
   },
   {
     "name": "Astrometry",
@@ -1625,7 +2275,8 @@ export const JARGON = [
       "AU",
       "astronomical unit"
     ],
-    "def": "The average Earth–Sun distance, about 150 million kilometres. Orbit sizes are quoted in it."
+    "def": "The average Earth–Sun distance, about 150 million kilometres. Orbit sizes are quoted in it.",
+    "core": true
   },
   {
     "name": "Calibration",
@@ -1656,7 +2307,8 @@ export const JARGON = [
     "aliases": [
       "light curve"
     ],
-    "def": "Brightness measured as a function of time."
+    "def": "Brightness measured as a function of time.",
+    "core": true
   },
   {
     "name": "Parallax",
@@ -1678,13 +2330,15 @@ export const JARGON = [
     "aliases": [
       "radar delay"
     ],
-    "def": "Round-trip travel time of a radar signal, used to infer range."
+    "def": "Round-trip travel time of a radar signal, used to infer range.",
+    "core": true
   },
   {
     "name": "Solar elongation",
     "aliases": [
       "solar elongation"
     ],
-    "def": "The angular separation between an object and the Sun as seen from the observer."
+    "def": "The angular separation between an object and the Sun as seen from the observer.",
+    "core": true
   }
 ];

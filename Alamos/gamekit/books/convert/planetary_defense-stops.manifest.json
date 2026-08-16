@@ -65,6 +65,9 @@
      "parallax angle",
      "the shift in apparent position, in radians"
     ]
+   ],
+   "needs": [
+    "θ = s / d"
    ]
   },
   {
@@ -137,6 +140,9 @@
      "v_esc",
      "Earth's escape speed, 11.2 kilometres per second"
     ]
+   ],
+   "needs": [
+    "KE = ½mv²"
    ]
   },
   {

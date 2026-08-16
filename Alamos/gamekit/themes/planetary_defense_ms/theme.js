@@ -98,13 +98,12 @@ export default {
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
   opening: [
-    'A survey telescope flagged a faint moving point near the ecliptic four hours ago. Four hours of '
-    + 'observation is not enough to pin down an orbit, and some of the orbits that fit the data so far '
-    + 'pass through the Earth. Nobody can say yet whether the object is a hundred metres across or six '
-    + 'hundred, which is the difference between damage to a city and damage to a country. You direct '
-    + 'the campaign: the telescopes that track it, a radar window that opens once in eleven years, and '
-    + 'a deflection mission that would have to launch years before anyone could be certain it is '
-    + 'needed.',
+    'Four hours ago a survey telescope found a faint dot moving against the stars. Four hours is not '
+    + 'long enough to know where it is going, and some of the paths that fit go through the Earth. You '
+    + 'run the campaign. The telescopes that watch it are yours, and so is the radar dish that gets one '
+    + 'window in eleven years. Nobody knows yet whether this rock is the width of a street or of a '
+    + 'town. That is the difference between one city and one country, and the people in both are '
+    + 'waiting on what you can find out in time.',
   ],
 
   // How it ends. Printed on the last page of the book and shown when the campaign

@@ -1,0 +1,364 @@
+{
+ "theme": "outbreak_riverton_ms",
+ "book": "books/outbreak-riverton-ms.yml",
+ "course": "Middle-school life science, grade 6: germs, how they spread, and how a town answers",
+ "curriculum": [
+  "Some illnesses are caused by living things too small to see",
+  "A germ has to get from one person into another somehow",
+  "Where and when people got ill is evidence about how",
+  "Counting cases as a rate, not just as a number",
+  "A graph of cases over time, and what its shape says",
+  "One person passing it to more than one is why it grows",
+  "The body has defences, and they take time to build",
+  "A test can be wrong in two different directions",
+  "Comparing a group who had something with a group who did not",
+  "Repeats and numbers: a handful of cases proves little",
+  "Breaking one step of the chain stops the spread",
+  "Germs change, and a change can beat a treatment",
+  "Animals and people share some illnesses",
+  "What a measurement can honestly say, and what it cannot",
+  "Telling people what to do, and why it has to be doable",
+  "Deciding while the answer is still unknown"
+ ],
+ "equations": [
+  {
+   "e": "rate = cases ÷ people",
+   "about": "how common something is, rather than how many",
+   "symbols": [
+    [
+     "rate",
+     "cases for every thousand people"
+    ],
+    [
+     "cases",
+     "how many fell ill"
+    ],
+    [
+     "people",
+     "how many there are altogether"
+    ]
+   ]
+  },
+  {
+   "e": "part = whole × share",
+   "about": "a percentage of a group",
+   "symbols": [
+    [
+     "part",
+     "how many that share comes to"
+    ],
+    [
+     "whole",
+     "the whole group"
+    ],
+    [
+     "share",
+     "the percentage, written as a decimal"
+    ]
+   ]
+  },
+  {
+   "e": "average = total ÷ how many",
+   "about": "the mean of several counts",
+   "symbols": [
+    [
+     "average",
+     "the mean"
+    ],
+    [
+     "total",
+     "the counts added up"
+    ],
+    [
+     "how many",
+     "the number of them"
+    ]
+   ]
+  },
+  {
+   "e": "how many times = bigger ÷ smaller",
+   "about": "comparing two groups",
+   "symbols": [
+    [
+     "how many times",
+     "the ratio"
+    ],
+    [
+     "bigger",
+     "the larger rate"
+    ],
+    [
+     "smaller",
+     "the rate it is compared with"
+    ]
+   ],
+   "needs": [
+    "rate = cases ÷ people"
+   ]
+  },
+  {
+   "e": "how many after n rounds = start × 2 each round",
+   "about": "why an outbreak grows so fast",
+   "symbols": [
+    [
+     "how many after n rounds",
+     "the number of cases"
+    ],
+    [
+     "start",
+     "how many there were to begin with"
+    ],
+    [
+     "each round",
+     "one person passing it to two"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "Scientific Response Director · Riverton",
+ "groups": [
+  {
+   "id": "CLIN",
+   "name": "Clinical Physiology",
+   "desc": "Patient physiology, organ systems, and bedside evidence."
+  },
+  {
+   "id": "CELL",
+   "name": "Cell & Membrane Biology",
+   "desc": "Cells, membranes, receptors, transport, and host interactions."
+  },
+  {
+   "id": "MOL",
+   "name": "Molecular Diagnostics",
+   "desc": "DNA, RNA, gene expression, sequencing, and diagnostic controls."
+  },
+  {
+   "id": "IMM",
+   "name": "Immunology & Treatment",
+   "desc": "Immune mechanisms, treatment response, and intervention evidence."
+  },
+  {
+   "id": "POP",
+   "name": "Epidemiology & Evolution",
+   "desc": "Population patterns, surveillance, trials, and evolutionary change."
+  },
+  {
+   "id": "FIELD",
+   "name": "Ecology & One Health",
+   "desc": "Environmental surveillance, animal reservoirs, and ecosystem connections."
+  }
+ ],
+ "stops": [
+  {
+   "id": "outbreak_riverton_ms.m01.s1",
+   "day": 1,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "Signal or noise?"
+  },
+  {
+   "id": "outbreak_riverton_ms.m01.s2",
+   "day": 1,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "Build the provisional case definition"
+  },
+  {
+   "id": "outbreak_riverton_ms.m01.s3",
+   "day": 1,
+   "group": "POP",
+   "format": "VALUE",
+   "title": "Spend the first response reserve"
+  },
+  {
+   "id": "outbreak_riverton_ms.m02.s1",
+   "day": 2,
+   "group": "CLIN",
+   "format": "DIAGNOSIS",
+   "title": "What kind of agent fits the whole panel?"
+  },
+  {
+   "id": "outbreak_riverton_ms.m02.s2",
+   "day": 2,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "From specimen to broad classification"
+  },
+  {
+   "id": "outbreak_riverton_ms.m02.s3",
+   "day": 2,
+   "group": "MOL",
+   "format": "CHOICE",
+   "title": "When heat changes an enzyme assay"
+  },
+  {
+   "id": "outbreak_riverton_ms.m03.s1",
+   "day": 3,
+   "group": "CELL",
+   "format": "SEQUENCE",
+   "title": "Crossing the cellular boundary"
+  },
+  {
+   "id": "outbreak_riverton_ms.m03.s2",
+   "day": 3,
+   "group": "CELL",
+   "format": "PROTOCOL",
+   "title": "Choose the membrane mechanism"
+  },
+  {
+   "id": "outbreak_riverton_ms.m03.s3",
+   "day": 3,
+   "group": "CELL",
+   "format": "CONTROL",
+   "title": "Separate binding from entry"
+  },
+  {
+   "id": "outbreak_riverton_ms.m04.s1",
+   "day": 4,
+   "group": "MOL",
+   "format": "SEQUENCE",
+   "title": "Build a trustworthy amplification run"
+  },
+  {
+   "id": "outbreak_riverton_ms.m04.s2",
+   "day": 4,
+   "group": "MOL",
+   "format": "TRACE",
+   "title": "Why did the assay turn positive?"
+  },
+  {
+   "id": "outbreak_riverton_ms.m04.s3",
+   "day": 4,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "What does a positive mean?"
+  },
+  {
+   "id": "outbreak_riverton_ms.m05.s1",
+   "day": 5,
+   "group": "CLIN",
+   "format": "CHAIN",
+   "title": "Locate the oxygen-delivery failure"
+  },
+  {
+   "id": "outbreak_riverton_ms.m05.s2",
+   "day": 5,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "Estimate oxygen delivery"
+  },
+  {
+   "id": "outbreak_riverton_ms.m05.s3",
+   "day": 5,
+   "group": "CLIN",
+   "format": "BALLPARK",
+   "title": "Read the downstream acid–base signal"
+  },
+  {
+   "id": "outbreak_riverton_ms.m06.s1",
+   "day": 6,
+   "group": "IMM",
+   "format": "PROTOCOL",
+   "title": "Match the surveillance signal"
+  },
+  {
+   "id": "outbreak_riverton_ms.m06.s2",
+   "day": 6,
+   "group": "CELL",
+   "format": "BALLPARK",
+   "title": "How many by morning"
+  },
+  {
+   "id": "outbreak_riverton_ms.m06.s3",
+   "day": 6,
+   "group": "CELL",
+   "format": "CHOICE",
+   "title": "The same genome, different cells"
+  },
+  {
+   "id": "outbreak_riverton_ms.m07.s1",
+   "day": 7,
+   "group": "FIELD",
+   "format": "PROTOCOL",
+   "title": "Reservoir, vector, or incidental host?"
+  },
+  {
+   "id": "outbreak_riverton_ms.m07.s2",
+   "day": 7,
+   "group": "FIELD",
+   "format": "SEQUENCE",
+   "title": "Test the reservoir hypothesis"
+  },
+  {
+   "id": "outbreak_riverton_ms.m07.s3",
+   "day": 7,
+   "group": "POP",
+   "format": "ALLOCATE",
+   "title": "Choose the One Health campaign"
+  },
+  {
+   "id": "outbreak_riverton_ms.m08.s1",
+   "day": 8,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "Why did the therapy fail?"
+  },
+  {
+   "id": "outbreak_riverton_ms.m08.s2",
+   "day": 8,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "How resistance spreads"
+  },
+  {
+   "id": "outbreak_riverton_ms.m08.s3",
+   "day": 8,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "Recover treatment effectiveness"
+  },
+  {
+   "id": "outbreak_riverton_ms.m09.s1",
+   "day": 9,
+   "group": "POP",
+   "format": "PROTOCOL",
+   "title": "Choose the intervention layer"
+  },
+  {
+   "id": "outbreak_riverton_ms.m09.s2",
+   "day": 9,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "From candidate to justified trial"
+  },
+  {
+   "id": "outbreak_riverton_ms.m09.s3",
+   "day": 9,
+   "group": "POP",
+   "format": "ALLOCATE",
+   "title": "Build a layered intervention portfolio"
+  },
+  {
+   "id": "outbreak_riverton_ms.m10.s1",
+   "day": 10,
+   "group": "POP",
+   "format": "ATTEST",
+   "title": "Disposition the final claims"
+  },
+  {
+   "id": "outbreak_riverton_ms.m10.s2",
+   "day": 10,
+   "group": "POP",
+   "format": "SEQUENCE",
+   "title": "Build the public explanation"
+  },
+  {
+   "id": "outbreak_riverton_ms.m10.s3",
+   "day": 10,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "Fund the post-crisis legacy"
+  }
+ ]
+}

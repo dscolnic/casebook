@@ -31,7 +31,7 @@ const DIST = resolve(root, 'dist');
 //
 // The catalogue lives in tools/games.js — this page and the casebook shelf
 // both read it, and a second copy is how a shipped game ends up with no card.
-import { GAMES } from './games.js';
+import { GAMES, cards, LEVELS } from './games.js';
 
 // ------------------------------------------------------------------ helpers
 
@@ -40,6 +40,9 @@ const has = (f) => args.includes(f);
 const valueOf = (f) => { const i = args.indexOf(f); return i >= 0 ? args[i + 1] : null; };
 const only = (valueOf('--only') ?? '').split(',').map(s => s.trim()).filter(Boolean);
 const pageOnly = has('--page');
+// One level at a time, for when only the middle-school set has changed. Thirty
+// builds is ten minutes; fourteen of them is four.
+const onlyLevel = valueOf('--level');
 
 /** Where a theme's directory is — eight under themes/, two beside gamekit. */
 const themeDirOf = (id) => {
@@ -112,37 +115,42 @@ function buildTheme(id) {
 // each; thirteen of them is a page nobody waits for.
 function stageHero(g) {
   mkdirSync(resolve(DIST, 'shots'), { recursive: true });
-  const out = resolve(DIST, 'shots', `${g.id}.jpg`);
-  const src = g.hero ? resolve(root, 'shots', g.id, g.hero) : null;
+  // An edition is played in the base game's place, so there is one set of
+  // screenshots of it and both cards show the same one.
+  const out = resolve(DIST, 'shots', `${g.shotsFrom}.jpg`);
+  const src = g.hero ? resolve(root, 'shots', g.shotsFrom, g.hero) : null;
   if (!src || !existsSync(src)) return null;
   try {
     execFileSync('sips', ['-Z', '1000', '-s', 'format', 'jpeg', '-s', 'formatOptions', '78',
       src, '--out', out], { stdio: 'pipe' });
   } catch {
     copyFileSync(src, out.replace(/\.jpg$/, '.png'));
-    return `shots/${g.id}.png`;
+    return `shots/${g.shotsFrom}.png`;
   }
-  return `shots/${g.id}.jpg`;
+  return `shots/${g.shotsFrom}.jpg`;
 }
 
 // -------------------------------------------------------------------- page
 
 function card(g) {
-  const built = existsSync(resolve(DIST, g.id, 'index.html'));
+  // `g.build` is the theme id and the dist directory; `g.id` is the same thing
+  // for a game with one edition and the suffixed name for the others.
+  const built = existsSync(resolve(DIST, g.build, 'index.html'));
   const shot = stageHero(g);
-  const grade = gradeOf(g.id);
-  const role = roleOf(g.id);
-  const size = sizeOf(g.id);
-  const full = SYLLABUS[g.id]?.course ?? '';
+  const grade = gradeOf(g.build);
+  const role = roleOf(g.build);
+  const size = sizeOf(g.build);
+  const full = SYLLABUS[g.build]?.course ?? '';
   const tag = built ? 'a' : 'div';
-  const href = built ? ` href="./${g.id}/index.html"` : '';
+  const href = built ? ` href="./${g.build}/index.html"` : '';
   // `data-game` and `data-days` are what the progress script reads. The save
   // itself is never read at build time — it lives in the player's browser, and
   // the picker is served from the same origin as the games, so the page can ask
   // localStorage directly.
   return `
       <${tag} class="card${built ? '' : ' card--unbuilt'}"${href} data-field="${esc(g.field)}"
-         data-game="${esc(g.id)}" data-days="${size ? size.days : ''}"
+         data-level="${esc(g.level)}"
+         data-game="${esc(g.build)}" data-days="${size ? size.days : ''}"
          data-daynoun="${esc(dayNounOf(g.id))}"
          style="--accent:${g.accent}">
         <div class="shot">
@@ -161,6 +169,7 @@ function card(g) {
             ${role ? `<span>${esc(role)}</span>` : ''}
             ${size ? `<span>${size.days} days · ${size.stops} stops</span>` : ''}
             ${grade ? `<span>reads at grade ${grade}</span>` : ''}
+            ${g.grades ? `<span>${esc(g.grades)}</span>` : ''}
           </p>
           ${full ? `<p class="full">${esc(full)}</p>` : ''}
           <p class="progress" hidden></p>
@@ -170,7 +179,11 @@ function card(g) {
 
 function page(games) {
   const fields = [...new Set(games.map(g => g.field))];
-  const builtCount = games.filter(g => existsSync(resolve(DIST, g.id, 'index.html'))).length;
+  const builtCount = games.filter(g => existsSync(resolve(DIST, g.build, 'index.html'))).length;
+  // Only levels that have a card. A set with no elementary game should not draw
+  // a control that filters everything away.
+  const levels = LEVELS.filter(l => games.some(g => g.level === l.id));
+  const defaultLevel = levels.some(l => l.id === 'high') ? 'high' : levels[0]?.id;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -206,6 +219,20 @@ function page(games) {
   h1 em{font-style:normal; background:linear-gradient(92deg,#6fc7d8,#8f6fd0 46%,#e0868f);
     -webkit-background-clip:text; background-clip:text; color:transparent}
   .lede{margin:0; max-width:64ch; color:var(--dim); font-size:17px}
+
+  .levels{display:inline-flex; gap:4px; margin:26px 0 2px; padding:4px;
+    border:1px solid var(--line); border-radius:999px; background:#111520}
+  .level{
+    appearance:none; cursor:pointer; border:0; background:transparent; color:var(--dim);
+    border-radius:999px; padding:8px 18px; font:inherit; font-size:14px; line-height:1.15;
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+    transition:background .16s, color .16s;
+  }
+  .level small{font-size:11px; letter-spacing:.04em; color:var(--faint)}
+  .level:hover{color:var(--ink)}
+  .level[aria-pressed="true"]{background:var(--ink); color:#0d0f13}
+  .level[aria-pressed="true"] small{color:#4a5262}
+  .level:focus-visible{outline:2px solid #6fc7d8; outline-offset:2px}
 
   .filters{display:flex; flex-wrap:wrap; gap:8px; margin:26px 0 4px}
   .chip{
@@ -338,8 +365,16 @@ function page(games) {
       No combat, no weapons — the stakes are time, money and other people.
     </p>
 
+    <div class="levels" role="group" aria-label="Choose a level">
+      ${levels.map(l => {
+        const n = games.filter(g => g.level === l.id).length;
+        return `<button class="level" data-l="${l.id}" aria-pressed="${String(l.id === defaultLevel)}">` +
+               `${esc(l.label)}<small>${n} game${n === 1 ? '' : 's'}</small></button>`;
+      }).join('\n      ')}
+    </div>
+
     <div class="filters" role="group" aria-label="Filter by subject">
-      <button class="chip" aria-pressed="true" data-f="*">All ${games.length}</button>
+      <button class="chip" aria-pressed="true" data-f="*">All</button>
       ${fields.map(f => `<button class="chip" aria-pressed="false" data-f="${esc(f)}">${esc(f)}</button>`).join('\n      ')}
     </div>
   </header>
@@ -394,20 +429,61 @@ function page(games) {
     }
   }
 
+  // ------------------------------------------------------------ two filters
+  //
+  // Level is the primary one: the same game exists at more than one, in the
+  // same place with the same cast, and a shelf that mixed them would offer the
+  // player two cards with one title and no way to tell them apart. Subject
+  // filters inside the chosen level.
   const chips = [...document.querySelectorAll('.chip')];
+  const levels = [...document.querySelectorAll('.level')];
   const cards = [...document.querySelectorAll('.card')];
   const empty = document.getElementById('empty');
-  chips.forEach(c => c.addEventListener('click', () => {
-    chips.forEach(o => o.setAttribute('aria-pressed', String(o === c)));
-    const f = c.dataset.f;
+
+  const pressed = (list) => (list.find(b => b.getAttribute('aria-pressed') === 'true') || list[0]);
+  const LEVEL_KEY = 'gamekit_gallery_level';
+
+  function apply() {
+    const level = pressed(levels)?.dataset.l;
+    const field = pressed(chips)?.dataset.f ?? '*';
     let shown = 0;
     cards.forEach(card => {
-      const on = f === '*' || card.dataset.field === f;
+      const on = (!level || card.dataset.level === level) &&
+                 (field === '*' || card.dataset.field === field);
       card.style.display = on ? '' : 'none';
       if (on) shown++;
     });
+    // A subject chip that has nothing at this level is worse than useless — it
+    // looks like a broken page. Hide it and fall back to All.
+    chips.forEach(c => {
+      if (c.dataset.f === '*') return;
+      const any = cards.some(card => card.dataset.field === c.dataset.f && card.dataset.level === level);
+      c.hidden = !any;
+      if (!any && c.getAttribute('aria-pressed') === 'true') {
+        chips.forEach(o => o.setAttribute('aria-pressed', String(o.dataset.f === '*')));
+      }
+    });
     empty.style.display = shown ? 'none' : 'block';
+  }
+
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(o => o.setAttribute('aria-pressed', String(o === c)));
+    apply();
   }));
+  levels.forEach(l => l.addEventListener('click', () => {
+    levels.forEach(o => o.setAttribute('aria-pressed', String(o === l)));
+    try { localStorage.setItem(LEVEL_KEY, l.dataset.l); } catch (e) {}
+    apply();
+  }));
+
+  // ?level=middle wins over what this browser chose last time, so a link to a
+  // level is a link to that level for whoever opens it.
+  const asked = new URLSearchParams(location.search).get('level');
+  let want = null;
+  try { want = asked || localStorage.getItem(LEVEL_KEY); } catch (e) { want = asked; }
+  const target = levels.find(l => l.dataset.l === want);
+  if (target) levels.forEach(o => o.setAttribute('aria-pressed', String(o === target)));
+  apply();
 </script>
 </body>
 </html>
@@ -416,21 +492,26 @@ function page(games) {
 
 // -------------------------------------------------------------------- main
 
-const games = only.length ? GAMES.filter(g => only.includes(g.id)) : GAMES;
+const ALL = cards();
+let games = ALL;
+if (only.length) games = games.filter(g => only.includes(g.id) || only.includes(g.build));
+if (onlyLevel) games = games.filter(g => g.level === onlyLevel);
 
 if (!pageOnly) {
   console.log(`building ${games.length} game(s) into dist/ …`);
   let ok = 0;
-  for (const g of games) if (buildTheme(g.id)) ok++;
+  for (const g of games) if (buildTheme(g.build)) ok++;
   console.log(`${ok}/${games.length} built`);
 }
 
 mkdirSync(DIST, { recursive: true });
-writeFileSync(resolve(DIST, 'index.html'), page(GAMES));
-const missing = GAMES.filter(g => !g.hero || !existsSync(resolve(root, 'shots', g.id, g.hero)));
-console.log(`\nwrote dist/index.html — ${GAMES.length} games`);
+// The page always lists everything, whatever was built this run: a card whose
+// build is missing says so rather than disappearing.
+writeFileSync(resolve(DIST, 'index.html'), page(ALL));
+const missing = ALL.filter(g => !g.hero || !existsSync(resolve(root, 'shots', g.shotsFrom, g.hero)));
+console.log(`\nwrote dist/index.html — ${ALL.length} cards across ${new Set(ALL.map(g => g.level)).size} level(s)`);
 if (missing.length) {
-  console.log(`no snapshot for: ${missing.map(g => g.id).join(', ')}`);
+  console.log(`no snapshot for: ${[...new Set(missing.map(g => g.shotsFrom))].join(', ')}`);
   console.log(`  fix with: npm run shots <theme>, then set \`hero\` in tools/gallery.mjs`);
 }
 if (has('--open')) execFileSync('open', [resolve(DIST, 'index.html')]);

@@ -1,0 +1,346 @@
+{
+ "theme": "seedbank_ms",
+ "book": "books/seedbank-ms.yml",
+ "course": "Middle-school life science, grade 6: traits, inheritance and choosing what to grow",
+ "curriculum": [
+  "Living things pass traits to their offspring",
+  "A seed is alive, and it can be kept alive or let die",
+  "Two parents each give half, so the young are not copies",
+  "A trait can hide in one generation and show up in the next",
+  "Counting the offspring, and comparing counts with what was expected",
+  "Punnett squares: writing down what a cross can produce",
+  "Same seed, different field: what a plant looks like depends on where it grew",
+  "A fair test needs a control and everything else kept the same",
+  "Repeats and averages: one plant proves nothing",
+  "Choosing which plants to breed from, and what that costs",
+  "Choosing for one trait can drag another along with it",
+  "Variety inside a collection, and why losing it is hard to undo",
+  "How many plants you need to keep a kind going",
+  "A label and a record are part of the seed",
+  "Disease arrives, and resistance is a trait like any other",
+  "Deciding with a season that does not come round again"
+ ],
+ "equations": [
+  {
+   "e": "part = whole × share",
+   "about": "how many of a batch will do something",
+   "symbols": [
+    [
+     "part",
+     "how many"
+    ],
+    [
+     "whole",
+     "how many there are altogether"
+    ],
+    [
+     "share",
+     "the percentage, written as a decimal"
+    ]
+   ]
+  },
+  {
+   "e": "average = total ÷ how many",
+   "about": "the mean of several plots or plants",
+   "symbols": [
+    [
+     "average",
+     "the mean"
+    ],
+    [
+     "total",
+     "the values added up"
+    ],
+    [
+     "how many",
+     "the number of them"
+    ]
+   ]
+  },
+  {
+   "e": "expected number = how many × the fraction expected",
+   "about": "what a cross should produce",
+   "symbols": [
+    [
+     "expected number",
+     "how many of that kind to expect"
+    ],
+    [
+     "how many",
+     "the number of offspring"
+    ],
+    [
+     "fraction expected",
+     "the share the square predicts"
+    ]
+   ],
+   "needs": [
+    "part = whole × share"
+   ]
+  },
+  {
+   "e": "how many times = bigger ÷ smaller",
+   "about": "comparing two yields, or two counts",
+   "symbols": [
+    [
+     "how many times",
+     "the ratio"
+    ],
+    [
+     "bigger",
+     "the larger number"
+    ],
+    [
+     "smaller",
+     "the one it is compared with"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "Season Lead · Wellmere Seed Bank",
+ "groups": [
+  {
+   "id": "VAULT",
+   "name": "Conservation & Viability",
+   "desc": "What a seed is doing while it sits still, and how long it can go on doing it."
+  },
+  {
+   "id": "CROSS",
+   "name": "Heredity & Crossing",
+   "desc": "Which parents, which offspring, and what a ratio is evidence of."
+  },
+  {
+   "id": "POP",
+   "name": "Population Genetics",
+   "desc": "What a collection holds, and what is lost every time it is grown out."
+  },
+  {
+   "id": "TRIAL",
+   "name": "Field Trials & Selection",
+   "desc": "Telling a good line from a good year, on ground that is never uniform."
+  },
+  {
+   "id": "LAB",
+   "name": "Markers & Gene Expression",
+   "desc": "What a piece of DNA can tell you about a plant you have not grown yet."
+  },
+  {
+   "id": "DRY",
+   "name": "Agronomy & Plant Energetics",
+   "desc": "Where the mass in a seed comes from, and what it costs the plant to make it."
+  }
+ ],
+ "stops": [
+  {
+   "id": "seedbank_ms.m01.s1",
+   "day": 1,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "Why the vault is cold"
+  },
+  {
+   "id": "seedbank_ms.m01.s2",
+   "day": 1,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "Two parents, and what you are asking of them"
+  },
+  {
+   "id": "seedbank_ms.m01.s3",
+   "day": 1,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "Why the same line is sown four times"
+  },
+  {
+   "id": "seedbank_ms.m02.s1",
+   "day": 2,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "Counting a generation"
+  },
+  {
+   "id": "seedbank_ms.m02.s2",
+   "day": 2,
+   "group": "LAB",
+   "format": "DEGENERACY",
+   "title": "One disagreement, two possible causes"
+  },
+  {
+   "id": "seedbank_ms.m02.s3",
+   "day": 2,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Where a tonne of grain comes from"
+  },
+  {
+   "id": "seedbank_ms.m03.s1",
+   "day": 3,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "What a season costs"
+  },
+  {
+   "id": "seedbank_ms.m03.s2",
+   "day": 3,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "What the trial can actually claim"
+  },
+  {
+   "id": "seedbank_ms.m03.s3",
+   "day": 3,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "What the crop cannot do without water"
+  },
+  {
+   "id": "seedbank_ms.m04.s1",
+   "day": 4,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "What came with the gene"
+  },
+  {
+   "id": "seedbank_ms.m04.s2",
+   "day": 4,
+   "group": "LAB",
+   "format": "HOLDOUT",
+   "title": "A marker fitted where it worked"
+  },
+  {
+   "id": "seedbank_ms.m04.s3",
+   "day": 4,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Short is not simply worse"
+  },
+  {
+   "id": "seedbank_ms.m05.s1",
+   "day": 5,
+   "group": "POP",
+   "format": "BALLPARK",
+   "title": "Not the number of plants"
+  },
+  {
+   "id": "seedbank_ms.m05.s2",
+   "day": 5,
+   "group": "VAULT",
+   "format": "TRIGGER",
+   "title": "Write the viability rule before it falls"
+  },
+  {
+   "id": "seedbank_ms.m05.s3",
+   "day": 5,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "A difference that was the field"
+  },
+  {
+   "id": "seedbank_ms.m06.s1",
+   "day": 6,
+   "group": "TRIAL",
+   "format": "BALLPARK",
+   "title": "What one round returns"
+  },
+  {
+   "id": "seedbank_ms.m06.s2",
+   "day": 6,
+   "group": "CROSS",
+   "format": "CHOICE",
+   "title": "An extra generation in the bay"
+  },
+  {
+   "id": "seedbank_ms.m06.s3",
+   "day": 6,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "Why those two did well"
+  },
+  {
+   "id": "seedbank_ms.m07.s1",
+   "day": 7,
+   "group": "POP",
+   "format": "TRACE",
+   "title": "Which evidence shares the grow-out"
+  },
+  {
+   "id": "seedbank_ms.m07.s2",
+   "day": 7,
+   "group": "LAB",
+   "format": "CHOICE",
+   "title": "What the screen may not find"
+  },
+  {
+   "id": "seedbank_ms.m07.s3",
+   "day": 7,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "What the store did right"
+  },
+  {
+   "id": "seedbank_ms.m08.s1",
+   "day": 8,
+   "group": "LAB",
+   "format": "VALUE",
+   "title": "Which positive is worth the screenhouse slot"
+  },
+  {
+   "id": "seedbank_ms.m08.s2",
+   "day": 8,
+   "group": "POP",
+   "format": "DIAGNOSIS",
+   "title": "What was lost, and when"
+  },
+  {
+   "id": "seedbank_ms.m08.s3",
+   "day": 8,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "The copy that was never in the vault"
+  },
+  {
+   "id": "seedbank_ms.m09.s1",
+   "day": 9,
+   "group": "CROSS",
+   "format": "ALLOCATE",
+   "title": "Eight crossing commitments"
+  },
+  {
+   "id": "seedbank_ms.m09.s2",
+   "day": 9,
+   "group": "POP",
+   "format": "CHOICE",
+   "title": "How narrow the base has become"
+  },
+  {
+   "id": "seedbank_ms.m09.s3",
+   "day": 9,
+   "group": "LAB",
+   "format": "CHOICE",
+   "title": "DNA present, resistance working?"
+  },
+  {
+   "id": "seedbank_ms.m10.s1",
+   "day": 10,
+   "group": "VAULT",
+   "format": "CHOICE",
+   "title": "What the catalogue says and what is there"
+  },
+  {
+   "id": "seedbank_ms.m10.s2",
+   "day": 10,
+   "group": "TRIAL",
+   "format": "CHOICE",
+   "title": "One site, one year, again"
+  },
+  {
+   "id": "seedbank_ms.m10.s3",
+   "day": 10,
+   "group": "DRY",
+   "format": "CHOICE",
+   "title": "11 years, and what they are for"
+  }
+ ]
+}

@@ -44,22 +44,21 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { deriveWork, SYLLABUS, EQUATIONS } from './syllabus.js';
+import { bookNameFor, themesWithBooks } from './books.mjs';
+import { editionBase } from '../engine/dev/registry.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const root = resolve(here, '..');
 
-// Same map export-copy.mjs uses: two themes spell their book differently from
-// their theme id, and one is registered under a directory outside gamekit.
-const BOOKS = { deepwatch: 'deep-watch', bring_them_home: 'bring-them-home',
-  outbreak_riverton: 'outbreak-riverton', planetary_defense: 'planetary-defense',
-  projecty: 'project-y' };
 // Every registered theme that has a book, read from the registry rather than
 // listed here. A hardcoded list silently omits any game added since it was
 // written — `the_trial` was registered, had a 45-stop book, and simply never
-// appeared in `export-stops all`, with nothing to say it had been skipped.
+// appeared in `export-stops all`, with nothing to say it had been skipped. The
+// book name itself is resolved in tools/books.mjs, which matches on the
+// separator-free spelling rather than on a map somebody has to remember.
 const ALL = (() => {
   const reg = JSON.parse(readFileSync(resolve(here, '..', 'themes.json'), 'utf8')).themes ?? {};
-  return Object.keys(reg).filter(t => existsSync(resolve(here, '..', 'books', `${BOOKS[t] ?? t}.yml`)));
+  return themesWithBooks(reg);
 })();
 
 
@@ -166,7 +165,7 @@ function shapeOf(s){
 }
 
 function exportTheme(theme){
-  const bookName = BOOKS[theme] ?? theme;
+  const bookName = bookNameFor(theme) ?? theme;
   const book = parseYaml(readFileSync(resolve(root, 'books', `${bookName}.yml`), 'utf8'));
   const groups = Object.fromEntries((book.groups ?? []).map(g => [g.id, g.name ?? g.id]));
   const rows = [];
@@ -310,7 +309,19 @@ for(const t of themes) total += exportTheme(t);
 console.log(`\n${total} stop(s) written to books/convert/`);
 console.log('\nHand over, together:');
 console.log('  books/convert/<theme>-stops.jsonl          every stop, editable');
-console.log('  books/interactions/CONVERSION_BRIEF.md     the nineteen formats and their rules');
+// An edition is a different job — same place, same cast, a course written for a
+// different reader — and handing over the senior-high brief for one is how a
+// pass comes back at the wrong reading level.
+const editions = themes.filter(t => editionBase(t));
+if(editions.length){
+  console.log('  books/GRADE6_BRIEF.md                      the brief for a grade-6 edition');
+  for(const t of editions){
+    console.log(`  books/convert/${t}-addendum.md   this game's cast, syllabus and days`);
+  }
+  console.log(`\n  (write the addendum with: node tools/edition-addendum.mjs ${editions[0]} --write)`);
+} else {
+  console.log('  books/interactions/CONVERSION_BRIEF.md     the nineteen formats and their rules');
+}
 console.log('\nWhat should come back: the same rows, edited in place — reworded text and,');
 console.log('on the stops worth converting, a new `format` and its data block. One pass.');
 console.log('\n  node tools/apply-conversions.mjs <theme> <returned.jsonl> --dry');

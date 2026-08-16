@@ -1,0 +1,367 @@
+{
+ "theme": "icecore_ms",
+ "book": "books/icecore-ms.yml",
+ "course": "Middle-school Earth and environmental science, grade 6: layers, records and climate",
+ "curriculum": [
+  "Snow that never melts piles up in layers, one year at a time",
+  "Counting layers is counting years, and deeper means older",
+  "Deeper layers are squashed thinner, so depth is not the same as age",
+  "A marker found in many places lets separate records be lined up",
+  "Something measured today can stand in for something nobody measured then",
+  "A ratio can be turned into a temperature using a known relationship",
+  "Air trapped in bubbles is a sample of the sky from long ago",
+  "The trapped air is younger than the ice around it",
+  "Reading a graph: what the axes say, and what the wiggles mean",
+  "Averages, and why one year proves nothing on its own",
+  "Rates: how fast something builds up, and how long a job will take",
+  "Two records that agree are stronger than one that is longer",
+  "Contamination: a sample that has been got at tells you about the getting",
+  "What a measurement can honestly say, and what it cannot",
+  "Keeping a record somebody else can use",
+  "Cold, power and daylight are the limits a polar camp works inside"
+ ],
+ "equations": [
+  {
+   "e": "speed = distance ÷ time",
+   "about": "how fast the drill is going down",
+   "symbols": [
+    [
+     "speed",
+     "in metres per day"
+    ],
+    [
+     "distance",
+     "in metres"
+    ],
+    [
+     "time",
+     "in days"
+    ]
+   ]
+  },
+  {
+   "e": "time = distance ÷ speed",
+   "about": "how long the rest of the hole will take",
+   "symbols": [
+    [
+     "time",
+     "in days"
+    ],
+    [
+     "distance",
+     "metres still to drill"
+    ],
+    [
+     "speed",
+     "metres per day"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "years = depth ÷ thickness of one year",
+   "about": "turning a depth into an age",
+   "symbols": [
+    [
+     "years",
+     "how old the ice at that depth is"
+    ],
+    [
+     "depth",
+     "in metres"
+    ],
+    [
+     "thickness of one year",
+     "in metres of ice per year"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "average = total ÷ how many",
+   "about": "the mean of several years, or several samples",
+   "symbols": [
+    [
+     "average",
+     "the mean"
+    ],
+    [
+     "total",
+     "the values added up"
+    ],
+    [
+     "how many",
+     "the number of them"
+    ]
+   ]
+  },
+  {
+   "e": "part = whole × share",
+   "about": "a share of a total, as a percentage",
+   "symbols": [
+    [
+     "part",
+     "how much that share comes to"
+    ],
+    [
+     "whole",
+     "the total"
+    ],
+    [
+     "share",
+     "the percentage, written as a decimal"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "Season Science Lead · Vestri Dome",
+ "groups": [
+  {
+   "id": "DRILL",
+   "name": "Drilling & Recovery",
+   "desc": "Getting ice out of a hole three kilometres deep without changing what it says."
+  },
+  {
+   "id": "CORE",
+   "name": "Chronology & the Core Line",
+   "desc": "What is a year, how it is counted, and what the counting is worth at depth."
+  },
+  {
+   "id": "COLD",
+   "name": "Cold Laboratory",
+   "desc": "Melting a sample without adding to it, and turning a ratio into a temperature."
+  },
+  {
+   "id": "GAS",
+   "name": "Trapped Gas",
+   "desc": "Air that stopped moving centuries after the snow around it fell."
+  },
+  {
+   "id": "FIELD",
+   "name": "Surface & Accumulation",
+   "desc": "What the surface is doing now, which is the only part anybody can check."
+  },
+  {
+   "id": "DATA",
+   "name": "Records & Reporting",
+   "desc": "What the season can say out loud, and with how much of a margin."
+  }
+ ],
+ "stops": [
+  {
+   "id": "icecore_ms.m01.s1",
+   "day": 1,
+   "group": "FIELD",
+   "format": "BALLPARK",
+   "title": "How thick a year is here"
+  },
+  {
+   "id": "icecore_ms.m01.s2",
+   "day": 1,
+   "group": "DRILL",
+   "format": "CHOICE",
+   "title": "Why the hole is on the dome"
+  },
+  {
+   "id": "icecore_ms.m01.s3",
+   "day": 1,
+   "group": "CORE",
+   "format": "PROTOCOL",
+   "title": "What makes one year different from the next"
+  },
+  {
+   "id": "icecore_ms.m02.s1",
+   "day": 2,
+   "group": "DRILL",
+   "format": "SEQUENCE",
+   "title": "The run through the brittle zone"
+  },
+  {
+   "id": "icecore_ms.m02.s2",
+   "day": 2,
+   "group": "CORE",
+   "format": "CHOICE",
+   "title": "The metre with no label"
+  },
+  {
+   "id": "icecore_ms.m02.s3",
+   "day": 2,
+   "group": "COLD",
+   "format": "DIAGNOSIS",
+   "title": "The sample that was clean until it was handled"
+  },
+  {
+   "id": "icecore_ms.m03.s1",
+   "day": 3,
+   "group": "CORE",
+   "format": "SWEEP",
+   "title": "The depth the counting runs out"
+  },
+  {
+   "id": "icecore_ms.m03.s2",
+   "day": 3,
+   "group": "COLD",
+   "format": "CHOICE",
+   "title": "Which year marker survives the depth"
+  },
+  {
+   "id": "icecore_ms.m03.s3",
+   "day": 3,
+   "group": "FIELD",
+   "format": "BALLPARK",
+   "title": "How old the bottom of the firn is"
+  },
+  {
+   "id": "icecore_ms.m04.s1",
+   "day": 4,
+   "group": "COLD",
+   "format": "BALLPARK",
+   "title": "What the ratio says in degrees"
+  },
+  {
+   "id": "icecore_ms.m04.s2",
+   "day": 4,
+   "group": "FIELD",
+   "format": "CLOUD",
+   "title": "How firmly the cooling can be stated"
+  },
+  {
+   "id": "icecore_ms.m04.s3",
+   "day": 4,
+   "group": "DATA",
+   "format": "CHOICE",
+   "title": "The temperature of what, and where"
+  },
+  {
+   "id": "icecore_ms.m05.s1",
+   "day": 5,
+   "group": "GAS",
+   "format": "BALLPARK",
+   "title": "How much younger the air is"
+  },
+  {
+   "id": "icecore_ms.m05.s2",
+   "day": 5,
+   "group": "DRILL",
+   "format": "CHAIN",
+   "title": "From snowfall to sealed bubble"
+  },
+  {
+   "id": "icecore_ms.m05.s3",
+   "day": 5,
+   "group": "CORE",
+   "format": "CHOICE",
+   "title": "Why the gas record has no sharp edges"
+  },
+  {
+   "id": "icecore_ms.m06.s1",
+   "day": 6,
+   "group": "CORE",
+   "format": "DIAGNOSIS",
+   "title": "The spike at 1,642 metres"
+  },
+  {
+   "id": "icecore_ms.m06.s2",
+   "day": 6,
+   "group": "GAS",
+   "format": "CHOICE",
+   "title": "What a dated ash layer fixes"
+  },
+  {
+   "id": "icecore_ms.m06.s3",
+   "day": 6,
+   "group": "FIELD",
+   "format": "TRIAGE",
+   "title": "One clear day, three jobs"
+  },
+  {
+   "id": "icecore_ms.m07.s1",
+   "day": 7,
+   "group": "DATA",
+   "format": "TRACE",
+   "title": "What both records rest on"
+  },
+  {
+   "id": "icecore_ms.m07.s2",
+   "day": 7,
+   "group": "GAS",
+   "format": "BALLPARK",
+   "title": "What the carbon dioxide change was worth"
+  },
+  {
+   "id": "icecore_ms.m07.s3",
+   "day": 7,
+   "group": "COLD",
+   "format": "CHOICE",
+   "title": "Half a per mil, in degrees"
+  },
+  {
+   "id": "icecore_ms.m08.s1",
+   "day": 8,
+   "group": "GAS",
+   "format": "VERIFY",
+   "title": "What the correction leaves behind"
+  },
+  {
+   "id": "icecore_ms.m08.s2",
+   "day": 8,
+   "group": "CORE",
+   "format": "BALLPARK",
+   "title": "The clock that does not need layers"
+  },
+  {
+   "id": "icecore_ms.m08.s3",
+   "day": 8,
+   "group": "DATA",
+   "format": "CHOICE",
+   "title": "What is left to disagree about"
+  },
+  {
+   "id": "icecore_ms.m09.s1",
+   "day": 9,
+   "group": "COLD",
+   "format": "ATTEST",
+   "title": "Six signatures and two hours"
+  },
+  {
+   "id": "icecore_ms.m09.s2",
+   "day": 9,
+   "group": "DRILL",
+   "format": "TRIAGE",
+   "title": "What comes back first"
+  },
+  {
+   "id": "icecore_ms.m09.s3",
+   "day": 9,
+   "group": "DATA",
+   "format": "BALLPARK",
+   "title": "How much of it is noise"
+  },
+  {
+   "id": "icecore_ms.m10.s1",
+   "day": 10,
+   "group": "DATA",
+   "format": "CHOICE",
+   "title": "The sentence the record will carry"
+  },
+  {
+   "id": "icecore_ms.m10.s2",
+   "day": 10,
+   "group": "FIELD",
+   "format": "PROTOCOL",
+   "title": "What rests on what"
+  },
+  {
+   "id": "icecore_ms.m10.s3",
+   "day": 10,
+   "group": "COLD",
+   "format": "BALLPARK",
+   "title": "The shortest thing this ice can show"
+  }
+ ]
+}

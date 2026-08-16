@@ -1,0 +1,385 @@
+{
+ "theme": "deepwatch_ms",
+ "book": "books/deepwatch-ms.yml",
+ "course": "Middle-school physical science, grade 6: sound and waves, floating and sinking, heat and circuits",
+ "curriculum": [
+  "Sound is a wave, and it travels through water as well as air",
+  "An echo gives a distance, once you know the speed and the time",
+  "Loud and quiet, high and low: what a sound tells you about its source",
+  "Listening from two places to find where a sound came from",
+  "Hearing something quiet next to something loud",
+  "Density: why one thing floats and another sinks",
+  "Water pressure grows with depth",
+  "Adding weight changes what floats, and how fast it changes",
+  "Heat moves from hot to cold, and it needs a path",
+  "Circuits: a break, a short, and why water and electricity are dangerous",
+  "Air is a mixture, and the share of each gas matters",
+  "A rate: how fast something builds up or drains away",
+  "Reading a gauge, and taking a measurement more than once",
+  "Change one thing at a time, and watch what follows",
+  "Deciding under pressure: what can be undone, and what cannot",
+  "Two instruments that share a source are really one instrument"
+ ],
+ "equations": [
+  {
+   "e": "speed = distance ÷ time",
+   "about": "how fast something is moving",
+   "symbols": [
+    [
+     "speed",
+     "in metres per second"
+    ],
+    [
+     "distance",
+     "in metres"
+    ],
+    [
+     "time",
+     "in seconds"
+    ]
+   ]
+  },
+  {
+   "e": "distance = speed × time ÷ 2",
+   "about": "range from an echo, out and back",
+   "symbols": [
+    [
+     "distance",
+     "to the thing that echoed, in metres"
+    ],
+    [
+     "speed",
+     "the speed of sound in water, 1,500 metres a second"
+    ],
+    [
+     "time",
+     "the whole round trip, in seconds"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "amount = rate × time",
+   "about": "how much has built up, or drained away",
+   "symbols": [
+    [
+     "amount",
+     "litres, or kilograms"
+    ],
+    [
+     "rate",
+     "per minute"
+    ],
+    [
+     "time",
+     "in minutes"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "density = weight ÷ volume",
+   "about": "what decides floating and sinking",
+   "symbols": [
+    [
+     "density",
+     "kilograms in every cubic metre"
+    ],
+    [
+     "weight",
+     "mass, in kilograms"
+    ],
+    [
+     "volume",
+     "in cubic metres"
+    ]
+   ]
+  },
+  {
+   "e": "part = whole × share",
+   "about": "a percentage of a mixture",
+   "symbols": [
+    [
+     "part",
+     "how much of the gas there is"
+    ],
+    [
+     "whole",
+     "the whole mixture"
+    ],
+    [
+     "share",
+     "the percentage, written as a decimal"
+    ]
+   ]
+  },
+  {
+   "e": "average = total ÷ how many",
+   "about": "the mean of repeated readings",
+   "symbols": [
+    [
+     "average",
+     "the mean reading"
+    ],
+    [
+     "total",
+     "the readings added up"
+    ],
+    [
+     "how many",
+     "the number of readings"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "Reasoning Under Pressure Beneath the Surface",
+ "groups": [
+  {
+   "id": "SONAR",
+   "name": "Sonar & Acoustics",
+   "desc": "What the water carries, what the boat makes, and how to tell them apart."
+  },
+  {
+   "id": "NAV",
+   "name": "Navigation & Position",
+   "desc": "Where the boat is, how old that answer is, and how wrong it is allowed to be."
+  },
+  {
+   "id": "DC",
+   "name": "Damage Control",
+   "desc": "Water in the boat — finding it, stopping it, and knowing whether you are winning."
+  },
+  {
+   "id": "FIRE",
+   "name": "Fire & Electrical",
+   "desc": "Fire aboard is an electrical problem until the power is proved gone."
+  },
+  {
+   "id": "ATMO",
+   "name": "Atmosphere & Life Support",
+   "desc": "The air is a system with sources, sinks and a flow path, and people are in it."
+  },
+  {
+   "id": "ENG",
+   "name": "Propulsion & Engineering",
+   "desc": "What turns the shaft, what cools it, and what the boat gives away by running it."
+  }
+ ],
+ "stops": [
+  {
+   "id": "deepwatch_ms.m01.s1",
+   "day": 1,
+   "group": "DC",
+   "format": "SEQUENCE",
+   "title": "What a walkdown is for"
+  },
+  {
+   "id": "deepwatch_ms.m01.s2",
+   "day": 1,
+   "group": "ENG",
+   "format": "PROTOCOL",
+   "title": "Every fitting is an argument"
+  },
+  {
+   "id": "deepwatch_ms.m01.s3",
+   "day": 1,
+   "group": "NAV",
+   "format": "ROUTE",
+   "title": "The trip back without a waypoint"
+  },
+  {
+   "id": "deepwatch_ms.m02.s1",
+   "day": 2,
+   "group": "SONAR",
+   "format": "PROTOCOL",
+   "title": "Four traces, one of them ours"
+  },
+  {
+   "id": "deepwatch_ms.m02.s2",
+   "day": 2,
+   "group": "SONAR",
+   "format": "CHOICE",
+   "title": "The trace that will not resolve"
+  },
+  {
+   "id": "deepwatch_ms.m02.s3",
+   "day": 2,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "The bearing that does not move"
+  },
+  {
+   "id": "deepwatch_ms.m03.s1",
+   "day": 3,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "How far the water has carried us"
+  },
+  {
+   "id": "deepwatch_ms.m03.s2",
+   "day": 3,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Two displays, one source"
+  },
+  {
+   "id": "deepwatch_ms.m03.s3",
+   "day": 3,
+   "group": "SONAR",
+   "format": "CHOICE",
+   "title": "Where the sound will not go"
+  },
+  {
+   "id": "deepwatch_ms.m04.s1",
+   "day": 4,
+   "group": "SONAR",
+   "format": "SEQUENCE",
+   "title": "What has to be true before the boat commits"
+  },
+  {
+   "id": "deepwatch_ms.m04.s2",
+   "day": 4,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "The margin that survives being wrong"
+  },
+  {
+   "id": "deepwatch_ms.m04.s3",
+   "day": 4,
+   "group": "ENG",
+   "format": "CHOICE",
+   "title": "The one shaft speed that rings"
+  },
+  {
+   "id": "deepwatch_ms.m05.s1",
+   "day": 5,
+   "group": "DC",
+   "format": "BALANCE",
+   "title": "Under the deck plates"
+  },
+  {
+   "id": "deepwatch_ms.m05.s2",
+   "day": 5,
+   "group": "DC",
+   "format": "BALLPARK",
+   "title": "What 90 metres puts behind the valve"
+  },
+  {
+   "id": "deepwatch_ms.m05.s3",
+   "day": 5,
+   "group": "ENG",
+   "format": "PROTOCOL",
+   "title": "What else that valve feeds"
+  },
+  {
+   "id": "deepwatch_ms.m06.s1",
+   "day": 6,
+   "group": "FIRE",
+   "format": "PROTOCOL",
+   "title": "Three legs, three different actions"
+  },
+  {
+   "id": "deepwatch_ms.m06.s2",
+   "day": 6,
+   "group": "FIRE",
+   "format": "SEQUENCE",
+   "title": "What a lamp is worth"
+  },
+  {
+   "id": "deepwatch_ms.m06.s3",
+   "day": 6,
+   "group": "ATMO",
+   "format": "CHOICE",
+   "title": "Smoke is not only a breathing problem"
+  },
+  {
+   "id": "deepwatch_ms.m07.s1",
+   "day": 7,
+   "group": "ATMO",
+   "format": "CHOICE",
+   "title": "The compartment the scrubber cannot reach"
+  },
+  {
+   "id": "deepwatch_ms.m07.s2",
+   "day": 7,
+   "group": "ATMO",
+   "format": "BALLPARK",
+   "title": "Nine people and a shut damper"
+  },
+  {
+   "id": "deepwatch_ms.m07.s3",
+   "day": 7,
+   "group": "ENG",
+   "format": "CHOICE",
+   "title": "What one fan takes with it"
+  },
+  {
+   "id": "deepwatch_ms.m08.s1",
+   "day": 8,
+   "group": "DC",
+   "format": "TRIAGE",
+   "title": "Four casualties, one crew"
+  },
+  {
+   "id": "deepwatch_ms.m08.s2",
+   "day": 8,
+   "group": "FIRE",
+   "format": "DELEGATE",
+   "title": "Who does the things you are not doing"
+  },
+  {
+   "id": "deepwatch_ms.m08.s3",
+   "day": 8,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "Slowing down as a decision"
+  },
+  {
+   "id": "deepwatch_ms.m09.s1",
+   "day": 9,
+   "group": "ENG",
+   "format": "CHAIN",
+   "title": "From the sea to the bearing"
+  },
+  {
+   "id": "deepwatch_ms.m09.s2",
+   "day": 9,
+   "group": "ENG",
+   "format": "CHOICE",
+   "title": "One link is not handing the heat on"
+  },
+  {
+   "id": "deepwatch_ms.m09.s3",
+   "day": 9,
+   "group": "FIRE",
+   "format": "CHOICE",
+   "title": "The breaker nobody logged"
+  },
+  {
+   "id": "deepwatch_ms.m10.s1",
+   "day": 10,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Five small problems"
+  },
+  {
+   "id": "deepwatch_ms.m10.s2",
+   "day": 10,
+   "group": "DC",
+   "format": "PROTOCOL",
+   "title": "Everything you are not doing yourself"
+  },
+  {
+   "id": "deepwatch_ms.m10.s3",
+   "day": 10,
+   "group": "SONAR",
+   "format": "BALLPARK",
+   "title": "Why the level pulses three times a second"
+  }
+ ]
+}

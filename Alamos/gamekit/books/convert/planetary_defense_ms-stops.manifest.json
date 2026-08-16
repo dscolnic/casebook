@@ -1,0 +1,370 @@
+{
+ "theme": "planetary_defense_ms",
+ "book": "books/planetary-defense-ms.yml",
+ "course": "Middle-school astronomy and Earth & space science, grade 6",
+ "curriculum": [
+  "Telling a real object from an artefact, by repeating the observation",
+  "Position, time and speed: how fast something moves across the sky",
+  "Repeated measurements and their average",
+  "Uncertainty as a range, not a mistake",
+  "Scale and distance in the solar system",
+  "Ratios and unit rates in a measurement",
+  "Brightness and distance: the same object is fainter further away",
+  "Size and albedo: two explanations for one brightness",
+  "Choosing the measurement that tells two explanations apart",
+  "Colour and light as evidence of what something is made of",
+  "Radar: distance from an echo, using speed and time",
+  "Rotation, and a pattern that repeats in a measurement",
+  "Impact energy: mass and speed, and why speed matters more",
+  "Changing motion with a push, and why an early push does more",
+  "Deciding what to tell people, and when",
+  "Independent checks: a second method that could disagree"
+ ],
+ "equations": [
+  {
+   "e": "speed = distance ÷ time",
+   "about": "how fast something is moving",
+   "symbols": [
+    [
+     "speed",
+     "in kilometres per second"
+    ],
+    [
+     "distance",
+     "in kilometres"
+    ],
+    [
+     "time",
+     "in seconds"
+    ]
+   ]
+  },
+  {
+   "e": "distance = speed × time",
+   "about": "distance from a radar echo",
+   "symbols": [
+    [
+     "distance",
+     "in kilometres"
+    ],
+    [
+     "speed",
+     "the speed of light, 300,000 kilometres per second"
+    ],
+    [
+     "time",
+     "the round trip, in seconds"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "average = total ÷ how many",
+   "about": "the mean of repeated measurements",
+   "symbols": [
+    [
+     "average",
+     "the mean"
+    ],
+    [
+     "total",
+     "the measurements added up"
+    ],
+    [
+     "how many",
+     "the number of measurements"
+    ]
+   ]
+  },
+  {
+   "e": "KE = ½ × m × v²",
+   "about": "the energy an impact carries",
+   "symbols": [
+    [
+     "KE",
+     "kinetic energy, in joules"
+    ],
+    [
+     "m",
+     "mass, in kilograms"
+    ],
+    [
+     "v",
+     "speed, in metres per second"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "change in position = change in speed × time",
+   "about": "why a deflection works better early",
+   "symbols": [
+    [
+     "change in position",
+     "how far it has moved off its old path, in kilometres"
+    ],
+    [
+     "change in speed",
+     "in kilometres per second"
+    ],
+    [
+     "time",
+     "how long before it arrives, in seconds"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "Campaign Director · International NEO Response",
+ "groups": [
+  {
+   "id": "DISC",
+   "name": "Discovery & Imaging",
+   "desc": "Images, signal-to-noise, moving-object detection, and artifact rejection."
+  },
+  {
+   "id": "ORBIT",
+   "name": "Astrometry & Orbit",
+   "desc": "Sky position, timing, orbit fitting, covariance, and impact probability."
+  },
+  {
+   "id": "CHAR",
+   "name": "Physical Characterization",
+   "desc": "Brightness, albedo, spectra, rotation, size, and composition."
+  },
+  {
+   "id": "RADAR",
+   "name": "Radar & Dynamics",
+   "desc": "Range, delay, velocity, momentum transfer, and independent orbit constraints."
+  },
+  {
+   "id": "IMPACT",
+   "name": "Entry & Consequences",
+   "desc": "Energy, atmospheric entry, fragmentation, consequence uncertainty, and deflection physics."
+  },
+  {
+   "id": "OPS",
+   "name": "Survey & Response",
+   "desc": "Completeness, observing geometry, response decisions, communication, and long-term readiness."
+  }
+ ],
+ "stops": [
+  {
+   "id": "planetary_defense_ms.m01.s1",
+   "day": 1,
+   "group": "DISC",
+   "format": "CHOICE",
+   "title": "Object or artifact?"
+  },
+  {
+   "id": "planetary_defense_ms.m01.s2",
+   "day": 1,
+   "group": "DISC",
+   "format": "SEQUENCE",
+   "title": "Validate the discovery"
+  },
+  {
+   "id": "planetary_defense_ms.m01.s3",
+   "day": 1,
+   "group": "ORBIT",
+   "format": "BALLPARK",
+   "title": "How far did it move?"
+  },
+  {
+   "id": "planetary_defense_ms.m02.s1",
+   "day": 2,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "Why do the measured positions disagree?"
+  },
+  {
+   "id": "planetary_defense_ms.m02.s2",
+   "day": 2,
+   "group": "ORBIT",
+   "format": "SEQUENCE",
+   "title": "Build the observation arc"
+  },
+  {
+   "id": "planetary_defense_ms.m02.s3",
+   "day": 2,
+   "group": "OPS",
+   "format": "VALUE",
+   "title": "Buy the best next observation"
+  },
+  {
+   "id": "planetary_defense_ms.m03.s1",
+   "day": 3,
+   "group": "IMPACT",
+   "format": "CLOUD",
+   "title": "Read the risk correctly"
+  },
+  {
+   "id": "planetary_defense_ms.m03.s2",
+   "day": 3,
+   "group": "ORBIT",
+   "format": "BALLPARK",
+   "title": "Probability from an ensemble"
+  },
+  {
+   "id": "planetary_defense_ms.m03.s3",
+   "day": 3,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "Reduce the dangerous uncertainty"
+  },
+  {
+   "id": "planetary_defense_ms.m04.s1",
+   "day": 4,
+   "group": "CHAR",
+   "format": "PROTOCOL",
+   "title": "What controls apparent brightness?"
+  },
+  {
+   "id": "planetary_defense_ms.m04.s2",
+   "day": 4,
+   "group": "OPS",
+   "format": "BALLPARK",
+   "title": "Diameter-albedo degeneracy"
+  },
+  {
+   "id": "planetary_defense_ms.m04.s3",
+   "day": 4,
+   "group": "CHAR",
+   "format": "DEGENERACY",
+   "title": "Bound the diameter"
+  },
+  {
+   "id": "planetary_defense_ms.m05.s1",
+   "day": 5,
+   "group": "CHAR",
+   "format": "TRACE",
+   "title": "Real absorption or spectral artifact?"
+  },
+  {
+   "id": "planetary_defense_ms.m05.s2",
+   "day": 5,
+   "group": "OPS",
+   "format": "SEQUENCE",
+   "title": "From photons to composition class"
+  },
+  {
+   "id": "planetary_defense_ms.m05.s3",
+   "day": 5,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "Improve the composition claim"
+  },
+  {
+   "id": "planetary_defense_ms.m06.s1",
+   "day": 6,
+   "group": "RADAR",
+   "format": "PROTOCOL",
+   "title": "What does radar measure?"
+  },
+  {
+   "id": "planetary_defense_ms.m06.s2",
+   "day": 6,
+   "group": "OPS",
+   "format": "BALLPARK",
+   "title": "Diameter from angular width"
+  },
+  {
+   "id": "planetary_defense_ms.m06.s3",
+   "day": 6,
+   "group": "ORBIT",
+   "format": "CHOICE",
+   "title": "What this pass does to the next one"
+  },
+  {
+   "id": "planetary_defense_ms.m07.s1",
+   "day": 7,
+   "group": "IMPACT",
+   "format": "BALLPARK",
+   "title": "Energy of a notional impactor"
+  },
+  {
+   "id": "planetary_defense_ms.m07.s2",
+   "day": 7,
+   "group": "OPS",
+   "format": "BALLPARK",
+   "title": "The speed it actually arrives at"
+  },
+  {
+   "id": "planetary_defense_ms.m07.s3",
+   "day": 7,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "Reduce consequence uncertainty"
+  },
+  {
+   "id": "planetary_defense_ms.m08.s1",
+   "day": 8,
+   "group": "IMPACT",
+   "format": "BALLPARK",
+   "title": "Velocity change from momentum transfer"
+  },
+  {
+   "id": "planetary_defense_ms.m08.s2",
+   "day": 8,
+   "group": "IMPACT",
+   "format": "PROTOCOL",
+   "title": "What determines deflection success?"
+  },
+  {
+   "id": "planetary_defense_ms.m08.s3",
+   "day": 8,
+   "group": "ORBIT",
+   "format": "VERIFY",
+   "title": "Build the deflection campaign"
+  },
+  {
+   "id": "planetary_defense_ms.m09.s1",
+   "day": 9,
+   "group": "OPS",
+   "format": "PROTOCOL",
+   "title": "Match action to evidence state"
+  },
+  {
+   "id": "planetary_defense_ms.m09.s2",
+   "day": 9,
+   "group": "OPS",
+   "format": "BALLPARK",
+   "title": "Expected displaced population"
+  },
+  {
+   "id": "planetary_defense_ms.m09.s3",
+   "day": 9,
+   "group": "OPS",
+   "format": "TRIGGER",
+   "title": "Prepare without panic"
+  },
+  {
+   "id": "planetary_defense_ms.m10.s1",
+   "day": 10,
+   "group": "OPS",
+   "format": "PROTOCOL",
+   "title": "Disposition the final claims"
+  },
+  {
+   "id": "planetary_defense_ms.m10.s2",
+   "day": 10,
+   "group": "ORBIT",
+   "format": "ATTEST",
+   "title": "Build the final public record"
+  },
+  {
+   "id": "planetary_defense_ms.m10.s3",
+   "day": 10,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "Fund the planetary-defense legacy"
+  }
+ ]
+}

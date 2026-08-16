@@ -22,7 +22,9 @@ let failed = 0;
 for(const theme of wanted){
   for(const tool of ['validateContent.mjs', 'smokeCampaign.mjs', 'probeQuestions.mjs', 'personStops.mjs',
                      'checkStory.mjs', 'checkNames.mjs', 'checkJargon.mjs', 'jargonDepth.mjs', 'answerShape.mjs', 'checkVoice.mjs', 'placeStory.mjs',
-                     'checkPassages.mjs', 'equationOrder.mjs', 'bookParity.mjs', 'placement.mjs', 'reachable.mjs']){
+                     'checkPassages.mjs', 'equationOrder.mjs', 'bookParity.mjs', 'placement.mjs', 'reachable.mjs',
+                     // Silent for a theme that is not an edition of another one.
+                     'editionParity.mjs']){
     const res = spawnSync(process.execPath, [resolve(here, tool), theme, ...(tool === 'jargonDepth.mjs' ? ['--check'] : [])],
       { stdio: 'inherit', cwd: resolve(here, '../..') });
     if(res.status !== 0) failed++;

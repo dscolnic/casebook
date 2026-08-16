@@ -1,0 +1,364 @@
+{
+ "theme": "blackout_ms",
+ "book": "books/blackout-ms.yml",
+ "course": "Middle-school physical science, grade 6: circuits, energy and the grid",
+ "curriculum": [
+  "A circuit is a loop, and a break anywhere stops it",
+  "Current is the flow, and voltage is the push behind it",
+  "Two ways to wire things: one after another, or side by side",
+  "Something in the way makes it harder for current to flow",
+  "Current through something makes heat, and that is why wires have limits",
+  "Energy used is power multiplied by time",
+  "A generator turns motion into electricity, and a magnet is how",
+  "Supply has to match demand, minute by minute",
+  "A graph of demand across a day, and why the peak matters",
+  "Some sources can be turned up on demand and some cannot",
+  "A safety device breaks the circuit before something is damaged",
+  "Something can be protected too eagerly, and cost you the supply",
+  "Measuring instruments need checking against a standard",
+  "Averages, and why one reading is not a measurement",
+  "Restarting a system that has stopped, in the right order",
+  "Deciding while the picture is incomplete"
+ ],
+ "equations": [
+  {
+   "e": "energy = power × time",
+   "about": "how much electricity something uses",
+   "symbols": [
+    [
+     "energy",
+     "in kilowatt hours"
+    ],
+    [
+     "power",
+     "in kilowatts"
+    ],
+    [
+     "time",
+     "in hours"
+    ]
+   ]
+  },
+  {
+   "e": "how long = amount ÷ rate",
+   "about": "how long a store will last",
+   "symbols": [
+    [
+     "how long",
+     "in hours"
+    ],
+    [
+     "amount",
+     "the energy in store"
+    ],
+    [
+     "rate",
+     "how fast it is being drawn"
+    ]
+   ],
+   "needs": [
+    "energy = power × time"
+   ]
+  },
+  {
+   "e": "part = whole × share",
+   "about": "a share of the demand, or of the customers",
+   "symbols": [
+    [
+     "part",
+     "how much that share comes to"
+    ],
+    [
+     "whole",
+     "the total"
+    ],
+    [
+     "share",
+     "the percentage, written as a decimal"
+    ]
+   ]
+  },
+  {
+   "e": "average = total ÷ how many",
+   "about": "the mean of several readings",
+   "symbols": [
+    [
+     "average",
+     "the mean"
+    ],
+    [
+     "total",
+     "the readings added up"
+    ],
+    [
+     "how many",
+     "the number of them"
+    ]
+   ]
+  },
+  {
+   "e": "spare = what can be made − what is being used",
+   "about": "how much room is left on the system",
+   "symbols": [
+    [
+     "spare",
+     "in megawatts"
+    ],
+    [
+     "what can be made",
+     "the total that can be run up"
+    ],
+    [
+     "what is being used",
+     "the demand right now"
+    ]
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "System Operator · Calder Interconnection",
+ "groups": [
+  {
+   "id": "OPS",
+   "name": "System Operations",
+   "desc": "The whole network at once, and the decisions that cannot wait for certainty."
+  },
+  {
+   "id": "GEN",
+   "name": "Generation",
+   "desc": "Machines that turn something into torque, and what they can be asked to do next."
+  },
+  {
+   "id": "TRANS",
+   "name": "Transmission & Protection",
+   "desc": "Getting power a long way, and the relays that decide when to give up on a line."
+  },
+  {
+   "id": "DIST",
+   "name": "Distribution",
+   "desc": "The last few kilometres, where the network stops being a diagram and becomes a street."
+  },
+  {
+   "id": "LOAD",
+   "name": "Load & Forecasting",
+   "desc": "What people are about to do, and how much of it the system has to be ready for."
+  },
+  {
+   "id": "METER",
+   "name": "Metering & Standards",
+   "desc": "Whether the numbers everybody is arguing about are the numbers."
+  }
+ ],
+ "stops": [
+  {
+   "id": "blackout_ms.m01.s1",
+   "day": 1,
+   "group": "OPS",
+   "format": "PROTOCOL",
+   "title": "What a frequency trend is evidence of"
+  },
+  {
+   "id": "blackout_ms.m01.s2",
+   "day": 1,
+   "group": "GEN",
+   "format": "BALLPARK",
+   "title": "How much power actually left the system"
+  },
+  {
+   "id": "blackout_ms.m01.s3",
+   "day": 1,
+   "group": "METER",
+   "format": "TRACE",
+   "title": "The order the records claim things happened in"
+  },
+  {
+   "id": "blackout_ms.m02.s1",
+   "day": 2,
+   "group": "TRANS",
+   "format": "TRIGGER",
+   "title": "What you do before a relay does it for you"
+  },
+  {
+   "id": "blackout_ms.m02.s2",
+   "day": 2,
+   "group": "LOAD",
+   "format": "BALLPARK",
+   "title": "The power that never arrives"
+  },
+  {
+   "id": "blackout_ms.m02.s3",
+   "day": 2,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "The contingency you are actually protecting against"
+  },
+  {
+   "id": "blackout_ms.m03.s1",
+   "day": 3,
+   "group": "DIST",
+   "format": "BALLPARK",
+   "title": "Why the far end sits low"
+  },
+  {
+   "id": "blackout_ms.m03.s2",
+   "day": 3,
+   "group": "TRANS",
+   "format": "PROTOCOL",
+   "title": "What actually limits a conductor"
+  },
+  {
+   "id": "blackout_ms.m03.s3",
+   "day": 3,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "The order somebody will read back to you"
+  },
+  {
+   "id": "blackout_ms.m04.s1",
+   "day": 4,
+   "group": "METER",
+   "format": "BALLPARK",
+   "title": "What three phases actually add up to"
+  },
+  {
+   "id": "blackout_ms.m04.s2",
+   "day": 4,
+   "group": "GEN",
+   "format": "SEQUENCE",
+   "title": "Four things that have to agree before the breaker closes"
+  },
+  {
+   "id": "blackout_ms.m04.s3",
+   "day": 4,
+   "group": "TRANS",
+   "format": "CHOICE",
+   "title": "Two instruments, two quantities"
+  },
+  {
+   "id": "blackout_ms.m05.s1",
+   "day": 5,
+   "group": "LOAD",
+   "format": "BALLPARK",
+   "title": "What comes out against what went in"
+  },
+  {
+   "id": "blackout_ms.m05.s2",
+   "day": 5,
+   "group": "GEN",
+   "format": "CHOICE",
+   "title": "The reason the wires are not at wall voltage"
+  },
+  {
+   "id": "blackout_ms.m05.s3",
+   "day": 5,
+   "group": "OPS",
+   "format": "VALUE",
+   "title": "What is worth knowing before the peak"
+  },
+  {
+   "id": "blackout_ms.m06.s1",
+   "day": 6,
+   "group": "TRANS",
+   "format": "BALLPARK",
+   "title": "What a short circuit is limited by"
+  },
+  {
+   "id": "blackout_ms.m06.s2",
+   "day": 6,
+   "group": "METER",
+   "format": "CONTROL",
+   "title": "A reading taken without a connection"
+  },
+  {
+   "id": "blackout_ms.m06.s3",
+   "day": 6,
+   "group": "DIST",
+   "format": "CHOICE",
+   "title": "The ground is not at one voltage"
+  },
+  {
+   "id": "blackout_ms.m07.s1",
+   "day": 7,
+   "group": "LOAD",
+   "format": "BALLPARK",
+   "title": "The peak, and how far the cold moves it"
+  },
+  {
+   "id": "blackout_ms.m07.s2",
+   "day": 7,
+   "group": "OPS",
+   "format": "CASEBOOK",
+   "title": "Cheapest first, and the exceptions that are not exceptions"
+  },
+  {
+   "id": "blackout_ms.m07.s3",
+   "day": 7,
+   "group": "GEN",
+   "format": "SCIENCETANK",
+   "title": "When the cheapest power cannot get out"
+  },
+  {
+   "id": "blackout_ms.m08.s1",
+   "day": 8,
+   "group": "GEN",
+   "format": "BALLPARK",
+   "title": "What the dark hours actually cost"
+  },
+  {
+   "id": "blackout_ms.m08.s2",
+   "day": 8,
+   "group": "OPS",
+   "format": "CHAIN",
+   "title": "The order physics allows"
+  },
+  {
+   "id": "blackout_ms.m08.s3",
+   "day": 8,
+   "group": "DIST",
+   "format": "CASEBOOK",
+   "title": "Why it cannot go faster"
+  },
+  {
+   "id": "blackout_ms.m09.s1",
+   "day": 9,
+   "group": "OPS",
+   "format": "DELEGATE",
+   "title": "Which of the three cannot wait"
+  },
+  {
+   "id": "blackout_ms.m09.s2",
+   "day": 9,
+   "group": "TRANS",
+   "format": "BALLPARK",
+   "title": "Loss when the load turns up anyway"
+  },
+  {
+   "id": "blackout_ms.m09.s3",
+   "day": 9,
+   "group": "LOAD",
+   "format": "SEQUENCE",
+   "title": "An order that survives being carried out"
+  },
+  {
+   "id": "blackout_ms.m10.s1",
+   "day": 10,
+   "group": "METER",
+   "format": "ATTEST",
+   "title": "Measured, inferred, assumed"
+  },
+  {
+   "id": "blackout_ms.m10.s2",
+   "day": 10,
+   "group": "LOAD",
+   "format": "CHOICE",
+   "title": "The number that has to be a range"
+  },
+  {
+   "id": "blackout_ms.m10.s3",
+   "day": 10,
+   "group": "OPS",
+   "format": "CHOICE",
+   "title": "What outlives the emergency"
+  }
+ ]
+}

@@ -1,0 +1,391 @@
+{
+ "theme": "bring_them_home_ms",
+ "book": "books/bring-them-home-ms.yml",
+ "course": "Middle-school physical science, grade 6: motion, energy and keeping people alive",
+ "curriculum": [
+  "Speed, distance and time, and how they give each other",
+  "Something moving in space keeps going until something pushes it",
+  "A push changes motion, and a bigger push changes it faster",
+  "A small change made early does more than a big one made late",
+  "Rates: how fast something is used up, and how long it lasts",
+  "A budget: a finite store shared between competing demands",
+  "Energy moves from hot to cold, and insulation slows it down",
+  "Air is a mixture, and the share of each gas has to stay in range",
+  "Circuits: a break, a short, and why a battery has limits",
+  "Signals take time to travel, and distance costs strength",
+  "Spinning things keep spinning, and a nudge takes a while to show",
+  "Reading a graph and spotting what changed at the moment it changed",
+  "Repeats and averages, and what one reading is worth",
+  "Deciding with a deadline that does not move",
+  "What a measurement can honestly say, and what it cannot",
+  "Ordering work when several things are wrong at once"
+ ],
+ "equations": [
+  {
+   "e": "speed = distance ÷ time",
+   "about": "how fast something is travelling",
+   "symbols": [
+    [
+     "speed",
+     "in kilometres per second"
+    ],
+    [
+     "distance",
+     "in kilometres"
+    ],
+    [
+     "time",
+     "in seconds"
+    ]
+   ]
+  },
+  {
+   "e": "time = distance ÷ speed",
+   "about": "how long a journey or a signal takes",
+   "symbols": [
+    [
+     "time",
+     "in seconds or hours"
+    ],
+    [
+     "distance",
+     "in kilometres"
+    ],
+    [
+     "speed",
+     "in kilometres per second"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "amount = rate × time",
+   "about": "how much of a store gets used",
+   "symbols": [
+    [
+     "amount",
+     "amp hours, or litres"
+    ],
+    [
+     "rate",
+     "per hour"
+    ],
+    [
+     "time",
+     "in hours"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  },
+  {
+   "e": "how long = amount ÷ rate",
+   "about": "how long a store lasts",
+   "symbols": [
+    [
+     "how long",
+     "in hours"
+    ],
+    [
+     "amount",
+     "what is in the store"
+    ],
+    [
+     "rate",
+     "how fast it is being used"
+    ]
+   ],
+   "needs": [
+    "amount = rate × time"
+   ]
+  },
+  {
+   "e": "part = whole × share",
+   "about": "a share of a supply, or of a mixture",
+   "symbols": [
+    [
+     "part",
+     "how much that share comes to"
+    ],
+    [
+     "whole",
+     "the total"
+    ],
+    [
+     "share",
+     "the percentage, written as a decimal"
+    ]
+   ]
+  },
+  {
+   "e": "change in position = change in speed × time",
+   "about": "why an early correction is worth more",
+   "symbols": [
+    [
+     "change in position",
+     "in kilometres"
+    ],
+    [
+     "change in speed",
+     "in metres per second"
+    ],
+    [
+     "time",
+     "how long it has to act"
+    ]
+   ],
+   "needs": [
+    "speed = distance ÷ time"
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "Flight Director · Lunar Return Mission",
+ "groups": [
+  {
+   "id": "NAV",
+   "name": "Guidance & Motion",
+   "desc": "Kinematics, forces, gravity, trajectories, and navigation evidence."
+  },
+  {
+   "id": "ELEC",
+   "name": "Power & Circuits",
+   "desc": "Voltage, current, resistance, batteries, generation, and electrical faults."
+  },
+  {
+   "id": "THERM",
+   "name": "Thermal & Life Support",
+   "desc": "Heat transfer, gas behavior, pressure, flow, and life-support transport."
+  },
+  {
+   "id": "COMMS",
+   "name": "Waves & Communications",
+   "desc": "Radio waves, link budgets, pointing, optics, and signal timing."
+  },
+  {
+   "id": "STRUCT",
+   "name": "Rotation & Structures",
+   "desc": "Torque, angular motion, oscillations, resonance, and structural response."
+  },
+  {
+   "id": "INTEG",
+   "name": "Mission Integration",
+   "desc": "Uncertainty, competing constraints, robust decisions, and final readiness."
+  }
+ ],
+ "stops": [
+  {
+   "id": "bring_them_home_ms.m01.s1",
+   "day": 1,
+   "group": "INTEG",
+   "format": "TRACE",
+   "title": "What failed: the spacecraft or the sensors?"
+  },
+  {
+   "id": "bring_them_home_ms.m01.s2",
+   "day": 1,
+   "group": "INTEG",
+   "format": "SEQUENCE",
+   "title": "Build the first state estimate"
+  },
+  {
+   "id": "bring_them_home_ms.m01.s3",
+   "day": 1,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Spend the first ten minutes"
+  },
+  {
+   "id": "bring_them_home_ms.m02.s1",
+   "day": 2,
+   "group": "NAV",
+   "format": "PROTOCOL",
+   "title": "Which measurement constrains what?"
+  },
+  {
+   "id": "bring_them_home_ms.m02.s2",
+   "day": 2,
+   "group": "NAV",
+   "format": "SEQUENCE",
+   "title": "Reconstruct the state vector"
+  },
+  {
+   "id": "bring_them_home_ms.m02.s3",
+   "day": 2,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "What holds it in the curve"
+  },
+  {
+   "id": "bring_them_home_ms.m03.s1",
+   "day": 3,
+   "group": "STRUCT",
+   "format": "PROTOCOL",
+   "title": "Read rotational motion"
+  },
+  {
+   "id": "bring_them_home_ms.m03.s2",
+   "day": 3,
+   "group": "INTEG",
+   "format": "FLY",
+   "title": "Execute a manual attitude maneuver"
+  },
+  {
+   "id": "bring_them_home_ms.m03.s3",
+   "day": 3,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "Torque from a thruster"
+  },
+  {
+   "id": "bring_them_home_ms.m04.s1",
+   "day": 4,
+   "group": "ELEC",
+   "format": "BALLPARK",
+   "title": "How long can the battery last?"
+  },
+  {
+   "id": "bring_them_home_ms.m04.s2",
+   "day": 4,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Why is bus voltage collapsing?"
+  },
+  {
+   "id": "bring_them_home_ms.m04.s3",
+   "day": 4,
+   "group": "INTEG",
+   "format": "ALLOCATE",
+   "title": "Shed load without losing the mission"
+  },
+  {
+   "id": "bring_them_home_ms.m05.s1",
+   "day": 5,
+   "group": "THERM",
+   "format": "BALLPARK",
+   "title": "How much does the cabin cool?"
+  },
+  {
+   "id": "bring_them_home_ms.m05.s2",
+   "day": 5,
+   "group": "THERM",
+   "format": "PROTOCOL",
+   "title": "Choose the heat-transfer mechanism"
+  },
+  {
+   "id": "bring_them_home_ms.m05.s3",
+   "day": 5,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Keep the cabin survivable"
+  },
+  {
+   "id": "bring_them_home_ms.m06.s1",
+   "day": 6,
+   "group": "INTEG",
+   "format": "CHAIN",
+   "title": "Diagnose the air system"
+  },
+  {
+   "id": "bring_them_home_ms.m06.s2",
+   "day": 6,
+   "group": "THERM",
+   "format": "BALLPARK",
+   "title": "CO2 production scale"
+  },
+  {
+   "id": "bring_them_home_ms.m06.s3",
+   "day": 6,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Restore breathable air"
+  },
+  {
+   "id": "bring_them_home_ms.m07.s1",
+   "day": 7,
+   "group": "COMMS",
+   "format": "CONTROL",
+   "title": "Why did the signal fade?"
+  },
+  {
+   "id": "bring_them_home_ms.m07.s2",
+   "day": 7,
+   "group": "COMMS",
+   "format": "BALLPARK",
+   "title": "Wavelength of the radio link"
+  },
+  {
+   "id": "bring_them_home_ms.m07.s3",
+   "day": 7,
+   "group": "STRUCT",
+   "format": "SEQUENCE",
+   "title": "Recover the weak link"
+  },
+  {
+   "id": "bring_them_home_ms.m08.s1",
+   "day": 8,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "What is driving the vibration?"
+  },
+  {
+   "id": "bring_them_home_ms.m08.s2",
+   "day": 8,
+   "group": "STRUCT",
+   "format": "BALLPARK",
+   "title": "Spring-mass period"
+  },
+  {
+   "id": "bring_them_home_ms.m08.s3",
+   "day": 8,
+   "group": "INTEG",
+   "format": "CHOICE",
+   "title": "Stop the resonance"
+  },
+  {
+   "id": "bring_them_home_ms.m09.s1",
+   "day": 9,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Real trajectory error or common clock drift?"
+  },
+  {
+   "id": "bring_them_home_ms.m09.s2",
+   "day": 9,
+   "group": "NAV",
+   "format": "BALLPARK",
+   "title": "Combine independent uncertainties"
+  },
+  {
+   "id": "bring_them_home_ms.m09.s3",
+   "day": 9,
+   "group": "INTEG",
+   "format": "VALUE",
+   "title": "Burn or observe?"
+  },
+  {
+   "id": "bring_them_home_ms.m10.s1",
+   "day": 10,
+   "group": "INTEG",
+   "format": "ATTEST",
+   "title": "Disposition final readiness"
+  },
+  {
+   "id": "bring_them_home_ms.m10.s2",
+   "day": 10,
+   "group": "INTEG",
+   "format": "SEQUENCE",
+   "title": "Execute the final physical chain"
+  },
+  {
+   "id": "bring_them_home_ms.m10.s3",
+   "day": 10,
+   "group": "NAV",
+   "format": "CHOICE",
+   "title": "Fund the mission legacy"
+  }
+ ]
+}

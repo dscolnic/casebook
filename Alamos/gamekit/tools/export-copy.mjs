@@ -28,6 +28,7 @@ import { resolve, dirname } from 'node:path';
 // The book's own parser, not js-yaml: it is what `import-book.mjs` uses, so this
 // sees exactly what the importer sees — including the places its dialect differs.
 import { parseYaml } from './yaml-lite.mjs';
+import { bookNameFor } from './books.mjs';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const root = resolve(here, '..');
@@ -37,10 +38,10 @@ if(!theme){
   console.error('usage: node tools/export-copy.mjs <theme>');
   process.exit(2);
 }
-const BOOKS = { deepwatch: 'deep-watch', bring_them_home: 'bring-them-home',
-  outbreak_riverton: 'outbreak-riverton', planetary_defense: 'planetary-defense',
-  projecty: 'project-y' };
-const bookName = BOOKS[theme] ?? theme;
+// One resolver, in tools/books.mjs: a book is found by matching the
+// separator-free spelling of the theme name, so an edition's book needs no
+// entry anywhere.
+const bookName = bookNameFor(theme) ?? theme;
 const bookPath = resolve(root, 'books', `${bookName}.yml`);
 if(!existsSync(bookPath)){
   console.error(`no book at ${bookPath}`);

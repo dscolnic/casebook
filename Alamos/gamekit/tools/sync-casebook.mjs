@@ -24,7 +24,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, cpSync } fr
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { GAMES } from './games.js';
+import { GAMES, cards } from './games.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
@@ -35,6 +35,9 @@ const has = (f) => args.includes(f);
 const valueOf = (f) => { const i = args.indexOf(f); return i >= 0 ? args[i + 1] : null; };
 const only = (valueOf('--only') ?? '').split(',').map(s => s.trim()).filter(Boolean);
 const noBuild = has('--no-build');
+// Sixteen games at senior-high level and fourteen middle-school editions of
+// them is thirty builds. `--level middle` rebuilds one set on its own.
+const onlyLevel = valueOf('--level');
 
 // Default: the casebook checkout beside this one. `code/Nuclear/Alamos/gamekit`
 // up three is `code/`, and casebook sits there.
@@ -96,29 +99,34 @@ function buildTheme(id) {
 /** A card image, downscaled. sips is macOS-only, so a plain copy is the fallback. */
 function copyHero(g) {
   if (!g.hero) return null;
-  const src = resolve(root, 'shots', g.id, g.hero);
+  // Editions are played in the base game's place, so there is one set of
+  // screenshots and both cards point at the same file.
+  const src = resolve(root, 'shots', g.shotsFrom, g.hero);
   if (!existsSync(src)) return null;
   const shots = resolve(GAMES_DIR, 'shots');
   mkdirSync(shots, { recursive: true });
-  const jpg = resolve(shots, `${g.id}.jpg`);
+  const jpg = resolve(shots, `${g.shotsFrom}.jpg`);
   try {
     execFileSync('sips', ['-Z', '1200', '-s', 'format', 'jpeg', '-s', 'formatOptions', '78',
       src, '--out', jpg], { stdio: 'pipe' });
-    return `shots/${g.id}.jpg`;
+    return `shots/${g.shotsFrom}.jpg`;
   } catch {
-    cpSync(src, resolve(shots, `${g.id}.png`));
-    return `shots/${g.id}.png`;
+    cpSync(src, resolve(shots, `${g.shotsFrom}.png`));
+    return `shots/${g.shotsFrom}.png`;
   }
 }
 
 // ------------------------------------------------------------------- main
 
-const wanted = only.length ? GAMES.filter(g => only.includes(g.id)) : GAMES;
+const ALL = cards();
+let wanted = ALL;
+if (only.length) wanted = wanted.filter(g => only.includes(g.id) || only.includes(g.build) || only.includes(g.pair));
+if (onlyLevel) wanted = wanted.filter(g => g.level === onlyLevel);
 
 if (!noBuild) {
   console.log(`building ${wanted.length} game(s) into dist/ …`);
   let ok = 0;
-  for (const g of wanted) if (buildTheme(g.id)) ok++;
+  for (const g of wanted) if (buildTheme(g.build)) ok++;
   console.log(`${ok}/${wanted.length} built`);
 }
 
@@ -127,31 +135,36 @@ mkdirSync(GAMES_DIR, { recursive: true });
 const shipped = [];
 const missing = [];
 for (const g of wanted) {
-  const from = resolve(DIST, g.id);
-  if (!existsSync(resolve(from, 'index.html'))) { missing.push(g.id); continue; }
-  const to = resolve(GAMES_DIR, g.id);
+  const from = resolve(DIST, g.build);
+  if (!existsSync(resolve(from, 'index.html'))) { missing.push(g.build); continue; }
+  const to = resolve(GAMES_DIR, g.build);
   // Replace rather than merge: vite hashes its asset filenames, so a merge
   // leaves every previous build's chunks behind and the folder grows forever.
   rmSync(to, { recursive: true, force: true });
   cpSync(from, to, { recursive: true });
-  shipped.push(g.id);
+  shipped.push(g.build);
 }
 
 // The catalogue the shelf reads. Written for every game in GAMES, not only the
 // ones synced this run, with `built` saying which ones are actually on disk —
 // a card that 404s is worse than a card that says it is not built yet.
-const catalogue = GAMES.map(g => ({
+//
+// `level`, `pair` and `grades` are what the shelf's level control reads. `pair`
+// is the same game at another level: two rows carrying one `pair` are one game
+// taught twice, and a history that lists them as two unrelated games is wrong
+// about what the player played.
+const catalogue = ALL.map(g => ({
   ...g,
   hero: copyHero(g),
-  role: roleOf(g.id),
-  grade: gradeOf(g.id),
-  size: sizeOf(g.id),
-  built: existsSync(resolve(GAMES_DIR, g.id, 'index.html')),
+  role: roleOf(g.build),
+  grade: gradeOf(g.build),
+  size: sizeOf(g.build),
+  built: existsSync(resolve(GAMES_DIR, g.build, 'index.html')),
 }));
 writeFileSync(resolve(GAMES_DIR, 'games.json'), JSON.stringify({ games: catalogue }, null, 2));
 
 console.log(`\nsynced ${shipped.length} game(s) into ${GAMES_DIR}`);
 if (missing.length) console.log(`not built, so not copied: ${missing.join(', ')}`);
-const unbuilt = catalogue.filter(g => !g.built).map(g => g.id);
+const unbuilt = catalogue.filter(g => !g.built).map(g => g.build);
 if (unbuilt.length) console.log(`catalogue rows with no build on disk: ${unbuilt.join(', ')}`);
 console.log(`\nnext: cd ${OUT} && git add games && git commit`);

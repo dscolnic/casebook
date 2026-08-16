@@ -62,8 +62,24 @@ const themeDirOf = (theme) => {
   return own;
 };
 const THEME_DIR = themeDirOf(THEME);
+
+// An *edition* — the same game taught at another reading level — owns a
+// manifest and its content and nothing else: its site.js is a one-line
+// re-export of the base theme's, and the two regexes below read source text, so
+// they would find no site kind and no world at all. The marker is one line in
+// the manifest, `// edition-of: <base>`, and it is the same line
+// engine/dev/registry.mjs reads. See MIDDLE_SCHOOL_EDITIONS.md §2.
+const EDITION_BASE = (() => {
+  const p = resolve(THEME_DIR, 'theme.js');
+  if(!existsSync(p)) return null;
+  const m = /^\/\/\s*edition-of:\s*([\w-]+)\s*$/m.exec(readFileSync(p, 'utf8'));
+  return m ? m[1] : null;
+})();
+// Where the *place* is declared. The content is still THEME_DIR's.
+const PLACE_DIR = EDITION_BASE ? themeDirOf(EDITION_BASE) : THEME_DIR;
+
 const read = (theme, f) => {
-  const p = resolve(THEME_DIR, f);
+  const p = resolve(PLACE_DIR, f);
   return existsSync(p) ? readFileSync(p, 'utf8') : '';
 };
 
@@ -103,7 +119,7 @@ export default defineConfig({
     open: true,
     // A theme outside the vite root has to be readable, or every module under it
     // 403s with no explanation.
-    fs: { allow: [here, THEME_DIR, resolve(here, '..')] },
+    fs: { allow: [here, THEME_DIR, PLACE_DIR, resolve(here, '..')] },
   },
   build: {
     outDir: `dist/${THEME}`,

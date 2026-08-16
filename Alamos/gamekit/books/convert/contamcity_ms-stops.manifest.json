@@ -1,0 +1,388 @@
+{
+ "theme": "contamcity_ms",
+ "book": "books/contamcity-ms.yml",
+ "course": "Middle-school physical science, grade 6: matter, mixtures and measuring what is in water",
+ "curriculum": [
+  "Everything is made of matter, and matter comes in solids, liquids and gases",
+  "A mixture is things sharing a space without becoming one another",
+  "Dissolving, and why some things dissolve and others do not",
+  "Concentration: how much of something is in how much of everything",
+  "Dilution: adding water lowers the concentration and not the amount",
+  "Separating a mixture, using a difference between the parts",
+  "Weight is conserved: what goes in has to come out somewhere",
+  "Measuring the same thing several times, and averaging",
+  "A blank and a standard: how a laboratory knows a number is real",
+  "A sample stands for a place and a moment, and only those",
+  "A limit is a number somebody chose, for a reason worth knowing",
+  "Acids and bases, and why the middle is where things are stable",
+  "Reactions give out heat or take it in, and heat speeds things up",
+  "Gases spread out, and the wind decides where",
+  "A treatment can move a problem rather than remove it",
+  "Saying what you know and how well you know it"
+ ],
+ "equations": [
+  {
+   "e": "concentration = amount ÷ volume",
+   "about": "how much of something is in how much water",
+   "symbols": [
+    [
+     "concentration",
+     "in milligrams per litre"
+    ],
+    [
+     "amount",
+     "in milligrams"
+    ],
+    [
+     "volume",
+     "in litres"
+    ]
+   ]
+  },
+  {
+   "e": "amount = concentration × volume",
+   "about": "how much is really there",
+   "symbols": [
+    [
+     "amount",
+     "in milligrams or kilograms"
+    ],
+    [
+     "concentration",
+     "per litre"
+    ],
+    [
+     "volume",
+     "in litres"
+    ]
+   ],
+   "needs": [
+    "concentration = amount ÷ volume"
+   ]
+  },
+  {
+   "e": "new concentration = old × old volume ÷ new volume",
+   "about": "what dilution does",
+   "symbols": [
+    [
+     "new concentration",
+     "after mixing"
+    ],
+    [
+     "old",
+     "before mixing"
+    ],
+    [
+     "volumes",
+     "before and after, in litres"
+    ]
+   ],
+   "needs": [
+    "amount = concentration × volume"
+   ]
+  },
+  {
+   "e": "average = total ÷ how many",
+   "about": "the mean of several samples",
+   "symbols": [
+    [
+     "average",
+     "the mean"
+    ],
+    [
+     "total",
+     "the readings added up"
+    ],
+    [
+     "how many",
+     "the number of samples"
+    ]
+   ]
+  },
+  {
+   "e": "part = whole × share",
+   "about": "a percentage of a total",
+   "symbols": [
+    [
+     "part",
+     "how much that share comes to"
+    ],
+    [
+     "whole",
+     "the total"
+    ],
+    [
+     "share",
+     "the percentage, written as a decimal"
+    ]
+   ]
+  },
+  {
+   "e": "how many times = bigger ÷ smaller",
+   "about": "comparing a reading with a limit",
+   "symbols": [
+    [
+     "how many times",
+     "the ratio"
+    ],
+    [
+     "bigger",
+     "the measurement"
+    ],
+    [
+     "smaller",
+     "the limit it is compared with"
+    ]
+   ],
+   "needs": [
+    "concentration = amount ÷ volume"
+   ]
+  }
+ ],
+ "audienceGrade": 6,
+ "subject": "Chief Scientific Officer · Riverton Contamination Response",
+ "groups": [
+  {
+   "id": "IDENT",
+   "name": "Molecular Identification",
+   "desc": "Composition, charge, separation and spectra — what the material in the containers actually is."
+  },
+  {
+   "id": "GASES",
+   "name": "Atmosphere & Gases",
+   "desc": "Gas laws, plume behaviour, photochemistry — how the release moves and changes in air."
+  },
+  {
+   "id": "WATER",
+   "name": "Solutions & Water Chemistry",
+   "desc": "Polarity, partitioning, pH and equilibrium — where the contaminant goes once it is wet."
+  },
+  {
+   "id": "QUANT",
+   "name": "Quantitative Analysis",
+   "desc": "Dilution, calibration, detection limits and uncertainty — turning a signal into a defensible number."
+  },
+  {
+   "id": "ENERGY",
+   "name": "Reactions & Energy",
+   "desc": "Stoichiometry, calorimetry and kinetics — how much can react, how much heat, and how fast."
+  },
+  {
+   "id": "TREAT",
+   "name": "Treatment & Infrastructure",
+   "desc": "Corrosion, treatment trains, byproducts and the long tail — fixing it without making it worse."
+  }
+ ],
+ "stops": [
+  {
+   "id": "contamcity_ms.m01.s1",
+   "day": 1,
+   "group": "IDENT",
+   "format": "PROTOCOL",
+   "title": "Read the formula, not the rumor"
+  },
+  {
+   "id": "contamcity_ms.m01.s2",
+   "day": 1,
+   "group": "IDENT",
+   "format": "SEQUENCE",
+   "title": "From damaged container to provisional identity"
+  },
+  {
+   "id": "contamcity_ms.m01.s3",
+   "day": 1,
+   "group": "IDENT",
+   "format": "VALUE",
+   "title": "Spend the first of the lab budget"
+  },
+  {
+   "id": "contamcity_ms.m02.s1",
+   "day": 2,
+   "group": "GASES",
+   "format": "BALLPARK",
+   "title": "How much volume can the gas occupy?"
+  },
+  {
+   "id": "contamcity_ms.m02.s2",
+   "day": 2,
+   "group": "GASES",
+   "format": "PROTOCOL",
+   "title": "Interpret plume behavior"
+  },
+  {
+   "id": "contamcity_ms.m02.s3",
+   "day": 2,
+   "group": "GASES",
+   "format": "CHOICE",
+   "title": "Why the drum is worse in the afternoon"
+  },
+  {
+   "id": "contamcity_ms.m03.s1",
+   "day": 3,
+   "group": "WATER",
+   "format": "PROTOCOL",
+   "title": "Where will the chemical go?"
+  },
+  {
+   "id": "contamcity_ms.m03.s2",
+   "day": 3,
+   "group": "WATER",
+   "format": "CHOICE",
+   "title": "Use the common-ion effect to clear the limit"
+  },
+  {
+   "id": "contamcity_ms.m03.s3",
+   "day": 3,
+   "group": "WATER",
+   "format": "ALLOCATE",
+   "title": "Spend the river survey budget"
+  },
+  {
+   "id": "contamcity_ms.m04.s1",
+   "day": 4,
+   "group": "QUANT",
+   "format": "BALLPARK",
+   "title": "Undo the dilution"
+  },
+  {
+   "id": "contamcity_ms.m04.s2",
+   "day": 4,
+   "group": "QUANT",
+   "format": "VERIFY",
+   "title": "Protect the calibration"
+  },
+  {
+   "id": "contamcity_ms.m04.s3",
+   "day": 4,
+   "group": "QUANT",
+   "format": "CHOICE",
+   "title": "Map concentration with limited samples"
+  },
+  {
+   "id": "contamcity_ms.m05.s1",
+   "day": 5,
+   "group": "ENERGY",
+   "format": "BALLPARK",
+   "title": "How much energy raises the temperature?"
+  },
+  {
+   "id": "contamcity_ms.m05.s2",
+   "day": 5,
+   "group": "ENERGY",
+   "format": "DIAGNOSIS",
+   "title": "Stored heat or continuing reaction?"
+  },
+  {
+   "id": "contamcity_ms.m05.s3",
+   "day": 5,
+   "group": "ENERGY",
+   "format": "CHOICE",
+   "title": "Control the self-heating risk"
+  },
+  {
+   "id": "contamcity_ms.m06.s1",
+   "day": 6,
+   "group": "WATER",
+   "format": "BALLPARK",
+   "title": "How many moles of acid are present?"
+  },
+  {
+   "id": "contamcity_ms.m06.s2",
+   "day": 6,
+   "group": "WATER",
+   "format": "DIAGNOSIS",
+   "title": "Read the titration curve"
+  },
+  {
+   "id": "contamcity_ms.m06.s3",
+   "day": 6,
+   "group": "WATER",
+   "format": "TRIGGER",
+   "title": "Control pH without overshoot"
+  },
+  {
+   "id": "contamcity_ms.m07.s1",
+   "day": 7,
+   "group": "TREAT",
+   "format": "PROTOCOL",
+   "title": "Find the anode and cathode"
+  },
+  {
+   "id": "contamcity_ms.m07.s2",
+   "day": 7,
+   "group": "TREAT",
+   "format": "BALLPARK",
+   "title": "How fast can material disappear?"
+  },
+  {
+   "id": "contamcity_ms.m07.s3",
+   "day": 7,
+   "group": "TREAT",
+   "format": "CHOICE",
+   "title": "Protect the pipeline"
+  },
+  {
+   "id": "contamcity_ms.m08.s1",
+   "day": 8,
+   "group": "TREAT",
+   "format": "BALANCE",
+   "title": "What did the treatment actually do?"
+  },
+  {
+   "id": "contamcity_ms.m08.s2",
+   "day": 8,
+   "group": "TREAT",
+   "format": "SEQUENCE",
+   "title": "Select a treatment train"
+  },
+  {
+   "id": "contamcity_ms.m08.s3",
+   "day": 8,
+   "group": "TREAT",
+   "format": "CHOICE",
+   "title": "Choose the safest pilot program"
+  },
+  {
+   "id": "contamcity_ms.m09.s1",
+   "day": 9,
+   "group": "QUANT",
+   "format": "CHOICE",
+   "title": "Reading a mass spectrum"
+  },
+  {
+   "id": "contamcity_ms.m09.s2",
+   "day": 9,
+   "group": "QUANT",
+   "format": "PROTOCOL",
+   "title": "Close the verification gaps"
+  },
+  {
+   "id": "contamcity_ms.m09.s3",
+   "day": 9,
+   "group": "QUANT",
+   "format": "CLOUD",
+   "title": "Approve, condition, or hold"
+  },
+  {
+   "id": "contamcity_ms.m10.s1",
+   "day": 10,
+   "group": "TREAT",
+   "format": "PROTOCOL",
+   "title": "Disposition the final chemical claims"
+  },
+  {
+   "id": "contamcity_ms.m10.s2",
+   "day": 10,
+   "group": "TREAT",
+   "format": "BALLPARK",
+   "title": "Audit the electrochemical removal from the charge passed"
+  },
+  {
+   "id": "contamcity_ms.m10.s3",
+   "day": 10,
+   "group": "TREAT",
+   "format": "CHOICE",
+   "title": "Fund the chemical legacy"
+  }
+ ]
+}
