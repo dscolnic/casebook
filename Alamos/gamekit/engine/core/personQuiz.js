@@ -18,10 +18,11 @@
 // sentences lifted from other people's, so it cannot drift out of sync with a
 // bio edit. Below that sits a role question for bios too short to quote.
 //
-// Three dollars a conversation. A wrong call costs 5 to answer again and 10 to
-// walk away from, so two or three conversations buy one recovered mistake —
-// enough that the evening of a day is worth walking, not so much that a player
-// can farm the town instead of thinking.
+// Three dollars a conversation. A wrong call is a penalty box: free to wait out
+// for an hour of game time, or $10 to have the stop back now — so three or four
+// conversations buy one recovered mistake outright, and the evening of a day is
+// worth walking without a player being able to farm the town instead of
+// thinking.
 import { getState, save } from './gameState.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { esc, seeded } from './utils.js';

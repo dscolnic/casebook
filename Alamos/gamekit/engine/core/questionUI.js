@@ -1,10 +1,10 @@
-import { getState, save, markMissionStopComplete, getNextMissionStop, removeMissionStop, completeMission, advanceTime } from './gameState.js';
+import { getState, save, markMissionStopComplete, getNextMissionStop, removeMissionStop, completeMission, advanceTime, penaliseStop, penaltyLeft } from './gameState.js';
 import { forecastReadiness, leader, def, currentMilestone, curriculumFor, completeMilestoneIfReady, groupPct, getCurrentMission, missionStopForGroup, missionStopIndex, nextMissionStopIndex, openStopIndices, openStopGroups, completedMissionStops, missionComplete, isPersonStopForIdx, globalStopIndex, CHARACTER_DIVISION, getSpecialRequest, isSpecialRequestActive, getPersonIdForStop } from './simulation.js';
 import { MISSION_DEFS } from './missions.js';
 import { CURRICULUM } from './curriculum.js';
 import { GROUP_DEFS } from './divisions.js';
 import { BALLPARK_CALCS, JARGON } from './curriculum.js';
-import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, SKIP_COST, SKIP_HOURS,
+import { HINT_COST, MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, PENALTY_MINUTES, SKIP_COST, SKIP_HOURS,
          VISIT_BONUS, ISSUE_VISIT_BONUS } from './constants.js';
 import { esc, fmt, clamp, seeded, shuffleSeeded } from './utils.js';
 
@@ -22,6 +22,11 @@ const runSeed = () => Number(getState()?.runSeed) || 0;
 import { formatCountdown } from './day.js';
 import { renderFigure, readingsPanel, dataTable, readout, estimateScale, timeline, matchBoard,
          lineChart } from './figures.js';
+// The twelve formats the six interaction documents converged on. They live in
+// their own module because this file already holds the modal, the verdict, the
+// hint economy and eight formats — a thirteenth branch in here is how the next
+// fork starts. Everything they need from this file arrives through `ctx`.
+import { INSTRUMENTS, isInstrument } from './instruments.js';
 
 let activeChallenge = null;
 let activeOrder = null;
@@ -105,6 +110,15 @@ function scientificHint(ch, lesson){
     return quiet.length
       ? `Start from a quiet reading, not the alarm: "${quiet[0].zone} — ${quiet[0].label}: ${quiet[0].value}". Any explanation that cannot account for it is out.`
       : 'The right explanation has to fit every reading on the panel, including the calm ones.';
+  }
+  // The twelve are operated, not chosen from, so the generic "Proposal ? has the
+  // strongest evidence" line was nonsense on all of them. A hint on an instrument
+  // says what to do with it, never what the reading is — a hint that names the
+  // answer is the whole format bought for $5.
+  if(isInstrument(kindOf(ch))){
+    return ch[kindOf(ch).toLowerCase()]?.hint
+      ?? 'Work the instrument before you commit: what it shows before you act is the'
+       + ' evidence the answer has to be built from.';
   }
   const rec=ch.recommended||{}, best=Object.keys(rec).sort((a,b)=>(rec[b]||0)-(rec[a]||0))[0];
   return `Proposal ${best||'?' } has the strongest supporting evidence. Consider how each proposal addresses the system-level question with limited resources.`;
@@ -1724,6 +1738,13 @@ function verdictFigureHTML(ch, lesson, ok){
   if(kindOf(ch)==='HOLDOUT' && ch.holdout) return holdoutVerdictFigure(ch, activeChallenge.holdoutFrozen);
   if(kindOf(ch)==='TALLY' && ch.tally) return tallyVerdictFigure(ch, activeChallenge.tallyHistory);
   if(kindOf(ch)==='PROBE' && ch.probe) return probeVerdictFigure(ch, activeChallenge.probeNamed);
+  // The twelve. Each was answered on a board or a plot the panel takes away with
+  // it when the modal closes, so each supplies its own verdict picture from what
+  // the player actually did — `instrumentResult` is whatever its bind() recorded.
+  if(isInstrument(kindOf(ch))){
+    const inst = INSTRUMENTS[kindOf(ch)];
+    if(ch[kindOf(ch).toLowerCase()]) return inst.verdict(ch, activeChallenge.instrumentResult ?? {});
+  }
   if(kindOf(ch)==='DIAGNOSIS') return renderFigure(ch.figure);
   return renderFigure(ch.figure ?? lesson.figure);
 }
@@ -1958,7 +1979,7 @@ function finishVisit(ok){
     ? (isLastStop
         ? `<p class="verdictWhy"><b>Every call today is made.</b> The rest of the day is yours.</p>`
         : `<p class="verdictWhy">That call is closed. ${openStopIndices(state).length} still open — take them in any order.</p>`)
-    : `<p class="verdictWhy"><b>This call stays open.</b> Answering again costs $${RETRY_COST}; moving on without it costs $${SKIP_COST}. The clock keeps running either way.</p>`;
+    : `<p class="verdictWhy"><b>This call stays open.</b> It closes for an hour and reopens on its own, or $${RETRY_COST} has it back now. The clock keeps running either way.</p>`;
 
   const detail = `<details class="verdictDetail"><summary>Show the full reasoning</summary>` +
     reasoningHTML(ch, lesson, solution, whyText) + `</details>`;
@@ -1974,16 +1995,22 @@ function finishVisit(ok){
     '<button class="btn priced" id="' + id + '" type="button"' +
     (cost > state.reserve ? ' disabled' : '') + '>' +
     '<span>' + esc(label) + '</span><small>$' + cost + '</small></button>';
-  const broke = state.reserve < RETRY_COST && state.reserve < SKIP_COST;
+  // A wrong call is a penalty box. The free way forward is time — the call
+  // closes for an hour of the day's own clock and reopens itself — and the paid
+  // one is $10 to have it back now. There is always a free way forward, so the
+  // only dead end left is a day with less than an hour still to run.
+  const hourAvailable = (state.dayLeft ?? 0) > PENALTY_MINUTES;
+  const stuck = !hourAvailable && state.reserve < RETRY_COST;
   const choices = ok ? '' :
-    (broke
-      ? '<div class="verdictChoice"><div class="verdictChoiceLabel">Nothing left to pay with</div>'
-        + '<p class="verdictWhy">$' + fmt(state.reserve) + ' in hand, and the cheapest way forward is $'
-        + RETRY_COST + '. The day has to start again.</p>'
+    (stuck
+      ? '<div class="verdictChoice"><div class="verdictChoiceLabel">Nothing left to spend</div>'
+        + '<p class="verdictWhy">$' + fmt(state.reserve) + ' in hand, and less than an hour left to '
+        + 'wait it out. The day has to start again.</p>'
         + '<button class="btn primary" id="restartDayBtn" type="button">Start the day again</button></div>'
       : '<div class="verdictChoice"><div class="verdictChoiceLabel">What now</div>'
-        + priced('retryMoney', 'Answer it again', RETRY_COST)
-        + priced('skipMoney', 'Move on without it', SKIP_COST) + '</div>');
+        + '<button class="btn" id="waitOut" type="button"' + (hourAvailable ? '' : ' disabled') + '>'
+        + '<span>Come back in an hour</span><small>free</small></button>'
+        + priced('retryMoney', 'Answer it again now', RETRY_COST) + '</div>');
   // The last call of the day no longer ends the day. Whatever is left on the
   // countdown is the player's: walk the town, talk to people, get paid.
   // ...and the evening has to have a way out of it, or a day with three hours
@@ -2085,7 +2112,18 @@ function finishVisit(ok){
   };
   const bind = (id, fn) => { const b = document.getElementById(id); if(b && !b.disabled) b.onclick = fn; };
   bind('retryMoney', () => again(RETRY_COST, 0));
-  bind('skipMoney',  () => moveOn(SKIP_COST, 0));
+  bind('waitOut', () => {
+    // The stop stays open and stays uncredited; what changes is that it will not
+    // let anybody in until the hour has run off the day's countdown.
+    penaliseStop(key, PENALTY_MINUTES);
+    state.log.push({ week: state.week,
+      text: `Mission ${state.week}, stop ${stopIndex + 1} closed for an hour after a wrong call.` });
+    save();
+    closeVerdict();
+    closeModal();
+    window.dispatchEvent(new CustomEvent('projecty:statechange'));
+    window.dispatchEvent(new CustomEvent('projecty:visitdone'));
+  });
   bind('restartDayBtn', () => {
     closeVerdict();
     closeModal();
@@ -2183,6 +2221,8 @@ function showChallengeForStop(id, stop, isRetry, person=null){
     challengeHTML = tallyHTML(ch);
   } else if(kindOf(ch)==='PROBE'){
     challengeHTML = probeHTML(ch);
+  } else if(isInstrument(kindOf(ch))){
+    challengeHTML = INSTRUMENTS[kindOf(ch)].html(ch);
   } else if(kindOf(ch)==='CASEBOOK'){
     challengeHTML = casebookHTML(ch);
   } else if(kindOf(ch)==='CHOICE'){
@@ -2206,6 +2246,20 @@ function showChallengeForStop(id, stop, isRetry, person=null){
   else if(kindOf(ch)==='HOLDOUT') bindHoldout(live(), ch);
   else if(kindOf(ch)==='TALLY') bindTally(live(), ch);
   else if(kindOf(ch)==='PROBE') bindProbe(live(), ch);
+  // Every one of the twelve owns live controls, so it binds here where the DOM
+  // is known to exist. `commit` is the whole of what they may do to the game:
+  // record what the player answered, keep whatever the verdict will need, finish
+  // the visit. The dev harness passes a context that does none of it.
+  else if(isInstrument(kindOf(ch))){
+    INSTRUMENTS[kindOf(ch)].bind(live(), ch, {
+      commit(ok, answerText, extra = {}){
+        if(!activeChallenge) return;
+        activeChallenge.userAnswer = String(answerText ?? '');
+        activeChallenge.instrumentResult = extra;
+        finishVisit(!!ok);
+      },
+    });
+  }
   const body=document.getElementById('modalBody');
   if(kindOf(ch)==='SEQUENCE') { bindOrder(); }
   else if(kindOf(ch)==='PROTOCOL') { bindProtocol(); }
@@ -2336,6 +2390,22 @@ export function openVisit(id, isRetry=false){
   // A person stop is answered by finding the person, not by entering the room.
   if(isPersonStopForIdx(state, stop.index)){
     renderMissionLock(id, `This call is with a person — find the ${def(stop.group).name} name on the map and go to them.`);
+    return;
+  }
+  // A call in the penalty box refuses to open until the hour has run off the
+  // day's clock. It is not closed and it is not credited — it is exactly where
+  // the player left it, and it is coming back.
+  // Keyed exactly as `visitKey()` keys everything else about this visit — the
+  // box and the gate have to agree or a stop stays shut for the rest of the day.
+  const waiting = penaltyLeft(`${state.week}-${id}`);
+  if(waiting > 0 && !isRetry){
+    state.selectedGroup = id;
+    save();
+    const mins = Math.ceil(waiting);
+    openModal('That call is closed for now',
+      `<div class="briefBox">A wrong call closed this one for an hour. `
+      + `${mins} minute${mins === 1 ? '' : 's'} of it left — it reopens on its own, `
+      + `and there is other work in the meantime.</div>`);
     return;
   }
   // Any call still open today can be taken, in whatever order the player

@@ -27,8 +27,18 @@ const HINT_COST=2;
 // a player can always earn their way back by talking to people, and the price
 // of being both wrong and broke is the day rather than the campaign.
 const MIN_ALLOTMENT_HOURS=0;
-const RETRY_COST=5;
+// A wrong call is a penalty box, not a toll.
+//
+// It used to be $5 to answer again and $10 to walk away from the stop, which
+// made being wrong a purchase and made a rich player immune to it. Now there is
+// one free way forward and one paid one, and the free one costs the thing the
+// day is actually made of: the call closes for an hour of game time and reopens
+// on its own. Pay $10 and it reopens now.
+const RETRY_COST=10;
 const RETRY_HOURS=0;
+// How long the box lasts, in minutes of the day's own countdown.
+const PENALTY_MINUTES=60;
+// Kept so a save written before the penalty box still loads.
 const SKIP_COST=10;
 const SKIP_HOURS=0;
 // Paid each morning, so a day never opens with no way out of a wrong answer.
@@ -36,5 +46,5 @@ const DAILY_STIPEND=8;
 const VISIT_BONUS=6;
 const ISSUE_VISIT_BONUS=10;
 export { KEY, WEEKS, DAY_NOUN, STARTING_RESERVE, WEEKLY_APPROPRIATION, FUND_COST, HINT_COST,
-         MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, SKIP_COST, SKIP_HOURS,
+         MIN_ALLOTMENT_HOURS, RETRY_COST, RETRY_HOURS, PENALTY_MINUTES, SKIP_COST, SKIP_HOURS,
          DAILY_STIPEND, VISIT_BONUS, ISSUE_VISIT_BONUS };

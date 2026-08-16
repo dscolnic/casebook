@@ -10,6 +10,32 @@ import { budgetForRoute, MINUTES_PER_SECOND, hourOfDay } from './day.js';
 
 let _state = null;
 
+/**
+ * The penalty box.
+ *
+ * A wrong call closes its stop for an hour of the day's own countdown and then
+ * reopens it. The lock is stored as the value `dayLeft` will have fallen to when
+ * the box expires, so it needs no wall clock and survives a save: the day only
+ * ever counts down, so `dayLeft <= until` is "the hour has passed".
+ *
+ * Cleared on a new day with the rest of the day state, because a box that
+ * outlives its day would lock a stop nobody can reach.
+ */
+export function penaliseStop(key, minutes){
+  if(!_state) return;
+  _state.penalties = _state.penalties || {};
+  _state.penalties[key] = Math.max(0, (_state.dayLeft ?? 0) - minutes);
+}
+/** Minutes of game time still to serve on this stop, or 0 if it is open. */
+export function penaltyLeft(key){
+  const until = _state?.penalties?.[key];
+  if(until === undefined) return 0;
+  return Math.max(0, (_state.dayLeft ?? 0) - until);
+}
+export function clearPenalty(key){
+  if(_state?.penalties) delete _state.penalties[key];
+}
+
 export function getState(){ return _state; }
 export function setState(s){ _state=s; }
 
@@ -188,6 +214,8 @@ export function startDay(positions, spawn){
   if(!_state) return;
   _state.dayBudget = budgetForRoute(spawn, positions);
   _state.dayLeft = _state.dayBudget;
+  // A penalty box belongs to the day that issued it.
+  _state.penalties = {};
   _state.dayStarted = true;
   _state.dayEnded = false;
   // A new day is a new set of people to talk to. Without this a player who
