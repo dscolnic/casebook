@@ -177,15 +177,21 @@
 
   .body{padding:15px 17px 17px; display:flex; flex-direction:column; gap:8px; flex:1}
   .course{margin:0; font-weight:600; font-size:13.5px; line-height:1.35; color:var(--accent)}
-  .place{margin:0; color:var(--dim); font-size:14.5px}
+  /* The situation, in the game's own opening words. This is the card — what has
+     happened and whose problem it is — where it used to be a line about the
+     architecture. */
   .meta{
     margin:auto 0 0; display:flex; flex-wrap:wrap; gap:6px;
     font:11.5px/1 var(--mono); color:var(--faint);
   }
+  /* Concepts wrap onto as many lines as they need. These are phrases, not
+     labels, so the single-line ellipsis the metadata chips used would cut most
+     of them in half — and half a concept teaches nothing. */
   .meta span{
     border:1px solid var(--line); border-radius:6px; padding:5px 7px;
-    max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    line-height:1.35; white-space:normal;
   }
+  .drama{margin:0; color:var(--dim); font-size:14.5px; line-height:1.5}
   .progress{margin:0; font:500 12px/1.45 inherit; color:var(--accent)}
   .progress__bar{display:block; height:3px; margin-top:6px; border-radius:2px;
     background:var(--line); overflow:hidden}
@@ -333,12 +339,10 @@ function cardHTML(g){
     </div>
     <div class="body">
       <p class="course">${esc(g.course)}</p>
-      <p class="place">${esc(g.place)}</p>
-      <p class="meta">
-        ${g.role ? `<span>${esc(g.role)}</span>` : ''}
-        ${g.grade ? `<span>reads at grade ${esc(g.grade)}</span>` : ''}
-        ${g.grades ? `<span>${esc(g.grades)}</span>` : ''}
-      </p>
+      <p class="drama">${esc(g.drama || g.place)}</p>
+      ${g.concepts?.length ? `<p class="meta">${
+        g.concepts.map(c => `<span>${esc(c)}</span>`).join('')
+      }</p>` : ''}
       ${p ? `<p class="progress">${esc(p.text)}
                <span class="progress__bar"><i style="width:${Math.round(p.frac * 100)}%"></i></span></p>` : ''}
     </div>

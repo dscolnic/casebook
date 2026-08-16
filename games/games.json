@@ -15,9 +15,46 @@
       "grades": "9–12",
       "role": "Chief Scientific Officer · Riverton Contamination Response",
       "grade": 12,
+      "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's Chief Scientific Officer, which means what gets measured — and what the city is told about it — is decided by you. Two neighbourhoods are downwind of a plume nobody has identified.",
+      "concepts": [
+        "Atomic structure, ions and electron configuration",
+        "Kinetic molecular theory, diffusion and volatility",
+        "Thermochemistry: enthalpy, calorimetry, energy balance",
+        "Colligative properties",
+        "Concentration units and conversions: ppm, mg/L, molarity"
+      ],
       "size": {
         "days": 15,
         "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "contamcity_ms",
+      "title": "The Contaminated City",
+      "course": "Matter, mixtures and clean water · physical science",
+      "field": "Chemistry",
+      "accent": "#4ea3d8",
+      "place": "A wide river city, three days after a freight-yard fire.",
+      "hero": "shots/contamcity.jpg",
+      "build": "contamcity_ms",
+      "pair": "contamcity",
+      "shotsFrom": "contamcity",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Chief Scientific Officer · Riverton Contamination Response",
+      "grade": 6,
+      "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's chief scientist, which means you decide what gets measured, and what the city gets told. Two neighbourhoods sit downwind of a cloud nobody has named.",
+      "concepts": [
+        "Everything is made of matter, and matter comes in solids, liquids and gases",
+        "Dilution: adding water lowers the concentration and not the amount",
+        "A blank and a standard: how a laboratory knows a number is real",
+        "Acids and bases, and why the middle is where things are stable",
+        "Saying what you know and how well you know it"
+      ],
+      "size": {
+        "days": 10,
+        "stops": 30
       },
       "built": true
     },
@@ -36,6 +73,14 @@
       "grades": "9–12",
       "role": "Propellant Lead · Arcadia Rise",
       "grade": 12,
+      "drama": "Everyone here goes home on a rocket, and the rocket can only leave when Mars and Earth line up. That happens once every twenty-six months. The next one is sixteen months off.",
+      "concepts": [
+        "Stoichiometry as a feed rate: turning a production target into kilograms in",
+        "Rate constants, and how steeply they climb with temperature",
+        "Electrolysis: driving a reaction that will not run on its own",
+        "Intermolecular forces, and why they set a boiling point",
+        "What an assay is for, and what a specification is a list of"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -57,6 +102,14 @@
       "grades": "9–12",
       "role": "Duty Engineer · Ashfell Dam",
       "grade": 12,
+      "drama": "Ashfell Dam holds ninety-two million cubic metres of water in a gorge, with four villages along the river below it. This morning the reservoir is at 88% after the driest summer in nine years. The forecast is nine days of rain starting Thursday, over every hillside that drains into it.",
+      "concepts": [
+        "Limits, one-sided limits, and where a limit fails to exist",
+        "Related rates",
+        "The definite integral as an accumulation, and its units",
+        "Exponential growth and decay, and half-life",
+        "Reading a quantity off the graph of its own derivative"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -78,11 +131,48 @@
       "grades": "9–12",
       "role": "Methodology & Operations Lead · CLARION-3",
       "grade": 12,
+      "drama": "CLARION-3 has been running for four years: 2,400 people across thirty-one hospitals, half of them getting a new drug and half the usual treatment. Nobody in this building knows which patient got which.",
+      "concepts": [
+        "Why a comparison needs a control arm at all",
+        "Hard endpoints against judged ones, and blinded adjudication",
+        "Multiplicity: every extra look and every extra slice costs something",
+        "Confidence intervals: what a point estimate does not say",
+        "Consent, and the obligations a trial keeps to the people in it"
+      ],
       "size": {
         "days": 15,
         "stops": 45
       },
       "built": true
+    },
+    {
+      "id": "sightline",
+      "title": "Sightline",
+      "course": "AP Psychology · all five units",
+      "field": "Psychology",
+      "accent": "#2f6f9f",
+      "place": "A hall with a street corner built across one end, and the identification distance painted on the floor.",
+      "hero": "shots/sightline.jpg",
+      "build": "sightline",
+      "pair": "sightline",
+      "shotsFrom": "sightline",
+      "level": "high",
+      "grades": "9–12",
+      "role": "Review Analyst · Conviction Integrity Unit",
+      "grade": 12,
+      "drama": "Elias Ward has served seven years of fourteen for a robbery a stranger watched from the far pavement of Ferrier Street on a November night in 2019. One witness, no forensic evidence, and a file nobody has read end to end since the verdict.",
+      "concepts": [
+        "Acuity as an angle: what the eye can resolve falls off with distance",
+        "Encoding: memory is built at the moment, from what was attended to",
+        "Arousal and encoding: the amygdala, cortisol and the inverted U",
+        "Post-identification feedback and confidence inflation",
+        "False confession: minimisation, maximisation and the innocent person's arithmetic"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 45
+      },
+      "built": false
     },
     {
       "id": "quantum",
@@ -99,6 +189,14 @@
       "grades": "9–12",
       "role": "Group Lead · Ridgeway Quantum Laboratory",
       "grade": null,
+      "drama": "Ridgeway runs a quantum processor: twelve qubits, held a hundredth of a degree above absolute zero by a refrigerator the size of a wardrobe. Everyone calls it the fridge. You lead the group.",
+      "concepts": [
+        "Energy quantisation, and why a level spacing sets everything else",
+        "Resonance, detuning, and finding a qubit frequency",
+        "The microwave chain: attenuation, amplification and noise temperature",
+        "The standard quantum limit, and beating it with squeezing",
+        "Provenance of data, and what a shared calibration hides"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -120,9 +218,46 @@
       "grades": "9–12",
       "role": "Flight Director · Lunar Return Mission",
       "grade": 12,
+      "drama": "Three people are in a spacecraft on the far side of a quarter-million miles, and something aboard has just exploded. You are the flight director, and the calls are yours to make. Power is falling.",
+      "concepts": [
+        "Vectors and components",
+        "Torque and moment of inertia",
+        "Series, parallel and load management",
+        "Springs and Hooke's law",
+        "Graphical analysis of motion data"
+      ],
       "size": {
         "days": 15,
         "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "bring_them_home_ms",
+      "title": "Bring Them Home",
+      "course": "Motion, energy and staying alive · physical science",
+      "field": "Physics",
+      "accent": "#c2603f",
+      "place": "Mission Control: four tiers stepping down to a wall of plot boards. The teams are rows, not rooms.",
+      "hero": "shots/bring_them_home.jpg",
+      "build": "bring_them_home_ms",
+      "pair": "bring_them_home",
+      "shotsFrom": "bring_them_home",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Flight Director · Lunar Return Mission",
+      "grade": 6,
+      "drama": "Three people are in a spacecraft on the far side of a quarter-million miles, and something aboard has just exploded. You are the flight director, and the calls are yours to make. Power is falling.",
+      "concepts": [
+        "Speed, distance and time, and how they give each other",
+        "Rates: how fast something is used up, and how long it lasts",
+        "Circuits: a break, a short, and why a battery has limits",
+        "Reading a graph and spotting what changed at the moment it changed",
+        "Ordering work when several things are wrong at once"
+      ],
+      "size": {
+        "days": 10,
+        "stops": 30
       },
       "built": true
     },
@@ -141,6 +276,14 @@
       "grades": "9–12",
       "role": "Reasoning Under Pressure Beneath the Surface",
       "grade": 12,
+      "drama": "You have the watch on a submarine at ninety metres. Everybody aboard is asleep, on watch, or working in a compartment they cannot see out of. Neither can you.",
+      "concepts": [
+        "Sound as a wave: frequency, wavelength, speed",
+        "Bearings, triangulation and geometry",
+        "Gas laws and life support",
+        "Diffraction, beamwidth and array directivity",
+        "Human factors: checklists, handover and communication"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -162,6 +305,14 @@
       "grades": "6–8",
       "role": "Reasoning Under Pressure Beneath the Surface",
       "grade": 6,
+      "drama": "You have the watch on a submarine, ninety metres down. Nobody aboard can see out, and neither can you. What you know about the water comes from listening.",
+      "concepts": [
+        "Sound is a wave, and it travels through water as well as air",
+        "Hearing something quiet next to something loud",
+        "Heat moves from hot to cold, and it needs a path",
+        "A rate: how fast something builds up or drains away",
+        "Two instruments that share a source are really one instrument"
+      ],
       "size": {
         "days": 10,
         "stops": 30
@@ -183,6 +334,14 @@
       "grades": "9–12",
       "role": "Los Alamos · 1943–45",
       "grade": 12,
+      "drama": "It is April 1943, and the site is three weeks old: a boys' school on a mesa in New Mexico, with a laboratory going up around it. There is a fence, and most of the people arriving cannot tell their families where they are. You are a scientist newly assigned to Project Y.",
+      "concepts": [
+        "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+        "Criticality: mass, geometry, reflectors, moderation",
+        "Units and conversions: MeV, u, barns, scientific notation",
+        "Inverse-square law for radiation intensity",
+        "Criticality safety: administrative limits and controls"
+      ],
       "size": {
         "days": 15,
         "stops": 49
@@ -204,9 +363,46 @@
       "grades": "9–12",
       "role": "System Operator · Calder Interconnection",
       "grade": 12,
+      "drama": "Four million people are supplied from the Calder network, and the whole of it runs on one number. Mains frequency has to stay within half a hertz of fifty. Drift further and generators start tripping off, which takes the rest of the system with them.",
+      "concepts": [
+        "Charge, current, voltage and resistance",
+        "Reactance, impedance and phasors",
+        "Faraday's law and electromagnetic induction",
+        "Fault current and short-circuit analysis",
+        "Load shedding as a decision under uncertainty"
+      ],
       "size": {
         "days": 15,
         "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "blackout_ms",
+      "title": "Blackout",
+      "course": "Circuits, energy and the grid · physical science",
+      "field": "Engineering",
+      "accent": "#d9b23c",
+      "place": "Calder Switching Station, and two circuits of lattice towers walking off the edge of the map.",
+      "hero": "shots/blackout.jpg",
+      "build": "blackout_ms",
+      "pair": "blackout",
+      "shotsFrom": "blackout",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "System Operator · Calder Interconnection",
+      "grade": 6,
+      "drama": "Four million people are supplied from the Calder network, and the whole of it runs on one number. Mains frequency has to stay within half a hertz of fifty. Drift further and generators start tripping off, which takes the rest of the system with them.",
+      "concepts": [
+        "A circuit is a loop, and a break anywhere stops it",
+        "Current through something makes heat, and that is why wires have limits",
+        "A graph of demand across a day, and why the peak matters",
+        "Something can be protected too eagerly, and cost you the supply",
+        "Deciding while the picture is incomplete"
+      ],
+      "size": {
+        "days": 10,
+        "stops": 30
       },
       "built": true
     },
@@ -225,6 +421,14 @@
       "grades": "9–12",
       "role": "Building Safety Coordinator · Kestrel Bay",
       "grade": 12,
+      "drama": "A magnitude 6.8 earthquake hit Kestrel Bay three days ago and the town is still standing, unevenly. You are the building safety coordinator, which means you decide which buildings people are allowed back into: green to enter, yellow for restricted use, red for nobody.",
+      "concepts": [
+        "P and S waves, and what the gap between them measures",
+        "Natural period, and resonance between building and ground",
+        "Bearing capacity and settlement",
+        "Non-structural hazards — what falls before the frame does",
+        "Documentation: the record somebody inherits"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -246,6 +450,14 @@
       "grades": "6–8",
       "role": "Building Safety Coordinator · Kestrel Bay",
       "grade": 6,
+      "drama": "An earthquake hit Kestrel Bay three days ago. The town is still standing, unevenly. You are the building safety coordinator, which means you say which buildings people may go back into.",
+      "concepts": [
+        "Plates move, and a fault is the crack where they slip past each other",
+        "The ground itself changes the shaking: soft ground shakes more",
+        "Measure it more than once, and average the readings",
+        "One sample is not the whole building",
+        "An instrument that is wrong needs a check from something else"
+      ],
       "size": {
         "days": 10,
         "stops": 30
@@ -267,6 +479,14 @@
       "grades": "9–12",
       "role": "Campaign Director · International NEO Response",
       "grade": 12,
+      "drama": "A survey telescope flagged a faint moving point near the ecliptic four hours ago. Four hours of observation is not enough to pin down an orbit, and some of the orbits that fit the data so far pass through the Earth.",
+      "concepts": [
+        "Celestial coordinates and angular measure",
+        "Orbital elements and orbit determination",
+        "Probability, risk and expected value",
+        "Thermal emission and infrared temperature",
+        "Crater and blast scaling; ground effects"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -288,6 +508,14 @@
       "grades": "6–8",
       "role": "Campaign Director · International NEO Response",
       "grade": 6,
+      "drama": "Four hours ago a survey telescope found a faint dot moving against the stars. Four hours is not long enough to know where it is going, and some of the paths that fit go through the Earth. You run the campaign.",
+      "concepts": [
+        "Telling a real object from an artefact, by repeating the observation",
+        "Scale and distance in the solar system",
+        "Choosing the measurement that tells two explanations apart",
+        "Rotation, and a pattern that repeats in a measurement",
+        "Independent checks: a second method that could disagree"
+      ],
       "size": {
         "days": 10,
         "stops": 30
@@ -309,6 +537,14 @@
       "grades": "9–12",
       "role": "Ride Engineer · Corbin Park",
       "grade": 11,
+      "drama": "Corbin Park lost its certificate in October and the season opens in three weeks. Seven rides have to get it back — a coaster, a wheel, a drop tower, a pirate ship, a carousel, a bumper floor and a log flume — and the signature on all seven documents is yours.",
+      "concepts": [
+        "Velocity against speed: direction is part of the quantity",
+        "What supplies the centripetal force in each case — a rail, a chain, a seat",
+        "Momentum, and its conservation in a collision",
+        "The small-angle approximation, and where it stops being true",
+        "Wind load, and why the last few metres a second cost the most"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -330,6 +566,14 @@
       "grades": "9–12",
       "role": "Season Science Lead · Vestri Dome",
       "grade": 12,
+      "drama": "Vestri Dome is a drilling camp on the polar plateau: six huts up on legs, a trench with a tower over it, and two and a half kilometres of ice already pulled out of the ground. None of it can be let above minus twenty.",
+      "concepts": [
+        "Why ice keeps a record at all: burial without melting",
+        "Stable isotopes as a thermometer: δ¹⁸O and deuterium",
+        "Dust and tephra: aridity, wind and where the dust came from",
+        "Core logging, orientation and chain of custody",
+        "Reporting an uncertain record: what it licenses and what it does not"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -351,6 +595,14 @@
       "grades": "6–8",
       "role": "Season Science Lead · Vestri Dome",
       "grade": 6,
+      "drama": "Vestri Dome is a drilling camp on the polar plateau: six huts up on legs, a trench with a tower over it, and two and a half kilometres of ice already pulled out of the ground. None of it can be let above minus twenty.",
+      "concepts": [
+        "Snow that never melts piles up in layers, one year at a time",
+        "Something measured today can stand in for something nobody measured then",
+        "Reading a graph: what the axes say, and what the wiggles mean",
+        "Two records that agree are stronger than one that is longer",
+        "Cold, power and daylight are the limits a polar camp works inside"
+      ],
       "size": {
         "days": 10,
         "stops": 30
@@ -372,9 +624,46 @@
       "grades": "9–12",
       "role": "Scientific Response Director · Riverton",
       "grade": 12,
+      "drama": "Three hospitals in one river city reported the same unusual illness inside a day of each other, and the ambulances are still arriving. Seven patients, four days, and the same four symptoms in every one of them.",
+      "concepts": [
+        "Cell structure and function",
+        "Mutation and genetic variation",
+        "Epidemiology: case definitions, curves, R and reservoirs",
+        "Gene regulation and expression control",
+        "Epidemic modelling and projection"
+      ],
       "size": {
         "days": 15,
         "stops": 45
+      },
+      "built": true
+    },
+    {
+      "id": "outbreak_riverton_ms",
+      "title": "Outbreak: Riverton",
+      "course": "Germs, spread and public health · life science",
+      "field": "Biology",
+      "accent": "#5fae63",
+      "place": "A hospital campus in week three: triage marquees, container labs, and a fence with one gate.",
+      "hero": "shots/outbreak_riverton.jpg",
+      "build": "outbreak_riverton_ms",
+      "pair": "outbreak_riverton",
+      "shotsFrom": "outbreak_riverton",
+      "level": "middle",
+      "grades": "6–8",
+      "role": "Scientific Response Director · Riverton",
+      "grade": 6,
+      "drama": "Three hospitals in one river city have reported the same strange illness within a day of each other. The ambulances are still arriving. Seven patients, four days, and the same four symptoms every time.",
+      "concepts": [
+        "Some illnesses are caused by living things too small to see",
+        "A graph of cases over time, and what its shape says",
+        "Comparing a group who had something with a group who did not",
+        "Germs change, and a change can beat a treatment",
+        "Deciding while the answer is still unknown"
+      ],
+      "size": {
+        "days": 10,
+        "stops": 30
       },
       "built": true
     },
@@ -393,6 +682,14 @@
       "grades": "9–12",
       "role": "Season Lead · Wellmere Seed Bank",
       "grade": 12,
+      "drama": "Two hundred kilometres east there is a wheat disease the breeding programme has exactly one gene against. The wind that would carry it here comes in over the causeway. You are Season Lead at Wellmere.",
+      "concepts": [
+        "Seed viability as a rate: what a stored seed is still doing",
+        "Linkage and recombination: distance on a chromosome as a probability",
+        "Founder effects and bottlenecks in a stored collection",
+        "Regression to the mean, and why the best plot flatters itself",
+        "In situ against ex situ conservation, and what each preserves"
+      ],
       "size": {
         "days": 15,
         "stops": 45
@@ -414,6 +711,14 @@
       "grades": "6–8",
       "role": "Season Lead · Wellmere Seed Bank",
       "grade": 6,
+      "drama": "Two hundred kilometres east there is a wheat disease the breeding programme has exactly one gene against. The wind that would carry it here comes in over the causeway. You are Season Lead at Wellmere.",
+      "concepts": [
+        "Living things pass traits to their offspring",
+        "Counting the offspring, and comparing counts with what was expected",
+        "Repeats and averages: one plant proves nothing",
+        "Variety inside a collection, and why losing it is hard to undo",
+        "Deciding with a season that does not come round again"
+      ],
       "size": {
         "days": 10,
         "stops": 30
@@ -435,6 +740,14 @@
       "shotsFrom": "hospital",
       "role": "Junior Doctor · Children’s Hospital",
       "grade": 2,
+      "drama": "You are a new doctor at the children's hospital. Today is your first day on the ward. Children come in hurt, or sick, or scared.",
+      "concepts": [
+        "Levels of organisation: cells, tissues, organs, systems",
+        "Heart and circulation",
+        "Hormones and growth",
+        "Joints and how far they move",
+        "Imaging: X-rays and pictures of the inside"
+      ],
       "size": {
         "days": 15,
         "stops": 45
